@@ -29,7 +29,11 @@ require 'halcyon.CharacterEssentials'
 --Difficulty's point ranks
 MISSION_GEN = {}
 
-MISSION_GEN.DUNGEON_LIST = {"illuminant_riverbed", "crooked_cavern", "apricorn_grove"}
+MISSION_GEN.DUNGEON_LIST = {"illuminant_riverbed", "crooked_cavern", "apricorn_grove",
+	"vast_steppe", "searing_tunnel", "mount_windswept", "gloomy_forest"}
+--Les donjons du chapitre 5/6 sont desormais eligibles au tableau des missions :
+--sans eux, les 2 jours d'attente imposes entre les chapitres 5 et 6 (DaysToReach)
+--ne proposaient aucune mission dans le contenu recemment debloque.
 
 MISSION_GEN.DIFFICULTY = {}
 MISSION_GEN.DIFFICULTY[""] = 0
@@ -49,6 +53,10 @@ MISSION_GEN.DUNGEON_DIFFICULTY["relic_forest"] = "E"--missions shouldn't be give
 MISSION_GEN.DUNGEON_DIFFICULTY["illuminant_riverbed"] = "D"
 MISSION_GEN.DUNGEON_DIFFICULTY["crooked_cavern"] = "C"
 MISSION_GEN.DUNGEON_DIFFICULTY["apricorn_grove"] = "B"
+MISSION_GEN.DUNGEON_DIFFICULTY["vast_steppe"] = "B"
+MISSION_GEN.DUNGEON_DIFFICULTY["searing_tunnel"] = "A"
+MISSION_GEN.DUNGEON_DIFFICULTY["mount_windswept"] = "A"
+MISSION_GEN.DUNGEON_DIFFICULTY["gloomy_forest"] = "A"
 
 
 --order of difficulties. 
@@ -99,6 +107,10 @@ MISSION_GEN.EXPECTED_LEVEL = {}
 MISSION_GEN.EXPECTED_LEVEL["illuminant_riverbed"] = 8
 MISSION_GEN.EXPECTED_LEVEL["crooked_cavern"] = 10
 MISSION_GEN.EXPECTED_LEVEL["apricorn_grove"] = 13
+MISSION_GEN.EXPECTED_LEVEL["vast_steppe"] = 16
+MISSION_GEN.EXPECTED_LEVEL["searing_tunnel"] = 18
+MISSION_GEN.EXPECTED_LEVEL["mount_windswept"] = 20
+MISSION_GEN.EXPECTED_LEVEL["gloomy_forest"] = 22
 
 
 MISSION_GEN.TITLES =  {
@@ -1098,6 +1110,10 @@ MISSION_GEN.DUNGEON_ORDER["relic_forest"] = 1
 MISSION_GEN.DUNGEON_ORDER["illuminant_riverbed"] = 2
 MISSION_GEN.DUNGEON_ORDER["crooked_cavern"] = 3
 MISSION_GEN.DUNGEON_ORDER["apricorn_grove"] = 4
+MISSION_GEN.DUNGEON_ORDER["vast_steppe"] = 5
+MISSION_GEN.DUNGEON_ORDER["searing_tunnel"] = 6
+MISSION_GEN.DUNGEON_ORDER["mount_windswept"] = 7
+MISSION_GEN.DUNGEON_ORDER["gloomy_forest"] = 8
 
 
 
@@ -1108,6 +1124,10 @@ MISSION_GEN.STAIR_TYPE["relic_forest"] = ""
 MISSION_GEN.STAIR_TYPE["illuminant_riverbed"] = ""
 MISSION_GEN.STAIR_TYPE["crooked_cavern"] = "B"
 MISSION_GEN.STAIR_TYPE["apricorn_grove"] = ""
+MISSION_GEN.STAIR_TYPE["vast_steppe"] = ""
+MISSION_GEN.STAIR_TYPE["searing_tunnel"] = "B"
+MISSION_GEN.STAIR_TYPE["mount_windswept"] = ""
+MISSION_GEN.STAIR_TYPE["gloomy_forest"] = ""
 
 
 

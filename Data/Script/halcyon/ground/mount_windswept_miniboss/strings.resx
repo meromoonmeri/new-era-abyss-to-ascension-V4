@@ -1,51 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <root>
   <data name="MWM_001" xml:space="preserve">
-    <value>Ce vent est impitoyable...[pause=15] On doit être sacrément haut maintenant.</value>
+    <value>This wind is relentless...[pause=15] We must be really high up now.</value>
   </data>
   <data name="MWM_002" xml:space="preserve">
-    <value>Hé...[pause=10] tu as senti ça ? Le sol a tremblé.</value>
+    <value>Hey...[pause=10] did you feel that? The ground shook.</value>
   </data>
   <data name="MWM_003" xml:space="preserve">
-    <value>Un éboulement !</value>
+    <value>A rockslide!</value>
   </data>
   <data name="MWM_004" xml:space="preserve">
-    <value>Un Gligar est sorti de la paroi !</value>
+    <value>A Gligar burst out of the wall!</value>
   </data>
   <data name="MWM_005" xml:space="preserve">
-    <value>Un Skarmory en piqué ![pause=10] Ils sont deux !</value>
+    <value>A Skarmory dive-bombing![pause=10] There's two of them!</value>
   </data>
   <data name="MWM_006" xml:space="preserve">
-    <value>Les Sentinelles du Pic...</value>
+    <value>The Sentinels of the Peak...</value>
   </data>
   <data name="MWM_007" xml:space="preserve">
-    <value>Encore toi ![pause=10] Qui es-tu ?!</value>
+    <value>You again![pause=10] Who are you?!</value>
   </data>
   <data name="MWM_008" xml:space="preserve">
-    <value>L'un maîtrise la terre, l'autre les cieux.[pause=20] Ensemble, ils sont presque invincibles.</value>
+    <value>One commands the earth, the other the skies.[pause=20] Together, they are nearly invincible.</value>
   </data>
   <data name="MWM_009" xml:space="preserve">
-    <value>Mais chaque sentinelle a sa faiblesse...[pause=20] Trouve-la.</value>
+    <value>But every sentinel has its weakness...[pause=20] Find it.</value>
   </data>
   <data name="MWM_010" xml:space="preserve">
-    <value>On va leur montrer de quel bois on se chauffe ![pause=10] À l'attaque !</value>
+    <value>We'll show them what we're made of![pause=10] Attack!</value>
   </data>
   <data name="MWM_011" xml:space="preserve">
-    <value>On n'abandonne pas.[pause=15] Cette fois, on passe !</value>
+    <value>We're not giving up.[pause=15] This time, we break through!</value>
   </data>
   <data name="MWM_012" xml:space="preserve">
-    <value>On a eu le dessus ![pause=10] Ces deux-là ne nous arrêteront plus.</value>
+    <value>We got the upper hand![pause=10] Those two won't stop us anymore.</value>
   </data>
   <data name="MWM_013" xml:space="preserve">
-    <value>Cette voix...[pause=15] Elle nous a donné un indice, tu crois ?</value>
+    <value>That voice...[pause=15] You think it gave us a hint?</value>
   </data>
   <data name="MWM_014" xml:space="preserve">
-    <value>Peut-être.[pause=20] Ou peut-être qu'elle veut juste nous voir réussir.</value>
+    <value>Maybe.[pause=20] Or maybe it just wants to see us succeed.</value>
   </data>
   <data name="MWM_015" xml:space="preserve">
-    <value>Les sentinelles t'ont repoussé...</value>
+    <value>The sentinels pushed you back...</value>
   </data>
   <data name="MWM_016" xml:space="preserve">
-    <value>Apprends de cette défaite.[pause=30] Le sommet n'attend que les plus forts.</value>
+    <value>Learn from this defeat.[pause=30] The summit awaits only the strongest.</value>
   </data>
 </root>

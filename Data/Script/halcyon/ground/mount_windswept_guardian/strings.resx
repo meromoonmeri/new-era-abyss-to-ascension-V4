@@ -1,60 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <root>
   <data name="MWG_001" xml:space="preserve">
-    <value>Le sommet...[pause=15] On y est presque.</value>
+    <value>The summit...[pause=15] We're almost there.</value>
   </data>
   <data name="MWG_002" xml:space="preserve">
-    <value>Regarde le ciel...[pause=15] Ces nuages ne sont pas normaux.</value>
+    <value>Look at the sky...[pause=15] Those clouds aren't normal.</value>
   </data>
   <data name="MWG_003" xml:space="preserve">
-    <value>C'est...[pause=10] un orage ?!</value>
+    <value>Is that...[pause=10] a storm?!</value>
   </data>
   <data name="MWG_004" xml:space="preserve">
-    <value>Un...[pause=10] UN AERODACTYL !</value>
+    <value>An...[pause=10] AN AERODACTYL!</value>
   </data>
   <data name="MWG_005" xml:space="preserve">
-    <value>Le Prédateur Ancestral du Ciel...</value>
+    <value>The Ancient Sky Predator...</value>
   </data>
   <data name="MWG_006" xml:space="preserve">
-    <value>Toi...[pause=10] Tu savais qu'il était là !</value>
+    <value>You...[pause=10] You knew it was here!</value>
   </data>
   <data name="MWG_007" xml:space="preserve">
-    <value>L'ultime gardien de la montagne.[pause=20] Il a régné sur ces cieux bien avant que quiconque ne foule ces terres.</value>
+    <value>The mountain's ultimate guardian.[pause=20] It ruled these skies long before anyone set foot on this land.</value>
   </data>
   <data name="MWG_008" xml:space="preserve">
-    <value>Si tu triomphes ici, le chemin vers les ruines ancestrales s'ouvrira à toi.</value>
+    <value>If you triumph here, the path to the ancestral ruins will open to you.</value>
   </data>
   <data name="MWG_009" xml:space="preserve">
-    <value>Échoue...[pause=30] et ton voyage s'arrête ici.</value>
+    <value>Fail...[pause=30] and your journey ends here.</value>
   </data>
   <data name="MWG_010" xml:space="preserve">
-    <value>Alors on va lui montrer que notre voyage ne fait que commencer ![pause=10] [player], à nous deux !</value>
+    <value>Then let's show it our journey is just beginning![pause=10] [player], let's do this!</value>
   </data>
   <data name="MWG_011" xml:space="preserve">
-    <value>Cette fois, on le terrasse.[pause=15] Promis, [player].</value>
+    <value>This time, we take it down.[pause=15] I promise, [player].</value>
   </data>
   <data name="MWG_012" xml:space="preserve">
-    <value>On...[pause=10] On l'a vaincu !</value>
+    <value>We...[pause=10] We beat it!</value>
   </data>
   <data name="MWG_013" xml:space="preserve">
-    <value>Regarde ![pause=10] L'orage se dissipe...</value>
+    <value>Look![pause=10] The storm is clearing...</value>
   </data>
   <data name="MWG_014" xml:space="preserve">
-    <value>Cette voix...[pause=15] Elle a dit quelque chose à propos de ruines ancestrales.</value>
+    <value>That voice...[pause=15] It said something about ancestral ruins.</value>
   </data>
   <data name="MWG_015" xml:space="preserve">
-    <value>C'est là qu'on va.[pause=20] Vers les Ruines du Cloven.</value>
+    <value>That's where we're going.[pause=20] To the Cloven Ruins.</value>
   </data>
   <data name="MWG_016" xml:space="preserve">
-    <value>Alors allons-y ![pause=15] La fin de l'expédition nous attend !</value>
+    <value>Then let's go![pause=15] The end of the expedition awaits us!</value>
   </data>
   <data name="MWG_017" xml:space="preserve">
-    <value>L'ancien prédateur ne fait pas de quartier...</value>
+    <value>The ancient predator shows no mercy...</value>
   </data>
   <data name="MWG_018" xml:space="preserve">
-    <value>Mais la proie d'aujourd'hui est le chasseur de demain.</value>
+    <value>But today's prey is tomorrow's hunter.</value>
   </data>
   <data name="MWG_019" xml:space="preserve">
-    <value>Repose-toi.[pause=30] Le sommet t'attendra.</value>
+    <value>Rest now.[pause=30] The summit will wait for you.</value>
   </data>
 </root>

@@ -1,48 +1,48 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <root>
   <data name="VSG_001" xml:space="preserve">
-    <value>The mist is even thicker here...[pause=15] It's almost unreal.</value>
+    <value>La brume est encore plus dense ici...[pause=15] C'est presque irréel.</value>
   </data>
   <data name="VSG_002" xml:space="preserve">
-    <value>This is the heart of the steppe.[pause=20] Something must be protecting this place.</value>
+    <value>C'est le cœur de la steppe.[pause=20] Il doit y avoir quelque chose qui protège cet endroit.</value>
   </data>
   <data name="VSG_003" xml:space="preserve">
-    <value>Its antlers...[pause=10] they're glowing!</value>
+    <value>Ses bois...[pause=10] ils brillent !</value>
   </data>
   <data name="VSG_004" xml:space="preserve">
-    <value>The Warden of the Plains awakens...</value>
+    <value>Le Gardien des Plaines s'éveille...</value>
   </data>
   <data name="VSG_005" xml:space="preserve">
-    <value>That voice again!</value>
+    <value>Encore cette voix !</value>
   </data>
   <data name="VSG_006" xml:space="preserve">
-    <value>The strongest of the herd.[pause=20] He will not yield so easily.</value>
+    <value>Le plus fort de la harde.[pause=20] Il ne pliera pas aussi facilement.</value>
   </data>
   <data name="VSG_007" xml:space="preserve">
-    <value>Prove your worth, traveler...</value>
+    <value>Prouve ta valeur, voyageur...</value>
   </data>
   <data name="VSG_008" xml:space="preserve">
-    <value>This is the last obstacle before the end of the steppe![pause=10] Let's go!</value>
+    <value>C'est le dernier obstacle avant la sortie de la steppe ![pause=10] On y va !</value>
   </data>
   <data name="VSG_009" xml:space="preserve">
-    <value>We're charging back in.[pause=15] This time, we've got this!</value>
+    <value>On revient à la charge.[pause=15] Cette fois, c'est la bonne !</value>
   </data>
   <data name="VSG_010" xml:space="preserve">
-    <value>We defeated the guardian of the steppe!</value>
+    <value>On a vaincu le gardien de la steppe !</value>
   </data>
   <data name="VSG_011" xml:space="preserve">
-    <value>The mist is starting to clear...</value>
+    <value>La brume commence à se dissiper...</value>
   </data>
   <data name="VSG_012" xml:space="preserve">
-    <value>That voice...[pause=15] It knew he was here.</value>
+    <value>Cette voix...[pause=15] Elle savait qu'il était là.</value>
   </data>
   <data name="VSG_013" xml:space="preserve">
-    <value>We'll find answers later.[pause=20] Let's move forward.</value>
+    <value>On trouvera des réponses plus tard.[pause=20] Allons de l'avant.</value>
   </data>
   <data name="VSG_014" xml:space="preserve">
-    <value>The Warden shows no mercy to the weak.</value>
+    <value>Le Gardien ne pardonne pas la faiblesse.</value>
   </data>
   <data name="VSG_015" xml:space="preserve">
-    <value>Go back where you came from.[pause=30] Return when you are ready.</value>
+    <value>Retourne d'où tu viens.[pause=30] Reviens quand tu seras prêt.</value>
   </data>
 </root>

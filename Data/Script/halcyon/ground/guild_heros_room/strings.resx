@@ -1,51 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?>
-<root>
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
+<?xml version='1.0' encoding='utf-8'?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:schema id="root">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xs:element name="root" ns1:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="metadata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" />
+              </xs:sequence>
+              <xs:attribute name="name" use="required" type="xsd:string" />
+              <xs:attribute name="type" type="xsd:string" />
+              <xs:attribute name="mimetype" type="xsd:string" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="assembly">
+            <xs:complexType>
+              <xs:attribute name="alias" type="xsd:string" />
+              <xs:attribute name="name" type="xsd:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="data">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
+              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
+              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="resheader">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
@@ -596,52 +596,52 @@
     <value>Good night,[pause=10] {0}.</value>
   </data>
   <data name="GHR5_001" xml:space="preserve">
-    <value>On l'a fait, [player]...[pause=10] L'expédition est terminée !</value>
+    <value>We did it, [player]...[pause=10] The expedition is over!</value>
   </data>
   <data name="GHR5_002" xml:space="preserve">
-    <value>La Grande Steppe, le Tunnel Incandescent, le Mont Venteux...</value>
+    <value>The Vast Steppe, the Searing Tunnel, Mt. Windswept...</value>
   </data>
   <data name="GHR5_003" xml:space="preserve">
-    <value>On a traversé tellement d'endroits dangereux.[pause=15] Et on est toujours debout !</value>
+    <value>We've crossed so many dangerous places.[pause=15] And we're still standing!</value>
   </data>
   <data name="GHR5_004" xml:space="preserve">
-    <value>(Oui.[pause=15] C'était dur, mais on a réussi ensemble.)</value>
+    <value>(Yeah.[pause=15] It was tough, but we made it together.)</value>
   </data>
   <data name="GHR5_005" xml:space="preserve">
-    <value>Mais...[pause=15] cette voix qu'on a entendue.[pause=20] Plusieurs fois.</value>
+    <value>But...[pause=15] that voice we heard.[pause=20] Multiple times.</value>
   </data>
   <data name="GHR5_006" xml:space="preserve">
-    <value>Elle semblait tout savoir.[pause=20] Les boss, les lieux...[pause=15] et nous.</value>
+    <value>It seemed to know everything.[pause=20] The bosses, the places...[pause=15] and us.</value>
   </data>
   <data name="GHR5_007" xml:space="preserve">
-    <value>Qui peut bien être derrière tout ça ?</value>
+    <value>Who could be behind all of that?</value>
   </data>
   <data name="GHR5_008" xml:space="preserve">
-    <value>(Je ne sais pas.[pause=20] Mais cette présence...[pause=15] elle n'est pas hostile.)</value>
+    <value>(I don't know.[pause=20] But this presence...[pause=15] it's not hostile.)</value>
   </data>
   <data name="GHR5_009" xml:space="preserve">
-    <value>(Elle nous observait. Comme si elle attendait quelque chose de nous.)</value>
+    <value>(It was watching us. As if it was waiting for something from us.)</value>
   </data>
   <data name="GHR5_010" xml:space="preserve">
-    <value>En tout cas, on a prouvé qu'on était de vrais aventuriers !</value>
+    <value>Anyway, we've proven we're real adventurers!</value>
   </data>
   <data name="GHR5_011" xml:space="preserve">
-    <value>La guilde va être fière de nous.[pause=15] Surtout Penticus !</value>
+    <value>The guild's going to be proud of us.[pause=15] Especially Penticus!</value>
   </data>
   <data name="GHR5_012" xml:space="preserve">
-    <value>Bon...[pause=20] on devrait se reposer un peu. Ces derniers jours ont été épuisants.</value>
+    <value>Well...[pause=20] we should rest a bit. These last few days were exhausting.</value>
   </data>
   <data name="GHR5_013" xml:space="preserve">
-    <value>Mais dès qu'on est prêts, on devrait continuer à explorer.</value>
+    <value>But as soon as we're ready, we should keep exploring.</value>
   </data>
   <data name="GHR5_014" xml:space="preserve">
-    <value>Il y a sûrement d'autres donjons à découvrir, d'autres missions à accomplir.</value>
+    <value>There are probably other dungeons to discover, other missions to complete.</value>
   </data>
   <data name="GHR5_015" xml:space="preserve">
-    <value>(Tu as raison.[pause=20] Prenons quelques jours pour nous entraîner.)</value>
+    <value>(You're right.[pause=20] Let's take a few days to train.)</value>
   </data>
   <data name="GHR5_016" xml:space="preserve">
-    <value>Bonne nuit, [player].[pause=25] À demain !</value>
+    <value>Good night, [player].[pause=25] See you tomorrow!</value>
   </data>
   <data name="GHR5_017" xml:space="preserve">
     <value>Zzz...</value>

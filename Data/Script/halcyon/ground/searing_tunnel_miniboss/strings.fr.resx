@@ -1,51 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <root>
   <data name="STM_001" xml:space="preserve">
-    <value>This heat is suffocating...[pause=15] We must be nearing a magma pocket.</value>
+    <value>Cette chaleur devient étouffante...[pause=15] On doit approcher d'une poche de magma.</value>
   </data>
   <data name="STM_002" xml:space="preserve">
-    <value>Hear that, [player]?[pause=15] Sounds like... pressurized steam.</value>
+    <value>Tu entends ça, [player] ?[pause=15] On dirait... de la vapeur sous pression.</value>
   </data>
   <data name="STM_003" xml:space="preserve">
-    <value>Steam![pause=10] It's coming from everywhere!</value>
+    <value>De la vapeur ![pause=10] Elle vient de partout !</value>
   </data>
   <data name="STM_004" xml:space="preserve">
-    <value>A Torkoal![pause=10] It's blocking our path!</value>
+    <value>Un Torkoal ![pause=10] Il nous barre la route !</value>
   </data>
   <data name="STM_005" xml:space="preserve">
-    <value>A Magmar too![pause=10] They've surrounded us!</value>
+    <value>Un Magmar aussi ![pause=10] Ils nous ont encerclés !</value>
   </data>
   <data name="STM_006" xml:space="preserve">
-    <value>The Forge-Masters of the depths...</value>
+    <value>Les Maîtres-Forgerons des profondeurs...</value>
   </data>
   <data name="STM_007" xml:space="preserve">
-    <value>That voice again!</value>
+    <value>Cette voix, encore !</value>
   </data>
   <data name="STM_008" xml:space="preserve">
-    <value>They have guarded the furnaces for centuries.[pause=20] Their heat will consume you.</value>
+    <value>Ils gardent les fournaises depuis des siècles.[pause=20] Leur chaleur te consumera.</value>
   </data>
   <data name="STM_009" xml:space="preserve">
-    <value>Unless you prove your own flame...</value>
+    <value>À moins que tu ne prouves ta propre flamme...</value>
   </data>
   <data name="STM_010" xml:space="preserve">
-    <value>We didn't come all this way for nothing![pause=10] [player], let's go!</value>
+    <value>On n'a pas fait tout ce chemin pour rien ![pause=10] [player], en avant !</value>
   </data>
   <data name="STM_011" xml:space="preserve">
-    <value>We're back.[pause=15] This time, we're ready!</value>
+    <value>De retour.[pause=15] Cette fois, on est prêts !</value>
   </data>
   <data name="STM_012" xml:space="preserve">
-    <value>We survived the furnace!</value>
+    <value>On a survécu à la fournaise !</value>
   </data>
   <data name="STM_013" xml:space="preserve">
-    <value>That voice...[pause=15] It seems to know everything about this dungeon.</value>
+    <value>Cette voix...[pause=15] Elle semble tout savoir de ce donjon.</value>
   </data>
   <data name="STM_014" xml:space="preserve">
-    <value>It's like it's testing us.[pause=20] Let's continue.</value>
+    <value>C'est comme si elle nous testait.[pause=20] Continuons.</value>
   </data>
   <data name="STM_015" xml:space="preserve">
-    <value>The flames consumed you...</value>
+    <value>Les flammes t'ont consumé...</value>
   </data>
   <data name="STM_016" xml:space="preserve">
-    <value>But fire tempers steel.[pause=30] Return, stronger.</value>
+    <value>Mais le feu forge l'acier.[pause=30] Reviens, plus fort.</value>
   </data>
 </root>

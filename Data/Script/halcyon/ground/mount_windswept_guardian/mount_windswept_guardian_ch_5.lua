@@ -357,7 +357,22 @@ function mount_windswept_guardian_ch_5.DefeatedBoss()
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
   GAME:CutsceneMode(false)
-  GAME:EnterGroundMap("cloven_ruins", "Main_Entrance_Marker")
+
+  --Le sommet est vaincu : l'expedition du chapitre 5 est terminee.
+  --On renvoyait vers "cloven_ruins", carte qui n'existe pas (la zone est
+  --Released=false, 0 segment) -> ecran noir apres la victoire finale.
+  --On cloture proprement : bascule chapitre 6, fin de journee a la guilde.
+  SV.Chapter5.FinishedExpedition = true
+  SV.ChapterProgression.Chapter = 6
+  SV.TemporaryFlags.Dinnertime = true
+  SV.TemporaryFlags.Bedtime = true
+  SV.TemporaryFlags.MorningWakeup = true
+  SV.TemporaryFlags.MorningAddress = true
+
+  local exit_ground = 6
+  if SV.TemporaryFlags.MissionCompleted then exit_ground = 22 end
+  GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared,
+    "master_zone", -1, exit_ground, 0, true, true)
 end
 
 function mount_windswept_guardian_ch_5.DiedToBoss()
