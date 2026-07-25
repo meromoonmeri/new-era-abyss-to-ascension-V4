@@ -2748,7 +2748,7 @@ function DungeonJobList:DrawMenu()
 	elseif SV.ChapterProgression.Chapter == 5 and self.dungeon == 'searing_tunnel' and _ZONE.CurrentMapID.Segment == 1 then
 		message = "Vainquez la tribu de " .. CharacterEssentials.GetCharacterName("Magcargo") .. " !"
 	elseif SV.ChapterProgression.Chapter == 5 and self.dungeon == 'mount_windswept' then
-		message = "Traversez la montagne jusqu'au dernier\ncamp de base aux [color=#FFC663]Ruines Fendues[color]."	
+		message = "Traversez la montagne jusqu'au dernier\ncamp de base aux [color=#FFC663]Ruines Tordues[color]."	
 	else
 		message = "Allez aussi loin que possible."
 	end 
