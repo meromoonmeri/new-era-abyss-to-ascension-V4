@@ -2175,7 +2175,7 @@ function GeneralFunctions.Kangashkhan_Rock_Interact(obj, activator)
 		{ STRINGS:FormatKey('MENU_STORAGE_TAKE_ITEM'), has_storage},
 		{ STRINGS:FormatKey('MENU_STORAGE_STORE_ALL'), has_items},
 		{ STRINGS:FormatKey('MENU_STORAGE_MONEY'), true},
-		{ "Save", true},
+		{ "Sauvegarder.", true},
 		{ STRINGS:FormatKey("MENU_CANCEL"), true}}
 
 		UI:ResetSpeaker()

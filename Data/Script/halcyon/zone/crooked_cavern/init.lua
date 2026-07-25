@@ -21,10 +21,12 @@ function crooked_cavern.Init(zone)
 end
 
 function crooked_cavern.EnterSegment(zone, rescuing, segmentID, mapID)
+  -- Rescues are only allowed in the first half (segment 0); disallowed in the
+  -- second half (segment 1, "Profondeurs") and the boss fight (segment 2).
+  -- Mirrors searing_tunnel's rescue policy.
   if segmentID == 0 then
   	GeneralFunctions.CheckAllowSetRescue(zone.ID)
   else
-    --Disallow rescues for boss fight segments
 	  GAME:SetRescueAllowed(false)
   end
 
@@ -38,34 +40,42 @@ function crooked_cavern.Rescued(zone, name, mail)
 end
 
 
+------------------------------------------------------------------
+-- ExitSegment
+------------------------------------------------------------------
+-- Crooked Cavern now has THREE segments (was two):
+--   segment 0 = "Caverne Tortueuse"          (procedural, first half)
+--   segment 1 = "Profondeurs"                 (procedural, harder second half — NEW)
+--   segment 2 = boss arena (chapter_3_boss_fight via LoadGen; previously segment 1)
+--
+-- A mid-dungeon relay ground map "crooked_cavern_midpoint" (master_zone mapID 60)
+-- sits between segment 0 and segment 1, with a Kangaskhan Rock (save + storage).
+-- Dying in segment 1 or 2 respawns the player at the relay instead of the entrance.
+--
+-- This is a faithful mirror of zone/searing_tunnel/init.lua.
+-- See audit_checkpoint_crooked_cavern.md for the full design + test checklist.
+--
+-- IMPORTANT (chapter-3 story gate): the boss run happens while
+-- SV.Chapter3.FinishedRootScene == false. Once the root scene is done,
+-- FinishedRootScene == true and the dungeon is "complete" (replays get a generic
+-- ending). The checkpoint is therefore wired into the FinishedRootScene==false path.
+------------------------------------------------------------------
 function crooked_cavern.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.RestoreIdleAnim()
-  if segmentID == 0 then--crooked cavern exit segment
-	  DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-	  PrintInfo("=>> ExitSegment_crooked_cavern (Crooked Cavern) result "..tostring(result).." segment "..tostring(segmentID))
-		--[[Different dungeon result typeS (cleared, died, etc)
-			   public enum ResultType
-			{
-				Unknown = -1,
-				Downed,
-				Failed,
-				Cleared,
-				Escaped,
-				TimedOut,
-				GaveUp,
-				Rescue
-			}
-			]]--
+  DEBUG.EnableDbgCoro() --Enable debugging this coroutine
+
+	if segmentID == 0 then -- Caverne Tortueuse (first half) exit segment
+	  PrintInfo("=>> ExitSegment_crooked_cavern (first half) result "..tostring(result).." segment "..tostring(segmentID))
+
 		local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
 
 		if exited == true then
-			--do nothing
-		elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+			--do nothing (rescue mission handled)
 
+		--Died or Escaped in the first half: send back to town (UNCHANGED from original).
+		elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
 			GAME:WaitFrames(20)
 
-
-			--set generic flags for generic end of day / start of next day.
 			SV.TemporaryFlags.Dinnertime = true
 			SV.TemporaryFlags.Bedtime = true
 			SV.TemporaryFlags.MorningWakeup = true
@@ -75,7 +85,6 @@ function crooked_cavern.ExitSegment(zone, result, rescue, segmentID, mapID)
 			local exit_ground = 6
 			if SV.TemporaryFlags.MissionCompleted then exit_ground = 22 end
 
-			--I use the components of the general function version of this so I can have the textbox pop up after the results screen
 			GAME:EndDungeonRun(result, "master_zone", -1, exit_ground, 0, true, true)
 
 			if not SV.Chapter3.DefeatedBoss and result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then --team died before making it to the end for the first time.
@@ -87,43 +96,66 @@ function crooked_cavern.ExitSegment(zone, result, rescue, segmentID, mapID)
 				GAME:WaitFrames(20)
 			end
 
-			--go to dinner room
 			GAME:EnterZone("master_zone", -1, exit_ground, 0)
 
-
+		--Cleared the first half.
 		else
-			--dont set generic end flags if you haven't beaten the boss (i.e. you're arresting sandile)
 			if SV.Chapter3.FinishedRootScene then
-				--set generic flags for generic end of day / start of next day.
+				--Post-game replay: crooked_den shows a generic "nothing here" ending (UNCHANGED).
 				SV.TemporaryFlags.Dinnertime = true
 				SV.TemporaryFlags.Bedtime = true
 				SV.TemporaryFlags.MorningWakeup = true
 				SV.TemporaryFlags.MorningAddress = true
+				GAME:EnterGroundMap('crooked_den', 'Main_Entrance_Marker')
 
-				GAME:EnterGroundMap('crooked_den', 'Main_Entrance_Marker') --Go to Crooked Den, end dungeon run in the ground rather than here
-
-			else--for chapter 3, dont show results and dont set generic end flags
-				GAME:EnterZone("master_zone", -1, 42, 0) --Go to Crooked Den ground map, end dungeon run in the boss fight zone rather than here so the replays concatenate.
+			else
+				-- *** CHECKPOINT (NEW) ***
+				-- Boss run (FinishedRootScene == false): instead of going straight to
+				-- crooked_den (the pre-boss scene), stop at the relay first. The relay's
+				-- North exit then starts segment 1 (Profondeurs); clearing that reaches
+				-- crooked_den's FirstPreBossScene (handled in segment 1 below).
+				-- (Original line was: GAME:EnterZone("master_zone", -1, 42, 0).)
+				SV.Chapter3.CrookedMidpointState = 'FirstArrival'
+				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 60, 0, false, false) --crooked_cavern_midpoint (mapID 60)
 			end
 		end
-	else--crooked den exit segment
-	  DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-	  PrintInfo("=>> ExitSegment_crooked_den (Crooked Den) result "..tostring(result).." segment "..tostring(segmentID))
 
-		--[[Different dungeon result typeS (cleared, died, etc)
-			   public enum ResultType
-			{
-				Unknown = -1,
-				Downed,
-				Failed,
-				Cleared,
-				Escaped,
-				TimedOut,
-				GaveUp,
-				Rescue
-			}
-			]]--
-		if result == RogueEssence.Data.GameProgress.ResultType.Escaped then--this should go unused due to the mysterious force
+	elseif segmentID == 1 then -- Profondeurs (second half, NEW) exit segment
+	  PrintInfo("=>> ExitSegment_crooked_cavern (Profondeurs) result "..tostring(result).." segment "..tostring(segmentID))
+
+		local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
+
+		if exited == true then
+			--do nothing (rescue mission handled)
+
+		--Escaped: leave the dungeon to the entrance, NOT the relay.
+		--(Mirrors searing_tunnel: escape does not benefit from the checkpoint.)
+		elseif result == RogueEssence.Data.GameProgress.ResultType.Escaped then
+			GAME:WaitFrames(20)
+			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 41, 0, true, true) --crooked_cavern_entrance (mapID 41)
+
+		--Died in the second half: respawn at the checkpoint.
+		elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+			SV.CrookedCavern.DiedPastCheckpoint = true
+			SV.Chapter3.CrookedMidpointState = 'DeathArrival'
+			GAME:WaitFrames(20)
+			GAME:EndDungeonRun(result, "master_zone", -1, 60, 0, true, true) --relay (mapID 60); this saves + applies standard loss penalties
+			UI:SetSpeaker(GAME:GetPlayerPartyMember(1))
+			UI:SetSpeakerEmotion("Pain")
+			GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Urf...[pause=0] pas cette fois...", "Pain")
+			GAME:WaitFrames(20)
+			GAME:EnterZone("master_zone", -1, 60, 0) --travel to the relay
+
+		--Cleared the second half: proceed to crooked_den pre-boss scene (UNCHANGED target;
+		--this path was previously reached directly from segment 0).
+		else
+			GAME:EnterZone("master_zone", -1, 42, 0) --crooked_den (mapID 42) -> FirstPreBossScene -> boss (segment 2)
+		end
+
+	else -- segment 2: boss arena (previously segment 1) exit segment
+	  PrintInfo("=>> ExitSegment_crooked_den (boss) result "..tostring(result).." segment "..tostring(segmentID))
+
+		if result == RogueEssence.Data.GameProgress.ResultType.Escaped then --should go unused due to the mysterious force
 			SV.Chapter3.EscapedBoss = true
 		elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
 			SV.Chapter3.LostToBoss = true
@@ -131,7 +163,21 @@ function crooked_cavern.ExitSegment(zone, result, rescue, segmentID, mapID)
 			SV.Chapter3.DefeatedBoss = true
 		end
 
-		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 42, 0, false, false) --Go to Crooked Den ground map
+		if result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+			-- *** CHECKPOINT (NEW) ***
+			-- Died/escaped to the boss: respawn at the relay instead of crooked_den.
+			-- (Original always did: GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 42, 0, false, false).)
+			-- The relay's WipedCutscene uses SV.Chapter3.LostToBoss to show boss-specific lines
+			-- (crooked_den's DiedToBoss scene is thereby superseded but left in place).
+			SV.CrookedCavern.DiedPastCheckpoint = true
+			SV.Chapter3.CrookedMidpointState = 'DeathArrival'
+			GAME:EndDungeonRun(result, "master_zone", -1, 60, 0, true, true) --relay (mapID 60)
+			GAME:WaitFrames(20)
+			GAME:EnterZone("master_zone", -1, 60, 0)
+		else
+			--Beat the boss: continue to crooked_den for the post-boss/root scene (UNCHANGED).
+			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 42, 0, false, false) --crooked_den (mapID 42)
+		end
 	end
 end
 

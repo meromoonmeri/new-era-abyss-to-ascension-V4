@@ -233,6 +233,9 @@ function DebugTools:OnUpgrade()
  if SV.Chapter3.TropiusGaveWand == nil then SV.Chapter3.TropiusGaveWand = false end
  if SV.Chapter3.BreloomGirafarigConvo == nil then SV.Chapter3.BreloomGirafarigConvo = false end
  if SV.Chapter3.PostBossSpokeToCranidos == nil then SV.Chapter3.PostBossSpokeToCranidos = false end
+ -- Crooked Cavern mid-dungeon checkpoint (mirrors Chapter5.TunnelMidpointState)
+ if SV.Chapter3.CrookedPlayedMidpointIntro == nil then SV.Chapter3.CrookedPlayedMidpointIntro = false end
+ if SV.Chapter3.CrookedMidpointState == nil then SV.Chapter3.CrookedMidpointState = 'FirstArrival' end
  
  
  --for pre-chapter 4 saves
@@ -306,6 +309,21 @@ function DebugTools:OnUpgrade()
  if SV.SearingTunnel.DiedPastCheckpoint == nil then SV.SearingTunnel.DiedPastCheckpoint = false end
  if SV.SearingTunnel.LavaFlowDirection == nil then SV.SearingTunnel.LavaFlowDirection = 'TopStraight' end
  if SV.SearingTunnel.LavaCountdown == nil then SV.SearingTunnel.LavaCountdown = -1 end
+ 
+ --For Crooked Cavern's mid-dungeon checkpoint (mirrors SearingTunnel)
+ if SV.CrookedCavern == nil then SV.CrookedCavern = {} end
+ 
+ if SV.CrookedCavern.DiedPastCheckpoint == nil then SV.CrookedCavern.DiedPastCheckpoint = false end
+ 
+ --For Gloomy Forest's mid-dungeon checkpoint (mirrors SearingTunnel/CrookedCavern)
+ if SV.GloomyForest == nil then SV.GloomyForest = {} end
+ 
+ if SV.GloomyForest.DiedPastCheckpoint == nil then SV.GloomyForest.DiedPastCheckpoint = false end
+ 
+ --Gloomy Forest midpoint flags (ch6)
+ if SV.Chapter6 == nil then SV.Chapter6 = {} end
+ if SV.Chapter6.GloomyPlayedMidpointIntro == nil then SV.Chapter6.GloomyPlayedMidpointIntro = false end
+ if SV.Chapter6.GloomyMidpointState == nil then SV.Chapter6.GloomyMidpointState = 'FirstArrival' end
  
  if SV.GuildSidequests == nil then SV.GuildSidequests = {} end
  

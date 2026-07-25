@@ -717,7 +717,11 @@ SV.Chapter3 =
 
 	TropiusGaveWand = false,--did tropius give some wands to help the duo?
 	BreloomGirafarigConvo = false, --talked to breloom/girafarig about their expedition?
-	PostBossSpokeToCranidos = false -- Talked to cranidos in town after beating boss? Used to flag the partner to mention not being able to impress cranidos.
+	PostBossSpokeToCranidos = false, -- Talked to cranidos in town after beating boss? Used to flag the partner to mention not being able to impress cranidos.
+
+	-- Crooked Cavern mid-dungeon checkpoint (mirrors Chapter5.TunnelMidpointState/PlayedMidpointIntro).
+	CrookedPlayedMidpointIntro = false,--Did the duo do the first "let's press on" intro at the relay?
+	CrookedMidpointState = 'FirstArrival'--Which scene to play at the relay: 'FirstArrival', 'RepeatArrival', or 'DeathArrival'.
 }
 
 SV.Chapter4 = 
@@ -803,6 +807,10 @@ SV.Chapter6 =
 	PostMissionScenePlayed = false,
 	DazzlingTownVisit = 0,
 	ShowedTitleCard = false,--Has the Chapter 6 title card been shown?
+
+	-- Gloomy Forest mid-dungeon checkpoint (mirrors Chapter5.TunnelMidpointState).
+	GloomyPlayedMidpointIntro = false,--Did the duo do the first intro at the relay?
+	GloomyMidpointState = 'FirstArrival'--FirstArrival / RepeatArrival / DeathArrival.
 }
 
 
@@ -848,6 +856,20 @@ SV.SearingTunnel =
 	LavaFlowDirection = "TopStraight",--TopStraight, BottomStraight, DiagonalDown, DiagonalUp, or None. Defaults to TopStraight as the boss fight starts with the lava spawned straight at the top.
 	LavaCountdown = -1,--Used to determine how long until the lava flow changes?
 	DiedPastCheckpoint = false--Used to flag whether you died in depths/crucible. Needed for cutscenes on wiping and waking up back in the checkpoint.
+}
+
+-- Crooked Cavern checkpoint (mirrors SV.SearingTunnel). Reusable pattern: each
+-- boss dungeon that gets a mid-dungeon relay should own a DiedPastCheckpoint flag.
+-- See audit_checkpoint_crooked_cavern.md and the searing_tunnel_midpoint reference.
+SV.CrookedCavern =
+{
+	DiedPastCheckpoint = false--Set when the player faints in the "Profondeurs" (segment 1) or the boss (segment 2). Drives the midpoint "wiped" cutscene + respawn.
+}
+
+-- Gloomy Forest checkpoint (mirrors SV.CrookedCavern / SV.SearingTunnel).
+SV.GloomyForest =
+{
+	DiedPastCheckpoint = false--Set when the player faints in the depth floors (segment 1) or the boss (segment 2).
 }
 
 --to be renamed
