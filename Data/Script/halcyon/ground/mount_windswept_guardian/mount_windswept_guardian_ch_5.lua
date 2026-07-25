@@ -310,7 +310,7 @@ function mount_windswept_guardian_ch_5.DefeatedBoss()
   GAME:WaitFrames(60)
 
   -- The storm clears
-  SOUND:PlayBGM('In The Depths of the Pit.ogg', false)
+  SOUND:PlayBGM('In the Depths of the Pit.ogg', false)
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Inspired")

@@ -120,7 +120,7 @@ function apricorn_glade.GenericEnding()
 	UI:WaitHideTitle(20)
 	GAME:FadeIn(40)
 
-	SOUND:PlayBGM('In The Depths of the Pit.ogg', true)
+	SOUND:PlayBGM('In the Depths of the Pit.ogg', true)
 
 	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, 300, 248, false, 1) end)
 	local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(10)

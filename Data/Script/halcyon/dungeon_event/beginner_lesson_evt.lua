@@ -105,7 +105,7 @@ function beginner_lesson_evt.Floor_3_HeldItem_Speech(owner, ownerChar, character
 	UI:SetSpeaker(chara)
 	UI:WaitShowDialogue("Hwacha ![pause=0]Excellent travail jusqu'à présent, mon élève ![pause=0]Il est maintenant temps d'en apprendre davantage sur les objets retenus !")
 	UI:WaitShowDialogue("Wahtah![pause=0]Des objets tels que des bracelets et des écharpes peuvent être donnés à un Pokémon pour obtenir des effets utiles !")
-	UI:WaitShowDialogue("Some items boost stats while others prevent certain status afflications!")
+	UI:WaitShowDialogue("Certains objets augmentent les statistiques,[pause=10]tandis que d'autres protègent de certains problèmes de statut !")
 	UI:WaitShowDialogue("Hoiyah![pause=0]Pour cet essai,[pause=10]vous devez vous équiper d'un " .. item:GetDisplayName() .. " et continuer à avancer !")
 	UI:WaitShowDialogue("Vous ne pourrez pas continuer sans équiper le groupe !")
 	SV.Tutorial.Progression = 5

@@ -38,6 +38,22 @@ end
 -- of Metano Town. Faithful mirror of zone/searing_tunnel + zone/crooked_cavern.
 -- See docs/audit_checkpoint_crooked_cavern.md (reusable pattern).
 ------------------------------------------------------------------
+--Retour generique de fin de journee, aligne sur les 7 autres donjons de l'histoire :
+--pose les drapeaux diner / nuit / lendemain puis sort vers le refectoire de la guilde
+--(carte 6), ou le 2e etage (22) s'il reste une mission a rendre.
+--N'est utilise QUE lorsque l'equipe rentre reellement dormir : les morts au-dela du
+--relais de mi-donjon reapparaissent au relais (carte 61) et ne declenchent pas la nuit.
+local function EndDayReturn(result)
+	SV.TemporaryFlags.Dinnertime = true
+	SV.TemporaryFlags.Bedtime = true
+	SV.TemporaryFlags.MorningWakeup = true
+	SV.TemporaryFlags.MorningAddress = true
+
+	local exit_ground = 6
+	if SV.TemporaryFlags.MissionCompleted then exit_ground = 22 end
+	GeneralFunctions.EndDungeonRun(result, "master_zone", -1, exit_ground, 0, true, true)
+end
+
 function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 	GeneralFunctions.RestoreIdleAnim()
 	DEBUG.EnableDbgCoro()
@@ -62,7 +78,7 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 		else
 			-- The rescue objective is required before the heart of the forest opens.
 			SV.Chapter6.MissionAccepted = false
-			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
+			EndDayReturn(result)
 		end
 		return
 	end
@@ -73,7 +89,8 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 			-- Escaped: leave to the entrance, NOT the relay (mirrors Searing Tunnel).
 			GAME:WaitFrames(20)
 			SV.Chapter6.MissionAccepted = false
-			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 51, 0, true, true) --gloomy_forest_entrance (mapID 51)
+			--Fuite volontaire : l'equipe abandonne pour aujourd'hui et rentre dormir.
+			EndDayReturn(result)
 		else
 			-- Died: respawn at the relay.
 			SV.GloomyForest.DiedPastCheckpoint = true
@@ -108,12 +125,15 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 		return
 	end
 
-	-- Segment 0 loss/escape (and any other unhandled loss): return safely to Metano Town (UNCHANGED).
+	-- Defaite ou fuite au segment 0 : l'equipe rentre a la guilde pour la fin de
+	-- journee (diner -> nuit -> lendemain), comme dans les 7 autres donjons de
+	-- l'histoire. Auparavant on ressortait carte 1 (Metano Town) en plein jour,
+	-- sans diner ni nuit, et DaysPassed n'avancait pas.
 	if result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
 		GAME:WaitFrames(20)
 	end
 	SV.Chapter6.MissionAccepted = false
-	GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
+	EndDayReturn(result)
 end
 
 return gloomy_forest

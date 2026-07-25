@@ -34,7 +34,7 @@ function guild_heros_room_ch_2.FirstMorning()
 		})
 
 	GAME:WaitFrames(80)
-	local coro1 = TASK:BranchCoroutine(function() UI:WaitShowTitle("Chapter 2\n\nThe First Mission\n", 20)
+	local coro1 = TASK:BranchCoroutine(function() UI:WaitShowTitle("Chapitre 2\n\nLa Première Mission\n", 20)
 												  GAME:WaitFrames(180)
 												  UI:WaitHideTitle(20) end)
 	local coro2 = TASK:BranchCoroutine(function() UI:WaitShowBG("Chapter_2", 180, 20)

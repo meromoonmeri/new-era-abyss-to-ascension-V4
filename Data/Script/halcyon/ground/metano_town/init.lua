@@ -168,7 +168,7 @@ function metano_town.East_Exit_Touch(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
   GeneralFunctions.StartPartnerConversation("Où devrions-nous aller,[pause=10]" .. CH('PLAYER'):GetDisplayName() .. " ?", "Normal", false)
   GAME:WaitFrames(20)
-  local dungeons = {"relic_forest", "illuminant_riverbed", "crooked_cavern", "apricorn_grove", "vast_steppe", "searing_tunnel", "mount_windswept"}--this needs to be updated when more dungeons come out.
+  local dungeons = {"relic_forest", "illuminant_riverbed", "crooked_cavern", "apricorn_grove", "vast_steppe", "searing_tunnel", "mount_windswept", "gloomy_forest"}--this needs to be updated when more dungeons come out.
   local grounds = {}
   metano_town.ShowDestinationMenu(dungeons, grounds)
 end
@@ -349,6 +349,10 @@ function metano_town.ShowDestinationMenu(dungeon_entrances,ground_entrances)
   dungeon_entrance_mapping["illuminant_riverbed"] = 38 --Illuminant Riverbed, but this shouldn't ever be used.
   dungeon_entrance_mapping["crooked_cavern"] = 41--Crooked Cavern
   dungeon_entrance_mapping["apricorn_grove"] = 44--Apricorn Grove
+  dungeon_entrance_mapping["vast_steppe"] = 46--Vast Steppe Entrance
+  dungeon_entrance_mapping["searing_tunnel"] = 47--Searing Tunnel Entrance
+  dungeon_entrance_mapping["mount_windswept"] = 50--Mt. Windswept Entrance
+  dungeon_entrance_mapping["gloomy_forest"] = 51--Gloomy Forest Entrance
 
 
 	local mission_dests = {}
@@ -595,7 +599,7 @@ function metano_town.GenerateGreenKecleonStock(generate_random_item)
 
 	if not generate_random_item then
 		--set stock to randomized assortment and flag that the stock was refreshed for the day
-		SV.DailyFlags.GreenKecleonStockedRefreshed = true
+		SV.DailyFlags.GreenKecleonRefreshedStock = true
 		SV.DailyFlags.GreenKecleonStock = stock
 	else
 		return stock[math.random(1, #stock)]
@@ -702,7 +706,7 @@ function metano_town.GeneratePurpleKecleonStock(generate_random_item)
 
 	if not generate_random_item then
 		--set stock to randomized assortment and flag that the stock was refreshed for the day
-		SV.DailyFlags.PurpleKecleonStockedRefreshed = true
+		SV.DailyFlags.PurpleKecleonRefreshedStock = true
 		SV.DailyFlags.PurpleKecleonStock = stock
 	else
 		return stock[math.random(1, #stock)]
@@ -719,7 +723,7 @@ function metano_town.Shop_Action(obj, activator)
   local catalog = { }
 
   --generate stock if it hasn't been for the day
-  if not SV.DailyFlags.GreenKecleonStockedRefreshed then
+  if not SV.DailyFlags.GreenKecleonRefreshedStock then
 	metano_town.GenerateGreenKecleonStock()
   end
 
@@ -929,7 +933,7 @@ function metano_town.TM_Action(obj, activator)
   local catalog = { }
 
   --generate stock if it hasn't been for the day
-  if not SV.DailyFlags.PurpleKecleonStockedRefreshed then
+  if not SV.DailyFlags.PurpleKecleonRefreshedStock then
 	metano_town.GeneratePurpleKecleonStock()
   end
 
@@ -3015,7 +3019,7 @@ function metano_town.Well_Action(obj, activator)
 	  else
 		GAME:RemoveFromPlayerMoney(1)
 		SOUND:PlayBattleSE("_UNK_DUN_Water_Drop")
-		UI:WaitShowDialogue("You threw a " .. STRINGS:Format("\\uE024") .. " into the well!\nMay good luck come your way!")
+		UI:WaitShowDialogue("Vous avez lancé un " .. STRINGS:Format("\\uE024") .. " dans le puits !\nQue la chance vous sourie !")
 	  end
    end
    UI:SetCenter(false)

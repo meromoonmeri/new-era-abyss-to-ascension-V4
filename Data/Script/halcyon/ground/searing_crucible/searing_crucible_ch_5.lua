@@ -78,7 +78,7 @@ function searing_crucible_ch_5.FirstPreBossScene()
 	UI:WaitHideTitle(20)
 	GAME:FadeIn(40)
 	
-	SOUND:PlayBGM('In The Depths of the Pit.ogg', false)
+	SOUND:PlayBGM('In the Depths of the Pit.ogg', false)
 	
 	local coro1 = TASK:BranchCoroutine(function() GAME:WaitFrames(6)
 												  GeneralFunctions.EightWayMove(hero, 244, 312, false, 1)
@@ -904,7 +904,7 @@ function searing_crucible_ch_5.DefeatedBoss()
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coro6, coro7, coro8})	
 	GAME:WaitFrames(20)
 	
-	SOUND:PlayBGM('In The Depths of the Pit.ogg', false)
+	SOUND:PlayBGM('In the Depths of the Pit.ogg', false)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_045']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_046']))
 	--he bows again
@@ -1144,7 +1144,7 @@ function searing_crucible_ch_5.DefeatedBoss()
 	coro4 = TASK:BranchCoroutine(function() GAME:WaitFrames(10) GROUND:CharAnimateTurnTo(zigzagoon, Direction.Up, 4) end)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
 	
-	SOUND:PlayBGM('In The Depths of the Pit.ogg', false)
+	SOUND:PlayBGM('In the Depths of the Pit.ogg', false)
 	UI:SetSpeaker(zigzagoon)
 	UI:SetSpeakerEmotion("Sigh")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_070']))

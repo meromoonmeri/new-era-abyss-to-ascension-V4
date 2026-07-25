@@ -7,6 +7,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.ground.searing_tunnel_miniboss.searing_tunnel_miniboss_ch_5'
 
 local searing_tunnel_miniboss = {}
 
@@ -20,9 +21,9 @@ function searing_tunnel_miniboss.Enter(map)
   PrintInfo("=>> Enter_searing_tunnel_miniboss")
 
   if SV.Chapter5.TunnelMiniBossSeen then
-    searing_tunnel_miniboss.SecondPreBossScene()
+    searing_tunnel_miniboss_ch_5.SecondPreBossScene()
   else
-    searing_tunnel_miniboss.FirstPreBossScene()
+    searing_tunnel_miniboss_ch_5.FirstPreBossScene()
   end
 end
 

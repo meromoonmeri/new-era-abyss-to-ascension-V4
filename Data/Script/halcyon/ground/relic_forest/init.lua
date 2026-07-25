@@ -106,7 +106,7 @@ function relic_forest.GenericEnding()
 	UI:WaitHideTitle(20)
 	GAME:FadeIn(40)
 
-	SOUND:PlayBGM('In The Depths of the Pit.ogg', true)
+	SOUND:PlayBGM('In the Depths of the Pit.ogg', true)
 
 	--numbers a bit wonk for camera and movement (not multiples of 2) to help match up with the slightly offcenter tablet and the other relic forest scripts
 	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, 309, 240, false, 1) end)

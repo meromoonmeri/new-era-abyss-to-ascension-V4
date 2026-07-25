@@ -340,6 +340,63 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
+		--Chapitre 5 : mini-boss et gardiens des donjons de l'expedition
+		Mudbray = {
+			species = "mudbray",
+			nickname = 'Mudbray',
+			instance = 'Mudbray',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Stantler = {
+			species = "stantler",
+			nickname = 'Stantler',
+			instance = 'Stantler',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Torkoal = {
+			species = "torkoal",
+			nickname = 'Torkoal',
+			instance = 'Torkoal',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Magmar = {
+			species = "magmar",
+			nickname = 'Magmar',
+			instance = 'Magmar',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Gligar = {
+			species = "gligar",
+			nickname = 'Gligar',
+			instance = 'Gligar',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+		Skarmory = {
+			species = "skarmory",
+			nickname = 'Skarmory',
+			instance = 'Skarmory',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Aerodactyl = {
+			species = "aerodactyl",
+			nickname = 'Aerodactyl',
+			instance = 'Aerodactyl',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
 		Zarude = {
 			species = "zarude",
 			nickname = 'Zarude',

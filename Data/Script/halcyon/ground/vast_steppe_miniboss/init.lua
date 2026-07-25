@@ -7,6 +7,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.ground.vast_steppe_miniboss.vast_steppe_miniboss_ch_5'
 
 local vast_steppe_miniboss = {}
 
@@ -20,9 +21,9 @@ function vast_steppe_miniboss.Enter(map)
   PrintInfo("=>> Enter_vast_steppe_miniboss")
 
   if SV.Chapter5.SteppeMiniBossSeen then
-    vast_steppe_miniboss.SecondPreBossScene()
+    vast_steppe_miniboss_ch_5.SecondPreBossScene()
   else
-    vast_steppe_miniboss.FirstPreBossScene()
+    vast_steppe_miniboss_ch_5.FirstPreBossScene()
   end
 end
 

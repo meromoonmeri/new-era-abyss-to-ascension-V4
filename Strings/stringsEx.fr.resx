@@ -5703,4 +5703,10 @@ Comme c'est un volontaire, il ne restera pas avec toi après la sortie.
   <data name="BEGINNER_LESSON_RECRUITMENT_SIGN_1_1_TITLE" xml:space="preserve">
     <value>Recruter des Pokémon</value>
   </data>
+  <data name="TALK_FULL_3006" xml:space="preserve">
+    <value>[{Audino}]Ah, [player]. J'aimerais te faire goûter mon nouveau sauté de Baie Pilsam une fois au campement. \u266A</value>
+  </data>
+  <data name="TALK_FULL_3007" xml:space="preserve">
+    <value>[{Audino}]Nous sommes peut-être un peu rouillés, mais montrons à [slot1] et [slot2] comment on fait.</value>
+  </data>
 </root>

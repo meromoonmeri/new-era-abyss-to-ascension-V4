@@ -204,7 +204,7 @@ function apricorn_grove_entrance.ComeOutFront()
 			UI:WaitShowDialogue("Allez.[pause=0]Rentrons !")
 		else
 			UI:WaitShowDialogue("OK,[pause=10], nous allons mettre un terme à cette journée et retourner à la guilde.")
-			UI:WaitShowDialogue("C'mon.[pause=0] Let's head home!")
+			UI:WaitShowDialogue("Allez.[pause=0]Rentrons !")
 		end
 		GAME:WaitFrames(40)
 		SOUND:FadeOutBGM(40)

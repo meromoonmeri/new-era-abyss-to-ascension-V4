@@ -114,7 +114,7 @@ function crooked_den.GenericEnding()
 	UI:WaitHideTitle(20)
 	GAME:FadeIn(40)
 
-	SOUND:PlayBGM('In The Depths of the Pit.ogg', true)
+	SOUND:PlayBGM('In the Depths of the Pit.ogg', true)
 
 	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, 156, 144, false, 1) end)
 	local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(10) GROUND:MoveToPosition(hero, 188, 144, false, 1) end)

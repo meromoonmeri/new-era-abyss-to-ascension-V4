@@ -25,7 +25,7 @@ function relic_forest_ch_1.Intro_Cutscene()
 	UI:SetAutoFinish(true)
 
 	--chapter 1 title card
-	local coro1 = TASK:BranchCoroutine(function() UI:WaitShowTitle("Chapter 1\n\nAnother Beginning\n", 20)
+	local coro1 = TASK:BranchCoroutine(function() UI:WaitShowTitle("Chapitre 1\n\nUn Autre Commencement\n", 20)
 												  GAME:WaitFrames(180)
 												  UI:WaitHideTitle(20) end)
 	local coro2 = TASK:BranchCoroutine(function() UI:WaitShowBG("Chapter_1", 180, 20)
@@ -106,7 +106,7 @@ function relic_forest_ch_1.PartnerFindsHeroCutscene()
 	GAME:WaitFrames(60)
 	UI:WaitHideTitle(20)
 	GAME:FadeIn(40)
-	SOUND:PlayBGM('In The Depths of the Pit.ogg', true)
+	SOUND:PlayBGM('In the Depths of the Pit.ogg', true)
 
 
 	--walk into frame from the bottom
@@ -567,7 +567,7 @@ function relic_forest_ch_1.WipedInForest()
 	GROUND:CharSetAnim(hero, 'EventSleep', true)
 
 	GAME:FadeIn(40)
-	--SOUND:PlayBGM('In The Depths of the Pit.ogg', true) --the music has a bit of a delay to starting, so i think having it fade in as soon as the map loads is OK.
+	--SOUND:PlayBGM('In the Depths of the Pit.ogg', true) --the music has a bit of a delay to starting, so i think having it fade in as soon as the map loads is OK.
 
 	GAME:WaitFrames(110)--slightly less than 120 frames so that the sleep animation doesnt barely start another frame before waking
 

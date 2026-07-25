@@ -27,7 +27,7 @@ function luminous_spring_ch_2.FindNumelCutscene()
 	UI:WaitHideTitle(20)
 	GAME:FadeIn(40)
 
-	SOUND:PlayBGM('In The Depths of the Pit.ogg', true)
+	SOUND:PlayBGM('In the Depths of the Pit.ogg', true)
 
 	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, 308, 488, false, 1) end)
 	local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(10)
@@ -261,7 +261,7 @@ function luminous_spring_ch_2.FindNumelCutscene()
 	GAME:WaitFrames(20)
 	UI:SetSpeaker(partner)
 	UI:SetSpeakerEmotion("Worried")
-	SOUND:PlayBGM('In The Depths of the Pit.ogg', true)
+	SOUND:PlayBGM('In the Depths of the Pit.ogg', true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['LS2_036'], hero:GetDisplayName()))
 
 	GAME:WaitFrames(20)

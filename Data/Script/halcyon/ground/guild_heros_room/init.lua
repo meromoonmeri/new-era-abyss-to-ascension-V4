@@ -111,7 +111,6 @@ function guild_heros_room.CheckTriggerEvent()
 		SV.Dojo.NewMazeUnlocked = true
 		GAME:UnlockDungeon("gloomy_forest")
 		GAME:UnlockDungeon("grass_maze")
-		GAME:UnlockDungeon("dark_maze")
 		GAME:WaitFrames(60)
 		GeneralFunctions.PromptChapterSaveAndQuit("guild_heros_room", "Main_Entrance_Marker", 2)
 	end

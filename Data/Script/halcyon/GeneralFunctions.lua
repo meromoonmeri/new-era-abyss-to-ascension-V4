@@ -1930,7 +1930,7 @@ function GeneralFunctions.PrintPlotVariables()
 	print("Chapter 1")
 	print("PlayedIntroCutscene = " .. tostring(SV.Chapter1.PlayedIntroCutscene))
 	print("PartnerEnteredForest = " .. tostring(SV.Chapter1.PartnerEnteredForest))
-	print('PartnerCompletedForest = ' .. tostring(SV.Chapter1.ParnterCompletedForest))
+	print('PartnerCompletedForest = ' .. tostring(SV.Chapter1.PartnerCompletedForest))
 	print('PartnerMetHero = ' .. tostring(SV.Chapter1.PartnerMetHero))
 	print('TeamCompletedForest = ' .. tostring(SV.Chapter1.TeamCompletedForest))
 	print('TeamJoinedGuild = ' .. tostring(SV.Chapter1.TeamJoinedGuild))
@@ -2175,7 +2175,7 @@ function GeneralFunctions.Kangashkhan_Rock_Interact(obj, activator)
 		{ STRINGS:FormatKey('MENU_STORAGE_TAKE_ITEM'), has_storage},
 		{ STRINGS:FormatKey('MENU_STORAGE_STORE_ALL'), has_items},
 		{ STRINGS:FormatKey('MENU_STORAGE_MONEY'), true},
-		{ "Sauvegarder.", true},
+		{ "Save", true},
 		{ STRINGS:FormatKey("MENU_CANCEL"), true}}
 
 		UI:ResetSpeaker()

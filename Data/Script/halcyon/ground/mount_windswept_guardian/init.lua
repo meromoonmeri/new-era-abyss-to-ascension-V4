@@ -7,6 +7,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.ground.mount_windswept_guardian.mount_windswept_guardian_ch_5'
 
 local mount_windswept_guardian = {}
 
@@ -20,9 +21,9 @@ function mount_windswept_guardian.Enter(map)
   PrintInfo("=>> Enter_mount_windswept_guardian")
 
   if SV.Chapter5.MountGuardianSeen then
-    mount_windswept_guardian.SecondPreBossScene()
+    mount_windswept_guardian_ch_5.SecondPreBossScene()
   else
-    mount_windswept_guardian.FirstPreBossScene()
+    mount_windswept_guardian_ch_5.FirstPreBossScene()
   end
 end
 

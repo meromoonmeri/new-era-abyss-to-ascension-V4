@@ -343,7 +343,7 @@ function vast_steppe_miniboss_ch_5.DefeatedBoss()
   GAME:WaitFrames(60)
   GAME:FadeIn(40)
 
-  SOUND:PlayBGM('In The Depths of the Pit.ogg', false)
+  SOUND:PlayBGM('In the Depths of the Pit.ogg', false)
 
   GAME:WaitFrames(30)
   UI:SetSpeaker(partner)

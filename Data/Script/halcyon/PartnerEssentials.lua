@@ -850,7 +850,7 @@ function PartnerEssentials.Chapter_3_Dialogue(partner)
 		if not SV.Chapter3.DefeatedBoss then
 			local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("relic_forest")
 			UI:WaitShowDialogue(CharacterEssentials.GetCharacterName("Relicanth") .. ",[pause=10]étant aussi vieux que lui,[pause=10]connaît beaucoup d'histoires et de mythes du monde.")
-			UI:WaitShowDialogue("Sometimes he'll tell me one if he hasn't caught me sneaking into " .. zone:GetColoredName() .. " lately.")
+			UI:WaitShowDialogue("Il m'en raconte parfois une, s'il ne m'a pas surprise à me faufiler dans " .. zone:GetColoredName() .. " ces derniers temps.")
 			UI:SetSpeakerEmotion("Inspired")
 			UI:WaitShowDialogue("J'adore entendre parler de toutes les différentes légendes qu'il connaît ![pause=0]Elles sont tellement fascinantes !")
 			UI:WaitShowDialogue("Il faudra venir voir s'il nous racontera une histoire à tous les deux quand nous ne serons pas occupés !")

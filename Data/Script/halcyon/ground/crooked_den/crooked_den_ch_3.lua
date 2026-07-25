@@ -28,7 +28,7 @@ function crooked_den_ch_3.FirstPreBossScene()
 	UI:WaitHideTitle(20)
 	GAME:FadeIn(40)
 
-	SOUND:PlayBGM('In The Depths of the Pit.ogg', false)
+	SOUND:PlayBGM('In the Depths of the Pit.ogg', false)
 
 	GAME:WaitFrames(30)
 	UI:SetSpeaker(STRINGS:Format("\\uE040"), true, sandile.CurrentForm.Species, sandile.CurrentForm.Form, sandile.CurrentForm.Skin, sandile.CurrentForm.Gender)
@@ -130,7 +130,7 @@ function crooked_den_ch_3.FirstPreBossScene()
 	GAME:WaitFrames(20)
 	UI:SetSpeaker(partner)
 	UI:SetSpeakerEmotion("Worried")
-	SOUND:PlayBGM('In The Depths of the Pit.ogg', true)
+	SOUND:PlayBGM('In the Depths of the Pit.ogg', true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CD3_010']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CD3_011']))
 
@@ -486,7 +486,7 @@ function crooked_den_ch_3.FirstPreBossScene()
 	GAME:CutsceneMode(false)
 	SV.Chapter3.EncounteredBoss = true
 	--enter fight
-	GAME:ContinueDungeon("crooked_cavern", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+	GAME:ContinueDungeon("crooked_cavern", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 
 end
 
@@ -747,7 +747,7 @@ function crooked_den_ch_3.SecondPreBossScene()
 	GAME:WaitFrames(60)
 	UI:WaitHideTitle(20)
 	GAME:FadeIn(40)
-	SOUND:PlayBGM('In The Depths of the Pit.ogg', false)
+	SOUND:PlayBGM('In the Depths of the Pit.ogg', false)
 
 	GAME:WaitFrames(20)
 	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, 156, 152, false, 1) end)
@@ -810,7 +810,7 @@ function crooked_den_ch_3.SecondPreBossScene()
 	COMMON.BossTransition()
 	GAME:CutsceneMode(false)
 	--enter fight
-	GAME:ContinueDungeon("crooked_cavern", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+	GAME:ContinueDungeon("crooked_cavern", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 
 end
 

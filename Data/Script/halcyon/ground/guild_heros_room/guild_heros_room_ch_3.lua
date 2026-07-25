@@ -17,7 +17,7 @@ function guild_heros_room_ch_3.FirstMorning()
 	SOUND:StopBGM()
 	SV.Chapter3.ShowedTitleCard = true
 	GAME:WaitFrames(60)
-	local coro1 = TASK:BranchCoroutine(function() UI:WaitShowTitle("Chapter 3\n\nRivals\n", 20)
+	local coro1 = TASK:BranchCoroutine(function() UI:WaitShowTitle("Chapitre 3\n\nRivaux\n", 20)
 												  GAME:WaitFrames(180)
 												  UI:WaitHideTitle(20) end)
 	local coro2 = TASK:BranchCoroutine(function() UI:WaitShowBG("Chapter_3", 180, 20)

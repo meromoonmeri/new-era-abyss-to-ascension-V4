@@ -162,7 +162,7 @@ function searing_tunnel_entrance_ch_5.ArrivalDinnerNightAndAddressCutscene()
 	GAME:WaitFrames(20)
 
 	GAME:FadeIn(40)
-	SOUND:PlayBGM('At The End of the Day.ogg', true)
+	SOUND:PlayBGM('At the End of the Day.ogg', true)
 
 	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, 92, 176, false, 1) end)
 	local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames (10) GROUND:MoveToPosition(hero, 92, 144, false, 1) end)

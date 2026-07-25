@@ -7,6 +7,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.ground.mount_windswept_miniboss.mount_windswept_miniboss_ch_5'
 
 local mount_windswept_miniboss = {}
 
@@ -20,9 +21,9 @@ function mount_windswept_miniboss.Enter(map)
   PrintInfo("=>> Enter_mount_windswept_miniboss")
 
   if SV.Chapter5.MountMiniBossSeen then
-    mount_windswept_miniboss.SecondPreBossScene()
+    mount_windswept_miniboss_ch_5.SecondPreBossScene()
   else
-    mount_windswept_miniboss.FirstPreBossScene()
+    mount_windswept_miniboss_ch_5.FirstPreBossScene()
   end
 end
 
