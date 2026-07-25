@@ -23,11 +23,8 @@
 
 ## Crédits
 
-- **Minori** — auteur du projet New Era : Abyss to Ascension (direction, adaptation, traduction française).
+- **Minori** — fondatrice du projet New Era : Abyss to Ascension (direction, adaptation, traduction française).
 
-- **Palika** — création originale d'Halcyon (histoire, scripts, donjons, chapitres 1 à 5).
-- **Audino** — moteur [RogueEssence](https://github.com/RogueCollab/RogueEssence) et PMDO.
-- L'équipe PMDCollab pour les sprites et portraits.
-- Voir `patchnotes.txt` pour l'historique complet des versions.
+
 
 *Ce mod est un projet de fans, non affilié à Nintendo, Game Freak ou The Pokémon Company.*
