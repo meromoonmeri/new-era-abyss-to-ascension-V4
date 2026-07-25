@@ -8,6 +8,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.BossFX'
 
 vast_steppe_miniboss_ch_5 = {}
 
@@ -150,14 +151,14 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   ruptureLeft.TotalTime = 60
   ruptureLeft.Movement = RogueElements.Loc(-30, -40)
   ruptureLeft.Layer = DrawLayer.Front
-  ruptureLeft.Anim = RogueEssence.Content.BGAnimData("Dirt_Burst", 0)
+  ruptureLeft.Anim = RogueEssence.Content.BGAnimData("Sandstorm", 0)
   GROUND:PlayVFX(ruptureLeft, mudbray.Position.X - 24, mudbray.Position.Y + 8)
   local ruptureRight = RogueEssence.Content.FiniteOverlayEmitter()
   ruptureRight.FadeIn = 5
   ruptureRight.TotalTime = 60
   ruptureRight.Movement = RogueElements.Loc(30, -40)
   ruptureRight.Layer = DrawLayer.Front
-  ruptureRight.Anim = RogueEssence.Content.BGAnimData("Dirt_Burst", 0)
+  ruptureRight.Anim = RogueEssence.Content.BGAnimData("Sandstorm", 0)
   GROUND:PlayVFX(ruptureRight, mudbray.Position.X + 24, mudbray.Position.Y + 8)
 
   SOUND:PlayBattleSE('_UNK_EVT_003')
@@ -174,7 +175,7 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   GAME:WaitFrames(30)
   coro1 = TASK:BranchCoroutine(function()
     GROUND:AnimateInDirection(partner, "None", partner.Direction, Direction.Down, 4, 1, 1)
-    GeneralFunctions.Recoil(partner, "Hurt", 8, 8, false, false)
+    BossFX.Impact(9)
   end)
   coro2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(8)

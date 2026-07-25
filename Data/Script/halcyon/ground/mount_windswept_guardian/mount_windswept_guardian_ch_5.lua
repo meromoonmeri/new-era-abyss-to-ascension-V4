@@ -8,6 +8,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.BossFX'
 
 mount_windswept_guardian_ch_5 = {}
 
@@ -75,7 +76,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   darkCloud.FadeIn = 60
   darkCloud.TotalTime = 140
   darkCloud.Layer = DrawLayer.Top
-  darkCloud.Anim = RogueEssence.Content.BGAnimData("Thunder", 0)
+  darkCloud.Anim = RogueEssence.Content.BGAnimData("Cloudy_Sky", 0)
   GROUND:PlayVFX(darkCloud, 224, 100)
 
   GAME:WaitFrames(60)
@@ -160,7 +161,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   impactDust.TotalTime = 50
   impactDust.Movement = RogueElements.Loc(-40, 0)
   impactDust.Layer = DrawLayer.Front
-  impactDust.Anim = RogueEssence.Content.BGAnimData("Dirt_Burst", 1)
+  impactDust.Anim = RogueEssence.Content.BGAnimData("Sandstorm", 1)
   GROUND:PlayVFX(impactDust, aerodactyl.Position.X - 24, aerodactyl.Position.Y + 16)
 
   local impactDust2 = RogueEssence.Content.FiniteOverlayEmitter()
@@ -168,7 +169,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   impactDust2.TotalTime = 50
   impactDust2.Movement = RogueElements.Loc(40, 0)
   impactDust2.Layer = DrawLayer.Front
-  impactDust2.Anim = RogueEssence.Content.BGAnimData("Dirt_Burst", 1)
+  impactDust2.Anim = RogueEssence.Content.BGAnimData("Sandstorm", 1)
   GROUND:PlayVFX(impactDust2, aerodactyl.Position.X + 24, aerodactyl.Position.Y + 16)
 
   GROUND:MoveScreen(RogueEssence.Content.ScreenMover(3, 5, 30))
@@ -181,7 +182,12 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   local coro_push1 = TASK:BranchCoroutine(function()
     GROUND:AnimateInDirection(partner, "None", partner.Direction, Direction.Down, 8, 1, 1)
     GROUND:AnimateInDirection(partner, "Hurt", Direction.Down, Direction.Down, 8, 1, 2)
-    GeneralFunctions.Recoil(partner, "Hurt", 12, 12, false, false)
+    BossFX.Impact(12)
+  -- Signature ROCHE : l'impact fait s'ebouler la paroi, des blocs
+  -- degringolent autour de l'arene.
+  BossFX.RockFall(224, 200)
+  BossFX.Particle("Rock_Pieces", 196, 208, 3)
+  BossFX.Particle("Rock_Pieces", 252, 208, 3)
   end)
   local coro_push2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(6)
@@ -206,7 +212,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   wingWind.RepeatX = true
   wingWind.Movement = RogueElements.Loc(-180, 0)
   wingWind.Layer = DrawLayer.Front
-  wingWind.Anim = RogueEssence.Content.BGAnimData("Wind", 1)
+  wingWind.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 1)
   GROUND:PlayVFX(wingWind, aerodactyl.Position.X, aerodactyl.Position.Y)
 
   local wingWind2 = RogueEssence.Content.FiniteOverlayEmitter()
@@ -215,7 +221,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   wingWind2.RepeatX = true
   wingWind2.Movement = RogueElements.Loc(180, 0)
   wingWind2.Layer = DrawLayer.Front
-  wingWind2.Anim = RogueEssence.Content.BGAnimData("Wind", 1)
+  wingWind2.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 1)
   GROUND:PlayVFX(wingWind2, aerodactyl.Position.X, aerodactyl.Position.Y)
 
   SOUND:PlayBattleSE('EVT_Battle_Transition')

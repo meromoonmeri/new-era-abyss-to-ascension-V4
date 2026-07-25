@@ -8,6 +8,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.BossFX'
 
 vast_steppe_guardian_ch_5 = {}
 
@@ -106,6 +107,10 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   preEmergeFlash.Anim = RogueEssence.Content.BGAnimData("White", 0)
   GROUND:PlayVFX(preEmergeFlash, center.X, center.Y)
   SOUND:PlayBattleSE("EVT_Battle_Flash")
+  -- Le Gardien se materialise dans la brume : souffle spectral qui
+  -- repousse toute l'equipe (aucun recul n'existait auparavant).
+  BossFX.Overlay("Fog", 0, 0, 20, 70, 25, DrawLayer.Bottom, -1, 0)
+  BossFX.Impact(9)
   GAME:WaitFrames(20)
 
   -- === STANTLER ALPHA MATERIALIZES FROM THE FLASH ===

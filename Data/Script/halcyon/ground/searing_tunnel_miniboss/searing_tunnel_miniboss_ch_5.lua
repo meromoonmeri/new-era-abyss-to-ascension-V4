@@ -8,6 +8,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.BossFX'
 
 searing_tunnel_miniboss_ch_5 = {}
 
@@ -101,38 +102,36 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
   SOUND:FadeOutSE("Light Earthquake", 30)
   GAME:WaitFrames(30)
 
-  -- === TORKOAL EMERGES FROM THE STEAM ===
+  -- === LA VOIX DE L'ABYSSE PARLE EN PREMIER ===
+  -- Ordre impose : Voix -> Flash -> Emergence thematique.
+  BossFX.Voice('STM_006')
+  GAME:WaitFrames(20)
+
+  -- === FLASH BLANC ===
+  BossFX.Flash(256, 220)
+  GAME:WaitFrames(10)
+
+  -- === TORKOAL EMERGE DE LA LAVE (signature FEU) ===
+  -- Vapeur sous pression, panache de lave, braises : pas un simple flash.
   local torkoal = CharacterEssentials.MakeCharactersFromList({
     {'Torkoal', 220, 232, Direction.DownRight}
   })
   GROUND:Hide('Torkoal')
-
-  -- Steam explosion spawn
-  local steamExplosion = RogueEssence.Content.FiniteOverlayEmitter()
-  steamExplosion.FadeIn = 5
-  steamExplosion.TotalTime = 45
-  steamExplosion.Layer = DrawLayer.Front
-  steamExplosion.Anim = RogueEssence.Content.BGAnimData("Smoke", 0)
-  GROUND:PlayVFX(steamExplosion, 220, 232)
-
+  BossFX.EmergeFire(torkoal, 220, 232)
   SOUND:PlayBattleSE('_UNK_EVT_102')
-  GAME:WaitFrames(10)
-  GROUND:Unhide('Torkoal')
+  BossFX.Impact(8)
 
-  -- Ember particles from Torkoal's shell
-  local embers = RogueEssence.Content.FiniteOverlayEmitter()
-  embers.FadeIn = 10
-  embers.TotalTime = 60
-  embers.Movement = RogueElements.Loc(0, -20)
-  embers.Layer = DrawLayer.Front
-  embers.Anim = RogueEssence.Content.BGAnimData("Ember", 0)
-  GROUND:PlayVFX(embers, 220, 232)
+  -- Braises jaillissant de la carapace de Torkoal.
+  -- "Ember" est une PARTICULE (Content/Particle) : elle doit passer par un
+  -- SingleEmitter/AnimData. En BGAnimData l'effet ne s'affichait pas du tout.
+  BossFX.Particle("Ember", 220, 232, 4)
+  BossFX.Particle("Ember", 204, 238, 5)
+  BossFX.Particle("Ember", 236, 238, 5)
 
   GAME:WaitFrames(20)
 
   coro1 = TASK:BranchCoroutine(function()
     GROUND:AnimateInDirection(partner, "None", partner.Direction, Direction.Down, 4, 1, 1)
-    GeneralFunctions.Recoil(partner, "Hurt", 6, 6, false, false)
   end)
   coro2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(8)
@@ -149,59 +148,22 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(20)
 
-  -- === MAGMAR DROPS FROM THE CEILING IN FLAMES ===
+  -- === MAGMAR TOMBE DU PLAFOND EN FLAMMES (signature FEU) ===
   local magmar = CharacterEssentials.MakeCharactersFromList({
     {'Magmar', 292, 208, Direction.DownLeft}
   })
   GROUND:Hide('Magmar')
-
-  SOUND:PlayBattleSE('EVT_Battle_Flash')
-  -- Magmar descends in a burst of fire
-  local fireDrop = RogueEssence.Content.StaticAnim(
-    RogueEssence.Content.AnimData("Sacred_Fire_Ranger", 3), 1)
-  fireDrop:SetupEmitted(
-    RogueElements.Loc(magmar.Position.X + 8, magmar.Position.Y),
-    24, RogueElements.Dir8.Down)
-  GROUND:PlayVFXAnim(fireDrop, RogueEssence.Content.DrawLayer.Front)
-
-  GAME:WaitFrames(5)
+  GROUND:TeleportTo(magmar, 292, 208 - 140, Direction.Down)
   GROUND:Unhide('Magmar')
+  BossFX.Particle("Lava_Plume_Fire", 292, 208 - 120, 3)
+  SOUND:PlayBattleSE('DUN_Fire_Spin')
+  GROUND:MoveToPosition(magmar, 292, 208, false, 7)
+  BossFX.Particle("Fire_Blast", 292, 212, 3)
+  BossFX.Particle("Ember", 276, 214, 4)
+  BossFX.Particle("Ember", 308, 214, 4)
+  BossFX.Flash(292, 208)
+  BossFX.Impact(10)
   GROUND:CharSetAnim(magmar, "Idle", true)
-
-  -- Fire burst on impact
-  local fireBurst = RogueEssence.Content.FiniteOverlayEmitter()
-  fireBurst.FadeIn = 3
-  fireBurst.TotalTime = 35
-  fireBurst.Layer = DrawLayer.Front
-  fireBurst.Anim = RogueEssence.Content.BGAnimData("Fire_Burst", 0)
-  GROUND:PlayVFX(fireBurst, magmar.Position.X, magmar.Position.Y + 16)
-
-  SOUND:PlayBGM('Rising Fear.ogg', true)
-
-  GAME:WaitFrames(25)
-  coro1 = TASK:BranchCoroutine(function()
-    GROUND:CharAnimateTurnTo(partner, Direction.Right, 4)
-    GeneralFunctions.Recoil(partner, "Hurt", 8, 8, false, false)
-  end)
-  coro2 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(8)
-    GROUND:CharAnimateTurnTo(hero, Direction.Right, 4)
-  end)
-  TASK:JoinCoroutines({coro1, coro2})
-
-  GAME:WaitFrames(15)
-  GROUND:CharSetEmote(partner, "sweating", 1)
-  UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_005']))
-  -- "Un Magmar aussi ! Ils nous ont encerclés !"
-
-  GAME:WaitFrames(30)
-
-  -- === VOICE OF THE ABYSS ===
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_006']))
-  -- "Les Maîtres-Forgerons des profondeurs..."
 
   GAME:WaitFrames(20)
   coro1 = TASK:BranchCoroutine(function()
@@ -238,17 +200,12 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
     smoke.FadeIn = 10
     smoke.TotalTime = 50
     smoke.Layer = DrawLayer.Front
-    smoke.Anim = RogueEssence.Content.BGAnimData("Smoke", 0)
+    smoke.Anim = RogueEssence.Content.BGAnimData("Fog", 0)
     GROUND:PlayVFX(smoke, torkoal.Position.X, torkoal.Position.Y - 16)
   end)
   coro2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(10)
-    local fireSpark = RogueEssence.Content.FiniteOverlayEmitter()
-    fireSpark.FadeIn = 5
-    fireSpark.TotalTime = 30
-    fireSpark.Layer = DrawLayer.Front
-    fireSpark.Anim = RogueEssence.Content.BGAnimData("Ember", 0)
-    GROUND:PlayVFX(fireSpark, magmar.Position.X, magmar.Position.Y)
+    BossFX.Particle("Ember", magmar.Position.X, magmar.Position.Y, 4)
   end)
   TASK:JoinCoroutines({coro1, coro2})
 

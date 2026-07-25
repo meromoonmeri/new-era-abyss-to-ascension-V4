@@ -8,6 +8,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.BossFX'
 
 mount_windswept_miniboss_ch_5 = {}
 
@@ -73,7 +74,7 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   windEmitter.RepeatX = true
   windEmitter.Movement = RogueElements.Loc(-360, 0)
   windEmitter.Layer = DrawLayer.Back
-  windEmitter.Anim = RogueEssence.Content.BGAnimData("Wind", 0)
+  windEmitter.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 0)
   GROUND:PlayVFX(windEmitter, 224, 160)
 
   SOUND:LoopSE("Heavy Earthquake")
@@ -102,28 +103,28 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   SOUND:FadeOutSE("Heavy Earthquake", 40)
   GAME:WaitFrames(20)
 
-  -- === GLIGAR BURSTS FROM A CREVASSE ===
+  -- === LA VOIX DE L'ABYSSE PARLE EN PREMIER ===
+  -- Ordre impose : Voix -> Flash -> Emergence thematique. Avant, les deux
+  -- boss apparaissaient puis la Voix commentait apres coup.
+  BossFX.Voice('MWM_006')
+  -- "Les Sentinelles du Pic..."
+  GAME:WaitFrames(20)
+
+  -- === FLASH BLANC ===
+  BossFX.Flash(224, 220)
+  GAME:WaitFrames(10)
+
+  -- === GLIGAR JAILLIT DE LA CREVASSE (signature SOL) ===
+  -- Le sol se fissure, gerbes de terre, emergence facon Fouille.
   local gligar = CharacterEssentials.MakeCharactersFromList({
     {'Gligar', 180, 240, Direction.DownRight}
   })
   GROUND:Hide('Gligar')
-
-  -- Rock debris burst
-  local rockBurst = RogueEssence.Content.FiniteOverlayEmitter()
-  rockBurst.FadeIn = 5
-  rockBurst.TotalTime = 45
-  rockBurst.Movement = RogueElements.Loc(0, -30)
-  rockBurst.Layer = DrawLayer.Front
-  rockBurst.Anim = RogueEssence.Content.BGAnimData("Dirt_Burst", 0)
-  GROUND:PlayVFX(rockBurst, 180, 240)
-
+  BossFX.EmergeGround(gligar, 180, 240)
   SOUND:PlayBattleSE('_UNK_EVT_102')
-  GAME:WaitFrames(5)
-  GROUND:Unhide('Gligar')
-
-  -- Gligar does a quick flutter
-  GAME:WaitFrames(10)
   GROUND:CharSetAnim(gligar, "Idle", true)
+  -- le souffle repousse toute l'equipe, pas seulement le partenaire
+  BossFX.Impact(9)
 
   GAME:WaitFrames(20)
   coro1 = TASK:BranchCoroutine(function()
@@ -150,27 +151,11 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   })
   GROUND:Hide('Skarmory')
 
-  -- Skarmory dive-bomb effect
-  local diveStreak = RogueEssence.Content.FiniteOverlayEmitter()
-  diveStreak.FadeIn = 3
-  diveStreak.TotalTime = 25
-  diveStreak.Movement = RogueElements.Loc(0, 60)
-  diveStreak.Layer = DrawLayer.Front
-  diveStreak.Anim = RogueEssence.Content.BGAnimData("Wind", 1)
-  GROUND:PlayVFX(diveStreak, 268, 160)
-
-  SOUND:PlayBattleSE('EVT_Battle_Flash')
-  GAME:WaitFrames(8)
-
-  -- Impact effect
-  local impact = RogueEssence.Content.FiniteOverlayEmitter()
-  impact.FadeIn = 3
-  impact.TotalTime = 30
-  impact.Layer = DrawLayer.Front
-  impact.Anim = RogueEssence.Content.BGAnimData("Dirt_Burst", 1)
-  GROUND:PlayVFX(impact, 268, 200)
-
-  GROUND:Unhide('Skarmory')
+  -- === SKARMORY FOND DU CIEL (signature VOL / ACIER) ===
+  -- Descente verticale reelle depuis hors-ecran, plumes, impact au sol,
+  -- puis recul de toute l'equipe.
+  BossFX.DescendSky(skarmory, 268, 192, 150)
+  BossFX.Particle("Steel_Wing", 268, 196, 3)
   GROUND:CharSetAnim(skarmory, "Idle", true)
 
   SOUND:PlayBGM('Rising Fear.ogg', true)
@@ -178,7 +163,6 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   GAME:WaitFrames(20)
   coro1 = TASK:BranchCoroutine(function()
     GROUND:CharAnimateTurnTo(partner, Direction.Right, 4)
-    GeneralFunctions.Recoil(partner, "Hurt", 10, 10, false, false)
   end)
   coro2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(8)
@@ -195,11 +179,6 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   -- "Un Skarmory en piqué ! Ils sont deux !"
 
   GAME:WaitFrames(30)
-
-  -- === VOICE OF THE ABYSS ===
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_006']))
-  -- "Les Sentinelles du Pic..."
 
   GAME:WaitFrames(20)
   coro1 = TASK:BranchCoroutine(function()

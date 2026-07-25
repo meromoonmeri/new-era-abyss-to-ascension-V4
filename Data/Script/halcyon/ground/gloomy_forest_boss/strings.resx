@@ -10,4 +10,13 @@
   <data name="GF6B_008" xml:space="preserve"><value>We came this far together. We will finish this together.</value></data>
   <data name="GF6B_009" xml:space="preserve"><value>Turn back.</value></data>
   <data name="GF6B_010" xml:space="preserve"><value>The forest will not forgive trespassers.</value></data>
+  <data name="GF6B_011" xml:space="preserve">
+    <value>The forest's gone quiet...[pause=20] Even the wind has stopped.</value>
+  </data>
+  <data name="GF6B_012" xml:space="preserve">
+    <value>So the little ones came all this way...</value>
+  </data>
+  <data name="GF6B_013" xml:space="preserve">
+    <value>The Guardian of the roots will not let you pass.</value>
+  </data>
 </root>
