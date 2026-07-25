@@ -9,6 +9,7 @@ require 'halcyon.ground.metano_town.metano_town_ch_3'
 require 'halcyon.ground.metano_town.metano_town_ch_4'
 require 'halcyon.ground.metano_town.metano_town_ch_5'
 require 'halcyon.ground.metano_town.metano_town_ch_6'
+require 'halcyon.ground.metano_town.metano_town_legend'
 require 'halcyon.menu.single_deal_menu'
 require 'origin.menu.skill.SkillTutorMenu'
 
@@ -2711,6 +2712,19 @@ end
 function metano_town.Zigzagoon_Action(obj, activator)
  DEBUG.EnableDbgCoro() --Enable debugging this coroutine
  assert(pcall(load("metano_town_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Zigzagoon_Action(...,...)"), obj, activator))
+end
+
+--Stand de Grodoudou : zones de recrutement des legendaires.
+--La logique vit dans metano_town_legend.lua ; ce callback n'est que le relais
+--appele par l'entite 'Legend_Merchant' de metano_town.rsground.
+function metano_town.Legend_Merchant_Action(obj, activator)
+  metano_town_legend.Legend_Merchant_Action(obj, activator)
+end
+
+--L'etal lui-meme renvoie vers la marchande : cliquer sur le comptoir
+--ou sur Grodoudou produit la meme scene.
+function metano_town.Legend_Stand_Action(obj, activator)
+  metano_town_legend.Legend_Merchant_Action(CH('Legend_Merchant'), activator)
 end
 
 function metano_town.Growlithe_Desk_Action(obj, activator)

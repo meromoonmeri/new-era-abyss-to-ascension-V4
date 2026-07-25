@@ -2542,4 +2542,322 @@
   <data name="MT6_056" xml:space="preserve">
     <value>Ce serait une agréable surprise.</value>
   </data>
+  <data name="LZ_Blurb_Borrowed_Light" xml:space="preserve">
+    <value>Un cratère qui éclaire sans source,[pause=10] en prenant la lumière d'ailleurs.</value>
+  </data>
+  <data name="LZ_Blurb_Clearwater_Ford" xml:space="preserve">
+    <value>Un gué si limpide qu'on y voit le ciel d'hier.</value>
+  </data>
+  <data name="LZ_Blurb_Colossus_Quarry" xml:space="preserve">
+    <value>Une carrière que personne n'a creusée.[pause=10] Les blocs en ont été retirés de l'intérieur.</value>
+  </data>
+  <data name="LZ_Blurb_Dead_Hours" xml:space="preserve">
+    <value>Le creux de la nuit où la forêt oublie quel jour on est.</value>
+  </data>
+  <data name="LZ_Blurb_Ember_Vigil" xml:space="preserve">
+    <value>Un foyer que personne n'entretient et qui ne s'éteint jamais.</value>
+  </data>
+  <data name="LZ_Blurb_First_Cradle" xml:space="preserve">
+    <value>Le tout premier endroit.[pause=10] Je ne dis rien de plus,[pause=10] et je ne baisse pas mon prix.</value>
+  </data>
+  <data name="LZ_Blurb_Given_Life" xml:space="preserve">
+    <value>Une clairière où ce qui meurt met beaucoup plus de temps que prévu.</value>
+  </data>
+  <data name="LZ_Blurb_High_Conductor" xml:space="preserve">
+    <value>Un pylône naturel où l'orage vient se poser pour se reposer.</value>
+  </data>
+  <data name="LZ_Blurb_Hour_That_Lags" xml:space="preserve">
+    <value>Un vallon où la même minute recommence,[pause=10] un tout petit peu plus lentement.</value>
+  </data>
+  <data name="LZ_Blurb_Kept_Feeling" xml:space="preserve">
+    <value>Un bassin où l'eau garde l'humeur de qui s'y penche.</value>
+  </data>
+  <data name="LZ_Blurb_Last_Resolve" xml:space="preserve">
+    <value>Le bout d'un promontoire où l'on décide pour de bon.</value>
+  </data>
+  <data name="LZ_Blurb_Long_Ash" xml:space="preserve">
+    <value>Une coulée noire qui descend d'un volcan éteint depuis mille ans.</value>
+  </data>
+  <data name="LZ_Blurb_Ninth_Summit" xml:space="preserve">
+    <value>Huit sommets se voient depuis la vallée.[pause=10] Le neuvième,[pause=10] non.</value>
+  </data>
+  <data name="LZ_Blurb_Quiet_Ledger" xml:space="preserve">
+    <value>Une grotte où tout ce que vous avez oublié est écrit quelque part.</value>
+  </data>
+  <data name="LZ_Blurb_Rainbow_Ash" xml:space="preserve">
+    <value>Là où quelque chose a brûlé,[pause=10] puis a recommencé.</value>
+  </data>
+  <data name="LZ_Blurb_Reverse_Slope" xml:space="preserve">
+    <value>Une pente qui monte quand on la descend.[pause=10] Ne vous retournez pas trop vite.</value>
+  </data>
+  <data name="LZ_Blurb_Soft_Sleep" xml:space="preserve">
+    <value>Une combe où l'on dort debout sans s'en rendre compte.</value>
+  </data>
+  <data name="LZ_Blurb_Spatial_Hill" xml:space="preserve">
+    <value>Une colline dont on n'atteint jamais le sommet en marchant droit.</value>
+  </data>
+  <data name="LZ_Blurb_Stone_Argument" xml:space="preserve">
+    <value>Un éboulis qui s'est arrêté au milieu de sa chute.</value>
+  </data>
+  <data name="LZ_Blurb_Storm_Bell" xml:space="preserve">
+    <value>Une crête qui sonne avant l'éclair,[pause=10] jamais après.</value>
+  </data>
+  <data name="LZ_Blurb_Sunken_Choir" xml:space="preserve">
+    <value>Une baie où la mer chante à deux voix,[pause=10] dont une sous l'eau.</value>
+  </data>
+  <data name="LZ_Blurb_Thawed_Step" xml:space="preserve">
+    <value>Un escalier de glace où une seule marche a fondu.</value>
+  </data>
+  <data name="LZ_Blurb_Unsaid_Wishes" xml:space="preserve">
+    <value>Là où retombe tout ce que personne n'a osé demander.</value>
+  </data>
+  <data name="LZ_Blurb_Upturned_Dream" xml:space="preserve">
+    <value>Le même endroit que le précédent.[pause=10] Vu de l'autre côté.</value>
+  </data>
+  <data name="LZ_Blurb_Verdant_Oath" xml:space="preserve">
+    <value>La clairière où la forêt a cessé de crier.[pause=10] Elle vous a laissés partir une fois.</value>
+  </data>
+  <data name="LZ_Meet_001" xml:space="preserve">
+    <value>Oh ![pause=0] Oh oh oh ![pause=10] Vous êtes l'équipe dont tout le monde parle ![pause=0] \u266A</value>
+  </data>
+  <data name="LZ_Meet_002" xml:space="preserve">
+    <value>Moi c'est Grodoudou.[pause=10] Je ne vends ni baies,[pause=10] ni graines,[pause=10] ni parapluies.</value>
+  </data>
+  <data name="LZ_Meet_003" xml:space="preserve">
+    <value>Je vends des[pause=0] [color=#FFCEFF]endroits[color].</value>
+  </data>
+  <data name="LZ_Meet_004" xml:space="preserve">
+    <value>Des endroits que personne ne trouve sur une carte.[pause=10] Des endroits qu'il faut d'abord avoir[pause=0] frôlés[pause=0] pour pouvoir y revenir.</value>
+  </data>
+  <data name="LZ_Meet_005" xml:space="preserve">
+    <value>Vous en avez déjà frôlé quelques-uns,[pause=10] je le vois à vos yeux.[pause=0] Alors venez voir mon étal.</value>
+  </data>
+  <data name="LZ_Name_Borrowed_Light" xml:space="preserve">
+    <value>Lumière Empruntée</value>
+  </data>
+  <data name="LZ_Name_Clearwater_Ford" xml:space="preserve">
+    <value>Gué d'Eau Claire</value>
+  </data>
+  <data name="LZ_Name_Colossus_Quarry" xml:space="preserve">
+    <value>Carrière du Colosse</value>
+  </data>
+  <data name="LZ_Name_Dead_Hours" xml:space="preserve">
+    <value>Les Heures Mortes</value>
+  </data>
+  <data name="LZ_Name_Ember_Vigil" xml:space="preserve">
+    <value>Veillée de Braise</value>
+  </data>
+  <data name="LZ_Name_First_Cradle" xml:space="preserve">
+    <value>Premier Berceau</value>
+  </data>
+  <data name="LZ_Name_Given_Life" xml:space="preserve">
+    <value>Vie Donnée</value>
+  </data>
+  <data name="LZ_Name_High_Conductor" xml:space="preserve">
+    <value>Haut Conducteur</value>
+  </data>
+  <data name="LZ_Name_Hour_That_Lags" xml:space="preserve">
+    <value>L'Heure Qui Traîne</value>
+  </data>
+  <data name="LZ_Name_Kept_Feeling" xml:space="preserve">
+    <value>Sentiment Gardé</value>
+  </data>
+  <data name="LZ_Name_Last_Resolve" xml:space="preserve">
+    <value>Dernière Résolution</value>
+  </data>
+  <data name="LZ_Name_Long_Ash" xml:space="preserve">
+    <value>Longue Cendre</value>
+  </data>
+  <data name="LZ_Name_Ninth_Summit" xml:space="preserve">
+    <value>Neuvième Cime</value>
+  </data>
+  <data name="LZ_Name_Quiet_Ledger" xml:space="preserve">
+    <value>Registre Muet</value>
+  </data>
+  <data name="LZ_Name_Rainbow_Ash" xml:space="preserve">
+    <value>Cendre Arc-en-ciel</value>
+  </data>
+  <data name="LZ_Name_Reverse_Slope" xml:space="preserve">
+    <value>Pente Inversée</value>
+  </data>
+  <data name="LZ_Name_Soft_Sleep" xml:space="preserve">
+    <value>Sommeil Léger</value>
+  </data>
+  <data name="LZ_Name_Spatial_Hill" xml:space="preserve">
+    <value>Colline Spatiale</value>
+  </data>
+  <data name="LZ_Name_Stone_Argument" xml:space="preserve">
+    <value>Querelle de Pierre</value>
+  </data>
+  <data name="LZ_Name_Storm_Bell" xml:space="preserve">
+    <value>Cloche d'Orage</value>
+  </data>
+  <data name="LZ_Name_Sunken_Choir" xml:space="preserve">
+    <value>Chœur Englouti</value>
+  </data>
+  <data name="LZ_Name_Thawed_Step" xml:space="preserve">
+    <value>Marche Dégelée</value>
+  </data>
+  <data name="LZ_Name_Unsaid_Wishes" xml:space="preserve">
+    <value>Vœux Tus</value>
+  </data>
+  <data name="LZ_Name_Upturned_Dream" xml:space="preserve">
+    <value>Rêve Retourné</value>
+  </data>
+  <data name="LZ_Name_Verdant_Oath" xml:space="preserve">
+    <value>Serment Verdoyant</value>
+  </data>
+  <data name="LZ_Shop_Bought_001" xml:space="preserve">
+    <value>Voilà ![pause=0] {0} vous attend désormais. \u266A</value>
+  </data>
+  <data name="LZ_Shop_Bought_002" xml:space="preserve">
+    <value>Le chemin est ouvert.[pause=10] Ce qui vit au bout,[pause=10] en revanche,[pause=10] ne m'appartient pas.</value>
+  </data>
+  <data name="LZ_Shop_Bought_003" xml:space="preserve">
+    <value>Si vous croisez {0} là-bas...[pause=10] battez-vous bien.[pause=0] C'est la seule façon d'être écoutés.</value>
+  </data>
+  <data name="LZ_Shop_Buy_Prompt" xml:space="preserve">
+    <value>Voici ce que j'ai pu retrouver...</value>
+  </data>
+  <data name="LZ_Shop_Cleared_Tag" xml:space="preserve">
+    <value> [color=#00FFFF](visité)[color]</value>
+  </data>
+  <data name="LZ_Shop_Confirm" xml:space="preserve">
+    <value>{0},[pause=10] pour {1}.[pause=0]\nOn se serre la patte ?</value>
+  </data>
+  <data name="LZ_Shop_Declined" xml:space="preserve">
+    <value>Prenez votre temps.[pause=10] Les lieux perdus,[pause=10] eux,[pause=10] ne sont pas pressés.</value>
+  </data>
+  <data name="LZ_Shop_Disclaimer" xml:space="preserve">
+    <value>Je vous préviens tout de suite,[pause=10] et je le répéterai autant qu'il le faudra :[pause=0] je vous vends le[pause=0] [color=#FFCEFF]chemin[color],[pause=10] pas {0}.</value>
+  </data>
+  <data name="LZ_Shop_Entry" xml:space="preserve">
+    <value>{0} — {1}</value>
+  </data>
+  <data name="LZ_Shop_Goodbye" xml:space="preserve">
+    <value>Revenez me voir après votre prochaine grande rencontre ! \u266A</value>
+  </data>
+  <data name="LZ_Shop_Info_001" xml:space="preserve">
+    <value>C'est très simple,[pause=10] et pourtant tout le monde se trompe.</value>
+  </data>
+  <data name="LZ_Shop_Info_002" xml:space="preserve">
+    <value>Un lieu n'apparaît sur mon étal que si votre histoire vous a déjà fait croiser celui qui l'habite.[pause=0] Pas avant.</value>
+  </data>
+  <data name="LZ_Shop_Info_003" xml:space="preserve">
+    <value>Acheter le lieu ne fait pas venir le Pokémon.[pause=10] Ça vous rend juste le chemin praticable.</value>
+  </data>
+  <data name="LZ_Shop_Info_004" xml:space="preserve">
+    <value>Sur place,[pause=10] il faudra l'affronter.[pause=0] Et le battre.[pause=0] Ces Pokémon-là ne suivent personne par politesse.</value>
+  </data>
+  <data name="LZ_Shop_Info_005" xml:space="preserve">
+    <value>Ce sont des rencontres,[pause=10] pas des marchandises.[pause=0] Moi je ne vends que la route. \u266A</value>
+  </data>
+  <data name="LZ_Shop_Intro" xml:space="preserve">
+    <value>Bienvenue à l'étal des lieux perdus ! \u266A[pause=0]\nQue puis-je pour vous ?</value>
+  </data>
+  <data name="LZ_Shop_Intro_Return" xml:space="preserve">
+    <value>Autre chose ?</value>
+  </data>
+  <data name="LZ_Shop_No_Money" xml:space="preserve">
+    <value>Ah...[pause=10] il vous manque quelques pièces.[pause=0] Je garde le chemin au chaud pour vous !</value>
+  </data>
+  <data name="LZ_Shop_No_Zones" xml:space="preserve">
+    <value>Vous n'avez encore acheté aucun lieu.[pause=10] Mon étal est juste là,[pause=10] vous savez.</value>
+  </data>
+  <data name="LZ_Shop_Nothing_001" xml:space="preserve">
+    <value>Mon étal est vide,[pause=10] pour l'instant.</value>
+  </data>
+  <data name="LZ_Shop_Nothing_002" xml:space="preserve">
+    <value>Je ne peux vendre que les lieux que vous avez[pause=0] déjà touchés du regard.[pause=10] Continuez votre route,[pause=10] et mes étagères se rempliront toutes seules.</value>
+  </data>
+  <data name="LZ_Shop_Option_Buy" xml:space="preserve">
+    <value>Acheter un lieu</value>
+  </data>
+  <data name="LZ_Shop_Option_Travel" xml:space="preserve">
+    <value>S'y rendre</value>
+  </data>
+  <data name="LZ_Shop_Travel_Confirm" xml:space="preserve">
+    <value>Je vous envoie vers {0} ?</value>
+  </data>
+  <data name="LZ_Shop_Travel_Go" xml:space="preserve">
+    <value>Accrochez-vous bien à vos écharpes ! \u266A</value>
+  </data>
+  <data name="LZ_Shop_Travel_Prompt" xml:space="preserve">
+    <value>Où souhaitez-vous aller ?</value>
+  </data>
+  <data name="LZ_Sight_Borrowed_Light" xml:space="preserve">
+    <value>Tout y brille,[pause=10] sauf ce qui devrait.[pause=0] Votre propre ombre y manque.</value>
+  </data>
+  <data name="LZ_Sight_Clearwater_Ford" xml:space="preserve">
+    <value>Le courant y remonte,[pause=10] et le vent sent la neige alors qu'il n'y a pas de neige.</value>
+  </data>
+  <data name="LZ_Sight_Colossus_Quarry" xml:space="preserve">
+    <value>Six veines dorées courent sous la pierre.[pause=10] Quand elles s'allument ensemble,[pause=10] le sol respire.</value>
+  </data>
+  <data name="LZ_Sight_Dead_Hours" xml:space="preserve">
+    <value>Des feuilles de printemps et des feuilles d'automne tombent du même arbre,[pause=10] en même temps.</value>
+  </data>
+  <data name="LZ_Sight_Ember_Vigil" xml:space="preserve">
+    <value>La cendre y reste chaude depuis si longtemps qu'elle est devenue de la pierre.</value>
+  </data>
+  <data name="LZ_Sight_First_Cradle" xml:space="preserve">
+    <value>Il n'y a rien à y voir.[pause=10] C'est précisément ce qui devrait vous inquiéter.</value>
+  </data>
+  <data name="LZ_Sight_Given_Life" xml:space="preserve">
+    <value>Les bois d'un arbre mort y ont fleuri,[pause=10] et les fleurs sont bleues.</value>
+  </data>
+  <data name="LZ_Sight_High_Conductor" xml:space="preserve">
+    <value>Vos plumes,[pause=10] vos poils,[pause=10] vos écailles s'y dressent avant que vous n'ayez rien entendu.</value>
+  </data>
+  <data name="LZ_Sight_Hour_That_Lags" xml:space="preserve">
+    <value>Les gouttes de pluie y descendent trop lentement pour tomber vraiment.</value>
+  </data>
+  <data name="LZ_Sight_Kept_Feeling" xml:space="preserve">
+    <value>Votre reflet y sourit une seconde après vous.</value>
+  </data>
+  <data name="LZ_Sight_Last_Resolve" xml:space="preserve">
+    <value>Il n'y a pas de barrière,[pause=10] pas de garde-fou,[pause=10] et pourtant personne n'est jamais tombé.</value>
+  </data>
+  <data name="LZ_Sight_Long_Ash" xml:space="preserve">
+    <value>Une seule empreinte y est restée intacte,[pause=10] et elle est encore brûlante.</value>
+  </data>
+  <data name="LZ_Sight_Ninth_Summit" xml:space="preserve">
+    <value>L'air y est trop mince pour crier,[pause=10] et les nuages passent en dessous de vos pattes.</value>
+  </data>
+  <data name="LZ_Sight_Quiet_Ledger" xml:space="preserve">
+    <value>Les parois y sont couvertes de marques que vous reconnaissez sans pouvoir les lire.</value>
+  </data>
+  <data name="LZ_Sight_Rainbow_Ash" xml:space="preserve">
+    <value>Les braises y sont de sept couleurs,[pause=10] et l'herbe repousse pendant que vous regardez.</value>
+  </data>
+  <data name="LZ_Sight_Reverse_Slope" xml:space="preserve">
+    <value>Votre ombre y marche devant vous,[pause=10] et elle n'attend pas.</value>
+  </data>
+  <data name="LZ_Sight_Soft_Sleep" xml:space="preserve">
+    <value>Une lumière de lune y persiste en plein jour,[pause=10] posée sur l'herbe comme un drap.</value>
+  </data>
+  <data name="LZ_Sight_Spatial_Hill" xml:space="preserve">
+    <value>Des runes gravées à même le sol tournent lentement autour d'un centre trop lumineux.[pause=10] La distance y ment.</value>
+  </data>
+  <data name="LZ_Sight_Stone_Argument" xml:space="preserve">
+    <value>Trois blocs énormes s'y appuient l'un contre l'autre,[pause=10] et aucun ne cède.</value>
+  </data>
+  <data name="LZ_Sight_Storm_Bell" xml:space="preserve">
+    <value>Les rochers y sont fendus par le haut,[pause=10] tous dans le même sens.</value>
+  </data>
+  <data name="LZ_Sight_Sunken_Choir" xml:space="preserve">
+    <value>La marée y monte en cercles concentriques,[pause=10] depuis le large,[pause=10] vers un point précis.</value>
+  </data>
+  <data name="LZ_Sight_Thawed_Step" xml:space="preserve">
+    <value>L'air y est si froid qu'il craque,[pause=10] mais la pierre,[pause=10] elle,[pause=10] est tiède.</value>
+  </data>
+  <data name="LZ_Sight_Unsaid_Wishes" xml:space="preserve">
+    <value>Le sol y est couvert de poussière brillante,[pause=10] et chaque grain a été un souhait.</value>
+  </data>
+  <data name="LZ_Sight_Upturned_Dream" xml:space="preserve">
+    <value>Rien n'y projette d'ombre,[pause=10] parce que tout y est déjà de l'ombre.</value>
+  </data>
+  <data name="LZ_Sight_Verdant_Oath" xml:space="preserve">
+    <value>Les lianes y ont repoussé en cercle,[pause=10] comme si quelqu'un montait la garde autour d'un souvenir.</value>
+  </data>
 </root>

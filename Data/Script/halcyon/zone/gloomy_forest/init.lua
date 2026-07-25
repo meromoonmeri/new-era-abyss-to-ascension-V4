@@ -1,5 +1,6 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.LegendZones'
 
 local gloomy_forest = {}
 
@@ -122,6 +123,26 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 			GAME:WaitFrames(20)
 			GAME:EnterZone("master_zone", -1, 61, 0)
 		end
+		return
+	end
+
+	------------------------------------------------------------------
+	-- Segment 3 : arene de revanche Zarude (zone "Serment Verdoyant").
+	-- Accessible uniquement via le stand de Grodoudou, apres achat de la
+	-- zone, et seulement si l'histoire a deja fait vaincre Zarude
+	-- (SV.Chapter6.DefeatedGloomyBoss). Ce n'est pas une rencontre
+	-- aleatoire : c'est un retour volontaire sur les lieux.
+	-- Ici le Zarude n'est PAS Unrecruitable : le vaincre peut donc le
+	-- faire rejoindre l'equipe selon les regles de recrutement normales.
+	------------------------------------------------------------------
+	if segmentID == 3 then
+		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+			LegendZones.SetDefeated('verdant_oath')
+		end
+		-- Victoire comme defaite, on ressort en ville : aucune progression
+		-- d'histoire n'est en jeu, et la journee n'avance pas.
+		GAME:WaitFrames(20)
+		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
 		return
 	end
 

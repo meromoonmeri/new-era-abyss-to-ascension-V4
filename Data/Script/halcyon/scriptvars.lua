@@ -646,6 +646,19 @@ SV.Dojo =
 
 
 --Keeps track of overall game progression flags (chapter number, important overarching flags, etc)
+--Zones de recrutement des legendaires (stand de Grodoudou, Metano Town).
+--Purchased[key]  : la zone a ete achetee -> on peut s'y rendre
+--Defeated[key]   : le legendaire y a ete vaincu au moins une fois
+--MetMerchant     : Grodoudou s'est deja presentee
+--Voir Data/Script/halcyon/LegendZones.lua pour le catalogue.
+SV.LegendZones =
+{
+	Purchased = {},
+	Defeated = {},
+	MetMerchant = false
+}
+
+
 SV.ChapterProgression = 
 {
 	DaysPassed = 0,--total number of in game days played in the game
