@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="CRB_001" xml:space="preserve"><value>Le cœur des ruines...[pause=15] Il bat encore.</value></data>
+  <data name="CRB_002" xml:space="preserve"><value>Regarde ces veines dorées...[pause=15] Elles palpitent.</value></data>
+  <data name="CRB_003" xml:space="preserve"><value>Le Titan déchu...[pause=30] Il attend depuis des millénaires.</value></data>
+  <data name="CRB_004" xml:space="preserve"><value>Toi...[pause=10] Tu nous as suivis jusqu'ici ?</value></data>
+  <data name="CRB_005" xml:space="preserve"><value>Je suis partout où la vie des Cœurs s'affaiblit.</value></data>
+  <data name="CRB_006" xml:space="preserve"><value>Et ici...[pause=20] le Cœur ne bat presque plus.</value></data>
+  <data name="CRB_007" xml:space="preserve"><value>REGIGIGAS ![pause=10] Le Titan des Ruines !</value></data>
+  <data name="CRB_008" xml:space="preserve"><value>Il protège ce qui reste du Cœur.[pause=20] Si tu le vaines, le Cœur est à toi.</value></data>
+  <data name="CRB_009" xml:space="preserve"><value>Si tu échoues...[pause=30] ce Cœur s'éteindra pour toujours.</value></data>
+  <data name="CRB_010" xml:space="preserve"><value>Alors on ne peut pas perdre.[pause=15] [player], à nous !</value></data>
+  <data name="CRB_011" xml:space="preserve"><value>Cette fois, on le terrasse !</value></data>
+  <data name="CRB_012" xml:space="preserve"><value>On a vaincu le Titan !</value></data>
+  <data name="CRB_013" xml:space="preserve"><value>Le Cœur...[pause=15] il bat plus fort maintenant.</value></data>
+  <data name="CRB_014" xml:space="preserve"><value>(Cette voix...[pause=20] elle nous a guidés jusqu'ici exprès.)</value></data>
+  <data name="CRB_015" xml:space="preserve"><value>On doit parler à Phileas.[pause=25] Il en sait plus qu'il ne le dit.</value></data>
+  <data name="CRB_016" xml:space="preserve"><value>Le Titan ne pardonne pas...</value></data>
+  <data name="CRB_017" xml:space="preserve"><value>Mais ce Cœur t'attend.[pause=30] Reviens quand tu seras prêt.</value></data>
+</root>
