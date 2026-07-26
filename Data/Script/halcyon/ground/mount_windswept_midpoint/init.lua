@@ -17,6 +17,7 @@ function mount_windswept_midpoint.Init(map)
 end
 
 function mount_windswept_midpoint.Enter(map)
+	if SV.Chapter5.PlayedMountMidpointIntro == nil then SV.Chapter5.PlayedMountMidpointIntro = false end
   mount_windswept_midpoint.PlotScripting()
 end
 

@@ -17,6 +17,9 @@ function vast_steppe_miniboss.Init(map)
 end
 
 function vast_steppe_miniboss.Enter(map)
+	if SV.Chapter5.SteppeMiniBossDefeated == nil then SV.Chapter5.SteppeMiniBossDefeated = false end
+	if SV.Chapter5.SteppeMiniBossLost == nil then SV.Chapter5.SteppeMiniBossLost = false end
+	if SV.Chapter5.SteppeMiniBossSeen == nil then SV.Chapter5.SteppeMiniBossSeen = false end
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Enter_vast_steppe_miniboss")
 

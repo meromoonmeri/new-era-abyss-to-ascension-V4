@@ -17,6 +17,9 @@ function mount_windswept_miniboss.Init(map)
 end
 
 function mount_windswept_miniboss.Enter(map)
+	if SV.Chapter5.MountMiniBossDefeated == nil then SV.Chapter5.MountMiniBossDefeated = false end
+	if SV.Chapter5.MountMiniBossLost == nil then SV.Chapter5.MountMiniBossLost = false end
+	if SV.Chapter5.MountMiniBossSeen == nil then SV.Chapter5.MountMiniBossSeen = false end
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Enter_mount_windswept_miniboss")
 

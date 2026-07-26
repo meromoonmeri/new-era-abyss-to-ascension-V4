@@ -35,6 +35,7 @@ end
 ---searing_tunnel_midpoint.Enter(map)
 --Engine callback function
 function searing_tunnel_midpoint.Enter(map)
+	if SV.Chapter5.PlayedMidpointIntro == nil then SV.Chapter5.PlayedMidpointIntro = false end
 
   searing_tunnel_midpoint.PlotScripting()
 

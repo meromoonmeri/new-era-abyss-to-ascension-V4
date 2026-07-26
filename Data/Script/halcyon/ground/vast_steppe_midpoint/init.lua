@@ -17,6 +17,7 @@ function vast_steppe_midpoint.Init(map)
 end
 
 function vast_steppe_midpoint.Enter(map)
+	if SV.Chapter5.PlayedSteppeMidpointIntro == nil then SV.Chapter5.PlayedSteppeMidpointIntro = false end
   vast_steppe_midpoint.PlotScripting()
 end
 

@@ -47,6 +47,7 @@ end
 
 
 function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
+	if SV.Chapter5.TunnelMiniBossSeen == nil then SV.Chapter5.TunnelMiniBossSeen = false end
 	GeneralFunctions.RestoreIdleAnim()
 	DEBUG.EnableDbgCoro() --Enable debugging this coroutine
 	--Below function removes escorts and job items for relevant jobs; run on all segments, escort really shouldn't follow you past the halfway point anyway.

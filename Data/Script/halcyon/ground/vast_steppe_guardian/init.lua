@@ -17,6 +17,9 @@ function vast_steppe_guardian.Init(map)
 end
 
 function vast_steppe_guardian.Enter(map)
+	if SV.Chapter5.SteppeGuardianDefeated == nil then SV.Chapter5.SteppeGuardianDefeated = false end
+	if SV.Chapter5.SteppeGuardianLost == nil then SV.Chapter5.SteppeGuardianLost = false end
+	if SV.Chapter5.SteppeGuardianSeen == nil then SV.Chapter5.SteppeGuardianSeen = false end
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Enter_vast_steppe_guardian")
 

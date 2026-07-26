@@ -17,6 +17,9 @@ function mount_windswept_guardian.Init(map)
 end
 
 function mount_windswept_guardian.Enter(map)
+	if SV.Chapter5.MountGuardianDefeated == nil then SV.Chapter5.MountGuardianDefeated = false end
+	if SV.Chapter5.MountGuardianLost == nil then SV.Chapter5.MountGuardianLost = false end
+	if SV.Chapter5.MountGuardianSeen == nil then SV.Chapter5.MountGuardianSeen = false end
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Enter_mount_windswept_guardian")
 

@@ -17,6 +17,7 @@ function searing_tunnel_miniboss.Init(map)
 end
 
 function searing_tunnel_miniboss.Enter(map)
+	if SV.Chapter5.TunnelMiniBossSeen == nil then SV.Chapter5.TunnelMiniBossSeen = false end
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Enter_searing_tunnel_miniboss")
 

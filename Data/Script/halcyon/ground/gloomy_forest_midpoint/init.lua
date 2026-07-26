@@ -21,6 +21,7 @@ function gloomy_forest_midpoint.Init(map)
 end
 
 function gloomy_forest_midpoint.Enter(map)
+	if SV.Chapter5.PlayedMidpointIntro == nil then SV.Chapter5.PlayedMidpointIntro = false end
   gloomy_forest_midpoint.PlotScripting()
 end
 
