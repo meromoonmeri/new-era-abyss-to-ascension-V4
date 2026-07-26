@@ -128,62 +128,25 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
 
   -- === WHITE FLASH ===
   local center = GAME:GetCameraCenter()
-  local preEmergeFlash = RogueEssence.Content.FlashEmitter()
-  preEmergeFlash.FadeInTime = 3
-  preEmergeFlash.HoldTime = 4
-  preEmergeFlash.FadeOutTime = 10
-  preEmergeFlash.StartColor = Color(255, 255, 255, 0)
-  preEmergeFlash.Layer = DrawLayer.Top
-  preEmergeFlash.Anim = RogueEssence.Content.BGAnimData("White", 0)
-  GROUND:PlayVFX(preEmergeFlash, center.X, center.Y)
-  SOUND:PlayBattleSE("EVT_Battle_Flash")
+  BossFX.Flash(center.X, center.Y, 3, 4, 10)
   GAME:WaitFrames(20)
 
-  -- === MUDBRAY ERUPTS FROM THE EARTH ===
+  -- === MUDBRAY ERUPTS FROM THE EARTH (BossFX type Sol) ===
   local mudbray = CharacterEssentials.MakeCharactersFromList({
     {'Mudbray', 184, 232, Direction.Down}
   })
   GROUND:Hide('Mudbray')
 
-  -- Ground ruptures open dramatically
-  local ruptureLeft = RogueEssence.Content.FiniteOverlayEmitter()
-  ruptureLeft.FadeIn = 5
-  ruptureLeft.TotalTime = 60
-  ruptureLeft.Movement = RogueElements.Loc(-30, -40)
-  ruptureLeft.Layer = DrawLayer.Front
-  ruptureLeft.Anim = RogueEssence.Content.BGAnimData("Sandstorm", 0)
-  GROUND:PlayVFX(ruptureLeft, mudbray.Position.X - 24, mudbray.Position.Y + 8)
-  local ruptureRight = RogueEssence.Content.FiniteOverlayEmitter()
-  ruptureRight.FadeIn = 5
-  ruptureRight.TotalTime = 60
-  ruptureRight.Movement = RogueElements.Loc(30, -40)
-  ruptureRight.Layer = DrawLayer.Front
-  ruptureRight.Anim = RogueEssence.Content.BGAnimData("Sandstorm", 0)
-  GROUND:PlayVFX(ruptureRight, mudbray.Position.X + 24, mudbray.Position.Y + 8)
-
-  SOUND:PlayBattleSE('_UNK_EVT_003')
-  local mudbrayEmerge = RogueEssence.Content.StaticAnim(
-    RogueEssence.Content.AnimData("Sacred_Fire_Ranger", 3), 2)
-  mudbrayEmerge:SetupEmitted(
-    RogueElements.Loc(mudbray.Position.X + 8, mudbray.Position.Y + 12),
-    32, RogueElements.Dir8.Down)
-  GROUND:PlayVFXAnim(mudbrayEmerge, RogueEssence.Content.DrawLayer.Front)
-  GAME:WaitFrames(5)
+  -- Grondement + fissures, puis jaillissement facon Fouille
+  BossFX.Rumble({hero, partner}, 3)
+  BossFX.EmergeGround(mudbray, mudbray.Position.X + 8, mudbray.Position.Y + 12)
   GROUND:Unhide('Mudbray')
   GROUND:CharSetAnim(mudbray, "Idle", true)
 
-  GAME:WaitFrames(30)
-  coro1 = TASK:BranchCoroutine(function()
-    GROUND:AnimateInDirection(partner, "None", partner.Direction, Direction.Down, 4, 1, 1)
-    BossFX.Impact(9)
-  end)
-  coro2 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(8)
-    GROUND:AnimateInDirection(hero, "None", hero.Direction, Direction.Down, 4, 1, 1)
-  end)
-  TASK:JoinCoroutines({coro1, coro2})
-
   GAME:WaitFrames(15)
+  BossFX.Impact(9, {mudbray})
+  GAME:WaitFrames(10)
+
   GeneralFunctions.EmoteAndPause(partner, "Shock", true)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Surprised")
@@ -193,28 +156,20 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   GAME:WaitFrames(20)
 
   -- === SECOND WHITE FLASH — STANTLER EMERGES FROM THE MIST ===
-  GROUND:PlayVFX(preEmergeFlash, center.X, center.Y)
-  SOUND:PlayBattleSE("EVT_Battle_Flash")
+  BossFX.Flash(center.X, center.Y, 2, 4, 18)
 
   local stantler = CharacterEssentials.MakeCharactersFromList({
     {'Stantler', 152, 200, Direction.DownRight}
   })
   GROUND:Hide('Stantler')
 
-  -- Thick mist rolls in, then Stantler materializes from within
-  local mistEmitter = RogueEssence.Content.FiniteOverlayEmitter()
-  mistEmitter.FadeIn = 20
-  mistEmitter.TotalTime = 80
-  mistEmitter.Layer = DrawLayer.Back
-  mistEmitter.Anim = RogueEssence.Content.BGAnimData("Steam", 1)
-  GROUND:PlayVFX(mistEmitter, 152, 200)
-
+  -- Brume qui se condense, silhouette qui se materialise
   SOUND:PlayBGM('Rising Fear.ogg', true)
-  GAME:WaitFrames(25)
+  BossFX.EmergeMist(stantler, stantler.Position.X + 8, stantler.Position.Y + 12)
   GROUND:Unhide('Stantler')
   GROUND:CharSetAnim(stantler, "Charge", true)
 
-  -- Stantler steps forward through the mist, antlers glowing
+  -- Stantler steps forward through the mist
   GAME:WaitFrames(15)
   coro1 = TASK:BranchCoroutine(function()
     GROUND:MoveInDirection(stantler, Direction.Down, 28, false, 1)
