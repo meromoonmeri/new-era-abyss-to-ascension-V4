@@ -3133,4 +3133,336 @@
 <data name="MT8_Growlithe_002" xml:space="preserve"><value>Phileas m'a demandé d'archiver votre exploit.[pause=30] C'est un honneur.</value></data>
 <data name="MT8_Growlithe_003" xml:space="preserve"><value>La guilde vous soutient.[pause=15] Toujours. N'oubliez jamais ça.</value></data>
 <data name="MT8_Growlithe_004" xml:space="preserve"><value>Des messages pour vous ?[pause=15] Non, rien aujourd'hui.</value></data>
+<data name="MT9_Noctowl_001" xml:space="preserve"><value>Le Marais de l'Oubli...[pause=25] Le Fragment de Cristal y mène.</value></data>
+<data name="MT9_Noctowl_002" xml:space="preserve"><value>Un Cœur se noie là-bas.[pause=20] La corruption y est... différente.</value></data>
+<data name="MT9_Noctowl_003" xml:space="preserve"><value>Allez-y.[pause=25] Mais soyez sur vos gardes.</value></data>
+<data name="MT9_Noctowl_004" xml:space="preserve"><value>Le Marais...[pause=20] J'y suis allé une fois. Je n'y retournerai pas.</value></data>
+<data name="MT9_Noctowl_005" xml:space="preserve"><value>L'eau y est toxique.[pause=25] La brume y est épaisse. Et quelque chose...[pause=30] y rôde.</value></data>
+<data name="MT9_Noctowl_006" xml:space="preserve"><value>Prenez des Antidotes.[pause=20] Beaucoup d'Antidotes.</value></data>
+<data name="MT9_Noctowl_007" xml:space="preserve"><value>Le Cercle du Suaire...[pause=30] Ainsi, ils existent vraiment.</value></data>
+<data name="MT9_Noctowl_008" xml:space="preserve"><value>Je ne pensais pas que la légende était vraie.[pause=25] Trois spectres, gardiens déchus du sceau primordial.</value></data>
+<data name="MT9_Noctowl_009" xml:space="preserve"><value>Ils ne sont PAS vos alliés.[pause=30] Mais ils ne sont peut-être pas vos ennemis non plus.</value></data>
+<data name="MT9_Noctowl_010" xml:space="preserve"><value>Méga-Tortank...[pause=20] vous l'avez vaincu. Le Cœur respire à nouveau.</value></data>
+<data name="MT9_Noctowl_011" xml:space="preserve"><value>Mais il est faible.[pause=25] Très faible. Il lui faudra du temps pour guérir.</value></data>
+<data name="MT9_Noctowl_012" xml:space="preserve"><value>Le Cœur du Marais bat à nouveau.[pause=25] Grâce à vous.</value></data>
+<data name="MT9_Noctowl_013" xml:space="preserve"><value>Mais les paroles du Cercle...[pause=30] 'Chaque Cœur que vous guérissez rapproche la fin.' Que voulaient-ils dire ?</value></data>
+<data name="MT9_Noctowl_014" xml:space="preserve"><value>Je vais consulter les archives.[pause=25] Il y a quelque chose qui nous échappe.</value></data>
+<data name="MT9_Noctowl_015" xml:space="preserve"><value>Restez vigilants.[pause=25] La brume du marais cache bien des secrets.</value></data>
+<data name="MT9_Tropius_001" xml:space="preserve"><value>Méga-Tortank ![pause=10] Vous avez vaincu Méga-Tortank ![pause=15] INCROYABLE !</value></data>
+<data name="MT9_Tropius_002" xml:space="preserve"><value>Et ce Cercle du Suaire...[pause=25] Phileas m'en a parlé. Je n'y croyais pas.</value></data>
+<data name="MT9_Tropius_003" xml:space="preserve"><value>Allez vous reposer.[pause=20] Vous l'avez bien mérité.</value></data>
+<data name="MT9_Tropius_004" xml:space="preserve"><value>Le Cercle du Suaire...[pause=25] Des spectres ? Dans NOTRE région ?</value></data>
+<data name="MT9_Tropius_005" xml:space="preserve"><value>Je vais renforcer les patrouilles.[pause=30] On ne sait jamais.</value></data>
+<data name="MT9_Tropius_006" xml:space="preserve"><value>Le Marais de l'Oubli ![pause=10] Préparez-vous à en baver !</value></data>
+<data name="MT9_Tropius_007" xml:space="preserve"><value>Allez-y ![pause=15] La guilde compte sur vous.</value></data>
+<data name="MT9_Audino_001" xml:space="preserve"><value>Vous avez survécu au Marais ![pause=15] ET au Cercle du Suaire ?!</value></data>
+<data name="MT9_Audino_002" xml:space="preserve"><value>Je...[pause=20] je ne sais même pas quoi dire. Vous êtes incroyables.</value></data>
+<data name="MT9_Audino_003" xml:space="preserve"><value>Laissez-moi vérifier que vous n'êtes pas empoisonnés.[pause=25] Non, tout va bien.</value></data>
+<data name="MT9_Audino_004" xml:space="preserve"><value>Des spectres ?![pause=20] Dans le marais ?[pause=25] C'est... c'est terrifiant !</value></data>
+<data name="MT9_Audino_005" xml:space="preserve"><value>Vous êtes SÛRS de vouloir y retourner ?[pause=30] ...D'accord. Prenez des Baies Mepris.</value></data>
+<data name="MT9_Audino_006" xml:space="preserve"><value>L'eau du marais est toxique.[pause=25] Ne la touchez sous aucun prétexte !</value></data>
+<data name="MT9_Audino_007" xml:space="preserve"><value>L'infirmerie est prête ![pause=15] Les antidotes aussi.</value></data>
+<data name="MT9_Snubbull_001" xml:space="preserve"><value>Méga-Tortank ?![pause=15] Ça doit valoir une fortune en écailles !</value></data>
+<data name="MT9_Snubbull_002" xml:space="preserve"><value>...Je rigole ![pause=20] ... À moitié.[pause=30] ...Un quart.</value></data>
+<data name="MT9_Snubbull_003" xml:space="preserve"><value>Le Cercle du Suaire ?![pause=15] Des SPECTRES ?![pause=20] Des vrais ?!</value></data>
+<data name="MT9_Snubbull_004" xml:space="preserve"><value>Je vais en parler à TOUT le monde ![pause=10] ...Prudemment. De loin.</value></data>
+<data name="MT9_Snubbull_005" xml:space="preserve"><value>Le Marais de l'Oubli ![pause=15] Prenez des bottes. La boue, c'est collant.</value></data>
+<data name="MT9_Snubbull_006" xml:space="preserve"><value>Le stand est ouvert ![pause=10] Tout pour l'aventure !</value></data>
+<data name="MT9_Zigzagoon_001" xml:space="preserve"><value>Vous avez affronté des SPECTRES ?![pause=15] Ma famille va halluciner !</value></data>
+<data name="MT9_Zigzagoon_002" xml:space="preserve"><value>Racontez-moi TOUT ![pause=20] Enfin, si vous voulez.</value></data>
+<data name="MT9_Zigzagoon_003" xml:space="preserve"><value>Le marais...[pause=20] Faites attention à la boue.</value></data>
+<data name="MT9_Zigzagoon_004" xml:space="preserve"><value>Je m'entraîne ![pause=15] Un jour, MOI aussi je combattrai des spectres !</value></data>
+<data name="MT9_Relicanth_001" xml:space="preserve"><value>Le Cœur du Marais...[pause=30] il a survécu. C'est un miracle.</value></data>
+<data name="MT9_Relicanth_002" xml:space="preserve"><value>Le Cercle du Suaire n'est pas votre ennemi.[pause=25] Pas encore.</value></data>
+<data name="MT9_Relicanth_003" xml:space="preserve"><value>Ils croient servir l'équilibre.[pause=30] Mais l'équilibre est une illusion.</value></data>
+<data name="MT9_Relicanth_004" xml:space="preserve"><value>Le Cercle du Suaire...[pause=25] Je les croyais disparus depuis des siècles.</value></data>
+<data name="MT9_Relicanth_005" xml:space="preserve"><value>Méfiez-vous.[pause=30] Leurs intentions ne sont pas les vôtres.</value></data>
+<data name="MT9_Relicanth_006" xml:space="preserve"><value>Les courants parlent d'un marais empoisonné...[pause=30] Soyez prudents.</value></data>
+<data name="MT9_Relicanth_007" xml:space="preserve"><value>Les courants parlent...[pause=25] Écoutez bien.</value></data>
+<data name="MT9_Bisharp_001" xml:space="preserve"><value>Méga-Tortank neutralisé.[pause=20] Le marais est redevenu sûr. Officiellement.</value></data>
+<data name="MT9_Bisharp_002" xml:space="preserve"><value>J'ai classé le dossier 'Cercle du Suaire'.[pause=25] Priorité maximale.</value></data>
+<data name="MT9_Bisharp_003" xml:space="preserve"><value>Des spectres rôdent dans le marais.[pause=20] Confirmation officielle.</value></data>
+<data name="MT9_Bisharp_004" xml:space="preserve"><value>Je double les patrouilles.[pause=30] Si ces spectres approchent de Metano...</value></data>
+<data name="MT9_Bisharp_005" xml:space="preserve"><value>Le Marais de l'Oubli est une zone à risque biologique.[pause=20] Équipez-vous.</value></data>
+<data name="MT9_Bisharp_006" xml:space="preserve"><value>La sécurité de Metano est ma priorité.[pause=20] Signalez tout comportement suspect.</value></data>
+<data name="MT9_Ledian_001" xml:space="preserve"><value>Le style de Méga-Tortank...[pause=20] Brutal mais efficace.</value></data>
+<data name="MT9_Ledian_002" xml:space="preserve"><value>Le Dojo a une nouvelle simulation : 'Survie en milieu toxique'.[pause=25] Intéressés ?</value></data>
+<data name="MT9_Ledian_003" xml:space="preserve"><value>Le Marais exige endurance et rapidité.[pause=20] Vous avez les deux.</value></data>
+<data name="MT9_Ledian_004" xml:space="preserve"><value>L'entraînement est la clé ![pause=15] Le dojo est ouvert.</value></data>
+<data name="MT9_Machamp_001" xml:space="preserve"><value>Méga-Tortank ![pause=10] J'aurais PAYÉ pour voir ce combat !</value></data>
+<data name="MT9_Machamp_002" xml:space="preserve"><value>Quand vous voulez pour un bras de fer ![pause=10] Histoire de comparer !</value></data>
+<data name="MT9_Machamp_003" xml:space="preserve"><value>Des spectres ?![pause=15] Je les attends ![pause=20] Qu'ils viennent !</value></data>
+<data name="MT9_Machamp_004" xml:space="preserve"><value>Ma boîte aux lettres...[pause=25] quelqu'un l'a ENCORE vandalisée ! C'était pas un spectre, j'espère ?</value></data>
+<data name="MT9_Machamp_005" xml:space="preserve"><value>Allez-y à fond dans le marais ![pause=10] La puissance brute écrase tout !</value></data>
+<data name="MT9_Machamp_006" xml:space="preserve"><value>L'entraînement ne s'arrête jamais ![pause=10] Même sous la pluie.</value></data>
+<data name="MT9_Medicham_001" xml:space="preserve"><value>Le Cœur du Marais est purifié.[pause=25] Je le sens. L'équilibre revient.</value></data>
+<data name="MT9_Medicham_002" xml:space="preserve"><value>Même les spectres ont une raison d'être.[pause=30] Méditez là-dessus.</value></data>
+<data name="MT9_Medicham_003" xml:space="preserve"><value>Le Cercle du Suaire...[pause=25] leur aura est... conflictuelle. Pas malveillante.</value></data>
+<data name="MT9_Medicham_004" xml:space="preserve"><value>Ils sont perdus.[pause=30] Pas méchants. Perdus.</value></data>
+<data name="MT9_Medicham_005" xml:space="preserve"><value>Vider son esprit...[pause=30] et tout devient clair.</value></data>
+<data name="MT9_Meditite_001" xml:space="preserve"><value>Les spectres vous ont pas fait peur ?[pause=20] Moi, j'aurais eu TROP peur !</value></data>
+<data name="MT9_Meditite_002" xml:space="preserve"><value>Papa dit que la peur se combat par la méditation.[pause=25] ...Ça marche pas toujours.</value></data>
+<data name="MT9_Meditite_003" xml:space="preserve"><value>J'ai peur des spectres.[pause=25] ...C'est normal, non ?</value></data>
+<data name="MT9_Meditite_004" xml:space="preserve"><value>La méditation...[pause=20] ça aide à ne pas avoir peur.</value></data>
+<data name="MT9_Nidoqueen_001" xml:space="preserve"><value>Mes petits vous admirent ![pause=15] Même Nidoran ♂ qui fait semblant de rien.</value></data>
+<data name="MT9_Nidoqueen_002" xml:space="preserve"><value>Revenez nous voir à l'auberge ![pause=15] On vous préparera un festin !</value></data>
+<data name="MT9_Nidoqueen_003" xml:space="preserve"><value>Le marais...[pause=20] Nidorina voulait vous suivre. Je l'en ai empêchée.</value></data>
+<data name="MT9_Nidoqueen_004" xml:space="preserve"><value>Elle est furieuse contre moi.[pause=25] Mais je préfère ça que de la perdre.</value></data>
+<data name="MT9_Nidoqueen_005" xml:space="preserve"><value>Prenez soin de vous là-dehors.[pause=20] Une mère s'inquiète toujours.</value></data>
+<data name="MT9_Nidoking_001" xml:space="preserve"><value>Ma femme m'a raconté ![pause=15] Méga-Tortank ![pause=20] INCROYABLE !</value></data>
+<data name="MT9_Nidoking_002" xml:space="preserve"><value>Venez fêter ça à l'auberge ![pause=10] Tournée générale !</value></data>
+<data name="MT9_Nidoking_003" xml:space="preserve"><value>Nidorina est dans sa chambre.[pause=25] Elle boude. C'est de ma faute.</value></data>
+<data name="MT9_Nidoking_004" xml:space="preserve"><value>Bienvenue à l'auberge ![pause=10] Le meilleur lit de Metano !</value></data>
+<data name="MT9_Nidorina_001" xml:space="preserve"><value>Papa m'a ENFERMÉE ![pause=10] Je voulais vous aider dans le marais !</value></data>
+<data name="MT9_Nidorina_002" xml:space="preserve"><value>La prochaine fois,[pause=20] je viendrai. Promis. En douce.</value></data>
+<data name="MT9_Nidorina_003" xml:space="preserve"><value>Mes parents m'empêchent de venir avec vous ![pause=10] C'est PAS JUSTE !</value></data>
+<data name="MT9_Nidorina_004" xml:space="preserve"><value>Vous êtes mes héros ![pause=15] Mes parents comprennent pas.</value></data>
+<data name="MT9_NidoranM_001" xml:space="preserve"><value>Ma sœur est FURIEUSE ![pause=15] Elle a essayé de fuguer pour vous suivre.</value></data>
+<data name="MT9_NidoranM_002" xml:space="preserve"><value>Moi, je reste sage.[pause=20] ...Pour le moment.</value></data>
+<data name="MT9_Numel_001" xml:space="preserve"><value>Je me suis entraîné TOUS les jours ![pause=15] Regardez mes muscles !</value></data>
+<data name="MT9_Numel_002" xml:space="preserve"><value>Maman dit que je progresse ![pause=20] Bientôt, je pourrai partir en mission !</value></data>
+<data name="MT9_Numel_003" xml:space="preserve"><value>Les spectres ?[pause=15] Même pas peur ![pause=20] ...Bon, un peu.</value></data>
+<data name="MT9_Numel_004" xml:space="preserve"><value>Je veux devenir fort comme vous ![pause=10] Pour protéger maman !</value></data>
+<data name="MT9_Camerupt_001" xml:space="preserve"><value>Numel ne parle que de vous.[pause=25] Et de ses 'muscles'.</value></data>
+<data name="MT9_Camerupt_002" xml:space="preserve"><value>Il a changé.[pause=30] Grâce à vous.[pause=40] Merci.</value></data>
+<data name="MT9_Camerupt_003" xml:space="preserve"><value>Ces spectres...[pause=25] vous ont-ils fait du mal ?</value></data>
+<data name="MT9_Camerupt_004" xml:space="preserve"><value>Numel est impatient.[pause=20] Un jour, il sera prêt.</value></data>
+<data name="MT9_Floatzel_001" xml:space="preserve"><value>L'eau du marais est redevenue claire ![pause=15] Incroyable !</value></data>
+<data name="MT9_Floatzel_002" xml:space="preserve"><value>Maris...[pause=25] elle avait raison. Je pêchais trop.</value></data>
+<data name="MT9_Floatzel_003" xml:space="preserve"><value>Le Cercle du Suaire...[pause=20] ils sont passés près de la rivière.</value></data>
+<data name="MT9_Floatzel_004" xml:space="preserve"><value>L'eau est devenue FROIDE.[pause=25] Comme de la glace. Comme la mort.</value></data>
+<data name="MT9_Floatzel_005" xml:space="preserve"><value>La rivière charrie de la boue toxique.[pause=25] Ça vient du marais.</value></data>
+<data name="MT9_Floatzel_006" xml:space="preserve"><value>La pêche est bonne aujourd'hui ![pause=10] Vous voulez m'accompagner ?</value></data>
+<data name="MT9_Quagsire_001" xml:space="preserve"><value>...[pause=30] Tweed s'est excusé.[pause=25] L'étang est apaisé.</value></data>
+<data name="MT9_Quagsire_002" xml:space="preserve"><value>Il a compris.[pause=30] L'étang a besoin de lui. Moi aussi.</value></data>
+<data name="MT9_Quagsire_003" xml:space="preserve"><value>...[pause=40] L'étang est triste.[pause=30] Tweed ne vient plus.</value></data>
+<data name="MT9_Quagsire_004" xml:space="preserve"><value>...[pause=30] Tout va bien.[pause=20] L'étang veille.</value></data>
+<data name="MT9_Mawile_001" xml:space="preserve"><value>J'ai ENQUÊTÉ sur le Cercle du Suaire ![pause=15] Vous voulez mon rapport ?</value></data>
+<data name="MT9_Mawile_002" xml:space="preserve"><value>Banette, Ectoplasma, Nosferalto.[pause=25] Trois spectres. Liés au 'sceau primordial'.</value></data>
+<data name="MT9_Mawile_003" xml:space="preserve"><value>Bria, reporter d'élite ![pause=15] ...Bon, OK, Relicanth m'a un peu aidée.</value></data>
+<data name="MT9_Mawile_004" xml:space="preserve"><value>Vous avez VU des spectres ?![pause=10] Racontez-moi TOUT !</value></data>
+<data name="MT9_Mawile_005" xml:space="preserve"><value>Je vais écrire un article ![pause=15] 'Les Héros de Metano face aux Ombres' !</value></data>
+<data name="MT9_Mawile_006" xml:space="preserve"><value>Des rumeurs de spectres dans le marais ![pause=15] Vous y croyez, vous ?</value></data>
+<data name="MT9_Mawile_007" xml:space="preserve"><value>Vous avez entendu les dernières rumeurs ?[pause=15] Moi non plus.</value></data>
+<data name="MT9_Electrike_001" xml:space="preserve"><value>Je les ai SENTIS ![pause=15] Les spectres ![pause=20] Leur énergie est... vide.</value></data>
+<data name="MT9_Electrike_002" xml:space="preserve"><value>Comme un trou dans l'air.[pause=30] Comme si la vie était aspirée.</value></data>
+<data name="MT9_Electrike_003" xml:space="preserve"><value>L'air est redevenu normal.[pause=25] Merci.</value></data>
+<data name="MT9_Electrike_004" xml:space="preserve"><value>Quelque chose approche...[pause=25] Je le sens. Quelque chose de froid.</value></data>
+<data name="MT9_Electrike_005" xml:space="preserve"><value>L'énergie dans l'air est bizarre aujourd'hui.[pause=20] Mais pas menaçante.</value></data>
+<data name="MT9_Manectric_001" xml:space="preserve"><value>Electrike est redevenu calme.[pause=25] C'est un soulagement.</value></data>
+<data name="MT9_Manectric_002" xml:space="preserve"><value>Electrike a senti les spectres avant tout le monde.[pause=25] Faites-lui confiance.</value></data>
+<data name="MT9_Manectric_003" xml:space="preserve"><value>Electrike est nerveux.[pause=25] Il sent toujours les choses avant moi.</value></data>
+<data name="MT9_Luxray_001" xml:space="preserve"><value>Le Cercle du Suaire...[pause=25] J'ai envoyé un message à mes contacts.</value></data>
+<data name="MT9_Luxray_002" xml:space="preserve"><value>L'Escouade Fulgur sera bientôt là.[pause=30] Préparez-vous.</value></data>
+<data name="MT9_Luxray_003" xml:space="preserve"><value>Des spectres...[pause=25] Ce n'est pas un travail pour des novices.</value></data>
+<data name="MT9_Luxray_004" xml:space="preserve"><value>Je connais des Pokémon qui traquent ce genre de menace.[pause=25] Des professionnels.</value></data>
+<data name="MT9_Luxray_005" xml:space="preserve"><value>Restez sur vos gardes.[pause=25] Le marais est traître.</value></data>
+<data name="MT9_Vileplume_001" xml:space="preserve"><value>Mes plantes respirent mieux ![pause=15] L'air du marais ne les empoisonne plus.</value></data>
+<data name="MT9_Vileplume_002" xml:space="preserve"><value>Le vent a changé.[pause=25] Il apporte la vie, pas la mort.</value></data>
+<data name="MT9_Vileplume_003" xml:space="preserve"><value>Le marais...[pause=20] mes plantes jaunissent rien qu'en entendant son nom.</value></data>
+<data name="MT9_Vileplume_004" xml:space="preserve"><value>Les bégonias sont magnifiques cette saison ![pause=10] Vous ne trouvez pas ?</value></data>
+<data name="MT9_Bellossom_001" xml:space="preserve"><value>Les fleurs chantent à nouveau ![pause=15] Le marais est guéri !</value></data>
+<data name="MT9_Bellossom_002" xml:space="preserve"><value>Les pétales tombent...[pause=25] Elles pleurent le marais.</value></data>
+<data name="MT9_Bellossom_003" xml:space="preserve"><value>La saison est belle ![pause=10] Profitons-en !</value></data>
+<data name="MT9_Gloom_001" xml:space="preserve"><value>Je bave de soulagement ![pause=15] ...Plus que d'habitude.</value></data>
+<data name="MT9_Gloom_002" xml:space="preserve"><value>Le marais sent mauvais.[pause=25] Même pour moi.</value></data>
+<data name="MT9_Gloom_003" xml:space="preserve"><value>Je bave quand je suis content ![pause=15] Et là, ça va !</value></data>
+<data name="MT9_Oddish_001" xml:space="preserve"><value>Numel et moi, on s'entraîne tous les jours ![pause=15] On sera bientôt prêts !</value></data>
+<data name="MT9_Oddish_002" xml:space="preserve"><value>Le marais a l'air EFFRAYANT ![pause=15] ...J'irai quand même.</value></data>
+<data name="MT9_Oddish_003" xml:space="preserve"><value>Numel dit qu'on est la future meilleure équipe ![pause=15] Il a raison !</value></data>
+<data name="MT9_Furret_001" xml:space="preserve"><value>Aaah...[pause=0] l'air est plus pur. Je peux enfin dormir.</value></data>
+<data name="MT9_Furret_002" xml:space="preserve"><value>La brume du marais...[pause=25] elle arrive jusqu'ici. Ça m'empêche de dormir.</value></data>
+<data name="MT9_Furret_003" xml:space="preserve"><value>Aaah...[pause=0] c'est mon endroit préféré pour dormir ~</value></data>
+<data name="MT9_Linoone_001" xml:space="preserve"><value>J'ai lu un traité sur les spectres de type Sol.[pause=25] Fascinant.</value></data>
+<data name="MT9_Linoone_002" xml:space="preserve"><value>Relicanth m'a parlé du 'sceau primordial'.[pause=25] Je creuse le sujet.</value></data>
+<data name="MT9_Linoone_003" xml:space="preserve"><value>Cet endroit au bord de l'eau est parfait pour lire.</value></data>
+<data name="MT9_Sentret_001" xml:space="preserve"><value>Waaaah ! Vous avez combattu un SPECTRE GÉANT ?!</value></data>
+<data name="MT9_Sentret_002" xml:space="preserve"><value>Le marais...[pause=20] j'irais jamais tout seul. C'est trop flippant.</value></data>
+<data name="MT9_Sentret_003" xml:space="preserve"><value>Vous avez vu les jumeaux ?[pause=20] On joue à chasseur de spectres !</value></data>
+<data name="MT9_WooperG_001" xml:space="preserve"><value>On a joué à 'qui fait le plus peur' ![pause=15] J'ai gagné ![pause=20] Dun a eu peur.</value></data>
+<data name="MT9_WooperG_002" xml:space="preserve"><value>Le marais...[pause=20] c'est loin. Maman dit que c'est dangereux.</value></data>
+<data name="MT9_WooperG_003" xml:space="preserve"><value>Dun est trop lent ![pause=10] Je gagne TOUJOURS !</value></data>
+<data name="MT9_WooperB_001" xml:space="preserve"><value>J'ai PAS eu peur ![pause=15] ...Bon, UN TOUT PETIT PEU.</value></data>
+<data name="MT9_WooperB_002" xml:space="preserve"><value>Le marais fait peur...[pause=25] Vous, vous n'avez peur de rien !</value></data>
+<data name="MT9_WooperB_003" xml:space="preserve"><value>Je suis le MEILLEUR ![pause=15] Enfin, presque.</value></data>
+<data name="MT9_Gulpin_001" xml:space="preserve"><value>J'ai entendu dire que le marais était comestible ![pause=15] ...Non ?</value></data>
+<data name="MT9_Gulpin_002" xml:space="preserve"><value>La boue du marais...[pause=20] ça se mange ?[pause=30] ...Non, hein ?</value></data>
+<data name="MT9_Gulpin_003" xml:space="preserve"><value>Le café a un nouveau plat ![pause=15] Enfin, j'espère.</value></data>
+<data name="MT9_Lickitung_001" xml:space="preserve"><value>Le café fait une promotion 'Spécial Marais' ![pause=15] C'est... vert.</value></data>
+<data name="MT9_Lickitung_002" xml:space="preserve"><value>Les baies sont plus acides que d'habitude.[pause=25] À cause du marais ?</value></data>
+<data name="MT9_Lickitung_003" xml:space="preserve"><value>Le café a un nouveau plat ![pause=10] J'y vais tous les jours.</value></data>
+<data name="MT9_Spinda_001" xml:space="preserve"><value>Un spectacle sur le thème des marais ![pause=15] Avec de la vraie boue !</value></data>
+<data name="MT9_Ludicolo_001" xml:space="preserve"><value>La musique du marais ![pause=15] C'est... humide. Mais dansant !</value></data>
+<data name="MT9_Azumarill_001" xml:space="preserve"><value>Des voyageurs du marais sont passés ![pause=15] Ils vous cherchent !</value></data>
+<data name="MT9_Azumarill_002" xml:space="preserve"><value>Le marais...[pause=25] La dernière fois que j'y suis allée, j'ai failli me perdre.</value></data>
+<data name="MT9_Azumarill_003" xml:space="preserve"><value>Ma tente est ouverte ![pause=15] Pour les voyageurs.</value></data>
+<data name="MT9_Roselia_001" xml:space="preserve"><value>Les abricornes poussent mieux depuis que le marais est guéri !</value></data>
+<data name="MT9_Jigglypuff_001" xml:space="preserve"><value>Une berceuse anti-cauchemar ?[pause=20] Après ce que vous avez vu...</value></data>
+<data name="MT9_Jigglypuff_002" xml:space="preserve"><value>J'ai rêvé de brume et d'ombres.[pause=30] C'était pas agréable.</value></data>
+<data name="MT9_Marill_001" xml:space="preserve"><value>J'ai traversé une flaque de boue ![pause=15] Sans tomber !</value></data>
+<data name="MT9_Marill_002" xml:space="preserve"><value>J'aimerais pouvoir vous aider dans le marais...[pause=25] Mais je suis trop petit.</value></data>
+<data name="MT9_Spheal_001" xml:space="preserve"><value>La boue, ça glisse ![pause=15] C'est rigolo ![pause=20] ...Mais ça tache.</value></data>
+<data name="MT9_Bagon_001" xml:space="preserve"><value>Un jour, je survolerai le marais ![pause=15] Sans me salir !</value></data>
+<data name="MT9_Bagon_002" xml:space="preserve"><value>Le marais...[pause=20] c'est humide. J'aime pas l'humidité.</value></data>
+<data name="MT9_Doduo_001" xml:space="preserve"><value>On a couru autour du marais ![pause=15] ...À bonne distance.</value></data>
+<data name="MT9_Metapod_001" xml:space="preserve"><value>......[pause=30] (Metapod semble plus brillant.)</value></data>
+<data name="MT9_Silcoon_001" xml:space="preserve"><value>Papilusion dit que le marais est guéri ![pause=15] Grâce à vous !</value></data>
+<data name="MT9_Mareep_001" xml:space="preserve"><value>Le Cœur du Marais crépite doucement ![pause=20] Je l'entends d'ici !</value></data>
+<data name="MT9_Mareep_002" xml:space="preserve"><value>Ganlon dit que vous êtes 'presque' au niveau de l'Escouade Fulgur ![pause=15] C'est ÉNORME !</value></data>
+<data name="MT9_Cranidos_001" xml:space="preserve"><value>L'Escouade Fulgur arrive.[pause=25] VOILÀ des rivaux dignes de ce nom.</value></data>
+<data name="MT9_Cranidos_002" xml:space="preserve"><value>Montrez-leur ce que vous avez dans le ventre ![pause=10] Le marais, c'est rien à côté.</value></data>
+<data name="MT9_Butterfree_001" xml:space="preserve"><value>Chenipent veut devenir aussi courageux que vous ![pause=20] Il ne parle QUE de vous.</value></data>
+<data name="MT9_Butterfree_002" xml:space="preserve"><value>Chenipent va bien ![pause=15] Mais il fait des cauchemars. Des ombres dans la brume.</value></data>
+<data name="MT9_Venipede_001" xml:space="preserve"><value>Les spectres ?[pause=15] Même pas peur ![pause=20] ...Bon. Un peu. Mais je le dirai pas.</value></data>
+<data name="MT9_Adagio_001" xml:space="preserve"><value>Le Cercle du Suaire...[pause=25] Nous en avons entendu parler.</value></data>
+<data name="MT9_Adagio_002" xml:space="preserve"><value>S'ils deviennent une menace,[pause=20] nous interviendrons. C'est notre devoir.</value></data>
+<data name="MT9_Adagio_003" xml:space="preserve"><value>Des spectres...[pause=25] Ça change la donne. Restez groupés.</value></data>
+<data name="MT9_Adagio_004" xml:space="preserve"><value>Nous surveillons la situation.[pause=30] De près.</value></data>
+<data name="MT9_Adagio_005" xml:space="preserve"><value>Nous observons.[pause=25] Continuez à nous impressionner.</value></data>
+<data name="MT9_Aria_001" xml:space="preserve"><value>Des SPECTRES ?![pause=15] Du genre VRAIS fantômes ?[pause=20] J'ADORE !</value></data>
+<data name="MT9_Aria_002" xml:space="preserve"><value>Méga-Tortank ET le Cercle du Suaire ?[pause=20] OK, vous êtes officiellement nos égaux.</value></data>
+<data name="MT9_Aria_003" xml:space="preserve"><value>Encore là ?[pause=20] Vous êtes tenaces.</value></data>
+<data name="MT9_Sonata_001" xml:space="preserve"><value>J'ai essayé de faire une farce à un spectre.[pause=25] ...Ça a pas marché.</value></data>
+<data name="MT9_Sonata_002" xml:space="preserve"><value>J'ai caché un truc.[pause=25] Indice : c'est pas dans le marais.</value></data>
+<data name="MT9_Growlithe_001" xml:space="preserve"><value>Le Marais de l'Oubli est sécurisé.[pause=20] Rapport archivé.</value></data>
+<data name="MT9_Growlithe_002" xml:space="preserve"><value>Le Cercle du Suaire...[pause=25] J'ai ouvert un dossier. Priorité Alpha.</value></data>
+<data name="MT9_Growlithe_003" xml:space="preserve"><value>La guilde vous soutient.[pause=15] Toujours. Même contre des spectres.</value></data>
+<data name="MT10_Noctowl_001" xml:space="preserve"><value>Le Pic Céleste...[pause=25] Le plus haut sommet de la chaîne du Mont Venteux.</value></data>
+<data name="MT10_Noctowl_002" xml:space="preserve"><value>Là-haut, le ciel touche la terre.[pause=30] Et quelque chose...[pause=25] vous attend.</value></data>
+<data name="MT10_Noctowl_003" xml:space="preserve"><value>Allez-y.[pause=25] L'Escouade Fulgur est déjà en route. Ne les laissez pas arriver en premier.</value></data>
+<data name="MT10_Noctowl_004" xml:space="preserve"><value>Lugia...[pause=30] Le Gardien du Pic Céleste.</value></data>
+<data name="MT10_Noctowl_005" xml:space="preserve"><value>Il ne vous attaquera pas sans raison.[pause=25] Mais il vous testera.</value></data>
+<data name="MT10_Noctowl_006" xml:space="preserve"><value>Soyez dignes.[pause=30] Lugia ne parle qu'aux cœurs purs.</value></data>
+<data name="MT10_Noctowl_007" xml:space="preserve"><value>Vous avez vu Lugia.[pause=25] Et il vous a parlé.</value></data>
+<data name="MT10_Noctowl_008" xml:space="preserve"><value>Que vous a-t-il dit ?[pause=30] ...'Cherchez sous l'écaille' ?</value></data>
+<data name="MT10_Noctowl_009" xml:space="preserve"><value>C'est une prophétie ancienne.[pause=25] Je vais consulter les archives. Immédiatement.</value></data>
+<data name="MT10_Noctowl_010" xml:space="preserve"><value>La vision...[pause=30] la silhouette prismatique. Necrozma.</value></data>
+<data name="MT10_Noctowl_011" xml:space="preserve"><value>Tout s'éclaire.[pause=25] Et tout s'assombrit en même temps.</value></data>
+<data name="MT10_Noctowl_012" xml:space="preserve"><value>Necrozma...[pause=30] Le Dévoreur de Lumière. La légende dit qu'il est tombé en ce monde il y a des millénaires.</value></data>
+<data name="MT10_Noctowl_013" xml:space="preserve"><value>S'il vous a parlé...[pause=25] c'est que quelque chose d'immense se prépare.</value></data>
+<data name="MT10_Noctowl_014" xml:space="preserve"><value>Reposez-vous.[pause=30] Demain, tout commence vraiment.</value></data>
+<data name="MT10_Noctowl_015" xml:space="preserve"><value>Restez vigilants.[pause=25] Le vent du sommet murmure des vérités anciennes.</value></data>
+<data name="MT10_Tropius_001" xml:space="preserve"><value>LUGIA ![pause=10] Le Gardien du Pic Céleste ![pause=15] Vous l'avez vu ?!</value></data>
+<data name="MT10_Tropius_002" xml:space="preserve"><value>Je n'ai jamais osé grimper jusque-là.[pause=25] Et vous, vous l'avez fait.</value></data>
+<data name="MT10_Tropius_003" xml:space="preserve"><value>Et l'Escouade Fulgur ![pause=15] Vous les avez battus à la course !</value></data>
+<data name="MT10_Tropius_004" xml:space="preserve"><value>Luxray doit être FURIEUX ![pause=10] Haha !</value></data>
+<data name="MT10_Tropius_005" xml:space="preserve"><value>L'Escouade Fulgur est déjà au sommet.[pause=20] Dépêchez-vous !</value></data>
+<data name="MT10_Tropius_006" xml:space="preserve"><value>Le Pic Céleste ![pause=10] L'ascension sera rude. Mais vous êtes prêts.</value></data>
+<data name="MT10_Tropius_007" xml:space="preserve"><value>Allez-y ![pause=15] La guilde compte sur vous.</value></data>
+<data name="MT10_Audino_001" xml:space="preserve"><value>Vous avez GRIMÉ le Pic Céleste ?![pause=15] À PIED ?!</value></data>
+<data name="MT10_Audino_002" xml:space="preserve"><value>Et l'Escouade Fulgur ![pause=20] Luxray doit être vert de rage !</value></data>
+<data name="MT10_Audino_003" xml:space="preserve"><value>Laissez-moi vérifier que vous n'avez pas le vertige.[pause=25] Non, tout va bien.</value></data>
+<data name="MT10_Audino_004" xml:space="preserve"><value>Lugia...[pause=25] rien que le nom me fait frissonner.</value></data>
+<data name="MT10_Audino_005" xml:space="preserve"><value>Si Lugia vous a parlé,[pause=20] c'est que vous êtes vraiment spéciaux.</value></data>
+<data name="MT10_Audino_006" xml:space="preserve"><value>Le Pic Céleste est TRÈS haut.[pause=25] Prenez des Baies pour le vertige.</value></data>
+<data name="MT10_Audino_007" xml:space="preserve"><value>L'infirmerie est prête ![pause=15] Contre le mal des montagnes aussi.</value></data>
+<data name="MT10_Snubbull_001" xml:space="preserve"><value>LUGIA ?![pause=10] Le LUGIA ?![pause=15] Vous l'avez VU ?!</value></data>
+<data name="MT10_Snubbull_002" xml:space="preserve"><value>Si je pouvais vendre une plume de Lugia...[pause=25] Je serais RICHE !</value></data>
+<data name="MT10_Snubbull_003" xml:space="preserve"><value>...Quoi ?[pause=20] C'était une blague ![pause=15] ...À moitié.</value></data>
+<data name="MT10_Snubbull_004" xml:space="preserve"><value>L'Escouade Fulgur ?![pause=15] Luxray, Lucario ET Héliolisk ?![pause=20] Les TROIS ?!</value></data>
+<data name="MT10_Snubbull_005" xml:space="preserve"><value>Vous les avez battus à la course ?[pause=25] JE VAIS EN PARLER À TOUT LE MONDE !</value></data>
+<data name="MT10_Snubbull_006" xml:space="preserve"><value>Le Pic Céleste ![pause=15] Prenez des pulls. Là-haut, ça caille.</value></data>
+<data name="MT10_Snubbull_007" xml:space="preserve"><value>Le stand est ouvert ![pause=10] Équipez-vous pour le sommet !</value></data>
+<data name="MT10_Zigzagoon_001" xml:space="preserve"><value>L'Escouade Fulgur ![pause=10] Vous avez battu l'ESCOUADE FULGUR !</value></data>
+<data name="MT10_Zigzagoon_002" xml:space="preserve"><value>Ma famille n'en revient pas ![pause=15] Moi non plus d'ailleurs !</value></data>
+<data name="MT10_Zigzagoon_003" xml:space="preserve"><value>Le Pic Céleste...[pause=20] C'est haut. Très haut.</value></data>
+<data name="MT10_Zigzagoon_004" xml:space="preserve"><value>Je m'entraîne ![pause=15] Un jour, je grimperai aussi !</value></data>
+<data name="MT10_Relicanth_001" xml:space="preserve"><value>Lugia...[pause=30] Le premier des Gardiens. Le plus sage.</value></data>
+<data name="MT10_Relicanth_002" xml:space="preserve"><value>Il vous a dit de 'chercher sous l'écaille'.[pause=25] Vous savez ce que cela signifie ?</value></data>
+<data name="MT10_Relicanth_003" xml:space="preserve"><value>L'Écaille est le symbole de Necrozma.[pause=30] Son enveloppe brisée.</value></data>
+<data name="MT10_Relicanth_004" xml:space="preserve"><value>Le Pic Céleste...[pause=25] Je l'ai gravi il y a très longtemps.</value></data>
+<data name="MT10_Relicanth_005" xml:space="preserve"><value>Lugia est un allié.[pause=20] Mais son test peut être mortel.</value></data>
+<data name="MT10_Relicanth_006" xml:space="preserve"><value>Les courants parlent du sommet...[pause=30] Écoutez le vent.</value></data>
+<data name="MT10_Relicanth_007" xml:space="preserve"><value>Les courants parlent...[pause=25] Le ciel gronde.</value></data>
+<data name="MT10_Bisharp_001" xml:space="preserve"><value>Lugia vaincu — ou convaincu.[pause=20] Le sommet est sous contrôle.</value></data>
+<data name="MT10_Bisharp_002" xml:space="preserve"><value>L'Escouade Fulgur est repartie vers la côte.[pause=25] Ils reviendront. C'est certain.</value></data>
+<data name="MT10_Bisharp_003" xml:space="preserve"><value>L'Escouade Fulgur est une guilde officielle.[pause=20] Respectez-les. Mais ne leur cédez rien.</value></data>
+<data name="MT10_Bisharp_004" xml:space="preserve"><value>Le Pic Céleste est sous juridiction de Metano.[pause=25] Pour l'instant.</value></data>
+<data name="MT10_Bisharp_005" xml:space="preserve"><value>La sécurité de Metano est ma priorité.[pause=20] Même en haute altitude.</value></data>
+<data name="MT10_Ledian_001" xml:space="preserve"><value>Le style de Lugia...[pause=20] Aérien. Imprévisible. Majestueux.</value></data>
+<data name="MT10_Ledian_002" xml:space="preserve"><value>Le Dojo va créer une simulation 'Pic Céleste' ![pause=25] Avec du VRAI vent !</value></data>
+<data name="MT10_Ledian_003" xml:space="preserve"><value>Le Pic exige tout.[pause=20] Endurance, vitesse, volonté. Vous avez tout.</value></data>
+<data name="MT10_Ledian_004" xml:space="preserve"><value>L'entraînement est la clé ![pause=15] Le dojo est ouvert.</value></data>
+<data name="MT10_Machamp_001" xml:space="preserve"><value>Vous avez battu Luxray à la course ?![pause=10] HAHA ![pause=15] J'aurais PAYÉ pour voir ça !</value></data>
+<data name="MT10_Machamp_002" xml:space="preserve"><value>L'Escouade Fulgur ![pause=10] Des vrais durs. Mais VOUS, vous êtes plus durs !</value></data>
+<data name="MT10_Machamp_003" xml:space="preserve"><value>Luxray est un fier-à-bras.[pause=20] Ça lui fera les pieds de perdre !</value></data>
+<data name="MT10_Machamp_004" xml:space="preserve"><value>Allez-y ![pause=10] Grimpez plus haut ![pause=15] Montrez-leur qui commande !</value></data>
+<data name="MT10_Machamp_005" xml:space="preserve"><value>L'entraînement ne s'arrête jamais ![pause=10] Surtout avant une course.</value></data>
+<data name="MT10_Medicham_001" xml:space="preserve"><value>Lugia vous a parlé.[pause=30] Votre aura a changé.</value></data>
+<data name="MT10_Medicham_002" xml:space="preserve"><value>Vous portez maintenant le poids d'un secret.[pause=25] Méditez. Il vous sera révélé.</value></data>
+<data name="MT10_Medicham_003" xml:space="preserve"><value>L'Escouade Fulgur a une aura de fierté blessée.[pause=25] Ils ne vous sous-estimeront plus.</value></data>
+<data name="MT10_Meditite_001" xml:space="preserve"><value>Vous avez parlé à LUGIA ?![pause=15] Il est comment ?[pause=20] Il est GRAND ?</value></data>
+<data name="MT10_Meditite_002" xml:space="preserve"><value>Papa dit que même Luxray vous respecte maintenant ![pause=15] C'est ÉNORME !</value></data>
+<data name="MT10_Meditite_003" xml:space="preserve"><value>La méditation m'aide à ne pas avoir peur du vide.[pause=25] ...Un peu.</value></data>
+<data name="MT10_Nidoqueen_001" xml:space="preserve"><value>Nidorina a essayé de vous suivre au Pic Céleste.[pause=20] Je l'ai rattrapée à temps.</value></data>
+<data name="MT10_Nidoqueen_002" xml:space="preserve"><value>Elle est punie.[pause=25] Mais entre nous...[pause=30] je suis fière de son courage.</value></data>
+<data name="MT10_Nidoqueen_003" xml:space="preserve"><value>Prenez soin de vous au sommet.[pause=20] Une mère s'inquiète toujours.</value></data>
+<data name="MT10_Nidoking_001" xml:space="preserve"><value>Lugia ![pause=10] Ma femme ne parle QUE de ça ![pause=15] Et de Nidorina.</value></data>
+<data name="MT10_Nidoking_002" xml:space="preserve"><value>Venez à l'auberge ![pause=10] On fête la victoire ![pause=15] ET la punition de Nidorina !</value></data>
+<data name="MT10_Nidoking_003" xml:space="preserve"><value>Nidorina est punie.[pause=25] Mais elle a du cran, ma fille !</value></data>
+<data name="MT10_Nidorina_001" xml:space="preserve"><value>Papa m'a punie ![pause=10] MAIS ÇA VALAIT LE COUP ![pause=15] J'ai failli y arriver !</value></data>
+<data name="MT10_Nidorina_002" xml:space="preserve"><value>La prochaine fois,[pause=20] je réussirai ![pause=10] Vous verrez !</value></data>
+<data name="MT10_Nidorina_003" xml:space="preserve"><value>Le Pic Céleste ?[pause=15] Je peux venir ?[pause=20] ...Non, hein ?</value></data>
+<data name="MT10_NidoranM_001" xml:space="preserve"><value>Ma sœur est punie pour un mois ![pause=15] ...Ça fait trois jours et elle a déjà tenté de s'échapper.</value></data>
+<data name="MT10_NidoranM_002" xml:space="preserve"><value>Moi, je suis sage.[pause=20] ...Je prépare mon évasion en silence.</value></data>
+<data name="MT10_Numel_001" xml:space="preserve"><value>L'Escouade Fulgur ?![pause=15] Vous les avez BATTUS ?![pause=20] Je veux être comme vous !</value></data>
+<data name="MT10_Numel_002" xml:space="preserve"><value>Je me suis entraîné à grimper ![pause=15] J'ai fait trois fois l'échelle du dojo !</value></data>
+<data name="MT10_Numel_003" xml:space="preserve"><value>Le Pic Céleste...[pause=20] C'est haut. Mais j'ai pas peur.</value></data>
+<data name="MT10_Camerupt_001" xml:space="preserve"><value>Numel a grimpé tous les arbres du village.[pause=25] Il s'entraîne pour le Pic.</value></data>
+<data name="MT10_Camerupt_002" xml:space="preserve"><value>Il est infatigable.[pause=30] Comme vous.</value></data>
+<data name="MT10_Camerupt_003" xml:space="preserve"><value>Numel est impatient.[pause=20] Le Pic le fait rêver.</value></data>
+<data name="MT10_Floatzel_001" xml:space="preserve"><value>Le vent du Pic a nettoyé la rivière ![pause=15] L'eau est cristalline !</value></data>
+<data name="MT10_Floatzel_002" xml:space="preserve"><value>Maris et moi, on va mieux.[pause=25] Merci de nous avoir aidés.</value></data>
+<data name="MT10_Floatzel_003" xml:space="preserve"><value>Le Pic Céleste...[pause=20] La dernière fois que j'y suis allé, j'ai failli tomber.</value></data>
+<data name="MT10_Quagsire_001" xml:space="preserve"><value>...[pause=30] Le vent du sommet chante.[pause=25] Il dit merci.</value></data>
+<data name="MT10_Quagsire_002" xml:space="preserve"><value>L'étang est calme.[pause=20] Plus calme que jamais.</value></data>
+<data name="MT10_Mawile_001" xml:space="preserve"><value>LUGIA ![pause=10] LE Lugia ![pause=15] J'ai ENQUÊTÉ ![pause=20] Vous voulez mon dossier ?</value></data>
+<data name="MT10_Mawile_002" xml:space="preserve"><value>Et l'Escouade Fulgur ![pause=15] J'ai TOUT noté ![pause=20] Bria, reporter de l'année !</value></data>
+<data name="MT10_Mawile_003" xml:space="preserve"><value>Adagio a dit quoi ?[pause=25] 'Nos égaux' ?[pause=30] JE NOTE !</value></data>
+<data name="MT10_Mawile_004" xml:space="preserve"><value>L'Escouade Fulgur débarque ?[pause=20] Je vais les interviewer !</value></data>
+<data name="MT10_Mawile_005" xml:space="preserve"><value>Vous avez entendu les dernières rumeurs ?[pause=15] ...Sur Lugia ?</value></data>
+<data name="MT10_Electrike_001" xml:space="preserve"><value>L'énergie de Lugia...[pause=25] elle est IMMENSE. Mais calme.</value></data>
+<data name="MT10_Electrike_002" xml:space="preserve"><value>Comme un orage qui dort.[pause=30] C'est... apaisant.</value></data>
+<data name="MT10_Electrike_003" xml:space="preserve"><value>L'énergie du Pic est pure.[pause=25] Très pure. Ça fait du bien.</value></data>
+<data name="MT10_Manectric_001" xml:space="preserve"><value>Electrike est apaisé.[pause=25] Lugia a purifié le ciel.</value></data>
+<data name="MT10_Luxray_001" xml:space="preserve"><value>Vous avez gagné la course.[pause=25] Cette fois.</value></data>
+<data name="MT10_Luxray_002" xml:space="preserve"><value>L'Escouade Fulgur reconnaît votre valeur.[pause=30] Mais la prochaine fois...</value></data>
+<data name="MT10_Luxray_003" xml:space="preserve"><value>Le Pic Céleste nous appartient autant qu'à vous.[pause=20] On se retrouve au sommet.</value></data>
+<data name="MT10_Vileplume_001" xml:space="preserve"><value>Le vent du Pic fait refleurir mes plantes ![pause=15] C'est magique !</value></data>
+<data name="MT10_Vileplume_002" xml:space="preserve"><value>Les bégonias sont magnifiques cette saison ![pause=10] Grâce au vent pur.</value></data>
+<data name="MT10_Bellossom_001" xml:space="preserve"><value>Les fleurs dansent avec le vent du sommet ![pause=15] C'est magnifique !</value></data>
+<data name="MT10_Gloom_001" xml:space="preserve"><value>L'air du sommet sent bon ![pause=15] Je bave de plaisir !</value></data>
+<data name="MT10_Oddish_001" xml:space="preserve"><value>Numel et moi, on va grimper le Pic ![pause=15] ...Un jour ![pause=20] Promis !</value></data>
+<data name="MT10_Furret_001" xml:space="preserve"><value>Aaah...[pause=0] le vent du sommet est parfait pour la sieste.</value></data>
+<data name="MT10_Linoone_001" xml:space="preserve"><value>J'ai lu le récit de l'ascension du Pic par Penticus ![pause=25] Vous l'avez surpassé.</value></data>
+<data name="MT10_Sentret_001" xml:space="preserve"><value>Vous avez vu Lugia de PRÈS ?![pause=15] Waaaaah ![pause=20] Trop fort !</value></data>
+<data name="MT10_WooperG_001" xml:space="preserve"><value>On a joué à 'qui grimpe le plus haut' ![pause=15] J'ai gagné ![pause=20] Évidemment.</value></data>
+<data name="MT10_WooperB_001" xml:space="preserve"><value>Dee a triché ![pause=15] ...Je crois. Comme d'habitude.</value></data>
+<data name="MT10_Gulpin_001" xml:space="preserve"><value>L'air du sommet ouvre l'appétit ![pause=15] ...Enfin, tout ouvre l'appétit.</value></data>
+<data name="MT10_Lickitung_001" xml:space="preserve"><value>Le café a un nouveau plat 'Sommet Céleste' ![pause=10] C'est aérien !</value></data>
+<data name="MT10_Spinda_001" xml:space="preserve"><value>Un spectacle aérien ![pause=15] Avec des rubans qui volent au vent !</value></data>
+<data name="MT10_Ludicolo_001" xml:space="preserve"><value>La danse du vent ![pause=15] On tourbillonne ![pause=20] Vous voulez essayer ?</value></data>
+<data name="MT10_Azumarill_001" xml:space="preserve"><value>Des voyageurs du Pic sont passés ![pause=15] Ils parlent de vous avec admiration !</value></data>
+<data name="MT10_Roselia_001" xml:space="preserve"><value>Les abricornes brillent comme des étoiles ![pause=15] La magie du Pic !</value></data>
+<data name="MT10_Jigglypuff_001" xml:space="preserve"><value>Une berceuse du vent ?[pause=20] Elle vient du sommet.</value></data>
+<data name="MT10_Marill_001" xml:space="preserve"><value>J'ai grimpé sur le toit de l'auberge ![pause=15] C'est presque le Pic !</value></data>
+<data name="MT10_Spheal_001" xml:space="preserve"><value>Rouler en montée, c'est dur ![pause=15] ...Je préfère la descente.</value></data>
+<data name="MT10_Bagon_001" xml:space="preserve"><value>Lugia VOLE ![pause=10] Je veux apprendre à voler ![pause=15] Comme lui !</value></data>
+<data name="MT10_Doduo_001" xml:space="preserve"><value>On a sprinté jusqu'au Pic ![pause=15] ...Jusqu'à la moitié. On est pas fous.</value></data>
+<data name="MT10_Metapod_001" xml:space="preserve"><value>......[pause=30] (Metapod semble plus léger.)</value></data>
+<data name="MT10_Silcoon_001" xml:space="preserve"><value>Vous avez grimpé SI HAUT ![pause=15] Papilusion n'en revient pas !</value></data>
+<data name="MT10_Mareep_001" xml:space="preserve"><value>L'énergie de Lugia crépite dans l'air ![pause=20] C'est comme un million d'éclairs !</value></data>
+<data name="MT10_Cranidos_001" xml:space="preserve"><value>L'Escouade Fulgur...[pause=25] VOILÀ des rivaux. Enfin du sérieux.</value></data>
+<data name="MT10_Cranidos_002" xml:space="preserve"><value>...Bon, OK, VOUS êtes sérieux aussi. Mais c'est pas pareil.</value></data>
+<data name="MT10_Butterfree_001" xml:space="preserve"><value>Chenipent a essayé de grimper un arbre ![pause=15] Pour 's'entraîner comme vous'.</value></data>
+<data name="MT10_Venipede_001" xml:space="preserve"><value>Je grimpe plus vite que tout le monde ![pause=10] Sauf vous ![pause=15] Pour l'instant !</value></data>
+<data name="MT10_Adagio_001" xml:space="preserve"><value>Lugia vous a parlé.[pause=30] Vous avez dépassé tout ce que nous imaginions.</value></data>
+<data name="MT10_Adagio_002" xml:space="preserve"><value>Team Dazzling s'incline.[pause=25] ...Pour aujourd'hui.</value></data>
+<data name="MT10_Adagio_003" xml:space="preserve"><value>L'Escouade Fulgur ?[pause=25] Nous les connaissons. De réputation.</value></data>
+<data name="MT10_Aria_001" xml:space="preserve"><value>LUGIA ?![pause=10] Vous avez parlé à LUGIA ?![pause=20] OK, j'abandonne. Vous êtes les meilleurs.</value></data>
+<data name="MT10_Aria_002" xml:space="preserve"><value>Je vous ai sous-estimés.[pause=30] Ça n'arrivera plus.</value></data>
+<data name="MT10_Sonata_001" xml:space="preserve"><value>J'ai caché une plume de Lugia en ville ![pause=15] ...Non, c'est faux. Mais vous avez hésité !</value></data>
+<data name="MT10_Growlithe_001" xml:space="preserve"><value>Le Pic Céleste est inscrit au registre.[pause=20] Vous êtes dans la LÉGENDE.</value></data>
+<data name="MT10_Growlithe_002" xml:space="preserve"><value>Phileas m'a demandé d'archiver votre rencontre avec Lugia.[pause=30] C'est un honneur.</value></data>
+<data name="MT10_Growlithe_003" xml:space="preserve"><value>La guilde vous soutient.[pause=15] Toujours. Même face aux légendes.</value></data>
 </root>
