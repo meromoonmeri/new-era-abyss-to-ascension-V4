@@ -910,6 +910,62 @@ SV.Chapter7 =
 	RuinsMidpointState = 'FirstArrival'
 }
 
+SV.Chapter8 = 
+{
+	-- Chapter 8: Sanctuaire de Cristal — Diancie, Fragment de Cristal
+	ShowedTitleCard = false,
+	CrystalAddressGiven = false,
+	MissionAccepted = false,
+	EnteredSanctuary = false,
+	ReachedCrystalRelay = false,
+	LostCrystalGallery = false,
+	ReachedDiancieChamber = false,
+	LostGlyphHalls = false,
+	DefeatedDiancie = false,
+	DiedToDiancie = false,
+	ObtainedCrystalFragment = false,
+	SanctuaryMidpointState = 'FirstArrival'
+}
+
+SV.Chapter9 = 
+{
+	-- Chapter 9: Marais de l'Oubli — Mega-Blastoise, Cercle du Suaire
+	ShowedTitleCard = false,
+	MarshAddressGiven = false,
+	MissionAccepted = false,
+	EnteredMarsh = false,
+	ReachedMarshRelay = false,
+	LostMarshBanks = false,
+	ReachedMarshDepths = false,
+	SawCercleDuSuaire = false,
+	LostMarshDepths = false,
+	DefeatedMegaBlastoise = false,
+	DiedToMegaBlastoise = false,
+	PurifiedMarshCore = false,
+	MarshMidpointState = 'FirstArrival'
+}
+
+SV.Chapter10 = 
+{
+	-- Chapter 10: Pic Celeste — Lugia, Escouade Fulgur, vision Necrozma
+	ShowedTitleCard = false,
+	PeakAddressGiven = false,
+	MissionAccepted = false,
+	EnteredPeak = false,
+	ReachedCloudRelay = false,
+	LostFoothills = false,
+	ReachedFulgurEncounter = false,
+	LostCloudSea = false,
+	OutranEscouadeFulgur = false,
+	FulgurReachedSummitFirst = false,
+	ReachedLugiaAltar = false,
+	LostSummit = false,
+	DefeatedLugia = false,
+	DiedToLugia = false,
+	SawNecrozmaVision = false,
+	PeakMidpointState = 'FirstArrival'
+}
+
 
 
 

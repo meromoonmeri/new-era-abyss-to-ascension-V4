@@ -170,7 +170,7 @@ function metano_town.East_Exit_Touch(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
   GeneralFunctions.StartPartnerConversation("Où devrions-nous aller,[pause=10]" .. CH('PLAYER'):GetDisplayName() .. " ?", "Normal", false)
   GAME:WaitFrames(20)
-  local dungeons = {"relic_forest", "illuminant_riverbed", "crooked_cavern", "apricorn_grove", "vast_steppe", "searing_tunnel", "mount_windswept", "gloomy_forest"}--this needs to be updated when more dungeons come out.
+  local dungeons = {"relic_forest", "illuminant_riverbed", "crooked_cavern", "apricorn_grove", "vast_steppe", "searing_tunnel", "mount_windswept", "gloomy_forest", "crystal_sanctuary", "forgotten_marsh", "celestial_peak"}--this needs to be updated when more dungeons come out.
   local grounds = {}
   metano_town.ShowDestinationMenu(dungeons, grounds)
 end
@@ -355,6 +355,9 @@ function metano_town.ShowDestinationMenu(dungeon_entrances,ground_entrances)
   dungeon_entrance_mapping["searing_tunnel"] = 47--Searing Tunnel Entrance
   dungeon_entrance_mapping["mount_windswept"] = 50--Mt. Windswept Entrance
   dungeon_entrance_mapping["gloomy_forest"] = 51--Gloomy Forest Entrance
+  dungeon_entrance_mapping["crystal_sanctuary"] = 52--Crystal Sanctuary Entrance
+  dungeon_entrance_mapping["forgotten_marsh"] = 53--Forgotten Marsh Entrance
+  dungeon_entrance_mapping["celestial_peak"] = 54--Celestial Peak Entrance
 
 
 	local mission_dests = {}
