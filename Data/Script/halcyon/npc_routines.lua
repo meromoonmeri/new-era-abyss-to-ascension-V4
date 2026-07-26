@@ -380,4 +380,52 @@ function NPCRoutines.SetupChapter8Ground()
     end
 end
 
+
+-- Dispute observable entre Floatzel et Quagsire
+-- Joue automatiquement quand le joueur revient du Marais apres purification
+function NPCRoutines.TriggerFloatzelQuagsireDispute()
+	local floatzel = CH('Floatzel')
+	local quagsire = CH('Quagsire')
+	if not floatzel or not quagsire then return end
+
+	GAME:CutsceneMode(true)
+	AI:DisableCharacterAI(floatzel)
+	AI:DisableCharacterAI(quagsire)
+
+	-- Floatzel arrive vers Quagsire
+	GROUND:MoveToPosition(floatzel, 632, 1016, false, 1)
+	GAME:WaitFrames(8)
+	GROUND:CharAnimateTurnTo(floatzel, Direction.Up, 4)
+	GROUND:CharAnimateTurnTo(quagsire, Direction.DownRight, 4)
+
+	-- La dispute
+	UI:SetSpeaker(floatzel)
+	UI:SetSpeakerEmotion("Angry")
+	UI:WaitShowDialogue("Tu ne comprends pas ![pause=10] Je dois pêcher ![pause=15] C'est ce que je sais faire !")
+
+	UI:SetSpeaker(quagsire)
+	UI:SetSpeakerEmotion("Sad")
+	UI:WaitShowDialogue("...[pause=30] Tu n'es jamais là.[pause=25] L'étang est vide sans toi.")
+
+	UI:SetSpeaker(floatzel)
+	UI:SetSpeakerEmotion("Shock")
+	UI:WaitShowDialogue("Maris...[pause=25] Je... je ne savais pas.")
+
+	UI:SetSpeaker(quagsire)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue("...[pause=30] Maintenant tu sais.[pause=25] Pêche.[pause=30] Mais reviens.")
+
+	GROUND:CharSetEmote(floatzel, "sweatdrop", 1)
+	GAME:WaitFrames(20)
+	GROUND:CharSetEmote(quagsire, "happy", 1)
+
+	SV.Chapter9.FloatzelDisputeResolved = true
+	GAME:WaitFrames(20)
+	GAME:CutsceneMode(false)
+	AI:SetCharacterAI(floatzel, "halcyon.ai.ground_default",
+		RogueElements.Loc(600, 960), RogueElements.Loc(64, 64), 1, 16, 32, 40, 180)
+	AI:SetCharacterAI(quagsire, "halcyon.ai.ground_default",
+		RogueElements.Loc(624, 992), RogueElements.Loc(32, 32), 1, 16, 32, 40, 180)
+end
+
 return NPCRoutines

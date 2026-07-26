@@ -884,6 +884,16 @@ SV.ApricornGrove =
 --Ecrit par zone/gloomy_forest/init.lua en cas de defaite au-dela du checkpoint,
 --et lu par ground/gloomy_forest_midpoint. Sans cette declaration, SV.GloomyForest
 --vaut nil et la defaite provoque "attempt to index a nil value".
+SV.ClovenRuins =
+{
+	BoulderCountdown = -1
+}
+
+SV.CrookedCavern =
+{
+	DiedPastCheckpoint = false
+}
+
 SV.GloomyForest =
 {
 	DiedPastCheckpoint = false--defaite dans les profondeurs ou contre Zarude ?
@@ -945,6 +955,7 @@ SV.Chapter9 =
 	DefeatedMegaBlastoise = false,
 	DiedToMegaBlastoise = false,
 	PurifiedMarshCore = false,
+	FloatzelDisputeResolved = false,
 	MarshMidpointState = 'FirstArrival'
 }
 
