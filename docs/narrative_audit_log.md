@@ -44,3 +44,29 @@ sont refermées (zones atteignables, relais uniformes, boss justifiés par le lo
 mais le contenu n'est pas encore raccordé à la progression — il est invisible pour le
 joueur tant que l'item 7 n'est pas traité, donc aucune « salade de fruits » exposée.
 ```
+
+## Audit du 2026-07-26 (bis) — conversion des relais en grounds officiels
+
+```
+Date de l'audit : 2026-07-26 (2e passage)
+Chapitres couverts : 3, 5, 6, 7, 8, 9, 10 (tous les relais)
+Ressources vérifiées : 8 relais convertis depuis DumpAsset (voir docs/relais_grounds_officiels_2026-07-26.md)
+
+Incohérences trouvées :
+  1. [10.1 origine invisible] Tous les MapChars des camps officiels supprimés (Rival,
+     NPC_*, Snorlax, Xatu, Wigglytuff...), objets de gameplay du jeu de base retirés
+     (Assembly, Storage, boutiques, Ferry, gates). Noms/AssetName/Comment réécrits.
+     Aucun flag SV du jeu de base réutilisé (guildmaster_summit -> corniche neutre).
+  2. [10.3 règles internes] Les 8 relais suivent désormais le même patron :
+     Kangaskhan_Rock (Action) + exits (Touch) + TEAMMATE_1..3 + Main_Entrance_Marker.
+     gloomy_forest_midpoint garde sa règle spécifique ch6 : sortie unique en avant.
+  3. [10.2 continuité] Musiques réassignées par biome (Cliff/Canyon/Cave/Snow/Summit),
+     cohérentes avec la progression des chapitres.
+
+Actions correctives : aucune restante sur ce périmètre.
+
+Verdict global : le joueur peut-il sentir le patchwork ? NON — les relais sont
+désormais des cartes de qualité officielle, dépouillées de toute identité du jeu
+de base, avec le même vocabulaire d'interaction New Era partout. Réserve : test
+en jeu encore requis (rendu visuel + déclenchement des cinématiques recalées).
+```

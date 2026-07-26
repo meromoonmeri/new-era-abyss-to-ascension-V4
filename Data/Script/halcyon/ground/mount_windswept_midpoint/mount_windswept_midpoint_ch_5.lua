@@ -16,10 +16,10 @@ function mount_windswept_midpoint_ch_5.FirstArrival()
   AI:DisableCharacterAI(partner)
   SOUND:StopBGM()
 
-  -- Carte 240x320 px : positions de départ dans la moitié sud, sur cellules walkables vérifiées.
-  GROUND:TeleportTo(hero, 160, 264, Direction.Up)
-  GROUND:TeleportTo(partner, 128, 264, Direction.Up)
-  GAME:MoveCamera(144, 208, 1, false)
+  -- Ground officiel canyon_camp (1152x624 px) : arrivée près du marker central (836,384).
+  GROUND:TeleportTo(hero, 852, 416, Direction.Up)
+  GROUND:TeleportTo(partner, 820, 416, Direction.Up)
+  GAME:MoveCamera(836, 376, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -30,7 +30,7 @@ function mount_windswept_midpoint_ch_5.FirstArrival()
   UI:WaitHideTitle(20)
   GAME:FadeIn(40)
 
-  SOUND:PlayBGM('Mt. Travail.ogg', false)
+  SOUND:PlayBGM('Canyon Camp.ogg', false)
 
   GAME:WaitFrames(30)
 

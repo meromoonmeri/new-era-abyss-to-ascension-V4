@@ -16,10 +16,10 @@ function vast_steppe_midpoint_ch_5.FirstArrival()
   AI:DisableCharacterAI(partner)
   SOUND:StopBGM()
 
-  -- Carte 240x320 px : positions de départ dans la moitié sud, sur cellules walkables vérifiées.
-  GROUND:TeleportTo(hero, 160, 264, Direction.Up)
-  GROUND:TeleportTo(partner, 128, 264, Direction.Up)
-  GAME:MoveCamera(144, 208, 1, false)
+  -- Ground officiel cliff_camp (792x528 px) : arrivée près du marker central (388,268).
+  GROUND:TeleportTo(hero, 404, 300, Direction.Up)
+  GROUND:TeleportTo(partner, 372, 300, Direction.Up)
+  GAME:MoveCamera(388, 260, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -30,7 +30,7 @@ function vast_steppe_midpoint_ch_5.FirstArrival()
   UI:WaitHideTitle(20)
   GAME:FadeIn(40)
 
-  SOUND:PlayBGM('Sky Peak Prairie.ogg', false)
+  SOUND:PlayBGM('Cliff Camp.ogg', false)
 
   GAME:WaitFrames(30)
 

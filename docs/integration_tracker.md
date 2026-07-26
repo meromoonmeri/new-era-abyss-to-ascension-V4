@@ -7,9 +7,15 @@ Source de vérité pour l'audit global (§10). Une ligne par ressource migrée/r
 | ProjectEoN | BranchwayWoodsExitCutscene | gloomy_forest_exit_witness | 6 | — | Découverte de la corruption des Anima, avant boss | Donjon principal | Fait |
 | PMDO base (DumpAsset) | end_treacherous_mountain | mount_windswept_guardian | 5 | Aerodactyl | Arène du gardien du sommet | Donjon principal | Fait (collision régénérée) |
 | Halcyon (base du mod) | searing_tunnel_midpoint | Patron « relais Statue Kangourex » | 5+ | — | Modèle canonique de checkpoint mi-donjon | Infrastructure | Fait |
-| Halcyon (composition biome) | vast_steppe_entrance (tiles) | vast_steppe_midpoint | 5 | — | Relais Grande Steppe (repos avant mini-boss) | Donjon principal | Fait — entités corrigées 2026-07-26 |
-| Halcyon (composition biome) | mount_windswept_entrance (tiles) | mount_windswept_midpoint | 5 | — | Relais Mont Venteux | Donjon principal | Fait — entités corrigées 2026-07-26 |
-| Halcyon (composition biome) | gloomy_forest/relic (tiles) | cloven_ruins_entrance / _midpoint / _boss | 7 | Regigigas | Cœur d'Anima des Ruines, Titan gardien | Donjon principal | Fait — flux + entités corrigés 2026-07-26 |
+| Halcyon (composition biome) | gloomy_forest/relic (tiles) | cloven_ruins_entrance / _boss | 7 | Regigigas | Cœur d'Anima des Ruines, Titan gardien | Donjon principal | Fait — flux + entités corrigés 2026-07-26 |
+| PMDO base (DumpAsset) | cliff_camp | vast_steppe_midpoint — Relais Grande Steppe | 5 | — | Checkpoint mi-donjon steppe | Donjon principal | Fait 2026-07-26 (ground officiel) |
+| PMDO base (DumpAsset) | canyon_camp | mount_windswept_midpoint — Relais Mont Venteux | 5 | — | Checkpoint mi-donjon montagne | Donjon principal | Fait 2026-07-26 (ground officiel) |
+| PMDO base (DumpAsset) | rest_stop | crooked_cavern_midpoint — Relais Caverne Tortueuse | 3 | — | Checkpoint mi-donjon caverne | Donjon principal | Fait 2026-07-26 (ground officiel) |
+| PMDO base (DumpAsset) | forest_camp | gloomy_forest_midpoint — Relais Forêt Lugubre | 6 | — | Checkpoint avant les profondeurs (sortie unique) | Donjon principal | Fait 2026-07-26 (ground officiel) |
+| PMDO base (DumpAsset) | end_moonlit_temple | cloven_ruins_midpoint — Relais Ruines Tordues | 7 | — | Esplanade-relais avant Regigigas | Donjon principal | Fait 2026-07-26 (ground officiel) |
+| PMDO base (DumpAsset) | final_stop | crystal_sanctuary_relay — Relais du Sanctuaire | 8 | — | Checkpoint avant les Salles des Glyphes | Donjon principal | Fait 2026-07-26 (ground officiel) |
+| PMDO base (DumpAsset) | end_ambush_forest | forgotten_marsh_relay — Relais du Marais | 9 | — | Checkpoint avant les Abysses Vaseux | Donjon principal | Fait 2026-07-26 (ground officiel) |
+| PMDO base (DumpAsset) | guildmaster_summit | celestial_peak_relay — Relais du Pic Céleste | 10 | — | Corniche-relais, réutilisée post-Fulgur | Donjon principal | Fait 2026-07-26 (ground officiel) |
 | Halcyon (crop réel) | first_core_location | crystal_sanctuary_entrance | 8 | — | Seuil du Sanctuaire, réserve d'Anima cristallisée | Donjon principal | Fait — reconstruite 2026-07-26 |
 | Halcyon (crop réel) | altere_pond | forgotten_marsh_entrance | 9 | — | Berges du Marais de l'Oubli | Donjon principal | Fait — reconstruite 2026-07-26 |
 | Halcyon (crop réel) | mount_windswept_entrance | celestial_peak_entrance | 10 | — | Pied du Pic Céleste | Donjon principal | Fait — reconstruite 2026-07-26 |
