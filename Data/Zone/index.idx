@@ -215,7 +215,8 @@
       "CountedFloors": 20,
       "Rogue": 0,
       "Grounds": [
-        "cloven_ruins_entrance"
+        "cloven_ruins_entrance",
+        "cloven_ruins_boss"
       ],
       "Maps": [
         [

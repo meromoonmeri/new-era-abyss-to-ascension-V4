@@ -1,4 +1,4 @@
-﻿{
+{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -11871,7 +11871,8 @@
     "GroundMaps": [
       "vast_steppe_entrance",
       "vast_steppe_miniboss",
-      "vast_steppe_guardian"
+      "vast_steppe_guardian",
+      "vast_steppe_midpoint"
     ]
   }
 }
