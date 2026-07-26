@@ -76,7 +76,7 @@
             "Comment": ""
           }
         ],
-        "IsRelevant": true,
+        "IsRelevant": false,
         "Comment": "Relais — checkpoint mi-donjon"
       },
       {
@@ -121,7 +121,8 @@
       }
     ],
     "GroundMaps": [
-      "cloven_ruins_entrance"
+      "cloven_ruins_entrance",
+      "cloven_ruins_boss"
     ]
   }
 }

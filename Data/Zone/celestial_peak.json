@@ -69,7 +69,7 @@
             "Comment": ""
           }
         ],
-        "IsRelevant": true,
+        "IsRelevant": false,
         "Comment": "Relais — corniche nuageuse (checkpoint Kangourex)"
       },
       {
@@ -109,7 +109,7 @@
             "Comment": ""
           }
         ],
-        "IsRelevant": true,
+        "IsRelevant": false,
         "Comment": "Affrontement Escouade Fulgur — course tactique"
       },
       {
@@ -149,7 +149,7 @@
             "Comment": ""
           }
         ],
-        "IsRelevant": true,
+        "IsRelevant": false,
         "Comment": "Autel de Lugia — arene celeste circulaire"
       }
     ],
