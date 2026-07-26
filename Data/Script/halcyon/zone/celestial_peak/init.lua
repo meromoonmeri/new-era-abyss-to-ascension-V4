@@ -81,15 +81,17 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
           end
       end
   elseif segmentID == 3 then
-      -- Escouade Fulgur — course tactique, pas de combat direct
+      -- Escouade Fulgur
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
           SV.Chapter10.OutranEscouadeFulgur = true
-          -- On continue vers le sommet
-          GAME:EnterGroundMap('celestial_peak_summit', 'Main_Entrance_Marker')
+          GAME:EnterGroundMap('celestial_peak_relay', 'Main_Entrance_Marker')
       else
           SV.Chapter10.FulgurReachedSummitFirst = true
-          -- Luxray et son equipe sont arrives les premiers — mais le boss attend les heros
-          GAME:EnterGroundMap('celestial_peak_summit', 'Main_Entrance_Marker')
+          GAME:EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+          GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
+              "L'Escouade Fulgur...[pause=0] ils nous ont devances...[pause=20] trop rapides...", "Pain")
+          GAME:WaitFrames(20)
+          GAME:EnterZone("master_zone", -1, 46, 0)
       end
   elseif segmentID == 4 then
       -- Sommet Sacre : 4 etages
@@ -113,11 +115,17 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
       -- Boss Lugia
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
           SV.Chapter10.DefeatedLugia = true
-          SV.Chapter10.SawNecrozmaVision = true
+          SV.Chapter10.CelestialPeakComplete = true
+          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
       else
           SV.Chapter10.DiedToLugia = true
+          GAME:EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+          GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
+              "Lugia...[pause=0] le Gardien des Cieux...[pause=20] nous a juges...", "Pain")
+          GAME:WaitFrames(20)
+          GAME:EnterZone("master_zone", -1, 46, 0)
       end
-      GAME:EnterGroundMap('celestial_peak_boss', 'Main_Entrance_Marker')
+  end      GAME:EnterGroundMap('celestial_peak_boss', 'Main_Entrance_Marker')
   end
 end
 

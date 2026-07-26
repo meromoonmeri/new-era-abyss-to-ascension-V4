@@ -8,7 +8,7 @@ function celestial_peak_fulgur.Init(map) DEBUG.EnableDbgCoro() end
 function celestial_peak_fulgur.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(40)
-  SOUND:PlayBGM("Team_Dazzling.ogg", false)
+  SOUND:PlayBGM("Boss Battle!.ogg", false)
   local luxray = CharacterEssentials.MakeCharactersFromList({{'Luxray', 120, 140, Direction.Down}})
   local lucario = CharacterEssentials.MakeCharactersFromList({{'Lucario', 156, 140, Direction.Down}})
   local heliolisk = CharacterEssentials.MakeCharactersFromList({{'Heliolisk', 192, 140, Direction.Down}})

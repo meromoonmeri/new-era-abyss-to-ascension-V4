@@ -85,10 +85,16 @@ function forgotten_marsh.ExitSegment(zone, result, rescue, segmentID, mapID)
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
           SV.Chapter9.DefeatedMegaBlastoise = true
           SV.Chapter9.PurifiedMarshCore = true
+          SV.Chapter9.ForgottenMarshComplete = true
+          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
       else
           SV.Chapter9.DiedToMegaBlastoise = true
+          GAME:EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+          GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
+              "Le marecage...[pause=0] nous engloutit...[pause=20] tout disparait...", "Pain")
+          GAME:WaitFrames(20)
+          GAME:EnterZone("master_zone", -1, 46, 0)
       end
-      GAME:EnterGroundMap('forgotten_marsh_boss', 'Main_Entrance_Marker')
   end
 end
 

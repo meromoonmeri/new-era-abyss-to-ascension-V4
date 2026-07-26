@@ -83,10 +83,16 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
           SV.Chapter8.DefeatedDiancie = true
           SV.Chapter8.ObtainedCrystalFragment = true
+          SV.Chapter8.CrystalSanctuaryComplete = true
+          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
       else
           SV.Chapter8.DiedToDiancie = true
+          GAME:EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+          GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
+              "Diancie...[pause=0] sa puissance...[pause=15] trop eclatante...", "Pain")
+          GAME:WaitFrames(20)
+          GAME:EnterZone("master_zone", -1, 46, 0)
       end
-      GAME:EnterGroundMap('crystal_sanctuary_boss', 'Main_Entrance_Marker')
   end
 end
 

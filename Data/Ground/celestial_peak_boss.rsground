@@ -102845,8 +102845,8 @@
             "InteractOrder": 0,
             "triggerType": 0,
             "Collider": {
-              "X": 152,
-              "Y": 208,
+              "X": 140,
+              "Y": 100,
               "Width": 16,
               "Height": 16
             }
