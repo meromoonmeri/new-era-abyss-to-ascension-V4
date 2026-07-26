@@ -3465,4 +3465,21 @@
 <data name="MT10_Growlithe_001" xml:space="preserve"><value>Le Pic Céleste est inscrit au registre.[pause=20] Vous êtes dans la LÉGENDE.</value></data>
 <data name="MT10_Growlithe_002" xml:space="preserve"><value>Phileas m'a demandé d'archiver votre rencontre avec Lugia.[pause=30] C'est un honneur.</value></data>
 <data name="MT10_Growlithe_003" xml:space="preserve"><value>La guilde vous soutient.[pause=15] Toujours. Même face aux légendes.</value></data>
+<data name="MT6_101" xml:space="preserve"><value>Bien.[pause=25] Vous n'êtes peut-être pas des débutants ordinaires.[pause=30] Peut-être.</value></data>
+<data name="MT6_102" xml:space="preserve"><value>Oh là là ![pause=10] Regardez qui revient ![pause=20] Les grands héros de la Forêt Lugubre ![pause=15] ...Ah, non, pardon. Vous avez PERDU.</value></data>
+<data name="MT6_103" xml:space="preserve"><value>Zarude vous a renvoyés chez vous comme des gamins ![pause=15] C'est presque mignon ![pause=25] Presque.</value></data>
+<data name="MT6_104" xml:space="preserve"><value>Vous n'avez pas le droit de vous moquer ![pause=10] On a essayé ![pause=20] On a vraiment essayé ![pause=25] Ce monstre...[pause=30] il était...</value></data>
+<data name="MT6_105" xml:space="preserve"><value>Essayer ne suffit pas.[pause=25] Dans notre monde, seuls les résultats comptent.</value></data>
+<data name="MT6_106" xml:space="preserve"><value>Vous n'êtes pas prêts.[pause=30] Revenez nous voir quand vous aurez de VRAIS exploits à montrer.</value></data>
+<data name="MT6_107" xml:space="preserve"><value>Et Chenipent, alors ?[pause=20] Il attend toujours dans la forêt,[pause=15] pendant que vous vous faites masser les bosses ici !</value></data>
+<data name="MT6_108" xml:space="preserve"><value>...[pause=30] La défaite est un professeur plus dur que la victoire.[pause=25] Écoutez-la.</value></data>
+<data name="MT6_109" xml:space="preserve"><value>Nous repartons vers la côte.[pause=20] La prochaine fois que nous nous croiserons,[pause=25] j'espère que vous serez dignes de notre attention.</value></data>
+<data name="MT6_110" xml:space="preserve"><value>Ouch...[pause=20] Ça, c'était glacé.[pause=25] Même moi, j'ai eu froid. Et je suis une commère.</value></data>
+<data name="MT6_111" xml:space="preserve"><value>On va les faire mentir.[pause=20] Toutes.[pause=30] Je te le promets,[pause=10] [player].[pause=25] On retourne dans cette forêt.</value></data>
+<data name="MT6_112" xml:space="preserve"><value>Zarude...[pause=25] même son nom me glace les os. Mais vous, vous l'avez vaincu.</value></data>
+<data name="MT6_113" xml:space="preserve"><value>Vous avez réussi là où des équipes entières auraient échoué.[pause=30] La guilde ne l'oubliera pas.</value></data>
+<data name="MT6_114" xml:space="preserve"><value>Chenipent vous doit la vie.[pause=25] Et moi, je vous dois plus que des mots.</value></data>
+<data name="MT6_115" xml:space="preserve"><value>Dites donc ![pause=10] VOUS avez battu Zarude ?![pause=15] Je vais devoir réviser mon opinion sur les débutants.</value></data>
+<data name="MT6_116" xml:space="preserve"><value>C'est pas mal du tout.[pause=25] Pour des nouveaux,[pause=15] c'est même franchement impressionnant.</value></data>
+<data name="MT6_117" xml:space="preserve"><value>Adagio ne le dira pas,[pause=10] mais elle est impressionnée.[pause=30] Je la connais.[pause=20] Elle est impressionnée.</value></data>
 </root>

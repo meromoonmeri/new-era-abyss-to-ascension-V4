@@ -832,11 +832,14 @@ SV.Chapter6 =
 	FinishedGloomyForestIntro = false,
 	GloomyBossEncountered = false,
 	DefeatedGloomyBoss = false,
+	DiedToGloomyBoss = false,
 	ChenipentFound = false,
 	MissionComplete = false,
 	PostMissionScenePlayed = false,
+	DefeatedByZarude = false,
 	DazzlingTownVisit = 0,
 	ShowedTitleCard = false,--Has the Chapter 6 title card been shown?
+	PostDefeatScenePlayed = false
 }
 
 

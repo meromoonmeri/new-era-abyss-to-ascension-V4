@@ -109,6 +109,7 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 			SV.Chapter6.GloomyBossEncountered = true
 			SV.Chapter6.DefeatedGloomyBoss = true
 			SV.Chapter6.MissionComplete = true
+			SV.Chapter6.DefeatedByZarude = false
 			SV.Chapter6.MissionAccepted = false
 			-- Beat the boss: return to town (UNCHANGED).
 			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
@@ -118,6 +119,8 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 			-- stays true so the next gloomy_forest_boss visit plays the retry scene.
 			SV.GloomyForest.DiedPastCheckpoint = true
 			SV.Chapter6.GloomyMidpointState = 'DeathArrival'
+			SV.Chapter6.DefeatedByZarude = true
+			SV.Chapter6.DiedToGloomyBoss = true
 			SV.Chapter6.MissionAccepted = false
 			GAME:EndDungeonRun(result, "master_zone", -1, 61, 0, true, true) --relay (mapID 61)
 			GAME:WaitFrames(20)

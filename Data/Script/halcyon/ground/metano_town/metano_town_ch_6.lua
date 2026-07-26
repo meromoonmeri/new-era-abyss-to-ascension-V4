@@ -63,6 +63,12 @@ function metano_town_ch_6.SetupGround()
 		AI:DisableCharacterAI(venipede)
 	end
 
+	if SV.Chapter6.DefeatedByZarude and not SV.Chapter6.PostMissionScenePlayed then
+		-- Le joueur revient apres avoir perdu contre Zarude
+		GROUND:TeleportTo(hero, 792, 896, Direction.Up)
+		GROUND:TeleportTo(partner, 824, 896, Direction.Up)
+	end
+
 	GAME:FadeIn(20)
 end
 
@@ -810,6 +816,150 @@ function metano_town_ch_6.Growlithe_Desk_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, "La guilde vous soutient.[pause=15] Toujours. N'oubliez jamais ca.", "Determined")
   end
   GeneralFunctions.EndConversation(chara)
+end
+
+
+-- ============================================================
+-- CINEMATIQUE DEFAITE — Team Dazzling se moque du joueur
+-- Joue quand le joueur revient en ville apres avoir perdu contre Zarude
+-- ============================================================
+function metano_town_ch_6.PostDefeatCutscene()
+	if SV.Chapter6.PostMissionScenePlayed ~= false then return end
+	if not SV.Chapter6.DefeatedByZarude then return end
+	if SV.Chapter6.MissionComplete then return end
+	local hero = CH('PLAYER')
+	local partner = CH('Teammate1')
+	local adagio = CH('Adagio')
+	local aria = CH('Aria')
+	local sonata = CH('Sonata')
+	local mawile = CH('Mawile')
+	local floatzel = CH('Floatzel')
+	local quagsire = CH('Quagsire')
+	local luxray = CH('Luxray')
+
+	SOUND:PlayBGM('Team Skull.ogg', true)
+	GAME:CutsceneMode(true)
+	AI:DisableCharacterAI(partner)
+	AI:DisableCharacterAI(adagio)
+	AI:DisableCharacterAI(aria)
+	AI:DisableCharacterAI(sonata)
+	GAME:MoveCamera(896, 816, 1, false)
+
+	-- Le heros et partenaire arrivent, tete basse
+	GAME:WaitFrames(10)
+	GROUND:CharSetEmote(partner, "sweating", 1)
+	GAME:WaitFrames(10)
+	GROUND:CharSetEmote(hero, "sweatdrop", 1)
+	GAME:WaitFrames(20)
+
+	-- Team Dazzling arrive deja au courant
+	local c1 = TASK:BranchCoroutine(function()
+		GROUND:MoveToPosition(adagio, 1008, 784, false, 1)
+		GROUND:CharAnimateTurnTo(adagio, Direction.DownLeft, 4)
+	end)
+	local c2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(8)
+		GROUND:MoveToPosition(aria, 1040, 816, false, 1)
+		GROUND:CharAnimateTurnTo(aria, Direction.Left, 4)
+	end)
+	local c3 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(16)
+		GROUND:MoveToPosition(sonata, 1072, 848, false, 1)
+		GROUND:CharAnimateTurnTo(sonata, Direction.Left, 4)
+	end)
+	TASK:JoinCoroutines({c1, c2, c3})
+
+	-- La foule regarde, genee
+	GROUND:CharAnimateTurnTo(mawile, Direction.UpLeft, 4)
+	GROUND:CharSetEmote(mawile, "question", 1)
+	GROUND:CharAnimateTurnTo(floatzel, Direction.Up, 4)
+	GROUND:CharSetEmote(floatzel, "sweating", 1)
+	GROUND:CharAnimateTurnTo(quagsire, Direction.UpRight, 4)
+	GROUND:CharSetEmote(quagsire, "sad", 1)
+
+	-- Aria se moque
+	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
+	UI:SetSpeaker(aria)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_102']))
+	GeneralFunctions.Hop(aria, "None", 4, 4, true, true)
+
+	-- Sonata rencherit
+	UI:SetSpeaker(sonata)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_103']))
+
+	-- Le partenaire explose
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Angry")
+	GROUND:CharSetEmote(partner, "angry", 1)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_104']))
+
+	-- Adagio, glaciale
+	UI:SetSpeaker(adagio)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_105']))
+	UI:SetSpeakerEmotion("Sigh")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_106']))
+
+	-- Aria, coup de grace
+	UI:SetSpeaker(aria)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_107']))
+
+	-- Luxray intervient
+	if luxray then
+		GROUND:CharAnimateTurnTo(luxray, Direction.Up, 4)
+		GROUND:CharSetEmote(luxray, "notice", 1)
+		UI:SetSpeaker(luxray)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_108']))
+	end
+
+	-- Adagio conclut
+	UI:SetSpeaker(adagio)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_109']))
+
+	-- Elles repartent
+	local d1 = TASK:BranchCoroutine(function()
+		GROUND:MoveToPosition(aria, 1120, 816, false, 1)
+		GROUND:CharAnimateTurnTo(aria, Direction.Right, 4)
+	end)
+	local d2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(8)
+		GROUND:MoveToPosition(sonata, 1152, 848, false, 1)
+		GROUND:CharAnimateTurnTo(sonata, Direction.Right, 4)
+	end)
+	local d3 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(16)
+		GROUND:MoveToPosition(adagio, 1080, 784, false, 1)
+		GROUND:CharAnimateTurnTo(adagio, Direction.Right, 4)
+	end)
+	TASK:JoinCoroutines({d1, d2, d3})
+
+	-- Village glace, gene
+	GROUND:CharAnimateTurnTo(mawile, Direction.Down, 4)
+	GROUND:CharSetEmote(mawile, "sweating", 1)
+	UI:SetSpeaker(mawile)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_110']))
+
+	-- Le partenaire, resolu
+	GROUND:CharSetEmote(partner, "determined", 1)
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Determined")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_111']))
+
+	SV.Chapter6.PostMissionScenePlayed = true
+	SV.Chapter6.PostDefeatScenePlayed = true
+	GAME:WaitFrames(20)
+	GAME:CutsceneMode(false)
+	RestorePartnerAI(partner)
+	AI:SetCharacterAI(adagio, "halcyon.ai.ground_talking", false, 240, 60, 0, false, 'Default', {aria, sonata})
+	AI:SetCharacterAI(aria, "halcyon.ai.ground_talking", false, 240, 60, 60, false, 'Default', {adagio, sonata})
+	AI:SetCharacterAI(sonata, "halcyon.ai.ground_talking", false, 240, 60, 120, false, 'Default', {adagio, aria})
+	SOUND:PlayBGM('Treasure Town.ogg', true)
 end
 
 return metano_town_ch_6
