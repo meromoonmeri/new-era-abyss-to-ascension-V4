@@ -795,6 +795,34 @@
                         }
                       }
                     }
+                  },
+                  {
+                    "Key": {
+                      "str": [
+                        5,
+                        2,
+                        3
+                      ]
+                    },
+                    "Value": {
+                      "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+                      "Script": "DungeonLife.SpawnWanderingMerchant",
+                      "ArgTable": "{}"
+                    }
+                  },
+                  {
+                    "Key": {
+                      "str": [
+                        5,
+                        2,
+                        3
+                      ]
+                    },
+                    "Value": {
+                      "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+                      "Script": "DungeonLife.SpawnFriendlyResident",
+                      "ArgTable": "{}"
+                    }
                   }
                 ],
                 "Comment": "Large, open floors without real room definitions. Smaller than the 2nd half."
@@ -6687,6 +6715,34 @@
                           "Max": 9
                         }
                       }
+                    }
+                  },
+                  {
+                    "Key": {
+                      "str": [
+                        5,
+                        2,
+                        3
+                      ]
+                    },
+                    "Value": {
+                      "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+                      "Script": "DungeonLife.SpawnWanderingMerchant",
+                      "ArgTable": "{}"
+                    }
+                  },
+                  {
+                    "Key": {
+                      "str": [
+                        5,
+                        2,
+                        3
+                      ]
+                    },
+                    "Value": {
+                      "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+                      "Script": "DungeonLife.SpawnFriendlyResident",
+                      "ArgTable": "{}"
                     }
                   }
                 ],

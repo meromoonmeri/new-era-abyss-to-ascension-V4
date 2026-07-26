@@ -1,51 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?>
-<root>
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
+<?xml version='1.0' encoding='utf-8'?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:schema id="root">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xs:element name="root" ns1:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="metadata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" />
+              </xs:sequence>
+              <xs:attribute name="name" use="required" type="xsd:string" />
+              <xs:attribute name="type" type="xsd:string" />
+              <xs:attribute name="mimetype" type="xsd:string" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="assembly">
+            <xs:complexType>
+              <xs:attribute name="alias" type="xsd:string" />
+              <xs:attribute name="name" type="xsd:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="data">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
+              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
+              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="resheader">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
@@ -916,7 +916,7 @@
   <data name="Tutor_Learn_Replace" xml:space="preserve">
     <value>Uh... {0} has too many moves...[pause=0]\nPick one to replace...</value>
   </data>
-  <data name="Tutor_Info_004&#xD;&#xA;" xml:space="preserve">
+  <data name="Tutor_Info_004&#13;&#10;" xml:space="preserve">
     <value>For a fee, I can even teach you special moves you can't learn anywhere else...</value>
   </data>
   <data name="Tutor_Learn_What" xml:space="preserve">
@@ -2917,4 +2917,4 @@
   <data name="LZ_Sight_Verdant_Oath" xml:space="preserve">
     <value>The vines have grown back in a ring,[pause=10] as if someone were standing guard around a memory.</value>
   </data>
-</root>
+<data name="MT7_Noctowl_001" xml:space="preserve"><value>Ah...[pause=15] vous voilà.[pause=20] Je suppose que vous avez des questions.</value></data><data name="MT7_Noctowl_002" xml:space="preserve"><value>Vous avez vu le Cœur, n'est-ce pas ?[pause=25] Ce qu'il est devenu.</value></data><data name="MT7_Noctowl_003" xml:space="preserve"><value>Alors il est temps que je vous raconte...[pause=30] d'où vient la vie.</value></data><data name="MT7_Noctowl_004" xml:space="preserve"><value>La Genèse...[pause=20] Je n'aurais jamais cru la raconter un jour.[pause=30] Et pourtant.</value></data><data name="MT7_Noctowl_005" xml:space="preserve"><value>Ce qui est arrivé à ce Cœur...[pause=25] ne doit plus jamais arriver.</value></data><data name="MT7_Noctowl_006" xml:space="preserve"><value>Vous l'avez fait.[pause=20] Le Titan est tombé,[pause=15] le Cœur bat à nouveau.</value></data><data name="MT7_Noctowl_007" xml:space="preserve"><value>Je suis fier de vous.[pause=30] Plus que vous ne pouvez l'imaginer.</value></data><data name="MT7_Noctowl_008" xml:space="preserve"><value>Restez vigilants.[pause=20] Les ruines ne révèlent pas tous leurs secrets d'un coup.</value></data><data name="MT7_Tropius_001" xml:space="preserve"><value>Haha ![pause=10] VOUS l'avez fait ![pause=15] Le Titan des Ruines !</value></data><data name="MT7_Tropius_002" xml:space="preserve"><value>Je savais que vous étiez spéciaux depuis le jour où vous avez rejoint la guilde.</value></data><data name="MT7_Tropius_003" xml:space="preserve"><value>Reposez-vous un peu.[pause=25] Vous l'avez bien mérité.</value></data><data name="MT7_Tropius_004" xml:space="preserve"><value>L'expédition est terminée,[pause=10] mais quelque chose me dit que ce n'est que le début pour vous.</value></data><data name="MT7_Tropius_005" xml:space="preserve"><value>Continuez à vous entraîner.[pause=20] Le monde a besoin d'équipes comme la vôtre.</value></data><data name="MT7_Tropius_006" xml:space="preserve"><value>L'expédition vous attend ![pause=10] Allez voir Phileas pour les détails.</value></data><data name="MT7_Audino_001" xml:space="preserve"><value>Oh ![pause=10] Vous êtes revenus des ruines ![pause=15] Je me faisais un sang d'encre !</value></data><data name="MT7_Audino_002" xml:space="preserve"><value>Laissez-moi vérifier que vous n'êtes pas blessés...[pause=20] Non, tout va bien.</value></data><data name="MT7_Audino_003" xml:space="preserve"><value>Vous êtes vraiment l'équipe la plus incroyable que j'aie jamais vue.</value></data><data name="MT7_Audino_004" xml:space="preserve"><value>Vous êtes tombés...[pause=20] Mais vous êtes revenus. C'est tout ce qui compte.</value></data><data name="MT7_Audino_005" xml:space="preserve"><value>Prenez le temps de vous soigner avant d'y retourner,[pause=10] d'accord ?</value></data><data name="MT7_Audino_006" xml:space="preserve"><value>L'infirmerie est prête si vous en avez besoin ![pause=10] Enfin... j'espère que non.</value></data><data name="MT7_Snubbull_001" xml:space="preserve"><value>Par tous les cristaux...[pause=20] Le Cœur des Ruines était VIVANT ?</value></data><data name="MT7_Snubbull_002" xml:space="preserve"><value>Je vais en parler à TOUT le monde au Kec Shop ![pause=10] Enfin...[pause=15] ceux que ça intéresse.</value></data><data name="MT7_Snubbull_003" xml:space="preserve"><value>Les Ruines Tordues, hein ?[pause=15] J'ai entendu dire que c'était encore pire que le Tunnel.</value></data><data name="MT7_Snubbull_004" xml:space="preserve"><value>Faites attention là-dedans.[pause=25] J'ai besoin de clients, moi !</value></data><data name="MT7_Snubbull_005" xml:space="preserve"><value>Le stand est ouvert ![pause=10] Enfin, si vous avez des Pokés.</value></data><data name="MT7_Zigzagoon_001" xml:space="preserve"><value>Vous avez battu Regigigas ![pause=15] Ma famille n'en reviendra pas !</value></data><data name="MT7_Zigzagoon_002" xml:space="preserve"><value>Je suis fier d'être dans la même guilde que vous,[pause=20] wouf.</value></data><data name="MT7_Zigzagoon_003" xml:space="preserve"><value>Continuez à vous battre ![pause=10] La guilde a besoin d'équipes comme la vôtre.</value></data><data name="MT7_Relicanth_001" xml:space="preserve"><value>Ainsi...[pause=30] vous savez maintenant.[pause=20] L'histoire de Mew.</value></data><data name="MT7_Relicanth_002" xml:space="preserve"><value>Je l'ai entendue il y a très longtemps.[pause=25] Elle n'a pas changé.</value></data><data name="MT7_Relicanth_003" xml:space="preserve"><value>Les Cœurs sont plus fragiles qu'on ne le croit.[pause=30] Protégez-les.</value></data><data name="MT7_Relicanth_004" xml:space="preserve"><value>Le Cœur des Ruines...[pause=25] Je le sens faiblir depuis des lunes.</value></data><data name="MT7_Relicanth_005" xml:space="preserve"><value>Allez le voir de vos propres yeux.[pause=30] Et revenez m'en parler.</value></data><data name="MT7_Relicanth_006" xml:space="preserve"><value>Les courants parlent de ruines anciennes...[pause=25] Soyez prudents.</value></data><data name="MT7_Bisharp_001" xml:space="preserve"><value>Regigigas vaincu.[pause=20] Impressionnant.[pause=30] Vraiment.</value></data><data name="MT7_Bisharp_002" xml:space="preserve"><value>La guilde a de la chance de vous avoir.[pause=25] N'en abusez pas.</value></data><data name="MT7_Bisharp_003" xml:space="preserve"><value>Les Ruines Tordues sont une zone à risque.[pause=20] Officiellement.</value></data><data name="MT7_Bisharp_004" xml:space="preserve"><value>Soyez prudents là-dedans.[pause=30] Je n'ai pas envie d'organiser des recherches.</value></data><data name="MT7_Bisharp_005" xml:space="preserve"><value>La sécurité de Metano est ma priorité.[pause=20] Signalez tout comportement suspect.</value></data><data name="MT7_Ledian_001" xml:space="preserve"><value>Vous avez survécu aux Ruines Tordues ![pause=15] Votre technique a dû s'améliorer.</value></data><data name="MT7_Ledian_002" xml:space="preserve"><value>Le dojo a de nouveaux défis pour vous.[pause=20] Venez quand vous voulez.</value></data><data name="MT7_Ledian_003" xml:space="preserve"><value>L'entraînement est la clé ![pause=10] Le dojo est ouvert.</value></data><data name="MT7_Vileplume_001" xml:space="preserve"><value>Mes plantes...[pause=20] elles sont toutes tristes depuis quelques jours.</value></data><data name="MT7_Vileplume_002" xml:space="preserve"><value>Vous croyez que c'est lié à ce qui se passe dans les ruines ?</value></data><data name="MT7_Vileplume_003" xml:space="preserve"><value>Les bégonias sont magnifiques cette saison ![pause=10] Vous ne trouvez pas ?</value></data><data name="MT7_Gulpin_001" xml:space="preserve"><value>J'ai entendu dire que vous aviez battu un Titan ![pause=15] Ça ouvre l'appétit, ça !</value></data><data name="MT7_Gulpin_002" xml:space="preserve"><value>Vous savez ce qui est bon dans les ruines ?[pause=20] Rien. Il n'y a rien à manger.</value></data><data name="MT7_Lickitung_001" xml:space="preserve"><value>Le café a un nouveau plat ![pause=10] Enfin, je crois.[pause=15] J'y vais tous les jours.</value></data><data name="MT7_Nidoqueen_001" xml:space="preserve"><value>Ces ruines...[pause=20] Vous n'auriez pas dû y aller seuls.</value></data><data name="MT7_Nidoqueen_002" xml:space="preserve"><value>Une mère s'inquiète toujours.[pause=25] Même pour les enfants des autres.</value></data><data name="MT7_Nidoqueen_003" xml:space="preserve"><value>Prenez soin de vous là-dehors.[pause=20] On ne sait jamais ce qui rôde.</value></data><data name="MT7_Mawile_001" xml:space="preserve"><value>Mew ?![pause=10] Le Mew de la légende ?![pause=20] C'est Phileas qui vous a raconté ça ?!</value></data><data name="MT7_Mawile_002" xml:space="preserve"><value>Je le savais ![pause=15] Enfin, non, pas du tout,[pause=10] mais je vais faire comme si !</value></data><data name="MT7_Mawile_003" xml:space="preserve"><value>Toute la ville parle de vous ![pause=15] Le Titan des Ruines, rien que ça !</value></data><data name="MT7_Mawile_004" xml:space="preserve"><value>Vous avez entendu les dernières rumeurs ?[pause=15] Moi non plus. Il ne se passe rien.</value></data><data name="MT7_Floatzel_001" xml:space="preserve"><value>La rivière...[pause=20] elle est plus froide qu'avant. Comme si quelque chose aspirait la chaleur.</value></data><data name="MT7_Floatzel_002" xml:space="preserve"><value>Ça vient des ruines, hein ?[pause=25] J'en étais sûr.</value></data><data name="MT7_Floatzel_003" xml:space="preserve"><value>La pêche est bonne aujourd'hui ![pause=10] Vous voulez m'accompagner ?</value></data><data name="MT7_Quagsire_001" xml:space="preserve"><value>...[pause=30] Tout va bien.[pause=20] Je veille sur l'étang. Vous veillez sur le monde.</value></data><data name="MT7_Nidorina_001" xml:space="preserve"><value>Papa dit que vous êtes les plus forts de la guilde ![pause=10] C'est vrai ?!</value></data><data name="MT7_Nidorina_002" xml:space="preserve"><value>Un jour,[pause=20] je serai aussi forte que vous ![pause=10] Vous allez voir !</value></data><data name="MT7_Nidorina_003" xml:space="preserve"><value>Vous partez encore en mission ?[pause=15] Trop cool !</value></data><data name="MT7_Electrike_001" xml:space="preserve"><value>L'énergie dans l'air est bizarre aujourd'hui.[pause=20] Vous sentez ça aussi ?</value></data><data name="MT7_Electrike_002" xml:space="preserve"><value>C'est comme...[pause=25] un orage qui n'éclate jamais.</value></data><data name="MT7_Machamp_001" xml:space="preserve"><value>Haha ![pause=10] VOILÀ ce que j'appelle une équipe ![pause=15] Vous me rendez fier !</value></data><data name="MT7_Machamp_002" xml:space="preserve"><value>Continuez à vous dépasser ![pause=20] C'est comme ça qu'on devient plus fort.</value></data><data name="MT7_Machamp_003" xml:space="preserve"><value>L'entraînement ne s'arrête jamais ![pause=10] Même après une grande victoire.</value></data><data name="MT7_Adagio_001" xml:space="preserve"><value>Les Ruines Tordues...[pause=25] Même nous n'y avons pas mis les pieds.</value></data><data name="MT7_Adagio_002" xml:space="preserve"><value>Vous avez...[pause=15] gagné notre attention.[pause=30] C'est rare.</value></data><data name="MT7_Adagio_003" xml:space="preserve"><value>Nous observons.[pause=25] Continue à nous impressionner.</value></data><data name="MT7_Aria_001" xml:space="preserve"><value>Oh, c'est vous ![pause=15] Les petits héros des ruines ![pause=20] Adorable.</value></data><data name="MT7_Aria_002" xml:space="preserve"><value>Je dois avouer...[pause=25] vous n'êtes pas si mauvais.[pause=35] Pour des débutants.</value></data><data name="MT7_Aria_003" xml:space="preserve"><value>Encore là ?[pause=20] Vous êtes tenaces.[pause=30] C'est...[pause=15] charmant.</value></data><data name="MT7_Sonata_001" xml:space="preserve"><value>Regigigas ?[pause=10] Je lui aurais fait une farce,[pause=15] il aurait adoré !</value></data><data name="MT7_Sonata_002" xml:space="preserve"><value>...Quoi ?[pause=20] Les Titans aussi ont le droit de s'amuser !</value></data><data name="MT7_Sonata_003" xml:space="preserve"><value>J'ai caché quelque chose en ville.[pause=25] Bonne chance pour le trouver !</value></data></root>
