@@ -837,7 +837,7 @@ function metano_town_ch_6.PostDefeatCutscene()
 	local quagsire = CH('Quagsire')
 	local luxray = CH('Luxray')
 
-	SOUND:PlayBGM('Team Skull.ogg', true)
+	SOUND:PlayBGM('Team_Dazzling.ogg', true)
 	GAME:CutsceneMode(true)
 	AI:DisableCharacterAI(partner)
 	AI:DisableCharacterAI(adagio)
