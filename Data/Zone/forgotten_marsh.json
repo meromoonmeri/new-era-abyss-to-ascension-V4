@@ -69,7 +69,7 @@
             "Comment": ""
           }
         ],
-        "IsRelevant": false,
+        "IsRelevant": true,
         "Comment": "Relais — racine geante (checkpoint Kangourex)"
       },
       {
@@ -109,12 +109,14 @@
             "Comment": ""
           }
         ],
-        "IsRelevant": false,
+        "IsRelevant": true,
         "Comment": "Antre de Mega-Blastoise — caverne noyee, eau violette"
       }
     ],
     "GroundMaps": [
-      "forgotten_marsh_entrance"
+      "forgotten_marsh_entrance",
+      "forgotten_marsh_relay",
+      "forgotten_marsh_boss"
     ]
   }
 }
