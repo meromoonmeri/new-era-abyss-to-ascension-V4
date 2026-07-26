@@ -10,9 +10,6 @@ require 'halcyon.ground.metano_town.metano_town_ch_4'
 require 'halcyon.ground.metano_town.metano_town_ch_5'
 require 'halcyon.ground.metano_town.metano_town_ch_7'
 require 'halcyon.ground.metano_town.metano_town_ch_6'
-require 'halcyon.ground.metano_town.metano_town_ch_8'
-require 'halcyon.ground.metano_town.metano_town_ch_9'
-require 'halcyon.ground.metano_town.metano_town_ch_10'
 require 'halcyon.ground.metano_town.metano_town_legend'
 require 'halcyon.menu.single_deal_menu'
 require 'origin.menu.skill.SkillTutorMenu'
@@ -110,10 +107,13 @@ function metano_town.PlotScripting()
 	elseif SV.ChapterProgression.Chapter == 7 then
 		GAME:FadeIn(20)
 	elseif SV.ChapterProgression.Chapter == 8 then
+		require 'halcyon.ground.metano_town.metano_town_ch_8'
 		metano_town_ch_8.SetupGround()
 	elseif SV.ChapterProgression.Chapter == 9 then
+		require 'halcyon.ground.metano_town.metano_town_ch_9'
 		metano_town_ch_9.SetupGround()
 	elseif SV.ChapterProgression.Chapter == 10 then
+		require 'halcyon.ground.metano_town.metano_town_ch_10'
 		metano_town_ch_10.SetupGround()
 	else
 		GAME:FadeIn(20)
