@@ -31,17 +31,21 @@
 - **Contenu repris** : tilesets sélectionnés pour biomes variés (DrenchedBluff, CrumblingCanyon, Mt Cleft, ForestDark, Cloudless, IntroRoad, IntroStormy, HedgeHides, BanditStealing, Dininghall, Guild) — préfixés `EoN_`
 - **Note** : projet inachevé — contenu original vs rip officiel à documenter plus finement
 
-### GameBanana — Resource Dungeon Pack (618475)
+### Resource Dungeon Pack (Imbion)
 - **Auteur** : Imbion
-- **Statut** : à auditer après téléchargement
+- **Source** : [Codeberg](https://codeberg.org/Imbion/pmdoResourceDungeons) / [GameBanana #618475](https://gamebanana.com/mods/618475)
+- **Licence** : CC BY-NC-ND 4.0 (pas de modification autorisée)
+- **Contenu repris** : 7 zones (ashen_geode, berry_grove, coven_cave, gourmet_jungle, grainy_pasture, haunted_bazar, sentient_workshop), tileset Ashen Geode, 4 musiques, scripts
+- **Fichiers** : préfixés `imbion_` dans Data/Zone/, `Imbion_` dans Content/Tile/
 
-### GameBanana — Knightcore (623115)
+### Knightcore (Imbion)
 - **Auteur** : Imbion
-- **Statut** : à auditer après téléchargement
+- **Source** : [GameBanana #623115](https://gamebanana.com/mods/623115)
+- **Statut** : ❌ repo Codeberg inaccessible (authentification requise) — non intégré
 
 ### Friend Area Pack (Google Drive)
 - **Source** : https://drive.google.com/drive/folders/1_MeXe1XD_wTxxBCYx1GluDYeV9uvLV7U
-- **Statut** : à télécharger et auditer
+- **Statut** : ❌ inaccessible depuis le sandbox — à télécharger manuellement et intégrer
 
 ## Musiques
 - `Team_Dazzling.ogg` — thème original de l'équipe Team Dazzling (Sucreine/Lockpin/Magiréve)
