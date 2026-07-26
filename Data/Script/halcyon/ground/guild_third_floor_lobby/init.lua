@@ -12,6 +12,7 @@ require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_2'
 require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_3'
 require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_4'
 require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_5'
+require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_7'
 require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_helper'
 
 
@@ -108,6 +109,12 @@ function guild_third_floor_lobby.PlotScripting()
 			else
 				GAME:FadeIn(20)
 			end
+		elseif SV.ChapterProgression.Chapter == 7 then
+			if not SV.Chapter7.RuinsAddressGiven then
+				guild_third_floor_lobby_ch_7.RuinsExpeditionAddress()
+			else
+				GAME:FadeIn(20)
+			end
 		else
 			GAME:FadeIn(20)
 		end
@@ -133,6 +140,20 @@ function guild_third_floor_lobby.PostAddressScripting()
 			guild_third_floor_lobby_ch_3.NotEnteredCavern() --Latest dungeon attempt was not the cavern and you haven't seen Team Style yet.
 		else
 			guild_third_floor_lobby_ch_3.FailedCavernBeforeBoss()--Your last dungeon was the cavern but you've not made it to Team Style yet.
+		end
+	elseif SV.ChapterProgression.Chapter == 7 then
+		if SV.Chapter7.DefeatedRuinsBoss then
+			guild_third_floor_lobby.GenericMissions()
+		elseif SV.Chapter7.LostRuins then
+			-- Failed in the ruins, encourage retry
+			local partner = CH('Teammate1')
+			GeneralFunctions.StartConversation(CH('Noctowl'),
+				"Ne vous decouragez pas.[pause=20] Les Ruines Tordues sont dangereuses,[pause=10] mais je sais que vous pouvez y arriver.")
+			GeneralFunctions.EndConversation(CH('Noctowl'))
+			GeneralFunctions.PanCamera()
+			GAME:CutsceneMode(false)
+			AI:EnableCharacterAI(partner)
+			AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
 		end
 	elseif SV.ChapterProgression.Chapter == 4 then
 		if SV.Chapter4.FinishedGrove then --Second half of chapter 4, after clearing Apricorn Grove

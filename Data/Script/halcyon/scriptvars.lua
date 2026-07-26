@@ -904,6 +904,9 @@ SV.Chapter7 =
 	DiedToRuinsBoss = false,
 	SawAnimaCoreCorruption = false,
 	HeardGenesisTale = false,
+	HadFirstDream = false,--Premier reve de Necrozma
+	RuinsAddressGiven = false,--Adresse du matin Ch7 donnee
+	MissionAccepted = false,--Mission Ruines Tordues acceptee
 	RuinsMidpointState = 'FirstArrival'
 }
 
