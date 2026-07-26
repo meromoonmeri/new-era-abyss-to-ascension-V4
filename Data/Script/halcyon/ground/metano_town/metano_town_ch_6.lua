@@ -22,6 +22,9 @@ local function AddDazzlingPlazaTrigger()
 end
 
 function metano_town_ch_6.SetupGround()
+	local hero = CH('PLAYER')
+	local partner = CH('Teammate1')
+
 	GROUND:Hide('Swap_Owner')
 	GROUND:Hide('Swap')
 
@@ -63,7 +66,7 @@ function metano_town_ch_6.SetupGround()
 		AI:DisableCharacterAI(venipede)
 	end
 
-	if SV.Chapter6.DefeatedByZarude and not SV.Chapter6.PostMissionScenePlayed then
+	if SV.Chapter6.DefeatedByZarude and not SV.Chapter6.PostDefeatScenePlayed then
 		-- Le joueur revient apres avoir perdu contre Zarude
 		GROUND:TeleportTo(hero, 792, 896, Direction.Up)
 		GROUND:TeleportTo(partner, 824, 896, Direction.Up)
@@ -111,10 +114,23 @@ function metano_town_ch_6.DazzlingIntroduction()
 		GROUND:MoveToPosition(partner, 824, 896, false, 1)
 		GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
 	end)
-	TASK:JoinCoroutines({coro1, coro2, coro3})
+		TASK:JoinCoroutines({coro1, coro2, coro3})
 
-	-- The square notices the commotion before the rivals speak.  This gives
-	-- the entrance the same lived-in rhythm as the guild scenes.
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Happy")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_118']))
+		UI:SetSpeaker(mawile)
+		UI:SetSpeakerEmotion("Inspired")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_119']))
+		UI:SetSpeaker(floatzel)
+		UI:SetSpeakerEmotion("Happy")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_120']))
+		UI:SetSpeaker(quagsire)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_121']))
+
+		-- The square notices the commotion before the rivals speak.  This gives
+		-- the entrance the same lived-in rhythm as the guild scenes.
 	local crowd1 = TASK:BranchCoroutine(function()
 		GROUND:CharAnimateTurnTo(mawile, Direction.UpRight, 4)
 		GROUND:CharSetEmote(mawile, "notice", 1)
@@ -141,15 +157,14 @@ function metano_town_ch_6.DazzlingIntroduction()
 	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_044']))
 
-	UI:SetSpeaker(butterfree)
-	UI:SetSpeakerEmotion("Worried")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_001']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_002']))
-	GAME:WaitFrames(12)
+		SOUND:FadeOutBGM(30)
+		GAME:WaitFrames(20)
+		SOUND:PlayBGM("Team_Dazzling.ogg", true)
+		GAME:WaitFrames(12)
 
-	coro1 = TASK:BranchCoroutine(function()
-		GROUND:MoveToPosition(adagio, 1008, 784, false, 1)
-		GROUND:CharAnimateTurnTo(adagio, Direction.DownLeft, 4)
+		coro1 = TASK:BranchCoroutine(function()
+			GROUND:MoveToPosition(adagio, 1008, 784, false, 1)
+			GROUND:CharAnimateTurnTo(adagio, Direction.DownLeft, 4)
 	end)
 	coro2 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(8)
@@ -174,13 +189,19 @@ function metano_town_ch_6.DazzlingIntroduction()
 	UI:SetSpeaker(sonata)
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_046']))
-	GeneralFunctions.DoubleHop(sonata)
-	UI:SetSpeaker(adagio)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_047']))
+		GeneralFunctions.DoubleHop(sonata)
+		UI:SetSpeaker(adagio)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_047']))
 
-	UI:SetSpeaker(adagio)
-	UI:SetSpeakerEmotion("Normal")
+		UI:SetSpeaker(butterfree)
+		UI:SetSpeakerEmotion("Worried")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_001']))
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_002']))
+		GAME:WaitFrames(12)
+
+		UI:SetSpeaker(adagio)
+		UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_003']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_004']))
 
@@ -824,7 +845,7 @@ end
 -- Joue quand le joueur revient en ville apres avoir perdu contre Zarude
 -- ============================================================
 function metano_town_ch_6.PostDefeatCutscene()
-	if SV.Chapter6.PostMissionScenePlayed ~= false then return end
+	if SV.Chapter6.PostDefeatScenePlayed ~= false then return end
 	if not SV.Chapter6.DefeatedByZarude then return end
 	if SV.Chapter6.MissionComplete then return end
 	local hero = CH('PLAYER')
@@ -951,7 +972,6 @@ function metano_town_ch_6.PostDefeatCutscene()
 	UI:SetSpeakerEmotion("Determined")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_111']))
 
-	SV.Chapter6.PostMissionScenePlayed = true
 	SV.Chapter6.PostDefeatScenePlayed = true
 	GAME:WaitFrames(20)
 	GAME:CutsceneMode(false)

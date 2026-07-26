@@ -10,15 +10,18 @@ echo "VÉRIFICATION NEW ERA : ABYSS TO ASCENSION"
 echo "============================================================"
 
 ERRORS=0
+EXPECTED_GROUNDS=68
+EXPECTED_TILESETS=248
+EXPECTED_MUSIC=51
 
 # 1. Ground maps
 echo ""
 echo "--- GROUND MAPS (.rsground) ---"
 GMAPS=$(ls Data/Ground/*.rsground 2>/dev/null | wc -l)
-if [ "$GMAPS" -eq 61 ]; then
-    echo "  ✓ $GMAPS/61 ground maps"
+if [ "$GMAPS" -eq "$EXPECTED_GROUNDS" ]; then
+    echo "  ✓ $GMAPS/$EXPECTED_GROUNDS ground maps"
 else
-    echo "  ✗ $GMAPS/61 ground maps — MANQUANTES!"
+    echo "  ✗ $GMAPS/$EXPECTED_GROUNDS ground maps — COMPTE INATTENDU!"
     ERRORS=$((ERRORS+1))
 fi
 
@@ -51,10 +54,10 @@ fi
 echo ""
 echo "--- TILESETS (.tile) ---"
 TILES=$(ls Content/Tile/*.tile 2>/dev/null | wc -l)
-if [ "$TILES" -eq 219 ]; then
-    echo "  ✓ $TILES/219 tilesets"
+if [ "$TILES" -eq "$EXPECTED_TILESETS" ]; then
+    echo "  ✓ $TILES/$EXPECTED_TILESETS tilesets"
 else
-    echo "  ✗ $TILES/219 tilesets — MANQUANTS!"
+    echo "  ✗ $TILES/$EXPECTED_TILESETS tilesets — COMPTE INATTENDU!"
     ERRORS=$((ERRORS+1))
 fi
 
@@ -74,10 +77,10 @@ done
 echo ""
 echo "--- MUSIQUES (.ogg) ---"
 MUSIC=$(ls Content/Music/*.ogg 2>/dev/null | wc -l)
-if [ "$MUSIC" -ge 40 ]; then
-    echo "  ✓ $MUSIC musiques"
+if [ "$MUSIC" -eq "$EXPECTED_MUSIC" ]; then
+    echo "  ✓ $MUSIC/$EXPECTED_MUSIC musiques"
 else
-    echo "  ✗ $MUSIC musiques — MANQUANTES!"
+    echo "  ✗ $MUSIC/$EXPECTED_MUSIC musiques — COMPTE INATTENDU!"
     ERRORS=$((ERRORS+1))
 fi
 

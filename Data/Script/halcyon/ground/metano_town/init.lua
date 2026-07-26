@@ -101,7 +101,7 @@ function metano_town.PlotScripting()
 		metano_town_ch_6.SetupGround()
 		if SV.Chapter6.MissionComplete and not SV.Chapter6.PostMissionScenePlayed then
 			metano_town_ch_6.PostMissionCutscene()
-		elseif SV.Chapter6.DefeatedByZarude and not SV.Chapter6.PostMissionScenePlayed then
+		elseif SV.Chapter6.DefeatedByZarude and not SV.Chapter6.PostDefeatScenePlayed then
 			metano_town_ch_6.PostDefeatCutscene()
 		end
 	elseif SV.ChapterProgression.Chapter == 7 then

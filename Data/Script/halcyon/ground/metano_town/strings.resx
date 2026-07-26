@@ -2436,16 +2436,16 @@
     <value>I was watching over him near the path... then he was simply gone.</value>
   </data>
   <data name="MT6_003" xml:space="preserve">
-    <value>We are already committed to missions of greater importance.</value>
+    <value>What a sad story. Truly. But our schedule is already full.</value>
   </data>
   <data name="MT6_004" xml:space="preserve">
-    <value>A lost child in a forest is unfortunate, but it is not a priority for an elite team.</value>
+    <value>We handle relics, regional threats and assignments whose failure would echo beyond one household.</value>
   </data>
   <data name="MT6_005" xml:space="preserve">
-    <value>Oh... I thought you were joking.</value>
+    <value>Hold on. You are not actually leaving a child in the forest, are you?</value>
   </data>
   <data name="MT6_006" xml:space="preserve">
-    <value>You were serious? How touching.</value>
+    <value>That little look of outrage is adorable. New teams always shine brightest before they understand scale.</value>
   </data>
   <data name="MT6_007" xml:space="preserve">
     <value>You cannot just turn away someone asking for help!</value>
@@ -2472,13 +2472,13 @@
     <value>How heroic. Should we applaud?</value>
   </data>
   <data name="MT6_015" xml:space="preserve">
-    <value>You are doing your best? It is adorable.</value>
+    <value>You are doing your best. That is an excellent first step.</value>
   </data>
   <data name="MT6_016" xml:space="preserve">
-    <value>Do not worry. We will make sure your forest walk is memorable.</value>
+    <value>Try not to stain your scarves, little heroes. Forest mud is terribly clingy.</value>
   </data>
   <data name="MT6_017" xml:space="preserve">
-    <value>Team Dazzling. Remember the name.</value>
+    <value>Team Dazzling. Remember the name, and perhaps one day the name will remember you.</value>
   </data>
   <data name="MT6_018" xml:space="preserve">
     <value>Thank you again... Venipede has not stopped talking about you.</value>
@@ -2555,22 +2555,22 @@
   </data>
 
   <data name="MT6_042" xml:space="preserve">
-    <value>Did you hear that? Someone is asking for help in the middle of the square.</value>
+    <value>Wait... do you hear that noise from the market road?</value>
   </data>
   <data name="MT6_043" xml:space="preserve">
-    <value>That is Team Dazzling. They do not usually stop for ordinary requests.</value>
+    <value>Explorers are moving aside. That is not for an ordinary team.</value>
   </data>
   <data name="MT6_044" xml:space="preserve">
-    <value>Maybe this is one of those important missions they keep talking about.</value>
+    <value>They are coming... Team Dazzling is coming.</value>
   </data>
   <data name="MT6_045" xml:space="preserve">
-    <value>You called? We were just passing through, but this sounds entertaining.</value>
+    <value>Well, well. A whole square holding its breath? We must have arrived on time.</value>
   </data>
   <data name="MT6_046" xml:space="preserve">
-    <value>A lost Venipede? How dramatic. I almost feel bad.</value>
+    <value>Oh, look at them all. The applause is practically sparkling!</value>
   </data>
   <data name="MT6_047" xml:space="preserve">
-    <value>We have already accepted assignments that will affect the whole region.</value>
+    <value>Please, remain calm. We are only passing through Metano today.</value>
   </data>
   <data name="MT6_048" xml:space="preserve">
     <value>Careful. You are standing in a very serious explorer’s way.</value>
@@ -3594,4 +3594,16 @@
 <data name="MT10_Medicham_004" xml:space="preserve"><value>Vider son esprit...[pause=30] et le ciel s'ouvre a vous. Medicham4.[pause=20] Le Pic Celeste est derriere nous maintenant.</value></data>
 <data name="MT10_Meditite_004" xml:space="preserve"><value>La meditation...[pause=20] ca aide a tout. Meme a ne pas avoir peur du vide. Meditite4.[pause=20] Le Pic Celeste est derriere nous maintenant.</value></data>
 <data name="MT10_Quagsire_003" xml:space="preserve"><value>...[pause=30] Le ciel gronde.[pause=25] Le vent monte.[pause=30] Tout va bien. Quagsire3.[pause=20] Le Pic Celeste est derriere nous maintenant.</value></data>
+  <data name="MT6_118" xml:space="preserve">
+    <value>We really made it back... The guild is going to be so proud of us!</value>
+  </data>
+  <data name="MT6_119" xml:space="preserve">
+    <value>You crossed that steppe and came home standing. For a young team, that is no small thing!</value>
+  </data>
+  <data name="MT6_120" xml:space="preserve">
+    <value>Look at them, everyone! Dusty, tired, and still smiling. That is how explorers return.</value>
+  </data>
+  <data name="MT6_121" xml:space="preserve">
+    <value>...Mm. A brave little ripple can still reach the whole pond.</value>
+  </data>
 </root>
