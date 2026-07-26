@@ -323,6 +323,21 @@ function DebugTools:OnUpgrade()
  --Main story completion flag (end-game unlocks: Mega Stones shop, etc.)
  if SV.ChapterProgression.StoryCompleted == nil then SV.ChapterProgression.StoryCompleted = false end
  
+ --Vague 1 multi-sources : deblocage retroactif des secondaires ch1-4 pour les vieilles sauvegardes
+ if SV.ChapterProgression.Chapter >= 1 and not GAME:DungeonUnlocked("petit_tunnel") then
+	GAME:UnlockDungeon("petit_tunnel")
+	GAME:UnlockDungeon("bosquet_voile")
+	GAME:UnlockDungeon("grotte_mystere")
+	GAME:UnlockDungeon("vallee_fertile")
+ end
+ if SV.ChapterProgression.Chapter >= 3 and not GAME:DungeonUnlocked("antre_enigme") then
+	GAME:UnlockDungeon("antre_enigme")
+	GAME:UnlockDungeon("carriere_cuivre")
+ end
+ if SV.ChapterProgression.Chapter >= 4 and not GAME:DungeonUnlocked("grotte_echoue") then
+	GAME:UnlockDungeon("grotte_echoue")
+ end
+ 
  --Gloomy Forest midpoint flags (ch6)
  if SV.Chapter6 == nil then SV.Chapter6 = {} end
  if SV.Chapter6.GloomyPlayedMidpointIntro == nil then SV.Chapter6.GloomyPlayedMidpointIntro = false end

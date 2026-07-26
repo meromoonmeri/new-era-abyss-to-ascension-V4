@@ -26,6 +26,14 @@ Source de vérité pour l'audit global (§10). Une ligne par ressource migrée/r
 | ProjectEoN | Abyss zones | Ruines Eon | 9 | Entité Abyss | Corruption | Donjon secondaire | À faire |
 | ProjectEoN | Sky zones | Ascension finale | 10 | Boss final | Résolution | Donjon principal | À faire (tilesets dédiés) |
 
+| PMDO base (DumpAsset) | Tiny_Tunnel | Petit Tunnel (petit_tunnel) | 1 | — | Première mission job board | Donjon secondaire | Fait 2026-07-26 (vague 1) |
+| RaoKurai/ZMDO | mystery_grove | Bosquet Voilé (bosquet_voile) | 1 | — | Entraînement post-tutoriel | Donjon secondaire | Fait 2026-07-26 (vague 1) |
+| RaoKurai/ZMDO | mystery_cave | Grotte du Mystère (grotte_mystere) | 2 | — | Préfigure le Sanctuaire de Cristal | Donjon secondaire | Fait 2026-07-26 (vague 1) |
+| PMDO base (DumpAsset) | Fertile_Valley | Vallée Fertile (vallee_fertile) | 2 | — | Escortes fermiers Zigzaton | Donjon secondaire | Fait 2026-07-26 (vague 1) |
+| RaoKurai/ZMDO | mystery_dungeon | Antre de l'Énigme (antre_enigme) | 3 | — | Enquêtes de la guilde | Donjon secondaire | Fait 2026-07-26 (vague 1) |
+| PMDO base (DumpAsset) | Copper_Quarry | Carrière de Cuivre (carriere_cuivre) | 3 | — | Livraisons de minerai | Donjon secondaire | Fait 2026-07-26 (vague 1) |
+| PMDO base (DumpAsset) | Castaway_Cave | Grotte de l'Échoué (grotte_echoue) | 4 | — | Sauvetage d'un naufragé | Donjon secondaire | Fait 2026-07-26 (vague 1) |
+
 ## Justification narrative des légendaires (§5)
 
 - **Regigigas (ch7)** : Titan gardien du Cœur d'Anima des Ruines Tordues. Ni hostile ni corrompu : il protège ce qui reste du Cœur. La Voix de l'Abysse guide volontairement l'équipe vers lui — premier indice de manipulation. Conséquence : `SawAnimaCoreCorruption`, conduit au récit de la Genèse par Phileas.

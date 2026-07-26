@@ -30,10 +30,13 @@ require 'halcyon.CharacterEssentials'
 MISSION_GEN = {}
 
 MISSION_GEN.DUNGEON_LIST = {"illuminant_riverbed", "crooked_cavern", "apricorn_grove",
-	"vast_steppe", "searing_tunnel", "mount_windswept", "gloomy_forest"}
+	"vast_steppe", "searing_tunnel", "mount_windswept", "gloomy_forest",
+	"petit_tunnel", "bosquet_voile", "grotte_mystere", "vallee_fertile",
+	"antre_enigme", "carriere_cuivre", "grotte_echoue"}
 --Les donjons du chapitre 5/6 sont desormais eligibles au tableau des missions :
 --sans eux, les 2 jours d'attente imposes entre les chapitres 5 et 6 (DaysToReach)
 --ne proposaient aucune mission dans le contenu recemment debloque.
+--Vague 1 multi-sources : 7 donjons secondaires (ch1-4) ajoutes au job board.
 
 MISSION_GEN.DIFFICULTY = {}
 MISSION_GEN.DIFFICULTY[""] = 0
@@ -57,6 +60,14 @@ MISSION_GEN.DUNGEON_DIFFICULTY["vast_steppe"] = "B"
 MISSION_GEN.DUNGEON_DIFFICULTY["searing_tunnel"] = "A"
 MISSION_GEN.DUNGEON_DIFFICULTY["mount_windswept"] = "A"
 MISSION_GEN.DUNGEON_DIFFICULTY["gloomy_forest"] = "A"
+--Vague 1 multi-sources (donjons secondaires ch1-4)
+MISSION_GEN.DUNGEON_DIFFICULTY["petit_tunnel"] = "E"
+MISSION_GEN.DUNGEON_DIFFICULTY["bosquet_voile"] = "E"
+MISSION_GEN.DUNGEON_DIFFICULTY["grotte_mystere"] = "D"
+MISSION_GEN.DUNGEON_DIFFICULTY["vallee_fertile"] = "D"
+MISSION_GEN.DUNGEON_DIFFICULTY["antre_enigme"] = "C"
+MISSION_GEN.DUNGEON_DIFFICULTY["carriere_cuivre"] = "C"
+MISSION_GEN.DUNGEON_DIFFICULTY["grotte_echoue"] = "B"
 
 
 --order of difficulties. 
@@ -111,6 +122,14 @@ MISSION_GEN.EXPECTED_LEVEL["vast_steppe"] = 16
 MISSION_GEN.EXPECTED_LEVEL["searing_tunnel"] = 18
 MISSION_GEN.EXPECTED_LEVEL["mount_windswept"] = 20
 MISSION_GEN.EXPECTED_LEVEL["gloomy_forest"] = 22
+--Vague 1 multi-sources (donjons secondaires ch1-4)
+MISSION_GEN.EXPECTED_LEVEL["petit_tunnel"] = 5
+MISSION_GEN.EXPECTED_LEVEL["bosquet_voile"] = 6
+MISSION_GEN.EXPECTED_LEVEL["grotte_mystere"] = 10
+MISSION_GEN.EXPECTED_LEVEL["vallee_fertile"] = 12
+MISSION_GEN.EXPECTED_LEVEL["antre_enigme"] = 13
+MISSION_GEN.EXPECTED_LEVEL["carriere_cuivre"] = 13
+MISSION_GEN.EXPECTED_LEVEL["grotte_echoue"] = 15
 
 
 MISSION_GEN.TITLES =  {

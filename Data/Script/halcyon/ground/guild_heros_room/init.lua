@@ -82,6 +82,8 @@ function guild_heros_room.CheckTriggerEvent()
 		SV.Dojo.NewMazeUnlocked = true
 		SV.metano_cafe.NewDrinkUnlocked = true
 		GAME:UnlockDungeon("apricorn_grove")
+		--Vague 1 multi-sources : secondaire ch4
+		GAME:UnlockDungeon("grotte_echoue")
 		GAME:UnlockDungeon("flying_maze")--unlock new mazes at ledian dojo
 		GAME:UnlockDungeon("rock_maze")--unlock new mazes at ledian dojo
 		GAME:WaitFrames(60)

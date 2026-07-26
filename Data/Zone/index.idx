@@ -1180,6 +1180,300 @@
       },
       "Released": false,
       "SortOrder": 0
+    },
+    "petit_tunnel": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 5,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 2,
+      "MoneyRestrict": false,
+      "BagRestrict": 8,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 9,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Tiny Tunnel",
+        "LocalTexts": {
+          "fr": "Petit Tunnel"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "bosquet_voile": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 0,
+      "Level": 6,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 3,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Veiled Grove",
+        "LocalTexts": {
+          "fr": "Bosquet Voilé"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "grotte_mystere": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 0,
+      "Level": 10,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 6,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Mystery Cave",
+        "LocalTexts": {
+          "fr": "Grotte du Mystère"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "vallee_fertile": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 80,
+      "Level": 12,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 16,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Fertile Valley",
+        "LocalTexts": {
+          "fr": "Vallée Fertile"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "antre_enigme": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 0,
+      "Level": 13,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 10,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Enigma Den",
+        "LocalTexts": {
+          "fr": "Antre de l'Énigme"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "carriere_cuivre": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 40,
+      "Level": 13,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 19,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Copper Quarry",
+        "LocalTexts": {
+          "fr": "Carrière de Cuivre"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "grotte_echoue": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 15,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 12,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Castaway Cave",
+        "LocalTexts": {
+          "fr": "Grotte de l'Échoué"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
     }
   }
 }

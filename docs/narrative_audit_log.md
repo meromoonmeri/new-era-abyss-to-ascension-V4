@@ -106,3 +106,33 @@ d'importé ce passage). Risque principal identifié pour la suite : la courbe de
 niveaux ch6-10 actuelle, qui trahirait l'ajout tardif de contenu intermédiaire
 si elle n'est pas renivelée avant les imports de secondaires.
 ```
+
+## Audit du 2026-07-26 (quater) — vague 1 + renivelage option (a)
+
+```
+Date de l'audit : 2026-07-26 (4e passage)
+Chapitres couverts : 1-10
+Ressources vérifiées : 7 donjons secondaires vague 1 (réf. tracker), 7 combats
+  de boss renivelés, 11 cartes génériques + 12 musiques officielles importées.
+
+Incohérences trouvées :
+  1. [10.1] Scripts des mods sources purgés des 7 zones (Tutorial/ZMDO,
+     Mysteriosity, SpawnRandomTutor, CastawayCave*, ShopkeeperInteract) —
+     38 occurrences supprimées, 0 résiduelle (vérifié par motif). Cartes de fin
+     renommées en IDs New Era. Aucun SV étranger référencé.
+  2. [10.2] Courbe de niveaux réparée : boss ch6-10 renivelés 27→35 (option a
+     choisie par l'utilisateur). Les futurs paliers P3+ (ch11-32) ont maintenant
+     l'espace 35-85. Spawns gloomy (L21-24) cohérents avec Zarude L27.
+  3. [10.2] Les niveaux des donjons vague 1 (5→15) s'insèrent correctement
+     entre riverbed (8) et vast_steppe (16) sur le job board.
+  4. [10.3] Conventions respectées : patron zone secondaire (retour Metano),
+     mission_gen (difficulté+niveau), déblocages par chapitre + rétroactifs.
+
+Actions correctives : aucune requise.
+
+Verdict global : le joueur peut-il sentir le patchwork ? NON — les 7 donjons
+sont des biomes génériques renommés en français, purgés de toute mécanique
+des mods sources, insérés dans la même boucle job board que les donjons
+existants. Réserve habituelle : test en jeu requis (génération procédurale
+des 7 zones + équilibrage post-renivelage).
+```
