@@ -253,6 +253,19 @@ function vast_steppe_guardian_ch_5.DiedToBoss()
   GROUND:CharSetAnim(stantler, "Idle", true)
 
   GROUND:Hide(partner.EntName)
+  -- Le Gardien s'effondre, ses bois s'eteignent
+  SOUND:PlayBattleSE('EVT_CH03_Boss_Collapse')
+  BossFX.ShakeScreen(6, 20)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_021']))
+
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_022']))
+
+  UI:SetSpeaker(partner)
+  GeneralFunctions.Hop(partner)
+  UI:SetSpeakerEmotion("Inspired")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_024']))
   GROUND:Hide(hero.EntName)
 
   AI:DisableCharacterAI(partner)
@@ -275,6 +288,16 @@ function vast_steppe_guardian_ch_5.DiedToBoss()
   -- "Retourne d'où tu viens. Reviens quand tu seras prêt."
 
   GAME:WaitFrames(40)
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_025']))
+  -- Le Gardien impavide
+  GROUND:CharSetAnim(stantler, "Charge", true)
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_018']))
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_019']))
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
 

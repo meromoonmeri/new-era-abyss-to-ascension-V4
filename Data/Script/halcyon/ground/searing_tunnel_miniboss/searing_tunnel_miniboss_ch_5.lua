@@ -343,6 +343,16 @@ function searing_tunnel_miniboss_ch_5.DiedToBoss()
   GROUND:CharSetAnim(magmar, "Idle", true)
 
   GROUND:Hide(partner.EntName)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_022']))
+
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_023']))
+
+  UI:SetSpeaker(partner)
+  GeneralFunctions.Hop(partner)
+  UI:SetSpeakerEmotion("Happy")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_025']))
   GROUND:Hide(hero.EntName)
 
   AI:DisableCharacterAI(partner)
@@ -365,6 +375,17 @@ function searing_tunnel_miniboss_ch_5.DiedToBoss()
   -- "Mais le feu forge l'acier. Reviens, plus fort."
 
   GAME:WaitFrames(40)
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_026']))
+  -- Torkoal triomphe, Magmar ricane
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_018']))
+
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_019']))
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_020']))
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
 

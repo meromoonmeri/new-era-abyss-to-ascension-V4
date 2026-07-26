@@ -353,6 +353,18 @@ function mount_windswept_miniboss_ch_5.DiedToBoss()
   GROUND:CharSetAnim(skarmory, "Idle", true)
 
   GROUND:Hide(partner.EntName)
+  -- Gligar te regarde, reconnait ta force
+  GROUND:CharSetAnim(gligar, "Idle", true)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_022']))
+
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_023']))
+
+  UI:SetSpeaker(partner)
+  GeneralFunctions.Hop(partner)
+  UI:SetSpeakerEmotion("Happy")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_025']))
   GROUND:Hide(hero.EntName)
 
   AI:DisableCharacterAI(partner)
@@ -375,6 +387,17 @@ function mount_windswept_miniboss_ch_5.DiedToBoss()
   -- "Apprends de cette défaite. Le sommet n'attend que les plus forts."
 
   GAME:WaitFrames(40)
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_026']))
+  -- Gligar triomphe, Skarmory plane
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_018']))
+
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_019']))
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_020']))
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
 

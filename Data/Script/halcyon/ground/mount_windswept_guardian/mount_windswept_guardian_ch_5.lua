@@ -390,6 +390,19 @@ function mount_windswept_guardian_ch_5.DiedToBoss()
   GROUND:CharSetAnim(aerodactyl, "Idle", true)
 
   GROUND:Hide(partner.EntName)
+  -- L'Aerodactyl te regarde avec respect
+  GROUND:CharEndAnim(aerodactyl)
+  GROUND:CharSetAnim(aerodactyl, "Idle", true)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_025']))
+
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_026']))
+
+  UI:SetSpeaker(partner)
+  GeneralFunctions.Hop(partner)
+  UI:SetSpeakerEmotion("Inspired")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_028']))
   GROUND:Hide(hero.EntName)
 
   AI:DisableCharacterAI(partner)
@@ -416,6 +429,18 @@ function mount_windswept_guardian_ch_5.DiedToBoss()
   -- "Repose-toi. Le sommet t'attendra."
 
   GAME:WaitFrames(40)
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_029']))
+  -- L'Aerodactyl crie sa domination
+  GROUND:CharSetAnim(aerodactyl, "Charge", true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_021']))
+
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_022']))
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_023']))
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
 

@@ -265,6 +265,24 @@ function cloven_ruins_boss_ch_7.DiedToBoss()
   GROUND:CharSetAnim(regigigas, "Idle", true)
 
   GROUND:Hide(partner.EntName)
+  -- Le Titan te regarde, sans colere
+  GROUND:CharEndAnim(regigigas)
+  GROUND:CharSetAnim(regigigas, "Idle", true)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_023']))
+
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_024']))
+
+  UI:SetSpeaker(partner)
+  GeneralFunctions.Hop(partner)
+  UI:SetSpeakerEmotion("Inspired")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_026']))
+
+  -- Le Titan se fige en pierre
+  BossFX.Flash(regigigas.Position.X, regigigas.Position.Y, 3, 4, 25)
+  GAME:WaitFrames(15)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_025']))
   GROUND:Hide(hero.EntName)
 
   AI:DisableCharacterAI(partner)
@@ -286,6 +304,17 @@ function cloven_ruins_boss_ch_7.DiedToBoss()
   -- "Mais ce Cœur t'attend. Reviens quand tu seras prêt."
 
   GAME:WaitFrames(40)
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_027']))
+  -- Le Titan se redresse, inebranlable
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_019']))
+
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_020']))
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_021']))
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
 

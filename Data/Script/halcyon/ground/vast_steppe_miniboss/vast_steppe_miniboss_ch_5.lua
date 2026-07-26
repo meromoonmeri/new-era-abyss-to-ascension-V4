@@ -363,6 +363,19 @@ function vast_steppe_miniboss_ch_5.DiedToBoss()
   GROUND:CharSetAnim(stantler, "Idle", true)
 
   GROUND:Hide(partner.EntName)
+  -- Stantler te fixe longuement, puis s'incline
+  GROUND:CharSetAnim(stantler, "Idle", true)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_024']))
+
+  -- La Voix de l'Abysse
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_025']))
+
+  UI:SetSpeaker(partner)
+  GeneralFunctions.Hop(partner)
+  UI:SetSpeakerEmotion("Happy")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_027']))
   GROUND:Hide(hero.EntName)
 
   AI:DisableCharacterAI(partner)
@@ -386,6 +399,20 @@ function vast_steppe_miniboss_ch_5.DiedToBoss()
   -- "Mais tu te relèveras. Ils se relèvent toujours."
 
   GAME:WaitFrames(40)
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_028']))
+  -- Mudbray triomphe, Stantler observe
+  GROUND:CharSetEmote(mudbray, "happy", 1)
+  GeneralFunctions.Hop(mudbray)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_020']))
+
+  -- La Voix commente
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_021']))
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_022']))
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
 
