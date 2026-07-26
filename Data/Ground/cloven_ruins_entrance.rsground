@@ -302250,7 +302250,7 @@
           {
             "EntName": "Dungeon_Entrance",
             "Position": {
-              "X": 288,
+              "X": 284,
               "Y": 20,
               "Width": 32,
               "Height": 32
@@ -302263,7 +302263,7 @@
           {
             "EntName": "Kangaskhan_Rock",
             "Position": {
-              "X": 288,
+              "X": 284,
               "Y": 560,
               "Width": 32,
               "Height": 32
