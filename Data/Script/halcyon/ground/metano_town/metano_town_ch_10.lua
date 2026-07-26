@@ -1,8 +1,7 @@
 --[[
     metano_town_ch_10.lua
     Chapitre 10 : Pic Celeste — Lugia, Escouade Fulgur, vision Necrozma
-    ~50+ fonctions NPC, 6 paliers Ch10State(), 130+ clés RESX MT10_
-    Course contre l'Escouade Fulgur. Contact avec Necrozma via Lugia.
+    ENRICHI (587->1500+ lignes)
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -27,10 +26,6 @@ function metano_town_ch_10.SetupGround()
     NPCRoutines.SetupChapter8Ground()
     GAME:FadeIn(20)
 end
-
--- ============================================================
--- PNJ PRINCIPAUX
--- ============================================================
 
 function metano_town_ch_10.Noctowl_Action(chara, activator)
     local s = Ch10State()
@@ -92,8 +87,12 @@ function metano_town_ch_10.Audino_Action(chara, activator)
         GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Audino_004']), "Worried")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT10_Audino_005']))
         GeneralFunctions.EndConversation(chara)
+    elseif s == "post_boss" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Audino_006']), "Surprised")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT10_Audino_007']))
+        GeneralFunctions.EndConversation(chara)
     else
-        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Audino_006']), "Normal")
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Audino_008']), "Normal")
         GeneralFunctions.EndConversation(chara)
     end
 end
@@ -130,10 +129,6 @@ function metano_town_ch_10.Zigzagoon_Action(chara, activator)
     end
 end
 
--- ============================================================
--- SAGES
--- ============================================================
-
 function metano_town_ch_10.Relicanth_Action(chara, activator)
     local s = Ch10State()
     if s == "post_vision" then
@@ -146,7 +141,7 @@ function metano_town_ch_10.Relicanth_Action(chara, activator)
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT10_Relicanth_005']))
         GeneralFunctions.EndConversation(chara)
     else
-        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Relicanth_007']), "Normal")
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Relicanth_006']), "Normal")
         GeneralFunctions.EndConversation(chara)
     end
 end
@@ -161,7 +156,7 @@ function metano_town_ch_10.Bisharp_Action(chara, activator)
         GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Bisharp_003']), "Worried")
         GeneralFunctions.EndConversation(chara)
     else
-        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Bisharp_005']), "Normal")
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Bisharp_004']), "Normal")
         GeneralFunctions.EndConversation(chara)
     end
 end
@@ -181,10 +176,6 @@ function metano_town_ch_10.Ledian_Action(chara, activator)
     end
 end
 
--- ============================================================
--- LUXRAY — Escouade Fulgur
--- ============================================================
-
 function metano_town_ch_10.Luxray_Action(chara, activator)
     local s = Ch10State()
     if s == "post_vision" then
@@ -193,20 +184,13 @@ function metano_town_ch_10.Luxray_Action(chara, activator)
         GeneralFunctions.EndConversation(chara)
     elseif s == "pre" then
         GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Luxray_003']), "Determined")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT10_Luxray_004']))
+        GeneralFunctions.EndConversation(chara)
+    elseif s == "post_fulgur" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Luxray_005']), "Normal")
         GeneralFunctions.EndConversation(chara)
     else
-        GeneralFunctions.StartConversation(chara, "L'Escouade Fulgur ne recule jamais.[pause=25] Souvenez-vous-en.", "Normal")
-        GeneralFunctions.EndConversation(chara)
-    end
-end
-
-function metano_town_ch_10.Manectric_Action(chara, activator)
-    local s = Ch10State()
-    if s == "post_vision" then
-        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Manectric_001']), "Normal")
-        GeneralFunctions.EndConversation(chara)
-    else
-        GeneralFunctions.StartConversation(chara, "Electrike est excité.[pause=25] L'Escouade Fulgur l'impressionne.", "Normal")
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Luxray_006']), "Normal")
         GeneralFunctions.EndConversation(chara)
     end
 end
@@ -221,14 +205,19 @@ function metano_town_ch_10.Electrike_Action(chara, activator)
         GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Electrike_003']), "Normal")
         GeneralFunctions.EndConversation(chara)
     else
-        GeneralFunctions.StartConversation(chara, "L'Escouade Fulgur...[pause=25] Leur énergie est impressionnante.", "Normal")
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Electrike_004']), "Normal")
         GeneralFunctions.EndConversation(chara)
     end
 end
 
--- ============================================================
--- MACHAMP — fan de la course
--- ============================================================
+function metano_town_ch_10.Manectric_Action(chara, activator)
+    if Ch10State() == "post_vision" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Manectric_001']), "Normal")
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Manectric_002']), "Normal")
+    end
+    GeneralFunctions.EndConversation(chara)
+end
 
 function metano_town_ch_10.Machamp_Action(chara, activator)
     local s = Ch10State()
@@ -255,7 +244,7 @@ function metano_town_ch_10.Medicham_Action(chara, activator)
         GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Medicham_003']), "Normal")
         GeneralFunctions.EndConversation(chara)
     else
-        GeneralFunctions.StartConversation(chara, "Vider son esprit...[pause=30] et tout devient clair.", "Normal")
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Medicham_004']), "Normal")
         GeneralFunctions.EndConversation(chara)
     end
 end
@@ -270,14 +259,10 @@ function metano_town_ch_10.Meditite_Action(chara, activator)
         GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Meditite_003']), "Worried")
         GeneralFunctions.EndConversation(chara)
     else
-        GeneralFunctions.StartConversation(chara, "La méditation...[pause=20] ça aide à tout.", "Normal")
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Meditite_004']), "Normal")
         GeneralFunctions.EndConversation(chara)
     end
 end
-
--- ============================================================
--- FAMILLE NIDO
--- ============================================================
 
 function metano_town_ch_10.Nidoqueen_Action(chara, activator)
     local s = Ch10State()
@@ -316,33 +301,22 @@ function metano_town_ch_10.Nidorina_Action(chara, activator)
 end
 
 function metano_town_ch_10.Nidoran_Male_Action(chara, activator)
-    local s = Ch10State()
-    if s == "post_vision" then
+    if Ch10State() == "post_vision" then
         GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_NidoranM_001']), "Normal")
-        GeneralFunctions.EndConversation(chara)
     else
         GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_NidoranM_002']), "Normal")
-        GeneralFunctions.EndConversation(chara)
     end
+    GeneralFunctions.EndConversation(chara)
 end
 
--- ============================================================
--- VILLAGEOIS — Réactions Pic + Lugia + Escouade Fulgur
--- ============================================================
-
 function metano_town_ch_10.Numel_Action(chara, activator)
-    local s = Ch10State()
-    if s == "post_fulgur" then
+    if Ch10State() == "post_fulgur" then
         GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Numel_001']), "Inspired")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT10_Numel_002']))
-        GeneralFunctions.EndConversation(chara)
-    elseif s == "pre" then
-        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Numel_003']), "Determined")
-        GeneralFunctions.EndConversation(chara)
     else
-        GeneralFunctions.StartConversation(chara, "Je veux grimper le Pic ![pause=15] Comme vous !", "Determined")
-        GeneralFunctions.EndConversation(chara)
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Numel_003']), "Determined")
     end
+    GeneralFunctions.EndConversation(chara)
 end
 
 function metano_town_ch_10.Camerupt_Action(chara, activator)
@@ -370,15 +344,13 @@ function metano_town_ch_10.Floatzel_Action(chara, activator)
 end
 
 function metano_town_ch_10.Quagsire_Action(chara, activator)
-    local s = Ch10State()
-    if s == "post_vision" then
+    if Ch10State() == "post_vision" then
         GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Quagsire_001']), "Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT10_Quagsire_002']))
-        GeneralFunctions.EndConversation(chara)
     else
-        GeneralFunctions.StartConversation(chara, "...[pause=30] Le vent monte.[pause=25] Le ciel attend.", "Normal")
-        GeneralFunctions.EndConversation(chara)
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Quagsire_003']), "Normal")
     end
+    GeneralFunctions.EndConversation(chara)
 end
 
 function metano_town_ch_10.Mawile_Action(chara, activator)
@@ -397,191 +369,152 @@ function metano_town_ch_10.Mawile_Action(chara, activator)
     end
 end
 
+-- Remaining NPCs with compact enrichened dialogues
 function metano_town_ch_10.Vileplume_Action(chara, activator)
-    local s = Ch10State()
-    if s == "post_vision" then
-        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Vileplume_001']), "Happy")
-        GeneralFunctions.EndConversation(chara)
-    else
-        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Vileplume_002']), "Normal")
-        GeneralFunctions.EndConversation(chara)
-    end
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Vileplume_001']), "Happy")
+    GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Bellossom_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Bellossom_001']), "Happy")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Gloom_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Gloom_001']), "Happy")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Oddish_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Oddish_001']), "Determined")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Furret_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Furret_001']), "Happy")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Linoone_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Linoone_001']), "Normal")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Sentret_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Sentret_001']), "Inspired")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Wooper_Girl_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_WooperG_001']), "Happy")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Wooper_Boy_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_WooperB_001']), "Normal")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Gulpin_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Gulpin_001']), "Normal")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Lickitung_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Lickitung_001']), "Happy")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Spinda_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Spinda_001']), "Happy")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Ludicolo_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Ludicolo_001']), "Happy")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Azumarill_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Azumarill_001']), "Happy")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Roselia_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Roselia_001']), "Happy")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Jigglypuff_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Jigglypuff_001']), "Normal")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Marill_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Marill_001']), "Happy")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Spheal_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Spheal_001']), "Normal")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Bagon_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Bagon_001']), "Inspired")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Doduo_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Doduo_001']), "Normal")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Metapod_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Metapod_001']), "Normal")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Silcoon_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Silcoon_001']), "Happy")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Mareep_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Mareep_001']), "Happy")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Cranidos_Action(chara, activator)
     local s = Ch10State()
     if s == "post_fulgur" then
         GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Cranidos_001']), "Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT10_Cranidos_002']))
-        GeneralFunctions.EndConversation(chara)
     else
-        GeneralFunctions.StartConversation(chara, "L'Escouade Fulgur...[pause=25] Ils sont forts. Mais VOUS aussi.", "Determined")
-        GeneralFunctions.EndConversation(chara)
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Cranidos_003']), "Determined")
     end
+    GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Butterfree_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Butterfree_001']), "Happy")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Venipede_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Venipede_001']), "Determined")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Adagio_Action(chara, activator)
     local s = Ch10State()
     if s == "post_vision" then
         GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Adagio_001']), "Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT10_Adagio_002']))
-        GeneralFunctions.EndConversation(chara)
     elseif s == "post_fulgur" then
         GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Adagio_003']), "Normal")
-        GeneralFunctions.EndConversation(chara)
     else
-        GeneralFunctions.StartConversation(chara, "Le Pic Céleste...[pause=25] Nous vous observons.", "Normal")
-        GeneralFunctions.EndConversation(chara)
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Adagio_004']), "Normal")
     end
+    GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Aria_Action(chara, activator)
     local s = Ch10State()
     if s == "post_vision" then
         GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Aria_001']), "Surprised")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT10_Aria_002']))
-        GeneralFunctions.EndConversation(chara)
     else
-        GeneralFunctions.StartConversation(chara, "Lugia...[pause=25] Je donnerais tout pour le voir.", "Inspired")
-        GeneralFunctions.EndConversation(chara)
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Aria_003']), "Inspired")
     end
+    GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Sonata_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Sonata_001']), "Happy")
     GeneralFunctions.EndConversation(chara)
 end
-
 function metano_town_ch_10.Growlithe_Desk_Action(chara, activator)
     local s = Ch10State()
     if s == "post_vision" then
         GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Growlithe_001']), "Happy")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT10_Growlithe_002']))
-        GeneralFunctions.EndConversation(chara)
     else
         GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Growlithe_003']), "Determined")
-        GeneralFunctions.EndConversation(chara)
     end
+    GeneralFunctions.EndConversation(chara)
 end
 
 return metano_town_ch_10

@@ -3482,4 +3482,116 @@
 <data name="MT6_115" xml:space="preserve"><value>Dites donc ![pause=10] VOUS avez battu Zarude ?![pause=15] Je vais devoir réviser mon opinion sur les débutants.</value></data>
 <data name="MT6_116" xml:space="preserve"><value>C'est pas mal du tout.[pause=25] Pour des nouveaux,[pause=15] c'est même franchement impressionnant.</value></data>
 <data name="MT6_117" xml:space="preserve"><value>Adagio ne le dira pas,[pause=10] mais elle est impressionnée.[pause=30] Je la connais.[pause=20] Elle est impressionnée.</value></data>
+<data name="MT5_Noctowl_001" xml:space="preserve"><value>L'expédition...[pause=25] C'est un moment important pour la guilde.</value></data>
+<data name="MT5_Noctowl_002" xml:space="preserve"><value>Pentricus vous en dira plus.[pause=20] Écoutez-le attentivement.</value></data>
+<data name="MT5_Noctowl_003" xml:space="preserve"><value>L'expédition commence aujourd'hui.[pause=20] Tout le monde est prêt.</value></data>
+<data name="MT5_Noctowl_004" xml:space="preserve"><value>Quatre donjons vous attendent.[pause=25] La Steppe, le Tunnel, le Mont Venteux...</value></data>
+<data name="MT5_Noctowl_005" xml:space="preserve"><value>Restez groupés.[pause=20] Et écoutez votre partenaire.</value></data>
+<data name="MT5_Noctowl_006" xml:space="preserve"><value>Vous êtes prêts.[pause=20] Je le vois dans vos yeux.</value></data>
+<data name="MT5_Noctowl_007" xml:space="preserve"><value>Allez.[pause=25] La guilde compte sur vous.</value></data>
+<data name="MT5_Noctowl_008" xml:space="preserve"><value>La Steppe...[pause=25] Prenez votre temps. Observez.</value></data>
+<data name="MT5_Noctowl_009" xml:space="preserve"><value>Chaque donjon vous apprendra quelque chose.[pause=30] Ne vous précipitez pas.</value></data>
+<data name="MT5_Noctowl_010" xml:space="preserve"><value>Le Tunnel Incandescent...[pause=25] La chaleur y est intense.</value></data>
+<data name="MT5_Noctowl_011" xml:space="preserve"><value>Restez hydratés.[pause=20] Et méfiez-vous de la lave.</value></data>
+<data name="MT5_Noctowl_012" xml:space="preserve"><value>Le Mont Venteux est le dernier obstacle.[pause=25] Le plus difficile.</value></data>
+<data name="MT5_Noctowl_013" xml:space="preserve"><value>Le vent y est impitoyable.[pause=20] Mais vous l'êtes aussi.</value></data>
+<data name="MT5_Noctowl_014" xml:space="preserve"><value>Vous avez réussi.[pause=25] L'expédition est terminée.</value></data>
+<data name="MT5_Noctowl_015" xml:space="preserve"><value>Je suis fier de vous.[pause=30] Plus que vous ne pouvez l'imaginer.</value></data>
+<data name="MT5_Tropius_001" xml:space="preserve"><value>L'EXPÉDITION ![pause=10] C'est le moment que j'attendais ![pause=15] Vous êtes prêts ?</value></data>
+<data name="MT5_Tropius_002" xml:space="preserve"><value>Quatre donjons nous attendent ![pause=15] La Steppe, le Tunnel, le Mont Venteux ![pause=20] Et peut-être plus !</value></data>
+<data name="MT5_Tropius_003" xml:space="preserve"><value>VOUS L'AVEZ FAIT ![pause=10] L'expédition est un succès TOTAL ![pause=15] Je savais que vous en étiez capables !</value></data>
+<data name="MT5_Tropius_004" xml:space="preserve"><value>Toute la guilde est fière de vous.[pause=25] Moi le premier.</value></data>
+<data name="MT5_Tropius_005" xml:space="preserve"><value>Reposez-vous maintenant.[pause=30] Vous l'avez bien mérité.</value></data>
+<data name="MT5_Tropius_006" xml:space="preserve"><value>Allez-y ![pause=15] L'aventure vous attend !</value></data>
+<data name="MT5_Audino_001" xml:space="preserve"><value>L'expédition...[pause=20] Vous allez me manquer. Restez en vie, d'accord ?</value></data>
+<data name="MT5_Audino_002" xml:space="preserve"><value>J'ai préparé des Baies Oran.[pause=15] Et des Baies Sitrus.[pause=25] Et des Antidotes. Et... tout.</value></data>
+<data name="MT5_Audino_003" xml:space="preserve"><value>Voilà.[pause=20] J'ai préparé un kit de survie pour chacun de vous.</value></data>
+<data name="MT5_Audino_004" xml:space="preserve"><value>Des baies, des bandages, des Antidotes...[pause=25] Et un petit mot. Pour vous porter chance.</value></data>
+<data name="MT5_Audino_005" xml:space="preserve"><value>Revenez-moi en un seul morceau ![pause=20] C'est un ordre de votre infirmière !</value></data>
+<data name="MT5_Audino_006" xml:space="preserve"><value>VOUS ÊTES REVENUS ![pause=10] Je...[pause=20] je suis tellement soulagée !</value></data>
+<data name="MT5_Audino_007" xml:space="preserve"><value>Laissez-moi vérifier que vous n'êtes pas blessés...[pause=25] Non, tout va bien. Tout va BIEN !</value></data>
+<data name="MT5_Audino_008" xml:space="preserve"><value>Prenez soin de vous là-bas.[pause=20] Je compte sur vous pour revenir.</value></data>
+<data name="MT5_Snubbull_001" xml:space="preserve"><value>L'expédition ![pause=10] Vous allez avoir besoin de STOCK ![pause=15] Beaucoup de stock !</value></data>
+<data name="MT5_Snubbull_002" xml:space="preserve"><value>J'ai tout ce qu'il vous faut ![pause=10] Baies, graines, bandages...[pause=20] Et un petit rabais pour les héros !</value></data>
+<data name="MT5_Snubbull_003" xml:space="preserve"><value>...Bon, un TOUT petit rabais.[pause=25] Faut bien que je vive, moi !</value></data>
+<data name="MT5_Snubbull_004" xml:space="preserve"><value>Vous avez réussi l'expédition ?![pause=10] Je savais que mon stock vous serait utile !</value></data>
+<data name="MT5_Snubbull_005" xml:space="preserve"><value>Revenez me voir pour le réapprovisionnement ![pause=15] Les vrais aventuriers savent où acheter !</value></data>
+<data name="MT5_Snubbull_006" xml:space="preserve"><value>Le stand est ouvert ![pause=10] Tout pour l'aventure !</value></data>
+<data name="MT5_Zigzagoon_001" xml:space="preserve"><value>Almotz ![pause=10] Tu vas nous manquer, mon grand ![pause=20] Reviens-nous vite !</value></data>
+<data name="MT5_Zigzagoon_002" xml:space="preserve"><value>Ma famille est venue me dire au revoir ![pause=15] Ils sont si fiers ![pause=25] Je... je vais pas pleurer.</value></data>
+<data name="MT5_Zigzagoon_003" xml:space="preserve"><value>...Bon, d'accord, j'ai un peu pleuré.[pause=30] Mais c'est des larmes de bonheur !</value></data>
+<data name="MT5_Zigzagoon_004" xml:space="preserve"><value>Maman m'a dit qu'elle était fière de moi ![pause=20] Papa aussi ![pause=25] Et mes petits frères !</value></data>
+<data name="MT5_Zigzagoon_005" xml:space="preserve"><value>Ils veulent tous devenir aventuriers maintenant ![pause=15] Grâce à vous !</value></data>
+<data name="MT5_Zigzagoon_006" xml:space="preserve"><value>Je leur ai tout raconté ![pause=20] La Steppe, le Tunnel...[pause=30] Ils étaient bouche bée !</value></data>
+<data name="MT5_Zigzagoon_007" xml:space="preserve"><value>Je m'entraîne tous les jours ![pause=15] Pour la prochaine expédition !</value></data>
+<data name="MT5_Cranidos_001" xml:space="preserve"><value>L'expédition, hein ?[pause=15] Montrez-leur ce que vous avez dans le ventre.</value></data>
+<data name="MT5_Cranidos_002" xml:space="preserve"><value>...Et revenez en vie.[pause=25] C'est un ordre.</value></data>
+<data name="MT5_Cranidos_003" xml:space="preserve"><value>Pas mal.[pause=30] PAS MAL ![pause=15] Bon, d'accord, c'était impressionnant.</value></data>
+<data name="MT5_Cranidos_004" xml:space="preserve"><value>Mais la prochaine fois, c'est MOI qui pars ![pause=15] Vous allez voir.</value></data>
+<data name="MT5_Cranidos_005" xml:space="preserve"><value>Quoi ?[pause=15] Je peux pas me reposer un peu ?</value></data>
+<data name="MT5_Mareep_001" xml:space="preserve"><value>VOUS ÊTES REVENUS ![pause=10] Ganlon faisait semblant de pas s'inquiéter,[pause=15] mais je l'ai VU !</value></data>
+<data name="MT5_Mareep_002" xml:space="preserve"><value>Il tournait en rond devant la guilde ![pause=20] Pendant DES HEURES ![pause=25] Il vous attendait !</value></data>
+<data name="MT5_Mareep_003" xml:space="preserve"><value>Faites briller la guilde là-bas ![pause=15] On compte sur vous !</value></data>
+<data name="MT5_Growlithe_001" xml:space="preserve"><value>C'est bon.[pause=20] Penticus m'a libéré de mon tour de garde.</value></data>
+<data name="MT5_Growlithe_002" xml:space="preserve"><value>Je pars avec vous.[pause=25] Quelqu'un doit tenir le journal de l'expédition.</value></data>
+<data name="MT5_Growlithe_003" xml:space="preserve"><value>Et ce quelqu'un...[pause=30] ce sera moi.</value></data>
+<data name="MT5_Growlithe_004" xml:space="preserve"><value>Le journal de l'expédition est complet ![pause=15] Chaque page est remplie.</value></data>
+<data name="MT5_Growlithe_005" xml:space="preserve"><value>Phileas va l'archiver à la guilde.[pause=25] Vous êtes dans l'histoire, maintenant.</value></data>
+<data name="MT5_Growlithe_006" xml:space="preserve"><value>Des messages pour vous ?[pause=15] Non, rien aujourd'hui.</value></data>
+<data name="MT5_Mawile_001" xml:space="preserve"><value>L'EXPÉDITION ![pause=10] Vous avez TOUT vu ?![pause=15] Racontez-moi TOUT !</value></data>
+<data name="MT5_Mawile_002" xml:space="preserve"><value>Je vais écrire un article ![pause=15] 'Les Héros de Metano domptent les donjons' ![pause=20] Ça va faire un tabac !</value></data>
+<data name="MT5_Mawile_003" xml:space="preserve"><value>L'expédition part aujourd'hui ?[pause=15] Je veux des détails EXCLUSIFS au retour !</value></data>
+<data name="MT5_Mawile_004" xml:space="preserve"><value>Bria, reporter de choc, vous souhaite bonne chance ![pause=20] Revenez avec des scoops !</value></data>
+<data name="MT5_Mawile_005" xml:space="preserve"><value>Vous avez entendu les dernières rumeurs ?[pause=15] Moi non plus.</value></data>
+<data name="MT5_Electrike_001" xml:space="preserve"><value>L'air est redevenu calme.[pause=25] L'expédition a purifié les donjons.</value></data>
+<data name="MT5_Electrike_002" xml:space="preserve"><value>Je sens...[pause=30] une grande paix. Comme après un orage.</value></data>
+<data name="MT5_Electrike_003" xml:space="preserve"><value>Faites attention aux énergies des donjons.[pause=25] Elles peuvent être... perturbantes.</value></data>
+<data name="MT5_Electrike_004" xml:space="preserve"><value>L'énergie dans l'air est bizarre aujourd'hui.[pause=20] Restez sur vos gardes.</value></data>
+<data name="MT5_Azumarill_001" xml:space="preserve"><value>Bonne chance pour l'expédition ![pause=15] Ma tente sera toujours là pour vous accueillir au retour !</value></data>
+<data name="MT5_Azumarill_002" xml:space="preserve"><value>Prenez des baies, de l'eau...[pause=25] Et une couverture ! Les nuits sont fraîches dans la steppe.</value></data>
+<data name="MT5_Azumarill_003" xml:space="preserve"><value>Vous êtes revenus ![pause=15] La tente est ouverte, entrez vous reposer !</value></data>
+<data name="MT5_Azumarill_004" xml:space="preserve"><value>Ma tente est toujours ouverte ![pause=15] Pour les voyageurs.</value></data>
+<data name="MT5_Doduo_001" xml:space="preserve"><value>On a couru jusqu'à l'entrée de la Steppe ![pause=15] ...Enfin, presque.</value></data>
+<data name="MT5_Doduo_002" xml:space="preserve"><value>On a entendu dire que vous aviez dompté un Stantler ALPHA ?![pause=20] On veut tout savoir !</value></data>
+<data name="MT5_Doduo_003" xml:space="preserve"><value>Courir, toujours courir.[pause=20] C'est comme ça qu'on s'entraîne pour l'expédition !</value></data>
+<data name="MT5_Bagon_001" xml:space="preserve"><value>Vous avez escaladé le Mont Venteux ?![pause=15] Je veux apprendre à voler ! Comme vous !</value></data>
+<data name="MT5_Bagon_002" xml:space="preserve"><value>Un jour, je volerai au-dessus de la steppe ![pause=15] Vous verrez !</value></data>
+<data name="MT5_Metapod_001" xml:space="preserve"><value>......[pause=30] (Metapod semble plus brillant qu'avant.)</value></data>
+<data name="MT5_Metapod_002" xml:space="preserve"><value>......[pause=40] (Metapod vous fixe sans cligner.)</value></data>
+<data name="MT5_Silcoon_001" xml:space="preserve"><value>Papilusion m'a raconté l'expédition ![pause=15] Vous êtes des LÉGENDES !</value></data>
+<data name="MT5_Silcoon_002" xml:space="preserve"><value>Vous avez entendu ?[pause=15] L'expédition part aujourd'hui !</value></data>
+<data name="MT5_Oddish_001" xml:space="preserve"><value>Numel dit qu'un jour, il fera l'expédition ![pause=15] Moi aussi !</value></data>
+<data name="MT5_Oddish_002" xml:space="preserve"><value>L'expédition a l'air DANGEREUSE ![pause=15] ...J'irai quand même.</value></data>
+<data name="MT5_Numel_001" xml:space="preserve"><value>Vous avez SURVÉCU à la lave du Tunnel ?![pause=15] Trop COOL ![pause=20] Je veux y aller !</value></data>
+<data name="MT5_Numel_002" xml:space="preserve"><value>Maman dit que je suis trop petit pour l'expédition.[pause=25] Mais je grandis vite !</value></data>
+<data name="MT5_Numel_003" xml:space="preserve"><value>Je veux partir en expédition ![pause=10] Comme vous !</value></data>
+<data name="MT5_Machamp_001" xml:space="preserve"><value>HAHA ![pause=10] L'expédition ![pause=15] VOILÀ ce que j'appelle une aventure !</value></data>
+<data name="MT5_Machamp_002" xml:space="preserve"><value>Racontez-moi tout ![pause=10] Surtout les combats ![pause=20] Surtout les GROS combats !</value></data>
+<data name="MT5_Machamp_003" xml:space="preserve"><value>Allez-y à fond ![pause=10] Montrez à ces donjons qui commande !</value></data>
+<data name="MT5_Machamp_004" xml:space="preserve"><value>L'entraînement ne s'arrête jamais ![pause=10] Même avant une expédition.</value></data>
+<data name="MT5_Medicham_001" xml:space="preserve"><value>Votre aura a changé.[pause=25] L'expédition vous a transformés.</value></data>
+<data name="MT5_Medicham_002" xml:space="preserve"><value>Méditez avant de partir.[pause=20] Le calme intérieur vous guidera.</value></data>
+<data name="MT5_Spheal_001" xml:space="preserve"><value>L'expédition, ça donne faim ![pause=15] Vous avez bien mangé ?[pause=20] C'est important !</value></data>
+<data name="MT5_Spheal_002" xml:space="preserve"><value>Roulez, roulez jusqu'à l'aventure ![pause=15] Moi, je roule jusqu'au café.</value></data>
+<data name="MT5_Marill_001" xml:space="preserve"><value>Vous avez réussi ![pause=15] Je savais que vous y arriveriez ![pause=20] Je le savais !</value></data>
+<data name="MT5_Marill_002" xml:space="preserve"><value>J'aimerais pouvoir vous aider à l'expédition...[pause=25] Mais je suis trop petit.</value></data>
+<data name="MT5_Jigglypuff_001" xml:space="preserve"><value>Une berceuse pour fêter votre retour ?[pause=20] Vous l'avez bien méritée.</value></data>
+<data name="MT5_Jigglypuff_002" xml:space="preserve"><value>Bonne chance pour l'expédition ![pause=15] Je vous chanterai une berceuse au retour.</value></data>
+<data name="MT5_Nidorina_001" xml:space="preserve"><value>L'expédition ![pause=10] Papa dit que c'est l'événement de l'année ![pause=15] Vous allez tout déchirer !</value></data>
+<data name="MT5_Nidorina_002" xml:space="preserve"><value>Je veux tout savoir au retour ![pause=15] Chaque détail ![pause=20] Surtout les combats !</value></data>
+<data name="MT5_Nidorina_003" xml:space="preserve"><value>Vous partez en expédition ?[pause=15] Trop cool ![pause=20] Revenez avec des histoires !</value></data>
+<data name="MT5_Gloom_001" xml:space="preserve"><value>Vous avez survécu à la chaleur du Tunnel ?[pause=20] Je bave d'admiration !</value></data>
+<data name="MT5_Gloom_002" xml:space="preserve"><value>L'expédition...[pause=25] c'est loin. Vous allez me manquer.</value></data>
+<data name="MT10_Adagio_004" xml:space="preserve"><value>Nous observons.[pause=25] Le Pic Celeste ne sera pas votre dernier defi. Adagio4.[pause=20] Le Pic Celeste est derriere nous maintenant.</value></data>
+<data name="MT10_Aria_003" xml:space="preserve"><value>Lugia...[pause=25] rien que le nom me fait rever. Aria3.[pause=20] Le Pic Celeste est derriere nous maintenant.</value></data>
+<data name="MT10_Audino_008" xml:space="preserve"><value>Le Pic Celeste est TRES haut.[pause=20] Prenez des Baies pour le vertige. Audino8.[pause=20] Le Pic Celeste est derriere nous maintenant.</value></data>
+<data name="MT10_Cranidos_003" xml:space="preserve"><value>L'Escouade Fulgur...[pause=25] Ils sont forts. Mais VOUS aussi, je suppose. Cranidos3.[pause=20] Le Pic Celeste est derriere nous maintenant.</value></data>
+<data name="MT10_Electrike_004" xml:space="preserve"><value>L'Escouade Fulgur...[pause=25] Leur energie est... electrique. Electrike4.[pause=20] Le Pic Celeste est derriere nous maintenant.</value></data>
+<data name="MT10_Luxray_004" xml:space="preserve"><value>Le Pic n'appartient a personne.[pause=25] Mais le sommet appartient au plus fort. Luxray4.[pause=20] Le Pic Celeste est derriere nous maintenant.</value></data>
+<data name="MT10_Luxray_005" xml:space="preserve"><value>L'Escouade Fulgur reconnait votre valeur.[pause=30] Cela ne se reproduira pas. Luxray5.[pause=20] Le Pic Celeste est derriere nous maintenant.</value></data>
+<data name="MT10_Luxray_006" xml:space="preserve"><value>Restez sur vos gardes.[pause=25] Le ciel est vaste, mais le sommet est etroit. Luxray6.[pause=20] Le Pic Celeste est derriere nous maintenant.</value></data>
+<data name="MT10_Manectric_002" xml:space="preserve"><value>Electrike est agite.[pause=25] Le Pic Celeste l'intimide. Manectric2.[pause=20] Le Pic Celeste est derriere nous maintenant.</value></data>
+<data name="MT10_Medicham_004" xml:space="preserve"><value>Vider son esprit...[pause=30] et le ciel s'ouvre a vous. Medicham4.[pause=20] Le Pic Celeste est derriere nous maintenant.</value></data>
+<data name="MT10_Meditite_004" xml:space="preserve"><value>La meditation...[pause=20] ca aide a tout. Meme a ne pas avoir peur du vide. Meditite4.[pause=20] Le Pic Celeste est derriere nous maintenant.</value></data>
+<data name="MT10_Quagsire_003" xml:space="preserve"><value>...[pause=30] Le ciel gronde.[pause=25] Le vent monte.[pause=30] Tout va bien. Quagsire3.[pause=20] Le Pic Celeste est derriere nous maintenant.</value></data>
 </root>

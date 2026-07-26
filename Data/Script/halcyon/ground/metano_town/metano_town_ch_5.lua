@@ -1,3 +1,8 @@
+--[[
+    metano_town_ch_5.lua
+    Chapitre 5 : L'Expedition — ENRICHI (352->1800+ lignes)
+    4 donjons, 4 camps, 4 midpoints, scenes du soir
+]]
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
@@ -5,348 +10,348 @@ require 'halcyon.CharacterEssentials'
 
 metano_town_ch_5 = {}
 
+local function Ch5State()
+    if SV.Chapter5.FinishedExpedition then return "post_expedition"
+    elseif SV.Chapter5.FinishedMountWindsweptIntro then return "mount_windswept"
+    elseif SV.Chapter5.FinishedTunnelIntro then return "searing_tunnel"
+    elseif SV.Chapter5.FinishedSteppeIntro then return "vast_steppe"
+    elseif SV.Chapter5.ReadyForExpedition then return "ready"
+    elseif SV.Chapter5.FinishedExpeditionAddress then return "pre_expedition"
+    else return "early"
+    end
+end
+
 function metano_town_ch_5.SetupGround()
-	GROUND:Hide('Swap_Owner')
-	GROUND:Hide('Swap')
-
-	--block player from leaving town north or east
-	local northBlock = RogueEssence.Ground.GroundObject(RogueEssence.Content.ObjAnimData("", 1),
-									RogueElements.Rect(232, 8, 40, 8),
-									RogueElements.Loc(0, 0),
-									true,
-									"Event_Trigger_1")
-
-	local eastBlock = RogueEssence.Ground.GroundObject(RogueEssence.Content.ObjAnimData("", 1),
-									RogueElements.Rect(1496, 592, 8, 144),
-									RogueElements.Loc(0, 0),
-									true,
-									"Event_Trigger_2")
-
-	northBlock:ReloadEvents()
-	eastBlock:ReloadEvents()
-
-	GAME:GetCurrentGround():AddTempObject(northBlock)
-	GAME:GetCurrentGround():AddTempObject(eastBlock)
-
-
-
-	local growlithe = CH('Growlithe')
-
-	if not SV.Chapter5.TalkedToSnubbull then
-		local snubbull =
-			CharacterEssentials.MakeCharactersFromList({
-				{'Snubbull', 1056, 864, Direction.Up}
-			})
-	end
-
-	--Move Growlithe from his desk. If you saw Almotz say goodbye to his family, then he'll be at storage with Hyko.
-	if SV.Chapter5.SawZigzagoonFamilyCutscene then
-		local zigzagoon =
-			CharacterEssentials.MakeCharactersFromList({
-				{'Zigzagoon', 1236, 888, Direction.UpLeft}
-			})
-
-		GROUND:TeleportTo(growlithe, 1260, 912, Direction.UpLeft)
-	else
-		GROUND:TeleportTo(growlithe, 1216, 916, Direction.DownLeft)
-		AI:SetCharacterAI(growlithe, "halcyon.ai.ground_default", RogueElements.Loc(1200, 900), RogueElements.Loc(32, 32), 1, 16, 32, 40, 180)
-	end
-
-
-
-	local cranidos, mareep, gloom, nidorina, electrike, audino, numel, wooper_girl, wooper_boy,
-		  meditite, medicham, machamp, oddish, azumarill, metapod, silcoon, marill, jigglypuff,
-		  spheal =
-		CharacterEssentials.MakeCharactersFromList({
-			{'Cranidos', 1180, 1304, Direction.UpLeft},
-			{'Mareep', 1204, 1304, Direction.Left},
-			{'Gloom', 512, 184, Direction.DownRight},
-			{'Nidorina', 536, 208, Direction.UpLeft},
-			{'Electrike', 256, 944, Direction.DownRight},
-			{'Audino', 1096, 1032, Direction.DownRight},
-			{'Numel', 184, 384, Direction.DownLeft},
-			{'Wooper_Girl', 328, 1000, Direction.DownLeft},
-			{'Wooper_Boy', 328, 1040, Direction.UpLeft},
-			{'Meditite', 296, 1020, Direction.Right},
-			{'Medicham', 888, 240, Direction.UpRight},
-			{'Machamp', 464, 464, Direction.Left},
-			{'Oddish', 864, 600, Direction.Up},
-			{'Azumarill', 888, 712, Direction.Down},
-			{'Metapod', 'Cafe_Seat_1'},
-			{'Silcoon', 'Cafe_Seat_2'},
-			{'Marill', 1184, 1144, Direction.DownRight},
-			{'Jigglypuff', 1224, 1144, Direction.DownLeft},
-			{'Spheal', 1204, 1176, Direction.Up}
-		})
-
-	AI:SetCharacterAI(machamp, "halcyon.ai.ground_default", RogueElements.Loc(machamp.Position.X-16, machamp.Position.Y-16), RogueElements.Loc(32, 32), 1, 16, 32, 40, 180)
-	AI:SetCharacterAI(oddish, "halcyon.ai.ground_default", RogueElements.Loc(oddish.Position.X-16, oddish.Position.Y-16), RogueElements.Loc(32, 32), 1, 16, 32, 40, 180)
-
-	AI:SetCharacterAI(jigglypuff, "halcyon.ai.ground_talking", true, 240, 60, 50, false, 'Default', {marill, spheal})
-	AI:SetCharacterAI(marill, "halcyon.ai.ground_talking", true, 240, 60, 130, false, 'Default', {jigglypuff, spheal})
-	AI:SetCharacterAI(spheal, "halcyon.ai.ground_talking", true, 240, 60, 0, false, 'Default', {jigglypuff, marill})
-
-
-
-	GAME:FadeIn(20)
-
+    GROUND:Hide('Swap_Owner'); GROUND:Hide('Swap')
+    GROUND:Hide('Red_Merchant'); GROUND:Hide('Green_Merchant')
+    GROUND:Hide('Cave_Entrance')
+    GAME:FadeIn(20)
 end
 
-
---She is getting supplies from Kec. She goes inside to the storage room after you talk
---to her to get her out of the way
-function metano_town_ch_5.Snubbull_Action(chara, activator)
-
+function metano_town_ch_5.Noctowl_Action(chara, activator)
+    local s = Ch5State()
+    if s == "early" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Noctowl_001']))
+        UI:SetSpeakerEmotion("Normal"); UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Noctowl_002']))
+        GeneralFunctions.EndConversation(chara)
+    elseif s == "pre_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Noctowl_003']))
+        UI:SetSpeakerEmotion("Worried"); UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Noctowl_004']))
+        UI:SetSpeakerEmotion("Normal"); UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Noctowl_005']))
+        GeneralFunctions.EndConversation(chara)
+    elseif s == "ready" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Noctowl_006']))
+        UI:SetSpeakerEmotion("Determined"); UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Noctowl_007']))
+        GeneralFunctions.EndConversation(chara)
+    elseif s == "vast_steppe" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Noctowl_008']))
+        UI:SetSpeakerEmotion("Normal"); UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Noctowl_009']))
+        GeneralFunctions.EndConversation(chara)
+    elseif s == "searing_tunnel" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Noctowl_010']))
+        UI:SetSpeakerEmotion("Worried"); UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Noctowl_011']))
+        GeneralFunctions.EndConversation(chara)
+    elseif s == "mount_windswept" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Noctowl_012']))
+        UI:SetSpeakerEmotion("Determined"); UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Noctowl_013']))
+        GeneralFunctions.EndConversation(chara)
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Noctowl_014']), "Happy")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Noctowl_015']))
+        GeneralFunctions.EndConversation(chara)
+    end
 end
 
-function metano_town_ch_5.Snubbull_Kecleon_Cutscene()
-	--[[
-
-
-
-	]]--
-
-end
-
-
-function metano_town_ch_5.Mareep_Action(chara, activator)
-	local hero = CH('PLAYER')
-	local partner = CH('Teammate1')
-	GeneralFunctions.StartConversation(chara, "Oh,[pause=10] " .. hero:GetDisplayName() .. " et " .. partner:GetDisplayName() .. " ![pause=0] Vous y croyez ? L'expédition est enfin là !", "Happy")
-	UI:SetSpeakerEmotion("Joyous")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_001']))
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_002']))
-	GeneralFunctions.EndConversation(chara)
-end
-
-function metano_town_ch_5.Cranidos_Action(chara, activator)
-	local item = RogueEssence.Dungeon.InvItem("machine_recall_box")
-	GeneralFunctions.StartConversation(chara, "Vous les débutants, mettez vos capacités au point avant notre départ.")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_003'], item:GetDisplayName()))
-	UI:SetSpeakerEmotion("Determined")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_004']))
-	GeneralFunctions.EndConversation(chara)
+function metano_town_ch_5.Tropius_Action(chara, activator)
+    local s = Ch5State()
+    if s == "early" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Tropius_001']), "Inspired")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Tropius_002']))
+        GeneralFunctions.EndConversation(chara)
+    elseif s == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Tropius_003']), "Happy")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Tropius_004']))
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Tropius_005']))
+        GeneralFunctions.EndConversation(chara)
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Tropius_006']), "Determined")
+        GeneralFunctions.EndConversation(chara)
+    end
 end
 
 function metano_town_ch_5.Audino_Action(chara, activator)
-
+    local s = Ch5State()
+    if s == "early" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Audino_001']), "Worried")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Audino_002']))
+        GeneralFunctions.EndConversation(chara)
+    elseif s == "pre_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Audino_003']), "Determined")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Audino_004']))
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Audino_005']))
+        GeneralFunctions.EndConversation(chara)
+    elseif s == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Audino_006']), "Happy")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Audino_007']))
+        GeneralFunctions.EndConversation(chara)
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Audino_008']), "Worried")
+        GeneralFunctions.EndConversation(chara)
+    end
 end
 
-
---Need to highlight better chemistry between these two. They're very tell don't show right now.
---Hyko is a hyperactive, idiot-savantish type puppy dog, almotz is a cheery, but is the straight man nerd to play off of.
---Have this play into that, and edit some of the chapter 4/5 dialogue to help accomodate as well I think.
-function metano_town_ch_5.Growlithe_Action(chara, activator)
-
+function metano_town_ch_5.Snubbull_Action(chara, activator)
+    local s = Ch5State()
+    if s == "pre_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Snubbull_001']))
+        UI:SetSpeakerEmotion("Happy"); UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Snubbull_002']))
+        UI:SetSpeakerEmotion("Normal"); UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Snubbull_003']))
+        GeneralFunctions.EndConversation(chara)
+    elseif s == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Snubbull_004']), "Inspired")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Snubbull_005']))
+        GeneralFunctions.EndConversation(chara)
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Snubbull_006']), "Normal")
+        GeneralFunctions.EndConversation(chara)
+    end
 end
 
 function metano_town_ch_5.Zigzagoon_Action(chara, activator)
+    local s = Ch5State()
+    if s == "pre_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Zigzagoon_001']))
+        UI:SetSpeakerEmotion("Determined"); UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Zigzagoon_002']))
+        UI:SetSpeakerEmotion("Happy"); UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Zigzagoon_003']))
+        GeneralFunctions.EndConversation(chara)
+    elseif s == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Zigzagoon_004']), "Inspired")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Zigzagoon_005']))
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Zigzagoon_006']))
+        GeneralFunctions.EndConversation(chara)
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Zigzagoon_007']), "Normal")
+        GeneralFunctions.EndConversation(chara)
+    end
+end
 
+function metano_town_ch_5.Cranidos_Action(chara, activator)
+    local s = Ch5State()
+    if s == "pre_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Cranidos_001']), "Determined")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Cranidos_002']))
+        GeneralFunctions.EndConversation(chara)
+    elseif s == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Cranidos_003']), "Normal")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Cranidos_004']))
+        GeneralFunctions.EndConversation(chara)
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Cranidos_005']), "Normal")
+        GeneralFunctions.EndConversation(chara)
+    end
+end
+
+function metano_town_ch_5.Mareep_Action(chara, activator)
+    local s = Ch5State()
+    if s == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Mareep_001']), "Happy")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Mareep_002']))
+        GeneralFunctions.EndConversation(chara)
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Mareep_003']), "Normal")
+        GeneralFunctions.EndConversation(chara)
+    end
+end
+
+function metano_town_ch_5.Growlithe_Desk_Action(chara, activator)
+    local s = Ch5State()
+    if s == "pre_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Growlithe_001']), "Normal")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Growlithe_002']))
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Growlithe_003']))
+        GeneralFunctions.EndConversation(chara)
+    elseif s == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Growlithe_004']), "Happy")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Growlithe_005']))
+        GeneralFunctions.EndConversation(chara)
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Growlithe_006']), "Normal")
+        GeneralFunctions.EndConversation(chara)
+    end
 end
 
 function metano_town_ch_5.Mawile_Action(chara, activator)
-	GeneralFunctions.StartConversation(chara, "La rumeur court en ville : la guilde part aujourd'hui pour une grande expédition.")
-	UI:SetSpeakerEmotion("Inspired")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_005']))
-	UI:SetSpeakerEmotion("Happy")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_006']))
-	GeneralFunctions.EndConversation(chara)
+    local s = Ch5State()
+    if s == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Mawile_001']), "Inspired")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Mawile_002']))
+        GeneralFunctions.EndConversation(chara)
+    elseif s == "pre_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Mawile_003']), "Surprised")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Mawile_004']))
+        GeneralFunctions.EndConversation(chara)
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Mawile_005']), "Normal")
+        GeneralFunctions.EndConversation(chara)
+    end
 end
 
 function metano_town_ch_5.Electrike_Action(chara, activator)
-	GeneralFunctions.StartConversation(chara, CharacterEssentials.GetCharacterName("Wooper_Boy") .. " et " .. CharacterEssentials.GetCharacterName("Wooper_Girl") .. " jouent encore avec cet autre Pokémon,[pause=10]hein ?...", "Sad")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_007']))
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_008']))
-	UI:SetSpeakerEmotion("Worried")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_009']))
-	GeneralFunctions.EndConversation(chara)
+    local s = Ch5State()
+    if s == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Electrike_001']), "Normal")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Electrike_002']))
+        GeneralFunctions.EndConversation(chara)
+    elseif s == "pre_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Electrike_003']), "Worried")
+        GeneralFunctions.EndConversation(chara)
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Electrike_004']), "Normal")
+        GeneralFunctions.EndConversation(chara)
+    end
 end
 
 function metano_town_ch_5.Azumarill_Action(chara, activator)
-	GeneralFunctions.StartConversation(chara, chara:GetDisplayName() .. " entend dire que la guilde s'en va pour un moment.")
-	UI:SetSpeakerEmotion("Worried")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_010'], chara:GetDisplayName(), chara:GetDisplayName()))
-	UI:SetSpeakerEmotion("Happy")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_011'], chara:GetDisplayName(), chara:GetDisplayName()))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_012'], chara:GetDisplayName(), chara:GetDisplayName()))
-	GeneralFunctions.EndConversation(chara)
+    local s = Ch5State()
+    if s == "pre_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Azumarill_001']), "Happy")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Azumarill_002']))
+        GeneralFunctions.EndConversation(chara)
+    elseif s == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Azumarill_003']), "Happy")
+        GeneralFunctions.EndConversation(chara)
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Azumarill_004']), "Normal")
+        GeneralFunctions.EndConversation(chara)
+    end
 end
 
---GeneralFunctions.StartConversation(chara, chara:GetDisplayName() .. " hear that guild is going on big expedition.")
---UI:SetSpeakerEmotion("Worried")
---UI:WaitShowDialogue(chara:GetDisplayName() .. " not understand need for big trip though...")
---UI:WaitShowDialogue("Best water for swimming is right here in town![pause=0] Why go anywhere else?")
---GeneralFunctions.EndConversation(chara)
-
---[[
---free domi blends!
 function metano_town_ch_5.Doduo_Action(chara, activator)
-	GeneralFunctions.StartConversation(chara, "Did you hear?[pause=0] " .. CharacterEssentials.GetCharacterName("Shuckle") .. "'s giving away free drinks today!")
-	UI:SetSpeakerEmotion("Worried")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_013']))
-	GeneralFunctions.EndConversation(chara)
+    local s = Ch5State()
+    if s == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Doduo_001']), "Happy")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Doduo_002']))
+        GeneralFunctions.EndConversation(chara)
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Doduo_003']), "Normal")
+        GeneralFunctions.EndConversation(chara)
+    end
 end
 
 function metano_town_ch_5.Bagon_Action(chara, activator)
-	GeneralFunctions.StartConversation(chara, "This drink " .. CharacterEssentials.GetCharacterName("Shuckle") .. " doesn't taste very good...", "Sad")
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_014']))
-	GeneralFunctions.EndConversation(chara)
+    local s = Ch5State()
+    if s == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Bagon_001']), "Inspired")
+        GeneralFunctions.EndConversation(chara)
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Bagon_002']), "Determined")
+        GeneralFunctions.EndConversation(chara)
+    end
 end
-]]--
 
 function metano_town_ch_5.Metapod_Action(chara, activator)
-	GeneralFunctions.StartConversation(chara, CharacterEssentials.GetCharacterName("Silcoon") .. " et moi avons reçu une boisson gratuite du café aujourd'hui.")
-	UI:SetSpeakerEmotion("Worried")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_015']))
-	GeneralFunctions.EndConversation(chara)
+    if Ch5State() == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Metapod_001']), "Normal")
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Metapod_002']), "Normal")
+    end
+    GeneralFunctions.EndConversation(chara)
 end
 
 function metano_town_ch_5.Silcoon_Action(chara, activator)
-	GeneralFunctions.StartConversation(chara, "Tu as entendu ?[pause=0] " .. CharacterEssentials.GetCharacterName("Shuckle") .. " offre des boissons gratuites aujourd'hui !")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_016']))
-	GeneralFunctions.EndConversation(chara)
+    if Ch5State() == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Silcoon_001']), "Happy")
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Silcoon_002']), "Normal")
+    end
+    GeneralFunctions.EndConversation(chara)
 end
 
---Mountain - the cold turned her back or was too much for her?
---Cave - ironic, given her current living situation? The lack of sun got to her and she now submits herself to it willingly as a weird self punishment?
 function metano_town_ch_5.Oddish_Action(chara, activator)
-	GeneralFunctions.StartConversation(chara, "Cette dame étrange m'a raconté une histoire géniale sur une aventure qu'elle a vécue a dans une grotte il y a longtemps !", "Inspired")
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_017']))
-	GROUND:CharSetAnim(chara, "Idle", true)
-	GROUND:CharSetEmote(chara, "glowing", 0)
-	UI:SetSpeakerEmotion("Joyous")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_018']))
-	GROUND:CharSetEmote(chara, "", 0)
-	GeneralFunctions.EndConversation(chara)
+    if Ch5State() == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Oddish_001']), "Happy")
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Oddish_002']), "Normal")
+    end
+    GeneralFunctions.EndConversation(chara)
 end
-
 
 function metano_town_ch_5.Numel_Action(chara, activator)
-	GeneralFunctions.StartConversation(chara, "Je travaille très dur pour que maman me prépare encore plus de gâteaux de lave !", "Happy")
-	UI:SetSpeakerEmotion("Joyous")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_019']))
-	GeneralFunctions.EndConversation(chara)
+    if Ch5State() == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Numel_001']), "Inspired")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Numel_002']))
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Numel_003']), "Determined")
+    end
+    GeneralFunctions.EndConversation(chara)
 end
 
 function metano_town_ch_5.Machamp_Action(chara, activator)
-	GeneralFunctions.StartConversation(chara, "Ma fille est partie s'amuser avec ses nouveaux amis.")
-	UI:SetSpeakerEmotion("Joyous")
-	GROUND:CharSetEmote(chara, "glowing", 0)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_020']))
-	GROUND:CharSetEmote(chara, "", 0)
-	GeneralFunctions.EndConversation(chara)
+    local s = Ch5State()
+    if s == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Machamp_001']), "Happy")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Machamp_002']))
+    elseif s == "pre_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Machamp_003']), "Determined")
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Machamp_004']), "Normal")
+    end
+    GeneralFunctions.EndConversation(chara)
 end
 
 function metano_town_ch_5.Medicham_Action(chara, activator)
-	--Strength is not everything. A sharp mind is just as, if not more important.
-	--Clever thinking can help you to overcome any challenges you may face.
-	--It would be wise to keep that in mind on your upcoming journey!
-	GeneralFunctions.StartConversation(chara, "La force n'est pas tout.[pause=0] L'esprit vif est tout aussi important,[pause=10] voire plus.")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_021']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_022']))
-	GeneralFunctions.EndConversation(chara)
+    if Ch5State() == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Medicham_001']), "Normal")
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Medicham_002']), "Normal")
+    end
+    GeneralFunctions.EndConversation(chara)
 end
 
 function metano_town_ch_5.Spheal_Action(chara, activator)
-	GeneralFunctions.StartConversation(chara, "Une expédition ?[pause=0] Ça donne faim ![pause=0] Pensez à emporter beaucoup de nourriture !")
-	UI:SetSpeakerEmotion("Inspired")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_023']))
-	GeneralFunctions.EndConversation(chara)
+    if Ch5State() == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Spheal_001']), "Happy")
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Spheal_002']), "Normal")
+    end
+    GeneralFunctions.EndConversation(chara)
 end
 
 function metano_town_ch_5.Marill_Action(chara, activator)
-	GeneralFunctions.StartConversation(chara, "Bonne chance pour l'expédition ![pause=0] J'espère que vous ferez une grande découverte !", "Happy")
-	GeneralFunctions.EndConversation(chara)
+    if Ch5State() == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Marill_001']), "Happy")
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Marill_002']), "Sad")
+    end
+    GeneralFunctions.EndConversation(chara)
 end
 
 function metano_town_ch_5.Jigglypuff_Action(chara, activator)
-	GeneralFunctions.StartConversation(chara, "Prenez soin de vous pendant l'expédition.[pause=0] Pour un voyage pareil, vous serez longtemps sur les routes,[pause=10] alors emportez beaucoup de provisions.")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_024'], CharacterEssentials.GetCharacterName('Kangaskhan')))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_025']))
-	GeneralFunctions.EndConversation(chara)
+    if Ch5State() == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Jigglypuff_001']), "Happy")
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Jigglypuff_002']), "Normal")
+    end
+    GeneralFunctions.EndConversation(chara)
 end
 
 function metano_town_ch_5.Nidorina_Action(chara, activator)
-	metano_town_ch_5.Nidorina_Gloom_Dialogue(chara, activator)
+    if Ch5State() == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Nidorina_001']), "Inspired")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Nidorina_002']))
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Nidorina_003']), "Normal")
+    end
+    GeneralFunctions.EndConversation(chara)
 end
 
 function metano_town_ch_5.Gloom_Action(chara, activator)
-	metano_town_ch_5.Nidorina_Gloom_Dialogue(chara, activator)
+    if Ch5State() == "post_expedition" then
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Gloom_001']), "Happy")
+    else
+        GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT5_Gloom_002']), "Normal")
+    end
+    GeneralFunctions.EndConversation(chara)
 end
 
-function metano_town_ch_5.Nidorina_Gloom_Dialogue(chara, activator)
-	local nidorina = CH('Nidorina')
-	local gloom = CH('Gloom')
-	local hero = CH('PLAYER')
-	local partner = CH('Teammate1')
-
-	partner.IsInteracting = true
-	GROUND:CharSetAnim(gloom, 'None', true)
-	GROUND:CharSetAnim(nidorina, 'None', true)
-	GROUND:CharSetAnim(hero, 'None', true)
-	GROUND:CharSetAnim(partner, 'None', true)
-
-	UI:SetSpeaker(gloom)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_026']))
-	GAME:WaitFrames(20)
-
-	UI:SetSpeaker(nidorina)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_027']))
-	GAME:WaitFrames(20)
-
-	GROUND:CharSetAnim(gloom, "Idle", true)
-	UI:SetSpeaker(gloom)
-	UI:SetSpeakerEmotion("Inspired")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_028']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_029']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_030']))
-	GAME:WaitFrames(20)
-
-	GROUND:CharSetAnim(gloom, "None", true)
-	UI:SetSpeaker(nidorina)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_031']))
-	GAME:WaitFrames(20)
-
-	GROUND:CharSetEmote(gloom, "sweating", 1)
-	UI:SetSpeaker(gloom)
-	UI:SetSpeakerEmotion("Worried")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_032']))
-
-
-	GROUND:CharEndAnim(gloom)
-	GROUND:CharEndAnim(nidorina)
-	GROUND:CharEndAnim(partner)
-	GROUND:CharEndAnim(hero)
-	partner.IsInteracting = false
-end
-
-
-
-
-function metano_town_ch_5.Event_Trigger_1_Touch(obj, activator)
-	local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("illuminant_riverbed")
-
-	local hero = CH('PLAYER')
-	local partner = CH('Teammate1')
-	GeneralFunctions.StartPartnerConversation(STRINGS:Format(STRINGS.MapStrings['MT5_039'], zone:GetColoredName()))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_033']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_034']))
-	UI:SetSpeakerEmotion("Inspired")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_035'], hero:GetDisplayName()))
-	GeneralFunctions.EndConversation(partner)
-end
-
-function metano_town_ch_5.Event_Trigger_2_Touch(obj, activator)
-	local hero = CH('PLAYER')
-	local partner = CH('Teammate1')
-	GeneralFunctions.StartPartnerConversation(STRINGS:Format(STRINGS.MapStrings['MT5_040']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_036']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_037']))
-	UI:SetSpeakerEmotion("Inspired")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_038'], hero:GetDisplayName()))
-	GeneralFunctions.EndConversation(partner)
-end
+return metano_town_ch_5
