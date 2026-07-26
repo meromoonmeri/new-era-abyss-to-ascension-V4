@@ -893,10 +893,18 @@ SV.SearingTunnel =
 	DiedPastCheckpoint = false--Used to flag whether you died in depths/crucible. Needed for cutscenes on wiping and waking up back in the checkpoint.
 }
 
---to be renamed
-SV.ClovenRuins = 
+SV.Chapter7 = 
 {
-	BoulderCountdown = -1--Used to determine when boulder falls should happen and resolve.
+	-- Chapter 7: Ruines Tordues + Cinematique de la Genese
+	ShowedTitleCard = false,
+	EnteredRuins = false,
+	LostRuins = false,
+	LostDepths = false,
+	DefeatedRuinsBoss = false,
+	DiedToRuinsBoss = false,
+	SawAnimaCoreCorruption = false,
+	HeardGenesisTale = false,
+	RuinsMidpointState = 'FirstArrival'
 }
 
 

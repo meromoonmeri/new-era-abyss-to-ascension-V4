@@ -211,17 +211,51 @@
       "BagRestrict": -1,
       "KeepTreasure": false,
       "BagSize": -1,
-      "Rescues": 0,
-      "CountedFloors": 0,
+      "Rescues": 2,
+      "CountedFloors": 20,
       "Rogue": 0,
-      "Grounds": [],
-      "Maps": [],
+      "Grounds": [
+        "cloven_ruins_entrance"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        [
+          0
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0
+        ]
+      ],
       "Name": {
         "DefaultText": "Cloven Ruins",
-        "LocalTexts": {}
+        "LocalTexts": {
+          "fr": "Ruines Tordues"
+        }
       },
       "Released": false,
-      "Comment": "",
       "SortOrder": 0
     },
     "crooked_cavern": {

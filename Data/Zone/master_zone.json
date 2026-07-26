@@ -83094,7 +83094,11 @@
       "crooked_cavern_midpoint",
       "gloomy_forest_midpoint",
       "vast_steppe_midpoint",
-      "mount_windswept_midpoint"
+      "mount_windswept_midpoint",
+      "cloven_ruins_entrance",
+      "genesis_vision",
+      "cloven_ruins_midpoint",
+      "cloven_ruins_boss"
     ]
   }
 }

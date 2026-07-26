@@ -421,6 +421,15 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
+		--Chapitre 7 : Ruines Tordues — boss Regigigas
+		Regigigas = {
+			species = "regigigas",
+			nickname = 'Regigigas',
+			instance = 'Regigigas',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
 
 	--Vendor/Shop NPCs
 		Kangaskhan = {
