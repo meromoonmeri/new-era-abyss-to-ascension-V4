@@ -61,96 +61,31 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(30)
 
-  -- === VOICE OF THE ABYSS SPEAKS FIRST ===
-  -- The mist swirls ominously
-  local mistEmitter = RogueEssence.Content.FiniteOverlayEmitter()
-  mistEmitter.FadeIn = 40
-  mistEmitter.TotalTime = 100
-  mistEmitter.Layer = DrawLayer.Back
-  mistEmitter.Anim = RogueEssence.Content.BGAnimData("Steam", 1)
-  GROUND:PlayVFX(mistEmitter, 184, 160)
-
+  -- === VOIX → FLASH → EMERGENCE (BossFX standardise) ===
   SOUND:FadeOutBGM(60)
-  GAME:WaitFrames(40)
-
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_004']))
-  -- "Le Gardien des Plaines s'éveille..."
-
-  GAME:WaitFrames(20)
-  coro1 = TASK:BranchCoroutine(function()
-    GeneralFunctions.LookAround(partner, 2, 4, true, true, false, Direction.UpRight)
-  end)
-  coro2 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(5)
-    GeneralFunctions.LookAround(hero, 2, 4, false, false, false, Direction.UpLeft)
-  end)
-  TASK:JoinCoroutines({coro1, coro2})
-
-  GAME:WaitFrames(10)
-  UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
-  GROUND:CharSetEmote(partner, "shock", 1)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_005']))
-  -- "Encore cette voix !"
-
   GAME:WaitFrames(30)
 
-  -- === WHITE FLASH ===
-  local center = GAME:GetCameraCenter()
-  local preEmergeFlash = RogueEssence.Content.FlashEmitter()
-  preEmergeFlash.FadeInTime = 3
-  preEmergeFlash.HoldTime = 5
-  preEmergeFlash.FadeOutTime = 12
-  preEmergeFlash.StartColor = Color(255, 255, 255, 0)
-  preEmergeFlash.Layer = DrawLayer.Top
-  preEmergeFlash.Anim = RogueEssence.Content.BGAnimData("White", 0)
-  GROUND:PlayVFX(preEmergeFlash, center.X, center.Y)
-  SOUND:PlayBattleSE("EVT_Battle_Flash")
-  -- Le Gardien se materialise dans la brume : souffle spectral qui
-  -- repousse toute l'equipe (aucun recul n'existait auparavant).
+  -- Brume montante
   BossFX.Overlay("Fog", 0, 0, 20, 70, 25, DrawLayer.Bottom, -1, 0)
-  BossFX.Impact(9)
-  GAME:WaitFrames(20)
 
-  -- === STANTLER ALPHA MATERIALIZES FROM THE FLASH ===
-  SOUND:PlayBGM('Rising Fear.ogg', true)
+  -- Voix de l'Abysse
+  BossFX.Voice('VSG_004')
 
+  -- Flash blanc
+  local center = GAME:GetCameraCenter()
+  BossFX.Flash(center.X, center.Y, 3, 5, 15)
+
+  -- Tremblement puis materialisation depuis la brume
   local stantler = CharacterEssentials.MakeCharactersFromList({
     {'Stantler', 184, 200, Direction.Down}
   })
   GROUND:Hide('Stantler')
-
-  -- Ethereal blue-white emergence
-  local arriveAnim = RogueEssence.Content.StaticAnim(
-    RogueEssence.Content.AnimData("Slugma_Materialize", 3), 2)
-  arriveAnim:SetupEmitted(
-    RogueElements.Loc(stantler.Position.X + 8, stantler.Position.Y + 12),
-    40, RogueElements.Dir8.Down)
-  GROUND:PlayVFXAnim(arriveAnim, RogueEssence.Content.DrawLayer.Front)
-
-  -- Lingering glow from the flash
-  local afterGlow = RogueEssence.Content.FlashEmitter()
-  afterGlow.FadeInTime = 10
-  afterGlow.HoldTime = 30
-  afterGlow.FadeOutTime = 20
-  afterGlow.StartColor = Color(180, 220, 255, 0)
-  afterGlow.Layer = DrawLayer.Back
-  afterGlow.Anim = RogueEssence.Content.BGAnimData("White", 0)
-  GROUND:PlayVFX(afterGlow, stantler.Position.X, stantler.Position.Y)
-
-  GAME:WaitFrames(30)
+  BossFX.Rumble({hero, partner}, 2)
+  BossFX.EmergeMist(stantler, stantler.Position.X + 8, stantler.Position.Y + 12)
+  SOUND:PlayBGM('Rising Fear.ogg', true)
   GROUND:Unhide('Stantler')
   GROUND:CharSetAnim(stantler, "Charge", true)
-
-  GAME:WaitFrames(20)
-  -- Antler glow — pulsing with ethereal light
-  local antlerGlow = RogueEssence.Content.FiniteOverlayEmitter()
-  antlerGlow.FadeIn = 8
-  antlerGlow.TotalTime = 50
-  antlerGlow.Layer = DrawLayer.Front
-  antlerGlow.Anim = RogueEssence.Content.BGAnimData("White", 0)
-  GROUND:PlayVFX(antlerGlow, stantler.Position.X + 8, stantler.Position.Y - 8)
+  BossFX.Impact(9)
 
   coro1 = TASK:BranchCoroutine(function()
     GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
@@ -171,20 +106,17 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(30)
 
-  -- === VOICE SPEAKS AGAIN ===
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_006']))
-  -- "Le plus fort de la harde. Il ne pliera pas aussi facilement."
-
+  -- Voix a nouveau
+  BossFX.Voice('VSG_006')
   GAME:WaitFrames(20)
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_007']))
   -- "Prouve ta valeur, voyageur..."
 
   GAME:WaitFrames(30)
 
-  -- The Stantler lets out a deep cry and stamps its hoof
-  SOUND:PlayBattleSE('_UNK_EVT_102')
-  GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 4, 20))
+  -- Le Stantler frappe du sabot, le sol tremble
+  BossFX.ShakeScreen(4, 20)
   GAME:WaitFrames(20)
 
   coro1 = TASK:BranchCoroutine(function()

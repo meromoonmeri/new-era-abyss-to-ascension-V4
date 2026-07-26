@@ -237,13 +237,25 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 10,
+      "CountedFloors": 20,
       "Rogue": 0,
       "Grounds": [
         "crooked_cavern_entrance",
         "crooked_den"
       ],
       "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
         [
           0,
           1,
@@ -543,7 +555,8 @@
       "Grounds": [
         "mount_windswept_entrance",
         "mount_windswept_miniboss",
-        "mount_windswept_guardian"
+        "mount_windswept_guardian",
+        "mount_windswept_midpoint"
       ],
       "Maps": [
         [
@@ -700,10 +713,11 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 0,
-      "CountedFloors": 22,
+      "CountedFloors": 21,
       "Rogue": 0,
       "Grounds": [
         "gloomy_forest_entrance",
+        "gloomy_forest_midpoint",
         "gloomy_forest_boss"
       ],
       "Maps": [
@@ -853,7 +867,8 @@
       "Grounds": [
         "vast_steppe_entrance",
         "vast_steppe_miniboss",
-        "vast_steppe_guardian"
+        "vast_steppe_guardian",
+        "vast_steppe_midpoint"
       ],
       "Maps": [
         [

@@ -56,8 +56,8 @@ function vast_steppe.ExitSegment(zone, result, rescue, segmentID, mapID)
 	if exited == true then
 		--do nothing
 	elseif segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 5 then
-		-- Segment 0 cleared: go to mini-boss ground map
-		GAME:EnterGroundMap('vast_steppe_miniboss', 'Main_Entrance_Marker')
+		-- Segment 0 cleared: go to midpoint rest stop before mini-boss
+		GAME:EnterGroundMap('vast_steppe_midpoint', 'Main_Entrance_Marker')
 	elseif segmentID == 1 and SV.ChapterProgression.Chapter == 5 then
 		-- Mini-boss arena: win or loss both go back to mini-boss ground map
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then

@@ -337,7 +337,7 @@ function mount_windswept_miniboss_ch_5.DefeatedBoss()
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("mount_windswept", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:EnterGroundMap("mount_windswept_midpoint", "Main_Entrance_Marker")
 end
 
 function mount_windswept_miniboss_ch_5.DiedToBoss()

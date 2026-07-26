@@ -772,6 +772,7 @@ SV.Chapter5 =
 	EscapedSteppe = false,--Do we need to play the escaped from dungeon scene when loading this map?
 	DiedSteppe = false,--Do we need to play the died in dungeon scene when loading this map?
 	SpokeToTropiusSteppe = false,--Did you talk to tropius outside the steppe and get his foreshadowing/deferral?
+	PlayedSteppeMidpointIntro = false,--Did the midpoint rest stop intro play?
 	
 	FinishedTunnelIntro = false,--Did the player see the nighttime+intro cutscene for Searing Tunnel?
 	EnteredTunnel = false,--did player enter the tunnel?
@@ -794,6 +795,7 @@ SV.Chapter5 =
 	DiedToWind = false,--did player's last run die to the time limit?
 	EscapedMountain = false,--Do we need to play the escaped from dungeon scene when loading this map?
 	DiedMountain = false,--Do we need to play the died in dungeon scene when loading this map?
+	PlayedMountMidpointIntro = false,--Did the midpoint rest stop intro play?
 	
 	NeedGiveSupplies = false,--does penticus/phileas need to give supplies out?
 	FinishedExpedition = false,--chapter 5 clear boundary; no chapter 5 scene is changed by this flag

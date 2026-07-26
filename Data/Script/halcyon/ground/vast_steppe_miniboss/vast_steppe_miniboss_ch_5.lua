@@ -344,7 +344,7 @@ function vast_steppe_miniboss_ch_5.DefeatedBoss()
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("vast_steppe", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:EnterGroundMap("vast_steppe_midpoint", "Main_Entrance_Marker")
 end
 
 -- Player died to the mini-boss
