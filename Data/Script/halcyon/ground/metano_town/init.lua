@@ -10,6 +10,7 @@ require 'halcyon.ground.metano_town.metano_town_ch_4'
 require 'halcyon.ground.metano_town.metano_town_ch_5'
 require 'halcyon.ground.metano_town.metano_town_ch_7'
 require 'halcyon.ground.metano_town.metano_town_ch_6'
+require 'halcyon.ground.metano_town.metano_town_ch_8'
 require 'halcyon.ground.metano_town.metano_town_legend'
 require 'halcyon.menu.single_deal_menu'
 require 'origin.menu.skill.SkillTutorMenu'
@@ -102,6 +103,10 @@ function metano_town.PlotScripting()
 		if SV.Chapter6.MissionComplete and not SV.Chapter6.PostMissionScenePlayed then
 			metano_town_ch_6.PostMissionCutscene()
 		end
+	elseif SV.ChapterProgression.Chapter == 7 then
+		GAME:FadeIn(20)
+	elseif SV.ChapterProgression.Chapter == 8 then
+		metano_town_ch_8.SetupGround()
 	else
 		GAME:FadeIn(20)
 	end
