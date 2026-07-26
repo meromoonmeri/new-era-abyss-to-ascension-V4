@@ -427,25 +427,389 @@ function metano_town_ch_6.Quagsire_Action(chara, activator)
 	GeneralFunctions.EndConversation(chara)
 end
 
--- Existing town characters still dispatch through the chapter-specific module.
--- Keep unused Chapter 6 interactions safe until their dedicated reputation
--- lines are authored, rather than letting the dynamic dispatcher fail.
-for _, action_name in ipairs({
-	"Luxray_Action", "Electrike_Action", "Manectric_Action", "Bellossom_Action",
-	"Vileplume_Action", "Gloom_Action", "Oddish_Action", "Numel_Action",
-	"Camerupt_Action", "Machamp_Action", "Meditite_Action", "Medicham_Action",
-	"Furret_Action", "Linoone_Action", "Sentret_Action", "Wooper_Girl_Action",
-	"Wooper_Boy_Action", "Floatzel_Action", "Quagsire_Action", "Nidorina_Action",
-	"Nidoran_Male_Action", "Nidoking_Action", "Nidoqueen_Action", "Mawile_Action",
-	"Azumarill_Action", "Gulpin_Action", "Lickitung_Action", "Roselia_Action",
-	"Spinda_Action", "Ludicolo_Action", "Jigglypuff_Action", "Marill_Action",
-	"Spheal_Action", "Bagon_Action", "Doduo_Action", "Metapod_Action",
-	"Silcoon_Action", "Mareep_Action", "Cranidos_Action", "Snubbull_Action",
-	"Audino_Action", "Zigzagoon_Action", "Growlithe_Desk_Action"
-}) do
-	if metano_town_ch_6[action_name] == nil then
-		metano_town_ch_6[action_name] = function(chara, activator) end
-	end
+-- TOWN NPCS — Chapter 6 dialogues (Pre/During/Post Forest)
+-- Each NPC has multiple dialogue variants depending on mission progress
+
+local function Ch6State()
+  if SV.Chapter6.MissionComplete then return "post"
+  elseif SV.Chapter6.MissionAccepted then return "during"
+  elseif SV.Chapter6.DazzlingIntroPlayed then return "pre"
+  else return "early"
+  end
+end
+
+function metano_town_ch_6.Luxray_Action(chara, activator)
+  local s = Ch6State()
+  if s == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_077']), "Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_079']))
+  elseif s == "during" then
+    GeneralFunctions.StartConversation(chara, "Allez, [player].[pause=15] La foret n'attend pas.", "Determined")
+  else
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_057']), "Normal")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Electrike_Action(chara, activator)
+  local s = Ch6State()
+  if s == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_082']), "Inspired")
+  elseif s == "pre" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_059']), "Normal")
+  else
+    GeneralFunctions.StartConversation(chara, "Vous partez en mission ?[pause=15] Trop cool !", "Happy")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Manectric_Action(chara, activator)
+  local s = Ch6State()
+  if s == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_080']), "Normal")
+  else
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_065']), "Worried")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Bellossom_Action(chara, activator)
+  local s = Ch6State()
+  if s == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_081']), "Happy")
+  elseif s == "pre" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_068']), "Worried")
+  else
+    GeneralFunctions.StartConversation(chara, "La foret...[pause=20] elle a besoin d'aide. Je le sens.", "Sad")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Vileplume_Action(chara, activator)
+  local s = Ch6State()
+  if s == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_070']), "Happy")
+  else
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_061']), "Worried")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Gloom_Action(chara, activator)
+  local s = Ch6State()
+  if s == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_078']), "Happy")
+  else
+    GeneralFunctions.StartConversation(chara, "Chenipent...[pause=25] il est si petit.", "Sad")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Oddish_Action(chara, activator)
+  local s = Ch6State()
+  if s == "post" then
+    GeneralFunctions.StartConversation(chara, "Chenipent dit que vous etes ses heros ![pause=15] Il le dit a TOUT le monde !", "Happy")
+  else
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_064']), "Normal")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Numel_Action(chara, activator)
+  GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_062']), "Angry")
+  UI:WaitShowDialogue("Pourquoi les equipes d'elite ne font rien ?![pause=15] C'est pas juste !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Camerupt_Action(chara, activator)
+  local s = Ch6State()
+  if s == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_076']), "Normal")
+  else
+    GeneralFunctions.StartConversation(chara, "Numel est enerve.[pause=20] Il a raison.[pause=25] Mais on ne peut pas forcer les autres.", "Worried")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Machamp_Action(chara, activator)
+  local s = Ch6State()
+  if s == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_095']), "Happy")
+  else
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_064']), "Normal")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Meditite_Action(chara, activator)
+  local s = Ch6State()
+  if s == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_096']), "Normal")
+  else
+    GeneralFunctions.StartConversation(chara, "La Team Dazzling...[pause=20] elles font peur.[pause=15] Mais elles sont fascinantes.", "Normal")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Medicham_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_097']), "Normal")
+  else
+    GeneralFunctions.StartConversation(chara, "L'entrainement est la cle.[pause=25] Surtout avant d'affronter l'inconnu.", "Determined")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Furret_Action(chara, activator)
+  local s = Ch6State()
+  if s == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_094']), "Happy")
+  elseif s == "pre" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_058']), "Inspired")
+  else
+    GeneralFunctions.StartConversation(chara, "La foret...[pause=25] faites attention a vous.", "Worried")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Linoone_Action(chara, activator)
+  local s = Ch6State()
+  if s == "post" then
+    GeneralFunctions.StartConversation(chara, "Mon petit veut etre comme vous plus tard.[pause=25] J'espere que vous serez un bon modele.", "Normal")
+  else
+    GeneralFunctions.StartConversation(chara, "Les enfants ne comprennent pas le danger.[pause=20] Vous, si.", "Worried")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Sentret_Action(chara, activator)
+  local s = Ch6State()
+  if s == "post" then
+    GeneralFunctions.StartConversation(chara, "Vous avez vu Zarude de PRES ?![pause=15] Waaaah ![pause=20] Racontez-moi TOUT !", "Inspired")
+  else
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_066']), "Normal")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Wooper_Girl_Action(chara, activator)
+  local s = Ch6State()
+  if s == "post" then
+    GeneralFunctions.StartConversation(chara, "Chenipent m'a raconte que vous l'aviez porte sur votre dos ![pause=15] C'est vrai ?", "Happy")
+  else
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_063']), "Sad")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Wooper_Boy_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_075']), "Shock")
+  else
+    GeneralFunctions.StartConversation(chara, "La foret fait peur...[pause=30] Vous n'avez pas peur, vous ?", "Worried")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Nidorina_Action(chara, activator)
+  local s = Ch6State()
+  if s == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_069']), "Happy")
+  else
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_067']), "Normal")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Nidoran_Male_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, "Ma soeur veut etre comme vous.[pause=20] Moi aussi.[pause=25] Mais je le dirai pas.", "Normal")
+  else
+    GeneralFunctions.StartConversation(chara, "Allez-y ![pause=15] Sauvez Chenipent ![pause=20] Et revenez vite !", "Determined")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Nidoking_Action(chara, activator)
+  local s = Ch6State()
+  if s == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_079']), "Happy")
+  else
+    GeneralFunctions.StartConversation(chara, "Protegez les petits.[pause=25] C'est tout ce qui compte.", "Determined")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Azumarill_Action(chara, activator)
+  local s = Ch6State()
+  if s == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_084']), "Normal")
+  else
+    GeneralFunctions.StartConversation(chara, "La riviere est calme aujourd'hui.[pause=20] Trop calme.", "Worried")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Gulpin_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, "Un festin ![pause=15] Il faut celebrer ca avec un festin ![pause=20] Qui paye ?", "Happy")
+  else
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_068']), "Worried")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Lickitung_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_093']), "Happy")
+  else
+    GeneralFunctions.StartConversation(chara, "Le Cafe a un nouveau jus de Baie Mepris.[pause=25] Pour se donner du courage.", "Normal")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Roselia_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_081']), "Happy")
+  else
+    GeneralFunctions.StartConversation(chara, "Mes epines sont affutees.[pause=20] Mais la foret...[pause=25] elle est plus tranchante.", "Worried")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Spinda_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_093']), "Happy")
+  else
+    GeneralFunctions.StartConversation(chara, "Un cafe avant de partir ?[pause=15] Pour la route ?[pause=25] Je vous l'offre !", "Happy")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Ludicolo_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, "La musique est plus joyeuse aujourd'hui ![pause=15] Vous voulez danser ?", "Happy")
+  else
+    GeneralFunctions.StartConversation(chara, "La pluie va tomber.[pause=25] Je le sens dans mes os.", "Normal")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Jigglypuff_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, "Je vous chante une berceuse ?[pause=20] Pour feter votre victoire ?", "Happy")
+  else
+    GeneralFunctions.StartConversation(chara, "Je peux vous endormir avant la mission...[pause=30] Non ?[pause=15] Dommage.", "Normal")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Marill_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_070']), "Happy")
+  else
+    GeneralFunctions.StartConversation(chara, "J'aimerais pouvoir vous aider.[pause=25] Mais je suis trop petit.", "Sad")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Spheal_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_078']), "Happy")
+  else
+    GeneralFunctions.StartConversation(chara, "Roulez, roulez jusqu'a la foret ![pause=10] Enfin, pas moi. Vous.", "Normal")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Bagon_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_076']), "Inspired")
+  else
+    GeneralFunctions.StartConversation(chara, "Un jour, je volerai ![pause=15] Et je pourrai vous aider !", "Determined")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Doduo_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_077']), "Normal")
+  else
+    GeneralFunctions.StartConversation(chara, "Courir, toujours courir.[pause=20] C'est comme ca qu'on avance.", "Normal")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Metapod_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, "...[pause=30] (Metapod semble plus brillant qu'avant.)", "Normal")
+  else
+    GeneralFunctions.StartConversation(chara, "...[pause=40] (Metapod vous fixe sans cligner.)", "Normal")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Silcoon_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, "Chenipent est passe me voir ![pause=15] Il m'a parle de vous.", "Happy")
+  else
+    GeneralFunctions.StartConversation(chara, "Papilusion est ma voisine.[pause=20] Aidez-la,[pause=10] s'il vous plait.", "Worried")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Mareep_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_098']), "Worried")
+  else
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_063']), "Sad")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Cranidos_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_095']), "Normal")
+  else
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_062']), "Angry")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Snubbull_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_085']), "Inspired")
+  else
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_057']), "Normal")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Audino_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_092']), "Happy")
+  else
+    GeneralFunctions.StartConversation(chara, "Prenez des Baies Oran.[pause=15] Et des Baies Sitrus.[pause=25] Et... prenez tout.", "Worried")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Zigzagoon_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_094']), "Happy")
+  else
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_064']), "Determined")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Growlithe_Desk_Action(chara, activator)
+  if Ch6State() == "post" then
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_091']), "Normal")
+  else
+    GeneralFunctions.StartConversation(chara, "La guilde vous soutient.[pause=15] Toujours. N'oubliez jamais ca.", "Determined")
+  end
+  GeneralFunctions.EndConversation(chara)
 end
 
 return metano_town_ch_6
