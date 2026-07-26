@@ -76,7 +76,7 @@
             "Comment": ""
           }
         ],
-        "IsRelevant": false,
+        "IsRelevant": true,
         "Comment": "Relais — checkpoint mi-donjon"
       },
       {
@@ -116,7 +116,7 @@
             "Comment": ""
           }
         ],
-        "IsRelevant": false,
+        "IsRelevant": true,
         "Comment": "Arene Regigigas"
       }
     ],

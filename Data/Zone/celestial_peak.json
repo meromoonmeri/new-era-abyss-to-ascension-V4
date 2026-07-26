@@ -1,4 +1,4 @@
-{
+﻿{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -31,11 +31,17 @@
           "nodes": [
             {
               "Item": {},
-              "Range": { "Min": 0, "Max": 4 }
+              "Range": {
+                "Min": 0,
+                "Max": 4
+              }
             },
             {
               "Item": {},
-              "Range": { "Min": 4, "Max": 8 }
+              "Range": {
+                "Min": 4,
+                "Max": 8
+              }
             }
           ]
         },
@@ -49,7 +55,11 @@
             "$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
             "GenSteps": [
               {
-                "Key": { "str": [-1] },
+                "Key": {
+                  "str": [
+                    -1
+                  ]
+                },
                 "Value": {
                   "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
                   "MapID": "celestial_peak_relay"
@@ -59,7 +69,7 @@
             "Comment": ""
           }
         ],
-        "IsRelevant": false,
+        "IsRelevant": true,
         "Comment": "Relais — corniche nuageuse (checkpoint Kangourex)"
       },
       {
@@ -68,7 +78,10 @@
           "nodes": [
             {
               "Item": {},
-              "Range": { "Min": 0, "Max": 6 }
+              "Range": {
+                "Min": 0,
+                "Max": 6
+              }
             }
           ]
         },
@@ -82,7 +95,11 @@
             "$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
             "GenSteps": [
               {
-                "Key": { "str": [-1] },
+                "Key": {
+                  "str": [
+                    -1
+                  ]
+                },
                 "Value": {
                   "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
                   "MapID": "celestial_peak_fulgur"
@@ -92,7 +109,7 @@
             "Comment": ""
           }
         ],
-        "IsRelevant": false,
+        "IsRelevant": true,
         "Comment": "Affrontement Escouade Fulgur — course tactique"
       },
       {
@@ -101,7 +118,10 @@
           "nodes": [
             {
               "Item": {},
-              "Range": { "Min": 0, "Max": 4 }
+              "Range": {
+                "Min": 0,
+                "Max": 4
+              }
             }
           ]
         },
@@ -115,7 +135,11 @@
             "$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
             "GenSteps": [
               {
-                "Key": { "str": [-1] },
+                "Key": {
+                  "str": [
+                    -1
+                  ]
+                },
                 "Value": {
                   "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
                   "MapID": "celestial_peak_boss"
@@ -125,7 +149,7 @@
             "Comment": ""
           }
         ],
-        "IsRelevant": false,
+        "IsRelevant": true,
         "Comment": "Autel de Lugia — arene celeste circulaire"
       }
     ],
