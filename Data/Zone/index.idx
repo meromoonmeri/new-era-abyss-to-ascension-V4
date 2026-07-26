@@ -212,10 +212,11 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 20,
+      "CountedFloors": 22,
       "Rogue": 0,
       "Grounds": [
         "cloven_ruins_entrance",
+        "cloven_ruins_midpoint",
         "cloven_ruins_boss"
       ],
       "Maps": [
@@ -553,8 +554,33 @@
         "searing_tunnel_midpoint",
         "searing_crucible",
         "mount_windswept_entrance",
+        "gloomy_forest_entrance",
+        "gloomy_forest_boss",
         "testmap",
-        "test_grounds"
+        "test_grounds",
+        "vast_steppe_miniboss",
+        "vast_steppe_guardian",
+        "searing_tunnel_miniboss",
+        "mount_windswept_miniboss",
+        "mount_windswept_guardian",
+        "crooked_cavern_midpoint",
+        "gloomy_forest_midpoint",
+        "vast_steppe_midpoint",
+        "mount_windswept_midpoint",
+        "cloven_ruins_entrance",
+        "genesis_vision",
+        "cloven_ruins_midpoint",
+        "cloven_ruins_boss",
+        "crystal_sanctuary_entrance",
+        "forgotten_marsh_entrance",
+        "celestial_peak_entrance",
+        "crystal_sanctuary_relay",
+        "crystal_sanctuary_boss",
+        "forgotten_marsh_relay",
+        "forgotten_marsh_boss",
+        "celestial_peak_relay",
+        "celestial_peak_fulgur",
+        "celestial_peak_boss"
       ],
       "Maps": [
         [
@@ -970,6 +996,189 @@
       },
       "Released": true,
       "Comment": "In the second set of training mazes. Unlocked in Chapter 3.",
+      "SortOrder": 0
+    },
+    "crystal_sanctuary": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 20,
+      "Rogue": 0,
+      "Grounds": [
+        "crystal_sanctuary_entrance",
+        "crystal_sanctuary_relay",
+        "crystal_sanctuary_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          0
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Crystal Sanctuary",
+        "LocalTexts": {
+          "fr": "Sanctuaire de Cristal"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0
+    },
+    "forgotten_marsh": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 20,
+      "Rogue": 0,
+      "Grounds": [
+        "forgotten_marsh_entrance",
+        "forgotten_marsh_relay",
+        "forgotten_marsh_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Forgotten Marsh",
+        "LocalTexts": {
+          "fr": "Marais de l'Oubli"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0
+    },
+    "celestial_peak": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 22,
+      "Rogue": 0,
+      "Grounds": [
+        "celestial_peak_entrance",
+        "celestial_peak_relay",
+        "celestial_peak_fulgur",
+        "celestial_peak_boss"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          0
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          0
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Celestial Peak",
+        "LocalTexts": {
+          "fr": "Pic Celeste"
+        }
+      },
+      "Released": false,
       "SortOrder": 0
     }
   }

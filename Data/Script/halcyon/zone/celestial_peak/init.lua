@@ -125,7 +125,6 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
           GAME:WaitFrames(20)
           GAME:EnterZone("master_zone", -1, 46, 0)
       end
-  end      GAME:EnterGroundMap('celestial_peak_boss', 'Main_Entrance_Marker')
   end
 end
 

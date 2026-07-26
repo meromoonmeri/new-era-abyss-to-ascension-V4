@@ -430,6 +430,58 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
+		--Chapitre 8 : Sanctuaire de Cristal — boss Diancie
+		Diancie = {
+			species = "diancie",
+			nickname = 'Diancie',
+			instance = 'Diancie',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		--Chapitre 9 : Marais de l'Oubli — gardien Laggron
+		Swampert = {
+			species = "swampert",
+			nickname = 'Laggron',
+			instance = 'Swampert',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		--Chapitre 10 : Pic Celeste — boss Lugia
+		Lugia = {
+			species = "lugia",
+			nickname = 'Lugia',
+			instance = 'Lugia',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		--Chapitre 10 : Escouade Fulgur (rivaux de la course au sommet)
+		Fulgur_Luxray = {
+			species = "luxray",
+			nickname = 'Voltra',
+			instance = 'Fulgur_Luxray',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+		Fulgur_Lucario = {
+			species = "lucario",
+			nickname = 'Aegis',
+			instance = 'Fulgur_Lucario',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Fulgur_Heliolisk = {
+			species = "heliolisk",
+			nickname = 'Solaire',
+			instance = 'Fulgur_Heliolisk',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
 
 	--Vendor/Shop NPCs
 		Kangaskhan = {

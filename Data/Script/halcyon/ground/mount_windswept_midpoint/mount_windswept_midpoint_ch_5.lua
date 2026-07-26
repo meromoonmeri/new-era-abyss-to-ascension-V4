@@ -16,9 +16,10 @@ function mount_windswept_midpoint_ch_5.FirstArrival()
   AI:DisableCharacterAI(partner)
   SOUND:StopBGM()
 
-  GROUND:TeleportTo(hero, 240, 380, Direction.Up)
-  GROUND:TeleportTo(partner, 208, 380, Direction.Up)
-  GAME:MoveCamera(224, 200, 1, false)
+  -- Carte 240x320 px : positions de départ dans la moitié sud, sur cellules walkables vérifiées.
+  GROUND:TeleportTo(hero, 160, 264, Direction.Up)
+  GROUND:TeleportTo(partner, 128, 264, Direction.Up)
+  GAME:MoveCamera(144, 208, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)

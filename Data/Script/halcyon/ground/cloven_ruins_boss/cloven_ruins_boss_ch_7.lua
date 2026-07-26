@@ -18,9 +18,10 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
   AI:DisableCharacterAI(partner)
   SOUND:StopBGM()
 
-  GROUND:TeleportTo(hero, 240, 440, Direction.Up)
-  GROUND:TeleportTo(partner, 208, 440, Direction.Up)
-  GAME:MoveCamera(224, 240, 1, false)
+  -- Carte 240x320 px : entrée par le sud, cellules walkables vérifiées.
+  GROUND:TeleportTo(hero, 152, 240, Direction.Up)
+  GROUND:TeleportTo(partner, 120, 240, Direction.Up)
+  GAME:MoveCamera(136, 176, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -99,12 +100,12 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
   BossFX.Flash(center.X, center.Y, 3, 6, 18)
 
   local regigigas = CharacterEssentials.MakeCharactersFromList({
-    {'Regigigas', 224, 200, Direction.Down}
+    {'Regigigas', 144, 128, Direction.Down}
   })
   GROUND:Hide('Regigigas')
 
   -- Signature ROCHE : eboulement, le colosse se reveille
-  BossFX.RockFall(224, 200)
+  BossFX.RockFall(144, 128)
   BossFX.Rumble({hero, partner}, 3)
 
   SOUND:PlayBGM('Rising Fear.ogg', true)
@@ -164,16 +165,16 @@ function cloven_ruins_boss_ch_7.SecondPreBossScene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local regigigas = CharacterEssentials.MakeCharactersFromList({
-    {'Regigigas', 224, 200, Direction.Down}
+    {'Regigigas', 144, 128, Direction.Down}
   })
 
   AI:DisableCharacterAI(partner)
   SOUND:StopBGM()
   GROUND:CharSetAnim(regigigas, "Idle", true)
 
-  GROUND:TeleportTo(hero, 240, 380, Direction.Up)
-  GROUND:TeleportTo(partner, 208, 380, Direction.Up)
-  GAME:MoveCamera(224, 240, 1, false)
+  GROUND:TeleportTo(hero, 152, 240, Direction.Up)
+  GROUND:TeleportTo(partner, 120, 240, Direction.Up)
+  GAME:MoveCamera(136, 176, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -201,16 +202,16 @@ function cloven_ruins_boss_ch_7.DefeatedBoss()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local regigigas = CharacterEssentials.MakeCharactersFromList({
-    {'Regigigas', 224, 200, Direction.Down}
+    {'Regigigas', 144, 128, Direction.Down}
   })
   GROUND:CharSetAnim(regigigas, "Idle", true)
 
   AI:DisableCharacterAI(partner)
   SOUND:StopBGM()
 
-  GROUND:TeleportTo(hero, 240, 340, Direction.Up)
-  GROUND:TeleportTo(partner, 208, 340, Direction.Up)
-  GAME:MoveCamera(224, 240, 1, false)
+  GROUND:TeleportTo(hero, 152, 224, Direction.Up)
+  GROUND:TeleportTo(partner, 120, 224, Direction.Up)
+  GAME:MoveCamera(136, 176, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -260,7 +261,7 @@ function cloven_ruins_boss_ch_7.DiedToBoss()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local regigigas = CharacterEssentials.MakeCharactersFromList({
-    {'Regigigas', 224, 200, Direction.Down}
+    {'Regigigas', 144, 128, Direction.Down}
   })
   GROUND:CharSetAnim(regigigas, "Idle", true)
 
@@ -288,7 +289,7 @@ function cloven_ruins_boss_ch_7.DiedToBoss()
   AI:DisableCharacterAI(partner)
   SOUND:StopBGM()
 
-  GAME:MoveCamera(224, 240, 1, false)
+  GAME:MoveCamera(136, 176, 1, false)
   GAME:CutsceneMode(true)
 
   GAME:WaitFrames(60)
