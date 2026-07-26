@@ -666,7 +666,8 @@ SV.ChapterProgression =
 	Chapter = 1,
 	CurrentStoryDungeon = "",--Used by the Destination Menu when leaving town to the right to know if it needs to set you somewhere else first before going to the dungeon (i.e. for a cutscene outside the dungeon). If the selected dungeon matches this value, then it will try to put you on the relevant ground that is that dungeon's entrance. Note: Relic Forest 1 and Illuminant Riverbed are handled by other objects, and thus aren't ever set to the current story dungeon.
 	
-	UnlockedAssembly = false--this is set to true when player is allowed to recruit team members, unhides assembly objects
+	UnlockedAssembly = false,--this is set to true when player is allowed to recruit team members, unhides assembly objects
+	StoryCompleted = false--MAIN STORY COMPLETION FLAG. Set when the final story dungeon is cleared (currently: Lugia defeated at Celestial Peak, chapter 10). End-game unlocks (e.g. Mega Stones shop) must check THIS flag, never a chapter-specific one. When chapters 11+ are added, move the assignment point to the new true ending — the flag name and consumers stay unchanged.
 }
 
 

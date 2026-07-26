@@ -320,6 +320,9 @@ function DebugTools:OnUpgrade()
  
  if SV.GloomyForest.DiedPastCheckpoint == nil then SV.GloomyForest.DiedPastCheckpoint = false end
  
+ --Main story completion flag (end-game unlocks: Mega Stones shop, etc.)
+ if SV.ChapterProgression.StoryCompleted == nil then SV.ChapterProgression.StoryCompleted = false end
+ 
  --Gloomy Forest midpoint flags (ch6)
  if SV.Chapter6 == nil then SV.Chapter6 = {} end
  if SV.Chapter6.GloomyPlayedMidpointIntro == nil then SV.Chapter6.GloomyPlayedMidpointIntro = false end

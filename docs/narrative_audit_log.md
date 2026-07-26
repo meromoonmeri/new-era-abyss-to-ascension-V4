@@ -70,3 +70,39 @@ désormais des cartes de qualité officielle, dépouillées de toute identité d
 de base, avec le même vocabulaire d'interaction New Era partout. Réserve : test
 en jeu encore requis (rendu visuel + déclenchement des cinématiques recalées).
 ```
+
+## Audit du 2026-07-26 (ter) — plan d'assignation multi-sources + drapeau fin d'histoire
+
+```
+Date de l'audit : 2026-07-26 (3e passage)
+Chapitres couverts : 1-10 (état réel) + cadrage 11-32 (expansion)
+Ressources vérifiées : aucune nouvelle map importée dans ce passage — travail de
+  planification (docs/plan_assignation_donjons_multi_sources.md) + 1 flag de code.
+
+Incohérences trouvées :
+  1. [10.2] Le mega-prompt suppose 32 chapitres et un barème de niveaux P1-P8 ;
+     le dépôt réel s'arrête au ch10 avec des boss L40-48 (Zarude 42, Regigigas 45,
+     Diancie 40, Laggron 42, Lugia 48) — incompatible avec le barème (~25-35).
+     DÉCISION OUVERTE ET BLOQUANTE : reniveler ch6-10 (option a, recommandée)
+     ou décaler le barème (option b). Documentée §1.2 du plan.
+  2. [10.3] Le script cliff_camp du mod Mega_Stones référence
+     SV.guildmaster_summit.GameComplete, non déclaré chez nous -> crash potentiel
+     si branché tel quel. Remplacé dans le plan par le nouveau drapeau canonique
+     SV.ChapterProgression.StoryCompleted (déclaré + posé à la victoire Lugia +
+     garde-fou OnUpgrade debug_tools pour les sauvegardes existantes).
+  3. [10.1] Deux doublons d'assets repérés AVANT import (prévention) :
+     end_treacherous_mountain déjà = mount_windswept_guardian ;
+     end_moonlit_temple déjà = cloven_ruins_midpoint. Les donjons PMDODump
+     correspondants devront changer d'arène/de section s'ils sont repris.
+  4. [10.2] Chapitres 1-10 : règle « 2-3 secondaires/chapitre » non tenue
+     (quasi aucun secondaire hors Imbion). Le plan comble avec 27 secondaires
+     assignés ch1-10 avant toute expansion ch11+.
+
+Actions correctives : plan écrit ; StoryCompleted implémenté ; le reste attend
+  la décision §1.2 (renivelage) avant toute vague d'import.
+
+Verdict global : le joueur peut-il sentir le patchwork ? NON en l'état (rien
+d'importé ce passage). Risque principal identifié pour la suite : la courbe de
+niveaux ch6-10 actuelle, qui trahirait l'ajout tardif de contenu intermédiaire
+si elle n'est pas renivelée avant les imports de secondaires.
+```

@@ -116,6 +116,9 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
           SV.Chapter10.DefeatedLugia = true
           SV.Chapter10.CelestialPeakComplete = true
+          -- Fin de l'histoire actuelle : debloque le contenu end-game (Mega-Pierres, etc.).
+          -- Quand les chapitres 11+ existeront, deplacer cette ligne vers la vraie fin.
+          SV.ChapterProgression.StoryCompleted = true
           GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
       else
           SV.Chapter10.DiedToLugia = true
