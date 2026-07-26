@@ -20,7 +20,13 @@ function vast_steppe_guardian.Enter(map)
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Enter_vast_steppe_guardian")
 
-  if SV.Chapter5.SteppeGuardianSeen then
+  if SV.Chapter5.SteppeGuardianDefeated then
+    SV.Chapter5.SteppeGuardianDefeated = false
+    vast_steppe_guardian_ch_5.DefeatedBoss()
+  elseif SV.Chapter5.SteppeGuardianLost then
+    SV.Chapter5.SteppeGuardianLost = false
+    vast_steppe_guardian_ch_5.DiedToBoss()
+  elseif SV.Chapter5.SteppeGuardianSeen then
     vast_steppe_guardian_ch_5.SecondPreBossScene()
   else
     vast_steppe_guardian_ch_5.FirstPreBossScene()

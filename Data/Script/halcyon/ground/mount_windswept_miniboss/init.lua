@@ -20,7 +20,13 @@ function mount_windswept_miniboss.Enter(map)
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Enter_mount_windswept_miniboss")
 
-  if SV.Chapter5.MountMiniBossSeen then
+  if SV.Chapter5.MountMiniBossDefeated then
+    SV.Chapter5.MountMiniBossDefeated = false
+    mount_windswept_miniboss_ch_5.DefeatedBoss()
+  elseif SV.Chapter5.MountMiniBossLost then
+    SV.Chapter5.MountMiniBossLost = false
+    mount_windswept_miniboss_ch_5.DiedToBoss()
+  elseif SV.Chapter5.MountMiniBossSeen then
     mount_windswept_miniboss_ch_5.SecondPreBossScene()
   else
     mount_windswept_miniboss_ch_5.FirstPreBossScene()

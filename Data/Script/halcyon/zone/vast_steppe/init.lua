@@ -58,8 +58,24 @@ function vast_steppe.ExitSegment(zone, result, rescue, segmentID, mapID)
 	elseif segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 5 then
 		-- Segment 0 cleared: go to mini-boss ground map
 		GAME:EnterGroundMap('vast_steppe_miniboss', 'Main_Entrance_Marker')
+	elseif segmentID == 1 and SV.ChapterProgression.Chapter == 5 then
+		-- Mini-boss arena: win or loss both go back to mini-boss ground map
+		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+			SV.Chapter5.SteppeMiniBossDefeated = true
+		else
+			SV.Chapter5.SteppeMiniBossLost = true
+		end
+		GAME:EnterGroundMap('vast_steppe_miniboss', 'Main_Entrance_Marker')
 	elseif segmentID == 2 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 5 then
 		-- Segment 2 cleared: go to guardian ground map
+		GAME:EnterGroundMap('vast_steppe_guardian', 'Main_Entrance_Marker')
+	elseif segmentID == 3 and SV.ChapterProgression.Chapter == 5 then
+		-- Guardian arena: win or loss both go back to guardian ground map
+		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+			SV.Chapter5.SteppeGuardianDefeated = true
+		else
+			SV.Chapter5.SteppeGuardianLost = true
+		end
 		GAME:EnterGroundMap('vast_steppe_guardian', 'Main_Entrance_Marker')
 	elseif SV.ChapterProgression.Chapter == 5 and result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
 		GAME:WaitFrames(20)	

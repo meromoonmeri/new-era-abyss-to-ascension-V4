@@ -806,6 +806,17 @@ SV.Chapter5 =
 	TunnelMiniBossSeen = false,
 	MountMiniBossSeen = false,
 	MountGuardianSeen = false,
+
+	--Flags de routage post-combat (poses par zone ExitSegment, lus par ground map Enter).
+	--Doivent etre remis a false APRES la scene de victoire/defaite.
+	SteppeMiniBossDefeated = false,
+	SteppeMiniBossLost = false,
+	SteppeGuardianDefeated = false,
+	SteppeGuardianLost = false,
+	MountMiniBossDefeated = false,
+	MountMiniBossLost = false,
+	MountGuardianDefeated = false,
+	MountGuardianLost = false
 }
 
 
