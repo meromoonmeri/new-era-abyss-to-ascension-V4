@@ -10775,10 +10775,10 @@
    "$type": "RogueElements.ReRandom, RogueElements",
    "FirstSeed": 0,
    "s": [
-    0,
-    0,
-    0,
-    0
+    16294208416658607535,
+    7960286522194355700,
+    4876170194715417726,
+    12554865158188930543
    ]
   },
   "Status": {},
@@ -10813,7 +10813,7 @@
   "Layers": [
    {
     "Name": "Base",
-    "Front": false,
+    "Layer": 0,
     "Visible": true,
     "Tiles": [
      [
@@ -33472,9 +33472,7 @@
     "Name": "New Deco",
     "Layer": 0,
     "Visible": true,
-    "Anims": {
-     "$values": []
-    }
+    "Anims": []
    }
   ],
   "Entities": [
