@@ -113,25 +113,25 @@ Manque le plus criant : **secondaires ch2 et ch5-10** → priorité de la vague 
 | Fertile_Valley | Vallée Fertile | 1 | — | ✅ vague 1 (ch1) |
 | Copper_Quarry | Carrière de Cuivre | 1 | — | ✅ vague 1 (ch3) |
 | Castaway_Cave | Grotte de l'Échoué | 1 | — | ✅ vague 1 (ch4) |
-| Cave_Of_Solace | Grotte du Repos | 1 | — | vague 2 → ch2 |
-| Royal_Garden | Jardin Royal | 1 | — | vague 2 → ch4 |
-| Muddy_Valley | Vallée Boueuse | 1 | — | vague 2 → ch3 |
-| Secret_Garden | Jardin Secret | 1-2 | — | vague 2 → ch4 |
-| Ambush_Forest | Forêt de l'Embuscade | 2 | — | vague 2 → ch5 ⚠ ground final déjà utilisé (forgotten_marsh_relay) → autre arène |
-| Trickster_Woods | Bois du Filou | 2 | — | vague 2 → ch5 |
-| Forsaken_Desert | Désert des Oubliés | 2 | — | vague 2 → ch6 |
-| Barren_Tundra | Toundra Désolée | 2 | — | réserve ch11+ |
-| Glacial_Path | Sentier Glaciaire | 2 | — | vague 2 → ch8 |
-| Geode_Crevice | Crevasse de Géode | 2 | — | vague 2 → ch6 |
-| Depleted_Basin | Bassin Tari | 2 | — | vague 2 → ch9 |
-| Energy_Garden | Jardin d'Énergie | 2 | — | vague 2 → ch7 |
-| Snowbound_Path | Sentier Enneigé | 3 | — | vague 2 → ch10 |
-| Thunderstruck_Pass | Col de la Foudre | 3 | — | vague 2 → ch10 |
+| Cave_Of_Solace | Grotte du Repos | 1 | — | ✅ vague 2 (ch2) |
+| Royal_Garden | Jardin Royal | 1 | — | ✅ vague 2 (ch4, via royal_halls « Halles Royales ») |
+| Muddy_Valley | Vallée Boueuse | 1 | — | ✅ vague 2 (ch3, via bramble_woods « Bois des Ronces ») |
+| Secret_Garden | Jardin Secret | 1-2 | — | ✅ vague 2 (ch4) |
+| Ambush_Forest | Forêt de l'Embuscade | 2 | — | ✅ vague 2 (ch5) — end_ambush_forest renommé foret_embuscade_fond, distinct du relay ch9 |
+| Trickster_Woods | Bois du Filou | 2 | — | ✅ vague 2 (ch5) |
+| Forsaken_Desert | Désert des Oubliés | 2 | — | ✅ vague 2 (ch6) |
+| Barren_Tundra | Toundra Désolée | 2 | — | ✅ vague 2 (ch8, remplace glacial_path absent) |
+| Glacial_Path | Sentier Glaciaire | 2 | — | ✖ absent de DumpAsset → couvert par Toundra Désolée |
+| Geode_Crevice | Crevasse de Géode | 2 | — | ✅ vague 2 (ch6) |
+| Depleted_Basin | Bassin Tari | 2 | — | ✅ vague 2 (ch9) |
+| Energy_Garden | Jardin d'Énergie | 2 | — | ✅ vague 2 (ch7) |
+| Snowbound_Path | Sentier Enneigé | 3 | — | ✅ vague 2 (ch10) |
+| Thunderstruck_Pass | Col de la Foudre | 3 | — | ✅ vague 2 (ch10) |
 | Veiled_Ridge | Crête Voilée | 3 | — | réserve ch11+ |
-| Flyaway_Cliffs | Falaises de l'Envol | 3 | — | vague 2 → ch10 |
+| Flyaway_Cliffs | Falaises de l'Envol | 3 | — | ✅ vague 2 (ch10) |
 | Deserted_Fortress | Forteresse Abandonnée | 3 | — | réserve ch11+ |
 | Magnetic_Quarry | Carrière Magnétique | 3 | — | réserve ch11+ |
-| Wayward_Wetlands | Marais Errants | 3 | — | vague 2 → ch9 |
+| Wayward_Wetlands | Marais Errants | 3 | — | ✅ vague 2 (ch9) |
 | Exotic_Wilds | Terres Exotiques | 3 | — | réserve ch11+ |
 | Sleeping_Caldera | Caldeira Endormie | 4 | — | réserve ch13-16 |
 | Lava_Floe_Island | Île de Lave Flottante | 4 | — | réserve ch13-16 |
@@ -407,9 +407,13 @@ en tremplin du twist arc 6 au lieu d'un détour. Team Dazzling = trop frontale,
 point 7 = les 9 mazes manquants (oui), point 8 = Cercle du Suaire (validé).
 
 1. ~~Validation utilisateur~~ — faite (ci-dessus).
-2. **Vague 2 — secondaires ch2-10** (18 donjons PMDODump/EoSO du tableau Partie 3,
-   colonne « vague 2 ») : comble la règle 2-3 secondaires/chapitre pour l'existant.
-   Boucle d'audit complète par donjon.
+2. ~~Vague 2 — secondaires ch2-10~~ — **✅ FAIT 2026-07-27** : 15 donjons DumpAsset
+   importés/câblés (`docs/vague2_donjons_secondaires.md`), avec 20 OST, 44 cartes,
+   1 tileset, purge scripts sources, job board + déblocages + rétroactif.
+   Substitutions : muddy_valley→bramble_woods, royal_garden→royal_halls,
+   glacial_path→barren_tundra (absents de la source). Les 4 candidats EoSO
+   (Grotte Fumante ch5, Verger Sauvage ch6, Antre de la Cascade ch7, Grotte de
+   Cristal ch8) restent à faire dans une passe EoSO dédiée.
 3. **Retiling arène Lugia** (`celestial_peak_boss.rsmap` → FA_Rainbow_Peak_RTRB) +
    audit spatial du segment 5.
 4. **Passe Friend Area « salle de boss »** (2e lecture du dossier complet).
