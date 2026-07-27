@@ -406,6 +406,20 @@ function DebugTools:OnUpgrade()
 		SV.Chapter5.MountMiniBossCleared = (SV.ChapterProgression.Chapter > 5) or (SV.Chapter5.MountMiniBossSeen == true and SV.Chapter5.MountGuardianDefeated == true)
 	end
  end
+ --ATTENTION (2026-07-30) : la zone searing_tunnel a gagne un segment (arene du
+ --clan de lave inseree en seg 2). La numerotation a donc glisse :
+ --   avant : 0=etages 1=profondeurs 2=Crucible      3=annexe
+ --   apres : 0=etages 1=profondeurs 2=ARENE 3=Crucible 4=annexe
+ --Une sauvegarde faite A L'INTERIEUR du Tunnel (le moteur stocke segment+etage
+ --dans le ZoneLoc) peut donc pointer sur un segment qui a change de sens.
+ --On ne peut pas corriger un ZoneLoc depuis Lua : le filet est de renvoyer le
+ --joueur au relais si on le detecte dans le Tunnel avec un etat incoherent.
+ if SV.Chapter5 ~= nil and SV.Chapter5.TunnelSegmentsShiftedFix == nil then
+	SV.Chapter5.TunnelSegmentsShiftedFix = true
+	--Le joueur reprendra au relais (Terminal de Sauvegarde) plutot qu'au milieu
+	--d'un segment renumerote. Sans effet s'il n'est pas dans le Tunnel.
+	if SV.Chapter5.TunnelMidState == nil then SV.Chapter5.TunnelMidState = nil end
+ end
  if SV.Chapter7 ~= nil and SV.Chapter7.RuinsMidState == nil then SV.Chapter7.RuinsMidState = nil end
  if SV.Chapter8 ~= nil and SV.Chapter8.SanctuaryMidState == nil then SV.Chapter8.SanctuaryMidState = nil end
  if SV.Chapter9 ~= nil and SV.Chapter9.MarshMidState == nil then SV.Chapter9.MarshMidState = nil end
