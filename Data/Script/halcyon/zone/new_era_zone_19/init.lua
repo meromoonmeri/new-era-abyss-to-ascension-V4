@@ -32,7 +32,8 @@ function new_era_zone_19.ExitSegment(zone, result, rescue, segmentID, mapID)
 
   -- Veilleur du Réseau : segment 1 = arène (gyarados).
   if segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-    GAME:ContinueDungeon("new_era_zone_19", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    -- Veilleur : passage par le ground partage, qui enchaine vers l'arene (seg 1).
+    GAME:EnterGroundMap('abime_tempetes', 'Main_Entrance_Marker')
     return
   end
   if segmentID == 1 then
