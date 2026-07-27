@@ -409,13 +409,35 @@ end
 
 --Have fun! Make sure to get plenty of rest!
 function metano_normal_home_ch_5.Furret_Action(chara, activator)
-	GeneralFunctions.StartConversation(chara, "Oh, vous devez être les amis de mon fils !")
+	if SV.Chapter5.FinishedExpedition then
+		GeneralFunctions.StartConversation(chara, "Vous êtes rentrés ![pause=0] Et Almotz aussi,[pause=10] entier des oreilles à la queue.[pause=0] Merci.[pause=0] Merci mille fois.", "Happy")
+		UI:WaitShowDialogue("Il n'arrête pas de raconter la montagne aux petits.[pause=0] À chaque fois,[pause=10] le gardien devient plus grand et le vent plus fort.")
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue("Ce soir,[pause=10] gratin de Baies Oran pour tout le monde.[pause=0] Et vous êtes invités.[pause=0] Ce n'est pas une question,[pause=10] c'est un fait.")
+	elseif SV.Chapter5.ReadyForExpedition or SV.Chapter5.FinishedExpeditionAddress then
+		GeneralFunctions.StartConversation(chara, "Oh,[pause=10] vous devez être les amis de mon fils ![pause=0] Il part avec vous,[pause=10] n'est-ce pas ?", "Normal")
+		UI:SetSpeakerEmotion("Worried")
+		UI:WaitShowDialogue("Il a promis de revenir entier.[pause=0] Veillez à ce qu'il tienne parole,[pause=10] voulez-vous ?[pause=0] C'est mon aîné.[pause=0] Le premier à quitter le terrier.")
+		UI:SetSpeakerEmotion("Happy")
+		UI:WaitShowDialogue("...Et dites-lui de manger.[pause=0] Il oublie de manger quand il est nerveux.[pause=0] Je vous ai glissé des Baies dans son sac.[pause=0] Ne lui dites pas.")
+	else
+		GeneralFunctions.StartConversation(chara, "Oh,[pause=10] vous devez être les amis de mon fils ![pause=0] Entrez,[pause=10] entrez.[pause=0] Chez nous,[pause=10] la porte ne ferme jamais vraiment.", "Happy")
+		UI:WaitShowDialogue("Avec huit petits à la maison,[pause=10] fermer une porte n'a de toute façon aucun effet.[pause=0] Aucun.")
+	end
 	GeneralFunctions.EndConversation(chara)
 end
 
 --woah an expedition is so cool! Adventurers are so cool! I want to be like my big brother one day!
 function metano_normal_home_ch_5.Sentret_Action(chara, activator)
-
+	if SV.Chapter5.FinishedExpedition then
+		GeneralFunctions.StartConversation(chara, "Mon grand frère a vu la LUMIÈRE de la montagne ![pause=0] En vrai ![pause=0] C'est le plus fort de tous les frères du monde !", "Inspired")
+		UI:WaitShowDialogue("Il m'a rapporté un caillou du sommet.[pause=0] Je dors avec.[pause=0] Maman dit que c'est bizarre.[pause=0] Maman ne comprend rien aux cailloux de légende.")
+	elseif SV.Chapter5.ReadyForExpedition or SV.Chapter5.FinishedExpeditionAddress then
+		GeneralFunctions.StartConversation(chara, "Vous partez à l'aventure avec mon grand frère ?![pause=0] LA CHANCE ![pause=0] Moi je dois encore «[pause=5] grandir un peu[pause=5] ».[pause=0] Pfff.", "Inspired")
+		UI:WaitShowDialogue("Un jour,[pause=10] je serai explorateur aussi ![pause=0] J'ai déjà un bandana.[pause=0] Enfin,[pause=10] c'est une chaussette.[pause=0] Mais nouée comme un bandana.")
+	else
+		GeneralFunctions.StartConversation(chara, "Chuuut ![pause=0] Je m'entraîne à ramper comme un explorateur ![pause=0] Vous m'avez vu ?[pause=0] Non ?[pause=0] PARFAIT.[pause=0] C'est le but.", "Happy")
+	end
 	GeneralFunctions.EndConversation(chara)
 end
 

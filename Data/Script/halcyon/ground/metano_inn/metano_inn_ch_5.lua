@@ -42,7 +42,15 @@ end
 
 
 function metano_inn_ch_5.Nidoran_M_Action(chara, activator)
-	GeneralFunctions.StartConversation(chara, "Bref !")
+	if SV.Chapter5.FinishedExpedition then
+		GeneralFunctions.StartConversation(chara, "Bref ![pause=0] J'ai vu passer le cortège du retour.[pause=0] Bref,[pause=10] vous étiez couverts de poussière.[pause=0] Bref,[pause=10] c'était magnifique.", "Inspired")
+		UI:WaitShowDialogue("Un jour je raconterai que je vous ai parlé.[pause=0] Ici même.[pause=0] Bref.[pause=0] Historique.")
+	elseif SV.Chapter5.ReadyForExpedition or SV.Chapter5.FinishedExpeditionAddress then
+		GeneralFunctions.StartConversation(chara, "Bref ![pause=0] Il paraît que vous partez au nord.[pause=0] Bref,[pause=10] c'est loin.[pause=0] Bref,[pause=10] bonne chance.", "Normal")
+		UI:WaitShowDialogue("Moi,[pause=10] le plus loin où je suis allé,[pause=10] c'est la rivière.[pause=0] Bref.[pause=0] Chacun son rythme.")
+	else
+		GeneralFunctions.StartConversation(chara, "Bref ![pause=0] Je séjourne ici en attendant que le café rouvre une table.[pause=0] Bref,[pause=10] c'est complet partout.[pause=0] Bref,[pause=10] la ville bouge trop en ce moment.", "Normal")
+	end
 	GeneralFunctions.EndConversation(chara)
 end
 

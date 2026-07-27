@@ -28,7 +28,18 @@ function ledian_dojo_ch_5.SetupGround()
 end
 
 function ledian_dojo_ch_5.Gible_Action(chara, activator)
-	GeneralFunctions.StartConversation(chara, "Bonjour !")
+	if SV.Chapter5.FinishedExpedition then
+		GeneralFunctions.StartConversation(chara, "Vous êtes revenus ![pause=0] Alors ?[pause=0] ALORS ?[pause=0] Le gardien du sommet,[pause=10] il était grand comment ?[pause=0] Grand comme le dojo ?[pause=0] Plus grand ?!", "Inspired")
+		UI:WaitShowDialogue("Maître Ledian dit que je dois d'abord battre le labyrinthe des débutants avant de rêver aux gardiens.[pause=0] Mais je RÊVE QUAND MÊME.[pause=0] Il ne peut pas contrôler mes rêves.")
+	elseif SV.Chapter5.ReadyForExpedition or SV.Chapter5.FinishedExpeditionAddress then
+		GeneralFunctions.StartConversation(chara, "L'expédition part aujourd'hui,[pause=10] pas vrai ?[pause=0] J'ai demandé à venir.[pause=0] On m'a dit non.[pause=0] TROIS fois.", "Sad")
+		UI:SetSpeakerEmotion("Determined")
+		UI:WaitShowDialogue("Alors je m'entraîne ici en attendant.[pause=0] À votre retour,[pause=10] je veux entendre TOUS les détails.[pause=0] Surtout les combats.[pause=0] SURTOUT les combats.")
+	else
+		GeneralFunctions.StartConversation(chara, "Cent pompes de nageoires par jour ![pause=0] C'est mon programme ![pause=0] Enfin,[pause=10] c'était.[pause=0] Je me suis arrêté à douze.", "Normal")
+		UI:SetSpeakerEmotion("Happy")
+		UI:WaitShowDialogue("Mais douze,[pause=10] c'est déjà onze de plus qu'hier ![pause=0] La progression,[pause=10] c'est ça le secret.[pause=0] Maître Ledian l'a dit.[pause=0] Enfin,[pause=10] un truc dans le genre.")
+	end
 	GeneralFunctions.EndConversation(chara)
 end
 
