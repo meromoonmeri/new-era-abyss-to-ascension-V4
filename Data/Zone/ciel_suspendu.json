@@ -17973,6 +17973,8 @@
         "Comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
       }
     ],
-    "GroundMaps": []
+    "GroundMaps": [
+      "terres_tues_porte"
+    ]
   }
 }

@@ -8566,6 +8566,8 @@
         "Comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
       }
     ],
-    "GroundMaps": []
+    "GroundMaps": [
+      "bois_antan_verger"
+    ]
   }
 }

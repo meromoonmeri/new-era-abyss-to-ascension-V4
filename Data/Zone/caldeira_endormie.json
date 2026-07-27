@@ -37687,6 +37687,8 @@
         "Comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
       }
     ],
-    "GroundMaps": []
+    "GroundMaps": [
+      "arene_trone_magma"
+    ]
   }
 }

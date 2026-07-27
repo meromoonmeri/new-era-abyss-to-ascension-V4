@@ -50,7 +50,9 @@ function vast_steppe_midpoint.PlotScripting()
   end
 end
 
--- North exit : continue deeper into the steppe (segment 2)
+-- North exit : mini-boss d'abord (s'il n'est pas battu), sinon segment 2.
+-- Fix audit : l'arène du mini-boss était orpheline (le relais sautait
+-- directement au segment 2) et sa cinématique supposait une session active.
 function vast_steppe_midpoint.North_Exit_Touch(obj, activator)
   DEBUG.EnableDbgCoro()
   UI:ResetSpeaker(false)
@@ -67,7 +69,35 @@ function vast_steppe_midpoint.North_Exit_Touch(obj, activator)
     partner.IsInteracting = false
     GROUND:CharEndAnim(partner)
     GROUND:CharEndAnim(hero)
-    GAME:EnterDungeon("vast_steppe", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    if SV.ChapterProgression.Chapter == 5 and not SV.Chapter5.SteppeMiniBossCleared then
+      -- CAUSE RACINE du crash IsGameOver (NRE) : la cinématique du mini-boss
+      -- appelait ContinueDungeon SANS session d'aventure active quand on
+      -- venait du relais master_zone (respawn après mort). BeginSegment charge
+      -- alors la carte de combat sans y attacher l'équipe -> CurrentMap.
+      -- ActiveTeam = null -> premier tick d'input -> IsGameOver() -> NRE.
+      -- Fix : router selon l'état de session.
+      if _ZONE.CurrentZoneID == 'vast_steppe' then
+        -- Session ouverte (on vient du segment 0) : transition de ground interne.
+        PrintInfo("[BossSeq][steppe] midpoint(zone) -> miniboss ground (session active)")
+        GAME:EnterGroundMap("vast_steppe_miniboss", "Main_Entrance_Marker")
+      else
+        -- Copie master_zone (respawn/checkpoint) : session fermée -> on en
+        -- OUVRE une neuve directement sur le ground de cinématique
+        -- (structure -1 = grounds de la zone ; index 1 = vast_steppe_miniboss).
+        PrintInfo("[BossSeq][steppe] midpoint(master) -> miniboss ground (nouvelle session)")
+        GAME:EnterDungeon("vast_steppe", -1, 1, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+      end
+    else
+      -- Mini-boss déjà vaincu : direction les Profondeurs (segment 2).
+      -- Session active -> ContinueDungeon ; session fermée -> EnterDungeon.
+      if _ZONE.CurrentZoneID == 'vast_steppe' then
+        PrintInfo("[BossSeq][steppe] midpoint(zone) -> seg2 (ContinueDungeon)")
+        GAME:ContinueDungeon("vast_steppe", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+      else
+        PrintInfo("[BossSeq][steppe] midpoint(master) -> seg2 (EnterDungeon)")
+        GAME:EnterDungeon("vast_steppe", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+      end
+    end
   end
   partner.IsInteracting = false
   GROUND:CharEndAnim(partner)

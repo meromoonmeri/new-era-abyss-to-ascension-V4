@@ -842,7 +842,15 @@ SV.Chapter5 =
 	MountMiniBossDefeated = false,
 	MountMiniBossLost = false,
 	MountGuardianDefeated = false,
-	MountGuardianLost = false
+	MountGuardianLost = false,
+
+	--Flags PERSISTANTS de victoire mini-boss (audit IsGameOver) : contrairement
+	--aux flags de routage ci-dessus (remis a false apres la scene), ceux-ci
+	--restent true pour toujours — le relais les lit pour savoir s'il faut
+	--rejouer la rencontre du mini-boss ou passer directement au segment suivant.
+	SteppeMiniBossCleared = false,
+	TunnelMiniBossCleared = false,
+	MountMiniBossCleared = false
 }
 
 

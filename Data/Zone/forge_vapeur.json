@@ -37586,6 +37586,8 @@
         "Comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
       }
     ],
-    "GroundMaps": []
+    "GroundMaps": [
+      "fosse_volcanique"
+    ]
   }
 }

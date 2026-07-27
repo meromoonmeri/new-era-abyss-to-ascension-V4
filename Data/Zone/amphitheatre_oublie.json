@@ -7523,6 +7523,8 @@
         "Comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
       }
     ],
-    "GroundMaps": []
+    "GroundMaps": [
+      "grotte_echos"
+    ]
   }
 }

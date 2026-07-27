@@ -2300,7 +2300,9 @@
       "Rescues": 2,
       "CountedFloors": 20,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "arene_trone_magma"
+      ],
       "Maps": [
         [
           0,
@@ -2353,7 +2355,9 @@
       "Rescues": 2,
       "CountedFloors": 121,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "abime_tempetes"
+      ],
       "Maps": [
         [
           0,
@@ -2567,7 +2571,9 @@
       "Rescues": 2,
       "CountedFloors": 13,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "lac_savoir"
+      ],
       "Maps": [
         [
           0,
@@ -2611,7 +2617,9 @@
       "Rescues": 2,
       "CountedFloors": 30,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "champ_braises"
+      ],
       "Maps": [
         [
           0,
@@ -2680,7 +2688,9 @@
       "Rescues": 2,
       "CountedFloors": 28,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "arene_hautes_plaines"
+      ],
       "Maps": [
         [
           0,
@@ -2749,7 +2759,9 @@
       "Rescues": 2,
       "CountedFloors": 24,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "champ_vent_boreal"
+      ],
       "Maps": [
         [
           0,
@@ -2810,7 +2822,9 @@
       "Rescues": 2,
       "CountedFloors": 71,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "sommet_aurore"
+      ],
       "Maps": [
         [
           0,
@@ -2912,7 +2926,9 @@
       "Rescues": 0,
       "CountedFloors": 91,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "fosse_argentee"
+      ],
       "Maps": [
         [
           0,
@@ -3034,7 +3050,9 @@
       "Rescues": 2,
       "CountedFloors": 19,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "antre_occident"
+      ],
       "Maps": [
         [
           0,
@@ -3084,7 +3102,9 @@
       "Rescues": 2,
       "CountedFloors": 13,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "plaines_brulees"
+      ],
       "Maps": [
         [
           0,
@@ -3133,7 +3153,8 @@
       "CountedFloors": 25,
       "Rogue": 0,
       "Grounds": [
-        "end_moonlit_temple"
+        "end_moonlit_temple",
+        "mont_lune_vue"
       ],
       "Maps": [
         [
@@ -3198,7 +3219,9 @@
       "Rescues": 2,
       "CountedFloors": 4,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "cretes_boreales"
+      ],
       "Maps": [
         [
           0,
@@ -3233,7 +3256,9 @@
       "Rescues": 2,
       "CountedFloors": 17,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "bois_des_plaintes"
+      ],
       "Maps": [
         [
           0,
@@ -3281,7 +3306,9 @@
       "Rescues": 2,
       "CountedFloors": 21,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "arene_clairiere_secrete"
+      ],
       "Maps": [
         [
           0,
@@ -3341,7 +3368,9 @@
       "Rescues": 2,
       "CountedFloors": 4,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "vigie_stratos"
+      ],
       "Maps": [
         [
           0,
@@ -3376,7 +3405,9 @@
       "Rescues": 2,
       "CountedFloors": 15,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "lac_espoir"
+      ],
       "Maps": [
         [
           0,
@@ -3422,7 +3453,9 @@
       "Rescues": 2,
       "CountedFloors": 13,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "lac_courage"
+      ],
       "Maps": [
         [
           0,
@@ -3466,7 +3499,9 @@
       "Rescues": 2,
       "CountedFloors": 7,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "bois_antan_verger"
+      ],
       "Maps": [
         [
           0,
@@ -3508,7 +3543,9 @@
       "Rescues": 2,
       "CountedFloors": 17,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "fleche_reliques_courroux"
+      ],
       "Maps": [
         [
           0,
@@ -3560,7 +3597,9 @@
       "Rescues": 2,
       "CountedFloors": 4,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "chambre_agee_o"
+      ],
       "Maps": [
         [
           0,
@@ -3595,7 +3634,9 @@
       "Rescues": 2,
       "CountedFloors": 4,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "grotte_cryptique"
+      ],
       "Maps": [
         [
           0,
@@ -3630,7 +3671,9 @@
       "Rescues": 2,
       "CountedFloors": 20,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "vallon_malsain_fond"
+      ],
       "Maps": [
         [
           0,
@@ -3685,7 +3728,9 @@
       "Rescues": 4,
       "CountedFloors": 31,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "terres_tues_porte"
+      ],
       "Maps": [
         [
           0,
@@ -3747,7 +3792,9 @@
       "Rescues": 2,
       "CountedFloors": 4,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "nef_prisme_est"
+      ],
       "Maps": [
         [
           0,
@@ -3783,7 +3830,8 @@
       "CountedFloors": 4,
       "Rogue": 0,
       "Grounds": [
-        "dev_room"
+        "dev_room",
+        "ile_legendaire"
       ],
       "Maps": [
         [
@@ -3819,7 +3867,9 @@
       "Rescues": 0,
       "CountedFloors": 2,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "sanctuaire_voeu"
+      ],
       "Maps": [
         [
           0
@@ -3852,7 +3902,9 @@
       "Rescues": 2,
       "CountedFloors": 13,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "ile_close"
+      ],
       "Maps": [
         [
           0,
@@ -3903,7 +3955,8 @@
       "CountedFloors": 31,
       "Rogue": 0,
       "Grounds": [
-        "guildmaster_summit"
+        "guildmaster_summit",
+        "couloir_legendes"
       ],
       "Maps": [
         [
@@ -3966,7 +4019,9 @@
       "Rescues": 2,
       "CountedFloors": 27,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "porte_plaines_foudre"
+      ],
       "Maps": [
         [
           0,
@@ -4033,7 +4088,8 @@
       "CountedFloors": 25,
       "Rogue": 0,
       "Grounds": [
-        "end_moonlit_temple"
+        "end_moonlit_temple",
+        "ile_australe"
       ],
       "Maps": [
         [
@@ -4098,7 +4154,9 @@
       "Rescues": 2,
       "CountedFloors": 4,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "creux_ombres_scelle"
+      ],
       "Maps": [
         [
           0,
@@ -4133,7 +4191,9 @@
       "Rescues": 2,
       "CountedFloors": 4,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "vallon_perdu"
+      ],
       "Maps": [
         [
           0,
@@ -4168,7 +4228,9 @@
       "Rescues": 2,
       "CountedFloors": 15,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "champ_sacre"
+      ],
       "Maps": [
         [
           0,
@@ -4214,7 +4276,9 @@
       "Rescues": 0,
       "CountedFloors": 91,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "recif_genereux"
+      ],
       "Maps": [
         [
           0,
@@ -4336,7 +4400,9 @@
       "Rescues": 2,
       "CountedFloors": 13,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "gue_poulain_autel"
+      ],
       "Maps": [
         [
           0,
@@ -4380,7 +4446,9 @@
       "Rescues": 2,
       "CountedFloors": 13,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "grotte_echos"
+      ],
       "Maps": [
         [
           0,
@@ -4424,7 +4492,9 @@
       "Rescues": 2,
       "CountedFloors": 19,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "labo_decrepit"
+      ],
       "Maps": [
         [
           0,
@@ -4474,7 +4544,9 @@
       "Rescues": 2,
       "CountedFloors": 19,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "fosse_volcanique"
+      ],
       "Maps": [
         [
           0,
@@ -4524,7 +4596,9 @@
       "Rescues": 2,
       "CountedFloors": 17,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "carriere_magnetique"
+      ],
       "Maps": [
         [
           0,
@@ -4576,7 +4650,9 @@
       "Rescues": 2,
       "CountedFloors": 13,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "pre_tonnerre"
+      ],
       "Maps": [
         [
           0,
@@ -4624,7 +4700,9 @@
       "Rescues": 2,
       "CountedFloors": 20,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "grotte_rocheuse"
+      ],
       "Maps": [
         [
           0,
@@ -4679,7 +4757,9 @@
       "Rescues": 2,
       "CountedFloors": 71,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "escalier_origine"
+      ],
       "Maps": [
         [
           0,

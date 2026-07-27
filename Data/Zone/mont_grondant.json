@@ -48370,6 +48370,8 @@
         "Comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
       }
     ],
-    "GroundMaps": []
+    "GroundMaps": [
+      "porte_plaines_foudre"
+    ]
   }
 }

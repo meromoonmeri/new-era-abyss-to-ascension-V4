@@ -273,6 +273,8 @@ function mount_windswept_miniboss_ch_5.SecondPreBossScene()
 end
 
 function mount_windswept_miniboss_ch_5.DefeatedBoss()
+  PrintInfo("[BossSeq][mount_windswept_miniboss_ch_5] DefeatedBoss cutscene start")
+  SV.Chapter5.MountMiniBossCleared = true
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local gligar = CharacterEssentials.MakeCharactersFromList({
@@ -340,73 +342,91 @@ function mount_windswept_miniboss_ch_5.DefeatedBoss()
   GAME:EnterGroundMap("mount_windswept_midpoint", "Main_Entrance_Marker")
 end
 
+-- Player died to the boss
+-- Réécrite (audit IsGameOver) : l'ancienne version était un collage corrompu —
+-- dialogues AVANT CutsceneMode/FadeIn (affichés hors cinématique), répliques de
+-- VICTOIRE mélangées dans la défaite, héros/partenaire cachés en pleine scène.
+-- Storyboard : fondu -> triomphe du boss -> la Voix -> le duo à terre -> retraite
+-- du boss -> fondu noir -> retour à l'entrée.
 function mount_windswept_miniboss_ch_5.DiedToBoss()
+  PrintInfo("[BossSeq][mount_windswept_miniboss_ch_5] DiedToBoss cutscene start")
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
-  local gligar = CharacterEssentials.MakeCharactersFromList({
-    {'Gligar', 180, 240, Direction.Down}
-  })
-  local skarmory = CharacterEssentials.MakeCharactersFromList({
-    {'Skarmory', 268, 192, Direction.Down}
-  })
-  GROUND:CharSetAnim(gligar, "Idle", true)
-  GROUND:CharSetAnim(skarmory, "Idle", true)
 
-  GROUND:Hide(partner.EntName)
-  -- Gligar te regarde, reconnait ta force
-  GROUND:CharSetAnim(gligar, "Idle", true)
-  UI:SetSpeakerEmotion("Normal")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_022']))
-
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_023']))
-
-  UI:SetSpeaker(partner)
-  GeneralFunctions.Hop(partner)
-  UI:SetSpeakerEmotion("Happy")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_025']))
-  GROUND:Hide(hero.EntName)
-
+  GAME:CutsceneMode(true)
   AI:DisableCharacterAI(partner)
   SOUND:StopBGM()
 
-  GAME:MoveCamera(224, 240, 1, false)
-  GAME:CutsceneMode(true)
+  local gligar = CharacterEssentials.MakeCharactersFromList({
+    {'Gligar', 180, 240, Direction.Down}
+  })
+  GROUND:CharSetAnim(gligar, "Idle", true)
+  local skarmory = CharacterEssentials.MakeCharactersFromList({
+    {'Skarmory', 268, 192, Direction.Down}
+  })
+  GROUND:CharSetAnim(skarmory, "Idle", true)
 
-  GAME:WaitFrames(60)
-  GAME:FadeIn(40)
+  -- L'équipe est au sol, vaincue.
+  GROUND:TeleportTo(hero, 240, 320, Direction.Up)
+  GROUND:TeleportTo(partner, 208, 320, Direction.Up)
+  GROUND:CharSetAnim(hero, "EventSleep", true)
+  GROUND:CharSetAnim(partner, "EventSleep", true)
+  GAME:MoveCamera(224, 250, 1, false)
 
+  GAME:FadeIn(60)
   GAME:WaitFrames(40)
 
+  -- La caméra monte sur le vainqueur.
+  GAME:MoveCamera(224, 210, 40, false)
+  GAME:WaitFrames(10)
+
+  -- Le boss triomphe.
+  GROUND:CharSetEmote(gligar, "happy", 1)
+  GeneralFunctions.Hop(gligar)
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_018']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(20)
+
+  -- La Voix de l'Abysse commente la défaite.
   UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_015']))
-  -- "Les sentinelles t'ont repoussé..."
-
   GAME:WaitFrames(30)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_016']))
-  -- "Apprends de cette défaite. Le sommet n'attend que les plus forts."
-
-  GAME:WaitFrames(40)
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_026']))
-  -- Gligar triomphe, Skarmory plane
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_018']))
-
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  GAME:WaitFrames(20)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_019']))
+  GAME:WaitFrames(30)
 
+  -- La caméra redescend sur le duo ; le partenaire se redresse à peine.
+  GAME:MoveCamera(224, 260, 40, false)
+  GROUND:CharEndAnim(partner)
+  GeneralFunctions.DoAnimation(partner, 'Wake')
+  GAME:WaitFrames(12)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue("Le vent... il nous a littéralement balayés...[pause=20] Redescendons...")
+  GAME:WaitFrames(20)
+
+  -- Le boss se retire, victorieux.
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_020']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(10)
+
   GAME:FadeOut(false, 60)
-  GAME:WaitFrames(90)
+  GAME:WaitFrames(60)
 
   SV.TemporaryFlags.Dinnertime = true
   SV.TemporaryFlags.Bedtime = true
   SV.TemporaryFlags.MorningWakeup = true
   SV.TemporaryFlags.MorningAddress = true
 
+  GROUND:CharEndAnim(hero)
+  GROUND:CharEndAnim(partner)
   GAME:CutsceneMode(false)
+  PrintInfo("[BossSeq][mount_windswept_miniboss_ch_5] DiedToBoss -> mount_windswept_entrance")
   GAME:EnterGroundMap("mount_windswept_entrance", "Main_Entrance_Marker")
 end
 

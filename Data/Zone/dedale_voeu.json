@@ -233916,6 +233916,8 @@
         "Comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
       }
     ],
-    "GroundMaps": []
+    "GroundMaps": [
+      "sanctuaire_voeu"
+    ]
   }
 }

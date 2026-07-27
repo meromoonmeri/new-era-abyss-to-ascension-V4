@@ -1937,6 +1937,8 @@
         "Comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
       }
     ],
-    "GroundMaps": []
+    "GroundMaps": [
+      "cretes_boreales"
+    ]
   }
 }

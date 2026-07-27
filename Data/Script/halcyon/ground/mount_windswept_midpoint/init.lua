@@ -50,7 +50,9 @@ function mount_windswept_midpoint.PlotScripting()
   end
 end
 
--- North exit : continue higher up the mountain (segment 2)
+-- North exit : mini-boss d'abord (s'il n'est pas battu), sinon segment 2.
+-- Fix audit : même correction que la Grande Steppe — l'arène du mini-boss
+-- était orpheline, le relais sautait directement au segment 2.
 function mount_windswept_midpoint.North_Exit_Touch(obj, activator)
   DEBUG.EnableDbgCoro()
   UI:ResetSpeaker(false)
@@ -67,7 +69,26 @@ function mount_windswept_midpoint.North_Exit_Touch(obj, activator)
     partner.IsInteracting = false
     GROUND:CharEndAnim(partner)
     GROUND:CharEndAnim(hero)
-    GAME:EnterDungeon("mount_windswept", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    if SV.ChapterProgression.Chapter == 5 and not SV.Chapter5.MountMiniBossCleared then
+      -- Même fix que la Grande Steppe (cause racine IsGameOver NRE) :
+      -- routage selon l'état de session. Index 1 = mount_windswept_miniboss.
+      if _ZONE.CurrentZoneID == 'mount_windswept' then
+        PrintInfo("[BossSeq][windswept] midpoint(zone) -> miniboss ground (session active)")
+        GAME:EnterGroundMap("mount_windswept_miniboss", "Main_Entrance_Marker")
+      else
+        PrintInfo("[BossSeq][windswept] midpoint(master) -> miniboss ground (nouvelle session)")
+        GAME:EnterDungeon("mount_windswept", -1, 1, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+      end
+    else
+      -- Mini-boss déjà vaincu : direction les Crêtes (segment 2).
+      if _ZONE.CurrentZoneID == 'mount_windswept' then
+        PrintInfo("[BossSeq][windswept] midpoint(zone) -> seg2 (ContinueDungeon)")
+        GAME:ContinueDungeon("mount_windswept", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+      else
+        PrintInfo("[BossSeq][windswept] midpoint(master) -> seg2 (EnterDungeon)")
+        GAME:EnterDungeon("mount_windswept", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+      end
+    end
   end
   partner.IsInteracting = false
   GROUND:CharEndAnim(partner)

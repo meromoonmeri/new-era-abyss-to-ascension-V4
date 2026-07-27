@@ -9660,6 +9660,8 @@
         "Comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
       }
     ],
-    "GroundMaps": []
+    "GroundMaps": [
+      "bois_des_plaintes"
+    ]
   }
 }

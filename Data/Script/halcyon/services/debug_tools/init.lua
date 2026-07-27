@@ -375,6 +375,20 @@ function DebugTools:OnUpgrade()
 	if not GAME:DungeonUnlocked("new_era_zone_43") then GAME:UnlockDungeon("new_era_zone_43") end
  end
  --Vague 8 : etats de checkpoint (reveil au relais)
+ --Audit IsGameOver : flags persistants de mini-boss pour les parties existantes.
+ --Retroactif : si le joueur a deja vu/vaincu le mini-boss (Seen pose puis
+ --SecondPreBossScene disponible), on considere Cleared si le chapitre est passe.
+ if SV.Chapter5 ~= nil then
+	if SV.Chapter5.SteppeMiniBossCleared == nil then
+		SV.Chapter5.SteppeMiniBossCleared = (SV.ChapterProgression.Chapter > 5) or (SV.Chapter5.SteppeMiniBossSeen == true and SV.Chapter5.SteppeGuardianDefeated == true)
+	end
+	if SV.Chapter5.TunnelMiniBossCleared == nil then
+		SV.Chapter5.TunnelMiniBossCleared = (SV.ChapterProgression.Chapter > 5) or (SV.Chapter5.TunnelMiniBossSeen == true and SV.Chapter5.DefeatedBoss == true)
+	end
+	if SV.Chapter5.MountMiniBossCleared == nil then
+		SV.Chapter5.MountMiniBossCleared = (SV.ChapterProgression.Chapter > 5) or (SV.Chapter5.MountMiniBossSeen == true and SV.Chapter5.MountGuardianDefeated == true)
+	end
+ end
  if SV.Chapter7 ~= nil and SV.Chapter7.RuinsMidState == nil then SV.Chapter7.RuinsMidState = nil end
  if SV.Chapter8 ~= nil and SV.Chapter8.SanctuaryMidState == nil then SV.Chapter8.SanctuaryMidState = nil end
  if SV.Chapter9 ~= nil and SV.Chapter9.MarshMidState == nil then SV.Chapter9.MarshMidState = nil end

@@ -263,6 +263,8 @@ function searing_tunnel_miniboss_ch_5.SecondPreBossScene()
 end
 
 function searing_tunnel_miniboss_ch_5.DefeatedBoss()
+  PrintInfo("[BossSeq][searing_tunnel_miniboss_ch_5] DefeatedBoss cutscene start")
+  SV.Chapter5.TunnelMiniBossCleared = true
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local torkoal = CharacterEssentials.MakeCharactersFromList({
@@ -330,71 +332,91 @@ function searing_tunnel_miniboss_ch_5.DefeatedBoss()
   GAME:ContinueDungeon("searing_tunnel", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
+-- Player died to the boss
+-- Réécrite (audit IsGameOver) : l'ancienne version était un collage corrompu —
+-- dialogues AVANT CutsceneMode/FadeIn (affichés hors cinématique), répliques de
+-- VICTOIRE mélangées dans la défaite, héros/partenaire cachés en pleine scène.
+-- Storyboard : fondu -> triomphe du boss -> la Voix -> le duo à terre -> retraite
+-- du boss -> fondu noir -> retour à l'entrée.
 function searing_tunnel_miniboss_ch_5.DiedToBoss()
+  PrintInfo("[BossSeq][searing_tunnel_miniboss_ch_5] DiedToBoss cutscene start")
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
-  local torkoal = CharacterEssentials.MakeCharactersFromList({
-    {'Torkoal', 220, 232, Direction.Down}
-  })
-  local magmar = CharacterEssentials.MakeCharactersFromList({
-    {'Magmar', 292, 208, Direction.Down}
-  })
-  GROUND:CharSetAnim(torkoal, "Idle", true)
-  GROUND:CharSetAnim(magmar, "Idle", true)
 
-  GROUND:Hide(partner.EntName)
-  UI:SetSpeakerEmotion("Normal")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_022']))
-
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_023']))
-
-  UI:SetSpeaker(partner)
-  GeneralFunctions.Hop(partner)
-  UI:SetSpeakerEmotion("Happy")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_025']))
-  GROUND:Hide(hero.EntName)
-
+  GAME:CutsceneMode(true)
   AI:DisableCharacterAI(partner)
   SOUND:StopBGM()
 
-  GAME:MoveCamera(256, 240, 1, false)
-  GAME:CutsceneMode(true)
+  local torkoal = CharacterEssentials.MakeCharactersFromList({
+    {'Torkoal', 220, 232, Direction.Down}
+  })
+  GROUND:CharSetAnim(torkoal, "Idle", true)
+  local magmar = CharacterEssentials.MakeCharactersFromList({
+    {'Magmar', 292, 208, Direction.Down}
+  })
+  GROUND:CharSetAnim(magmar, "Idle", true)
 
-  GAME:WaitFrames(60)
-  GAME:FadeIn(40)
+  -- L'équipe est au sol, vaincue.
+  GROUND:TeleportTo(hero, 240, 320, Direction.Up)
+  GROUND:TeleportTo(partner, 208, 320, Direction.Up)
+  GROUND:CharSetAnim(hero, "EventSleep", true)
+  GROUND:CharSetAnim(partner, "EventSleep", true)
+  GAME:MoveCamera(256, 255, 1, false)
 
+  GAME:FadeIn(60)
   GAME:WaitFrames(40)
 
+  -- La caméra monte sur le vainqueur.
+  GAME:MoveCamera(256, 215, 40, false)
+  GAME:WaitFrames(10)
+
+  -- Le boss triomphe.
+  GROUND:CharSetEmote(torkoal, "happy", 1)
+  GeneralFunctions.Hop(torkoal)
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_018']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(20)
+
+  -- La Voix de l'Abysse commente la défaite.
   UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_015']))
-  -- "Les flammes t'ont consumé..."
-
   GAME:WaitFrames(30)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_016']))
-  -- "Mais le feu forge l'acier. Reviens, plus fort."
-
-  GAME:WaitFrames(40)
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_026']))
-  -- Torkoal triomphe, Magmar ricane
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_018']))
-
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  GAME:WaitFrames(20)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_019']))
+  GAME:WaitFrames(30)
 
+  -- La caméra redescend sur le duo ; le partenaire se redresse à peine.
+  GAME:MoveCamera(256, 265, 40, false)
+  GROUND:CharEndAnim(partner)
+  GeneralFunctions.DoAnimation(partner, 'Wake')
+  GAME:WaitFrames(12)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue("Trop... trop chaud...[pause=20] On ne passera pas cette fois...")
+  GAME:WaitFrames(20)
+
+  -- Le boss se retire, victorieux.
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_020']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(10)
+
   GAME:FadeOut(false, 60)
-  GAME:WaitFrames(90)
+  GAME:WaitFrames(60)
 
   SV.TemporaryFlags.Dinnertime = true
   SV.TemporaryFlags.Bedtime = true
   SV.TemporaryFlags.MorningWakeup = true
   SV.TemporaryFlags.MorningAddress = true
 
+  GROUND:CharEndAnim(hero)
+  GROUND:CharEndAnim(partner)
   GAME:CutsceneMode(false)
+  PrintInfo("[BossSeq][searing_tunnel_miniboss_ch_5] DiedToBoss -> searing_tunnel_entrance")
   GAME:EnterGroundMap("searing_tunnel_entrance", "Main_Entrance_Marker")
 end
 

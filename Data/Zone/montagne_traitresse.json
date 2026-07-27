@@ -38541,6 +38541,8 @@
         "Comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
       }
     ],
-    "GroundMaps": []
+    "GroundMaps": [
+      "champ_vent_boreal"
+    ]
   }
 }

@@ -39031,6 +39031,8 @@
         "Comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
       }
     ],
-    "GroundMaps": []
+    "GroundMaps": [
+      "fleche_reliques_courroux"
+    ]
   }
 }

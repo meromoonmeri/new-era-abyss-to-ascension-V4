@@ -273,6 +273,8 @@ end
 
 -- Player defeated the mini-boss
 function vast_steppe_miniboss_ch_5.DefeatedBoss()
+  PrintInfo("[BossSeq][vast_steppe_miniboss_ch_5] DefeatedBoss cutscene start")
+  SV.Chapter5.SteppeMiniBossCleared = true
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
@@ -348,9 +350,20 @@ function vast_steppe_miniboss_ch_5.DefeatedBoss()
 end
 
 -- Player died to the mini-boss
+-- Réécrite (audit) : l'ancienne version était un collage corrompu — dialogues
+-- AVANT CutsceneMode/FadeIn (affichés sur écran noir hors cinématique),
+-- répliques de VICTOIRE (VSM_024/025/027/028) mélangées dans la défaite,
+-- héros/partenaire cachés en plein milieu. Storyboard propre :
+-- fondu -> la harde triomphe -> la Voix commente -> le partenaire plie ->
+-- fondu noir -> retour à l'entrée.
 function vast_steppe_miniboss_ch_5.DiedToBoss()
+  PrintInfo("[BossSeq][steppe-miniboss] DiedToBoss cutscene start")
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
+
+  GAME:CutsceneMode(true)
+  AI:DisableCharacterAI(partner)
+  SOUND:StopBGM()
 
   local mudbray = CharacterEssentials.MakeCharactersFromList({
     {'Mudbray', 184, 232, Direction.Down}
@@ -358,70 +371,70 @@ function vast_steppe_miniboss_ch_5.DiedToBoss()
   local stantler = CharacterEssentials.MakeCharactersFromList({
     {'Stantler', 152, 200, Direction.Down}
   })
-
   GROUND:CharSetAnim(mudbray, "Idle", true)
   GROUND:CharSetAnim(stantler, "Idle", true)
 
-  GROUND:Hide(partner.EntName)
-  -- Stantler te fixe longuement, puis s'incline
-  GROUND:CharSetAnim(stantler, "Idle", true)
-  UI:SetSpeakerEmotion("Normal")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_024']))
+  -- L'équipe est au sol, vaincue, face à la harde.
+  GROUND:TeleportTo(hero, 200, 300, Direction.Up)
+  GROUND:TeleportTo(partner, 168, 300, Direction.Up)
+  GROUND:CharSetAnim(hero, "EventSleep", true)
+  GROUND:CharSetAnim(partner, "EventSleep", true)
+  GAME:MoveCamera(184, 240, 1, false)
 
-  -- La Voix de l'Abysse
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_025']))
-
-  UI:SetSpeaker(partner)
-  GeneralFunctions.Hop(partner)
-  UI:SetSpeakerEmotion("Happy")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_027']))
-  GROUND:Hide(hero.EntName)
-
-  AI:DisableCharacterAI(partner)
-  SOUND:StopBGM()
-
-  GAME:MoveCamera(184, 200, 1, false)
-  GAME:CutsceneMode(true)
-
-  GAME:WaitFrames(60)
-  GAME:FadeIn(40)
-
+  GAME:FadeIn(60)
   GAME:WaitFrames(40)
 
-  -- The Voice of the Abyss comments on the defeat
+  -- La caméra monte d'abord sur les vainqueurs.
+  GAME:MoveCamera(176, 210, 40, false)
+  GAME:WaitFrames(10)
+
+  -- Mudbray triomphe ; Stantler reste immobile, les bois chargés.
+  GROUND:CharSetEmote(mudbray, "happy", 1)
+  GeneralFunctions.Hop(mudbray)
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_020']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(20)
+
+  -- La Voix de l'Abysse commente la défaite.
   UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_017']))
   -- "Pas encore assez fort..."
-
   GAME:WaitFrames(30)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_018']))
   -- "Mais tu te relèveras. Ils se relèvent toujours."
+  GAME:WaitFrames(30)
 
-  GAME:WaitFrames(40)
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_028']))
-  -- Mudbray triomphe, Stantler observe
-  GROUND:CharSetEmote(mudbray, "happy", 1)
-  GeneralFunctions.Hop(mudbray)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_020']))
-
-  -- La Voix commente
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_021']))
-
+  -- La caméra redescend sur le duo à terre ; le partenaire se redresse à peine.
+  GAME:MoveCamera(184, 290, 40, false)
+  GROUND:CharEndAnim(partner)
+  GeneralFunctions.DoAnimation(partner, 'Wake')
+  GAME:WaitFrames(12)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue("On... on ne peut plus continuer...[pause=20] Replions-nous...")
+  GAME:WaitFrames(20)
+
+  -- La harde se retire dans la brume, victorieuse.
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_022']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(10)
+
   GAME:FadeOut(false, 60)
-  GAME:WaitFrames(90)
+  GAME:WaitFrames(60)
 
   SV.TemporaryFlags.Dinnertime = true
   SV.TemporaryFlags.Bedtime = true
   SV.TemporaryFlags.MorningWakeup = true
   SV.TemporaryFlags.MorningAddress = true
 
+  GROUND:CharEndAnim(hero)
+  GROUND:CharEndAnim(partner)
   GAME:CutsceneMode(false)
+  PrintInfo("[BossSeq][steppe-miniboss] DiedToBoss -> vast_steppe_entrance")
   GAME:EnterGroundMap("vast_steppe_entrance", "Main_Entrance_Marker")
 end
 
