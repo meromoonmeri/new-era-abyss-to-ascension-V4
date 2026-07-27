@@ -20,10 +20,15 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   SOUND:StopBGM()
 
   -- Position the team entering the deep steppe
-  GROUND:TeleportTo(hero, 200, 400, Direction.Up)
-  GROUND:TeleportTo(partner, 168, 400, Direction.Up)
-  -- CADRAGE : la caméra doit démarrer SUR le duo (y≈400), pas 200px au-dessus.
-  GAME:MoveCamera(184, 380, 1, false)
+  -- LOT 1 — l'equipe atterrit a ~64px sous le boss (y=288) apres sa marche de
+  -- 80px : on la fait donc apparaitre 80px plus bas (y=368).
+  GROUND:TeleportTo(hero, 200, 368, Direction.Up)
+  GROUND:TeleportTo(partner, 168, 368, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 136, 384, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 232, 384, Direction.Up) end
+  GAME:MoveCamera(184, 364, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -45,11 +50,19 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
     GAME:WaitFrames(6)
     GROUND:MoveInDirection(hero, Direction.Up, 80, false, 1)
   end)
-  local coro3 = TASK:BranchCoroutine(function()
-    -- La caméra suit le duo en douceur pendant sa marche vers le nord (80px).
-    GAME:MoveCamera(184, 300, 90, false)
+  local coro2b = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(10)
+    if t2 ~= nil then GROUND:MoveInDirection(t2, Direction.Up, 80, false, 1) end
   end)
-  TASK:JoinCoroutines({coro1, coro2, coro3})
+  local coro2c = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(12)
+    if t3 ~= nil then GROUND:MoveInDirection(t3, Direction.Up, 80, false, 1) end
+  end)
+  local coro3 = TASK:BranchCoroutine(function()
+    -- La camera suit le duo et se cale ENTRE l'equipe (y=288) et le boss (y=200-232).
+    GAME:MoveCamera(184, 244, 90, false)
+  end)
+  TASK:JoinCoroutines({coro1, coro2, coro2b, coro2c, coro3})
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
@@ -143,14 +156,13 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   })
   GROUND:Hide('Mudbray')
 
-  -- Grondement + fissures, puis jaillissement facon Fouille
+  -- LOT 2 — apparition standardisee : flash blanc simple (plus d'emergence fragile)
   BossFX.Rumble({hero, partner}, 3)
-  BossFX.EmergeGround(mudbray, mudbray.Position.X + 8, mudbray.Position.Y + 12)
+  BossFX.Flash(184, 232, 3, 5, 20)
+  GAME:WaitFrames(8)
   GROUND:Unhide('Mudbray')
+  BossFX.Impact(9)
   GROUND:CharSetAnim(mudbray, "Idle", true)
-
-  GAME:WaitFrames(15)
-  BossFX.Impact(9, {mudbray})
   GAME:WaitFrames(10)
 
   GeneralFunctions.EmoteAndPause(partner, "Shock", true)
@@ -169,10 +181,13 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   })
   GROUND:Hide('Stantler')
 
-  -- Brume qui se condense, silhouette qui se materialise
+  -- LOT 2 — apparition standardisee : flash blanc simple
   SOUND:PlayBGM('Rising Fear.ogg', true)
-  BossFX.EmergeMist(stantler, stantler.Position.X + 8, stantler.Position.Y + 12)
+  GAME:WaitFrames(10)
+  BossFX.Flash(152, 200, 3, 5, 20)
+  GAME:WaitFrames(8)
   GROUND:Unhide('Stantler')
+  BossFX.Impact(9)
   GROUND:CharSetAnim(stantler, "Charge", true)
 
   -- Stantler steps forward through the mist
@@ -251,10 +266,13 @@ function vast_steppe_miniboss_ch_5.SecondPreBossScene()
   GROUND:CharSetAnim(mudbray, "Idle", true)
   GROUND:CharSetAnim(stantler, "Charge", true)
 
-  GROUND:TeleportTo(hero, 200, 360, Direction.Up)
-  GROUND:TeleportTo(partner, 168, 360, Direction.Up)
-  -- CADRAGE : duo (y≈360) et boss (y≈200-232) dans le même cadre.
-  GAME:MoveCamera(184, 280, 1, false)
+  GROUND:TeleportTo(hero, 200, 288, Direction.Up)
+  GROUND:TeleportTo(partner, 168, 288, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 136, 304, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 232, 304, Direction.Up) end
+  GAME:MoveCamera(184, 244, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -292,19 +310,21 @@ local function DefeatedBossBody()
     {'Stantler', 152, 200, Direction.Down}
   })
 
-  -- Pose du boss vaincu : "Faint" n'existe pas comme anim ground pour toutes les
-  -- espèces -> GetAnimIndex("Faint") levait une erreur et coupait la cinématique
-  -- (écran noir). "EventSleep" est une anim ground sûre et universelle.
-  GROUND:CharSetAnim(mudbray, "EventSleep", true)
+  -- LOT 2.3 — pas de PoseGroundAction/"Faint" (source d'ecran noir) :
+  -- les boss restent visibles pendant les dialogues, puis disparaissent au flash.
+  GROUND:CharSetAnim(mudbray, "Idle", true)
   GROUND:CharSetAnim(stantler, "Charge", true)
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
-  GROUND:TeleportTo(hero, 200, 300, Direction.Up)
-  GROUND:TeleportTo(partner, 168, 300, Direction.Up)
-  -- CADRAGE : duo (y≈300) et boss au sol (y≈200-232) dans le même cadre.
-  GAME:MoveCamera(184, 260, 1, false)
+  GROUND:TeleportTo(hero, 200, 288, Direction.Up)
+  GROUND:TeleportTo(partner, 168, 288, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 136, 304, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 232, 304, Direction.Up) end
+  GAME:MoveCamera(184, 244, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -399,11 +419,15 @@ function vast_steppe_miniboss_ch_5.DiedToBoss()
   GROUND:CharSetAnim(stantler, "Idle", true)
 
   -- L'équipe est au sol, vaincue, face à la harde.
-  GROUND:TeleportTo(hero, 200, 300, Direction.Up)
-  GROUND:TeleportTo(partner, 168, 300, Direction.Up)
+  GROUND:TeleportTo(hero, 200, 288, Direction.Up)
+  GROUND:TeleportTo(partner, 168, 288, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 136, 304, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 232, 304, Direction.Up) end
   GROUND:CharSetAnim(hero, "EventSleep", true)
   GROUND:CharSetAnim(partner, "EventSleep", true)
-  GAME:MoveCamera(184, 240, 1, false)
+  GAME:MoveCamera(184, 244, 1, false)
 
   GAME:FadeIn(60)
   GAME:WaitFrames(40)
@@ -431,7 +455,7 @@ function vast_steppe_miniboss_ch_5.DiedToBoss()
   GAME:WaitFrames(30)
 
   -- La caméra redescend sur le duo à terre ; le partenaire se redresse à peine.
-  GAME:MoveCamera(184, 290, 40, false)
+  GAME:MoveCamera(184, 278, 40, false)
   GROUND:CharEndAnim(partner)
   GeneralFunctions.DoAnimation(partner, 'Wake')
   GAME:WaitFrames(12)

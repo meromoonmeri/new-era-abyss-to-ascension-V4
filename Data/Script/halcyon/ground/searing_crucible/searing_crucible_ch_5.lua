@@ -2,6 +2,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.BossFX'
 
 searing_crucible_ch_5 = {}
 
@@ -565,11 +566,11 @@ function searing_crucible_ch_5.FirstPreBossScene()
 	coro1 = TASK:BranchCoroutine(function() GROUND:MoveScreen(RogueEssence.Content.ScreenMover(3, 6, 30))
 											GAME:WaitFrames(10)	
 											SOUND:PlayBattleSE("_UNK_EVT_003")
-											local arriveAnim = RogueEssence.Content.StaticAnim(RogueEssence.Content.AnimData("Sacred_Fire_Ranger", 3), 1)
-											arriveAnim:SetupEmitted(RogueElements.Loc(magcargo.Position.X + 8, magcargo.Position.Y), 32, RogueElements.Dir8.Down)
-											GROUND:PlayVFXAnim(arriveAnim, RogueEssence.Content.DrawLayer.Front)
-											GAME:WaitFrames(3)
+											--LOT 2.1 : apparition standardisee sous flash blanc.
+											BossFX.Flash(256, 192, 3, 5, 20)
+											GAME:WaitFrames(8)
 											GROUND:Unhide('Magcargo')
+											BossFX.Impact(9)
 											GAME:WaitFrames(37)		
 											end)
 
@@ -1094,11 +1095,17 @@ local function DefeatedBossBody()
 	coro1 = TASK:BranchCoroutine(function() GROUND:MoveScreen(RogueEssence.Content.ScreenMover(3, 6, 30))
 											GAME:WaitFrames(10)	
 											SOUND:StopBGM()
-											SOUND:PlayBattleSE("_UNK_EVT_003")
-											local arriveAnim = RogueEssence.Content.StaticAnim(RogueEssence.Content.AnimData("Sacred_Fire_Ranger", 3), 1)
-											arriveAnim:SetupEmitted(RogueElements.Loc(magcargo.Position.X + 8, magcargo.Position.Y), 32, RogueElements.Dir8.Down)
-											GROUND:PlayVFXAnim(arriveAnim, RogueEssence.Content.DrawLayer.Front)
-											GAME:WaitFrames(3)
+											SOUND:PlayBattleSE("EVT_Battle_Flash")
+											--LOT 2.2 : disparition standardisee sous flash blanc.
+											local flash = RogueEssence.Content.FlashEmitter()
+											flash.FadeInTime = 2
+											flash.HoldTime = 2
+											flash.FadeOutTime = 20
+											flash.StartColor = Color(255, 255, 255, 0)
+											flash.Layer = DrawLayer.Top
+											flash.Anim = RogueEssence.Content.BGAnimData("White", 0)
+											GROUND:PlayVFX(flash, magcargo.Position.X, magcargo.Position.Y)
+											GAME:WaitFrames(16)
 											GROUND:Hide('Magcargo')
 											end)
 

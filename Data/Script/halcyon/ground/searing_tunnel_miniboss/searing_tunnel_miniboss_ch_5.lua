@@ -19,10 +19,15 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
-  GROUND:TeleportTo(hero, 240, 440, Direction.Up)
-  GROUND:TeleportTo(partner, 272, 440, Direction.Up)
-  -- CADRAGE : la camera doit demarrer SUR le duo (y~440).
-  GAME:MoveCamera(256, 420, 1, false)
+  -- LOT 1 — l'equipe atterrit a ~64px sous les boss (y=280) apres sa marche de
+  -- 64px : on la fait donc apparaitre 64px plus bas (y=344).
+  GROUND:TeleportTo(hero, 240, 344, Direction.Up)
+  GROUND:TeleportTo(partner, 272, 344, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 208, 360, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 304, 360, Direction.Up) end
+  GAME:MoveCamera(256, 340, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -44,11 +49,19 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
     GAME:WaitFrames(6)
     GROUND:MoveInDirection(hero, Direction.Up, 64, false, 1)
   end)
-  local coro3 = TASK:BranchCoroutine(function()
-    -- La camera suit le duo pendant sa marche vers le nord (64px).
-    GAME:MoveCamera(256, 356, 90, false)
+  local coro2b = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(10)
+    if t2 ~= nil then GROUND:MoveInDirection(t2, Direction.Up, 64, false, 1) end
   end)
-  TASK:JoinCoroutines({coro1, coro2, coro3})
+  local coro2c = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(12)
+    if t3 ~= nil then GROUND:MoveInDirection(t3, Direction.Up, 64, false, 1) end
+  end)
+  local coro3 = TASK:BranchCoroutine(function()
+    -- La camera se cale ENTRE l'equipe (y=280) et le clan de lave (y=208-232).
+    GAME:MoveCamera(256, 240, 90, false)
+  end)
+  TASK:JoinCoroutines({coro1, coro2, coro2b, coro2c, coro3})
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
@@ -108,30 +121,20 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
   BossFX.Voice('STM_006')
   GAME:WaitFrames(20)
 
-  -- === PANORAMIQUE VERS LE HAUT — les boss surgissent vers y=208-232 ===
-  GAME:MoveCamera(256, 280, 60, false)
+  -- === PANORAMIQUE : cadre commun equipe (y=280) + clan de lave (y=208-232) ===
+  GAME:MoveCamera(256, 240, 60, false)
   GAME:WaitFrames(10)
 
-  -- === FLASH BLANC ===
-  BossFX.Flash(256, 220)
-  GAME:WaitFrames(10)
-
-  -- === TORKOAL EMERGE DE LA LAVE (signature FEU) ===
-  -- Vapeur sous pression, panache de lave, braises : pas un simple flash.
+  -- === TORKOAL APPARAIT SOUS UN FLASH BLANC (LOT 2) ===
   local torkoal = CharacterEssentials.MakeCharactersFromList({
     {'Torkoal', 220, 232, Direction.DownRight}
   })
   GROUND:Hide('Torkoal')
-  BossFX.EmergeFire(torkoal, 220, 232)
   SOUND:PlayBattleSE('_UNK_EVT_102')
-  BossFX.Impact(8)
-
-  -- Braises jaillissant de la carapace de Torkoal.
-  -- "Ember" est une PARTICULE (Content/Particle) : elle doit passer par un
-  -- SingleEmitter/AnimData. En BGAnimData l'effet ne s'affichait pas du tout.
-  BossFX.Particle("Ember", 220, 232, 4)
-  BossFX.Particle("Ember", 204, 238, 5)
-  BossFX.Particle("Ember", 236, 238, 5)
+  BossFX.Flash(220, 232, 3, 5, 20)
+  GAME:WaitFrames(8)
+  GROUND:Unhide('Torkoal')
+  BossFX.Impact(9)
 
   GAME:WaitFrames(20)
 
@@ -157,17 +160,14 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
   local magmar = CharacterEssentials.MakeCharactersFromList({
     {'Magmar', 292, 208, Direction.DownLeft}
   })
+  -- === MAGMAR APPARAIT SOUS UN FLASH BLANC (LOT 2) ===
   GROUND:Hide('Magmar')
-  GROUND:TeleportTo(magmar, 292, 208 - 140, Direction.Down)
-  GROUND:Unhide('Magmar')
-  BossFX.Particle("Lava_Plume_Fire", 292, 208 - 120, 3)
   SOUND:PlayBattleSE('DUN_Fire_Spin')
-  GROUND:MoveToPosition(magmar, 292, 208, false, 7)
-  BossFX.Particle("Fire_Blast", 292, 212, 3)
-  BossFX.Particle("Ember", 276, 214, 4)
-  BossFX.Particle("Ember", 308, 214, 4)
-  BossFX.Flash(292, 208)
-  BossFX.Impact(10)
+  GAME:WaitFrames(10)
+  BossFX.Flash(292, 208, 3, 5, 20)
+  GAME:WaitFrames(8)
+  GROUND:Unhide('Magmar')
+  BossFX.Impact(9)
   GROUND:CharSetAnim(magmar, "Idle", true)
 
   GAME:WaitFrames(20)
@@ -241,10 +241,13 @@ function searing_tunnel_miniboss_ch_5.SecondPreBossScene()
   GROUND:CharSetAnim(torkoal, "Idle", true)
   GROUND:CharSetAnim(magmar, "Idle", true)
 
-  GROUND:TeleportTo(hero, 240, 380, Direction.Up)
-  GROUND:TeleportTo(partner, 272, 380, Direction.Up)
-  -- CADRAGE : duo (y~380) et boss (y~208-232) dans le meme cadre.
-  GAME:MoveCamera(256, 300, 1, false)
+  GROUND:TeleportTo(hero, 240, 280, Direction.Up)
+  GROUND:TeleportTo(partner, 272, 280, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 208, 296, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 304, 296, Direction.Up) end
+  GAME:MoveCamera(256, 240, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -280,19 +283,21 @@ local function DefeatedBossBody()
     {'Magmar', 292, 208, Direction.Down}
   })
 
-  -- Pose des boss vaincus : "Faint" n'existe pas comme anim ground pour toutes
-  -- les especes -> GetAnimIndex("Faint") levait une erreur et coupait la
-  -- cinematique (ecran noir). "EventSleep" est une anim ground sure.
-  GROUND:CharSetAnim(torkoal, "EventSleep", true)
-  GROUND:CharSetAnim(magmar, "EventSleep", true)
+  -- LOT 2.3 — pas de PoseGroundAction/"Faint" : le clan reste visible pendant
+  -- les dialogues, puis disparait au flash blanc.
+  GROUND:CharSetAnim(torkoal, "Idle", true)
+  GROUND:CharSetAnim(magmar, "Idle", true)
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
-  GROUND:TeleportTo(hero, 240, 320, Direction.Up)
-  GROUND:TeleportTo(partner, 272, 320, Direction.Up)
-  -- CADRAGE : duo (y~320) et boss au sol (y~208-232) dans le meme cadre.
-  GAME:MoveCamera(256, 270, 1, false)
+  GROUND:TeleportTo(hero, 240, 280, Direction.Up)
+  GROUND:TeleportTo(partner, 272, 280, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 208, 296, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 304, 296, Direction.Up) end
+  GAME:MoveCamera(256, 240, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -322,7 +327,7 @@ local function DefeatedBossBody()
   fadeSteam.FadeInTime = 2
   fadeSteam.HoldTime = 2
   fadeSteam.FadeOutTime = 20
-  fadeSteam.StartColor = Color(255, 200, 100, 0)
+  fadeSteam.StartColor = Color(255, 255, 255, 0)
   fadeSteam.Layer = DrawLayer.Top
   fadeSteam.Anim = RogueEssence.Content.BGAnimData("White", 0)
   GROUND:PlayVFX(fadeSteam, 256, 220)
@@ -330,7 +335,7 @@ local function DefeatedBossBody()
   GAME:WaitFrames(16)
   GROUND:Hide('Torkoal')
   GROUND:Hide('Magmar')
-  GAME:WaitFrames(40)
+  GAME:WaitFrames(30)
 
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
@@ -376,11 +381,15 @@ function searing_tunnel_miniboss_ch_5.DiedToBoss()
   GROUND:CharSetAnim(magmar, "Idle", true)
 
   -- L'équipe est au sol, vaincue.
-  GROUND:TeleportTo(hero, 240, 320, Direction.Up)
-  GROUND:TeleportTo(partner, 208, 320, Direction.Up)
+  GROUND:TeleportTo(hero, 240, 280, Direction.Up)
+  GROUND:TeleportTo(partner, 272, 280, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 208, 296, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 304, 296, Direction.Up) end
   GROUND:CharSetAnim(hero, "EventSleep", true)
   GROUND:CharSetAnim(partner, "EventSleep", true)
-  GAME:MoveCamera(256, 255, 1, false)
+  GAME:MoveCamera(256, 240, 1, false)
 
   GAME:FadeIn(60)
   GAME:WaitFrames(40)
@@ -408,7 +417,7 @@ function searing_tunnel_miniboss_ch_5.DiedToBoss()
   GAME:WaitFrames(30)
 
   -- La caméra redescend sur le duo ; le partenaire se redresse à peine.
-  GAME:MoveCamera(256, 265, 40, false)
+  GAME:MoveCamera(256, 258, 40, false)
   GROUND:CharEndAnim(partner)
   GeneralFunctions.DoAnimation(partner, 'Wake')
   GAME:WaitFrames(12)

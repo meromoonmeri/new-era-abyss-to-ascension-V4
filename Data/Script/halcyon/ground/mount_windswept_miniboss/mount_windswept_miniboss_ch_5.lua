@@ -19,10 +19,15 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
-  GROUND:TeleportTo(hero, 240, 440, Direction.Up)
-  GROUND:TeleportTo(partner, 208, 440, Direction.Up)
-  -- CADRAGE : la camera doit demarrer SUR le duo (y~440).
-  GAME:MoveCamera(224, 420, 1, false)
+  -- LOT 1 — l'equipe atterrit a ~64px sous les boss (y=272) apres sa marche de
+  -- 72px : on la fait donc apparaitre 72px plus bas (y=344).
+  GROUND:TeleportTo(hero, 240, 344, Direction.Up)
+  GROUND:TeleportTo(partner, 208, 344, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 176, 360, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 272, 360, Direction.Up) end
+  GAME:MoveCamera(224, 340, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -43,11 +48,19 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
     GAME:WaitFrames(6)
     GROUND:MoveInDirection(hero, Direction.Up, 72, false, 1)
   end)
-  local coro3 = TASK:BranchCoroutine(function()
-    -- La camera suit le duo pendant sa marche vers le nord (72px).
-    GAME:MoveCamera(224, 348, 90, false)
+  local coro2b = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(10)
+    if t2 ~= nil then GROUND:MoveInDirection(t2, Direction.Up, 72, false, 1) end
   end)
-  TASK:JoinCoroutines({coro1, coro2, coro3})
+  local coro2c = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(12)
+    if t3 ~= nil then GROUND:MoveInDirection(t3, Direction.Up, 72, false, 1) end
+  end)
+  local coro3 = TASK:BranchCoroutine(function()
+    -- La camera se cale ENTRE l'equipe (y=272) et les sentinelles (y=192-240).
+    GAME:MoveCamera(224, 232, 90, false)
+  end)
+  TASK:JoinCoroutines({coro1, coro2, coro2b, coro2c, coro3})
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
@@ -111,25 +124,21 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   -- "Les Sentinelles du Pic..."
   GAME:WaitFrames(20)
 
-  -- === PANORAMIQUE VERS LE HAUT — les boss surgissent vers y=192-240 ===
-  GAME:MoveCamera(224, 265, 60, false)
+  -- === PANORAMIQUE : cadre commun equipe (y=272) + sentinelles (y=192-240) ===
+  GAME:MoveCamera(224, 232, 60, false)
   GAME:WaitFrames(10)
 
-  -- === FLASH BLANC ===
-  BossFX.Flash(224, 220)
-  GAME:WaitFrames(10)
-
-  -- === GLIGAR JAILLIT DE LA CREVASSE (signature SOL) ===
-  -- Le sol se fissure, gerbes de terre, emergence facon Fouille.
+  -- === GLIGAR APPARAIT SOUS UN FLASH BLANC (LOT 2) ===
   local gligar = CharacterEssentials.MakeCharactersFromList({
     {'Gligar', 180, 240, Direction.DownRight}
   })
   GROUND:Hide('Gligar')
-  BossFX.EmergeGround(gligar, 180, 240)
   SOUND:PlayBattleSE('_UNK_EVT_102')
-  GROUND:CharSetAnim(gligar, "Idle", true)
-  -- le souffle repousse toute l'equipe, pas seulement le partenaire
+  BossFX.Flash(180, 240, 3, 5, 20)
+  GAME:WaitFrames(8)
+  GROUND:Unhide('Gligar')
   BossFX.Impact(9)
+  GROUND:CharSetAnim(gligar, "Idle", true)
 
   GAME:WaitFrames(20)
   coro1 = TASK:BranchCoroutine(function()
@@ -156,11 +165,12 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   })
   GROUND:Hide('Skarmory')
 
-  -- === SKARMORY FOND DU CIEL (signature VOL / ACIER) ===
-  -- Descente verticale reelle depuis hors-ecran, plumes, impact au sol,
-  -- puis recul de toute l'equipe.
-  BossFX.DescendSky(skarmory, 268, 192, 150)
-  BossFX.Particle("Steel_Wing", 268, 196, 3)
+  -- === SKARMORY APPARAIT SOUS UN FLASH BLANC (LOT 2) ===
+  GAME:WaitFrames(10)
+  BossFX.Flash(268, 192, 3, 5, 20)
+  GAME:WaitFrames(8)
+  GROUND:Unhide('Skarmory')
+  BossFX.Impact(9)
   GROUND:CharSetAnim(skarmory, "Idle", true)
 
   SOUND:PlayBGM('Rising Fear.ogg', true)
@@ -251,10 +261,13 @@ function mount_windswept_miniboss_ch_5.SecondPreBossScene()
   GROUND:CharSetAnim(gligar, "Idle", true)
   GROUND:CharSetAnim(skarmory, "Idle", true)
 
-  GROUND:TeleportTo(hero, 240, 380, Direction.Up)
-  GROUND:TeleportTo(partner, 208, 380, Direction.Up)
-  -- CADRAGE : duo (y~380) et boss (y~192-240) dans le meme cadre.
-  GAME:MoveCamera(224, 290, 1, false)
+  GROUND:TeleportTo(hero, 240, 272, Direction.Up)
+  GROUND:TeleportTo(partner, 208, 272, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 176, 288, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 272, 288, Direction.Up) end
+  GAME:MoveCamera(224, 232, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -290,19 +303,21 @@ local function DefeatedBossBody()
     {'Skarmory', 268, 192, Direction.Down}
   })
 
-  -- Pose des boss vaincus : "Faint" n'existe pas comme anim ground pour toutes
-  -- les especes -> GetAnimIndex("Faint") levait une erreur et coupait la
-  -- cinematique (ecran noir). "EventSleep" est une anim ground sure.
-  GROUND:CharSetAnim(gligar, "EventSleep", true)
-  GROUND:CharSetAnim(skarmory, "EventSleep", true)
+  -- LOT 2.3 — pas de PoseGroundAction/"Faint" : les sentinelles restent
+  -- visibles pendant les dialogues, puis disparaissent au flash blanc.
+  GROUND:CharSetAnim(gligar, "Idle", true)
+  GROUND:CharSetAnim(skarmory, "Idle", true)
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
-  GROUND:TeleportTo(hero, 240, 340, Direction.Up)
-  GROUND:TeleportTo(partner, 208, 340, Direction.Up)
-  -- CADRAGE : duo (y~340) et boss au sol (y~192-240) dans le meme cadre.
-  GAME:MoveCamera(224, 275, 1, false)
+  GROUND:TeleportTo(hero, 240, 272, Direction.Up)
+  GROUND:TeleportTo(partner, 208, 272, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 176, 288, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 272, 288, Direction.Up) end
+  GAME:MoveCamera(224, 232, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -340,7 +355,7 @@ local function DefeatedBossBody()
   GAME:WaitFrames(16)
   GROUND:Hide('Gligar')
   GROUND:Hide('Skarmory')
-  GAME:WaitFrames(40)
+  GAME:WaitFrames(30)
 
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
@@ -387,11 +402,15 @@ function mount_windswept_miniboss_ch_5.DiedToBoss()
   GROUND:CharSetAnim(skarmory, "Idle", true)
 
   -- L'équipe est au sol, vaincue.
-  GROUND:TeleportTo(hero, 240, 320, Direction.Up)
-  GROUND:TeleportTo(partner, 208, 320, Direction.Up)
+  GROUND:TeleportTo(hero, 240, 272, Direction.Up)
+  GROUND:TeleportTo(partner, 208, 272, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 176, 288, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 272, 288, Direction.Up) end
   GROUND:CharSetAnim(hero, "EventSleep", true)
   GROUND:CharSetAnim(partner, "EventSleep", true)
-  GAME:MoveCamera(224, 250, 1, false)
+  GAME:MoveCamera(224, 232, 1, false)
 
   GAME:FadeIn(60)
   GAME:WaitFrames(40)
@@ -419,7 +438,7 @@ function mount_windswept_miniboss_ch_5.DiedToBoss()
   GAME:WaitFrames(30)
 
   -- La caméra redescend sur le duo ; le partenaire se redresse à peine.
-  GAME:MoveCamera(224, 260, 40, false)
+  GAME:MoveCamera(224, 250, 40, false)
   GROUND:CharEndAnim(partner)
   GeneralFunctions.DoAnimation(partner, 'Wake')
   GAME:WaitFrames(12)

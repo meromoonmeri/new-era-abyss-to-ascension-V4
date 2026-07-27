@@ -19,9 +19,15 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
-  GROUND:TeleportTo(hero, 240, 440, Direction.Up)
-  GROUND:TeleportTo(partner, 208, 440, Direction.Up)
-  GAME:MoveCamera(224, 240, 1, false)
+  -- LOT 1 — l'equipe atterrit a ~64px sous le gardien (y=272) apres sa marche
+  -- de 56px : on la fait donc apparaitre 56px plus bas (y=328).
+  GROUND:TeleportTo(hero, 240, 328, Direction.Up)
+  GROUND:TeleportTo(partner, 208, 328, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 176, 344, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 272, 344, Direction.Up) end
+  GAME:MoveCamera(224, 324, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -43,11 +49,20 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
     GAME:WaitFrames(6)
     GROUND:MoveInDirection(hero, Direction.Up, 56, false, 1)
   end)
+  local coro2b = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(10)
+    if t2 ~= nil then GROUND:MoveInDirection(t2, Direction.Up, 56, false, 1) end
+  end)
+  local coro2c = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(12)
+    if t3 ~= nil then GROUND:MoveInDirection(t3, Direction.Up, 56, false, 1) end
+  end)
   local coro3 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(15)
-    GAME:MoveCamera(224, 180, 40, false)
+    -- La camera se cale ENTRE l'equipe (y=272) et le gardien (y=192).
+    GAME:MoveCamera(224, 232, 40, false)
   end)
-  TASK:JoinCoroutines({coro1, coro2, coro3})
+  TASK:JoinCoroutines({coro1, coro2, coro2b, coro2c, coro3})
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
@@ -142,17 +157,12 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   })
   GROUND:Hide('Aerodactyl')
 
-  -- Aerodactyl materializes from the lightning strike
-  local diveEffect = RogueEssence.Content.StaticAnim(
-    RogueEssence.Content.AnimData("Sacred_Fire_Ranger", 3), 2)
-  diveEffect:SetupEmitted(
-    RogueElements.Loc(aerodactyl.Position.X + 12, aerodactyl.Position.Y),
-    60, RogueElements.Dir8.Down)
-  GROUND:PlayVFXAnim(diveEffect, RogueEssence.Content.DrawLayer.Front)
-
+  -- === APPARITION SOUS FLASH BLANC (LOT 2) ===
   SOUND:PlayBGM('Rising Fear.ogg', true)
-  GAME:WaitFrames(15)
+  BossFX.Flash(224, 192, 3, 5, 20)
+  GAME:WaitFrames(8)
   GROUND:Unhide('Aerodactyl')
+  BossFX.Impact(9)
   GROUND:CharSetAnim(aerodactyl, "Charge", true)
 
   -- Impact — ground shakes, dust everywhere
@@ -259,9 +269,13 @@ function mount_windswept_guardian_ch_5.SecondPreBossScene()
   SOUND:StopBGM()
   GROUND:CharSetAnim(aerodactyl, "Charge", true)
 
-  GROUND:TeleportTo(hero, 240, 380, Direction.Up)
-  GROUND:TeleportTo(partner, 208, 380, Direction.Up)
-  GAME:MoveCamera(224, 240, 1, false)
+  GROUND:TeleportTo(hero, 240, 272, Direction.Up)
+  GROUND:TeleportTo(partner, 208, 272, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 176, 288, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 272, 288, Direction.Up) end
+  GAME:MoveCamera(224, 232, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -299,9 +313,13 @@ local function DefeatedBossBody()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
-  GROUND:TeleportTo(hero, 240, 340, Direction.Up)
-  GROUND:TeleportTo(partner, 208, 340, Direction.Up)
-  GAME:MoveCamera(224, 240, 1, false)
+  GROUND:TeleportTo(hero, 240, 272, Direction.Up)
+  GROUND:TeleportTo(partner, 208, 272, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 176, 288, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 272, 288, Direction.Up) end
+  GAME:MoveCamera(224, 232, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -312,10 +330,9 @@ local function DefeatedBossBody()
   -- Aerodactyl collapses dramatically
   SOUND:PlayBattleSE('EVT_CH03_Boss_Collapse')
   GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 4, 20))
-  -- Pose du gardien vaincu : "Faint" n'est pas une anim ground garantie pour
-  -- toutes les especes -> GetAnimIndex("Faint") pouvait lever une erreur et
-  -- couper la cinematique (ecran noir). "EventSleep" est une anim ground sure.
-  GROUND:CharSetAnim(aerodactyl, "EventSleep", true)
+  -- LOT 2.3 — pas de PoseGroundAction/"Faint" : le gardien reste visible
+  -- pendant les dialogues, puis disparait au flash blanc.
+  GROUND:CharSetAnim(aerodactyl, "Idle", true)
 
   GAME:WaitFrames(60)
 
@@ -355,14 +372,14 @@ local function DefeatedBossBody()
   whirlwind.FadeInTime = 2
   whirlwind.HoldTime = 2
   whirlwind.FadeOutTime = 20
-  whirlwind.StartColor = Color(200, 200, 255, 0)
+  whirlwind.StartColor = Color(255, 255, 255, 0)
   whirlwind.Layer = DrawLayer.Top
   whirlwind.Anim = RogueEssence.Content.BGAnimData("White", 0)
   GROUND:PlayVFX(whirlwind, aerodactyl.Position.X, aerodactyl.Position.Y)
   SOUND:PlayBattleSE("EVT_Battle_Flash")
   GAME:WaitFrames(16)
   GROUND:Hide('Aerodactyl')
-  GAME:WaitFrames(40)
+  GAME:WaitFrames(30)
 
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
@@ -420,11 +437,15 @@ function mount_windswept_guardian_ch_5.DiedToBoss()
   GROUND:CharSetAnim(aerodactyl, "Idle", true)
 
   -- L'équipe est au sol, vaincue.
-  GROUND:TeleportTo(hero, 240, 300, Direction.Up)
-  GROUND:TeleportTo(partner, 208, 300, Direction.Up)
+  GROUND:TeleportTo(hero, 240, 272, Direction.Up)
+  GROUND:TeleportTo(partner, 208, 272, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 176, 288, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 272, 288, Direction.Up) end
   GROUND:CharSetAnim(hero, "EventSleep", true)
   GROUND:CharSetAnim(partner, "EventSleep", true)
-  GAME:MoveCamera(224, 245, 1, false)
+  GAME:MoveCamera(224, 232, 1, false)
 
   GAME:FadeIn(60)
   GAME:WaitFrames(40)
@@ -451,7 +472,7 @@ function mount_windswept_guardian_ch_5.DiedToBoss()
   GAME:WaitFrames(30)
 
   -- La caméra redescend sur le duo ; le partenaire se redresse à peine.
-  GAME:MoveCamera(224, 255, 40, false)
+  GAME:MoveCamera(224, 250, 40, false)
   GROUND:CharEndAnim(partner)
   GeneralFunctions.DoAnimation(partner, 'Wake')
   GAME:WaitFrames(12)

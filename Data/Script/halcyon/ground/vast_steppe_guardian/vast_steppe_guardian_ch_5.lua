@@ -19,10 +19,15 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
-  GROUND:TeleportTo(hero, 200, 400, Direction.Up)
-  GROUND:TeleportTo(partner, 168, 400, Direction.Up)
-  -- CADRAGE : la caméra doit démarrer SUR le duo (y≈400), pas 200px au-dessus.
-  GAME:MoveCamera(184, 380, 1, false)
+  -- LOT 1 — l'equipe atterrit a ~64px sous le boss (y=288) apres sa marche de
+  -- 60px : on la fait donc apparaitre 60px plus bas (y=348).
+  GROUND:TeleportTo(hero, 200, 348, Direction.Up)
+  GROUND:TeleportTo(partner, 168, 348, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 136, 364, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 232, 364, Direction.Up) end
+  GAME:MoveCamera(184, 344, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -43,11 +48,19 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
     GAME:WaitFrames(6)
     GROUND:MoveInDirection(hero, Direction.Up, 60, false, 1)
   end)
-  local coro3 = TASK:BranchCoroutine(function()
-    -- La caméra suit le duo pendant sa marche vers le nord (60px).
-    GAME:MoveCamera(184, 320, 90, false)
+  local coro2b = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(10)
+    if t2 ~= nil then GROUND:MoveInDirection(t2, Direction.Up, 60, false, 1) end
   end)
-  TASK:JoinCoroutines({coro1, coro2, coro3})
+  local coro2c = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(12)
+    if t3 ~= nil then GROUND:MoveInDirection(t3, Direction.Up, 60, false, 1) end
+  end)
+  local coro3 = TASK:BranchCoroutine(function()
+    -- La camera se cale ENTRE l'equipe (y=288) et le gardien (y=200).
+    GAME:MoveCamera(184, 244, 90, false)
+  end)
+  TASK:JoinCoroutines({coro1, coro2, coro2b, coro2c, coro3})
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
@@ -69,8 +82,8 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   -- Brume montante
   BossFX.Overlay("Fog", 0, 0, 20, 70, 25, DrawLayer.Bottom, -1, 0)
 
-  -- PANORAMIQUE : le gardien va se materialiser vers y=200, on cadre duo+boss.
-  GAME:MoveCamera(184, 250, 60, false)
+  -- PANORAMIQUE : cadre commun equipe (y=288) + gardien (y=200).
+  GAME:MoveCamera(184, 244, 60, false)
   GAME:WaitFrames(10)
 
   -- Voix de l'Abysse
@@ -80,17 +93,18 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   local center = GAME:GetCameraCenter()
   BossFX.Flash(center.X, center.Y, 3, 5, 15)
 
-  -- Tremblement puis materialisation depuis la brume
+  -- LOT 2 — apparition standardisee : flash blanc simple
   local stantler = CharacterEssentials.MakeCharactersFromList({
     {'Stantler', 184, 200, Direction.Down}
   })
   GROUND:Hide('Stantler')
   BossFX.Rumble({hero, partner}, 2)
-  BossFX.EmergeMist(stantler, stantler.Position.X + 8, stantler.Position.Y + 12)
   SOUND:PlayBGM('Rising Fear.ogg', true)
+  BossFX.Flash(184, 200, 3, 5, 20)
+  GAME:WaitFrames(8)
   GROUND:Unhide('Stantler')
-  GROUND:CharSetAnim(stantler, "Charge", true)
   BossFX.Impact(9)
+  GROUND:CharSetAnim(stantler, "Charge", true)
 
   coro1 = TASK:BranchCoroutine(function()
     GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
@@ -156,10 +170,13 @@ function vast_steppe_guardian_ch_5.SecondPreBossScene()
   SOUND:StopBGM()
   GROUND:CharSetAnim(stantler, "Charge", true)
 
-  GROUND:TeleportTo(hero, 200, 360, Direction.Up)
-  GROUND:TeleportTo(partner, 168, 360, Direction.Up)
-  -- CADRAGE : duo (y≈360) et gardien (y≈200) dans le même cadre.
-  GAME:MoveCamera(184, 280, 1, false)
+  GROUND:TeleportTo(hero, 200, 288, Direction.Up)
+  GROUND:TeleportTo(partner, 168, 288, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 136, 304, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 232, 304, Direction.Up) end
+  GAME:MoveCamera(184, 244, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -196,10 +213,13 @@ local function DefeatedBossBody()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
-  GROUND:TeleportTo(hero, 200, 300, Direction.Up)
-  GROUND:TeleportTo(partner, 168, 300, Direction.Up)
-  -- CADRAGE : duo (y≈300) et gardien (y≈200) dans le même cadre.
-  GAME:MoveCamera(184, 250, 1, false)
+  GROUND:TeleportTo(hero, 200, 288, Direction.Up)
+  GROUND:TeleportTo(partner, 168, 288, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 136, 304, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 232, 304, Direction.Up) end
+  GAME:MoveCamera(184, 244, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -225,10 +245,9 @@ local function DefeatedBossBody()
   flash.Anim = RogueEssence.Content.BGAnimData("White", 0)
   GROUND:PlayVFX(flash, stantler.Position.X, stantler.Position.Y)
   SOUND:PlayBattleSE("EVT_Battle_Flash")
-  -- Pose du gardien vaincu : "Faint" n'est pas une anim ground garantie pour
-  -- toutes les espèces -> GetAnimIndex("Faint") pouvait lever une erreur et
-  -- couper la cinématique (écran noir). "EventSleep" est une anim ground sûre.
-  GROUND:CharSetAnim(stantler, "EventSleep", true)
+  -- LOT 2.3 — pas de PoseGroundAction/"Faint" : le gardien reste visible
+  -- pendant les dialogues, puis disparait au flash blanc.
+  GROUND:CharSetAnim(stantler, "Idle", true)
 
   GAME:WaitFrames(60)
 
@@ -245,6 +264,22 @@ local function DefeatedBossBody()
   GAME:WaitFrames(20)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSG_013']), "Normal")
   -- "On trouvera des réponses plus tard. Allons de l'avant."
+
+  -- LOT 2.2 — disparition sous flash blanc, apres les dialogues de victoire.
+  GAME:WaitFrames(20)
+  SOUND:FadeOutBGM(60)
+  local flash = RogueEssence.Content.FlashEmitter()
+  flash.FadeInTime = 2
+  flash.HoldTime = 2
+  flash.FadeOutTime = 20
+  flash.StartColor = Color(255, 255, 255, 0)
+  flash.Layer = DrawLayer.Top
+  flash.Anim = RogueEssence.Content.BGAnimData("White", 0)
+  GROUND:PlayVFX(flash, stantler.Position.X, stantler.Position.Y)
+  SOUND:PlayBattleSE("EVT_Battle_Flash")
+  GAME:WaitFrames(16)
+  GROUND:Hide('Stantler')
+  GAME:WaitFrames(30)
 
   GAME:WaitFrames(60)
   GAME:FadeOut(false, 60)
@@ -290,11 +325,15 @@ function vast_steppe_guardian_ch_5.DiedToBoss()
   GROUND:CharSetAnim(stantler, "Idle", true)
 
   -- L'équipe est au sol, vaincue.
-  GROUND:TeleportTo(hero, 200, 300, Direction.Up)
-  GROUND:TeleportTo(partner, 168, 300, Direction.Up)
+  GROUND:TeleportTo(hero, 200, 288, Direction.Up)
+  GROUND:TeleportTo(partner, 168, 288, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 136, 304, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 232, 304, Direction.Up) end
   GROUND:CharSetAnim(hero, "EventSleep", true)
   GROUND:CharSetAnim(partner, "EventSleep", true)
-  GAME:MoveCamera(184, 245, 1, false)
+  GAME:MoveCamera(184, 244, 1, false)
 
   GAME:FadeIn(60)
   GAME:WaitFrames(40)
@@ -321,7 +360,7 @@ function vast_steppe_guardian_ch_5.DiedToBoss()
   GAME:WaitFrames(30)
 
   -- La caméra redescend sur le duo ; le partenaire se redresse à peine.
-  GAME:MoveCamera(184, 255, 40, false)
+  GAME:MoveCamera(184, 266, 40, false)
   GROUND:CharEndAnim(partner)
   GeneralFunctions.DoAnimation(partner, 'Wake')
   GAME:WaitFrames(12)
