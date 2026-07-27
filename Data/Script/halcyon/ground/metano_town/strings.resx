@@ -3606,4 +3606,112 @@
   <data name="MT6_121" xml:space="preserve">
     <value>...Mm. A brave little ripple can still reach the whole pond.</value>
   </data>
+  <data name="LZ_Name_Molten_Throne" xml:space="preserve">
+    <value>Molten Throne</value>
+  </data>
+  <data name="LZ_Blurb_Molten_Throne" xml:space="preserve">
+    <value>A throne of living magma, they say. The ground itself bows to whoever sits there.</value>
+  </data>
+  <data name="LZ_Sight_Molten_Throne" xml:space="preserve">
+    <value>A caldera whose heart never cooled. The air shimmers above the stone.</value>
+  </data>
+  <data name="LZ_Name_Tide_Hollow" xml:space="preserve">
+    <value>Tide Hollow</value>
+  </data>
+  <data name="LZ_Blurb_Tide_Hollow" xml:space="preserve">
+    <value>Deep under the storm line, the sea keeps a room where the tide is born.</value>
+  </data>
+  <data name="LZ_Sight_Tide_Hollow" xml:space="preserve">
+    <value>An abyss where the currents turn in a perfect circle, as if stirred from below.</value>
+  </data>
+  <data name="LZ_Name_Western_Silence" xml:space="preserve">
+    <value>Western Silence</value>
+  </data>
+  <data name="LZ_Blurb_Western_Silence" xml:space="preserve">
+    <value>A cave out west where even the echo refuses to follow you.</value>
+  </data>
+  <data name="LZ_Sight_Western_Silence" xml:space="preserve">
+    <value>Man-made halls swallowed by rock. Something very old and very awake waits at the end.</value>
+  </data>
+  <data name="LZ_Name_Victory_Spark" xml:space="preserve">
+    <value>Victory Spark</value>
+  </data>
+  <data name="LZ_Blurb_Victory_Spark" xml:space="preserve">
+    <value>They say whoever touches that little flame never loses again. Never proven wrong.</value>
+  </data>
+  <data name="LZ_Sight_Victory_Spark" xml:space="preserve">
+    <value>A ridge split by an old fault, warm as a heartbeat.</value>
+  </data>
+  <data name="LZ_Name_Twin_Rift" xml:space="preserve">
+    <value>Twin Rift</value>
+  </data>
+  <data name="LZ_Blurb_Twin_Rift" xml:space="preserve">
+    <value>Two lights cross the strait faster than the eye. Always two.</value>
+  </data>
+  <data name="LZ_Sight_Twin_Rift" xml:space="preserve">
+    <value>An island where the wind makes two wakes in the grass, side by side.</value>
+  </data>
+  <data name="LZ_Name_Twin_Rift_Latias" xml:space="preserve">
+    <value>Twin Rift — Red Wake</value>
+  </data>
+  <data name="LZ_Blurb_Twin_Rift_Latias" xml:space="preserve">
+    <value>The gentler of the two lights. Gentler does not mean weaker.</value>
+  </data>
+  <data name="LZ_Sight_Twin_Rift_Latias" xml:space="preserve">
+    <value>The red wake lingers close to the shore, watching.</value>
+  </data>
+  <data name="LZ_Name_First_Cradle_Hoopa" xml:space="preserve">
+    <value>Ringkeeper's Cache</value>
+  </data>
+  <data name="LZ_Blurb_First_Cradle_Hoopa" xml:space="preserve">
+    <value>A prankster hides its treasure at the heart of the tangle. Rings everywhere.</value>
+  </data>
+  <data name="LZ_Sight_First_Cradle_Hoopa" xml:space="preserve">
+    <value>Golden rings hang in the air where no branch could hold them.</value>
+  </data>
+  <data name="LZ_Name_Final_Rest" xml:space="preserve">
+    <value>Cocoon of Ruin</value>
+  </data>
+  <data name="LZ_Blurb_Final_Rest" xml:space="preserve">
+    <value>Where the land sickens, the great cocoon drinks. Do not sleep there.</value>
+  </data>
+  <data name="LZ_Sight_Final_Rest" xml:space="preserve">
+    <value>A hollow of grey trees. Nothing rots — everything simply stops.</value>
+  </data>
+  <data name="LZ_Name_Cells_Gathering" xml:space="preserve">
+    <value>Gathering of Cells</value>
+  </data>
+  <data name="LZ_Blurb_Cells_Gathering" xml:space="preserve">
+    <value>The green watcher only assembles when the order of things is threatened.</value>
+  </data>
+  <data name="LZ_Sight_Cells_Gathering" xml:space="preserve">
+    <value>High above the clouds, specks of green gather and scatter like a swarm deciding.</value>
+  </data>
+  <data name="LZ_Name_Two_Lights" xml:space="preserve">
+    <value>Two Lights — Sun</value>
+  </data>
+  <data name="LZ_Blurb_Two_Lights" xml:space="preserve">
+    <value>The tale says the sun walks as a beast with a mane of steel.</value>
+  </data>
+  <data name="LZ_Sight_Two_Lights" xml:space="preserve">
+    <value>A summit where dawn comes twice: once for the sky, once for the mane.</value>
+  </data>
+  <data name="LZ_Name_Two_Lights_Lunala" xml:space="preserve">
+    <value>Two Lights — Moon</value>
+  </data>
+  <data name="LZ_Blurb_Two_Lights_Lunala" xml:space="preserve">
+    <value>And the moon flies, says the tale, on wings of night sewn with stars.</value>
+  </data>
+  <data name="LZ_Sight_Two_Lights_Lunala" xml:space="preserve">
+    <value>When the sun-beast rests, the night unfolds two immense wings.</value>
+  </data>
+  <data name="LZ_Name_Eternal_Coil" xml:space="preserve">
+    <value>Eternal Coil</value>
+  </data>
+  <data name="LZ_Blurb_Eternal_Coil" xml:space="preserve">
+    <value>I will only speak of that place to someone who has finished what they started.</value>
+  </data>
+  <data name="LZ_Sight_Eternal_Coil" xml:space="preserve">
+    <value>A vein of the world laid bare. The light there does not behave.</value>
+  </data>
 </root>

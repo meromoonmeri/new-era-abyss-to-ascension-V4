@@ -2873,4 +2873,112 @@
   <data name="MT6_121" xml:space="preserve">
     <value>...Mm.[pause=30] Une petite vague courageuse peut tout de même traverser l’étang.</value>
   </data>
+  <data name="LZ_Name_Molten_Throne" xml:space="preserve">
+    <value>Trône de Magma</value>
+  </data>
+  <data name="LZ_Blurb_Molten_Throne" xml:space="preserve">
+    <value>Un trône de magma vivant, à ce qu'on dit. Le sol lui-même s'incline devant celui qui s'y assoit.</value>
+  </data>
+  <data name="LZ_Sight_Molten_Throne" xml:space="preserve">
+    <value>Une caldeira dont le cœur n'a jamais refroidi. L'air tremble au-dessus de la pierre.</value>
+  </data>
+  <data name="LZ_Name_Tide_Hollow" xml:space="preserve">
+    <value>Creux des Marées</value>
+  </data>
+  <data name="LZ_Blurb_Tide_Hollow" xml:space="preserve">
+    <value>Sous la ligne des tempêtes, la mer garde une salle où naît la marée.</value>
+  </data>
+  <data name="LZ_Sight_Tide_Hollow" xml:space="preserve">
+    <value>Un abysse où les courants tournent en cercle parfait, comme brassés depuis le fond.</value>
+  </data>
+  <data name="LZ_Name_Western_Silence" xml:space="preserve">
+    <value>Silence de l'Occident</value>
+  </data>
+  <data name="LZ_Blurb_Western_Silence" xml:space="preserve">
+    <value>Une grotte à l'ouest où même l'écho refuse de vous suivre.</value>
+  </data>
+  <data name="LZ_Sight_Western_Silence" xml:space="preserve">
+    <value>Des salles taillées avalées par la roche. Au bout attend quelque chose de très ancien, et de très éveillé.</value>
+  </data>
+  <data name="LZ_Name_Victory_Spark" xml:space="preserve">
+    <value>Étincelle de la Victoire</value>
+  </data>
+  <data name="LZ_Blurb_Victory_Spark" xml:space="preserve">
+    <value>On dit que qui touche cette petite flamme ne perd plus jamais. Jamais démenti.</value>
+  </data>
+  <data name="LZ_Sight_Victory_Spark" xml:space="preserve">
+    <value>Une crête fendue par une vieille faille, tiède comme un battement de cœur.</value>
+  </data>
+  <data name="LZ_Name_Twin_Rift" xml:space="preserve">
+    <value>Faille Jumelle</value>
+  </data>
+  <data name="LZ_Blurb_Twin_Rift" xml:space="preserve">
+    <value>Deux lumières traversent le détroit plus vite que l'œil. Toujours deux.</value>
+  </data>
+  <data name="LZ_Sight_Twin_Rift" xml:space="preserve">
+    <value>Une île où le vent trace deux sillages dans l'herbe, côte à côte.</value>
+  </data>
+  <data name="LZ_Name_Twin_Rift_Latias" xml:space="preserve">
+    <value>Faille Jumelle — Sillage Rouge</value>
+  </data>
+  <data name="LZ_Blurb_Twin_Rift_Latias" xml:space="preserve">
+    <value>La plus douce des deux lumières. Douce ne veut pas dire faible.</value>
+  </data>
+  <data name="LZ_Sight_Twin_Rift_Latias" xml:space="preserve">
+    <value>Le sillage rouge s'attarde près du rivage, et observe.</value>
+  </data>
+  <data name="LZ_Name_First_Cradle_Hoopa" xml:space="preserve">
+    <value>Cache du Porteur d'Anneaux</value>
+  </data>
+  <data name="LZ_Blurb_First_Cradle_Hoopa" xml:space="preserve">
+    <value>Un farceur cache son trésor au cœur de l'enchevêtrement. Des anneaux partout.</value>
+  </data>
+  <data name="LZ_Sight_First_Cradle_Hoopa" xml:space="preserve">
+    <value>Des anneaux dorés flottent là où aucune branche ne pourrait les tenir.</value>
+  </data>
+  <data name="LZ_Name_Final_Rest" xml:space="preserve">
+    <value>Cocon de la Ruine</value>
+  </data>
+  <data name="LZ_Blurb_Final_Rest" xml:space="preserve">
+    <value>Là où la terre dépérit, le grand cocon s'abreuve. N'y dormez pas.</value>
+  </data>
+  <data name="LZ_Sight_Final_Rest" xml:space="preserve">
+    <value>Un vallon d'arbres gris. Rien n'y pourrit — tout s'y arrête, simplement.</value>
+  </data>
+  <data name="LZ_Name_Cells_Gathering" xml:space="preserve">
+    <value>Assemblée des Cellules</value>
+  </data>
+  <data name="LZ_Blurb_Cells_Gathering" xml:space="preserve">
+    <value>Le veilleur vert ne s'assemble que si l'ordre des choses est menacé.</value>
+  </data>
+  <data name="LZ_Sight_Cells_Gathering" xml:space="preserve">
+    <value>Très au-dessus des nuages, des éclats verts se groupent et se dispersent, comme un essaim qui délibère.</value>
+  </data>
+  <data name="LZ_Name_Two_Lights" xml:space="preserve">
+    <value>Les Deux Lumières — Soleil</value>
+  </data>
+  <data name="LZ_Blurb_Two_Lights" xml:space="preserve">
+    <value>Le conte dit que le soleil marche, fauve à la crinière d'acier.</value>
+  </data>
+  <data name="LZ_Sight_Two_Lights" xml:space="preserve">
+    <value>Un sommet où l'aube se lève deux fois : une pour le ciel, une pour la crinière.</value>
+  </data>
+  <data name="LZ_Name_Two_Lights_Lunala" xml:space="preserve">
+    <value>Les Deux Lumières — Lune</value>
+  </data>
+  <data name="LZ_Blurb_Two_Lights_Lunala" xml:space="preserve">
+    <value>Et la lune vole, dit le conte, sur des ailes de nuit cousues d'étoiles.</value>
+  </data>
+  <data name="LZ_Sight_Two_Lights_Lunala" xml:space="preserve">
+    <value>Quand le fauve-soleil se repose, la nuit déplie deux ailes immenses.</value>
+  </data>
+  <data name="LZ_Name_Eternal_Coil" xml:space="preserve">
+    <value>Spirale Éternelle</value>
+  </data>
+  <data name="LZ_Blurb_Eternal_Coil" xml:space="preserve">
+    <value>Je ne parlerai de ce lieu qu'à qui a terminé ce qu'il a commencé.</value>
+  </data>
+  <data name="LZ_Sight_Eternal_Coil" xml:space="preserve">
+    <value>Une nervure du monde mise à nu. La lumière, là-bas, ne se comporte pas normalement.</value>
+  </data>
 </root>

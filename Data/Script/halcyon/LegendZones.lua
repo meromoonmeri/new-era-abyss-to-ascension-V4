@@ -78,141 +78,141 @@ LegendZones.LIST = {
         key = 'colossus_quarry', species = 'regigigas',
         name = 'LZ_Name_Colossus_Quarry', blurb = 'LZ_Blurb_Colossus_Quarry',
         sight = 'LZ_Sight_Colossus_Quarry', price = 22000,
-        flag = function() return SV.Chapter7 ~= nil and SV.Chapter7.DefeatedRuinsBoss == true end,
-        zone = 'cloven_ruins', segment = 2, roam = false, ready = false
+        flag = function() return SV.Chapter7 ~= nil and SV.Chapter7.SawAnimaCoreCorruption == true end,
+        zone = 'cloven_ruins', segment = 3, roam = false, ready = true
     },
     {
         key = 'spatial_hill', species = 'palkia',
         name = 'LZ_Name_Spatial_Hill', blurb = 'LZ_Blurb_Spatial_Hill',
         sight = 'LZ_Sight_Spatial_Hill', price = 38000,
-        flag = function() return false end,
-        zone = '', segment = -1, roam = true, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 28 end,
+        zone = 'grotte_gravee', segment = 1, roam = true, ready = true
     },
     {
         key = 'hour_that_lags', species = 'dialga',
         name = 'LZ_Name_Hour_That_Lags', blurb = 'LZ_Blurb_Hour_That_Lags',
         sight = 'LZ_Sight_Hour_That_Lags', price = 38000,
-        flag = function() return false end,
-        zone = '', segment = -1, roam = false, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 28 end,
+        zone = 'tour_reliques', segment = 3, roam = false, ready = true
     },
     {
         key = 'reverse_slope', species = 'giratina',
         name = 'LZ_Name_Reverse_Slope', blurb = 'LZ_Blurb_Reverse_Slope',
         sight = 'LZ_Sight_Reverse_Slope', price = 42000,
-        flag = function() return false end,
-        zone = '', segment = -1, roam = true, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 29 end,
+        zone = 'labyrinthe_perdus', segment = 1, roam = true, ready = true
     },
     {
         key = 'dead_hours', species = 'celebi',
         name = 'LZ_Name_Dead_Hours', blurb = 'LZ_Blurb_Dead_Hours',
         sight = 'LZ_Sight_Dead_Hours', price = 25000,
-        flag = function() return false end,
-        zone = 'relic_forest', segment = -1, roam = true, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 20 end,
+        zone = 'bois_antan', segment = 3, roam = true, ready = true
     },
     {
         key = 'clearwater_ford', species = 'suicune',
         name = 'LZ_Name_Clearwater_Ford', blurb = 'LZ_Blurb_Clearwater_Ford',
         sight = 'LZ_Sight_Clearwater_Ford', price = 26000,
-        flag = function() return false end,
-        zone = 'illuminant_riverbed', segment = -1, roam = true, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 25 end,
+        zone = 'antre_chuchotant', segment = 1, roam = true, ready = true
     },
     {
         key = 'ember_vigil', species = 'entei',
         name = 'LZ_Name_Ember_Vigil', blurb = 'LZ_Blurb_Ember_Vigil',
         sight = 'LZ_Sight_Ember_Vigil', price = 26000,
-        flag = function() return false end,
-        zone = 'searing_tunnel', segment = -1, roam = false, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 22 end,
+        zone = 'crete_faille', segment = 3, roam = false, ready = true
     },
     {
         key = 'storm_bell', species = 'raikou',
         name = 'LZ_Name_Storm_Bell', blurb = 'LZ_Blurb_Storm_Bell',
         sight = 'LZ_Sight_Storm_Bell', price = 26000,
-        flag = function() return false end,
-        zone = 'mount_windswept', segment = -1, roam = true, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 16 end,
+        zone = 'crete_voilee', segment = 5, roam = true, ready = true
     },
     {
         key = 'soft_sleep', species = 'cresselia',
         name = 'LZ_Name_Soft_Sleep', blurb = 'LZ_Blurb_Soft_Sleep',
         sight = 'LZ_Sight_Soft_Sleep', price = 28000,
-        flag = function() return false end,
-        zone = '', segment = -1, roam = true, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 23 end,
+        zone = 'cour_clair_lune', segment = 5, roam = true, ready = true
     },
     {
         key = 'upturned_dream', species = 'darkrai',
         name = 'LZ_Name_Upturned_Dream', blurb = 'LZ_Blurb_Upturned_Dream',
         sight = 'LZ_Sight_Upturned_Dream', price = 30000,
-        flag = function() return false end,
-        zone = '', segment = -1, roam = true, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 23 end,
+        zone = 'cour_clair_lune', segment = 5, roam = true, ready = true
     },
     {
         key = 'unsaid_wishes', species = 'jirachi',
         name = 'LZ_Name_Unsaid_Wishes', blurb = 'LZ_Blurb_Unsaid_Wishes',
         sight = 'LZ_Sight_Unsaid_Wishes', price = 32000,
-        flag = function() return false end,
-        zone = '', segment = -1, roam = false, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 31 end,
+        zone = 'dedale_voeu', segment = 1, roam = false, ready = true
     },
     {
         key = 'first_cradle', species = 'mew',
         name = 'LZ_Name_First_Cradle', blurb = 'LZ_Blurb_First_Cradle',
         sight = 'LZ_Sight_First_Cradle', price = 50000,
-        flag = function() return false end,
-        zone = '', segment = -1, roam = true, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 26 end,
+        zone = 'bois_enchevetres', segment = 5, roam = true, ready = true
     },
     {
         key = 'thawed_step', species = 'articuno',
         name = 'LZ_Name_Thawed_Step', blurb = 'LZ_Blurb_Thawed_Step',
         sight = 'LZ_Sight_Thawed_Step', price = 24000,
-        flag = function() return false end,
-        zone = '', segment = -1, roam = false, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 17 end,
+        zone = 'montagne_traitresse', segment = 4, roam = false, ready = true
     },
     {
         key = 'high_conductor', species = 'zapdos',
         name = 'LZ_Name_High_Conductor', blurb = 'LZ_Blurb_High_Conductor',
         sight = 'LZ_Sight_High_Conductor', price = 24000,
-        flag = function() return false end,
-        zone = '', segment = -1, roam = false, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 17 end,
+        zone = 'montagne_traitresse', segment = 4, roam = false, ready = true
     },
     {
         key = 'long_ash', species = 'moltres',
         name = 'LZ_Name_Long_Ash', blurb = 'LZ_Blurb_Long_Ash',
         sight = 'LZ_Sight_Long_Ash', price = 24000,
-        flag = function() return false end,
-        zone = '', segment = -1, roam = false, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 14 end,
+        zone = 'ile_lave_flottante', segment = 5, roam = false, ready = true
     },
     {
         key = 'quiet_ledger', species = 'uxie',
         name = 'LZ_Name_Quiet_Ledger', blurb = 'LZ_Blurb_Quiet_Ledger',
         sight = 'LZ_Sight_Quiet_Ledger', price = 27000,
-        flag = function() return false end,
-        zone = '', segment = -1, roam = false, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 13 end,
+        zone = 'sentier_savoir', segment = 1, roam = false, ready = true
     },
     {
         key = 'kept_feeling', species = 'mesprit',
         name = 'LZ_Name_Kept_Feeling', blurb = 'LZ_Blurb_Kept_Feeling',
         sight = 'LZ_Sight_Kept_Feeling', price = 27000,
-        flag = function() return false end,
-        zone = '', segment = -1, roam = true, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 13 end,
+        zone = 'sentier_espoir', segment = 1, roam = true, ready = true
     },
     {
         key = 'last_resolve', species = 'azelf',
         name = 'LZ_Name_Last_Resolve', blurb = 'LZ_Blurb_Last_Resolve',
         sight = 'LZ_Sight_Last_Resolve', price = 27000,
-        flag = function() return false end,
-        zone = '', segment = -1, roam = false, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 13 end,
+        zone = 'sentier_courage', segment = 1, roam = false, ready = true
     },
     {
         key = 'sunken_choir', species = 'lugia',
         name = 'LZ_Name_Sunken_Choir', blurb = 'LZ_Blurb_Sunken_Choir',
         sight = 'LZ_Sight_Sunken_Choir', price = 36000,
-        flag = function() return false end,
-        zone = '', segment = -1, roam = false, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 19 end,
+        zone = 'fosse_abysses', segment = 1, roam = false, ready = true
     },
     {
         key = 'rainbow_ash', species = 'ho_oh',
         name = 'LZ_Name_Rainbow_Ash', blurb = 'LZ_Blurb_Rainbow_Ash',
         sight = 'LZ_Sight_Rainbow_Ash', price = 36000,
-        flag = function() return false end,
-        zone = '', segment = -1, roam = false, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 18 end,
+        zone = 'tour_sacree', segment = 1, roam = false, ready = true
     },
     {
         key = 'stone_argument', species = 'terrakion',
@@ -225,22 +225,109 @@ LegendZones.LIST = {
         key = 'ninth_summit', species = 'rayquaza',
         name = 'LZ_Name_Ninth_Summit', blurb = 'LZ_Blurb_Ninth_Summit',
         sight = 'LZ_Sight_Ninth_Summit', price = 45000,
-        flag = function() return false end,
-        zone = '', segment = -1, roam = false, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 27 end,
+        zone = 'hauteurs_etoile', segment = 1, roam = false, ready = true
     },
     {
         key = 'borrowed_light', species = 'necrozma',
         name = 'LZ_Name_Borrowed_Light', blurb = 'LZ_Blurb_Borrowed_Light',
         sight = 'LZ_Sight_Borrowed_Light', price = 48000,
-        flag = function() return false end,
-        zone = '', segment = -1, roam = false, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 32 end,
+        zone = 'sentier_eteint', segment = 4, roam = false, ready = true
     },
     {
         key = 'given_life', species = 'xerneas',
         name = 'LZ_Name_Given_Life', blurb = 'LZ_Blurb_Given_Life',
         sight = 'LZ_Sight_Given_Life', price = 44000,
-        flag = function() return false end,
-        zone = '', segment = -1, roam = false, ready = false
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 30 end,
+        zone = 'iles_prismatiques', segment = 1, roam = false, ready = true
+    },
+    ------------------------------------------------------------------
+    -- VAGUE 3 (2026-07-27) — L'Eveil des Ancrages : nouvelles especes.
+    ------------------------------------------------------------------
+    {
+        key = 'molten_throne', species = 'groudon',
+        name = 'LZ_Name_Molten_Throne', blurb = 'LZ_Blurb_Molten_Throne',
+        sight = 'LZ_Sight_Molten_Throne', price = 25200,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 11 end,
+        zone = 'caldeira_endormie', segment = 1, roam = false, ready = true
+    },
+    {
+        key = 'tide_hollow', species = 'kyogre',
+        name = 'LZ_Name_Tide_Hollow', blurb = 'LZ_Blurb_Tide_Hollow',
+        sight = 'LZ_Sight_Tide_Hollow', price = 26400,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 12 end,
+        zone = 'eaux_inexplorees', segment = 32, roam = false, ready = true
+    },
+    {
+        key = 'western_silence', species = 'mewtwo',
+        name = 'LZ_Name_Western_Silence', blurb = 'LZ_Blurb_Western_Silence',
+        sight = 'LZ_Sight_Western_Silence', price = 37200,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 21 end,
+        zone = 'forteresse_abandonnee', segment = 1, roam = false, ready = true
+    },
+    {
+        key = 'victory_spark', species = 'victini',
+        name = 'LZ_Name_Victory_Spark', blurb = 'LZ_Blurb_Victory_Spark',
+        sight = 'LZ_Sight_Victory_Spark', price = 38400,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 22 end,
+        zone = 'crete_faille', segment = 3, roam = true, ready = true
+    },
+    {
+        key = 'twin_rift', species = 'latios',
+        name = 'LZ_Name_Twin_Rift', blurb = 'LZ_Blurb_Twin_Rift',
+        sight = 'LZ_Sight_Twin_Rift', price = 40800,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 24 end,
+        zone = 'ile_eon', segment = 1, roam = true, ready = true
+    },
+    {
+        key = 'twin_rift_latias', species = 'latias',
+        name = 'LZ_Name_Twin_Rift_Latias', blurb = 'LZ_Blurb_Twin_Rift_Latias',
+        sight = 'LZ_Sight_Twin_Rift_Latias', price = 40800,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 24 end,
+        zone = 'ile_eon', segment = 1, roam = true, ready = true
+    },
+    {
+        key = 'first_cradle_hoopa', species = 'hoopa',
+        name = 'LZ_Name_First_Cradle_Hoopa', blurb = 'LZ_Blurb_First_Cradle_Hoopa',
+        sight = 'LZ_Sight_First_Cradle_Hoopa', price = 43200,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 26 end,
+        zone = 'bois_enchevetres', segment = 5, roam = true, ready = true
+    },
+    {
+        key = 'final_rest', species = 'yveltal',
+        name = 'LZ_Name_Final_Rest', blurb = 'LZ_Blurb_Final_Rest',
+        sight = 'LZ_Sight_Final_Rest', price = 46800,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 29 end,
+        zone = 'vallon_malsain', segment = 3, roam = false, ready = true
+    },
+    {
+        key = 'cells_gathering', species = 'zygarde',
+        name = 'LZ_Name_Cells_Gathering', blurb = 'LZ_Blurb_Cells_Gathering',
+        sight = 'LZ_Sight_Cells_Gathering', price = 48000,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 30 end,
+        zone = 'ciel_suspendu', segment = 1, roam = false, ready = true
+    },
+    {
+        key = 'two_lights', species = 'solgaleo',
+        name = 'LZ_Name_Two_Lights', blurb = 'LZ_Blurb_Two_Lights',
+        sight = 'LZ_Sight_Two_Lights', price = 49200,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 31 end,
+        zone = 'conte_sans_fin', segment = 1, roam = false, ready = true
+    },
+    {
+        key = 'two_lights_lunala', species = 'lunala',
+        name = 'LZ_Name_Two_Lights_Lunala', blurb = 'LZ_Blurb_Two_Lights_Lunala',
+        sight = 'LZ_Sight_Two_Lights_Lunala', price = 49200,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 31 end,
+        zone = 'conte_sans_fin', segment = 1, roam = false, ready = true
+    },
+    {
+        key = 'eternal_coil', species = 'eternatus',
+        name = 'LZ_Name_Eternal_Coil', blurb = 'LZ_Blurb_Eternal_Coil',
+        sight = 'LZ_Sight_Eternal_Coil', price = 60000,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.StoryCompleted == true end,
+        zone = 'nervure_monde', segment = 1, roam = false, ready = true
     }
 }
 
