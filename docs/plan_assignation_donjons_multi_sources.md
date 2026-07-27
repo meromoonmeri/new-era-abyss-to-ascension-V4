@@ -1,3 +1,6 @@
+# [ARCHIVE — fusionné dans DOCUMENT_MAITRE_donjons_externes.md le 2026-07-27]
+# Ne plus mettre à jour ce fichier ; il est conservé comme trace historique.
+
 # Plan d'assignation — Réutilisation totale de donjons (toutes sources)
 
 Date : 2026-07-26

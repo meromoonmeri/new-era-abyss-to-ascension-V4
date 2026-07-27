@@ -1,3 +1,6 @@
+# [ARCHIVE — fusionné dans DOCUMENT_MAITRE_donjons_externes.md le 2026-07-27]
+# Ne plus mettre à jour ce fichier ; il est conservé comme trace historique.
+
 # Curation — Filtre à 3 questions appliqué à chaque ressource externe
 
 **Date :** 26/07/2026 — **Commit :** suite à intégration complète
