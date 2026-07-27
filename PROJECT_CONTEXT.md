@@ -360,3 +360,75 @@ Estimation (12 car/s + 1,2 s par boîte, hors combats et exploration) :
 +48 clés EN/FR ajoutées. L'objectif de 10 min par scène **n'est pas atteint** (sauf Crucible) et n'a pas été forcé : conformément à la consigne, on signale plutôt que de remplir. Le Crucible montre qu'atteindre 10 min demande ~86 boîtes et plusieurs PNJ nommés présents dans la scène — les arènes de boss n'ont que héros + partenaire + une Voix sans portrait.
 
 **Estimation durée totale Ch5 : ~2 h 30 à 3 h 30** (36 étages procéduraux + 6 arènes + cinématiques + camp), donc **en dessous des 5 h visées**. Le levier réaliste n'est pas le dialogue de boss mais les relais (`vast_steppe_midpoint` n'a que **4 clés**) et les lots A-F de `docs/production_ch5_dialogues.md`.
+
+---
+
+## Session 2026-07-31 (agent Arena.ai) — arc 2, add-ons, Grodoudou, Team Dazzling
+
+Branche `arena/019fa547`. **PR #3 toujours OUVERTE** — rien n'est mergé, rien n'est testé en jeu.
+
+### Livré dans cette session
+
+| Vague | Contenu |
+|---|---|
+| Boss ch5 | cadrage caméra, flash blanc, stats 25-32, dialogues, tag |
+| Réseau des Anciens Chemins | Veilleurs (12 arènes) + ouverture des voies + 12 derniers donjons pmd-red (zones 44-55) |
+| Réseau du Ciel | 67 zones EoS (`new_era_sky_00..66`), 25 Stations-Relais |
+| Tunnel Ardent | fix brume + **arène mini-boss qui n'existait pas** + clan de lave développé |
+| Arc 2 | `SuaireArc.lua` (5 actes) + `SuaireJobs.lua` (5 contrats de job board) |
+| Grodoudou | déplacée au comptoir libre + cinématique d'arrivée |
+| Team Dazzling | audit + **16 clés de dialogue non traduites** corrigées |
+
+### Bugs réels trouvés et corrigés (pas des ajouts, des réparations)
+
+1. **`searing_tunnel_miniboss.rsmap` était orpheline** : aucun segment ne la chargeait.
+   Le combat Torkoal/Magmar n'avait donc jamais lieu, et `DefeatedBoss`/`DiedToBoss`
+   étaient du code mort. Segment d'arène créé, renumérotation complète de la zone.
+2. **Brume du Tunnel** : `AddMapStatus("steam")` absent, remplacé par un overlay
+   ponctuel sur une carte de 416×544 → salle couverte en partie seulement.
+3. **`colossus_quarry`** : `cloven_ruins` n'appelait jamais `SetDefeated`. La zone-amie
+   Regigigas à 22 000 P n'était jamais marquée comme conquise. `verify_legend` passe
+   maintenant à **0 échec** (contre 2 au baseline).
+4. **16 clés Team Dazzling** (MT6_101..116) écrites en français dans le fichier
+   **anglais** et absentes du fichier FR → le joueur FR voyait du texte non traduit sur
+   toute la scène de défaite et de victoire du ch6.
+5. **`TunnelMiniBossDefeated/Lost`** non déclarés dans `scriptvars`, contrairement à
+   leurs 6 homologues.
+
+### ⚠️ Risque à tester en priorité
+
+**La renumérotation des segments de `searing_tunnel`** : avant `2=Crucible, 3=annexe`,
+après `2=arène, 3=Crucible, 4=annexe`. Le moteur stocke segment+étage dans le `ZoneLoc`
+de la sauvegarde. Une partie sauvegardée **à l'intérieur** du Tunnel peut pointer sur un
+segment qui a changé de sens. Un `ZoneLoc` n'est pas modifiable depuis Lua : le décalage
+est documenté dans `debug_tools` avec un garde `OnUpgrade`. **Sortir du donjon avant de
+charger cette version.**
+
+### État chiffré du dépôt
+
+- **202 donjons** (12 histoire + 68 Ancrages/secondaires + 46 pmd-red + 67 EoS + 9 mazes)
+- **73 ont une arène de boss** ; les 67 zones EoS et 34 des 46 pmd-red n'en ont pas
+  (choix assumé des vagues : les cinématiques viendront après)
+- Validation intégrale : Lua **634/634**, zones **208/208**, resx **555/555**,
+  rsground **269/269**, index **209 entrées, 0 zone manquante**
+
+### Corrections d'idées fausses de mes rapports précédents
+
+- **Les portraits ne manquent pas.** Les 34 fichiers de `Content/Portrait/` sont des
+  surcharges du mod ; le moteur PMDO fournit nativement les autres. Mes réserves sur
+  Torkoal/Magmar/Suaire/Veilleurs étaient infondées.
+- **`Data/Monster/` ne contient que des surcharges** (12 espèces). La liste réelle est
+  dans `Data/Misc/MonsterFeature.json` (975 espèces) — c'est la source à interroger.
+- **Les autotiles de donjon viennent du jeu de base**, pas du dépôt. Vérifier leur
+  existence dans `Data/AutoTile/` (8 fichiers seulement) donne un faux négatif ; le bon
+  critère est « déjà référencé par une zone existante ».
+
+### Ce qui reste (par valeur décroissante)
+
+1. **Tester en jeu.** 10 vagues de contenu non testé, c'est le vrai risque du projet.
+2. Cinématiques de boss pour les 67 zones EoS et les 34 pmd-red sans arène.
+3. Densité des relais ch5 : `vast_steppe_midpoint` et `mount_windswept_midpoint` n'ont
+   que **4 clés** chacun, contre 42 pour `searing_tunnel_midpoint`.
+4. Chapitres 11-32 : donjons et 42 cinématiques d'Ancrage prêts, **scénario non écrit**.
+5. `normal_maze` déclare 38 GroundMaps (toute la ville, la guilde…) — résidu de test à
+   nettoyer, sans danger immédiat mais brouille les audits.
