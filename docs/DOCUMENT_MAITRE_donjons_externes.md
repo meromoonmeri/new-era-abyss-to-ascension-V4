@@ -408,6 +408,37 @@ en tremplin du twist arc 6 au lieu d'un détour. Team Dazzling = trop frontale,
 
 ---
 
+## PARTIE 8bis — CRITÈRE ÉLARGI : lieux officiels par boss (directive 2026-07-27)
+
+Règle : pour chaque boss, chercher un lieu associé dans N'IMPORTE QUEL jeu
+Pokémon (PMD ou jeu principal) importable comme donjon/arène. Recherche
+rouverte sur tous les dépôts fournis + décomps pret.
+
+| Boss | Lieu officiel (tous jeux) | Source importable ? | Décision |
+|---|---|---|---|
+| **Regigigas (ch7)** | Aegis Cave (PMD Sky) ; Temple Frimapic (D/P) | ✅ EoSO (tilesets convertis PMDO) | **✅ FAIT** : `sanctuaire_titans.rsmap` (« Sanctuaire des Titans »), arène 1:1 25×27, Regigigas 28 + **trio Regirock/Regice/Registeel 26**, branchée cloven_ruins seg3. Ancienne arène gardée en secours. |
+| Trio Regi seul | Ruines du Désert / Grotte Island / Tombeau Antique (Émeraude) | ✅ pret/pokeemerald (décomp dispo) | RÉSERVE — candidats donjons secondaires « Trois Serviteurs » ch11+ (nécessite pipeline gen 3, cf. ci-dessous) |
+| **Diancie (ch8)** | Domaine Diamant = FILM uniquement ; en jeu : event de distribution, aucune carte | ❌ aucune carte n'existe dans aucun jeu | Arène New Era conservée (rien à importer — vérifié) |
+| **Laggron (ch9)** | Aucun : Laggron est un starter, jamais de lieu dédié (boss inventé New Era, gardien du Marais) | ❌ | Arène New Era conservée |
+| **Zarude (ch6)** | Forêt d'Okoya = FILM (Secrets de la Jungle) ; event SwSh sans zone dédiée | ❌ (Switch, pas de décomp 2D) | Arène New Era conservée ; option cosmétique : tilesets ForestDark/NightForest (ProjectEoN) pour une variante nocturne de la Forêt Lugubre |
+| Escouade Fulgur (ch10) | Équipe originale New Era | — | Arène New Era |
+| **Lugia (ch10)** | Sky Tower Summit + Silver Trench (pmd-red) ; Îles Tourbillon (Or/Argent/Cristal) ; Grotte Océane/Navel Rock (Émeraude) | ✅ pmd-red fait ; pokecrystal/pokeemerald dispo | **✅ FAIT** (autel_celeste) ; Îles Tourbillon/Navel Rock = réserve gen 2/3 |
+
+### Inventaire des dépôts fournis (re-vérifié 2026-07-27)
+
+- **EoSO (Minemaker0430)** : 146 tilesets convertis PMDO — dont les 4 Aegis
+  (récupérés → `Titans_*`), le reste = réserve boss rooms (2e passe à faire).
+- **minior-game-jam (CregALeg)** : 9 tilesets — `High Stardust Peak` /
+  `Stardust Pinnacle` = candidats parfaits pour l'arc Minior/Météno (§10 VEIL-RAYQ).
+- **ProjectEoN** : ForestDark / NightForest / uproarforest_edited confirmés présents.
+- **pret/pmd-sky** : décomp NDS — formats BPC NDS lisibles par skytemple-files
+  (contrairement au GBA) ; pipeline possible pour les grounds Sky si besoin.
+- **pret/pokeemerald, pokecrystal, pokediamond** : décomps disponibles —
+  ouvrent les lieux des jeux principaux (Îles Tourbillon, ruines des Regis,
+  Temple Frimapic…). Nouveau pipeline à construire si validé.
+- **« zorua »** : aucun dépôt zorua trouvé dans ce qui a été fourni ni sur
+  GitHub — fournir le lien si ce mod existe.
+
 ## PARTIE 9 — PLAN D'EXÉCUTION
 
 **Validations utilisateur du 2026-07-27** : point 3 = synthèse Jirachi (wishmaker_cave
