@@ -5248,7 +5248,8 @@
       "Grounds": [
         "gorge_ardente_porte",
         "new_era_zone_15_relais",
-        "fosse_ardente"
+        "fosse_ardente",
+        "gorge_ardente_coeur"
       ],
       "Maps": [
         [
@@ -5288,7 +5289,8 @@
       "Grounds": [
         "parvis_celeste",
         "new_era_zone_17_relais",
-        "autel_celeste"
+        "autel_celeste",
+        "palier_celeste"
       ],
       "Maps": [
         [
@@ -5869,7 +5871,8 @@
       "CountedFloors": 20,
       "Rogue": 0,
       "Grounds": [
-        "caverne_trouble_fond"
+        "caverne_trouble_fond",
+        "caverne_trouble_autel"
       ],
       "Maps": [
         [
