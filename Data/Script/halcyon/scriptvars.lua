@@ -823,6 +823,8 @@ SV.Chapter5 =
 
 	--Cinematiques d'enjeu de l'expedition
 	SkyTremorSceneSeen = false,--Le premier pulse du sommet vu depuis le camp de la steppe
+	HadFirstDream = false,--Premier reve du heros (memoire du gardien du sceau) — nuit post-expedition
+	WindSecretSceneSeen = false,--Le secret Hyko x Penticus surpris de nuit au camp du Mont
 	SteppeGuardianSeen = false,
 	TunnelMiniBossSeen = false,
 	MountMiniBossSeen = false,

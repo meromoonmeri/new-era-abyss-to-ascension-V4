@@ -136,3 +136,27 @@ Structure OST en 4 actes : Welcome to the World of Pokémon! → Time Gear Remix
 ## « L'Arbitre du Ciel » — 7e légende (Reinier, camp du Mont)
 
 Rayquaza nommé en fin de récit ; Kyogre/Groudon évoqués comme « la mer et la terre en guerre » (jamais nommés). Règle posée : **l'Arbitre ne bouge que si quelque chose franchit son ciel — dans un sens ou dans l'autre**. Relie le Météno (tombé = franchissement descendant) et la lumière du sommet (franchissement montant potentiel). Préfiguration lointaine de l'arc Jirachi/Fil du Destin. Déblocage : après victoire sur le gardien du Mont. OST : Sky Peak Cave → Rising Fear (bref) → Canyon Camp.
+
+## Réseau de foreshadowing longue portée (session 6 — 2026-07-26)
+
+Plan quinquennal de scénariste : chaque graine plantée au ch5 paie à un arc précis de la trame 32 chapitres (`docs/04_trame_arc1.md`).
+
+| Graine (ch5) | Où | Paie à | Mécanique |
+|---|---|---|---|
+| **Le Premier Rêve** — « la lumière ne nourrit pas... elle RETIENT » + « souviens-toi pourquoi tu es venu » | nuit post-expédition (PostExpeditionBedtalk), écran noir, VoiceOver, son de cristal | **Arc 6 (ch29-32)** : la lumière des Cœurs est le sceau d'Eternatus ; **Arc 2+** : les rêves = mémoire du dernier gardien du sceau ; l'amnésie du héros a une RAISON | le joueur oublie le rêve avec le héros (« je n'arrive déjà plus à m'en souvenir ») — relecture bouleversante en NG+ |
+| **Le registre des pulses de Phileas** — « une chose qui LUTTE... qui s'épuise à tenir quelque chose fermé » | Metano post-expédition (Noctowl_Action) | **Arcs 3-5** : Necrozma n'est pas un voleur de lumière, il SCELLE. La vérité est énoncée dès le ch5 par le personnage le plus intelligent du cast — personne ne l'écoute | ironie dramatique classique : l'indice le plus important a l'air d'une divagation d'érudit |
+| **« Une équipe aux yeux d'or »** — questions sur les SOURCES, pas les chemins | Metano post-expédition (Doduo le facteur, ses deux têtes en désaccord) | **Ch6** : arrivée de l'Escouade Fulgur avec le même mandat d'inspection des cores | amorce exigée par la trame arc 1 (« un PNJ mineur mentionne... ») — honorée |
+| **La brume aux trois silhouettes** — fleurs qui fanent d'un seul côté, « comme si elles écoutaient le sol », odeur d'encens froid | Metano post-expédition (Gloom_Action) | **Arc 2 (ch7-12)** : le Cercle du Suaire (Banette/Ectoplasma/Nostenfer) vole des fragments de core ; **Arc 4** : ce sont les descendants des gardiens du sceau | menace feutrée — jamais nommée, jamais confirmée, le PNJ doute de lui-même |
+| **« Ce que le vent a emporté »** — cinématique complète | camp du Mont, nuit, après la veillée | thème central courage/sacrifice + **« il y a 25 ans, la montagne s'était DÉJÀ allumée »** = les pulses actuels répètent la nuit de la dernière grande catastrophe (cohérent avec les 25 ans de calme de Grodoudou) | le héros surprend la scène — il porte un secret qu'il ne peut pas révéler |
+
+### Canon ajouté par « Ce que le vent a emporté »
+- Le père de Hyko : un **Arcanin**, coéquipier de Penticus, mort il y a 25 ans sur le Mont Venteux en hissant Penticus d'une corniche. Version officielle : « mission de routine » (mensonge demandé par Penticus).
+- La montagne s'était **allumée** cette nuit-là — la nuit de la dernière grande catastrophe (= le cataclysme final des Héros d'Autrefois). Les pulses actuels sont une récidive, pas une première.
+- Hyko sait désormais la vérité et a répondu par le courage : « ne me protégez plus DE la montagne, apprenez-moi à la gravir ». Penticus a accepté. **Toute écriture future de Hyko doit refléter cette évolution** (moins de sur-protection de Penticus, Hyko plus assuré).
+- Le héros a entendu — il n'en parlera à personne, mais ses monologues internes peuvent y faire écho.
+- OST : On the Beach at Dusk (confession) → Sympathy (réponse de Hyko).
+
+### Échos internes verrouillés (à maintenir)
+- « Équipe de deux » : Grodoudou (héros d'autrefois) → Penticus & l'Arcanin (il y a 25 ans) → héros & partenaire (aujourd'hui). Trois générations, même motif.
+- « 25 ans » est LE nombre canon (Grodoudou, Penticus, l'Aggron du café « depuis l'ancien Maître de Guilde » = même époque).
+- La corniche qui cède : à réutiliser en écho au sommet (ch5 fin) et à l'Ascension (arc 5-6) — quelqu'un devra rattraper quelqu'un.

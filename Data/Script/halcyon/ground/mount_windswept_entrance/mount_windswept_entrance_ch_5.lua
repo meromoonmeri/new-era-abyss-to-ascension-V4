@@ -568,3 +568,132 @@ function mount_windswept_entrance_ch_5.Zigzagoon_Action(chara, activator)
 	end
 	GeneralFunctions.EndConversation(chara)
 end
+
+--------------------------------------------------------------------
+-- CINÉMATIQUE ÉMOTIONNELLE — « Ce que le vent a emporté »
+-- Le secret Hyko × Penticus, en paiement de la dette narrative posée
+-- au Tunnel (« ce n'est pas mon histoire » — Phileas). Surprise nocturne :
+-- le joueur, sorti prendre l'air, surprend une conversation qu'il
+-- n'aurait pas dû entendre. Penticus revele pourquoi il protege Hyko :
+-- le pere de Hyko etait son coequipier — mort en le sauvant, sur CETTE
+-- montagne, il y a 25 ans (la nuit de la derniere grande catastrophe).
+-- Foreshadowing : « la montagne s'etait allumee cette nuit-la aussi ».
+-- Courage/sacrifice : le coeur thematique du jeu, incarne 20 chapitres
+-- avant que le heros n'ait a faire le meme choix.
+-- OST : silence -> On the Beach at Dusk -> Sympathy.
+-- Declencheur : nuit au camp du Mont, apres le gardien, apres la veillee.
+--------------------------------------------------------------------
+function mount_windswept_entrance_ch_5.WindSecretScene()
+	local hero = CH('PLAYER')
+	local tropius = CH('Tropius')
+	local growlithe = CH('Teammate2')
+	if tropius == nil or growlithe == nil then GAME:FadeIn(20) return end
+
+	GAME:CutsceneMode(true)
+	SOUND:StopBGM()
+	GROUND:AddMapStatus("darkness")
+
+	-- Le heros se reveille seul ; deux silhouettes au bord du camp.
+	GROUND:TeleportTo(hero, 256, 340, Direction.Up)
+	GROUND:TeleportTo(tropius, 352, 200, Direction.Down)
+	GROUND:TeleportTo(growlithe, 352, 240, Direction.Up)
+	GAME:MoveCamera(256, 320, 1, false)
+
+	GAME:FadeIn(60)
+	GAME:WaitFrames(40)
+
+	GeneralFunctions.HeroDialogue(hero, "(Impossible de dormir...[pause=0] Ce vent n'arrête jamais.[pause=20] ...Tiens ?[pause=0] Des voix ?)", "Normal")
+	GAME:WaitFrames(20)
+
+	-- Le heros s'approche sans etre vu ; la camera glisse vers les deux autres.
+	local coro1 = TASK:BranchCoroutine(function() GeneralFunctions.EightWayMove(hero, 300, 290, false, 1) end)
+	local coro2 = TASK:BranchCoroutine(function() GeneralFunctions.PanCamera(nil, nil, false, 90, 340, 230) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	GAME:WaitFrames(30)
+
+	SOUND:PlayBGM('On the Beach at Dusk.ogg', true)
+	GAME:WaitFrames(30)
+
+	UI:SetSpeaker(growlithe)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue("...Maître,[pause=10] avec tout mon respect,[pause=10] je dois vous le demander.[pause=0] Pourquoi moi ?")
+	UI:WaitShowDialogue("Vous m'avez gardé près de vous tout le voyage.[pause=0] Vous avez paniqué quand on a eu du retard au Tunnel.[pause=0] Les autres recrues n'ont pas ce traitement,[pause=10] wouf.")
+	UI:WaitShowDialogue("Je ne suis pas en sucre.[pause=0] Je suis un garde de la guilde.[pause=0] Alors...[pause=10] pourquoi ?")
+
+	GAME:WaitFrames(40)
+	UI:SetSpeaker(tropius)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(".........")
+	GAME:WaitFrames(30)
+	UI:WaitShowDialogue("...Tu as ses yeux,[pause=10] tu sais.")
+
+	GROUND:CharSetEmote(growlithe, "question", 1)
+	UI:SetSpeaker(growlithe)
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue("...Les yeux de qui,[pause=10] Maître ?")
+
+	GAME:WaitFrames(30)
+	UI:SetSpeaker(tropius)
+	UI:SetSpeakerEmotion("Sad")
+	UI:WaitShowDialogue("Il y a vingt-cinq ans,[pause=10] j'avais un coéquipier.[pause=0] Un Arcanin.[pause=0] La tête brûlée la plus loyale que cette guilde ait jamais comptée.")
+	UI:WaitShowDialogue("Cette nuit-là...[pause=10] le monde entier tremblait.[pause=0] La dernière des grandes catastrophes.[pause=0] Et cette montagne...[pause=20] cette montagne s'était ALLUMÉE,[pause=10] exactement comme aujourd'hui.")
+	GAME:WaitFrames(20)
+	UI:WaitShowDialogue("Nous sommes montés tous les deux.[pause=0] Jeunes.[pause=0] Invincibles.[pause=0] Persuadés que le monde avait besoin de nous...[pause=10] et il avait besoin de nous.")
+	GAME:WaitFrames(30)
+	UI:SetSpeakerEmotion("Pain")
+	UI:WaitShowDialogue("Une corniche a cédé sous moi,[pause=10] près du sommet.[pause=0] Il m'a rattrapé.[pause=0] Il m'a HISSÉ.[pause=0] Et le temps que je me retourne...")
+	GAME:WaitFrames(40)
+	UI:WaitShowDialogue("...le vent l'avait emporté.[pause=0] Voilà ce que le vent a pris,[pause=10] cette nuit-là.[pause=0] Le meilleur d'entre nous.[pause=0] Ton père,[pause=10] Hyko.")
+
+	GAME:WaitFrames(50)
+	GROUND:CharSetEmote(growlithe, "shock", 1)
+	SOUND:PlayBattleSE("EVT_Emote_Shock_2")
+	UI:SetSpeaker(growlithe)
+	UI:SetSpeakerEmotion("Stunned")
+	UI:WaitShowDialogue("Mon...[pause=20] mon père ?[pause=0] Mais...[pause=10] on m'a toujours dit qu'il était mort en mission de routine...")
+
+	UI:SetSpeaker(tropius)
+	UI:SetSpeakerEmotion("Sad")
+	UI:WaitShowDialogue("C'est moi qui ai demandé qu'on te dise ça.[pause=0] Un petit ne devrait pas grandir en sachant que son père est mort pour une corniche...[pause=10] et pour un imbécile qui marchait dessus.")
+	GAME:WaitFrames(30)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue("Alors oui.[pause=0] Je te garde près de moi.[pause=0] Pas parce que tu es fragile,[pause=10] Hyko.[pause=0] Parce que je lui dois de te ramener.[pause=0] De CHAQUE expédition.[pause=0] Jusqu'à ma dernière.")
+
+	-- Sympathy : la reponse de Hyko. Courage, pas larmes.
+	SOUND:FadeOutBGM(40)
+	GAME:WaitFrames(40)
+	SOUND:PlayBGM('Sympathy.ogg', true)
+	GAME:WaitFrames(30)
+
+	UI:SetSpeaker(growlithe)
+	UI:SetSpeakerEmotion("Teary-Eyed")
+	UI:WaitShowDialogue(".........")
+	GAME:WaitFrames(40)
+	UI:SetSpeakerEmotion("Determined")
+	UI:WaitShowDialogue("...Merci de me l'avoir dit,[pause=10] Maître.[pause=0] Mais je vais vous demander une chose,[pause=10] et c'est la dernière fois que je la demanderai.")
+	UI:WaitShowDialogue("Ne me protégez plus DE la montagne.[pause=0] Apprenez-moi à la gravir.[pause=0] C'est comme ça qu'on honore ceux que le vent a pris,[pause=10] wouf.")
+	UI:WaitShowDialogue("Pas en gardant leurs enfants au camp.[pause=0] En en faisant des Pokémon...[pause=10] que le vent n'emporte pas.")
+
+	GAME:WaitFrames(50)
+	UI:SetSpeaker(tropius)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue("...Tu as sa voix aussi,[pause=10] finalement.[pause=0] D'accord,[pause=10] Hyko.[pause=0] D'accord.")
+
+	-- Le heros se retire sans bruit.
+	GAME:WaitFrames(40)
+	GeneralFunctions.PanCamera()
+	GAME:WaitFrames(20)
+	GeneralFunctions.HeroDialogue(hero, "(Je n'aurais pas dû entendre ça.[pause=0] Mais je ne l'oublierai jamais.[pause=20] Il y a vingt-cinq ans...[pause=10] la montagne s'était déjà allumée.[pause=0] La nuit de la dernière grande catastrophe.)", "Worried")
+	GeneralFunctions.HeroDialogue(hero, "(Ce n'est pas la première fois.[pause=0] Tout ça est déjà arrivé.[pause=0] Et quelqu'un est déjà mort là-haut...[pause=10] pour que quelqu'un d'autre vive.)", "Sad")
+
+	GAME:WaitFrames(40)
+	SOUND:FadeOutBGM(60)
+	GAME:FadeOut(false, 60)
+	GAME:WaitFrames(30)
+
+	GROUND:RemoveMapStatus("darkness")
+	SV.Chapter5.WindSecretSceneSeen = true
+	GAME:CutsceneMode(false)
+	SOUND:PlayBGM('Mt. Travail.ogg', true)
+	GAME:FadeIn(40)
+end

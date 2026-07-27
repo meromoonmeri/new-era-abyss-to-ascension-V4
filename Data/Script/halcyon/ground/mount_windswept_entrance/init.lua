@@ -74,6 +74,12 @@ function mount_windswept_entrance.PlotScripting()
   if SV.ChapterProgression.Chapter == 5 then
     if not SV.Chapter5.FinishedMountWindsweptIntro then
       mount_windswept_entrance_ch_5.ArrivalCutscene()
+    elseif SV.Chapter5.MountGuardianDefeated and SV.Chapter5.MountVigilSceneSeen
+       and not SV.Chapter5.WindSecretSceneSeen then
+      --Cinematique emotionnelle : le secret Hyko x Penticus, surprise de nuit.
+      --Se joue apres la veillee du relais (l'ordre des revelations compte).
+      mount_windswept_entrance_ch_5.SetupGround()
+      mount_windswept_entrance_ch_5.WindSecretScene()
     else
       mount_windswept_entrance_ch_5.SetupGround()
       GAME:FadeIn(20)
