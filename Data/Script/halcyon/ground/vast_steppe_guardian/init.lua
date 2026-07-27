@@ -9,14 +9,35 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.ground.vast_steppe_guardian.vast_steppe_guardian_ch_5'
 
+-- [NREPROBE] sonde locale : état complet de la scène à un point donné.
+local function nre_snap(tag)
+  local ok, msg = pcall(function()
+    local zone = tostring(_ZONE.CurrentZoneID)
+    local seg = tostring(_ZONE.CurrentMapID.Segment)
+    local save_n = _DATA.Save.ActiveTeam.Players.Count
+    local leader = '<nil>'
+    if _DATA.Save.ActiveTeam.Leader ~= nil then
+      leader = _DATA.Save.ActiveTeam.Leader:GetDisplayName(true)
+    end
+    local hero = CH('PLAYER')
+    local partner = CH('Teammate1')
+    return string.format('[NREPROBE][%s] zone=%s seg=%s Save.Team=%d leader=%s hero=%s partner=%s',
+      tag, zone, seg, save_n, leader,
+      hero ~= nil and 'OK' or 'NIL', partner ~= nil and 'OK' or 'NIL')
+  end)
+  PrintInfo(ok and msg or ('[NREPROBE]['..tag..'] snapshot FAILED: '..tostring(msg)))
+end
+
 local vast_steppe_guardian = {}
 
 function vast_steppe_guardian.Init(map)
+  nre_snap('vast_steppe_guardian.Init')
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Init_vast_steppe_guardian")
 end
 
 function vast_steppe_guardian.Enter(map)
+  nre_snap('vast_steppe_guardian.Enter')
 	if SV.Chapter5.SteppeGuardianDefeated == nil then SV.Chapter5.SteppeGuardianDefeated = false end
 	if SV.Chapter5.SteppeGuardianLost == nil then SV.Chapter5.SteppeGuardianLost = false end
 	if SV.Chapter5.SteppeGuardianSeen == nil then SV.Chapter5.SteppeGuardianSeen = false end

@@ -228,7 +228,7 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
   SV.Chapter5.MountMiniBossSeen = true
-  GAME:ContinueDungeon("mount_windswept", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  PrintInfo("[NREPROBE][transition] mount_windswept_miniboss_ch_5.lua ContinueDungeon('mount_windswept', 1)") GAME:ContinueDungeon("mount_windswept", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function mount_windswept_miniboss_ch_5.SecondPreBossScene()
@@ -269,7 +269,7 @@ function mount_windswept_miniboss_ch_5.SecondPreBossScene()
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("mount_windswept", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  PrintInfo("[NREPROBE][transition] mount_windswept_miniboss_ch_5.lua ContinueDungeon('mount_windswept', 1)") GAME:ContinueDungeon("mount_windswept", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function mount_windswept_miniboss_ch_5.DefeatedBoss()

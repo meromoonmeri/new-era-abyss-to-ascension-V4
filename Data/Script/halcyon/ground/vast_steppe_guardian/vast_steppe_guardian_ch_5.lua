@@ -137,7 +137,7 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
   SV.Chapter5.SteppeGuardianSeen = true
-  GAME:ContinueDungeon("vast_steppe", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  PrintInfo("[NREPROBE][transition] vast_steppe_guardian_ch_5.lua ContinueDungeon('vast_steppe', 3)") GAME:ContinueDungeon("vast_steppe", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function vast_steppe_guardian_ch_5.SecondPreBossScene()
@@ -174,7 +174,7 @@ function vast_steppe_guardian_ch_5.SecondPreBossScene()
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("vast_steppe", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  PrintInfo("[NREPROBE][transition] vast_steppe_guardian_ch_5.lua ContinueDungeon('vast_steppe', 3)") GAME:ContinueDungeon("vast_steppe", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function vast_steppe_guardian_ch_5.DefeatedBoss()

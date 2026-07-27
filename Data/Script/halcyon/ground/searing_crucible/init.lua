@@ -8,6 +8,25 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.ground.searing_crucible.searing_crucible_ch_5'
 
+-- [NREPROBE] sonde locale : état complet de la scène à un point donné.
+local function nre_snap(tag)
+  local ok, msg = pcall(function()
+    local zone = tostring(_ZONE.CurrentZoneID)
+    local seg = tostring(_ZONE.CurrentMapID.Segment)
+    local save_n = _DATA.Save.ActiveTeam.Players.Count
+    local leader = '<nil>'
+    if _DATA.Save.ActiveTeam.Leader ~= nil then
+      leader = _DATA.Save.ActiveTeam.Leader:GetDisplayName(true)
+    end
+    local hero = CH('PLAYER')
+    local partner = CH('Teammate1')
+    return string.format('[NREPROBE][%s] zone=%s seg=%s Save.Team=%d leader=%s hero=%s partner=%s',
+      tag, zone, seg, save_n, leader,
+      hero ~= nil and 'OK' or 'NIL', partner ~= nil and 'OK' or 'NIL')
+  end)
+  PrintInfo(ok and msg or ('[NREPROBE]['..tag..'] snapshot FAILED: '..tostring(msg)))
+end
+
 -- Package name
 local searing_crucible = {}
 
@@ -23,6 +42,7 @@ local searing_crucible = {}
 ---searing_crucible.Init(map)
 --Engine callback function
 function searing_crucible.Init(map)
+  nre_snap('searing_crucible.Init')
   DEBUG.EnableDbgCoro()
   print('=>> Init_searing_crucible <<=')
   
@@ -35,6 +55,7 @@ end
 ---searing_crucible.Enter(map)
 --Engine callback function
 function searing_crucible.Enter(map)
+  nre_snap('searing_crucible.Enter')
 
   searing_crucible.PlotScripting()
 

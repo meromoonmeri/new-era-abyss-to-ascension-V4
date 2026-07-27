@@ -218,7 +218,7 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
   SV.Chapter5.TunnelMiniBossSeen = true
-  GAME:ContinueDungeon("searing_tunnel", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  PrintInfo("[NREPROBE][transition] searing_tunnel_miniboss_ch_5.lua ContinueDungeon('searing_tunnel', 1)") GAME:ContinueDungeon("searing_tunnel", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function searing_tunnel_miniboss_ch_5.SecondPreBossScene()
@@ -259,7 +259,7 @@ function searing_tunnel_miniboss_ch_5.SecondPreBossScene()
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("searing_tunnel", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  PrintInfo("[NREPROBE][transition] searing_tunnel_miniboss_ch_5.lua ContinueDungeon('searing_tunnel', 1)") GAME:ContinueDungeon("searing_tunnel", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function searing_tunnel_miniboss_ch_5.DefeatedBoss()
@@ -329,7 +329,7 @@ function searing_tunnel_miniboss_ch_5.DefeatedBoss()
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("searing_tunnel", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  PrintInfo("[NREPROBE][transition] searing_tunnel_miniboss_ch_5.lua ContinueDungeon('searing_tunnel', 2)") GAME:ContinueDungeon("searing_tunnel", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 -- Player died to the boss

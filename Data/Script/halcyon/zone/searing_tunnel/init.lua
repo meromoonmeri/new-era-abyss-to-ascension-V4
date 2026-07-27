@@ -112,7 +112,7 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 		else
 			-- Chapter 5 mini-boss check: if not yet encountered, go to mini-boss ground first
 			if SV.ChapterProgression.Chapter == 5 and not SV.Chapter5.TunnelMiniBossSeen then
-				GAME:EnterGroundMap('searing_tunnel_miniboss', 'Main_Entrance_Marker')
+				PrintInfo("[NREPROBE][transition] searing_tunnel.ExitSegment -> EnterGroundMap('searing_tunnel_miniboss')") GAME:EnterGroundMap('searing_tunnel_miniboss', 'Main_Entrance_Marker')
 			elseif SV.ChapterProgression.Chapter == 5 then 
 				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 48, 0, false, false)
 			else
@@ -179,7 +179,7 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 				SV.TemporaryFlags.MorningWakeup = true 
 				SV.TemporaryFlags.MorningAddress = true 
 			end 	
-			GAME:EnterGroundMap('searing_crucible', 'Main_Entrance_Marker')
+			PrintInfo("[NREPROBE][transition] searing_tunnel.ExitSegment -> EnterGroundMap('searing_crucible')") GAME:EnterGroundMap('searing_crucible', 'Main_Entrance_Marker')
 			
 		end 
 		
