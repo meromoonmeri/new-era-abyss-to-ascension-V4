@@ -373,6 +373,23 @@ function DebugTools:OnUpgrade()
 	if not GAME:DungeonUnlocked("new_era_zone_41") then GAME:UnlockDungeon("new_era_zone_41") end
 	if not GAME:DungeonUnlocked("new_era_zone_42") then GAME:UnlockDungeon("new_era_zone_42") end
 	if not GAME:DungeonUnlocked("new_era_zone_43") then GAME:UnlockDungeon("new_era_zone_43") end
+	if not GAME:DungeonUnlocked("new_era_zone_44") then GAME:UnlockDungeon("new_era_zone_44") end
+	if not GAME:DungeonUnlocked("new_era_zone_45") then GAME:UnlockDungeon("new_era_zone_45") end
+	if not GAME:DungeonUnlocked("new_era_zone_46") then GAME:UnlockDungeon("new_era_zone_46") end
+	if not GAME:DungeonUnlocked("new_era_zone_47") then GAME:UnlockDungeon("new_era_zone_47") end
+	if not GAME:DungeonUnlocked("new_era_zone_48") then GAME:UnlockDungeon("new_era_zone_48") end
+ end
+ --Add-on v2 : donjons post-game du jeu d'origine (Relique des Glyphes, Tour de
+ --la Joie Premiere, Mer du Lointain, Foret de l'Epure, Ile des Vestiges, Mer des
+ --Merveilles, Detroit des Chimeres) : reserves a l'apres-histoire.
+ if SV.ChapterProgression.StoryCompleted == true then
+	if not GAME:DungeonUnlocked("new_era_zone_49") then GAME:UnlockDungeon("new_era_zone_49") end
+	if not GAME:DungeonUnlocked("new_era_zone_50") then GAME:UnlockDungeon("new_era_zone_50") end
+	if not GAME:DungeonUnlocked("new_era_zone_51") then GAME:UnlockDungeon("new_era_zone_51") end
+	if not GAME:DungeonUnlocked("new_era_zone_52") then GAME:UnlockDungeon("new_era_zone_52") end
+	if not GAME:DungeonUnlocked("new_era_zone_53") then GAME:UnlockDungeon("new_era_zone_53") end
+	if not GAME:DungeonUnlocked("new_era_zone_54") then GAME:UnlockDungeon("new_era_zone_54") end
+	if not GAME:DungeonUnlocked("new_era_zone_55") then GAME:UnlockDungeon("new_era_zone_55") end
  end
  --Vague 8 : etats de checkpoint (reveil au relais)
  --Audit IsGameOver : flags persistants de mini-boss pour les parties existantes.
