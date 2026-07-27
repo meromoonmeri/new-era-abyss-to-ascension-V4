@@ -138,6 +138,8 @@ function guild_heros_room_ch_1.Bedtalk()
 	GAME:UnlockDungeon("bosquet_voile")
 	GAME:UnlockDungeon("grotte_mystere")
 	GAME:UnlockDungeon("vallee_fertile")
+	--Vague 2 multi-sources : secondaire ch2
+	GAME:UnlockDungeon("grotte_repos")
 	GAME:FadeOut(false, 120)
 	SV.ChapterProgression.Chapter = 2
 	GeneralFunctions.EndOfDay()--reset daily flags and increment day counter by 1

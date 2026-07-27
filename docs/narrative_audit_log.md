@@ -197,3 +197,22 @@ fantôme, boss ch8-10 aux intros interchangeables).
   RTRB dès l'import initial). Positions, niveaux, entrées : inchangés.
 - **Verdict** : le joueur peut-il sentir le patchwork ? NON — au contraire,
   cette passe supprime la dernière rupture visuelle du climax du ch10.
+
+---
+
+## Audit §10 — 2026-07-27 : vague 2 (15 secondaires ch2-10)
+
+- Renommages FR originaux, zéro trace des mods sources dans les assets
+  (2 renames de cartes internes en *_fond/*_secret ; tileset technique
+  NorthernDesert1OwnWall conservé tel quel : nom générique du jeu de base).
+- Substitutions assumées : muddy_valley→Bois des Ronces, royal_garden→Halles
+  Royales, glacial_path→Toundra Désolée (zones absentes de la source, rôle
+  narratif équivalent conservé).
+- Cohérence de progression : chaque secondaire arrive au chapitre où son thème
+  sert l'histoire (désert asséché/geode = indices Anima ch6, bassin tari =
+  presage du Marais ch9, col de la Foudre = territoire Fulgur ch10).
+- OST dédiés importés : chaque donjon garde son ambiance sonore propre au lieu
+  de recycler les 68 pistes existantes.
+- Verdict : le joueur peut-il sentir le patchwork ? NON — les 15 zones suivent
+  le même patron (déblocage narratif, job board, retour Metano) que la vague 1
+  déjà en place.

@@ -337,6 +337,40 @@ function DebugTools:OnUpgrade()
  if SV.ChapterProgression.Chapter >= 4 and not GAME:DungeonUnlocked("grotte_echoue") then
 	GAME:UnlockDungeon("grotte_echoue")
  end
+ --Vague 2 multi-sources : deblocage retroactif des secondaires ch2-10
+ if SV.ChapterProgression.Chapter >= 2 and not GAME:DungeonUnlocked("grotte_repos") then
+	GAME:UnlockDungeon("grotte_repos")
+ end
+ if SV.ChapterProgression.Chapter >= 3 and not GAME:DungeonUnlocked("bois_ronces") then
+	GAME:UnlockDungeon("bois_ronces")
+ end
+ if SV.ChapterProgression.Chapter >= 4 and not GAME:DungeonUnlocked("halles_royales") then
+	GAME:UnlockDungeon("halles_royales")
+	GAME:UnlockDungeon("jardin_secret")
+ end
+ if SV.ChapterProgression.Chapter >= 5 and not GAME:DungeonUnlocked("foret_embuscade") then
+	GAME:UnlockDungeon("foret_embuscade")
+	GAME:UnlockDungeon("bois_filou")
+ end
+ if SV.ChapterProgression.Chapter >= 6 and not GAME:DungeonUnlocked("desert_oublies") then
+	GAME:UnlockDungeon("desert_oublies")
+	GAME:UnlockDungeon("crevasse_geode")
+ end
+ if SV.ChapterProgression.Chapter >= 7 and not GAME:DungeonUnlocked("jardin_energie") then
+	GAME:UnlockDungeon("jardin_energie")
+ end
+ if SV.ChapterProgression.Chapter >= 8 and not GAME:DungeonUnlocked("toundra_desolee") then
+	GAME:UnlockDungeon("toundra_desolee")
+ end
+ if SV.ChapterProgression.Chapter >= 9 and not GAME:DungeonUnlocked("bassin_tari") then
+	GAME:UnlockDungeon("bassin_tari")
+	GAME:UnlockDungeon("marais_errants")
+ end
+ if SV.ChapterProgression.Chapter >= 10 and not GAME:DungeonUnlocked("col_foudre") then
+	GAME:UnlockDungeon("col_foudre")
+	GAME:UnlockDungeon("falaises_envol")
+	GAME:UnlockDungeon("sentier_enneige")
+ end
  
  --Gloomy Forest midpoint flags (ch6)
  if SV.Chapter6 == nil then SV.Chapter6 = {} end

@@ -33,6 +33,10 @@ MISSION_GEN.DUNGEON_LIST = {"illuminant_riverbed", "crooked_cavern", "apricorn_g
 	"vast_steppe", "searing_tunnel", "mount_windswept", "gloomy_forest",
 	"petit_tunnel", "bosquet_voile", "grotte_mystere", "vallee_fertile",
 	"antre_enigme", "carriere_cuivre", "grotte_echoue",
+	"grotte_repos", "bois_ronces", "halles_royales", "jardin_secret",
+	"foret_embuscade", "bois_filou", "desert_oublies", "crevasse_geode",
+	"jardin_energie", "toundra_desolee", "bassin_tari", "marais_errants",
+	"col_foudre", "falaises_envol", "sentier_enneige",
 	"cloven_ruins", "crystal_sanctuary", "forgotten_marsh", "celestial_peak"}
 --Les donjons du chapitre 5/6 sont desormais eligibles au tableau des missions :
 --sans eux, les 2 jours d'attente imposes entre les chapitres 5 et 6 (DaysToReach)
@@ -72,6 +76,22 @@ MISSION_GEN.DUNGEON_DIFFICULTY["vallee_fertile"] = "D"
 MISSION_GEN.DUNGEON_DIFFICULTY["antre_enigme"] = "C"
 MISSION_GEN.DUNGEON_DIFFICULTY["carriere_cuivre"] = "C"
 MISSION_GEN.DUNGEON_DIFFICULTY["grotte_echoue"] = "B"
+--Vague 2 multi-sources (donjons secondaires ch2-10)
+MISSION_GEN.DUNGEON_DIFFICULTY["grotte_repos"] = "E"
+MISSION_GEN.DUNGEON_DIFFICULTY["bois_ronces"] = "D"
+MISSION_GEN.DUNGEON_DIFFICULTY["halles_royales"] = "C"
+MISSION_GEN.DUNGEON_DIFFICULTY["jardin_secret"] = "B"
+MISSION_GEN.DUNGEON_DIFFICULTY["foret_embuscade"] = "C"
+MISSION_GEN.DUNGEON_DIFFICULTY["bois_filou"] = "C"
+MISSION_GEN.DUNGEON_DIFFICULTY["desert_oublies"] = "B"
+MISSION_GEN.DUNGEON_DIFFICULTY["crevasse_geode"] = "B"
+MISSION_GEN.DUNGEON_DIFFICULTY["jardin_energie"] = "B"
+MISSION_GEN.DUNGEON_DIFFICULTY["toundra_desolee"] = "A"
+MISSION_GEN.DUNGEON_DIFFICULTY["bassin_tari"] = "A"
+MISSION_GEN.DUNGEON_DIFFICULTY["marais_errants"] = "A"
+MISSION_GEN.DUNGEON_DIFFICULTY["col_foudre"] = "S"
+MISSION_GEN.DUNGEON_DIFFICULTY["falaises_envol"] = "S"
+MISSION_GEN.DUNGEON_DIFFICULTY["sentier_enneige"] = "S"
 --Donjons principaux ch7-10 (missions de rappel post-completion)
 MISSION_GEN.DUNGEON_DIFFICULTY["cloven_ruins"] = "S"
 MISSION_GEN.DUNGEON_DIFFICULTY["crystal_sanctuary"] = "S"
@@ -139,6 +159,22 @@ MISSION_GEN.EXPECTED_LEVEL["vallee_fertile"] = 12
 MISSION_GEN.EXPECTED_LEVEL["antre_enigme"] = 13
 MISSION_GEN.EXPECTED_LEVEL["carriere_cuivre"] = 13
 MISSION_GEN.EXPECTED_LEVEL["grotte_echoue"] = 15
+--Vague 2 multi-sources (donjons secondaires ch2-10)
+MISSION_GEN.EXPECTED_LEVEL["grotte_repos"] = 10
+MISSION_GEN.EXPECTED_LEVEL["bois_ronces"] = 12
+MISSION_GEN.EXPECTED_LEVEL["halles_royales"] = 14
+MISSION_GEN.EXPECTED_LEVEL["jardin_secret"] = 14
+MISSION_GEN.EXPECTED_LEVEL["foret_embuscade"] = 16
+MISSION_GEN.EXPECTED_LEVEL["bois_filou"] = 16
+MISSION_GEN.EXPECTED_LEVEL["desert_oublies"] = 19
+MISSION_GEN.EXPECTED_LEVEL["crevasse_geode"] = 19
+MISSION_GEN.EXPECTED_LEVEL["jardin_energie"] = 22
+MISSION_GEN.EXPECTED_LEVEL["toundra_desolee"] = 22
+MISSION_GEN.EXPECTED_LEVEL["bassin_tari"] = 25
+MISSION_GEN.EXPECTED_LEVEL["marais_errants"] = 25
+MISSION_GEN.EXPECTED_LEVEL["col_foudre"] = 27
+MISSION_GEN.EXPECTED_LEVEL["falaises_envol"] = 27
+MISSION_GEN.EXPECTED_LEVEL["sentier_enneige"] = 27
 --Donjons principaux ch7-10 (niveaux post-renivelage option a)
 MISSION_GEN.EXPECTED_LEVEL["cloven_ruins"] = 26
 MISSION_GEN.EXPECTED_LEVEL["crystal_sanctuary"] = 28

@@ -84,6 +84,9 @@ function guild_heros_room.CheckTriggerEvent()
 		GAME:UnlockDungeon("apricorn_grove")
 		--Vague 1 multi-sources : secondaire ch4
 		GAME:UnlockDungeon("grotte_echoue")
+		--Vague 2 multi-sources : secondaires ch4
+		GAME:UnlockDungeon("halles_royales")
+		GAME:UnlockDungeon("jardin_secret")
 		GAME:UnlockDungeon("flying_maze")--unlock new mazes at ledian dojo
 		GAME:UnlockDungeon("rock_maze")--unlock new mazes at ledian dojo
 		GAME:WaitFrames(60)
@@ -101,6 +104,9 @@ function guild_heros_room.CheckTriggerEvent()
 		--GAME:UnlockDungeon("apricorn_grove")
 		GAME:UnlockDungeon("electric_maze")--unlock new mazes at ledian dojo
 		GAME:UnlockDungeon("bug_maze")--unlock new mazes at ledian dojo
+		--Vague 2 multi-sources : secondaires ch5 (route de l'expedition)
+		GAME:UnlockDungeon("foret_embuscade")
+		GAME:UnlockDungeon("bois_filou")
 		GAME:WaitFrames(60)
 		GeneralFunctions.PromptChapterSaveAndQuit("guild_heros_room", "Main_Entrance_Marker", 2)
 	end
@@ -114,6 +120,9 @@ function guild_heros_room.CheckTriggerEvent()
 		SV.Dojo.NewMazeUnlocked = true
 		GAME:UnlockDungeon("gloomy_forest")
 		GAME:UnlockDungeon("grass_maze")
+		--Vague 2 multi-sources : secondaires ch6
+		GAME:UnlockDungeon("desert_oublies")
+		GAME:UnlockDungeon("crevasse_geode")
 		GAME:WaitFrames(60)
 		GeneralFunctions.PromptChapterSaveAndQuit("guild_heros_room", "Main_Entrance_Marker", 2)
 	end
