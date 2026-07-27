@@ -120,6 +120,10 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
   -- Ordre impose : Voix -> Flash -> Emergence thematique.
   BossFX.Voice('STM_006')
   GAME:WaitFrames(20)
+  -- LOT 4 — la Voix relie l'epreuve du feu a celle de la steppe deja franchie.
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_027']))
+  -- "Le feu éprouve ceux que l'herbe a laissés passer."
+  GAME:WaitFrames(20)
 
   -- === PANORAMIQUE : cadre commun equipe (y=280) + clan de lave (y=208-232) ===
   GAME:MoveCamera(256, 240, 60, false)
@@ -319,6 +323,13 @@ local function DefeatedBossBody()
   GAME:WaitFrames(20)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['STM_014']), "Normal")
   -- "C'est comme si elle nous testait. Continuons."
+
+  -- LOT 4 — le clan libere le passage : cap sur le relais.
+  GAME:WaitFrames(20)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_028']))
+  -- "Le clan de lave nous laisse passer... le relais ne doit plus être loin."
 
   GAME:WaitFrames(20)
 

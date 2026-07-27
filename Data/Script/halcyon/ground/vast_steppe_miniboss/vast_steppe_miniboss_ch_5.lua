@@ -224,6 +224,11 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_010']))
   -- "Montre-leur ta détermination... ou péris."
 
+  -- LOT 4 — la Voix pose l'enjeu du chapitre : le LIEN du duo est mis a l'epreuve.
+  GAME:WaitFrames(20)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_029']))
+  -- "Montrez-moi ce que vaut votre lien, petits porteurs de braise."
+
   GAME:WaitFrames(40)
 
   -- === Mudbray stomps, Stantler roars ===
@@ -347,6 +352,17 @@ local function DefeatedBossBody()
   GAME:WaitFrames(20)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSM_015']), "Worried")
   -- "Je ne sais pas. Continuons d'avancer."
+
+  -- LOT 4 — le duo formule l'idee d'une mise a l'epreuve, puis fixe le cap.
+  GAME:WaitFrames(20)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_030']))
+  -- "Cette voix... elle nous observait. Elle nous TESTAIT."
+
+  GAME:WaitFrames(20)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSM_031']), "Determined")
+  -- "Alors montrons-lui la suite. Direction le cœur de la steppe."
 
   GAME:WaitFrames(30)
   -- Mudbray and Stantler fade/disappear into the mist

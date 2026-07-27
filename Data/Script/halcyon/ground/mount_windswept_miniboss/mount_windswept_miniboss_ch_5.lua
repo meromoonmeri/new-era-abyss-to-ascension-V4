@@ -123,6 +123,10 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   BossFX.Voice('MWM_006')
   -- "Les Sentinelles du Pic..."
   GAME:WaitFrames(20)
+  -- LOT 4 — la Voix pose l'enjeu : meriter le sommet.
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_027']))
+  -- "Le ciel a ses gardiens. Prouvez que vous méritez le sommet."
+  GAME:WaitFrames(20)
 
   -- === PANORAMIQUE : cadre commun equipe (y=272) + sentinelles (y=192-240) ===
   GAME:MoveCamera(224, 232, 60, false)
@@ -340,6 +344,13 @@ local function DefeatedBossBody()
   GAME:WaitFrames(20)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWM_014']), "Worried")
   -- "Peut-être. Ou peut-être qu'elle veut juste nous voir réussir."
+
+  -- LOT 4 — on nomme l'enjeu du sommet, juste avant le gardien final.
+  GAME:WaitFrames(20)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Determined")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_028']))
+  -- "Le sommet est proche. Ce qu'on a senti depuis le départ... c'est là-haut."
 
   GAME:WaitFrames(20)
 

@@ -607,6 +607,12 @@ function searing_crucible_ch_5.FirstPreBossScene()
 	UI:SetSpeaker(magcargo)
 	UI:SetSpeakerEmotion("Determined")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_033']))
+
+	--LOT 4 : la Voix mysterieuse s'invite avant l'epreuve du feu.
+	GAME:WaitFrames(20)
+	BossFX.Voice('SC5_085')
+	--"Voici la fournaise. Brule, ou deviens digne."
+	GAME:WaitFrames(20)
 	
 	--Setup for lavaflow variables will happen in the zone's enter segment.
 	COMMON.BossTransition()
@@ -1224,6 +1230,14 @@ local function DefeatedBossBody()
 	UI:SetSpeaker(growlithe)
 	UI:SetSpeakerEmotion("Surprised")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_081']))
+
+	--LOT 4 : le partenaire fixe le cap sur la derniere etape de l'expedition.
+	GAME:WaitFrames(20)
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Determined")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_086']))
+	--"Apres le feu... il ne reste que le vent. Le Mont Venteux nous attend."
+	GAME:WaitFrames(20)
 	
 	--they leave
 	coro1 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)

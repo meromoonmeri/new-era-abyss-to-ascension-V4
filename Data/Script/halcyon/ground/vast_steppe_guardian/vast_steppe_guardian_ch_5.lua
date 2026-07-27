@@ -265,6 +265,18 @@ local function DefeatedBossBody()
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSG_013']), "Normal")
   -- "On trouvera des réponses plus tard. Allons de l'avant."
 
+  -- LOT 4 — la Voix designe l'etape suivante de l'expedition...
+  GAME:WaitFrames(30)
+  BossFX.Voice('VSG_026')
+  -- "Tu as apaisé le veilleur des herbes. La montagne qui brûle jugera la suite."
+
+  -- ...et le partenaire fait le lien avec le Tunnel Ardent, ou l'expedition campe.
+  GAME:WaitFrames(20)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Surprised")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_027']))
+  -- "La montagne qui brûle... le Tunnel Ardent ! C'est là que l'expédition monte le camp !"
+
   -- LOT 2.2 — disparition sous flash blanc, apres les dialogues de victoire.
   GAME:WaitFrames(20)
   SOUND:FadeOutBGM(60)
