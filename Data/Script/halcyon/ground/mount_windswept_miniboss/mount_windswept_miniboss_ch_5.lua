@@ -21,7 +21,8 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
 
   GROUND:TeleportTo(hero, 240, 440, Direction.Up)
   GROUND:TeleportTo(partner, 208, 440, Direction.Up)
-  GAME:MoveCamera(224, 240, 1, false)
+  -- CADRAGE : la camera doit demarrer SUR le duo (y~440).
+  GAME:MoveCamera(224, 420, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -43,8 +44,8 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
     GROUND:MoveInDirection(hero, Direction.Up, 72, false, 1)
   end)
   local coro3 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(20)
-    GAME:MoveCamera(224, 180, 60, false)
+    -- La camera suit le duo pendant sa marche vers le nord (72px).
+    GAME:MoveCamera(224, 348, 90, false)
   end)
   TASK:JoinCoroutines({coro1, coro2, coro3})
 
@@ -109,6 +110,10 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   BossFX.Voice('MWM_006')
   -- "Les Sentinelles du Pic..."
   GAME:WaitFrames(20)
+
+  -- === PANORAMIQUE VERS LE HAUT — les boss surgissent vers y=192-240 ===
+  GAME:MoveCamera(224, 265, 60, false)
+  GAME:WaitFrames(10)
 
   -- === FLASH BLANC ===
   BossFX.Flash(224, 220)
@@ -248,7 +253,8 @@ function mount_windswept_miniboss_ch_5.SecondPreBossScene()
 
   GROUND:TeleportTo(hero, 240, 380, Direction.Up)
   GROUND:TeleportTo(partner, 208, 380, Direction.Up)
-  GAME:MoveCamera(224, 240, 1, false)
+  -- CADRAGE : duo (y~380) et boss (y~192-240) dans le meme cadre.
+  GAME:MoveCamera(224, 290, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -272,9 +278,9 @@ function mount_windswept_miniboss_ch_5.SecondPreBossScene()
   PrintInfo("[NREPROBE][transition] mount_windswept_miniboss_ch_5.lua ContinueDungeon('mount_windswept', 1)") GAME:ContinueDungeon("mount_windswept", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function mount_windswept_miniboss_ch_5.DefeatedBoss()
-  PrintInfo("[BossSeq][mount_windswept_miniboss_ch_5] DefeatedBoss cutscene start")
-  SV.Chapter5.MountMiniBossCleared = true
+-- Corps de la cinematique, appele sous pcall par DefeatedBoss() : toute erreur
+-- Lua ici ne doit JAMAIS laisser le joueur sur un ecran noir definitif.
+local function DefeatedBossBody()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local gligar = CharacterEssentials.MakeCharactersFromList({
@@ -284,19 +290,19 @@ function mount_windswept_miniboss_ch_5.DefeatedBoss()
     {'Skarmory', 268, 192, Direction.Down}
   })
 
-  GROUND:CharSetAction(gligar, RogueEssence.Ground.PoseGroundAction(
-    gligar.Position, gligar.Direction,
-    RogueEssence.Content.GraphicsManager.GetAnimIndex("Faint")))
-  GROUND:CharSetAction(skarmory, RogueEssence.Ground.PoseGroundAction(
-    skarmory.Position, skarmory.Direction,
-    RogueEssence.Content.GraphicsManager.GetAnimIndex("Faint")))
+  -- Pose des boss vaincus : "Faint" n'existe pas comme anim ground pour toutes
+  -- les especes -> GetAnimIndex("Faint") levait une erreur et coupait la
+  -- cinematique (ecran noir). "EventSleep" est une anim ground sure.
+  GROUND:CharSetAnim(gligar, "EventSleep", true)
+  GROUND:CharSetAnim(skarmory, "EventSleep", true)
 
   AI:DisableCharacterAI(partner)
   SOUND:StopBGM()
 
   GROUND:TeleportTo(hero, 240, 340, Direction.Up)
   GROUND:TeleportTo(partner, 208, 340, Direction.Up)
-  GAME:MoveCamera(224, 240, 1, false)
+  -- CADRAGE : duo (y~340) et boss au sol (y~192-240) dans le meme cadre.
+  GAME:MoveCamera(224, 275, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -338,7 +344,21 @@ function mount_windswept_miniboss_ch_5.DefeatedBoss()
 
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
+end
+
+function mount_windswept_miniboss_ch_5.DefeatedBoss()
+  PrintInfo("[BossSeq][mount_windswept_miniboss_ch_5] DefeatedBoss cutscene start")
+  SV.Chapter5.MountMiniBossCleared = true
+
+  local ok, err = pcall(DefeatedBossBody)
+  if not ok then
+    PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
+    pcall(function() GAME:FadeOut(false, 20) end)
+  end
+
+  -- Sortie garantie, quoi qu'il arrive.
   GAME:CutsceneMode(false)
+  PrintInfo("[BossSeq][mount_windswept_miniboss_ch_5] DefeatedBoss -> mount_windswept_midpoint")
   GAME:EnterGroundMap("mount_windswept_midpoint", "Main_Entrance_Marker")
 end
 

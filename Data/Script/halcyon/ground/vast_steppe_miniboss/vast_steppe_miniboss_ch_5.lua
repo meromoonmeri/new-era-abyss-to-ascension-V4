@@ -22,7 +22,8 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   -- Position the team entering the deep steppe
   GROUND:TeleportTo(hero, 200, 400, Direction.Up)
   GROUND:TeleportTo(partner, 168, 400, Direction.Up)
-  GAME:MoveCamera(184, 200, 1, false)
+  -- CADRAGE : la caméra doit démarrer SUR le duo (y≈400), pas 200px au-dessus.
+  GAME:MoveCamera(184, 380, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -45,8 +46,8 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
     GROUND:MoveInDirection(hero, Direction.Up, 80, false, 1)
   end)
   local coro3 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(20)
-    GAME:MoveCamera(184, 160, 60, false)
+    -- La caméra suit le duo en douceur pendant sa marche vers le nord (80px).
+    GAME:MoveCamera(184, 300, 90, false)
   end)
   TASK:JoinCoroutines({coro1, coro2, coro3})
 
@@ -125,6 +126,11 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   -- "Qui... qui a dit ça ?!"
 
   GAME:WaitFrames(30)
+
+  -- === PANORAMIQUE VERS LE HAUT — les boss vont surgir vers y=200-232 ===
+  -- Cadre commun : boss (y≈200-232) ET duo (y≈320) tiennent à l'écran.
+  GAME:MoveCamera(184, 230, 60, false)
+  GAME:WaitFrames(10)
 
   -- === WHITE FLASH ===
   local center = GAME:GetCameraCenter()
@@ -247,7 +253,8 @@ function vast_steppe_miniboss_ch_5.SecondPreBossScene()
 
   GROUND:TeleportTo(hero, 200, 360, Direction.Up)
   GROUND:TeleportTo(partner, 168, 360, Direction.Up)
-  GAME:MoveCamera(184, 200, 1, false)
+  -- CADRAGE : duo (y≈360) et boss (y≈200-232) dans le même cadre.
+  GAME:MoveCamera(184, 280, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -272,9 +279,9 @@ function vast_steppe_miniboss_ch_5.SecondPreBossScene()
 end
 
 -- Player defeated the mini-boss
-function vast_steppe_miniboss_ch_5.DefeatedBoss()
-  PrintInfo("[BossSeq][vast_steppe_miniboss_ch_5] DefeatedBoss cutscene start")
-  SV.Chapter5.SteppeMiniBossCleared = true
+-- Corps de la cinématique, appelé sous pcall par DefeatedBoss() : toute erreur
+-- Lua ici ne doit JAMAIS laisser le joueur sur un écran noir définitif.
+local function DefeatedBossBody()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
@@ -285,9 +292,10 @@ function vast_steppe_miniboss_ch_5.DefeatedBoss()
     {'Stantler', 152, 200, Direction.Down}
   })
 
-  GROUND:CharSetAction(mudbray, RogueEssence.Ground.PoseGroundAction(
-    mudbray.Position, mudbray.Direction,
-    RogueEssence.Content.GraphicsManager.GetAnimIndex("Faint")))
+  -- Pose du boss vaincu : "Faint" n'existe pas comme anim ground pour toutes les
+  -- espèces -> GetAnimIndex("Faint") levait une erreur et coupait la cinématique
+  -- (écran noir). "EventSleep" est une anim ground sûre et universelle.
+  GROUND:CharSetAnim(mudbray, "EventSleep", true)
   GROUND:CharSetAnim(stantler, "Charge", true)
 
   AI:DisableCharacterAI(partner)
@@ -295,7 +303,8 @@ function vast_steppe_miniboss_ch_5.DefeatedBoss()
 
   GROUND:TeleportTo(hero, 200, 300, Direction.Up)
   GROUND:TeleportTo(partner, 168, 300, Direction.Up)
-  GAME:MoveCamera(184, 200, 1, false)
+  -- CADRAGE : duo (y≈300) et boss au sol (y≈200-232) dans le même cadre.
+  GAME:MoveCamera(184, 260, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -345,7 +354,22 @@ function vast_steppe_miniboss_ch_5.DefeatedBoss()
   GAME:WaitFrames(60)
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
+end
+
+function vast_steppe_miniboss_ch_5.DefeatedBoss()
+  PrintInfo("[BossSeq][vast_steppe_miniboss_ch_5] DefeatedBoss cutscene start")
+  SV.Chapter5.SteppeMiniBossCleared = true
+
+  local ok, err = pcall(DefeatedBossBody)
+  if not ok then
+    PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
+    -- On sort proprement malgré l'erreur : jamais d'écran noir définitif.
+    pcall(function() GAME:FadeOut(false, 20) end)
+  end
+
+  -- Sortie garantie, quoi qu'il arrive.
   GAME:CutsceneMode(false)
+  PrintInfo("[BossSeq][vast_steppe_miniboss_ch_5] DefeatedBoss -> vast_steppe_midpoint")
   GAME:EnterGroundMap("vast_steppe_midpoint", "Main_Entrance_Marker")
 end
 

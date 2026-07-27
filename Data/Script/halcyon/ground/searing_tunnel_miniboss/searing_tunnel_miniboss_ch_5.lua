@@ -21,7 +21,8 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
 
   GROUND:TeleportTo(hero, 240, 440, Direction.Up)
   GROUND:TeleportTo(partner, 272, 440, Direction.Up)
-  GAME:MoveCamera(256, 240, 1, false)
+  -- CADRAGE : la camera doit demarrer SUR le duo (y~440).
+  GAME:MoveCamera(256, 420, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -44,8 +45,8 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
     GROUND:MoveInDirection(hero, Direction.Up, 64, false, 1)
   end)
   local coro3 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(20)
-    GAME:MoveCamera(256, 200, 60, false)
+    -- La camera suit le duo pendant sa marche vers le nord (64px).
+    GAME:MoveCamera(256, 356, 90, false)
   end)
   TASK:JoinCoroutines({coro1, coro2, coro3})
 
@@ -106,6 +107,10 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
   -- Ordre impose : Voix -> Flash -> Emergence thematique.
   BossFX.Voice('STM_006')
   GAME:WaitFrames(20)
+
+  -- === PANORAMIQUE VERS LE HAUT — les boss surgissent vers y=208-232 ===
+  GAME:MoveCamera(256, 280, 60, false)
+  GAME:WaitFrames(10)
 
   -- === FLASH BLANC ===
   BossFX.Flash(256, 220)
@@ -238,7 +243,8 @@ function searing_tunnel_miniboss_ch_5.SecondPreBossScene()
 
   GROUND:TeleportTo(hero, 240, 380, Direction.Up)
   GROUND:TeleportTo(partner, 272, 380, Direction.Up)
-  GAME:MoveCamera(256, 240, 1, false)
+  -- CADRAGE : duo (y~380) et boss (y~208-232) dans le meme cadre.
+  GAME:MoveCamera(256, 300, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -262,9 +268,9 @@ function searing_tunnel_miniboss_ch_5.SecondPreBossScene()
   PrintInfo("[NREPROBE][transition] searing_tunnel_miniboss_ch_5.lua ContinueDungeon('searing_tunnel', 1)") GAME:ContinueDungeon("searing_tunnel", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function searing_tunnel_miniboss_ch_5.DefeatedBoss()
-  PrintInfo("[BossSeq][searing_tunnel_miniboss_ch_5] DefeatedBoss cutscene start")
-  SV.Chapter5.TunnelMiniBossCleared = true
+-- Corps de la cinematique, appele sous pcall par DefeatedBoss() : toute erreur
+-- Lua ici ne doit JAMAIS laisser le joueur sur un ecran noir definitif.
+local function DefeatedBossBody()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local torkoal = CharacterEssentials.MakeCharactersFromList({
@@ -274,19 +280,19 @@ function searing_tunnel_miniboss_ch_5.DefeatedBoss()
     {'Magmar', 292, 208, Direction.Down}
   })
 
-  GROUND:CharSetAction(torkoal, RogueEssence.Ground.PoseGroundAction(
-    torkoal.Position, torkoal.Direction,
-    RogueEssence.Content.GraphicsManager.GetAnimIndex("Faint")))
-  GROUND:CharSetAction(magmar, RogueEssence.Ground.PoseGroundAction(
-    magmar.Position, magmar.Direction,
-    RogueEssence.Content.GraphicsManager.GetAnimIndex("Faint")))
+  -- Pose des boss vaincus : "Faint" n'existe pas comme anim ground pour toutes
+  -- les especes -> GetAnimIndex("Faint") levait une erreur et coupait la
+  -- cinematique (ecran noir). "EventSleep" est une anim ground sure.
+  GROUND:CharSetAnim(torkoal, "EventSleep", true)
+  GROUND:CharSetAnim(magmar, "EventSleep", true)
 
   AI:DisableCharacterAI(partner)
   SOUND:StopBGM()
 
   GROUND:TeleportTo(hero, 240, 320, Direction.Up)
   GROUND:TeleportTo(partner, 272, 320, Direction.Up)
-  GAME:MoveCamera(256, 240, 1, false)
+  -- CADRAGE : duo (y~320) et boss au sol (y~208-232) dans le meme cadre.
+  GAME:MoveCamera(256, 270, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -328,6 +334,19 @@ function searing_tunnel_miniboss_ch_5.DefeatedBoss()
 
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
+end
+
+function searing_tunnel_miniboss_ch_5.DefeatedBoss()
+  PrintInfo("[BossSeq][searing_tunnel_miniboss_ch_5] DefeatedBoss cutscene start")
+  SV.Chapter5.TunnelMiniBossCleared = true
+
+  local ok, err = pcall(DefeatedBossBody)
+  if not ok then
+    PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
+    pcall(function() GAME:FadeOut(false, 20) end)
+  end
+
+  -- Sortie garantie, quoi qu'il arrive.
   GAME:CutsceneMode(false)
   PrintInfo("[NREPROBE][transition] searing_tunnel_miniboss_ch_5.lua ContinueDungeon('searing_tunnel', 2)") GAME:ContinueDungeon("searing_tunnel", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
