@@ -379,6 +379,25 @@ function DebugTools:OnUpgrade()
 	if not GAME:DungeonUnlocked("new_era_zone_47") then GAME:UnlockDungeon("new_era_zone_47") end
 	if not GAME:DungeonUnlocked("new_era_zone_48") then GAME:UnlockDungeon("new_era_zone_48") end
  end
+ --Arc 2 « Ce que la brume emporte » : 5 quetes secondaires liees a l'intrigue.
+ --Disponible des le ch6 (apres l'expedition), retroactif pour les parties en cours.
+ if SV.SuaireArc == nil then SV.SuaireArc = {} end
+ if SV.SuaireArc.CurrentAct == nil then SV.SuaireArc.CurrentAct = 0 end
+ if SV.SuaireArc.ShardsRecovered == nil then SV.SuaireArc.ShardsRecovered = 0 end
+ if SV.SuaireArc.DreamFragments == nil then SV.SuaireArc.DreamFragments = 0 end
+ if (SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 6)
+    or SV.ChapterProgression.StoryCompleted == true then
+	if not SV.SuaireArc.Unlocked then
+		SV.SuaireArc.Unlocked = true
+		if SV.SuaireArc.CurrentAct == 0 then SV.SuaireArc.CurrentAct = 1 end
+	end
+	--les 5 donjons de l'arc doivent etre accessibles des que l'arc s'ouvre
+	if not GAME:DungeonUnlocked("bosquet_voile") then GAME:UnlockDungeon("bosquet_voile") end
+	if not GAME:DungeonUnlocked("grotte_mystere") then GAME:UnlockDungeon("grotte_mystere") end
+	if not GAME:DungeonUnlocked("jardin_secret") then GAME:UnlockDungeon("jardin_secret") end
+	if not GAME:DungeonUnlocked("col_foudre") then GAME:UnlockDungeon("col_foudre") end
+	if not GAME:DungeonUnlocked("antre_enigme") then GAME:UnlockDungeon("antre_enigme") end
+ end
  --Add-on « Reseau du Ciel » (Explorateurs du Ciel) — 3 paliers.
  if (SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 11) or SV.ChapterProgression.StoryCompleted == true then
 	if not GAME:DungeonUnlocked("new_era_sky_00") then GAME:UnlockDungeon("new_era_sky_00") end

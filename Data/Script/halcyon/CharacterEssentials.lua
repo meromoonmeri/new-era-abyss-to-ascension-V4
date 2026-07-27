@@ -981,6 +981,31 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
+		--Arc 2 : le Cercle du Suaire (voleurs de fragments de Coeur)
+		Suaire_Banette = {
+			species = "banette",
+			nickname = 'Suaire',
+			instance = 'Suaire_Banette',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Suaire_Gengar = {
+			species = "gengar",
+			nickname = 'Linceul',
+			instance = 'Suaire_Gengar',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Suaire_Noivern = {
+			species = "noivern",
+			nickname = 'Litanie',
+			instance = 'Suaire_Noivern',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
 		--Chapitre 10 : Escouade Fulgur (rivaux de la course au sommet)
 		Fulgur_Luxray = {
 			species = "luxray",

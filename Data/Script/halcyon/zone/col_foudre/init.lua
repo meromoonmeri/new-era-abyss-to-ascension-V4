@@ -4,6 +4,7 @@
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.SuaireArc'
 
 local col_foudre = {}
 
@@ -37,6 +38,15 @@ function col_foudre.ExitSegment(zone, result, rescue, segmentID, mapID)
   end
 
   -- Donjon secondaire : dans tous les cas on rentre a Metano Town (carte 1).
+  -- Arc 2 « Ce que la brume emporte » : l'acte se joue a la sortie du donjon,
+  -- une seule fois, et seulement si les actes precedents sont faits.
+  if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+    if SuaireArc.PlayAct('col_foudre') then
+      GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
+      return
+    end
+  end
+
   GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
 end
 

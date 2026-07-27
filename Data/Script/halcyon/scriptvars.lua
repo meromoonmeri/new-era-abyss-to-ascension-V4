@@ -995,6 +995,25 @@ SV.Chapter9 =
 	PlayedMarshRelayIntro = false--cinematique d'arrivee au relais (marche + dialogue)
 }
 
+SV.SuaireArc =
+{
+	-- Arc 2 — « Ce que la brume emporte » : 5 quetes secondaires liees a
+	-- l'intrigue globale (Cercle du Suaire + reves du heros + Escouade Fulgur).
+	-- Progression : chaque acte pose Act<N>Done et debloque la quete suivante.
+	Unlocked = false,          --pose au ch6+ : le tableau des missions propose l'acte I
+	CurrentAct = 0,            --0 = pas commence, 1..5 = acte en cours
+	Act1Done = false,          --Bosquet Voile : le premier eclat
+	Act2Done = false,          --Grotte du Mystere : la marque des batisseurs
+	Act3Done = false,          --Jardin Secret : le temoin
+	Act4Done = false,          --Col de la Foudre : la course
+	Act5Done = false,          --Antre de l'Enigme : ce que le Suaire protege
+	ShardsRecovered = 0,       --eclats de Coeur repris au Suaire (0..5)
+	SawSuaireFace = false,     --le joueur a vu un membre du Suaire de pres
+	FulgurTruce = false,       --Fulgur accepte la treve (acte IV)
+	DreamFragments = 0,        --fragments de memoire du gardien du sceau (0..5)
+	HeardLitany = false        --la litanie du Suaire entendue en entier (acte V)
+}
+
 SV.Chapter10 = 
 {
 	-- Chapter 10: Pic Celeste — Lugia, Escouade Fulgur, vision Necrozma
