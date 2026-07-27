@@ -196,9 +196,9 @@
 "Skin": "normal",
 "Gender": 1
 },
-"Level": 18,
+"Level": 29,
 "EXP": 0,
-"MaxHPBonus": 177,
+"MaxHPBonus": 350,
 "AtkBonus": 0,
 "DefBonus": 0,
 "MAtkBonus": 0,
@@ -450,7 +450,7 @@
 "Skin": "normal",
 "Gender": 2
 },
-"Level": 13,
+"Level": 20,
 "EXP": 0,
 "MaxHPBonus": 0,
 "AtkBonus": 0,
@@ -704,7 +704,7 @@
 "Skin": "normal",
 "Gender": 1
 },
-"Level": 13,
+"Level": 20,
 "EXP": 0,
 "MaxHPBonus": 0,
 "AtkBonus": 0,
@@ -958,7 +958,7 @@
 "Skin": "normal",
 "Gender": 2
 },
-"Level": 13,
+"Level": 20,
 "EXP": 0,
 "MaxHPBonus": 0,
 "AtkBonus": 0,
@@ -1212,7 +1212,7 @@
 "Skin": "normal",
 "Gender": 1
 },
-"Level": 13,
+"Level": 20,
 "EXP": 0,
 "MaxHPBonus": 0,
 "AtkBonus": 0,
@@ -1466,7 +1466,7 @@
 "Skin": "normal",
 "Gender": 1
 },
-"Level": 13,
+"Level": 20,
 "EXP": 0,
 "MaxHPBonus": 0,
 "AtkBonus": 0,
@@ -1720,7 +1720,7 @@
 "Skin": "normal",
 "Gender": 2
 },
-"Level": 13,
+"Level": 20,
 "EXP": 0,
 "MaxHPBonus": 0,
 "AtkBonus": 0,
@@ -1974,7 +1974,7 @@
 "Skin": "normal",
 "Gender": 2
 },
-"Level": 13,
+"Level": 20,
 "EXP": 0,
 "MaxHPBonus": 0,
 "AtkBonus": 0,
@@ -2228,7 +2228,7 @@
 "Skin": "normal",
 "Gender": 1
 },
-"Level": 13,
+"Level": 20,
 "EXP": 0,
 "MaxHPBonus": 0,
 "AtkBonus": 0,
