@@ -44,3 +44,18 @@ Règle : deux boss ne partagent jamais le même couple (irruption, signature). T
 - Mise en scène dédiée (caméra panoramique, musique danger) : **à implémenter** — chantier scripté commun (`SINGLE_CHAR_SCRIPT` sur OnMapStarts), prévu avec la vague 2.
 - PNJ inoffensifs en donjon : le moteur du dépôt a déjà `SpawnRandomTutor` purgé des zones importées (SV manquant) — un équivalent New Era (`SV.adventure.Tutors` déclaré chez nous) est le bon véhicule. À traiter avec la vague 2.
 - Dosage cible par donjon 10+ étages : 1-2 monster houses mises en scène, 1-3 rencontres de vie, 0-1 mini-cinématique.
+
+---
+
+## RÉVISION Regigigas (ch7) — 2026-07-27
+
+Directive utilisateur : Aegis Cave (PMD Sky) importée 1:1, trio Regi inclus.
+- Arène : `sanctuaire_titans.rsmap` (« Sanctuaire des Titans »), 25×27 tuiles
+  24px, visuel d'origine intact (tileset `Titans_Arena_Base`, identity-mapped).
+- Combat : Regigigas 28 (12,7) + Regirock 26 (7,10) + Regice 26 (17,10) +
+  Registeel 26 (12,12) — `clear_body`, movesets thématiques, mysterious_force.
+- Branchement : `cloven_ruins` seg3 → `sanctuaire_titans` (l'ancienne
+  `cloven_ruins_boss.rsmap` reste en secours, non référencée).
+- Écho narratif : légende « Les Trois Serviteurs et le Colosse » (ch5, Rubble).
+  L'intro 3 couches du ground `cloven_ruins_boss` reste valable : le trio
+  n'apparaît qu'au combat — les Serviteurs répondent à l'éveil du Colosse.

@@ -189,7 +189,15 @@ Grotte des Embruns, Forêt des Ombres Sèches, Grotte de Cristal (variante), Pla
 Battues, Verger Sauvage, Désert Boréal, Grotte Fumante (candidat près Searing Tunnel),
 Antre de la Cascade, Mont Rocaille (fusion Bristle/Horn/Travail), Forêt Trompeuse.
 **Exclus définitivement** : Guilde, Treasure Town/Spinda, Temporal Tower/Spire,
-Hidden Land/Old Ruins/Rainbow Stoneship, Aegis Cave, antre Groudon, antre Darkrai.
+Hidden Land/Old Ruins/Rainbow Stoneship, antre Groudon, antre Darkrai.
+**RÉVISION 2026-07-27 (directive utilisateur)** : Aegis Cave SORT de la liste
+d'exclusion — importée 1:1 comme arène Regigigas ch7 (« Sanctuaire des Titans »,
+`sanctuaire_titans.rsmap`, tileset EoSO renommé `Titans_Arena_Base`), avec le
+trio Regirock/Regice/Registeel niv 26 aux côtés de Regigigas 28. La légende ch5
+« Les Trois Serviteurs et le Colosse » (LegendTitansHeard) l'annonçait déjà.
+**Critère élargi** (même directive) : pour chaque boss, chercher un lieu
+officiel associé dans N'IMPORTE QUEL jeu Pokémon (PMD ou jeux principaux),
+pas seulement pmd-red/pmd-sky.
 
 ### Friend Area (Drive) — 8 tilesets importés (`Content/Tile/FA_*_RTRB.tile`)
 

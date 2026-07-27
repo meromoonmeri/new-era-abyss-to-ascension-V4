@@ -109,7 +109,7 @@
                 },
                 "Value": {
                   "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-                  "MapID": "cloven_ruins_boss"
+                  "MapID": "sanctuaire_titans"
                 }
               }
             ],
