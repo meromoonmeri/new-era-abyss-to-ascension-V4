@@ -55,6 +55,12 @@ function vast_steppe.ExitSegment(zone, result, rescue, segmentID, mapID)
 
 	if exited == true then
 		--do nothing
+	elseif segmentID == 4 then
+		-- Annexe de la Toupie (etage mystere) : sortie douce vers le bourg.
+		-- (Bloc remonte au niveau racine : il etait imbrique par erreur dans la
+		-- branche du mini-boss, laissant la sortie du segment 4 sans gestion.)
+		GAME:WaitFrames(10)
+		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
 	elseif segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 5 then
 		-- Segment 0 cleared: go to midpoint rest stop before mini-boss
 		GAME:EnterGroundMap('vast_steppe_midpoint', 'Main_Entrance_Marker')
@@ -65,13 +71,6 @@ function vast_steppe.ExitSegment(zone, result, rescue, segmentID, mapID)
 		else
 			SV.Chapter5.SteppeMiniBossLost = true
 		end
-  if segmentID == 4 then
-    -- Annexe de la Toupie (etage mystere) : on ressort simplement de la salle,
-    -- l'exploration du donjon reprend au meme titre qu'un etage traverse.
-    GAME:WaitFrames(10)
-    GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
-    return
-  end
 		GAME:EnterGroundMap('vast_steppe_miniboss', 'Main_Entrance_Marker')
 	elseif segmentID == 2 and SV.ChapterProgression.Chapter == 5 and result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
 		-- vague 8 : checkpoint vast_steppe — la mort dans la 2e moitié ramène au relais,

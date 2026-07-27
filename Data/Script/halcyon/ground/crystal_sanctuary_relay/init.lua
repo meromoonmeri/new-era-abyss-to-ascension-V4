@@ -152,11 +152,13 @@ function crystal_sanctuary_relay.WipedCutscene()
   SOUND:StopBGM()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
 
-  GROUND:TeleportTo(hero, 400, 128, Direction.Left)
-  if partner ~= nil then GROUND:TeleportTo(partner, 432, 136, Direction.Right) end
+    -- Fix audit 2026-07-27 : l'ancienne position du partenaire chevauchait le
+  -- collider du rocher Kangourex. Positions libres verifiees (flood-check).
+  GROUND:TeleportTo(hero, 408, 152, Direction.Left)
+  if partner ~= nil then GROUND:TeleportTo(partner, 440, 152, Direction.Right) end
   GROUND:CharSetAnim(hero, "EventSleep", true)
   if partner ~= nil then GROUND:CharSetAnim(partner, "EventSleep", true) end
-  GAME:MoveCamera(416, 120, 1, false)
+  GAME:MoveCamera(424, 144, 1, false)
 
   GAME:FadeIn(60)
   SOUND:PlayBGM('Heartwarming.ogg', true)
@@ -187,7 +189,11 @@ function crystal_sanctuary_relay.WipedCutscene()
   UI:WaitShowDialogue("Alors on va lui montrer qui nous sommes.[pause=20] Debout.[pause=10] Le Sanctuaire attend.")
   GAME:WaitFrames(14)
   GAME:WaitFrames(20)
-  if partner ~= nil then AI:EnableCharacterAI(partner) end
+  if partner ~= nil then
+    AI:EnableCharacterAI(partner)
+    AI:SetCharacterAI(partner, 'origin.ai.ground_partner', hero, partner.Position)
+    PartnerEssentials.SaveGamePartnerPosition(partner)
+  end
   GAME:CutsceneMode(false)
   GAME:FadeIn(1)
 end

@@ -445,16 +445,24 @@ end
 function mount_windswept_midpoint_ch_5.WipedCutscene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
+  local hyko = CH('Teammate2')
+  local almotz = CH('Teammate3')
 
   GAME:CutsceneMode(true)
   SOUND:StopBGM()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
 
+  -- Fix audit 2026-07-27 : l'ancienne position du partenaire (992,368)
+  -- chevauchait le collider du rocher Kangourex (984,352,24x24). Le duo se
+  -- réveille désormais sous la statue, sur des cases libres vérifiées.
   GROUND:TeleportTo(hero, 960, 360, Direction.Left)
-  if partner ~= nil then GROUND:TeleportTo(partner, 992, 368, Direction.Right) end
+  if partner ~= nil then GROUND:TeleportTo(partner, 992, 384, Direction.Right) end
   GROUND:CharSetAnim(hero, "EventSleep", true)
   if partner ~= nil then GROUND:CharSetAnim(partner, "EventSleep", true) end
-  GAME:MoveCamera(976, 352, 1, false)
+  -- Hyko et Almotz ont porté le duo jusqu'au camp : ils veillent en contrebas.
+  if hyko ~= nil then GROUND:TeleportTo(hyko, 920, 400, Direction.UpRight) end
+  if almotz ~= nil then GROUND:TeleportTo(almotz, 1016, 400, Direction.UpLeft) end
+  GAME:MoveCamera(976, 368, 1, false)
 
   GAME:FadeIn(60)
   SOUND:PlayBGM('Heartwarming.ogg', true)
@@ -471,16 +479,40 @@ function mount_windswept_midpoint_ch_5.WipedCutscene()
       GAME:WaitFrames(12)
       GROUND:CharAnimateTurnTo(partner, Direction.Down, 4)
     end end)
-  TASK:JoinCoroutines({coro1, coro2})
+  local coro3 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(30)
+    if hyko ~= nil then GeneralFunctions.EmoteAndPause(hyko, "Exclaim", false) end end)
+  local coro4 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(44)
+    if almotz ~= nil then GROUND:CharAnimateTurnTo(almotz, Direction.Up, 4) end end)
+  TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
   GAME:WaitFrames(30)
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Pain")
   UI:WaitShowDialogue("Olala...[pause=20] c'était dur.[pause=10] C'était vraiment, VRAIMENT dur.")
   GAME:WaitFrames(14)
+
+  if almotz ~= nil then
+    UI:SetSpeaker(almotz)
+    UI:SetSpeakerEmotion("Worried")
+    UI:WaitShowDialogue("Vous étiez à deux doigts de passer par-dessus la corniche.[pause=20] Deux doigts.[pause=10] J'en tremble encore des moustaches.")
+    GAME:WaitFrames(10)
+  end
+
+  UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Worried")
   UI:WaitShowDialogue("Les Crêtes...[pause=10] le vent là-haut ne souffle pas, il MORD.[pause=20] Une rafale nous a soulevés comme des feuilles.")
   GAME:WaitFrames(14)
+
+  if hyko ~= nil then
+    UI:SetSpeaker(hyko)
+    UI:SetSpeakerEmotion("Normal")
+    UI:WaitShowDialogue("Le camp de base tient bon,[pause=10] wouf.[pause=0] Tant que les feux brûlent,[pause=10] personne ne gèlera sous ma garde.")
+    GAME:WaitFrames(10)
+  end
+
+  UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Normal")
   UI:WaitShowDialogue("Le camp de base a tenu, lui.[pause=20] Regarde, les tentes n'ont pas bougé.[pause=10] On est en sécurité ici.")
   GAME:WaitFrames(14)
@@ -488,7 +520,11 @@ function mount_windswept_midpoint_ch_5.WipedCutscene()
   UI:WaitShowDialogue("On attend que le vent tombe...[pause=20] et on reprend l'ascension.[pause=10] Le sommet ne s'éloignera pas.")
   GAME:WaitFrames(14)
   GAME:WaitFrames(20)
-  if partner ~= nil then AI:EnableCharacterAI(partner) end
+  if partner ~= nil then
+    AI:EnableCharacterAI(partner)
+    AI:SetCharacterAI(partner, 'origin.ai.ground_partner', hero, partner.Position)
+    PartnerEssentials.SaveGamePartnerPosition(partner)
+  end
   GAME:CutsceneMode(false)
   GAME:FadeIn(1)
 end

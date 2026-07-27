@@ -156,11 +156,13 @@ function celestial_peak_relay.WipedCutscene()
   SOUND:StopBGM()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
 
-  GROUND:TeleportTo(hero, 88, 248, Direction.Left)
-  if partner ~= nil then GROUND:TeleportTo(partner, 116, 256, Direction.Right) end
+    -- Fix audit 2026-07-27 : l'ancienne position du partenaire chevauchait le
+  -- collider du rocher Kangourex. Positions libres verifiees (flood-check).
+  GROUND:TeleportTo(hero, 88, 272, Direction.Left)
+  if partner ~= nil then GROUND:TeleportTo(partner, 120, 272, Direction.Right) end
   GROUND:CharSetAnim(hero, "EventSleep", true)
   if partner ~= nil then GROUND:CharSetAnim(partner, "EventSleep", true) end
-  GAME:MoveCamera(100, 240, 1, false)
+  GAME:MoveCamera(104, 264, 1, false)
 
   GAME:FadeIn(60)
   SOUND:PlayBGM('Heartwarming.ogg', true)
@@ -191,7 +193,11 @@ function celestial_peak_relay.WipedCutscene()
   UI:WaitShowDialogue(STRINGS:Format("Alors on se prépare.[pause=20] Respire, {0}.[pause=10] Le ciel, lui, ne bouge pas.", CH('PLAYER'):GetDisplayName()))
   GAME:WaitFrames(14)
   GAME:WaitFrames(20)
-  if partner ~= nil then AI:EnableCharacterAI(partner) end
+  if partner ~= nil then
+    AI:EnableCharacterAI(partner)
+    AI:SetCharacterAI(partner, 'origin.ai.ground_partner', hero, partner.Position)
+    PartnerEssentials.SaveGamePartnerPosition(partner)
+  end
   GAME:CutsceneMode(false)
   GAME:FadeIn(1)
 end

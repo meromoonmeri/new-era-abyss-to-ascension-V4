@@ -1100,7 +1100,11 @@ function BATTLE_SCRIPT.AnnexePolissage(owner, ownerChar, context, args)
       tbl.Polished = true
       SOUND:PlayBattleSE("DUN_Ally_Join")
       local finds = { "berry_oran", "berry_lum", "seed_reviver", "apricorn_plain" }
-      local pick = finds[math.random(1, #finds)]
+      -- Fix audit 2026-07-27 : RNG deterministe (GAME.Rand) au lieu de math.random.
+      -- math.random n'est PAS enregistre par le systeme de replay/quicksave :
+      -- au rechargement, l'objet donne differait -> desynchronisation d'inventaire
+      -- -> cascade "Recorded action failed" puis crash ReplayData.ReadUI().
+      local pick = finds[GAME.Rand:Next(0, #finds) + 1]
       GAME:GivePlayerItem(pick, 1, false, "")
       UI:WaitShowDialogue("Slurp ![pause=10] Slurp ![pause=20] Tenez :[pause=10] je l'ai trouvé dans la poussière du donjon.[pause=20] Maintenant, il BRILLE.[pause=10] Ne demandez pas comment ça marche.")
     end

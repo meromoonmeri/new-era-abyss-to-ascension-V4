@@ -493,16 +493,25 @@ end
 function vast_steppe_midpoint_ch_5.WipedCutscene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
+  local hyko = CH('Teammate2')
+  local almotz = CH('Teammate3')
 
   GAME:CutsceneMode(true)
   SOUND:StopBGM()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
 
-  GROUND:TeleportTo(hero, 672, 224, Direction.Left)
-  if partner ~= nil then GROUND:TeleportTo(partner, 704, 224, Direction.Right) end
+  -- Fix audit 2026-07-27 : l'ancienne position du partenaire (704,224)
+  -- chevauchait le collider du rocher Kangourex (696,216,24x24). Le duo se
+  -- réveille désormais SOUS la statue, sur des cases libres vérifiées
+  -- (flood-check obstacles). Aucun élément de la map n'est modifié.
+  GROUND:TeleportTo(hero, 668, 256, Direction.Left)
+  if partner ~= nil then GROUND:TeleportTo(partner, 700, 256, Direction.Right) end
   GROUND:CharSetAnim(hero, "EventSleep", true)
   if partner ~= nil then GROUND:CharSetAnim(partner, "EventSleep", true) end
-  GAME:MoveCamera(688, 216, 1, false)
+  -- Hyko et Almotz ont ramené le duo : ils veillent en contrebas.
+  if hyko ~= nil then GROUND:TeleportTo(hyko, 640, 296, Direction.UpRight) end
+  if almotz ~= nil then GROUND:TeleportTo(almotz, 724, 296, Direction.UpLeft) end
+  GAME:MoveCamera(684, 264, 1, false)
 
   GAME:FadeIn(60)
   SOUND:PlayBGM('Heartwarming.ogg', true)
@@ -519,16 +528,47 @@ function vast_steppe_midpoint_ch_5.WipedCutscene()
       GAME:WaitFrames(12)
       GROUND:CharAnimateTurnTo(partner, Direction.Down, 4)
     end end)
-  TASK:JoinCoroutines({coro1, coro2})
+  local coro3 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(30)
+    if hyko ~= nil then GeneralFunctions.EmoteAndPause(hyko, "Exclaim", false) end end)
+  local coro4 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(44)
+    if almotz ~= nil then GROUND:CharAnimateTurnTo(almotz, Direction.UpLeft, 4) end end)
+  TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
   GAME:WaitFrames(30)
+
+  if hyko ~= nil then
+    UI:SetSpeaker(hyko)
+    UI:SetSpeakerEmotion("Happy")
+    UI:WaitShowDialogue("Ils se réveillent ![pause=10] Wouf ![pause=0] Chef, ils se réveillent !")
+    GAME:WaitFrames(10)
+  end
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Pain")
   UI:WaitShowDialogue("Aïe... aïe aïe aïe...[pause=20] On est... au camp ?")
   GAME:WaitFrames(14)
+
+  if almotz ~= nil then
+    UI:SetSpeaker(almotz)
+    UI:SetSpeakerEmotion("Normal")
+    UI:WaitShowDialogue("On vous a tirés des herbes hautes par la peau du cou.[pause=20] La prochaine fois, laissez une trace de passage,[pause=10] que je n'aie pas à flairer toute la steppe.")
+    GAME:WaitFrames(10)
+  end
+
+  UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Worried")
   UI:WaitShowDialogue("C'est Hyko et Almotz qui nous ont traînés jusqu'ici.[pause=20] Les herbes sombres, là-bas...[pause=10] elles nous ont avalés d'un coup.")
   GAME:WaitFrames(14)
+
+  if hyko ~= nil then
+    UI:SetSpeaker(hyko)
+    UI:SetSpeakerEmotion("Worried")
+    UI:WaitShowDialogue("Le garde du camp signale que les Profondeurs bougent encore,[pause=10] wouf.[pause=0] Reposez-vous d'abord.[pause=0] Ordre du protocole.")
+    GAME:WaitFrames(10)
+  end
+
+  UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Normal")
   UI:WaitShowDialogue("Les Profondeurs de la Steppe ne pardonnent pas.[pause=20] L'herbe y est plus haute que nous, et deux fois plus affamée.")
   GAME:WaitFrames(14)
@@ -536,7 +576,11 @@ function vast_steppe_midpoint_ch_5.WipedCutscene()
   UI:WaitShowDialogue(STRINGS:Format("Bon.[pause=10] On souffle, on refait les sacs...[pause=20] et cette fois, {0}, on reste GROUPÉS.", CH('PLAYER'):GetDisplayName()))
   GAME:WaitFrames(14)
   GAME:WaitFrames(20)
-  if partner ~= nil then AI:EnableCharacterAI(partner) end
+  if partner ~= nil then
+    AI:EnableCharacterAI(partner)
+    AI:SetCharacterAI(partner, 'origin.ai.ground_partner', hero, partner.Position)
+    PartnerEssentials.SaveGamePartnerPosition(partner)
+  end
   GAME:CutsceneMode(false)
   GAME:FadeIn(1)
 end
