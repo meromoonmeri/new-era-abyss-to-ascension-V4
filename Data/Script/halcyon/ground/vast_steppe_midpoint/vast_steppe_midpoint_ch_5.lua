@@ -484,4 +484,61 @@ function vast_steppe_midpoint_ch_5.NightWatchScene()
   GAME:FadeIn(40)
 end
 
+
+
+--------------------------------------------------------------------
+-- Réveil après une défaite au-delà du checkpoint (vague 8).
+-- Le duo revient à lui près du Terminal, ranimé par ses réserves.
+--------------------------------------------------------------------
+function vast_steppe_midpoint_ch_5.WipedCutscene()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+
+  GAME:CutsceneMode(true)
+  SOUND:StopBGM()
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
+
+  GROUND:TeleportTo(hero, 672, 224, Direction.Left)
+  if partner ~= nil then GROUND:TeleportTo(partner, 704, 224, Direction.Right) end
+  GROUND:CharSetAnim(hero, "EventSleep", true)
+  if partner ~= nil then GROUND:CharSetAnim(partner, "EventSleep", true) end
+  GAME:MoveCamera(688, 216, 1, false)
+
+  GAME:FadeIn(60)
+  SOUND:PlayBGM('Heartwarming.ogg', true)
+  GAME:WaitFrames(110)
+
+  local coro1 = TASK:BranchCoroutine(function()
+    GeneralFunctions.DoAnimation(hero, 'Wake')
+    GAME:WaitFrames(12)
+    GROUND:CharAnimateTurnTo(hero, Direction.Down, 4) end)
+  local coro2 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(14)
+    if partner ~= nil then
+      GeneralFunctions.DoAnimation(partner, 'Wake')
+      GAME:WaitFrames(12)
+      GROUND:CharAnimateTurnTo(partner, Direction.Down, 4)
+    end end)
+  TASK:JoinCoroutines({coro1, coro2})
+  GAME:WaitFrames(30)
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue("Aïe... aïe aïe aïe...[pause=20] On est... au camp ?")
+  GAME:WaitFrames(14)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue("C'est Hyko et Almotz qui nous ont traînés jusqu'ici.[pause=20] Les herbes sombres, là-bas...[pause=10] elles nous ont avalés d'un coup.")
+  GAME:WaitFrames(14)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue("Les Profondeurs de la Steppe ne pardonnent pas.[pause=20] L'herbe y est plus haute que nous, et deux fois plus affamée.")
+  GAME:WaitFrames(14)
+  UI:SetSpeakerEmotion("Determined")
+  UI:WaitShowDialogue(STRINGS:Format("Bon.[pause=10] On souffle, on refait les sacs...[pause=20] et cette fois, {0}, on reste GROUPÉS.", CH('PLAYER'):GetDisplayName()))
+  GAME:WaitFrames(14)
+  GAME:WaitFrames(20)
+  if partner ~= nil then AI:EnableCharacterAI(partner) end
+  GAME:CutsceneMode(false)
+  GAME:FadeIn(1)
+end
+
 return vast_steppe_midpoint_ch_5

@@ -1,4 +1,4 @@
-{
+﻿{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -5962,7 +5962,7 @@
                     },
                     "Value": {
                       "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                      "Music": "Sky Peak Prairie.ogg",
+                      "Music": "Amp Plains.ogg",
                       "TimeLimit": 1500,
                       "TileSight": 0,
                       "CharSight": 0,
@@ -6563,9 +6563,9 @@
                     },
                     "Value": {
                       "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "GroundTileset": "lush_prairie_floor",
-                      "BlockTileset": "lush_prairie_wall",
-                      "WaterTileset": "lush_prairie_secondary",
+                      "GroundTileset": "far_amp_plains_floor",
+                      "BlockTileset": "far_amp_plains_wall",
+                      "WaterTileset": "far_amp_plains_secondary",
                       "LayeredGround": false,
                       "IndependentGround": false,
                       "GroundElement": "normal"
@@ -6773,9 +6773,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Vast Steppe\\n{0}F",
+              "DefaultText": "Vast Steppe Depths\\n{0}F",
               "LocalTexts": {
-                "fr": "Grande Steppe\\n{0}E"
+                "fr": "Profondeurs de la Grande Steppe\\n{0}E"
               }
             },
             "Priority": {

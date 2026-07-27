@@ -17,6 +17,11 @@ function crystal_sanctuary_relay.Init(map)
 end
 
 function crystal_sanctuary_relay.Enter(map)
+  if SV.Chapter8.SanctuaryMidState == 'DeathArrival' then
+    SV.Chapter8.SanctuaryMidState = nil
+    crystal_sanctuary_relay.WipedCutscene()
+    return
+  end
   GAME:FadeIn(40)
   UI:ResetSpeaker()
   UI:SetCenter(true)
@@ -108,6 +113,60 @@ end
 function crystal_sanctuary_relay.Teammate3_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   GeneralFunctions.GroundInteract(activator, chara)
+end
+
+
+
+--------------------------------------------------------------------
+-- Réveil après une défaite au-delà du checkpoint (vague 8).
+-- Le duo revient à lui près du Terminal, ranimé par ses réserves.
+--------------------------------------------------------------------
+function crystal_sanctuary_relay.WipedCutscene()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+
+  GAME:CutsceneMode(true)
+  SOUND:StopBGM()
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
+
+  GROUND:TeleportTo(hero, 400, 128, Direction.Left)
+  if partner ~= nil then GROUND:TeleportTo(partner, 432, 136, Direction.Right) end
+  GROUND:CharSetAnim(hero, "EventSleep", true)
+  if partner ~= nil then GROUND:CharSetAnim(partner, "EventSleep", true) end
+  GAME:MoveCamera(416, 120, 1, false)
+
+  GAME:FadeIn(60)
+  SOUND:PlayBGM('Heartwarming.ogg', true)
+  GAME:WaitFrames(110)
+
+  local coro1 = TASK:BranchCoroutine(function()
+    GeneralFunctions.DoAnimation(hero, 'Wake')
+    GAME:WaitFrames(12)
+    GROUND:CharAnimateTurnTo(hero, Direction.Down, 4) end)
+  local coro2 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(14)
+    if partner ~= nil then
+      GeneralFunctions.DoAnimation(partner, 'Wake')
+      GAME:WaitFrames(12)
+      GROUND:CharAnimateTurnTo(partner, Direction.Down, 4)
+    end end)
+  TASK:JoinCoroutines({coro1, coro2})
+  GAME:WaitFrames(30)
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue("Les cristaux...[pause=20] ils chantaient encore quand tout est devenu noir.")
+  GAME:WaitFrames(14)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format("C'est la gardienne qui a ramené la lumière autour de nous.[pause=10] Je crois...[pause=20] je crois qu'elle nous OBSERVE, {0}.", CH('PLAYER'):GetDisplayName()))
+  GAME:WaitFrames(14)
+  UI:SetSpeakerEmotion("Determined")
+  UI:WaitShowDialogue("Alors on va lui montrer qui nous sommes.[pause=20] Debout.[pause=10] Le Sanctuaire attend.")
+  GAME:WaitFrames(14)
+  GAME:WaitFrames(20)
+  if partner ~= nil then AI:EnableCharacterAI(partner) end
+  GAME:CutsceneMode(false)
+  GAME:FadeIn(1)
 end
 
 return crystal_sanctuary_relay

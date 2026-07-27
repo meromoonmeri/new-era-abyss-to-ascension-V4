@@ -34,6 +34,11 @@ function vast_steppe_midpoint.GameLoad(map)
 end
 
 function vast_steppe_midpoint.PlotScripting()
+  if SV.Chapter5.SteppeMidState == 'DeathArrival' then
+    SV.Chapter5.SteppeMidState = nil
+    vast_steppe_midpoint_ch_5.WipedCutscene()
+    return
+  end
   if SV.ChapterProgression.Chapter == 5 then
     if not SV.Chapter5.PlayedSteppeMidpointIntro then
       vast_steppe_midpoint_ch_5.FirstArrival()

@@ -17,6 +17,11 @@ function cloven_ruins_midpoint.Init(map)
 end
 
 function cloven_ruins_midpoint.Enter(map)
+  if SV.Chapter7.RuinsMidState == 'DeathArrival' then
+    SV.Chapter7.RuinsMidState = nil
+    cloven_ruins_midpoint.WipedCutscene()
+    return
+  end
   if SV.Chapter7.RuinsMidpointState == nil then SV.Chapter7.RuinsMidpointState = 'FirstArrival' end
   if SV.ChapterProgression.Chapter == 7 and SV.Chapter7.RuinsMidpointState == 'FirstArrival' then
     SV.Chapter7.RuinsMidpointState = 'RepeatArrival'
@@ -117,6 +122,60 @@ end
 function cloven_ruins_midpoint.Teammate3_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   GeneralFunctions.GroundInteract(activator, chara)
+end
+
+
+
+--------------------------------------------------------------------
+-- Réveil après une défaite au-delà du checkpoint (vague 8).
+-- Le duo revient à lui près du Terminal, ranimé par ses réserves.
+--------------------------------------------------------------------
+function cloven_ruins_midpoint.WipedCutscene()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+
+  GAME:CutsceneMode(true)
+  SOUND:StopBGM()
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
+
+  GROUND:TeleportTo(hero, 160, 320, Direction.Left)
+  if partner ~= nil then GROUND:TeleportTo(partner, 192, 328, Direction.Right) end
+  GROUND:CharSetAnim(hero, "EventSleep", true)
+  if partner ~= nil then GROUND:CharSetAnim(partner, "EventSleep", true) end
+  GAME:MoveCamera(176, 312, 1, false)
+
+  GAME:FadeIn(60)
+  SOUND:PlayBGM('Heartwarming.ogg', true)
+  GAME:WaitFrames(110)
+
+  local coro1 = TASK:BranchCoroutine(function()
+    GeneralFunctions.DoAnimation(hero, 'Wake')
+    GAME:WaitFrames(12)
+    GROUND:CharAnimateTurnTo(hero, Direction.Down, 4) end)
+  local coro2 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(14)
+    if partner ~= nil then
+      GeneralFunctions.DoAnimation(partner, 'Wake')
+      GAME:WaitFrames(12)
+      GROUND:CharAnimateTurnTo(partner, Direction.Down, 4)
+    end end)
+  TASK:JoinCoroutines({coro1, coro2})
+  GAME:WaitFrames(30)
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue("Ces ruines...[pause=20] même le sol semblait vouloir qu'on parte.")
+  GAME:WaitFrames(14)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue("Les veines dorées dans la pierre...[pause=10] elles BRILLAIENT plus fort à mesure qu'on approchait.[pause=20] Comme un avertissement.")
+  GAME:WaitFrames(14)
+  UI:SetSpeakerEmotion("Determined")
+  UI:WaitShowDialogue("Le Cœur des ruines est tout près, je le sens.[pause=20] Reposons-nous — puis finissons ce qu'on a commencé.")
+  GAME:WaitFrames(14)
+  GAME:WaitFrames(20)
+  if partner ~= nil then AI:EnableCharacterAI(partner) end
+  GAME:CutsceneMode(false)
+  GAME:FadeIn(1)
 end
 
 return cloven_ruins_midpoint

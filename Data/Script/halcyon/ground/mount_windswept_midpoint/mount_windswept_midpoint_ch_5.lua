@@ -436,4 +436,61 @@ function mount_windswept_midpoint_ch_5.SummitVigilScene()
   GAME:FadeIn(40)
 end
 
+
+
+--------------------------------------------------------------------
+-- Réveil après une défaite au-delà du checkpoint (vague 8).
+-- Le duo revient à lui près du Terminal, ranimé par ses réserves.
+--------------------------------------------------------------------
+function mount_windswept_midpoint_ch_5.WipedCutscene()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+
+  GAME:CutsceneMode(true)
+  SOUND:StopBGM()
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
+
+  GROUND:TeleportTo(hero, 960, 360, Direction.Left)
+  if partner ~= nil then GROUND:TeleportTo(partner, 992, 368, Direction.Right) end
+  GROUND:CharSetAnim(hero, "EventSleep", true)
+  if partner ~= nil then GROUND:CharSetAnim(partner, "EventSleep", true) end
+  GAME:MoveCamera(976, 352, 1, false)
+
+  GAME:FadeIn(60)
+  SOUND:PlayBGM('Heartwarming.ogg', true)
+  GAME:WaitFrames(110)
+
+  local coro1 = TASK:BranchCoroutine(function()
+    GeneralFunctions.DoAnimation(hero, 'Wake')
+    GAME:WaitFrames(12)
+    GROUND:CharAnimateTurnTo(hero, Direction.Down, 4) end)
+  local coro2 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(14)
+    if partner ~= nil then
+      GeneralFunctions.DoAnimation(partner, 'Wake')
+      GAME:WaitFrames(12)
+      GROUND:CharAnimateTurnTo(partner, Direction.Down, 4)
+    end end)
+  TASK:JoinCoroutines({coro1, coro2})
+  GAME:WaitFrames(30)
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue("Olala...[pause=20] c'était dur.[pause=10] C'était vraiment, VRAIMENT dur.")
+  GAME:WaitFrames(14)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue("Les Crêtes...[pause=10] le vent là-haut ne souffle pas, il MORD.[pause=20] Une rafale nous a soulevés comme des feuilles.")
+  GAME:WaitFrames(14)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue("Le camp de base a tenu, lui.[pause=20] Regarde, les tentes n'ont pas bougé.[pause=10] On est en sécurité ici.")
+  GAME:WaitFrames(14)
+  UI:SetSpeakerEmotion("Determined")
+  UI:WaitShowDialogue("On attend que le vent tombe...[pause=20] et on reprend l'ascension.[pause=10] Le sommet ne s'éloignera pas.")
+  GAME:WaitFrames(14)
+  GAME:WaitFrames(20)
+  if partner ~= nil then AI:EnableCharacterAI(partner) end
+  GAME:CutsceneMode(false)
+  GAME:FadeIn(1)
+end
+
 return mount_windswept_midpoint_ch_5

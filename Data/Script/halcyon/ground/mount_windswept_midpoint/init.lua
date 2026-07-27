@@ -34,6 +34,11 @@ function mount_windswept_midpoint.GameLoad(map)
 end
 
 function mount_windswept_midpoint.PlotScripting()
+  if SV.Chapter5.WindsweptMidState == 'DeathArrival' then
+    SV.Chapter5.WindsweptMidState = nil
+    mount_windswept_midpoint_ch_5.WipedCutscene()
+    return
+  end
   if SV.ChapterProgression.Chapter == 5 then
     if not SV.Chapter5.PlayedMountMidpointIntro then
       mount_windswept_midpoint_ch_5.FirstArrival()

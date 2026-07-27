@@ -17,6 +17,11 @@ function forgotten_marsh_relay.Init(map)
 end
 
 function forgotten_marsh_relay.Enter(map)
+  if SV.Chapter9.MarshMidState == 'DeathArrival' then
+    SV.Chapter9.MarshMidState = nil
+    forgotten_marsh_relay.WipedCutscene()
+    return
+  end
   GAME:FadeIn(40)
   UI:ResetSpeaker()
   UI:SetCenter(true)
@@ -108,6 +113,60 @@ end
 function forgotten_marsh_relay.Teammate3_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   GeneralFunctions.GroundInteract(activator, chara)
+end
+
+
+
+--------------------------------------------------------------------
+-- Réveil après une défaite au-delà du checkpoint (vague 8).
+-- Le duo revient à lui près du Terminal, ranimé par ses réserves.
+--------------------------------------------------------------------
+function forgotten_marsh_relay.WipedCutscene()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+
+  GAME:CutsceneMode(true)
+  SOUND:StopBGM()
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
+
+  GROUND:TeleportTo(hero, 128, 200, Direction.Left)
+  if partner ~= nil then GROUND:TeleportTo(partner, 160, 208, Direction.Right) end
+  GROUND:CharSetAnim(hero, "EventSleep", true)
+  if partner ~= nil then GROUND:CharSetAnim(partner, "EventSleep", true) end
+  GAME:MoveCamera(144, 192, 1, false)
+
+  GAME:FadeIn(60)
+  SOUND:PlayBGM('Heartwarming.ogg', true)
+  GAME:WaitFrames(110)
+
+  local coro1 = TASK:BranchCoroutine(function()
+    GeneralFunctions.DoAnimation(hero, 'Wake')
+    GAME:WaitFrames(12)
+    GROUND:CharAnimateTurnTo(hero, Direction.Down, 4) end)
+  local coro2 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(14)
+    if partner ~= nil then
+      GeneralFunctions.DoAnimation(partner, 'Wake')
+      GAME:WaitFrames(12)
+      GROUND:CharAnimateTurnTo(partner, Direction.Down, 4)
+    end end)
+  TASK:JoinCoroutines({coro1, coro2})
+  GAME:WaitFrames(30)
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue("Pouah...[pause=10] j'ai de la vase JUSQUE dans les oreilles.")
+  GAME:WaitFrames(14)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue("Le marais nous a recrachés près du rocher.[pause=20] Comme si quelque chose, sous l'eau, avait décidé qu'on méritait une seconde chance.")
+  GAME:WaitFrames(14)
+  UI:SetSpeakerEmotion("Determined")
+  UI:WaitShowDialogue("On ne la gâchera pas.[pause=20] Cette fois, on teste CHAQUE flaque avant d'y mettre une patte.")
+  GAME:WaitFrames(14)
+  GAME:WaitFrames(20)
+  if partner ~= nil then AI:EnableCharacterAI(partner) end
+  GAME:CutsceneMode(false)
+  GAME:FadeIn(1)
 end
 
 return forgotten_marsh_relay

@@ -817,7 +817,10 @@ SV.Chapter5 =
 	LegendLakeHeard = false,--Relicanth (etang) : les Trois Lacs (Crehelf/Crefollet/Crefadet)
 	LegendSkyHeard = false,--Aubergiste Nidoqueen : les deux Gardiens du ciel (Ho-Oh/Lugia)
 	LegendFurnaceHeard = false,--Phileas (camp du Tunnel) : le Fourneau et les Coeurs (Heatran)
-	LegendEarthHeard = false,--Dotra (maison feu) : Celui qui Dort sous les Volcans (Groudon)
+	LegendEarthHeard = false,
+	SteppeMidState = nil,--vague 8 : 'DeathArrival' si mort au-dela du checkpoint
+	TunnelMidState = nil,
+	WindsweptMidState = nil,--Dotra (maison feu) : Celui qui Dort sous les Volcans (Groudon)
 	LegendHeroesHeard = false,--Grodoudou : les Heros d'Autrefois (meteorite, temps arrete, 25 ans de calme)
 	LegendSkyArbiterHeard = false,--Reinier (camp du Mont) : l'Arbitre du Ciel (Rayquaza)
 

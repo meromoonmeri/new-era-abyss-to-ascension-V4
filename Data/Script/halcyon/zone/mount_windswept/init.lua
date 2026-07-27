@@ -64,6 +64,18 @@ function mount_windswept.ExitSegment(zone, result, rescue, segmentID, mapID)
 			SV.Chapter5.MountMiniBossLost = true
 		end
 		GAME:EnterGroundMap('mount_windswept_miniboss', 'Main_Entrance_Marker')
+	elseif segmentID == 2 and SV.ChapterProgression.Chapter == 5 and result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+		-- vague 8 : checkpoint mount_windswept — la mort dans la 2e moitié ramène au relais,
+		-- où la scène de réveil (WipedCutscene) prend le relai narratif.
+		GAME:WaitFrames(20)
+		SV.Chapter5.WindsweptMidState = 'DeathArrival'
+		if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
+			GAME:EndDungeonRun(result, "master_zone", -1, 63, 0, true, true)
+			GAME:WaitFrames(20)
+			GAME:EnterZone("master_zone", -1, 63, 0)
+		else
+			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 63, 0, true, true)
+		end
 	elseif segmentID == 2 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 5 then
 		-- Segment 2 cleared: go to guardian ground map
 		GAME:EnterGroundMap('mount_windswept_guardian', 'Main_Entrance_Marker')

@@ -374,6 +374,11 @@ function DebugTools:OnUpgrade()
 	if not GAME:DungeonUnlocked("new_era_zone_42") then GAME:UnlockDungeon("new_era_zone_42") end
 	if not GAME:DungeonUnlocked("new_era_zone_43") then GAME:UnlockDungeon("new_era_zone_43") end
  end
+ --Vague 8 : etats de checkpoint (reveil au relais)
+ if SV.Chapter7 ~= nil and SV.Chapter7.RuinsMidState == nil then SV.Chapter7.RuinsMidState = nil end
+ if SV.Chapter8 ~= nil and SV.Chapter8.SanctuaryMidState == nil then SV.Chapter8.SanctuaryMidState = nil end
+ if SV.Chapter9 ~= nil and SV.Chapter9.MarshMidState == nil then SV.Chapter9.MarshMidState = nil end
+ if SV.Chapter10 ~= nil and SV.Chapter10.PeakMidState == nil then SV.Chapter10.PeakMidState = nil end
  --Vague 2 multi-sources : deblocage retroactif des secondaires ch2-10
  if SV.ChapterProgression.Chapter >= 2 and not GAME:DungeonUnlocked("grotte_repos") then
 	GAME:UnlockDungeon("grotte_repos")

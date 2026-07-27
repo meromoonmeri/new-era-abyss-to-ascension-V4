@@ -7019,7 +7019,7 @@
                               "Data": {
                                 "ID": "floor",
                                 "TileTex": {
-                                  "AutoTileset": "mt_blaze_floor",
+                                  "AutoTileset": "deep_dark_crater_floor",
                                   "Associates": [],
                                   "Layers": [],
                                   "NeighborCode": -1
@@ -7520,7 +7520,7 @@
                               "Data": {
                                 "ID": "lava",
                                 "TileTex": {
-                                  "AutoTileset": "mt_blaze_secondary",
+                                  "AutoTileset": "deep_dark_crater_secondary",
                                   "Associates": [],
                                   "Layers": [],
                                   "NeighborCode": -1
@@ -8185,7 +8185,7 @@
                               "Data": {
                                 "ID": "lava",
                                 "TileTex": {
-                                  "AutoTileset": "mt_blaze_secondary",
+                                  "AutoTileset": "deep_dark_crater_secondary",
                                   "Associates": [],
                                   "Layers": [],
                                   "NeighborCode": -1

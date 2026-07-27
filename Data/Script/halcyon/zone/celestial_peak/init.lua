@@ -71,13 +71,14 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
           GAME:WaitFrames(20)
           SV.Chapter10.LostCloudSea = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
-              GAME:EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+              SV.Chapter10.PeakMidState = 'DeathArrival'
+              GAME:EndDungeonRun(result, "master_zone", -1, 75, 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
                   "Les nuages...[pause=0] on est tombes...[pause=25] a travers le ciel...", "Shock")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, 46, 0)
+              GAME:EnterZone("master_zone", -1, 75, 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 75, 0, true, true)
           end
       end
   elseif segmentID == 3 then
@@ -87,11 +88,12 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
           GAME:EnterGroundMap('celestial_peak_relay', 'Main_Entrance_Marker')
       else
           SV.Chapter10.FulgurReachedSummitFirst = true
-          GAME:EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+          SV.Chapter10.PeakMidState = 'DeathArrival'
+              GAME:EndDungeonRun(result, "master_zone", -1, 75, 0, true, true)
           GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
               "L'Escouade Fulgur...[pause=0] ils nous ont devances...[pause=20] trop rapides...", "Pain")
           GAME:WaitFrames(20)
-          GAME:EnterZone("master_zone", -1, 46, 0)
+          GAME:EnterZone("master_zone", -1, 75, 0)
       end
   elseif segmentID == 4 then
       -- Sommet Sacre : 4 etages
@@ -104,13 +106,14 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
           GAME:WaitFrames(20)
           SV.Chapter10.LostSummit = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
-              GAME:EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+              SV.Chapter10.PeakMidState = 'DeathArrival'
+              GAME:EndDungeonRun(result, "master_zone", -1, 75, 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
                   "Le sommet...[pause=0] si proche...[pause=30] et pourtant...", "Sad")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, 46, 0)
+              GAME:EnterZone("master_zone", -1, 75, 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 75, 0, true, true)
           end
       end
   elseif segmentID == 5 then
@@ -121,14 +124,15 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
           -- Fin de l'histoire actuelle : debloque le contenu end-game (Mega-Pierres, etc.).
           -- Quand les chapitres 11+ existeront, deplacer cette ligne vers la vraie fin.
           SV.ChapterProgression.StoryCompleted = true
-          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 75, 0, true, true)
       else
           SV.Chapter10.DiedToLugia = true
-          GAME:EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+          SV.Chapter10.PeakMidState = 'DeathArrival'
+              GAME:EndDungeonRun(result, "master_zone", -1, 75, 0, true, true)
           GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
               "Lugia...[pause=0] le Gardien des Cieux...[pause=20] nous a juges...", "Pain")
           GAME:WaitFrames(20)
-          GAME:EnterZone("master_zone", -1, 46, 0)
+          GAME:EnterZone("master_zone", -1, 75, 0)
       end
   end
 end

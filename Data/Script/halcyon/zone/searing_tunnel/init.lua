@@ -128,12 +128,14 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 				SV.Chapter5.TunnelMidpointState = 'DeathArrival'
 				--I use the components of the general function version of this so I can have the textbox pop up after the results screen
 				--this saves the game, so it must be called 2nd to last.
+				SV.Chapter5.TunnelMidState = 'DeathArrival'
 				GAME:EndDungeonRun(result, "master_zone", -1, 48, 0, true, true)
 				GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(2), "Wouf...[pause=0] Nous avons été trop imprudents...", "Pain")--set growlithe as speaker 
 				GAME:WaitFrames(20)
 				GAME:EnterZone("master_zone", -1, 48, 0)--Exit back to Searing Tunnel Midpoint
 			else 
 				--handle generic flag setting in the overworld's "Want go back?" function
+				SV.Chapter5.TunnelMidState = 'DeathArrival'
 				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 48, 0, true, true)
 			end 
 		
