@@ -5,6 +5,7 @@
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.LegendZones'
 
 local cloven_ruins = {}
 
@@ -83,12 +84,27 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
           end
       end
   elseif segmentID == 3 then
-      -- Boss Regigigas
+      -- Boss Regigigas. Ce segment sert A LA FOIS au boss d'histoire du ch7 et
+      -- a la revanche vendue par Grodoudou (LegendZones 'colossus_quarry',
+      -- meme zone, meme segment 3). Les deux usages doivent etre traites.
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
           SV.Chapter7.DefeatedRuinsBoss = true
+          -- Marque la zone-amie comme conquise (compteur de fin de jeu et
+          -- dialogue de Grodoudou). Sans effet si elle n'a jamais ete achetee.
+          LegendZones.SetDefeated('colossus_quarry')
       else
           SV.Chapter7.DiedToRuinsBoss = true
       end
+
+      -- Revanche achetee chez Grodoudou : l'histoire du ch7 est deja faite, on
+      -- ne rejoue pas la cinematique de boss, on ressort simplement en ville.
+      if SV.Chapter7 ~= nil and SV.Chapter7.SawAnimaCoreCorruption == true
+         and SV.ChapterProgression.Chapter ~= 7 then
+          GAME:WaitFrames(20)
+          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
+          return
+      end
+
       GAME:EnterGroundMap('cloven_ruins_boss', 'Main_Entrance_Marker')
   end
 end
