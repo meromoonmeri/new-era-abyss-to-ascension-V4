@@ -21,7 +21,8 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
 
   GROUND:TeleportTo(hero, 200, 400, Direction.Up)
   GROUND:TeleportTo(partner, 168, 400, Direction.Up)
-  GAME:MoveCamera(184, 200, 1, false)
+  -- CADRAGE : la caméra doit démarrer SUR le duo (y≈400), pas 200px au-dessus.
+  GAME:MoveCamera(184, 380, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -43,8 +44,8 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
     GROUND:MoveInDirection(hero, Direction.Up, 60, false, 1)
   end)
   local coro3 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(15)
-    GAME:MoveCamera(184, 160, 60, false)
+    -- La caméra suit le duo pendant sa marche vers le nord (60px).
+    GAME:MoveCamera(184, 320, 90, false)
   end)
   TASK:JoinCoroutines({coro1, coro2, coro3})
 
@@ -67,6 +68,10 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
 
   -- Brume montante
   BossFX.Overlay("Fog", 0, 0, 20, 70, 25, DrawLayer.Bottom, -1, 0)
+
+  -- PANORAMIQUE : le gardien va se materialiser vers y=200, on cadre duo+boss.
+  GAME:MoveCamera(184, 250, 60, false)
+  GAME:WaitFrames(10)
 
   -- Voix de l'Abysse
   BossFX.Voice('VSG_004')
@@ -153,7 +158,8 @@ function vast_steppe_guardian_ch_5.SecondPreBossScene()
 
   GROUND:TeleportTo(hero, 200, 360, Direction.Up)
   GROUND:TeleportTo(partner, 168, 360, Direction.Up)
-  GAME:MoveCamera(184, 200, 1, false)
+  -- CADRAGE : duo (y≈360) et gardien (y≈200) dans le même cadre.
+  GAME:MoveCamera(184, 280, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -177,7 +183,9 @@ function vast_steppe_guardian_ch_5.SecondPreBossScene()
   PrintInfo("[NREPROBE][transition] vast_steppe_guardian_ch_5.lua ContinueDungeon('vast_steppe', 3)") GAME:ContinueDungeon("vast_steppe", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function vast_steppe_guardian_ch_5.DefeatedBoss()
+-- Corps de la cinématique, appelé sous pcall par DefeatedBoss() : toute erreur
+-- Lua ici ne doit JAMAIS laisser le joueur sur un écran noir définitif.
+local function DefeatedBossBody()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local stantler = CharacterEssentials.MakeCharactersFromList({
@@ -190,7 +198,8 @@ function vast_steppe_guardian_ch_5.DefeatedBoss()
 
   GROUND:TeleportTo(hero, 200, 300, Direction.Up)
   GROUND:TeleportTo(partner, 168, 300, Direction.Up)
-  GAME:MoveCamera(184, 200, 1, false)
+  -- CADRAGE : duo (y≈300) et gardien (y≈200) dans le même cadre.
+  GAME:MoveCamera(184, 250, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -216,9 +225,10 @@ function vast_steppe_guardian_ch_5.DefeatedBoss()
   flash.Anim = RogueEssence.Content.BGAnimData("White", 0)
   GROUND:PlayVFX(flash, stantler.Position.X, stantler.Position.Y)
   SOUND:PlayBattleSE("EVT_Battle_Flash")
-  GROUND:CharSetAction(stantler, RogueEssence.Ground.PoseGroundAction(
-    stantler.Position, stantler.Direction,
-    RogueEssence.Content.GraphicsManager.GetAnimIndex("Faint")))
+  -- Pose du gardien vaincu : "Faint" n'est pas une anim ground garantie pour
+  -- toutes les espèces -> GetAnimIndex("Faint") pouvait lever une erreur et
+  -- couper la cinématique (écran noir). "EventSleep" est une anim ground sûre.
+  GROUND:CharSetAnim(stantler, "EventSleep", true)
 
   GAME:WaitFrames(60)
 
@@ -239,8 +249,20 @@ function vast_steppe_guardian_ch_5.DefeatedBoss()
   GAME:WaitFrames(60)
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
+end
+
+function vast_steppe_guardian_ch_5.DefeatedBoss()
+  PrintInfo("[BossSeq][vast_steppe_guardian_ch_5] DefeatedBoss cutscene start")
+
+  local ok, err = pcall(DefeatedBossBody)
+  if not ok then
+    PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
+    pcall(function() GAME:FadeOut(false, 20) end)
+  end
+
+  -- Sortie garantie : la suite de l'expedition (Tunnel) doit TOUJOURS s'ouvrir.
   GAME:CutsceneMode(false)
-  -- Return to the expedition camp / next area
+  PrintInfo("[BossSeq][vast_steppe_guardian_ch_5] DefeatedBoss -> searing_tunnel_entrance")
   GAME:EnterGroundMap("searing_tunnel_entrance", "Main_Entrance_Marker")
 end
 

@@ -285,7 +285,10 @@ function mount_windswept_guardian_ch_5.SecondPreBossScene()
   PrintInfo("[NREPROBE][transition] mount_windswept_guardian_ch_5.lua ContinueDungeon('mount_windswept', 3)") GAME:ContinueDungeon("mount_windswept", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function mount_windswept_guardian_ch_5.DefeatedBoss()
+-- Corps de la cinematique, appele sous pcall par DefeatedBoss() : toute erreur
+-- Lua ici ne doit JAMAIS laisser le joueur sur un ecran noir definitif.
+-- Enjeu maximal ici : c'est la CLOTURE de l'expedition du chapitre 5.
+local function DefeatedBossBody()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local aerodactyl = CharacterEssentials.MakeCharactersFromList({
@@ -309,9 +312,10 @@ function mount_windswept_guardian_ch_5.DefeatedBoss()
   -- Aerodactyl collapses dramatically
   SOUND:PlayBattleSE('EVT_CH03_Boss_Collapse')
   GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 4, 20))
-  GROUND:CharSetAction(aerodactyl, RogueEssence.Ground.PoseGroundAction(
-    aerodactyl.Position, aerodactyl.Direction,
-    RogueEssence.Content.GraphicsManager.GetAnimIndex("Faint")))
+  -- Pose du gardien vaincu : "Faint" n'est pas une anim ground garantie pour
+  -- toutes les especes -> GetAnimIndex("Faint") pouvait lever une erreur et
+  -- couper la cinematique (ecran noir). "EventSleep" est une anim ground sure.
+  GROUND:CharSetAnim(aerodactyl, "EventSleep", true)
 
   GAME:WaitFrames(60)
 
@@ -362,12 +366,25 @@ function mount_windswept_guardian_ch_5.DefeatedBoss()
 
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
+end
+
+function mount_windswept_guardian_ch_5.DefeatedBoss()
+  PrintInfo("[BossSeq][mount_windswept_guardian_ch_5] DefeatedBoss cutscene start")
+
+  local ok, err = pcall(DefeatedBossBody)
+  if not ok then
+    PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
+    pcall(function() GAME:FadeOut(false, 20) end)
+  end
+
   GAME:CutsceneMode(false)
 
   --Le sommet est vaincu : l'expedition du chapitre 5 est terminee.
   --On renvoyait vers "cloven_ruins", carte qui n'existe pas (la zone est
   --Released=false, 0 segment) -> ecran noir apres la victoire finale.
   --On cloture proprement : bascule chapitre 6, fin de journee a la guilde.
+  --Cette cloture est HORS du pcall : meme si la mise en scene casse, la
+  --progression de chapitre et le retour a la guilde ont TOUJOURS lieu.
   SV.Chapter5.FinishedExpedition = true
   SV.ChapterProgression.Chapter = 6
   SV.TemporaryFlags.Dinnertime = true
@@ -377,6 +394,7 @@ function mount_windswept_guardian_ch_5.DefeatedBoss()
 
   local exit_ground = 6
   if SV.TemporaryFlags.MissionCompleted then exit_ground = 22 end
+  PrintInfo("[BossSeq][mount_windswept_guardian_ch_5] DefeatedBoss -> master_zone (fin expedition ch5, Chapter=6)")
   GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared,
     "master_zone", -1, exit_ground, 0, true, true)
 end

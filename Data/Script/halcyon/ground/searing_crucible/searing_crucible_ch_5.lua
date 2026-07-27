@@ -737,7 +737,9 @@ function searing_crucible_ch_5.SecondPreBossScene()
 end
 
 --TASK:BranchCoroutine(searing_crucible_ch_5.DefeatedBoss)
-function searing_crucible_ch_5.DefeatedBoss()
+-- Corps de la cinematique, appele sous pcall par DefeatedBoss() : toute erreur
+-- Lua ici ne doit JAMAIS laisser le joueur sur un ecran noir definitif.
+local function DefeatedBossBody()
 	--magcargo is actually defeated, and offers his neck metaphorically to the stone, party explains that they didn't even want to fight
 	--magcargo explains he thought the outlanders were causing all the issues the tunnel's been experiencing
 	--after they disappear, partner should mention that he's glad hyko and almotz were there. Just him and the palyer wouldn't have been able to deal with all those enemies at once
@@ -1234,8 +1236,21 @@ function searing_crucible_ch_5.DefeatedBoss()
 	
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
 	GAME:WaitFrames(90)
+end
+
+function searing_crucible_ch_5.DefeatedBoss()
+	PrintInfo("[BossSeq][searing_crucible_ch_5] DefeatedBoss cutscene start")
+
+	local ok, err = pcall(DefeatedBossBody)
+	if not ok then
+		PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
+		pcall(function() GAME:FadeOut(false, 20) end)
+	end
+
+	-- Sortie garantie : la suite de l'expedition (Mont) doit TOUJOURS s'ouvrir.
 	GAME:CutsceneMode(false)
-	GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker')	
+	PrintInfo("[BossSeq][searing_crucible_ch_5] DefeatedBoss -> mount_windswept_entrance")
+	GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker')
 end
 
 

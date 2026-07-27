@@ -198,7 +198,9 @@ function cloven_ruins_boss_ch_7.SecondPreBossScene()
   GAME:ContinueDungeon("cloven_ruins", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function cloven_ruins_boss_ch_7.DefeatedBoss()
+-- Corps de la cinematique, appele sous pcall par DefeatedBoss() : toute erreur
+-- Lua ici ne doit JAMAIS laisser le joueur sur un ecran noir definitif.
+local function DefeatedBossBody()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local regigigas = CharacterEssentials.MakeCharactersFromList({
@@ -222,9 +224,10 @@ function cloven_ruins_boss_ch_7.DefeatedBoss()
   GAME:WaitFrames(40)
   SOUND:PlayBattleSE('EVT_CH03_Boss_Collapse')
   BossFX.ShakeScreen(6, 20)
-  GROUND:CharSetAction(regigigas, RogueEssence.Ground.PoseGroundAction(
-    regigigas.Position, regigigas.Direction,
-    RogueEssence.Content.GraphicsManager.GetAnimIndex("Faint")))
+  -- Pose du Titan vaincu : "Faint" n'est pas une anim ground garantie pour
+  -- toutes les especes -> GetAnimIndex("Faint") pouvait lever une erreur et
+  -- couper la cinematique (ecran noir). "EventSleep" est une anim ground sure.
+  GROUND:CharSetAnim(regigigas, "EventSleep", true)
 
   GAME:WaitFrames(60)
 
@@ -251,9 +254,21 @@ function cloven_ruins_boss_ch_7.DefeatedBoss()
   SOUND:FadeOutBGM(60)
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
+end
 
+function cloven_ruins_boss_ch_7.DefeatedBoss()
+  PrintInfo("[BossSeq][cloven_ruins_boss_ch_7] DefeatedBoss cutscene start")
+
+  local ok, err = pcall(DefeatedBossBody)
+  if not ok then
+    PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
+    pcall(function() GAME:FadeOut(false, 20) end)
+  end
+
+  -- Flag de progression + sortie garantis, quoi qu'il arrive.
   SV.Chapter7.SawAnimaCoreCorruption = true
   GAME:CutsceneMode(false)
+  PrintInfo("[BossSeq][cloven_ruins_boss_ch_7] DefeatedBoss -> guild_third_floor_lobby")
   GAME:EnterGroundMap("guild_third_floor_lobby", "Main_Entrance_Marker")
 end
 
