@@ -35,6 +35,30 @@ function new_era_zone_17.ExitSegment(zone, result, rescue, segmentID, mapID)
     return
   end
 
+
+  -- Veilleur du Réseau : segment 2 = arène (salamence).
+  if segmentID == 1 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+    GAME:ContinueDungeon("new_era_zone_17", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    return
+  end
+  if segmentID == 2 then
+    if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+      if SV.Reseau == nil then SV.Reseau = { Veilleurs = {} } end
+      if SV.Reseau.Veilleurs == nil then SV.Reseau.Veilleurs = {} end
+      SV.Reseau.Veilleurs['new_era_zone_17'] = true
+      GAME:WaitFrames(20)
+      UI:SetSpeaker(GAME:GetPlayerPartyMember(1))
+      UI:SetSpeakerEmotion("Happy")
+      UI:WaitShowDialogue("Déchire-Nuages remonte vers les hauteurs.[pause=20] La Tour du Ciel Fracturé est à nous.")
+    else
+      GAME:WaitFrames(20)
+      UI:SetSpeaker(GAME:GetPlayerPartyMember(1))
+      UI:SetSpeakerEmotion("Sad")
+      UI:WaitShowDialogue("Le ciel de la Tour est à lui...[pause=20] pas encore à nous.")
+    end
+    GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
+    return
+  end
   GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
 end
 

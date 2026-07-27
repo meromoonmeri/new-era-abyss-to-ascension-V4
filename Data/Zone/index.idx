@@ -4799,12 +4799,15 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 10,
+      "CountedFloors": 11,
       "Rogue": 0,
       "Grounds": [
         "pic_ferreux_pied"
       ],
       "Maps": [
+        [
+          0
+        ],
         [
           0
         ]
@@ -4895,13 +4898,16 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 15,
+      "CountedFloors": 16,
       "Rogue": 0,
       "Grounds": [
         "mont_grondant_pied",
         "new_era_zone_05_relais"
       ],
       "Maps": [
+        [
+          0
+        ],
         [
           0
         ],
@@ -4996,13 +5002,16 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 17,
+      "CountedFloors": 18,
       "Rogue": 0,
       "Grounds": [
         "mont_cendre_pied",
         "new_era_zone_09_relais"
       ],
       "Maps": [
+        [
+          0
+        ],
         [
           0
         ],
@@ -5032,13 +5041,16 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 16,
+      "CountedFloors": 17,
       "Rogue": 0,
       "Grounds": [
         "foret_givree_oree",
         "new_era_zone_11_relais"
       ],
       "Maps": [
+        [
+          0
+        ],
         [
           0
         ],
@@ -5068,13 +5080,16 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 22,
+      "CountedFloors": 23,
       "Rogue": 0,
       "Grounds": [
         "mont_gele_pied",
         "new_era_zone_13_relais"
       ],
       "Maps": [
+        [
+          0
+        ],
         [
           0
         ],
@@ -5104,7 +5119,7 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 28,
+      "CountedFloors": 29,
       "Rogue": 0,
       "Grounds": [
         "gorge_ardente_porte",
@@ -5112,6 +5127,9 @@
         "fosse_ardente"
       ],
       "Maps": [
+        [
+          0
+        ],
         [
           0
         ],
@@ -5141,7 +5159,7 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 36,
+      "CountedFloors": 37,
       "Rogue": 0,
       "Grounds": [
         "parvis_celeste",
@@ -5149,6 +5167,9 @@
         "autel_celeste"
       ],
       "Maps": [
+        [
+          0
+        ],
         [
           0
         ],
@@ -5178,12 +5199,15 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 41,
+      "CountedFloors": 42,
       "Rogue": 0,
       "Grounds": [
         "abime_tempetes"
       ],
       "Maps": [
+        [
+          0
+        ],
         [
           0
         ]
@@ -5210,12 +5234,15 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 100,
+      "CountedFloors": 101,
       "Rogue": 0,
       "Grounds": [
         "fosse_argentee"
       ],
       "Maps": [
+        [
+          0
+        ],
         [
           0
         ]
@@ -5272,12 +5299,15 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 100,
+      "CountedFloors": 101,
       "Rogue": 0,
       "Grounds": [
         "antre_occident"
       ],
       "Maps": [
+        [
+          0
+        ],
         [
           0
         ]
@@ -5294,13 +5324,13 @@
     "new_era_zone_26": {
       "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
       "ExpPercent": 100,
-      "Level": 48,
-      "LevelCap": false,
+      "Level": 5,
+      "LevelCap": true,
       "KeepSkills": false,
       "TeamRestrict": false,
-      "TeamSize": -1,
+      "TeamSize": 2,
       "MoneyRestrict": false,
-      "BagRestrict": -1,
+      "BagRestrict": 0,
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
@@ -5336,10 +5366,13 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 100,
+      "CountedFloors": 101,
       "Rogue": 0,
       "Grounds": [],
       "Maps": [
+        [
+          0
+        ],
         [
           0
         ]
@@ -5460,10 +5493,13 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 51,
+      "CountedFloors": 52,
       "Rogue": 0,
       "Grounds": [],
       "Maps": [
+        [
+          0
+        ],
         [
           0
         ]

@@ -35,6 +35,30 @@ function new_era_zone_15.ExitSegment(zone, result, rescue, segmentID, mapID)
     return
   end
 
+
+  -- Veilleur du Réseau : segment 2 = arène (volcarona).
+  if segmentID == 1 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+    GAME:ContinueDungeon("new_era_zone_15", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    return
+  end
+  if segmentID == 2 then
+    if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+      if SV.Reseau == nil then SV.Reseau = { Veilleurs = {} } end
+      if SV.Reseau.Veilleurs == nil then SV.Reseau.Veilleurs = {} end
+      SV.Reseau.Veilleurs['new_era_zone_15'] = true
+      GAME:WaitFrames(20)
+      UI:SetSpeaker(GAME:GetPlayerPartyMember(1))
+      UI:SetSpeakerEmotion("Happy")
+      UI:WaitShowDialogue("Soleil-de-Cendre replie ses ailes.[pause=20] Le cœur de la Fournaise-Mère bat plus doucement.")
+    else
+      GAME:WaitFrames(20)
+      UI:SetSpeaker(GAME:GetPlayerPartyMember(1))
+      UI:SetSpeakerEmotion("Sad")
+      UI:WaitShowDialogue("Ses ailes de braise nous ont repoussés...[pause=20] La Fournaise garde son secret.")
+    end
+    GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
+    return
+  end
   GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
 end
 

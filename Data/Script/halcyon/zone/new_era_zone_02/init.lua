@@ -29,6 +29,30 @@ function new_era_zone_02.ExitSegment(zone, result, rescue, segmentID, mapID)
   SV.adventure.Thief = false
   if exited == true then return end
 
+
+  -- Veilleur du Réseau : segment 1 = arène (bastiodon).
+  if segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+    GAME:ContinueDungeon("new_era_zone_02", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    return
+  end
+  if segmentID == 1 then
+    if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+      if SV.Reseau == nil then SV.Reseau = { Veilleurs = {} } end
+      if SV.Reseau.Veilleurs == nil then SV.Reseau.Veilleurs = {} end
+      SV.Reseau.Veilleurs['new_era_zone_02'] = true
+      GAME:WaitFrames(20)
+      UI:SetSpeaker(GAME:GetPlayerPartyMember(1))
+      UI:SetSpeakerEmotion("Happy")
+      UI:WaitShowDialogue("Le Rempart s'incline...[pause=20] le Pylône du Vieux Fer nous reconnaît.")
+    else
+      GAME:WaitFrames(20)
+      UI:SetSpeaker(GAME:GetPlayerPartyMember(1))
+      UI:SetSpeakerEmotion("Sad")
+      UI:WaitShowDialogue("Ce Veilleur garde le Pylône depuis des siècles...[pause=20] Il faudra revenir plus forts.")
+    end
+    GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
+    return
+  end
   GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
 end
 

@@ -37,6 +37,41 @@ MISSION_GEN.DUNGEON_LIST = {"illuminant_riverbed", "crooked_cavern", "apricorn_g
 	"foret_embuscade", "bois_filou", "desert_oublies", "crevasse_geode",
 	"jardin_energie", "toundra_desolee", "bassin_tari", "marais_errants",
 	"col_foudre", "falaises_envol", "sentier_enneige",
+	--Add-on Reseau des Anciens Chemins (end-game, deblocage ch11+)
+	"new_era_zone_00",
+	"new_era_zone_01",
+	"new_era_zone_02",
+	"new_era_zone_03",
+	"new_era_zone_04",
+	"new_era_zone_05",
+	"new_era_zone_07",
+	"new_era_zone_08",
+	"new_era_zone_09",
+	"new_era_zone_11",
+	"new_era_zone_13",
+	"new_era_zone_15",
+	"new_era_zone_17",
+	"new_era_zone_19",
+	"new_era_zone_20",
+	"new_era_zone_21",
+	"new_era_zone_23",
+	"new_era_zone_26",
+	"new_era_zone_27",
+	"new_era_zone_28",
+	"new_era_zone_29",
+	"new_era_zone_31",
+	"new_era_zone_32",
+	"new_era_zone_33",
+	"new_era_zone_34",
+	"new_era_zone_35",
+	"new_era_zone_36",
+	"new_era_zone_37",
+	"new_era_zone_38",
+	"new_era_zone_39",
+	"new_era_zone_40",
+	"new_era_zone_41",
+	"new_era_zone_42",
+	"new_era_zone_43",
 	"cloven_ruins", "crystal_sanctuary", "forgotten_marsh", "celestial_peak"}
 --Les donjons du chapitre 5/6 sont desormais eligibles au tableau des missions :
 --sans eux, les 2 jours d'attente imposes entre les chapitres 5 et 6 (DaysToReach)
@@ -92,6 +127,41 @@ MISSION_GEN.DUNGEON_DIFFICULTY["marais_errants"] = "A"
 MISSION_GEN.DUNGEON_DIFFICULTY["col_foudre"] = "S"
 MISSION_GEN.DUNGEON_DIFFICULTY["falaises_envol"] = "S"
 MISSION_GEN.DUNGEON_DIFFICULTY["sentier_enneige"] = "S"
+--Add-on Reseau (end-game)
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_00"] = "S"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_01"] = "S"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_02"] = "S"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_03"] = "S"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_04"] = "S"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_05"] = "S"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_07"] = "S"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_08"] = "S"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_09"] = "S"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_11"] = "S"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_13"] = "S"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_15"] = "S"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_17"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_19"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_20"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_21"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_23"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_26"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_27"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_28"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_29"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_31"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_32"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_33"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_34"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_35"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_36"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_37"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_38"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_39"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_40"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_41"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_42"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_43"] = "STAR_1"
 --Donjons principaux ch7-10 (missions de rappel post-completion)
 MISSION_GEN.DUNGEON_DIFFICULTY["cloven_ruins"] = "S"
 MISSION_GEN.DUNGEON_DIFFICULTY["crystal_sanctuary"] = "S"
@@ -175,6 +245,41 @@ MISSION_GEN.EXPECTED_LEVEL["marais_errants"] = 25
 MISSION_GEN.EXPECTED_LEVEL["col_foudre"] = 27
 MISSION_GEN.EXPECTED_LEVEL["falaises_envol"] = 27
 MISSION_GEN.EXPECTED_LEVEL["sentier_enneige"] = 27
+--Add-on Reseau (end-game)
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_00"] = 5
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_01"] = 6
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_02"] = 8
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_03"] = 10
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_04"] = 12
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_05"] = 14
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_07"] = 16
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_08"] = 18
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_09"] = 20
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_11"] = 22
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_13"] = 24
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_15"] = 28
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_17"] = 32
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_19"] = 36
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_20"] = 45
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_21"] = 40
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_23"] = 50
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_26"] = 48
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_27"] = 46
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_28"] = 38
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_29"] = 39
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_31"] = 37
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_32"] = 42
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_33"] = 43
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_34"] = 44
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_35"] = 45
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_36"] = 41
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_37"] = 46
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_38"] = 44
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_39"] = 42
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_40"] = 47
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_41"] = 48
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_42"] = 40
+MISSION_GEN.EXPECTED_LEVEL["new_era_zone_43"] = 49
 --Donjons principaux ch7-10 (niveaux post-renivelage option a)
 MISSION_GEN.EXPECTED_LEVEL["cloven_ruins"] = 26
 MISSION_GEN.EXPECTED_LEVEL["crystal_sanctuary"] = 28
