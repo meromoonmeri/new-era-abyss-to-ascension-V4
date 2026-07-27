@@ -216,3 +216,23 @@ fantôme, boss ch8-10 aux intros interchangeables).
 - Verdict : le joueur peut-il sentir le patchwork ? NON — les 15 zones suivent
   le même patron (déblocage narratif, job board, retour Metano) que la vague 1
   déjà en place.
+
+---
+
+## Audit §10 — 2026-07-27 : vague 7 (42 cinématiques d'Ancrage)
+
+- Templates des dépôts d'origine conservés 1:1 (grounds pmd-red/Explorers/
+  Friend Areas) — SEULS les dialogues changent, comme demandé.
+- Narration : voix du gardien avant l'image (Rescue Team), partenaire qui
+  verbalise le détail signature (Explorers), lignes courtes, pauses dosées.
+- Cohérence Livre I : Lugia ch19 se souvient du ch10 (« même chant, plus
+  triste ») ; Rayquaza paie la légende de Reinier ch5 ; Jirachi paie le
+  « tombé du ciel il y a 25 ans » (Fil du Destin) ; Necrozma recontextualise
+  sans contredire la règle ch5 (jamais nommé avant l'heure) ; Eternatus rend
+  le twist visible (couloir pourpre = ce que les Cœurs retenaient).
+- Anti-doublon : 28 motifs FX distincts pour 42 scènes, aucun couple
+  (irruption, signature) répété ; duos scénarisés (Cresselia/Darkrai liés par
+  l'Ancrage, Latios/Latias duo de vol, Entei/Victini pari, Mew/Hoopa jeu).
+- Rematch : dialogue dédié court — pas de re-cérémonie (respect du joueur).
+- Verdict patchwork : NON — chaque gardien a une raison d'être là, une voix
+  propre, et un lien au moins avec un élément posé aux ch1-10.

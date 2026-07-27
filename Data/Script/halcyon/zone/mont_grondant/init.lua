@@ -32,6 +32,11 @@ function mont_grondant.ExitSegment(zone, result, rescue, segmentID, mapID)
   SV.adventure.Thief = false
   if exited == true then return end
 
+  if segmentID == 4 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+    -- Cinematique du gardien avant l'arene (vague 7).
+    GAME:EnterGroundMap('porte_plaines_foudre', 'Main_Entrance_Marker')
+    return
+  end
   if segmentID == 5 then
     -- Arene de l'Ancrage : victoire = gardien stabilise (revanche/recrutement via Grodoudou).
     if result == RogueEssence.Data.GameProgress.ResultType.Cleared then

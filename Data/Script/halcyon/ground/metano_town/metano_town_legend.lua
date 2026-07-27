@@ -183,6 +183,11 @@ local function TravelMenu(chara)
     SV.partner.Spawn = "Default"
     GAME:FadeOut(false, 30)
     -- Meme appel que le menu de destination de la ville (init.lua:457).
+    if entry.cine ~= nil then
+        -- Vague 7 : la revanche passe par la cinematique du gardien.
+        GAME:EnterGroundMap(entry.cine, 'Main_Entrance_Marker')
+        return true
+    end
     GAME:EnterDungeon(entry.zone, entry.segment, 0, 0,
         RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     return true

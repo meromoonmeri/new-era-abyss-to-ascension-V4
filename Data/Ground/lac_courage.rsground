@@ -70862,7 +70862,36 @@
     "MapChars": [],
     "GroundObjects": [],
     "Spawners": [],
-    "Markers": []
+    "Markers": [
+     {
+      "EntName": "Boss_Marker",
+      "Direction": 4,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "Collider": {
+       "X": 224,
+       "Y": 224,
+       "Width": 16,
+       "Height": 16
+      }
+     },
+     {
+      "EntName": "Main_Entrance_Marker",
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "Collider": {
+       "X": 224,
+       "Y": 496,
+       "Width": 16,
+       "Height": 16
+      }
+     }
+    ]
    }
   ]
  }

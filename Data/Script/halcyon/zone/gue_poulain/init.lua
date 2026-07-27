@@ -32,6 +32,11 @@ function gue_poulain.ExitSegment(zone, result, rescue, segmentID, mapID)
   SV.adventure.Thief = false
   if exited == true then return end
 
+  if segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+    -- Cinematique du gardien avant l'arene (vague 7).
+    GAME:EnterGroundMap('gue_poulain_autel', 'Main_Entrance_Marker')
+    return
+  end
   if segmentID == 1 then
     -- Arene de l'Ancrage : victoire = gardien stabilise (revanche/recrutement via Grodoudou).
     if result == RogueEssence.Data.GameProgress.ResultType.Cleared then

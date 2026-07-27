@@ -66141,7 +66141,7 @@
       "triggerType": 0,
       "Collider": {
        "X": 232,
-       "Y": 224,
+       "Y": 184,
        "Width": 16,
        "Height": 16
       }

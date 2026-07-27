@@ -32,6 +32,11 @@ function fonderie_hex.ExitSegment(zone, result, rescue, segmentID, mapID)
   SV.adventure.Thief = false
   if exited == true then return end
 
+  if segmentID == 2 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+    -- Cinematique du gardien avant l'arene (vague 7).
+    GAME:EnterGroundMap('grotte_rocheuse', 'Main_Entrance_Marker')
+    return
+  end
   if segmentID == 3 then
     -- Arene de l'Ancrage : victoire = gardien stabilise (revanche/recrutement via Grodoudou).
     if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
