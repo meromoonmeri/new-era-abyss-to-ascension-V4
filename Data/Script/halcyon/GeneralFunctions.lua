@@ -1,4 +1,5 @@
 require 'origin.common'
+require 'halcyon.SuaireJobs'
 GeneralFunctions = {}
 
 --[[These are functions/procedures that are useful in a multitude of different maps or situations. Things such as
@@ -48,6 +49,14 @@ function GeneralFunctions.UpdateDailyFlags()
 	MISSION_GEN.GenerateBoard(COMMON.MISSION_BOARD_OUTLAW)
 	MISSION_GEN.SortMission()
 	MISSION_GEN.SortOutlaw()
+
+	--Arc 2 « Ce que la brume emporte » : le contrat d'histoire est epingle
+	--APRES le tri, pour rester en tete du tableau et ne pas etre noye dans
+	--les jobs aleatoires. Sans effet tant que l'arc n'est pas ouvert (ch6+).
+	if SuaireJobs ~= nil then
+		SuaireJobs.CleanCompleted()
+		SuaireJobs.PinToBoard()
+	end
 end
 
 --to be called at the end of the day. A generic function for generic days (i.e. no cutscene)

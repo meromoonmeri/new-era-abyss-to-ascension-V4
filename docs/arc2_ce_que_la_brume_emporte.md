@@ -146,3 +146,64 @@ par acte, ce qui est le bon calibre pour une conclusion de quête secondaire).
 - Les actes n'ont pas de `.resx` : les textes sont **inline** dans le Lua, comme les
   cinématiques d'Ancrage existantes (`abime_tempetes/init.lua` fait pareil). Si tu veux
   la traduction multi-langue, il faudra les externaliser.
+
+---
+
+## 10. Contrats de job board (ajout 2026-07-31)
+
+### Le problème que ça résout
+
+Les 5 actes se déclenchaient à la **sortie** du donjon, sans qu'aucune mission ne
+les annonce. Un joueur n'avait aucun moyen de savoir que ces 5 donjons portaient une
+intrigue : il tombait dessus par hasard, ou jamais. L'arc était écrit mais **invisible**.
+
+`Data/Script/halcyon/SuaireJobs.lua` pose de vrais contrats sur le tableau de la guilde.
+
+### Les 5 contrats
+
+| Acte | Donjon | Client | Rang | Titre |
+|---|---|---|---|---|
+| I | Bosquet Voilé | Héliatronc | E | Les fleurs qui se fanent d'un seul côté |
+| II | Grotte du Mystère | Kadabra | D | Relevé d'une paroi taillée |
+| III | Jardin Secret | Rosélia | C | Le jardin que personne n'entretient |
+| IV | Col de la Foudre | Pharamp | B | Inspection du Cœur du col |
+| V | Antre de l'Énigme | Xatu | B | La salle aux niches vides |
+
+Chaque texte d'ambiance décrit **ce que le client a vu**, jamais ce que c'est : le
+Cercle du Suaire n'est jamais nommé dans un contrat officiel de la guilde. Le client
+de l'acte V dit avoir vu le lieu **en rêve avant de le trouver** — écho discret aux
+fragments de mémoire du héros.
+
+Les 5 espèces de clients ont été vérifiées présentes (`MonsterFeature`, 975 espèces).
+
+### Intégration — aucune mécanique nouvelle
+
+Le module réutilise **tel quel** le format de job de `mission_gen.lua` : mêmes champs
+que `SV.MissionBoard[i]`. Le moteur les affiche sans savoir qu'ils sont scriptés.
+
+Le contrat est **épinglé au slot 1** dans `GeneralFunctions`, *après*
+`GenerateBoard` et `SortMission` — pour que la quête d'histoire reste en tête du
+tableau au lieu d'être noyée dans le hasard. C'est un choix assumé.
+
+Un marqueur `Special = 'SUAIRE_ARC'` distingue nos contrats des jobs aléatoires.
+
+### Cycle de vie, vérifié par simulation Lua
+
+| Étape | Résultat |
+|---|---|
+| Arc verrouillé (avant ch6) | aucun contrat ✅ |
+| Arc ouvert | contrat acte I épinglé, type EXPLORATION, rang E ✅ |
+| Contrat déjà pris | pas de doublon ✅ |
+| Acte joué | contrat passe à `COMPLETE` ✅ |
+| Contrat suivant | acte II, saut impossible ✅ |
+| Arc terminé | plus rien n'est épinglé ✅ |
+
+`SuaireArc.PlayAct` appelle `SuaireJobs.MarkDone(zoneID)` sous `pcall` : si le joueur
+n'avait pas pris le contrat, l'acte se joue quand même.
+
+### Limite connue
+
+Le contrat occupe le **slot 1** du tableau, ce qui écrase un job aléatoire à chaque
+nouveau jour tant que l'arc est en cours. C'est voulu (visibilité), mais ça réduit
+de 1 le nombre de missions aléatoires disponibles pendant l'arc — soit 5 jours de
+jeu au maximum.

@@ -24,6 +24,7 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
+require 'halcyon.SuaireJobs'
 
 SuaireArc = {}
 
@@ -393,6 +394,9 @@ function SuaireArc.PlayAct(zoneID)
     s['Act'..n..'Done'] = true
     s.CurrentAct = n + 1
   end
+
+  --Le contrat correspondant passe a « accompli » sur le tableau des missions.
+  pcall(function() SuaireJobs.MarkDone(zoneID) end)
 
   GAME:WaitFrames(20)
   GAME:FadeOut(false, 40)
