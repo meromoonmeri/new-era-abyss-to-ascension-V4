@@ -38,7 +38,9 @@ function new_era_zone_09.ExitSegment(zone, result, rescue, segmentID, mapID)
 
   -- Veilleur du Réseau : segment 2 = arène (magmortar).
   if segmentID == 1 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-    GAME:ContinueDungeon("new_era_zone_09", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    -- Veilleur : on passe par le ground cinematique, qui enchainera lui-meme
+    -- le ContinueDungeon vers l'arene (segment 2).
+    GAME:EnterGroundMap('mont_cendre_pied', 'Main_Entrance_Marker')
     return
   end
   if segmentID == 2 then

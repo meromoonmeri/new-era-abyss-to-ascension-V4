@@ -431,6 +431,103 @@ local characters = {
 			skin = "normal"
 		},
 		--Livre II : gardiens d'Ancrage (cinematiques vague 7)
+		--Livre II : Veilleurs du Reseau des Anciens Chemins (grounds pmd-red)
+		Rempart = {
+			species = "bastiodon",
+			nickname = 'Rempart',
+			instance = 'Rempart',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		CableVif = {
+			species = "eelektross",
+			nickname = 'Câble-Vif',
+			instance = 'CableVif',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Fusible = {
+			species = "magmortar",
+			nickname = 'Fusible',
+			instance = 'Fusible',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		BlizzardSentinelle = {
+			species = "abomasnow",
+			nickname = 'Blizzard-Sentinelle',
+			instance = 'BlizzardSentinelle',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+		VoileBlanc = {
+			species = "froslass",
+			nickname = 'Voile-Blanc',
+			instance = 'VoileBlanc',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+		MasqueGel = {
+			species = "glalie",
+			nickname = 'Masque-Gel',
+			instance = 'MasqueGel',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		SoleilDeCendre = {
+			species = "volcarona",
+			nickname = 'Soleil-de-Cendre',
+			instance = 'SoleilDeCendre',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		DechireNuages = {
+			species = "salamence",
+			nickname = 'Déchire-Nuages',
+			instance = 'DechireNuages',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		LameDeFond = {
+			species = "gyarados",
+			nickname = 'Lame-de-Fond',
+			instance = 'LameDeFond',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		LanterneNoyee = {
+			species = "jellicent",
+			nickname = 'Lanterne-Noyée',
+			instance = 'LanterneNoyee',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+		AncreMorte = {
+			species = "dhelmise",
+			nickname = 'Ancre-Morte',
+			instance = 'AncreMorte',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		PortierDuVide = {
+			species = "dusknoir",
+			nickname = 'Portier-du-Vide',
+			instance = 'PortierDuVide',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
 		Groudon = {
 			species = "groudon",
 			nickname = 'Groudon',
