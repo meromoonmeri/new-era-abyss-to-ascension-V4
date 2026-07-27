@@ -805,6 +805,10 @@ SV.Chapter5 =
 	--Cinematiques de mini-boss / gardiens : memorise la premiere rencontre pour
 	--jouer la scene courte (SecondPreBossScene) aux tentatives suivantes.
 	SteppeMiniBossSeen = false,
+
+	--Scenes de vie aux relais (Prompt Maitre : respirations comiques/contemplatives)
+	PlumSceneSeen = false,--Plum la Rondoudou a-t-elle chante au relais de la steppe ?
+	FragmentSceneSeen = false,--Le Fragment (Meteno) est-il tombe pres du relais du Mont ?
 	SteppeGuardianSeen = false,
 	TunnelMiniBossSeen = false,
 	MountMiniBossSeen = false,

@@ -421,6 +421,15 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
+		--Chapitre 5 : rencontres de vie aux relais (Prompt Maitre §3.2/B.2)
+		Meteno = {
+			species = "minior",
+			nickname = 'Météno',
+			instance = 'Meteno',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
 		--Chapitre 7 : Ruines Tordues — boss Regigigas
 		Regigigas = {
 			species = "regigigas",

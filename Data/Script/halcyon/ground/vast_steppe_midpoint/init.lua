@@ -38,7 +38,7 @@ function vast_steppe_midpoint.PlotScripting()
     if not SV.Chapter5.PlayedSteppeMidpointIntro then
       vast_steppe_midpoint_ch_5.FirstArrival()
     else
-      GAME:FadeIn(20)
+      vast_steppe_midpoint_ch_5.SetupGround()
     end
   else
     GAME:FadeIn(20)
@@ -104,17 +104,29 @@ end
 
 function vast_steppe_midpoint.Teammate1_Action(chara, activator)
   DEBUG.EnableDbgCoro()
-  PartnerEssentials.GetPartnerDialogue(CH('Teammate1'))
+  if SV.ChapterProgression.Chapter == 5 then
+    vast_steppe_midpoint_ch_5.Partner_Action(chara, activator)
+  else
+    PartnerEssentials.GetPartnerDialogue(CH('Teammate1'))
+  end
 end
 
 function vast_steppe_midpoint.Teammate2_Action(chara, activator)
   DEBUG.EnableDbgCoro()
-  GeneralFunctions.GroundInteract(activator, chara)
+  if SV.ChapterProgression.Chapter == 5 then
+    vast_steppe_midpoint_ch_5.Hyko_Action(chara, activator)
+  else
+    GeneralFunctions.GroundInteract(activator, chara)
+  end
 end
 
 function vast_steppe_midpoint.Teammate3_Action(chara, activator)
   DEBUG.EnableDbgCoro()
-  GeneralFunctions.GroundInteract(activator, chara)
+  if SV.ChapterProgression.Chapter == 5 then
+    vast_steppe_midpoint_ch_5.Almotz_Action(chara, activator)
+  else
+    GeneralFunctions.GroundInteract(activator, chara)
+  end
 end
 
 return vast_steppe_midpoint
