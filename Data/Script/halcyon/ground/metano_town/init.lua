@@ -2080,7 +2080,7 @@ function metano_town.Tutor_Action(obj, activator)
 				GAME:LearnSkill(member, move)
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Tutor_Remember_Begin']))
 				metano_town.Tutor_Sequence()
-				SOUND:PlayBattleSE("DUN_Learn_Move")
+				SOUND:PlayBattleSE("DUN_TM")
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Tutor_Remember_Success'], member:GetDisplayName(false), moveEntry:GetColoredName()))				state = 0
 			else
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Tutor_Remember_Replace'], member:GetDisplayName(false)))
@@ -2093,7 +2093,7 @@ function metano_town.Tutor_Action(obj, activator)
 					GAME:SetCharacterSkill(member, move, result)
 					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Tutor_Remember_Begin']))
 					metano_town.Tutor_Sequence()
-					SOUND:PlayBattleSE("DUN_Learn_Move")
+					SOUND:PlayBattleSE("DUN_TM")
 					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Tutor_Remember_Success'], member:GetDisplayName(false), moveEntry:GetColoredName()))					state = 0
 				else
 					state = 2
@@ -2125,7 +2125,7 @@ function metano_town.Tutor_Action(obj, activator)
 				move = GAME:GetCharacterSkill(member, result)
 				local moveEntry = RogueEssence.Data.DataManager.Instance:GetSkill(move)
 				GAME:ForgetSkill(member, result)
-				SOUND:PlayBattleSE("DUN_Learn_Move")
+				SOUND:PlayBattleSE("DUN_TM")
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Tutor_Forget_Success'], member:GetDisplayName(false), moveEntry:GetColoredName()))
 				state = 0
 			else
@@ -2185,7 +2185,7 @@ function metano_town.Tutor_Action(obj, activator)
 					GAME:LearnSkill(member, move)
 					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Tutor_Learn_Begin']))
 					metano_town.Tutor_Sequence()
-					SOUND:PlayBattleSE("DUN_Learn_Move")
+					SOUND:PlayBattleSE("DUN_TM")
 					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Tutor_Learn_Success'], member:GetDisplayName(false), moveEntry:GetColoredName()))
 					state = 0
 				else
@@ -2199,7 +2199,7 @@ function metano_town.Tutor_Action(obj, activator)
 						GAME:SetCharacterSkill(member, move, result)
 						UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Tutor_Learn_Begin']))
 						metano_town.Tutor_Sequence()
-						SOUND:PlayBattleSE("DUN_Learn_Move")
+						SOUND:PlayBattleSE("DUN_TM")
 						UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Tutor_Learn_Success'], member:GetDisplayName(false), moveEntry:GetColoredName()))
 						state = 0
 					else

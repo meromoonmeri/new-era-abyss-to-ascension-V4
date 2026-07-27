@@ -1046,7 +1046,7 @@ function BATTLE_SCRIPT.AnnexeRepos(owner, ownerChar, context, args)
     UI:WaitForChoice()
     if UI:ChoiceResult() then
       tbl.Rested = true
-      SOUND:PlayBattleSE("DUN_Health_Low_Fix")
+      SOUND:PlayBattleSE("DUN_Heal")
       for i = 0, GAME:GetPlayerPartyCount() - 1, 1 do
         local chara = GAME:GetPlayerPartyMember(i)
         chara:FullRestore()
@@ -1098,7 +1098,7 @@ function BATTLE_SCRIPT.AnnexePolissage(owner, ownerChar, context, args)
     UI:WaitForChoice()
     if UI:ChoiceResult() then
       tbl.Polished = true
-      SOUND:PlayBattleSE("DUN_Ally_Join")
+      SOUND:PlayBattleSE("DUN_Follow_Me")
       local finds = { "berry_oran", "berry_lum", "seed_reviver", "apricorn_plain" }
       -- Fix audit 2026-07-27 : RNG deterministe (GAME.Rand) au lieu de math.random.
       -- math.random n'est PAS enregistre par le systeme de replay/quicksave :

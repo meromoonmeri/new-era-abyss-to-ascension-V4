@@ -2749,9 +2749,7 @@
       "Rescues": 2,
       "CountedFloors": 24,
       "Rogue": 0,
-      "Grounds": [
-        "montagne_traitresse_fond"
-      ],
+      "Grounds": [],
       "Maps": [
         [
           0,

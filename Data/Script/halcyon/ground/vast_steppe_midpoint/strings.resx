@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
   <data name="VSMID_001" xml:space="preserve">
-    <value>On a traversé la première moitié de la steppe.</value>
+    <value>We've crossed the first half of the steppe.</value>
   </data>
   <data name="VSMID_002" xml:space="preserve">
-    <value>Cette brume ne se lève toujours pas...[pause=15] et cette voix.</value>
+    <value>This mist still hasn't lifted...[pause=15] and that voice.</value>
   </data>
   <data name="VSMID_003" xml:space="preserve">
-    <value>(On doit rester sur nos gardes.[pause=20] La steppe n'a pas dit son dernier mot.)</value>
+    <value>(We have to stay alert.[pause=20] The steppe hasn't said its last word yet.)</value>
   </data>
   <data name="VSMID_004" xml:space="preserve">
     <value>Reposons-nous un peu.[pause=25] On repartira quand on sera prêts.</value>

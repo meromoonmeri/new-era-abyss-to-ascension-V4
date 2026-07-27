@@ -56,7 +56,7 @@ function gloomy_forest_boss_ch_6.FirstBossScene()
 	SOUND:FadeOutBGM(60)
 	GAME:WaitFrames(40)
 	BossFX.Overlay("Fog_2", 0, 0, 30, 110, 30, DrawLayer.Bottom, -1, 0)
-	SOUND:PlayBattleSE("DUN_Tall_Grass")
+	SOUND:PlayBattleSE("DUN_Grass_Knot")
 	GAME:WaitFrames(20)
 
 	-- Le duo remarque que quelque chose ne va pas
