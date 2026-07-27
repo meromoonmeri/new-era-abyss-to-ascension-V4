@@ -3465,22 +3465,22 @@
 <data name="MT10_Growlithe_001" xml:space="preserve"><value>Le Pic Céleste est inscrit au registre.[pause=20] Vous êtes dans la LÉGENDE.</value></data>
 <data name="MT10_Growlithe_002" xml:space="preserve"><value>Phileas m'a demandé d'archiver votre rencontre avec Lugia.[pause=30] C'est un honneur.</value></data>
 <data name="MT10_Growlithe_003" xml:space="preserve"><value>La guilde vous soutient.[pause=15] Toujours. Même face aux légendes.</value></data>
-<data name="MT6_101" xml:space="preserve"><value>Bien.[pause=25] Vous n'êtes peut-être pas des débutants ordinaires.[pause=30] Peut-être.</value></data>
-<data name="MT6_102" xml:space="preserve"><value>Oh là là ![pause=10] Regardez qui revient ![pause=20] Les grands héros de la Forêt Lugubre ![pause=15] ...Ah, non, pardon. Vous avez PERDU.</value></data>
-<data name="MT6_103" xml:space="preserve"><value>Zarude vous a renvoyés chez vous comme des gamins ![pause=15] C'est presque mignon ![pause=25] Presque.</value></data>
-<data name="MT6_104" xml:space="preserve"><value>Vous n'avez pas le droit de vous moquer ![pause=10] On a essayé ![pause=20] On a vraiment essayé ![pause=25] Ce monstre...[pause=30] il était...</value></data>
-<data name="MT6_105" xml:space="preserve"><value>Essayer ne suffit pas.[pause=25] Dans notre monde, seuls les résultats comptent.</value></data>
-<data name="MT6_106" xml:space="preserve"><value>Vous n'êtes pas prêts.[pause=30] Revenez nous voir quand vous aurez de VRAIS exploits à montrer.</value></data>
-<data name="MT6_107" xml:space="preserve"><value>Et Chenipent, alors ?[pause=20] Il attend toujours dans la forêt,[pause=15] pendant que vous vous faites masser les bosses ici !</value></data>
-<data name="MT6_108" xml:space="preserve"><value>...[pause=30] La défaite est un professeur plus dur que la victoire.[pause=25] Écoutez-la.</value></data>
-<data name="MT6_109" xml:space="preserve"><value>Nous repartons vers la côte.[pause=20] La prochaine fois que nous nous croiserons,[pause=25] j'espère que vous serez dignes de notre attention.</value></data>
-<data name="MT6_110" xml:space="preserve"><value>Ouch...[pause=20] Ça, c'était glacé.[pause=25] Même moi, j'ai eu froid. Et je suis une commère.</value></data>
-<data name="MT6_111" xml:space="preserve"><value>On va les faire mentir.[pause=20] Toutes.[pause=30] Je te le promets,[pause=10] [player].[pause=25] On retourne dans cette forêt.</value></data>
-<data name="MT6_112" xml:space="preserve"><value>Zarude...[pause=25] même son nom me glace les os. Mais vous, vous l'avez vaincu.</value></data>
-<data name="MT6_113" xml:space="preserve"><value>Vous avez réussi là où des équipes entières auraient échoué.[pause=30] La guilde ne l'oubliera pas.</value></data>
-<data name="MT6_114" xml:space="preserve"><value>Chenipent vous doit la vie.[pause=25] Et moi, je vous dois plus que des mots.</value></data>
-<data name="MT6_115" xml:space="preserve"><value>Dites donc ![pause=10] VOUS avez battu Zarude ?![pause=15] Je vais devoir réviser mon opinion sur les débutants.</value></data>
-<data name="MT6_116" xml:space="preserve"><value>C'est pas mal du tout.[pause=25] Pour des nouveaux,[pause=15] c'est même franchement impressionnant.</value></data>
+<data name="MT6_101" xml:space="preserve"><value>Good.[pause=25] Perhaps you are not ordinary beginners after all.[pause=30] Perhaps.</value></data>
+<data name="MT6_102" xml:space="preserve"><value>Oh my ![pause=10] Look who's back ![pause=20] The great heroes of Gloomy Forest ![pause=15] Or what's left of them.</value></data>
+<data name="MT6_103" xml:space="preserve"><value>Zarude sent you home like children ![pause=15] It's almost adorable ![pause=20] Almost.</value></data>
+<data name="MT6_104" xml:space="preserve"><value>You have no right to mock us ![pause=10] We tried ![pause=20] We really tried !</value></data>
+<data name="MT6_105" xml:space="preserve"><value>Trying is not enough.[pause=25] In our world, only results count.</value></data>
+<data name="MT6_106" xml:space="preserve"><value>You are not ready.[pause=30] Come back when you have REAL feats to show us.</value></data>
+<data name="MT6_107" xml:space="preserve"><value>And what about Venipede ?[pause=20] He's still waiting out there in the forest,[pause=15] while you stand here.</value></data>
+<data name="MT6_108" xml:space="preserve"><value>...[pause=30] Defeat is a harsher teacher than victory.[pause=25] Listen to it.</value></data>
+<data name="MT6_109" xml:space="preserve"><value>We're heading back to the coast.[pause=20] Next time our paths cross,[pause=25] I hope you'll have something worth showing.</value></data>
+<data name="MT6_110" xml:space="preserve"><value>Ouch...[pause=20] That was ice cold.[pause=25] Even I felt the chill. And I'm a comedian.</value></data>
+<data name="MT6_111" xml:space="preserve"><value>We'll prove them wrong.[pause=20] All of them.[pause=30] I promise you,[pause=10] [player].[pause=20] We're going back.</value></data>
+<data name="MT6_112" xml:space="preserve"><value>Zarude...[pause=25] even the name chills my bones. And yet you beat him.</value></data>
+<data name="MT6_113" xml:space="preserve"><value>You succeeded where whole teams would have failed.[pause=30] The guild won't forget it.</value></data>
+<data name="MT6_114" xml:space="preserve"><value>Venipede owes you his life.[pause=25] And I owe you more than words.</value></data>
+<data name="MT6_115" xml:space="preserve"><value>Well now ![pause=10] YOU took down Zarude ?![pause=15] I'll have to revise my rankings.</value></data>
+<data name="MT6_116" xml:space="preserve"><value>That's not bad at all.[pause=25] For newcomers,[pause=15] it's downright impressive.</value></data>
 <data name="MT6_117" xml:space="preserve"><value>Adagio ne le dira pas,[pause=10] mais elle est impressionnée.[pause=30] Je la connais.[pause=20] Elle est impressionnée.</value></data>
 <data name="MT5_Noctowl_001" xml:space="preserve"><value>L'expédition...[pause=25] C'est un moment important pour la guilde.</value></data>
 <data name="MT5_Noctowl_002" xml:space="preserve"><value>Pentricus vous en dira plus.[pause=20] Écoutez-le attentivement.</value></data>
