@@ -97,7 +97,9 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
       -- Sommet Sacre : 4 etages
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 10 then
           SV.Chapter10.ReachedLugiaAltar = true
-          GAME:EnterGroundMap('celestial_peak_boss', 'Main_Entrance_Marker')
+          -- Autel des Cieux : arene officielle importee 1:1 de pmd-red (D13P03,
+          -- Sky Tower Summit) — remplace l'ancienne carte composee celestial_peak_boss.
+          GAME:EnterGroundMap('autel_celeste', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
           SV.Chapter10.LostSummit = true

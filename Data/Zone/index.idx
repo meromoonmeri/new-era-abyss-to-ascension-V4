@@ -580,7 +580,8 @@
         "forgotten_marsh_boss",
         "celestial_peak_relay",
         "celestial_peak_fulgur",
-        "celestial_peak_boss"
+        "celestial_peak_boss",
+        "autel_celeste"
       ],
       "Maps": [
         [
@@ -1135,7 +1136,8 @@
         "celestial_peak_entrance",
         "celestial_peak_relay",
         "celestial_peak_fulgur",
-        "celestial_peak_boss"
+        "celestial_peak_boss",
+        "autel_celeste"
       ],
       "Maps": [
         [
