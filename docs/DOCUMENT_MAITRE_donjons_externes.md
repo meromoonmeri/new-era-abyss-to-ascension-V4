@@ -318,7 +318,7 @@ fresques). Réservation à inscrire dans `fiches_boss.md` au moment de l'import.
 **Boss narratif dédié**, pas de légendaire. Candidat : le rival au sommet de sa forme
 ou un écho corrompu du héros. À concevoir quand la trame ch29-32 sera écrite.
 
-### 3. Jirachi (3 candidats) — 🔶 RECOMMANDATION : `wishmaker_cave` (dungeon-pack)
+### 3. Jirachi (3 candidats) — ✅ TRANCHÉ 2026-07-27 : option de synthèse validée
 - `wishmaker_cave` est un donjon complet jouable (mécaniques de vœu incluses), palier 7,
   et porte la plus forte justification narrative du lot (arc « Fil du Destin » §10.1bis :
   l'humain tombé du ciel il y a 25 ans — réservé arc Jirachi).
@@ -335,8 +335,10 @@ Lugia » n'a jamais été câblée — c'était du papier. État réel du ch10 :
 - Cinématique pré-boss : `autel_celeste.rsground` (pmd-red 1:1) — **on garde**.
 - Combat (segment 5) : `celestial_peak_boss.rsmap`, actuellement en autotiles
   `concealed_ruins_floor/wall` → **incohérence visuelle** cinématique ciel / arène ruines.
-- **Ajout intelligent proposé** : retiler `celestial_peak_boss.rsmap` avec
-  `FA_Rainbow_Peak_RTRB` (sommet irisé = continuité visuelle avec l'Autel des Cieux).
+- **Ajout intelligent — ✅ FAIT 2026-07-27** : `celestial_peak_boss.rsmap` retilée
+  avec `FA_Rainbow_Peak_RTRB` (sol = mer de nuages, murs = ciel, 4 accents
+  arc-en-ciel décoratifs) via `tools/retile_lugia_arena.py`. Géométrie, entrées,
+  boss, niveaux : inchangés. Audit flood-fill 104/104, boss atteignable.
   Rainbow_Peak trouve ainsi son usage prévu SANS toucher à l'import pmd-red.
 
 ### 5. Numérotation de segment Celestial Peak — ✅ VÉRIFIÉ : rien n'est cassé
@@ -368,8 +370,9 @@ donjons procéduraux, pas des assets — rien à récupérer techniquement). À 
 **compléter notre propre système dojo avec les 9 types manquants** (glace, combat,
 sol, psy, poison, spectre, dragon, ténèbres, acier) en clonant le patron existant,
 déblocage progressif job board avancé (palier 8 pour les derniers).
+**✅ VALIDÉ par l'utilisateur le 2026-07-27** — à exécuter (étape 6 du plan).
 
-### 8. Orchestrateur de l'Accusation — 🔶 RECOMMANDATION : Cercle du Suaire
+### 8. Orchestrateur de l'Accusation — ✅ TRANCHÉ 2026-07-27 : Cercle du Suaire validé
 Voir Partie 7. La motivation « protection du sceau dévoyée » transforme le sous-arc
 en tremplin du twist arc 6 au lieu d'un détour. Team Dazzling = trop frontale,
 équipe Luxray (Fulgur) = déjà utilisée comme rivaux→alliés ch6-10.
@@ -378,10 +381,13 @@ en tremplin du twist arc 6 au lieu d'un détour. Team Dazzling = trop frontale,
 
 ---
 
-## PARTIE 9 — PLAN D'EXÉCUTION (rien ne se code avant validation des 🔶)
+## PARTIE 9 — PLAN D'EXÉCUTION
 
-1. **Validation utilisateur** des points 3 (Jirachi) et 8 (Accusation) + du retiling
-   Rainbow_Peak (point 4) et des 9 mazes complémentaires (point 7).
+**Validations utilisateur du 2026-07-27** : point 3 = synthèse Jirachi (wishmaker_cave
++ ground Wish Cave pmd-red en salle finale), point 4 = retiling Rainbow_Peak (fait),
+point 7 = les 9 mazes manquants (oui), point 8 = Cercle du Suaire (validé).
+
+1. ~~Validation utilisateur~~ — faite (ci-dessus).
 2. **Vague 2 — secondaires ch2-10** (18 donjons PMDODump/EoSO du tableau Partie 3,
    colonne « vague 2 ») : comble la règle 2-3 secondaires/chapitre pour l'existant.
    Boucle d'audit complète par donjon.
