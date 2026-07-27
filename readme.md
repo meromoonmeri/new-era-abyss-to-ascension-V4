@@ -12,7 +12,7 @@
 
 ## Contenu
 
-- 4 chapitres jouables (+ chapitre 5 en cours de développement), dans le style narratif d'Explorateurs.
+- 10 chapitres jouables (+ chapitre 20 en cours de développement), dans le style narratif d'Explorateurs.
 - Système de missions généré (tableau des quêtes), donjons d'entraînement, café, dojo, et plus.
 - Jeu intégralement traduit en français (traduction en cours — voir l'état d'avancement dans les notes de version).
 
