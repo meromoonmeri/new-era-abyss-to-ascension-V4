@@ -84,12 +84,20 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
   SOUND:FadeOutBGM(40)
   SOUND:LoopSE("Light Earthquake")
 
-  local steamEmitter = RogueEssence.Content.FiniteOverlayEmitter()
-  steamEmitter.FadeIn = 40
-  steamEmitter.TotalTime = 120
-  steamEmitter.Layer = DrawLayer.Back
-  steamEmitter.Anim = RogueEssence.Content.BGAnimData("Steam", 2)
-  GROUND:PlayVFX(steamEmitter, 256, 200)
+  -- BUG BRUME : cet overlay etait EMIS EN UN POINT (256,200) sur une carte de
+  -- 416x544 px, d'ou une salle couverte en partie seulement. La couverture
+  -- integrale est desormais assuree par GROUND:AddMapStatus("steam") pose dans
+  -- Init (cf. init.lua). On garde ici un voile mobile PURE DECORATION, repete
+  -- sur la largeur de la salle pour epaissir l'air pendant la montee en tension.
+  for _, vx in ipairs({96, 208, 320}) do
+    local steamEmitter = RogueEssence.Content.FiniteOverlayEmitter()
+    steamEmitter.FadeIn = 40
+    steamEmitter.TotalTime = 120
+    steamEmitter.RepeatX = true
+    steamEmitter.Layer = DrawLayer.Back
+    steamEmitter.Anim = RogueEssence.Content.BGAnimData("Steam", 2)
+    GROUND:PlayVFX(steamEmitter, vx, 200)
+  end
 
   local continueSteam = true
   coro1 = TASK:BranchCoroutine(function()
@@ -237,6 +245,94 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
   end)
   TASK:JoinCoroutines({coro1, coro2})
 
+  -- ================= ENCERCLEMENT PAR LES LIMAGMA =================
+  -- Role narratif tranche : Torkoal et Magmar ne TESTENT pas (c'etait la harde
+  -- de la steppe). Ils PROTEGENT : la fournaise s'est dereglee sous ce sol, ils
+  -- tiennent le dernier anneau sur lequel on survit. Leur barrage est un
+  -- avertissement, pas un defi — et c'est ce qui rend leur defaite utile :
+  -- vaincus, ils livrent la regle des secousses qui sert au Crucible.
+  GAME:WaitFrames(20)
+  UI:ResetSpeaker(false)
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_040']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(15)
+
+  -- Cinq sbires se hissent du sol et referment le cercle autour du duo (y=280).
+  local sbires = CharacterEssentials.MakeCharactersFromList({
+    {'Limagma1', 200, 264, Direction.Right},
+    {'Limagma2', 312, 264, Direction.Left},
+    {'Limagma3', 208, 320, Direction.UpRight},
+    {'Limagma4', 304, 320, Direction.UpLeft},
+    {'Limagma5', 256, 336, Direction.Up}
+  })
+  for i = 1, 5 do GROUND:Hide('Limagma'..i) end
+  local pts = {{200,264},{312,264},{208,320},{304,320},{256,336}}
+  for i = 1, 5 do
+    BossFX.Particle("Ember", pts[i][1], pts[i][2], 3)
+    GROUND:Unhide('Limagma'..i)
+    GAME:WaitFrames(6)
+  end
+  BossFX.Impact(7)
+  -- Camera : on recule sur le cercle entier plutot que sur un seul acteur.
+  GAME:MoveCamera(256, 272, 40, false)
+  UI:ResetSpeaker(false)
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_041']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(15)
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Surprised")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_042']))
+  GAME:WaitFrames(12)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['STM_043']), "Determined")
+  GAME:WaitFrames(18)
+
+  -- Le clan s'explique. Camera remontee sur Torkoal et Magmar.
+  GAME:MoveCamera(256, 244, 40, false)
+  UI:SetSpeaker(torkoal)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_044']))
+  GAME:WaitFrames(12)
+  UI:SetSpeaker(magmar)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_045']))
+  GAME:WaitFrames(12)
+  UI:SetSpeaker(torkoal)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_046']))
+  GAME:WaitFrames(12)
+  GROUND:CharSetEmote(magmar, "sweating", 1)
+  UI:SetSpeaker(magmar)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_047']))
+  GAME:WaitFrames(20)
+
+  -- Le duo comprend, et fait le lien avec la Grande Steppe.
+  GAME:MoveCamera(256, 268, 40, false)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Sad")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_048']))
+  GAME:WaitFrames(12)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['STM_049']), "Normal")
+  GAME:WaitFrames(15)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Determined")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_050']))
+  GAME:WaitFrames(12)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['STM_051']), "Determined")
+  GAME:WaitFrames(20)
+
+  -- Le clan cede sur le fond, mais exige la preuve.
+  GAME:MoveCamera(256, 244, 40, false)
+  UI:SetSpeaker(torkoal)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_052']))
+  GAME:WaitFrames(15)
+  GeneralFunctions.Hop(magmar)
+  UI:SetSpeaker(magmar)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_053']))
+  GAME:WaitFrames(12)
+  UI:SetSpeaker(torkoal)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_054']))
+  GAME:WaitFrames(20)
+
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Determined")
@@ -246,7 +342,9 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
   SV.Chapter5.TunnelMiniBossSeen = true
-  PrintInfo("[NREPROBE][transition] searing_tunnel_miniboss_ch_5.lua ContinueDungeon('searing_tunnel', 1)") GAME:ContinueDungeon("searing_tunnel", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  -- Le mini-boss se joue desormais APRES les profondeurs (seg 1) : le combat doit
+  -- donc lancer l'arene du clan de lave, pas relancer le segment 1 deja franchi.
+  PrintInfo("[NREPROBE][transition] searing_tunnel_miniboss_ch_5.lua ContinueDungeon('searing_tunnel', 2)") GAME:ContinueDungeon("searing_tunnel", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function searing_tunnel_miniboss_ch_5.SecondPreBossScene()
@@ -291,7 +389,9 @@ function searing_tunnel_miniboss_ch_5.SecondPreBossScene()
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  PrintInfo("[NREPROBE][transition] searing_tunnel_miniboss_ch_5.lua ContinueDungeon('searing_tunnel', 1)") GAME:ContinueDungeon("searing_tunnel", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  -- Le mini-boss se joue desormais APRES les profondeurs (seg 1) : le combat doit
+  -- donc lancer l'arene du clan de lave, pas relancer le segment 1 deja franchi.
+  PrintInfo("[NREPROBE][transition] searing_tunnel_miniboss_ch_5.lua ContinueDungeon('searing_tunnel', 2)") GAME:ContinueDungeon("searing_tunnel", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 -- Corps de la cinematique, appele sous pcall par DefeatedBoss() : toute erreur
@@ -343,6 +443,40 @@ local function DefeatedBossBody()
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['STM_014']), "Normal")
   -- "C'est comme si elle nous testait. Continuons."
 
+  -- ===== APRES VICTOIRE : le clan cede et TRANSMET (payoff narratif) =====
+  -- Ils ne disparaissent pas sans rien laisser : ils donnent la regle des
+  -- secousses (qui sert litteralement au Crucible juste apres) et l'indice
+  -- que la Voix precede le dereglement du tunnel.
+  GAME:WaitFrames(15)
+  GAME:MoveCamera(256, 272, 40, false)
+  UI:ResetSpeaker(false)
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_055']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(12)
+  GAME:MoveCamera(256, 244, 40, false)
+  UI:SetSpeaker(torkoal)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_056']))
+  GAME:WaitFrames(12)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_057']))
+  GAME:WaitFrames(12)
+  UI:SetSpeaker(magmar)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_058']))
+  GAME:WaitFrames(15)
+  UI:SetSpeaker(torkoal)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_059']))
+  GAME:WaitFrames(18)
+  GAME:MoveCamera(256, 268, 40, false)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['STM_060']), "Worried")
+  GAME:WaitFrames(15)
+  UI:SetSpeaker(magmar)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_061']))
+  GAME:WaitFrames(12)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_062']))
+  GAME:WaitFrames(20)
+
   -- LOT 8.3 — le retrait du clan, lu comme un accord et non comme une victoire.
   GAME:WaitFrames(15)
   GAME:MoveCamera(256, 224, 40, false)
@@ -383,6 +517,7 @@ local function DefeatedBossBody()
   GAME:WaitFrames(16)
   GROUND:Hide('Torkoal')
   GROUND:Hide('Magmar')
+  for i = 1, 5 do pcall(function() GROUND:Hide('Limagma'..i) end) end
   GAME:WaitFrames(30)
 
   GAME:FadeOut(false, 60)
@@ -401,7 +536,10 @@ function searing_tunnel_miniboss_ch_5.DefeatedBoss()
 
   -- Sortie garantie, quoi qu'il arrive.
   GAME:CutsceneMode(false)
-  PrintInfo("[NREPROBE][transition] searing_tunnel_miniboss_ch_5.lua ContinueDungeon('searing_tunnel', 2)") GAME:ContinueDungeon("searing_tunnel", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  -- Le clan s'ecarte : la voie du Crucible s'ouvre. searing_crucible est un
+  -- ground de CETTE zone (GroundMaps), donc EnterGroundMap est legal ici.
+  PrintInfo("[BossSeq][searing_tunnel_miniboss_ch_5] DefeatedBoss -> searing_crucible")
+  GAME:EnterGroundMap('searing_crucible', 'Main_Entrance_Marker')
 end
 
 -- Player died to the boss

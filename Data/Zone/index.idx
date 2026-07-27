@@ -880,7 +880,7 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 16,
+      "CountedFloors": 18,
       "Rogue": 0,
       "Grounds": [
         "searing_tunnel_entrance",
@@ -907,6 +907,9 @@
           2,
           3,
           4
+        ],
+        [
+          0
         ],
         [
           0

@@ -36,7 +36,7 @@ function searing_tunnel.EnterSegment(zone, rescuing, segmentID, mapID)
 		COMMON.BeginDungeon(zone.ID, segmentID, mapID)
 	end
 	
-	if segmentID == 2 then
+	if segmentID == 3 then
 		--Setup variables for the lava flow handler. The boss fight starts with TopStraight alignment, so set these up here for the program to handle it correctly.
 		SV.SearingTunnel.LavaFlowDirection = 'TopStraight'
 		SV.SearingTunnel.LavaCountdown = -1--The script will default this to a proper value.
@@ -68,7 +68,7 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 	--I think even though it may be weird they just "disappear" upon exiting the segment, this approach is fine and best from a gameplay perspective.
 	--COMMON.ExitDungeonMissionCheck(zone.ID, segmentID)
 
-	if segmentID == 3 then
+	if segmentID == 4 then
 		-- Annexe de la Toupie (etage mystere) : sortie douce vers le bourg.
 		-- (Bloc remonte au niveau racine : il etait imbrique par erreur dans la
 		-- branche mort/fuite du segment 0, donc jamais atteint pour le segment 3.)
@@ -123,10 +123,10 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 		
 		--Cleared
 		else
-			-- Chapter 5 mini-boss check: if not yet encountered, go to mini-boss ground first
-			if SV.ChapterProgression.Chapter == 5 and not SV.Chapter5.TunnelMiniBossSeen then
-				PrintInfo("[NREPROBE][transition] searing_tunnel.ExitSegment -> EnterGroundMap('searing_tunnel_miniboss')") GAME:EnterGroundMap('searing_tunnel_miniboss', 'Main_Entrance_Marker')
-			elseif SV.ChapterProgression.Chapter == 5 then 
+			-- Le mini-boss ne se declenche PLUS ici : il attend desormais dans les
+			-- PROFONDEURS (sortie du segment 1), apres le point median. Le segment 0
+			-- mene donc directement au relais / Terminal de Sauvegarde (ground 48).
+			if SV.ChapterProgression.Chapter == 5 then 
 				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 48, 0, false, false)
 			else
 				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 48, 0, true, true)
@@ -192,10 +192,30 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 				SV.TemporaryFlags.MorningWakeup = true 
 				SV.TemporaryFlags.MorningAddress = true 
 			end 	
+			-- PROFONDEURS franchies : le clan de lave barre la route juste avant le
+			-- Crucible. Une seule fois (TunnelMiniBossSeen), ensuite on file au boss.
+			if SV.ChapterProgression.Chapter == 5 and not SV.Chapter5.TunnelMiniBossSeen then
+				PrintInfo("[NREPROBE][transition] searing_tunnel.ExitSegment -> EnterGroundMap('searing_tunnel_miniboss')")
+				GAME:EnterGroundMap('searing_tunnel_miniboss', 'Main_Entrance_Marker')
+				return
+			end
 			PrintInfo("[NREPROBE][transition] searing_tunnel.ExitSegment -> EnterGroundMap('searing_crucible')") GAME:EnterGroundMap('searing_crucible', 'Main_Entrance_Marker')
 			
 		end 
 		
+	elseif segmentID == 2 then --Arene du clan de lave (Torkoal + Magmar)
+		PrintInfo("=>> ExitSegment_searing_tunnel_miniboss result "..tostring(result))
+		SV.adventure.Thief = false
+		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+			SV.Chapter5.TunnelMiniBossDefeated = true
+		else
+			SV.Chapter5.TunnelMiniBossLost = true
+		end
+		-- Victoire comme defaite : on repasse par le ground, qui joue la scene
+		-- correspondante puis enchaine (Crucible ou repli).
+		PrintInfo("[NREPROBE][transition] searing_tunnel.ExitSegment -> EnterGroundMap('searing_tunnel_miniboss')")
+		GAME:EnterGroundMap('searing_tunnel_miniboss', 'Main_Entrance_Marker')
+
 	else--Searing Crucible Exit Segment
 	  PrintInfo("=>> ExitSegment_searing_crucible (Searing Crucible) result "..tostring(result).." segment "..tostring(segmentID))
 	  --This segment is only accessible during Chapter 5, for the boss fight.

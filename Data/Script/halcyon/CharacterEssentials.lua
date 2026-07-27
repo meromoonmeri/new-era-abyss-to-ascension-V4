@@ -431,6 +431,47 @@ local characters = {
 			skin = "normal"
 		},
 		--Livre II : gardiens d'Ancrage (cinematiques vague 7)
+		--Chapitre 5 : sbires du clan de lave (Tunnel Ardent)
+		Limagma1 = {
+			species = "slugma",
+			nickname = 'Limagma',
+			instance = 'Limagma1',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Limagma2 = {
+			species = "slugma",
+			nickname = 'Limagma',
+			instance = 'Limagma2',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Limagma3 = {
+			species = "slugma",
+			nickname = 'Limagma',
+			instance = 'Limagma3',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Limagma4 = {
+			species = "slugma",
+			nickname = 'Limagma',
+			instance = 'Limagma4',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Limagma5 = {
+			species = "slugma",
+			nickname = 'Limagma',
+			instance = 'Limagma5',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
 		--Livre II : Veilleurs du Reseau des Anciens Chemins (grounds pmd-red)
 		Rempart = {
 			species = "bastiodon",

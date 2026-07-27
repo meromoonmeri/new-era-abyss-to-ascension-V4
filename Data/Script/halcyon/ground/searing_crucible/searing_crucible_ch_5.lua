@@ -619,7 +619,7 @@ function searing_crucible_ch_5.FirstPreBossScene()
 	GAME:CutsceneMode(false)	
 	SV.Chapter5.EncounteredBoss = true
 	--enter fight
-	GAME:ContinueDungeon("searing_tunnel", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+	GAME:ContinueDungeon("searing_tunnel", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 	
 end
 
@@ -738,7 +738,7 @@ function searing_crucible_ch_5.SecondPreBossScene()
 	COMMON.BossTransition()
 	GAME:CutsceneMode(false)	
 	--enter fight
-	GAME:ContinueDungeon("searing_tunnel", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+	GAME:ContinueDungeon("searing_tunnel", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 	
 	
 end

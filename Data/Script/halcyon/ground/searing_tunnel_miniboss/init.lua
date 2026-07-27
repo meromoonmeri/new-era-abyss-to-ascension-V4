@@ -36,16 +36,34 @@ function searing_tunnel_miniboss.Init(map)
   PrintInfo("=>> Init_searing_tunnel_miniboss")
 
   COMMON.RespawnAllies(true)
+  -- BUG BRUME (test en jeu) : la salle n'etait couverte qu'en partie. La scene
+  -- posait un FiniteOverlayEmitter PONCTUEL en (256,200) sur une carte de
+  -- 416x544 px -> un overlay emis en un point ne couvre pas toute la salle,
+  -- d'ou l'impression de carte "sectionnee". Les voisins du meme donjon
+  -- (searing_crucible:50, searing_tunnel_midpoint:30) utilisent le map status
+  -- "steam", qui s'applique a la carte ENTIERE. On aligne.
+  GROUND:AddMapStatus("steam")
   PartnerEssentials.InitializePartnerSpawn()
 end
 
 function searing_tunnel_miniboss.Enter(map)
   nre_snap('searing_tunnel_miniboss.Enter')
 	if SV.Chapter5.TunnelMiniBossSeen == nil then SV.Chapter5.TunnelMiniBossSeen = false end
+	if SV.Chapter5.TunnelMiniBossDefeated == nil then SV.Chapter5.TunnelMiniBossDefeated = false end
+	if SV.Chapter5.TunnelMiniBossLost == nil then SV.Chapter5.TunnelMiniBossLost = false end
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Enter_searing_tunnel_miniboss")
 
-  if SV.Chapter5.TunnelMiniBossSeen then
+  -- Dispatch complet (aligne sur vast_steppe_miniboss). Avant, seules les deux
+  -- scenes de PRE-combat etaient atteignables : DefeatedBoss et DiedToBoss
+  -- existaient dans le _ch_5.lua mais n'etaient JAMAIS appelees, faute d'arene.
+  if SV.Chapter5.TunnelMiniBossDefeated then
+    SV.Chapter5.TunnelMiniBossDefeated = false
+    searing_tunnel_miniboss_ch_5.DefeatedBoss()
+  elseif SV.Chapter5.TunnelMiniBossLost then
+    SV.Chapter5.TunnelMiniBossLost = false
+    searing_tunnel_miniboss_ch_5.DiedToBoss()
+  elseif SV.Chapter5.TunnelMiniBossSeen then
     searing_tunnel_miniboss_ch_5.SecondPreBossScene()
   else
     searing_tunnel_miniboss_ch_5.FirstPreBossScene()
