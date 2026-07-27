@@ -1,44 +1,44 @@
---[[ Veille Gelée — Donjon-Ancrage (Livre II, ch17). Vague 3.
-     Segment 4 = arene de revanche (articuno/zapdos). LegendZones key: frozen_watch ]]
+--[[ Trône de Magma — Donjon-Ancrage (Livre II, ch16). Vague 3.
+     Segment 1 = arene de revanche (groudon). LegendZones key: sea_cradle ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.LegendZones'
 
-local montagne_traitresse = {}
+local berceau_mers = {}
 
-function montagne_traitresse.Init(zone)
+function berceau_mers.Init(zone)
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> Init_montagne_traitresse")
-  SV.TemporaryFlags.LastDungeonEntered = 'montagne_traitresse'
+  PrintInfo("=>> Init_berceau_mers")
+  SV.TemporaryFlags.LastDungeonEntered = 'berceau_mers'
 end
 
-function montagne_traitresse.EnterSegment(zone, rescuing, segmentID, mapID)
+function berceau_mers.EnterSegment(zone, rescuing, segmentID, mapID)
   GeneralFunctions.CheckAllowSetRescue(zone.ID)
   if rescuing ~= true then
     COMMON.BeginDungeon(zone.ID, segmentID, mapID)
   end
 end
 
-function montagne_traitresse.Rescued(zone, name, mail)
+function berceau_mers.Rescued(zone, name, mail)
   COMMON.Rescued(zone, name, mail)
 end
 
-function montagne_traitresse.ExitSegment(zone, result, rescue, segmentID, mapID)
+function berceau_mers.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.RestoreIdleAnim()
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> ExitSegment_montagne_traitresse result "..tostring(result).." segment "..tostring(segmentID))
+  PrintInfo("=>> ExitSegment_berceau_mers result "..tostring(result).." segment "..tostring(segmentID))
 
   local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
   SV.adventure.Thief = false
   if exited == true then return end
 
-  if segmentID == 4 then
+  if segmentID == 1 then
     -- Arene de l'Ancrage : victoire = gardien stabilise (revanche/recrutement via Grodoudou).
     if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-      LegendZones.SetDefeated('thawed_step')
+      LegendZones.SetDefeated('sea_cradle')
       if SV.Anchors == nil then SV.Anchors = { Stabilized = {} } end
       if SV.Anchors.Stabilized == nil then SV.Anchors.Stabilized = {} end
-      SV.Anchors.Stabilized['thawed_step'] = true
+      SV.Anchors.Stabilized['sea_cradle'] = true
     end
     GAME:WaitFrames(20)
     GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
@@ -49,4 +49,4 @@ function montagne_traitresse.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
 end
 
-return montagne_traitresse
+return berceau_mers

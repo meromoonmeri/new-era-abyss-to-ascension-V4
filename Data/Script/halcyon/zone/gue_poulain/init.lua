@@ -1,44 +1,44 @@
---[[ Veille Gelée — Donjon-Ancrage (Livre II, ch17). Vague 3.
-     Segment 4 = arene de revanche (articuno/zapdos). LegendZones key: frozen_watch ]]
+--[[ Trône de Magma — Donjon-Ancrage (Livre II, ch18). Vague 3.
+     Segment 1 = arene de revanche (groudon). LegendZones key: resolute_ford ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.LegendZones'
 
-local montagne_traitresse = {}
+local gue_poulain = {}
 
-function montagne_traitresse.Init(zone)
+function gue_poulain.Init(zone)
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> Init_montagne_traitresse")
-  SV.TemporaryFlags.LastDungeonEntered = 'montagne_traitresse'
+  PrintInfo("=>> Init_gue_poulain")
+  SV.TemporaryFlags.LastDungeonEntered = 'gue_poulain'
 end
 
-function montagne_traitresse.EnterSegment(zone, rescuing, segmentID, mapID)
+function gue_poulain.EnterSegment(zone, rescuing, segmentID, mapID)
   GeneralFunctions.CheckAllowSetRescue(zone.ID)
   if rescuing ~= true then
     COMMON.BeginDungeon(zone.ID, segmentID, mapID)
   end
 end
 
-function montagne_traitresse.Rescued(zone, name, mail)
+function gue_poulain.Rescued(zone, name, mail)
   COMMON.Rescued(zone, name, mail)
 end
 
-function montagne_traitresse.ExitSegment(zone, result, rescue, segmentID, mapID)
+function gue_poulain.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.RestoreIdleAnim()
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> ExitSegment_montagne_traitresse result "..tostring(result).." segment "..tostring(segmentID))
+  PrintInfo("=>> ExitSegment_gue_poulain result "..tostring(result).." segment "..tostring(segmentID))
 
   local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
   SV.adventure.Thief = false
   if exited == true then return end
 
-  if segmentID == 4 then
+  if segmentID == 1 then
     -- Arene de l'Ancrage : victoire = gardien stabilise (revanche/recrutement via Grodoudou).
     if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-      LegendZones.SetDefeated('thawed_step')
+      LegendZones.SetDefeated('resolute_ford')
       if SV.Anchors == nil then SV.Anchors = { Stabilized = {} } end
       if SV.Anchors.Stabilized == nil then SV.Anchors.Stabilized = {} end
-      SV.Anchors.Stabilized['thawed_step'] = true
+      SV.Anchors.Stabilized['resolute_ford'] = true
     end
     GAME:WaitFrames(20)
     GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
@@ -49,4 +49,4 @@ function montagne_traitresse.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
 end
 
-return montagne_traitresse
+return gue_poulain

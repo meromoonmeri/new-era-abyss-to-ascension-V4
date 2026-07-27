@@ -170,7 +170,7 @@ LegendZones.LIST = {
         name = 'LZ_Name_High_Conductor', blurb = 'LZ_Blurb_High_Conductor',
         sight = 'LZ_Sight_High_Conductor', price = 24000,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 17 end,
-        zone = 'montagne_traitresse', segment = 4, roam = false, ready = true
+        zone = 'mont_grondant', segment = 5, roam = false, ready = true
     },
     {
         key = 'long_ash', species = 'moltres',
@@ -320,7 +320,7 @@ LegendZones.LIST = {
         name = 'LZ_Name_Two_Lights_Lunala', blurb = 'LZ_Blurb_Two_Lights_Lunala',
         sight = 'LZ_Sight_Two_Lights_Lunala', price = 49200,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 31 end,
-        zone = 'conte_sans_fin', segment = 1, roam = false, ready = true
+        zone = 'chapelle_nuit', segment = 5, roam = false, ready = true
     },
     {
         key = 'eternal_coil', species = 'eternatus',
@@ -328,6 +328,93 @@ LegendZones.LIST = {
         sight = 'LZ_Sight_Eternal_Coil', price = 60000,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.StoryCompleted == true end,
         zone = 'nervure_monde', segment = 1, roam = false, ready = true
+    },
+    ------------------------------------------------------------------
+    -- VAGUE 3c (2026-07-27) — Fabuleux + duos separes.
+    ------------------------------------------------------------------
+    {
+        key = 'only_shadow', species = 'marshadow',
+        name = 'LZ_Name_Only_Shadow', blurb = 'LZ_Blurb_Only_Shadow',
+        sight = 'LZ_Sight_Only_Shadow', price = 43200,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 26 end,
+        zone = 'creux_ombres', segment = 1, roam = true, ready = true
+    },
+    {
+        key = 'fallen_visitor', species = 'deoxys',
+        name = 'LZ_Name_Fallen_Visitor', blurb = 'LZ_Blurb_Fallen_Visitor',
+        sight = 'LZ_Sight_Fallen_Visitor', price = 37200,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 21 end,
+        zone = 'grotte_meteore', segment = 1, roam = false, ready = true
+    },
+    {
+        key = 'thanks_bloom', species = 'shaymin',
+        name = 'LZ_Name_Thanks_Bloom', blurb = 'LZ_Blurb_Thanks_Bloom',
+        sight = 'LZ_Sight_Thanks_Bloom', price = 30000,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 15 end,
+        zone = 'jardin_gratitude', segment = 1, roam = true, ready = true
+    },
+    {
+        key = 'sea_cradle', species = 'manaphy',
+        name = 'LZ_Name_Sea_Cradle', blurb = 'LZ_Blurb_Sea_Cradle',
+        sight = 'LZ_Sight_Sea_Cradle', price = 31200,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 16 end,
+        zone = 'berceau_mers', segment = 1, roam = false, ready = true
+    },
+    {
+        key = 'resolute_ford', species = 'keldeo',
+        name = 'LZ_Name_Resolute_Ford', blurb = 'LZ_Blurb_Resolute_Ford',
+        sight = 'LZ_Sight_Resolute_Ford', price = 33600,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 18 end,
+        zone = 'gue_poulain', segment = 1, roam = false, ready = true
+    },
+    {
+        key = 'last_encore', species = 'meloetta',
+        name = 'LZ_Name_Last_Encore', blurb = 'LZ_Blurb_Last_Encore',
+        sight = 'LZ_Sight_Last_Encore', price = 36000,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 20 end,
+        zone = 'amphitheatre_oublie', segment = 1, roam = true, ready = true
+    },
+    {
+        key = 'old_reactor', species = 'genesect',
+        name = 'LZ_Name_Old_Reactor', blurb = 'LZ_Blurb_Old_Reactor',
+        sight = 'LZ_Sight_Old_Reactor', price = 38400,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 22 end,
+        zone = 'reacteur_enfoui', segment = 1, roam = false, ready = true
+    },
+    {
+        key = 'steam_heart', species = 'volcanion',
+        name = 'LZ_Name_Steam_Heart', blurb = 'LZ_Blurb_Steam_Heart',
+        sight = 'LZ_Sight_Steam_Heart', price = 39600,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 23 end,
+        zone = 'forge_vapeur', segment = 1, roam = false, ready = true
+    },
+    {
+        key = 'gear_heart', species = 'magearna',
+        name = 'LZ_Name_Gear_Heart', blurb = 'LZ_Blurb_Gear_Heart',
+        sight = 'LZ_Sight_Gear_Heart', price = 40800,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 24 end,
+        zone = 'atelier_coeur_mecanique', segment = 3, roam = false, ready = true
+    },
+    {
+        key = 'wild_current', species = 'zeraora',
+        name = 'LZ_Name_Wild_Current', blurb = 'LZ_Blurb_Wild_Current',
+        sight = 'LZ_Sight_Wild_Current', price = 42000,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 25 end,
+        zone = 'piste_fulgurante', segment = 3, roam = true, ready = true
+    },
+    {
+        key = 'liquid_metal', species = 'melmetal',
+        name = 'LZ_Name_Liquid_Metal', blurb = 'LZ_Blurb_Liquid_Metal',
+        sight = 'LZ_Sight_Liquid_Metal', price = 44400,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 27 end,
+        zone = 'fonderie_hex', segment = 3, roam = false, ready = true
+    },
+    {
+        key = 'first_breath', species = 'arceus',
+        name = 'LZ_Name_First_Breath', blurb = 'LZ_Blurb_First_Breath',
+        sight = 'LZ_Sight_First_Breath', price = 66000,
+        flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.StoryCompleted == true end,
+        zone = 'tour_origine', segment = 1, roam = false, ready = true
     }
 }
 

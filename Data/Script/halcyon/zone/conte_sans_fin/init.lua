@@ -36,7 +36,6 @@ function conte_sans_fin.ExitSegment(zone, result, rescue, segmentID, mapID)
     -- Arene de l'Ancrage : victoire = gardien stabilise (revanche/recrutement via Grodoudou).
     if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
       LegendZones.SetDefeated('two_lights')
-      LegendZones.SetDefeated('two_lights_lunala')
       if SV.Anchors == nil then SV.Anchors = { Stabilized = {} } end
       if SV.Anchors.Stabilized == nil then SV.Anchors.Stabilized = {} end
       SV.Anchors.Stabilized['two_lights'] = true

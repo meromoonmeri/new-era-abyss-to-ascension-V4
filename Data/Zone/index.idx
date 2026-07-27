@@ -3908,6 +3908,819 @@
       },
       "Released": true,
       "SortOrder": 0
+    },
+    "mont_grondant": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 80,
+      "Level": 47,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 27,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Rumbling Mount",
+        "LocalTexts": {
+          "fr": "Mont Grondant"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "chapelle_nuit": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 55,
+      "Level": 77,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": 16,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 4,
+      "CountedFloors": 25,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Night Chapel",
+        "LocalTexts": {
+          "fr": "Chapelle de la Nuit"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "creux_ombres": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 67,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 1,
+      "MoneyRestrict": false,
+      "BagRestrict": 8,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 4,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Shadow Hollow",
+        "LocalTexts": {
+          "fr": "Creux des Ombres"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "grotte_meteore": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 57,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 2,
+      "MoneyRestrict": true,
+      "BagRestrict": 0,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 4,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Meteorite Hollow",
+        "LocalTexts": {
+          "fr": "Grotte du Météore"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "jardin_gratitude": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 43,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 2,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 15,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Gratitude Garden",
+        "LocalTexts": {
+          "fr": "Jardin de la Gratitude"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "berceau_mers": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 45,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 1,
+      "MoneyRestrict": true,
+      "BagRestrict": 0,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 91,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Cradle of Seas",
+        "LocalTexts": {
+          "fr": "Berceau des Mers"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "gue_poulain": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 50,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 2,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 13,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Colt Ford",
+        "LocalTexts": {
+          "fr": "Gué du Poulain"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "amphitheatre_oublie": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 55,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 2,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 13,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Forgotten Amphitheater",
+        "LocalTexts": {
+          "fr": "Amphithéâtre Oublié"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "reacteur_enfoui": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 59,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": 2,
+      "MoneyRestrict": false,
+      "BagRestrict": 16,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 19,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Buried Reactor",
+        "LocalTexts": {
+          "fr": "Réacteur Enfoui"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "forge_vapeur": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 61,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": 0,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 19,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Steam Forge",
+        "LocalTexts": {
+          "fr": "Forge de Vapeur"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "atelier_coeur_mecanique": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 63,
+      "LevelCap": true,
+      "KeepSkills": true,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 17,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Gearheart Workshop",
+        "LocalTexts": {
+          "fr": "Atelier du Cœur-Mécanique"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "piste_fulgurante": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 65,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 13,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Fulgurant Track",
+        "LocalTexts": {
+          "fr": "Piste Fulgurante"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "fonderie_hex": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 69,
+      "LevelCap": true,
+      "KeepSkills": true,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": false,
+      "BagRestrict": 16,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 20,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Hex Foundry",
+        "LocalTexts": {
+          "fr": "Fonderie Hex"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "tour_origine": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 84,
+      "LevelCap": true,
+      "KeepSkills": true,
+      "TeamRestrict": false,
+      "TeamSize": 3,
+      "MoneyRestrict": true,
+      "BagRestrict": 0,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 71,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Tower of Origin",
+        "LocalTexts": {
+          "fr": "Tour de l'Origine"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
     }
   }
 }

@@ -3714,4 +3714,112 @@
   <data name="LZ_Sight_Eternal_Coil" xml:space="preserve">
     <value>A vein of the world laid bare. The light there does not behave.</value>
   </data>
+  <data name="LZ_Name_Only_Shadow" xml:space="preserve">
+    <value>Only Shadow</value>
+  </data>
+  <data name="LZ_Blurb_Only_Shadow" xml:space="preserve">
+    <value>Nobody has ever seen it. Only its shadow — and only when it wanted.</value>
+  </data>
+  <data name="LZ_Sight_Only_Shadow" xml:space="preserve">
+    <value>A hollow where every shadow is a little too deep, a little too quick.</value>
+  </data>
+  <data name="LZ_Name_Fallen_Visitor" xml:space="preserve">
+    <value>Fallen Visitor</value>
+  </data>
+  <data name="LZ_Blurb_Fallen_Visitor" xml:space="preserve">
+    <value>It fell from farther than the sky. It is still learning our shapes.</value>
+  </data>
+  <data name="LZ_Sight_Fallen_Visitor" xml:space="preserve">
+    <value>A crater cave humming with a rhythm that matches no heart of this world.</value>
+  </data>
+  <data name="LZ_Name_Thanks_Bloom" xml:space="preserve">
+    <value>Where Thanks Bloom</value>
+  </data>
+  <data name="LZ_Blurb_Thanks_Bloom" xml:space="preserve">
+    <value>Bring your gratitude there. The garden knows how to read it.</value>
+  </data>
+  <data name="LZ_Sight_Thanks_Bloom" xml:space="preserve">
+    <value>A meadow that blooms out of season whenever someone says a true thank you.</value>
+  </data>
+  <data name="LZ_Name_Sea_Cradle" xml:space="preserve">
+    <value>Sea Cradle</value>
+  </data>
+  <data name="LZ_Blurb_Sea_Cradle" xml:space="preserve">
+    <value>The sea rocks its firstborn there. Mind the lullaby.</value>
+  </data>
+  <data name="LZ_Sight_Sea_Cradle" xml:space="preserve">
+    <value>Warm shallows in the middle of the deep, impossibly calm.</value>
+  </data>
+  <data name="LZ_Name_Resolute_Ford" xml:space="preserve">
+    <value>Resolute Ford</value>
+  </data>
+  <data name="LZ_Blurb_Resolute_Ford" xml:space="preserve">
+    <value>A colt trains there to deserve its own horn. Respect that.</value>
+  </data>
+  <data name="LZ_Sight_Resolute_Ford" xml:space="preserve">
+    <value>A ford where the water stands against the current, as if holding its ground.</value>
+  </data>
+  <data name="LZ_Name_Last_Encore" xml:space="preserve">
+    <value>Last Encore</value>
+  </data>
+  <data name="LZ_Blurb_Last_Encore" xml:space="preserve">
+    <value>The song ended centuries ago. The hall still waits to applaud.</value>
+  </data>
+  <data name="LZ_Sight_Last_Encore" xml:space="preserve">
+    <value>A sunken amphitheater where the echo finishes melodies no one started.</value>
+  </data>
+  <data name="LZ_Name_Old_Reactor" xml:space="preserve">
+    <value>The Old Reactor</value>
+  </data>
+  <data name="LZ_Blurb_Old_Reactor" xml:space="preserve">
+    <value>Something older than machines sleeps plugged into one.</value>
+  </data>
+  <data name="LZ_Sight_Old_Reactor" xml:space="preserve">
+    <value>Buried halls where the dust falls in perfectly straight lines.</value>
+  </data>
+  <data name="LZ_Name_Steam_Heart" xml:space="preserve">
+    <value>Steam Heart</value>
+  </data>
+  <data name="LZ_Blurb_Steam_Heart" xml:space="preserve">
+    <value>Half water, half fire, all pressure. Do not block its vents.</value>
+  </data>
+  <data name="LZ_Sight_Steam_Heart" xml:space="preserve">
+    <value>A forge of stone where geysers breathe like bellows.</value>
+  </data>
+  <data name="LZ_Name_Gear_Heart" xml:space="preserve">
+    <value>Gear Heart</value>
+  </data>
+  <data name="LZ_Blurb_Gear_Heart" xml:space="preserve">
+    <value>Someone built it a heart. It built itself a soul.</value>
+  </data>
+  <data name="LZ_Sight_Gear_Heart" xml:space="preserve">
+    <value>A workshop where every gear turns toward the same small, warm sound.</value>
+  </data>
+  <data name="LZ_Name_Wild_Current" xml:space="preserve">
+    <value>Wild Current</value>
+  </data>
+  <data name="LZ_Blurb_Wild_Current" xml:space="preserve">
+    <value>It outran the storm that made it. Now it looks for a worthy race.</value>
+  </data>
+  <data name="LZ_Sight_Wild_Current" xml:space="preserve">
+    <value>A track of scorched grass, drawn in one single lightning stroke.</value>
+  </data>
+  <data name="LZ_Name_Liquid_Metal" xml:space="preserve">
+    <value>Liquid Metal</value>
+  </data>
+  <data name="LZ_Blurb_Liquid_Metal" xml:space="preserve">
+    <value>The old nut-eater came back with a body of iron. It remembers being small.</value>
+  </data>
+  <data name="LZ_Sight_Liquid_Metal" xml:space="preserve">
+    <value>A foundry where the metal pools ripple though nothing touches them.</value>
+  </data>
+  <data name="LZ_Name_First_Breath" xml:space="preserve">
+    <value>First Breath</value>
+  </data>
+  <data name="LZ_Blurb_First_Breath" xml:space="preserve">
+    <value>I will not sell you that one. I will only tell you where it is. The rest is between you and the beginning of everything.</value>
+  </data>
+  <data name="LZ_Sight_First_Breath" xml:space="preserve">
+    <value>A highland above all skies. The grass bends toward a single point.</value>
+  </data>
 </root>
