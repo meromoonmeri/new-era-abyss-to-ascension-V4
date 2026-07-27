@@ -818,6 +818,8 @@ SV.Chapter5 =
 	LegendSkyHeard = false,--Aubergiste Nidoqueen : les deux Gardiens du ciel (Ho-Oh/Lugia)
 	LegendFurnaceHeard = false,--Phileas (camp du Tunnel) : le Fourneau et les Coeurs (Heatran)
 	LegendEarthHeard = false,--Dotra (maison feu) : Celui qui Dort sous les Volcans (Groudon)
+	LegendHeroesHeard = false,--Grodoudou : les Heros d'Autrefois (meteorite, temps arrete, 25 ans de calme)
+	LegendSkyArbiterHeard = false,--Reinier (camp du Mont) : l'Arbitre du Ciel (Rayquaza)
 
 	--Cinematiques d'enjeu de l'expedition
 	SkyTremorSceneSeen = false,--Le premier pulse du sommet vu depuis le camp de la steppe

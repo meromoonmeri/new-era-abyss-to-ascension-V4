@@ -118,3 +118,21 @@ Déblocages : Titans/Lacs/Ciel/Terre = post-expédition ; Fourneau = après renc
 - Ce qui est établi CANON : le phénomène du sommet émet des PULSES visibles à des jours de marche ; l'onde se SENT physiquement (« un battement de cœur immense, irrégulier » — le héros) ; les Pokémon sauvages se taisent avant chaque pulse ; Penticus fait le discours fondateur (« pour que chaque famille se couche sans regarder le nord avec angoisse ») ; les archives de Phileas parlent de « nuits où la montagne s'allume » (compte-rendu, pas poésie).
 - OST : silence → Growing Anxiety → Rising Fear → Sympathy. VFX : Flash + Cosmic_Power overlay + ShakeScreen.
 - Toute écriture future ch5+ doit référencer ce pulse comme événement partagé par toute l'expédition ET visible depuis Metano (rumeurs ch6 à prévoir).
+
+## « Les Héros d'Autrefois » — canon PMD établi (session 5, 2026-07-26)
+
+Cinématique majeure de Grodoudou (stand des Zones Légendaires, post-expédition, `SV.Chapter5.LegendHeroesHeard`).
+**CANON DÉSORMAIS FIXÉ pour tout le projet** — l'histoire du monde de New Era inclut les événements des anciens PMD, racontés comme mémoire collective :
+
+1. **La Météore** (écho Rescue Team) : il y a des années, une météore a failli détruire le monde ; catastrophes en série ; une équipe de deux — dont **un humain réincarné en Pokémon, amnésique** — l'a réduite en poussière au dernier instant. La pluie d'étoiles qui a suivi fait encore pleurer les anciens.
+2. **Le Temps Arrêté** (écho Explorers of Sky) : le temps s'est figé région par région ; un humain venu du futur, réincarné en Pokémon, est monté avec son fidèle ami au sommet d'une tour « qui touchait le ciel brisé » et a rendu au monde son battement. Le héros s'est effacé — « mais le monde le lui a rendu. Je choisis toujours cette fin-là » (Grodoudou).
+3. **D'autres cataclysmes** : les mers en furie, l'espace déchiré — « chaque génération a eu son épreuve... et son équipe de deux ».
+4. **25 ANS DE CALME** depuis. « Le calme n'était pas la fin des histoires. C'était une très longue inspiration. » → la lumière du sommet marque la fin de l'inspiration ; l'équipe du joueur est l'héritière désignée des équipes de deux.
+
+Structure OST en 4 actes : Welcome to the World of Pokémon! → Time Gear Remix → Growing Anxiety → Guildmaster Wigglytuff (chute comique/tendre : « un ami fidèle... et un très bon fournisseur d'équipement »).
+
+⚠ Cohérence avec le lore réservé : les « 25 ans » de Grodoudou ≈ les « 20 ans » du motif Fil du Destin (doc Minior §10.1bis) réservé à l'arc Jirachi. Lors de l'écriture de cet arc, harmoniser sur **25 ans** (le chiffre de Grodoudou fait foi, elle est la mémoire vivante).
+
+## « L'Arbitre du Ciel » — 7e légende (Reinier, camp du Mont)
+
+Rayquaza nommé en fin de récit ; Kyogre/Groudon évoqués comme « la mer et la terre en guerre » (jamais nommés). Règle posée : **l'Arbitre ne bouge que si quelque chose franchit son ciel — dans un sens ou dans l'autre**. Relie le Météno (tombé = franchissement descendant) et la lumière du sommet (franchissement montant potentiel). Préfiguration lointaine de l'arc Jirachi/Fil du Destin. Déblocage : après victoire sur le gardien du Mont. OST : Sky Peak Cave → Rising Fear (bref) → Canyon Camp.

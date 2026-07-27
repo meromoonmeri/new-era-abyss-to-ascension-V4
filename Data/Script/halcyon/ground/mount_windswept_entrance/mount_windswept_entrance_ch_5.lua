@@ -460,6 +460,20 @@ end
 function mount_windswept_entrance_ch_5.Girafarig_Action(chara, activator)
 	DEBUG.EnableDbgCoro()
 	if SV.Chapter5.MountGuardianDefeated then
+		if not SV.Chapter5.LegendSkyArbiterHeard then
+			GeneralFunctions.StartConversation(chara, "Le col est sécurisé.[pause=0] Demain,[pause=10] le sommet.[pause=0] Et cette lumière...", "Normal")
+			UI:SetSpeakerEmotion("Worried")
+			UI:WaitShowDialogue("...Vous savez,[pause=10] avant d'être escorteur,[pause=10] j'ai servi sur les routes du grand Est.[pause=0] Et là-bas,[pause=10] les caravaniers racontent une histoire sur ce qui vit AU-DESSUS du ciel.")
+			UI:ResetSpeaker()
+			UI:ChoiceMenuYesNo("Écouter l'histoire de Reinier ?", false)
+			UI:WaitForChoice()
+			if UI:ChoiceResult() then
+				mount_windswept_entrance_ch_5.LegendOfTheSkyArbiter(chara)
+				return
+			end
+			GeneralFunctions.EndConversation(chara)
+			return
+		end
 		GeneralFunctions.StartConversation(chara, "Le col est sécurisé.[pause=0] Je fais passer le mot aux équipes restées en arrière :[pause=10] la voie du retour est balisée.", "Normal")
 		UI:WaitShowDialogue("Quoi qu'il arrive là-haut,[pause=10] sachez qu'on tiendra le camp.[pause=0] Vous aurez toujours un feu où revenir.")
 	elseif SV.Chapter5.LostMountain or SV.Chapter5.DiedToWind or SV.Chapter5.MountGuardianLost then
@@ -469,6 +483,55 @@ function mount_windswept_entrance_ch_5.Girafarig_Action(chara, activator)
 		GeneralFunctions.StartConversation(chara, "Depuis ce poste,[pause=10] je couvre les deux sentiers du camp.[pause=0] Vieille habitude d'escorte.", "Normal")
 		UI:WaitShowDialogue("Un conseil :[pause=10] au sommet,[pause=10] ne vous fiez pas à vos yeux.[pause=0] Le vent y transporte des sons de très loin.[pause=0] Fiez-vous à vos oreilles.")
 	end
+	GeneralFunctions.EndConversation(chara)
+end
+
+--------------------------------------------------------------------
+-- LÉGENDE : « L'Arbitre du Ciel » (Reinier, veteran des caravanes)
+-- Mentions : Rayquaza (l'Arbitre, nomme a la fin seulement), Kyogre et
+-- Groudon evoques comme « la mer et la terre en guerre ». Motif New Era :
+-- l'Arbitre n'intervient que si le ciel est franchi — echo au Fragment
+-- (Meteno) tombe pres du relais, et prefiguration lointaine du lore
+-- Fil du Destin reserve a l'arc Jirachi.
+-- OST : Sky Peak Cave -> Rising Fear (bref) -> retour.
+--------------------------------------------------------------------
+function mount_windswept_entrance_ch_5.LegendOfTheSkyArbiter(chara)
+	local hero = CH('PLAYER')
+	SOUND:FadeOutBGM(60)
+	GAME:WaitFrames(50)
+	SOUND:PlayBGM('Sky Peak Cave.ogg', true)
+	GAME:WaitFrames(30)
+
+	UI:SetSpeaker(chara)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue("On raconte...[pause=20] qu'il y a très longtemps,[pause=10] la mer et la terre se sont fait la guerre.")
+	UI:WaitShowDialogue("La mer voulait tout recouvrir.[pause=0] La terre voulait tout soulever.[pause=0] Les tempêtes ont duré si longtemps que les Pokémon oubliaient la couleur du ciel calme.")
+	GAME:WaitFrames(20)
+	GROUND:CharSetEmote(chara, "glowing", 1)
+	UI:WaitShowDialogue("Et quand tout semblait perdu...[pause=10] QUELQUE CHOSE est descendu de plus haut que les nuages.[pause=0] De plus haut que le haut.")
+	UI:WaitShowDialogue("Un serpent de jade,[pause=10] long comme un fleuve,[pause=10] qui vit là où l'air s'arrête.[pause=0] Il n'a pas pris parti.[pause=0] Il a JUGÉ.[pause=0] Et la mer et la terre se sont tues.")
+	GAME:WaitFrames(20)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue("Les caravaniers l'appellent l'Arbitre du Ciel.[pause=0] Les archives lui donnent un nom :[pause=10] [color=#00C060]Rayquaza[color].")
+
+	-- Bref frisson : le lien avec le present.
+	SOUND:FadeOutBGM(30)
+	GAME:WaitFrames(30)
+	SOUND:PlayBGM('Rising Fear.ogg', true)
+	GAME:WaitFrames(20)
+	UI:WaitShowDialogue("Il ne descend JAMAIS pour les querelles du sol.[pause=0] Une seule chose le fait bouger :[pause=10] quand quelque chose FRANCHIT son ciel.[pause=0] Dans un sens...[pause=20] ou dans l'autre.")
+	GAME:WaitFrames(20)
+	GeneralFunctions.HeroDialogue(hero, "(Quelque chose qui franchit le ciel...[pause=0] Le Météno est tombé.[pause=0] Et la lumière du sommet,[pause=10] elle,[pause=10] cherche peut-être à monter.)", "Worried")
+
+	UI:SetSpeaker(chara)
+	SOUND:FadeOutBGM(30)
+	GAME:WaitFrames(30)
+	SOUND:PlayBGM('Canyon Camp.ogg', true)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue("Mon arrière-tête n'aime pas cette histoire.[pause=0] Il ne l'a jamais aimée.[pause=0] Mais il insiste toujours pour que je la raconte aux équipes qui montent.")
+	UI:WaitShowDialogue("Allez dormir.[pause=0] Et là-haut...[pause=10] quoi que vous voyiez dans le ciel,[pause=10] saluez-le poliment.[pause=0] On ne sait jamais qui regarde.")
+
+	SV.Chapter5.LegendSkyArbiterHeard = true
 	GeneralFunctions.EndConversation(chara)
 end
 

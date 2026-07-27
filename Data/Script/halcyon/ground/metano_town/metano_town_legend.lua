@@ -226,6 +226,22 @@ function metano_town_legend.Legend_Merchant_Action(chara, activator)
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['LZ_Meet_005']))
     end
 
+    -- GRANDE VEILLEE : les Heros d'Autrefois. Une seule fois, apres l'expedition.
+    -- Grodoudou a connu l'age d'or des equipes de secours : elle raconte.
+    if SV.Chapter5.FinishedExpedition and not SV.Chapter5.LegendHeroesHeard then
+        UI:SetSpeaker(merchant)
+        UI:SetSpeakerEmotion("Normal")
+        UI:WaitShowDialogue("Alors c'est vous...[pause=0] l'équipe qui a vu la lumière du sommet.[pause=0] Youpiii...[pause=10] non,[pause=10] pardon.[pause=0] Ce n'est pas un jour à youpi.")
+        UI:WaitShowDialogue("Approchez.[pause=0] Il est temps que quelqu'un vous raconte ce que les vieux de ce monde savent...[pause=10] et que les jeunes ont oublié.")
+        UI:ResetSpeaker()
+        UI:ChoiceMenuYesNo("Écouter les histoires des Héros d'Autrefois ?", true)
+        UI:WaitForChoice()
+        if UI:ChoiceResult() then
+            metano_town_legend.TalesOfOldHeroes(merchant, hero, partner)
+            return
+        end
+    end
+
     local state = 0
     local repeated = false
 
@@ -274,6 +290,142 @@ function metano_town_legend.Legend_Merchant_Action(chara, activator)
 
     GeneralFunctions.EndConversation(partner)
     merchant.IsInteracting = false
+end
+
+--------------------------------------------------------------------
+-- CINÉMATIQUE MAJEURE — « Les Héros d'Autrefois » (Grodoudou)
+-- Hommage direct aux anciens Pokémon Donjon Mystère, raconté comme la
+-- mémoire vivante du monde : la météorite (Rescue Team), le temps arrêté
+-- et l'humain devenu Pokémon (Explorers of Sky), puis 25 ans de calme...
+-- jusqu'à la lumière du sommet. C'est la charnière : l'expédition du
+-- joueur devient l'héritière de ces légendes.
+-- OST : Welcome to the World of Pokémon! -> Time Gear Remix ->
+--       Growing Anxiety -> Guildmaster Wigglytuff (chute tendre).
+--------------------------------------------------------------------
+function metano_town_legend.TalesOfOldHeroes(merchant, hero, partner)
+    GAME:CutsceneMode(true)
+    AI:DisableCharacterAI(partner)
+    SOUND:FadeOutBGM(60)
+    GAME:WaitFrames(50)
+
+    -- ACTE 1 : la meteorite (echo Rescue Team).
+    SOUND:PlayBGM('Welcome to the World of Pokémon!.ogg', true)
+    GAME:WaitFrames(40)
+
+    UI:SetSpeaker(merchant)
+    UI:SetSpeakerEmotion("Normal")
+    UI:WaitShowDialogue("Il y a bien des années...[pause=20] bien avant votre naissance...[pause=10] une étoile est tombée du ciel.")
+    UI:WaitShowDialogue("Pas une étoile filante,[pause=10] non.[pause=0] Une MÉTÉORE.[pause=0] Si vaste qu'elle aurait effacé le monde entier en touchant le sol.")
+    GAME:WaitFrames(20)
+    GROUND:CharSetEmote(merchant, "glowing", 1)
+    UI:WaitShowDialogue("Les catastrophes se multipliaient déjà partout :[pause=10] séismes,[pause=10] famines,[pause=10] Pokémon sauvages devenus fous...[pause=0] Le monde était détraqué,[pause=10] et personne ne savait pourquoi.")
+    UI:WaitShowDialogue("Et au milieu de tout ça,[pause=10] une toute petite équipe de secours.[pause=0] Deux amis.[pause=0] On raconte que l'un des deux...[pause=20] n'était pas né Pokémon.")
+
+    if partner ~= nil then
+        GROUND:CharSetEmote(partner, "shock", 1)
+        SOUND:PlayBattleSE("EVT_Emote_Shock_2")
+        UI:SetSpeaker(partner)
+        UI:SetSpeakerEmotion("Surprised")
+        UI:WaitShowDialogue("Pas né Pokémon ?[pause=0] Qu'est-ce que ça veut dire,[pause=10] «[pause=5] pas né Pokémon[pause=5] » ?")
+    end
+
+    UI:SetSpeaker(merchant)
+    UI:SetSpeakerEmotion("Normal")
+    UI:WaitShowDialogue("Un HUMAIN,[pause=10] mon petit.[pause=0] Une créature d'un autre monde,[pause=10] réveillée un matin dans un corps de Pokémon,[pause=10] sans aucun souvenir.")
+    UI:WaitShowDialogue("Avec son fidèle ami,[pause=10] ils ont secouru des centaines des nôtres.[pause=0] Ils ont gravi une montagne interdite.[pause=0] Ils ont parlé au maître du ciel lui-même.")
+    UI:WaitShowDialogue("Et la météore...[pause=20] fut réduite en poussière à quelques instants de la fin.[pause=0] La pluie d'étoiles qui a suivi...[pause=10] les anciens en parlent encore les larmes aux yeux.")
+
+    GAME:WaitFrames(30)
+    GeneralFunctions.HeroDialogue(hero, "(Un humain...[pause=10] devenu Pokémon...[pause=0] Pourquoi est-ce que mon cœur bat si fort d'un coup ?)", "Shock")
+
+    -- ACTE 2 : le temps arrete (echo Explorers of Sky).
+    SOUND:FadeOutBGM(40)
+    GAME:WaitFrames(40)
+    SOUND:PlayBGM('Time Gear Remix.ogg', true)
+    GAME:WaitFrames(30)
+
+    UI:SetSpeaker(merchant)
+    UI:SetSpeakerEmotion("Worried")
+    UI:WaitShowDialogue("Une autre fois...[pause=20] c'est le temps lui-même qui s'est arrêté.")
+    UI:WaitShowDialogue("Pas partout d'un coup,[pause=10] non.[pause=0] Région par région.[pause=0] Les vagues figées en pleine écume.[pause=0] La pluie suspendue entre ciel et terre.[pause=0] Les Pokémon...[pause=10] immobiles,[pause=10] à jamais.")
+    GAME:WaitFrames(20)
+    UI:WaitShowDialogue("Et encore une fois...[pause=10] un humain réincarné en Pokémon.[pause=0] Venu du futur,[pause=10] disent certains.[pause=0] Un futur où tout était déjà perdu.")
+    UI:WaitShowDialogue("Avec son fidèle ami,[pause=10] ils sont montés au sommet d'une tour qui touchait le ciel brisé.[pause=0] Et là-haut...[pause=20] ils ont rendu au monde son battement.")
+    GAME:WaitFrames(20)
+    UI:SetSpeakerEmotion("Sad")
+    UI:WaitShowDialogue("On raconte que le prix payé fut...[pause=20] immense.[pause=0] Que le héros s'est effacé avec le futur qu'il venait empêcher.")
+    UI:WaitShowDialogue("Mais on raconte AUSSI...[pause=10] que le monde,[pause=10] reconnaissant,[pause=10] le lui a rendu.[pause=0] Je préfère cette fin-là.[pause=0] Je choisis toujours cette fin-là.")
+
+    if partner ~= nil then
+        GAME:WaitFrames(20)
+        UI:SetSpeaker(partner)
+        UI:SetSpeakerEmotion("Teary-Eyed")
+        UI:WaitShowDialogue("Moi aussi...[pause=10] je choisis cette fin-là.")
+    end
+
+    -- ACTE 3 : 25 ans de calme... et maintenant.
+    SOUND:FadeOutBGM(40)
+    GAME:WaitFrames(40)
+    SOUND:PlayBGM('Growing Anxiety.ogg', true)
+    GAME:WaitFrames(20)
+
+    UI:SetSpeaker(merchant)
+    UI:SetSpeakerEmotion("Normal")
+    UI:WaitShowDialogue("Il y a eu d'autres grands cataclysmes,[pause=10] d'autres héros.[pause=0] Les mers en furie.[pause=0] L'espace déchiré.[pause=0] Chaque génération a eu son épreuve...[pause=10] et son équipe de deux.")
+    GAME:WaitFrames(20)
+    UI:SetSpeakerEmotion("Worried")
+    UI:WaitShowDialogue("Puis...[pause=20] plus rien.[pause=0] Vingt-cinq ans de calme.[pause=0] Vingt-cinq ans sans étoile qui tombe,[pause=10] sans temps qui bégaie,[pause=10] sans mer qui gronde.")
+    UI:WaitShowDialogue("Les vieux comme moi ont fini par croire que le monde avait épuisé ses malheurs.[pause=0] Que les histoires de héros resteraient...[pause=10] des histoires.")
+    GAME:WaitFrames(30)
+    UI:WaitShowDialogue("Et voilà qu'une lumière tremble au sommet d'une montagne.[pause=0] Et voilà qu'une voix murmure dans les herbes.[pause=0] Et voilà que VOUS passez ma porte.")
+    GAME:WaitFrames(20)
+    UI:WaitShowDialogue("Vingt-cinq ans,[pause=10] mes petits.[pause=0] Le calme n'était pas la fin des histoires.[pause=0] C'était...[pause=20] une très longue inspiration.")
+
+    GAME:WaitFrames(30)
+    GeneralFunctions.HeroDialogue(hero, "(Chaque génération a eu son épreuve.[pause=0] Et son équipe de deux...)", "Worried")
+
+    if partner ~= nil then
+        UI:SetSpeaker(partner)
+        UI:SetSpeakerEmotion("Worried")
+        UI:WaitShowDialogue("Grodoudou...[pause=0] vous êtes en train de dire que...[pause=10] que c'est NOTRE tour ?")
+    end
+
+    -- Chute tendre : Grodoudou redevient elle-meme.
+    SOUND:FadeOutBGM(40)
+    GAME:WaitFrames(40)
+    SOUND:PlayBGM('Guildmaster Wigglytuff.ogg', true)
+    GAME:WaitFrames(20)
+
+    UI:SetSpeaker(merchant)
+    UI:SetSpeakerEmotion("Happy")
+    UI:WaitShowDialogue("Ce que je dis,[pause=10] c'est que les héros d'autrefois avaient tous DEUX choses :[pause=10] un ami fidèle...[pause=10] et un très bon fournisseur d'équipement.")
+    GAME:WaitFrames(15)
+    UI:SetSpeakerEmotion("Joyous")
+    UI:WaitShowDialogue("L'ami,[pause=10] vous l'avez déjà ![pause=0] Et pour le reste...[pause=10] youpiii ![pause=0] Vous connaissez mon stand !")
+
+    if partner ~= nil then
+        GROUND:CharSetEmote(partner, "sweatdrop", 1)
+        UI:SetSpeaker(partner)
+        UI:SetSpeakerEmotion("Stunned")
+        UI:WaitShowDialogue("...Et voilà.[pause=0] Le moment était PRESQUE solennel.")
+    end
+
+    UI:SetSpeaker(merchant)
+    UI:SetSpeakerEmotion("Normal")
+    UI:WaitShowDialogue("Le solennel,[pause=10] c'est pour les statues,[pause=10] mon petit.[pause=0] Les vivants,[pause=10] eux,[pause=10] doivent rire ET se préparer.[pause=0] Les deux.[pause=0] Toujours les deux.")
+    GAME:WaitFrames(20)
+    UI:WaitShowDialogue("Allez.[pause=0] Revenez me voir quand vous voulez.[pause=0] Et si un jour le ciel vous semble trop lourd...[pause=10] rappelez-vous :[pause=10] d'autres l'ont porté avant vous.[pause=0] À deux.[pause=0] Et ils ont tenu.")
+
+    SV.Chapter5.LegendHeroesHeard = true
+    GAME:WaitFrames(30)
+    SOUND:FadeOutBGM(60)
+    GAME:WaitFrames(30)
+    GAME:CutsceneMode(false)
+    AI:EnableCharacterAI(partner)
+    AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
+    if SV.metano_town.Song ~= nil and SV.metano_town.Song ~= "" then
+        SOUND:PlayBGM(SV.metano_town.Song, true)
+    end
 end
 
 return metano_town_legend
