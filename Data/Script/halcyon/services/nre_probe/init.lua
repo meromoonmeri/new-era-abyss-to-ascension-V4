@@ -75,6 +75,16 @@ end
 --------------------------------------------------------------------
 -- Callbacks
 --------------------------------------------------------------------
+function NREProbe:OnInit()
+  -- 2e ligne attendue, toujours au LANCEMENT (enregistrement du service).
+  PrintInfo('[NREPROBE] service nre_probe ACTIF (EngineServiceEvents.Init) — build 2026-07-27-C')
+end
+function NREProbe:OnLoadSavedData()
+  snapshot('LoadSavedData <-- sauvegarde chargee (menu Continuer)')
+end
+function NREProbe:OnNewGame()
+  snapshot('NewGame')
+end
 function NREProbe:OnZoneInit()            snapshot('ZoneInit') end
 function NREProbe:OnDungeonModeBegin()    snapshot('DungeonModeBegin') end
 function NREProbe:OnDungeonModeEnd()      snapshot('DungeonModeEnd  <-- ExitFloor vient de detacher l equipe (normal)') end
@@ -91,6 +101,9 @@ function NREProbe:OnGroundMapEnter()      snapshot('GroundMapEnter') end
 function NREProbe:OnGroundMapExit()       snapshot('GroundMapExit') end
 
 function NREProbe:Subscribe(med)
+  med:Subscribe("NREProbe", EngineServiceEvents.Init,                function() self.OnInit(self) end )
+  med:Subscribe("NREProbe", EngineServiceEvents.NewGame,             function() self.OnNewGame(self) end )
+  med:Subscribe("NREProbe", EngineServiceEvents.LoadSavedData,       function() self.OnLoadSavedData(self) end )
   med:Subscribe("NREProbe", EngineServiceEvents.ZoneInit,            function() self.OnZoneInit(self) end )
   med:Subscribe("NREProbe", EngineServiceEvents.DungeonModeBegin,    function() self.mode = 'dungeon' self.limbo_ticks = 0 self.OnDungeonModeBegin(self) end )
   med:Subscribe("NREProbe", EngineServiceEvents.DungeonModeEnd,      function() self.mode = 'limbo' self.limbo_ticks = 0 self.OnDungeonModeEnd(self) end )

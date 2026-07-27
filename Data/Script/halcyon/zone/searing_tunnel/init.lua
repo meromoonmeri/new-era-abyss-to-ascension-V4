@@ -7,6 +7,17 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 
+-- [NREPROBE] sonde locale (audit runtime).
+local function nre_snap(tag)
+  local ok, msg = pcall(function()
+    local zone = tostring(_ZONE.CurrentZoneID)
+    local seg = tostring(_ZONE.CurrentMapID.Segment)
+    local save_n = _DATA.Save.ActiveTeam.Players.Count
+    return string.format('[NREPROBE][%s] zone=%s seg=%s Save.Team=%d', tag, zone, seg, save_n)
+  end)
+  PrintInfo(ok and msg or ('[NREPROBE]['..tag..'] snapshot FAILED: '..tostring(msg)))
+end
+
 local searing_tunnel = {}
 --------------------------------------------------
 -- Map Callbacks
@@ -20,6 +31,7 @@ function searing_tunnel.Init(zone)
 end
 
 function searing_tunnel.EnterSegment(zone, rescuing, segmentID, mapID)
+  nre_snap('searing_tunnel.EnterSegment seg='..tostring(segmentID))
 	if rescuing ~= true then
 		COMMON.BeginDungeon(zone.ID, segmentID, mapID)
 	end
@@ -47,6 +59,7 @@ end
 
 
 function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
+  nre_snap('searing_tunnel.ExitSegment seg='..tostring(segmentID)..' result='..tostring(result))
 	if SV.Chapter5.TunnelMiniBossSeen == nil then SV.Chapter5.TunnelMiniBossSeen = false end
 	GeneralFunctions.RestoreIdleAnim()
 	DEBUG.EnableDbgCoro() --Enable debugging this coroutine

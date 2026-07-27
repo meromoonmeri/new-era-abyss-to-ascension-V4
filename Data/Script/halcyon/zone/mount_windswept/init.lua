@@ -7,6 +7,17 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 
+-- [NREPROBE] sonde locale (audit runtime).
+local function nre_snap(tag)
+  local ok, msg = pcall(function()
+    local zone = tostring(_ZONE.CurrentZoneID)
+    local seg = tostring(_ZONE.CurrentMapID.Segment)
+    local save_n = _DATA.Save.ActiveTeam.Players.Count
+    return string.format('[NREPROBE][%s] zone=%s seg=%s Save.Team=%d', tag, zone, seg, save_n)
+  end)
+  PrintInfo(ok and msg or ('[NREPROBE]['..tag..'] snapshot FAILED: '..tostring(msg)))
+end
+
 -- Package name
 local mount_windswept = {}
 
@@ -23,12 +34,14 @@ end
 ---mount_windswept.EnterSegment(zone, rescuing, segmentID, mapID)
 --Engine callback function
 function mount_windswept.EnterSegment(zone, rescuing, segmentID, mapID)
+  nre_snap('mount_windswept.EnterSegment seg='..tostring(segmentID))
 	GeneralFunctions.CheckAllowSetRescue(zone.ID)
 end
 
 ---mount_windswept.ExitSegment(zone, result, rescue, segmentID, mapID)
 --Engine callback function
 function mount_windswept.ExitSegment(zone, result, rescue, segmentID, mapID)
+  nre_snap('mount_windswept.ExitSegment seg='..tostring(segmentID)..' result='..tostring(result))
 	GeneralFunctions.RestoreIdleAnim()
 	DEBUG.EnableDbgCoro() --Enable debugging this coroutine
 	PrintInfo("=>> ExitSegment_mount_windswept (Mt. Windswept) result "..tostring(result).." segment "..tostring(segmentID))

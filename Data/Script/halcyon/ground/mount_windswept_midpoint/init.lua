@@ -7,6 +7,17 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.ground.mount_windswept_midpoint.mount_windswept_midpoint_ch_5'
 
+-- [NREPROBE] sonde locale (audit runtime).
+local function nre_snap(tag)
+  local ok, msg = pcall(function()
+    local zone = tostring(_ZONE.CurrentZoneID)
+    local seg = tostring(_ZONE.CurrentMapID.Segment)
+    local save_n = _DATA.Save.ActiveTeam.Players.Count
+    return string.format('[NREPROBE][%s] zone=%s seg=%s Save.Team=%d', tag, zone, seg, save_n)
+  end)
+  PrintInfo(ok and msg or ('[NREPROBE]['..tag..'] snapshot FAILED: '..tostring(msg)))
+end
+
 local mount_windswept_midpoint = {}
 
 function mount_windswept_midpoint.Init(map)
@@ -17,6 +28,7 @@ function mount_windswept_midpoint.Init(map)
 end
 
 function mount_windswept_midpoint.Enter(map)
+  nre_snap('mount_windswept_midpoint.Enter')
 	if SV.Chapter5.PlayedMountMidpointIntro == nil then SV.Chapter5.PlayedMountMidpointIntro = false end
   mount_windswept_midpoint.PlotScripting()
 end
@@ -54,6 +66,7 @@ end
 -- Fix audit : même correction que la Grande Steppe — l'arène du mini-boss
 -- était orpheline, le relais sautait directement au segment 2.
 function mount_windswept_midpoint.North_Exit_Touch(obj, activator)
+  nre_snap('mount_windswept_midpoint.North_Exit_Touch')
   DEBUG.EnableDbgCoro()
   UI:ResetSpeaker(false)
   UI:SetCenter(true)

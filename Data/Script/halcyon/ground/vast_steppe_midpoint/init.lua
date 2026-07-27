@@ -7,16 +7,28 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.ground.vast_steppe_midpoint.vast_steppe_midpoint_ch_5'
 
+-- [NREPROBE] sonde locale (audit runtime).
+local function nre_snap(tag)
+  local ok, msg = pcall(function()
+    local zone = tostring(_ZONE.CurrentZoneID)
+    local seg = tostring(_ZONE.CurrentMapID.Segment)
+    local save_n = _DATA.Save.ActiveTeam.Players.Count
+    return string.format('[NREPROBE][%s] zone=%s seg=%s Save.Team=%d', tag, zone, seg, save_n)
+  end)
+  PrintInfo(ok and msg or ('[NREPROBE]['..tag..'] snapshot FAILED: '..tostring(msg)))
+end
+
 local vast_steppe_midpoint = {}
 
 function vast_steppe_midpoint.Init(map)
   DEBUG.EnableDbgCoro()
-  print('=>> Init_vast_steppe_midpoint <<=')
+  print('=>> Init_vast_steppe_midpoint <<= [build 2026-07-27-C]')
   COMMON.RespawnAllies(true)
   PartnerEssentials.InitializePartnerSpawn()
 end
 
 function vast_steppe_midpoint.Enter(map)
+  nre_snap('vast_steppe_midpoint.Enter')
 	if SV.Chapter5.PlayedSteppeMidpointIntro == nil then SV.Chapter5.PlayedSteppeMidpointIntro = false end
   vast_steppe_midpoint.PlotScripting()
 end
@@ -54,6 +66,7 @@ end
 -- Fix audit : l'arène du mini-boss était orpheline (le relais sautait
 -- directement au segment 2) et sa cinématique supposait une session active.
 function vast_steppe_midpoint.North_Exit_Touch(obj, activator)
+  nre_snap('vast_steppe_midpoint.North_Exit_Touch')
   DEBUG.EnableDbgCoro()
   UI:ResetSpeaker(false)
   UI:SetCenter(true)

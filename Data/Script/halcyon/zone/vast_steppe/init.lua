@@ -7,6 +7,17 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 
+-- [NREPROBE] sonde locale (audit runtime).
+local function nre_snap(tag)
+  local ok, msg = pcall(function()
+    local zone = tostring(_ZONE.CurrentZoneID)
+    local seg = tostring(_ZONE.CurrentMapID.Segment)
+    local save_n = _DATA.Save.ActiveTeam.Players.Count
+    return string.format('[NREPROBE][%s] zone=%s seg=%s Save.Team=%d', tag, zone, seg, save_n)
+  end)
+  PrintInfo(ok and msg or ('[NREPROBE]['..tag..'] snapshot FAILED: '..tostring(msg)))
+end
+
 local vast_steppe = {}
 --------------------------------------------------
 -- Map Callbacks
@@ -20,6 +31,7 @@ function vast_steppe.Init(zone)
 end
 
 function vast_steppe.EnterSegment(zone, rescuing, segmentID, mapID)
+  nre_snap('vast_steppe.EnterSegment seg='..tostring(segmentID))
     GeneralFunctions.CheckAllowSetRescue(zone.ID) 
 	if rescuing ~= true then
 		COMMON.BeginDungeon(zone.ID, segmentID, mapID)
@@ -31,6 +43,7 @@ function vast_steppe.Rescued(zone, name, mail)
 end
 
 function vast_steppe.ExitSegment(zone, result, rescue, segmentID, mapID)
+  nre_snap('vast_steppe.ExitSegment seg='..tostring(segmentID)..' result='..tostring(result))
   GeneralFunctions.RestoreIdleAnim()
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
   PrintInfo("=>> ExitSegment_vast_steppe (Vast Steppe) result "..tostring(result).." segment "..tostring(segmentID))
