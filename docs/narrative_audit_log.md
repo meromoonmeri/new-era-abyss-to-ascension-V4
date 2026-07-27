@@ -181,3 +181,19 @@ Verdict global : le joueur peut-il sentir le patchwork ? NON. Les correctifs
 de ce passage réduisent au contraire deux coutures visibles (boutique
 fantôme, boss ch8-10 aux intros interchangeables).
 ```
+
+---
+
+## Audit §10 — 2026-07-27 : retiling arène Lugia (Rainbow_Peak)
+
+- **Changement** : `celestial_peak_boss.rsmap` passe des autotiles
+  `concealed_ruins_*` (ruines grises génériques, incohérentes après la
+  cinématique céleste) au tileset `FA_Rainbow_Peak_RTRB` : sol = mer de
+  nuages, murs = ciel bleu, 4 accents arc-en-ciel décoratifs hors zone jouable.
+- **Cohérence de chaîne ch10** : sommet (segment 4) → Autel des Cieux
+  (ground pmd-red 1:1, fond « Sky » animé) → combat Lugia désormais dans le
+  même registre visuel céleste. La couture ruines/ciel disparaît.
+- **Aucun texte modifié**, aucun nom de source visible (tileset renommé FA_*
+  RTRB dès l'import initial). Positions, niveaux, entrées : inchangés.
+- **Verdict** : le joueur peut-il sentir le patchwork ? NON — au contraire,
+  cette passe supprime la dernière rupture visuelle du climax du ch10.
