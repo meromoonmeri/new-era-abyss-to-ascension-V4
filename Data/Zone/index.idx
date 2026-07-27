@@ -4721,6 +4721,1099 @@
       },
       "Released": true,
       "SortOrder": 0
+    },
+    "new_era_zone_00": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 5,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 4,
+      "Rogue": 0,
+      "Grounds": [
+        "foret_tendre_oree"
+      ],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Tiny Woods",
+        "LocalTexts": {
+          "fr": "Lisière du Premier Signal"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_01": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 6,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 6,
+      "Rogue": 0,
+      "Grounds": [
+        "grotte_statique_seuil"
+      ],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Thunderwave Cave",
+        "LocalTexts": {
+          "fr": "Conduit à Ondes Rémanentes"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_02": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 8,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 10,
+      "Rogue": 0,
+      "Grounds": [
+        "pic_ferreux_pied"
+      ],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Mt. Steel",
+        "LocalTexts": {
+          "fr": "Pylône du Vieux Fer"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_03": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 10,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 14,
+      "Rogue": 0,
+      "Grounds": [
+        "bois_sombres_oree"
+      ],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Sinister Woods",
+        "LocalTexts": {
+          "fr": "Taillis des Interférences"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_04": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 12,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 10,
+      "Rogue": 0,
+      "Grounds": [
+        "gouffre_muet_bord"
+      ],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Silent Chasm",
+        "LocalTexts": {
+          "fr": "Faille du Silence Long"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_05": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 14,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 15,
+      "Rogue": 0,
+      "Grounds": [
+        "mont_grondant_pied",
+        "new_era_zone_05_relais"
+      ],
+      "Maps": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Mt. Thunder (+Peak)",
+        "LocalTexts": {
+          "fr": "Antenne du Grand Orage"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_07": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 16,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 13,
+      "Rogue": 0,
+      "Grounds": [
+        "grand_canyon_porte"
+      ],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Great Canyon",
+        "LocalTexts": {
+          "fr": "Canyon des Voix Éteintes"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_08": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 18,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 15,
+      "Rogue": 0,
+      "Grounds": [
+        "grotte_lazuli_seuil",
+        "grotte_lazuli_fond"
+      ],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Lapis Cave",
+        "LocalTexts": {
+          "fr": "Veine d'Azur Profond"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_09": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 20,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 17,
+      "Rogue": 0,
+      "Grounds": [
+        "mont_cendre_pied",
+        "new_era_zone_09_relais"
+      ],
+      "Maps": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Mt. Blaze (+Peak)",
+        "LocalTexts": {
+          "fr": "Cheminée du Réacteur Rouge"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_11": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 22,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 16,
+      "Rogue": 0,
+      "Grounds": [
+        "foret_givree_oree",
+        "new_era_zone_11_relais"
+      ],
+      "Maps": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Frosty Forest (+Grotto)",
+        "LocalTexts": {
+          "fr": "Forêt du Givre Statique"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_13": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 24,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 22,
+      "Rogue": 0,
+      "Grounds": [
+        "mont_gele_pied",
+        "new_era_zone_13_relais"
+      ],
+      "Maps": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Mt. Freeze (+Peak)",
+        "LocalTexts": {
+          "fr": "Aiguille du Zéro Absolu"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_15": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 28,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 28,
+      "Rogue": 0,
+      "Grounds": [
+        "gorge_ardente_porte",
+        "new_era_zone_15_relais",
+        "fosse_ardente"
+      ],
+      "Maps": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Magma Cavern (+Pit)",
+        "LocalTexts": {
+          "fr": "Cœur de la Fournaise-Mère"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_17": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 32,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 36,
+      "Rogue": 0,
+      "Grounds": [
+        "parvis_celeste",
+        "new_era_zone_17_relais",
+        "autel_celeste"
+      ],
+      "Maps": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Sky Tower (+Summit)",
+        "LocalTexts": {
+          "fr": "Tour du Ciel Fracturé"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_19": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 36,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 41,
+      "Rogue": 0,
+      "Grounds": [
+        "abime_tempetes"
+      ],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Stormy Sea",
+        "LocalTexts": {
+          "fr": "Mer des Tempêtes Sans Fin"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_20": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 45,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 100,
+      "Rogue": 0,
+      "Grounds": [
+        "fosse_argentee"
+      ],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Silver Trench",
+        "LocalTexts": {
+          "fr": "Fosse d'Argent Abyssale"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_21": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 40,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 21,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Meteor Cave",
+        "LocalTexts": {
+          "fr": "Berceau du Météore"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_23": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 50,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 100,
+      "Rogue": 0,
+      "Grounds": [
+        "antre_occident"
+      ],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Western Cave",
+        "LocalTexts": {
+          "fr": "Caverne du Silence Occidental"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_26": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 48,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 100,
+      "Rogue": 0,
+      "Grounds": [
+        "sanctuaire_voeu"
+      ],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Wish Cave",
+        "LocalTexts": {
+          "fr": "Puits des Vœux Fossiles"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_27": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 46,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 100,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Buried Relic",
+        "LocalTexts": {
+          "fr": "Relique Ensevelie"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_28": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 38,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 26,
+      "Rogue": 0,
+      "Grounds": [
+        "vallon_perdu"
+      ],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Pitfall Valley",
+        "LocalTexts": {
+          "fr": "Vallée des Chutes Perdues"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_29": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 39,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 26,
+      "Rogue": 0,
+      "Grounds": [
+        "cretes_boreales"
+      ],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Northern Range",
+        "LocalTexts": {
+          "fr": "Crêtes de la Boussole Nord"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_31": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 37,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 21,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Desert Region",
+        "LocalTexts": {
+          "fr": "Région des Sables Morts"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_32": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 42,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 51,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Southern Cavern",
+        "LocalTexts": {
+          "fr": "Caverne du Méridien Sud"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_33": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 43,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 31,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Wyvern Hill",
+        "LocalTexts": {
+          "fr": "Colline des Vouivres"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_34": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 44,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 31,
+      "Rogue": 0,
+      "Grounds": [
+        "champ_braises"
+      ],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Fiery Field",
+        "LocalTexts": {
+          "fr": "Champ de Cendres Vives"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_35": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 45,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 31,
+      "Rogue": 0,
+      "Grounds": [
+        "champ_vent_boreal"
+      ],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Northwind Field",
+        "LocalTexts": {
+          "fr": "Champ du Vent Polaire"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_36": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 41,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 21,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Solar Cave",
+        "LocalTexts": {
+          "fr": "Grotte du Soleil Enfoui"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_37": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 46,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 31,
+      "Rogue": 0,
+      "Grounds": [
+        "champ_foudre"
+      ],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Lightning Field",
+        "LocalTexts": {
+          "fr": "Champ des Cent Éclairs"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_38": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 44,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 16,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Darknight Relic",
+        "LocalTexts": {
+          "fr": "Relique de la Nuit Noire"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_39": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 42,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 13,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Wondrous Sea",
+        "LocalTexts": {
+          "fr": "Mer des Prodiges"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_40": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 47,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 20,
+      "Rogue": 0,
+      "Grounds": [
+        "caverne_trouble_fond"
+      ],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Murky Cave",
+        "LocalTexts": {
+          "fr": "Boyau des Eaux Troubles"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_41": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 48,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 31,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Grand Sea",
+        "LocalTexts": {
+          "fr": "Grand Large Oublié"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_42": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 40,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 11,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Uproar Forest",
+        "LocalTexts": {
+          "fr": "Forêt du Vacarme"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
+    },
+    "new_era_zone_43": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 49,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 16,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Oddity Cave",
+        "LocalTexts": {
+          "fr": "Grotte des Anomalies"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0
     }
   }
 }

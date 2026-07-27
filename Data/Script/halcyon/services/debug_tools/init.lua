@@ -337,6 +337,43 @@ function DebugTools:OnUpgrade()
  if SV.ChapterProgression.Chapter >= 4 and not GAME:DungeonUnlocked("grotte_echoue") then
 	GAME:UnlockDungeon("grotte_echoue")
  end
+ --Add-on Reseau des Anciens Chemins : deblocage a partir du Livre II (ch11+) ou fin d'histoire
+ if (SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 11) or SV.ChapterProgression.StoryCompleted == true then
+	if not GAME:DungeonUnlocked("new_era_zone_00") then GAME:UnlockDungeon("new_era_zone_00") end
+	if not GAME:DungeonUnlocked("new_era_zone_01") then GAME:UnlockDungeon("new_era_zone_01") end
+	if not GAME:DungeonUnlocked("new_era_zone_02") then GAME:UnlockDungeon("new_era_zone_02") end
+	if not GAME:DungeonUnlocked("new_era_zone_03") then GAME:UnlockDungeon("new_era_zone_03") end
+	if not GAME:DungeonUnlocked("new_era_zone_04") then GAME:UnlockDungeon("new_era_zone_04") end
+	if not GAME:DungeonUnlocked("new_era_zone_05") then GAME:UnlockDungeon("new_era_zone_05") end
+	if not GAME:DungeonUnlocked("new_era_zone_07") then GAME:UnlockDungeon("new_era_zone_07") end
+	if not GAME:DungeonUnlocked("new_era_zone_08") then GAME:UnlockDungeon("new_era_zone_08") end
+	if not GAME:DungeonUnlocked("new_era_zone_09") then GAME:UnlockDungeon("new_era_zone_09") end
+	if not GAME:DungeonUnlocked("new_era_zone_11") then GAME:UnlockDungeon("new_era_zone_11") end
+	if not GAME:DungeonUnlocked("new_era_zone_13") then GAME:UnlockDungeon("new_era_zone_13") end
+	if not GAME:DungeonUnlocked("new_era_zone_15") then GAME:UnlockDungeon("new_era_zone_15") end
+	if not GAME:DungeonUnlocked("new_era_zone_17") then GAME:UnlockDungeon("new_era_zone_17") end
+	if not GAME:DungeonUnlocked("new_era_zone_19") then GAME:UnlockDungeon("new_era_zone_19") end
+	if not GAME:DungeonUnlocked("new_era_zone_20") then GAME:UnlockDungeon("new_era_zone_20") end
+	if not GAME:DungeonUnlocked("new_era_zone_21") then GAME:UnlockDungeon("new_era_zone_21") end
+	if not GAME:DungeonUnlocked("new_era_zone_23") then GAME:UnlockDungeon("new_era_zone_23") end
+	if not GAME:DungeonUnlocked("new_era_zone_26") then GAME:UnlockDungeon("new_era_zone_26") end
+	if not GAME:DungeonUnlocked("new_era_zone_27") then GAME:UnlockDungeon("new_era_zone_27") end
+	if not GAME:DungeonUnlocked("new_era_zone_28") then GAME:UnlockDungeon("new_era_zone_28") end
+	if not GAME:DungeonUnlocked("new_era_zone_29") then GAME:UnlockDungeon("new_era_zone_29") end
+	if not GAME:DungeonUnlocked("new_era_zone_31") then GAME:UnlockDungeon("new_era_zone_31") end
+	if not GAME:DungeonUnlocked("new_era_zone_32") then GAME:UnlockDungeon("new_era_zone_32") end
+	if not GAME:DungeonUnlocked("new_era_zone_33") then GAME:UnlockDungeon("new_era_zone_33") end
+	if not GAME:DungeonUnlocked("new_era_zone_34") then GAME:UnlockDungeon("new_era_zone_34") end
+	if not GAME:DungeonUnlocked("new_era_zone_35") then GAME:UnlockDungeon("new_era_zone_35") end
+	if not GAME:DungeonUnlocked("new_era_zone_36") then GAME:UnlockDungeon("new_era_zone_36") end
+	if not GAME:DungeonUnlocked("new_era_zone_37") then GAME:UnlockDungeon("new_era_zone_37") end
+	if not GAME:DungeonUnlocked("new_era_zone_38") then GAME:UnlockDungeon("new_era_zone_38") end
+	if not GAME:DungeonUnlocked("new_era_zone_39") then GAME:UnlockDungeon("new_era_zone_39") end
+	if not GAME:DungeonUnlocked("new_era_zone_40") then GAME:UnlockDungeon("new_era_zone_40") end
+	if not GAME:DungeonUnlocked("new_era_zone_41") then GAME:UnlockDungeon("new_era_zone_41") end
+	if not GAME:DungeonUnlocked("new_era_zone_42") then GAME:UnlockDungeon("new_era_zone_42") end
+	if not GAME:DungeonUnlocked("new_era_zone_43") then GAME:UnlockDungeon("new_era_zone_43") end
+ end
  --Vague 2 multi-sources : deblocage retroactif des secondaires ch2-10
  if SV.ChapterProgression.Chapter >= 2 and not GAME:DungeonUnlocked("grotte_repos") then
 	GAME:UnlockDungeon("grotte_repos")
