@@ -60,7 +60,7 @@ function searing_crucible_ch_5.FirstPreBossScene()
 		})
 	GROUND:Hide('Magcargo')
 	
-	AI:DisableCharacterAI(partner)
+	if partner ~= nil then AI:DisableCharacterAI(partner) end
 	SOUND:StopBGM()
 	
 	GROUND:TeleportTo(hero, 240, 472, Direction.Up)
@@ -666,7 +666,7 @@ function searing_crucible_ch_5.SecondPreBossScene()
 		})
 	
 
-	AI:DisableCharacterAI(partner)
+	if partner ~= nil then AI:DisableCharacterAI(partner) end
 	SOUND:StopBGM()
 	
 	GROUND:TeleportTo(hero, 246, 246, Direction.Up)
@@ -793,7 +793,7 @@ local function DefeatedBossBody()
 	GROUND:CharSetAnim(magcargo, "Charge", true)
 	
 	
-	AI:DisableCharacterAI(partner)
+	if partner ~= nil then AI:DisableCharacterAI(partner) end
 	SOUND:StopBGM()
 	
 	GROUND:TeleportTo(hero, 244, 240, Direction.Up)

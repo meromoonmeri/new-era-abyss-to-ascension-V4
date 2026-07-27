@@ -16,7 +16,7 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
   -- Position the team entering the deep steppe
@@ -246,7 +246,7 @@ function vast_steppe_miniboss_ch_5.SecondPreBossScene()
     {'Stantler', 152, 200, Direction.Down}
   })
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
   GROUND:CharSetAnim(mudbray, "Idle", true)
   GROUND:CharSetAnim(stantler, "Charge", true)
@@ -298,7 +298,7 @@ local function DefeatedBossBody()
   GROUND:CharSetAnim(mudbray, "EventSleep", true)
   GROUND:CharSetAnim(stantler, "Charge", true)
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
   GROUND:TeleportTo(hero, 200, 300, Direction.Up)
@@ -386,7 +386,7 @@ function vast_steppe_miniboss_ch_5.DiedToBoss()
   local partner = CH('Teammate1')
 
   GAME:CutsceneMode(true)
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
   local mudbray = CharacterEssentials.MakeCharactersFromList({

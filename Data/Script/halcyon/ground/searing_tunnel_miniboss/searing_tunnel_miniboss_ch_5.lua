@@ -16,7 +16,7 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
   GROUND:TeleportTo(hero, 240, 440, Direction.Up)
@@ -236,7 +236,7 @@ function searing_tunnel_miniboss_ch_5.SecondPreBossScene()
     {'Magmar', 292, 208, Direction.Down}
   })
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
   GROUND:CharSetAnim(torkoal, "Idle", true)
   GROUND:CharSetAnim(magmar, "Idle", true)
@@ -286,7 +286,7 @@ local function DefeatedBossBody()
   GROUND:CharSetAnim(torkoal, "EventSleep", true)
   GROUND:CharSetAnim(magmar, "EventSleep", true)
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
   GROUND:TeleportTo(hero, 240, 320, Direction.Up)
@@ -363,7 +363,7 @@ function searing_tunnel_miniboss_ch_5.DiedToBoss()
   local partner = CH('Teammate1')
 
   GAME:CutsceneMode(true)
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
   local torkoal = CharacterEssentials.MakeCharactersFromList({

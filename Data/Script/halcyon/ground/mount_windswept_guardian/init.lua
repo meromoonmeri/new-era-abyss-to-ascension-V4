@@ -34,6 +34,9 @@ function mount_windswept_guardian.Init(map)
   nre_snap('mount_windswept_guardian.Init')
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Init_mount_windswept_guardian")
+
+  COMMON.RespawnAllies(true)
+  PartnerEssentials.InitializePartnerSpawn()
 end
 
 function mount_windswept_guardian.Enter(map)

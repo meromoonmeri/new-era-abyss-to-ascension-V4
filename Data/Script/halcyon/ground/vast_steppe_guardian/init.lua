@@ -34,6 +34,9 @@ function vast_steppe_guardian.Init(map)
   nre_snap('vast_steppe_guardian.Init')
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Init_vast_steppe_guardian")
+
+  COMMON.RespawnAllies(true)
+  PartnerEssentials.InitializePartnerSpawn()
 end
 
 function vast_steppe_guardian.Enter(map)

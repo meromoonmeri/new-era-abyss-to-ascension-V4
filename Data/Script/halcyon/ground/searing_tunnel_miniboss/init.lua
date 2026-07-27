@@ -34,6 +34,9 @@ function searing_tunnel_miniboss.Init(map)
   nre_snap('searing_tunnel_miniboss.Init')
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Init_searing_tunnel_miniboss")
+
+  COMMON.RespawnAllies(true)
+  PartnerEssentials.InitializePartnerSpawn()
 end
 
 function searing_tunnel_miniboss.Enter(map)

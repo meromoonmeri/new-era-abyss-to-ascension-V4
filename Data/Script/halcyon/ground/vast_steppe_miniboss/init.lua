@@ -34,6 +34,9 @@ function vast_steppe_miniboss.Init(map)
   nre_snap('vast_steppe_miniboss.Init')
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Init_vast_steppe_miniboss")
+
+  COMMON.RespawnAllies(true)
+  PartnerEssentials.InitializePartnerSpawn()
 end
 
 function vast_steppe_miniboss.Enter(map)

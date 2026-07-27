@@ -16,7 +16,7 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
   GROUND:TeleportTo(hero, 200, 400, Direction.Up)
@@ -152,7 +152,7 @@ function vast_steppe_guardian_ch_5.SecondPreBossScene()
     {'Stantler', 184, 200, Direction.Down}
   })
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
   GROUND:CharSetAnim(stantler, "Charge", true)
 
@@ -193,7 +193,7 @@ local function DefeatedBossBody()
   })
   GROUND:CharSetAnim(stantler, "Charge", true)
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
   GROUND:TeleportTo(hero, 200, 300, Direction.Up)
@@ -263,7 +263,10 @@ function vast_steppe_guardian_ch_5.DefeatedBoss()
   -- Sortie garantie : la suite de l'expedition (Tunnel) doit TOUJOURS s'ouvrir.
   GAME:CutsceneMode(false)
   PrintInfo("[BossSeq][vast_steppe_guardian_ch_5] DefeatedBoss -> searing_tunnel_entrance")
-  GAME:EnterGroundMap("searing_tunnel_entrance", "Main_Entrance_Marker")
+  -- searing_tunnel_entrance appartient a master_zone (ground 47), pas a la zone
+  -- vast_steppe : EnterGroundMap inter-zone provoque "Invalid Ground Map Name".
+  -- La cinematique du premier camp se lance ensuite via searing_tunnel_entrance.PlotScripting.
+  GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared, "master_zone", -1, 47, 0, false, false)
 end
 
 -- Player died to the boss
@@ -278,7 +281,7 @@ function vast_steppe_guardian_ch_5.DiedToBoss()
   local partner = CH('Teammate1')
 
   GAME:CutsceneMode(true)
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
   local stantler = CharacterEssentials.MakeCharactersFromList({

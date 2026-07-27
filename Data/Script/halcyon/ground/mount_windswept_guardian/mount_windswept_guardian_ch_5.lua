@@ -16,7 +16,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
   GROUND:TeleportTo(hero, 240, 440, Direction.Up)
@@ -255,7 +255,7 @@ function mount_windswept_guardian_ch_5.SecondPreBossScene()
     {'Aerodactyl', 224, 192, Direction.Down}
   })
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
   GROUND:CharSetAnim(aerodactyl, "Charge", true)
 
@@ -296,7 +296,7 @@ local function DefeatedBossBody()
   })
   GROUND:CharSetAnim(aerodactyl, "Charge", true)
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
   GROUND:TeleportTo(hero, 240, 340, Direction.Up)
@@ -411,7 +411,7 @@ function mount_windswept_guardian_ch_5.DiedToBoss()
   local partner = CH('Teammate1')
 
   GAME:CutsceneMode(true)
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
   local aerodactyl = CharacterEssentials.MakeCharactersFromList({

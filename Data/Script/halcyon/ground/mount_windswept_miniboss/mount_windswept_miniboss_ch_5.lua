@@ -16,7 +16,7 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
   GROUND:TeleportTo(hero, 240, 440, Direction.Up)
@@ -246,7 +246,7 @@ function mount_windswept_miniboss_ch_5.SecondPreBossScene()
     {'Skarmory', 268, 192, Direction.Down}
   })
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
   GROUND:CharSetAnim(gligar, "Idle", true)
   GROUND:CharSetAnim(skarmory, "Idle", true)
@@ -296,7 +296,7 @@ local function DefeatedBossBody()
   GROUND:CharSetAnim(gligar, "EventSleep", true)
   GROUND:CharSetAnim(skarmory, "EventSleep", true)
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
   GROUND:TeleportTo(hero, 240, 340, Direction.Up)
@@ -374,7 +374,7 @@ function mount_windswept_miniboss_ch_5.DiedToBoss()
   local partner = CH('Teammate1')
 
   GAME:CutsceneMode(true)
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
   local gligar = CharacterEssentials.MakeCharactersFromList({
