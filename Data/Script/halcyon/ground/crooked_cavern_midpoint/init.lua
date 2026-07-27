@@ -81,6 +81,37 @@ function crooked_cavern_midpoint.North_Exit_Touch(obj, activator)
   GROUND:CharEndAnim(hero)
 end
 
+-- Sortie sud : retour à l'entrée de la caverne (fix audit : l'objet South_Exit
+-- existait sur la map sans callback — la sortie sud était muette).
+function crooked_cavern_midpoint.South_Exit_Touch(obj, activator)
+  DEBUG.EnableDbgCoro()
+  UI:ResetSpeaker(false)
+  UI:SetCenter(true)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("crooked_cavern")
+  partner.IsInteracting = true
+  GROUND:CharSetAnim(partner, 'None', true)
+  GROUND:CharSetAnim(hero, 'None', true)
+  UI:ChoiceMenuYesNo("Souhaitez-vous revenir\nà l'entrée de " .. zone:GetColoredName() .. " ?", true)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  UI:SetCenter(false)
+  if res then
+    SV.adventure.Thief = false
+    SOUND:FadeOutBGM(60)
+    GAME:FadeOut(false, 60)
+    partner.IsInteracting = false
+    GROUND:CharEndAnim(partner)
+    GROUND:CharEndAnim(hero)
+    GAME:WaitFrames(60)
+    GAME:EnterGroundMap("crooked_cavern_entrance", "Main_Entrance_Marker")
+  end
+  partner.IsInteracting = false
+  GROUND:CharEndAnim(partner)
+  GROUND:CharEndAnim(hero)
+end
+
 -- Kangaskhan Rock: save + storage. Reuses the shared, already-French handler
 -- (GeneralFunctions.Kangashkhan_Rock_Interact — note the original typo in the name).
 function crooked_cavern_midpoint.Kangaskhan_Rock_Action(obj, activator)

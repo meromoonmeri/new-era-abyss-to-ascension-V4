@@ -22,7 +22,8 @@ local function Ch10State()
 end
 
 function metano_town_ch_10.SetupGround()
-    GROUND:Hide('Swap_Owner'); GROUND:Hide('Swap')
+    -- Boutique d'Échange (Ambipom) ouverte depuis le ch6 : ne plus la cacher.
+    GROUND:Unhide('Swap_Owner'); GROUND:Unhide('Swap')
     NPCRoutines.SetupChapter8Ground()
     GAME:FadeIn(20)
 end

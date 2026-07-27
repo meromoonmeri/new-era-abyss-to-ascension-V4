@@ -25,8 +25,10 @@ function metano_town_ch_6.SetupGround()
 	local hero = CH('PLAYER')
 	local partner = CH('Teammate1')
 
-	GROUND:Hide('Swap_Owner')
-	GROUND:Hide('Swap')
+	-- Boutique d'Échange (Ambipom) : OUVERTE depuis le retour de l'expédition (ch6+).
+	-- C'était le dernier commerce indisponible prévu par Palika ; les Hide sont retirés.
+	GROUND:Unhide('Swap_Owner')
+	GROUND:Unhide('Swap')
 
 	if not SV.Chapter6.DazzlingIntroPlayed then
 		AddDazzlingPlazaTrigger()

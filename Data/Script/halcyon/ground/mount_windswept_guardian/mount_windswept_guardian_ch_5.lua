@@ -245,7 +245,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
   SV.Chapter5.MountGuardianSeen = true
-  GAME:ContinueDungeon("mount_windswept", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  PrintInfo("[NREPROBE][transition] mount_windswept_guardian_ch_5.lua ContinueDungeon('mount_windswept', 3)") GAME:ContinueDungeon("mount_windswept", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function mount_windswept_guardian_ch_5.SecondPreBossScene()
@@ -282,7 +282,7 @@ function mount_windswept_guardian_ch_5.SecondPreBossScene()
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("mount_windswept", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  PrintInfo("[NREPROBE][transition] mount_windswept_guardian_ch_5.lua ContinueDungeon('mount_windswept', 3)") GAME:ContinueDungeon("mount_windswept", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function mount_windswept_guardian_ch_5.DefeatedBoss()
@@ -381,75 +381,86 @@ function mount_windswept_guardian_ch_5.DefeatedBoss()
     "master_zone", -1, exit_ground, 0, true, true)
 end
 
+-- Player died to the boss
+-- Réécrite (audit IsGameOver) : l'ancienne version était un collage corrompu —
+-- dialogues AVANT CutsceneMode/FadeIn (affichés hors cinématique), répliques de
+-- VICTOIRE mélangées dans la défaite, héros/partenaire cachés en pleine scène.
+-- Storyboard : fondu -> triomphe du boss -> la Voix -> le duo à terre -> retraite
+-- du boss -> fondu noir -> retour à l'entrée.
 function mount_windswept_guardian_ch_5.DiedToBoss()
+  PrintInfo("[BossSeq][mount_windswept_guardian_ch_5] DiedToBoss cutscene start")
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
+
+  GAME:CutsceneMode(true)
+  AI:DisableCharacterAI(partner)
+  SOUND:StopBGM()
+
   local aerodactyl = CharacterEssentials.MakeCharactersFromList({
     {'Aerodactyl', 224, 192, Direction.Down}
   })
   GROUND:CharSetAnim(aerodactyl, "Idle", true)
 
-  GROUND:Hide(partner.EntName)
-  -- L'Aerodactyl te regarde avec respect
-  GROUND:CharEndAnim(aerodactyl)
-  GROUND:CharSetAnim(aerodactyl, "Idle", true)
-  UI:SetSpeakerEmotion("Normal")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_025']))
+  -- L'équipe est au sol, vaincue.
+  GROUND:TeleportTo(hero, 240, 300, Direction.Up)
+  GROUND:TeleportTo(partner, 208, 300, Direction.Up)
+  GROUND:CharSetAnim(hero, "EventSleep", true)
+  GROUND:CharSetAnim(partner, "EventSleep", true)
+  GAME:MoveCamera(224, 245, 1, false)
 
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_026']))
-
-  UI:SetSpeaker(partner)
-  GeneralFunctions.Hop(partner)
-  UI:SetSpeakerEmotion("Inspired")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_028']))
-  GROUND:Hide(hero.EntName)
-
-  AI:DisableCharacterAI(partner)
-  SOUND:StopBGM()
-
-  GAME:MoveCamera(224, 240, 1, false)
-  GAME:CutsceneMode(true)
-
-  GAME:WaitFrames(60)
-  GAME:FadeIn(40)
-
+  GAME:FadeIn(60)
   GAME:WaitFrames(40)
 
+  -- La caméra monte sur le vainqueur.
+  GAME:MoveCamera(224, 205, 40, false)
+  GAME:WaitFrames(10)
+
+  -- Le boss triomphe.
+  GROUND:CharSetAnim(aerodactyl, "Charge", true)
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_021']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(20)
+
+  -- La Voix de l'Abysse commente la défaite.
   UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_017']))
-  -- "L'ancien prédateur ne fait pas de quartier..."
-
   GAME:WaitFrames(30)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_018']))
-  -- "Mais la proie d'aujourd'hui est le chasseur de demain."
-
   GAME:WaitFrames(20)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_019']))
-  -- "Repose-toi. Le sommet t'attendra."
+  GAME:WaitFrames(30)
 
-  GAME:WaitFrames(40)
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_029']))
-  -- L'Aerodactyl crie sa domination
-  GROUND:CharSetAnim(aerodactyl, "Charge", true)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_021']))
-
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_022']))
-
+  -- La caméra redescend sur le duo ; le partenaire se redresse à peine.
+  GAME:MoveCamera(224, 255, 40, false)
+  GROUND:CharEndAnim(partner)
+  GeneralFunctions.DoAnimation(partner, 'Wake')
+  GAME:WaitFrames(12)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue("Il est... trop rapide...[pause=20] Le ciel entier est son territoire...")
+  GAME:WaitFrames(20)
+
+  -- Le boss se retire, victorieux.
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_023']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(10)
+
   GAME:FadeOut(false, 60)
-  GAME:WaitFrames(90)
+  GAME:WaitFrames(60)
 
   SV.TemporaryFlags.Dinnertime = true
   SV.TemporaryFlags.Bedtime = true
   SV.TemporaryFlags.MorningWakeup = true
   SV.TemporaryFlags.MorningAddress = true
 
+  GROUND:CharEndAnim(hero)
+  GROUND:CharEndAnim(partner)
   GAME:CutsceneMode(false)
+  PrintInfo("[BossSeq][mount_windswept_guardian_ch_5] DiedToBoss -> mount_windswept_entrance")
   GAME:EnterGroundMap("mount_windswept_entrance", "Main_Entrance_Marker")
 end
 

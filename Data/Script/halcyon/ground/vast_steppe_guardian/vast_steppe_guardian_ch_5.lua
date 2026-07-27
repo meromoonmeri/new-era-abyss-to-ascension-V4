@@ -137,7 +137,7 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
   SV.Chapter5.SteppeGuardianSeen = true
-  GAME:ContinueDungeon("vast_steppe", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  PrintInfo("[NREPROBE][transition] vast_steppe_guardian_ch_5.lua ContinueDungeon('vast_steppe', 3)") GAME:ContinueDungeon("vast_steppe", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function vast_steppe_guardian_ch_5.SecondPreBossScene()
@@ -174,7 +174,7 @@ function vast_steppe_guardian_ch_5.SecondPreBossScene()
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("vast_steppe", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  PrintInfo("[NREPROBE][transition] vast_steppe_guardian_ch_5.lua ContinueDungeon('vast_steppe', 3)") GAME:ContinueDungeon("vast_steppe", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function vast_steppe_guardian_ch_5.DefeatedBoss()
@@ -244,69 +244,86 @@ function vast_steppe_guardian_ch_5.DefeatedBoss()
   GAME:EnterGroundMap("searing_tunnel_entrance", "Main_Entrance_Marker")
 end
 
+-- Player died to the boss
+-- Réécrite (audit IsGameOver) : l'ancienne version était un collage corrompu —
+-- dialogues AVANT CutsceneMode/FadeIn (affichés hors cinématique), répliques de
+-- VICTOIRE mélangées dans la défaite, héros/partenaire cachés en pleine scène.
+-- Storyboard : fondu -> triomphe du boss -> la Voix -> le duo à terre -> retraite
+-- du boss -> fondu noir -> retour à l'entrée.
 function vast_steppe_guardian_ch_5.DiedToBoss()
+  PrintInfo("[BossSeq][vast_steppe_guardian_ch_5] DiedToBoss cutscene start")
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
+
+  GAME:CutsceneMode(true)
+  AI:DisableCharacterAI(partner)
+  SOUND:StopBGM()
+
   local stantler = CharacterEssentials.MakeCharactersFromList({
     {'Stantler', 184, 200, Direction.Down}
   })
   GROUND:CharSetAnim(stantler, "Idle", true)
 
-  GROUND:Hide(partner.EntName)
-  -- Le Gardien s'effondre, ses bois s'eteignent
-  SOUND:PlayBattleSE('EVT_CH03_Boss_Collapse')
-  BossFX.ShakeScreen(6, 20)
-  UI:SetSpeakerEmotion("Normal")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_021']))
+  -- L'équipe est au sol, vaincue.
+  GROUND:TeleportTo(hero, 200, 300, Direction.Up)
+  GROUND:TeleportTo(partner, 168, 300, Direction.Up)
+  GROUND:CharSetAnim(hero, "EventSleep", true)
+  GROUND:CharSetAnim(partner, "EventSleep", true)
+  GAME:MoveCamera(184, 245, 1, false)
 
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_022']))
-
-  UI:SetSpeaker(partner)
-  GeneralFunctions.Hop(partner)
-  UI:SetSpeakerEmotion("Inspired")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_024']))
-  GROUND:Hide(hero.EntName)
-
-  AI:DisableCharacterAI(partner)
-  SOUND:StopBGM()
-
-  GAME:MoveCamera(184, 200, 1, false)
-  GAME:CutsceneMode(true)
-
-  GAME:WaitFrames(60)
-  GAME:FadeIn(40)
-
+  GAME:FadeIn(60)
   GAME:WaitFrames(40)
 
+  -- La caméra monte sur le vainqueur.
+  GAME:MoveCamera(184, 205, 40, false)
+  GAME:WaitFrames(10)
+
+  -- Le boss triomphe.
+  GROUND:CharSetAnim(stantler, "Charge", true)
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_016']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(20)
+
+  -- La Voix de l'Abysse commente la défaite.
   UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_014']))
-  -- "Le Gardien ne pardonne pas la faiblesse."
-
   GAME:WaitFrames(30)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_015']))
-  -- "Retourne d'où tu viens. Reviens quand tu seras prêt."
-
-  GAME:WaitFrames(40)
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_025']))
-  -- Le Gardien impavide
-  GROUND:CharSetAnim(stantler, "Charge", true)
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  GAME:WaitFrames(20)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_018']))
+  GAME:WaitFrames(30)
 
+  -- La caméra redescend sur le duo ; le partenaire se redresse à peine.
+  GAME:MoveCamera(184, 255, 40, false)
+  GROUND:CharEndAnim(partner)
+  GeneralFunctions.DoAnimation(partner, 'Wake')
+  GAME:WaitFrames(12)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue("Ses bois... cette lumière...[pause=20] On n'était pas prêts...")
+  GAME:WaitFrames(20)
+
+  -- Le boss se retire, victorieux.
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_019']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(10)
+
   GAME:FadeOut(false, 60)
-  GAME:WaitFrames(90)
+  GAME:WaitFrames(60)
 
   SV.TemporaryFlags.Dinnertime = true
   SV.TemporaryFlags.Bedtime = true
   SV.TemporaryFlags.MorningWakeup = true
   SV.TemporaryFlags.MorningAddress = true
 
+  GROUND:CharEndAnim(hero)
+  GROUND:CharEndAnim(partner)
   GAME:CutsceneMode(false)
+  PrintInfo("[BossSeq][vast_steppe_guardian_ch_5] DiedToBoss -> vast_steppe_entrance")
   GAME:EnterGroundMap("vast_steppe_entrance", "Main_Entrance_Marker")
 end
 

@@ -421,12 +421,450 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
+		--Chapitre 5 : rencontres de vie aux relais (Prompt Maitre §3.2/B.2)
+		Meteno = {
+			species = "minior",
+			nickname = 'Météno',
+			instance = 'Meteno',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		--Livre II : gardiens d'Ancrage (cinematiques vague 7)
+		Groudon = {
+			species = "groudon",
+			nickname = 'Groudon',
+			instance = 'Groudon',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Kyogre = {
+			species = "kyogre",
+			nickname = 'Kyogre',
+			instance = 'Kyogre',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Crehelf = {
+			species = "uxie",
+			nickname = 'Créhelf',
+			instance = 'Crehelf',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Crefollet = {
+			species = "mesprit",
+			nickname = 'Créfollet',
+			instance = 'Crefollet',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Crefadet = {
+			species = "azelf",
+			nickname = 'Créfadet',
+			instance = 'Crefadet',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Sulfura = {
+			species = "moltres",
+			nickname = 'Sulfura',
+			instance = 'Sulfura',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Raikou = {
+			species = "raikou",
+			nickname = 'Raikou',
+			instance = 'Raikou',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Artikodin = {
+			species = "articuno",
+			nickname = 'Artikodin',
+			instance = 'Artikodin',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Electhor = {
+			species = "zapdos",
+			nickname = 'Électhor',
+			instance = 'Electhor',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		HoOh = {
+			species = "ho_oh",
+			nickname = 'Ho-Oh',
+			instance = 'HoOh',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Celebi = {
+			species = "celebi",
+			nickname = 'Celebi',
+			instance = 'Celebi',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Mewtwo = {
+			species = "mewtwo",
+			nickname = 'Mewtwo',
+			instance = 'Mewtwo',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Entei = {
+			species = "entei",
+			nickname = 'Entei',
+			instance = 'Entei',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Victini = {
+			species = "victini",
+			nickname = 'Victini',
+			instance = 'Victini',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Cresselia = {
+			species = "cresselia",
+			nickname = 'Cresselia',
+			instance = 'Cresselia',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+		Darkrai = {
+			species = "darkrai",
+			nickname = 'Darkrai',
+			instance = 'Darkrai',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Latios = {
+			species = "latios",
+			nickname = 'Latios',
+			instance = 'Latios',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Latias = {
+			species = "latias",
+			nickname = 'Latias',
+			instance = 'Latias',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+		Suicune = {
+			species = "suicune",
+			nickname = 'Suicune',
+			instance = 'Suicune',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Mew = {
+			species = "mew",
+			nickname = 'Mew',
+			instance = 'Mew',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Hoopa = {
+			species = "hoopa",
+			nickname = 'Hoopa',
+			instance = 'Hoopa',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Marshadow = {
+			species = "marshadow",
+			nickname = 'Marshadow',
+			instance = 'Marshadow',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Rayquaza = {
+			species = "rayquaza",
+			nickname = 'Rayquaza',
+			instance = 'Rayquaza',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Dialga = {
+			species = "dialga",
+			nickname = 'Dialga',
+			instance = 'Dialga',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Palkia = {
+			species = "palkia",
+			nickname = 'Palkia',
+			instance = 'Palkia',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Giratina = {
+			species = "giratina",
+			nickname = 'Giratina',
+			instance = 'Giratina',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Yveltal = {
+			species = "yveltal",
+			nickname = 'Yveltal',
+			instance = 'Yveltal',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Zygarde = {
+			species = "zygarde",
+			nickname = 'Zygarde',
+			instance = 'Zygarde',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Xerneas = {
+			species = "xerneas",
+			nickname = 'Xerneas',
+			instance = 'Xerneas',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Solgaleo = {
+			species = "solgaleo",
+			nickname = 'Solgaleo',
+			instance = 'Solgaleo',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Lunala = {
+			species = "lunala",
+			nickname = 'Lunala',
+			instance = 'Lunala',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+		Jirachi = {
+			species = "jirachi",
+			nickname = 'Jirachi',
+			instance = 'Jirachi',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Necrozma = {
+			species = "necrozma",
+			nickname = 'Necrozma',
+			instance = 'Necrozma',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Eternatus = {
+			species = "eternatus",
+			nickname = 'Eternatus',
+			instance = 'Eternatus',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Arceus = {
+			species = "arceus",
+			nickname = 'Arceus',
+			instance = 'Arceus',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Shaymin = {
+			species = "shaymin",
+			nickname = 'Shaymin',
+			instance = 'Shaymin',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Manaphy = {
+			species = "manaphy",
+			nickname = 'Manaphy',
+			instance = 'Manaphy',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Phione = {
+			species = "phione",
+			nickname = 'Phione',
+			instance = 'Phione',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Keldeo = {
+			species = "keldeo",
+			nickname = 'Keldeo',
+			instance = 'Keldeo',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Meloetta = {
+			species = "meloetta",
+			nickname = 'Meloetta',
+			instance = 'Meloetta',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+		Genesect = {
+			species = "genesect",
+			nickname = 'Genesect',
+			instance = 'Genesect',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Volcanion = {
+			species = "volcanion",
+			nickname = 'Volcanion',
+			instance = 'Volcanion',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Magearna = {
+			species = "magearna",
+			nickname = 'Magearna',
+			instance = 'Magearna',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Zeraora = {
+			species = "zeraora",
+			nickname = 'Zeraora',
+			instance = 'Zeraora',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Melmetal = {
+			species = "melmetal",
+			nickname = 'Melmetal',
+			instance = 'Melmetal',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Meltan = {
+			species = "meltan",
+			nickname = 'Meltan',
+			instance = 'Meltan',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Deoxys = {
+			species = "deoxys",
+			nickname = 'Deoxys',
+			instance = 'Deoxys',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
 		--Chapitre 7 : Ruines Tordues — boss Regigigas
 		Regigigas = {
 			species = "regigigas",
 			nickname = 'Regigigas',
 			instance = 'Regigigas',
 			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		--Chapitre 8 : Sanctuaire de Cristal — boss Diancie
+		Diancie = {
+			species = "diancie",
+			nickname = 'Diancie',
+			instance = 'Diancie',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		--Chapitre 9 : Marais de l'Oubli — gardien Laggron
+		Swampert = {
+			species = "swampert",
+			nickname = 'Laggron',
+			instance = 'Swampert',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		--Chapitre 10 : Pic Celeste — boss Lugia
+		Lugia = {
+			species = "lugia",
+			nickname = 'Lugia',
+			instance = 'Lugia',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		--Chapitre 10 : Escouade Fulgur (rivaux de la course au sommet)
+		Fulgur_Luxray = {
+			species = "luxray",
+			nickname = 'Voltra',
+			instance = 'Fulgur_Luxray',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+		Fulgur_Lucario = {
+			species = "lucario",
+			nickname = 'Aegis',
+			instance = 'Fulgur_Lucario',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Fulgur_Heliolisk = {
+			species = "heliolisk",
+			nickname = 'Solaire',
+			instance = 'Fulgur_Heliolisk',
+			gender = Gender.Male,
 			form = 0,
 			skin = "normal"
 		},

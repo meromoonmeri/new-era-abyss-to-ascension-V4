@@ -1,4 +1,4 @@
-{
+﻿{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -5887,6 +5887,41 @@
                 "type": "PMDC.Dungeon.ShopModGenState"
               }
             ]
+          },
+          {
+            "$type": "RogueEssence.LevelGen.SpreadStepRangeZoneStep, RogueEssence",
+            "StepPriority": {
+              "str": [
+                5
+              ]
+            },
+            "Spawns": [
+              {
+                "Spawn": {
+                  "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                  "Script": "NewEraMystery",
+                  "ArgTable": "{BaseChance=6, SegDiff=4}"
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 6
+                }
+              }
+            ],
+            "SpreadPlan": {
+              "$type": "RogueEssence.LevelGen.SpreadPlanSpaced, RogueEssence",
+              "FloorSpacing": {
+                "Min": 2,
+                "Max": 4
+              },
+              "BeginStart": false,
+              "FloorRange": {
+                "Min": 0,
+                "Max": 6
+              }
+            },
+            "ModStates": []
           }
         ],
         "IsRelevant": true,
@@ -5962,7 +5997,7 @@
                     },
                     "Value": {
                       "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                      "Music": "Sky Peak Prairie.ogg",
+                      "Music": "Amp Plains.ogg",
                       "TimeLimit": 1500,
                       "TileSight": 0,
                       "CharSight": 0,
@@ -6563,9 +6598,9 @@
                     },
                     "Value": {
                       "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "GroundTileset": "lush_prairie_floor",
-                      "BlockTileset": "lush_prairie_wall",
-                      "WaterTileset": "lush_prairie_secondary",
+                      "GroundTileset": "far_amp_plains_floor",
+                      "BlockTileset": "far_amp_plains_wall",
+                      "WaterTileset": "far_amp_plains_secondary",
                       "LayeredGround": false,
                       "IndependentGround": false,
                       "GroundElement": "normal"
@@ -6773,9 +6808,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Vast Steppe\\n{0}F",
+              "DefaultText": "Vast Steppe Depths\\n{0}F",
               "LocalTexts": {
-                "fr": "Grande Steppe\\n{0}E"
+                "fr": "Profondeurs de la Grande Steppe\\n{0}E"
               }
             },
             "Priority": {
@@ -11866,6 +11901,72 @@
         ],
         "IsRelevant": true,
         "Comment": ""
+      },
+      {
+        "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+        "Floors": [
+          {
+            "$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
+            "GenSteps": [
+              {
+                "Key": {
+                  "str": [
+                    -1
+                  ]
+                },
+                "Value": {
+                  "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
+                  "MapID": "annexe_toupie"
+                }
+              },
+              {
+                "Key": {
+                  "str": [
+                    6
+                  ]
+                },
+                "Value": {
+                  "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
+                  "Script": "SpawnAnnexeNPCs",
+                  "ArgTable": "{}"
+                }
+              }
+            ],
+            "Comment": ""
+          }
+        ],
+        "ZoneSteps": [
+          {
+            "$type": "PMDC.LevelGen.SaveVarsZoneStep, PMDC",
+            "Priority": {
+              "str": [
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "$type": "PMDC.LevelGen.FloorNameDropZoneStep, PMDC",
+            "DropPriority": {
+              "str": [
+                -15
+              ]
+            },
+            "Name": {
+              "DefaultText": "Verdant Oath",
+              "LocalTexts": {
+                "fr": "Serment Verdoyant"
+              }
+            },
+            "Priority": {
+              "str": [
+                -6
+              ]
+            }
+          }
+        ],
+        "IsRelevant": false,
+        "Comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
       }
     ],
     "GroundMaps": [

@@ -1009,3 +1009,123 @@ function BATTLE_SCRIPT.TeamDazzlingChenipentRescue(owner, ownerChar, context, ar
   UI:ResetSpeaker()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6_003']))
 end
+
+
+-------------------------------------------------------------------------
+-- Vague 9 : L'Annexe de la Toupie — les 5 habitants (structure Bazar Secret
+-- de pret/pmd-sky : accueil / repos / echoppe / polissage / sortie).
+-- Dialogues 100% New Era. Interactions via context (BattleScriptEvent).
+-------------------------------------------------------------------------
+function BATTLE_SCRIPT.AnnexePatron(owner, ownerChar, context, args)
+  local oldDir = context.Target.CharDir
+  DUNGEON:CharTurnToChar(context.Target, context.User)
+  UI:SetSpeaker(context.Target)
+  local tbl = LTBL(context.Target)
+  if tbl.Greeted == nil then
+    tbl.Greeted = true
+    UI:WaitShowDialogue("Ooooh ![pause=10] Des clients ![pause=20] Bienvenue, bienvenue à l'Annexe de la Toupie !")
+    UI:WaitShowDialogue("Mon cousin tient le comptoir de Metano.[pause=10] Moi ?[pause=10] Je creuse des succursales là où les explorateurs en ont le plus besoin ![pause=20] C'est-à-dire... partout !")
+    UI:WaitShowDialogue("Reprenez votre souffle.[pause=10] Ici, le donjon attend DEHORS.[pause=20] Règle de la maison !")
+  else
+    UI:WaitShowDialogue("Prenez votre temps ![pause=10] La Toupie tourne, mais elle n'est jamais pressée.")
+  end
+  context.Target.CharDir = oldDir
+  context.CancelState.Cancel = true
+end
+
+function BATTLE_SCRIPT.AnnexeRepos(owner, ownerChar, context, args)
+  local oldDir = context.Target.CharDir
+  DUNGEON:CharTurnToChar(context.Target, context.User)
+  UI:SetSpeaker(context.Target)
+  local tbl = LTBL(context.Target)
+  if tbl.Rested ~= nil then
+    UI:WaitShowDialogue("Mime... mime ![pause=10] (Elle mime un oreiller déjà utilisé.[pause=10] Une sieste par visite, semble-t-il.)")
+  else
+    UI:WaitShowDialogue("Mime mime ![pause=10] (Elle tapote un coussin invisible et vous invite à vous asseoir.)")
+    UI:ChoiceMenuYesNo("Accepter la pause de Pausette ?", false)
+    UI:WaitForChoice()
+    if UI:ChoiceResult() then
+      tbl.Rested = true
+      SOUND:PlayBattleSE("DUN_Heal")
+      for i = 0, GAME:GetPlayerPartyCount() - 1, 1 do
+        local chara = GAME:GetPlayerPartyMember(i)
+        chara:FullRestore()
+      end
+      UI:WaitShowDialogue("Mime ![pause=10] (Toute l'équipe se sent étonnamment reposée.[pause=20] Le donjon paraît moins hostile, vu d'ici.)")
+    end
+  end
+  context.Target.CharDir = oldDir
+  context.CancelState.Cancel = true
+end
+
+function BATTLE_SCRIPT.AnnexeEchoppe(owner, ownerChar, context, args)
+  local oldDir = context.Target.CharDir
+  DUNGEON:CharTurnToChar(context.Target, context.User)
+  UI:SetSpeaker(context.Target)
+  local tbl = LTBL(context.Target)
+  if tbl.Sold ~= nil then
+    UI:WaitShowDialogue("Glou.[pause=10] Stock épuisé pour aujourd'hui.[pause=20] Un estomac n'est pas un entrepôt... quoique.")
+  else
+    UI:WaitShowDialogue("Bienvenue à l'échoppe de Gobble ![pause=10] Tout ce que je vends sort de mon estomac.[pause=20] Garanti sans acide.[pause=10] Ou presque.")
+    UI:ChoiceMenuYesNo("Acheter une Pomme (100 Poke) ?", false)
+    UI:WaitForChoice()
+    if UI:ChoiceResult() then
+      if GAME:GetPlayerMoney() >= 100 then
+        GAME:RemoveFromPlayerMoney(100)
+        GAME:GivePlayerItem("food_apple", 1, false, "")
+        tbl.Sold = true
+        SOUND:PlayBattleSE("DUN_Money")
+        UI:WaitShowDialogue("Glou glou ![pause=10] Excellent choix.[pause=20] Elle n'a séjourné que deux jours dans mon jabot.")
+      else
+        UI:WaitShowDialogue("Glou...[pause=10] Pas assez de Poké.[pause=20] Je fais crédit à personne, même pas à moi.")
+      end
+    end
+  end
+  context.Target.CharDir = oldDir
+  context.CancelState.Cancel = true
+end
+
+function BATTLE_SCRIPT.AnnexePolissage(owner, ownerChar, context, args)
+  local oldDir = context.Target.CharDir
+  DUNGEON:CharTurnToChar(context.Target, context.User)
+  UI:SetSpeaker(context.Target)
+  local tbl = LTBL(context.Target)
+  if tbl.Polished ~= nil then
+    UI:WaitShowDialogue("Slurp...[pause=10] Ma langue a besoin de repos.[pause=20] Le polissage, c'est un art, pas une chaîne de montage.")
+  else
+    UI:WaitShowDialogue("Un objet terni ?[pause=10] Une baie douteuse ?[pause=20] Un coup de langue de Lustro, et ça repart comme neuf !")
+    UI:ChoiceMenuYesNo("Confier votre équipement à la langue de Lustro ?", false)
+    UI:WaitForChoice()
+    if UI:ChoiceResult() then
+      tbl.Polished = true
+      SOUND:PlayBattleSE("DUN_Follow_Me")
+      local finds = { "berry_oran", "berry_lum", "seed_reviver", "apricorn_plain" }
+      -- Fix audit 2026-07-27 : RNG deterministe (GAME.Rand) au lieu de math.random.
+      -- math.random n'est PAS enregistre par le systeme de replay/quicksave :
+      -- au rechargement, l'objet donne differait -> desynchronisation d'inventaire
+      -- -> cascade "Recorded action failed" puis crash ReplayData.ReadUI().
+      local pick = finds[GAME.Rand:Next(0, #finds) + 1]
+      GAME:GivePlayerItem(pick, 1, false, "")
+      UI:WaitShowDialogue("Slurp ![pause=10] Slurp ![pause=20] Tenez :[pause=10] je l'ai trouvé dans la poussière du donjon.[pause=20] Maintenant, il BRILLE.[pause=10] Ne demandez pas comment ça marche.")
+    end
+  end
+  context.Target.CharDir = oldDir
+  context.CancelState.Cancel = true
+end
+
+function BATTLE_SCRIPT.AnnexeSortie(owner, ownerChar, context, args)
+  local oldDir = context.Target.CharDir
+  DUNGEON:CharTurnToChar(context.Target, context.User)
+  UI:SetSpeaker(context.Target)
+  UI:WaitShowDialogue("...Je connais tous les murs de ce monde.[pause=20] Aucun ne me retient.")
+  UI:ChoiceMenuYesNo("Demander à Passe-Mue de vous faire sortir du donjon ?", false)
+  UI:WaitForChoice()
+  if UI:ChoiceResult() then
+    UI:WaitShowDialogue("...Fermez les yeux.[pause=30] Les murs n'existent que si on les regarde.")
+    GAME:WaitFrames(30)
+    TASK:WaitTask(_DUNGEON:EndSegment(RogueEssence.Data.GameProgress.ResultType.Escaped))
+  end
+  context.Target.CharDir = oldDir
+  context.CancelState.Cancel = true
+end
+

@@ -142,6 +142,30 @@ function guild_heros_room_ch_5.PostExpeditionBedtalk()
   SOUND:FadeOutBGM(120)
   GAME:FadeOut(false, 120)
 
+  --------------------------------------------------------------------
+  -- LE PREMIER RÊVE (foreshadowing arcs 2-6 : mémoire du dernier
+  -- gardien du sceau — le joueur ne peut PAS le comprendre maintenant).
+  -- Écran noir, voix off sans boîte de dialogue, son de cristal.
+  -- « Elle ne nourrit pas... elle retient » = le twist final (la lumière
+  -- des Cœurs est une prison), énoncé mot pour mot 27 chapitres à l'avance.
+  --------------------------------------------------------------------
+  GAME:WaitFrames(120)
+  SOUND:PlayBattleSE("DUN_Power_Gem")
+  GAME:WaitFrames(80)
+  UI:WaitShowVoiceOver("[speed=0.5]...la lumière...[pause=30] n'est pas ce que tu crois...[speed=1]", -1)
+  GAME:WaitFrames(40)
+  SOUND:PlayBattleSE("DUN_Power_Gem")
+  GAME:WaitFrames(40)
+  UI:WaitShowVoiceOver("[speed=0.5]...elle ne nourrit pas...[pause=30] elle retient...[speed=1]", -1)
+  GAME:WaitFrames(40)
+  SOUND:PlayBattleSE("EVT_Battle_Flash")
+  GAME:WaitFrames(60)
+  UI:WaitShowVoiceOver("[speed=0.4]...souviens-toi...[pause=40] pourquoi tu es venu...[speed=1]", -1)
+  GAME:WaitFrames(90)
+  UI:WaitShowVoiceOver("(...![pause=20] Un rêve ?[pause=20] Je...[pause=20] je n'arrive déjà plus à m'en souvenir...)", -1)
+  GAME:WaitFrames(60)
+  SV.Chapter5.HadFirstDream = true
+
   SV.Chapter5.FinishedBedtimeCutscene = true
   SV.ChapterProgression.CurrentStoryDungeon = ''
   SV.TemporaryFlags.MorningAddress = true

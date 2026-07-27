@@ -666,7 +666,8 @@ SV.ChapterProgression =
 	Chapter = 1,
 	CurrentStoryDungeon = "",--Used by the Destination Menu when leaving town to the right to know if it needs to set you somewhere else first before going to the dungeon (i.e. for a cutscene outside the dungeon). If the selected dungeon matches this value, then it will try to put you on the relevant ground that is that dungeon's entrance. Note: Relic Forest 1 and Illuminant Riverbed are handled by other objects, and thus aren't ever set to the current story dungeon.
 	
-	UnlockedAssembly = false--this is set to true when player is allowed to recruit team members, unhides assembly objects
+	UnlockedAssembly = false,--this is set to true when player is allowed to recruit team members, unhides assembly objects
+	StoryCompleted = false--MAIN STORY COMPLETION FLAG. Set when the final story dungeon is cleared (currently: Lugia defeated at Celestial Peak, chapter 10). End-game unlocks (e.g. Mega Stones shop) must check THIS flag, never a chapter-specific one. When chapters 11+ are added, move the assignment point to the new true ending — the flag name and consumers stay unchanged.
 }
 
 
@@ -804,6 +805,29 @@ SV.Chapter5 =
 	--Cinematiques de mini-boss / gardiens : memorise la premiere rencontre pour
 	--jouer la scene courte (SecondPreBossScene) aux tentatives suivantes.
 	SteppeMiniBossSeen = false,
+
+	--Scenes de vie aux relais (Prompt Maitre : respirations comiques/contemplatives)
+	PlumSceneSeen = false,--Plum la Rondoudou a-t-elle chante au relais de la steppe ?
+	FragmentSceneSeen = false,--Le Fragment (Meteno) est-il tombe pres du relais du Mont ?
+	SteppeNightSceneSeen = false,--La veillee du camp (Hyko x Almotz) a-t-elle ete jouee ?
+	MountVigilSceneSeen = false,--La derniere veillee avant le sommet a-t-elle ete jouee ?
+
+	--Legendes racontees par les aines (mentions de legendaires, jamais de rencontre)
+	LegendTitansHeard = false,--Rubble (cafe) : les Trois Serviteurs et le Colosse (Regi + Regigigas)
+	LegendLakeHeard = false,--Relicanth (etang) : les Trois Lacs (Crehelf/Crefollet/Crefadet)
+	LegendSkyHeard = false,--Aubergiste Nidoqueen : les deux Gardiens du ciel (Ho-Oh/Lugia)
+	LegendFurnaceHeard = false,--Phileas (camp du Tunnel) : le Fourneau et les Coeurs (Heatran)
+	LegendEarthHeard = false,
+	SteppeMidState = nil,--vague 8 : 'DeathArrival' si mort au-dela du checkpoint
+	TunnelMidState = nil,
+	WindsweptMidState = nil,--Dotra (maison feu) : Celui qui Dort sous les Volcans (Groudon)
+	LegendHeroesHeard = false,--Grodoudou : les Heros d'Autrefois (meteorite, temps arrete, 25 ans de calme)
+	LegendSkyArbiterHeard = false,--Reinier (camp du Mont) : l'Arbitre du Ciel (Rayquaza)
+
+	--Cinematiques d'enjeu de l'expedition
+	SkyTremorSceneSeen = false,--Le premier pulse du sommet vu depuis le camp de la steppe
+	HadFirstDream = false,--Premier reve du heros (memoire du gardien du sceau) — nuit post-expedition
+	WindSecretSceneSeen = false,--Le secret Hyko x Penticus surpris de nuit au camp du Mont
 	SteppeGuardianSeen = false,
 	TunnelMiniBossSeen = false,
 	MountMiniBossSeen = false,
@@ -818,7 +842,15 @@ SV.Chapter5 =
 	MountMiniBossDefeated = false,
 	MountMiniBossLost = false,
 	MountGuardianDefeated = false,
-	MountGuardianLost = false
+	MountGuardianLost = false,
+
+	--Flags PERSISTANTS de victoire mini-boss (audit IsGameOver) : contrairement
+	--aux flags de routage ci-dessus (remis a false apres la scene), ceux-ci
+	--restent true pour toujours — le relais les lit pour savoir s'il faut
+	--rejouer la rencontre du mini-boss ou passer directement au segment suivant.
+	SteppeMiniBossCleared = false,
+	TunnelMiniBossCleared = false,
+	MountMiniBossCleared = false
 }
 
 
@@ -937,7 +969,8 @@ SV.Chapter8 =
 	DefeatedDiancie = false,
 	DiedToDiancie = false,
 	ObtainedCrystalFragment = false,
-	SanctuaryMidpointState = 'FirstArrival'
+	SanctuaryMidpointState = 'FirstArrival',
+	PlayedSanctuaryRelayIntro = false--cinematique d'arrivee au relais (marche + dialogue)
 }
 
 SV.Chapter9 = 
@@ -956,7 +989,8 @@ SV.Chapter9 =
 	DiedToMegaBlastoise = false,
 	PurifiedMarshCore = false,
 	FloatzelDisputeResolved = false,
-	MarshMidpointState = 'FirstArrival'
+	MarshMidpointState = 'FirstArrival',
+	PlayedMarshRelayIntro = false--cinematique d'arrivee au relais (marche + dialogue)
 }
 
 SV.Chapter10 = 
@@ -977,7 +1011,8 @@ SV.Chapter10 =
 	DefeatedLugia = false,
 	DiedToLugia = false,
 	SawNecrozmaVision = false,
-	PeakMidpointState = 'FirstArrival'
+	PeakMidpointState = 'FirstArrival',
+	PlayedPeakRelayIntro = false--cinematique d'arrivee au relais (marche + dialogue)
 }
 
 
@@ -1061,4 +1096,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded!')
+print('Script variables default values loaded! [build 2026-07-27-C]')

@@ -7,6 +7,17 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 
+-- [NREPROBE] sonde locale (audit runtime).
+local function nre_snap(tag)
+  local ok, msg = pcall(function()
+    local zone = tostring(_ZONE.CurrentZoneID)
+    local seg = tostring(_ZONE.CurrentMapID.Segment)
+    local save_n = _DATA.Save.ActiveTeam.Players.Count
+    return string.format('[NREPROBE][%s] zone=%s seg=%s Save.Team=%d', tag, zone, seg, save_n)
+  end)
+  PrintInfo(ok and msg or ('[NREPROBE]['..tag..'] snapshot FAILED: '..tostring(msg)))
+end
+
 local searing_tunnel = {}
 --------------------------------------------------
 -- Map Callbacks
@@ -20,6 +31,7 @@ function searing_tunnel.Init(zone)
 end
 
 function searing_tunnel.EnterSegment(zone, rescuing, segmentID, mapID)
+  nre_snap('searing_tunnel.EnterSegment seg='..tostring(segmentID))
 	if rescuing ~= true then
 		COMMON.BeginDungeon(zone.ID, segmentID, mapID)
 	end
@@ -47,6 +59,7 @@ end
 
 
 function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
+  nre_snap('searing_tunnel.ExitSegment seg='..tostring(segmentID)..' result='..tostring(result))
 	if SV.Chapter5.TunnelMiniBossSeen == nil then SV.Chapter5.TunnelMiniBossSeen = false end
 	GeneralFunctions.RestoreIdleAnim()
 	DEBUG.EnableDbgCoro() --Enable debugging this coroutine
@@ -55,6 +68,14 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 	--I think even though it may be weird they just "disappear" upon exiting the segment, this approach is fine and best from a gameplay perspective.
 	--COMMON.ExitDungeonMissionCheck(zone.ID, segmentID)
 
+	if segmentID == 3 then
+		-- Annexe de la Toupie (etage mystere) : sortie douce vers le bourg.
+		-- (Bloc remonte au niveau racine : il etait imbrique par erreur dans la
+		-- branche mort/fuite du segment 0, donc jamais atteint pour le segment 3.)
+		GAME:WaitFrames(10)
+		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
+		return
+	end
 
 	if segmentID == 0 then --Searing Tunnel Exit Segment
 	  PrintInfo("=>> ExitSegment_searing_tunnel (Searing Tunnel) result "..tostring(result).." segment "..tostring(segmentID))
@@ -104,7 +125,7 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 		else
 			-- Chapter 5 mini-boss check: if not yet encountered, go to mini-boss ground first
 			if SV.ChapterProgression.Chapter == 5 and not SV.Chapter5.TunnelMiniBossSeen then
-				GAME:EnterGroundMap('searing_tunnel_miniboss', 'Main_Entrance_Marker')
+				PrintInfo("[NREPROBE][transition] searing_tunnel.ExitSegment -> EnterGroundMap('searing_tunnel_miniboss')") GAME:EnterGroundMap('searing_tunnel_miniboss', 'Main_Entrance_Marker')
 			elseif SV.ChapterProgression.Chapter == 5 then 
 				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 48, 0, false, false)
 			else
@@ -128,12 +149,14 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 				SV.Chapter5.TunnelMidpointState = 'DeathArrival'
 				--I use the components of the general function version of this so I can have the textbox pop up after the results screen
 				--this saves the game, so it must be called 2nd to last.
+				SV.Chapter5.TunnelMidState = 'DeathArrival'
 				GAME:EndDungeonRun(result, "master_zone", -1, 48, 0, true, true)
 				GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(2), "Wouf...[pause=0] Nous avons été trop imprudents...", "Pain")--set growlithe as speaker 
 				GAME:WaitFrames(20)
 				GAME:EnterZone("master_zone", -1, 48, 0)--Exit back to Searing Tunnel Midpoint
 			else 
 				--handle generic flag setting in the overworld's "Want go back?" function
+				SV.Chapter5.TunnelMidState = 'DeathArrival'
 				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 48, 0, true, true)
 			end 
 		
@@ -169,7 +192,7 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 				SV.TemporaryFlags.MorningWakeup = true 
 				SV.TemporaryFlags.MorningAddress = true 
 			end 	
-			GAME:EnterGroundMap('searing_crucible', 'Main_Entrance_Marker')
+			PrintInfo("[NREPROBE][transition] searing_tunnel.ExitSegment -> EnterGroundMap('searing_crucible')") GAME:EnterGroundMap('searing_crucible', 'Main_Entrance_Marker')
 			
 		end 
 		

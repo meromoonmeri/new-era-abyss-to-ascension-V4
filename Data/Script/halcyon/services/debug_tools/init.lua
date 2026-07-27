@@ -320,6 +320,127 @@ function DebugTools:OnUpgrade()
  
  if SV.GloomyForest.DiedPastCheckpoint == nil then SV.GloomyForest.DiedPastCheckpoint = false end
  
+ --Main story completion flag (end-game unlocks: Mega Stones shop, etc.)
+ if SV.ChapterProgression.StoryCompleted == nil then SV.ChapterProgression.StoryCompleted = false end
+ 
+ --Vague 1 multi-sources : deblocage retroactif des secondaires ch1-4 pour les vieilles sauvegardes
+ if SV.ChapterProgression.Chapter >= 1 and not GAME:DungeonUnlocked("petit_tunnel") then
+	GAME:UnlockDungeon("petit_tunnel")
+	GAME:UnlockDungeon("bosquet_voile")
+	GAME:UnlockDungeon("grotte_mystere")
+	GAME:UnlockDungeon("vallee_fertile")
+ end
+ if SV.ChapterProgression.Chapter >= 3 and not GAME:DungeonUnlocked("antre_enigme") then
+	GAME:UnlockDungeon("antre_enigme")
+	GAME:UnlockDungeon("carriere_cuivre")
+ end
+ if SV.ChapterProgression.Chapter >= 4 and not GAME:DungeonUnlocked("grotte_echoue") then
+	GAME:UnlockDungeon("grotte_echoue")
+ end
+ --Add-on Reseau des Anciens Chemins : deblocage a partir du Livre II (ch11+) ou fin d'histoire
+ if (SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 11) or SV.ChapterProgression.StoryCompleted == true then
+	if not GAME:DungeonUnlocked("new_era_zone_00") then GAME:UnlockDungeon("new_era_zone_00") end
+	if not GAME:DungeonUnlocked("new_era_zone_01") then GAME:UnlockDungeon("new_era_zone_01") end
+	if not GAME:DungeonUnlocked("new_era_zone_02") then GAME:UnlockDungeon("new_era_zone_02") end
+	if not GAME:DungeonUnlocked("new_era_zone_03") then GAME:UnlockDungeon("new_era_zone_03") end
+	if not GAME:DungeonUnlocked("new_era_zone_04") then GAME:UnlockDungeon("new_era_zone_04") end
+	if not GAME:DungeonUnlocked("new_era_zone_05") then GAME:UnlockDungeon("new_era_zone_05") end
+	if not GAME:DungeonUnlocked("new_era_zone_07") then GAME:UnlockDungeon("new_era_zone_07") end
+	if not GAME:DungeonUnlocked("new_era_zone_08") then GAME:UnlockDungeon("new_era_zone_08") end
+	if not GAME:DungeonUnlocked("new_era_zone_09") then GAME:UnlockDungeon("new_era_zone_09") end
+	if not GAME:DungeonUnlocked("new_era_zone_11") then GAME:UnlockDungeon("new_era_zone_11") end
+	if not GAME:DungeonUnlocked("new_era_zone_13") then GAME:UnlockDungeon("new_era_zone_13") end
+	if not GAME:DungeonUnlocked("new_era_zone_15") then GAME:UnlockDungeon("new_era_zone_15") end
+	if not GAME:DungeonUnlocked("new_era_zone_17") then GAME:UnlockDungeon("new_era_zone_17") end
+	if not GAME:DungeonUnlocked("new_era_zone_19") then GAME:UnlockDungeon("new_era_zone_19") end
+	if not GAME:DungeonUnlocked("new_era_zone_20") then GAME:UnlockDungeon("new_era_zone_20") end
+	if not GAME:DungeonUnlocked("new_era_zone_21") then GAME:UnlockDungeon("new_era_zone_21") end
+	if not GAME:DungeonUnlocked("new_era_zone_23") then GAME:UnlockDungeon("new_era_zone_23") end
+	if not GAME:DungeonUnlocked("new_era_zone_26") then GAME:UnlockDungeon("new_era_zone_26") end
+	if not GAME:DungeonUnlocked("new_era_zone_27") then GAME:UnlockDungeon("new_era_zone_27") end
+	if not GAME:DungeonUnlocked("new_era_zone_28") then GAME:UnlockDungeon("new_era_zone_28") end
+	if not GAME:DungeonUnlocked("new_era_zone_29") then GAME:UnlockDungeon("new_era_zone_29") end
+	if not GAME:DungeonUnlocked("new_era_zone_31") then GAME:UnlockDungeon("new_era_zone_31") end
+	if not GAME:DungeonUnlocked("new_era_zone_32") then GAME:UnlockDungeon("new_era_zone_32") end
+	if not GAME:DungeonUnlocked("new_era_zone_33") then GAME:UnlockDungeon("new_era_zone_33") end
+	if not GAME:DungeonUnlocked("new_era_zone_34") then GAME:UnlockDungeon("new_era_zone_34") end
+	if not GAME:DungeonUnlocked("new_era_zone_35") then GAME:UnlockDungeon("new_era_zone_35") end
+	if not GAME:DungeonUnlocked("new_era_zone_36") then GAME:UnlockDungeon("new_era_zone_36") end
+	if not GAME:DungeonUnlocked("new_era_zone_37") then GAME:UnlockDungeon("new_era_zone_37") end
+	if not GAME:DungeonUnlocked("new_era_zone_38") then GAME:UnlockDungeon("new_era_zone_38") end
+	if not GAME:DungeonUnlocked("new_era_zone_39") then GAME:UnlockDungeon("new_era_zone_39") end
+	if not GAME:DungeonUnlocked("new_era_zone_40") then GAME:UnlockDungeon("new_era_zone_40") end
+	if not GAME:DungeonUnlocked("new_era_zone_41") then GAME:UnlockDungeon("new_era_zone_41") end
+	if not GAME:DungeonUnlocked("new_era_zone_42") then GAME:UnlockDungeon("new_era_zone_42") end
+	if not GAME:DungeonUnlocked("new_era_zone_43") then GAME:UnlockDungeon("new_era_zone_43") end
+ end
+ --Vague 8 : etats de checkpoint (reveil au relais)
+ --Audit IsGameOver : flags persistants de mini-boss pour les parties existantes.
+ --Retroactif : si le joueur a deja vu/vaincu le mini-boss (Seen pose puis
+ --SecondPreBossScene disponible), on considere Cleared si le chapitre est passe.
+ if SV.Chapter5 ~= nil then
+	if SV.Chapter5.SteppeMiniBossCleared == nil then
+		SV.Chapter5.SteppeMiniBossCleared = (SV.ChapterProgression.Chapter > 5) or (SV.Chapter5.SteppeMiniBossSeen == true and SV.Chapter5.SteppeGuardianDefeated == true)
+	end
+	if SV.Chapter5.TunnelMiniBossCleared == nil then
+		SV.Chapter5.TunnelMiniBossCleared = (SV.ChapterProgression.Chapter > 5) or (SV.Chapter5.TunnelMiniBossSeen == true and SV.Chapter5.DefeatedBoss == true)
+	end
+	if SV.Chapter5.MountMiniBossCleared == nil then
+		SV.Chapter5.MountMiniBossCleared = (SV.ChapterProgression.Chapter > 5) or (SV.Chapter5.MountMiniBossSeen == true and SV.Chapter5.MountGuardianDefeated == true)
+	end
+ end
+ if SV.Chapter7 ~= nil and SV.Chapter7.RuinsMidState == nil then SV.Chapter7.RuinsMidState = nil end
+ if SV.Chapter8 ~= nil and SV.Chapter8.SanctuaryMidState == nil then SV.Chapter8.SanctuaryMidState = nil end
+ if SV.Chapter9 ~= nil and SV.Chapter9.MarshMidState == nil then SV.Chapter9.MarshMidState = nil end
+ if SV.Chapter10 ~= nil and SV.Chapter10.PeakMidState == nil then SV.Chapter10.PeakMidState = nil end
+ --Cinematiques d'arrivee aux relais ch8-10 : retroactif (deja vus = deja joues)
+ if SV.Chapter8 ~= nil and SV.Chapter8.PlayedSanctuaryRelayIntro == nil then
+	SV.Chapter8.PlayedSanctuaryRelayIntro = (SV.Chapter8.ReachedCrystalRelay == true)
+ end
+ if SV.Chapter9 ~= nil and SV.Chapter9.PlayedMarshRelayIntro == nil then
+	SV.Chapter9.PlayedMarshRelayIntro = (SV.Chapter9.ReachedMarshRelay == true)
+ end
+ if SV.Chapter10 ~= nil and SV.Chapter10.PlayedPeakRelayIntro == nil then
+	SV.Chapter10.PlayedPeakRelayIntro = (SV.Chapter10.ReachedCloudRelay == true)
+ end
+ --Stations-Relais du Reseau : cinematique d'arrivee jouee une fois par station
+ if SV.Reseau == nil then SV.Reseau = { Veilleurs = {} } end
+ if SV.Reseau.StationIntros == nil then SV.Reseau.StationIntros = {} end
+ --Vague 2 multi-sources : deblocage retroactif des secondaires ch2-10
+ if SV.ChapterProgression.Chapter >= 2 and not GAME:DungeonUnlocked("grotte_repos") then
+	GAME:UnlockDungeon("grotte_repos")
+ end
+ if SV.ChapterProgression.Chapter >= 3 and not GAME:DungeonUnlocked("bois_ronces") then
+	GAME:UnlockDungeon("bois_ronces")
+ end
+ if SV.ChapterProgression.Chapter >= 4 and not GAME:DungeonUnlocked("halles_royales") then
+	GAME:UnlockDungeon("halles_royales")
+	GAME:UnlockDungeon("jardin_secret")
+ end
+ if SV.ChapterProgression.Chapter >= 5 and not GAME:DungeonUnlocked("foret_embuscade") then
+	GAME:UnlockDungeon("foret_embuscade")
+	GAME:UnlockDungeon("bois_filou")
+ end
+ if SV.ChapterProgression.Chapter >= 6 and not GAME:DungeonUnlocked("desert_oublies") then
+	GAME:UnlockDungeon("desert_oublies")
+	GAME:UnlockDungeon("crevasse_geode")
+ end
+ if SV.ChapterProgression.Chapter >= 7 and not GAME:DungeonUnlocked("jardin_energie") then
+	GAME:UnlockDungeon("jardin_energie")
+ end
+ if SV.ChapterProgression.Chapter >= 8 and not GAME:DungeonUnlocked("toundra_desolee") then
+	GAME:UnlockDungeon("toundra_desolee")
+ end
+ if SV.ChapterProgression.Chapter >= 9 and not GAME:DungeonUnlocked("bassin_tari") then
+	GAME:UnlockDungeon("bassin_tari")
+	GAME:UnlockDungeon("marais_errants")
+ end
+ if SV.ChapterProgression.Chapter >= 10 and not GAME:DungeonUnlocked("col_foudre") then
+	GAME:UnlockDungeon("col_foudre")
+	GAME:UnlockDungeon("falaises_envol")
+	GAME:UnlockDungeon("sentier_enneige")
+ end
+ 
  --Gloomy Forest midpoint flags (ch6)
  if SV.Chapter6 == nil then SV.Chapter6 = {} end
  if SV.Chapter6.GloomyPlayedMidpointIntro == nil then SV.Chapter6.GloomyPlayedMidpointIntro = false end

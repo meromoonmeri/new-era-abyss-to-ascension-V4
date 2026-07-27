@@ -19,13 +19,13 @@ function gloomy_forest_midpoint_ch_6.SetupGround()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
-  -- TODO_MAP: adjust to the relay's tile layout.
+  -- Ground officiel forest_camp (912x720) : coords recalees (+104 px en X vs ancienne carte), toutes verifiees walkables.
   if SV.Chapter6.GloomyMidpointState == 'DeathArrival' then
-    GROUND:TeleportTo(hero, 188, 176, Direction.Left)
-    GROUND:TeleportTo(partner, 156, 176, Direction.Right)
+    GROUND:TeleportTo(hero, 292, 176, Direction.Left)
+    GROUND:TeleportTo(partner, 260, 176, Direction.Right)
   else -- FirstArrival / RepeatArrival
-    GROUND:TeleportTo(hero, 188, 256, Direction.Up)
-    GROUND:TeleportTo(partner, 156, 256, Direction.Up)
+    GROUND:TeleportTo(hero, 292, 256, Direction.Up)
+    GROUND:TeleportTo(partner, 260, 256, Direction.Up)
   end
 
   GAME:FadeIn(20)
@@ -90,9 +90,9 @@ function gloomy_forest_midpoint_ch_6.FirstArrival()
   AI:DisableCharacterAI(partner)
 
   -- TODO_MAP: entry positions on the real map.
-  GROUND:TeleportTo(hero, 188, 272, Direction.Up)
-  GROUND:TeleportTo(partner, 156, 272, Direction.Up)
-  GAME:MoveCamera(172, 200, 1, false)
+  GROUND:TeleportTo(hero, 292, 272, Direction.Up)
+  GROUND:TeleportTo(partner, 260, 272, Direction.Up)
+  GAME:MoveCamera(276, 200, 1, false)
 
   GAME:FadeIn(40)
   SOUND:PlayBGM('Sky Peak Forest.ogg', true) -- calm forest theme (tunable)
@@ -100,11 +100,11 @@ function gloomy_forest_midpoint_ch_6.FirstArrival()
 
   -- TODO_MAP: walk forward to the resting spot near the statue.
   local coro1 = TASK:BranchCoroutine(function()
-    GROUND:MoveToPosition(hero, 188, 200, false, 1)
+    GROUND:MoveToPosition(hero, 292, 200, false, 1)
     GROUND:CharAnimateTurnTo(hero, Direction.Down, 4) end)
   local coro2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(8)
-    GROUND:MoveToPosition(partner, 156, 200, false, 1)
+    GROUND:MoveToPosition(partner, 260, 200, false, 1)
     GROUND:CharAnimateTurnTo(partner, Direction.Down, 4) end)
   TASK:JoinCoroutines({coro1, coro2})
   GAME:WaitFrames(10)
@@ -136,12 +136,12 @@ function gloomy_forest_midpoint_ch_6.WipedCutscene()
   AI:DisableCharacterAI(partner)
 
   -- TODO_MAP: positions where the duo "wakes up" on the real map.
-  GROUND:TeleportTo(hero, 188, 176, Direction.Left)
-  GROUND:TeleportTo(partner, 156, 176, Direction.Right)
+  GROUND:TeleportTo(hero, 292, 176, Direction.Left)
+  GROUND:TeleportTo(partner, 260, 176, Direction.Right)
 
   GROUND:CharSetAnim(partner, "EventSleep", true)
   GROUND:CharSetAnim(hero, "EventSleep", true)
-  GAME:MoveCamera(172, 176, 1, false)
+  GAME:MoveCamera(276, 176, 1, false)
 
   GAME:FadeIn(40)
   SOUND:PlayBGM('Sky Peak Forest.ogg', true)

@@ -18,9 +18,10 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
   AI:DisableCharacterAI(partner)
   SOUND:StopBGM()
 
-  GROUND:TeleportTo(hero, 240, 440, Direction.Up)
-  GROUND:TeleportTo(partner, 208, 440, Direction.Up)
-  GAME:MoveCamera(224, 240, 1, false)
+  -- Carte 240x320 px : entrée par le sud, cellules walkables vérifiées.
+  GROUND:TeleportTo(hero, 152, 240, Direction.Up)
+  GROUND:TeleportTo(partner, 120, 240, Direction.Up)
+  GAME:MoveCamera(136, 176, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -99,12 +100,12 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
   BossFX.Flash(center.X, center.Y, 3, 6, 18)
 
   local regigigas = CharacterEssentials.MakeCharactersFromList({
-    {'Regigigas', 224, 200, Direction.Down}
+    {'Regigigas', 144, 128, Direction.Down}
   })
   GROUND:Hide('Regigigas')
 
   -- Signature ROCHE : eboulement, le colosse se reveille
-  BossFX.RockFall(224, 200)
+  BossFX.RockFall(144, 128)
   BossFX.Rumble({hero, partner}, 3)
 
   SOUND:PlayBGM('Rising Fear.ogg', true)
@@ -164,16 +165,16 @@ function cloven_ruins_boss_ch_7.SecondPreBossScene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local regigigas = CharacterEssentials.MakeCharactersFromList({
-    {'Regigigas', 224, 200, Direction.Down}
+    {'Regigigas', 144, 128, Direction.Down}
   })
 
   AI:DisableCharacterAI(partner)
   SOUND:StopBGM()
   GROUND:CharSetAnim(regigigas, "Idle", true)
 
-  GROUND:TeleportTo(hero, 240, 380, Direction.Up)
-  GROUND:TeleportTo(partner, 208, 380, Direction.Up)
-  GAME:MoveCamera(224, 240, 1, false)
+  GROUND:TeleportTo(hero, 152, 240, Direction.Up)
+  GROUND:TeleportTo(partner, 120, 240, Direction.Up)
+  GAME:MoveCamera(136, 176, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -201,16 +202,16 @@ function cloven_ruins_boss_ch_7.DefeatedBoss()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local regigigas = CharacterEssentials.MakeCharactersFromList({
-    {'Regigigas', 224, 200, Direction.Down}
+    {'Regigigas', 144, 128, Direction.Down}
   })
   GROUND:CharSetAnim(regigigas, "Idle", true)
 
   AI:DisableCharacterAI(partner)
   SOUND:StopBGM()
 
-  GROUND:TeleportTo(hero, 240, 340, Direction.Up)
-  GROUND:TeleportTo(partner, 208, 340, Direction.Up)
-  GAME:MoveCamera(224, 240, 1, false)
+  GROUND:TeleportTo(hero, 152, 224, Direction.Up)
+  GROUND:TeleportTo(partner, 120, 224, Direction.Up)
+  GAME:MoveCamera(136, 176, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -256,74 +257,89 @@ function cloven_ruins_boss_ch_7.DefeatedBoss()
   GAME:EnterGroundMap("guild_third_floor_lobby", "Main_Entrance_Marker")
 end
 
+-- Player died to the boss
+-- Réécrite (audit IsGameOver) : collage corrompu — dialogues avant
+-- CutsceneMode/FadeIn, répliques de VICTOIRE (CRB_023/024/026/025/027)
+-- mélangées dans la défaite, héros/partenaire cachés en pleine scène.
+-- Storyboard : fondu -> le Titan domine -> la Voix -> le duo à terre ->
+-- le Titan retourne à son sommeil -> fondu -> retour à l'entrée.
 function cloven_ruins_boss_ch_7.DiedToBoss()
+  PrintInfo("[BossSeq][cloven_ruins_boss] DiedToBoss cutscene start")
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
-  local regigigas = CharacterEssentials.MakeCharactersFromList({
-    {'Regigigas', 224, 200, Direction.Down}
-  })
-  GROUND:CharSetAnim(regigigas, "Idle", true)
 
-  GROUND:Hide(partner.EntName)
-  -- Le Titan te regarde, sans colere
-  GROUND:CharEndAnim(regigigas)
-  GROUND:CharSetAnim(regigigas, "Idle", true)
-  UI:SetSpeakerEmotion("Normal")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_023']))
-
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_024']))
-
-  UI:SetSpeaker(partner)
-  GeneralFunctions.Hop(partner)
-  UI:SetSpeakerEmotion("Inspired")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_026']))
-
-  -- Le Titan se fige en pierre
-  BossFX.Flash(regigigas.Position.X, regigigas.Position.Y, 3, 4, 25)
-  GAME:WaitFrames(15)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_025']))
-  GROUND:Hide(hero.EntName)
-
+  GAME:CutsceneMode(true)
   AI:DisableCharacterAI(partner)
   SOUND:StopBGM()
 
-  GAME:MoveCamera(224, 240, 1, false)
-  GAME:CutsceneMode(true)
+  local regigigas = CharacterEssentials.MakeCharactersFromList({
+    {'Regigigas', 144, 128, Direction.Down}
+  })
+  GROUND:CharSetAnim(regigigas, "Idle", true)
 
-  GAME:WaitFrames(60)
-  GAME:FadeIn(40)
+  -- L'équipe est au sol, vaincue, au pied du Titan.
+  GROUND:TeleportTo(hero, 160, 230, Direction.Up)
+  GROUND:TeleportTo(partner, 128, 230, Direction.Up)
+  GROUND:CharSetAnim(hero, "EventSleep", true)
+  GROUND:CharSetAnim(partner, "EventSleep", true)
+  GAME:MoveCamera(144, 210, 1, false)
+
+  GAME:FadeIn(60)
   GAME:WaitFrames(40)
 
+  -- La caméra monte lentement le long du colosse.
+  GAME:MoveCamera(144, 150, 60, false)
+  GAME:WaitFrames(10)
+
+  -- Le Titan se redresse, les veines dorées pulsent.
+  BossFX.ShakeScreen(4, 20)
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_019']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(20)
+
+  -- La Voix de l'Abysse commente la défaite.
   UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_016']))
   -- "Le Titan ne pardonne pas..."
-
   GAME:WaitFrames(30)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_017']))
   -- "Mais ce Cœur t'attend. Reviens quand tu seras prêt."
-
-  GAME:WaitFrames(40)
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_027']))
-  -- Le Titan se redresse, inebranlable
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_019']))
-
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  GAME:WaitFrames(20)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_020']))
+  -- "Tu n'es pas le premier à défier le Titan. Ni le dernier à tomber."
+  GAME:WaitFrames(30)
 
+  -- La caméra redescend sur le duo ; le partenaire se redresse à peine.
+  GAME:MoveCamera(144, 220, 40, false)
+  GROUND:CharEndAnim(partner)
+  GeneralFunctions.DoAnimation(partner, 'Wake')
+  GAME:WaitFrames(12)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue("Il est... trop fort...[pause=20] On ne peut rien faire de plus aujourd'hui...")
+  GAME:WaitFrames(20)
+
+  -- Le Titan retourne à son sommeil millénaire.
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_021']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(10)
+
   GAME:FadeOut(false, 60)
-  GAME:WaitFrames(90)
+  GAME:WaitFrames(60)
 
   SV.TemporaryFlags.Dinnertime = true
   SV.TemporaryFlags.Bedtime = true
   SV.TemporaryFlags.MorningWakeup = true
   SV.TemporaryFlags.MorningAddress = true
 
+  GROUND:CharEndAnim(hero)
+  GROUND:CharEndAnim(partner)
   GAME:CutsceneMode(false)
+  PrintInfo("[BossSeq][cloven_ruins_boss] DiedToBoss -> cloven_ruins_entrance")
   GAME:EnterGroundMap("cloven_ruins_entrance", "Main_Entrance_Marker")
 end
 

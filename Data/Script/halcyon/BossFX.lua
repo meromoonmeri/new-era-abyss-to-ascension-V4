@@ -238,6 +238,61 @@ function BossFX.EmergeMist(chara, x, y)
     GAME:WaitFrames(16)
 end
 
+--EAU : clapotis anormal, gerbe d'eau, le boss jaillit de la surface.
+--Sequence A.3 du cahier des charges : signal discret -> irruption -> recul du groupe.
+function BossFX.EmergeWater(chara, x, y)
+    --1. signal discret : rides a la surface, tension
+    BossFX.Particle("Wave_Circle_Blue", x, y + 6, 4)
+    SOUND:PlayBattleSE("DUN_Water_Sport")
+    GAME:WaitFrames(30)
+    BossFX.Particle("Wave_Circle_Blue", x, y + 6, 3)
+    GAME:WaitFrames(20)
+    --2. irruption : gerbe d'eau
+    SOUND:PlayBattleSE("DUN_Surf")
+    BossFX.Particle("Water_Spout_Up", x, y, 2)
+    BossFX.Particle("Water_Spout_Splash", x - 16, y + 4, 3)
+    BossFX.Particle("Water_Spout_Splash", x + 16, y + 4, 3)
+    BossFX.ShakeScreen(7, 22)
+    if chara ~= nil then
+        GROUND:Unhide(chara.EntName)
+        GROUND:CharSetAction(chara, RogueEssence.Ground.HopGroundAction(
+            chara.Position, chara.Direction,
+            RogueEssence.Content.GraphicsManager.GetAnimIndex("Idle"), 22, 20))
+    end
+    GAME:WaitFrames(14)
+    BossFX.Particle("Water_Spout_Drop", x, y - 20, 3)
+    BossFX.Particle("Bubbles_Blue", x, y + 8, 4)
+end
+
+--GLACE/CRISTAL : resonance cristalline, eclat de lumiere, activation.
+--Style "ruines/temple" : pas de surgissement physique, une revelation par activation.
+function BossFX.AwakenCrystal(chara, x, y)
+    BossFX.Particle("Power_Gem_Charge", x, y, 4)
+    SOUND:PlayBattleSE("DUN_Power_Gem")
+    GAME:WaitFrames(24)
+    BossFX.Particle("Flash_Cannon_Sparkle", x - 18, y - 8, 3)
+    BossFX.Particle("Flash_Cannon_Sparkle", x + 18, y - 8, 3)
+    GAME:WaitFrames(12)
+    BossFX.Particle("Power_Gem_Hit", x, y, 2)
+    if chara ~= nil then
+        GROUND:Unhide(chara.EntName)
+        GROUND:CharSetEmote(chara, "glowing", 1)
+    end
+    BossFX.ShakeScreen(5, 16)
+    GAME:WaitFrames(16)
+end
+
+--Recul du groupe : onde de choc qui repousse les personnages (A.3 etape 3).
+--Chaque membre est anime en "Hurt" dans la direction opposee au point d'emergence.
+function BossFX.PushBack(chars, awayFromDir)
+    for _, c in ipairs(chars) do
+        if c ~= nil then
+            GROUND:AnimateInDirection(c, "Hurt", c.Direction, awayFromDir, 8, 2, 1)
+        end
+    end
+    GAME:WaitFrames(10)
+end
+
 --------------------------------------------------------------------
 -- La Voix de l'Abysse : toujours AVANT l'apparition.
 --------------------------------------------------------------------

@@ -2,6 +2,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.BossFX'
 
 vast_steppe_entrance_ch_5 = {}
 
@@ -1256,3 +1257,160 @@ function vast_steppe_entrance_ch_5.Oddish_Action(chara, activator)
 	GeneralFunctions.EndConversation(chara)
 end
 ]]--
+
+--------------------------------------------------------------------
+-- CINÉMATIQUE MAJEURE — « La Nuit où le Ciel a Tremblé »
+-- Enjeu central de l'expédition : depuis le camp de la steppe, toute
+-- l'expédition assiste au premier pulse du phénomène du sommet.
+-- C'est LE moment où l'inquiétude descriptive devient réalité partagée.
+-- Necrozma / l'Abîme ne sont pas nommés — on ne voit qu'une lumière et
+-- une onde. Penticus prend sa décision devant tout le monde.
+-- OST : silence -> Growing Anxiety -> Rising Fear -> Sympathy (retombée).
+-- Déclencheur : première nuit après avoir vaincu le mini-boss steppe.
+--------------------------------------------------------------------
+function vast_steppe_entrance_ch_5.SkyTremorScene()
+	local hero = CH('PLAYER')
+	local partner = CH('Teammate1')
+	local growlithe = CH('Teammate2')
+	local zigzagoon = CH('Teammate3')
+	local tropius = CH('Tropius')
+	local noctowl = CH('Noctowl')
+	if tropius == nil or noctowl == nil then GAME:FadeIn(20) return end
+
+	GAME:CutsceneMode(true)
+	AI:DisableCharacterAI(partner)
+	SOUND:StopBGM()
+	GROUND:AddMapStatus("darkness")
+
+	-- Nuit au camp : chacun a sa place.
+	GROUND:TeleportTo(hero, 270, 380, Direction.Up)
+	GROUND:TeleportTo(partner, 330, 380, Direction.Up)
+	GROUND:TeleportTo(tropius, 272, 272, Direction.Down)
+	GROUND:TeleportTo(noctowl, 352, 280, Direction.DownLeft)
+	if growlithe ~= nil then GROUND:TeleportTo(growlithe, 240, 340, Direction.UpRight) end
+	if zigzagoon ~= nil then GROUND:TeleportTo(zigzagoon, 360, 340, Direction.UpLeft) end
+	GAME:MoveCamera(300, 320, 1, false)
+
+	GAME:FadeIn(60)
+	GAME:WaitFrames(60)
+
+	-- Calme avant. Une conversation ordinaire, presque douce.
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue("La steppe est belle,[pause=10] la nuit.[pause=0] On dirait que les herbes respirent.")
+	GeneralFunctions.HeroDialogue(hero, "(Première vraie nuit d'expédition...[pause=0] Si on m'avait dit,[pause=10] il y a quelques mois...)", "Happy")
+
+	GAME:WaitFrames(40)
+
+	-- PREMIER SIGNE : les Pokemon sauvages se taisent d'un coup.
+	SOUND:FadeOutBGM(20)
+	GAME:WaitFrames(50)
+	if noctowl ~= nil then
+		SOUND:PlayBattleSE("EVT_Emote_Confused")
+		GROUND:CharSetEmote(noctowl, "question", 1)
+		UI:SetSpeaker(noctowl)
+		UI:SetSpeakerEmotion("Worried")
+		UI:WaitShowDialogue("...Hou.[pause=0] Écoutez.")
+		GAME:WaitFrames(30)
+		UI:WaitShowDialogue("Les insectes.[pause=0] Les Hélédelle du bosquet.[pause=0] Le vent,[pause=10] même.[pause=0] TOUT s'est tu.")
+	end
+
+	SOUND:PlayBGM('Growing Anxiety.ogg', true)
+	GAME:WaitFrames(30)
+
+	if growlithe ~= nil then
+		GROUND:CharSetEmote(growlithe, "shock", 1)
+		SOUND:PlayBattleSE("EVT_Emote_Shock_2")
+		UI:SetSpeaker(growlithe)
+		UI:SetSpeakerEmotion("Surprised")
+		UI:WaitShowDialogue("Wouf ![pause=0] Là ![pause=0] Au nord ![pause=0] REGARDEZ LE CIEL !")
+	end
+
+	-- LE PULSE : flash lointain + onde + tremblement. Toute la scene en VFX.
+	local coro1 = TASK:BranchCoroutine(function() GeneralFunctions.PanCamera(nil, nil, false, 60, 300, 240) end)
+	TASK:JoinCoroutines({coro1})
+	GAME:WaitFrames(20)
+
+	SOUND:PlayBattleSE("EVT_Battle_Flash")
+	BossFX.Flash(300, 200, 4, 8, 40)
+	GAME:WaitFrames(20)
+	BossFX.Overlay("Cosmic_Power", 0, 0, 20, 90, 30, DrawLayer.Top)
+	SOUND:PlayBattleSE("_UNK_EVT_102")
+	BossFX.ShakeScreen(7, 40)
+	GAME:WaitFrames(40)
+
+	-- Reactions en cascade : chaque personnage a la sienne.
+	if zigzagoon ~= nil then
+		GROUND:CharSetEmote(zigzagoon, "sweating", 1)
+		UI:SetSpeaker(zigzagoon)
+		UI:SetSpeakerEmotion("Shouting")
+		UI:WaitShowDialogue("C'ÉTAIT QUOI ÇA ?![pause=0] La montagne vient de...[pause=10] de CLIGNER ?!")
+	end
+
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue("Une lumière...[pause=0] jusqu'ici ?[pause=0] Le Mont Venteux est à des JOURS de marche !")
+
+	GeneralFunctions.HeroDialogue(hero, "(Cette onde...[pause=0] je ne l'ai pas seulement vue.[pause=0] Je l'ai sentie passer À TRAVERS moi.)", "Shock")
+
+	SOUND:FadeOutBGM(30)
+	GAME:WaitFrames(30)
+	SOUND:PlayBGM('Rising Fear.ogg', true)
+
+	-- Phileas met des mots. Penticus prend sa decision.
+	UI:SetSpeaker(noctowl)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue("Hou...[pause=0] Les archives parlaient de «[pause=5] nuits où la montagne s'allume[pause=5] ».[pause=0] Je croyais à une image de poète.")
+	UI:WaitShowDialogue("Ce n'était pas une image.[pause=0] C'était un COMPTE-RENDU.")
+
+	GAME:WaitFrames(30)
+	UI:SetSpeaker(tropius)
+	GROUND:CharAnimateTurnTo(tropius, Direction.Down, 4)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(".........")
+	GAME:WaitFrames(30)
+	UI:WaitShowDialogue("Écoutez-moi,[pause=10] tous.")
+	UI:WaitShowDialogue("Ce que nous venons de voir,[pause=10] d'autres l'ont vu.[pause=0] À Metano.[pause=10] Dans les fermes.[pause=10] Partout.[pause=0] Et demain,[pause=10] la peur se mettra en route plus vite que nous.")
+	UI:SetSpeakerEmotion("Determined")
+	UI:WaitShowDialogue("Alors nous n'avons plus le droit d'échouer.[pause=0] Nous irons jusqu'au sommet.[pause=0] Nous découvrirons ce que c'est.[pause=0] Et nous reviendrons le dire.")
+	UI:WaitShowDialogue("Pas pour la gloire de la guilde.[pause=0] Pour que chaque famille de la région puisse se coucher sans regarder le nord avec angoisse.")
+
+	GAME:WaitFrames(30)
+	if growlithe ~= nil then
+		UI:SetSpeaker(growlithe)
+		UI:SetSpeakerEmotion("Determined")
+		UI:WaitShowDialogue("Wouf ![pause=0] À vos ordres ![pause=0] Jusqu'au sommet !")
+	end
+	if zigzagoon ~= nil then
+		UI:SetSpeaker(zigzagoon)
+		UI:SetSpeakerEmotion("Determined")
+		UI:WaitShowDialogue("...Jusqu'au sommet.[pause=0] Et après,[pause=10] je rentre embrasser ma mère.[pause=0] Dans cet ordre précis.")
+	end
+
+	-- Retombee : Sympathy, le partenaire et le heros restent un instant.
+	SOUND:FadeOutBGM(40)
+	GAME:WaitFrames(40)
+	SOUND:PlayBGM('Sympathy.ogg', true)
+	GAME:WaitFrames(20)
+
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue("" .. hero:GetDisplayName() .. "...[pause=0] Toi aussi tu l'as sentie,[pause=10] pas vrai ?[pause=0] L'onde.[pause=0] À l'intérieur.")
+	GeneralFunctions.HeroDialogue(hero, "(Comme un battement de cœur.[pause=0] Un battement de cœur immense,[pause=10] et...[pause=10] irrégulier.)", "Worried")
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue("Quoi que ce soit,[pause=10] là-haut...[pause=0] j'espère qu'on arrivera à temps.")
+
+	GAME:WaitFrames(40)
+	SOUND:FadeOutBGM(60)
+	GAME:FadeOut(false, 60)
+	GAME:WaitFrames(30)
+
+	GROUND:RemoveMapStatus("darkness")
+	SV.Chapter5.SkyTremorSceneSeen = true
+	GAME:CutsceneMode(false)
+	AI:EnableCharacterAI(partner)
+	AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
+	SOUND:PlayBGM('Sky Peak Prairie.ogg', true)
+	GAME:FadeIn(40)
+end

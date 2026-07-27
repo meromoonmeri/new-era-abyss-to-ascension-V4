@@ -63,6 +63,13 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 	local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
 	SV.adventure.Thief = false
 	if exited == true then return end
+  if segmentID == 4 then
+    -- Annexe de la Toupie (etage mystere) : on ressort simplement de la salle,
+    -- l'exploration du donjon reprend au meme titre qu'un etage traverse.
+    GAME:WaitFrames(10)
+    GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
+    return
+  end
 
 	if segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 		-- *** CHECKPOINT (NEW) *** : stop at the relay instead of flowing directly

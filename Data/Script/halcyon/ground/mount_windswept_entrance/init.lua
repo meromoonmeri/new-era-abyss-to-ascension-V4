@@ -74,6 +74,12 @@ function mount_windswept_entrance.PlotScripting()
   if SV.ChapterProgression.Chapter == 5 then
     if not SV.Chapter5.FinishedMountWindsweptIntro then
       mount_windswept_entrance_ch_5.ArrivalCutscene()
+    elseif SV.Chapter5.MountGuardianDefeated and SV.Chapter5.MountVigilSceneSeen
+       and not SV.Chapter5.WindSecretSceneSeen then
+      --Cinematique emotionnelle : le secret Hyko x Penticus, surprise de nuit.
+      --Se joue apres la veillee du relais (l'ordre des revelations compte).
+      mount_windswept_entrance_ch_5.SetupGround()
+      mount_windswept_entrance_ch_5.WindSecretScene()
     else
       mount_windswept_entrance_ch_5.SetupGround()
       GAME:FadeIn(20)
@@ -94,12 +100,61 @@ function mount_windswept_entrance.Teammate1_Action(chara, activator)
 
 function mount_windswept_entrance.Teammate2_Action(chara, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-  COMMON.GroundInteract(activator, chara, true)
+  if SV.ChapterProgression.Chapter == 5 then
+    mount_windswept_entrance_ch_5.Growlithe_Action(chara, activator)
+  else
+    COMMON.GroundInteract(activator, chara, true)
+  end
 end
 
 function mount_windswept_entrance.Teammate3_Action(chara, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-  COMMON.GroundInteract(activator, chara, true)
+  if SV.ChapterProgression.Chapter == 5 then
+    mount_windswept_entrance_ch_5.Zigzagoon_Action(chara, activator)
+  else
+    COMMON.GroundInteract(activator, chara, true)
+  end
+end
+
+--PNJ du camp de base (present uniquement au chapitre 5)
+function mount_windswept_entrance.Tropius_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  mount_windswept_entrance_ch_5.Tropius_Action(chara, activator)
+end
+
+function mount_windswept_entrance.Noctowl_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  mount_windswept_entrance_ch_5.Noctowl_Action(chara, activator)
+end
+
+function mount_windswept_entrance.Audino_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  mount_windswept_entrance_ch_5.Audino_Action(chara, activator)
+end
+
+function mount_windswept_entrance.Snubbull_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  mount_windswept_entrance_ch_5.Snubbull_Action(chara, activator)
+end
+
+function mount_windswept_entrance.Mareep_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  mount_windswept_entrance_ch_5.Mareep_Action(chara, activator)
+end
+
+function mount_windswept_entrance.Cranidos_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  mount_windswept_entrance_ch_5.Cranidos_Action(chara, activator)
+end
+
+function mount_windswept_entrance.Breloom_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  mount_windswept_entrance_ch_5.Breloom_Action(chara, activator)
+end
+
+function mount_windswept_entrance.Girafarig_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  mount_windswept_entrance_ch_5.Girafarig_Action(chara, activator)
 end
 
 function mount_windswept_entrance.Kangaskhan_Rock_Action(obj, activator)

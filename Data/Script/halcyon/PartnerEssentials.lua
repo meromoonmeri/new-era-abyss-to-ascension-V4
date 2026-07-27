@@ -57,7 +57,25 @@ end
 --when reloading a save, load the partner back in at the proper coordinates.
 function PartnerEssentials.LoadGamePartnerPosition(partner)
 	print("loading partner in, activating their AI")
-	GROUND:TeleportTo(partner, SV.partner.LoadPositionX, SV.partner.LoadPositionY, PartnerEssentials.NumToDir(SV.partner.LoadDirection))--sv doesn't seem to like storing custom classes
+	if partner == nil then return end
+	local hero = CH('PLAYER')
+	local x = SV.partner.LoadPositionX
+	local y = SV.partner.LoadPositionY
+	-- Fix audit 2026-07-27 : failsafe. Si la position sauvegardee est invalide
+	-- (-1 par defaut) ou aberrante (tres loin du heros = reliquat d'une autre
+	-- carte), on repositionne le partenaire a cote du heros au lieu de le
+	-- teleporter a un point deconnecte de la scene.
+	local valid = (x ~= nil and y ~= nil and x >= 0 and y >= 0)
+	if valid and hero ~= nil then
+		local dx = x - hero.Position.X
+		local dy = y - hero.Position.Y
+		if dx * dx + dy * dy > 240 * 240 then valid = false end
+	end
+	if valid then
+		GROUND:TeleportTo(partner, x, y, PartnerEssentials.NumToDir(SV.partner.LoadDirection))--sv doesn't seem to like storing custom classes
+	elseif hero ~= nil then
+		GROUND:TeleportTo(partner, hero.Position.X + 32, hero.Position.Y, Direction.Left)
+	end
 	AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
 	AI:EnableCharacterAI(partner)
 end

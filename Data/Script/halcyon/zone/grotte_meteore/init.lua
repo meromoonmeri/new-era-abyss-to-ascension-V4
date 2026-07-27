@@ -1,0 +1,57 @@
+--[[ Trône de Magma — Donjon-Ancrage (Livre II, ch21). Vague 3.
+     Segment 1 = arene de revanche (groudon). LegendZones key: fallen_visitor ]]
+require 'origin.common'
+require 'halcyon.GeneralFunctions'
+require 'halcyon.LegendZones'
+
+local grotte_meteore = {}
+
+function grotte_meteore.Init(zone)
+  DEBUG.EnableDbgCoro()
+  PrintInfo("=>> Init_grotte_meteore")
+  SV.TemporaryFlags.LastDungeonEntered = 'grotte_meteore'
+end
+
+function grotte_meteore.EnterSegment(zone, rescuing, segmentID, mapID)
+  GeneralFunctions.CheckAllowSetRescue(zone.ID)
+  if rescuing ~= true then
+    COMMON.BeginDungeon(zone.ID, segmentID, mapID)
+  end
+end
+
+function grotte_meteore.Rescued(zone, name, mail)
+  COMMON.Rescued(zone, name, mail)
+end
+
+function grotte_meteore.ExitSegment(zone, result, rescue, segmentID, mapID)
+  GeneralFunctions.RestoreIdleAnim()
+  DEBUG.EnableDbgCoro()
+  PrintInfo("=>> ExitSegment_grotte_meteore result "..tostring(result).." segment "..tostring(segmentID))
+
+  local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
+  SV.adventure.Thief = false
+  if exited == true then return end
+
+  if segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+    -- Cinematique du gardien avant l'arene (vague 7).
+    GAME:EnterGroundMap('vallon_perdu', 'Main_Entrance_Marker')
+    return
+  end
+  if segmentID == 1 then
+    -- Arene de l'Ancrage : victoire = gardien stabilise (revanche/recrutement via Grodoudou).
+    if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+      LegendZones.SetDefeated('fallen_visitor')
+      if SV.Anchors == nil then SV.Anchors = { Stabilized = {} } end
+      if SV.Anchors.Stabilized == nil then SV.Anchors.Stabilized = {} end
+      SV.Anchors.Stabilized['fallen_visitor'] = true
+    end
+    GAME:WaitFrames(20)
+    GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
+    return
+  end
+
+  -- Donjon secondaire : dans tous les cas on rentre a Metano Town (carte 1).
+  GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
+end
+
+return grotte_meteore

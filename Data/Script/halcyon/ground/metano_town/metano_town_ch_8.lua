@@ -22,8 +22,9 @@ local function Ch8State()
 end
 
 function metano_town_ch_8.SetupGround()
-    GROUND:Hide('Swap_Owner')
-    GROUND:Hide('Swap')
+    -- Boutique d'Échange (Ambipom) ouverte depuis le ch6 : ne plus la cacher.
+    GROUND:Unhide('Swap_Owner')
+    GROUND:Unhide('Swap')
     NPCRoutines.SetupChapter8Ground()
     if SV.Chapter8.ObtainedCrystalFragment and not SV.Chapter8.SanctuaryMidpointState then
         SV.Chapter8.SanctuaryMidpointState = 'Completed'

@@ -183,7 +183,7 @@ function metano_town.East_Exit_Touch(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
   GeneralFunctions.StartPartnerConversation("Où devrions-nous aller,[pause=10]" .. CH('PLAYER'):GetDisplayName() .. " ?", "Normal", false)
   GAME:WaitFrames(20)
-  local dungeons = {"relic_forest", "illuminant_riverbed", "crooked_cavern", "apricorn_grove", "vast_steppe", "searing_tunnel", "mount_windswept", "gloomy_forest", "crystal_sanctuary", "forgotten_marsh", "celestial_peak"}--this needs to be updated when more dungeons come out.
+  local dungeons = {"relic_forest", "illuminant_riverbed", "crooked_cavern", "apricorn_grove", "vast_steppe", "searing_tunnel", "mount_windswept", "gloomy_forest", "cloven_ruins", "crystal_sanctuary", "forgotten_marsh", "celestial_peak", "petit_tunnel", "bosquet_voile", "grotte_mystere", "vallee_fertile", "antre_enigme", "carriere_cuivre", "grotte_echoue"}--this needs to be updated when more dungeons come out.
   local grounds = {}
   metano_town.ShowDestinationMenu(dungeons, grounds)
 end
@@ -368,9 +368,10 @@ function metano_town.ShowDestinationMenu(dungeon_entrances,ground_entrances)
   dungeon_entrance_mapping["searing_tunnel"] = 47--Searing Tunnel Entrance
   dungeon_entrance_mapping["mount_windswept"] = 50--Mt. Windswept Entrance
   dungeon_entrance_mapping["gloomy_forest"] = 51--Gloomy Forest Entrance
-  dungeon_entrance_mapping["crystal_sanctuary"] = 52--Crystal Sanctuary Entrance
-  dungeon_entrance_mapping["forgotten_marsh"] = 53--Forgotten Marsh Entrance
-  dungeon_entrance_mapping["celestial_peak"] = 54--Celestial Peak Entrance
+  dungeon_entrance_mapping["cloven_ruins"] = 64--Cloven Ruins Entrance
+  dungeon_entrance_mapping["crystal_sanctuary"] = 68--Crystal Sanctuary Entrance
+  dungeon_entrance_mapping["forgotten_marsh"] = 69--Forgotten Marsh Entrance
+  dungeon_entrance_mapping["celestial_peak"] = 70--Celestial Peak Entrance
 
 
 	local mission_dests = {}
@@ -2079,7 +2080,7 @@ function metano_town.Tutor_Action(obj, activator)
 				GAME:LearnSkill(member, move)
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Tutor_Remember_Begin']))
 				metano_town.Tutor_Sequence()
-				SOUND:PlayBattleSE("DUN_Learn_Move")
+				SOUND:PlayBattleSE("DUN_TM")
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Tutor_Remember_Success'], member:GetDisplayName(false), moveEntry:GetColoredName()))				state = 0
 			else
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Tutor_Remember_Replace'], member:GetDisplayName(false)))
@@ -2092,7 +2093,7 @@ function metano_town.Tutor_Action(obj, activator)
 					GAME:SetCharacterSkill(member, move, result)
 					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Tutor_Remember_Begin']))
 					metano_town.Tutor_Sequence()
-					SOUND:PlayBattleSE("DUN_Learn_Move")
+					SOUND:PlayBattleSE("DUN_TM")
 					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Tutor_Remember_Success'], member:GetDisplayName(false), moveEntry:GetColoredName()))					state = 0
 				else
 					state = 2
@@ -2124,7 +2125,7 @@ function metano_town.Tutor_Action(obj, activator)
 				move = GAME:GetCharacterSkill(member, result)
 				local moveEntry = RogueEssence.Data.DataManager.Instance:GetSkill(move)
 				GAME:ForgetSkill(member, result)
-				SOUND:PlayBattleSE("DUN_Learn_Move")
+				SOUND:PlayBattleSE("DUN_TM")
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Tutor_Forget_Success'], member:GetDisplayName(false), moveEntry:GetColoredName()))
 				state = 0
 			else
@@ -2184,7 +2185,7 @@ function metano_town.Tutor_Action(obj, activator)
 					GAME:LearnSkill(member, move)
 					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Tutor_Learn_Begin']))
 					metano_town.Tutor_Sequence()
-					SOUND:PlayBattleSE("DUN_Learn_Move")
+					SOUND:PlayBattleSE("DUN_TM")
 					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Tutor_Learn_Success'], member:GetDisplayName(false), moveEntry:GetColoredName()))
 					state = 0
 				else
@@ -2198,7 +2199,7 @@ function metano_town.Tutor_Action(obj, activator)
 						GAME:SetCharacterSkill(member, move, result)
 						UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Tutor_Learn_Begin']))
 						metano_town.Tutor_Sequence()
-						SOUND:PlayBattleSE("DUN_Learn_Move")
+						SOUND:PlayBattleSE("DUN_TM")
 						UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Tutor_Learn_Success'], member:GetDisplayName(false), moveEntry:GetColoredName()))
 						state = 0
 					else

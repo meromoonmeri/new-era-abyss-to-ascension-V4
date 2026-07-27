@@ -24,7 +24,8 @@ local function Ch9State()
 end
 
 function metano_town_ch_9.SetupGround()
-    GROUND:Hide('Swap_Owner'); GROUND:Hide('Swap')
+    -- Boutique d'Échange (Ambipom) ouverte depuis le ch6 : ne plus la cacher.
+    GROUND:Unhide('Swap_Owner'); GROUND:Unhide('Swap')
     NPCRoutines.SetupChapter8Ground()
     -- Check for dispute scene
     if SV.Chapter9.PurifiedMarshCore and not SV.Chapter9.FloatzelDisputeResolved then

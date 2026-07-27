@@ -36,6 +36,12 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
   if exited == true then
       return
   end
+  if segmentID == 4 then
+    -- Annexe de la Toupie (etage mystere) : sortie douce.
+    GAME:WaitFrames(10)
+    GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
+    return
+  end
 
   if segmentID == 0 then
       -- Galerie Cristalline : 12 etages
@@ -69,13 +75,14 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
           GAME:WaitFrames(20)
           SV.Chapter8.LostGlyphHalls = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
-              GAME:EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+              SV.Chapter8.SanctuaryMidState = 'DeathArrival'
+              GAME:EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
                   "Les runes...[pause=0] elles parlent...[pause=20] mais on ne comprend pas...", "Pain")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, 46, 0)
+              GAME:EnterZone("master_zone", -1, 71, 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
           end
       end
   elseif segmentID == 3 then
@@ -84,14 +91,15 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter8.DefeatedDiancie = true
           SV.Chapter8.ObtainedCrystalFragment = true
           SV.Chapter8.CrystalSanctuaryComplete = true
-          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
       else
           SV.Chapter8.DiedToDiancie = true
-          GAME:EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+          SV.Chapter8.SanctuaryMidState = 'DeathArrival'
+              GAME:EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
           GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
               "Diancie...[pause=0] sa puissance...[pause=15] trop eclatante...", "Pain")
           GAME:WaitFrames(20)
-          GAME:EnterZone("master_zone", -1, 46, 0)
+          GAME:EnterZone("master_zone", -1, 71, 0)
       end
   end
 end
