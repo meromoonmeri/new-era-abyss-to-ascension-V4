@@ -109,3 +109,36 @@ D19→Mt. Faraway (Ho-Oh), D20→Western Cave (Mewtwo), D21→Northern Range
 D14-D21, D25 restent à convertir (matériel-layer : géométrie/collision only,
 même statut que D13P03 — le décor GBA vient des couches dungeon, compensable
 par Background animé + retiling biome comme l'arène Lugia).
+
+---
+
+## Lot 3 — Arènes de cinématique de boss (2026-07-27) : 12 zones
+
+Cartes « material-layer » (comme le pilote D13P03) : la tilemap GBA ne contient
+que la silhouette de la zone jouable, le décor venait des couches dungeon
+matérielles. Compensation prévue au branchement : Background animé + retiling
+biome (procédé validé sur l'arène Lugia / Rainbow_Peak). Casting des boss
+d'origine CONSERVÉ (règle 1:1 Partie 6) — chaque légendaire reste soumis à la
+fiche narrative §5 avant tout branchement.
+
+| Source | Zone d'origine (vérifiée `src/ground_map.c`) | Asset | Nom FR | Dim. | Boss d'origine | Audit flood |
+|---|---|---|---|---|---|---|
+| D12P02 | Magma Cavern mi-parcours (gs205) | gorge_ardente_coeur | Cœur de la Gorge Ardente | 57×57 | mise en scène | 657/657 |
+| D12P04 | Magma Cavern Pit (gs206) | fosse_ardente | Fosse Ardente | 63×63 | **Groudon** | 650/650 |
+| D13P02 | Sky Tower mi-parcours (gs208) | palier_celeste | Palier Céleste | 57×57 | mise en scène | 657/657 |
+| D14P01 | Stormy Sea fond (gs210) | abime_tempetes | Abîme des Tempêtes | 66×63 | **Kyogre** | 868/868 |
+| D15P01 | Silver Trench fond (gs211) | fosse_argentee | Fosse Argentée | 69×75 | **Lugia** (réserve — distincte de notre ch10) | 4347/4347 |
+| D16P01 | Fiery Field fond (gs212) | champ_braises | Champ des Braises | 45×45 | **Moltres** | 558/594 ⚠ |
+| D17P01 | Lightning Field fond (gs213) | champ_foudre | Champ de la Foudre | 48×45 | **Raikou** | 657/657 |
+| D18P01 | Northwind Field fond (gs214) | champ_vent_boreal | Champ du Vent Boréal | 45×42 | **Articuno** | 378/378 |
+| D19P01 | Mt. Faraway fond (gs215) | sommet_aurore | Sommet de l'Aurore | 66×63 | **Ho-Oh** | 856/856 |
+| D20P01 | Western Cave fond (gs216) | antre_occident | Antre de l'Occident | 45×42 | **Mewtwo** | 1080/1080 |
+| D21P01 | Northern Range fond (gs217) | cretes_boreales | Crêtes Boréales | 63×60 | **Latios/Latias** | 3078/3078 |
+| D25P01 | Howling Forest fond (gs222) | bois_des_plaintes | Bois des Plaintes | 45×42 | **Suicune** | 618/618 |
+
+⚠ D16P01 : 36 cases non connexes à la position du héros **dans la carte
+d'origine** (îlots de lave isolés) — conservées telles quelles (règle 1:1),
+aucune entité dessus.
+
+Statut : réserve non branchée, comme le lot 2. Total pmd-red converti :
+**31 zones** (1 pilote + 18 lot 2 + 12 lot 3).

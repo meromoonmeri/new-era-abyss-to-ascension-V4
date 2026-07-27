@@ -256,6 +256,14 @@ D10P01, D11P01, D12P01, D13P01, D22P01, D23P01, D24P01/02 → 18 `.tile` +
 `sanctuaire_voeu` (D23P01) = salle finale Jirachi actée ; `foret_givree_oree` /
 `mont_gele_pied` = candidates vague 2 (ch8/ch10).
 
+### Lot 3 — ✅ 12 ARÈNES DE CINÉMATIQUE CONVERTIES (2026-07-27)
+
+D12P02/04 (Groudon), D13P02, D14P01 (Kyogre), D15P01 (Lugia réserve), D16P01
+(Moltres), D17P01 (Raikou), D18P01 (Articuno), D19P01 (Ho-Oh), D20P01 (Mewtwo),
+D21P01 (Latios/Latias), D25P01 (Suicune). Material-layer comme le pilote —
+compensation décor au branchement. Casting conservé ; fiches narratives §5
+requises avant branchement. Détail : `pmdred_extraction_tracabilite.md` (lot 3).
+
 ### Zone pilote — ✅ CONVERTIE
 
 **Sky Tower Summit (D13P03, arène Rayquaza) → « Autel des Cieux »**, cinématique
