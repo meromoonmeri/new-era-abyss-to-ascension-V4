@@ -57,9 +57,62 @@ end
 
 function metano_inn_ch_5.Innkeeper_Desk_Right_Action(chara, activator) 
 	local nidoqueen = CH('Nidoqueen')
+	if SV.Chapter5.FinishedExpedition and not SV.Chapter5.LegendSkyHeard then
+		GeneralFunctions.StartConversation(nidoqueen, "Vous êtes l'équipe qui a vu la lumière du sommet,[pause=10] n'est-ce pas ?[pause=0] Toute l'auberge en parle.", "Normal")
+		UI:WaitShowDialogue("Une lumière en haut d'une montagne...[pause=0] Ma mère tenait cette auberge avant moi,[pause=10] et elle racontait une histoire,[pause=10] les soirs d'orage.")
+		UI:ResetSpeaker()
+		UI:ChoiceMenuYesNo("Écouter l'histoire de l'aubergiste ?", false)
+		UI:WaitForChoice()
+		if UI:ChoiceResult() then
+			metano_inn_ch_5.LegendOfTheSky(nidoqueen)
+		else
+			GeneralFunctions.EndConversation(nidoqueen)
+		end
+		return
+	end
 	GeneralFunctions.StartConversation(nidoqueen, "Je commence à m'inquiéter pour mon petit dernier.", "Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MI5_004']))
 	GeneralFunctions.EndConversation(nidoqueen)
+end
+
+--------------------------------------------------------------------
+-- LÉGENDE : « Le Gardien des Mers et le Gardien des Cieux »
+-- Mentions : Lugia, Ho-Oh. Préfigure le Pic Céleste (ch10) : « il ne
+-- descend que lorsque le ciel lui-même est en danger ».
+-- OST : I Saw Something Again... Mise en scène : la pluie tambourine.
+--------------------------------------------------------------------
+function metano_inn_ch_5.LegendOfTheSky(chara)
+	local hero = CH('PLAYER')
+	SOUND:FadeOutBGM(60)
+	GAME:WaitFrames(50)
+	SOUND:PlayBGM('I Saw Something Again....ogg', true)
+	GAME:WaitFrames(30)
+
+	UI:SetSpeaker(chara)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue("On raconte...[pause=20] que le ciel a deux gardiens,[pause=10] et qu'ils ne se rencontrent jamais.")
+	GAME:WaitFrames(20)
+	UI:WaitShowDialogue("Le premier vole si haut que ses plumes prennent les couleurs de l'arc-en-ciel.[pause=0] [color=#FF4500]Ho-Oh[color],[pause=10] disait ma mère.[pause=0] Ceux qui l'aperçoivent reçoivent un bonheur éternel.")
+	UI:WaitShowDialogue("Le second...[pause=10] dort au fond des mers,[pause=10] car son simple battement d'ailes déchaîne des tempêtes de quarante jours.[pause=0] [color=#C0C0FF]Lugia[color].[pause=0] Le Gardien des Cieux qui vit sous l'eau.")
+	GAME:WaitFrames(20)
+	GROUND:CharSetEmote(chara, "glowing", 1)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue("Ma mère disait :[pause=10] «[pause=5] Si un jour tu vois Lugia hors de l'eau,[pause=10] ma fille,[pause=10] ne te réjouis pas.[pause=5] »")
+	UI:WaitShowDialogue("«[pause=5] Car le Gardien des Cieux ne remonte...[pause=20] que lorsque le ciel lui-même est en danger.[pause=5] »")
+
+	GAME:WaitFrames(30)
+	GeneralFunctions.HeroDialogue(hero, "(Une lumière qui a peur,[pause=10] au sommet d'une montagne qui touche le ciel...[pause=0] J'espère que le Gardien dort encore.)", "Worried")
+
+	UI:SetSpeaker(chara)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue("Enfin ![pause=0] Ce sont des contes de comptoir.[pause=0] Ma mère en connaissait cent.[pause=0] Votre chambre est prête,[pause=10] si vous voulez dormir sur cette histoire.")
+
+	SV.Chapter5.LegendSkyHeard = true
+	GAME:WaitFrames(20)
+	SOUND:FadeOutBGM(40)
+	GAME:WaitFrames(30)
+	SOUND:PlayBGM('Treasure Town.ogg', true)
+	GeneralFunctions.EndConversation(chara)
 end
 
 function metano_inn_ch_5.Innkeeper_Desk_Left_Action(chara, activator) 

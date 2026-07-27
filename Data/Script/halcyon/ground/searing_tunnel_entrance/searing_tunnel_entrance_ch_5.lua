@@ -1657,6 +1657,17 @@ function searing_tunnel_entrance_ch_5.Noctowl_Action(chara, activator)
 	--Guildmaster insisted on handing out potential supplies to your team, so talk to him.
 	--...Why does the Guildmaster worry over Hyko so much? There's a reason... But it's not my story to tell.
 
+	--Grande veillee de legende : apres la rencontre du clan Slugma, Phileas
+	--repond a la question que tout le monde se pose (pourquoi defendent-ils
+	--ce tunnel ?) par la legende du Fourneau et des Coeurs.
+	if SV.Chapter5.EncounteredBoss and not SV.Chapter5.LegendFurnaceHeard and not SV.Chapter5.EnteredTunnel then
+		GeneralFunctions.StartConversation(chara, "Hou...[pause=0] Vous avez donc croisé le clan de Limagma.[pause=0] Et vous vous demandez pourquoi ils se battent avec une telle rage.", "Normal")
+		UI:WaitShowDialogue("Venez.[pause=0] Rassemblez l'équipe près du feu.[pause=0] Il est temps que je vous raconte ce que disent les archives.")
+		GeneralFunctions.EndConversation(chara)
+		searing_tunnel_entrance_ch_5.FurnaceLegendScene()
+		return
+	end
+
 	if SV.Chapter5.EnteredTunnel then
 	--He sleeps if you die and visit him. This is where he finds his rest after all.
 		UI:ResetSpeaker(false)
@@ -2289,3 +2300,127 @@ function searing_tunnel_entrance_ch_5.Dungeon_Entrance_Touch(obj, activator)
 
 end
 
+
+--------------------------------------------------------------------
+-- CINÉMATIQUE DE LÉGENDE — « Le Fourneau et les Cœurs » (Phileas)
+-- Grande veillée du camp du Tunnel : Phileas raconte la légende de
+-- Heatran et des Cœurs de la terre devant toute l'expédition réunie.
+-- Mentions : Heatran (le Fourneau), les « Cœurs » (Anima, sans le mot),
+-- écho aux Ruines du nord. Groudon évoqué par Ganlon en contrepoint.
+-- OST : I Saw Something Again... -> Rising Fear (montée) -> retour camp.
+-- Mise en scène complète : cercle autour du feu, émotes, réactions.
+-- Déclencheur : parler à Phileas après avoir rencontré le boss (clan
+-- Slugma) — la légende répond à la question que tout le monde se pose.
+--------------------------------------------------------------------
+function searing_tunnel_entrance_ch_5.FurnaceLegendScene()
+	local hero = CH('PLAYER')
+	local partner = CH('Teammate1')
+	local growlithe = CH('Teammate2')
+	local zigzagoon = CH('Teammate3')
+	local noctowl = CH('Noctowl')
+	local tropius = CH('Tropius')
+	if noctowl == nil then GAME:FadeIn(20) return end
+
+	GAME:CutsceneMode(true)
+	AI:DisableCharacterAI(partner)
+	SOUND:FadeOutBGM(60)
+	GAME:WaitFrames(40)
+
+	-- Toute l'equipe se rassemble autour de Phileas (positions walkables).
+	local coro1 = TASK:BranchCoroutine(function() GeneralFunctions.EightWayMove(hero, 240, 280, false, 1) GROUND:CharAnimateTurnTo(hero, Direction.Up, 4) end)
+	local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(6) GeneralFunctions.EightWayMove(partner, 320, 280, false, 1) GROUND:CharAnimateTurnTo(partner, Direction.Up, 4) end)
+	local coro3 = TASK:BranchCoroutine(function() GAME:WaitFrames(12) if growlithe ~= nil then GeneralFunctions.EightWayMove(growlithe, 220, 260, false, 1) GROUND:CharAnimateTurnTo(growlithe, Direction.UpRight, 4) end end)
+	local coro4 = TASK:BranchCoroutine(function() GAME:WaitFrames(18) if zigzagoon ~= nil then GeneralFunctions.EightWayMove(zigzagoon, 340, 260, false, 1) GROUND:CharAnimateTurnTo(zigzagoon, Direction.UpLeft, 4) end end)
+	local coro5 = TASK:BranchCoroutine(function() GeneralFunctions.PanCamera(nil, nil, false, nil, 280, 250) end)
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
+	GROUND:TeleportTo(noctowl, 280, 220, Direction.Down)
+	GAME:WaitFrames(30)
+
+	SOUND:PlayBGM('I Saw Something Again....ogg', true)
+	GAME:WaitFrames(30)
+
+	UI:SetSpeaker(noctowl)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue("Hou...[pause=0] Vous vous demandez tous pourquoi le clan de Limagma défend ce tunnel comme une forteresse,[pause=10] n'est-ce pas ?")
+	UI:WaitShowDialogue("Alors approchez.[pause=0] Ce que je vais vous raconter,[pause=10] je le tiens des archives les plus anciennes de la guilde.[pause=0] Et des soirs comme celui-ci sont faits pour les vieilles histoires.")
+
+	GAME:WaitFrames(30)
+	GROUND:CharSetEmote(noctowl, "glowing", 1)
+	UI:WaitShowDialogue("On raconte...[pause=20] que sous la croûte du monde brûle un unique Fourneau.[pause=0] Et que dans ce Fourneau vit une créature de fonte et de magma.")
+	UI:WaitShowDialogue("[color=#FF4500]Heatran[color],[pause=10] la nomment les textes.[pause=0] Ses pattes s'accrochent aux plafonds des cavernes comme les nôtres au sol.[pause=0] Son sang est le métal en fusion lui-même.")
+
+	if zigzagoon ~= nil then
+		GAME:WaitFrames(15)
+		GROUND:CharSetEmote(zigzagoon, "shock", 1)
+		UI:SetSpeaker(zigzagoon)
+		UI:SetSpeakerEmotion("Surprised")
+		UI:WaitShowDialogue("Au PLAFOND ?![pause=0] Les pattes au plafond ?[pause=0] Et ça dort la tête en bas ?!")
+	end
+
+	UI:SetSpeaker(noctowl)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue("Hou hou...[pause=0] Nul ne le sait,[pause=10] jeune Almotz.[pause=0] Car nul ne l'a jamais vue dormir.[pause=0] Mais là n'est pas l'important.")
+	GAME:WaitFrames(20)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue("L'important,[pause=10] c'est ce que le Fourneau RÉCHAUFFE.[pause=0] Les archives parlent de...[pause=20] Cœurs.[pause=0] Des foyers de vie enfouis,[pause=10] disséminés sous toute la région.")
+	UI:WaitShowDialogue("Chaque source chaude,[pause=10] chaque vallée fertile,[pause=10] chaque forêt qui repousse plus vite qu'elle ne brûle...[pause=0] serait posée sur l'un de ces Cœurs.")
+
+	GAME:WaitFrames(20)
+	GeneralFunctions.HeroDialogue(hero, "(Des Cœurs enfouis...[pause=0] La voix,[pause=10] la lumière,[pause=10] les gardiens...[pause=0] Tout tourne toujours autour de la même chose.)", "Worried")
+
+	if growlithe ~= nil then
+		UI:SetSpeaker(growlithe)
+		UI:SetSpeakerEmotion("Worried")
+		UI:WaitShowDialogue("Alors le clan de Limagma...[pause=10] Ils ne défendent pas leur territoire,[pause=10] wouf.[pause=0] Ils défendent un Cœur.")
+	end
+
+	UI:SetSpeaker(noctowl)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue("Hou.[pause=0] Voilà pourquoi j'aime raconter aux jeunes esprits :[pause=10] ils comprennent vite.")
+
+	-- Montee dramatique : ce que disent les dernieres pages des archives.
+	SOUND:FadeOutBGM(40)
+	GAME:WaitFrames(40)
+	SOUND:PlayBGM('Rising Fear.ogg', true)
+	GAME:WaitFrames(20)
+
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue("Mais les dernières pages de ces archives...[pause=20] sont d'une autre encre.[pause=0] Plus sombre.[pause=0] Tracée à la hâte.")
+	UI:WaitShowDialogue("«[pause=5] Les Cœurs faiblissent l'un après l'autre,[pause=10] écrit l'archiviste.[pause=0] Et le Fourneau gronde comme jamais.[pause=5] »")
+	UI:WaitShowDialogue("«[pause=5] Si les Cœurs s'éteignent...[pause=20] même Heatran ne pourra pas rallumer le monde.[pause=5] »")
+
+	GAME:WaitFrames(30)
+	if partner ~= nil then
+		GROUND:CharSetEmote(partner, "sweating", 1)
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Worried")
+		UI:WaitShowDialogue("Phileas...[pause=0] Ces archives datent de quand,[pause=10] exactement ?")
+	end
+
+	UI:SetSpeaker(noctowl)
+	GAME:WaitFrames(20)
+	UI:WaitShowDialogue(".........")
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue("D'il y a fort longtemps.[pause=0] Rassure-toi.[pause=0] Hou...[pause=0] Mais je mentirais en disant que la lueur de votre montagne ne m'y a pas fait penser.")
+
+	-- Detente : Ganlon casse l'ambiance, la vie reprend.
+	if tropius ~= nil then
+		GAME:WaitFrames(20)
+		UI:SetSpeaker(tropius)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue("Il se fait tard.[pause=0] Merci,[pause=10] Phileas,[pause=10] pour cette...[pause=10] berceuse réconfortante.")
+		UI:WaitShowDialogue("Demain,[pause=10] le tunnel nous attend.[pause=0] Et quoi que gardent ses habitants...[pause=10] nous passerons en respectant ce qu'ils protègent.")
+	end
+
+	SOUND:FadeOutBGM(40)
+	GAME:WaitFrames(30)
+	GAME:FadeOut(false, 60)
+	GAME:WaitFrames(30)
+
+	SV.Chapter5.LegendFurnaceHeard = true
+	SOUND:PlayBGM('Spring Cave.ogg', true)
+	GAME:CutsceneMode(false)
+	AI:EnableCharacterAI(partner)
+	AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
+	GAME:FadeIn(40)
+end

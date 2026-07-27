@@ -10,7 +10,8 @@ Outil de mesure : `python3 tools/count_dialogue.py 5` (1 ligne = 1 appel `WaitSh
 | 2026-07-26 (avant campagne) | 996 | — | état hérité |
 | 2026-07-26 (session 1) | 1118 | +122 | Relais Steppe & Mont réécrits : cinématiques + PNJ à variantes |
 | 2026-07-26 (session 2) | 1254 | +136 | Camp de base du Mont (10 PNJ × 3-4 états), vie de ville (café, maisons eau/normale, auberge, étang, dojo) |
-| 2026-07-26 (session 3) | **1279** | +25 | 2 cinématiques dramatiques : « La veillée du camp » (steppe, Hyko×Almotz) et « La dernière veillée » (mont, veille du sommet) |
+| 2026-07-26 (session 3) | 1279 | +25 | 2 cinématiques dramatiques : « La veillée du camp » (steppe, Hyko×Almotz) et « La dernière veillée » (mont, veille du sommet) |
+| 2026-07-26 (session 4) | **1351** | +72 | Système de légendes des aînés (5 légendes avec OST dédiés) + cinématique majeure « La Nuit où le Ciel a Tremblé » |
 
 ## Livré en session 1
 

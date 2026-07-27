@@ -76,6 +76,11 @@ function vast_steppe_entrance.PlotScripting()
 	elseif SV.Chapter5.EscapedSteppe or SV.Chapter5.DiedSteppe then
 		vast_steppe_entrance_ch_5.SetupGround()
 		vast_steppe_entrance_ch_5.FailedCutscene()
+	elseif SV.Chapter5.SteppeMiniBossDefeated and not SV.Chapter5.SkyTremorSceneSeen then
+		--Cinematique majeure : le premier pulse du phenomene du sommet,
+		--visible depuis le camp. Joue une seule fois, la nuit suivant le mini-boss.
+		vast_steppe_entrance_ch_5.SetupGround()
+		vast_steppe_entrance_ch_5.SkyTremorScene()
 	else
 		vast_steppe_entrance_ch_5.SetupGround()
 		GAME:FadeIn(20)

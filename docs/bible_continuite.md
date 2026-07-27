@@ -96,3 +96,25 @@ Nouveaux personnages/scènes établis (à respecter dans toute écriture future)
 - **Voix des PNJ d'expédition** (verrouillées) : Penticus = façade sereine fissurée ; Phileas = érudit, hypothèses qui ne lui plaisent pas, « Hou » ; Rin = prescriptrice douce ; Coco = râle par principe, loyale ; Shuca = optimiste statique (électrocute Ganlon « une fois et demie ») ; Ganlon = bourru protecteur (surveille « le périmètre ») ; Kino = blagueur, pacte de dignité avec Coco ; Reinier = vétéran, « arrière-tête » infaillible ; Hyko = procédure + cœur (rapport en 3 exemplaires) ; Almotz = famille de 8, gratin de Baies Oran, cailloux souvenirs.
 - **Tweed & Maris** (maison de l'eau) : 47 plans foireux au compteur ; « eau millésimée » puis « eau d'altitude ». Maris : « Booon... ».
 - **Événements consignés** : la « voix » de la steppe entendue par TOUTE l'équipe (verbalisée à la veillée) ; Hyko consigne les murmures pour Penticus ; Almotz a dit merci (rapport officiel de Hyko, 22h).
+
+## Système de légendes des aînés (session 4 — 2026-07-26)
+
+Règle : les légendaires sont MENTIONNÉS par les anciens (« On raconte... »), jamais rencontrés.
+Chaque légende a son OST, son conteur attitré et prépare un contenu futur planifié. Choix du joueur (ChoiceMenuYesNo) avant chaque récit — jamais imposé.
+
+| Légende | Conteur | Lieu | OST | Légendaires cités | Prépare |
+|---|---|---|---|---|---|
+| Les Trois Serviteurs et le Colosse | Rubble (Aggron, ex-mineur) | café | In the Depths of the Pit | Regirock, Regice, Registeel + « le Colosse » (Regigigas non nommé) | ch7 Ruines Tordues |
+| Les Trois Lacs | le vieux Relicanth | étang d'Altere | Star Cave | Créhelf, Créfollet, Créfadet | Sentiers Savoir/Espoir/Courage (P5) |
+| Les Deux Gardiens du Ciel | Nidoqueen (aubergiste, histoire de sa mère) | auberge | I Saw Something Again... | Ho-Oh, Lugia (« il ne remonte que si le ciel est en danger ») | ch10 Pic Céleste |
+| Le Fourneau et les Cœurs | Phileas (Noctowl) — GRANDE VEILLÉE mise en scène | camp du Tunnel | I Saw Something Again... → Rising Fear | Heatran + les « Cœurs » (Anima sans le mot) | tout l'arc Anima |
+| Celui qui Dort sous les Volcans | Dotra (Camerupt, transmission mère→enfant) | maison feu | In the Depths of the Pit | Groudon | donjons volcaniques futurs |
+
+Déblocages : Titans/Lacs/Ciel/Terre = post-expédition ; Fourneau = après rencontre du clan Slugma (répond à la question « pourquoi défendent-ils le tunnel ? »).
+
+## Cinématique majeure « La Nuit où le Ciel a Tremblé » (enjeu de l'expédition)
+
+- Déclencheur : première visite à l'entrée steppe après victoire sur le mini-boss.
+- Ce qui est établi CANON : le phénomène du sommet émet des PULSES visibles à des jours de marche ; l'onde se SENT physiquement (« un battement de cœur immense, irrégulier » — le héros) ; les Pokémon sauvages se taisent avant chaque pulse ; Penticus fait le discours fondateur (« pour que chaque famille se couche sans regarder le nord avec angoisse ») ; les archives de Phileas parlent de « nuits où la montagne s'allume » (compte-rendu, pas poésie).
+- OST : silence → Growing Anxiety → Rising Fear → Sympathy. VFX : Flash + Cosmic_Power overlay + ShakeScreen.
+- Toute écriture future ch5+ doit référencer ce pulse comme événement partagé par toute l'expédition ET visible depuis Metano (rumeurs ch6 à prévoir).

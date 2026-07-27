@@ -811,6 +811,16 @@ SV.Chapter5 =
 	FragmentSceneSeen = false,--Le Fragment (Meteno) est-il tombe pres du relais du Mont ?
 	SteppeNightSceneSeen = false,--La veillee du camp (Hyko x Almotz) a-t-elle ete jouee ?
 	MountVigilSceneSeen = false,--La derniere veillee avant le sommet a-t-elle ete jouee ?
+
+	--Legendes racontees par les aines (mentions de legendaires, jamais de rencontre)
+	LegendTitansHeard = false,--Rubble (cafe) : les Trois Serviteurs et le Colosse (Regi + Regigigas)
+	LegendLakeHeard = false,--Relicanth (etang) : les Trois Lacs (Crehelf/Crefollet/Crefadet)
+	LegendSkyHeard = false,--Aubergiste Nidoqueen : les deux Gardiens du ciel (Ho-Oh/Lugia)
+	LegendFurnaceHeard = false,--Phileas (camp du Tunnel) : le Fourneau et les Coeurs (Heatran)
+	LegendEarthHeard = false,--Dotra (maison feu) : Celui qui Dort sous les Volcans (Groudon)
+
+	--Cinematiques d'enjeu de l'expedition
+	SkyTremorSceneSeen = false,--Le premier pulse du sommet vu depuis le camp de la steppe
 	SteppeGuardianSeen = false,
 	TunnelMiniBossSeen = false,
 	MountMiniBossSeen = false,
