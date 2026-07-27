@@ -31,6 +31,12 @@ function caldeira_endormie.ExitSegment(zone, result, rescue, segmentID, mapID)
   local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
   SV.adventure.Thief = false
   if exited == true then return end
+  if segmentID == 2 then
+    -- Annexe de la Toupie (etage mystere) : sortie douce.
+    GAME:WaitFrames(10)
+    GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
+    return
+  end
 
   if segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
     -- Cinematique du gardien avant l'arene (vague 7).

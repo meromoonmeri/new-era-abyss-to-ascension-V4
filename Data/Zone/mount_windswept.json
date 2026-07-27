@@ -4842,6 +4842,41 @@
                 "type": "PMDC.Dungeon.ShopModGenState"
               }
             ]
+          },
+          {
+            "$type": "RogueEssence.LevelGen.SpreadStepRangeZoneStep, RogueEssence",
+            "StepPriority": {
+              "str": [
+                5
+              ]
+            },
+            "Spawns": [
+              {
+                "Spawn": {
+                  "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                  "Script": "NewEraMystery",
+                  "ArgTable": "{BaseChance=6, SegDiff=4}"
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 6
+                }
+              }
+            ],
+            "SpreadPlan": {
+              "$type": "RogueEssence.LevelGen.SpreadPlanSpaced, RogueEssence",
+              "FloorSpacing": {
+                "Min": 2,
+                "Max": 4
+              },
+              "BeginStart": false,
+              "FloorRange": {
+                "Min": 0,
+                "Max": 6
+              }
+            },
+            "ModStates": []
           }
         ],
         "IsRelevant": true,
@@ -9776,6 +9811,72 @@
         ],
         "IsRelevant": true,
         "Comment": ""
+      },
+      {
+        "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+        "Floors": [
+          {
+            "$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
+            "GenSteps": [
+              {
+                "Key": {
+                  "str": [
+                    -1
+                  ]
+                },
+                "Value": {
+                  "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
+                  "MapID": "annexe_toupie"
+                }
+              },
+              {
+                "Key": {
+                  "str": [
+                    6
+                  ]
+                },
+                "Value": {
+                  "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
+                  "Script": "SpawnAnnexeNPCs",
+                  "ArgTable": "{}"
+                }
+              }
+            ],
+            "Comment": ""
+          }
+        ],
+        "ZoneSteps": [
+          {
+            "$type": "PMDC.LevelGen.SaveVarsZoneStep, PMDC",
+            "Priority": {
+              "str": [
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "$type": "PMDC.LevelGen.FloorNameDropZoneStep, PMDC",
+            "DropPriority": {
+              "str": [
+                -15
+              ]
+            },
+            "Name": {
+              "DefaultText": "Verdant Oath",
+              "LocalTexts": {
+                "fr": "Serment Verdoyant"
+              }
+            },
+            "Priority": {
+              "str": [
+                -6
+              ]
+            }
+          }
+        ],
+        "IsRelevant": false,
+        "Comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
       }
     ],
     "GroundMaps": [

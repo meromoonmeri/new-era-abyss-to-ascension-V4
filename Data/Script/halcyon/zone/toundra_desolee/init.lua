@@ -35,6 +35,12 @@ function toundra_desolee.ExitSegment(zone, result, rescue, segmentID, mapID)
   if exited == true then
     return
   end
+  if segmentID == 1 then
+    -- Annexe de la Toupie (etage mystere) : sortie douce.
+    GAME:WaitFrames(10)
+    GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
+    return
+  end
 
   -- Donjon secondaire : dans tous les cas on rentre a Metano Town (carte 1).
   GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)

@@ -17,6 +17,8 @@ PickerSpawnType = luanet.import_type('RogueElements.PickerSpawner`2')
 PresetMultiRandType = luanet.import_type('RogueElements.PresetMultiRand`1')
 PresetPickerType = luanet.import_type('RogueElements.PresetPicker`1')
 MapItemType = luanet.import_type('RogueEssence.Dungeon.MapItem')
+EffectTileType = luanet.import_type('RogueEssence.Dungeon.EffectTile')
+TempTileStepType = luanet.import_type('PMDC.LevelGen.TempTileStep`1')
 
 function ZONE_GEN_SCRIPT.GenerateMissionFromSV(zoneContext, context, queue, seed, args)
   SV.MonsterHouseMessageNotified = false
@@ -590,4 +592,70 @@ function ZONE_GEN_SCRIPT.SpawnChapter6Chenipent(zoneContext, context, queue, see
   local placement = LUA_ENGINE:MakeGenericType(PlaceEntranceMobsStepType, { MapGenContextType, EntranceType }, { picker })
   placement.Ally = true
   queue:Enqueue(RogueElements.Priority(5, 2, 1), placement)
+end
+
+
+-------------------------------------------------------------------------
+-- Vague 9 : L'Annexe de la Toupie (etage mystere, structure Bazar Secret).
+-- Version New Era de FLOOR_GEN_SCRIPT.Mysteriosity (PMDO base) : pas de
+-- SV.magnagate — chance fixe + bonus si l'equipe a deja stabilise des
+-- Ancrages (le Reseau "reconnait" les habitues).
+-------------------------------------------------------------------------
+function FLOOR_GEN_SCRIPT.NewEraMystery(map, args)
+  local total_chance = args.BaseChance
+  if SV.Anchors ~= nil and SV.Anchors.Stabilized ~= nil then
+    local n = 0
+    for _ in pairs(SV.Anchors.Stabilized) do n = n + 1 end
+    total_chance = total_chance + math.min(n, 5)
+  end
+  if map.Rand:Next(100) < total_chance then
+    local secretTile = RogueEssence.Dungeon.EffectTile("tile_mystery", true)
+    secretTile.TileStates:Set(PMDC.Dungeon.DestState(RogueEssence.Dungeon.SegLoc(args.SegDiff, 0), true))
+    local picker = LUA_ENGINE:MakeGenericType( PresetPickerType, { EffectTileType }, { secretTile })
+    local trapStep = LUA_ENGINE:MakeGenericType( TempTileStepType, { MapGenContextType }, { picker, "mysterious_distortion" })
+    trapStep.TileFilters:Add(PMDC.LevelGen.RoomFilterConnectivity(PMDC.LevelGen.ConnectivityRoom.Connectivity.Main))
+    trapStep.TileFilters:Add(RogueElements.RoomFilterComponent(true, PMDC.LevelGen.BossRoom()))
+    trapStep:Apply(map)
+  end
+end
+
+-------------------------------------------------------------------------
+-- Peuplement de l'Annexe de la Toupie : le patron et ses habitues.
+-- Roles du Bazar Secret (pret/pmd-sky) recasts New Era :
+--   Kirlia accueil -> Spinda patron / Mime Jr. repos -> soins
+--   Swalot echoppe / Lickilicky nettoyage -> polissage / Shedinja sortie
+-------------------------------------------------------------------------
+
+function FLOOR_GEN_SCRIPT.SpawnAnnexeNPCs(map, args)
+  -- Pattern canonique du jeu de base (SpawnRandomTutor) : MobSpawn +
+  -- MobSpawnInteractable(BattleScriptEvent) + PlaceRandomMobsStep en allie.
+  local npcs = {
+    { species = 'spinda',     nick = 'Toupim',    lua = 'AnnexePatron' },
+    { species = 'mime_jr',    nick = 'Pausette',  lua = 'AnnexeRepos' },
+    { species = 'swalot',     nick = 'Gobble',    lua = 'AnnexeEchoppe' },
+    { species = 'lickilicky', nick = 'Lustro',    lua = 'AnnexePolissage' },
+    { species = 'shedinja',   nick = 'Passe-Mue', lua = 'AnnexeSortie' },
+  }
+  for _, n in ipairs(npcs) do
+    local mon = _DATA:GetMonster(n.species)
+    local form = mon.Forms[0]
+    local gender = form:RollGender(map.Rand)
+    local specificTeam = RogueEssence.LevelGen.SpecificTeamSpawner()
+    specificTeam.Explorer = true
+    local post_mob = RogueEssence.LevelGen.MobSpawn()
+    post_mob.BaseForm = RogueEssence.Dungeon.MonsterID(n.species, 0, "normal", gender)
+    post_mob.Tactic = "slow_patrol"
+    post_mob.Level = RogueElements.RandRange(30)
+    local dialogue = RogueEssence.Dungeon.BattleScriptEvent(n.lua)
+    post_mob.SpawnFeatures:Add(PMDC.LevelGen.MobSpawnInteractable(dialogue))
+    post_mob.SpawnFeatures:Add(PMDC.LevelGen.MobSpawnUnrecruitable())
+    specificTeam.Spawns:Add(post_mob)
+    local picker = LUA_ENGINE:MakeGenericType(PresetMultiTeamSpawnerType, { MapGenContextType }, { })
+    picker.Spawns:Add(specificTeam)
+    local mobPlacement = LUA_ENGINE:MakeGenericType(PlaceRandomMobsStepType, { MapGenContextType }, { picker })
+    mobPlacement.Ally = true
+    mobPlacement.Filters:Add(PMDC.LevelGen.RoomFilterConnectivity(PMDC.LevelGen.ConnectivityRoom.Connectivity.Main))
+    mobPlacement.ClumpFactor = 20
+    mobPlacement:Apply(map)
+  end
 end

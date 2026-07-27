@@ -86,6 +86,13 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 					SV.Chapter5.TunnelLastExitReason = 'Escaped'
 					GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 47, 0, true, true) --Go to Searing Tunnel Entrance ground map
 				end			
+  if segmentID == 3 then
+    -- Annexe de la Toupie (etage mystere) : on ressort simplement de la salle,
+    -- l'exploration du donjon reprend au meme titre qu'un etage traverse.
+    GAME:WaitFrames(10)
+    GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
+    return
+  end
 			else 
 				--Generic first segment death/escape.
 				SV.TemporaryFlags.Dinnertime = true 

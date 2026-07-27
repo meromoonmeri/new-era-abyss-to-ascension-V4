@@ -212,7 +212,7 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 22,
+      "CountedFloors": 23,
       "Rogue": 0,
       "Grounds": [
         "cloven_ruins_entrance",
@@ -246,6 +246,9 @@
           2,
           3,
           4
+        ],
+        [
+          0
         ],
         [
           0
@@ -612,7 +615,7 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 13,
+      "CountedFloors": 14,
       "Rogue": 0,
       "Grounds": [
         "mount_windswept_entrance",
@@ -640,6 +643,9 @@
           3,
           4,
           5
+        ],
+        [
+          0
         ],
         [
           0
@@ -775,7 +781,7 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 0,
-      "CountedFloors": 21,
+      "CountedFloors": 22,
       "Rogue": 0,
       "Grounds": [
         "gloomy_forest_entrance",
@@ -807,6 +813,9 @@
           0,
           1,
           2
+        ],
+        [
+          0
         ],
         [
           0
@@ -871,7 +880,7 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 15,
+      "CountedFloors": 16,
       "Rogue": 0,
       "Grounds": [
         "searing_tunnel_entrance",
@@ -901,6 +910,9 @@
         ],
         [
           0
+        ],
+        [
+          0
         ]
       ],
       "Name": {
@@ -924,7 +936,7 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 14,
+      "CountedFloors": 15,
       "Rogue": 0,
       "Grounds": [
         "vast_steppe_entrance",
@@ -953,6 +965,9 @@
           4,
           5,
           6
+        ],
+        [
+          0
         ],
         [
           0
@@ -1012,7 +1027,7 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 20,
+      "CountedFloors": 21,
       "Rogue": 0,
       "Grounds": [
         "crystal_sanctuary_entrance",
@@ -1047,6 +1062,9 @@
         ],
         [
           0
+        ],
+        [
+          0
         ]
       ],
       "Name": {
@@ -1071,7 +1089,7 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 20,
+      "CountedFloors": 21,
       "Rogue": 0,
       "Grounds": [
         "forgotten_marsh_entrance",
@@ -1106,6 +1124,9 @@
         ],
         [
           0
+        ],
+        [
+          0
         ]
       ],
       "Name": {
@@ -1130,7 +1151,7 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 22,
+      "CountedFloors": 23,
       "Rogue": 0,
       "Grounds": [
         "celestial_peak_entrance",
@@ -1169,6 +1190,9 @@
           1,
           2,
           3
+        ],
+        [
+          0
         ],
         [
           0
@@ -1715,7 +1739,7 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 23,
+      "CountedFloors": 24,
       "Rogue": 0,
       "Grounds": [],
       "Maps": [
@@ -1740,6 +1764,9 @@
           17,
           18,
           19
+        ],
+        [
+          0
         ],
         [
           0
@@ -1948,7 +1975,7 @@
       "KeepTreasure": true,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 30,
+      "CountedFloors": 31,
       "Rogue": 0,
       "Grounds": [],
       "Maps": [
@@ -1983,6 +2010,9 @@
           27,
           28,
           29
+        ],
+        [
+          0
         ]
       ],
       "Name": {
@@ -2268,7 +2298,7 @@
       "KeepTreasure": true,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 19,
+      "CountedFloors": 20,
       "Rogue": 0,
       "Grounds": [],
       "Maps": [
@@ -2291,6 +2321,9 @@
           15,
           16,
           17
+        ],
+        [
+          0
         ],
         [
           0
@@ -2645,7 +2678,7 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 27,
+      "CountedFloors": 28,
       "Rogue": 0,
       "Grounds": [],
       "Maps": [
@@ -2675,6 +2708,9 @@
           3,
           4,
           5
+        ],
+        [
+          0
         ],
         [
           0

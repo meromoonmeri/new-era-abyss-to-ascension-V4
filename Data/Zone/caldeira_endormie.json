@@ -10261,9 +10261,9 @@
                             "Gender": -1
                           },
                           "Level": {
-"Min": 36,
-"Max": 36
-},
+                            "Min": 36,
+                            "Max": 36
+                          },
                           "SpecifiedSkills": [
                             "rest",
                             "body_slam",
@@ -12000,9 +12000,9 @@
                             "Gender": -1
                           },
                           "Level": {
-"Min": 36,
-"Max": 36
-},
+                            "Min": 36,
+                            "Max": 36
+                          },
                           "SpecifiedSkills": [
                             "rest",
                             "body_slam",
@@ -13664,9 +13664,9 @@
                             "Gender": -1
                           },
                           "Level": {
-"Min": 36,
-"Max": 36
-},
+                            "Min": 36,
+                            "Max": 36
+                          },
                           "SpecifiedSkills": [
                             "rest",
                             "body_slam",
@@ -15328,9 +15328,9 @@
                             "Gender": -1
                           },
                           "Level": {
-"Min": 36,
-"Max": 36
-},
+                            "Min": 36,
+                            "Max": 36
+                          },
                           "SpecifiedSkills": [
                             "rest",
                             "body_slam",
@@ -31390,9 +31390,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 25,
-"Max": 25
-},
+                      "Min": 25,
+                      "Max": 25
+                    },
                     "SpecifiedSkills": [
                       "water_sport",
                       "mud_bomb",
@@ -31447,9 +31447,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 23,
-"Max": 23
-},
+                      "Min": 23,
+                      "Max": 23
+                    },
                     "SpecifiedSkills": [
                       "wing_attack",
                       "bite"
@@ -31486,9 +31486,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 23,
-"Max": 23
-},
+                      "Min": 23,
+                      "Max": 23
+                    },
                     "SpecifiedSkills": [
                       "growl",
                       "mud_bomb"
@@ -31525,9 +31525,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 23,
-"Max": 23
-},
+                      "Min": 23,
+                      "Max": 23
+                    },
                     "SpecifiedSkills": [
                       "leech_life",
                       "stun_spore"
@@ -31564,9 +31564,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 27,
-"Max": 27
-},
+                      "Min": 27,
+                      "Max": 27
+                    },
                     "SpecifiedSkills": [
                       "flame_burst"
                     ],
@@ -31602,9 +31602,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 26,
-"Max": 26
-},
+                      "Min": 26,
+                      "Max": 26
+                    },
                     "SpecifiedSkills": [
                       "swift",
                       "shock_wave"
@@ -31641,9 +31641,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 28,
-"Max": 28
-},
+                      "Min": 28,
+                      "Max": 28
+                    },
                     "SpecifiedSkills": [
                       "poison_sting",
                       "revenge"
@@ -31680,9 +31680,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 28,
-"Max": 28
-},
+                      "Min": 28,
+                      "Max": 28
+                    },
                     "SpecifiedSkills": [
                       "water_gun",
                       "confusion"
@@ -31719,9 +31719,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 27,
-"Max": 27
-},
+                      "Min": 27,
+                      "Max": 27
+                    },
                     "SpecifiedSkills": [
                       "poison_gas",
                       "fury_swipes"
@@ -31758,9 +31758,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 27,
-"Max": 27
-},
+                      "Min": 27,
+                      "Max": 27
+                    },
                     "SpecifiedSkills": [
                       "flame_charge"
                     ],
@@ -31796,9 +31796,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 29,
-"Max": 29
-},
+                      "Min": 29,
+                      "Max": 29
+                    },
                     "SpecifiedSkills": [
                       "heart_stamp",
                       "attract"
@@ -31835,9 +31835,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 31,
-"Max": 31
-},
+                      "Min": 31,
+                      "Max": 31
+                    },
                     "SpecifiedSkills": [
                       "ingrain",
                       "self_destruct"
@@ -31874,9 +31874,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 27,
-"Max": 27
-},
+                      "Min": 27,
+                      "Max": 27
+                    },
                     "SpecifiedSkills": [
                       "pay_day"
                     ],
@@ -31912,9 +31912,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 28,
-"Max": 28
-},
+                      "Min": 28,
+                      "Max": 28
+                    },
                     "SpecifiedSkills": [
                       "rage",
                       "bone_club"
@@ -31951,9 +31951,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 30,
-"Max": 30
-},
+                      "Min": 30,
+                      "Max": 30
+                    },
                     "SpecifiedSkills": [
                       "stealth_rock",
                       "rock_polish"
@@ -31990,9 +31990,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 31,
-"Max": 31
-},
+                      "Min": 31,
+                      "Max": 31
+                    },
                     "SpecifiedSkills": [
                       "yawn",
                       "screech",
@@ -32030,9 +32030,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 33,
-"Max": 33
-},
+                      "Min": 33,
+                      "Max": 33
+                    },
                     "SpecifiedSkills": [
                       "quash",
                       "swift"
@@ -32069,9 +32069,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 33,
-"Max": 33
-},
+                      "Min": 33,
+                      "Max": 33
+                    },
                     "SpecifiedSkills": [
                       "brine",
                       "force_palm",
@@ -32109,9 +32109,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 33,
-"Max": 33
-},
+                      "Min": 33,
+                      "Max": 33
+                    },
                     "SpecifiedSkills": [
                       "spore",
                       "growth",
@@ -32149,9 +32149,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 35,
-"Max": 35
-},
+                      "Min": 35,
+                      "Max": 35
+                    },
                     "SpecifiedSkills": [
                       "earthquake",
                       "rest",
@@ -32206,9 +32206,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 35,
-"Max": 35
-},
+                      "Min": 35,
+                      "Max": 35
+                    },
                     "SpecifiedSkills": [
                       "dragon_rage",
                       "dragon_claw"
@@ -32245,9 +32245,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 35,
-"Max": 35
-},
+                      "Min": 35,
+                      "Max": 35
+                    },
                     "SpecifiedSkills": [
                       "light_screen",
                       "discharge"
@@ -32284,9 +32284,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 35,
-"Max": 35
-},
+                      "Min": 35,
+                      "Max": 35
+                    },
                     "SpecifiedSkills": [
                       "lava_plume",
                       "smokescreen"
@@ -32323,9 +32323,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 37,
-"Max": 37
-},
+                      "Min": 37,
+                      "Max": 37
+                    },
                     "SpecifiedSkills": [
                       "sucker_punch",
                       "bulldoze"
@@ -32362,9 +32362,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 37,
-"Max": 37
-},
+                      "Min": 37,
+                      "Max": 37
+                    },
                     "SpecifiedSkills": [
                       "air_slash",
                       "amnesia"
@@ -32401,9 +32401,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 38,
-"Max": 38
-},
+                      "Min": 38,
+                      "Max": 38
+                    },
                     "SpecifiedSkills": [
                       "stealth_rock",
                       "rock_polish",
@@ -32441,9 +32441,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 38,
-"Max": 38
-},
+                      "Min": 38,
+                      "Max": 38
+                    },
                     "SpecifiedSkills": [
                       "crafty_shield",
                       "spikes"
@@ -32480,9 +32480,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 38,
-"Max": 38
-},
+                      "Min": 38,
+                      "Max": 38
+                    },
                     "SpecifiedSkills": [
                       "safeguard",
                       "destiny_bond",
@@ -32521,9 +32521,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 38,
-"Max": 38
-},
+                      "Min": 38,
+                      "Max": 38
+                    },
                     "SpecifiedSkills": [
                       "play_nice",
                       "dragon_breath"
@@ -32560,9 +32560,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 38,
-"Max": 38
-},
+                      "Min": 38,
+                      "Max": 38
+                    },
                     "SpecifiedSkills": [
                       "curse",
                       "gyro_ball",
@@ -32600,9 +32600,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 31,
-"Max": 31
-},
+                      "Min": 31,
+                      "Max": 31
+                    },
                     "SpecifiedSkills": [
                       "horn_attack",
                       "fury_attack",
@@ -32646,9 +32646,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 31,
-"Max": 31
-},
+                      "Min": 31,
+                      "Max": 31
+                    },
                     "SpecifiedSkills": [
                       "helping_hand",
                       "bite",
@@ -32692,9 +32692,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 38,
-"Max": 38
-},
+                      "Min": 38,
+                      "Max": 38
+                    },
                     "SpecifiedSkills": [
                       "earth_power",
                       "megahorn"
@@ -32737,9 +32737,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 38,
-"Max": 38
-},
+                      "Min": 38,
+                      "Max": 38
+                    },
                     "SpecifiedSkills": [
                       "earth_power",
                       "superpower"
@@ -32782,9 +32782,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 38,
-"Max": 38
-},
+                      "Min": 38,
+                      "Max": 38
+                    },
                     "SpecifiedSkills": [
                       "rock_slide",
                       "lava_plume"
@@ -32827,9 +32827,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 38,
-"Max": 38
-},
+                      "Min": 38,
+                      "Max": 38
+                    },
                     "SpecifiedSkills": [
                       "flamethrower",
                       "confuse_ray"
@@ -32872,9 +32872,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 38,
-"Max": 38
-},
+                      "Min": 38,
+                      "Max": 38
+                    },
                     "SpecifiedSkills": [
                       "heat_crash",
                       "rollout"
@@ -32917,9 +32917,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 38,
-"Max": 38
-},
+                      "Min": 38,
+                      "Max": 38
+                    },
                     "SpecifiedSkills": [
                       "incinerate",
                       "earth_power"
@@ -32962,9 +32962,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 38,
-"Max": 38
-},
+                      "Min": 38,
+                      "Max": 38
+                    },
                     "SpecifiedSkills": [
                       "shadow_bone",
                       "will_o_wisp"
@@ -33585,9 +33585,9 @@
                             "Gender": -1
                           },
                           "Level": {
-"Min": 38,
-"Max": 38
-},
+                            "Min": 38,
+                            "Max": 38
+                          },
                           "SpecifiedSkills": [
                             "flare_blitz"
                           ],
@@ -37526,6 +37526,41 @@
               }
             },
             "ModStates": []
+          },
+          {
+            "$type": "RogueEssence.LevelGen.SpreadStepRangeZoneStep, RogueEssence",
+            "StepPriority": {
+              "str": [
+                5
+              ]
+            },
+            "Spawns": [
+              {
+                "Spawn": {
+                  "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                  "Script": "NewEraMystery",
+                  "ArgTable": "{BaseChance=6, SegDiff=2}"
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 6
+                }
+              }
+            ],
+            "SpreadPlan": {
+              "$type": "RogueEssence.LevelGen.SpreadPlanSpaced, RogueEssence",
+              "FloorSpacing": {
+                "Min": 2,
+                "Max": 4
+              },
+              "BeginStart": false,
+              "FloorRange": {
+                "Min": 0,
+                "Max": 6
+              }
+            },
+            "ModStates": []
           }
         ],
         "IsRelevant": true,
@@ -37546,6 +37581,72 @@
                 "Value": {
                   "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
                   "MapID": "fosse_ardente_arene"
+                }
+              }
+            ],
+            "Comment": ""
+          }
+        ],
+        "ZoneSteps": [
+          {
+            "$type": "PMDC.LevelGen.SaveVarsZoneStep, PMDC",
+            "Priority": {
+              "str": [
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "$type": "PMDC.LevelGen.FloorNameDropZoneStep, PMDC",
+            "DropPriority": {
+              "str": [
+                -15
+              ]
+            },
+            "Name": {
+              "DefaultText": "Verdant Oath",
+              "LocalTexts": {
+                "fr": "Serment Verdoyant"
+              }
+            },
+            "Priority": {
+              "str": [
+                -6
+              ]
+            }
+          }
+        ],
+        "IsRelevant": false,
+        "Comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
+      },
+      {
+        "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+        "Floors": [
+          {
+            "$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
+            "GenSteps": [
+              {
+                "Key": {
+                  "str": [
+                    -1
+                  ]
+                },
+                "Value": {
+                  "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
+                  "MapID": "annexe_toupie"
+                }
+              },
+              {
+                "Key": {
+                  "str": [
+                    6
+                  ]
+                },
+                "Value": {
+                  "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
+                  "Script": "SpawnAnnexeNPCs",
+                  "ArgTable": "{}"
                 }
               }
             ],
