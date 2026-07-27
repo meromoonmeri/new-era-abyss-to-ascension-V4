@@ -5665,7 +5665,7 @@
                 },
                 "Value": {
                   "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-                  "MapID": "crooked_den"
+                  "MapID": "chapter_3_boss_fight"
                 }
               }
             ],

@@ -102,3 +102,64 @@ décoratives hors gameplay, sans entité. `$values` orphelins : 0 (post-fix).
 Validation statique (JSON/flux/flood-fill). Le test en jeu (chargement réel
 par le moteur) reste à faire — aucun crash connu attendu au vu du format
 canonique (identique aux grounds officiels) et du fix écran noir appliqué.
+
+---
+
+# ADDENDUM 2026-07-27 (2) — Balayage anti-bugs global + architecture des arènes
+
+## A. Balayage complet du dépôt
+
+| Check | Résultat |
+|---|---|
+| Tous les JSON Data/* se parsent | ✅ 0 invalide |
+| `$values` orphelins (cause écran noir) | ✅ 0 dans tout le dépôt |
+| Tilesets référencés par .rsmap/.rsground | ✅ 4 manquants récupérés (LuminousSpring, LuminousSpringAnim, PostOffice, TownBase) + index régénéré (297) |
+| Musiques référencées par les zones | ✅ 1 manquante récupérée (Faded Trail.ogg, réf. préexistante d'imbion_grainy_pasture) |
+| Cibles `ContinueDungeon`/`EnterDungeon` | ✅ tous les segments cibles existent |
+| Grounds fantômes master_zone (base_camp…, hérités du jeu de base, jamais présents) | ✅ inoffensifs : aucun script ne les vise (seule réf = code commenté luminous_spring) — indices 10-19/54 à ne jamais utiliser |
+
+## B. Bugs réels trouvés → corrigés
+
+1. **ch3 CASSÉ (préexistant)** : `crooked_cavern` seg[2] chargeait `MapID:
+   "crooked_den"` — ce .rsmap n'existe pas (crooked_den n'est qu'un ground).
+   L'arène réelle est `chapter_3_boss_fight.rsmap` (Luxio 10/Glameow 9/Cacnea 9,
+   cf. commentaire du zone script). → MapID corrigé. De plus `crooked_den_ch_3.lua`
+   lançait le combat sur le segment 1 (devenu procédural depuis l'insertion des
+   Profondeurs) au lieu du 2 → 2 appels corrigés.
+2. **Vague 2** : `foret_embuscade`/`jardin_secret` listaient leur carte finale
+   (.rsmap) dans `GroundMaps` (liste de .rsground) → retirées.
+3. **Imbion (préexistant)** : 4 zones réclamaient des salles finales
+   `end_ashen_geode`/`end_berry_grove`/`end_gourmet_jungle`/`end_grainy_pasture`
+   jamais importées (GameBanana CC BY-NC-ND, non re-téléchargeable ici) → le
+   dernier étage est rendu procédural (extension du nœud précédent) ; salles
+   spéciales restaurables si les fichiers redeviennent accessibles.
+
+## C. Architecture des arènes de boss/mini-boss (réponse à la question)
+
+**Patron général : 3 pièces par boss.**
+1. **Étages normaux** = segments `RangeDictSegment` (génération procédurale).
+2. **Ground de cinématique** (`.rsground`, hors-donjon) : le `ExitSegment` du
+   segment précédent y envoie (`EnterGroundMap`). C'est là que se jouent
+   dialogue/mise en scène — puis `ContinueDungeon(zone, N)` lance le combat.
+3. **Arène de combat** = **étage spécial de donjon** : segment dédié
+   `LayeredSegment`/`LoadGen` qui charge une carte fixe `.rsmap` (1 étage,
+   status `mysterious_force`, boss = MapTeam placée).
+
+| Ch. | Zone | Arène (.rsmap = étage spécial) | Ground de cinématique |
+|---|---|---|---|
+| 1 | relic_forest | — (pas de boss segmenté) | scènes dans `relic_forest` ground |
+| 2 | illuminant_riverbed | — | `luminous_spring` (fin scénarisée) |
+| 3 | crooked_cavern | seg2 `chapter_3_boss_fight` (corrigé) | `crooked_den` |
+| 4 | apricorn_grove | — (fin scénarisée) | `apricorn_glade` |
+| 5 | vast_steppe | seg1 `vast_steppe_miniboss` / seg3 `vast_steppe_guardian` | grounds homonymes |
+| 5 | searing_tunnel | seg2 `searing_crucible` | `searing_tunnel_miniboss` (mi-parcours, combat SUR seg1 procédural — intentionnel : embuscade en étage normal) + `searing_crucible` |
+| 5 | mount_windswept | seg1/seg3 `mount_windswept_miniboss`/`_guardian` | grounds homonymes |
+| 6 | gloomy_forest | seg2 `gloomy_forest_boss` (Zarude) / seg3 `verdant_oath_arena` (revanche) | `gloomy_forest_boss` ground |
+| 7 | cloven_ruins | seg3 `cloven_ruins_boss` (Regigigas) | `cloven_ruins_boss` ground |
+| 8 | crystal_sanctuary | seg3 `crystal_sanctuary_boss` (Diancie) | `crystal_sanctuary_boss` ground |
+| 9 | forgotten_marsh | seg3 `forgotten_marsh_boss` (Laggron) | `forgotten_marsh_boss` ground |
+| 10 | celestial_peak | seg3 `celestial_peak_fulgur` (Escouade) / seg5 `celestial_peak_boss` (Lugia, retilé Rainbow_Peak) | `autel_celeste` (pmd-red 1:1) |
+
+Note : deux cas à part, tous deux voulus — le mini-boss du Tunnel (Torkoal/Magmar)
+attaque sur un étage procédural du segment 1 (embuscade), et Gloomy Forest a une
+4e arène (`verdant_oath_arena`) pour la revanche légendaire Zarude.
