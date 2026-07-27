@@ -118,6 +118,25 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
 
   -- === LA VOIX DE L'ABYSSE PARLE EN PREMIER ===
   -- Ordre impose : Voix -> Flash -> Emergence thematique.
+  -- LOT 8.3 — la chaleur et le statut d'intrus, avant que la Voix ne tranche.
+  GAME:MoveCamera(256, 258, 40, false)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_029']))
+  -- "La roche est brulante sous mes pattes."
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['STM_030']), "Normal")
+  -- "Ces deux-la ne gardent pas un passage. Ils gardent un foyer."
+  GAME:WaitFrames(15)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Sad")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_031']))
+  -- "Alors c'est nous, les intrus."
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['STM_032']), "Normal")
+  -- "Tout voyageur l'est, jusqu'a preuve du contraire."
+  GAME:WaitFrames(20)
+
   BossFX.Voice('STM_006')
   GAME:WaitFrames(20)
   -- LOT 4 — la Voix relie l'epreuve du feu a celle de la steppe deja franchie.
@@ -323,6 +342,24 @@ local function DefeatedBossBody()
   GAME:WaitFrames(20)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['STM_014']), "Normal")
   -- "C'est comme si elle nous testait. Continuons."
+
+  -- LOT 8.3 — le retrait du clan, lu comme un accord et non comme une victoire.
+  GAME:WaitFrames(15)
+  GAME:MoveCamera(256, 224, 40, false)
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_035']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(15)
+  GAME:MoveCamera(256, 254, 40, false)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Sad")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_036']))
+  -- "Pas de cris de joie cette fois."
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['STM_037']), "Normal")
+  -- "Ca n'en est pas une. C'est un accord."
+  GAME:WaitFrames(20)
 
   -- LOT 4 — le clan libere le passage : cap sur le relais.
   GAME:WaitFrames(20)

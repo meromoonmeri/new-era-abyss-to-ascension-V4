@@ -215,7 +215,59 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(30)
 
+  -- LOT 8.3 — le duo observe la harde : caracterisation avant l'affrontement.
+  -- Camera : petit panoramique sur les boss pendant qu'on les decrit.
+  GAME:MoveCamera(184, 226, 40, false)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_032']))
+  -- "Leurs yeux... ils n'ont rien de sauvage. Ils sont organises."
+  GAME:WaitFrames(15)
+  GROUND:CharTurnToChar(hero, stantler)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSM_033']), "Normal")
+  -- "Le grand n'a pas bouge. Il laisse l'autre nous jauger."
+  GAME:WaitFrames(20)
+
   -- === VOICE SPEAKS AGAIN ===
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_034']))
+  -- "Vous etes sur leur terre. Ils ne vous doivent rien."
+  GAME:WaitFrames(20)
+  -- Camera : on redescend sur le duo qui repond.
+  GAME:MoveCamera(184, 258, 40, false)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Determined")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_035']))
+  -- "Alors on demandera le passage. Poliment, si on peut."
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSM_036']), "Worried")
+  -- "La politesse ne marchera pas ici. Regarde-les."
+  GAME:WaitFrames(15)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Sad")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_037']))
+  -- "...Je sais. Reste derriere moi."
+  GAME:WaitFrames(15)
+  GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSM_038']), "Determined")
+  -- "Non. A cote de toi."
+  GAME:WaitFrames(20)
+  -- Camera englobante : la harde s'ebranle, on cadre boss + duo.
+  GAME:MoveCamera(184, 244, 40, false)
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_039']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(15)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_040']))
+  -- "J'ai les pattes qui tremblent. Je ne vais pas faire semblant."
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSM_041']), "Determined")
+  -- "Les miennes aussi. On y va quand meme."
+  GAME:WaitFrames(20)
+
   UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_009']))
   -- "Peu importe qui je suis. Ces créatures ne te laisseront pas passer sans combattre."
@@ -352,6 +404,29 @@ local function DefeatedBossBody()
   GAME:WaitFrames(20)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSM_015']), "Worried")
   -- "Je ne sais pas. Continuons d'avancer."
+
+  -- LOT 8.3 — lecture du retrait de la harde, avant l'analyse de la Voix.
+  -- Camera : on remonte sur les boss qui se retirent.
+  GAME:WaitFrames(15)
+  GAME:MoveCamera(184, 228, 40, false)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Surprised")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_042']))
+  -- "Ils reculent... pas en fuyant. En se retirant."
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSM_043']), "Normal")
+  -- "On ne les a pas vaincus. Ils ont decide qu'on meritait la route."
+  GAME:WaitFrames(15)
+  -- Camera : retour sur le duo pour l'echange final.
+  GAME:MoveCamera(184, 258, 40, false)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_044']))
+  -- "Il y a une difference ?"
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSM_045']), "Determined")
+  -- "Ici ? Toute la difference du monde."
+  GAME:WaitFrames(20)
 
   -- LOT 4 — le duo formule l'idee d'une mise a l'epreuve, puis fixe le cap.
   GAME:WaitFrames(20)

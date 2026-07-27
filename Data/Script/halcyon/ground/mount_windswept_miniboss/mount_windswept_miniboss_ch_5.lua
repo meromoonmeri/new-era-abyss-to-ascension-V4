@@ -120,8 +120,39 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   -- === LA VOIX DE L'ABYSSE PARLE EN PREMIER ===
   -- Ordre impose : Voix -> Flash -> Emergence thematique. Avant, les deux
   -- boss apparaissaient puis la Voix commentait apres coup.
+  -- LOT 8.3 — l'altitude, la tactique des sentinelles, la question sans reponse.
+  GAME:MoveCamera(224, 250, 40, false)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_029']))
+  -- "L'air est rare ici."
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWM_030']), "Normal")
+  -- "Un sur la roche, un dans le ciel. Ils ont deja fait ca."
+  GAME:WaitFrames(20)
+
   BossFX.Voice('MWM_006')
   -- "Les Sentinelles du Pic..."
+  GAME:WaitFrames(20)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_031']))
+  -- "Beaucoup ont grimpe. Peu ont ete autorises a finir."
+  GAME:WaitFrames(15)
+  GAME:MoveCamera(224, 244, 40, false)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_032']))
+  -- "Autorises par qui, exactement ?"
+  GAME:WaitFrames(20)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWM_033']), "Worried")
+  -- "...Elle ne repond jamais a celle-la."
+  GAME:WaitFrames(15)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Determined")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_034']))
+  -- "Alors on grimpera sans permission."
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWM_035']), "Determined")
+  -- "Surveille celui du ciel, pas celui du sol."
   GAME:WaitFrames(20)
   -- LOT 4 — la Voix pose l'enjeu : meriter le sommet.
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_027']))
@@ -344,6 +375,19 @@ local function DefeatedBossBody()
   GAME:WaitFrames(20)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWM_014']), "Worried")
   -- "Peut-être. Ou peut-être qu'elle veut juste nous voir réussir."
+
+  -- LOT 8.3 — le retrait des sentinelles, choisi et non subi.
+  GAME:WaitFrames(15)
+  GAME:MoveCamera(224, 214, 40, false)
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_036']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(15)
+  GAME:MoveCamera(224, 246, 40, false)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWM_037']), "Normal")
+  -- "Ils auraient pu continuer. Ils ont choisi que non."
+  GAME:WaitFrames(20)
 
   -- LOT 4 — on nomme l'enjeu du sommet, juste avant le gardien final.
   GAME:WaitFrames(20)

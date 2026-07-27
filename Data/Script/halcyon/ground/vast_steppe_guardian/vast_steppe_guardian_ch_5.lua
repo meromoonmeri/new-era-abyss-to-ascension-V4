@@ -82,6 +82,29 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   -- Brume montante
   BossFX.Overlay("Fog", 0, 0, 20, 70, 25, DrawLayer.Bottom, -1, 0)
 
+  -- LOT 8.3 — la harde assiste ; le duo se prepare. Camera mobile entre eux.
+  GAME:MoveCamera(184, 262, 40, false)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Surprised")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_028']))
+  -- "Toute la harde regarde depuis la brume. Ils sont venus voir ca."
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSG_029']), "Normal")
+  -- "Ses bois sont plus vieux que l'herbe..."
+  GAME:WaitFrames(20)
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_030']))
+  -- "Tu peux encore faire demi-tour."
+  GAME:WaitFrames(15)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Determined")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_031']))
+  -- "Nous, on s'en voudrait. Ca suffit."
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSG_032']), "Determined")
+  -- "Alors arrete de parler et tiens-toi droit. Il arrive."
+  GAME:WaitFrames(20)
+
   -- PANORAMIQUE : cadre commun equipe (y=288) + gardien (y=200).
   GAME:MoveCamera(184, 244, 60, false)
   GAME:WaitFrames(10)
@@ -265,6 +288,32 @@ local function DefeatedBossBody()
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSG_013']), "Normal")
   -- "On trouvera des réponses plus tard. Allons de l'avant."
 
+  -- LOT 8.3 — le salut du gardien, lu par le duo. Camera sur lui puis sur eux.
+  GAME:WaitFrames(15)
+  GAME:MoveCamera(184, 226, 40, false)
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_033']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(15)
+  GAME:MoveCamera(184, 258, 40, false)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Surprised")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_034']))
+  -- "Est-ce qu'il vient de... nous dire au revoir ?"
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSG_035']), "Normal")
+  -- "Je crois qu'il a dit 'avancez'. Ce n'est pas pareil."
+  GAME:WaitFrames(20)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Inspired")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_036']))
+  -- "La brume se leve. Je vois enfin la ligne de crete."
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSG_037']), "Normal")
+  -- "Et de la fumee derriere. C'est la qu'on va, pas vrai."
+  GAME:WaitFrames(20)
+
   -- LOT 4 — la Voix designe l'etape suivante de l'expedition...
   GAME:WaitFrames(30)
   BossFX.Voice('VSG_026')
@@ -313,7 +362,9 @@ function vast_steppe_guardian_ch_5.DefeatedBoss()
   -- searing_tunnel_entrance appartient a master_zone (ground 47), pas a la zone
   -- vast_steppe : EnterGroundMap inter-zone provoque "Invalid Ground Map Name".
   -- La cinematique du premier camp se lance ensuite via searing_tunnel_entrance.PlotScripting.
-  GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared, "master_zone", -1, 47, 0, false, false)
+  -- LOT 6.2 : display=true / fanfare=true -> l'ecran de resultats standard (butin,
+  -- XP, etages) s'affiche AVANT que la cinematique du camp ne prenne le relais.
+  GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared, "master_zone", -1, 47, 0, true, true)
 end
 
 -- Player died to the boss

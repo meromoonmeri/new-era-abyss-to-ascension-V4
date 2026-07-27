@@ -157,6 +157,30 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   })
   GROUND:Hide('Aerodactyl')
 
+  -- LOT 8.3 — l'orage comme presence, le pacte du duo avant l'ultime gardien.
+  GAME:MoveCamera(224, 250, 40, false)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_030']))
+  -- "Cet orage n'est pas un phenomene. Il nous attendait."
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWG_031']), "Determined")
+  -- "Quoi qu'il se pose ici, on ne court pas. D'accord ?"
+  GAME:WaitFrames(15)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Determined")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_032']))
+  -- "D'accord. Meme si mes pattes demandent a etre convaincues."
+  GAME:WaitFrames(20)
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_033']))
+  -- "Celui-ci se souvient d'un ciel sans grimpeurs."
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWG_034']), "Normal")
+  -- "Alors il a eu tout le temps de s'habituer a la deception."
+  GAME:WaitFrames(20)
+  GAME:MoveCamera(224, 232, 40, false)
+
   -- === APPARITION SOUS FLASH BLANC (LOT 2) ===
   SOUND:PlayBGM('Rising Fear.ogg', true)
   BossFX.Flash(224, 192, 3, 5, 20)
@@ -357,6 +381,24 @@ local function DefeatedBossBody()
   GAME:WaitFrames(20)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWG_015']), "Determined")
   -- "C'est là qu'on va. Vers les Ruines du Cloven."
+
+  -- LOT 8.3 — bilan de l'expedition : ce qui a change en chemin.
+  GAME:WaitFrames(15)
+  GAME:MoveCamera(224, 218, 40, false)
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_035']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(15)
+  GAME:MoveCamera(224, 248, 40, false)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_036']))
+  -- "On est montes ici pour l'expedition. Je l'avais oublie."
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWG_037']), "Normal")
+  -- "Moi aussi. Quelque part en route, c'est devenu autre chose."
+  GAME:WaitFrames(20)
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)

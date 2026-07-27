@@ -309,3 +309,54 @@ Les modifications précédentes restent non commitées :
 - `Data/Script/halcyon/ground/metano_town/init.lua`
 - `verify_new_era.sh`
 - `PROJECT_CONTEXT.md` non suivi
+
+---
+
+## Session 2026-07-27 (agent Arena.ai) — Addendum boss Ch5 : LOT -1, 6, 7, 8
+
+Branche : `arena/019fa547-new-era-abyss-to-ascension-v4`. PR #3.
+
+### LOT -1 — Intégrité (vérifié AVANT toute écriture)
+
+- `git status` propre, `git ls-files` vs disque : **aucune différence** sur `Data/Map/*.rsmap`.
+- Les 6 `.rsmap` de boss présents et non vides (84 Ko à 229 Ko).
+- Aucun fichier de taille nulle dans `Data/Ground` / `Data/Map`.
+- **Correction d'une inexactitude de doc** : le guide maître annonce 370 `.rsmap` et 244 `.rsground`. Le dépôt contient **186 `.rsmap`** et 244 `.rsground`, et `git ls-files` en compte exactement 186 — ce n'est donc pas une perte de données mais un compteur faux dans la doc. `verify_new_era.sh` attend lui 68 `.rsground` (chiffre d'une ancienne arborescence). Ces compteurs sont à réconcilier un jour.
+
+### LOT 1 — Positions réelles des boss (vérifiées, pas estimées)
+
+Lues dans `MakeCharactersFromList` : Mudbray (184,232) + Stantler (152,200) ; Stantler Alpha (184,200) ; Torkoal (220,232) + Magmar (292,208) ; Magcargo (256,192) ; Gligar (180,240) + Skarmory (268,192) ; Aerodactyl (224,192).
+Toutes conformes aux estimations du prompt (±8 px) **sauf** le second membre de chaque duo, plus haut/latéral que l'estimation. Positions duo/coéquipiers recalculées sur la position réelle du boss le plus bas de chaque arène.
+
+### LOT 6.2 — Écran de résultats : bug trouvé et corrigé
+
+`GeneralFunctions.EndDungeonRun(result, zone, structure, mapid, entryid, display, fanfare)` : c'est **`display`** qui déclenche le journal de fin de donjon.
+
+- `vast_steppe_guardian` (Steppe → premier camp) passait `display=false, fanfare=false` → **aucun écran de résultats** avant la cinématique du camp. Corrigé en `true, true`.
+- Deux autres sorties de victoire ont le même défaut mais sont **hors périmètre autorisé** : `zone/vast_steppe/init.lua:133` (ground 47) et `zone/searing_tunnel/init.lua:216` (ground 49, Crucible). Le correctif a été préparé puis **annulé** (`git checkout`) pour respecter la liste blanche. **À corriger dans une prochaine tâche autorisant `Data/Script/halcyon/zone/`.**
+- Les mini-boss n'utilisent pas `EndDungeonRun` (ils restent dans la session : `EnterGroundMap` intra-zone ou `ContinueDungeon`) : pas d'écran de résultats attendu à ce stade, c'est cohérent.
+- `mount_windswept_guardian` (fin de chapitre) était déjà correct (`true, true`).
+
+### LOT 8 — Modèle Crooked Cavern + portraits
+
+- Référence étudiée : `ground/crooked_den/crooked_den_ch_3.lua` (108 clés FR). Caméra assez **statique** (3 `MoveCamera` sur toute la scène) mais **densité et variété d'emotes très supérieures** : Angry, Crying, Joyous, Special1/2, Stunned… Écart signalé : les scènes Ch5 visent une caméra plus mobile que ce modèle ; c'est assumé et conforme à l'addendum.
+- **Portraits : contrainte majeure.** `Content/Portrait/` ne contient que **34 portraits**, indexés par n° national. **Aucune espèce de boss du Ch5 n'a de portrait** : Mudbray #749, Stantler #234, Torkoal #324, Magmar #126, Gligar #207, Skarmory #227, Aerodactyl #142, Magcargo #219 — tous absents. Growlithe #58 (Hyko) et Audino #531 (Rin) également absents. Présents : starters, Zigzagoon #263 (Almotz), Tropius #357 (Penticus).
+  → Conséquence : les boss **ne peuvent pas** avoir de portrait dans une boîte de dialogue. Le texte narratif les concernant est donc écrit en boîte centrée (`UI:SetCenter(true)`), comme le fait déjà le code existant. Les emotes employées sont toutes issues du jeu de Crooked Cavern (Normal, Worried, Determined, Surprised, Sad, Pain, Inspired), donc sûres.
+
+### Durée / densité (LOT 6.1 et 8.3) — mesuré, non atteint, signalé
+
+Estimation (12 car/s + 1,2 s par boîte, hors combats et exploration) :
+
+| Scène | Avant | Après |
+|---|---|---|
+| Steppe mini-boss | 2,0 min | **3,2 min** |
+| Steppe gardien | 1,8 min | **2,7 min** |
+| Tunnel mini-boss | 1,9 min | **2,5 min** |
+| Crucible (créateur) | 9,5 min | 9,5 min |
+| Mont mini-boss | 2,0 min | **2,8 min** |
+| Mont gardien | 1,8 min | **2,6 min** |
+| **Total cinématiques boss** | 19,0 min | **23,3 min** |
+
++48 clés EN/FR ajoutées. L'objectif de 10 min par scène **n'est pas atteint** (sauf Crucible) et n'a pas été forcé : conformément à la consigne, on signale plutôt que de remplir. Le Crucible montre qu'atteindre 10 min demande ~86 boîtes et plusieurs PNJ nommés présents dans la scène — les arènes de boss n'ont que héros + partenaire + une Voix sans portrait.
+
+**Estimation durée totale Ch5 : ~2 h 30 à 3 h 30** (36 étages procéduraux + 6 arènes + cinématiques + camp), donc **en dessous des 5 h visées**. Le levier réaliste n'est pas le dialogue de boss mais les relais (`vast_steppe_midpoint` n'a que **4 clés**) et les lots A-F de `docs/production_ch5_dialogues.md`.
