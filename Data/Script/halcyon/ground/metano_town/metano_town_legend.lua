@@ -206,6 +206,108 @@ end
 -- Point d'entree
 --------------------------------------------------------------------
 
+--------------------------------------------------------------------
+-- CINEMATIQUE D'INSTALLATION DU STAND
+-- Jouee UNE SEULE FOIS, au retour de l'expedition (ch5 termine), quand le
+-- joueur s'approche du comptoir libre de la rangee marchande.
+-- Grodoudou vient d'arriver en ville : elle deballe encore ses caisses.
+--------------------------------------------------------------------
+function metano_town_legend.ArrivalScene(activator)
+    DEBUG.EnableDbgCoro()
+    LegendZones.EnsureSV()
+
+    -- Verrous : uniquement apres l'expedition, et une seule fois.
+    if SV.LegendZones.ArrivalScenePlayed then return false end
+    if not (SV.Chapter5 ~= nil and SV.Chapter5.FinishedExpedition) then return false end
+    local merchant = CH('Legend_Merchant')
+    if merchant == nil then return false end
+
+    SV.LegendZones.ArrivalScenePlayed = true
+
+    local hero = CH('PLAYER')
+    local partner = CH('Teammate1')
+    GAME:CutsceneMode(true)
+    if partner ~= nil then AI:DisableCharacterAI(partner) end
+
+    -- Camera sur le comptoir : le stand qui etait vide depuis toujours.
+    GAME:MoveCamera(656, 1272, 40, false)
+    GAME:WaitFrames(30)
+
+    UI:ResetSpeaker(false)
+    UI:SetCenter(true)
+    UI:WaitShowDialogue("Le comptoir resté vide au bout de la rangée ne l'est plus.[pause=20] Des caisses, des tentures, et quelqu'un au milieu.")
+    UI:SetCenter(false)
+    GAME:WaitFrames(15)
+
+    GROUND:CharSetEmote(merchant, "happy", 1)
+    UI:SetSpeaker(merchant)
+    UI:SetSpeakerEmotion("Joyous")
+    UI:WaitShowDialogue("Youpiii ![pause=20] Non, attendez.[pause=15] Je recommence, je n'ai pas fini d'installer.")
+    GAME:WaitFrames(12)
+
+    if partner ~= nil then
+        GROUND:CharTurnToChar(partner, merchant)
+        UI:SetSpeaker(partner)
+        UI:SetSpeakerEmotion("Surprised")
+        UI:WaitShowDialogue("Il y a quelqu'un au vieux comptoir ![pause=20] Il était libre depuis qu'on est arrivés...")
+    end
+
+    GAME:WaitFrames(10)
+    UI:SetSpeaker(merchant)
+    UI:SetSpeakerEmotion("Normal")
+    UI:WaitShowDialogue("Libre, oui.[pause=20] Il m'attendait.[pause=15] Enfin, j'aime bien me le dire.")
+    UI:SetSpeakerEmotion("Joyous")
+    UI:WaitShowDialogue("Grodoudou, pour vous servir ![pause=20] Je tenais une guilde, avant.[pause=15] Une vraie, avec un drapeau et tout.")
+    GAME:WaitFrames(12)
+
+    if partner ~= nil then
+        UI:SetSpeaker(partner)
+        UI:SetSpeakerEmotion("Surprised")
+        UI:WaitShowDialogue("Une guilde ?[pause=20] Ici, à Metano ?")
+    end
+
+    UI:SetSpeaker(merchant)
+    UI:SetSpeakerEmotion("Normal")
+    UI:WaitShowDialogue("Loin d'ici.[pause=20] Et il y a longtemps.[pause=15] Les guildes ferment, vous savez.[pause=10] Les chemins, eux, restent.")
+    GAME:WaitFrames(15)
+
+    -- Le vrai sujet : elle vend des chemins, pas des objets.
+    UI:SetSpeakerEmotion("Inspired")
+    UI:WaitShowDialogue("C'est ça que je vends.[pause=20] Pas des baies, pas des orbes.[pause=15] Des chemins.")
+    GAME:WaitFrames(10)
+    GeneralFunctions.HeroDialogue(hero, "Des chemins vers quoi ?", "Normal")
+    GAME:WaitFrames(10)
+
+    UI:SetSpeaker(merchant)
+    UI:SetSpeakerEmotion("Normal")
+    UI:WaitShowDialogue("Vers les endroits où quelque chose vous attend encore.[pause=25] Vous en avez croisé un, là-haut sur le sommet.[pause=15] Ça se voit sur vous.")
+    GAME:WaitFrames(12)
+
+    if partner ~= nil then
+        UI:SetSpeaker(partner)
+        UI:SetSpeakerEmotion("Worried")
+        UI:WaitShowDialogue("Comment vous pouvez savoir ça ?")
+    end
+
+    UI:SetSpeaker(merchant)
+    UI:SetSpeakerEmotion("Joyous")
+    UI:WaitShowDialogue("Parce que j'ai fait la même tête, autrefois ![pause=20] Youpiii !")
+    UI:SetSpeakerEmotion("Normal")
+    UI:WaitShowDialogue("Revenez me voir quand vous aurez de quoi payer.[pause=20] Et quand vous serez prêts.[pause=15] Les deux comptent.")
+    GAME:WaitFrames(20)
+
+    -- Grodoudou reprend son deballage : la ville continue.
+    GROUND:CharSetEmote(merchant, "happy", 1)
+    UI:ResetSpeaker(false)
+    UI:SetCenter(true)
+    UI:WaitShowDialogue("Elle retourne à ses caisses en fredonnant,[pause=15] comme si de rien n'était.")
+    UI:SetCenter(false)
+
+    GAME:WaitFrames(20)
+    GAME:CutsceneMode(false)
+    return true
+end
+
 function metano_town_legend.Legend_Merchant_Action(chara, activator)
     DEBUG.EnableDbgCoro()
     LegendZones.EnsureSV()

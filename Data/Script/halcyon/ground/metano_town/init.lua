@@ -2736,12 +2736,16 @@ end
 --La logique vit dans metano_town_legend.lua ; ce callback n'est que le relais
 --appele par l'entite 'Legend_Merchant' de metano_town.rsground.
 function metano_town.Legend_Merchant_Action(obj, activator)
+  --Au retour de l'expedition, la premiere approche joue l'installation du
+  --stand ; la boutique ne s'ouvre qu'ensuite (au clic suivant).
+  if metano_town_legend.ArrivalScene(activator) then return end
   metano_town_legend.Legend_Merchant_Action(obj, activator)
 end
 
 --L'etal lui-meme renvoie vers la marchande : cliquer sur le comptoir
 --ou sur Grodoudou produit la meme scene.
 function metano_town.Legend_Stand_Action(obj, activator)
+  if metano_town_legend.ArrivalScene(activator) then return end
   metano_town_legend.Legend_Merchant_Action(CH('Legend_Merchant'), activator)
 end
 

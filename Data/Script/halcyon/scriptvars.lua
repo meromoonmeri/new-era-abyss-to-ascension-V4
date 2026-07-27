@@ -655,7 +655,8 @@ SV.LegendZones =
 {
 	Purchased = {},
 	Defeated = {},
-	MetMerchant = false
+	MetMerchant = false,
+	ArrivalScenePlayed = false--cinematique d'installation du stand (retour d'expedition)
 }
 
 
