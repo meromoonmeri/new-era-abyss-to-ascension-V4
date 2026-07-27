@@ -163,3 +163,45 @@ canonique (identique aux grounds officiels) et du fix écran noir appliqué.
 Note : deux cas à part, tous deux voulus — le mini-boss du Tunnel (Torkoal/Magmar)
 attaque sur un étage procédural du segment 1 (embuscade), et Gloomy Forest a une
 4e arène (`verdant_oath_arena`) pour la revanche légendaire Zarude.
+
+---
+
+# ADDENDUM 2026-07-27 (3) — Vérification boss ch6-10 + correspondances pmd-red/pmd-sky
+
+## A. Arènes de combat ch6-10 : 7/7 ✅ (vérif machine)
+
+| Arène (.rsmap) | Boss | Niv | Entrées | Flood-fill | mysterious_force | Lancement (`ContinueDungeon`) |
+|---|---|---|---|---|---|---|
+| gloomy_forest_boss | Zarude | 27 | 2/2 sur sol | 104/104 | ✅ | seg 2 ✅ |
+| verdant_oath_arena | Zarude (revanche) | 30 | 2/2 | 104/104 | ✅ | seg 3 ✅ |
+| cloven_ruins_boss | Regigigas | 28 | 2/2 | 104/104 | ✅ | seg 3 ✅ |
+| crystal_sanctuary_boss | Diancie | 30 | 2/2 | 104/104 | ✅ | seg 3 ✅ |
+| forgotten_marsh_boss | Laggron (swampert) | 32 | 2/2 | 104/104 | ✅ | seg 3 ✅ |
+| celestial_peak_fulgur | Luxray/Lucario/Heliolisk | 33 | 2/2 | 104/104 | ✅ | seg 3 ✅ |
+| celestial_peak_boss | Lugia | 35 | 2/2 | 104/104 | ✅ | seg 5 ✅ (via autel_celeste) |
+
+Grounds de cinématique associés : 8/8 ✅ (Main_Entrance_Marker sur sol,
+TEAMMATE_1..3 présents, toutes entités atteignables, musiques présentes).
+Note : `celestial_peak_boss.rsground` (ground, tileset Mount_Windswept_Base)
+est un VESTIGE non référencé par aucun script — remplacé par `autel_celeste` ;
+conservé mais inutilisé, sans risque.
+
+## B. Correspondance boss ↔ donjons PMD officiels (pmd-red / Explorers of Sky)
+
+| Boss New Era | Existe dans pmd-red (GBA) ? | Existe dans Explorers of Sky ? | Zone importable ? | Décision |
+|---|---|---|---|---|
+| Mini-boss ch5 (Mudbray/Stantler, Torkoal/Magmar, Gligar/Skarmory, Magcargo, Aerodactyl) | non (boss inventés New Era) | non | — | arènes création New Era ✅ |
+| Zarude (ch6) | non (Pokémon gén. 8, inexistant dans tout PMD) | non | — | création New Era ✅ |
+| **Regigigas (ch7)** | non (gén. 4 ; pmd-red = gén. 3). Le trio Regi y est à Buried Relic mais en **FIXED_ROOM de donjon** (étages fixes), pas en ground map → rien à importer 1:1 | oui : **Aegis Cave** — mais **EXCLUE DÉFINITIVEMENT** par la directive (doublon Regigigas, source EoSO) | non | arène création New Era ✅ conforme à la directive |
+| **Diancie (ch8)** | non (gén. 6) | non | — | création New Era ✅ |
+| **Laggron (ch9)** | non (jamais boss légendaire dans PMD) | non | — | création New Era ✅ |
+| Escouade Fulgur (ch10) | non (équipe originale) | non | — | création New Era ✅ |
+| **Lugia (ch10)** | oui : Silver Trench (cinématique D15P01) + notre choix Sky Tower Summit (D13P03) | (Silver Trench absent de Sky) | **oui — déjà fait** | cinématique = `autel_celeste` (D13P03 1:1) ; D15P01 converti en réserve (`fosse_argentee`) |
+
+En résumé : **Lugia est le seul boss ch1-10 qui possède une zone PMD officielle
+importable — et elle est déjà importée et branchée.** Regigigas avait un
+candidat (Aegis Cave) explicitement exclu par la directive multi-sources ;
+Diancie, Laggron, Zarude et les mini-boss n'existent dans aucun PMD → leurs
+arènes/grounds sont des créations New Era, et les 12 arènes pmd-red converties
+en réserve (Groudon, Kyogre, Ho-Oh, Mewtwo, oiseaux, chiens, Latios, Jirachi…)
+restent disponibles pour les chapitres 11+.
