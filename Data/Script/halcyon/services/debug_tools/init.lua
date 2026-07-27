@@ -379,6 +379,19 @@ function DebugTools:OnUpgrade()
  if SV.Chapter8 ~= nil and SV.Chapter8.SanctuaryMidState == nil then SV.Chapter8.SanctuaryMidState = nil end
  if SV.Chapter9 ~= nil and SV.Chapter9.MarshMidState == nil then SV.Chapter9.MarshMidState = nil end
  if SV.Chapter10 ~= nil and SV.Chapter10.PeakMidState == nil then SV.Chapter10.PeakMidState = nil end
+ --Cinematiques d'arrivee aux relais ch8-10 : retroactif (deja vus = deja joues)
+ if SV.Chapter8 ~= nil and SV.Chapter8.PlayedSanctuaryRelayIntro == nil then
+	SV.Chapter8.PlayedSanctuaryRelayIntro = (SV.Chapter8.ReachedCrystalRelay == true)
+ end
+ if SV.Chapter9 ~= nil and SV.Chapter9.PlayedMarshRelayIntro == nil then
+	SV.Chapter9.PlayedMarshRelayIntro = (SV.Chapter9.ReachedMarshRelay == true)
+ end
+ if SV.Chapter10 ~= nil and SV.Chapter10.PlayedPeakRelayIntro == nil then
+	SV.Chapter10.PlayedPeakRelayIntro = (SV.Chapter10.ReachedCloudRelay == true)
+ end
+ --Stations-Relais du Reseau : cinematique d'arrivee jouee une fois par station
+ if SV.Reseau == nil then SV.Reseau = { Veilleurs = {} } end
+ if SV.Reseau.StationIntros == nil then SV.Reseau.StationIntros = {} end
  --Vague 2 multi-sources : deblocage retroactif des secondaires ch2-10
  if SV.ChapterProgression.Chapter >= 2 and not GAME:DungeonUnlocked("grotte_repos") then
 	GAME:UnlockDungeon("grotte_repos")

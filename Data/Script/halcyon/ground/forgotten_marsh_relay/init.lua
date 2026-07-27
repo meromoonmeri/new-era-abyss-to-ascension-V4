@@ -6,6 +6,7 @@
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.RelayScenes'
 
 local forgotten_marsh_relay = {}
 
@@ -22,13 +23,35 @@ function forgotten_marsh_relay.Enter(map)
     forgotten_marsh_relay.WipedCutscene()
     return
   end
-  GAME:FadeIn(40)
-  UI:ResetSpeaker()
-  UI:SetCenter(true)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['FMR_001']))
-  GAME:WaitFrames(30)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['FMR_002']))
-  UI:SetCenter(false)
+  if not SV.Chapter9.PlayedMarshRelayIntro then
+    SV.Chapter9.PlayedMarshRelayIntro = true
+    if SV.ChapterProgression.Chapter == 9 then
+      -- Première halte pendant l'expédition du chapitre 9 : arrivée jouée.
+      RelayScenes.DuoArrival({
+        hero = {212, 408}, partner = {180, 408}, camera = {196, 352},
+        walk = 56, title = true, music = 'Cave Camp.ogg',
+        lines = {
+          { spk='partner', emo='Worried', txt="La brume...[pause=20] elle s'écarte.[pause=0] Depuis les berges,[pause=10] elle nous collait aux épaules,[pause=10] et ici elle n'ose même pas entrer.", wait=10 },
+          { spk='partner', emo='Normal', txt="Un îlot de terre ferme,[pause=10] une statue de Kangourex qui émerge des eaux mortes...[pause=0] Même le marais respecte cet endroit." },
+          { spk='hero', emo='Worried', txt="(Ces silhouettes encapuchonnées qu'on a aperçues entre les saules...[pause=0] Elles n'étaient pas là par hasard.)", wait=10 },
+          { spk='partner', emo='Worried', txt="Tu penses au Cercle,[pause=10] toi aussi ?[pause=0] Ils marchaient dans la vase sans laisser une seule empreinte.[pause=10] Ça me glace." },
+          { spk='partner', emo='Determined', txt="Raison de plus pour ne rien laisser au hasard.[pause=0] Sauvegarde,[pause=10] vérifie le sac...[pause=0] Passé cet îlot,[pause=10] les eaux deviennent profondes.[pause=0] Et je ne parle pas que de la vase." },
+        },
+      })
+    else
+      -- Visite libre : le marais est presque paisible.
+      RelayScenes.DuoArrival({
+        hero = {212, 408}, partner = {180, 408}, camera = {196, 352},
+        walk = 56, title = true, music = 'Cave Camp.ogg',
+        lines = {
+          { spk='partner', emo='Normal', txt="L'îlot du relais...[pause=0] La brume s'écarte toujours autour de la statue,[pause=10] comme au premier jour." },
+          { spk='partner', emo='Normal', txt="Le marais retient son souffle.[pause=0] Profitons de cette accalmie pour nous préparer." },
+        },
+      })
+    end
+  else
+    GAME:FadeIn(20)
+  end
 end
 
 function forgotten_marsh_relay.Update(map, time) end

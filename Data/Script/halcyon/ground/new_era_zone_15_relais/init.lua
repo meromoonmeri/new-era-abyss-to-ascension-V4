@@ -3,6 +3,7 @@
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.RelayScenes'
 
 local new_era_zone_15_relais = {}
 
@@ -13,7 +14,24 @@ function new_era_zone_15_relais.Init(map)
 end
 
 function new_era_zone_15_relais.Enter(map)
-  GAME:FadeIn(20)
+  if SV.Reseau == nil then SV.Reseau = { Veilleurs = {} } end
+  if SV.Reseau.StationIntros == nil then SV.Reseau.StationIntros = {} end
+  if not SV.Reseau.StationIntros['new_era_zone_15'] then
+    SV.Reseau.StationIntros['new_era_zone_15'] = true
+    RelayScenes.DuoArrival({
+      hero = {236, 368}, partner = {204, 368}, camera = {220, 300},
+      walk = 48, title = true, music = 'Deep Dark Crater.ogg',
+      lines = {
+        { spk='partner', emo='Normal', txt="Alors c'est elle...[pause=20] la Station de Contrôle du Noyau.[pause=0] La salle dont parlent tous les registres du Réseau.", wait=10 },
+        { spk='partner', emo='Normal', txt="D'ici,[pause=10] les anciens relayeurs surveillaient la Fournaise-Mère elle-même.[pause=0] Ces cadrans fondus,[pause=10] ces leviers figés...[pause=10] Ils sont restés à leur poste jusqu'au bout." },
+        { spk='hero', emo='Worried', txt="(Sous nos pieds,[pause=10] la Fosse.[pause=0] Le magma y coule depuis toujours,[pause=10] indifférent à ceux qui l'observent.)", wait=10 },
+        { spk='partner', emo='Worried', txt="Le sol vibre...[pause=0] Tu le sens ?[pause=10] Un battement lent,[pause=10] régulier.[pause=0] Comme un cœur." },
+        { spk='partner', emo='Determined', txt="Sauvegarde.[pause=0] Vérifie tout,[pause=10] deux fois.[pause=0] Ce qui vit en bas n'a jamais laissé personne redescendre à moitié préparé." },
+      },
+    })
+  else
+    GAME:FadeIn(20)
+  end
 end
 
 function new_era_zone_15_relais.Update(map) end

@@ -6,6 +6,7 @@
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.RelayScenes'
 
 local celestial_peak_relay = {}
 
@@ -22,13 +23,35 @@ function celestial_peak_relay.Enter(map)
     celestial_peak_relay.WipedCutscene()
     return
   end
-  GAME:FadeIn(40)
-  UI:ResetSpeaker()
-  UI:SetCenter(true)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CPR_001']))
-  GAME:WaitFrames(30)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CPR_002']))
-  UI:SetCenter(false)
+  if not SV.Chapter10.PlayedPeakRelayIntro then
+    SV.Chapter10.PlayedPeakRelayIntro = true
+    if SV.ChapterProgression.Chapter == 10 then
+      -- Première halte pendant l'ascension du chapitre 10 : arrivée jouée.
+      RelayScenes.DuoArrival({
+        hero = {212, 304}, partner = {180, 304}, camera = {196, 250},
+        walk = 48, title = true, music = 'Summit.ogg',
+        lines = {
+          { spk='partner', emo='Normal', txt="On est au-dessus des nuages...[pause=20] Regarde,[pause=10] la mer de brume s'étend jusqu'à l'horizon.[pause=0] Metano doit être quelque part là-dessous.", wait=10 },
+          { spk='partner', emo='Normal', txt="Une statue de Kangourex,[pause=10] plantée face aux vents.[pause=0] Qui a bien pu la hisser jusqu'ici ?" },
+          { spk='hero', emo='Worried', txt="(L'air se raréfie.[pause=0] Chaque pas coûtera plus cher là-haut...[pause=10] et l'Escouade Fulgur ne nous attendra pas.)", wait=10 },
+          { spk='partner', emo='Worried', txt="Tu as entendu leurs cris tout à l'heure, plus haut sur la paroi ?[pause=0] Ils grimpent vite.[pause=10] Trop vite.[pause=0] Comme s'ils savaient exactement ce qui les attend au sommet." },
+          { spk='partner', emo='Determined', txt="Alors pas de temps à perdre — mais pas d'imprudence non plus.[pause=0] On sauvegarde,[pause=10] on souffle un coup,[pause=10] et on va montrer à ce pic ce qu'on vaut." },
+        },
+      })
+    else
+      -- Visite libre : le pic est redevenu silencieux.
+      RelayScenes.DuoArrival({
+        hero = {212, 304}, partner = {180, 304}, camera = {196, 250},
+        walk = 48, title = true, music = 'Summit.ogg',
+        lines = {
+          { spk='partner', emo='Normal', txt="Le relais des nuages...[pause=0] La vue me coupe le souffle à chaque fois." },
+          { spk='partner', emo='Happy', txt="Le vent est presque doux aujourd'hui.[pause=0] Reprenons des forces avant l'ascension." },
+        },
+      })
+    end
+  else
+    GAME:FadeIn(20)
+  end
 end
 
 function celestial_peak_relay.Update(map, time) end

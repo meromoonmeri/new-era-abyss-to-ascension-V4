@@ -3,6 +3,7 @@
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.RelayScenes'
 
 local new_era_zone_05_relais = {}
 
@@ -13,7 +14,23 @@ function new_era_zone_05_relais.Init(map)
 end
 
 function new_era_zone_05_relais.Enter(map)
-  GAME:FadeIn(20)
+  if SV.Reseau == nil then SV.Reseau = { Veilleurs = {} } end
+  if SV.Reseau.StationIntros == nil then SV.Reseau.StationIntros = {} end
+  if not SV.Reseau.StationIntros['new_era_zone_05'] then
+    SV.Reseau.StationIntros['new_era_zone_05'] = true
+    RelayScenes.DuoArrival({
+      hero = {236, 368}, partner = {204, 368}, camera = {220, 300},
+      walk = 48, title = true, music = 'Rising Fear.ogg',
+      lines = {
+        { spk='partner', emo='Normal', txt="Tu sens tes poils se dresser ?[pause=0] Tout ce plateau est chargé d'électricité statique...[pause=10] et pourtant,[pause=10] ici,[pause=10] plus rien.", wait=10 },
+        { spk='partner', emo='Normal', txt="« Station de la Foudre Basse »...[pause=0] Les anciens relayeurs ont gravé le nom dans le socle du Terminal.[pause=10] Ce poste détournait la foudre pour protéger les convois." },
+        { spk='hero', emo='Normal', txt="(Des siècles ont passé,[pause=10] et le paratonnerre fonctionne toujours.[pause=0] Ceux qui ont bâti ce réseau construisaient pour durer.)", wait=10 },
+        { spk='partner', emo='Determined', txt="L'Antenne continue de gronder au-dessus de nous.[pause=0] Sauvegardons ici —[pause=10] la haute tour ne pardonne pas les imprudents." },
+      },
+    })
+  else
+    GAME:FadeIn(20)
+  end
 end
 
 function new_era_zone_05_relais.Update(map) end

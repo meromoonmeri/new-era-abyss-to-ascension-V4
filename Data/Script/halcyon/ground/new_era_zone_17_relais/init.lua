@@ -3,6 +3,7 @@
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.RelayScenes'
 
 local new_era_zone_17_relais = {}
 
@@ -13,7 +14,23 @@ function new_era_zone_17_relais.Init(map)
 end
 
 function new_era_zone_17_relais.Enter(map)
-  GAME:FadeIn(20)
+  if SV.Reseau == nil then SV.Reseau = { Veilleurs = {} } end
+  if SV.Reseau.StationIntros == nil then SV.Reseau.StationIntros = {} end
+  if not SV.Reseau.StationIntros['new_era_zone_17'] then
+    SV.Reseau.StationIntros['new_era_zone_17'] = true
+    RelayScenes.DuoArrival({
+      hero = {236, 368}, partner = {204, 368}, camera = {220, 300},
+      walk = 48, title = true, music = 'Sky Tower.ogg',
+      lines = {
+        { spk='partner', emo='Normal', txt="On marche sur les nuages...[pause=20] littéralement.[pause=0] La passerelle flotte,[pause=10] et pourtant elle ne cède pas d'un pouce.", wait=10 },
+        { spk='partner', emo='Normal', txt="« Station du Dernier Palier ».[pause=0] Après elle,[pause=10] plus aucun relais,[pause=10] plus aucun secours.[pause=0] Seulement la Tour,[pause=10] et ce qui veille à son sommet." },
+        { spk='hero', emo='Normal', txt="(Le vent porte un chant très ancien.[pause=0] Ni menaçant,[pause=10] ni accueillant.[pause=10] Il attend.)", wait=10 },
+        { spk='partner', emo='Determined', txt="C'est le bout du Réseau,[pause=10] et peut-être le bout du ciel.[pause=0] Grave bien ce moment,[pause=10] sauvegarde...[pause=10] et allons voir ce qui nous attend tout là-haut." },
+      },
+    })
+  else
+    GAME:FadeIn(20)
+  end
 end
 
 function new_era_zone_17_relais.Update(map) end

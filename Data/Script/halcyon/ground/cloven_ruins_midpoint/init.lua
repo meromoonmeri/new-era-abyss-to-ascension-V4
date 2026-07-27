@@ -6,6 +6,7 @@
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.RelayScenes'
 
 local cloven_ruins_midpoint = {}
 
@@ -23,14 +24,32 @@ function cloven_ruins_midpoint.Enter(map)
     return
   end
   if SV.Chapter7.RuinsMidpointState == nil then SV.Chapter7.RuinsMidpointState = 'FirstArrival' end
-  if SV.ChapterProgression.Chapter == 7 and SV.Chapter7.RuinsMidpointState == 'FirstArrival' then
+  if SV.Chapter7.RuinsMidpointState == 'FirstArrival' then
     SV.Chapter7.RuinsMidpointState = 'RepeatArrival'
-    GAME:FadeIn(40)
-    UI:ResetSpeaker()
-    UI:SetCenter(true)
-    UI:WaitShowDialogue("Une esplanade calme s'ouvre au cœur des ruines.[pause=0] Un rocher de Kangourex se dresse là, intact.")
-    UI:WaitShowDialogue("C'est le moment de préparer la descente vers les profondeurs.")
-    UI:SetCenter(false)
+    if SV.ChapterProgression.Chapter == 7 then
+      -- Première halte pendant l'expédition du chapitre 7 : arrivée jouée.
+      RelayScenes.DuoArrival({
+        hero = {212, 456}, partner = {180, 456}, camera = {196, 400},
+        walk = 56, title = true, music = 'In the Depths of the Pit.ogg',
+        lines = {
+          { spk='partner', emo='Normal', txt="Attends...[pause=10] le sol est plat, ici.[pause=0] Taillé.[pause=10] Quelqu'un a NIVELÉ cette esplanade au milieu des ruines.", wait=10 },
+          { spk='partner', emo='Normal', txt="Et là, regarde ![pause=0] Un rocher de Kangourex.[pause=10] Intact.[pause=0] Pas une fissure, alors que tout le reste s'effondre autour." },
+          { spk='hero', emo='Worried', txt="(Les bâtisseurs de ces ruines ont voulu que cet endroit survive.[pause=0] Pourquoi celui-ci et pas le reste ?)", wait=10 },
+          { spk='partner', emo='Worried', txt="Tu as vu les veines dorées dans la pierre, en descendant ?[pause=0] Elles convergent toutes vers le bas...[pause=10] vers ce que la guilde appelle le Cœur." },
+          { spk='partner', emo='Determined', txt="Déposons ce qui nous encombre et sauvegardons.[pause=0] Passé cette esplanade,[pause=10] je crois que les ruines ne nous laisseront plus faire demi-tour aussi facilement." },
+        },
+      })
+    else
+      -- Visite libre (rejouabilité) : découverte plus contemplative.
+      RelayScenes.DuoArrival({
+        hero = {212, 456}, partner = {180, 456}, camera = {196, 400},
+        walk = 56, title = true, music = 'In the Depths of the Pit.ogg',
+        lines = {
+          { spk='partner', emo='Normal', txt="Une esplanade taillée au cordeau,[pause=10] en plein cœur des ruines...[pause=0] Les anciens bâtisseurs savaient ce qu'ils faisaient." },
+          { spk='partner', emo='Normal', txt="Le rocher de Kangourex n'a pas bougé.[pause=0] Profitons-en avant de descendre plus bas." },
+        },
+      })
+    end
   else
     GAME:FadeIn(20)
   end

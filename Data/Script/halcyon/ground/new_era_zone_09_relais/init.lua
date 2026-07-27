@@ -3,6 +3,7 @@
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.RelayScenes'
 
 local new_era_zone_09_relais = {}
 
@@ -13,7 +14,23 @@ function new_era_zone_09_relais.Init(map)
 end
 
 function new_era_zone_09_relais.Enter(map)
-  GAME:FadeIn(20)
+  if SV.Reseau == nil then SV.Reseau = { Veilleurs = {} } end
+  if SV.Reseau.StationIntros == nil then SV.Reseau.StationIntros = {} end
+  if not SV.Reseau.StationIntros['new_era_zone_09'] then
+    SV.Reseau.StationIntros['new_era_zone_09'] = true
+    RelayScenes.DuoArrival({
+      hero = {236, 368}, partner = {204, 368}, camera = {220, 300},
+      walk = 48, title = true, music = 'Deep Dark Crater.ogg',
+      lines = {
+        { spk='partner', emo='Pain', txt="Pfouh...[pause=20] On respire enfin.[pause=0] La roche était BRÛLANTE sur les derniers paliers,[pause=10] même à travers mes coussinets.", wait=10 },
+        { spk='partner', emo='Normal', txt="Regarde ces conduits dans les murs :[pause=10] ils aspirent l'air chaud et le rejettent plus haut.[pause=0] Une station de refroidissement,[pause=10] en plein cœur du volcan..." },
+        { spk='hero', emo='Worried', txt="(Le Manteau Ardent.[pause=0] Ce nom n'est pas une image :[pause=10] la montagne entière est une chaudière,[pause=10] et nous marchons dans sa cheminée.)", wait=10 },
+        { spk='partner', emo='Determined', txt="Le Terminal est encore tiède,[pause=10] comme si quelqu'un venait de partir.[pause=0] Buvons,[pause=10] sauvegardons,[pause=10] et attaquons la fournaise du haut." },
+      },
+    })
+  else
+    GAME:FadeIn(20)
+  end
 end
 
 function new_era_zone_09_relais.Update(map) end

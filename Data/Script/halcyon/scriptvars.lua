@@ -961,7 +961,8 @@ SV.Chapter8 =
 	DefeatedDiancie = false,
 	DiedToDiancie = false,
 	ObtainedCrystalFragment = false,
-	SanctuaryMidpointState = 'FirstArrival'
+	SanctuaryMidpointState = 'FirstArrival',
+	PlayedSanctuaryRelayIntro = false--cinematique d'arrivee au relais (marche + dialogue)
 }
 
 SV.Chapter9 = 
@@ -980,7 +981,8 @@ SV.Chapter9 =
 	DiedToMegaBlastoise = false,
 	PurifiedMarshCore = false,
 	FloatzelDisputeResolved = false,
-	MarshMidpointState = 'FirstArrival'
+	MarshMidpointState = 'FirstArrival',
+	PlayedMarshRelayIntro = false--cinematique d'arrivee au relais (marche + dialogue)
 }
 
 SV.Chapter10 = 
@@ -1001,7 +1003,8 @@ SV.Chapter10 =
 	DefeatedLugia = false,
 	DiedToLugia = false,
 	SawNecrozmaVision = false,
-	PeakMidpointState = 'FirstArrival'
+	PeakMidpointState = 'FirstArrival',
+	PlayedPeakRelayIntro = false--cinematique d'arrivee au relais (marche + dialogue)
 }
 
 

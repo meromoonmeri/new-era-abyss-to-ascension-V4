@@ -6,6 +6,7 @@
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.RelayScenes'
 
 local crystal_sanctuary_relay = {}
 
@@ -22,13 +23,35 @@ function crystal_sanctuary_relay.Enter(map)
     crystal_sanctuary_relay.WipedCutscene()
     return
   end
-  GAME:FadeIn(40)
-  UI:ResetSpeaker()
-  UI:SetCenter(true)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CSR_001']))
-  GAME:WaitFrames(30)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CSR_002']))
-  UI:SetCenter(false)
+  if not SV.Chapter8.PlayedSanctuaryRelayIntro then
+    SV.Chapter8.PlayedSanctuaryRelayIntro = true
+    if SV.ChapterProgression.Chapter == 8 then
+      -- Première halte pendant l'expédition du chapitre 8 : arrivée jouée.
+      RelayScenes.DuoArrival({
+        hero = {308, 628}, partner = {276, 628}, camera = {292, 560},
+        walk = 56, title = true, music = 'Snow Camp.ogg',
+        lines = {
+          { spk='partner', emo='Normal', txt="Écoute...[pause=20] Les cristaux ont cessé de chanter.[pause=0] C'est la première fois depuis l'entrée qu'ils se taisent.", wait=10 },
+          { spk='partner', emo='Normal', txt="Une statue de Kangourex,[pause=10] ici...[pause=0] La lumière la traverse et se brise en petits arcs-en-ciel.[pause=10] On dirait qu'elle veille sur cette salle." },
+          { spk='hero', emo='Normal', txt="(Ce silence n'est pas vide.[pause=0] C'est un silence... respectueux.[pause=10] Comme si le sanctuaire retenait son souffle.)", wait=10 },
+          { spk='partner', emo='Worried', txt="La gardienne dont parlait la mission ne doit plus être loin.[pause=0] Chaque galerie était plus lumineuse que la précédente...[pause=10] On approche du foyer de cette lumière." },
+          { spk='partner', emo='Determined', txt="Sauvegardons et trions le sac.[pause=0] Face à quelqu'un capable de faire chanter la pierre,[pause=10] je préfère qu'on soit prêts à tout." },
+        },
+      })
+    else
+      -- Visite libre : le sanctuaire est apaisé.
+      RelayScenes.DuoArrival({
+        hero = {308, 628}, partner = {276, 628}, camera = {292, 560},
+        walk = 56, title = true, music = 'Snow Camp.ogg',
+        lines = {
+          { spk='partner', emo='Normal', txt="Cette salle n'a pas changé.[pause=0] La statue,[pause=10] les prismes,[pause=10] ce calme presque sacré..." },
+          { spk='partner', emo='Happy', txt="C'est fou comme on respire mieux ici.[pause=0] Reposons-nous un instant avant de continuer." },
+        },
+      })
+    end
+  else
+    GAME:FadeIn(20)
+  end
 end
 
 function crystal_sanctuary_relay.Update(map, time) end
