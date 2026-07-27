@@ -53,3 +53,59 @@ Le pipeline est prouvé. Candidats prioritaires (mêmes garanties 1:1) :
 3. `D10P01-03` — Frosty Forest → premier biome neige du projet.
 4. `T00P01` — Pokémon Square (rendu parfait) → source de décor pour une future bourgade.
 Chaque conversion suivra ce même rapport ligne par ligne.
+
+---
+
+## Lot 2 — Industrialisation (2026-07-27) : 18 zones converties
+
+Pipeline identique au pilote (décodeurs maison `tools/pmdred_lib.py`, désormais
+COPIÉ DANS LE DÉPÔT ; conversion par lot `tools/convert_pmdred_batch.py`).
+Règle 1:1 respectée : géométrie, collision et positions d'entités lues
+automatiquement dans les `GroundLivesData`/`GroundEffectData` des fichiers
+`src/data/ground/ground_data_*_station.h` de pret/pmd-red — kind 0 = héros →
+`Main_Entrance_Marker`, kind 4/34/10/11 = partenaire/alliés → `TEAMMATE_n`,
+kind ≥ 80 = boss/PNJ → `Boss_Marker`/`PNJ_Marker_n`, effets → `Cutscene_Marker`.
+Seul le nom de zone change.
+
+| Source pmd-red | Zone d'origine | Asset New Era | Nom FR | Dim. (tuiles 8px) | Entités src | Audit flood-fill | Usage prévu |
+|---|---|---|---|---|---|---|---|
+| D01P01 | Tiny Woods (entrée) | foret_tendre_oree | Orée de la Forêt Tendre | 54×45 | 2 lives + 1 eff | 2430/2430 † | réserve entrée donjon palier 1 |
+| D02P01 | Thunderwave Cave (entrée) | grotte_statique_seuil | Seuil de la Grotte Statique | 48×39 | 4 lives + 1 eff | 978/978 | réserve entrée donjon électrique |
+| D03P01 | Mt. Steel (pied) | pic_ferreux_pied | Pied du Pic Ferreux | 45×39 | 2 lives + 1 eff | 344/344 | réserve entrée donjon minier |
+| D04P01 | Sinister Woods (orée) | bois_sombres_oree | Orée des Bois Sombres | 57×48 | 2 lives + 1 eff | 292/292 | réserve forêt sombre (Suaire / arc Accusation) |
+| D05P01 | Silent Chasm (bord) | gouffre_muet_bord | Bord du Gouffre Muet | 84×30 | 3 lives + 1 eff | 215/215 | réserve entrée gouffre |
+| D06P01 | Mt. Thunder (pied) | mont_grondant_pied | Pied du Mont Grondant | 51×36 | 2 lives + 1 eff | 733/733 | réserve donjon orage (écho Fulgur) |
+| D07P01 | Great Canyon (porte) | grand_canyon_porte | Porte du Grand Canyon | 57×30 | 2 lives + 1 eff | 659/659 | réserve canyon post-ch10 |
+| D08P01 | Lapis Cave (seuil) | grotte_lazuli_seuil | Seuil de la Grotte Lazuli | 45×36 | 2 lives + 1 eff | 412/412 | réserve grotte bleue |
+| D08P02 | Lapis Cave (fond) | grotte_lazuli_fond | Fond de la Grotte Lazuli | 45×36 | 2 lives + 1 eff | 412/412 | réserve salle finale grotte bleue |
+| D09P01 | Mt. Blaze (pied) | mont_cendre_pied | Pied du Mont Cendré | 45×39 | 2 lives + 1 eff | 438/438 | réserve donjon feu |
+| D10P01 | Frosty Forest (orée) | foret_givree_oree | Orée de la Forêt Givrée | 33×42 | 2 lives + 1 eff | 140/140 | candidate entrée Sentier Glaciaire (ch8, vague 2) |
+| D11P01 | Mt. Freeze (pied) | mont_gele_pied | Pied du Mont Gelé | 33×36 | 2 lives + 1 eff | 340/340 | candidate entrée Sentier Enneigé (ch10, vague 2) |
+| D12P01 | Magma Cavern (porte) | gorge_ardente_porte | Porte de la Gorge Ardente | 51×42 | 2 lives + 1 eff | 1083/1083 | réserve arc Groudon (légende de Dotra, ch5) |
+| D13P01 | Sky Tower (entrée) | parvis_celeste | Parvis Céleste | 51×36 | 3 lives + 1 eff | 551/551 | réserve variante entrée Pic Céleste |
+| D22P01 | Pitfall Valley (gs218) | vallon_perdu | Vallon Perdu | 51×45 | 2 lives + 4 effs | 2295/2295 † | réserve scène de sauvetage (mission majeure) |
+| D23P01 | Wish Cave fond (gs219, Jirachi) | sanctuaire_voeu | Sanctuaire du Vœu | 45×42 | 3 lives + 1 eff | 702/702 | **salle finale Grotte du Vœu** (décision synthèse Jirachi 2026-07-27) |
+| D24P01 | Murky Cave fond (gs220) | caverne_trouble_fond | Fond de la Caverne Trouble | 51×48 | 2 lives + 1 eff | 1378/1378 | réserve salle de sceau (arc Suaire) |
+| D24P02 | Murky Cave autel (gs221) | caverne_trouble_autel | Autel de la Caverne Trouble | 51×36 | 2 lives + 1 eff | 778/778 | réserve autel de sceau (arc Suaire) |
+
+† D01P01, D22P01, D24P01 : le BMA source n'a **pas** de couche collision
+(`hasCollision=0`). Collision dérivée de la zone visible (tuile entièrement
+noire = bloquée) — documenté dans le champ `Comment` de chaque `.rsground`.
+Pour D01P01/D22P01 la carte entière est visible → tout marchable dans le
+`.rsground`, à restreindre au moment du branchement si besoin (les positions
+d'entités restent la vérité du script d'origine).
+
+**Statut** : les 18 zones sont des ASSETS EN RÉSERVE — `.tile` + `.rsground` +
+`init.lua` squelette, non branchés à `master_zone`/`index.idx` des zones
+jouables. Le branchement se fera zone par zone au moment de l'assignation
+(vague 2 pour foret_givree_oree/mont_gele_pied ; arc Jirachi pour
+sanctuaire_voeu ; etc.), avec cinématique recastée et audit complet.
+
+**Mapping donjon↔cinématique vérifié dans le code** (`src/ground_map.c`) :
+D14→Stormy Sea (Kyogre), D15→Silver Trench (Lugia), D16→Fiery Field (Moltres),
+D17→Lightning Field (Raikou/Suicune), D18→Northwind Field (Articuno),
+D19→Mt. Faraway (Ho-Oh), D20→Western Cave (Mewtwo), D21→Northern Range
+(Latios), D23→Wish Cave étage 20 (Jirachi), D25→Howling Forest (Suicune).
+D14-D21, D25 restent à convertir (matériel-layer : géométrie/collision only,
+même statut que D13P03 — le décor GBA vient des couches dungeon, compensable
+par Background animé + retiling biome comme l'arène Lugia).

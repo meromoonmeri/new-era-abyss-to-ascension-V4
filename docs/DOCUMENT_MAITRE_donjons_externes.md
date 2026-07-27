@@ -245,6 +245,17 @@ lit pas le BPC GBA. 245 map ids catalogués, 32 zones de cinématique croisées 
 Outil : `tools/convert_pmdred_ground.py` ; traçabilité : `pmdred_extraction_tracabilite.md`.
 ⚠ `/tmp/pmd-red` est hors workspace : re-cloner `pret/pmd-red` si perdu.
 
+### Lot 2 — ✅ 18 ZONES CONVERTIES (2026-07-27)
+
+`tools/convert_pmdred_batch.py` (+ `tools/pmdred_lib.py` désormais dans le dépôt) :
+D01P01, D02P01, D03P01, D04P01, D05P01, D06P01, D07P01, D08P01/02, D09P01,
+D10P01, D11P01, D12P01, D13P01, D22P01, D23P01, D24P01/02 → 18 `.tile` +
+`.rsground` + `init.lua`, positions d'entités extraites automatiquement des
+`GroundLivesData` sources, audit flood-fill 18/18 connexes. Tableau complet :
+`docs/pmdred_extraction_tracabilite.md` (lot 2). Statut : réserve non branchée ;
+`sanctuaire_voeu` (D23P01) = salle finale Jirachi actée ; `foret_givree_oree` /
+`mont_gele_pied` = candidates vague 2 (ch8/ch10).
+
 ### Zone pilote — ✅ CONVERTIE
 
 **Sky Tower Summit (D13P03, arène Rayquaza) → « Autel des Cieux »**, cinématique
