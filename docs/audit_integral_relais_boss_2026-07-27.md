@@ -6,6 +6,55 @@ zones/salles/relais, cohérence des tables de données.
 
 ---
 
+## 0. ADDENDUM — Black screen au lancement : `Invalid Segment ID: -1 62`
+
+### Cause exacte (moteur vérifié : GameManager.cs + ZoneData.cs, RogueCollab/RogueEssence)
+
+Au clic sur « Continuer », `TopMenu.continueMain` relance la partie via
+`GameManager.MoveToZone(Save.NextDest)`. La sauvegarde a été faite **au relais
+de la Grande Steppe** : `NextDest = (master_zone, segment -1, ground 62)` —
+c'est la destination écrite par `EndDungeonRun(..., "master_zone", -1, 62, ...)`
+du checkpoint vague 8 (62 = `vast_steppe_midpoint`, index correct).
+
+`MoveToZone` ne valide PAS contre le fichier de zone complet
+(`master_zone.json`, qui liste bien 79 grounds) mais contre le **résumé
+`ZoneEntrySummary` de `Data/Zone/index.idx`** :
+`SegLocValid` → pour un ground : `0 <= ID < Grounds.Count`. Si l'index installé
+est désynchronisé du JSON (résumé plus court que la liste réelle des grounds),
+le jeu **fonctionne en cours de partie** (le jeu utilise alors la ZoneData
+complète) mais **crash au rechargement** — exactement le symptôme observé
+(écran noir après « Script variables loaded »).
+
+### Audit systématique de l'index → 13 désynchronisations réelles trouvées et corrigées
+
+Scan des 129 zones : comparaison entrée par entrée `index.idx` ↔ `Data/Zone/*.json` :
+
+- **5 zones avec `Grounds` désynchronisé** (résumé vide alors que le JSON a
+  1 ground) : `chapelle_nuit`, `conte_sans_fin`, `cour_clair_lune`,
+  `montagne_traitresse`, `nervure_monde` → champ `Grounds` resynchronisé.
+- **8 zones totalement absentes de l'index** (invisibles/plantogènes si
+  jamais ciblées) : `imbion_*` (7) et `shady_shop` → entrées
+  `ZoneEntrySummary` générées en reproduisant fidèlement
+  `ZoneData.GenerateEntrySummary()` du moteur.
+
+Après fix : **129/129 zones, index 100 % synchrone** (Grounds et Maps).
+`master_zone` : 79 grounds, `[62] = vast_steppe_midpoint` → `SegLocValid`
+passe, la sauvegarde au relais recharge.
+
+Scan complémentaire : toutes les destinations `EndDungeonRun/EnterZone(zone,
+-1, N)` des scripts confrontées aux longueurs `Grounds` de l'index —
+**0 destination hors limites**.
+
+### Consigne d'installation
+
+Si le black screen persiste après mise à jour : la copie **installée** du mod
+(dossier MODS du jeu) doit être resynchronisée avec ce dépôt — une
+installation partielle (JSON de zones à jour mais `index.idx` ancien)
+reproduit exactement ce crash. Aucune sauvegarde n'a besoin d'être supprimée :
+la destination (ground 62) est valide dès que l'index est à jour.
+
+---
+
 ## 1. Cause exacte du crash `ReplayData.ReadUI()` / `AutoReviveEvent` + fix
 
 ### Analyse du moteur (sources vérifiées : RogueCollab/RogueEssence, PMDCollab/PMDC)
@@ -216,10 +265,12 @@ cinématique » (SEGMENT H) n'a donc pas eu à produire de nouvelle map.
 
 ## 7. Zones à risque : identifiées / corrigées / restantes
 
-- **Identifiées** : 16 (7 WipedCutscene avec chevauchement statue ; 3 maps à
+- **Identifiées** : 29 (7 WipedCutscene avec chevauchement statue ; 3 maps à
   spawners éloignés ; 3 zones à bloc Annexe imbriqué ; 1 RNG non-déterministe
-  en donjon ; 1 LoadGamePartnerPosition sans failsafe ; 1 quicksave périmé).
-- **Corrigées** : 15 (tout sauf le quicksave, qui est un artefact côté
+  en donjon ; 1 LoadGamePartnerPosition sans failsafe ; 1 quicksave périmé ;
+  **13 entrées d'index de zones désynchronisées** — cause du black screen au
+  lancement, cf. §0).
+- **Corrigées** : 28 (tout sauf le quicksave, qui est un artefact côté
   utilisateur — consigne donnée §1).
 - **Restant à vérifier manuellement (en jeu)** : 2 arènes importées non
   câblées et sans `Main_Entrance_Marker` (`arene_cauchemar`,
@@ -232,6 +283,7 @@ cinématique » (SEGMENT H) n'a donc pas eu à produire de nouvelle map.
 ## 8. Fichiers créés/modifiés (ce lot)
 
 **Modifiés**
+- `Data/Zone/index.idx` — **resync 5 zones + ajout 8 zones manquantes (fix black screen `Invalid Segment ID: -1 62`)**
 - `Data/Script/halcyon/event_battle.lua` — RNG déterministe Lustro
 - `Data/Script/halcyon/PartnerEssentials.lua` — failsafe LoadGamePartnerPosition
 - `Data/Script/halcyon/zone/vast_steppe/init.lua` — bloc Annexe désimbriqué

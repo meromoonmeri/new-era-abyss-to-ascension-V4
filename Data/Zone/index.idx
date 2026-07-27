@@ -2749,7 +2749,9 @@
       "Rescues": 2,
       "CountedFloors": 24,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "montagne_traitresse_fond"
+      ],
       "Maps": [
         [
           0,
@@ -3132,7 +3134,9 @@
       "Rescues": 4,
       "CountedFloors": 25,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "end_moonlit_temple"
+      ],
       "Maps": [
         [
           0,
@@ -3780,7 +3784,9 @@
       "Rescues": 0,
       "CountedFloors": 4,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "dev_room"
+      ],
       "Maps": [
         [
           0,
@@ -3898,7 +3904,9 @@
       "Rescues": 2,
       "CountedFloors": 31,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "guildmaster_summit"
+      ],
       "Maps": [
         [
           0,
@@ -4026,7 +4034,9 @@
       "Rescues": 4,
       "CountedFloors": 25,
       "Rogue": 0,
-      "Grounds": [],
+      "Grounds": [
+        "end_moonlit_temple"
+      ],
       "Maps": [
         [
           0,
@@ -5885,6 +5895,227 @@
         }
       },
       "Released": true,
+      "SortOrder": 0
+    },
+    "imbion_ashen_geode": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 13,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": 4,
+      "KeepTreasure": true,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 1,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Ashen Geode",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "imbion_berry_grove": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 9,
+      "LevelCap": true,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 1,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Berry Grove",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "imbion_coven_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 0,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Coven Cave",
+        "LocalTexts": {}
+      },
+      "Released": false,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "imbion_gourmet_jungle": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 17,
+      "LevelCap": true,
+      "KeepSkills": true,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 2,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Gourmet Jungle",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "imbion_grainy_pasture": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 27,
+      "LevelCap": true,
+      "KeepSkills": true,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": 8,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 1,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Grainy Pasture",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "imbion_haunted_bazar": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 0,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Haunted Bazar",
+        "LocalTexts": {}
+      },
+      "Released": false,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "imbion_sentient_workshop": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 0,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Sentient Workshop",
+        "LocalTexts": {}
+      },
+      "Released": false,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "shady_shop": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 0,
+      "CountedFloors": 0,
+      "Rogue": 0,
+      "Grounds": [
+        "shady_shop"
+      ],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Shady Shop",
+        "LocalTexts": {}
+      },
+      "Released": true,
+      "Comment": "The Mega Stone store. No dungeons, just a ground map.",
       "SortOrder": 0
     }
   }
