@@ -87,3 +87,12 @@ Interdits de nommage en cours d'histoire : Necrozma et Eternatus ne sont **jamai
 3. Écriture (quotas §3.1 du Prompt Maître, répartition 25/35/20/10/10).
 4. Checklist qualité §7 du Prompt Maître.
 5. Mise à jour de cette bible en fin de chapitre + audit narratif §10 de la directive multi-sources.
+
+## Addendum session dialogue ch5 (2026-07-26)
+
+Nouveaux personnages/scènes établis (à respecter dans toute écriture future) :
+- **Plum** (Rondoudou/Jigglypuff) : artiste lyrique itinérante de la steppe. Trac du public endormi (« Un jour, quelqu'un écoutera ma chanson jusqu'au bout »). Sa berceuse = celle de sa mère. Réutilisable en ville ou ch6+.
+- **Le Météno du Mont Venteux** : Fragment tombé du ciel, cherche son « banc » dispersé. A vu la lumière du sommet « avoir peur ». Reste dans la région du Mont. Accroche ouverte : ses amis dispersés.
+- **Voix des PNJ d'expédition** (verrouillées) : Penticus = façade sereine fissurée ; Phileas = érudit, hypothèses qui ne lui plaisent pas, « Hou » ; Rin = prescriptrice douce ; Coco = râle par principe, loyale ; Shuca = optimiste statique (électrocute Ganlon « une fois et demie ») ; Ganlon = bourru protecteur (surveille « le périmètre ») ; Kino = blagueur, pacte de dignité avec Coco ; Reinier = vétéran, « arrière-tête » infaillible ; Hyko = procédure + cœur (rapport en 3 exemplaires) ; Almotz = famille de 8, gratin de Baies Oran, cailloux souvenirs.
+- **Tweed & Maris** (maison de l'eau) : 47 plans foireux au compteur ; « eau millésimée » puis « eau d'altitude ». Maris : « Booon... ».
+- **Événements consignés** : la « voix » de la steppe entendue par TOUTE l'équipe (verbalisée à la veillée) ; Hyko consigne les murmures pour Penticus ; Almotz a dit merci (rapport officiel de Hyko, 22h).

@@ -104,6 +104,9 @@ function mount_windswept_midpoint_ch_5.SetupGround()
   if SV.Chapter5.PlayedMountMidpointIntro and not SV.Chapter5.FragmentSceneSeen
      and (SV.Chapter5.MountMiniBossDefeated or SV.Chapter5.MountMiniBossLost) then
     mount_windswept_midpoint_ch_5.FallenFragmentScene()
+  elseif SV.Chapter5.MountGuardianDefeated and not SV.Chapter5.MountVigilSceneSeen then
+    -- Derniere veillee avant le sommet.
+    mount_windswept_midpoint_ch_5.SummitVigilScene()
   else
     GAME:FadeIn(20)
   end
@@ -343,6 +346,94 @@ function mount_windswept_midpoint_ch_5.FallenFragmentScene()
   GAME:CutsceneMode(false)
   AI:EnableCharacterAI(partner)
   AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
+end
+
+--------------------------------------------------------------------
+-- CINEMATIQUE DRAMATIQUE — La derniere veillee (lot D)
+-- Jouee une fois apres la victoire sur le gardien du sommet : la veille
+-- de l'ascension finale. Chacun dit pourquoi il est venu. Le partenaire
+-- doute, le heros repond. Le lendemain, c'est le sommet — et la lumiere.
+--------------------------------------------------------------------
+function mount_windswept_midpoint_ch_5.SummitVigilScene()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  local hyko = CH('Teammate2')
+  local almotz = CH('Teammate3')
+  if hyko == nil or almotz == nil then GAME:FadeIn(20) return end
+
+  GAME:CutsceneMode(true)
+  AI:DisableCharacterAI(partner)
+  SOUND:StopBGM()
+  GROUND:AddMapStatus("darkness")
+
+  local campfire = RogueEssence.Content.ObjAnimData('Campfire', 6)
+  GAME:GetCurrentGround().Decorations[0].Anims:Add(
+    RogueEssence.Ground.GroundAnim(campfire, RogueElements.Loc(830, 372)))
+
+  GROUND:TeleportTo(hero, 804, 340, Direction.DownRight)
+  GROUND:TeleportTo(partner, 868, 340, Direction.DownLeft)
+  GROUND:TeleportTo(hyko, 804, 416, Direction.UpRight)
+  GROUND:TeleportTo(almotz, 868, 416, Direction.UpLeft)
+  GAME:MoveCamera(836, 376, 1, false)
+
+  GAME:FadeIn(60)
+  GAME:WaitFrames(50)
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue("Demain,[pause=10] le sommet.[pause=0] La fin de l'expédition.[pause=0] Quoi qu'il y ait là-haut.")
+
+  GAME:WaitFrames(20)
+
+  UI:SetSpeaker(almotz)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue("Vous savez pourquoi je suis venu,[pause=10] moi ?[pause=0] Pas pour la gloire.[pause=0] Pas pour la lumière.[pause=0] Pour la prime de mission.")
+  UI:SetSpeakerEmotion("Happy")
+  UI:WaitShowDialogue("...C'est ce que je raconte,[pause=10] en tout cas.[pause=0] La vérité,[pause=10] c'est que je voulais savoir si le petit gars de la ferme pouvait faire ça.[pause=0] Et il peut.[pause=0] On dirait bien qu'il peut.")
+
+  UI:SetSpeaker(hyko)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue("Moi,[pause=10] je suis venu parce que le Maître de Guilde l'a demandé,[pause=10] wouf.[pause=0] Un garde suit son chef.[pause=0] C'est la procédure.")
+  GAME:WaitFrames(15)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue("...Non.[pause=0] Ce n'est pas toute la vérité non plus.[pause=0] Je suis venu parce que le Maître de Guilde a PEUR.[pause=0] Je le vois.[pause=0] Depuis le départ.")
+  UI:WaitShowDialogue("Et un garde ne laisse pas son chef porter sa peur tout seul.[pause=0] Ça,[pause=10] ce n'est écrit dans aucun manuel.[pause=0] Mais ça devrait,[pause=10] wouf.")
+
+  GAME:WaitFrames(30)
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue("Et si on n'est pas à la hauteur,[pause=10] là-haut ?[pause=0] Le gardien,[pause=10] on l'a battu à quatre.[pause=0] Mais cette lumière...[pause=0] même le Météno en parlait comme d'une chose qui dépasse le ciel.")
+
+  GeneralFunctions.HeroDialogue(hero, "(Elle avait peur.[pause=0] La lumière avait peur.[pause=0] Alors peut-être qu'elle n'attend pas des Pokémon plus forts...[pause=10] peut-être qu'elle attend juste quelqu'un qui monte quand tout redescend.)", "Normal")
+
+  GAME:WaitFrames(20)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue("...Tu as raison.[pause=0] Tu as cette tête-là,[pause=10] celle des jours où tu as raison.")
+  UI:SetSpeakerEmotion("Determined")
+  UI:WaitShowDialogue("Demain,[pause=10] on monte.[pause=0] Tous les quatre.[pause=0] Et quoi que la lumière attende...[pause=10] elle nous trouvera prêts.")
+
+  UI:SetSpeaker(almotz)
+  UI:SetSpeakerEmotion("Happy")
+  UI:WaitShowDialogue("Alors bonne nuit,[pause=10] l'équipe.[pause=0] Et...[pause=10] merci.[pause=0] Pour tout ce chemin.[pause=0] Voilà.[pause=0] C'est dit.[pause=0] Le premier qui en reparle demain aura affaire à moi.")
+
+  UI:SetSpeaker(hyko)
+  UI:SetSpeakerEmotion("Happy")
+  UI:WaitShowDialogue("Consigné dans le rapport,[pause=10] wouf.[pause=0] «[pause=5] Vingt-deux heures :[pause=10] Almotz a dit merci.[pause=5] »[pause=0] C'est officiel maintenant.[pause=0] Impossible d'y échapper.")
+
+  GAME:WaitFrames(40)
+  SOUND:FadeOutBGM(40)
+  GAME:FadeOut(false, 60)
+  GAME:WaitFrames(30)
+
+  GROUND:RemoveMapStatus("darkness")
+  SV.Chapter5.MountVigilSceneSeen = true
+  SOUND:PlayBGM('Canyon Camp.ogg', true)
+  GAME:CutsceneMode(false)
+  AI:EnableCharacterAI(partner)
+  AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
+  GAME:FadeIn(40)
 end
 
 return mount_windswept_midpoint_ch_5

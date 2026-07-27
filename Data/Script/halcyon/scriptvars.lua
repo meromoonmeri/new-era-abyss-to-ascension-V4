@@ -809,6 +809,8 @@ SV.Chapter5 =
 	--Scenes de vie aux relais (Prompt Maitre : respirations comiques/contemplatives)
 	PlumSceneSeen = false,--Plum la Rondoudou a-t-elle chante au relais de la steppe ?
 	FragmentSceneSeen = false,--Le Fragment (Meteno) est-il tombe pres du relais du Mont ?
+	SteppeNightSceneSeen = false,--La veillee du camp (Hyko x Almotz) a-t-elle ete jouee ?
+	MountVigilSceneSeen = false,--La derniere veillee avant le sommet a-t-elle ete jouee ?
 	SteppeGuardianSeen = false,
 	TunnelMiniBossSeen = false,
 	MountMiniBossSeen = false,

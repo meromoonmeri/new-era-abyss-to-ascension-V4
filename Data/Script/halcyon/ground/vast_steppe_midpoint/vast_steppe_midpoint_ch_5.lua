@@ -104,6 +104,9 @@ function vast_steppe_midpoint_ch_5.SetupGround()
   if SV.Chapter5.PlayedSteppeMidpointIntro and not SV.Chapter5.PlumSceneSeen
      and (SV.Chapter5.SteppeMiniBossDefeated or SV.Chapter5.SteppeMiniBossLost) then
     vast_steppe_midpoint_ch_5.PlumSongScene()
+  elseif SV.Chapter5.SteppeGuardianDefeated and not SV.Chapter5.SteppeNightSceneSeen then
+    -- Veillee dramatique apres la victoire sur le gardien.
+    vast_steppe_midpoint_ch_5.NightWatchScene()
   else
     GAME:FadeIn(20)
   end
@@ -376,6 +379,109 @@ function vast_steppe_midpoint_ch_5.PlumSongScene()
   GAME:CutsceneMode(false)
   AI:EnableCharacterAI(partner)
   AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
+end
+
+--------------------------------------------------------------------
+-- CINEMATIQUE DRAMATIQUE — La veillee du camp (lot D)
+-- Jouee une fois, apres la victoire sur le gardien de la steppe :
+-- discussion croisee Hyko x Almotz autour du feu, doutes du partenaire,
+-- premiere verbalisation de la "voix" par toute l'equipe. Necrozma et
+-- l'Abime ne sont jamais nommes (regle ch5).
+--------------------------------------------------------------------
+function vast_steppe_midpoint_ch_5.NightWatchScene()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  local hyko = CH('Teammate2')
+  local almotz = CH('Teammate3')
+  if hyko == nil or almotz == nil then GAME:FadeIn(20) return end
+
+  GAME:CutsceneMode(true)
+  AI:DisableCharacterAI(partner)
+  SOUND:StopBGM()
+  GROUND:AddMapStatus("darkness")
+
+  -- Le feu de camp au centre, l'equipe autour.
+  local campfire = RogueEssence.Content.ObjAnimData('Campfire', 6)
+  GAME:GetCurrentGround().Decorations[0].Anims:Add(
+    RogueEssence.Ground.GroundAnim(campfire, RogueElements.Loc(380, 292)))
+
+  GROUND:TeleportTo(hero, 360, 332, Direction.Up)
+  GROUND:TeleportTo(partner, 420, 332, Direction.Up)
+  GROUND:TeleportTo(hyko, 340, 300, Direction.Right)
+  GROUND:TeleportTo(almotz, 440, 300, Direction.Left)
+  GAME:MoveCamera(388, 290, 1, false)
+
+  GAME:FadeIn(60)
+  GAME:WaitFrames(50)
+
+  UI:SetSpeaker(almotz)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue("...Et là,[pause=10] mon frère ouvre le sac,[pause=10] et il n'y avait PLUS RIEN.[pause=0] Huit Baies.[pause=0] Envolées.[pause=0] Le mystère a duré deux ans.")
+  UI:WaitShowDialogue("Jusqu'au jour où on a déplacé le buffet.[pause=0] Un nid de Rattata.[pause=10] Les plus gros Rattata de la région.[pause=0] Ils vivaient comme des rois.")
+
+  UI:SetSpeaker(hyko)
+  UI:SetSpeakerEmotion("Happy")
+  UI:WaitShowDialogue("Wouf...[pause=0] Chez nous,[pause=10] un vol pareil aurait déclenché une enquête officielle.[pause=0] Rapport,[pause=10] témoins,[pause=10] reconstitution.")
+
+  UI:SetSpeaker(almotz)
+  UI:SetSpeakerEmotion("Happy")
+  UI:WaitShowDialogue("C'est POUR ÇA qu'on ne t'invite pas encore aux repas de famille,[pause=10] Hyko.[pause=0] Tu mettrais la moitié des petits en détention.")
+
+  GAME:WaitFrames(30)
+
+  -- Le vent change. La conversation aussi.
+  SOUND:PlayBattleSE("DUN_Wind")
+  GAME:WaitFrames(20)
+
+  UI:SetSpeaker(hyko)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue("...Vous l'avez entendue aussi,[pause=10] n'est-ce pas ?[pause=0] Dans les herbes,[pause=10] pendant le combat contre le gardien.")
+  UI:WaitShowDialogue("Ce n'était pas le vent.[pause=0] Le vent ne...[pause=10] wouf.[pause=0] Le vent ne murmure pas de mots.")
+
+  UI:SetSpeaker(almotz)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue("J'espérais que c'était juste moi.[pause=0] Franchement,[pause=10] j'espérais TRÈS fort que c'était juste moi.")
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue("Ce n'était pas juste toi.[pause=0] On l'entend depuis le départ de Metano.[pause=0] " .. hero:GetDisplayName() .. " et moi.")
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue("Elle ne menace pas.[pause=0] C'est presque pire.[pause=0] On dirait qu'elle...[pause=10] observe.[pause=0] Qu'elle prend des notes.")
+
+  GAME:WaitFrames(20)
+  GeneralFunctions.HeroDialogue(hero, "(Le gardien ne nous barrait pas la route par territoire.[pause=0] Il montait la garde.[pause=10] Contre quoi ?)", "Worried")
+
+  GAME:WaitFrames(30)
+
+  UI:SetSpeaker(hyko)
+  UI:SetSpeakerEmotion("Determined")
+  UI:WaitShowDialogue("Alors voilà ce que je propose,[pause=10] wouf.[pause=0] On consigne tout.[pause=0] Chaque murmure,[pause=10] chaque heure,[pause=10] chaque lieu.")
+  UI:WaitShowDialogue("Si cette voix suit un motif,[pause=10] le Maître de Guilde saura le lire.[pause=0] Et sinon...[pause=10] au moins on aura fait notre travail.")
+
+  UI:SetSpeaker(almotz)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue("Et moi je propose qu'on dorme.[pause=0] Une peur,[pause=10] ça se porte mieux avec huit heures de sommeil et un bon petit-déjeuner.")
+  UI:SetSpeakerEmotion("Happy")
+  UI:WaitShowDialogue("Maman dit ça.[pause=0] Et maman n'a jamais tort.[pause=0] Sauf sur les Rattata du buffet.[pause=0] Là,[pause=10] elle accusait le voisin.")
+
+  GAME:WaitFrames(20)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Happy")
+  UI:WaitShowDialogue("Adopté.[pause=0] Premier quart de garde pour moi.[pause=0] " .. hero:GetDisplayName() .. ",[pause=10] tu prends le deuxième ?")
+  GeneralFunctions.HeroDialogue(hero, "(Comme si l'un de nous allait vraiment fermer l'œil...)", "Normal")
+
+  GAME:WaitFrames(40)
+  SOUND:FadeOutBGM(40)
+  GAME:FadeOut(false, 60)
+  GAME:WaitFrames(30)
+
+  GROUND:RemoveMapStatus("darkness")
+  SV.Chapter5.SteppeNightSceneSeen = true
+  SOUND:PlayBGM('Cliff Camp.ogg', true)
+  GAME:CutsceneMode(false)
+  AI:EnableCharacterAI(partner)
+  AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
+  GAME:FadeIn(40)
 end
 
 return vast_steppe_midpoint_ch_5
