@@ -136,3 +136,48 @@ des mods sources, insérés dans la même boucle job board que les donjons
 existants. Réserve habituelle : test en jeu requis (génération procédurale
 des 7 zones + équilibrage post-renivelage).
 ```
+
+## Audit du 2026-07-26 (quinquies) — Prompt Maître scénariste : cadrage + correctifs immédiats
+
+```
+Date de l'audit : 2026-07-26 (5e passage)
+Chapitres couverts : 1-10
+Ressources vérifiées : boutiques Metano, intros de boss ch8-10, couverture missions.
+
+Incohérences trouvées et corrigées :
+  1. [Prompt Maître §8] La Boutique d'Échange (Ambipom, « Swap ») restait CACHÉE
+     à tous les chapitres (Hide dans ch2/3/4/5/6/8/9/10) alors qu'elle devait
+     ouvrir au retour de l'expédition (ch6) — c'était le dernier commerce
+     indisponible prévu par Palika. CORRIGÉ : Unhide ch6/8/9/10 (le handler
+     Swap_Action et ses 14 clés FR existaient déjà, prêts à servir).
+  2. [Addendum C.1 couverture] Les donjons principaux ch7-10 n'alimentaient pas
+     le job board une fois terminés (missions « de rappel » exigées). CORRIGÉ :
+     ajoutés à DUNGEON_LIST avec difficultés S/S/S/STAR_1 et niveaux attendus
+     26/28/30/33 (post-renivelage). Le filtre moteur (Completed) garantit
+     qu'ils n'apparaissent qu'après avoir été finis.
+  3. [Addendum A] Les intros de boss ch8-10 n'appliquaient pas le système
+     3 couches (flash générique seul, pas de couche biome ni signature).
+     CORRIGÉ : BossFX étendu (EmergeWater — séquence A.3 Laggron complète,
+     AwakenCrystal — activation cristalline, PushBack — recul du groupe) ;
+     intros réécrites : Diancie (activation gemmes), Laggron (jaillit de la
+     vase + amorce Telluriforce), Lugia (descente du ciel + déploiement
+     d'ailes + jugement). Toutes particules/SE vérifiées existantes.
+  4. [Prompt Maître §6] Absence de bible de continuité. CRÉÉE
+     (docs/bible_continuite.md) : PNJ + statuts, boutiques par chapitre,
+     quêtes ouvertes, écarts assumés (quota 7000 lignes = production long
+     terme ; heure intra-journée = chantier moteur).
+  5. [Addendum D] Absence de fichier de fiches boss. CRÉÉ (docs/fiches_boss.md)
+     avec catalogue anti-répétition et réservations pour les boss futurs
+     (Jirachi, Uxie, Cresselia, Giratina, Yveltal).
+
+Actions restantes (chantiers désignés, non bloquants) :
+  - Écriture des chapitres au quota 7000 lignes (sessions dédiées).
+  - Mise en scène des Monster Houses + PNJ inoffensifs en donjon (vague 2).
+  - Cinématique comique Rondoudou (candidate : Plum la Jigglypuff, déjà
+    dans CharacterEssentials).
+  - Donjons inventés C.2 (mécaniques mapgen dédiées).
+
+Verdict global : le joueur peut-il sentir le patchwork ? NON. Les correctifs
+de ce passage réduisent au contraire deux coutures visibles (boutique
+fantôme, boss ch8-10 aux intros interchangeables).
+```
