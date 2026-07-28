@@ -268,6 +268,37 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   -- "Les miennes aussi. On y va quand meme."
   GAME:WaitFrames(20)
 
+  -- ================= LA HARDE PREND LA PAROLE =================
+  -- Manque le plus grave de cette scene avant ce lot : les deux boss ne
+  -- disaient PAS UN MOT. Torkoal et Magmar parlent 11 fois au Tunnel ; ici
+  -- le duo commentait deux silhouettes muettes. On leur donne une voix, et
+  -- surtout une FONCTION : la harde ne hait pas, elle JUGE.
+  --   Mudbray  = le jeune impulsif, il veut disperser.
+  --   Stantler = le vieux qui tranche, il pose la question de la route.
+  -- Camera remontee sur eux pendant qu'ils parlent, comme au Tunnel.
+  GAME:MoveCamera(184, 222, 40, false)
+  UI:SetSpeaker(stantler)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_046']))
+  -- "Halte. Vous sentez la fumee et la pierre. Pas l'herbe."
+  GAME:WaitFrames(15)
+  GeneralFunctions.Hop(mudbray)
+  UI:SetSpeaker(mudbray)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_047']))
+  -- "Ils sont deux, l'ancien. Des petits. Je les disperse ?"
+  GAME:WaitFrames(15)
+  UI:SetSpeaker(stantler)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_048']))
+  -- "Non. Des petits qui marchent ensemble, ce n'est pas du gibier."
+  GAME:WaitFrames(18)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_049']))
+  -- "La harde a laisse passer trois groupes cette saison..."
+  GAME:WaitFrames(15)
+  -- Camera englobante : la question s'adresse au duo, on cadre les deux camps.
+  GAME:MoveCamera(184, 244, 40, false)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_050']))
+  -- "Alors nous posons la question de la route. Savez-vous tenir ?"
+  GAME:WaitFrames(20)
+
   UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_009']))
   -- "Peu importe qui je suis. Ces créatures ne te laisseront pas passer sans combattre."
@@ -414,6 +445,35 @@ local function DefeatedBossBody()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_042']))
   -- "Ils reculent... pas en fuyant. En se retirant."
   GAME:WaitFrames(15)
+
+  -- ================= LA HARDE TRANCHE, ET TRANSMET =================
+  -- Patron du Tunnel : les vaincus ne s'evaporent pas sans rien laisser.
+  -- Ici Stantler valide le passage, puis lache l'information qui compte —
+  -- la Voix, personne d'autre ne l'entend. Premiere confirmation exterieure
+  -- pour le joueur, et le heros ne relevera pas.
+  GAME:MoveCamera(184, 222, 40, false)
+  UI:SetSpeaker(stantler)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_051']))
+  -- "Assez. Vous avez tenu."
+  GAME:WaitFrames(15)
+  UI:SetSpeaker(mudbray)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_052']))
+  -- "L'ancien, ils tiennent a peine—"
+  GAME:WaitFrames(12)
+  UI:SetSpeaker(stantler)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_053']))
+  -- "Ils tiennent encore debout. C'etait la question."
+  GAME:WaitFrames(18)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_054']))
+  -- "Alors avancez. L'herbe ne vous combattra plus."
+  GAME:WaitFrames(20)
+  -- La phrase qui reste. Camera serree sur le vieux.
+  GAME:MoveCamera(184, 214, 40, false)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_055']))
+  -- "Une chose, petits. Ce qui vous parle ici — nous, nous ne l'entendons pas."
+  GAME:WaitFrames(25)
+  GAME:MoveCamera(184, 258, 40, false)
+
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSM_043']), "Normal")
   -- "On ne les a pas vaincus. Ils ont decide qu'on meritait la route."
   GAME:WaitFrames(15)

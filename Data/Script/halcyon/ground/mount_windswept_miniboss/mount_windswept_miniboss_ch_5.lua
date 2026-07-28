@@ -247,6 +247,42 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   -- "Encore toi ! Qui es-tu ?!"
 
   GAME:WaitFrames(30)
+
+  -- ================= LES SENTINELLES TIENNENT UN REGISTRE =================
+  -- Elles etaient muettes avant ce lot. Registre choisi : ADMINISTRATIF.
+  -- Elles ne menacent pas, elles COMPTENT — et c'est ce qui glace. Skarmory
+  -- tient le registre, Gligar est celle qui a arrete de compter. Leur
+  -- barrage n'est pas un caprice : le peage sert a filtrer ceux qui
+  -- survivront au sommet. Cette logique prepare le gardien juste apres.
+  GAME:MoveCamera(224, 214, 40, false)
+  UI:SetSpeaker(skarmory)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_038']))
+  -- "Deux grimpeurs. Non enregistres. Faites demi-tour."
+  GAME:WaitFrames(15)
+  UI:SetSpeaker(gligar)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_039']))
+  -- "Ils ne le feront pas, tu sais. Ils ne le font jamais."
+  GAME:WaitFrames(15)
+  UI:SetSpeaker(skarmory)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_040']))
+  -- "Quarante et un ont passe cette corniche depuis que le vent a change."
+  GAME:WaitFrames(18)
+  -- Le chiffre qui fait mal : camera serree sur Gligar.
+  GAME:MoveCamera(224, 236, 40, false)
+  UI:SetSpeaker(gligar)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_041']))
+  -- "Neuf sont redescendus. J'ai arrete de compter apres ca."
+  GAME:WaitFrames(22)
+  UI:SetSpeaker(skarmory)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_042']))
+  -- "Nous ne sommes pas la pour vous arreter. Nous sommes la pour que ca COUTE."
+  GAME:WaitFrames(18)
+  GAME:MoveCamera(224, 232, 40, false)
+  UI:SetSpeaker(gligar)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_043']))
+  -- "Ceux qui paient le prix ici survivent a ce qu'il y a plus haut."
+  GAME:WaitFrames(22)
+
   UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_008']))
   -- "L'un maîtrise la terre, l'autre les cieux. Ensemble, ils sont presque invincibles."
@@ -384,6 +420,27 @@ local function DefeatedBossBody()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_036']))
   UI:SetCenter(false)
   GAME:WaitFrames(15)
+  -- ================= ELLES ENREGISTRENT LE DUO =================
+  -- Paiement de la scene d'avant-combat : le peage a ete acquitte, donc
+  -- elles inscrivent. La chute (« ecris cette partie deux fois ») dit le
+  -- theme du chapitre 5 sans le commenter — ce qui compte, c'est ENSEMBLE.
+  GAME:MoveCamera(224, 214, 40, false)
+  UI:SetSpeaker(gligar)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_044']))
+  -- "Paye. Integralement."
+  GAME:WaitFrames(15)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_045']))
+  -- "Enregistre-les, alors."
+  GAME:WaitFrames(15)
+  UI:SetSpeaker(skarmory)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_046']))
+  -- "Deux grimpeurs. Noms inconnus. Montes ensemble."
+  GAME:WaitFrames(18)
+  UI:SetSpeaker(gligar)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_047']))
+  -- "Ecris cette derniere partie deux fois. C'est celle qui compte."
+  GAME:WaitFrames(25)
+
   GAME:MoveCamera(224, 246, 40, false)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWM_037']), "Normal")
   -- "Ils auraient pu continuer. Ils ont choisi que non."

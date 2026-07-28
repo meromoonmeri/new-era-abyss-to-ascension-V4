@@ -148,6 +148,36 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(30)
 
+  -- ================= LE VIEUX GARDIEN PARLE =================
+  -- Avant ce lot il etait MUET : le duo commentait une silhouette. Or c'est
+  -- le personnage le plus ancien du chapitre 5, et le seul en position de
+  -- dire au joueur que le monde a change AVANT que l'histoire ne le montre.
+  -- Il ne teste pas comme la harde : il AVERTIT, puis s'ecarte.
+  GAME:MoveCamera(184, 218, 40, false)
+  UI:SetSpeaker(stantler)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_038']))
+  -- "Vous etes revenus. Ils reviennent toujours."
+  GAME:WaitFrames(15)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_039']))
+  -- "Je me tiens dans cette brume depuis plus longtemps que votre ville n'a un nom."
+  GAME:WaitFrames(18)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_040']))
+  -- "Assez longtemps pour remarquer quand la brume a eu un mauvais gout."
+  GAME:WaitFrames(20)
+  -- Le point de bascule du discours : on resserre.
+  GAME:MoveCamera(184, 210, 40, false)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_041']))
+  -- "Quelque chose sous l'herbe a cesse de dormir. Il y a des annees deja."
+  GAME:WaitFrames(22)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_042']))
+  -- "Je ne peux pas le suivre. Mes sabots appartiennent a cette plaine."
+  GAME:WaitFrames(18)
+  -- Cadre commun : il s'adresse enfin directement au duo.
+  GAME:MoveCamera(184, 244, 40, false)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_043']))
+  -- "Alors je m'ecarterai — une fois que vous aurez prouve que la route vous vaut."
+  GAME:WaitFrames(22)
+
   -- Voix a nouveau
   BossFX.Voice('VSG_006')
   GAME:WaitFrames(20)
@@ -302,6 +332,25 @@ local function DefeatedBossBody()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_034']))
   -- "Est-ce qu'il vient de... nous dire au revoir ?"
   GAME:WaitFrames(15)
+
+  -- ================= IL PASSE LE RELAIS, ET AVERTIT =================
+  -- Le salut muet (VSG_033) ne suffisait pas : le vieux avait annonce qu'il
+  -- s'ecarterait, il doit le DIRE. Sa derniere phrase est la contrepartie
+  -- de celle de Stantler a la steppe : la brume ne lui a jamais parle.
+  -- Deux temoins independants, aucun des deux n'entend la Voix.
+  GAME:MoveCamera(184, 214, 40, false)
+  UI:SetSpeaker(stantler)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_044']))
+  -- "Bien. Je suis fatigue, et vous ne l'etes pas."
+  GAME:WaitFrames(15)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_045']))
+  -- "Prenez la plaine. Prenez la fumee derriere."
+  GAME:WaitFrames(20)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_046']))
+  -- "Et toi, petit — la brume ne m'a jamais parle. Demande-toi pourquoi."
+  GAME:WaitFrames(25)
+  GAME:MoveCamera(184, 258, 40, false)
+
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSG_035']), "Normal")
   -- "Je crois qu'il a dit 'avancez'. Ce n'est pas pareil."
   GAME:WaitFrames(20)

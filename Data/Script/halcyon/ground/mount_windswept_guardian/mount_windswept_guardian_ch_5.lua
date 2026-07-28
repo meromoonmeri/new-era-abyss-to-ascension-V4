@@ -98,8 +98,8 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
 
   -- THE VOICE — before anything appears
   SOUND:PlayBattleSE('EVT_Emote_Shock_2')
-  UI:SetSpeaker(STRINGS.Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS.Format(STRINGS.MapStrings['MWG_005']))
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_005']))
   -- "Le Prédateur Ancestral du Ciel..."
 
   GAME:WaitFrames(20)
@@ -115,21 +115,21 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   GAME:WaitFrames(15)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Surprised")
-  UI:WaitShowDialogue(STRINGS.Format(STRINGS.MapStrings['MWG_006']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_006']))
   -- "Toi...[pause=10] Tu savais qu'il était là !"
 
   GAME:WaitFrames(30)
 
-  UI:SetSpeaker(STRINGS.Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS.Format(STRINGS.MapStrings['MWG_007']))
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_007']))
   -- "L'ultime gardien de la montagne..."
 
   GAME:WaitFrames(20)
-  UI:WaitShowDialogue(STRINGS.Format(STRINGS.MapStrings['MWG_008']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_008']))
   -- "Si tu triomphes ici..."
 
   GAME:WaitFrames(15)
-  UI:WaitShowDialogue(STRINGS.Format(STRINGS.MapStrings['MWG_009']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_009']))
   -- "Échoue... et ton voyage s'arrête ici."
 
   GAME:WaitFrames(30)
@@ -234,7 +234,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   GROUND:CharSetEmote(partner, "shock", 1)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Surprised")
-  UI:WaitShowDialogue(STRINGS.Format(STRINGS.MapStrings['MWG_004']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_004']))
   -- "Un...[pause=10] UN AERODACTYL !"
 
   GAME:WaitFrames(30)
@@ -271,6 +271,38 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   TASK:JoinCoroutines({coro1, coro2})
 
   GAME:WaitFrames(10)
+
+  -- ================= LE GARDIEN DU CIEL PARLE =================
+  -- C'est le boss de CLOTURE du chapitre 5, et il etait muet. Or il est le
+  -- seul personnage du chapitre qui voit le monde d'en haut : c'est lui, et
+  -- personne d'autre, qui peut donner au duo la premiere image d'ensemble
+  -- du probleme. Il ne parle ni d'epreuve ni de garde — il decrit ce qu'il
+  -- a VU. « Rien de naturel n'a d'angles » plante l'arc des Coeurs sans
+  -- rien nommer : le joueur comprendra bien plus tard, le heros jamais ici.
+  GAME:MoveCamera(224, 206, 40, false)
+  UI:SetSpeaker(aerodactyl)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_038']))
+  -- "Je vous ai vus depuis la crete. Deux points, qui grimpaient mal."
+  GAME:WaitFrames(15)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_039']))
+  -- "J'observe cette terre d'en haut depuis avant qu'elle ait des routes."
+  GAME:WaitFrames(18)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_040']))
+  -- "De la-haut, on cesse de voir des lieux. On voit des formes."
+  GAME:WaitFrames(20)
+  -- La revelation : plan serre, puis un temps long. C'est LA phrase.
+  GAME:MoveCamera(224, 198, 40, false)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_041']))
+  -- "Et il y a une forme sous votre monde, petits. Elle a des angles."
+  GAME:WaitFrames(25)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_042']))
+  -- "Rien de naturel n'a d'angles."
+  GAME:WaitFrames(30)
+  GAME:MoveCamera(224, 232, 40, false)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_043']))
+  -- "Je porte ca sur le dos depuis longtemps. Montrez-moi que vous pouvez aussi."
+  GAME:WaitFrames(22)
+
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_010']))
@@ -390,6 +422,24 @@ local function DefeatedBossBody()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_035']))
   UI:SetCenter(false)
   GAME:WaitFrames(15)
+  -- ================= IL POSE SON FARDEAU =================
+  -- Cloture de l'expedition : il ne felicite pas, il TRANSMET. Le detail
+  -- « dormez, mangez » le rend humain apres la revelation. Sa derniere
+  -- phrase retourne l'evidence — un mur peut enfermer autant qu'il protege.
+  -- C'est la graine que Diancie fera germer au chapitre 8.
+  GAME:MoveCamera(224, 206, 40, false)
+  UI:SetSpeaker(aerodactyl)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_044']))
+  -- "Alors c'est a vous, maintenant. J'en suis heureux. C'etait lourd."
+  GAME:WaitFrames(18)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_045']))
+  -- "Descendez. Dormez. Mangez. Personne ne resout une forme le ventre vide."
+  GAME:WaitFrames(20)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_046']))
+  -- "Et quand vous trouverez les angles — ne supposez pas qu'ils ont ete
+  --  batis pour vous garder DEHORS."
+  GAME:WaitFrames(28)
+
   GAME:MoveCamera(224, 248, 40, false)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Normal")
