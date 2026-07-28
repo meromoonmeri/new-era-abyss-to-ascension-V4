@@ -2,6 +2,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.VoiceVisions'
 
 mount_windswept_entrance_ch_5 = {}
 
@@ -402,12 +403,19 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--La conversation retombe. Le heros fixe le sommet ; le partenaire
 	--est le seul a le remarquer. Fil rouge de la « sensation etrange »
 	--commence au camp du Tunnel : elle est plus forte ici.
+	--PREMIER FRISSON DU VERTIGE DE SKY : intensite 1 (tangage leger,
+	--sans voile — bareme NAUSEA de VoiceVisions, verifie). Le crescendo
+	--est voulu : niveau 1 a la veillee, tangage dans le reve, niveau 2
+	--au reveil. La montagne « appuie » de plus en plus fort.
 	SOUND:FadeOutSE('AMB_Fire_Loud', 60)
 	GAME:WaitFrames(30)
 	GROUND:EntTurn(hero, Direction.Up)
 	GAME:WaitFrames(20)
 	GAME:MoveCamera(238, 258, 40, false)
 	GAME:WaitFrames(15)
+	pcall(function() VoiceVisions.Nausea(hero, 1) end)
+	pcall(function() VoiceVisions.Recover(hero) end)
+	GAME:WaitFrames(10)
 
 	GeneralFunctions.EmoteAndPause(partner, "Question", true)
 	GROUND:CharTurnToCharAnimated(partner, hero, 4)
@@ -620,8 +628,11 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_083']))
 	GAME:WaitFrames(30)
 
-	--L'ecran tangue : le vertige du reve (ScreenMover, patron
-	--VoiceVisions.Nausea), pas un tremblement de terre.
+	--Le sursaut du reve. Sur ecran NOIR, le voile DizzyVeil serait
+	--invisible (noir sur noir — meme raison, verifiee, qui interdit
+	--DreamSky ici). On ne garde donc que le tangage et le son : le
+	--vertige de Sky COMPLET (Nausea + voile) est joue au reveil du
+	--matin, quand l'ecran est rallume et l'effet perceptible.
 	pcall(function()
 		SOUND:PlayBattleSE('EVT_Emote_Startled')
 		GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 6, 40))
@@ -749,9 +760,16 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_054']))
 	GAME:WaitFrames(20)
 
-	--Le partenaire remarque la paleur du heros. Micro-scene de
-	--trouble (Prompt Maitre 6.7) : courte, elle ne casse pas le
-	--rythme du matin, mais elle plante le fil du reve.
+	--Le partenaire remarque la paleur du heros (Prompt Maitre 6.7).
+	--LE VERTIGE DE SKY, cette fois a l'ecran : c'est l'effet des Cris
+	--Temporels d'Explorateurs du Ciel, porte du depot EoSO dans
+	--VoiceVisions (verifie, pas suppose). Niveau 2 = tangage de
+	--l'ecran + voile noir semi-transparent qui monte et redescend
+	--(DizzyVeil, alpha 128, RepeatX/Y) — le reve colle a la peau du
+	--heros, visible par tous, comprehensible par lui seul.
+	pcall(function() VoiceVisions.Nausea(hero, 2) end)
+	pcall(function() VoiceVisions.Recover(hero) end)
+	GAME:WaitFrames(10)
 	GeneralFunctions.EmoteAndPause(partner, "Question", true)
 	GROUND:CharTurnToCharAnimated(partner, hero, 4)
 	UI:SetSpeaker(partner)
