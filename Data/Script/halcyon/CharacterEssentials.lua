@@ -1053,6 +1053,32 @@ local characters = {
 		--voit, mais ne dit presque rien. On garde cette fonction — un devin qui
 		--se tait — et on la relie a NOTRE lore : il est le seul temoin exterieur
 		--a avoir compris ce que le heros porte, et il refuse de le nommer.
+		--PNJ nocturnes de Metano (metano_town_nuit). Ils n'existent QUE la
+		--nuit : ce ne sont pas des PNJ de jour deplaces a une autre heure.
+		Nuit_Garde = {
+			species = "granbull",
+			nickname = 'Veilleur de Nuit',
+			instance = 'Nuit_Garde',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Nuit_Etoiles = {
+			species = "murkrow",
+			nickname = 'Compteuse d\'Étoiles',
+			instance = 'Nuit_Etoiles',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+		Nuit_Insomniaque = {
+			species = "noctowl",
+			nickname = 'Plume-Grise',
+			instance = 'Nuit_Insomniaque',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
 		Canyon_Xatu = {
 			species = "xatu",
 			nickname = 'Veilleur',

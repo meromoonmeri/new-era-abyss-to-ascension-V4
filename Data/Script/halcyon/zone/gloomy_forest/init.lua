@@ -3,6 +3,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.LegendZones'
 require 'halcyon.ReplayEnding'
 require 'halcyon.DazzlingArc'
+require 'halcyon.TownNight'
 
 local gloomy_forest = {}
 
@@ -47,11 +48,34 @@ end
 --N'est utilise QUE lorsque l'equipe rentre reellement dormir : les morts au-dela du
 --relais de mi-donjon reapparaissent au relais (carte 61) et ne declenchent pas la nuit.
 local function EndDayReturn(result)
-	SV.TemporaryFlags.Dinnertime = true
+	--CHOIX DE FIN DE JOURNEE (cf. TownNight.lua). Le scenario garde la
+	--priorite : TownNight.Offer() renvoie 'diner' sans rien demander si une
+	--scene imposee attend (mission a rendre, reveil ou adresse en attente).
+	--Les trois branches reposent les MEMES drapeaux qu'avant : on encadre le
+	--circuit existant, on ne le remplace pas.
+	local choix = TownNight.Offer()
+
+	if choix == 'ville' then
+		--Sortie nocturne : ni diner ni coucher tout de suite. Les drapeaux de
+		--nuit seront poses par TownNight.GoHome() quand le joueur rentrera.
+		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
+		GAME:WaitFrames(20)
+		TownNight.Enter()
+		return
+	end
+
 	SV.TemporaryFlags.Bedtime = true
 	SV.TemporaryFlags.MorningWakeup = true
 	SV.TemporaryFlags.MorningAddress = true
 
+	if choix == 'dormir' then
+		--Le joueur saute le diner : on file droit a la chambre (carte 2).
+		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 2, 0, true, true)
+		return
+	end
+
+	--Comportement d'origine : diner a la guilde.
+	SV.TemporaryFlags.Dinnertime = true
 	local exit_ground = 6
 	if SV.TemporaryFlags.MissionCompleted then exit_ground = 22 end
 	GeneralFunctions.EndDungeonRun(result, "master_zone", -1, exit_ground, 0, true, true)
