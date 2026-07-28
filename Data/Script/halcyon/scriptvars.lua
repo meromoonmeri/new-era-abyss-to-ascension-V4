@@ -891,7 +891,14 @@ SV.Chapter6 =
 	DazzlingTrialStarted = false,
 	DazzlingTrialCleared = false,
 	PlayedTrialVictory = false,
-	PlayedTrialDefeat = false
+	PlayedTrialDefeat = false,
+	--LA CHAMBRE DU MAITRE. Jusqu'ici sa porte (guild_third_floor_lobby,
+	--Door_Exit_Touch) etait ouverte en permanence des le ch2 : on pouvait
+	--entrer chez Penticus a n'importe quel moment et n'y trouver personne
+	--a qui parler. Elle se merite desormais, et s'ouvre au retour de
+	--l'expedition, par une audience.
+	GuildmasterRoomUnlocked = false,--la porte est-elle franchissable ?
+	PlayedGuildmasterAudience = false--l'audience de retour a-t-elle eu lieu ?
 }
 
 
@@ -1245,4 +1252,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-08-01-Q]')
+print('Script variables default values loaded! [build 2026-08-01-R]')

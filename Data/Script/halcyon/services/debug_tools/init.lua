@@ -711,6 +711,17 @@ function DebugTools:OnUpgrade()
 	SV.Chapter10.CelestialPeakComplete = (SV.Chapter10.DefeatedLugia == true)
  end
 
+ --LA CHAMBRE DU MAITRE (ch6). Pour une sauvegarde deja lancee, on deduit
+ --l'etat de la porte plutot que de la refermer au nez du joueur : celui
+ --qui a deja depasse le ch6 l'a forcement meritee.
+ if SV.Chapter6.GuildmasterRoomUnlocked == nil then
+	SV.Chapter6.GuildmasterRoomUnlocked =
+		((SV.ChapterProgression.Chapter or 1) > 6)
+ end
+ if SV.Chapter6.PlayedGuildmasterAudience == nil then
+	SV.Chapter6.PlayedGuildmasterAudience = SV.Chapter6.GuildmasterRoomUnlocked
+ end
+
  if SV.GuildSidequests == nil then SV.GuildSidequests = {} end
  
  if SV.GuildSidequests.ZigzagoonLevel == nil then SV.GuildSidequests.ZigzagoonLevel = 19 end 

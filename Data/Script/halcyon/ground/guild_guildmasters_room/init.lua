@@ -11,6 +11,7 @@ require 'halcyon.ground.guild_guildmasters_room.guild_guildmasters_room_ch_2'
 require 'halcyon.ground.guild_guildmasters_room.guild_guildmasters_room_ch_3'
 require 'halcyon.ground.guild_guildmasters_room.guild_guildmasters_room_ch_4'
 require 'halcyon.ground.guild_guildmasters_room.guild_guildmasters_room_ch_5'
+require 'halcyon.ground.guild_guildmasters_room.guild_guildmasters_room_ch_6'
 
 -- Package name
 local guild_guildmasters_room = {}
@@ -92,6 +93,15 @@ function guild_guildmasters_room.PlotScripting()
 		end
 	elseif SV.ChapterProgression.Chapter == 5 then
 		guild_guildmasters_room_ch_5.SetupGround()
+	elseif SV.ChapterProgression.Chapter == 6 then
+		--L'AUDIENCE DU RETOUR. Elle ouvre la chambre du maitre pour de bon.
+		--Ne se joue qu'une fois : PlayedGuildmasterAudience est pose HORS du
+		--pcall de la scene, donc meme une scene ecourtee ne la rejoue pas.
+		if SV.Chapter5.FinishedExpedition and not SV.Chapter6.PlayedGuildmasterAudience then
+			guild_guildmasters_room_ch_6.GuildmasterAudience()
+		else
+			guild_guildmasters_room_ch_6.SetupGround()
+		end
 	else
 		GAME:FadeIn(20)
 	end
@@ -100,25 +110,67 @@ end
 -------------------------------
 -- Entities Callbacks
 -------------------------------
+--------------------------------------------------------------------
+-- ROUTEUR DE DIALOGUE PAR CHAPITRE
+--------------------------------------------------------------------
+-- Les quatre handlers ci-dessous deleguaient en dur a
+-- guild_guildmasters_room_ch_<N>. Or ce fichier n'existe QUE pour les
+-- chapitres 1 a 6 : aux chapitres 7 a 10, load() renvoyait nil et le
+-- assert() faisait planter le jeu.
+--
+-- Le bug etait masque jusqu'ici parce que la porte du maitre n'etait
+-- jamais franchie apres le ch6. En l'ouvrant pour de bon, on l'aurait
+-- rendu atteignable. Reproduit et confirme en Lua avant correction.
+--
+-- Ce routeur essaie le fichier du chapitre courant ; s'il n'existe pas,
+-- il retombe sur le dernier chapitre disponible plutot que de casser.
+local DERNIER_CHAPITRE_ECRIT = 6
+
+local function Router(nom, obj, activator)
+  DEBUG.EnableDbgCoro()
+  local ch = (SV.ChapterProgression and SV.ChapterProgression.Chapter) or 1
+  if ch > DERNIER_CHAPITRE_ECRIT then ch = DERNIER_CHAPITRE_ECRIT end
+
+  local fn = load("return guild_guildmasters_room_ch_" .. tostring(ch)
+                  .. "." .. nom .. "_Action")
+  local ok, cible = pcall(fn)
+  if ok and type(cible) == 'function' then
+    pcall(cible, obj, activator)
+    return
+  end
+
+  --Aucun dialogue ecrit pour ce personnage a ce chapitre : on repond
+  --quand meme, plutot que de laisser le joueur devant un PNJ muet.
+  pcall(function()
+    UI:ResetSpeaker(false)
+    UI:SetCenter(true)
+    UI:WaitShowDialogue("Il est absorbe par ses cartes.[pause=25] Mieux vaut ne pas le deranger.")
+    UI:SetCenter(false)
+    UI:ResetSpeaker()
+  end)
+end
+
 function guild_guildmasters_room.Tropius_Action(obj, activator)
- DEBUG.EnableDbgCoro() --Enable debugging this coroutine
- assert(pcall(load("guild_guildmasters_room_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Tropius_Action(...,...)"), obj, activator))
+  Router('Tropius', obj, activator)
 end
 
 function guild_guildmasters_room.Noctowl_Action(obj, activator)
- DEBUG.EnableDbgCoro() --Enable debugging this coroutine
- assert(pcall(load("guild_guildmasters_room_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Noctowl_Action(...,...)"), obj, activator))
+  Router('Noctowl', obj, activator)
 end
 
 function guild_guildmasters_room.Breloom_Action(obj, activator)
- DEBUG.EnableDbgCoro() --Enable debugging this coroutine
- assert(pcall(load("guild_guildmasters_room_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Breloom_Action(...,...)"), obj, activator))
+  Router('Breloom', obj, activator)
 end
 
 function guild_guildmasters_room.Girafarig_Action(obj, activator)
- DEBUG.EnableDbgCoro() --Enable debugging this coroutine
- assert(pcall(load("guild_guildmasters_room_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Girafarig_Action(...,...)"), obj, activator))
+  Router('Girafarig', obj, activator)
 end
+
+
+
+
+
+
 
 function guild_guildmasters_room.Teammate1_Action(chara, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
