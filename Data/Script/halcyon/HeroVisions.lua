@@ -31,6 +31,28 @@
     * La Voix reste anonyme partout.
 
     ------------------------------------------------------------------
+    CONTRAINTE DE FORMAT PMDO (verifiee, pas supposee)
+    ------------------------------------------------------------------
+    Le viewport PMDO fait 320x240. Un fond de cinematique doit avoir des
+    FRAMES de 320x240 pour couvrir l'ecran sans bande noire ni etirement.
+    Les .dir de Content/BG stockent la taille de frame dans leurs 16 derniers
+    octets (fw, fh, 0, nbFrames en uint32 little-endian) — ce n'est PAS la
+    taille du PNG, qui est une planche de frames.
+
+    Dream_Back et Dream_Front ont des frames de 192x240 : plus ETROITES que
+    l'ecran. Ils avaient ete choisis a la premiere ecriture sur leur seul nom
+    ('Dream'), sans verifier leurs dimensions — en fond plein ecran ils
+    auraient donne des bandes laterales ou une image etiree. Remplaces.
+
+    Fonds valides pour une vision (frame 320x240) :
+      Chapter_1..4, Dusknoir, Wanted_Poster, Title_Screen_Background  (1 frame)
+      Genesis_Fade (8), Genesis_Cores (12), Genesis_Void (12),
+      Genesis_Life (16), Genesis_Mew (16)                       (animes)
+    A NE PAS utiliser en plein ecran :
+      Dream_Back / Dream_Front (192x240), SE5_Wind_Background (256x256,
+      bandeau defilant), Steam (128x128, tuile).
+
+    ------------------------------------------------------------------
     CHOIX TECHNIQUE : texte litteral
     ------------------------------------------------------------------
     Ce module est appele depuis PLUSIEURS grounds differents. Or
@@ -62,7 +84,7 @@ HeroVisions.LIST = {
       { bg='Chapter_3', hold=200, shake=5, lines={
           "Ils sont quatre à le poursuivre.[pause=20] Des secouristes. Les meilleurs de leur temps.",
           "Ils ne le haïssent pas.[pause=25] Ils croient sincèrement bien faire.[pause=20] C'est pire." } },
-      { bg='Dream_Back', hold=180, lines={
+      { bg='Genesis_Fade', hold=180, lines={
           "Le fugitif ne se défend pas.[pause=25] Il court, et il pleure,[pause=15] et personne ne l'écoute." } },
     },
     lastWord = "« ...Ils ne m'ont jamais laissé m'expliquer. »",
@@ -81,7 +103,7 @@ HeroVisions.LIST = {
       { bg='Chapter_2', hold=200, lines={
           "Le ciel est rouge.[pause=25] Une pierre énorme descend, lentement, comme si elle avait tout son temps.",
           "En bas, un monde entier a cessé de respirer." } },
-      { bg='Dream_Front', hold=220, shake=9, lines={
+      { bg='Genesis_Void', hold=220, shake=9, lines={
           "Quelque chose monte à sa rencontre.[pause=20] Vert. Immense. Furieux.",
           "L'impact fait un bruit que personne n'oubliera.[pause=30] La pierre se fend en deux." } },
       { bg='Genesis_Fade', hold=180, lines={
@@ -142,7 +164,7 @@ HeroVisions.LIST = {
     music = 'Goodnight.ogg',
     level = 3,
     plates = {
-      { bg='Dream_Front', hold=220, lines={
+      { bg='Genesis_Life', hold=220, lines={
           "Le monde est sauvé.[pause=25] Le soleil se lève sur une plage.",
           "Deux amis regardent la mer.[pause=20] L'un des deux commence à devenir transparent." } },
       { bg='Genesis_Fade', hold=230, lines={

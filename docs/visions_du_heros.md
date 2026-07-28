@@ -254,3 +254,101 @@ produit le même effet ; il est désormais posé une seule fois par séquence.
 **Toujours rien testé en jeu.** Le flash d'orage et la bascule en trois
 coroutines sont transposés d'un code qui tourne (EoSO), mais leur rendu dans
 *notre* contexte — cartes, timings, musiques — n'a pas été observé.
+
+---
+
+# Addendum 2 — audit du format PMDO (build 2026-07-31-O)
+
+## La question
+
+> « Vérifie qu'il n'y a aucun bug visuel avec le format, les dimensions de
+> PMDO, quand tu calques les cinématiques de PMD Red Rescue Team. »
+
+**Un vrai bug a été trouvé et corrigé.**
+
+## Le piège : la taille du PNG n'est pas la taille de la frame
+
+Les fonds de `Content/BG/*.dir` sont des **planches** (spritesheets), pas des
+images fixes. Leur structure, retro-analysée et vérifiée sur les 16 fichiers :
+
+```
+[ PNG complet ][ 16 octets : frameW, frameH, 0, frameCount  (uint32 LE) ]
+```
+
+Exemple : `Dream_Back.dir` contient un PNG de **1536×1920**, mais ses frames
+font **192×240** — 63 frames de 8 colonnes × 8 lignes.
+
+Le viewport PMDO fait **320×240**. Un fond dont la frame n'est pas 320×240
+laisse des bandes ou se retrouve étiré.
+
+## Le bug
+
+J'avais choisi `Dream_Back` et `Dream_Front` **sur leur nom** (« Dream » →
+rêve), sans vérifier leurs dimensions. Leurs frames font **192×240** : plus
+étroites que l'écran.
+
+Trois planches étaient concernées :
+
+| Vision | Planche | Avant | Après |
+|---|---|---|---|
+| La Chasse | le fugitif qui court | `Dream_Back` 192×240 | `Genesis_Fade` 320×240 |
+| La Météore | l'impact | `Dream_Front` 192×240 | `Genesis_Void` 320×240 |
+| L'Effacement | la plage au lever du jour | `Dream_Front` 192×240 | `Genesis_Life` 320×240 |
+
+Les remplaçants ne sont pas choisis au hasard : `Genesis_Fade` (8 frames, fondu
+progressif) rend la fuite qui s'efface, `Genesis_Void` (12 frames) le choc,
+`Genesis_Life` (16 frames) le monde vivant qui continue.
+
+## Inventaire complet des fonds
+
+| Fond | Planche | Frame | Frames | Plein écran |
+|---|---|---|---|---|
+| `Chapter_1..4` | 320×240 | **320×240** | 1 | oui |
+| `Dusknoir` | 320×240 | **320×240** | 1 | oui |
+| `Wanted_Poster` | 320×240 | **320×240** | 1 | oui |
+| `Title_Screen_Background` | 320×240 | **320×240** | 1 | oui |
+| `Genesis_Fade` | 960×720 | **320×240** | 8 | oui |
+| `Genesis_Cores` | 1280×720 | **320×240** | 12 | oui |
+| `Genesis_Void` | 1280×720 | **320×240** | 12 | oui |
+| `Genesis_Life` | 1280×960 | **320×240** | 16 | oui |
+| `Genesis_Mew` | 1280×960 | **320×240** | 16 | oui |
+| `Dream_Back` | 1536×1920 | 192×240 | 63 | **NON** |
+| `Dream_Front` | 1536×1920 | 192×240 | 63 | **NON** |
+| `SE5_Wind_Background` | 5120×256 | 256×256 | 20 | **NON** (bandeau défilant) |
+| `Steam` | 128×128 | 128×128 | 1 | **NON** (tuile) |
+
+## Nouvel outil : `tools/verify_bg_format.py`
+
+Pour que ce bug ne puisse plus revenir, un vérificateur automatique :
+
+- lit la taille de frame réelle de chaque `.dir` ;
+- croise avec **tous** les fonds référencés dans les scripts
+  (`bg='...'` et `WaitShowBG("...")`), commentaires exclus ;
+- échoue si un fond utilisé n'est pas en 320×240, ou s'il n'existe pas.
+
+```
+$ python3 tools/verify_bg_format.py .
+10 fond(s) utilisé(s) par les scripts, tous en frame 320x240.
+RESULTAT : AUCUN BUG DE FORMAT
+```
+
+## Deux autres points vérifiés
+
+**Les sprites par-dessus le fond.** EoSO fait `GROUND:Hide("PLAYER")` en tête
+de scène, parce que ses cinématiques ont leur propre carte. Nos visions se
+jouent sur la carte courante : sans précaution, le duo resterait visible
+au-dessus du fond plein écran. Le `FadeOut(false, 40)` posé avant les planches
+noircit tout l'écran et règle le problème — c'est désormais commenté comme
+**indispensable**, pour qu'on ne le retire pas par inadvertance.
+
+**La longueur des répliques.** Une boîte PMDO tient ~3 lignes de ~38 caractères,
+soit ~150 caractères hors balises `[pause=N]`. Les 40 répliques ont été
+mesurées : la plus longue fait **105 caractères**. **0 dépassement.**
+
+## Ce qui reste non vérifié
+
+Le cadrage est maintenant correct *par construction*, mais **le rendu n'a
+toujours pas été observé en jeu**. En particulier, les fonds `Genesis_*` sont
+**animés** (8 à 16 frames) : leur vitesse de défilement face aux `hold` demandés
+(180 à 230 frames) n'a pas été validée à l'écran. Si l'animation boucle trop
+vite, il faudra ajuster les `hold`.

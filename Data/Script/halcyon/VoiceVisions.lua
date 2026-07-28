@@ -249,6 +249,16 @@ function VoiceVisions.Play(cfg)
 
     --Bascule vers la vision. Patron storm_cutscene_a (EoSO) : une salve
     --d'eclairs sur le decor, puis le SE de transition, puis le noir complet.
+    --
+    --Le FadeOut(false, 40) ci-dessous est INDISPENSABLE avant les planches :
+    --il noircit tout l'ecran, sprites du duo compris. Sans lui, les sprites
+    --resteraient visibles PAR-DESSUS le fond plein ecran. EoSO resout le meme
+    --probleme autrement (GROUND:Hide("PLAYER") en tete de scene) parce que ses
+    --cinematiques ont leur propre carte ; nos visions se jouent sur la carte
+    --courante, donc on passe par le noir.
+    --
+    --Rappel de format : un fond doit avoir des FRAMES de 320x240 (viewport
+    --PMDO). Voir tools/verify_bg_format.py, qui echoue si ce n'est pas le cas.
     VoiceVisions.Lightning(3)
     GAME:WaitFrames(10)
     pcall(function() SOUND:PlayBattleSE('EVT_Battle_Transition') end)
