@@ -107,6 +107,24 @@ function guild_guildmasters_room.PlotScripting()
 	end
 end
 
+---------------------------
+-- Map Transitions
+---------------------------
+--LA PORTE DE LA CHAMBRE. Posee au fond du bureau (160,88), sur le mur
+--le plus haut REELLEMENT atteignable : verifie par parcours en largeur
+--depuis l'entree du joueur, la bande accessible va de y=96 a y=376, et
+--la travee libre a y=96 s'etend de x=136 a x=232. Une porte plus haut
+--aurait ete decorative — la zone du fond est isolee par un mur.
+--
+--Elle suit le verrou du bureau : si on a pu entrer ici, on peut entrer
+--dans la chambre. Inutile de verrouiller deux fois la meme progression.
+function guild_guildmasters_room.Bedroom_Door_Touch(obj, activator)
+  DEBUG.EnableDbgCoro()
+  GAME:FadeOut(false, 20)
+  GAME:EnterGroundMap("guild_guildmasters_bedroom", "Main_Entrance_Marker")
+  SV.partner.Spawn = 'Default'
+end
+
 -------------------------------
 -- Entities Callbacks
 -------------------------------

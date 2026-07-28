@@ -982,6 +982,17 @@ SV.Seasons =
 	Actif = true        --interrupteur general
 }
 
+--LA CHAMBRE OU DORT PENTICUS (guild_guildmasters_bedroom).
+--Carte neuve, clonee de guild_top_right_bedroom : c'etait la seule a
+--posseder deja des marqueurs de lit (Audino_Bed / Snubbull_Bed), renommes
+--Penticus_Bed / Phileas_Bed. Accessible par une porte au fond du bureau.
+SV.GuildmasterBedroom =
+{
+	Visited = false,          --la premiere entree a-t-elle ete commentee ?
+	ReadPenticusBed = false,  --le lit du maitre a-t-il ete examine ?
+	ReadPhileasBed = false    --et celui du savant ?
+}
+
 --info related to guild member sidequests.
 SV.GuildSidequests = 
 {
@@ -1252,4 +1263,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-08-01-R]')
+print('Script variables default values loaded! [build 2026-08-01-S]')

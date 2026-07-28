@@ -722,6 +722,12 @@ function DebugTools:OnUpgrade()
 	SV.Chapter6.PlayedGuildmasterAudience = SV.Chapter6.GuildmasterRoomUnlocked
  end
 
+ --LA CHAMBRE DU MAITRE (carte neuve). Rattrapage sauvegardes anterieures.
+ if SV.GuildmasterBedroom == nil then SV.GuildmasterBedroom = {} end
+ if SV.GuildmasterBedroom.Visited == nil then SV.GuildmasterBedroom.Visited = false end
+ if SV.GuildmasterBedroom.ReadPenticusBed == nil then SV.GuildmasterBedroom.ReadPenticusBed = false end
+ if SV.GuildmasterBedroom.ReadPhileasBed == nil then SV.GuildmasterBedroom.ReadPhileasBed = false end
+
  if SV.GuildSidequests == nil then SV.GuildSidequests = {} end
  
  if SV.GuildSidequests.ZigzagoonLevel == nil then SV.GuildSidequests.ZigzagoonLevel = 19 end 
