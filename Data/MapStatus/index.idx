@@ -38,6 +38,17 @@
    "Comment": "",
    "SortOrder": 0
   },
+  "falling_ash": {
+   "Name": {
+    "DefaultText": "Falling Ash",
+    "LocalTexts": {
+     "fr": "Pluie de Cendres"
+    }
+   },
+   "Released": true,
+   "Comment": "Pic Celeste \u2014 cendre soulevee par la tempete (ScreenRainEmitter).",
+   "SortOrder": 0
+  },
   "steam": {
    "Name": {
     "DefaultText": "Steam",
