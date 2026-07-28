@@ -14,6 +14,7 @@ require 'halcyon.ground.metano_town.metano_town_ch_6'
 require 'halcyon.ground.metano_town.metano_town_legend'
 require 'halcyon.menu.single_deal_menu'
 require 'origin.menu.skill.SkillTutorMenu'
+require 'halcyon.SideQuests'
 
 
 
@@ -2912,11 +2913,22 @@ function metano_town.Postboard_Action(obj, activator)
 	  UI:SetCenter(false)
   end
   ]]--
-  UI:SetAutoFinish(true)
-  UI:SetCenter(true)
-  UI:WaitShowDialogue("Il n'y a rien ici pour le moment.\nRevenez une autre fois !")
-  UI:SetAutoFinish(false)
-  UI:SetCenter(false)
+  --TABLEAU DES REQUETES. Ce panneau ne servait plus a rien (son code
+  --d'origine est commente juste au-dessus). Il porte desormais les requetes
+  --de Metano : le joueur doit TOUJOURS pouvoir savoir ce qui lui manque,
+  --sinon une progression verrouillee devient une enigme frustrante.
+  GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+  GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+  local ch = SV.ChapterProgression.Chapter or 0
+  if #SideQuests.OfChapter(ch) > 0 then
+    SideQuests.Board(ch)
+  else
+    UI:SetAutoFinish(true)
+    UI:SetCenter(true)
+    UI:WaitShowDialogue("Il n'y a rien ici pour le moment.\nRevenez une autre fois !")
+    UI:SetAutoFinish(false)
+    UI:SetCenter(false)
+  end
 
   partner.IsInteracting = false
   GROUND:CharEndAnim(partner)

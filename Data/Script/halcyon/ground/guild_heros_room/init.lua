@@ -17,6 +17,7 @@ require 'halcyon.ground.guild_heros_room.guild_heros_room_ch_4'
 require 'halcyon.ground.guild_heros_room.guild_heros_room_ch_5'
 require 'halcyon.ground.guild_heros_room.guild_heros_room_ch_6'
 require 'halcyon.ground.guild_heros_room.guild_heros_room_helper'
+require 'halcyon.SideQuests'
 
 
 -- Package name
@@ -145,7 +146,15 @@ function guild_heros_room.CheckTriggerEvent()
 	--Condition alignee sur les paliers ch5 et ch6 : la mission du chapitre est
 	--terminee (PostMissionScenePlayed, pose par la scene de retour en ville) et
 	--le delai de quelques jours de missions libres est ecoule.
-	if SV.ChapterProgression.Chapter == 6 and SV.Chapter6.PostMissionScenePlayed and SV.ChapterProgression.DaysPassed >= SV.ChapterProgression.DaysToReach then
+	--VERROU DES REQUETES : le chapitre 7 ne s'ouvre pas tant que les requetes
+	--de Metano ne sont pas rendues. Le test est pose ICI en plus de la scene
+	--de retour en ville, sinon une nuit passee suffirait a contourner la
+	--condition (DaysPassed rattrape DaysToReach tout seul).
+	if SV.ChapterProgression.Chapter == 6 and SV.Chapter6.PostMissionScenePlayed
+	   and not SideQuests.AllDone(6) then
+		SV.ChapterProgression.DaysToReach = SV.ChapterProgression.DaysPassed + 1
+	end
+	if SV.ChapterProgression.Chapter == 6 and SV.Chapter6.PostMissionScenePlayed and SideQuests.AllDone(6) and SV.ChapterProgression.DaysPassed >= SV.ChapterProgression.DaysToReach then
 		SV.ChapterProgression.Chapter = 7
 		SV.TemporaryFlags.MorningAddress = false
 		SV.TemporaryFlags.MorningWakeup = false

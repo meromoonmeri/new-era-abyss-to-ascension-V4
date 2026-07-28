@@ -2,6 +2,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.SideQuests'
 
 metano_town_ch_6 = {}
 
@@ -376,6 +377,10 @@ function metano_town_ch_6.Adagio_Action(chara, activator)
 end
 
 function metano_town_ch_6.Aria_Action(chara, activator)
+  -- Requetes de Metano : elles doivent etre rendues avant que la guilde
+  -- lance l'expedition suivante (cf. SideQuests.lua). Si le PNJ n'a rien
+  -- a dire sur une requete, on retombe sur son dialogue habituel.
+  if SideQuests.Interact('Aria', 6) then return end
 	GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_025']), "Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_026']))
 	GeneralFunctions.EndConversation(chara)
@@ -428,12 +433,39 @@ function metano_town_ch_6.PostMissionCutscene()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_034']))
 
 	SV.Chapter6.PostMissionScenePlayed = true
-	--Delai avant l'ouverture du chapitre 7, sur le modele des paliers ch4->ch5
-	--(guild_heros_room_ch_4:216, +3 jours) et ch5->ch6 (guild_heros_room_ch_5:175,
-	--+2 jours) : quelques jours de missions libres avant que l'histoire reprenne.
-	--Sans cette ligne, DaysToReach garderait la valeur du palier precedent et le
-	--chapitre 7 s'ouvrirait des la nuit suivante.
-	SV.ChapterProgression.DaysToReach = SV.ChapterProgression.DaysPassed + 2
+
+	--VERROU DES REQUETES. Les 3 requetes de Metano doivent etre rendues avant
+	--que la guilde lance l'expedition suivante. Tant qu'il en reste, on
+	--repousse le palier d'un jour a chaque nuit : le joueur n'est jamais
+	--bloque en silence, la ville le lui dit et le tableau des Requetes
+	--affiche ce qui manque (cf. SideQuests.lua).
+	SideQuests.Ensure()
+	if not SideQuests.AllDone(6) then
+		local reste = SideQuests.Remaining(6)
+		GAME:WaitFrames(20)
+		UI:SetSpeaker(adagio)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue("Une derniere chose.[pause=25] Votre ville vous reclame.")
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Surprised")
+		UI:WaitShowDialogue("Nous ?[pause=20] Mais on rentre a peine—")
+		UI:SetSpeaker(adagio)
+		UI:SetSpeakerEmotion("Sigh")
+		UI:WaitShowDialogue("Il y a " .. reste .. " requete(s) au tableau.[pause=25] Personne d'autre ne s'en occupe.")
+		UI:SetSpeaker(adagio)
+		UI:SetSpeakerEmotion("Determined")
+		UI:WaitShowDialogue("Une equipe qui sauve des forets et laisse sa ville en plan,[pause=20] ca ne vaut rien.")
+		UI:ResetSpeaker()
+		--Le palier reste hors d'atteinte tant que les requetes tiennent.
+		SV.ChapterProgression.DaysToReach = SV.ChapterProgression.DaysPassed + 1
+	else
+		--Delai avant l'ouverture du chapitre 7, sur le modele des paliers ch4->ch5
+		--(guild_heros_room_ch_4:216, +3 jours) et ch5->ch6 (guild_heros_room_ch_5:175,
+		--+2 jours) : quelques jours de missions libres avant que l'histoire reprenne.
+		--Sans cette ligne, DaysToReach garderait la valeur du palier precedent et le
+		--chapitre 7 s'ouvrirait des la nuit suivante.
+		SV.ChapterProgression.DaysToReach = SV.ChapterProgression.DaysPassed + 2
+	end
 	GAME:WaitFrames(20)
 	GAME:CutsceneMode(false)
 	RestorePartnerAI(partner)
@@ -509,6 +541,10 @@ function metano_town_ch_6.Manectric_Action(chara, activator)
 end
 
 function metano_town_ch_6.Bellossom_Action(chara, activator)
+  -- Requetes de Metano : elles doivent etre rendues avant que la guilde
+  -- lance l'expedition suivante (cf. SideQuests.lua). Si le PNJ n'a rien
+  -- a dire sur une requete, on retombe sur son dialogue habituel.
+  if SideQuests.Interact('Bellossom', 6) then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_081']), "Happy")
@@ -596,6 +632,10 @@ function metano_town_ch_6.Medicham_Action(chara, activator)
 end
 
 function metano_town_ch_6.Furret_Action(chara, activator)
+  -- Requetes de Metano : elles doivent etre rendues avant que la guilde
+  -- lance l'expedition suivante (cf. SideQuests.lua). Si le PNJ n'a rien
+  -- a dire sur une requete, on retombe sur son dialogue habituel.
+  if SideQuests.Interact('Furret', 6) then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_094']), "Happy")
@@ -704,6 +744,10 @@ function metano_town_ch_6.Lickitung_Action(chara, activator)
 end
 
 function metano_town_ch_6.Roselia_Action(chara, activator)
+  -- Requetes de Metano : elles doivent etre rendues avant que la guilde
+  -- lance l'expedition suivante (cf. SideQuests.lua). Si le PNJ n'a rien
+  -- a dire sur une requete, on retombe sur son dialogue habituel.
+  if SideQuests.Interact('Roselia', 6) then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_081']), "Happy")
   else
@@ -740,6 +784,10 @@ function metano_town_ch_6.Jigglypuff_Action(chara, activator)
 end
 
 function metano_town_ch_6.Marill_Action(chara, activator)
+  -- Requetes de Metano : elles doivent etre rendues avant que la guilde
+  -- lance l'expedition suivante (cf. SideQuests.lua). Si le PNJ n'a rien
+  -- a dire sur une requete, on retombe sur son dialogue habituel.
+  if SideQuests.Interact('Marill', 6) then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_070']), "Happy")
   else
@@ -830,6 +878,10 @@ function metano_town_ch_6.Audino_Action(chara, activator)
 end
 
 function metano_town_ch_6.Zigzagoon_Action(chara, activator)
+  -- Requetes de Metano : elles doivent etre rendues avant que la guilde
+  -- lance l'expedition suivante (cf. SideQuests.lua). Si le PNJ n'a rien
+  -- a dire sur une requete, on retombe sur son dialogue habituel.
+  if SideQuests.Interact('Zigzagoon', 6) then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_094']), "Happy")
   else

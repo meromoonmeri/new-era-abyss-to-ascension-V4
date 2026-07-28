@@ -16,6 +16,7 @@ PAT = re.compile(
 # qu'il ne l'est : DazzlingArc (ch6) pesait 77 lignes comptees nulle part.
 GLOBAL_CH = {
     'DazzlingArc.lua': 6,
+    'SideQuests.lua': 6,      # requetes de Metano (fiches declaratives)
     'ChapterAftermath.lua': None,   # scenes ch8+ch9+ch10, ventilees a la main
 }
 
