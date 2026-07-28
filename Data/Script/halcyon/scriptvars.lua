@@ -962,6 +962,19 @@ SV.TownVoicesNight =
 	Said = {}
 }
 
+--LES SAISONS DE METANO (Seasons.lua).
+--Le decor de la ville suit l'avancement du recit. Declare ICI et pas
+--seulement a l'usage : le bug des champs jamais declares a deja coute
+--une partie neuve arrivant avec nil.
+SV.Seasons =
+{
+	Echelle = 'court',  --'court' = 4 saisons sur les 10 chapitres joues
+	                    --'long'  = decoupage sur 30 chapitres (7/15/22/30)
+	Courante = '',      --derniere saison appliquee
+	Vues = {},          --[saison] = le partenaire l'a deja commentee
+	Actif = true        --interrupteur general
+}
+
 --info related to guild member sidequests.
 SV.GuildSidequests = 
 {
@@ -1224,4 +1237,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-08-01-O]')
+print('Script variables default values loaded! [build 2026-08-01-P]')

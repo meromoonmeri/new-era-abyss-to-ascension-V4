@@ -689,6 +689,13 @@ function DebugTools:OnUpgrade()
  if SV.TownVoicesNight == nil then SV.TownVoicesNight = {} end
  if SV.TownVoicesNight.Said == nil then SV.TownVoicesNight.Said = {} end
 
+ --LES SAISONS DE METANO (Seasons.lua). Rattrapage sauvegardes anterieures.
+ if SV.Seasons == nil then SV.Seasons = {} end
+ if SV.Seasons.Echelle == nil then SV.Seasons.Echelle = 'court' end
+ if SV.Seasons.Courante == nil then SV.Seasons.Courante = '' end
+ if SV.Seasons.Vues == nil then SV.Seasons.Vues = {} end
+ if SV.Seasons.Actif == nil then SV.Seasons.Actif = true end
+
  if SV.GuildSidequests == nil then SV.GuildSidequests = {} end
  
  if SV.GuildSidequests.ZigzagoonLevel == nil then SV.GuildSidequests.ZigzagoonLevel = 19 end 

@@ -16,6 +16,7 @@ require 'halcyon.menu.single_deal_menu'
 require 'origin.menu.skill.SkillTutorMenu'
 require 'halcyon.SideQuests'
 require 'halcyon.TownPlunder'
+require 'halcyon.Seasons'
 require 'halcyon.TownVoicesNight'
 require 'halcyon.TownReward'
 
@@ -32,6 +33,15 @@ function metano_town.Init(map)
 	COMMON.RespawnAllies()
 	PartnerEssentials.InitializePartnerSpawn()
 	GROUND:AddMapStatus("clouds_overhead")
+
+	--SAISON DU BOURG (Seasons.lua). Le decor suit l'avancement du recit :
+	--petales au printemps, feuilles en automne, neige en hiver, rien en ete.
+	--Pose ICI et pas dans Enter, comme clouds_overhead juste au-dessus :
+	--Init s'execute carte chargee, avant que le joueur ne la voie.
+	--Apply() retire d'abord les trois statuts saisonniers — un MapStatus
+	--persiste (cf. guild_heros_room_ch_1.lua:162), donc sans ce nettoyage
+	--deux saisons finiraient par se superposer.
+	pcall(function() Seasons.Setup() end)
 
 	--Remove nicknames from characters if the nickname mod is enabled.
 	if CONFIG.UseNicknames() then
@@ -61,6 +71,12 @@ function metano_town.Enter(map)
 	DEBUG.EnableDbgCoro()
 	print('Enter_metano_town')
 	metano_town.PlotScripting()
+
+	--La premiere fois qu'une saison s'installe, le partenaire la remarque.
+	--Une seule fois par saison, deux boites. Appele APRES PlotScripting :
+	--une scene d'histoire garde toujours la priorite sur un commentaire
+	--de decor.
+	pcall(function() Seasons.Remark() end)
 end
 
 function metano_town.Update(map, time)
