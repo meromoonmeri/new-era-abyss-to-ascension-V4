@@ -3,6 +3,7 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.SideQuests'
+require 'halcyon.TownVoices'
 
 metano_town_ch_6 = {}
 
@@ -506,6 +507,9 @@ local function Ch6State()
 end
 
 function metano_town_ch_6.Luxray_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Luxray', 6) then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_077']), "Normal")
@@ -531,6 +535,9 @@ function metano_town_ch_6.Electrike_Action(chara, activator)
 end
 
 function metano_town_ch_6.Manectric_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Manectric', 6) then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_080']), "Normal")
@@ -545,6 +552,9 @@ function metano_town_ch_6.Bellossom_Action(chara, activator)
   -- lance l'expedition suivante (cf. SideQuests.lua). Si le PNJ n'a rien
   -- a dire sur une requete, on retombe sur son dialogue habituel.
   if SideQuests.Interact('Bellossom', 6) then return end
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Bellossom', 6) then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_081']), "Happy")
@@ -557,6 +567,9 @@ function metano_town_ch_6.Bellossom_Action(chara, activator)
 end
 
 function metano_town_ch_6.Vileplume_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Vileplume', 6) then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_070']), "Happy")
@@ -567,6 +580,9 @@ function metano_town_ch_6.Vileplume_Action(chara, activator)
 end
 
 function metano_town_ch_6.Gloom_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Gloom', 6) then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_078']), "Happy")
@@ -577,6 +593,9 @@ function metano_town_ch_6.Gloom_Action(chara, activator)
 end
 
 function metano_town_ch_6.Oddish_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Oddish', 6) then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, "Chenipent dit que vous etes ses heros ![pause=15] Il le dit a TOUT le monde !", "Happy")
@@ -603,6 +622,9 @@ function metano_town_ch_6.Camerupt_Action(chara, activator)
 end
 
 function metano_town_ch_6.Machamp_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Machamp', 6) then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_095']), "Happy")
@@ -623,6 +645,9 @@ function metano_town_ch_6.Meditite_Action(chara, activator)
 end
 
 function metano_town_ch_6.Medicham_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Medicham', 6) then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_097']), "Normal")
   else
@@ -636,6 +661,9 @@ function metano_town_ch_6.Furret_Action(chara, activator)
   -- lance l'expedition suivante (cf. SideQuests.lua). Si le PNJ n'a rien
   -- a dire sur une requete, on retombe sur son dialogue habituel.
   if SideQuests.Interact('Furret', 6) then return end
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Furret', 6) then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_094']), "Happy")
@@ -648,6 +676,9 @@ function metano_town_ch_6.Furret_Action(chara, activator)
 end
 
 function metano_town_ch_6.Linoone_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Linoone', 6) then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, "Mon petit veut etre comme vous plus tard.[pause=25] J'espere que vous serez un bon modele.", "Normal")
@@ -658,6 +689,9 @@ function metano_town_ch_6.Linoone_Action(chara, activator)
 end
 
 function metano_town_ch_6.Sentret_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Sentret', 6) then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, "Vous avez vu Zarude de PRES ?![pause=15] Waaaah ![pause=20] Racontez-moi TOUT !", "Inspired")
@@ -668,6 +702,9 @@ function metano_town_ch_6.Sentret_Action(chara, activator)
 end
 
 function metano_town_ch_6.Wooper_Girl_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Wooper_Girl', 6) then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, "Chenipent m'a raconte que vous l'aviez porte sur votre dos ![pause=15] C'est vrai ?", "Happy")
@@ -678,6 +715,9 @@ function metano_town_ch_6.Wooper_Girl_Action(chara, activator)
 end
 
 function metano_town_ch_6.Wooper_Boy_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Wooper_Boy', 6) then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_075']), "Shock")
   else
@@ -687,6 +727,9 @@ function metano_town_ch_6.Wooper_Boy_Action(chara, activator)
 end
 
 function metano_town_ch_6.Nidorina_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Nidorina', 6) then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_069']), "Happy")
@@ -706,6 +749,9 @@ function metano_town_ch_6.Nidoran_Male_Action(chara, activator)
 end
 
 function metano_town_ch_6.Nidoking_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Nidoking', 6) then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_079']), "Happy")
@@ -726,6 +772,9 @@ function metano_town_ch_6.Azumarill_Action(chara, activator)
 end
 
 function metano_town_ch_6.Gulpin_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Gulpin', 6) then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, "Un festin ![pause=15] Il faut celebrer ca avec un festin ![pause=20] Qui paye ?", "Happy")
   else
@@ -735,6 +784,9 @@ function metano_town_ch_6.Gulpin_Action(chara, activator)
 end
 
 function metano_town_ch_6.Lickitung_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Lickitung', 6) then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_093']), "Happy")
   else
@@ -748,6 +800,9 @@ function metano_town_ch_6.Roselia_Action(chara, activator)
   -- lance l'expedition suivante (cf. SideQuests.lua). Si le PNJ n'a rien
   -- a dire sur une requete, on retombe sur son dialogue habituel.
   if SideQuests.Interact('Roselia', 6) then return end
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Roselia', 6) then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_081']), "Happy")
   else
@@ -757,6 +812,9 @@ function metano_town_ch_6.Roselia_Action(chara, activator)
 end
 
 function metano_town_ch_6.Spinda_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Spinda', 6) then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_093']), "Happy")
   else
@@ -766,6 +824,9 @@ function metano_town_ch_6.Spinda_Action(chara, activator)
 end
 
 function metano_town_ch_6.Ludicolo_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Ludicolo', 6) then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, "La musique est plus joyeuse aujourd'hui ![pause=15] Vous voulez danser ?", "Happy")
   else
@@ -775,6 +836,9 @@ function metano_town_ch_6.Ludicolo_Action(chara, activator)
 end
 
 function metano_town_ch_6.Jigglypuff_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Jigglypuff', 6) then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, "Je vous chante une berceuse ?[pause=20] Pour feter votre victoire ?", "Happy")
   else
@@ -788,6 +852,9 @@ function metano_town_ch_6.Marill_Action(chara, activator)
   -- lance l'expedition suivante (cf. SideQuests.lua). Si le PNJ n'a rien
   -- a dire sur une requete, on retombe sur son dialogue habituel.
   if SideQuests.Interact('Marill', 6) then return end
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Marill', 6) then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_070']), "Happy")
   else
@@ -824,6 +891,9 @@ function metano_town_ch_6.Doduo_Action(chara, activator)
 end
 
 function metano_town_ch_6.Metapod_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Metapod', 6) then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, "...[pause=30] (Metapod semble plus brillant qu'avant.)", "Normal")
   else
@@ -833,6 +903,9 @@ function metano_town_ch_6.Metapod_Action(chara, activator)
 end
 
 function metano_town_ch_6.Silcoon_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Silcoon', 6) then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, "Chenipent est passe me voir ![pause=15] Il m'a parle de vous.", "Happy")
   else
@@ -842,6 +915,9 @@ function metano_town_ch_6.Silcoon_Action(chara, activator)
 end
 
 function metano_town_ch_6.Mareep_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Mareep', 6) then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_098']), "Worried")
   else
@@ -851,6 +927,9 @@ function metano_town_ch_6.Mareep_Action(chara, activator)
 end
 
 function metano_town_ch_6.Cranidos_Action(chara, activator)
+  -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
+  -- APRES SideQuests : une requete prime toujours sur l'ambiance.
+  if TownVoices.Talk('Cranidos', 6) then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_095']), "Normal")
   else
