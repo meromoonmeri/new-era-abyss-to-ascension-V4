@@ -74,6 +74,17 @@ function mount_windswept_entrance.PlotScripting()
   if SV.ChapterProgression.Chapter == 5 then
     if not SV.Chapter5.FinishedMountWindsweptIntro then
       mount_windswept_entrance_ch_5.ArrivalCutscene()
+    elseif SV.Chapter5.PlayTempMountScene then
+      --Retour de la premiere moitie du donjon en mauvaise posture
+      --(KO/temps ecoule ou repli volontaire). Miroir du routeur du
+      --Tunnel : SetupGround d'abord (les PNJ du camp existent), puis
+      --la cinematique de retour adaptee a la raison de sortie.
+      mount_windswept_entrance_ch_5.SetupGround()
+      if SV.Chapter5.MountLastExitReason == 'Retreated' then
+        mount_windswept_entrance_ch_5.RetreatReturnCutscene()
+      else
+        mount_windswept_entrance_ch_5.KODefeatCutscene()
+      end
     elseif SV.Chapter5.MountGuardianDefeated and SV.Chapter5.MountVigilSceneSeen
        and not SV.Chapter5.WindSecretSceneSeen then
       --Cinematique emotionnelle : le secret Hyko x Penticus, surprise de nuit.

@@ -62,7 +62,7 @@
     <value>Finally![pause=0] We're out of {0}!</value>
   </data>
   <data name="MWE5_002" xml:space="preserve">
-    <value>Oh,[pause=10] it's already dark![pause=0] I hope we're not too late...</value>
+    <value>Oh,[pause=10] the sun is already setting![pause=0] I hope we're not too late...</value>
   </data>
   <data name="MWE5_003" xml:space="preserve">
     <value>We should set up camp here and rest before the final climb.</value>
@@ -269,10 +269,145 @@
   <data name="MWE5_070" xml:space="preserve">
     <value>Yeah!!!</value>
   </data>
-  <data name="MWE5_071" xml:space="preserve">
-    <value>The summit, {0}.[pause=10] Today is the day.[pause=0] Let's finish this climb together!</value>
-  </data>
   <data name="MWE5_201" xml:space="preserve">
     <value>Crunch-munch! Om-nom-nom! Chomp-chomp!\nCrunch-munch! Om-nom-nom! Chomp-chomp!</value>
+  </data>
+  <data name="MWE5_072" xml:space="preserve">
+    <value>The packs open.[pause=20] Twelve bedrolls are laid out around the fire,[pause=10] one for every member of the expedition.</value>
+  </data>
+  <data name="MWE5_073" xml:space="preserve">
+    <value>Night falls for good upon the mountain.</value>
+  </data>
+  <data name="MWE5_074" xml:space="preserve">
+    <value>...You know,[pause=10] if the summit scares you...[pause=10] it scares me a little too.</value>
+  </data>
+  <data name="MWE5_075" xml:space="preserve">
+    <value>But we crossed the steppe.[pause=10] We crossed the tunnel.[pause=0] Tomorrow, we write the ending together.</value>
+  </data>
+  <data name="MWE5_080" xml:space="preserve">
+    <value>...You are here again.[pause=30] Again.</value>
+  </data>
+  <data name="MWE5_081" xml:space="preserve">
+    <value>The mountain has lit up.[pause=20] Like last time.[pause=30] You have seen it burn before...[pause=20] haven't you?</value>
+  </data>
+  <data name="MWE5_082" xml:space="preserve">
+    <value>Climb.[pause=20] The wind remembers you,[pause=10] even if you remember nothing.</value>
+  </data>
+  <data name="MWE5_083" xml:space="preserve">
+    <value>When you reach the summit...[pause=20] do not look for me.[pause=30] I will find you.</value>
+  </data>
+  <data name="MWE5_084" xml:space="preserve">
+    <value>...We have met before,[pause=10] little echo.</value>
+  </data>
+  <data name="MWE5_085" xml:space="preserve">
+    <value>(A shadow...[pause=20] It spoke as if it knew me.[pause=20] « Little echo »...[pause=10] What does that mean?)</value>
+  </data>
+  <data name="MWE5_086" xml:space="preserve">
+    <value>(The wind is still blowing.[pause=10] No one else heard it...[pause=20] I need to sleep.[pause=10] Tomorrow,[pause=10] the summit.)</value>
+  </data>
+  <data name="MWE5_087" xml:space="preserve">
+    <value>...{0}?[pause=10] You're all pale.[pause=0] Did you sleep badly?</value>
+  </data>
+  <data name="MWE5_088" xml:space="preserve">
+    <value>(...The dream.[pause=10] I can still hear its voice.)[pause=20] ...I'm fine.[pause=10] Just...[pause=10] a strange night.</value>
+  </data>
+  <data name="MWE5_089" xml:space="preserve">
+    <value>Assembly![pause=0] Ranks of two,[pause=10] just like at the guild![pause=0] The summit will not wait for stragglers!</value>
+  </data>
+  <data name="MWE5_092" xml:space="preserve">
+    <value>The steppe taught us that a large team protects.[pause=10] The tunnel,[pause=10] that it advances.[pause=0] But the mountain...[pause=20] the mountain DIVIDES.</value>
+  </data>
+  <data name="MWE5_093" xml:space="preserve">
+    <value>So today,[pause=10] no large teams.[pause=0] We climb in ROPE TEAMS,[pause=10] by role.[pause=0] Small,[pause=10] tight,[pause=10] and each one complete.</value>
+  </data>
+  <data name="MWE5_094" xml:space="preserve">
+    <value>Lead rope team:[pause=10] {0},[pause=10] {1}[pause=10] and {2}.[pause=0] You read the terrain and you mark the path.</value>
+  </data>
+  <data name="MWE5_095" xml:space="preserve">
+    <value>Count on us![pause=0] Nobody reads a dungeon like I do...[pause=20] when I'm awake.</value>
+  </data>
+  <data name="MWE5_096" xml:space="preserve">
+    <value>Support rope team:[pause=10] {0},[pause=10] {1}[pause=10] and {2}.[pause=0] Healing,[pause=10] provisions,[pause=10] and an eye on our backs.</value>
+  </data>
+  <data name="MWE5_097" xml:space="preserve">
+    <value>No one climbs on an empty stomach,[pause=10] that's a promise!</value>
+  </data>
+  <data name="MWE5_098" xml:space="preserve">
+    <value>Summit rope team:[pause=10] {0},[pause=10] {1},[pause=10] {2}[pause=10] and {3}.[pause=0] You carry our banner to the top.</value>
+  </data>
+  <data name="MWE5_099" xml:space="preserve">
+    <value>The summit rope team?![pause=0] We won't let you down...[pause=10] right,[pause=10] {0}?</value>
+  </data>
+  <data name="MWE5_100" xml:space="preserve">
+    <value>Hmph.[pause=20] Just try to keep up with my pace.</value>
+  </data>
+  <data name="MWE5_101" xml:space="preserve">
+    <value>{0} and I will hold the base camp.[pause=10] The winds up there carry me poorly,[pause=10] and someone must keep the relay and watch for signals.</value>
+  </data>
+  <data name="MWE5_102" xml:space="preserve">
+    <value>If the weather turns,[pause=10] I will fly up to warn you.[pause=0] Listen to the sky.</value>
+  </data>
+  <data name="MWE5_103" xml:space="preserve">
+    <value>Rope teams of Mount Windswept...[pause=20] move out![pause=0] And come back to me,[pause=10] ALL of you!</value>
+  </data>
+  <data name="MWE5_105" xml:space="preserve">
+    <value>First rope team,[pause=10] with me![pause=0] The wind is waiting!</value>
+  </data>
+  <data name="MWE5_106" xml:space="preserve">
+    <value>We'll keep a warm meal for you at the relay!</value>
+  </data>
+  <data name="MWE5_107" xml:space="preserve">
+    <value>...{0}.[pause=20] You've been staring at the summit like it called your name last night.[pause=10] ...Did something happen?</value>
+  </data>
+  <data name="MWE5_108" xml:space="preserve">
+    <value>(Tell them?[pause=10] ...Not yet.[pause=10] Not while I don't understand it myself.)[pause=20] ...I'll tell you up there.[pause=10] Promise.</value>
+  </data>
+  <data name="MWE5_109" xml:space="preserve">
+    <value>...Alright.[pause=10] Up there.[pause=0] I WILL remind you!</value>
+  </data>
+  <data name="MWE5_110" xml:space="preserve">
+    <value>There you are.[pause=10] The rope teams are away.[pause=0] Yours closes the march.</value>
+  </data>
+  <data name="MWE5_111" xml:space="preserve">
+    <value>...Long ago,[pause=10] I left something on this mountain.[pause=20] Today it gives something back:[pause=10] an entire guild,[pause=10] standing at its gates.</value>
+  </data>
+  <data name="MWE5_112" xml:space="preserve">
+    <value>The wind is honest this morning.[pause=10] That is rare.[pause=0] Take it as a good omen.</value>
+  </data>
+  <data name="MWE5_113" xml:space="preserve">
+    <value>{0},[pause=10] {1}...[pause=10] Hyko and Almotz await you at the first ledge.[pause=0] When you are ready,[pause=10] climb.[pause=0] And remember...</value>
+  </data>
+  <data name="MWE5_114" xml:space="preserve">
+    <value>...one does not conquer a mountain.[pause=20] One pays it a visit.[pause=0] Knock on its door with respect.</value>
+  </data>
+  <data name="MWE5_115" xml:space="preserve">
+    <value>We're all coming back.[pause=10] That's a promise from the summit rope team!</value>
+  </data>
+  <data name="MWE5_120" xml:space="preserve">
+    <value>There they are![pause=0] Quick,[pause=10] {0}![pause=0] They're down!</value>
+  </data>
+  <data name="MWE5_121" xml:space="preserve">
+    <value>Breathe...[pause=20] there.[pause=0] The wind beat you,[pause=10] it didn't break you.</value>
+  </data>
+  <data name="MWE5_122" xml:space="preserve">
+    <value>The summit...[pause=20] we were so close...</value>
+  </data>
+  <data name="MWE5_123" xml:space="preserve">
+    <value>The mountain does not count attempts.[pause=20] It only remembers those who climb back up.</value>
+  </data>
+  <data name="MWE5_124" xml:space="preserve">
+    <value>Regain your strength.[pause=10] Emergency provisions —[pause=10] this is exactly what they are for.</value>
+  </data>
+  <data name="MWE5_125" xml:space="preserve">
+    <value>When you are ready,[pause=10] the path will still be there.[pause=0] And so will we.</value>
+  </data>
+  <data name="MWE5_126" xml:space="preserve">
+    <value>You came back down?[pause=10] A wise call.[pause=0] In the mountains,[pause=10] a step back is not a defeat.</value>
+  </data>
+  <data name="MWE5_127" xml:space="preserve">
+    <value>The wind will turn.[pause=10] Rest,[pause=10] then attempt the climb again.</value>
+  </data>
+  <data name="MWE5_104" xml:space="preserve">
+    <value>We'll go ahead and mark the rope![pause=0] See you at the first ledge,[pause=10] you two![pause=0] Don't dawdle,[pause=10] ruff!</value>
   </data>
 </root>

@@ -792,6 +792,8 @@ SV.Chapter5 =
 	GrowlitheTropiusBossInterrupt = false,--did Hyko stop you from telling Penticus about the boss?
 	
 	FinishedMountWindsweptIntro = false,--Did the player see the intro cutscene for Mt. Windswept?
+	MountLastExitReason = '',--Why did the player exit Mt. Windswept back to the entrance? Should be Died or Retreated.
+	PlayTempMountScene = false,--Do we need to play a one time scene outside Mt. Windswept for having died/escaped/given up in the first stretch?
 	EnteredMountain = false,--did player enter Mt. Windswept?
 	LostMountain = false,--did player die in Mt. Windswept?
 	DiedToWind = false,--did player's last run die to the time limit?

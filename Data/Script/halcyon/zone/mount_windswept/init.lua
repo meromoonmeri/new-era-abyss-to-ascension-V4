@@ -77,6 +77,38 @@ function mount_windswept.ExitSegment(zone, result, rescue, segmentID, mapID)
 	elseif segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('mount_windswept', 5) then
 		-- Segment 0 cleared: go to midpoint rest stop before mini-boss
 		PrintInfo("[NREPROBE][transition] mount_windswept.ExitSegment -> EnterGroundMap('mount_windswept_midpoint')") GAME:EnterGroundMap('mount_windswept_midpoint', 'Main_Entrance_Marker')
+	elseif segmentID == 0 and ReplayEnding.FollowsRoute('mount_windswept', 5) and result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+		-- PREMIERE MOITIE PERDUE (KO, fuite, abandon) : retour DEVANT
+		-- l'entree du Mont (carte 50), jamais un retour silencieux au
+		-- bourg. Miroir exact du patron du Tunnel (searing_tunnel
+		-- init.lua, segment 0) : flag PlayTempMountScene + raison de
+		-- sortie, la cinematique de retour est jouee par PlotScripting
+		-- de mount_windswept_entrance. Aucun flag de progression
+		-- touche : le joueur retente l'ascension librement.
+		GAME:WaitFrames(20)
+		if SV.ChapterProgression.Chapter == 5 then
+			SV.Chapter5.LostMountain = true
+			SV.Chapter5.PlayTempMountScene = true
+			if result == RogueEssence.Data.GameProgress.ResultType.Escaped
+			or result == RogueEssence.Data.GameProgress.ResultType.GaveUp then
+				SV.Chapter5.MountLastExitReason = 'Retreated'
+				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 50, 0, true, true) --Go to Mt. Windswept Entrance ground map
+			else--Died / TimedOut
+				SV.Chapter5.MountLastExitReason = 'Died'
+				if result == RogueEssence.Data.GameProgress.ResultType.TimedOut then
+					SV.Chapter5.DiedToWind = true
+				end
+				--Composants de la version GeneralFunctions pour placer la
+				--boite de dialogue apres l'ecran de resultats (patron du
+				--Tunnel). EndDungeonRun sauvegarde : a appeler avant EnterZone.
+				GAME:EndDungeonRun(result, "master_zone", -1, 50, 0, true, true)
+				GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(2), "Wouf...[pause=0] Le vent...[pause=10] le vent était trop fort...", "Pain")--set Hyko as speaker
+				GAME:WaitFrames(20)
+				GAME:EnterZone("master_zone", -1, 50, 0)--Exit back to Mt. Windswept Entrance
+			end
+		else
+			TownNight.EndDay(result, true)
+		end
 	elseif segmentID == 1 and ReplayEnding.FollowsRoute('mount_windswept', 5) then
 		-- Mini-boss arena: win or loss both go back to mini-boss ground map
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
