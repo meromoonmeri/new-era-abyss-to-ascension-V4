@@ -4,11 +4,11 @@
     Réalise les 7 scènes majeures :
       1) Arrivée progressive au soir avec intentions et dîner au feu (CampNightfall)
       2) Scène intime du héros et du partenaire avant de dormir (CampNightfall_HeroMoment)
-      3) Installation de nuit avec sacs, tentes et lits temporaires de paille (BuildCamp(true))
-      4) Transition lendemain matin : carton « Le lendemain matin... », réveil échelonné, lits supprimés (BuildCamp(false))
-      5) Rassemblement guilde et briefing d'expédition par Penticus, caméra dynamique
-      6) Départ progressif et réaliste des équipes Cinabre puis Saphir vers le pic
-      7) Scène mature et profonde entre Penticus et Phileas près des sacs d'expédition, avec don d'objet d'expédition
+      3) Installation de nuit avec sacs et lits temporaires de paille (BuildCamp(true))
+      4) Transition lendemain matin : carton « Le lendemain matin... », lits supprimés (BuildCamp(false))
+      5) Rassemblement guilde en formation militaire 2 rangs et briefing par Penticus, caméra dynamique
+      6) Départ progressif et réaliste des équipes Cinabre puis Saphir par le sentier nord marchable (276, 180 -> 276, 60)
+      7) Scène mature et profonde entre Penticus et Phileas, don d'objet d'expédition, puis FadeIn sur ground jouable
       + Protection et polissage complet de WindSecretScene() (le secret Hyko x Penticus) et LegendOfTheSkyArbiter()
 ]]--
 require 'origin.common'
@@ -27,10 +27,9 @@ mount_windswept_entrance_ch_5.BED_POS = {
 	{160, 220}, {160, 250} -- Lits isolés pour Hero (11) et Partner (12)
 }
 
--- Sacs et matériel d'expédition (présents soir et matin)
+-- Sacs d'expédition en nombre limité et hors des chemins de marche
 mount_windswept_entrance_ch_5.BAG_POS = {
-	{250, 180}, {330, 180}, {220, 230}, {360, 230},
-	{240, 280}, {340, 280}, {275, 310}, {315, 310}
+	{270, 172}, {210, 200}, {370, 200}
 }
 
 mount_windswept_entrance_ch_5.MEMBER_LIST = {
@@ -45,7 +44,7 @@ mount_windswept_entrance_ch_5.BED_MAP = {
 }
 
 --------------------------------------------------------------------
--- CAMP BUILDER (Décorations dynamiques : sacs permanents, lits au soir uniquement)
+-- CAMP BUILDER (Décorations dynamiques : 3 sacs, lits et feu au soir uniquement)
 --------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.BuildCamp(isEvening)
 	local ground = GAME:GetCurrentGround()
@@ -59,7 +58,7 @@ function mount_windswept_entrance_ch_5.BuildCamp(isEvening)
 	end)
 
 	pcall(function()
-		-- Sacs et matériel d'expédition (présents soir et matin)
+		-- 3 sacs d'expédition placés stratégiquement hors des chemins marchables
 		for _, pos in ipairs(mount_windswept_entrance_ch_5.BAG_POS) do
 			ground.Decorations[0].Anims:Add(RogueEssence.Ground.GroundAnim(grassy_bag, RogueElements.Loc(pos[1]-8, pos[2]-8)))
 		end
@@ -75,7 +74,17 @@ function mount_windswept_entrance_ch_5.BuildCamp(isEvening)
 end
 
 --------------------------------------------------------------------
--- SETUP GROUND (Après la cinématique d'introduction ou en revisite)
+-- REMOVE ALL TEMP CHARS (Purge propre pour éliminer toute duplication de sprite)
+--------------------------------------------------------------------
+function mount_windswept_entrance_ch_5.RemoveCharList(chars)
+	local ground = GAME:GetCurrentGround()
+	for _, c in ipairs(chars) do
+		pcall(function() ground:RemoveTempChar(c) end)
+	end
+end
+
+--------------------------------------------------------------------
+-- SETUP GROUND (Après cinématique d'introduction ou revisite)
 --------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.SetupGround()
 	local ground = GAME:GetCurrentGround()
@@ -119,7 +128,7 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	GROUND:Unhide(m[1].EntName)
 	GROUND:Unhide(m[2].EntName)
 
-	-- Équipes arrivant du sentier Sud
+	-- Équipes arrivant de la zone marchable sud (Y=472..488)
 	for i = 3, 10 do
 		GROUND:TeleportTo(m[i], 256 + ((i-3)%4)*24, 472 + ((i-3)//4)*12, Direction.Up)
 		GROUND:Unhide(m[i].EntName)
@@ -312,11 +321,14 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, membres)
 	GAME:FadeOut(false, 90)
 	GAME:WaitFrames(60)
 
+	-- Purge complète des sprites du soir pour éviter toute duplication
+	mount_windswept_entrance_ch_5.RemoveCharList(membres)
+
 	mount_windswept_entrance_ch_5.MorningSequence()
 end
 
 --------------------------------------------------------------------
--- SCÈNES 4 à 7 : MORNING SEQUENCE (Aube, assemblée, course, Penticus/Phileas)
+-- SCÈNES 4 à 7 : MORNING SEQUENCE (Aube, formation de guilde, course, Penticus/Phileas)
 --------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.MorningSequence()
 	UI:ResetSpeaker(false)
@@ -330,7 +342,7 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 	GAME:MoveCamera(290, 240, 1, false)
 	GROUND:RemoveMapStatus("darkness")
 	GROUND:AddMapStatus("dusk")
-	mount_windswept_entrance_ch_5.BuildCamp(false) -- Lits retirés, ne restent que sacs et équipement !
+	mount_windswept_entrance_ch_5.BuildCamp(false) -- Lits temporaires retirés ! Ne restent que sacs et équipement.
 
 	local m = CharacterEssentials.MakeCharactersFromList({
 		{'Tropius'}, {'Noctowl'}, {'Audino'}, {'Snubbull'}, {'Mareep'}, 
@@ -384,7 +396,7 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 		UI:WaitShowDialogue("Haha ! Le froid réveille mieux qu'une Baie Maron ! Regarde... Le ciel est dégagé au-dessus du pic.")
 	end
 
-	-- SCÈNE 5 : APPEL À L'ASSEMBLÉE PAR PENTICUS
+	-- SCÈNE 5 : APPEL À L'ASSEMBLÉE PAR PENTICUS & FORMATION DE GUILDE SOLENNELLE (2 RANGS)
 	GAME:WaitFrames(30)
 	GROUND:CharEndAnim(m[1])
 	GeneralFunctions.DoAnimation(m[1], 'Wake')
@@ -404,31 +416,37 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 	TASK:JoinCoroutines(wake_tasks)
 
 	GAME:WaitFrames(30)
+	-- Placement des chefs face à la guilde
 	local assemble_tasks = {}
-	assemble_tasks[1] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[1], 256, 200, false, 1) end)
-	assemble_tasks[2] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[2], 324, 200, false, 1) end)
-	
-	local circ_pts = {{210, 180}, {372, 180}, {190, 220}, {392, 220}, {210, 260}, {372, 260}, {240, 290}, {342, 290}}
-	for i = 3, 10 do
-		local p = circ_pts[i-2]
-		assemble_tasks[#assemble_tasks+1] = TASK:BranchCoroutine(function() 
-			GAME:WaitFrames(i*3)
-			GROUND:MoveToPosition(m[i], p[1], p[2], false, 1) 
-			GROUND:CharTurnToCharAnimated(m[i], m[1], 4)
-		end)
-	end
-	assemble_tasks[#assemble_tasks+1] = TASK:BranchCoroutine(function()
-		GROUND:MoveToPosition(hero, 270, 240, false, 1)
-		GROUND:CharTurnToCharAnimated(hero, m[1], 4)
+	assemble_tasks[1] = TASK:BranchCoroutine(function()
+		GROUND:MoveToPosition(m[1], 290, 184, false, 1)
+		GROUND:CharAnimateTurnTo(m[1], Direction.Down, 4)
 	end)
+	assemble_tasks[2] = TASK:BranchCoroutine(function()
+		GROUND:MoveToPosition(m[2], 330, 184, false, 1)
+		GROUND:CharAnimateTurnTo(m[2], Direction.DownLeft, 4)
+	end)
+	
+	-- Rang 1 (Y=240, face nord) : Hero (256), Partner (288), Hyko/m[9] (320), Almotz/m[10] (352)
+	assemble_tasks[3] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(hero, 256, 240, false, 1); GROUND:CharAnimateTurnTo(hero, Direction.Up, 4) end)
 	if partner ~= nil then
-		assemble_tasks[#assemble_tasks+1] = TASK:BranchCoroutine(function()
-			GROUND:MoveToPosition(partner, 310, 240, false, 1)
-			GROUND:CharTurnToCharAnimated(partner, m[1], 4)
-		end)
+		assemble_tasks[4] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, 288, 240, false, 1); GROUND:CharAnimateTurnTo(partner, Direction.Up, 4) end)
 	end
-	TASK:JoinCoroutines(assemble_tasks)
+	assemble_tasks[5] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[9], 320, 240, false, 1); GROUND:CharAnimateTurnTo(m[9], Direction.Up, 4) end)
+	assemble_tasks[6] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[10], 352, 240, false, 1); GROUND:CharAnimateTurnTo(m[10], Direction.Up, 4) end)
 
+	-- Rang 2 (Y=272, face nord) : Kino/m[5] (232), Reinier/m[6] (264), Rin/m[3] (296), Shuca/m[4] (328), Coco/m[7] (360), Ganlon/m[8] (392)
+	assemble_tasks[7] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[5], 232, 272, false, 1); GROUND:CharAnimateTurnTo(m[5], Direction.Up, 4) end)
+	assemble_tasks[8] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[6], 264, 272, false, 1); GROUND:CharAnimateTurnTo(m[6], Direction.Up, 4) end)
+	assemble_tasks[9] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[3], 296, 272, false, 1); GROUND:CharAnimateTurnTo(m[3], Direction.Up, 4) end)
+	assemble_tasks[10] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[4], 328, 272, false, 1); GROUND:CharAnimateTurnTo(m[4], Direction.Up, 4) end)
+	assemble_tasks[11] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[7], 360, 272, false, 1); GROUND:CharAnimateTurnTo(m[7], Direction.Up, 4) end)
+	assemble_tasks[12] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[8], 392, 272, false, 1); GROUND:CharAnimateTurnTo(m[8], Direction.Up, 4) end)
+
+	TASK:JoinCoroutines(assemble_tasks)
+	GAME:WaitFrames(25)
+
+	-- Briefing solennel en formation
 	UI:SetSpeaker(m[1])
 	UI:SetSpeakerEmotion("Inspired")
 	UI:WaitShowDialogue("Équipe " .. GAME:GetTeamName() .. ". Équipe Cinabre. Équipe Saphir. L'ascension finale commence.")
@@ -442,36 +460,41 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue("Hé hé ! Le premier arrivé là-haut gagne une Baie Grena ! La course est lancée !")
 
-	-- SCÈNE 6 : DÉPART PROGRESSIF DES ÉQUIPES (Pas de disparition instantanée !)
+	-- SCÈNE 6 : DÉPART PROGRESSIF DES ÉQUIPES PAR LE SENTIER NORD (100% marchable, zéro collision montagne)
 	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
 	
-	-- 1er départ : Équipe Cinabre (Mareep, Cranidos)
+	-- 1er départ : Équipe Cinabre (Mareep m[5], Cranidos m[6]) -> vers l'entrée du sentier (276, 180) puis cap nord au (276, 60)
 	UI:SetSpeaker(m[5])
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue("Bêêê ! On ouvre la marche ! En route, Reinier !")
 	
 	local dept1 = {}
-	dept1[1] = TASK:BranchCoroutine(function() GROUND:MoveInDirection(m[5], Direction.Up, 320, false, 1.5); GAME:GetCurrentGround():RemoveTempChar(m[5]) end)
-	dept1[2] = TASK:BranchCoroutine(function() GROUND:MoveInDirection(m[6], Direction.Up, 320, false, 1.5); GAME:GetCurrentGround():RemoveTempChar(m[6]) end)
+	dept1[1] = TASK:BranchCoroutine(function()
+		GROUND:MoveToPosition(m[5], 276, 180, false, 1.5)
+		GROUND:MoveToPosition(m[5], 276, 60, false, 1.5)
+		GAME:GetCurrentGround():RemoveTempChar(m[5])
+	end)
+	dept1[2] = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		GROUND:MoveToPosition(m[6], 276, 180, false, 1.5)
+		GROUND:MoveToPosition(m[6], 276, 60, false, 1.5)
+		GAME:GetCurrentGround():RemoveTempChar(m[6])
+	end)
 	TASK:JoinCoroutines(dept1)
 	GAME:WaitFrames(20)
 
-	-- 2e départ : Équipe Saphir (Audino, Snubbull, Breloom, Girafarig)
+	-- 2e départ : Équipe Saphir (Audino m[3], Snubbull m[4], Breloom m[7], Girafarig m[8])
 	UI:SetSpeaker(m[4])
 	UI:SetSpeakerEmotion("Inspired")
 	UI:WaitShowDialogue("Le sommet est à nous ! Bonne ascension à tous !")
 	
 	local dept2 = {}
-	for i = 3, 4 do
+	for idx, chara in ipairs({m[3], m[4], m[7], m[8]}) do
 		dept2[#dept2+1] = TASK:BranchCoroutine(function()
-			GROUND:MoveInDirection(m[i], Direction.Up, 320, false, 1.5)
-			GAME:GetCurrentGround():RemoveTempChar(m[i])
-		end)
-	end
-	for i = 7, 8 do
-		dept2[#dept2+1] = TASK:BranchCoroutine(function()
-			GROUND:MoveInDirection(m[i], Direction.Up, 320, false, 1.5)
-			GAME:GetCurrentGround():RemoveTempChar(m[i])
+			GAME:WaitFrames(idx * 8)
+			GROUND:MoveToPosition(chara, 276, 180, false, 1.5)
+			GROUND:MoveToPosition(chara, 276, 60, false, 1.5)
+			GAME:GetCurrentGround():RemoveTempChar(chara)
 		end)
 	end
 	TASK:JoinCoroutines(dept2)
@@ -483,8 +506,8 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 		UI:WaitShowDialogue("Ils ne perdent pas de temps ! Allez, " .. hero:GetDisplayName() .. ", on ne va pas se laisser distancer !")
 	end
 
-	-- SCÈNE 7 : SCÈNE MATURE ENTRE PENTICUS ET PHILEAS (Près du sac d'expédition)
-	GAME:MoveCamera(290, 190, 1, false)
+	-- SCÈNE 7 : SCÈNE MATURE ENTRE PENTICUS ET PHILEAS (Près du sac d'expédition au nord)
+	GAME:MoveCamera(290, 184, 1, false)
 	GAME:WaitFrames(30)
 
 	GROUND:CharTurnToCharAnimated(m[1], m[2], 4)
@@ -533,11 +556,20 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 	UI:SetSpeakerEmotion("Inspired")
 	UI:WaitShowDialogue("La voie est libre. Équipe de pointe... en avant !")
 
-	GAME:FadeOut(false, 60)
-	GAME:WaitFrames(60)
+	GAME:FadeOut(false, 40)
+	GAME:WaitFrames(40)
+
+	-- Purge de TOUS les sprites de la cinématique pour éviter toute duplication
+	mount_windswept_entrance_ch_5.RemoveCharList(m)
 
 	SV.Chapter5.FinishedMountWindsweptIntro = true
 	GAME:CutsceneMode(false)
+
+	-- REMISE EN SCÈNE JOUABLE ET FADEIN (Plus aucun écran noir en fin de cinématique !)
+	mount_windswept_entrance_ch_5.SetupGround()
+	GROUND:TeleportTo(hero, 270, 240, Direction.Up)
+	if partner ~= nil then GROUND:TeleportTo(partner, 300, 240, Direction.Up) end
+	GAME:FadeIn(40)
 end
 
 --------------------------------------------------------------------
