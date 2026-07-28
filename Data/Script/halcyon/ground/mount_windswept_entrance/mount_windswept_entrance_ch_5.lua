@@ -438,6 +438,30 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 	SOUND:PlayBGM("Wigglytuff's Guild.ogg", true) -- Musique solennelle des assemblées de guilde !
 	GAME:WaitFrames(50)
 
+	-- Contemplation de la grandeur de la montagne verdoyante touchant les nuages
+	UI:SetSpeaker(m[4]) -- Snubbull (Shuca)
+	UI:SetSpeakerEmotion("Inspired")
+	UI:WaitShowDialogue("Regardez ça... Vu du bas, le pic semble percer la voûte céleste !")
+
+	UI:SetSpeaker(m[6]) -- Cranidos (Reinier)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue("Même la roche en bas est recouverte d'une mousse alpine verdoyante... Mais plus on monte, plus les crêtes s'élèvent au-dessus des nuages.")
+
+	UI:SetSpeaker(m[3]) -- Audino (Rin)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue("C'est majestueux... et impressionnant. On va vraiment grimper tout là-haut ?")
+
+	UI:SetSpeaker(m[1]) -- Tropius (Penticus)
+	UI:SetSpeakerEmotion("Inspired")
+	UI:WaitShowDialogue("Le Mont Venteux est un pilier du monde, mes amis. De ses contreforts verdoyants jusqu'à ses aiguilles de vent, chaque palier exigera toute votre détermination.")
+
+	if partner ~= nil then
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Determined")
+		UI:WaitShowDialogue("...C'est immense. Mais on ne reculera devant rien. Pas vrai, " .. hero:GetDisplayName() .. " ?")
+	end
+	GAME:WaitFrames(20)
+
 	-- Briefing de chef d'expédition
 	UI:SetSpeaker(m[1])
 	UI:SetSpeakerEmotion("Inspired")
