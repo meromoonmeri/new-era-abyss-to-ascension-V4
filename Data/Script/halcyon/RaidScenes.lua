@@ -28,13 +28,40 @@
          musique se terminent ensemble.
 
     ------------------------------------------------------------------
-    LE CHEVET — pourquoi ces trois-la
+    LE CHEVET — pourquoi ces trois-la, et pas d'autres
     ------------------------------------------------------------------
-      Phileas (Noctowl), maitre de guilde. Il ne gronde pas : il
+    CORRECTION D'UNE ERREUR DE CASTING. La premiere version de cette
+    scene convoquait « Phileas, maitre de guilde » et « Chatot, son
+    second ». Les deux etaient faux, verification faite dans le depot :
+
+      * Le maitre de guilde est PENTICUS (Tropius). Preuve :
+        guild_third_floor_lobby_ch_7.lua ouvre l'adresse du matin sur
+        lui, et c'est LUI qui donne la parole a Phileas (« Et au coeur
+        de tout ca, les anciennes Ruines Tordues. Phileas ? »).
+      * PHILEAS (Noctowl) est le savant de la guilde, pas son chef. Il
+        repond « Merci, Penticus » et enchaine sur le savoir des ruines.
+        C'est lui qui raconte la Genese au ch7.
+      * CHATOT s'appelle FALO, et ce n'est meme pas un membre de la
+        guilde : c'est le MUSICIEN de Metano (metano_town/init.lua:3183,
+        instance 'Musician'). Il n'a rien a faire au chevet du heros.
+
+    Le trio corrige, et ce que chacun apporte :
+
+      PENTICUS (Tropius), maitre de guilde. Il ne gronde pas : il
         constate, puis il protege. C'est ce qui le rend impressionnant.
-      Chatot, son second. Lui gronde — c'est son role, et ca permet a
-        Phileas de ne pas avoir a le faire.
-      Audino, l'infirmiere. Elle parle du CORPS, jamais de la faute.
+        C'est aussi lui qui a autorite pour doubler les veilles.
+      PHILEAS (Noctowl), le savant. Il ne s'interesse pas a la faute
+        mais au FAIT : comment les pillards savaient ou chercher. Son
+        role dans tout le mod est de comprendre, pas de commander.
+      RIN (Audino). Elle tient l'assemblee au 2e etage
+        (guild_second_floor : Assembly_Owner) et connait tout le monde ;
+        elle parle du CORPS et du repos, jamais de la faute.
+
+    Le partage des roles reste le meme qu'avant — quelqu'un s'inquiete
+    du corps, quelqu'un reproche, quelqu'un conclut — mais il est
+    desormais porte par les bons personnages. Le reproche revient a
+    Phileas sous forme de question insistante (c'est sa maniere), ce qui
+    laisse Penticus libre de proteger.
 
     Ils repartent en file, et la piece redevient calme : le joueur
     reprend la main sans transition brutale.
@@ -160,9 +187,9 @@ end
 -- retires : la chambre n'a aucun MapChar permanent, verifie dans
 -- guild_heros_room.rsground (MapChars vide).
 local VISITEURS = {
-  { 'Noctowl', 200, 190, Direction.Up },   --Phileas, au centre
-  { 'Chatot',  150, 180, Direction.Right}, --son second, en retrait
-  { 'Audino',  240, 180, Direction.Left }, --l'infirmiere, cote lit
+  { 'Tropius', 200, 190, Direction.Up },   --Penticus, maitre de guilde, au centre
+  { 'Noctowl', 150, 180, Direction.Right}, --Phileas, le savant, en retrait
+  { 'Audino',  240, 180, Direction.Left }, --Rin, cote lit
 }
 
 function RaidScenes.Bedside()
@@ -176,9 +203,9 @@ function RaidScenes.Bedside()
 
     --Les visiteurs sont deja la quand on ouvre les yeux.
     CharacterEssentials.MakeCharactersFromList(VISITEURS)
-    local phileas = CH('Noctowl')
-    local chatot  = CH('Chatot')
-    local audino  = CH('Audino')
+    local penticus = CH('Tropius')   --le maitre de guilde
+    local phileas  = CH('Noctowl')   --le savant
+    local rin      = CH('Audino')
 
     --Le duo est couche. On se reveille : le monde revient par le son.
     SOUND:PlayBGM('Goodnight.ogg', true)
@@ -188,76 +215,89 @@ function RaidScenes.Bedside()
     narrate("Des voix.[pause=30] Elles parlaient deja avant que vous ouvriez les yeux.")
     GAME:WaitFrames(20)
 
-    --AUDINO EN PREMIER : le corps avant la faute.
-    say(audino, 'Worried', "Il se reveille.[pause=25] Doucement. Ne vous redressez pas d'un coup.")
-    say(audino, 'Normal', "Rien de casse.[pause=30] De l'epuisement, surtout. Beaucoup d'epuisement.")
+    --RIN EN PREMIERE : le corps avant la faute. Elle connait tout le
+    --monde a la guilde (elle tient l'assemblee), donc elle tutoie les
+    --inquietudes sans jamais parler de responsabilite.
+    say(rin, 'Worried', "Il se reveille.[pause=25] Doucement. Ne vous redressez pas d'un coup.")
+    say(rin, 'Normal', "Rien de casse.[pause=30] De l'epuisement, surtout. Beaucoup d'epuisement.")
     GAME:WaitFrames(10)
     think(hero, 'Worried', "(La chambre. Mon lit.[pause=25] Je ne me souviens pas d'etre rentre.)")
     GAME:WaitFrames(15)
 
-    --CHATOT GRONDE : ca libere Phileas de devoir le faire.
-    say(chatot, 'Angry', "Deux contre toute une bande ![pause=25] Vous auriez pu sonner l'alarme !")
-    say(chatot, 'Shouting', "C'est pour ca qu'elle existe, l'alarme ![pause=30] Pour qu'on vienne !")
-    GAME:WaitFrames(12)
+    --PHILEAS INSISTE. Ce n'est pas un reproche de superieur : c'est un
+    --savant qui veut des faits, et qui n'a pas la delicatesse d'attendre.
+    --Sa maniere de presser vaut reproche, ce qui laisse Penticus libre
+    --de proteger ensuite.
+    say(phileas, 'Worried', "Combien etaient-ils ?[pause=25] Reflechissez. C'est important.")
+    say(partner, 'Pain', "Je ne sais pas...[pause=30] Ils bougeaient tous en meme temps.")
+    say(phileas, 'Normal', "Et l'alarme ?[pause=30] Pourquoi n'avez-vous pas sonne l'alarme ?")
     say(partner, 'Sad', "On n'a pas eu le temps.[pause=30] Ils etaient deja sur la place.")
     GAME:WaitFrames(15)
 
-    --PHILEAS : il ne gronde pas. Il fait le point, froidement.
-    say(phileas, 'Normal', "Assez.[pause=30] Ils ont tenu jusqu'a ce qu'ils tombent. C'est deja beaucoup.")
+    --PENTICUS COUPE. Le maitre de guilde protege les siens avant de
+    --demander des comptes : c'est ce qui le rend impressionnant.
+    say(penticus, 'Normal', "Assez, Phileas.[pause=30] Ils ont tenu jusqu'a ce qu'ils tombent. C'est deja beaucoup.")
     GAME:WaitFrames(12)
-    say(phileas, 'Worried', "Voici ce que nous savons.[pause=25] Ils sont entres par l'est, avant la mi-nuit.")
+    say(penticus, 'Worried', "Voici ce que nous savons.[pause=25] Ils sont entres par l'est, avant la mi-nuit.")
 
     --LE DEBRIEF CHIFFRE : on nomme les pertes. Le joueur doit savoir.
     if (plunder.LastStolen or 0) > 0 then
-      say(phileas, 'Sad', "Le coffre a ete force.[pause=25] "
+      say(penticus, 'Sad', "Le coffre a ete force.[pause=25] "
         .. tostring(plunder.LastStolen) .. STRINGS:Format("\\uE024") .. " manquent au registre.")
     end
     if plunder.LastItems ~= nil and #plunder.LastItems > 0 then
-      say(phileas, 'Sad', "Votre sac a ete fouille pendant que vous etiez a terre.[pause=25] Ils ne se sont pas genes.")
+      say(rin, 'Sad', "On a fouille votre sac pendant que vous etiez a terre.[pause=25] Ils ne se sont pas genes.")
     end
     if plunder.ShopsEmpty then
-      say(chatot, 'Worried', "Les etals sont vides.[pause=30] Les marchands ne rouvriront pas aujourd'hui.")
+      say(rin, 'Worried', "Les etals sont vides.[pause=30] Les marchands ne rouvriront pas aujourd'hui.")
     end
     GAME:WaitFrames(12)
 
+    --PHILEAS REPREND, sur son vrai terrain : comprendre. C'est lui qui
+    --pose la question qui compte, et le heros la complete tout seul.
     say(phileas, 'Normal', "Ce qui m'occupe n'est pas ce qu'ils ont pris.[pause=30] C'est qu'ils savaient ou chercher.")
     think(hero, 'Worried', "(Alors ils etaient deja venus.[pause=25] Avant cette nuit.)")
+    say(phileas, 'Worried', "Je vais relire les registres des veilles.[pause=30] Toutes les nuits, depuis le debut.")
     GAME:WaitFrames(15)
 
-    say(phileas, 'Determined', "La guilde double les veilles a partir de ce soir.[pause=25] Vous, vous vous reposez.")
+    --PENTICUS TRANCHE : seul le maitre de guilde a autorite pour ca.
+    say(penticus, 'Determined', "La guilde double les veilles a partir de ce soir.[pause=25] Vous, vous vous reposez.")
     say(partner, 'Determined', "On peut reprendre la garde des demain !")
-    say(phileas, 'Normal', "Je n'en doute pas.[pause=30] C'est justement pour cela que je vous l'interdis aujourd'hui.")
+    say(penticus, 'Normal', "Je n'en doute pas.[pause=30] C'est justement pour cela que je vous l'interdis aujourd'hui.")
     GAME:WaitFrames(15)
 
     --Une derniere phrase qui n'accuse pas : c'est elle qu'on retient.
-    say(phileas, 'Sad', "Vous etiez deux, dehors, pour nous tous.[pause=30] Ne l'oubliez pas quand vous vous en voudrez.")
+    say(penticus, 'Sad', "Vous etiez deux, dehors, pour nous tous.[pause=30] Ne l'oubliez pas quand vous vous en voudrez.")
     GAME:WaitFrames(20)
 
     --ILS SORTENT, en file, vers Bedroom_Exit (0,184). Coroutines jointes :
     --les trois departs se terminent ensemble, la piece se vide d'un bloc.
-    say(audino, 'Happy', "Reposez-vous.[pause=25] C'est une prescription, pas un conseil.")
+    say(rin, 'Happy', "Reposez-vous.[pause=25] Ce n'est pas un conseil, c'est un ordre de l'assemblee.")
     GAME:WaitFrames(10)
 
+    --Ordre de sortie voulu : Phileas file le premier, il a des registres a
+    --relire. Rin ensuite. Penticus ferme la marche — un maitre de guilde
+    --sort toujours en dernier de la chambre d'un blesse.
     local c1 = TASK:BranchCoroutine(function()
-      GROUND:MoveToPosition(chatot, 60, 200, false, 1)
-      GROUND:MoveToPosition(chatot, 8, 200, false, 1)
+      GROUND:MoveToPosition(phileas, 60, 200, false, 1)
+      GROUND:MoveToPosition(phileas, 8, 200, false, 1)
     end)
     local c2 = TASK:BranchCoroutine(function()
       GAME:WaitFrames(20)
-      GROUND:MoveToPosition(audino, 60, 208, false, 1)
-      GROUND:MoveToPosition(audino, 8, 208, false, 1)
+      GROUND:MoveToPosition(rin, 60, 208, false, 1)
+      GROUND:MoveToPosition(rin, 8, 208, false, 1)
     end)
     local c3 = TASK:BranchCoroutine(function()
       GAME:WaitFrames(40)
-      GROUND:MoveToPosition(phileas, 60, 192, false, 1)
-      GROUND:MoveToPosition(phileas, 8, 192, false, 1)
+      GROUND:MoveToPosition(penticus, 60, 192, false, 1)
+      GROUND:MoveToPosition(penticus, 8, 192, false, 1)
     end)
     TASK:JoinCoroutines({c1, c2, c3})
     GAME:WaitFrames(20)
 
     --On retire les visiteurs : ils ne doivent pas rester dans la chambre.
     pcall(function()
-      GROUND:Hide('Noctowl'); GROUND:Hide('Chatot'); GROUND:Hide('Audino')
+      GROUND:Hide('Tropius'); GROUND:Hide('Noctowl'); GROUND:Hide('Audino')
     end)
 
     --La piece est calme. Le duo se leve : on rend la main en douceur.
