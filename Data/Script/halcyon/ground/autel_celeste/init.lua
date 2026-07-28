@@ -66,6 +66,14 @@ function autel_celeste.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(lugia, "Idle", true)
 
+  -- Autel de Lugia — theme de boss. Cette arene n'avait AUCUNE musique : le combat le plus
+
+  -- important du chapitre se jouait en silence complet. Le theme
+
+  -- demarre avec le titre, comme dans les 42 arenes de gardiens.
+
+  SOUND:PlayBGM('Boss Battle!.ogg', true)
+
   UI:WaitShowTitle(lugia:GetDisplayName(), 20)
   GAME:WaitFrames(40)
   UI:WaitHideTitle(20)

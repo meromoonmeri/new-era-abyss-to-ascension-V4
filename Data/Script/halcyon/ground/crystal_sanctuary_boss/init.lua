@@ -57,6 +57,10 @@ function crystal_sanctuary_boss.Enter(map)
   GROUND:CharSetAnim(diancie, "Idle", true)
 
   -- Titre + dialogue court : le test moral, pas un mur de HP.
+  -- Chambre de Diancie — theme de boss. Cette arene n'avait AUCUNE musique : le combat le plus
+  -- important du chapitre se jouait en silence complet. Le theme
+  -- demarre avec le titre, comme dans les 42 arenes de gardiens.
+  SOUND:PlayBGM('Boss Battle!.ogg', true)
   UI:WaitShowTitle(diancie:GetDisplayName(), 20)
   GAME:WaitFrames(40)
   UI:WaitHideTitle(20)

@@ -3822,4 +3822,4 @@
   <data name="LZ_Sight_First_Breath" xml:space="preserve">
     <value>A highland above all skies. The grass bends toward a single point.</value>
   </data>
-</root>
+<data name="Item_Give_Storage" xml:space="preserve"><value>You received the {0}![pause=0] It was placed in your storage.</value></data></root>

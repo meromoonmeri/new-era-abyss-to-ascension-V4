@@ -59,6 +59,10 @@ function forgotten_marsh_boss.Enter(map)
   GROUND:CharSetAnim(boss, "Idle", true)
 
   -- Titre + ligne courte : l'intensite vient du rythme, pas du texte.
+  -- Antre du Marais — theme de boss. Cette arene n'avait AUCUNE musique : le combat le plus
+  -- important du chapitre se jouait en silence complet. Le theme
+  -- demarre avec le titre, comme dans les 42 arenes de gardiens.
+  SOUND:PlayBGM('Boss Battle!.ogg', true)
   UI:WaitShowTitle(boss:GetDisplayName(), 20)
   GAME:WaitFrames(40)
   UI:WaitHideTitle(20)
