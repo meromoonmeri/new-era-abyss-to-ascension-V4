@@ -81,11 +81,16 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
       GAME:WaitFrames(20)
       TownNight.Enter()
     else
-      -- Defaite : la ville a ete pillee. On se reveille dans sa chambre, et
-      -- la journee suivante commence normalement.
+      -- Defaite : le heros s'ecroule sur la place (RaidScenes.Collapse,
+      -- appele par TownRaid.Defeat), la ville est pillee, et il se reveille
+      -- le lendemain a la chambre avec la guilde a son chevet.
+      --
+      -- On ne pose PAS Bedtime/MorningWakeup ici : le duo est deja
+      -- inconscient, il n'y a pas de coucher a jouer. RaidScenes.Bedside
+      -- assure a lui seul le reveil, le debrief et la remise en main.
+      -- Seul MorningAddress reste, pour que la journee suivante enchaine
+      -- normalement une fois les visiteurs sortis.
       pcall(function() TownRaid.Defeat() end)
-      SV.TemporaryFlags.Bedtime = true
-      SV.TemporaryFlags.MorningWakeup = true
       SV.TemporaryFlags.MorningAddress = true
       GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 2, 0, true, true)
     end

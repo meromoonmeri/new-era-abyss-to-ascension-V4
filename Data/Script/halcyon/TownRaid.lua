@@ -68,6 +68,7 @@ require 'halcyon.BossFX'
 require 'halcyon.TownPlunder'
 require 'halcyon.NightWatch'
 require 'halcyon.TownReward'
+require 'halcyon.RaidScenes'
 
 TownRaid = {}
 
@@ -108,6 +109,8 @@ function TownRaid.Ensure()
   if s.Wave == nil then s.Wave = 0 end           -- palier atteint (1..3)
   if s.LastDay == nil then s.LastDay = -1 end    -- jour du dernier raid
   if s.Told == nil then s.Told = {} end          -- reactions deja vues
+  --Reveil au chevet a jouer au prochain passage dans la chambre.
+  if s.BedsidePending == nil then s.BedsidePending = false end
   return s
 end
 
@@ -219,6 +222,8 @@ function TownRaid.Begin()
     local fn = ALERTS[wave] or ALERTS[1]
     fn(hero, partner)
   end)
+  --NOTE : la fuite des ombres (RaidScenes.ShadowsFlee) et l'ecroulement
+  --(RaidScenes.Collapse) se jouent APRES le combat, dans Victory/Defeat.
   if not ok then PrintInfo('[TownRaid.Begin] alerte ecourtee : '..tostring(err)) end
 
   pcall(function()
@@ -260,7 +265,11 @@ function TownRaid.Victory()
     SOUND:FadeOutBGM(30)
     GAME:WaitFrames(25)
 
-    narrate("Les dernieres ombres se defont.[pause=30] Il ne reste rien a combattre.")
+    --LES OMBRES REFLUENT. Mise en scene deportee dans RaidScenes : les
+    --pillards ne meurent pas, ils se dissolvent et retournent d'ou ils
+    --viennent. Cette scene remplace la simple phrase de constat qui se
+    --trouvait ici, et joue AVANT les repliques du duo.
+    pcall(function() RaidScenes.ShadowsFlee(wave) end)
     GAME:WaitFrames(15)
 
     if wave >= 3 then
@@ -300,29 +309,23 @@ function TownRaid.Defeat()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
+  --L'ECROULEMENT. Le corps lache avant que quiconque commente : jambes
+  --qui cedent, ecran qui tangue, chute, puis le noir. Joue AVANT tout
+  --le reste — c'est le dernier souvenir du heros avant son reveil.
+  pcall(function() RaidScenes.Collapse() end)
+
   --LE PILLAGE A LIEU POUR DE VRAI. Etals vides, banque entamee, sac
   --allege. Applique AVANT la scene, pour que le constat puisse citer
   --les montants exacts. Voir TownPlunder.lua pour les garde-fous.
   local vole, objets = 0, {}
   pcall(function() vole, objets = TownPlunder.Apply() end)
 
-  return pcall(function()
-    GAME:CutsceneMode(true)
-    if partner ~= nil then AI:DisableCharacterAI(partner) end
-    SOUND:FadeOutBGM(30)
-    GAME:WaitFrames(25)
-    narrate("Vous vous reveillez chez vous.[pause=30] Quelqu'un vous a ramenes. Vous ne saurez pas qui.")
-    say(partner, 'Pain', "Ils ont pris ce qu'ils voulaient...[pause=30] et on n'a rien pu faire.")
-    think(hero, 'Worried', "(Demain, quelqu'un ouvrira sa boutique et trouvera le vide.)")
-
-    --Le constat chiffre : le joueur doit SAVOIR ce qu'il a perdu, sinon
-    --la perte passe pour un bug.
-    GAME:WaitFrames(15)
-    pcall(function() TownPlunder.Report() end)
-    GAME:WaitFrames(10)
-
-    say(partner, 'Determined', "La prochaine fois, on tiendra.[pause=25] Je te le promets.")
-  end)
+  --LE REVEIL EST DEPORTE AU LENDEMAIN. Le heros s'est evanoui : il ne
+  --peut pas commenter sa propre nuit dans la seconde qui suit. La suite
+  --(reveil, chevet de la guilde, debrief chiffre) se joue dans la
+  --chambre, via RaidScenes.Bedside, arme par ce drapeau.
+  s.BedsidePending = true
+  return true
 end
 
 --------------------------------------------------------------------

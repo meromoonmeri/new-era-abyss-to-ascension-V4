@@ -19,6 +19,7 @@ require 'halcyon.ground.guild_heros_room.guild_heros_room_ch_6'
 require 'halcyon.ground.guild_heros_room.guild_heros_room_helper'
 require 'halcyon.SideQuests'
 require 'halcyon.NightWatch'
+require 'halcyon.RaidScenes'
 
 
 -- Package name
@@ -207,6 +208,22 @@ function guild_heros_room.CheckTriggerEvent()
 end
 
 function guild_heros_room.PlotScripting()
+	--LE CHEVET APRES UN RAID PERDU (RaidScenes.Bedside). Le heros s'est
+	--evanoui sur la place : il se reveille ici, et la guilde est deja la.
+	--Cette scene passe AVANT tout le reste, y compris le tour de guet :
+	--on ne repart pas veiller le soir meme d'un evanouissement, et Phileas
+	--le dit explicitement dans la scene.
+	local raid = SV.TownRaid or {}
+	if raid.BedsidePending then
+		raid.BedsidePending = false
+		--Le reveil remplace la scene de coucher/matin generique : ces
+		--drapeaux sont consommes ici pour ne pas enchainer deux reveils.
+		SV.TemporaryFlags.Bedtime = false
+		SV.TemporaryFlags.MorningWakeup = false
+		pcall(function() RaidScenes.Bedside() end)
+		return
+	end
+
 	--LE TOUR DE GUET (NightWatch). Il s'insere AVANT le coucher : quand la
 	--guilde inscrit l'equipe au registre des veilles, on ne dort pas, on
 	--sort veiller sur Metano. C'est ce qui donne une raison NARRATIVE a la
