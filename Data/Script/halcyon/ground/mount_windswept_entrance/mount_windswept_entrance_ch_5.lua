@@ -105,22 +105,32 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--    ceux qui partiront en premier au matin.
 	--  * HYKO et ALMOTZ sont voisins (8 et 9, 50 px) : ils chuchotent
 	--    encore apres l'extinction du feu, il faut qu'ils s'entendent.
-	--  * PHILEAS a la couche 2, mais il ne s'y couche pas tout de suite :
-	--    il prend le premier tour de garde au nord du camp.
+	--
+	--  * PHILEAS N'A PAS DE PAILLASSE, ET C'EST VOULU. Il prend le
+	--    premier tour de garde : il monte au nord du camp et y reste
+	--    debout toute la nuit. Lui attribuer une couche qu'il n'occupe
+	--    jamais laissait un couchage VIDE au milieu du cercle pendant
+	--    toute la veillee, le reve et le reveil — un lit de trop pour
+	--    onze dormeurs. C'est PENTICUS qui prend la couche 2, la sienne
+	--    reste la 1 : le maitre de guilde dort plein nord, entre les
+	--    dormeurs et la porte du donjon.
+	--
+	--    Conséquence directe : la table BEDS ne compte plus que ONZE
+	--    couchages (voir sa definition). DeployBeds n'en pose que onze,
+	--    donc plus aucune paillasse inutilisee a l'ecran.
 	--Le +13/+10 place le sprite au centre de la paillasse (patron Tunnel).
 	local seats = {
 		{t.penticus, 1,  Direction.Down},
-		{t.phileas,  2,  Direction.Left},
-		{t.coco,     3,  Direction.Left},
-		{t.ganlon,   4,  Direction.Left},
-		{t.reinier,  5,  Direction.Left},
-		{partner,    6,  Direction.Left},
-		{hero,       7,  Direction.Up},
-		{t.hyko,     8,  Direction.Up},
-		{t.almotz,   9,  Direction.Right},
-		{t.shuca,    10, Direction.Right},
-		{t.rin,      11, Direction.Right},
-		{t.kino,     12, Direction.Right},
+		{t.coco,     2,  Direction.Left},
+		{t.ganlon,   3,  Direction.Left},
+		{t.reinier,  4,  Direction.Left},
+		{partner,    5,  Direction.Left},
+		{hero,       6,  Direction.Up},
+		{t.hyko,     7,  Direction.Up},
+		{t.almotz,   8,  Direction.Right},
+		{t.shuca,    9,  Direction.Right},
+		{t.rin,      10, Direction.Right},
+		{t.kino,     11, Direction.Right},
 	}
 	local function seatX(i) return B[i][1] + 13 end
 	local function seatY(i) return B[i][2] + 10 end
@@ -996,13 +1006,18 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--LE REVEIL. Le corps parle avant la bouche (grammaire du projet) :
 	--le sursaut physique, puis seulement la pensee. Le heros dort, donc
 	--on leve sa pose le temps du sursaut avant de le rendormir.
+	--LE SURSAUT. Le heros se redresse d'un coup, et la piece tangue
+	--autour de lui : c'est le reveil de Rouge/Bleu, ou l'on se reveille
+	--MAL. On leve d'abord sa pose de sommeil (sinon Nausea joue sur un
+	--personnage couche et le tangage ne se lit pas), puis on passe par
+	--VoiceVisions.Nausea au lieu d'un ScreenMover isole : le niveau 1
+	--donne l'amplitude DEGRESSIVE portee de pmd-sky (le vertige s'eteint
+	--au lieu de se couper net) sans le voile noir des niveaux 2 et 3,
+	--qui serait de trop ici — on est deja dans le noir de la nuit.
 	pcall(function() SOUND:PlayBattleSE('EVT_Emote_Exclaim_2') end)
-	pcall(function()
-		GROUND:CharEndAnim(hero)
-		GROUND:CharSetEmote(hero, "shock", 1)
-		GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 3, 20))
-	end)
-	GAME:WaitFrames(30)
+	pcall(function() GROUND:CharEndAnim(hero) end)
+	pcall(function() VoiceVisions.Nausea(hero, 1) end)
+	GAME:WaitFrames(20)
 
 	UI:ResetSpeaker(false)
 	UI:SetCenter(true)
@@ -1500,21 +1515,26 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:SetSpeaker(t.kino)
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_105']))
+	--FILES PARALLELES, PAS SUPERPOSEES. Les trois partaient sur la meme
+	--colonne x=284 avec 8 px d'ecart en Y : trois sprites de 16x16 qui
+	--se traversaient en montant. Chacun a maintenant SA colonne (16 px
+	--d'ecart minimum, largeur d'un sprite), sentier verifie praticable
+	--de x=252 a x=316 sur toute la remontee.
 	coro1 = TASK:BranchCoroutine(function()
-		GeneralFunctions.EightWayMove(t.kino, 284, 200, false, 1)
-		GeneralFunctions.EightWayMove(t.kino, 284, 124, false, 1)
+		GeneralFunctions.EightWayMove(t.kino, 268, 200, false, 1)
+		GeneralFunctions.EightWayMove(t.kino, 268, 124, false, 1)
 		GROUND:Hide(t.kino.EntName)
 	end)
 	coro2 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(16)
 		GeneralFunctions.EightWayMove(t.reinier, 284, 208, false, 1)
-		GeneralFunctions.EightWayMove(t.reinier, 284, 132, false, 1)
+		GeneralFunctions.EightWayMove(t.reinier, 284, 128, false, 1)
 		GROUND:Hide(t.reinier.EntName)
 	end)
 	coro3 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(32)
-		GeneralFunctions.EightWayMove(t.almotz, 284, 216, false, 1)
-		GeneralFunctions.EightWayMove(t.almotz, 284, 140, false, 1)
+		GeneralFunctions.EightWayMove(t.almotz, 300, 216, false, 1)
+		GeneralFunctions.EightWayMove(t.almotz, 300, 132, false, 1)
 		GROUND:Hide(t.almotz.EntName)
 	end)
 	coro4 = TASK:BranchCoroutine(function()
@@ -1531,37 +1551,52 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_106']))
 	coro1 = TASK:BranchCoroutine(function()
-		GeneralFunctions.EightWayMove(t.rin, 284, 200, false, 1)
-		GeneralFunctions.EightWayMove(t.rin, 284, 124, false, 1)
+		GeneralFunctions.EightWayMove(t.rin, 268, 200, false, 1)
+		GeneralFunctions.EightWayMove(t.rin, 268, 124, false, 1)
 		GROUND:Hide(t.rin.EntName)
 	end)
 	coro2 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(16)
-		GeneralFunctions.EightWayMove(t.coco, 284, 208, false, 1)
-		GeneralFunctions.EightWayMove(t.coco, 284, 132, false, 1)
+		GeneralFunctions.EightWayMove(t.coco, 300, 208, false, 1)
+		GeneralFunctions.EightWayMove(t.coco, 300, 128, false, 1)
 		GROUND:Hide(t.coco.EntName)
 	end)
 	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(20)
 
-	--Ganlon et Shuca, la cordee du sommet, partent devant marquer la
-	--voie : dans le donjon ils rejoignent l'equipe jouable (SetParty,
-	--appele ci-dessous, cree Ganlon et Shuca en Teammate2/3 — la
-	--narration et l'equipe de jeu racontent ENFIN la meme chose).
+	------------------------------------------------------------------
+	-- GANLON ET SHUCA NE PARTENT PAS. ILS NOUS ATTENDENT.
+	------------------------------------------------------------------
+	-- BUG DE CHRONOLOGIE CORRIGE. Cette scene les faisait monter le
+	-- sentier PUIS disparaitre (GROUND:Hide) — « ils partent devant
+	-- marquer la voie ». Or ce sont eux que SetParty transforme en
+	-- Teammate2/3 quelques lignes plus bas : le joueur les voyait donc
+	-- s'en aller seuls dans la montagne, et les retrouvait collés à lui
+	-- dans le donjon deux secondes plus tard. La narration disait
+	-- l'inverse de ce que le jeu faisait.
+	--
+	-- Desormais ils RESTENT, et c'est tout le sens de la cordee : on
+	-- part ENSEMBLE. Ils se placent en tete du sentier, face au nord,
+	-- et attendent que le duo les rejoigne — la formation de depart est
+	-- deja constituee quand le joueur reprend la main.
 	GROUND:CharTurnToCharAnimated(t.shuca, hero, 4)
 	UI:SetSpeaker(t.shuca)
 	UI:SetSpeakerEmotion("Joyous")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_104']))
+
+	--Ils prennent leur poste d'attente. Colonnes espacees de 16 px (la
+	--largeur d'un sprite) : ils ne se traversent pas, et ils laissent
+	--libre la colonne centrale par laquelle le duo va remonter.
 	coro1 = TASK:BranchCoroutine(function()
-		GeneralFunctions.EightWayMove(t.ganlon, 284, 200, false, 1)
-		GeneralFunctions.EightWayMove(t.ganlon, 284, 124, false, 1)
-		GROUND:Hide(t.ganlon.EntName)
+		GeneralFunctions.EightWayMove(t.ganlon, 268, 232, false, 1)
+		GeneralFunctions.EightWayMove(t.ganlon, 268, 200, false, 1)
+		GROUND:CharAnimateTurnTo(t.ganlon, Direction.Up, 4)
 	end)
 	coro2 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(18)
-		GeneralFunctions.EightWayMove(t.shuca, 284, 208, false, 1)
-		GeneralFunctions.EightWayMove(t.shuca, 284, 132, false, 1)
-		GROUND:Hide(t.shuca.EntName)
+		GeneralFunctions.EightWayMove(t.shuca, 300, 232, false, 1)
+		GeneralFunctions.EightWayMove(t.shuca, 300, 200, false, 1)
+		GROUND:CharAnimateTurnTo(t.shuca, Direction.Up, 4)
 	end)
 	coro3 = TASK:BranchCoroutine(function()
 		GeneralFunctions.FaceMovingCharacter(hero, t.ganlon, 4, Direction.Up)
@@ -1570,6 +1605,12 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		GeneralFunctions.FaceMovingCharacter(partner, t.ganlon, 4, Direction.Up)
 	end)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
+
+	--Ganlon rale une derniere fois, mais il attend : le geste dit
+	--« on y va quand vous voulez », pas « on se retrouve la-haut ».
+	GROUND:CharTurnToCharAnimated(t.ganlon, hero, 4)
+	pcall(function() GeneralFunctions.EmoteAndPause(t.ganlon, "Sweating", true) end)
+	GROUND:CharAnimateTurnTo(t.ganlon, Direction.Up, 4)
 	GAME:WaitFrames(25)
 
 	---------------------------------------------------------------
@@ -2066,12 +2107,28 @@ end
 --   2. ces tuiles appartiennent a la composante connexe de l'entree ;
 --   3. aucun recouvrement avec une autre paillasse ;
 --   4. l'assise (+13,+10) est elle-meme libre et connexe.
--- L'ouverture sud (secteur 75-105 degres) reste vide : c'est le
+-- L'ouverture sud (secteur 70-115 degres) reste vide : c'est le
 -- passage vers le sentier, et l'axe de l'adresse du matin.
+--
+-- ONZE COUCHAGES, PAS DOUZE. Phileas prend le premier tour de garde et
+-- passe la nuit DEBOUT au nord du camp : lui reserver une paillasse
+-- laissait un lit vide au milieu du cercle pendant toute la veillee, le
+-- reve et le reveil. On en pose donc onze, un par dormeur reel
+-- (10 membres au sol + le heros), et Penticus garde la couche 1.
+--
+-- Le rocher de Kangaskhan est REVENU a sa position d'origine (160,144),
+-- au pied de la montagne. Les onze positions ci-dessous sont donc aussi
+-- verifiees NE PAS CHEVAUCHER son emprise de 32x32 — l'ancienne serie ne
+-- pouvait pas l'etre, le rocher etait alors pose ailleurs.
+--
+-- La couche 11 est sur le flanc EST et non a l'ouest : l'emplacement
+-- ouest (200,180) tombait sous Penticus (230,190) et sous Hyko (224,206),
+-- qui se tiennent la de jour. Un couchage sous les pieds d'un PNJ est
+-- invisible pour un lecteur du code et flagrant a l'ecran.
 mount_windswept_entrance_ch_5.BEDS = {
-	{248, 116}, {298, 168}, {342, 168}, {330, 210},
-	{372, 216}, {348, 258}, {320, 300}, {220, 314},
-	{178, 286}, {156, 244}, {154, 202}, {170, 160},
+	{248, 116}, {298, 168}, {344, 168}, {356, 214},
+	{348, 260}, {322, 306}, {210, 310}, {164, 286},
+	{154, 240}, {154, 194}, {362, 300},
 }
 
 function mount_windswept_entrance_ch_5.SetupGround()	
@@ -2244,18 +2301,35 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	GROUND:TeleportTo(hero, 256, 456, Direction.Up)
 	GROUND:TeleportTo(partner, 256, 472, Direction.Up)
 	
+	--------------------------------------------------------------------
+	-- LE CAMP EXISTE AVANT NOUS.
+	--------------------------------------------------------------------
+	-- BUG D'IMMERSION CORRIGE. Les six membres du camp etaient crees SANS
+	-- POSITION (« {'Tropius'} » tout court, donc en 0,0), laisses caches,
+	-- puis reveles d'un bloc par une boucle Unhide au milieu de la scene.
+	-- Le joueur voyait six Pokemon se materialiser d'un coup devant lui,
+	-- alors qu'ils sont censes camper la depuis des heures.
+	--
+	-- Desormais ils sont POSES A LEUR PLACE des la creation, chacun a son
+	-- occupation, et ils sont VISIBLES avant meme que le duo arrive. La
+	-- montee du sentier se fait donc vers un camp deja vivant : c'est ce
+	-- que fait un vrai Donjon Mystere, le lieu preexiste au heros.
+	--
+	-- Positions verifiees sol libre + connexes, hors emprise du feu
+	-- (36x36 en 256,220), hors rocher de Kangaskhan (32x32 en 160,144),
+	-- et espacees d'au moins 16 px (largeur de sprite) entre voisins.
 	local audino, snubbull, girafarig, breloom, growlithe, zigzagoon, tropius, noctowl, mareep, cranidos = 
 	CharacterEssentials.MakeCharactersFromList({
-		{'Audino'},
-		{'Snubbull'},
-		{'Girafarig'},
-		{'Breloom'},
+		{'Audino',    232, 258, Direction.UpRight},
+		{'Snubbull',  300, 214, Direction.Left},
+		{'Girafarig', 292, 276, Direction.Up},
+		{'Breloom',   240, 276, Direction.Up},
 		{'Growlithe', 240, 488, Direction.Up},
 		{'Zigzagoon', 272, 488, Direction.Up},
-		{'Tropius'},
-		{'Noctowl'},
-		{'Mareep'},
-		{'Cranidos'}
+		{'Tropius',   230, 190, Direction.DownRight},
+		{'Noctowl',   288, 196, Direction.DownLeft},
+		{'Mareep',    226, 232, Direction.Right},
+		{'Cranidos',  310, 236, Direction.Left}
 	})
 	
 	
@@ -2280,6 +2354,65 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	
 	GAME:FadeIn(40)
 	
+	--------------------------------------------------------------------
+	-- LE CAMP VIT PENDANT QU'ON MONTE.
+	--------------------------------------------------------------------
+	-- Pendant toute la remontee du sentier, le camp continue ses
+	-- occupations SANS savoir qu'on arrive : Coco s'affaire au feu, Rin
+	-- range, Ganlon fait les cent pas, Penticus surveille la montagne.
+	-- Le joueur voit donc un lieu deja habite, avec sa propre vie, avant
+	-- d'y entrer — c'est exactement ce que fait un Donjon Mystere.
+	--
+	-- La boucle tourne en tache de fond et s'arrete d'elle-meme quand la
+	-- montee est finie (verrou `campBusy`, meme patron `stopTalking` que
+	-- la veillee). Tout est sous pcall : la vie de fond ne doit JAMAIS
+	-- pouvoir interrompre l'arrivee du joueur.
+	local campBusy = true
+	local campLife = TASK:BranchCoroutine(function()
+		while campBusy do
+			pcall(function()
+				GROUND:CharSetAnim(snubbull, "Idle", true)
+				GROUND:CharSetEmote(snubbull, "happy", 0)
+			end)
+			GAME:WaitFrames(50)
+			if not campBusy then break end
+			pcall(function()
+				GROUND:CharEndAnim(snubbull)
+				GROUND:CharSetEmote(snubbull, "", 0)
+				GROUND:CharAnimateTurnTo(cranidos, Direction.Up, 4)
+			end)
+			GAME:WaitFrames(40)
+			if not campBusy then break end
+			pcall(function()
+				GROUND:CharAnimateTurnTo(cranidos, Direction.Left, 4)
+				GROUND:CharSetAnim(audino, "Idle", true)
+			end)
+			GAME:WaitFrames(50)
+			if not campBusy then break end
+			pcall(function()
+				GROUND:CharEndAnim(audino)
+				GROUND:CharAnimateTurnTo(tropius, Direction.Up, 6)
+			end)
+			GAME:WaitFrames(60)
+			if not campBusy then break end
+			pcall(function()
+				GROUND:CharAnimateTurnTo(tropius, Direction.DownRight, 6)
+				GROUND:CharSetEmote(mareep, "happy", 0)
+			end)
+			GAME:WaitFrames(50)
+			pcall(function() GROUND:CharSetEmote(mareep, "", 0) end)
+			GAME:WaitFrames(30)
+		end
+		--Remise a plat : aucune animation de fond ne doit survivre a la
+		--montee, sinon elle se superpose a l'accueil.
+		pcall(function()
+			GROUND:CharEndAnim(snubbull)
+			GROUND:CharEndAnim(audino)
+			GROUND:CharSetEmote(snubbull, "", 0)
+			GROUND:CharSetEmote(mareep, "", 0)
+		end)
+	end)
+
 	--LA MONTEE. File indienne du sud vers le camp, sans zigzag ; la
 	--camera GLISSE avec la colonne (deux paliers longs, pas de saut).
 	--Au bord sud du camp, la file s'ouvre en eventail sur 4 positions
@@ -2313,6 +2446,13 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 		GAME:MoveCamera(256, 310, 110, false)
 	end)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
+
+	--La vie de fond s'arrete ICI : le camp a fini ses occupations, il va
+	--maintenant reagir a l'arrivee. On joint la coroutine avant de
+	--continuer pour qu'aucune animation cyclique ne se superpose a
+	--l'accueil (sinon Coco continuerait de s'agiter en pleine scene).
+	campBusy = false
+	pcall(function() TASK:JoinCoroutines({campLife}) end)
 	GAME:WaitFrames(20)
 
 	--LA PREMIERE VUE DU SOMMET. Le partenaire leve la tete AVANT de
@@ -2360,42 +2500,44 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	end)
 	TASK:JoinCoroutines({coro1, coro2})
 
-	-- Le camp s'anime autour du feu. L'expedition n'est plus representee
-	-- par deux sprites plantes a l'entree.
+	--------------------------------------------------------------------
+	-- LE CAMP REMARQUE QU'ON ARRIVE.
+	--------------------------------------------------------------------
+	-- Les six sont deja en place et visibles depuis le debut de la scene
+	-- (cf. MakeCharactersFromList plus haut) : plus aucun Unhide en bloc,
+	-- plus aucun TeleportTo qui les ferait sauter d'un point a l'autre
+	-- sous les yeux du joueur. Il ne reste donc ici qu'une chose a
+	-- jouer — le moment ou ils LEVENT LA TETE.
 	--
-	-- BUG CORRIGE : un second feu etait pose ici, aux MEMES coordonnees
-	-- (256,220) que celui de BuildCamp. Deux animations superposees au
-	-- pixel pres, ce qui doublait la luminosite des flammes. Le feu est
-	-- desormais pose une seule fois, par le constructeur de camp.
-	for _, chara in ipairs({tropius, noctowl, audino, snubbull, mareep, cranidos}) do
-		GROUND:Unhide(chara.EntName)
-	end
-	--Le camp de jour se tient AUTOUR DU FEU, pas etale sur la clairiere.
-	--Positions verifiees : sol libre, connexe depuis l'entree, hors de
-	--l'empreinte du foyer (36x36) et hors des paillasses (40x40) — Shuca
-	--se tenait auparavant en (204,312), exactement sur la couche 9, et
-	--Reinier en (360,300) sur la couche 7.
-	GROUND:TeleportTo(tropius, 230, 190, Direction.DownRight)
-	GROUND:TeleportTo(noctowl, 288, 196, Direction.DownLeft)
-	GROUND:TeleportTo(audino, 232, 258, Direction.UpRight)
-	GROUND:TeleportTo(snubbull, 300, 214, Direction.Left)
-	GROUND:TeleportTo(mareep, 226, 232, Direction.Right)
-	GROUND:TeleportTo(cranidos, 310, 236, Direction.Left)
-
+	-- Et ils ne la levent pas tous en meme temps : Penticus le premier
+	-- (il guettait), Phileas ensuite, Shuca en dernier parce qu'elle
+	-- etait occupee ailleurs. Trois temps decales, comme un vrai groupe.
 	local camp1 = TASK:BranchCoroutine(function()
-		GROUND:CharAnimateTurnTo(tropius, Direction.Down, 4)
+		GROUND:CharTurnToCharAnimated(tropius, hero, 4)
 		GROUND:CharSetEmote(tropius, "notice", 1)
 	end)
 	local camp2 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(8)
-		GROUND:CharAnimateTurnTo(noctowl, Direction.Down, 4)
+		GAME:WaitFrames(10)
+		GROUND:CharTurnToCharAnimated(noctowl, hero, 4)
 	end)
 	local camp3 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(16)
-		GROUND:CharAnimateTurnTo(mareep, Direction.UpRight, 4)
+		GAME:WaitFrames(18)
+		GROUND:CharTurnToCharAnimated(audino, hero, 4)
+	end)
+	local camp4 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(24)
+		GROUND:CharTurnToCharAnimated(snubbull, hero, 4)
+	end)
+	local camp5 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(30)
+		GROUND:CharTurnToCharAnimated(mareep, hero, 4)
 		GROUND:CharSetEmote(mareep, "happy", 1)
 	end)
-	TASK:JoinCoroutines({camp1, camp2, camp3})
+	local camp6 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(36)
+		GROUND:CharTurnToCharAnimated(cranidos, hero, 4)
+	end)
+	TASK:JoinCoroutines({camp1, camp2, camp3, camp4, camp5, camp6})
 
 	--------------------------------------------------------------------
 	-- L'ACCUEIL AU CAMP — quinze repliques, et personne ne bougeait.

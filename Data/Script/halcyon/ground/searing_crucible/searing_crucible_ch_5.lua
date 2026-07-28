@@ -1271,7 +1271,34 @@ function searing_crucible_ch_5.DefeatedBoss()
 	-- Sortie garantie : la suite de l'expedition (Mont) doit TOUJOURS s'ouvrir.
 	GAME:CutsceneMode(false)
 	PrintInfo("[BossSeq][searing_crucible_ch_5] DefeatedBoss -> mount_windswept_entrance")
-	GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker')
+
+	--------------------------------------------------------------------
+	-- TRANSITION VERS LE MONT — l'ecran doit RESTER noir.
+	--------------------------------------------------------------------
+	-- BUG VU EN JEU : apres la scene des Limagma, on revoyait brievement
+	-- le decor du Crucible avant d'arriver a l'entree du Mont.
+	--
+	-- Cause : EnterGroundMap etait appele SANS son troisieme argument.
+	-- Le patron du depot est constant — FadeOut, puis EnterGroundMap avec
+	-- `true`, et c'est la carte d'ARRIVEE qui fait le FadeIn :
+	--     metano_cave/init.lua:101      FadeOut(false,20) puis (..., true)
+	--     metano_altere_transition:85   idem
+	--     first_core_location_ch_3:32   idem
+	-- Sans ce `true`, le moteur RETABLIT la luminosite au chargement : le
+	-- fondu que DefeatedBossBody vient de poser est annule, et la carte
+	-- sortante redevient visible une poignee d'images avant le basculement.
+	--
+	-- Deux garde-fous ici plutot qu'un :
+	--   1. on REPOSE le fondu juste avant de partir. DefeatedBossBody le
+	--      pose deja, mais il le fait DANS une coroutine (coro5) ; si le
+	--      corps de la scene a echoue et qu'on arrive par la branche
+	--      pcall, ce fondu n'a jamais eu lieu. Le reposer est idempotent.
+	--   2. on passe `true` pour que la carte d'arrivee herite d'un ecran
+	--      deja noir. ArrivalCutscene fait son propre FadeIn (verifie).
+	SOUND:FadeOutBGM(20)
+	GAME:FadeOut(false, 30)
+	GAME:WaitFrames(30)
+	GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker', true)
 end
 
 
