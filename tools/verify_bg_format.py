@@ -74,20 +74,37 @@ def main(root):
         print('%-28s %5dx%-6d %4dx%-5d %-7d %s'
               % (name, pw, ph, fw, fh, n, 'oui' if full else 'NON'))
 
-    # Quels fonds sont reellement utilises en plein ecran par les scripts ?
-    used = {}
+    # Deux usages DISTINCTS, avec deux contraintes differentes :
+    #
+    #   PLEIN ECRAN  (WaitShowBG, bg='...')  -> la frame DOIT faire 320x240,
+    #                sinon bande noire ou etirement.
+    #
+    #   OVERLAY      (BossFX.Overlay, FiniteOverlayEmitter) -> la frame peut
+    #                avoir n'importe quelle taille : l'emetteur repete la
+    #                tuile (RepeatX/RepeatY) et la fait defiler. C'est le cas
+    #                de Dream_Back/Front (parallaxe) et SE5_Wind_Background
+    #                (bandeau de vent). Les signaler serait un faux positif.
+    used = {}     # plein ecran : contrainte 320x240
+    overlay = {}  # tuiles defilantes : aucune contrainte de taille
     pattern_bg = re.compile(r"bg='([^']+)'")
     pattern_show = re.compile(r'WaitShowBG\(\s*"([^"]+)"')
+    pattern_ovl = re.compile(r"BossFX\.Overlay\(\s*'([^']+)'")
     for lua in glob.glob(os.path.join(root, 'Data/Script/**/*.lua'), recursive=True):
         src = open(lua, encoding='utf-8').read()
         # ignorer les commentaires en bloc et en ligne
         src = re.sub(r'--\[\[.*?\]\]', '', src, flags=re.S)
         src = '\n'.join(l.split('--')[0] for l in src.split('\n'))
+        rel = os.path.relpath(lua, root)
         for m in list(pattern_bg.finditer(src)) + list(pattern_show.finditer(src)):
-            used.setdefault(m.group(1), set()).add(os.path.relpath(lua, root))
+            used.setdefault(m.group(1), set()).add(rel)
+        for m in pattern_ovl.finditer(src):
+            overlay.setdefault(m.group(1), set()).add(rel)
 
     print()
     failures = []
+    for name in sorted(overlay):
+        if name not in catalogue:
+            failures.append((name, 'overlay INTROUVABLE dans Content/BG', overlay[name]))
     for name in sorted(used):
         if name not in catalogue:
             failures.append((name, 'fond INTROUVABLE dans Content/BG', used[name]))
@@ -106,8 +123,20 @@ def main(root):
         print('RESULTAT : %d fond(s) mal dimensionne(s)' % len(failures))
         return 1
 
-    print('%d fond(s) utilise(s) par les scripts, tous en frame 320x240.'
-          % len(used))
+    print('%d fond(s) plein ecran, tous en frame 320x240.' % len(used))
+    if overlay:
+        print('%d fond(s) utilise(s) en overlay defilant (taille libre) :'
+              % len(overlay))
+        for name in sorted(overlay):
+            if name in catalogue:
+                fw, fh, n = catalogue[name]
+                print('    %-22s frame %dx%d, %d frames' % (name, fw, fh, n))
+            else:
+                print('    %-22s ABSENT de Content/BG' % name)
+    unused = sorted(set(catalogue) - set(used) - set(overlay))
+    if unused:
+        print('%d fond(s) present(s) mais jamais utilise(s) : %s'
+              % (len(unused), ', '.join(unused)))
     print('RESULTAT : AUCUN BUG DE FORMAT')
     return 0
 

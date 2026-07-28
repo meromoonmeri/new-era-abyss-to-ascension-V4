@@ -72,6 +72,7 @@
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.BossFX'
 
 VoiceVisions = {}
 
@@ -89,6 +90,36 @@ local function resolve(cfg, txt)
   if cfg.literal then return STRINGS:Format(txt) end
   local ms = cfg.strings or STRINGS.MapStrings
   return STRINGS:Format(ms[txt])
+end
+
+--------------------------------------------------------------------
+-- Ciel de reve — les deux couches Dream_Back / Dream_Front.
+--------------------------------------------------------------------
+-- Ces deux fonds dormaient INEXPLOITES dans Content/BG depuis le debut du
+-- projet. Analyse de leur format :
+--
+--     PNG 1536x1920, frames de 192x240, 63 frames (grille 8x8)
+--
+-- 192 px de large, soit MOINS que le viewport (320). Ce ne sont donc pas des
+-- fonds fixes — c'est pour cela qu'ils avaient ete ecartes de HeroVisions au
+-- build -O, a juste titre pour un usage en fond plein ecran.
+--
+-- Mais leur vraie nature est ailleurs : deux couches (Back et Front) faites
+-- pour DEFILER en boucle a des vitesses differentes. C'est la parallaxe du
+-- ciel de reve d'Explorateurs du Ciel. On les rend donc a leur usage prevu,
+-- via FiniteOverlayEmitter avec RepeatX et Movement — exactement ce que
+-- BossFX.Overlay sait deja faire (cf. common.lua:498, effet de vitesse).
+--
+-- Back defile lentement (loin), Front plus vite (proche) : c'est ce
+-- differentiel qui cree la profondeur.
+function VoiceVisions.DreamSky(hold)
+  hold = hold or 240
+  pcall(function()
+    -- couche lointaine, lente, sous la couche proche
+    BossFX.Overlay('Dream_Back', 0, 0, 30, hold, 40, DrawLayer.Bottom, 24, 0)
+    -- couche proche, plus rapide, par-dessus
+    BossFX.Overlay('Dream_Front', 0, 0, 30, hold, 40, DrawLayer.Back, 56, 0)
+  end)
 end
 
 --------------------------------------------------------------------
@@ -302,6 +333,10 @@ function VoiceVisions.Play(cfg)
 
     --Les planches.
     for _, plate in ipairs(cfg.plates or {}) do
+      --Une planche peut demander le ciel de reve : deux couches de nuages
+      --qui defilent en parallaxe PAR-DESSOUS l'image fixe. Reserve aux
+      --moments oniriques (cf. Dream_Back/Dream_Front, ciel de reve de Ciel).
+      if plate.dreamSky then VoiceVisions.DreamSky((plate.hold or 180) + 40) end
       UI:WaitShowBG(plate.bg, plate.hold or 180, 20)
       if plate.shake ~= nil then
         pcall(function()

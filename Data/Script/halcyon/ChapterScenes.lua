@@ -62,6 +62,7 @@
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.BossFX'
 
 ChapterScenes = {}
 
@@ -226,6 +227,13 @@ function ChapterScenes.PeakArrival()
     music = 'Sky Peak Prairie.ogg',
     camera = {160, 80}, focus = {160, 160},
     scene = function(hero, partner)
+      --SE5_Wind_Background : bandeau de 5120x256 (frames 256x256, 20 images),
+      --concu pour defiler horizontalement. Il dormait inexploite dans
+      --Content/BG. Ici il EST le vent : rafales qui traversent l'ecran de
+      --droite a gauche pendant toute la scene.
+      pcall(function()
+        BossFX.Overlay('SE5_Wind_Background', 0, 0, 20, 600, 60, DrawLayer.Top, -180, 0)
+      end)
       narrate("Le vent frappe de côté.[pause=25] Il faut se pencher dedans pour tenir debout.")
       GAME:WaitFrames(15)
       say(partner, 'Surprised', "Là-haut ![pause=15] Sur la deuxième corniche ![pause=20] Trois silhouettes !")

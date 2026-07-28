@@ -170,3 +170,120 @@ taille. Je préfère l'annoncer que le laisser croire.
   droite — non vérifié sur la carte.
 - Les musiques (`Crystal Crossing`, `Dark Hill`, `Sky Peak Prairie`) existent
   bien, mais leur justesse de ton n'a pas été jugée à l'écoute.
+
+---
+
+# Addendum — les images animées (build 2026-07-31-Q)
+
+## La question
+
+> « Est-ce que tu as repris les scènes avec les images animées de PMD Rescue
+> Team et EoS PMDO, et intégré ça dans New Era intelligemment ? »
+
+**Réponse en deux temps.**
+
+**Non, je n'ai importé aucune image** des dépôts sources. Copier
+`Content/BG/*.dir` d'EoS Origins poserait un problème d'attribution, gonflerait
+le dépôt, et surtout : leurs fonds représentent *leurs* lieux (la plage de
+Ciel, le Krabby, la falaise). Ils n'ont pas de sens dans New Era.
+
+**Mais j'avais raté trois fonds animés déjà présents chez nous**, jamais
+utilisés depuis le début du projet. C'est ça, le vrai gisement.
+
+## Les fonds animés du dépôt : état des lieux
+
+| Fond | Frame | Frames | Avant | Après |
+|---|---|---|---|---|
+| `Genesis_Cores` | 320×240 | 12 | utilisé | utilisé |
+| `Genesis_Fade` | 320×240 | 8 | utilisé | utilisé |
+| `Genesis_Life` | 320×240 | 16 | utilisé | utilisé |
+| `Genesis_Void` | 320×240 | 12 | utilisé | utilisé |
+| `Genesis_Mew` | 320×240 | 16 | Genèse ch7 | Genèse ch7 |
+| **`Dream_Back`** | 192×240 | **63** | **inexploité** | **ciel de rêve** |
+| **`Dream_Front`** | 192×240 | **63** | **inexploité** | **ciel de rêve** |
+| **`SE5_Wind_Background`** | 256×256 | **20** | **inexploité** | **vent du Pic** |
+
+## Ce que j'avais mal compris
+
+Au build `-O`, j'avais **écarté** `Dream_Back`/`Dream_Front` parce que leurs
+frames font 192×240 — plus étroites que le viewport. C'était juste **pour un
+usage en fond plein écran**.
+
+Mais leur format raconte autre chose :
+
+```
+PNG 1536×1920 → grille 8×8 → 63 frames de 192×240
+Deux fichiers jumeaux : _Back et _Front
+```
+
+192 px de large, deux couches jumelles, 63 frames : ce sont des **nuages
+défilants en parallaxe**. Le ciel de rêve d'Explorateurs du Ciel. Ils ne sont
+pas faits pour être *affichés*, mais pour **défiler en boucle**.
+
+## Ce qui a été fait
+
+### `VoiceVisions.DreamSky()` — la parallaxe
+
+Deux couches lancées via `BossFX.Overlay` (qui gère déjà `RepeatX` +
+`Movement`, cf. `common.lua:498`) :
+
+- `Dream_Back` défile à **24 px/s** sur `DrawLayer.Bottom` — le lointain
+- `Dream_Front` défile à **56 px/s** sur `DrawLayer.Back` — le proche
+
+C'est le **différentiel de vitesse** qui crée la profondeur.
+
+**Placement narratif** : réservé à la vision de **L'Effacement** (ch10) — la
+plage au lever du jour, l'ami qui devient transparent. La scène la plus
+onirique de l'arc, et la seule qui se passe *hors du temps*. Activé via
+`plate.dreamSky = true` sur les deux planches concernées.
+
+### `SE5_Wind_Background` — le vent du Pic
+
+Bandeau de 5120×256 conçu pour défiler horizontalement. Dans la scène
+d'arrivée du **chapitre 10**, il *est* le vent : rafales traversant l'écran de
+droite à gauche à 180 px/s pendant toute la scène, sous le dialogue.
+
+Le texte dit « le vent frappe de côté » — maintenant on le voit.
+
+### `Genesis_Mew` : délibérément laissé de côté
+
+Il sert déjà à la cinématique de la Genèse (ch7). Le réutiliser ailleurs
+brouillerait le lore : cette image *est* associée à un moment précis du récit.
+
+## Correction du vérificateur
+
+`tools/verify_bg_format.py` ne détectait que `WaitShowBG` — il aurait signalé
+mes nouveaux overlays comme des erreurs, ou pire, serait resté silencieux en
+donnant une fausse assurance.
+
+Il distingue désormais **deux usages aux contraintes différentes** :
+
+- **plein écran** (`WaitShowBG`, `bg='...'`) → frame **obligatoirement** 320×240
+- **overlay défilant** (`BossFX.Overlay`) → **taille libre**, la tuile est
+  répétée et déplacée
+
+Et il liste maintenant les fonds présents mais jamais utilisés — pour que le
+prochain gisement ne dorme pas trois mois.
+
+```
+10 fond(s) plein écran, tous en frame 320x240.
+3 fond(s) utilisé(s) en overlay défilant (taille libre) :
+    Dream_Back             frame 192x240, 63 frames
+    Dream_Front            frame 192x240, 63 frames
+    SE5_Wind_Background    frame 256x256, 20 frames
+3 fond(s) présent(s) mais jamais utilisé(s) : Genesis_Mew, Steam, Title_Screen_Background
+RESULTAT : AUCUN BUG DE FORMAT
+```
+
+## Non vérifié
+
+**Rien n'est testé en jeu.** En particulier :
+
+- Les **vitesses de défilement** (24 / 56 / 180 px/s) sont des valeurs de
+  départ raisonnées, pas observées. La parallaxe peut être trop lente ou le
+  vent trop agressif.
+- Les **couches de rendu** (`Bottom` pour le lointain, `Back` pour le proche)
+  supposent que `WaitShowBG` s'affiche au-dessus. Si l'ordre est inversé, les
+  nuages masqueraient l'image fixe au lieu de passer derrière.
+- `Dream_Back`/`Front` ont **63 frames** : leur vitesse d'animation propre
+  face à la durée d'affichage n'a pas été validée.

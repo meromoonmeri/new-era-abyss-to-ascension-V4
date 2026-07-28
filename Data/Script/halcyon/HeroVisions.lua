@@ -164,10 +164,10 @@ HeroVisions.LIST = {
     music = 'Goodnight.ogg',
     level = 3,
     plates = {
-      { bg='Genesis_Life', hold=220, lines={
+      { bg='Genesis_Life', hold=220, dreamSky=true, lines={
           "Le monde est sauvé.[pause=25] Le soleil se lève sur une plage.",
           "Deux amis regardent la mer.[pause=20] L'un des deux commence à devenir transparent." } },
-      { bg='Genesis_Fade', hold=230, lines={
+      { bg='Genesis_Fade', hold=230, dreamSky=true, lines={
           "« Je crois que je vais disparaître. »[pause=30] Il le dit calmement.[pause=20] Comme on annonce la pluie.",
           "L'autre hurle.[pause=25] Il n'y a rien à faire.[pause=20] Il n'y a jamais rien eu à faire." } },
       { bg='Genesis_Void', hold=200, lines={
