@@ -121,11 +121,11 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 
 	-- Équipes arrivant du sentier Sud
 	for i = 3, 10 do
-		GROUND:TeleportTo(m[i], 290, 480 + (i-3)*16, Direction.Up)
+		GROUND:TeleportTo(m[i], 256 + ((i-3)%4)*24, 472 + ((i-3)//4)*12, Direction.Up)
 		GROUND:Unhide(m[i].EntName)
 	end
-	GROUND:TeleportTo(hero, 270, 520, Direction.Up)
-	if partner ~= nil then GROUND:TeleportTo(partner, 310, 520, Direction.Up) end
+	GROUND:TeleportTo(hero, 280, 488, Direction.Up)
+	if partner ~= nil then GROUND:TeleportTo(partner, 312, 488, Direction.Up) end
 
 	GAME:FadeIn(40)
 	SOUND:PlayBGM('At the End of the Day.ogg', true)
