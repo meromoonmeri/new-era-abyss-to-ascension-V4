@@ -49,6 +49,7 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.TownNight'
+require 'halcyon.SideQuests'
 
 local metano_town_nuit = {}
 
@@ -140,6 +141,227 @@ end
 function metano_town_nuit.Guild_Entrance_Touch(obj, activator)
   pcall(function() TownNight.GoHome() end)
 end
+
+--------------------------------------------------------------------
+-- PORTES DES HABITATIONS
+--------------------------------------------------------------------
+-- La carte de nuit est un clone au pixel pres de metano_town : elle
+-- herite donc de TOUS ses objets (43 GroundObjects verifies dans le
+-- .rsground). Chaque objet dont le script n'expose pas le handler
+-- correspondant est un objet MUET : le joueur le touche, rien ne se
+-- passe, aucun retour. C'est exactement le genre de vide qui casse
+-- l'illusion. On repond donc a chacun.
+--
+-- Les habitations sont fermees, mais jamais en silence : chaque porte
+-- dit quelque chose de ceux qui dorment derriere.
+local function porte(txt)
+  ferme(txt)
+end
+
+function metano_town_nuit.Fire_Home_Entrance_Touch(obj, activator)
+  porte("La porte est close.[pause=20] Par la fenêtre, une braise rougeoie encore dans l'âtre.")
+end
+
+function metano_town_nuit.Water_Home_Entrance_Touch(obj, activator)
+  porte("Personne ne répond.[pause=25] On entend juste couler quelque chose, doucement, à l'intérieur.")
+end
+
+function metano_town_nuit.Grass_Home_Entrance_Touch(obj, activator)
+  porte("Fermé.[pause=20] Les pots devant la porte ont été rentrés pour la nuit.")
+end
+
+function metano_town_nuit.Electric_Home_Entrance_Touch(obj, activator)
+  porte("La porte vibre légèrement.[pause=25] Quelqu'un, là-dedans, ne dort pas non plus.")
+end
+
+function metano_town_nuit.Rock_Home_Entrance_Touch(obj, activator)
+  porte("Le volet de pierre est baissé.[pause=20] Il ne se rouvrira pas avant l'aube.")
+end
+
+function metano_town_nuit.Normal_Home_Entrance_Touch(obj, activator)
+  porte("Fermé.[pause=20] Une paire de chaussures a été laissée dehors, bien alignée.")
+end
+
+function metano_town_nuit.Cave_Entrance_Touch(obj, activator)
+  porte("L'entrée de la grotte est noire.[pause=25] Y descendre maintenant serait déraisonnable.")
+end
+
+function metano_town_nuit.Dojo_Entrance_Touch(obj, activator)
+  porte("Le dojo est éteint.[pause=25] Sur la porte, un mot : « L'entraînement reprend au lever du jour. »")
+end
+
+function metano_town_nuit.Post_Office_Entrance_Touch(obj, activator)
+  porte("Fermé.[pause=20] Des lettres attendent dans la boîte, patiemment.")
+end
+
+function metano_town_nuit.Inn_Entrance_Touch(obj, activator)
+  porte("L'auberge est pleine.[pause=25] Vous avez déjà un lit qui vous attend, de toute façon.")
+end
+
+function metano_town_nuit.Cafe_Entrance_Touch(obj, activator)
+  porte("Les chaises sont retournées sur les tables.[pause=25] L'odeur de café, elle, reste.")
+end
+
+--------------------------------------------------------------------
+-- SORTIES DE LA VILLE
+--------------------------------------------------------------------
+-- On ne part PAS en donjon la nuit : ce serait contredire le choix de
+-- fin de journee, qui vient justement de refermer la journee. Mais on
+-- ne bloque pas non plus en silence — le partenaire donne la raison,
+-- ce qui vaut mieux qu'un mur.
+local function trop_tard(txt)
+  local partner = CH('Teammate1')
+  if partner == nil then
+    ferme(txt)
+    return
+  end
+  pcall(function()
+    UI:SetSpeaker(partner)
+    UI:SetSpeakerEmotion('Normal')
+    UI:WaitShowDialogue(txt)
+    UI:ResetSpeaker()
+  end)
+end
+
+function metano_town_nuit.North_Exit_Touch(obj, activator)
+  trop_tard("Pas maintenant.[pause=25] On ne part pas explorer à cette heure-ci.")
+end
+
+function metano_town_nuit.East_Exit_Touch(obj, activator)
+  trop_tard("Les routes sont noires.[pause=25] On repartira demain, la tête claire.")
+end
+
+function metano_town_nuit.South_Exit_Touch(obj, activator)
+  trop_tard("Restons dans la ville ce soir.[pause=25] Juste ce soir.")
+end
+
+--------------------------------------------------------------------
+-- MOBILIER ET PANNEAUX
+--------------------------------------------------------------------
+function metano_town_nuit.Crossroads_Sign_Action(obj, activator)
+  ferme("Le panneau est illisible dans le noir.[pause=25] De toute façon, vous connaissez le chemin.")
+end
+
+function metano_town_nuit.Dojo_Sign_Action(obj, activator)
+  ferme("« Dojo » —[pause=20] les lettres luisent faiblement sous la lune.")
+end
+
+function metano_town_nuit.Wishing_Well_Sign_Action(obj, activator)
+  ferme("« Faites un vœu. »[pause=25] La nuit, ça se lit autrement.")
+end
+
+function metano_town_nuit.Guild_Bridge_Sign_Action(obj, activator)
+  ferme("Le pont de la guilde.[pause=25] Les planches craquent plus fort quand tout se tait.")
+end
+
+function metano_town_nuit.To_Dungeons_Sign_Action(obj, activator)
+  ferme("La flèche pointe vers le noir.[pause=25] Demain.")
+end
+
+function metano_town_nuit.To_Spring_Sign_Action(obj, activator)
+  ferme("La source, par là.[pause=25] On entend l'eau d'ici.")
+end
+
+function metano_town_nuit.Well_Action(obj, activator)
+  DEBUG.EnableDbgCoro()
+  local s = TownNight.Ensure()
+  pcall(function()
+    UI:ResetSpeaker(false)
+    UI:SetCenter(true)
+    UI:ChoiceMenuYesNo("Le puits est là, dans le noir.[pause=20] Y jeter une pièce ?", true)
+    UI:WaitForChoice()
+    local yes = UI:ChoiceResult()
+    if yes then
+      if GAME:GetPlayerMoney() < 1 then
+        UI:WaitShowDialogue("Vos poches sont vides.[pause=25] Le vœu attendra.")
+      else
+        GAME:RemoveFromPlayerMoney(1)
+        SOUND:PlayBattleSE("_UNK_DUN_Water_Drop")
+        --La nuit, le puits ne renvoie pas la meme chose que le jour.
+        if s.SawStars then
+          UI:WaitShowDialogue("La pièce tombe longtemps.[pause=30] Dans l'eau noire, le ciel se reflète.")
+          UI:WaitShowDialogue("Il y manque une étoile, là aussi.")
+        else
+          UI:WaitShowDialogue("La pièce tombe longtemps.[pause=30] Bien plus longtemps que le jour, on dirait.")
+        end
+      end
+    end
+    UI:SetCenter(false)
+    UI:ResetSpeaker()
+  end)
+end
+
+function metano_town_nuit.Postboard_Action(obj, activator)
+  DEBUG.EnableDbgCoro()
+  --Le tableau des requetes reste consultable : le joueur doit toujours
+  --pouvoir savoir ce qui lui manque, y compris a trois heures du matin.
+  local ch = (SV.ChapterProgression and SV.ChapterProgression.Chapter) or 0
+  if not pcall(function() SideQuests.Board(ch) end) then
+    ferme("Le tableau est dans l'ombre.[pause=25] Impossible d'y lire quoi que ce soit.")
+  end
+end
+
+function metano_town_nuit.Assembly_Action(obj, activator)
+  ferme("La cloche de l'assemblée.[pause=25] La sonner maintenant réveillerait toute la ville.")
+end
+
+function metano_town_nuit.Legend_Stand_Action(obj, activator)
+  ferme("L'étal est bâché.[pause=25] Ce qu'il vend ne se montre pas la nuit.")
+end
+
+function metano_town_nuit.Growlithe_Desk_Action(obj, activator)
+  ferme("Le bureau est vide.[pause=25] Un registre reste ouvert, la plume posée en travers.")
+end
+
+--------------------------------------------------------------------
+-- FILET DE SECURITE : LES MARCHANDS MASQUES
+--------------------------------------------------------------------
+-- Init appelle GROUND:Hide sur les 12 commercants herites de la carte
+-- de jour. Je n'ai PAS de preuve dans ce depot que Hide desactive
+-- aussi l'interaction — seulement qu'il rend invisible. Si le moteur
+-- laisse malgre tout le declencheur actif, un joueur pourrait ouvrir
+-- une boutique tenue par un vendeur invisible. Ces handlers rendent
+-- ce cas inoffensif au lieu de parier dessus.
+local function absent(txt)
+  ferme(txt)
+end
+
+function metano_town_nuit.Shop_Owner_Action(c, a)      absent("Il n'y a personne derrière le comptoir.") end
+function metano_town_nuit.Bank_Owner_Action(c, a)      absent("Le guichet est vide.[pause=20] Le registre a été rangé.") end
+function metano_town_nuit.Storage_Owner_Action(c, a)   absent("Personne.[pause=20] L'entrepôt est verrouillé jusqu'à l'aube.") end
+function metano_town_nuit.Musician_Action(c, a)        absent("L'estrade est vide.[pause=25] L'instrument est resté là, sous une bâche.") end
+function metano_town_nuit.Swap_Owner_Action(c, a)      absent("Personne au comptoir des échanges.") end
+function metano_town_nuit.Red_Merchant_Action(c, a)    absent("L'étal est plié.[pause=20] Il ne reste qu'une caisse vide.") end
+function metano_town_nuit.Green_Merchant_Action(c, a)  absent("L'étal est plié pour la nuit.") end
+function metano_town_nuit.Tutor_Owner_Action(c, a)     absent("Le maître n'est pas là.[pause=25] Les leçons attendront demain.") end
+function metano_town_nuit.TM_Owner_Action(c, a)        absent("Personne.[pause=20] Les disques sont sous clé.") end
+function metano_town_nuit.Growlithe_Action(c, a)       absent("La ronde est passée il y a peu.[pause=25] Le poste est désert.") end
+function metano_town_nuit.Legend_Merchant_Action(c, a) absent("L'étal est bâché.[pause=25] Son propriétaire ne travaille pas de nuit.") end
+
+--------------------------------------------------------------------
+-- ZONES DE LIEU
+--------------------------------------------------------------------
+-- Ces 30 declencheurs (triggerType 3) ne font que memoriser ou se
+-- trouve le joueur : PartnerEssentials s'en sert pour choisir les
+-- repliques du partenaire (verifie, PartnerEssentials.lua:565, 913,
+-- 1178). Sans eux, la valeur resterait figee sur le dernier lieu de
+-- la carte de jour et le partenaire parlerait du mauvais endroit.
+local function lieu(nom)
+  DEBUG.EnableDbgCoro()
+  if SV.metano_town ~= nil then SV.metano_town.Locale = nom end
+end
+
+function metano_town_nuit.Cafe_Locale_Touch(c, a)          lieu('Cafe') end
+function metano_town_nuit.Exploration_Locale_Touch(c, a)   lieu('Exploration') end
+function metano_town_nuit.Cave_Locale_Touch(c, a)          lieu('Cave') end
+function metano_town_nuit.South_Houses_Locale_Touch(c, a)  lieu('South Houses') end
+function metano_town_nuit.North_Houses_Locale_Touch(c, a)  lieu('North Houses') end
+function metano_town_nuit.Merchants_Locale_Touch(c, a)     lieu('Merchants') end
+function metano_town_nuit.Guild_Locale_Touch(c, a)         lieu('Guild') end
+function metano_town_nuit.Market_Locale_Touch(c, a)        lieu('Market') end
+function metano_town_nuit.Well_Locale_Touch(c, a)          lieu('Well') end
+function metano_town_nuit.Post_Locale_Touch(c, a)          lieu('Post') end
+function metano_town_nuit.Dojo_Locale_Touch(c, a)          lieu('Dojo') end
 
 --Dialogue du partenaire, qui a lui aussi ses phrases nocturnes.
 function metano_town_nuit.Teammate1_Action(chara, activator)
