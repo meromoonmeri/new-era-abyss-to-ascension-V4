@@ -1,15 +1,17 @@
 --[[
     mount_windswept_entrance_ch_5.lua
     Refonte cinématique officielle complète pour Mount Windswept Entrance (Camp du Mont Venteux - Ch.5).
-    Réalise les 7 scènes majeures + Rêve de Réincarnation :
-      1) Arrivée progressive au soir avec intentions et dîner au feu (CampNightfall)
-      2) Scène intime du héros et du partenaire avant de dormir (CampNightfall_HeroMoment)
-      3) Installation de nuit avec sacs et lits temporaires de paille (BuildCamp(true))
-      4) Rêve de réincarnation du héros : ciel de rêve animé (Dream_Back/Dream_Front), Voix anonyme, réaction du héros
-      5) Transition lendemain matin DIRECTE sur l'assemblée en formation militaire de guilde (Wigglytuff's Guild.ogg)
-      6) Départ progressif et réaliste des équipes Cinabre puis Saphir par le sentier nord marchable
-      7) Le partenaire remarque le rêve flou, promet le secret et sa loyauté éternelle
-      8) Scène mature entre Penticus et Phileas, don d'objet d'expédition, puis FadeIn sur ground jouable
+    Réalise l'AMÉLIORATION DE TOUT selon les exigences de perfection absolue :
+      1) Arrivée progressive au soir avec intentions, dîner au feu et moment intime Héros/Partenaire (CampNightfall)
+      2) Coucher échelonné réaliste, puis Rêve de Réincarnation (Dream_Back/Front sur couche Front/Top) avec Voix anonyme
+      3) Transition lendemain matin DIRECTE sur l'assemblée en formation militaire de guilde (2 rangs, Wigglytuff's Guild.ogg)
+      4) Contemplation de la grandeur de la montagne verdoyante touchant les nuages
+      5) Briefing de Penticus assignant l'Équipe Cinabre (Kino/Mareep, Reinier/Cranidos) avec le Héros et le Partenaire
+      6) Haie d'honneur : Penticus et Phileas s'écartent sur les flancs pour libérer l'avenue nord (X=260..320)
+      7) Départ progressif par le sentier nord marchable (X=276, Y=180->60), zéro Pokémon sur la montagne
+      8) Le partenaire remarque le regard perdu du héros, promet le secret et sa loyauté éternelle
+      9) Scène mature Penticus et Phileas près des sacs, don d'objet d'expédition, puis FadeIn sur ground jouable (zéro écran noir)
+      10) SetParty() officiel : Kino (Mareep) et Reinier (Cranidos) ajoutés à l'équipe avec dialogues de donjon (GuildmateInteract)
       + Protection et polissage complet de WindSecretScene() (le secret Hyko x Penticus) et LegendOfTheSkyArbiter()
 ]]--
 require 'origin.common'
@@ -92,15 +94,78 @@ function mount_windswept_entrance_ch_5.SetupGround()
 	GROUND:AddMapStatus("blowing_wind")
 	mount_windswept_entrance_ch_5.BuildCamp(false)
 
+	-- Place interactive characters on walkable camp positions :
+	-- Penticus (Tropius), Phileas (Noctowl), et nos coéquipiers du Mont Venteux : Kino (Mareep) et Reinier (Cranidos) !
 	local m = CharacterEssentials.MakeCharactersFromList({
 		{'Tropius', 256, 196, Direction.Down},
 		{'Noctowl', 320, 196, Direction.DownLeft},
-		{'Growlithe', 232, 276, Direction.UpRight},
-		{'Zigzagoon', 344, 276, Direction.UpLeft}
+		{'Mareep', 232, 276, Direction.UpRight},
+		{'Cranidos', 344, 276, Direction.UpLeft}
 	})
 	for _, ch in ipairs(m) do
 		if ch ~= nil then GROUND:Unhide(ch.EntName) end
 	end
+end
+
+--------------------------------------------------------------------
+-- SET PARTY (Ajout officiel de Kino et Reinier dans l'équipe avec GuildmateInteract !)
+--------------------------------------------------------------------
+function mount_windswept_entrance_ch_5.SetParty()
+	if GAME:GetPlayerPartyCount() > 2 then 
+		SV.GuildSidequests.GrowlitheLevel = GAME:GetPlayerPartyMember(2).Level
+		SV.GuildSidequests.ZigzagoonLevel = GAME:GetPlayerPartyMember(3).Level
+	end
+	
+	GeneralFunctions.DefaultParty(false, true)
+	local hero = CH('PLAYER')
+	local partner = CH('Teammate1')
+	partner.CollisionDisabled = true
+	
+	-- Ajout officiel de Reinier (Cranidos)
+	local cranidos_id = RogueEssence.Dungeon.MonsterID("cranidos", 0, "normal", Gender.Male)
+	local cranidos_monster = _DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, cranidos_id, SV.GuildSidequests.CranidosLevel or 22, "mold_breaker", 0)
+	cranidos_monster.Discriminator = _DATA.Save.Rand:Next()
+	cranidos_monster.Nickname = CharacterEssentials.GetCharacterName('Cranidos', true)
+	cranidos_monster.MetAt = "Adventurer's Guild"
+	cranidos_monster.IsPartner = true
+	cranidos_monster.IsFounder = true
+	
+	cranidos_monster:ReplaceSkill("headbutt", 0, true)
+	cranidos_monster:ReplaceSkill("pursuit", 1, false)
+	cranidos_monster:ReplaceSkill("iron_head", 2, true)
+	cranidos_monster:ReplaceSkill("smack_down", 3, true)
+		
+	GAME:AddPlayerTeam(cranidos_monster)
+	cranidos_monster:FullRestore()
+	local talk_evt1 = RogueEssence.Dungeon.BattleScriptEvent("GuildmateInteract")
+	cranidos_monster.ActionEvents:Add(talk_evt1)
+	cranidos_monster:RefreshTraits()
+
+	-- Ajout officiel de Kino (Mareep)
+	local mareep_id = RogueEssence.Dungeon.MonsterID("mareep", 0, "normal", Gender.Female)
+	local mareep_monster = _DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, mareep_id, SV.GuildSidequests.MareepLevel or 22, "static", 0)
+	mareep_monster.Discriminator = _DATA.Save.Rand:Next()
+	mareep_monster.Nickname = CharacterEssentials.GetCharacterName('Mareep', true)
+	mareep_monster.MetAt = "Adventurer's Guild"
+	mareep_monster.IsPartner = true
+	mareep_monster.IsFounder = true
+	
+	mareep_monster:ReplaceSkill("thunder_shock", 0, true)
+	mareep_monster:ReplaceSkill("thunder_wave", 1, false)
+	mareep_monster:ReplaceSkill("take_down", 2, true)
+	mareep_monster:ReplaceSkill("flatter", 3, false)
+		
+	GAME:AddPlayerTeam(mareep_monster)
+	mareep_monster:FullRestore()
+	local talk_evt2 = RogueEssence.Dungeon.BattleScriptEvent("GuildmateInteract")
+	mareep_monster.ActionEvents:Add(talk_evt2)
+	mareep_monster:RefreshTraits()
+	
+	-- Attribution des balises d'importance pour les dialogues en donjon
+	local cTbl = LTBL(GAME:GetPlayerPartyMember(2))
+	local mTbl = LTBL(GAME:GetPlayerPartyMember(3))
+	if cTbl then cTbl.Importance = "Cranidos" end
+	if mTbl then mTbl.Importance = "Mareep" end
 end
 
 --------------------------------------------------------------------
@@ -327,16 +392,16 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, membres)
 end
 
 --------------------------------------------------------------------
--- SCÈNE 4 : RÊVE DE RÉINCARNATION (Ciel de rêve Dream_Back/Front & Voix anonyme)
+-- SCÈNE 4 : RÊVE DE RÉINCARNATION (Ciel parallaxe sur couche Front/Top & Voix anonyme)
 --------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.CampNightfall_DreamVision(hero, partner, membres)
 	SOUND:StopBGM()
 	GAME:WaitFrames(40)
 	
 	pcall(function()
-		-- Ciel de rêve en parallaxe infinie (technique Explorers of Sky)
-		BossFX.Overlay('Dream_Back', 0, 0, 30, 240, 40, DrawLayer.Bottom, 24, 0)
-		BossFX.Overlay('Dream_Front', 0, 0, 30, 240, 40, DrawLayer.Back, 56, 0)
+		-- Ciel de rêve en parallaxe infinie (technique Explorers of Sky, sur couches Front/Top au-dessus de la carte !)
+		BossFX.Overlay('Dream_Back', 0, 0, 30, 240, 40, DrawLayer.Front, 24, 0)
+		BossFX.Overlay('Dream_Front', 0, 0, 30, 240, 40, DrawLayer.Top, 56, 0)
 	end)
 
 	GROUND:TeleportTo(hero, 290, 240, Direction.Down)
@@ -347,7 +412,6 @@ function mount_windswept_entrance_ch_5.CampNightfall_DreamVision(hero, partner, 
 	GAME:FadeIn(60)
 	GAME:WaitFrames(40)
 
-	-- Le héros s'éveille dans l'espace onirique
 	GROUND:CharEndAnim(hero)
 	GeneralFunctions.DoAnimation(hero, 'Wake')
 	GAME:WaitFrames(30)
@@ -356,7 +420,6 @@ function mount_windswept_entrance_ch_5.CampNightfall_DreamVision(hero, partner, 
 	GeneralFunctions.HeroDialogue(hero, "(...Cette lumière ? Où suis-je ? Je me suis endormi au camp de base... et pourtant...)", "Surprised")
 	GAME:WaitFrames(30)
 
-	-- Dialogue de la Voix au puits (Anonyme , zéro mention de Necrozma / Eternatus)
 	UI:ResetSpeaker(false)
 	UI:SetCenter(true)
 	UI:WaitShowDialogue("...Tu dors sur la roche gelée de cette montagne,[pause=20] mais ton esprit cherche encore son nom d'autrefois.")
@@ -382,7 +445,7 @@ function mount_windswept_entrance_ch_5.CampNightfall_DreamVision(hero, partner, 
 	GAME:FadeOut(false, 60)
 	GAME:WaitFrames(60)
 
-	-- Purge complète des sprites du soir et du rêve pour éviter toute duplication
+	-- Purge complète des sprites du soir et du rêve pour éliminer à 100% toute duplication
 	mount_windswept_entrance_ch_5.RemoveCharList(membres)
 
 	-- Transition directe sur l'assemblée militaire de la Guilde au matin !
@@ -390,16 +453,24 @@ function mount_windswept_entrance_ch_5.CampNightfall_DreamVision(hero, partner, 
 end
 
 --------------------------------------------------------------------
--- SCÈNES 5 à 7 : MORNING SEQUENCE (Assemblée guilde, course, secret partenaire, Penticus/Phileas)
+-- SCÈNES 5 à 7 : MORNING SEQUENCE (Assemblée guilde, haie d'honneur, départs marchables, Penticus/Phileas)
 --------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.MorningSequence()
+	local hero = CH('PLAYER')
+	local partner = CH('Teammate1')
+
+	-- RÉINITIALISATION STRICTE DES ANIMATIONS DU SOIR (Le héros et le partenaire sont 100% éveillés et debout !)
+	if partner ~= nil then
+		GROUND:CharEndAnim(partner)
+		GROUND:CharSetAnim(partner, "None", true)
+	end
+	GROUND:CharEndAnim(hero)
+	GROUND:CharSetAnim(hero, "None", true)
+
 	UI:ResetSpeaker(false)
 	UI:SetCenter(true)
 	UI:WaitShowDialogue("Le lendemain matin...")
 	UI:SetCenter(false)
-	
-	local hero = CH('PLAYER')
-	local partner = CH('Teammate1')
 	
 	GAME:MoveCamera(290, 200, 1, false)
 	GROUND:RemoveMapStatus("darkness")
@@ -469,34 +540,47 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 	UI:WaitShowDialogue("Le sommet du Mont Venteux ne pardonne aucune erreur. Nous allons nous diviser en trois voies.")
 	
 	GAME:MoveCamera(290, 256, 1, false)
-	UI:WaitShowDialogue("Équipe Cinabre : Kino, Reinier. Vous ouvrez le sentier Est pour sécuriser les corniches.")
+	UI:WaitShowDialogue("Équipe de pointe : Hyko, Almotz. Vous sécurisez la crête Est pour l'arrière-garde.")
 	UI:WaitShowDialogue("Équipe Saphir : Shuca, Ganlon, Rin, Coco. Surveillance des falaises inférieures.")
-	UI:WaitShowDialogue("Et l'équipe de pointe : Hyko, Almotz, " .. hero:GetDisplayName() .. " et " .. partner:GetDisplayName() .. ". Droit vers le pic !")
+	UI:WaitShowDialogue("Et l'équipe Cinabre : Kino, Reinier, " .. hero:GetDisplayName() .. " et " .. partner:GetDisplayName() .. ". Droit vers le pic !")
 
 	GAME:WaitFrames(20)
 	UI:SetSpeaker(m[7])
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue("Hé hé ! Le premier arrivé là-haut gagne une Baie Grena ! La course est lancée !")
 
-	-- SCÈNE 6 : DÉPART PROGRESSIF DES ÉQUIPES (Sentier nord marchable : 276, 180 -> 276, 60)
+	-- HAIE D'HONNEUR : PENTICUS ET PHILEAS S'ÉCARTENT SUR LES FLANCS POUR LIBÉRER L'ALLÉE NORD (X=260..320)
+	local step_aside = {}
+	step_aside[1] = TASK:BranchCoroutine(function()
+		GROUND:MoveToPosition(m[1], 232, 176, false, 1)
+		GROUND:CharAnimateTurnTo(m[1], Direction.Right, 4)
+	end)
+	step_aside[2] = TASK:BranchCoroutine(function()
+		GROUND:MoveToPosition(m[2], 344, 176, false, 1)
+		GROUND:CharAnimateTurnTo(m[2], Direction.Left, 4)
+	end)
+	TASK:JoinCoroutines(step_aside)
+	GAME:WaitFrames(15)
+
+	-- SCÈNE 6 : DÉPART PROGRESSIF DES ÉQUIPES (Sentier nord marchable : 276, 180 -> 276, 60, zéro Pokémon sur la montagne)
 	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
 	
-	-- 1er départ : Équipe Cinabre (Mareep m[5], Cranidos m[6])
-	UI:SetSpeaker(m[5])
+	-- 1er départ : Équipe de pointe (Growlithe m[9], Zigzagoon m[10])
+	UI:SetSpeaker(m[9])
 	UI:SetSpeakerEmotion("Happy")
-	UI:WaitShowDialogue("Bêêê ! On ouvre la marche ! En route, Reinier !")
+	UI:WaitShowDialogue("Wouf ! On ouvre la marche sur la crête Est ! En route, Almotz !")
 	
 	local dept1 = {}
 	dept1[1] = TASK:BranchCoroutine(function()
-		GROUND:MoveToPosition(m[5], 276, 180, false, 1.5)
-		GROUND:MoveToPosition(m[5], 276, 60, false, 1.5)
-		GAME:GetCurrentGround():RemoveTempChar(m[5])
+		GROUND:MoveToPosition(m[9], 276, 180, false, 1.5)
+		GROUND:MoveToPosition(m[9], 276, 60, false, 1.5)
+		GAME:GetCurrentGround():RemoveTempChar(m[9])
 	end)
 	dept1[2] = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(10)
-		GROUND:MoveToPosition(m[6], 276, 180, false, 1.5)
-		GROUND:MoveToPosition(m[6], 276, 60, false, 1.5)
-		GAME:GetCurrentGround():RemoveTempChar(m[6])
+		GROUND:MoveToPosition(m[10], 276, 180, false, 1.5)
+		GROUND:MoveToPosition(m[10], 276, 60, false, 1.5)
+		GAME:GetCurrentGround():RemoveTempChar(m[10])
 	end)
 	TASK:JoinCoroutines(dept1)
 	GAME:WaitFrames(20)
@@ -568,7 +652,7 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 	GROUND:CharAnimateTurnTo(m[2], Direction.Down, 4)
 	UI:SetSpeaker(m[2])
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue("Hoo... Vous deux. Approchez un instant avant de rejoindre Hyko et Almotz.")
+	UI:WaitShowDialogue("Hoo... Vous deux. Approchez un instant avant d'entamer la montée.")
 
 	if not SV.Chapter5.PhileasGiftGiven then
 		local item = "berry_oran"
@@ -590,7 +674,7 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 
 	UI:SetSpeaker(m[1])
 	UI:SetSpeakerEmotion("Inspired")
-	UI:WaitShowDialogue("La voie est libre. Équipe de pointe... en avant !")
+	UI:WaitShowDialogue("La voie est libre. Équipe Cinabre... en avant !")
 
 	GAME:FadeOut(false, 40)
 	GAME:WaitFrames(40)
@@ -600,6 +684,9 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 
 	SV.Chapter5.FinishedMountWindsweptIntro = true
 	GAME:CutsceneMode(false)
+
+	-- RESTAURATION DE L'ÉQUIPE DE DONJON (Kino Mareep & Reinier Cranidos dans le groupe avec GuildmateInteract !)
+	mount_windswept_entrance_ch_5.SetParty()
 
 	-- REMISE EN SCÈNE JOUABLE ET FADEIN (Plus aucun écran noir en fin de cinématique !)
 	mount_windswept_entrance_ch_5.SetupGround()
