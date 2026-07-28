@@ -1,14 +1,15 @@
 --[[
     mount_windswept_entrance_ch_5.lua
     Refonte cinématique officielle complète pour Mount Windswept Entrance (Camp du Mont Venteux - Ch.5).
-    Réalise les 7 scènes majeures :
+    Réalise les 7 scènes majeures + Rêve de Réincarnation :
       1) Arrivée progressive au soir avec intentions et dîner au feu (CampNightfall)
       2) Scène intime du héros et du partenaire avant de dormir (CampNightfall_HeroMoment)
       3) Installation de nuit avec sacs et lits temporaires de paille (BuildCamp(true))
-      4) Transition lendemain matin : carton « Le lendemain matin... », lits supprimés (BuildCamp(false))
-      5) Rassemblement guilde en formation militaire 2 rangs et briefing par Penticus, caméra dynamique
-      6) Départ progressif et réaliste des équipes Cinabre puis Saphir par le sentier nord marchable (276, 180 -> 276, 60)
-      7) Scène mature et profonde entre Penticus et Phileas, don d'objet d'expédition, puis FadeIn sur ground jouable
+      4) Rêve de réincarnation du héros : ciel de rêve animé (Dream_Back/Dream_Front), Voix anonyme, réaction du héros
+      5) Transition lendemain matin DIRECTE sur l'assemblée en formation militaire de guilde (Wigglytuff's Guild.ogg)
+      6) Départ progressif et réaliste des équipes Cinabre puis Saphir par le sentier nord marchable
+      7) Le partenaire remarque le rêve flou, promet le secret et sa loyauté éternelle
+      8) Scène mature entre Penticus et Phileas, don d'objet d'expédition, puis FadeIn sur ground jouable
       + Protection et polissage complet de WindSecretScene() (le secret Hyko x Penticus) et LegendOfTheSkyArbiter()
 ]]--
 require 'origin.common'
@@ -27,7 +28,7 @@ mount_windswept_entrance_ch_5.BED_POS = {
 	{160, 220}, {160, 250} -- Lits isolés pour Hero (11) et Partner (12)
 }
 
--- Sacs d'expédition en nombre limité et hors des chemins de marche
+-- Sacs d'expédition en nombre limité (3) et hors des chemins de marche
 mount_windswept_entrance_ch_5.BAG_POS = {
 	{270, 172}, {210, 200}, {370, 200}
 }
@@ -321,14 +322,75 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, membres)
 	GAME:FadeOut(false, 90)
 	GAME:WaitFrames(60)
 
-	-- Purge complète des sprites du soir pour éviter toute duplication
+	-- RÊVE DE RÉINCARNATION DU HÉROS AU TRAVERS DE LA NUIT
+	mount_windswept_entrance_ch_5.CampNightfall_DreamVision(hero, partner, membres)
+end
+
+--------------------------------------------------------------------
+-- SCÈNE 4 : RÊVE DE RÉINCARNATION (Ciel de rêve Dream_Back/Front & Voix anonyme)
+--------------------------------------------------------------------
+function mount_windswept_entrance_ch_5.CampNightfall_DreamVision(hero, partner, membres)
+	SOUND:StopBGM()
+	GAME:WaitFrames(40)
+	
+	pcall(function()
+		-- Ciel de rêve en parallaxe infinie (technique Explorers of Sky)
+		BossFX.Overlay('Dream_Back', 0, 0, 30, 240, 40, DrawLayer.Bottom, 24, 0)
+		BossFX.Overlay('Dream_Front', 0, 0, 30, 240, 40, DrawLayer.Back, 56, 0)
+	end)
+
+	GROUND:TeleportTo(hero, 290, 240, Direction.Down)
+	GROUND:CharSetAnim(hero, "EventSleep", true)
+	GAME:MoveCamera(290, 240, 1, false)
+
+	SOUND:PlayBGM('I Saw Something Again....ogg', true)
+	GAME:FadeIn(60)
+	GAME:WaitFrames(40)
+
+	-- Le héros s'éveille dans l'espace onirique
+	GROUND:CharEndAnim(hero)
+	GeneralFunctions.DoAnimation(hero, 'Wake')
+	GAME:WaitFrames(30)
+	GROUND:CharSetEmote(hero, "question", 1)
+
+	GeneralFunctions.HeroDialogue(hero, "(...Cette lumière ? Où suis-je ? Je me suis endormi au camp de base... et pourtant...)", "Surprised")
+	GAME:WaitFrames(30)
+
+	-- Dialogue de la Voix au puits (Anonyme , zéro mention de Necrozma / Eternatus)
+	UI:ResetSpeaker(false)
+	UI:SetCenter(true)
+	UI:WaitShowDialogue("...Tu dors sur la roche gelée de cette montagne,[pause=20] mais ton esprit cherche encore son nom d'autrefois.")
+	UI:SetCenter(false)
+
+	GeneralFunctions.HeroDialogue(hero, "(Cette voix... C'est encore elle ! Pourquoi est-ce que je ne parviens pas à retenir ses mots ?)", "Worried")
+	GAME:WaitFrames(25)
+
+	UI:ResetSpeaker(false)
+	UI:SetCenter(true)
+	UI:WaitShowDialogue("Ne crains pas ce corps qui est le tien aujourd'hui.[pause=25] Il n'est ni un châtiment,[pause=15] ni un accident.")
+	UI:WaitShowDialogue("Tu es venu d'au-delà de la brume pour tenir une promesse que ta mémoire a oubliée...[pause=20] mais que ton cœur reconnaît.")
+	UI:WaitShowDialogue("Il est encore trop tôt pour te révéler ce qui attend au sommet du pic des vents.[pause=25] Trop tôt pour te montrer ce que scellent les bâtisseurs du Réseau.")
+	UI:WaitShowDialogue("Mais écoute le chant des crêtes.[pause=20] Quand le soleil se lèvera...[pause=15] tu comprendras que tu ne marches pas seulement pour une guilde.")
+	UI:WaitShowDialogue("Éveille-toi.[pause=30] Ton véritable rôle commence là-haut.")
+	UI:SetCenter(false)
+	GAME:WaitFrames(30)
+
+	GeneralFunctions.HeroDialogue(hero, "(Ma promesse... Un rôle bien plus grand au sommet ? Attends ! Ne pars pas !)", "Determined")
+	GAME:WaitFrames(40)
+
+	SOUND:FadeOutBGM(60)
+	GAME:FadeOut(false, 60)
+	GAME:WaitFrames(60)
+
+	-- Purge complète des sprites du soir et du rêve pour éviter toute duplication
 	mount_windswept_entrance_ch_5.RemoveCharList(membres)
 
+	-- Transition directe sur l'assemblée militaire de la Guilde au matin !
 	mount_windswept_entrance_ch_5.MorningSequence()
 end
 
 --------------------------------------------------------------------
--- SCÈNES 4 à 7 : MORNING SEQUENCE (Aube, formation de guilde, course, Penticus/Phileas)
+-- SCÈNES 5 à 7 : MORNING SEQUENCE (Assemblée guilde, course, secret partenaire, Penticus/Phileas)
 --------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.MorningSequence()
 	UI:ResetSpeaker(false)
@@ -339,7 +401,7 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 	local hero = CH('PLAYER')
 	local partner = CH('Teammate1')
 	
-	GAME:MoveCamera(290, 240, 1, false)
+	GAME:MoveCamera(290, 200, 1, false)
 	GROUND:RemoveMapStatus("darkness")
 	GROUND:AddMapStatus("dusk")
 	mount_windswept_entrance_ch_5.BuildCamp(false) -- Lits temporaires retirés ! Ne restent que sacs et équipement.
@@ -349,108 +411,40 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 		{'Cranidos'}, {'Breloom'}, {'Girafarig'}, {'Growlithe'}, {'Zigzagoon'}
 	}, true)
 
-	for i, name in ipairs(mount_windswept_entrance_ch_5.MEMBER_LIST) do
-		local pos = mount_windswept_entrance_ch_5.BED_POS[mount_windswept_entrance_ch_5.BED_MAP[name]]
-		GROUND:TeleportTo(m[i], pos[1], pos[2], Direction.Down)
-		GROUND:Unhide(m[i].EntName)
-		GROUND:CharSetAnim(m[i], "Sleep", true)
-	end
-	
-	local h_bed = mount_windswept_entrance_ch_5.BED_POS[11]
-	local p_bed = mount_windswept_entrance_ch_5.BED_POS[12]
-	GROUND:TeleportTo(hero, h_bed[1], h_bed[2], Direction.Down)
-	if partner ~= nil then
-		GROUND:TeleportTo(partner, p_bed[1], p_bed[2], Direction.Down)
-		GROUND:CharSetAnim(partner, "EventSleep", true)
-	end
-	GROUND:CharSetAnim(hero, "EventSleep", true)
+	-- SCÈNE 5 : FORMATION DE GUILDE SOLENNELLE SUR 2 RANGS (Comme face à Grodoudou à la Guilde)
+	GROUND:TeleportTo(m[1], 290, 184, Direction.Down)     -- Penticus
+	GROUND:TeleportTo(m[2], 330, 184, Direction.DownLeft) -- Phileas
+	GROUND:Unhide(m[1].EntName)
+	GROUND:Unhide(m[2].EntName)
 
-	GAME:FadeIn(60)
-	SOUND:PlayBGM('Heartwarming.ogg', true)
-	GAME:WaitFrames(60)
-
-	-- Réveil progressif (Partenaire en premier)
-	if partner ~= nil then
-		GAME:WaitFrames(30)
-		GROUND:CharEndAnim(partner)
-		GeneralFunctions.DoAnimation(partner, 'Wake')
-		GAME:WaitFrames(20)
-		GROUND:CharTurnToCharAnimated(partner, hero, 4)
-		
-		UI:SetSpeaker(partner)
-		UI:WaitShowDialogue("...Mmm. " .. hero:GetDisplayName() .. ". Allez, réveille-toi. Le jour se lève.")
-	end
-	
-	GAME:WaitFrames(20)
-	GROUND:CharEndAnim(hero)
-	GeneralFunctions.DoAnimation(hero, 'Wake')
-	GAME:WaitFrames(40)
-	
-	UI:SetSpeaker(hero)
-	UI:SetSpeakerEmotion("Pain")
-	UI:WaitShowDialogue("...Mmm. J'ai l'impression d'avoir dormi dans un bloc de glace.")
-
-	if partner ~= nil then
-		UI:SetSpeaker(partner)
-		UI:SetSpeakerEmotion("Happy")
-		UI:WaitShowDialogue("Haha ! Le froid réveille mieux qu'une Baie Maron ! Regarde... Le ciel est dégagé au-dessus du pic.")
-	end
-
-	-- SCÈNE 5 : APPEL À L'ASSEMBLÉE PAR PENTICUS & FORMATION DE GUILDE SOLENNELLE (2 RANGS)
-	GAME:WaitFrames(30)
-	GROUND:CharEndAnim(m[1])
-	GeneralFunctions.DoAnimation(m[1], 'Wake')
-	GAME:WaitFrames(20)
-	
-	UI:SetSpeaker(m[1])
-	UI:WaitShowDialogue("Le soleil se lève ! Tout le monde debout ! On se rassemble !")
-
-	local wake_tasks = {}
-	for i = 2, 10 do
-		wake_tasks[#wake_tasks+1] = TASK:BranchCoroutine(function()
-			GAME:WaitFrames(i * 10)
-			GROUND:CharEndAnim(m[i])
-			GeneralFunctions.DoAnimation(m[i], 'Wake')
-		end)
-	end
-	TASK:JoinCoroutines(wake_tasks)
-
-	GAME:WaitFrames(30)
-	-- Placement des chefs face à la guilde
-	local assemble_tasks = {}
-	assemble_tasks[1] = TASK:BranchCoroutine(function()
-		GROUND:MoveToPosition(m[1], 290, 184, false, 1)
-		GROUND:CharAnimateTurnTo(m[1], Direction.Down, 4)
-	end)
-	assemble_tasks[2] = TASK:BranchCoroutine(function()
-		GROUND:MoveToPosition(m[2], 330, 184, false, 1)
-		GROUND:CharAnimateTurnTo(m[2], Direction.DownLeft, 4)
-	end)
-	
 	-- Rang 1 (Y=240, face nord) : Hero (256), Partner (288), Hyko/m[9] (320), Almotz/m[10] (352)
-	assemble_tasks[3] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(hero, 256, 240, false, 1); GROUND:CharAnimateTurnTo(hero, Direction.Up, 4) end)
-	if partner ~= nil then
-		assemble_tasks[4] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, 288, 240, false, 1); GROUND:CharAnimateTurnTo(partner, Direction.Up, 4) end)
-	end
-	assemble_tasks[5] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[9], 320, 240, false, 1); GROUND:CharAnimateTurnTo(m[9], Direction.Up, 4) end)
-	assemble_tasks[6] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[10], 352, 240, false, 1); GROUND:CharAnimateTurnTo(m[10], Direction.Up, 4) end)
+	GROUND:TeleportTo(hero, 256, 240, Direction.Up)
+	if partner ~= nil then GROUND:TeleportTo(partner, 288, 240, Direction.Up) end
+	GROUND:TeleportTo(m[9], 320, 240, Direction.Up)
+	GROUND:TeleportTo(m[10], 352, 240, Direction.Up)
+	GROUND:Unhide(m[9].EntName)
+	GROUND:Unhide(m[10].EntName)
 
 	-- Rang 2 (Y=272, face nord) : Kino/m[5] (232), Reinier/m[6] (264), Rin/m[3] (296), Shuca/m[4] (328), Coco/m[7] (360), Ganlon/m[8] (392)
-	assemble_tasks[7] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[5], 232, 272, false, 1); GROUND:CharAnimateTurnTo(m[5], Direction.Up, 4) end)
-	assemble_tasks[8] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[6], 264, 272, false, 1); GROUND:CharAnimateTurnTo(m[6], Direction.Up, 4) end)
-	assemble_tasks[9] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[3], 296, 272, false, 1); GROUND:CharAnimateTurnTo(m[3], Direction.Up, 4) end)
-	assemble_tasks[10] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[4], 328, 272, false, 1); GROUND:CharAnimateTurnTo(m[4], Direction.Up, 4) end)
-	assemble_tasks[11] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[7], 360, 272, false, 1); GROUND:CharAnimateTurnTo(m[7], Direction.Up, 4) end)
-	assemble_tasks[12] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[8], 392, 272, false, 1); GROUND:CharAnimateTurnTo(m[8], Direction.Up, 4) end)
+	GROUND:TeleportTo(m[5], 232, 272, Direction.Up)
+	GROUND:TeleportTo(m[6], 264, 272, Direction.Up)
+	GROUND:TeleportTo(m[3], 296, 272, Direction.Up)
+	GROUND:TeleportTo(m[4], 328, 272, Direction.Up)
+	GROUND:TeleportTo(m[7], 360, 272, Direction.Up)
+	GROUND:TeleportTo(m[8], 392, 272, Direction.Up)
+	for i = 3, 8 do GROUND:Unhide(m[i].EntName) end
 
-	TASK:JoinCoroutines(assemble_tasks)
-	GAME:WaitFrames(25)
+	GAME:FadeIn(60)
+	SOUND:PlayBGM("Wigglytuff's Guild.ogg", true) -- Musique solennelle des assemblées de guilde !
+	GAME:WaitFrames(50)
 
-	-- Briefing solennel en formation
+	-- Briefing de chef d'expédition
 	UI:SetSpeaker(m[1])
 	UI:SetSpeakerEmotion("Inspired")
 	UI:WaitShowDialogue("Équipe " .. GAME:GetTeamName() .. ". Équipe Cinabre. Équipe Saphir. L'ascension finale commence.")
 	UI:WaitShowDialogue("Le sommet du Mont Venteux ne pardonne aucune erreur. Nous allons nous diviser en trois voies.")
+	
+	GAME:MoveCamera(290, 256, 1, false)
 	UI:WaitShowDialogue("Équipe Cinabre : Kino, Reinier. Vous ouvrez le sentier Est pour sécuriser les corniches.")
 	UI:WaitShowDialogue("Équipe Saphir : Shuca, Ganlon, Rin, Coco. Surveillance des falaises inférieures.")
 	UI:WaitShowDialogue("Et l'équipe de pointe : Hyko, Almotz, " .. hero:GetDisplayName() .. " et " .. partner:GetDisplayName() .. ". Droit vers le pic !")
@@ -460,10 +454,10 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue("Hé hé ! Le premier arrivé là-haut gagne une Baie Grena ! La course est lancée !")
 
-	-- SCÈNE 6 : DÉPART PROGRESSIF DES ÉQUIPES PAR LE SENTIER NORD (100% marchable, zéro collision montagne)
+	-- SCÈNE 6 : DÉPART PROGRESSIF DES ÉQUIPES (Sentier nord marchable : 276, 180 -> 276, 60)
 	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
 	
-	-- 1er départ : Équipe Cinabre (Mareep m[5], Cranidos m[6]) -> vers l'entrée du sentier (276, 180) puis cap nord au (276, 60)
+	-- 1er départ : Équipe Cinabre (Mareep m[5], Cranidos m[6])
 	UI:SetSpeaker(m[5])
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue("Bêêê ! On ouvre la marche ! En route, Reinier !")
@@ -498,15 +492,33 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 		end)
 	end
 	TASK:JoinCoroutines(dept2)
-	GAME:WaitFrames(30)
+	GAME:WaitFrames(40)
 
+	-- SCÈNE 7a : LE PARTENAIRE REMARQUE LE RÊVE DU HÉROS APRÈS LE DÉPART DES ÉQUIPES
 	if partner ~= nil then
+		GROUND:CharTurnToCharAnimated(partner, hero, 4)
+		GROUND:CharTurnToCharAnimated(hero, partner, 4)
+		GAME:WaitFrames(25)
+
 		UI:SetSpeaker(partner)
-		UI:SetSpeakerEmotion("Inspired")
-		UI:WaitShowDialogue("Ils ne perdent pas de temps ! Allez, " .. hero:GetDisplayName() .. ", on ne va pas se laisser distancer !")
+		UI:SetSpeakerEmotion("Worried")
+		UI:WaitShowDialogue("...Hé. " .. hero:GetDisplayName() .. " ? Tu m'écoutes ?")
+		UI:WaitShowDialogue("Depuis la réunion de guilde, tu as le regard complètement perdu... Il s'est passé quelque chose pendant la nuit ? Tu as fait un rêve ?")
+
+		GeneralFunctions.HeroDialogue(hero, "(...La voix dans mon sommeil... Elle me parlait de ma réincarnation... et de ce qui nous attend au sommet, mais tout est si flou.)", "Normal")
+		GAME:WaitFrames(25)
+
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Worried")
+		UI:WaitShowDialogue("...Une voix qui te parle de ta vie d'avant ? Et un secret sous le sommet...")
+		UI:WaitShowDialogue("Tu sais quoi ? Il vaudrait mieux qu'on garde ça pour nous pour le moment. Si on en parle à la guilde alors que tout est encore si flou, ça va juste inquiéter tout le monde.")
+		UI:SetSpeakerEmotion("Determined")
+		UI:WaitShowDialogue("Mais écoute-moi bien, " .. hero:GetDisplayName() .. ". Je te promets qu'on percera ce mystère. Ensemble.")
+		UI:SetSpeakerEmotion("Happy")
+		UI:WaitShowDialogue("Quoi qu'il arrive, je serai toujours là pour toi. Tu m'entends ? Toujours.")
 	end
 
-	-- SCÈNE 7 : SCÈNE MATURE ENTRE PENTICUS ET PHILEAS (Près du sac d'expédition au nord)
+	-- SCÈNE 7b : SCÈNE MATURE ENTRE PENTICUS ET PHILEAS (Près du sac d'expédition au nord)
 	GAME:MoveCamera(290, 184, 1, false)
 	GAME:WaitFrames(30)
 

@@ -22,7 +22,7 @@ local vast_steppe_midpoint = {}
 
 function vast_steppe_midpoint.Init(map)
   DEBUG.EnableDbgCoro()
-  print('=>> Init_vast_steppe_midpoint <<= [build 2026-07-28-Y]')
+  print('=>> Init_vast_steppe_midpoint <<= [build 2026-07-28-Z]')
   COMMON.RespawnAllies(true)
   PartnerEssentials.InitializePartnerSpawn()
 end
