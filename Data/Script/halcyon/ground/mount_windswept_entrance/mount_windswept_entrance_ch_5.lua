@@ -1,14 +1,15 @@
 --[[
     mount_windswept_entrance_ch_5.lua
-    Refonte complète officielle pour le Camp du Mont Venteux (Chapitre 5).
-    Contient :
-      - BuildCamp(withFire) : décorations dynamiques de lits et feu
-      - ArrivalCutscene() : arrivée progressive, intentions PNJ, soirée au feu (CampNightfall)
-      - MorningSequence() : réveil échelonné, assemblée, course des équipes
-      - SetupGround() : placement PNJ vivants sur le ground
-      - Actions PNJ (dont Phileas / Noctowl et son soutien logistique)
-      - WindSecretScene() : cinématique secrète de nuit (Hyko x Penticus)
-      - LegendOfTheSkyArbiter() : légende du gardien
+    Refonte cinématique officielle complète pour Mount Windswept Entrance (Camp du Mont Venteux - Ch.5).
+    Réalise les 7 scènes majeures :
+      1) Arrivée progressive au soir avec intentions et dîner au feu (CampNightfall)
+      2) Scène intime du héros et du partenaire avant de dormir (CampNightfall_HeroMoment)
+      3) Installation de nuit avec sacs, tentes et lits temporaires de paille (BuildCamp(true))
+      4) Transition lendemain matin : carton « Le lendemain matin... », réveil échelonné, lits supprimés (BuildCamp(false))
+      5) Rassemblement guilde et briefing d'expédition par Penticus, caméra dynamique
+      6) Départ progressif et réaliste des équipes Cinabre puis Saphir vers le pic
+      7) Scène mature et profonde entre Penticus et Phileas près des sacs d'expédition, avec don d'objet d'expédition
+      + Protection et polissage complet de WindSecretScene() (le secret Hyko x Penticus) et LegendOfTheSkyArbiter()
 ]]--
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
@@ -18,12 +19,18 @@ require 'halcyon.BossFX'
 
 mount_windswept_entrance_ch_5 = {}
 
--- Coordinates for the circle of beds around center (290, 240)
+-- Lits temporaires de paille (soirée uniquement) autour du feu (290, 240)
 mount_windswept_entrance_ch_5.BED_POS = {
 	{290, 170}, {335, 185}, {365, 225}, {365, 265},
 	{335, 305}, {290, 320}, {245, 305}, {215, 265},
 	{215, 225}, {245, 185},
-	{160, 220}, {160, 250} -- Off-circle beds for the duo (Hero: 11, Partner: 12)
+	{160, 220}, {160, 250} -- Lits isolés pour Hero (11) et Partner (12)
+}
+
+-- Sacs et matériel d'expédition (présents soir et matin)
+mount_windswept_entrance_ch_5.BAG_POS = {
+	{250, 180}, {330, 180}, {220, 230}, {360, 230},
+	{240, 280}, {340, 280}, {275, 310}, {315, 310}
 }
 
 mount_windswept_entrance_ch_5.MEMBER_LIST = {
@@ -38,12 +45,13 @@ mount_windswept_entrance_ch_5.BED_MAP = {
 }
 
 --------------------------------------------------------------------
--- CAMP BUILDER (Dynamic Decorations)
+-- CAMP BUILDER (Décorations dynamiques : sacs permanents, lits au soir uniquement)
 --------------------------------------------------------------------
-function mount_windswept_entrance_ch_5.BuildCamp(withFire)
+function mount_windswept_entrance_ch_5.BuildCamp(isEvening)
 	local ground = GAME:GetCurrentGround()
 	local hay_bed = RogueEssence.Content.ObjAnimData('Hay_Bed', 1)
 	local campfire = RogueEssence.Content.ObjAnimData('Campfire', 6)
+	local grassy_bag = RogueEssence.Content.ObjAnimData('Grassy_Bag', 1)
 
 	pcall(function()
 		local anims = ground.Decorations[0].Anims
@@ -51,29 +59,34 @@ function mount_windswept_entrance_ch_5.BuildCamp(withFire)
 	end)
 
 	pcall(function()
-		for _, pos in ipairs(mount_windswept_entrance_ch_5.BED_POS) do
-			ground.Decorations[0].Anims:Add(RogueEssence.Ground.GroundAnim(hay_bed, RogueElements.Loc(pos[1]-12, pos[2]-12)))
+		-- Sacs et matériel d'expédition (présents soir et matin)
+		for _, pos in ipairs(mount_windswept_entrance_ch_5.BAG_POS) do
+			ground.Decorations[0].Anims:Add(RogueEssence.Ground.GroundAnim(grassy_bag, RogueElements.Loc(pos[1]-8, pos[2]-8)))
 		end
-		if withFire then
+
+		-- Au soir : pose du feu et des couchages temporaires. Au matin : lits et feu retirés.
+		if isEvening then
+			for _, pos in ipairs(mount_windswept_entrance_ch_5.BED_POS) do
+				ground.Decorations[0].Anims:Add(RogueEssence.Ground.GroundAnim(hay_bed, RogueElements.Loc(pos[1]-12, pos[2]-12)))
+			end
 			ground.Decorations[0].Anims:Add(RogueEssence.Ground.GroundAnim(campfire, RogueElements.Loc(290-16, 240-16)))
 		end
 	end)
 end
 
 --------------------------------------------------------------------
--- SETUP GROUND (After intro cutscene)
+-- SETUP GROUND (Après la cinématique d'introduction ou en revisite)
 --------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.SetupGround()
 	local ground = GAME:GetCurrentGround()
 	GROUND:AddMapStatus("blowing_wind")
 	mount_windswept_entrance_ch_5.BuildCamp(false)
 
-	-- Place interactive characters on walkable camp positions
 	local m = CharacterEssentials.MakeCharactersFromList({
-		{'Tropius', 256, 200, Direction.Down},
-		{'Noctowl', 320, 200, Direction.DownLeft},
-		{'Growlithe', 232, 280, Direction.UpRight},
-		{'Zigzagoon', 344, 280, Direction.UpLeft}
+		{'Tropius', 256, 196, Direction.Down},
+		{'Noctowl', 320, 196, Direction.DownLeft},
+		{'Growlithe', 232, 276, Direction.UpRight},
+		{'Zigzagoon', 344, 276, Direction.UpLeft}
 	})
 	for _, ch in ipairs(m) do
 		if ch ~= nil then GROUND:Unhide(ch.EntName) end
@@ -81,7 +94,7 @@ function mount_windswept_entrance_ch_5.SetupGround()
 end
 
 --------------------------------------------------------------------
--- ARRIVAL CUTSCENE (Evening arrival, progressive entries, campfire, bedtime)
+-- SCÈNE 1 à 3 : ARRIVAL CUTSCENE & CAMP NIGHTFALL
 --------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	local hero = CH('PLAYER')
@@ -100,13 +113,13 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 		{'Cranidos'}, {'Breloom'}, {'Girafarig'}, {'Growlithe'}, {'Zigzagoon'}
 	}, true)
 
-	-- Penticus (m[1]) and Phileas (m[2]) waiting near center campfire
-	GROUND:TeleportTo(m[1], 270, 200, Direction.Down)
-	GROUND:TeleportTo(m[2], 310, 200, Direction.Down)
+	-- Penticus (m[1]) et Phileas (m[2]) étudient la carte au centre du camp
+	GROUND:TeleportTo(m[1], 270, 190, Direction.Down)
+	GROUND:TeleportTo(m[2], 310, 190, Direction.Down)
 	GROUND:Unhide(m[1].EntName)
 	GROUND:Unhide(m[2].EntName)
 
-	-- Teams starting south of camp for progressive arrival
+	-- Équipes arrivant du sentier Sud
 	for i = 3, 10 do
 		GROUND:TeleportTo(m[i], 290, 480 + (i-3)*16, Direction.Up)
 		GROUND:Unhide(m[i].EntName)
@@ -117,30 +130,29 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	GAME:FadeIn(40)
 	SOUND:PlayBGM('At the End of the Day.ogg', true)
 
-	-- Progressive entries with character intentions
-	local enter_tasks = {}
-	-- Cinabre team (5: Mareep, 6: Cranidos) arrives first, shivering from wind
-	enter_tasks[1] = TASK:BranchCoroutine(function()
+	-- Arrivée progressive de l'Équipe Cinabre (Mareep, Cranidos)
+	local cinabre_tasks = {}
+	cinabre_tasks[1] = TASK:BranchCoroutine(function()
 		GROUND:MoveToPosition(m[5], 250, 240, false, 0.8)
 		GROUND:CharAnimateTurnTo(m[5], Direction.Right, 4)
 	end)
-	enter_tasks[2] = TASK:BranchCoroutine(function()
+	cinabre_tasks[2] = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(10)
 		GROUND:MoveToPosition(m[6], 250, 270, false, 0.8)
 		GROUND:CharAnimateTurnTo(m[6], Direction.UpRight, 4)
 	end)
-	TASK:JoinCoroutines(enter_tasks)
+	TASK:JoinCoroutines(cinabre_tasks)
 	GAME:WaitFrames(20)
 
 	UI:SetSpeaker(m[5])
 	UI:SetSpeakerEmotion("Pain")
-	UI:WaitShowDialogue("Bêêê... Ce vent est glacial, j'ai la laine glacée jusqu'aux racines !")
+	UI:WaitShowDialogue("Bêêê... Ce vent du nord me traverse la laine jusqu'aux os !")
 	
 	UI:SetSpeaker(m[6])
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue("Approche-toi du brasier, Kino. Au moins la roche d'ici abrite des rafales.")
+	UI:WaitShowDialogue("Approche-toi du brasier, Kino. La roche d'ici abrite au moins des rafales.")
 
-	-- Saphir team (3: Audino, 4: Snubbull, 7: Breloom, 8: Girafarig) arrives
+	-- Arrivée de l'Équipe Saphir (Audino, Snubbull, Breloom, Girafarig)
 	local saphir_tasks = {}
 	saphir_tasks[1] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[3], 330, 240, false, 0.8) end)
 	saphir_tasks[2] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[4], 330, 270, false, 0.8) end)
@@ -151,13 +163,13 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 
 	UI:SetSpeaker(m[3])
 	UI:SetSpeakerEmotion("Worried")
-	UI:WaitShowDialogue("Tout le monde va bien ? Pas de blessure après la montée du Tunnel ?")
+	UI:WaitShowDialogue("Tout le monde va bien ? Pas d'engelure après la montée du Tunnel ?")
 
 	UI:SetSpeaker(m[4])
 	UI:SetSpeakerEmotion("Inspired")
-	UI:WaitShowDialogue("Regardez ce pic au-dessus de nous... Nous touchons au but !")
+	UI:WaitShowDialogue("Regardez ce sommet au-dessus de nous... Nous touchons au but !")
 
-	-- Pointe team + Hero & Partner arrive
+	-- Arrivée de l'Équipe de pointe (Growlithe, Zigzagoon, Hero, Partner)
 	local pointe_tasks = {}
 	pointe_tasks[1] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[9], 270, 295, false, 0.8) end)
 	pointe_tasks[2] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[10], 310, 295, false, 0.8) end)
@@ -174,19 +186,18 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 		UI:WaitShowDialogue("...Enfin le camp de base. Le vent souffle moins fort ici, mais le froid reste mordant.")
 	end
 
-	-- Penticus welcomes the expedition
+	-- Accueil de Penticus
 	GROUND:CharAnimateTurnTo(m[1], Direction.Down, 4)
 	UI:SetSpeaker(m[1])
-	UI:WaitShowDialogue("Équipe " .. GAME:GetTeamName() .. ". Vous voilà tous rassemblés.")
+	UI:WaitShowDialogue("Équipe " .. GAME:GetTeamName() .. ". Vous voilà tous arrivés.")
 	UI:WaitShowDialogue("Le Tunnel Ardent a mis nos forces à l'épreuve, et le vent d'ici teste notre patience.")
-	UI:WaitShowDialogue("Mais regardez : l'expédition entière est intacte. Installez-vous et partageons ce repas.")
+	UI:WaitShowDialogue("Mais regardez : l'expédition entière est intacte. Installez-vous autour de l'âtre.")
 
-	-- Call evening campfire scene
 	mount_windswept_entrance_ch_5.CampNightfall(hero, partner, m)
 end
 
 --------------------------------------------------------------------
--- CAMP NIGHTFALL (Heartwarming soup around the fire & natural bedtime)
+-- CAMP NIGHTFALL (Dîner, moment intime du héros & coucher échelonné)
 --------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, membres)
 	local B = mount_windswept_entrance_ch_5.BED_POS
@@ -197,7 +208,6 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, membres)
 	UI:SetCenter(false)
 	GAME:WaitFrames(25)
 
-	-- Everyone turns toward the campfire
 	local tours = {}
 	for i, c in ipairs(membres) do
 		tours[#tours+1] = TASK:BranchCoroutine(function()
@@ -208,11 +218,11 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, membres)
 	TASK:JoinCoroutines(tours)
 	GAME:WaitFrames(20)
 
-	UI:SetSpeaker(membres[7]) -- Breloom
+	UI:SetSpeaker(membres[7])
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue("Servez-vous tant que c'est chaud ! En altitude, ça refroidit en deux minutes !")
 
-	UI:SetSpeaker(membres[8]) -- Girafarig
+	UI:SetSpeaker(membres[8])
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue("Ce bouillon nous redonne des forces. Demain, l'ascension sera rude.")
 
@@ -229,14 +239,35 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, membres)
 	UI:SetCenter(false)
 	GAME:WaitFrames(30)
 
-	UI:SetSpeaker(membres[1]) -- Penticus
+	UI:SetSpeaker(membres[1])
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue("Demain, le sommet du Mont Venteux. Dormez pendant que la montagne vous laisse dormir.")
 
-	-- NATURAL BEDTIME (Staggered walking to hay beds)
+	-- SCÈNE 2 : LE MOMENT INTIME DU HÉROS AVANT DE DORMIR
+	GAME:MoveCamera(240, 240, 1, false)
+	GAME:WaitFrames(30)
+
+	if partner ~= nil then
+		GROUND:CharTurnToCharAnimated(partner, hero, 4)
+		GROUND:CharTurnToCharAnimated(hero, partner, 4)
+		GAME:WaitFrames(20)
+
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Worried")
+		UI:WaitShowDialogue("...Tu ne dors pas non plus, " .. hero:GetDisplayName() .. " ?")
+		UI:WaitShowDialogue("Quand nous avons quitté Metano, je ne savais pas si nous arriverions jusqu'ici. Le vent, les crêtes, le froid...")
+		UI:SetSpeakerEmotion("Determined")
+		UI:WaitShowDialogue("Mais chaque fois, tu as su garder le cap. Demain, le pic nous révélera son secret. Quoi qu'il y ait là-haut... nous ferons face ensemble.")
+	end
+
+	GeneralFunctions.HeroDialogue(hero, "(...Onze respirations autour d'un feu.[pause=25] Je n'avais jamais rien entendu d'aussi calme.)", "Determined")
+	GAME:WaitFrames(30)
+
+	-- SCÈNE 3 : COUCHER NATUREL ÉCHELONNÉ
+	GAME:MoveCamera(290, 240, 1, false)
 	UI:ResetSpeaker(false)
 	UI:SetCenter(true)
-	UI:WaitShowDialogue("L'expédition rejoint ses lits de paille à l'abri des rafales...")
+	UI:WaitShowDialogue("L'expédition rejoint ses couchages temporaires à l'abri des rafales...")
 	UI:SetCenter(false)
 
 	local bedtime_tasks = {}
@@ -281,12 +312,11 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, membres)
 	GAME:FadeOut(false, 90)
 	GAME:WaitFrames(60)
 
-	-- Transition directly to MorningSequence
 	mount_windswept_entrance_ch_5.MorningSequence()
 end
 
 --------------------------------------------------------------------
--- MORNING SEQUENCE (Emotional morning, assembly, team race)
+-- SCÈNES 4 à 7 : MORNING SEQUENCE (Aube, assemblée, course, Penticus/Phileas)
 --------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.MorningSequence()
 	UI:ResetSpeaker(false)
@@ -300,14 +330,13 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 	GAME:MoveCamera(290, 240, 1, false)
 	GROUND:RemoveMapStatus("darkness")
 	GROUND:AddMapStatus("dusk")
-	mount_windswept_entrance_ch_5.BuildCamp(false) -- Fire out in morning
+	mount_windswept_entrance_ch_5.BuildCamp(false) -- Lits retirés, ne restent que sacs et équipement !
 
 	local m = CharacterEssentials.MakeCharactersFromList({
 		{'Tropius'}, {'Noctowl'}, {'Audino'}, {'Snubbull'}, {'Mareep'}, 
 		{'Cranidos'}, {'Breloom'}, {'Girafarig'}, {'Growlithe'}, {'Zigzagoon'}
 	}, true)
 
-	-- Everyone starting asleep at their beds
 	for i, name in ipairs(mount_windswept_entrance_ch_5.MEMBER_LIST) do
 		local pos = mount_windswept_entrance_ch_5.BED_POS[mount_windswept_entrance_ch_5.BED_MAP[name]]
 		GROUND:TeleportTo(m[i], pos[1], pos[2], Direction.Down)
@@ -328,7 +357,7 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 	SOUND:PlayBGM('Heartwarming.ogg', true)
 	GAME:WaitFrames(60)
 
-	-- Awakening (Partner first, nudging Hero)
+	-- Réveil progressif (Partenaire en premier)
 	if partner ~= nil then
 		GAME:WaitFrames(30)
 		GROUND:CharEndAnim(partner)
@@ -355,7 +384,7 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 		UI:WaitShowDialogue("Haha ! Le froid réveille mieux qu'une Baie Maron ! Regarde... Le ciel est dégagé au-dessus du pic.")
 	end
 
-	-- Assembly Call by Penticus
+	-- SCÈNE 5 : APPEL À L'ASSEMBLÉE PAR PENTICUS
 	GAME:WaitFrames(30)
 	GROUND:CharEndAnim(m[1])
 	GeneralFunctions.DoAnimation(m[1], 'Wake')
@@ -364,7 +393,6 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 	UI:SetSpeaker(m[1])
 	UI:WaitShowDialogue("Le soleil se lève ! Tout le monde debout ! On se rassemble !")
 
-	-- Everyone wakes up in staggered branch coroutines (no one static!)
 	local wake_tasks = {}
 	for i = 2, 10 do
 		wake_tasks[#wake_tasks+1] = TASK:BranchCoroutine(function()
@@ -375,7 +403,6 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 	end
 	TASK:JoinCoroutines(wake_tasks)
 
-	-- Assembly around center campfire circle
 	GAME:WaitFrames(30)
 	local assemble_tasks = {}
 	assemble_tasks[1] = TASK:BranchCoroutine(function() GROUND:MoveToPosition(m[1], 256, 200, false, 1) end)
@@ -402,38 +429,109 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 	end
 	TASK:JoinCoroutines(assemble_tasks)
 
-	-- Briefing
 	UI:SetSpeaker(m[1])
 	UI:SetSpeakerEmotion("Inspired")
 	UI:WaitShowDialogue("Équipe " .. GAME:GetTeamName() .. ". Équipe Cinabre. Équipe Saphir. L'ascension finale commence.")
-	UI:WaitShowDialogue("Nous allons nous diviser pour ne laisser aucun sentier inexploré.")
-	UI:WaitShowDialogue("Équipe Cinabre : Kino, Reinier. Vous ouvrez la voie vers l'Est.")
-	UI:WaitShowDialogue("Équipe Saphir : Shuca, Ganlon, Rin, Coco. Crêtes inférieures.")
+	UI:WaitShowDialogue("Le sommet du Mont Venteux ne pardonne aucune erreur. Nous allons nous diviser en trois voies.")
+	UI:WaitShowDialogue("Équipe Cinabre : Kino, Reinier. Vous ouvrez le sentier Est pour sécuriser les corniches.")
+	UI:WaitShowDialogue("Équipe Saphir : Shuca, Ganlon, Rin, Coco. Surveillance des falaises inférieures.")
 	UI:WaitShowDialogue("Et l'équipe de pointe : Hyko, Almotz, " .. hero:GetDisplayName() .. " et " .. partner:GetDisplayName() .. ". Droit vers le pic !")
 
 	GAME:WaitFrames(20)
-	UI:SetSpeaker(m[7]) -- Breloom
+	UI:SetSpeaker(m[7])
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue("Hé hé ! Le premier arrivé là-haut gagne une Baie Grena ! La course est lancée !")
 
-	-- The Race (Massive Departure)
+	-- SCÈNE 6 : DÉPART PROGRESSIF DES ÉQUIPES (Pas de disparition instantanée !)
 	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
-	local race_tasks = {}
-	for i = 3, 8 do
-		race_tasks[#race_tasks+1] = TASK:BranchCoroutine(function()
-			GAME:WaitFrames((i-2)*8)
+	
+	-- 1er départ : Équipe Cinabre (Mareep, Cranidos)
+	UI:SetSpeaker(m[5])
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue("Bêêê ! On ouvre la marche ! En route, Reinier !")
+	
+	local dept1 = {}
+	dept1[1] = TASK:BranchCoroutine(function() GROUND:MoveInDirection(m[5], Direction.Up, 320, false, 1.5); GAME:GetCurrentGround():RemoveTempChar(m[5]) end)
+	dept1[2] = TASK:BranchCoroutine(function() GROUND:MoveInDirection(m[6], Direction.Up, 320, false, 1.5); GAME:GetCurrentGround():RemoveTempChar(m[6]) end)
+	TASK:JoinCoroutines(dept1)
+	GAME:WaitFrames(20)
+
+	-- 2e départ : Équipe Saphir (Audino, Snubbull, Breloom, Girafarig)
+	UI:SetSpeaker(m[4])
+	UI:SetSpeakerEmotion("Inspired")
+	UI:WaitShowDialogue("Le sommet est à nous ! Bonne ascension à tous !")
+	
+	local dept2 = {}
+	for i = 3, 4 do
+		dept2[#dept2+1] = TASK:BranchCoroutine(function()
 			GROUND:MoveInDirection(m[i], Direction.Up, 320, false, 1.5)
 			GAME:GetCurrentGround():RemoveTempChar(m[i])
 		end)
 	end
-	TASK:JoinCoroutines(race_tasks)
+	for i = 7, 8 do
+		dept2[#dept2+1] = TASK:BranchCoroutine(function()
+			GROUND:MoveInDirection(m[i], Direction.Up, 320, false, 1.5)
+			GAME:GetCurrentGround():RemoveTempChar(m[i])
+		end)
+	end
+	TASK:JoinCoroutines(dept2)
+	GAME:WaitFrames(30)
 
-	GAME:WaitFrames(40)
 	if partner ~= nil then
 		UI:SetSpeaker(partner)
 		UI:SetSpeakerEmotion("Inspired")
 		UI:WaitShowDialogue("Ils ne perdent pas de temps ! Allez, " .. hero:GetDisplayName() .. ", on ne va pas se laisser distancer !")
 	end
+
+	-- SCÈNE 7 : SCÈNE MATURE ENTRE PENTICUS ET PHILEAS (Près du sac d'expédition)
+	GAME:MoveCamera(290, 190, 1, false)
+	GAME:WaitFrames(30)
+
+	GROUND:CharTurnToCharAnimated(m[1], m[2], 4)
+	GROUND:CharTurnToCharAnimated(m[2], m[1], 4)
+	GAME:WaitFrames(20)
+
+	UI:SetSpeaker(m[1])
+	UI:SetSpeakerEmotion("Sad")
+	UI:WaitShowDialogue(".........")
+	UI:WaitShowDialogue("Le vent de ce sommet... Il porte exactement la même complainte qu'à l'époque, Phileas.")
+
+	UI:SetSpeaker(m[2])
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue("Hoo... Je l'entends aussi. L'Ancrage ne s'est pas réveillé seul. Quelqu'un ou quelque chose force le passage au pic.")
+	UI:WaitShowDialogue("Nos recrues sont pleines de courage... mais elles ignorent ce que retient un sceau des anciens bâtisseurs.")
+
+	UI:SetSpeaker(m[1])
+	UI:SetSpeakerEmotion("Determined")
+	UI:WaitShowDialogue("C'est notre rôle d'être leur bouclier. Nous ne laisserons pas la montagne répéter ses drames passés.")
+
+	-- Phileas s'adresse au joueur et remet l'aide d'expédition
+	GROUND:CharAnimateTurnTo(m[2], Direction.Down, 4)
+	UI:SetSpeaker(m[2])
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue("Hoo... Vous deux. Approchez un instant avant de rejoindre Hyko et Almotz.")
+
+	if not SV.Chapter5.PhileasGiftGiven then
+		local item = "berry_oran"
+		if math.random(1,2) == 1 then item = "seed_reviver" end
+		SOUND:PlayFanfare("Item")
+		UI:WaitShowDialogue("Vous recevez une " .. _DATA:GetItem(item):GetColoredName() .. " !")
+		GAME:GivePlayerStorageItem(item)
+		SV.Chapter5.PhileasGiftGiven = true
+	end
+
+	UI:SetSpeaker(m[2])
+	UI:WaitShowDialogue("Le vent là-haut coupe comme une lame. Ne gaspillez pas vos forces dans les premiers paliers.")
+
+	if partner ~= nil then
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Determined")
+		UI:WaitShowDialogue("Merci, Maître Phileas ! On ne vous décevra pas !")
+	end
+
+	UI:SetSpeaker(m[1])
+	UI:SetSpeakerEmotion("Inspired")
+	UI:WaitShowDialogue("La voie est libre. Équipe de pointe... en avant !")
 
 	GAME:FadeOut(false, 60)
 	GAME:WaitFrames(60)
@@ -443,7 +541,7 @@ function mount_windswept_entrance_ch_5.MorningSequence()
 end
 
 --------------------------------------------------------------------
--- NPC ACTIONS (Living Camp with Phileas's Gift)
+-- ACTIONS PNJ (Camp jouable vivant avec soutien Phileas)
 --------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.Tropius_Action(chara, activator)
 	GeneralFunctions.StartConversation(chara, "Le sommet vous attend, " .. GAME:GetTeamName() .. ". Faites honneur à la guilde.", "Inspired")
@@ -454,15 +552,12 @@ function mount_windswept_entrance_ch_5.Noctowl_Action(chara, activator)
 	GeneralFunctions.StartConversation(chara, "Hoo...", "Normal")
 	if not SV.Chapter5.PhileasGiftGiven then
 		UI:WaitShowDialogue("Hou... Approchez. Avant cette ultime montée, une aide ne sera pas de trop.")
-		
 		local item = "berry_oran"
 		if math.random(1,2) == 1 then item = "seed_reviver" end
-		
 		SOUND:PlayFanfare("Item")
 		UI:WaitShowDialogue("Vous recevez une " .. _DATA:GetItem(item):GetColoredName() .. " !")
 		GAME:GivePlayerStorageItem(item)
 		SV.Chapter5.PhileasGiftGiven = true
-		
 		UI:WaitShowDialogue("Le vent là-haut est tranchant. Soyez prudents.")
 	else
 		UI:WaitShowDialogue("Le Cœur du Mont Venteux pulse différemment ce matin. Ne tardez pas.")
@@ -521,7 +616,7 @@ function mount_windswept_entrance_ch_5.LegendOfTheSkyArbiter(chara)
 end
 
 --------------------------------------------------------------------
--- WIND SECRET SCENE (Emotional Night Scene - Hyko x Penticus)
+-- WIND SECRET SCENE (Scène secrète de nuit - Hyko x Penticus)
 --------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.WindSecretScene()
 	local hero = CH('PLAYER')
