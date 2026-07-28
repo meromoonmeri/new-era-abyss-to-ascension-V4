@@ -95,9 +95,23 @@ end
 --C'est cette fonction que les grounds d'arene interrogent pour savoir s'ils
 --doivent jouer la salle vide plutot que la cinematique de boss.
 function ReplayEnding.IsReplay(zoneID, chapter)
-  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == chapter then
-    return false
-  end
+  -- Regle de base : le donjon doit avoir ete termine.
+  --
+  -- ATTENTION, piege verifie dans le depot : la progression de chapitre
+  -- S'ARRETE A 6. `SV.ChapterProgression.Chapter` n'est jamais porte a 7, 8,
+  -- 9, 10 ni 11 nulle part (seuls des `Chapter = 2..6` existent, dans
+  -- guild_heros_room et mount_windswept). Un joueur reste donc bloque a 6, et
+  -- apres la victoire sur Lugia il reste bloque a 10 s'il y est arrive par
+  -- debug.
+  --
+  -- Consequence : on ne peut PAS se fier a « le chapitre a avance » pour
+  -- decider qu'on est en rejouabilite. C'est le drapeau d'achevement du donjon
+  -- lui-meme qui fait foi. Une fois la conclusion vue, l'arene est vide —
+  -- que le chapitre ait avance ou non.
+  --
+  -- Sans cette regle : la Foret Lugubre (ch6, dernier chapitre atteignable)
+  -- rejouait la cinematique ET le combat contre un Zarude deja vaincu, et le
+  -- Pic Celeste restait definitivement injouable apres la fin du jeu.
   return ReplayEnding.IsCleared(zoneID)
 end
 
@@ -173,12 +187,17 @@ function ReplayEnding.PlayEmptyScene(cfg)
     if partner ~= nil then
       GROUND:TeleportTo(partner, cfg.partner[1], cfg.partner[2], Direction.Up)
     end
-    if t2 ~= nil then
-      GROUND:TeleportTo(t2, cfg.partner[1], cfg.partner[2] + 32, Direction.Up)
-    end
-    if t3 ~= nil then
-      GROUND:TeleportTo(t3, cfg.hero[1], cfg.hero[2] + 32, Direction.Up)
-    end
+    -- Les equipiers se placent en retrait, ECARTES sur les cotes : +16 px en Y
+    -- et 32 px vers l'exterieur. C'est le placement des scenes de boss
+    -- d'origine (vast_steppe_guardian_ch_5:28-29, mount_windswept:28).
+    -- Un decalage de +32 en Y ferait sortir les equipiers de trois arenes
+    -- (Steppe 528x368, Ruines 320x240, Mont 208x176), ou TeleportTo hors
+    -- bornes laisse un allie invisible ou fige la scene.
+    local ax = math.min(cfg.hero[1], cfg.partner[1]) - 32
+    local bx = math.max(cfg.hero[1], cfg.partner[1]) + 32
+    local ay = math.max(cfg.hero[2], cfg.partner[2]) + 16
+    if t2 ~= nil then GROUND:TeleportTo(t2, ax, ay, Direction.Up) end
+    if t3 ~= nil then GROUND:TeleportTo(t3, bx, ay, Direction.Up) end
     GAME:MoveCamera(cfg.camera[1], cfg.camera[2], 1, false)
 
     UI:ResetSpeaker()

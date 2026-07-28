@@ -36,9 +36,12 @@ function cloven_ruins_boss.Enter(map)
     SV.Chapter7.DefeatedRuinsBoss = false
     SV.Chapter7.DiedToRuinsBoss = false
     ReplayEnding.EmptyArena({
-      hero = {152, 240}, partner = {120, 240},
-      camera = {136, 208}, look = {136, 168},
-      walk = 48, title = true, music = 'In the Depths of the Pit.ogg',
+      -- Carte de 320x240 px : la scene ch7 spawne le duo pile sur le bord bas
+      -- (y=240) et ne place aucun equipier. Ici les equipiers sont poses a
+      -- +16 px, il faut donc remonter le duo pour que tout le monde tienne.
+      hero = {152, 200}, partner = {120, 200},
+      camera = {136, 176}, look = {136, 144},
+      walk = 40, title = true, music = 'In the Depths of the Pit.ogg',
       lines = {
         { spk='partner', emo='Normal', key='CRB_R01', wait=10 },
         { spk='hero',    emo='Normal', key='CRB_R02', wait=10 },

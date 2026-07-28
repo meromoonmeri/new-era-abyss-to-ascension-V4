@@ -20,7 +20,7 @@ function forgotten_marsh_boss.Enter(map)
     ReplayEnding.EmptyArena({
       hero = {172, 180}, partner = {140, 180},
       camera = {156, 156}, look = {156, 132},
-      walk = 40, title = true, music = 'Boss Battle!.ogg',
+      walk = 40, title = true, music = 'Cave Camp.ogg',
       lines = {
         { spk='partner', emo='Normal', key='FMB_R01', wait=10 },
         { spk='hero',    emo='Normal', key='FMB_R02', wait=10 },

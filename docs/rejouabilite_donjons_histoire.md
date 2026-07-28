@@ -120,8 +120,36 @@ se clôt au sommet du Mont Venteux, ce qui termine les trois d'un coup.
 - `IsCleared(zone)` — le donjon a-t-il été bouclé ?
 - `FollowsRoute(zone, ch)` — faut-il suivre le parcours complet ? Vrai pendant
   le chapitre, vrai à nouveau après. Remplace les gardes de chapitre.
-- `IsReplay(zone, ch)` — sommes-nous en visite de rejouabilité ? Faux pendant
-  le chapitre (l'histoire prime), vrai après.
+- `IsReplay(zone, ch)` — sommes-nous en visite de rejouabilité ? Vrai dès que la
+  conclusion du donjon a été vue (voir l'encadré ci-dessous).
+
+### Pourquoi `IsReplay` ne regarde PAS le numéro de chapitre
+
+Version initiale : « faux tant que `Chapter == N` ». **Faux et dangereux.**
+
+Vérification dans le dépôt : `SV.ChapterProgression.Chapter` n'est jamais porté
+à 7, 8, 9, 10 ni 11. Les seules affectations existantes sont `Chapter = 2..6`
+(`guild_heros_room/init.lua`, `mount_windswept/init.lua`). **La progression de
+chapitre s'arrête à 6.** C'est un état préexistant du dépôt, pas une régression
+de ce lot — les chapitres 7-10 ont leur contenu écrit mais aucun déclencheur.
+
+Conséquences si on se fiait au chapitre :
+
+- **Forêt Lugubre** — ch6 est le dernier chapitre atteignable. Zarude vaincu,
+  revenir sur la carte rejouait `FirstBossScene()` **et relançait le combat**
+  contre un boss déjà battu.
+- **Pic Céleste** — après la victoire sur Lugia, `Chapter` reste à 10 et seul
+  `StoryCompleted` passe à `true`. Le donjon serait resté **définitivement
+  injouable**.
+
+`IsReplay` s'appuie donc uniquement sur le drapeau d'achèvement du donjon. Une
+fois la conclusion vue, l'arène est vide — que le chapitre ait avancé ou non.
+`FollowsRoute` reste inchangée (chapitre courant **ou** donjon terminé), ce qui
+garantit que le déroulé de l'histoire n'est jamais raccourci.
+
+Non-régression contrôlée par simulation sur 11 scénarios : à chaque étape de
+l'histoire le donjon courant a bien `replay=false` / `route=true`, et les
+4 donjons terminés ont `replay=true`.
 
 ### Deux fonctions de mise en scène
 
@@ -236,16 +264,52 @@ Elle accepte désormais aussi `ReplayEnding.IsCleared('gloomy_forest')`.
   idempotence, chapitre 5 en cours, chapitre 6 après expédition, chapitre 7
   avant/après victoire, donjon non terminé, zone inconnue
 
+## Audit après coup — 4 bugs trouvés dans ce lot et corrigés
+
+1. **Équipiers téléportés hors carte.** Le module plaçait les alliés à +32 px
+   en Y sous le duo. Contrôle croisé script ↔ dimensions réelles des
+   `.rsground` : hors carte sur 3 arènes (Steppe `y=380 ≥ 368`, Ruines
+   `y=272 ≥ 240`, Mont `y=176 ≥ 176`). Les scènes de boss d'origine décalent
+   en fait de **+16 en Y et ±32 en X** (les alliés s'écartent sur les côtés).
+   Module aligné sur ce patron.
+2. **Ruines Tordues : duo sur le bord bas.** La scène ch7 spawne à `y=240` sur
+   une carte de 240 px — elle ne place aucun équipier, donc ça passait. En
+   copiant ces coordonnées, les équipiers sortaient. Duo remonté à `y=200`.
+3. **`IsReplay` inopérant** sur Forêt Lugubre et Pic Céleste (voir encadré).
+4. **`Boss Battle!.ogg` sur une salle vide** — contresens musical sur 3 arènes.
+   Remplacé par la piste calme du relais du même donjon (`Snow Camp`,
+   `Cave Camp`, `Summit`), ce que fait déjà `RelayScenes` en visite libre.
+
+Contrôles ajoutés : 0 clé `.resx` perdue lors de la réécriture des 5 fichiers
+(diff de clés avant/après), 10/10 scènes avec spawns et cadrage dans les
+bornes, 10/10 pistes musicales présentes dans `Content/Music/`.
+
 ## Ce qui n'est PAS vérifié
 
 **Rien n'a été testé en jeu.** En particulier :
 
-- Les **coordonnées de spawn et de caméra** des 9 scènes de salle vide sont
-  déduites de la taille des cartes et des scènes de boss existantes, pas
-  observées. Deux arènes sont petites (`mount_windswept_guardian` 208×176,
-  `searing_crucible` 168×168) — les positions y ont été resserrées, mais le
-  cadrage reste à confirmer à l'œil.
-- Le **nom de piste musicale** de chaque scène reprend celui de la carte ou de
-  la scène de boss correspondante ; non vérifié à l'écoute.
+- Les **coordonnées** sont désormais contrôlées par script (dans les bornes de
+  la carte, parleurs dans le cadre 320×240), mais le rendu visuel n'a pas été
+  observé : rien ne garantit que le duo ne se retrouve pas sur un décor plutôt
+  qu'au centre de la salle.
+- Les **pistes musicales** existent, mais leur justesse de ton n'a pas été
+  jugée à l'écoute.
 - Le parcours complet **entrée → relais → profondeurs → salle vide → journal →
   guilde** n'a jamais été joué de bout en bout.
+
+---
+
+## Dettes préexistantes repérées pendant l'audit (NON corrigées)
+
+Hors périmètre de ce lot, signalées pour mémoire :
+
+- **`metano_town/strings.fr.resx` : 655 clés référencées absentes**, dont les
+  150 clés `MT10_*` (chapitre 10) qui n'existent qu'en anglais. Un joueur FR
+  verrait du texte non traduit sur ces dialogues.
+- **`post_office` : 37 clés `Connect_*`** référencées et absentes des deux
+  fichiers. Probablement fournies par le moteur, à confirmer.
+- **`metano_town` : `Item_Give_Storage`** absente des deux fichiers.
+- **La progression de chapitre s'arrête à 6.** Les chapitres 7 à 10 ont leur
+  contenu (zones, grounds, cinématiques, dialogues) mais **aucun déclencheur
+  ne fait passer `Chapter` de 6 à 7**. En pratique le contenu ch7-10 est
+  inatteignable en partie normale. C'est le point le plus lourd de cette liste.
