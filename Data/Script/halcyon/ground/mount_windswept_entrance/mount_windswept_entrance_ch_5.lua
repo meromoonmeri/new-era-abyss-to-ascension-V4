@@ -856,8 +856,10 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GAME:FadeOut(false, 60)
 	GAME:WaitFrames(30)
 
-	--Camp du matin : les paillasses disparaissent, les sacs sortent.
-	mount_windswept_entrance_ch_5.BuildCampDay()
+	--Camp du matin : paillasses rangees, feu ETEINT, seul le sac commun
+	--reste. Le foyer libere l'axe central : Penticus peut se tenir face
+	--aux rangs sans chevaucher les flammes (bug vu en jeu).
+	mount_windswept_entrance_ch_5.BuildCampMorning()
 
 	--La formation : 5 rangs de 2, face au maitre de guilde, colonnes
 	--x=240/272 (offset regulier de 32 px), rangs espaces de 28 px.
@@ -1044,6 +1046,24 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--sentier est (x=284, seul couloir praticable vers l'entree,
 	--verifie sur la grille : la colonne x=276 est bloquee en y=120)
 	--et n'est masquee qu'une fois hors champ, au niveau de l'entree.
+	--
+	--PENTICUS S'ECARTE D'ABORD (bug vu en jeu : il restait plante au
+	--centre du camp, sur l'axe). Il gagne le flanc ouest avec Phileas
+	--et se tourne vers le sentier : le maitre de guilde REGARDE ses
+	--cordees partir, il ne leur barre pas la route. Cases (216,240)
+	--et (216,208) verifiees libres sur la grille d'obstacles.
+	coro1 = TASK:BranchCoroutine(function()
+		GROUND:MoveToPosition(t.penticus, 216, 240, false, 1)
+		GROUND:CharAnimateTurnTo(t.penticus, Direction.UpRight, 4)
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(12)
+		GROUND:MoveToPosition(t.phileas, 216, 208, false, 1)
+		GROUND:CharAnimateTurnTo(t.phileas, Direction.Right, 4)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+	GAME:WaitFrames(15)
+
 	UI:SetSpeaker(t.kino)
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_105']))
@@ -1474,18 +1494,31 @@ function mount_windswept_entrance_ch_5.BuildCampDay()
 	local ground = GAME:GetCurrentGround()
 	local campfire = RogueEssence.Content.ObjAnimData('Campfire', 6)
 	local bag  = RogueEssence.Content.ObjAnimData('Grassy_Bag', 1)
-	local box  = RogueEssence.Content.ObjAnimData('Yellow_Box', 1)
 
 	--Le feu, centre du camp.
 	ground.Decorations[0].Anims:Add(
 		RogueEssence.Ground.GroundAnim(campfire, RogueElements.Loc(256, 220)))
-	--Le materiel, range contre la paroi ouest (cases libres verifiees).
+	--LE sac commun de l'expedition, contre la paroi ouest (case libre
+	--verifiee). UN SEUL : le test en jeu montrait un empilement de
+	--sacs et une caisse qui encombraient le camp pour rien.
 	ground.Decorations[0].Anims:Add(
-		RogueEssence.Ground.GroundAnim(bag, RogueElements.Loc(186, 218)))
+		RogueEssence.Ground.GroundAnim(bag, RogueElements.Loc(196, 224)))
+end
+
+--------------------------------------------------------------------
+-- LE CAMP DU MATIN — feu eteint, sac pret au depart (Prompt 6.8).
+--------------------------------------------------------------------
+-- Distinct du camp de jour : au matin du depart, le feu est ETEINT
+-- (aucune animation de flammes) et il ne reste que le sac commun.
+-- C'est aussi ce qui libere l'axe du rassemblement : Penticus se
+-- tient en (256,240), l'ancien feu (256,220) le chevauchait.
+--------------------------------------------------------------------
+function mount_windswept_entrance_ch_5.BuildCampMorning()
+	mount_windswept_entrance_ch_5.PurgeDecor()
+	local ground = GAME:GetCurrentGround()
+	local bag = RogueEssence.Content.ObjAnimData('Grassy_Bag', 1)
 	ground.Decorations[0].Anims:Add(
-		RogueEssence.Ground.GroundAnim(bag, RogueElements.Loc(204, 226)))
-	ground.Decorations[0].Anims:Add(
-		RogueEssence.Ground.GroundAnim(box, RogueElements.Loc(190, 240)))
+		RogueEssence.Ground.GroundAnim(bag, RogueElements.Loc(196, 224)))
 end
 
 --------------------------------------------------------------------
