@@ -487,3 +487,21 @@ Audit statique (fichiers/lignes). Aucun test en jeu dans cette sandbox.
 - BUG 4 (coffre) : c'est Kangaskhan_Rock (depot Kangaskhan, GeneralFunctions.Kangashkhan_Rock_Interact — callback existant, pas un bug de script). Il etait INCRUSTE dans la falaise ouest (160,144, 3 cellules sous collision). Deplace en (176,352), zone 4x4 verifiee libre, accessible.
 - BUG 5 (vertige/reve invisibles) : le reve utilise desormais le patron des visions : DreamSky (Dream_Back+Dream_Front en parallaxe, les « fichiers dream qui se superposent » = leur usage prevu) + UI:WaitShowBG('Genesis_Void') par-dessus le fondu noir (comme HeroVisions), puis WaitHideBG. Le DizzyVeil du matin reste (ecran allume).
 - Reste a faire (assume, non code) : tentes (aucun asset objet 'tent' dans le depot — les tentes du relais sont dans SON tileset) et ocean visible (repeinture de tiles cote sud avec DuskBeach/beach_animation, gros chantier a part). Les lits n'apparaissent QUE la nuit (DeployBeds) et disparaissent au matin : le camp est bien « demonte au reveil ».
+
+
+## Chantiers complementaires 2026-07-28 (3e passe) — Mount Windswept Entrance
+
+### Verification tentes (demande de suivi — documentee, non concluante en assets objets)
+Fichiers consultes :
+- Content/Object/ (29 .dir listes un a un) : AUCUN asset de tente. Seuls camp-assets : Campfire, Grassy_Bag, Hay_Bed, Yellow_Box, River_Stone_*.
+- Content/Tile/ : ForestCamp/ForestCampFront/ForestCampSecret(+Front) rendus en PNG -> ce sont des tilesets de clairiere forestiere (murs de feuillage + herbe), PAS de tentes dessinees.
+- CliffCamp, SnowCamp, CanyonCamp rendus -> paysages (falaises, neige, canyon+riviere). Le rendu complet de mount_windswept_midpoint (624x1152) montre falaises/riviere/pont, pas de sprites de tentes distincts.
+- DumpAsset (API GitHub, 209 entrees Content/Tile) : BaseCamp/CaveStop/ForestCamp etc. examines ; BaseCamp = clairiere du camp de base RB (rendu verifie), pas de tuiles de tente isolables proprement.
+Conclusion actee : pas d'asset de tente reutilisable -> le camp reste raconte par feu + sac + paillasses nocturnes (DeployBeds) ; « camp demonte au reveil » deja conforme.
+
+### Chantier ocean (commit 174df36)
+- Mer animee DuskBeach (8 frames, FrameLength 10 — patron riviere Metano) sur les rows 76-80, infranchissable (Tags=1).
+- 6 pierres cotieres River_Stone_* en deco sur la greve ; marker remonte en (256,592) ; file d'arrivee remontee hors de l'eau (lua).
+- Valide : luac OK, audit 0 defaut, BFS marker->feu->portail OK, rendu PNG controle. NON teste en jeu (pas d'executable dans la sandbox) : retest joueur requis.
+
+### Rappel : retest en jeu des 5 bugs (31dce6b) + ocean (174df36) a faire par le joueur sur la save v6.
