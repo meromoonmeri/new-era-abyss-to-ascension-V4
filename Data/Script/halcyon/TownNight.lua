@@ -55,6 +55,7 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.TownNightScenes'
 
 TownNight = {}
 
@@ -67,6 +68,13 @@ function TownNight.Ensure()
   if s.Visits == nil then s.Visits = 0 end        -- nuits explorees
   if s.Met == nil then s.Met = {} end             -- [inst] = nb de fois
   if s.SawStars == nil then s.SawStars = false end
+  --Cinematiques de nuit (TownNightScenes). Ces deux tables sont indexees
+  --par 'ChN' : une scene d'arrivee et une parole de la Voix au plus par
+  --chapitre. Declarees ICI et pas seulement a l'usage — le bug des champs
+  --GloomyPlayedMidpointIntro/GloomyMidpointState, jamais declares, a deja
+  --coute une partie neuve qui arrivait avec nil.
+  if s.Seen == nil then s.Seen = {} end           -- [ChN] = arrivee jouee
+  if s.VoiceHeard == nil then s.VoiceHeard = {} end -- [ChN] = Voix entendue
   return s
 end
 
@@ -156,33 +164,21 @@ end
 --------------------------------------------------------------------
 -- On etablit le LIEU avant les personnages (patron EoSO/beach) : la
 -- ville respire quelques secondes avant qu'on parle.
+-- L'arrivee est deleguee a TownNightScenes : chaque chapitre a SA nuit,
+-- accrochee a l'etat reel du scenario. Le texte generique d'origine reste
+-- en secours dans TownNightScenes.ArrivalGeneric (nuits repetees, ou
+-- chapitre sans scene dediee).
 function TownNight.Arrival()
   local s = TownNight.Ensure()
   s.Visits = s.Visits + 1
-  local partner = CH('Teammate1')
-
-  pcall(function()
-    SOUND:PlayBGM('Goodnight.ogg', true)
-    GAME:WaitFrames(50)
-    UI:ResetSpeaker(false)
-    UI:SetCenter(true)
-    if s.Visits == 1 then
-      UI:WaitShowDialogue("Metano, la nuit.[pause=25] On n'entend que la rivière.")
-    else
-      UI:WaitShowDialogue("La ville dort.[pause=20] Les volets sont tirés, sauf deux ou trois.")
-    end
-    UI:SetCenter(false)
-    UI:ResetSpeaker()
-  end)
-
-  --Premiere sortie nocturne : le partenaire dit pourquoi il a suivi.
-  if s.Visits == 1 and partner ~= nil then
+  if not pcall(function() TownNightScenes.Arrival(s.Visits) end) then
+    --Filet : si le module de scenes echoue, la nuit s'ouvre quand meme.
     pcall(function()
-      UI:SetSpeaker(partner)
-      UI:SetSpeakerEmotion('Normal')
-      UI:WaitShowDialogue("Je n'étais jamais sorti à cette heure-ci.[pause=25] C'est la même ville, et pourtant non.")
-      UI:SetSpeakerEmotion('Happy')
-      UI:WaitShowDialogue("Allons voir qui ne dort pas.")
+      SOUND:PlayBGM('Goodnight.ogg', true)
+      UI:ResetSpeaker(false)
+      UI:SetCenter(true)
+      UI:WaitShowDialogue("Metano, la nuit.[pause=25] On n'entend que la rivière.")
+      UI:SetCenter(false)
       UI:ResetSpeaker()
     end)
   end
@@ -298,6 +294,10 @@ function TownNight.GoHome()
     UI:SetCenter(false)
     UI:ResetSpeaker()
     if not yes then return end
+
+    --La nuit se FERME. La scene de depart varie selon ce que le joueur a
+    --reellement vecu (Voix entendue, Compteuse rencontree, ou rien).
+    pcall(function() TownNightScenes.Departure() end)
 
     SV.TemporaryFlags.Bedtime = true
     SV.TemporaryFlags.MorningWakeup = true

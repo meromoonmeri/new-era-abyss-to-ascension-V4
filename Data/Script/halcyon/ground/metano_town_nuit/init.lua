@@ -50,6 +50,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.TownNight'
 require 'halcyon.SideQuests'
+require 'halcyon.TownNightScenes'
 
 local metano_town_nuit = {}
 
@@ -265,6 +266,16 @@ end
 function metano_town_nuit.Well_Action(obj, activator)
   DEBUG.EnableDbgCoro()
   local s = TownNight.Ensure()
+
+  --LA VOIX AU PUITS. C'est le seul endroit de Metano ou l'on se penche
+  --vers le bas et ou l'on voit sa propre image ; la nuit, l'eau noire
+  --renvoie aussi le ciel. La Voix ne parle pas en ville de JOUR — la
+  --nuit, la ville est vide et le heros est seul, ce qui est la condition
+  --meme du dispositif. Une seule fois par chapitre, a partir du ch7.
+  --Si elle s'est exprimee, on ne propose pas la piece dans la foulee :
+  --on ne jette pas un voeu juste apres ca.
+  if TownNightScenes.WellVoice() then return end
+
   pcall(function()
     UI:ResetSpeaker(false)
     UI:SetCenter(true)
