@@ -16,6 +16,8 @@ require 'halcyon.menu.single_deal_menu'
 require 'origin.menu.skill.SkillTutorMenu'
 require 'halcyon.SideQuests'
 require 'halcyon.TownPlunder'
+require 'halcyon.TownVoicesNight'
+require 'halcyon.TownReward'
 
 
 
@@ -77,6 +79,15 @@ end
 
 
 function metano_town.PlotScripting()
+	--LES FELICITATIONS DU LENDEMAIN (TownReward). Jouees quand la nuit
+	--precedente a ete gagnee, AVANT le scripting de chapitre : c'est une
+	--breve reaction de la ville, pas une scene d'histoire. Elle se
+	--desarme d'elle-meme (Pending) et ne se joue donc qu'une fois.
+	--
+	--Placee ici et non dans Enter : PlotScripting est le point ou les
+	--scenes de ville se declenchent deja, on suit l'usage du fichier.
+	pcall(function() TownReward.Congratulations() end)
+
 	--plot scripting
 	if SV.ChapterProgression.Chapter == 1 then
 		if not SV.Chapter1.PartnerCompletedForest then
@@ -742,6 +753,10 @@ function metano_town.GeneratePurpleKecleonStock(generate_random_item)
 end
 
 function metano_town.Shop_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Shop_Owner') then return end
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
 
   --ETALS PILLES. Si les rodeurs ont vide la boutique cette nuit, le
@@ -957,6 +972,10 @@ end
 
 
 function metano_town.TM_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('TM_Owner') then return end
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
 
   local state = 0
@@ -1171,6 +1190,10 @@ end
 
 --todo: Tidy this up at some point?
 function metano_town.Musician_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Musician') then return end
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
   local chara = CH('Musician')
   local old_song = SOUND:GetCurrentSong()
@@ -1224,6 +1247,10 @@ end
 
 
 function metano_town.Storage_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Storage_Owner') then return end
 	DEBUG.EnableDbgCoro()
 
 	local hero = CH('PLAYER')
@@ -1328,6 +1355,10 @@ end
 
 
 function metano_town.Bank_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Bank_Owner') then return end
 	DEBUG.EnableDbgCoro()
 
     local hero = CH('PLAYER')
@@ -1406,6 +1437,10 @@ function metano_town.GenerateRedMerchantItem()
 end
 
 function metano_town.Red_Merchant_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Red_Merchant') then return end
 	DEBUG.EnableDbgCoro()
 	local state = 0
 	local repeated = false
@@ -1611,6 +1646,10 @@ end
 
 
 function metano_town.Green_Merchant_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Green_Merchant') then return end
 	DEBUG.EnableDbgCoro()
 	local state = 0
 	local repeated = false
@@ -1761,6 +1800,10 @@ end
 
 
 function metano_town.Swap_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Swap_Owner') then return end
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
 
   --silk/dust/gem/globes
@@ -1994,6 +2037,10 @@ end
 
 BasePowerType = luanet.import_type('RogueEssence.Dungeon.BasePowerState')
 function metano_town.Tutor_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Tutor_Owner') then return end
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
 
   local price = 0
@@ -2237,6 +2284,10 @@ end
 
 
 function metano_town.Appraisal_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Appraisal') then return end
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
 
   local state = 0
@@ -2749,6 +2800,10 @@ end
 --La logique vit dans metano_town_legend.lua ; ce callback n'est que le relais
 --appele par l'entite 'Legend_Merchant' de metano_town.rsground.
 function metano_town.Legend_Merchant_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Legend_Merchant') then return end
   --Au retour de l'expedition, la premiere approche joue l'installation du
   --stand ; la boutique ne s'ouvre qu'ensuite (au clic suivant).
   if metano_town_legend.ArrivalScene(activator) then return end
@@ -2763,6 +2818,10 @@ function metano_town.Legend_Stand_Action(obj, activator)
 end
 
 function metano_town.Growlithe_Desk_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Growlithe') then return end
  DEBUG.EnableDbgCoro() --Enable debugging this coroutine
  assert(pcall(load("metano_town_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Growlithe_Desk_Action(...,...)"), obj, activator))
 end

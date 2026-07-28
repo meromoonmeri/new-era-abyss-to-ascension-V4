@@ -4,6 +4,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.SideQuests'
 require 'halcyon.TownVoices'
+require 'halcyon.TownVoicesNight'
 
 metano_town_ch_6 = {}
 
@@ -339,6 +340,10 @@ function metano_town_ch_6.DazzlingIntroduction()
 end
 
 function metano_town_ch_6.Butterfree_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Butterfree') then return end
 	if not SV.Chapter6.DazzlingIntroPlayed then return end
 	if SV.Chapter6.MissionComplete then
 		GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_018']), "Happy")
@@ -366,11 +371,19 @@ function metano_town_ch_6.Butterfree_Action(chara, activator)
 end
 
 function metano_town_ch_6.Venipede_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Venipede') then return end
 	GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_035']), "Happy")
 	GeneralFunctions.EndConversation(chara)
 end
 
 function metano_town_ch_6.Adagio_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Adagio') then return end
 	GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_023']), "Normal")
 	UI:SetSpeakerEmotion("Sigh")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_024']))
@@ -378,6 +391,10 @@ function metano_town_ch_6.Adagio_Action(chara, activator)
 end
 
 function metano_town_ch_6.Aria_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Aria') then return end
   -- Requetes de Metano : elles doivent etre rendues avant que la guilde
   -- lance l'expedition suivante (cf. SideQuests.lua). Si le PNJ n'a rien
   -- a dire sur une requete, on retombe sur son dialogue habituel.
@@ -388,6 +405,10 @@ function metano_town_ch_6.Aria_Action(chara, activator)
 end
 
 function metano_town_ch_6.Sonata_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Sonata') then return end
 	GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_027']), "Happy")
 	GROUND:CharSetEmote(chara, "happy", 0)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_028']))
@@ -478,18 +499,30 @@ function metano_town_ch_6.PostMissionCutscene()
 end
 
 function metano_town_ch_6.Mawile_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Mawile') then return end
 	GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_036']), "Inspired")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_037']))
 	GeneralFunctions.EndConversation(chara)
 end
 
 function metano_town_ch_6.Floatzel_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Floatzel') then return end
 	GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_038']), "Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_039']))
 	GeneralFunctions.EndConversation(chara)
 end
 
 function metano_town_ch_6.Quagsire_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Quagsire') then return end
 	GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_040']), "Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_041']))
 	GeneralFunctions.EndConversation(chara)
@@ -507,6 +540,10 @@ local function Ch6State()
 end
 
 function metano_town_ch_6.Luxray_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Luxray') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Luxray', 6) then return end
@@ -523,6 +560,10 @@ function metano_town_ch_6.Luxray_Action(chara, activator)
 end
 
 function metano_town_ch_6.Electrike_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Electrike') then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_082']), "Inspired")
@@ -535,6 +576,10 @@ function metano_town_ch_6.Electrike_Action(chara, activator)
 end
 
 function metano_town_ch_6.Manectric_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Manectric') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Manectric', 6) then return end
@@ -548,6 +593,10 @@ function metano_town_ch_6.Manectric_Action(chara, activator)
 end
 
 function metano_town_ch_6.Bellossom_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Bellossom') then return end
   -- Requetes de Metano : elles doivent etre rendues avant que la guilde
   -- lance l'expedition suivante (cf. SideQuests.lua). Si le PNJ n'a rien
   -- a dire sur une requete, on retombe sur son dialogue habituel.
@@ -567,6 +616,10 @@ function metano_town_ch_6.Bellossom_Action(chara, activator)
 end
 
 function metano_town_ch_6.Vileplume_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Vileplume') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Vileplume', 6) then return end
@@ -580,6 +633,10 @@ function metano_town_ch_6.Vileplume_Action(chara, activator)
 end
 
 function metano_town_ch_6.Gloom_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Gloom') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Gloom', 6) then return end
@@ -593,6 +650,10 @@ function metano_town_ch_6.Gloom_Action(chara, activator)
 end
 
 function metano_town_ch_6.Oddish_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Oddish') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Oddish', 6) then return end
@@ -606,12 +667,20 @@ function metano_town_ch_6.Oddish_Action(chara, activator)
 end
 
 function metano_town_ch_6.Numel_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Numel') then return end
   GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_062']), "Angry")
   UI:WaitShowDialogue("Pourquoi les equipes d'elite ne font rien ?![pause=15] C'est pas juste !")
   GeneralFunctions.EndConversation(chara)
 end
 
 function metano_town_ch_6.Camerupt_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Camerupt') then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_076']), "Normal")
@@ -622,6 +691,10 @@ function metano_town_ch_6.Camerupt_Action(chara, activator)
 end
 
 function metano_town_ch_6.Machamp_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Machamp') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Machamp', 6) then return end
@@ -635,6 +708,10 @@ function metano_town_ch_6.Machamp_Action(chara, activator)
 end
 
 function metano_town_ch_6.Meditite_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Meditite') then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_096']), "Normal")
@@ -645,6 +722,10 @@ function metano_town_ch_6.Meditite_Action(chara, activator)
 end
 
 function metano_town_ch_6.Medicham_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Medicham') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Medicham', 6) then return end
@@ -657,6 +738,10 @@ function metano_town_ch_6.Medicham_Action(chara, activator)
 end
 
 function metano_town_ch_6.Furret_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Furret') then return end
   -- Requetes de Metano : elles doivent etre rendues avant que la guilde
   -- lance l'expedition suivante (cf. SideQuests.lua). Si le PNJ n'a rien
   -- a dire sur une requete, on retombe sur son dialogue habituel.
@@ -676,6 +761,10 @@ function metano_town_ch_6.Furret_Action(chara, activator)
 end
 
 function metano_town_ch_6.Linoone_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Linoone') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Linoone', 6) then return end
@@ -689,6 +778,10 @@ function metano_town_ch_6.Linoone_Action(chara, activator)
 end
 
 function metano_town_ch_6.Sentret_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Sentret') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Sentret', 6) then return end
@@ -702,6 +795,10 @@ function metano_town_ch_6.Sentret_Action(chara, activator)
 end
 
 function metano_town_ch_6.Wooper_Girl_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Wooper_Girl') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Wooper_Girl', 6) then return end
@@ -715,6 +812,10 @@ function metano_town_ch_6.Wooper_Girl_Action(chara, activator)
 end
 
 function metano_town_ch_6.Wooper_Boy_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Wooper_Boy') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Wooper_Boy', 6) then return end
@@ -727,6 +828,10 @@ function metano_town_ch_6.Wooper_Boy_Action(chara, activator)
 end
 
 function metano_town_ch_6.Nidorina_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Nidorina') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Nidorina', 6) then return end
@@ -740,6 +845,10 @@ function metano_town_ch_6.Nidorina_Action(chara, activator)
 end
 
 function metano_town_ch_6.Nidoran_Male_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Nidoran_Male') then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, "Ma soeur veut etre comme vous.[pause=20] Moi aussi.[pause=25] Mais je le dirai pas.", "Normal")
   else
@@ -749,6 +858,10 @@ function metano_town_ch_6.Nidoran_Male_Action(chara, activator)
 end
 
 function metano_town_ch_6.Nidoking_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Nidoking') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Nidoking', 6) then return end
@@ -762,6 +875,10 @@ function metano_town_ch_6.Nidoking_Action(chara, activator)
 end
 
 function metano_town_ch_6.Azumarill_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Azumarill') then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_084']), "Normal")
@@ -772,6 +889,10 @@ function metano_town_ch_6.Azumarill_Action(chara, activator)
 end
 
 function metano_town_ch_6.Gulpin_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Gulpin') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Gulpin', 6) then return end
@@ -784,6 +905,10 @@ function metano_town_ch_6.Gulpin_Action(chara, activator)
 end
 
 function metano_town_ch_6.Lickitung_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Lickitung') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Lickitung', 6) then return end
@@ -796,6 +921,10 @@ function metano_town_ch_6.Lickitung_Action(chara, activator)
 end
 
 function metano_town_ch_6.Roselia_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Roselia') then return end
   -- Requetes de Metano : elles doivent etre rendues avant que la guilde
   -- lance l'expedition suivante (cf. SideQuests.lua). Si le PNJ n'a rien
   -- a dire sur une requete, on retombe sur son dialogue habituel.
@@ -812,6 +941,10 @@ function metano_town_ch_6.Roselia_Action(chara, activator)
 end
 
 function metano_town_ch_6.Spinda_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Spinda') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Spinda', 6) then return end
@@ -824,6 +957,10 @@ function metano_town_ch_6.Spinda_Action(chara, activator)
 end
 
 function metano_town_ch_6.Ludicolo_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Ludicolo') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Ludicolo', 6) then return end
@@ -836,6 +973,10 @@ function metano_town_ch_6.Ludicolo_Action(chara, activator)
 end
 
 function metano_town_ch_6.Jigglypuff_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Jigglypuff') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Jigglypuff', 6) then return end
@@ -848,6 +989,10 @@ function metano_town_ch_6.Jigglypuff_Action(chara, activator)
 end
 
 function metano_town_ch_6.Marill_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Marill') then return end
   -- Requetes de Metano : elles doivent etre rendues avant que la guilde
   -- lance l'expedition suivante (cf. SideQuests.lua). Si le PNJ n'a rien
   -- a dire sur une requete, on retombe sur son dialogue habituel.
@@ -864,6 +1009,10 @@ function metano_town_ch_6.Marill_Action(chara, activator)
 end
 
 function metano_town_ch_6.Spheal_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Spheal') then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_078']), "Happy")
   else
@@ -873,6 +1022,10 @@ function metano_town_ch_6.Spheal_Action(chara, activator)
 end
 
 function metano_town_ch_6.Bagon_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Bagon') then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_076']), "Inspired")
   else
@@ -882,6 +1035,10 @@ function metano_town_ch_6.Bagon_Action(chara, activator)
 end
 
 function metano_town_ch_6.Doduo_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Doduo') then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_077']), "Normal")
   else
@@ -891,6 +1048,10 @@ function metano_town_ch_6.Doduo_Action(chara, activator)
 end
 
 function metano_town_ch_6.Metapod_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Metapod') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Metapod', 6) then return end
@@ -903,6 +1064,10 @@ function metano_town_ch_6.Metapod_Action(chara, activator)
 end
 
 function metano_town_ch_6.Silcoon_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Silcoon') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Silcoon', 6) then return end
@@ -915,6 +1080,10 @@ function metano_town_ch_6.Silcoon_Action(chara, activator)
 end
 
 function metano_town_ch_6.Mareep_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Mareep') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Mareep', 6) then return end
@@ -927,6 +1096,10 @@ function metano_town_ch_6.Mareep_Action(chara, activator)
 end
 
 function metano_town_ch_6.Cranidos_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Cranidos') then return end
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Cranidos', 6) then return end
@@ -939,6 +1112,10 @@ function metano_town_ch_6.Cranidos_Action(chara, activator)
 end
 
 function metano_town_ch_6.Snubbull_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Snubbull') then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_085']), "Inspired")
   else
@@ -948,6 +1125,10 @@ function metano_town_ch_6.Snubbull_Action(chara, activator)
 end
 
 function metano_town_ch_6.Audino_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Audino') then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_092']), "Happy")
   else
@@ -957,6 +1138,10 @@ function metano_town_ch_6.Audino_Action(chara, activator)
 end
 
 function metano_town_ch_6.Zigzagoon_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
+  --porte encore la trace. Une seule fois par journee, puis on rend la
+  --main au dialogue de chapitre : rien n'est perdu.
+  if TownVoicesNight.Talk('Zigzagoon') then return end
   -- Requetes de Metano : elles doivent etre rendues avant que la guilde
   -- lance l'expedition suivante (cf. SideQuests.lua). Si le PNJ n'a rien
   -- a dire sur une requete, on retombe sur son dialogue habituel.

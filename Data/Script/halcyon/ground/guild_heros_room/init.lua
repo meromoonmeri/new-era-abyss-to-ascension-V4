@@ -228,6 +228,16 @@ function guild_heros_room.PlotScripting()
 		guild_heros_room.CheckTriggerEvent()
 
 		if SV.TemporaryFlags.MorningWakeup then guild_heros_room_helper.Morning(true) end
+
+		--RAPPORT DE GARDE (NightWatch). Un devoir accompli doit etre
+		--reconnu, sinon ce n'etait pas un devoir. On remplit le registre
+		--des veilles au reveil, apres la scene de matin. Deux boites, pas
+		--plus : le reste de la journee appartient au chapitre.
+		--Ne se joue que si un tour de guet a bien eu lieu la veille.
+		if NightWatch.IsOnDuty() then
+			pcall(function() NightWatch.Report() end)
+			pcall(function() NightWatch.End() end)
+		end
 	else
 		--plot scripting
 		if SV.ChapterProgression.Chapter == 1 then

@@ -10,6 +10,7 @@ require 'halcyon.ground.metano_inn.metano_inn_ch_2'
 require 'halcyon.ground.metano_inn.metano_inn_ch_3'
 require 'halcyon.ground.metano_inn.metano_inn_ch_4'
 require 'halcyon.ground.metano_inn.metano_inn_ch_5'
+require 'halcyon.TownVoicesNight'
 
 -- Package name
 local metano_inn = {}
@@ -100,11 +101,19 @@ end
 --NPCS 
 ----------------
 function metano_inn.Nidoking_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Ces habitants tiennent l'auberge : ils
+  --sont sur metano_inn, pas sur la carte de ville. Sans ce branchement
+  --ils resteraient muets sur un raid, alors qu'ils l'ont vecu aussi.
+  if TownVoicesNight.Talk('Nidoking') then return end
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
   assert(pcall(load("metano_inn_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Nidoking_Action(...,...)"), chara, activator))
 end
 
 function metano_inn.Nidoqueen_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Ces habitants tiennent l'auberge : ils
+  --sont sur metano_inn, pas sur la carte de ville. Sans ce branchement
+  --ils resteraient muets sur un raid, alors qu'ils l'ont vecu aussi.
+  if TownVoicesNight.Talk('Nidoqueen') then return end
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
   assert(pcall(load("metano_inn_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Nidoqueen_Action(...,...)"), chara, activator))
 end
@@ -115,6 +124,10 @@ function metano_inn.Nidoran_M_Action(chara, activator)
 end
 
 function metano_inn.Nidorina_Action(chara, activator)
+  --LA VILLE PARLE DE LA NUIT. Ces habitants tiennent l'auberge : ils
+  --sont sur metano_inn, pas sur la carte de ville. Sans ce branchement
+  --ils resteraient muets sur un raid, alors qu'ils l'ont vecu aussi.
+  if TownVoicesNight.Talk('Nidorina') then return end
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
   assert(pcall(load("metano_inn_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Nidorina_Action(...,...)"), chara, activator))
 end

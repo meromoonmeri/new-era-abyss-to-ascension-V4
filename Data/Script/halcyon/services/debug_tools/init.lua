@@ -677,6 +677,18 @@ function DebugTools:OnUpgrade()
  if SV.TownPlunder.LastItems == nil then SV.TownPlunder.LastItems = {} end
  if SV.TownPlunder.TotalRaids == nil then SV.TownPlunder.TotalRaids = 0 end
 
+ --CE QUE LA VILLE DONNE (TownReward). Rattrapage sauvegardes anterieures.
+ if SV.TownReward == nil then SV.TownReward = {} end
+ if SV.TownReward.Pending == nil then SV.TownReward.Pending = false end
+ if SV.TownReward.LastWave == nil then SV.TownReward.LastWave = 0 end
+ if SV.TownReward.LastItems == nil then SV.TownReward.LastItems = {} end
+ if SV.TownReward.LastMoney == nil then SV.TownReward.LastMoney = 0 end
+ if SV.TownReward.Total == nil then SV.TownReward.Total = 0 end
+
+ --LA VILLE PARLE DE LA NUIT (TownVoicesNight).
+ if SV.TownVoicesNight == nil then SV.TownVoicesNight = {} end
+ if SV.TownVoicesNight.Said == nil then SV.TownVoicesNight.Said = {} end
+
  if SV.GuildSidequests == nil then SV.GuildSidequests = {} end
  
  if SV.GuildSidequests.ZigzagoonLevel == nil then SV.GuildSidequests.ZigzagoonLevel = 19 end 

@@ -944,6 +944,24 @@ SV.TownPlunder =
 	TotalRaids = 0       --nuits perdues au total
 }
 
+--CE QUE LA VILLE DONNE (TownReward).
+--Recompenses d'un raid repousse, et felicitations du lendemain.
+SV.TownReward =
+{
+	Pending = false,     --felicitations publiques a jouer au prochain passage
+	LastWave = 0,        --vague repoussee la derniere fois (1 a 3)
+	LastItems = {},      --noms des objets recus
+	LastMoney = 0,       --argent recu
+	Total = 0            --defenses reussies au total
+}
+
+--LA VILLE PARLE DE LA NUIT (TownVoicesNight).
+--Said[instance] = jour ou ce PNJ a deja reagi : une fois par journee.
+SV.TownVoicesNight =
+{
+	Said = {}
+}
+
 --info related to guild member sidequests.
 SV.GuildSidequests = 
 {
@@ -1206,4 +1224,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-08-01-K]')
+print('Script variables default values loaded! [build 2026-08-01-L]')

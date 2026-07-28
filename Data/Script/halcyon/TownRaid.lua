@@ -67,6 +67,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.BossFX'
 require 'halcyon.TownPlunder'
 require 'halcyon.NightWatch'
+require 'halcyon.TownReward'
 
 TownRaid = {}
 
@@ -281,6 +282,13 @@ function TownRaid.Victory()
 
     GAME:WaitFrames(20)
     SOUND:PlayBGM('Goodnight.ogg', true)
+
+    --LA VILLE REMERCIE. Objets tires au sort et argent des marchands,
+    --deposes devant la porte au matin. Le palier suit la vague : cinq
+    --rodeurs repousses valent mieux que trois. Voir TownReward.lua.
+    --Arme aussi les felicitations publiques du lendemain.
+    GAME:WaitFrames(15)
+    pcall(function() TownReward.Grant(wave) end)
   end)
 end
 
