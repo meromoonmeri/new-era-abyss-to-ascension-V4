@@ -696,6 +696,21 @@ function DebugTools:OnUpgrade()
  if SV.Seasons.Vues == nil then SV.Seasons.Vues = {} end
  if SV.Seasons.Actif == nil then SV.Seasons.Actif = true end
 
+ --JALONS DE FIN DE DONJON ch8/9/10. Ecrits par les zones et lus par
+ --ReplayEnding + guild_heros_room, mais ils n'etaient declares nulle part.
+ --Sur une partie DEJA commencee, on les deduit de l'etat reel du chapitre
+ --plutot que de les forcer a false : un joueur ayant deja battu Diancie
+ --ne doit pas perdre l'acces au donjon suivant.
+ if SV.Chapter8.CrystalSanctuaryComplete == nil then
+	SV.Chapter8.CrystalSanctuaryComplete = (SV.Chapter8.DefeatedDiancie == true)
+ end
+ if SV.Chapter9.ForgottenMarshComplete == nil then
+	SV.Chapter9.ForgottenMarshComplete = (SV.Chapter9.DefeatedMegaBlastoise == true)
+ end
+ if SV.Chapter10.CelestialPeakComplete == nil then
+	SV.Chapter10.CelestialPeakComplete = (SV.Chapter10.DefeatedLugia == true)
+ end
+
  if SV.GuildSidequests == nil then SV.GuildSidequests = {} end
  
  if SV.GuildSidequests.ZigzagoonLevel == nil then SV.GuildSidequests.ZigzagoonLevel = 19 end 

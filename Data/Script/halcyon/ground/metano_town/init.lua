@@ -3217,4 +3217,47 @@ function metano_town.SetMerchantNicknames()
 
 end
 
+--------------------------------------------------------------------
+-- LES MARCHANDS REPONDENT QUAND ON LEUR PARLE
+--------------------------------------------------------------------
+-- Ces 7 PNJ sont poses sur la carte avec triggerType = 1 (interactif) et
+-- toutes leurs cases voisines sont libres : le joueur PEUT donc marcher
+-- jusqu'a eux et appuyer sur A. Mais aucun handler <Nom>_Action n'existait,
+-- et le moteur ne trouvait rien a appeler : le marchand restait muet.
+--
+-- Verifie a la main sur metano_town.rsground : Shop_Owner 4 cases libres
+-- sur 4, Bank_Owner 4/4, Storage_Owner 3/4, Swap_Owner 3/4, TM_Owner 3/4,
+-- Tutor_Owner 2/4, Growlithe 2/4. Aucun n'est adosse a un mur.
+--
+-- On delegue simplement au comptoir voisin, qui porte deja toute la
+-- logique de boutique : parler au vendeur ou toucher son etal doit faire
+-- exactement la meme chose.
+function metano_town.Shop_Owner_Action(chara, activator)
+  metano_town.Shop_Action(chara, activator)
+end
+
+function metano_town.Bank_Owner_Action(chara, activator)
+  metano_town.Bank_Action(chara, activator)
+end
+
+function metano_town.Storage_Owner_Action(chara, activator)
+  metano_town.Storage_Action(chara, activator)
+end
+
+function metano_town.Swap_Owner_Action(chara, activator)
+  metano_town.Swap_Action(chara, activator)
+end
+
+function metano_town.TM_Owner_Action(chara, activator)
+  metano_town.TM_Action(chara, activator)
+end
+
+function metano_town.Tutor_Owner_Action(chara, activator)
+  metano_town.Tutor_Action(chara, activator)
+end
+
+function metano_town.Growlithe_Action(chara, activator)
+  metano_town.Growlithe_Desk_Action(chara, activator)
+end
+
 return metano_town

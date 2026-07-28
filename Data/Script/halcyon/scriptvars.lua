@@ -1072,7 +1072,11 @@ SV.Chapter8 =
 	FinishedBedtimeCutscene = false,--veillee de fin de chapitre (guild_heros_room_ch_8)
 	PlayedSanctuaryRelayIntro = false,
 	PlayedArrivalScene = false,--scene d'arrivee devant le donjon (ChapterScenes, ch8)
-	PlayedVictoryScene = false--scene d'apres-boss (ChapterAftermath, ch8)
+	PlayedVictoryScene = false,--scene d'apres-boss (ChapterAftermath, ch8)
+	--Jalon de fin de donjon, ecrit par zone/crystal_sanctuary:95 et lu par
+	--ReplayEnding + guild_heros_room. Il n'etait declare NULLE PART : une
+	--partie neuve arrivait donc avec nil.
+	CrystalSanctuaryComplete = false
 }
 
 SV.Chapter9 = 
@@ -1095,7 +1099,9 @@ SV.Chapter9 =
 	FinishedBedtimeCutscene = false,--veillee de fin de chapitre (guild_heros_room_ch_9)
 	PlayedMarshRelayIntro = false,
 	PlayedArrivalScene = false,--scene d'arrivee devant le donjon (ChapterScenes, ch9)
-	PlayedVictoryScene = false--scene d'apres-boss (ChapterAftermath, ch9)
+	PlayedVictoryScene = false,--scene d'apres-boss (ChapterAftermath, ch9)
+	--Meme cas que ch8 : ecrit par zone/forgotten_marsh:96, jamais declare.
+	ForgottenMarshComplete = false
 }
 
 SV.Visions =
@@ -1153,7 +1159,9 @@ SV.Chapter10 =
 	--Rejouabilite : jalon interne a un parcours rejoue. OutranEscouadeFulgur
 	--reste vrai pour toujours et ne peut donc plus servir a savoir ou on en est
 	--dans l'ascension. Remis a false a chaque entree dans le donjon.
-	ReplayPastFulgur = false
+	ReplayPastFulgur = false,
+	--Meme cas que ch8/ch9 : ecrit par zone/celestial_peak:137, jamais declare.
+	CelestialPeakComplete = false
 }
 
 
