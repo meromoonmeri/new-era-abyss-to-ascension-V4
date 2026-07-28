@@ -1,6 +1,10 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.LegendZones'
+require 'halcyon.ReplayEnding'
+require 'halcyon.DazzlingArc'
+require 'halcyon.TownNight'
+require 'halcyon.TownRaid'
 
 local gloomy_forest = {}
 
@@ -39,20 +43,13 @@ end
 -- of Metano Town. Faithful mirror of zone/searing_tunnel + zone/crooked_cavern.
 -- See docs/audit_checkpoint_crooked_cavern.md (reusable pattern).
 ------------------------------------------------------------------
---Retour generique de fin de journee, aligne sur les 7 autres donjons de l'histoire :
---pose les drapeaux diner / nuit / lendemain puis sort vers le refectoire de la guilde
---(carte 6), ou le 2e etage (22) s'il reste une mission a rendre.
---N'est utilise QUE lorsque l'equipe rentre reellement dormir : les morts au-dela du
---relais de mi-donjon reapparaissent au relais (carte 61) et ne declenchent pas la nuit.
+--Retour de fin de journee. N'est utilise QUE lorsque l'equipe rentre
+--reellement dormir : les morts au-dela du relais de mi-donjon reapparaissent
+--au relais (carte 61) et ne declenchent pas la nuit. Le corps de cette fonction vivait ici et a ete
+--deplace dans TownNight.EndDay : les 8 autres donjons repetaient la meme
+--sequence, la partager evite d'en maintenir neuf copies.
 local function EndDayReturn(result)
-	SV.TemporaryFlags.Dinnertime = true
-	SV.TemporaryFlags.Bedtime = true
-	SV.TemporaryFlags.MorningWakeup = true
-	SV.TemporaryFlags.MorningAddress = true
-
-	local exit_ground = 6
-	if SV.TemporaryFlags.MissionCompleted then exit_ground = 22 end
-	GeneralFunctions.EndDungeonRun(result, "master_zone", -1, exit_ground, 0, true, true)
+	TownNight.EndDay(result, true)
 end
 
 function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
@@ -71,6 +68,35 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
     return
   end
 
+  -- PILLARDS DE METANO (segments 6, 7, 8). Ces trois arenes ne sont pas des
+  -- etages de la Foret : ce sont les vagues de raid nocturne, hebergees ici
+  -- parce qu'un segment doit appartenir a une zone existante. On rentre donc
+  -- a la VILLE DE NUIT, pas au donjon.
+  if segmentID >= 6 and segmentID <= 8 then
+    GAME:WaitFrames(20)
+    if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+      -- Victoire : retour a la nuit. TownRaid.Pending est encore vrai, donc
+      -- metano_town_nuit.Enter enchaine sur TownRaid.Victory().
+      GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
+      GAME:WaitFrames(20)
+      TownNight.Enter()
+    else
+      -- Defaite : le heros s'ecroule sur la place (RaidScenes.Collapse,
+      -- appele par TownRaid.Defeat), la ville est pillee, et il se reveille
+      -- le lendemain a la chambre avec la guilde a son chevet.
+      --
+      -- On ne pose PAS Bedtime/MorningWakeup ici : le duo est deja
+      -- inconscient, il n'y a pas de coucher a jouer. RaidScenes.Bedside
+      -- assure a lui seul le reveil, le debrief et la remise en main.
+      -- Seul MorningAddress reste, pour que la journee suivante enchaine
+      -- normalement une fois les visiteurs sortis.
+      pcall(function() TownRaid.Defeat() end)
+      SV.TemporaryFlags.MorningAddress = true
+      GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 2, 0, true, true)
+    end
+    return
+  end
+
 	if segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 		-- *** CHECKPOINT (NEW) *** : stop at the relay instead of flowing directly
 		-- into the depth floors. The relay's North exit starts segment 1.
@@ -81,7 +107,9 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 	end
 
 	if segmentID == 1 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-		if SV.Chapter6.ChenipentFound then
+		-- Rejouabilite : l'objectif de sauvetage du ch6 est deja accompli, le coeur
+		-- de la foret n'a plus de raison de rester ferme.
+		if SV.Chapter6.ChenipentFound or ReplayEnding.IsCleared('gloomy_forest') then
 			GAME:EnterGroundMap('gloomy_forest_boss', 'Main_Entrance_Marker')
 		else
 			-- The rescue objective is required before the heart of the forest opens.
@@ -118,6 +146,14 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 			SV.Chapter6.MissionComplete = true
 			SV.Chapter6.DefeatedByZarude = false
 			SV.Chapter6.MissionAccepted = false
+			--Scene d'apres-boss : la consequence se joue AVANT le retour en
+			--ville, exactement comme aux chapitres 8, 9 et 10
+			--(ChapterAftermath). Sans elle, le seul boss « personnage » du
+			--chapitre s'eteignait sur un fondu au noir.
+			DazzlingArc.GloomyVictory()
+			--Le duel des Trois est desormais propose au relais : elles ont
+			--suivi l'equipe et attendent au coeur de la clairiere.
+			SV.Chapter6.DazzlingTrialOffered = true
 			-- Beat the boss: return to town (UNCHANGED).
 			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
 		else
@@ -145,6 +181,28 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 	-- Ici le Zarude n'est PAS Unrecruitable : le vaincre peut donc le
 	-- faire rejoindre l'equipe selon les regles de recrutement normales.
 	------------------------------------------------------------------
+	------------------------------------------------------------------
+	-- Segment 5 : le duel de la Team Dazzling (« L'Epreuve des Trois »).
+	-- Combat SANS ENJEU : ni Coeur, ni fragment, ni progression de
+	-- chapitre. Victoire comme defaite, on ressort au relais (carte 61)
+	-- et la journee n'avance pas — c'est un match, pas une expedition.
+	-- Les trois rivales sont Unrecruitable : ce sont des personnages
+	-- d'histoire, elles ne rejoignent pas l'equipe.
+	------------------------------------------------------------------
+	if segmentID == 5 then
+		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+			SV.Chapter6.DazzlingTrialCleared = true
+			DazzlingArc.TrialVictory()
+		else
+			DazzlingArc.TrialDefeat()
+		end
+		--Le duel ne se represente pas : gagne ou perdu, il a eu lieu.
+		SV.Chapter6.DazzlingTrialOffered = false
+		GAME:WaitFrames(20)
+		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 61, 0, false, false)
+		return
+	end
+
 	if segmentID == 3 then
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 			LegendZones.SetDefeated('verdant_oath')

@@ -3,6 +3,7 @@
      Aucun impact histoire : entrée/sortie via master_zone carte 1 (Metano). ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.VeilleurArc'
 
 local new_era_zone_02 = {}
 
@@ -32,7 +33,9 @@ function new_era_zone_02.ExitSegment(zone, result, rescue, segmentID, mapID)
 
   -- Veilleur du Réseau : segment 1 = arène (bastiodon).
   if segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-    GAME:ContinueDungeon("new_era_zone_02", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    -- Veilleur : on passe par le ground cinematique, qui enchainera lui-meme
+    -- le ContinueDungeon vers l'arene (segment 1).
+    GAME:EnterGroundMap('pic_ferreux_pied', 'Main_Entrance_Marker')
     return
   end
   if segmentID == 1 then
@@ -40,6 +43,11 @@ function new_era_zone_02.ExitSegment(zone, result, rescue, segmentID, mapID)
       if SV.Reseau == nil then SV.Reseau = { Veilleurs = {} } end
       if SV.Reseau.Veilleurs == nil then SV.Reseau.Veilleurs = {} end
       SV.Reseau.Veilleurs['new_era_zone_02'] = true
+      --Adieu du Veilleur : il n'est pas vaincu, il est RELEVE.
+      --Sans cette scene la victoire se resumait a UNE replique du
+      --partenaire, et le Veilleur ne repondait jamais a la question
+      --qu'il avait posee avant le combat (audit boss : 24/100).
+      VeilleurArc.Victory('new_era_zone_02')
       GAME:WaitFrames(20)
       UI:SetSpeaker(GAME:GetPlayerPartyMember(1))
       UI:SetSpeakerEmotion("Happy")

@@ -19,4 +19,4 @@
   <data name="GF6B_013" xml:space="preserve">
     <value>Le Gardien des racines ne vous laissera pas passer.</value>
   </data>
-</root>
+<data name="GF6B_R01" xml:space="preserve"><value>L'enchevêtrement de racines s'est desserré.[pause=20] La lumière passe, jusqu'au sol.</value></data><data name="GF6B_R02" xml:space="preserve"><value>(Il nous a laissés entrer.[pause=15] Ou alors il ne surveille plus.)</value></data><data name="GF6B_R03" xml:space="preserve"><value>La forêt respire mieux depuis qu'il a cessé de monter la garde.</value></data><data name="GF6B_R04" xml:space="preserve"><value>Il n'y a plus rien à trouver ici.[pause=0] Il est temps de rentrer.</value></data></root>

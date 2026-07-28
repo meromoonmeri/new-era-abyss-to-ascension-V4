@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local chambre_agee_o = {}
 
@@ -48,12 +49,10 @@ function chambre_agee_o.Enter(map)
   UI:SetCenter(false)
   GAME:WaitFrames(30)
 
-  -- 2. L'irruption (motif propre à ce gardien — fiche anti-répétition).
-  BossFX.Flash(232, 200, 4, 4, 8)
-  BossFX.Flash(232 - 60, 200 + 20, 4, 4, 8)
-  BossFX.Flash(232 + 50, 200 - 10, 4, 4, 8)
-  GROUND:Unhide('Palkia')
-  GAME:WaitFrames(20)
+  -- 2. L'irruption — ESPACE : l'espace se plie. Il n'arrive jamais — il est simplement la.
+  --    Avant ce lot : un BossFX.Flash generique, identique a 10 autres
+  --    arenes. Toutes les particules employees sont attestees.
+  BossFX.WarpSpace(palkia, 232, 200)
 
   -- 3. Le recul du groupe.
   BossFX.PushBack({hero, partner}, Direction.Down)
@@ -65,7 +64,7 @@ function chambre_agee_o.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(palkia, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('chambre_agee_o')
   UI:WaitShowTitle("Palkia, la Colline Spatiale", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

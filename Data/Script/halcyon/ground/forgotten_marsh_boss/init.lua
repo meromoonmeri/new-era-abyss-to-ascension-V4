@@ -8,10 +8,30 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
+require 'halcyon.ChapterAftermath'
+require 'halcyon.ReplayEnding'
+require 'halcyon.BossMusic'
 local forgotten_marsh_boss = {}
 function forgotten_marsh_boss.Init(map) DEBUG.EnableDbgCoro() end
 function forgotten_marsh_boss.Enter(map)
   DEBUG.EnableDbgCoro()
+
+  -- Rejouabilite : le donjon d'histoire est boucle, le gardien n'est plus la.
+  -- Sans cette branche, revenir ici relancait la cinematique ET le combat.
+  if ReplayEnding.IsReplay('forgotten_marsh', 9) then
+    ReplayEnding.EmptyArena({
+      hero = {172, 180}, partner = {140, 180},
+      camera = {156, 156}, look = {156, 132},
+      walk = 40, title = true, music = 'Cave Camp.ogg',
+      lines = {
+        { spk='partner', emo='Normal', key='FMB_R01', wait=10 },
+        { spk='hero',    emo='Normal', key='FMB_R02', wait=10 },
+        { spk='partner', emo='Normal', key='FMB_R03' },
+        { spk='narrator',              key='FMB_R04' },
+      },
+    })
+    return
+  end
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   GAME:CutsceneMode(true)
@@ -40,6 +60,10 @@ function forgotten_marsh_boss.Enter(map)
   GROUND:CharSetAnim(boss, "Idle", true)
 
   -- Titre + ligne courte : l'intensite vient du rythme, pas du texte.
+  -- Antre du Marais — theme de boss. Cette arene n'avait AUCUNE musique : le combat le plus
+  -- important du chapitre se jouait en silence complet. Le theme
+  -- demarre avec le titre, comme dans les 42 arenes de gardiens.
+  BossMusic.Play('forgotten_marsh_boss')
   UI:WaitShowTitle(boss:GetDisplayName(), 20)
   GAME:WaitFrames(40)
   UI:WaitHideTitle(20)

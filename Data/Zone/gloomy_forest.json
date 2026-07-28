@@ -2185,6 +2185,222 @@
         ],
         "IsRelevant": false,
         "Comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
+      },
+      {
+        "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+        "Floors": [
+          {
+            "$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
+            "GenSteps": [
+              {
+                "Key": {
+                  "str": [
+                    -1
+                  ]
+                },
+                "Value": {
+                  "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
+                  "MapID": "serment_dazzling_arene"
+                }
+              }
+            ],
+            "Comment": ""
+          }
+        ],
+        "ZoneSteps": [
+          {
+            "$type": "PMDC.LevelGen.SaveVarsZoneStep, PMDC",
+            "Priority": {
+              "str": [
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "$type": "PMDC.LevelGen.FloorNameDropZoneStep, PMDC",
+            "DropPriority": {
+              "str": [
+                -15
+              ]
+            },
+            "Name": {
+              "DefaultText": "Dazzling Trial",
+              "LocalTexts": {
+                "fr": "L'Épreuve des Trois"
+              }
+            },
+            "Priority": {
+              "str": [
+                -6
+              ]
+            }
+          }
+        ],
+        "IsRelevant": false,
+        "Comment": "Duel de la Team Dazzling (chapitre 6, apres la Foret Lugubre)."
+      },
+      {
+        "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+        "Floors": [
+          {
+            "$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
+            "GenSteps": [
+              {
+                "Key": {
+                  "str": [
+                    -1
+                  ]
+                },
+                "Value": {
+                  "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
+                  "MapID": "metano_raid_1"
+                }
+              }
+            ],
+            "Comment": ""
+          }
+        ],
+        "ZoneSteps": [
+          {
+            "$type": "PMDC.LevelGen.SaveVarsZoneStep, PMDC",
+            "Priority": {
+              "str": [
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "$type": "PMDC.LevelGen.FloorNameDropZoneStep, PMDC",
+            "DropPriority": {
+              "str": [
+                -15
+              ]
+            },
+            "Name": {
+              "DefaultText": "Dazzling Trial",
+              "LocalTexts": {
+                "fr": "L'Épreuve des Trois"
+              }
+            },
+            "Priority": {
+              "str": [
+                -6
+              ]
+            }
+          }
+        ],
+        "IsRelevant": false,
+        "Comment": "Duel de la Team Dazzling (chapitre 6, apres la Foret Lugubre)."
+      },
+      {
+        "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+        "Floors": [
+          {
+            "$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
+            "GenSteps": [
+              {
+                "Key": {
+                  "str": [
+                    -1
+                  ]
+                },
+                "Value": {
+                  "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
+                  "MapID": "metano_raid_2"
+                }
+              }
+            ],
+            "Comment": ""
+          }
+        ],
+        "ZoneSteps": [
+          {
+            "$type": "PMDC.LevelGen.SaveVarsZoneStep, PMDC",
+            "Priority": {
+              "str": [
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "$type": "PMDC.LevelGen.FloorNameDropZoneStep, PMDC",
+            "DropPriority": {
+              "str": [
+                -15
+              ]
+            },
+            "Name": {
+              "DefaultText": "Dazzling Trial",
+              "LocalTexts": {
+                "fr": "L'Épreuve des Trois"
+              }
+            },
+            "Priority": {
+              "str": [
+                -6
+              ]
+            }
+          }
+        ],
+        "IsRelevant": false,
+        "Comment": "Duel de la Team Dazzling (chapitre 6, apres la Foret Lugubre)."
+      },
+      {
+        "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+        "Floors": [
+          {
+            "$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
+            "GenSteps": [
+              {
+                "Key": {
+                  "str": [
+                    -1
+                  ]
+                },
+                "Value": {
+                  "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
+                  "MapID": "metano_raid_3"
+                }
+              }
+            ],
+            "Comment": ""
+          }
+        ],
+        "ZoneSteps": [
+          {
+            "$type": "PMDC.LevelGen.SaveVarsZoneStep, PMDC",
+            "Priority": {
+              "str": [
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "$type": "PMDC.LevelGen.FloorNameDropZoneStep, PMDC",
+            "DropPriority": {
+              "str": [
+                -15
+              ]
+            },
+            "Name": {
+              "DefaultText": "Dazzling Trial",
+              "LocalTexts": {
+                "fr": "L'Épreuve des Trois"
+              }
+            },
+            "Priority": {
+              "str": [
+                -6
+              ]
+            }
+          }
+        ],
+        "IsRelevant": false,
+        "Comment": "Duel de la Team Dazzling (chapitre 6, apres la Foret Lugubre)."
       }
     ],
     "GroundMaps": [

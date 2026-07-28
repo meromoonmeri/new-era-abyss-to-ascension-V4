@@ -34,6 +34,9 @@ function mount_windswept_miniboss.Init(map)
   nre_snap('mount_windswept_miniboss.Init')
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Init_mount_windswept_miniboss")
+
+  COMMON.RespawnAllies(true)
+  PartnerEssentials.InitializePartnerSpawn()
 end
 
 function mount_windswept_miniboss.Enter(map)

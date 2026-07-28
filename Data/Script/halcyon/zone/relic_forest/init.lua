@@ -1,5 +1,6 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.TownNight'
 
 local relic_forest = {}
 --------------------------------------------------
@@ -82,10 +83,10 @@ function relic_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then	
 			GAME:EnterGroundMap('relic_forest', 'Main_Entrance_Marker') --Go to Relic Forest Sanctum, end dungeon run in the ground rather than here 
 		else 
-			--Go to dinner if a mission wasn't completed, otherwise, go to 2nd floor. This probably won't be used since missions shouldnt get in relic forest
-			local exit_ground = 6
-			if SV.TemporaryFlags.MissionCompleted then exit_ground = 22 end 
-			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, exit_ground, 0, true, true)				
+			--CHOIX DE FIN DE JOURNEE (TownNight.EndDay). Uniquement sur la branche
+			--de defaite : la victoire part au Sanctum (EnterGroundMap ci-dessus) et
+			--ne doit pas etre detournee vers la ville.
+			TownNight.EndDay(result, true)
 		end
 	end
 end

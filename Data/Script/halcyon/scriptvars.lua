@@ -655,7 +655,8 @@ SV.LegendZones =
 {
 	Purchased = {},
 	Defeated = {},
-	MetMerchant = false
+	MetMerchant = false,
+	ArrivalScenePlayed = false--cinematique d'installation du stand (retour d'expedition)
 }
 
 
@@ -839,6 +840,8 @@ SV.Chapter5 =
 	SteppeMiniBossLost = false,
 	SteppeGuardianDefeated = false,
 	SteppeGuardianLost = false,
+	TunnelMiniBossDefeated = false,--arene du clan de lave (seg 2 du Tunnel Ardent)
+	TunnelMiniBossLost = false,
 	MountMiniBossDefeated = false,
 	MountMiniBossLost = false,
 	MountGuardianDefeated = false,
@@ -871,10 +874,124 @@ SV.Chapter6 =
 	DefeatedByZarude = false,
 	DazzlingTownVisit = 0,
 	ShowedTitleCard = false,--Has the Chapter 6 title card been shown?
-	PostDefeatScenePlayed = false
+	PostDefeatScenePlayed = false,
+	--Relais de mi-donjon. Ces deux champs etaient lus par
+	--ground/gloomy_forest_midpoint et ecrits par zone/gloomy_forest, mais
+	--n'etaient declares NULLE PART : seul le rattrapage OnUpgrade de
+	--debug_tools les creait. Une partie NEUVE arrivait donc au relais avec
+	--GloomyPlayedMidpointIntro == nil.
+	GloomyPlayedMidpointIntro = false,
+	GloomyMidpointState = 'FirstArrival',
+	--Apres-boss de Zarude (DazzlingArc.GloomyVictory). Le chapitre 6 etait
+	--le seul chapitre a boss sans scene de consequence.
+	PlayedVictoryScene = false,
+	--Duel amical contre la Team Dazzling (segment 5 de gloomy_forest).
+	--Jusqu'ici elles narguaient le joueur sans l'avoir jamais affronte.
+	DazzlingTrialOffered = false,
+	DazzlingTrialStarted = false,
+	DazzlingTrialCleared = false,
+	PlayedTrialVictory = false,
+	PlayedTrialDefeat = false,
+	--LA CHAMBRE DU MAITRE. Jusqu'ici sa porte (guild_third_floor_lobby,
+	--Door_Exit_Touch) etait ouverte en permanence des le ch2 : on pouvait
+	--entrer chez Penticus a n'importe quel moment et n'y trouver personne
+	--a qui parler. Elle se merite desormais, et s'ouvre au retour de
+	--l'expedition, par une audience.
+	GuildmasterRoomUnlocked = false,--la porte est-elle franchissable ?
+	PlayedGuildmasterAudience = false--l'audience de retour a-t-elle eu lieu ?
 }
 
 
+
+--LA NUIT A METANO (TownNight, TownNightScenes).
+--Declare ICI et pas seulement a l'usage : le bug des champs
+--GloomyPlayedMidpointIntro / GloomyMidpointState, jamais declares, a deja
+--coute une partie neuve qui arrivait avec nil. TownNight.Ensure() reste en
+--place pour les sauvegardes anterieures, mais une partie neuve doit trouver
+--la table complete.
+SV.TownNight =
+{
+	Visits = 0,          --nombre de nuits explorees
+	Met = {},            --[instance PNJ] = nombre de conversations
+	SawStars = false,    --la Compteuse d'Etoiles a livre sa revelation
+	Seen = {},           --['ChN'] = scene d'arrivee du chapitre N deja jouee
+	VoiceHeard = {}      --['ChN'] = la Voix a parle au puits au chapitre N
+}
+
+--LES PILLARDS DE METANO (TownRaid).
+--Raids nocturnes : le joueur defend la ville contre des rodeurs spectres.
+SV.TownRaid =
+{
+	Repelled = 0,        --raids repousses
+	Lost = 0,            --raids perdus
+	Pending = false,     --un raid est en cours (pose avant le combat)
+	Wave = 0,            --palier du dernier raid (1 a 3)
+	LastDay = -1,        --DaysPassed du dernier raid, pour l'espacement
+	Told = {}            --reactions de la ville deja vues
+}
+
+--LE TOUR DE GUET (NightWatch).
+--La guilde inscrit les equipes au registre des veilles : c'est la raison
+--narrative pour laquelle le heros est dehors la nuit.
+SV.NightWatch =
+{
+	Explained = false,   --la regle du registre a ete enseignee (1er tour)
+	Tours = 0,           --tours de garde effectues
+	LastTour = -1,       --DaysPassed du dernier tour, pour l'espacement
+	Assigned = false     --un tour est impose ce soir
+}
+
+--LE PRIX D'UNE NUIT PERDUE (TownPlunder).
+--Ce que les pillards emportent quand le raid est perdu.
+SV.TownPlunder =
+{
+	ShopsEmpty = false,  --les etals sont vides aujourd'hui
+	LastStolen = 0,      --argent pris a la banque la derniere fois
+	LastItems = {},      --noms des objets pris dans le sac
+	TotalRaids = 0       --nuits perdues au total
+}
+
+--CE QUE LA VILLE DONNE (TownReward).
+--Recompenses d'un raid repousse, et felicitations du lendemain.
+SV.TownReward =
+{
+	Pending = false,     --felicitations publiques a jouer au prochain passage
+	LastWave = 0,        --vague repoussee la derniere fois (1 a 3)
+	LastItems = {},      --noms des objets recus
+	LastMoney = 0,       --argent recu
+	Total = 0            --defenses reussies au total
+}
+
+--LA VILLE PARLE DE LA NUIT (TownVoicesNight).
+--Said[instance] = jour ou ce PNJ a deja reagi : une fois par journee.
+SV.TownVoicesNight =
+{
+	Said = {}
+}
+
+--LES SAISONS DE METANO (Seasons.lua).
+--Le decor de la ville suit l'avancement du recit. Declare ICI et pas
+--seulement a l'usage : le bug des champs jamais declares a deja coute
+--une partie neuve arrivant avec nil.
+SV.Seasons =
+{
+	Echelle = 'court',  --'court' = 4 saisons sur les 10 chapitres joues
+	                    --'long'  = decoupage sur 30 chapitres (7/15/22/30)
+	Courante = '',      --derniere saison appliquee
+	Vues = {},          --[saison] = le partenaire l'a deja commentee
+	Actif = true        --interrupteur general
+}
+
+--LA CHAMBRE OU DORT PENTICUS (guild_guildmasters_bedroom).
+--Carte neuve, clonee de guild_top_right_bedroom : c'etait la seule a
+--posseder deja des marqueurs de lit (Audino_Bed / Snubbull_Bed), renommes
+--Penticus_Bed / Phileas_Bed. Accessible par une porte au fond du bureau.
+SV.GuildmasterBedroom =
+{
+	Visited = false,          --la premiere entree a-t-elle ete commentee ?
+	ReadPenticusBed = false,  --le lit du maitre a-t-il ete examine ?
+	ReadPhileasBed = false    --et celui du savant ?
+}
 
 --info related to guild member sidequests.
 SV.GuildSidequests = 
@@ -970,7 +1087,14 @@ SV.Chapter8 =
 	DiedToDiancie = false,
 	ObtainedCrystalFragment = false,
 	SanctuaryMidpointState = 'FirstArrival',
-	PlayedSanctuaryRelayIntro = false--cinematique d'arrivee au relais (marche + dialogue)
+	FinishedBedtimeCutscene = false,--veillee de fin de chapitre (guild_heros_room_ch_8)
+	PlayedSanctuaryRelayIntro = false,
+	PlayedArrivalScene = false,--scene d'arrivee devant le donjon (ChapterScenes, ch8)
+	PlayedVictoryScene = false,--scene d'apres-boss (ChapterAftermath, ch8)
+	--Jalon de fin de donjon, ecrit par zone/crystal_sanctuary:95 et lu par
+	--ReplayEnding + guild_heros_room. Il n'etait declare NULLE PART : une
+	--partie neuve arrivait donc avec nil.
+	CrystalSanctuaryComplete = false
 }
 
 SV.Chapter9 = 
@@ -990,7 +1114,41 @@ SV.Chapter9 =
 	PurifiedMarshCore = false,
 	FloatzelDisputeResolved = false,
 	MarshMidpointState = 'FirstArrival',
-	PlayedMarshRelayIntro = false--cinematique d'arrivee au relais (marche + dialogue)
+	FinishedBedtimeCutscene = false,--veillee de fin de chapitre (guild_heros_room_ch_9)
+	PlayedMarshRelayIntro = false,
+	PlayedArrivalScene = false,--scene d'arrivee devant le donjon (ChapterScenes, ch9)
+	PlayedVictoryScene = false,--scene d'apres-boss (ChapterAftermath, ch9)
+	--Meme cas que ch8 : ecrit par zone/forgotten_marsh:96, jamais declare.
+	ForgottenMarshComplete = false
+}
+
+SV.Visions =
+{
+	-- Visions du passe du heros (HeroVisions.lua). Le heros est le SEUL a
+	-- entendre la Voix et le seul a voir ces fragments d'un autre temps :
+	-- a chaque fois il est pris de nausee, et son partenaire ne voit que sa
+	-- paleur. Seen[id] = true une fois la vision traversee.
+	Seen = {},
+	Count = 0
+}
+
+SV.SuaireArc =
+{
+	-- Arc 2 — « Ce que la brume emporte » : 5 quetes secondaires liees a
+	-- l'intrigue globale (Cercle du Suaire + reves du heros + Escouade Fulgur).
+	-- Progression : chaque acte pose Act<N>Done et debloque la quete suivante.
+	Unlocked = false,          --pose au ch6+ : le tableau des missions propose l'acte I
+	CurrentAct = 0,            --0 = pas commence, 1..5 = acte en cours
+	Act1Done = false,          --Bosquet Voile : le premier eclat
+	Act2Done = false,          --Grotte du Mystere : la marque des batisseurs
+	Act3Done = false,          --Jardin Secret : le temoin
+	Act4Done = false,          --Col de la Foudre : la course
+	Act5Done = false,          --Antre de l'Enigme : ce que le Suaire protege
+	ShardsRecovered = 0,       --eclats de Coeur repris au Suaire (0..5)
+	SawSuaireFace = false,     --le joueur a vu un membre du Suaire de pres
+	FulgurTruce = false,       --Fulgur accepte la treve (acte IV)
+	DreamFragments = 0,        --fragments de memoire du gardien du sceau (0..5)
+	HeardLitany = false        --la litanie du Suaire entendue en entier (acte V)
 }
 
 SV.Chapter10 = 
@@ -1012,7 +1170,16 @@ SV.Chapter10 =
 	DiedToLugia = false,
 	SawNecrozmaVision = false,
 	PeakMidpointState = 'FirstArrival',
-	PlayedPeakRelayIntro = false--cinematique d'arrivee au relais (marche + dialogue)
+	FinishedBedtimeCutscene = false,--veillee de fin de chapitre (guild_heros_room_ch_10)
+	PlayedPeakRelayIntro = false,
+	PlayedArrivalScene = false,--scene d'arrivee devant le donjon (ChapterScenes, ch10),
+	PlayedVictoryScene = false,--scene d'apres-boss (ChapterAftermath, ch10)
+	--Rejouabilite : jalon interne a un parcours rejoue. OutranEscouadeFulgur
+	--reste vrai pour toujours et ne peut donc plus servir a savoir ou on en est
+	--dans l'ascension. Remis a false a chaque entree dans le donjon.
+	ReplayPastFulgur = false,
+	--Meme cas que ch8/ch9 : ecrit par zone/celestial_peak:137, jamais declare.
+	CelestialPeakComplete = false
 }
 
 
@@ -1096,4 +1263,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-07-27-C]')
+print('Script variables default values loaded! [build 2026-08-01-U]')

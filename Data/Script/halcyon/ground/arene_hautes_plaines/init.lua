@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local arene_hautes_plaines = {}
 
@@ -48,11 +49,10 @@ function arene_hautes_plaines.Enter(map)
   UI:SetCenter(false)
   GAME:WaitFrames(30)
 
-  -- 2. L'irruption (motif propre à ce gardien — fiche anti-répétition).
-  BossFX.Flash(272, 224, 4, 6, 10)
-  GROUND:Unhide('Raikou')
-  BossFX.Impact(3, true)
-  GAME:WaitFrames(20)
+  -- 2. L'irruption — ELECTRIQUE : la foudre tombe. Raikou EST la decharge, il n'arrive pas.
+  --    Avant ce lot : un BossFX.Flash generique, identique a 10 autres
+  --    arenes. Toutes les particules employees sont attestees.
+  BossFX.StrikeThunder(raikou, 272, 224)
 
   -- 3. Le recul du groupe.
   BossFX.PushBack({hero, partner}, Direction.Down)
@@ -64,7 +64,7 @@ function arene_hautes_plaines.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(raikou, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('arene_hautes_plaines')
   UI:WaitShowTitle("Raikou, la Cloche des Orages", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

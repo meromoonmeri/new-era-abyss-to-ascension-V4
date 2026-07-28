@@ -6,6 +6,7 @@
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.ChapterScenes'
 
 local crystal_sanctuary_entrance = {}
 
@@ -15,7 +16,12 @@ function crystal_sanctuary_entrance.Init(map)
 end
 
 function crystal_sanctuary_entrance.Enter(map)
-  GAME:FadeIn(20)
+  --Scene d'arrivee du chapitre : jouee une seule fois, elle etablit le lieu
+  --avant que le joueur ne touche l'entree du donjon. Si elle a deja ete vue
+  --(ou si on n'est pas dans le bon chapitre), fondu simple.
+  if not ChapterScenes.CrystalArrival() then
+    GAME:FadeIn(20)
+  end
 end
 
 function crystal_sanctuary_entrance.Update(map) end

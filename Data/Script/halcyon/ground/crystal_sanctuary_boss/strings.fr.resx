@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="CSB_001" xml:space="preserve"><value>Tu as prouvé ta valeur...[pause=20] Mais le joyau est sous ma garde.</value></data>
+  <data name="CSB_002" xml:space="preserve"><value>Je suis Diancie, gardienne du Sanctuaire.[pause=15] Prouve-moi que ton cœur est aussi pur que ces gemmes.</value></data>
+  <data name="CSB_003" xml:space="preserve"><value>Que la lumière du cristal éclaire notre combat !</value></data>
+  <data name="CSB_R01" xml:space="preserve"><value>Les gemmes ont cessé de chanter.[pause=20] Elles ne renvoient plus que notre reflet.</value></data>
+  <data name="CSB_R02" xml:space="preserve"><value>(Elle méditait ici.[pause=15] Il ne reste que la place qu'elle occupait.)</value></data>
+  <data name="CSB_R03" xml:space="preserve"><value>Le sanctuaire s'est refermé sur son silence.[pause=20] Sans elle pour l'entretenir, il redevient une grotte.</value></data>
+  <data name="CSB_R04" xml:space="preserve"><value>Il n'y a plus rien à trouver ici.[pause=0] Il est temps de rentrer.</value></data>
+</root>

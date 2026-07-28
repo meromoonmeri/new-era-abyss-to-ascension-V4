@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local abime_tempetes = {}
 
@@ -19,6 +20,68 @@ end
 
 function abime_tempetes.Enter(map)
   DEBUG.EnableDbgCoro()
+  -- === RESEAU DES ANCIENS CHEMINS (new_era_zone_19) ===
+  -- Ce ground sert AUSSI de cinematique d'Ancrage (chemin d'origine, plus bas,
+  -- inchange). Quand on y arrive depuis la zone Reseau, c'est le Veilleur
+  -- qu'on rencontre, pas le gardien d'Ancrage.
+  if tostring(_ZONE.CurrentZoneID) == 'new_era_zone_19' then
+    local hero = CH('PLAYER')
+    local partner = CH('Teammate1')
+    GAME:CutsceneMode(true)
+    GROUND:TeleportTo(hero, 272, 240, Direction.Up)
+    if partner ~= nil then GROUND:TeleportTo(partner, 248, 240, Direction.Up) end
+    local lame = CharacterEssentials.MakeCharactersFromList({{'LameDeFond', 272, 200, Direction.Down}})
+    GROUND:Hide('LameDeFond')
+    GAME:MoveCamera(272, 220, 1, false)
+    GAME:FadeIn(40)
+    GAME:WaitFrames(30)
+
+    if SV.Reseau ~= nil and SV.Reseau.Veilleurs ~= nil and SV.Reseau.Veilleurs['new_era_zone_19'] then
+      GROUND:Unhide('LameDeFond')
+      UI:SetSpeaker(lame)
+      UI:WaitShowDialogue("Reviens dans la houle.[pause=20] Elle se souvient de toi.")
+      COMMON.BossTransition()
+      GAME:CutsceneMode(false)
+      GAME:ContinueDungeon("new_era_zone_19", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+      return
+    end
+
+    UI:ResetSpeaker(false)
+    UI:SetCenter(true)
+    UI:WaitShowDialogue("LA MER NE S'EST JAMAIS CALMEE ICI.[pause=20] QUELQUE CHOSE LA REMUE.")
+    UI:SetCenter(false)
+    GAME:WaitFrames(30)
+
+    BossFX.EmergeWater(lame, 272, 200)
+    GAME:WaitFrames(20)
+    BossFX.PushBack({hero, partner}, Direction.Down)
+    GAME:WaitFrames(10)
+      GROUND:Unhide('LameDeFond')
+    GAME:WaitFrames(18)
+
+    BossMusic.Play('abime_tempetes')
+    UI:WaitShowTitle("Lame-de-Fond, Veilleur de la Mer sans Fin", 20)
+    GAME:WaitFrames(50)
+    UI:WaitHideTitle(20)
+
+    UI:SetSpeaker(lame)
+    UI:WaitShowDialogue("On ne traverse pas ma mer sans la saluer.")
+    UI:SetSpeaker(lame)
+    UI:WaitShowDialogue("Les bâtisseurs m'ont laissé la houle à garder.[pause=20] Tiens debout dedans.")
+
+    if partner ~= nil then
+      UI:SetSpeaker(partner)
+      UI:SetSpeakerEmotion("Worried")
+      UI:WaitShowDialogue("Les vagues se dressent comme un mur...[pause=20] Il commande à toute la mer !")
+    end
+    GeneralFunctions.HeroDialogue(hero, "Alors on apprendra à nager droit.", "Determined")
+
+    COMMON.BossTransition()
+    GAME:CutsceneMode(false)
+    GAME:ContinueDungeon("new_era_zone_19", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    return
+  end
+
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   GAME:CutsceneMode(true)
@@ -62,7 +125,7 @@ function abime_tempetes.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(kyogre, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('abime_tempetes')
   UI:WaitShowTitle("Kyogre, le Creux des Marées", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local recif_genereux = {}
 
@@ -70,7 +71,7 @@ function recif_genereux.Enter(map)
   GROUND:CharSetAnim(manaphy, "Idle", true)
   GROUND:CharSetAnim(phione, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('recif_genereux')
   UI:WaitShowTitle("Manaphy, le Berceau des Mers", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

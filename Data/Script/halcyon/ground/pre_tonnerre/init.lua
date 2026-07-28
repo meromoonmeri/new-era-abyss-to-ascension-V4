@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local pre_tonnerre = {}
 
@@ -48,11 +49,10 @@ function pre_tonnerre.Enter(map)
   UI:SetCenter(false)
   GAME:WaitFrames(30)
 
-  -- 2. L'irruption (motif propre à ce gardien — fiche anti-répétition).
-  BossFX.Flash(224, 192, 4, 6, 10)
-  GROUND:Unhide('Zeraora')
-  BossFX.Impact(3, true)
-  GAME:WaitFrames(20)
+  -- 2. L'irruption — ELECTRIQUE : vitesse pure, la decharge precede le corps.
+  --    Avant ce lot : un BossFX.Flash generique, identique a 10 autres
+  --    arenes. Toutes les particules employees sont attestees.
+  BossFX.StrikeThunder(zeraora, 224, 192)
 
   -- 3. Le recul du groupe.
   BossFX.PushBack({hero, partner}, Direction.Down)
@@ -64,7 +64,7 @@ function pre_tonnerre.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(zeraora, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('pre_tonnerre')
   UI:WaitShowTitle("Zeraora, le Courant Sauvage", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

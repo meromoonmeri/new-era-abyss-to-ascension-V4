@@ -6,6 +6,8 @@
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.ChapterAftermath'
+require 'halcyon.ReplayEnding'
 
 local forgotten_marsh = {}
 
@@ -46,7 +48,7 @@ function forgotten_marsh.ExitSegment(zone, result, rescue, segmentID, mapID)
 
   if segmentID == 0 then
       -- Berges Putrides : 10 etages
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 9 then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('forgotten_marsh', 9) then
           SV.Chapter9.ReachedMarshRelay = true
           GAME:EnterGroundMap('forgotten_marsh_relay', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
@@ -69,7 +71,7 @@ function forgotten_marsh.ExitSegment(zone, result, rescue, segmentID, mapID)
       end
   elseif segmentID == 2 then
       -- Abysses Vaseux : 8 etages — le Cercle du Suaire rode
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 9 then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('forgotten_marsh', 9) then
           SV.Chapter9.ReachedMarshDepths = true
           SV.Chapter9.SawCercleDuSuaire = true
           GAME:EnterGroundMap('forgotten_marsh_boss', 'Main_Entrance_Marker')
@@ -93,7 +95,18 @@ function forgotten_marsh.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter9.DefeatedMegaBlastoise = true
           SV.Chapter9.PurifiedMarshCore = true
           SV.Chapter9.ForgottenMarshComplete = true
-          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 73, 0, true, true)
+          --Scene d'apres-boss : la consequence se joue AVANT le retour a la
+          --guilde. Sans elle, le combat le plus important du chapitre se
+          --terminait par un simple fondu vers la fin de journee.
+          ChapterAftermath.MarshVictory()
+          --Fin de chapitre : on rentre dormir a la guilde pour la veillee
+          --(guild_heros_room_ch_9). Sans ces drapeaux la scene de chambre ne se
+          --declenchait JAMAIS, et sans la carte 2 on ressortait au relais du donjon.
+          SV.TemporaryFlags.Dinnertime = true
+          SV.TemporaryFlags.Bedtime = true
+          SV.TemporaryFlags.MorningWakeup = true
+          SV.TemporaryFlags.MorningAddress = true
+          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 2, 0, true, true)
       else
           SV.Chapter9.DiedToMegaBlastoise = true
           SV.Chapter9.MarshMidState = 'DeathArrival'

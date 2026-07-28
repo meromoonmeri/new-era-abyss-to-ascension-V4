@@ -5,6 +5,8 @@
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.ChapterAftermath'
+require 'halcyon.ReplayEnding'
 
 local crystal_sanctuary = {}
 
@@ -45,7 +47,7 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
 
   if segmentID == 0 then
       -- Galerie Cristalline : 12 etages
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 8 then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('crystal_sanctuary', 8) then
           SV.Chapter8.ReachedCrystalRelay = true
           GAME:EnterGroundMap('crystal_sanctuary_relay', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
@@ -68,7 +70,7 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
       end
   elseif segmentID == 2 then
       -- Salles des Glyphes : 6 etages
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 8 then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('crystal_sanctuary', 8) then
           SV.Chapter8.ReachedDiancieChamber = true
           GAME:EnterGroundMap('crystal_sanctuary_boss', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
@@ -91,7 +93,18 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter8.DefeatedDiancie = true
           SV.Chapter8.ObtainedCrystalFragment = true
           SV.Chapter8.CrystalSanctuaryComplete = true
-          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
+          --Scene d'apres-boss : la consequence se joue AVANT le retour a la
+          --guilde. Sans elle, le combat le plus important du chapitre se
+          --terminait par un simple fondu vers la fin de journee.
+          ChapterAftermath.CrystalVictory()
+          --Fin de chapitre : on rentre dormir a la guilde pour la veillee
+          --(guild_heros_room_ch_8). Sans ces drapeaux la scene de chambre ne se
+          --declenchait JAMAIS, et sans la carte 2 on ressortait au relais du donjon.
+          SV.TemporaryFlags.Dinnertime = true
+          SV.TemporaryFlags.Bedtime = true
+          SV.TemporaryFlags.MorningWakeup = true
+          SV.TemporaryFlags.MorningAddress = true
+          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 2, 0, true, true)
       else
           SV.Chapter8.DiedToDiancie = true
           SV.Chapter8.SanctuaryMidState = 'DeathArrival'

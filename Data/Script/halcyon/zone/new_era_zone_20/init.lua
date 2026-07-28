@@ -3,6 +3,7 @@
      Aucun impact histoire : entrée/sortie via master_zone carte 1 (Metano). ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.VeilleurArc'
 
 local new_era_zone_20 = {}
 
@@ -32,7 +33,8 @@ function new_era_zone_20.ExitSegment(zone, result, rescue, segmentID, mapID)
 
   -- Veilleur du Réseau : segment 1 = arène (jellicent/dhelmise).
   if segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-    GAME:ContinueDungeon("new_era_zone_20", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    -- Veilleur : passage par le ground partage, qui enchaine vers l'arene (seg 1).
+    GAME:EnterGroundMap('fosse_argentee', 'Main_Entrance_Marker')
     return
   end
   if segmentID == 1 then
@@ -40,6 +42,11 @@ function new_era_zone_20.ExitSegment(zone, result, rescue, segmentID, mapID)
       if SV.Reseau == nil then SV.Reseau = { Veilleurs = {} } end
       if SV.Reseau.Veilleurs == nil then SV.Reseau.Veilleurs = {} end
       SV.Reseau.Veilleurs['new_era_zone_20'] = true
+      --Adieu du Veilleur : il n'est pas vaincu, il est RELEVE.
+      --Sans cette scene la victoire se resumait a UNE replique du
+      --partenaire, et le Veilleur ne repondait jamais a la question
+      --qu'il avait posee avant le combat (audit boss : 24/100).
+      VeilleurArc.Victory('new_era_zone_20')
       GAME:WaitFrames(20)
       UI:SetSpeaker(GAME:GetPlayerPartyMember(1))
       UI:SetSpeakerEmotion("Happy")

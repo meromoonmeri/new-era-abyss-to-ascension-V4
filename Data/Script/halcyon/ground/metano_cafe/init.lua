@@ -180,6 +180,13 @@ Endure Tonic:
 - Costs a reviver seed and something else.
 ]]--
 
+--PARLER AU TENANCIER. triggerType = 1, 4 cases libres sur 4 : il est
+--parfaitement abordable, mais n'avait aucun handler. On delegue au
+--comptoir, qui porte le menu du cafe.
+function metano_cafe.Cafe_Owner_Action(chara, activator)
+  metano_cafe.Cafe_Action(chara, activator)
+end
+
 function metano_cafe.Cafe_Action(obj, activator)
 	DEBUG.EnableDbgCoro()
 	print("Cafe action")

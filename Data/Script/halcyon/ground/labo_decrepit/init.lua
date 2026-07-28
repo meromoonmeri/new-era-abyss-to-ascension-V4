@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local labo_decrepit = {}
 
@@ -48,12 +49,10 @@ function labo_decrepit.Enter(map)
   UI:SetCenter(false)
   GAME:WaitFrames(30)
 
-  -- 2. L'irruption (motif propre à ce gardien — fiche anti-répétition).
-  BossFX.Impact(2, false)
-  GAME:WaitFrames(20)
-  BossFX.Flash(232, 144, 4, 6, 10)
-  GROUND:Unhide('Genesect')
-  GAME:WaitFrames(20)
+  -- 2. L'irruption — MACHINE : demarrage d'une arme qu'on avait laissee eteinte.
+  --    Avant ce lot : un BossFX.Flash generique, identique a 10 autres
+  --    arenes. Toutes les particules employees sont attestees.
+  BossFX.BootMachine(genesect, 232, 144)
 
   -- 3. Le recul du groupe.
   BossFX.PushBack({hero, partner}, Direction.Down)
@@ -65,7 +64,7 @@ function labo_decrepit.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(genesect, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('labo_decrepit')
   UI:WaitShowTitle("Genesect, le Vieux Réacteur", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

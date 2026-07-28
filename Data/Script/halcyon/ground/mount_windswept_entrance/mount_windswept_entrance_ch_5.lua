@@ -5,6 +5,210 @@ require 'halcyon.CharacterEssentials'
 
 mount_windswept_entrance_ch_5 = {}
 
+--------------------------------------------------------------------
+-- LE CAMP DE BASE — decor partage
+--------------------------------------------------------------------
+-- Un seul endroit qui dessine le bivouac, appele par SetupGround ET par
+-- la cinematique d'arrivee. Avant, les deux posaient leur propre feu aux
+-- MEMES coordonnees (256,220) : deux animations superposees des que la
+-- scene se jouait.
+--
+-- LES PAILLASSES NE SONT PAS DU MOBILIER D'INTERIEUR. Verifie :
+-- Hay_Bed.dir est range dans Content/Object/ juste a cote de
+-- Campfire.dir, et la carte soeur mount_windswept_midpoint porte deja
+-- 3 tentes et 4 feux poses en dur. Un bivouac EST le vocabulaire visuel
+-- de ce donjon. On les garde donc, une par membre de l'expedition.
+--
+-- LE LIT 11 ETAIT DANS LA ROCHE. Sa position d'origine (312,108) tombe
+-- sur une case dont Tags ~= 0, donc non marchable : une paillasse
+-- flottait dans la falaise. Verifie case par case sur les 12 ; les 11
+-- autres sont sur du sol libre. Il est ramene sur le terrain plat.
+--------------------------------------------------------------------
+-- LA VEILLEE AU CAMP — repas, silence, coucher
+--------------------------------------------------------------------
+-- Jouee a la fin de l'arrivee. Elle donne enfin un usage aux douze
+-- paillasses : sans elle, le joueur voyait un cercle de foin et
+-- personne dedans.
+--
+-- Trois temps, dans l'ordre reel d'un bivouac de montagne :
+--   1. LE REPAS   on mange autour du feu, ca parle fort.
+--   2. LE SILENCE la conversation retombe, on regarde les flammes.
+--   3. LE COUCHER chacun rejoint sa couche, un par un.
+--
+-- Les positions de couchage sont tirees de BEDS : personne ne dort a
+-- cote de son lit. Les indices sont fixes pour que le maitre de guilde
+-- soit toujours du meme cote du feu d'une partie a l'autre.
+--
+-- Texte litteral francais : ce fichier est un script de carte, mais
+-- ces repliques n'existent dans aucun .resx. Les ecrire ici evite
+-- d'inventer des cles MWE5_ qui n'existent pas.
+--
+-- « Sleep » est une animation attestee dans le depot
+-- (guild_top_right_bedroom_ch_1.lua:14, metano_inn_ch_2.lua:37).
+function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, membres)
+	local B = mount_windswept_entrance_ch_5.BEDS
+
+	--Qui dort ou. Indices dans BEDS, choisis pour repartir le groupe
+	--autour du feu sans croisement de trajets.
+	local COUCHES = {
+		[1] = 1,   -- Penticus, tete du cercle
+		[2] = 2,   -- Phileas a sa droite
+		[3] = 10,  -- Rin
+		[4] = 3,   -- Coco
+		[5] = 9,   -- Shuca
+		[6] = 4,   -- Ganlon
+		[7] = 8,   -- Hyko
+		[8] = 5,   -- Almotz
+	}
+
+	local ok = pcall(function()
+		---------------------------------------------------------------
+		-- 1. LE REPAS
+		---------------------------------------------------------------
+		UI:ResetSpeaker(false)
+		UI:SetCenter(true)
+		UI:WaitShowDialogue("Le feu prend.[pause=30] Quelqu'un sort les provisions du sac commun.")
+		UI:SetCenter(false)
+		UI:ResetSpeaker()
+		GAME:WaitFrames(25)
+
+		--Le groupe se tourne vers le feu : le cercle se referme.
+		local tours = {}
+		for i, c in ipairs(membres) do
+			tours[#tours+1] = TASK:BranchCoroutine(function()
+				GAME:WaitFrames(i * 4)
+				GROUND:CharTurnToCharAnimated(c, hero, 4)
+			end)
+		end
+		TASK:JoinCoroutines(tours)
+		GAME:WaitFrames(20)
+
+		UI:SetSpeaker(membres[4])            -- Coco, la cuisiniere
+		UI:SetSpeakerEmotion("Happy")
+		UI:WaitShowDialogue("Servez-vous tant que c'est chaud ![pause=25] En altitude, ca refroidit en deux minutes.")
+		GAME:WaitFrames(12)
+
+		UI:SetSpeaker(membres[6])            -- Ganlon
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue("C'est meilleur qu'a la guilde.[pause=30] Ne lui repetez pas.")
+		GAME:WaitFrames(12)
+
+		UI:SetSpeaker(membres[5])            -- Shuca
+		UI:SetSpeakerEmotion("Happy")
+		UI:WaitShowDialogue("Je n'avais jamais mange dehors ![pause=25] Ca a un gout different, non ?")
+		GAME:WaitFrames(12)
+
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Happy")
+		UI:WaitShowDialogue("C'est le vent.[pause=25] Il met du froid dans tout, meme dans la soupe.")
+		GAME:WaitFrames(15)
+
+		---------------------------------------------------------------
+		-- 2. LE SILENCE
+		---------------------------------------------------------------
+		UI:ResetSpeaker(false)
+		UI:SetCenter(true)
+		UI:WaitShowDialogue("Peu a peu, on cesse de parler.[pause=30] Il ne reste que le bruit du feu.")
+		UI:SetCenter(false)
+		UI:ResetSpeaker()
+		GAME:WaitFrames(30)
+
+		UI:SetSpeaker(membres[1])            -- Penticus
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue("Demain, la montagne.[pause=30] Dormez pendant qu'elle vous laisse dormir.")
+		GAME:WaitFrames(20)
+
+		---------------------------------------------------------------
+		-- 3. LE COUCHER
+		---------------------------------------------------------------
+		--Chacun rejoint sa paillasse, en decale. Le decalage compte : un
+		--camp qui se couche d'un seul bloc a l'air mecanique.
+		local vers = {}
+		for i, c in ipairs(membres) do
+			local b = B[COUCHES[i]]
+			if b ~= nil then
+				vers[#vers+1] = TASK:BranchCoroutine(function()
+					GAME:WaitFrames(i * 12)
+					GROUND:MoveToPosition(c, b[1], b[2], false, 1)
+					GROUND:CharSetAnim(c, "Sleep", true)
+				end)
+			end
+		end
+
+		--Le duo se couche en dernier, cote a cote, sur les deux couches
+		--restees libres (11 et 12, a l'ecart du cercle).
+		vers[#vers+1] = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(#membres * 12 + 10)
+			GROUND:MoveToPosition(partner, B[6][1], B[6][2], false, 1)
+			GROUND:CharSetAnim(partner, "Sleep", true)
+		end)
+		vers[#vers+1] = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(#membres * 12 + 18)
+			GROUND:MoveToPosition(hero, B[7][1], B[7][2], false, 1)
+		end)
+		TASK:JoinCoroutines(vers)
+		GAME:WaitFrames(25)
+
+		--Le heros reste eveille un instant de plus. C'est lui qui ferme
+		--la scene, et c'est lui qui porte le poids de ce qui vient.
+		GeneralFunctions.HeroDialogue(hero,
+			"(Onze respirations autour d'un feu.[pause=30] Je n'avais jamais rien entendu d'aussi calme.)", "Normal")
+		GAME:WaitFrames(20)
+		GROUND:CharSetAnim(hero, "Sleep", true)
+		GAME:WaitFrames(40)
+
+		UI:ResetSpeaker(false)
+		UI:SetCenter(true)
+		UI:WaitShowDialogue("Le feu baisse.[pause=30] La montagne attend au-dessus, patiente.")
+		UI:SetCenter(false)
+		UI:ResetSpeaker()
+		GAME:WaitFrames(25)
+	end)
+	if not ok then PrintInfo('[MWE5.CampNightfall] veillee ecourtee') end
+end
+
+function mount_windswept_entrance_ch_5.BuildCamp()
+	local ground = GAME:GetCurrentGround()
+
+	--Purge : sans elle, le decor s'empile a chaque visite.
+	--Purge du calque. « Anims:Clear() » que j'avais ecrit d'abord
+	--n'existe pas : la seule methode de retrait attestee dans le depot
+	--est RemoveAt (event_single.lua:724). On retire donc depuis la fin,
+	--index par index, sous pcall — Count peut ne pas etre expose.
+	pcall(function()
+		local anims = ground.Decorations[0].Anims
+		for i = anims.Count - 1, 0, -1 do
+			anims:RemoveAt(i)
+		end
+	end)
+
+	local hay_bed  = RogueEssence.Content.ObjAnimData('Hay_Bed', 1)
+	local campfire = RogueEssence.Content.ObjAnimData('Campfire', 6)
+
+	--Les 12 couchages, un par membre : 10 de la guilde + le duo.
+	--Dix forment l'anneau autour du feu (centre calcule a 256,228, le
+	--feu est en 256,220), deux sont un peu a l'ecart.
+	for _, b in ipairs(mount_windswept_entrance_ch_5.BEDS) do
+		ground.Decorations[0].Anims:Add(
+			RogueEssence.Ground.GroundAnim(hay_bed, RogueElements.Loc(b[1], b[2])))
+	end
+
+	--Le feu, au centre exact de l'anneau.
+	ground.Decorations[0].Anims:Add(
+		RogueEssence.Ground.GroundAnim(campfire, RogueElements.Loc(256, 220)))
+end
+
+--Position des couchages. Sortie en table pour que la cinematique et le
+--decor permanent ne puissent plus diverger.
+--Les deux dernieres (11 et 12) sont a l'ecart du cercle ; la 11 a ete
+--deplacee de (312,108), qui tombait dans la roche, vers du sol libre.
+mount_windswept_entrance_ch_5.BEDS = {
+	{256, 164}, {301, 175}, {334, 208}, {334, 248},
+	{301, 281}, {256, 292}, {211, 281}, {178, 248},
+	{178, 208}, {211, 175},
+	{384, 196}, {344, 132},
+}
+
 function mount_windswept_entrance_ch_5.SetupGround()	
 	--Camp de base du Mont Venteux : toute l'expedition est presente.
 	--Positions verifiees walkables (feu de camp decoratif en 256,220).
@@ -12,18 +216,25 @@ function mount_windswept_entrance_ch_5.SetupGround()
 	CharacterEssentials.MakeCharactersFromList({
 		{'Tropius', 212, 244, Direction.DownRight},
 		{'Noctowl', 300, 244, Direction.DownLeft},
-		{'Audino', 220, 276, Direction.UpRight},
-		{'Snubbull', 292, 276, Direction.UpLeft},
+		--Rin et Coco etaient posees SUR une paillasse (lits 7 et 5, a moins
+		--de 24 px) : le sprite chevauchait le decor. Remontees de 16 px,
+		--cases verifiees libres et degagees de tout couchage.
+		{'Audino', 220, 260, Direction.UpRight},
+		{'Snubbull', 292, 260, Direction.UpLeft},
 		{'Mareep', 204, 312, Direction.Right},
 		{'Cranidos', 308, 312, Direction.Left},
 		{'Breloom', 160, 300, Direction.Right},
 		{'Girafarig', 360, 300, Direction.Left}
 	})
 
-	--Le feu de camp reste allume tant que l'expedition campe ici.
-	local campfire = RogueEssence.Content.ObjAnimData('Campfire', 6)
-	GAME:GetCurrentGround().Decorations[0].Anims:Add(
-		RogueEssence.Ground.GroundAnim(campfire, RogueElements.Loc(256, 220)))
+	--LE CAMP. Repose a neuf a chaque entree.
+	--
+	--BUG CORRIGE : SetupGround est rappele par PlotScripting a CHAQUE
+	--arrivee sur la carte (branche 'else'), et le fichier comptait 14
+	--appels Anims:Add pour ZERO purge. Chaque retour au camp empilait
+	--donc un feu de plus au meme endroit. On vide le calque avant de
+	--redessiner : le decor est identique, mais il ne se duplique plus.
+	mount_windswept_entrance_ch_5.BuildCamp()
 
 	--Apres une defaite en montagne, Rin se rapproche du feu pour soigner.
 	if SV.Chapter5.LostMountain or SV.Chapter5.DiedToWind then
@@ -126,9 +337,6 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	--for debug purposes
 	GAME:FadeOut(false, 1)
 	
-	local hay_bed = RogueEssence.Content.ObjAnimData('Hay_Bed', 1)
-	local campfire = RogueEssence.Content.ObjAnimData('Campfire', 6)
-
 	GROUND:TeleportTo(hero, 252, 396, Direction.Up)
 	GROUND:TeleportTo(partner, 284, 396, Direction.Right)
 	
@@ -147,44 +355,16 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	})
 	
 	
-	--This is done like this so I can copy and paste this code into other scenes that have a similar set up and only change one value
-	--to get all the beds and campfire to spawn relative to that spot.
-	local bedRelativeX = 178
-	local bedRelativeY = 164
-	local bed1X, bed6X = bedRelativeX + 78, bedRelativeX + 78
-	local bed2X, bed5X = bedRelativeX + 123, bedRelativeX + 123
-	local bed3X, bed4X = bedRelativeX + 156, bedRelativeX + 156
-	local bed7X, bed10X = bedRelativeX + 33, bedRelativeX + 33
-	local bed8X, bed9X = bedRelativeX, bedRelativeX
-	
-	local bed11X, bed11Y = 312, 108
-	local bed12X, bed12Y = 344, 132
-	
-	local bed1Y = bedRelativeY
-	local bed2Y, bed10Y = bedRelativeY + 11, bedRelativeY + 11
-	local bed3Y, bed9Y = bedRelativeY + 44, bedRelativeY + 44
-	local bed4Y, bed8Y = bedRelativeY + 84, bedRelativeY + 84
-	local bed5Y, bed7Y = bedRelativeY + 117, bedRelativeY + 117
-	local bed6Y = bedRelativeY + 128
-	
+	--LE CAMP. Dessine par le constructeur partage, qui purge d'abord le
+	--calque : les 12 appels Anims:Add ecrits ici en dur posaient les memes
+	--paillasses que SetupGround, aux memes coordonnees. Des que la scene
+	--se jouait, tout le bivouac existait en double — plus un feu de camp
+	--superpose au sien. C'est ce doublement qui salissait le rendu.
+	--
+	--Une seule source de verite desormais : BEDS + BuildCamp. Le lit qui
+	--tombait dans la roche (312,108) a ete ramene sur du sol libre.
+	mount_windswept_entrance_ch_5.BuildCamp()
 
-	--Beds. Start with top center, go clockwise, then do the two off to the side.
-	GAME:GetCurrentGround().Decorations[0].Anims:Add(RogueEssence.Ground.GroundAnim(hay_bed, RogueElements.Loc(bed1X, bed1Y)))
-	GAME:GetCurrentGround().Decorations[0].Anims:Add(RogueEssence.Ground.GroundAnim(hay_bed, RogueElements.Loc(bed2X, bed2Y)))
-	GAME:GetCurrentGround().Decorations[0].Anims:Add(RogueEssence.Ground.GroundAnim(hay_bed, RogueElements.Loc(bed3X, bed3Y)))
-	GAME:GetCurrentGround().Decorations[0].Anims:Add(RogueEssence.Ground.GroundAnim(hay_bed, RogueElements.Loc(bed4X, bed4Y)))
-	GAME:GetCurrentGround().Decorations[0].Anims:Add(RogueEssence.Ground.GroundAnim(hay_bed, RogueElements.Loc(bed5X, bed5Y)))
-	GAME:GetCurrentGround().Decorations[0].Anims:Add(RogueEssence.Ground.GroundAnim(hay_bed, RogueElements.Loc(bed6X, bed6Y)))
-	GAME:GetCurrentGround().Decorations[0].Anims:Add(RogueEssence.Ground.GroundAnim(hay_bed, RogueElements.Loc(bed7X, bed7Y)))
-	GAME:GetCurrentGround().Decorations[0].Anims:Add(RogueEssence.Ground.GroundAnim(hay_bed, RogueElements.Loc(bed8X, bed8Y)))
-	GAME:GetCurrentGround().Decorations[0].Anims:Add(RogueEssence.Ground.GroundAnim(hay_bed, RogueElements.Loc(bed9X, bed9Y)))
-	GAME:GetCurrentGround().Decorations[0].Anims:Add(RogueEssence.Ground.GroundAnim(hay_bed, RogueElements.Loc(bed10X, bed10Y)))
-
-	--bed 11/12 are a bit more free form in where they go.
-	GAME:GetCurrentGround().Decorations[0].Anims:Add(RogueEssence.Ground.GroundAnim(hay_bed, RogueElements.Loc(bed11X, bed11Y)))
-	GAME:GetCurrentGround().Decorations[0].Anims:Add(RogueEssence.Ground.GroundAnim(hay_bed, RogueElements.Loc(bed12X, bed12Y)))
-	
-	
 	GAME:WaitFrames(40)
 	UI:SetSpeaker(partner)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_001'], tunnel:GetColoredName()))
@@ -211,16 +391,20 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_005']))
 
-	-- The camp comes alive around the fire.  The expedition is no longer
-	-- represented by only two sprites at the entrance.
-	GAME:GetCurrentGround().Decorations[0].Anims:Add(RogueEssence.Ground.GroundAnim(campfire, RogueElements.Loc(256, 220)))
+	-- Le camp s'anime autour du feu. L'expedition n'est plus representee
+	-- par deux sprites plantes a l'entree.
+	--
+	-- BUG CORRIGE : un second feu etait pose ici, aux MEMES coordonnees
+	-- (256,220) que celui de BuildCamp. Deux animations superposees au
+	-- pixel pres, ce qui doublait la luminosite des flammes. Le feu est
+	-- desormais pose une seule fois, par le constructeur de camp.
 	for _, chara in ipairs({tropius, noctowl, audino, snubbull, mareep, cranidos}) do
 		GROUND:Unhide(chara.EntName)
 	end
 	GROUND:TeleportTo(tropius, 212, 244, Direction.Right)
 	GROUND:TeleportTo(noctowl, 300, 244, Direction.Left)
-	GROUND:TeleportTo(audino, 220, 276, Direction.UpRight)
-	GROUND:TeleportTo(snubbull, 292, 276, Direction.UpLeft)
+	GROUND:TeleportTo(audino, 220, 260, Direction.UpRight)
+	GROUND:TeleportTo(snubbull, 292, 260, Direction.UpLeft)
 	GROUND:TeleportTo(mareep, 204, 312, Direction.Right)
 	GROUND:TeleportTo(cranidos, 308, 312, Direction.Left)
 
@@ -285,6 +469,21 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	GROUND:CharSetEmote(mareep, "", 0)
 	GROUND:CharSetEmote(tropius, "", 0)
 	GAME:WaitFrames(20)
+
+	--------------------------------------------------------------------
+	-- LA VEILLEE — le camp mange, puis s'endort
+	--------------------------------------------------------------------
+	-- Avant, la scene s'arretait sur la derniere replique et coupait au
+	-- noir : les douze paillasses restaient a l'ecran sans que personne
+	-- ne s'en serve. Le joueur voyait un cercle de foin inexplique.
+	--
+	-- On montre donc ce a quoi elles servent. Trois temps, dans l'ordre
+	-- ou ca se passe vraiment dans un bivouac : on partage le repas, la
+	-- conversation retombe, chacun rejoint sa couche.
+	mount_windswept_entrance_ch_5.CampNightfall(
+		hero, partner, {tropius, noctowl, audino, snubbull, mareep,
+		                cranidos, growlithe, zigzagoon})
+
 	GAME:FadeOut(false, 40)
 	GAME:WaitFrames(40)
 	for _, chara in ipairs({audino, snubbull, girafarig, breloom, growlithe, zigzagoon, tropius, noctowl, mareep, cranidos}) do

@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local grotte_rocheuse = {}
 
@@ -74,7 +75,7 @@ function grotte_rocheuse.Enter(map)
   GROUND:CharSetAnim(melmetal, "Idle", true)
   GROUND:CharSetAnim(meltan, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('grotte_rocheuse')
   UI:WaitShowTitle("Melmetal, le Métal Liquide", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

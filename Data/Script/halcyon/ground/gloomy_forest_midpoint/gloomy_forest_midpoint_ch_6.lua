@@ -32,6 +32,73 @@ function gloomy_forest_midpoint_ch_6.SetupGround()
 end
 
 
+------------------------------------------------------------------
+-- L'EPREUVE DES TROIS — accroche au relais.
+------------------------------------------------------------------
+-- Une fois Zarude ecarte, la Team Dazzling attend au campement. Le duel
+-- est ENTIEREMENT FACULTATIF : on peut l'ignorer, le refuser, y revenir.
+-- Il ne fait avancer aucun drapeau d'histoire.
+--
+-- Ancrages : campement du relais (912x720, ancrages officiels
+-- entrance_center 292,270 et Campfire 352,360). Les trois se tiennent a
+-- l'est du foyer, en triangle, sur des cases verifiees libres dans les
+-- obstacles : la paroi rocheuse commence a x=440 environ a cette hauteur.
+function gloomy_forest_midpoint_ch_6.SetupDazzlingTrial()
+  if not SV.Chapter6.DazzlingTrialOffered then return end
+  if SV.Chapter6.DazzlingTrialCleared then return end
+
+  CharacterEssentials.MakeCharactersFromList({
+    {'Adagio', 404, 306, Direction.Left},
+    {'Aria',   412, 338, Direction.Left},
+    {'Sonata', 412, 274, Direction.Left}
+  })
+end
+
+-- Parler a Adagio lance le duel (apres confirmation).
+function gloomy_forest_midpoint_ch_6.Adagio_Action(chara, activator)
+  if SV.Chapter6.DazzlingTrialCleared then
+    GeneralFunctions.StartConversation(chara,
+      "Nous rentrons.[pause=20] Reposez-vous : vous l'avez merite plus que nous.", "Normal")
+    GeneralFunctions.EndConversation(chara)
+    return
+  end
+
+  GeneralFunctions.StartConversation(chara,
+    "Vous voila.[pause=25] Nous vous avons suivis depuis l'entree.", "Normal")
+  UI:WaitShowDialogue("Je veux un combat.[pause=25] Maintenant, pendant que vous etes vides.")
+  UI:SetSpeakerEmotion("Sigh")
+  UI:WaitShowDialogue("Rien a gagner, rien a perdre.[pause=20] Refusez et nous partons sans un mot.")
+  UI:ChoiceMenuYesNo("Accepter le defi de la Team Dazzling ?", false)
+  UI:WaitForChoice()
+  local accepted = UI:ChoiceResult()
+  GeneralFunctions.EndConversation(chara)
+
+  if not accepted then
+    UI:SetSpeaker(chara)
+    UI:SetSpeakerEmotion("Normal")
+    UI:WaitShowDialogue("Sage.[pause=25] Nous serons la quand vous serez frais.")
+    UI:ResetSpeaker()
+    return
+  end
+
+  SOUND:FadeOutBGM(40)
+  GAME:FadeOut(false, 40)
+  GAME:EnterGroundMap('gloomy_forest_boss', 'Main_Entrance_Marker')
+end
+
+function gloomy_forest_midpoint_ch_6.Aria_Action(chara, activator)
+  GeneralFunctions.StartConversation(chara,
+    "On vous a regardes tout du long.[pause=20] Vous encaissez bien, pour des debutants.", "Happy")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function gloomy_forest_midpoint_ch_6.Sonata_Action(chara, activator)
+  GeneralFunctions.StartConversation(chara,
+    "Adagio ne demande jamais de combat.[pause=25] Jamais.[pause=20] Vous devriez etre flattes.", "Normal")
+  GeneralFunctions.EndConversation(chara)
+end
+
+
 -- Talking to the partner at the relay.
 function gloomy_forest_midpoint_ch_6.Partner_Action(chara, activator)
   if SV.Chapter6.GloomyMidpointState == 'DeathArrival' then

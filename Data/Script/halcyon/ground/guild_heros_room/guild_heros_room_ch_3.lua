@@ -1,4 +1,5 @@
 require 'origin.common'
+require 'halcyon.HeroVisions'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
@@ -26,6 +27,12 @@ function guild_heros_room_ch_3.FirstMorning()
 	TASK:JoinCoroutines({coro1, coro2})
 	
 	GAME:WaitFrames(120)
+
+	-- PREMIERE VISION. Le heros se reveille avec l'image d'un autre monde
+	-- deja dans les yeux. Personne d'autre ne l'a vue.
+	HeroVisions.TryTrigger('chasse', CH('Teammate1'))
+	GAME:WaitFrames(20)
+
 	guild_heros_room_helper.Morning(true)
 
 end

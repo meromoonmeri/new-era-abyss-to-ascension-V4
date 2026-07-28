@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local ile_close = {}
 
@@ -48,13 +49,10 @@ function ile_close.Enter(map)
   UI:SetCenter(false)
   GAME:WaitFrames(30)
 
-  -- 2. L'irruption (motif propre à ce gardien — fiche anti-répétition).
-  SOUND:StopBGM()
-  GAME:WaitFrames(30)
-  BossFX.Flash(232, 200, 2, 4, 40)
-  GROUND:Unhide('Necrozma')
-  BossFX.Impact(4, true)
-  GAME:WaitFrames(20)
+  -- 2. L'irruption — LUMIERE VOLEE : meme montee, mais le flash est long et froid.
+  --    Avant ce lot : un BossFX.Flash generique, identique a 10 autres
+  --    arenes. Toutes les particules employees sont attestees.
+  BossFX.RadiantDawn(necrozma, 232, 200)
 
   -- 3. Le recul du groupe.
   BossFX.PushBack({hero, partner}, Direction.Down)
@@ -66,7 +64,7 @@ function ile_close.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(necrozma, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('ile_close')
   UI:WaitShowTitle("Necrozma, la Lumière Empruntée", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

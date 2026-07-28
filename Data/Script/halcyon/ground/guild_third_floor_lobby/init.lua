@@ -429,11 +429,49 @@ function guild_third_floor_lobby.Bottom_Exit_Touch(obj, activator)
   SV.partner.Spawn = 'Default'
 end
 
+--LA PORTE DU MAITRE DE GUILDE.
+--Elle etait franchissable en permanence : masquee au ch1 seulement
+--(guild_third_floor_lobby_ch_1.lua:17), et plus jamais verrouillee
+--ensuite. Le joueur pouvait donc entrer chez Penticus des le ch2 et
+--n'y trouver personne a qui parler, PlotScripting ne traitant que les
+--chapitres 1, 2, 4 et 5.
+--
+--Elle est desormais close jusqu'a l'audience du retour d'expedition.
+--On ne bloque JAMAIS en silence : la porte dit pourquoi elle resiste,
+--et la replique change selon qu'on est avant ou apres la convocation.
 function guild_third_floor_lobby.Door_Exit_Touch(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-  GAME:FadeOut(false, 20)
-  GAME:EnterGroundMap("guild_guildmasters_room", 'Main_Entrance_Marker')
-  SV.partner.Spawn = 'Default'
+
+  local c6 = SV.Chapter6 or {}
+  local ch = (SV.ChapterProgression and SV.ChapterProgression.Chapter) or 1
+
+  --Ouverte une fois l'audience passee, et pour tout le reste du jeu.
+  --Les chapitres 1 a 5 gardent leur comportement d'origine : leurs
+  --propres scenes ouvrent cette porte quand le scenario l'exige.
+  if ch <= 5 or c6.GuildmasterRoomUnlocked then
+    GAME:FadeOut(false, 20)
+    GAME:EnterGroundMap("guild_guildmasters_room", 'Main_Entrance_Marker')
+    SV.partner.Spawn = 'Default'
+    return
+  end
+
+  --Convocation en attente : on laisse entrer, c'est la scene d'audience.
+  if ch == 6 and SV.Chapter5 ~= nil and SV.Chapter5.FinishedExpedition
+     and not c6.PlayedGuildmasterAudience then
+    GAME:FadeOut(false, 20)
+    GAME:EnterGroundMap("guild_guildmasters_room", 'Main_Entrance_Marker')
+    SV.partner.Spawn = 'Default'
+    return
+  end
+
+  --Sinon : porte close, et on explique.
+  pcall(function()
+    UI:ResetSpeaker(false)
+    UI:SetCenter(true)
+    UI:WaitShowDialogue("La porte est fermee.[pause=25] On n'entre pas chez le maitre de guilde sans y etre appele.")
+    UI:SetCenter(false)
+    UI:ResetSpeaker()
+  end)
 end
 
 function guild_third_floor_lobby.Stairs_Exit_Touch(obj, activator)

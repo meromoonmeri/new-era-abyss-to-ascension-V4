@@ -29,6 +29,17 @@ function new_era_zone_04.ExitSegment(zone, result, rescue, segmentID, mapID)
   SV.adventure.Thief = false
   if exited == true then return end
 
+  -- Reseau : premiere victoire = la voie s'ouvre, courte scene dans le ground d'origine.
+  if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+    if SV.Reseau == nil then SV.Reseau = {} end
+    if SV.Reseau.VoiesOuvertes == nil then SV.Reseau.VoiesOuvertes = {} end
+    if not SV.Reseau.VoiesOuvertes['new_era_zone_04'] then
+      SV.Reseau.VoiesOuvertes['new_era_zone_04'] = true
+      GAME:EnterGroundMap('gouffre_muet_bord', 'Main_Entrance_Marker')
+      return
+    end
+  end
+
   GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
 end
 

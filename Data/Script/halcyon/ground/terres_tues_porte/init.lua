@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local terres_tues_porte = {}
 
@@ -63,7 +64,7 @@ function terres_tues_porte.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(zygarde, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('terres_tues_porte')
   UI:WaitShowTitle("Zygarde, l'Assemblée des Cellules", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

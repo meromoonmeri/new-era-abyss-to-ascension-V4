@@ -1,4 +1,5 @@
 require 'origin.common'
+require 'halcyon.SuaireJobs'
 GeneralFunctions = {}
 
 --[[These are functions/procedures that are useful in a multitude of different maps or situations. Things such as
@@ -41,6 +42,12 @@ function GeneralFunctions.UpdateDailyFlags()
 	--Reset in-dungeon thief status so shopkeepers won't continue remember your crimes in the next dungeon run
 	SV.adventure.Thief = false
 
+	--PILLAGE DE LA NUIT (TownPlunder). Les etals vides ne le restent qu'un
+	--jour : le stock est justement regenere par cette fonction, juste
+	--au-dessus. On lève donc le drapeau ici, au meme endroit et au meme
+	--moment que le reste de la remise a zero quotidienne.
+	if TownPlunder ~= nil then TownPlunder.NewDay() end
+
 	--Generate jobs
 	MISSION_GEN.ResetBoards()
 	MISSION_GEN.RemoveMissionBackReference()
@@ -48,6 +55,14 @@ function GeneralFunctions.UpdateDailyFlags()
 	MISSION_GEN.GenerateBoard(COMMON.MISSION_BOARD_OUTLAW)
 	MISSION_GEN.SortMission()
 	MISSION_GEN.SortOutlaw()
+
+	--Arc 2 « Ce que la brume emporte » : le contrat d'histoire est epingle
+	--APRES le tri, pour rester en tete du tableau et ne pas etre noye dans
+	--les jobs aleatoires. Sans effet tant que l'arc n'est pas ouvert (ch6+).
+	if SuaireJobs ~= nil then
+		SuaireJobs.CleanCompleted()
+		SuaireJobs.PinToBoard()
+	end
 end
 
 --to be called at the end of the day. A generic function for generic days (i.e. no cutscene)

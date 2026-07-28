@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local sanctuaire_voeu = {}
 
@@ -62,7 +63,7 @@ function sanctuaire_voeu.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(jirachi, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('sanctuaire_voeu')
   UI:WaitShowTitle("Jirachi, les Vœux Tus", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

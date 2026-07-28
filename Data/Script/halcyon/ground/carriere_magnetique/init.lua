@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local carriere_magnetique = {}
 
@@ -48,12 +49,10 @@ function carriere_magnetique.Enter(map)
   UI:SetCenter(false)
   GAME:WaitFrames(30)
 
-  -- 2. L'irruption (motif propre à ce gardien — fiche anti-répétition).
-  BossFX.Impact(2, false)
-  GAME:WaitFrames(20)
-  BossFX.Flash(232, 184, 4, 6, 10)
-  GROUND:Unhide('Magearna')
-  GAME:WaitFrames(20)
+  -- 2. L'irruption — MACHINE : elle ne surgit pas, elle S'ALLUME. Cliquetis puis tension.
+  --    Avant ce lot : un BossFX.Flash generique, identique a 10 autres
+  --    arenes. Toutes les particules employees sont attestees.
+  BossFX.BootMachine(magearna, 232, 184)
 
   -- 3. Le recul du groupe.
   BossFX.PushBack({hero, partner}, Direction.Down)
@@ -65,7 +64,7 @@ function carriere_magnetique.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(magearna, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('carriere_magnetique')
   UI:WaitShowTitle("Magearna, le Cœur d'Engrenages", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

@@ -3,6 +3,7 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.LegendZones'
+require 'halcyon.LegendArc'
 
 local caldeira_endormie = {}
 
@@ -47,6 +48,9 @@ function caldeira_endormie.ExitSegment(zone, result, rescue, segmentID, mapID)
     -- Arene de l'Ancrage : victoire = gardien stabilise (revanche/recrutement via Grodoudou).
     if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
       LegendZones.SetDefeated('molten_throne')
+      --Adieu du gardien : le combat ne le tue pas, il le STABILISE.
+      --Sans cette scene la victoire etait un simple fondu (audit boss : 17/100).
+      LegendArc.Victory('molten_throne')
       if SV.Anchors == nil then SV.Anchors = { Stabilized = {} } end
       if SV.Anchors.Stabilized == nil then SV.Anchors.Stabilized = {} end
       SV.Anchors.Stabilized['molten_throne'] = true

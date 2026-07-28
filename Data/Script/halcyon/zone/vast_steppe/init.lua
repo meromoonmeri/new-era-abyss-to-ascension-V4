@@ -6,6 +6,8 @@
 -- Commonly included lua functions and data
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.ReplayEnding'
+require 'halcyon.TownNight'
 
 -- [NREPROBE] sonde locale (audit runtime).
 local function nre_snap(tag)
@@ -74,10 +76,10 @@ function vast_steppe.ExitSegment(zone, result, rescue, segmentID, mapID)
 		-- branche du mini-boss, laissant la sortie du segment 4 sans gestion.)
 		GAME:WaitFrames(10)
 		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
-	elseif segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 5 then
+	elseif segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('vast_steppe', 5) then
 		-- Segment 0 cleared: go to midpoint rest stop before mini-boss
 		PrintInfo("[NREPROBE][transition] vast_steppe.ExitSegment -> EnterGroundMap('vast_steppe_midpoint')") GAME:EnterGroundMap('vast_steppe_midpoint', 'Main_Entrance_Marker')
-	elseif segmentID == 1 and SV.ChapterProgression.Chapter == 5 then
+	elseif segmentID == 1 and ReplayEnding.FollowsRoute('vast_steppe', 5) then
 		-- Mini-boss arena: win or loss both go back to mini-boss ground map
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 			SV.Chapter5.SteppeMiniBossDefeated = true
@@ -85,7 +87,7 @@ function vast_steppe.ExitSegment(zone, result, rescue, segmentID, mapID)
 			SV.Chapter5.SteppeMiniBossLost = true
 		end
 		PrintInfo("[NREPROBE][transition] vast_steppe.ExitSegment -> EnterGroundMap('vast_steppe_miniboss')") GAME:EnterGroundMap('vast_steppe_miniboss', 'Main_Entrance_Marker')
-	elseif segmentID == 2 and SV.ChapterProgression.Chapter == 5 and result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+	elseif segmentID == 2 and ReplayEnding.FollowsRoute('vast_steppe', 5) and result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
 		-- vague 8 : checkpoint vast_steppe — la mort dans la 2e moitié ramène au relais,
 		-- où la scène de réveil (WipedCutscene) prend le relai narratif.
 		GAME:WaitFrames(20)
@@ -97,10 +99,10 @@ function vast_steppe.ExitSegment(zone, result, rescue, segmentID, mapID)
 		else
 			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 62, 0, true, true)
 		end
-	elseif segmentID == 2 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 5 then
+	elseif segmentID == 2 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('vast_steppe', 5) then
 		-- Segment 2 cleared: go to guardian ground map
 		PrintInfo("[NREPROBE][transition] vast_steppe.ExitSegment -> EnterGroundMap('vast_steppe_guardian')") GAME:EnterGroundMap('vast_steppe_guardian', 'Main_Entrance_Marker')
-	elseif segmentID == 3 and SV.ChapterProgression.Chapter == 5 then
+	elseif segmentID == 3 and ReplayEnding.FollowsRoute('vast_steppe', 5) then
 		-- Guardian arena: win or loss both go back to guardian ground map
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 			SV.Chapter5.SteppeGuardianDefeated = true
@@ -138,15 +140,10 @@ function vast_steppe.ExitSegment(zone, result, rescue, segmentID, mapID)
 			GAME:WaitFrames(20)
 		end
 			
-		SV.TemporaryFlags.Dinnertime = true 
-		SV.TemporaryFlags.Bedtime = true
-		SV.TemporaryFlags.MorningWakeup = true 
-		SV.TemporaryFlags.MorningAddress = true 
-		
-		--Go to dinner if a mission wasn't completed, otherwise, go to 2nd floor
-		local exit_ground = 6
-		if SV.TemporaryFlags.MissionCompleted then exit_ground = 22 end 
-		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, exit_ground, 0, true, true)
+		--CHOIX DE FIN DE JOURNEE (TownNight.EndDay). Avant le ch6 et pendant
+		--toute scene imposee, comportement d'origine strictement identique :
+		--memes drapeaux, sortie vers le refectoire (6) ou le 2e etage (22).
+		TownNight.EndDay(result, true)
 	end
 end
 	

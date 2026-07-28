@@ -3,6 +3,7 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.LegendZones'
+require 'halcyon.LegendArc'
 
 local forteresse_abandonnee = {}
 
@@ -41,6 +42,9 @@ function forteresse_abandonnee.ExitSegment(zone, result, rescue, segmentID, mapI
     -- Arene de l'Ancrage : victoire = gardien stabilise (revanche/recrutement via Grodoudou).
     if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
       LegendZones.SetDefeated('western_silence')
+      --Adieu du gardien : le combat ne le tue pas, il le STABILISE.
+      --Sans cette scene la victoire etait un simple fondu (audit boss : 17/100).
+      LegendArc.Victory('western_silence')
       if SV.Anchors == nil then SV.Anchors = { Stabilized = {} } end
       if SV.Anchors.Stabilized == nil then SV.Anchors.Stabilized = {} end
       SV.Anchors.Stabilized['western_silence'] = true

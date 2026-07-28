@@ -118,6 +118,20 @@ function post_office.South_Exit_Touch(obj, activator)
 end
 
 
+--PARLER AUX PREPOSES DIRECTEMENT. Les deux sont poses avec
+--triggerType = 1 et 4 cases libres sur 4 : le joueur peut les aborder,
+--mais aucun handler n'existait et ils restaient muets.
+--L'appariement vient des positions relevees sur post_office.rsground :
+--Connect_Owner (168,158) est derriere Main_Desk (160,176), et
+--Rescue_Owner (224,158) derriere Side_Desk (216,176).
+function post_office.Connect_Owner_Action(chara, activator)
+  post_office.Main_Desk_Action(chara, activator)
+end
+
+function post_office.Rescue_Owner_Action(chara, activator)
+  post_office.Side_Desk_Action(chara, activator)
+end
+
 function post_office.Main_Desk_Action(obj, activator)
 
 	local chara = CH('Connect_Owner')

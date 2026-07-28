@@ -5,6 +5,7 @@
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.HeroVisions'
 require 'halcyon.ground.guild_heros_room.guild_heros_room_helper'
 
 guild_heros_room_ch_7 = {}
@@ -149,7 +150,16 @@ function guild_heros_room_ch_7.DreamCutscene()
   SOUND:FadeOutBGM(80)
   GAME:FadeOut(false, 120)
 
+  -- Second fragment de la meme nuit : apres la Voix, une vision d'un monde
+  -- ou le temps s'est arrete. Le heros ne fait pas le lien. Pas encore.
+  HeroVisions.TryTrigger('rouage', partner)
+  GAME:WaitFrames(30)
+
   SV.Chapter7.HadFirstDream = true
+  --Delai avant l'ouverture du chapitre 8, comme aux paliers precedents.
+  --Sans cette ligne, DaysToReach garderait la valeur du palier ch6->ch7 (deja
+  --depassee) et le chapitre 8 s'ouvrirait des la nuit suivante.
+  SV.ChapterProgression.DaysToReach = SV.ChapterProgression.DaysPassed + 2
   SV.TemporaryFlags.MorningAddress = true
   SV.TemporaryFlags.MorningWakeup = true
   GeneralFunctions.EndOfDay()

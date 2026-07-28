@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local grotte_echos = {}
 
@@ -64,7 +65,7 @@ function grotte_echos.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(meloetta, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('grotte_echos')
   UI:WaitShowTitle("Meloetta, le Dernier Rappel", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

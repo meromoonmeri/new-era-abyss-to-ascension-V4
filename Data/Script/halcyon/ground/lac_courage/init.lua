@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local lac_courage = {}
 
@@ -48,11 +49,10 @@ function lac_courage.Enter(map)
   UI:SetCenter(false)
   GAME:WaitFrames(30)
 
-  -- 2. L'irruption (motif propre à ce gardien — fiche anti-répétition).
-  BossFX.Flash(224, 224, 4, 6, 10)
-  GROUND:Unhide('Crefadet')
-  BossFX.Impact(3, true)
-  GAME:WaitFrames(20)
+  -- 2. L'irruption — PSY : apparition douce et silencieuse, sans impact.
+  --    Avant ce lot : un BossFX.Flash generique, identique a 10 autres
+  --    arenes. Toutes les particules employees sont attestees.
+  BossFX.WarpSpace(crefadet, 224, 224)
 
   -- 3. Le recul du groupe.
   BossFX.PushBack({hero, partner}, Direction.Down)
@@ -64,7 +64,7 @@ function lac_courage.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(crefadet, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('lac_courage')
   UI:WaitShowTitle("Créfadet, la Dernière Résolution", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

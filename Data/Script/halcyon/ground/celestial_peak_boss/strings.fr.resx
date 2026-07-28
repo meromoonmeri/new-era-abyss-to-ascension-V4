@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="CPB_001" xml:space="preserve"><value>Tu as gravi le Pic Céleste...[pause=20] Peu de mortels y parviennent.</value></data>
+  <data name="CPB_002" xml:space="preserve"><value>Je suis Lugia, Gardien des Cieux.[pause=15] Ton courage m'honore, mais ta quête s'arrête ici.</value></data>
+  <data name="CPB_003" xml:space="preserve"><value>Que le vent porte ton esprit vers l'éternité !</value></data>
+  <data name="CPB_R01" xml:space="preserve"><value>L'autel est nu.[pause=20] Le vent le traverse sans rien rencontrer.</value></data>
+  <data name="CPB_R02" xml:space="preserve"><value>(Il occupait tout le ciel.[pause=15] Maintenant le ciel est juste... du ciel.)</value></data>
+  <data name="CPB_R03" xml:space="preserve"><value>Il est reparti vers la mer, je crois.[pause=20] Les gardiens ne restent pas là où on les a compris.</value></data>
+  <data name="CPB_R04" xml:space="preserve"><value>Il n'y a plus rien à trouver ici.[pause=0] Il est temps de rentrer.</value></data>
+</root>

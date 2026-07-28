@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local fosse_argentee = {}
 
@@ -19,6 +20,74 @@ end
 
 function fosse_argentee.Enter(map)
   DEBUG.EnableDbgCoro()
+  -- === RESEAU DES ANCIENS CHEMINS (new_era_zone_20) ===
+  -- Ce ground sert AUSSI de cinematique d'Ancrage (chemin d'origine, plus bas,
+  -- inchange). Quand on y arrive depuis la zone Reseau, c'est le Veilleur
+  -- qu'on rencontre, pas le gardien d'Ancrage.
+  if tostring(_ZONE.CurrentZoneID) == 'new_era_zone_20' then
+    local hero = CH('PLAYER')
+    local partner = CH('Teammate1')
+    GAME:CutsceneMode(true)
+    GROUND:TeleportTo(hero, 272, 336, Direction.Up)
+    if partner ~= nil then GROUND:TeleportTo(partner, 248, 336, Direction.Up) end
+    local lanterne = CharacterEssentials.MakeCharactersFromList({{'LanterneNoyee', 248, 296, Direction.Down}})
+    GROUND:Hide('LanterneNoyee')
+    local ancre = CharacterEssentials.MakeCharactersFromList({{'AncreMorte', 296, 296, Direction.Down}})
+    GROUND:Hide('AncreMorte')
+    GAME:MoveCamera(272, 316, 1, false)
+    GAME:FadeIn(40)
+    GAME:WaitFrames(30)
+
+    if SV.Reseau ~= nil and SV.Reseau.Veilleurs ~= nil and SV.Reseau.Veilleurs['new_era_zone_20'] then
+      GROUND:Unhide('LanterneNoyee')
+      GROUND:Unhide('AncreMorte')
+      UI:SetSpeaker(lanterne)
+      UI:WaitShowDialogue("Encore une descente ?[pause=20] La fosse t'attendait.")
+      COMMON.BossTransition()
+      GAME:CutsceneMode(false)
+      GAME:ContinueDungeon("new_era_zone_20", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+      return
+    end
+
+    UI:ResetSpeaker(false)
+    UI:SetCenter(true)
+    UI:WaitShowDialogue("DEUX LUEURS DANS L'EAU NOIRE.[pause=20] ELLES DESCENDENT AVEC VOUS.")
+    UI:SetCenter(false)
+    GAME:WaitFrames(30)
+
+    BossFX.EmergeWater(lanterne, 248, 296)
+    GAME:WaitFrames(12)
+    BossFX.EmergeShadow(ancre, 296, 296)
+    GAME:WaitFrames(20)
+    BossFX.PushBack({hero, partner}, Direction.Down)
+    GAME:WaitFrames(10)
+      GROUND:Unhide('LanterneNoyee')
+      GROUND:Unhide('AncreMorte')
+    GAME:WaitFrames(18)
+
+    BossMusic.Play('fosse_argentee')
+    UI:WaitShowTitle("Lanterne-Noyée et Ancre-Morte, Veilleurs de la Fosse", 20)
+    GAME:WaitFrames(50)
+    UI:WaitHideTitle(20)
+
+    UI:SetSpeaker(lanterne)
+    UI:WaitShowDialogue("Nous éclairons le fond pour ceux qui descendent...")
+    UI:SetSpeaker(ancre)
+    UI:WaitShowDialogue("...et nous retenons ceux qui descendent trop vite.")
+
+    if partner ~= nil then
+      UI:SetSpeaker(partner)
+      UI:SetSpeakerEmotion("Worried")
+      UI:WaitShowDialogue("Une lanterne et une ancre...[pause=20] L'une appelle, l'autre retient.")
+    end
+    GeneralFunctions.HeroDialogue(hero, "On descendra à notre rythme.", "Determined")
+
+    COMMON.BossTransition()
+    GAME:CutsceneMode(false)
+    GAME:ContinueDungeon("new_era_zone_20", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    return
+  end
+
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   GAME:CutsceneMode(true)
@@ -62,7 +131,7 @@ function fosse_argentee.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(lugia, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('fosse_argentee')
   UI:WaitShowTitle("Lugia, le Chœur Englouti", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

@@ -16,12 +16,18 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
-  GROUND:TeleportTo(hero, 240, 440, Direction.Up)
-  GROUND:TeleportTo(partner, 208, 440, Direction.Up)
-  GAME:MoveCamera(224, 240, 1, false)
+  -- LOT 1 — l'equipe atterrit a ~64px sous les boss (y=272) apres sa marche de
+  -- 72px : on la fait donc apparaitre 72px plus bas (y=344).
+  GROUND:TeleportTo(hero, 240, 344, Direction.Up)
+  GROUND:TeleportTo(partner, 208, 344, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 176, 360, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 272, 360, Direction.Up) end
+  GAME:MoveCamera(224, 340, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -42,11 +48,19 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
     GAME:WaitFrames(6)
     GROUND:MoveInDirection(hero, Direction.Up, 72, false, 1)
   end)
-  local coro3 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(20)
-    GAME:MoveCamera(224, 180, 60, false)
+  local coro2b = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(10)
+    if t2 ~= nil then GROUND:MoveInDirection(t2, Direction.Up, 72, false, 1) end
   end)
-  TASK:JoinCoroutines({coro1, coro2, coro3})
+  local coro2c = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(12)
+    if t3 ~= nil then GROUND:MoveInDirection(t3, Direction.Up, 72, false, 1) end
+  end)
+  local coro3 = TASK:BranchCoroutine(function()
+    -- La camera se cale ENTRE l'equipe (y=272) et les sentinelles (y=192-240).
+    GAME:MoveCamera(224, 232, 90, false)
+  end)
+  TASK:JoinCoroutines({coro1, coro2, coro2b, coro2c, coro3})
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
@@ -106,25 +120,60 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   -- === LA VOIX DE L'ABYSSE PARLE EN PREMIER ===
   -- Ordre impose : Voix -> Flash -> Emergence thematique. Avant, les deux
   -- boss apparaissaient puis la Voix commentait apres coup.
+  -- LOT 8.3 — l'altitude, la tactique des sentinelles, la question sans reponse.
+  GAME:MoveCamera(224, 250, 40, false)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_029']))
+  -- "L'air est rare ici."
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWM_030']), "Normal")
+  -- "Un sur la roche, un dans le ciel. Ils ont deja fait ca."
+  GAME:WaitFrames(20)
+
   BossFX.Voice('MWM_006')
   -- "Les Sentinelles du Pic..."
   GAME:WaitFrames(20)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_031']))
+  -- "Beaucoup ont grimpe. Peu ont ete autorises a finir."
+  GAME:WaitFrames(15)
+  GAME:MoveCamera(224, 244, 40, false)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_032']))
+  -- "Autorises par qui, exactement ?"
+  GAME:WaitFrames(20)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWM_033']), "Worried")
+  -- "...Elle ne repond jamais a celle-la."
+  GAME:WaitFrames(15)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Determined")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_034']))
+  -- "Alors on grimpera sans permission."
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWM_035']), "Determined")
+  -- "Surveille celui du ciel, pas celui du sol."
+  GAME:WaitFrames(20)
+  -- LOT 4 — la Voix pose l'enjeu : meriter le sommet.
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_027']))
+  -- "Le ciel a ses gardiens. Prouvez que vous méritez le sommet."
+  GAME:WaitFrames(20)
 
-  -- === FLASH BLANC ===
-  BossFX.Flash(224, 220)
+  -- === PANORAMIQUE : cadre commun equipe (y=272) + sentinelles (y=192-240) ===
+  GAME:MoveCamera(224, 232, 60, false)
   GAME:WaitFrames(10)
 
-  -- === GLIGAR JAILLIT DE LA CREVASSE (signature SOL) ===
-  -- Le sol se fissure, gerbes de terre, emergence facon Fouille.
+  -- === GLIGAR APPARAIT SOUS UN FLASH BLANC (LOT 2) ===
   local gligar = CharacterEssentials.MakeCharactersFromList({
     {'Gligar', 180, 240, Direction.DownRight}
   })
   GROUND:Hide('Gligar')
-  BossFX.EmergeGround(gligar, 180, 240)
   SOUND:PlayBattleSE('_UNK_EVT_102')
-  GROUND:CharSetAnim(gligar, "Idle", true)
-  -- le souffle repousse toute l'equipe, pas seulement le partenaire
+  BossFX.Flash(180, 240, 3, 5, 20)
+  GAME:WaitFrames(8)
+  GROUND:Unhide('Gligar')
   BossFX.Impact(9)
+  GROUND:CharSetAnim(gligar, "Idle", true)
 
   GAME:WaitFrames(20)
   coro1 = TASK:BranchCoroutine(function()
@@ -151,11 +200,12 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   })
   GROUND:Hide('Skarmory')
 
-  -- === SKARMORY FOND DU CIEL (signature VOL / ACIER) ===
-  -- Descente verticale reelle depuis hors-ecran, plumes, impact au sol,
-  -- puis recul de toute l'equipe.
-  BossFX.DescendSky(skarmory, 268, 192, 150)
-  BossFX.Particle("Steel_Wing", 268, 196, 3)
+  -- === SKARMORY APPARAIT SOUS UN FLASH BLANC (LOT 2) ===
+  GAME:WaitFrames(10)
+  BossFX.Flash(268, 192, 3, 5, 20)
+  GAME:WaitFrames(8)
+  GROUND:Unhide('Skarmory')
+  BossFX.Impact(9)
   GROUND:CharSetAnim(skarmory, "Idle", true)
 
   SOUND:PlayBGM('Rising Fear.ogg', true)
@@ -197,6 +247,42 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   -- "Encore toi ! Qui es-tu ?!"
 
   GAME:WaitFrames(30)
+
+  -- ================= LES SENTINELLES TIENNENT UN REGISTRE =================
+  -- Elles etaient muettes avant ce lot. Registre choisi : ADMINISTRATIF.
+  -- Elles ne menacent pas, elles COMPTENT — et c'est ce qui glace. Skarmory
+  -- tient le registre, Gligar est celle qui a arrete de compter. Leur
+  -- barrage n'est pas un caprice : le peage sert a filtrer ceux qui
+  -- survivront au sommet. Cette logique prepare le gardien juste apres.
+  GAME:MoveCamera(224, 214, 40, false)
+  UI:SetSpeaker(skarmory)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_038']))
+  -- "Deux grimpeurs. Non enregistres. Faites demi-tour."
+  GAME:WaitFrames(15)
+  UI:SetSpeaker(gligar)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_039']))
+  -- "Ils ne le feront pas, tu sais. Ils ne le font jamais."
+  GAME:WaitFrames(15)
+  UI:SetSpeaker(skarmory)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_040']))
+  -- "Quarante et un ont passe cette corniche depuis que le vent a change."
+  GAME:WaitFrames(18)
+  -- Le chiffre qui fait mal : camera serree sur Gligar.
+  GAME:MoveCamera(224, 236, 40, false)
+  UI:SetSpeaker(gligar)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_041']))
+  -- "Neuf sont redescendus. J'ai arrete de compter apres ca."
+  GAME:WaitFrames(22)
+  UI:SetSpeaker(skarmory)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_042']))
+  -- "Nous ne sommes pas la pour vous arreter. Nous sommes la pour que ca COUTE."
+  GAME:WaitFrames(18)
+  GAME:MoveCamera(224, 232, 40, false)
+  UI:SetSpeaker(gligar)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_043']))
+  -- "Ceux qui paient le prix ici survivent a ce qu'il y a plus haut."
+  GAME:WaitFrames(22)
+
   UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_008']))
   -- "L'un maîtrise la terre, l'autre les cieux. Ensemble, ils sont presque invincibles."
@@ -241,14 +327,18 @@ function mount_windswept_miniboss_ch_5.SecondPreBossScene()
     {'Skarmory', 268, 192, Direction.Down}
   })
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
   GROUND:CharSetAnim(gligar, "Idle", true)
   GROUND:CharSetAnim(skarmory, "Idle", true)
 
-  GROUND:TeleportTo(hero, 240, 380, Direction.Up)
-  GROUND:TeleportTo(partner, 208, 380, Direction.Up)
-  GAME:MoveCamera(224, 240, 1, false)
+  GROUND:TeleportTo(hero, 240, 272, Direction.Up)
+  GROUND:TeleportTo(partner, 208, 272, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 176, 288, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 272, 288, Direction.Up) end
+  GAME:MoveCamera(224, 232, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -272,9 +362,9 @@ function mount_windswept_miniboss_ch_5.SecondPreBossScene()
   PrintInfo("[NREPROBE][transition] mount_windswept_miniboss_ch_5.lua ContinueDungeon('mount_windswept', 1)") GAME:ContinueDungeon("mount_windswept", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function mount_windswept_miniboss_ch_5.DefeatedBoss()
-  PrintInfo("[BossSeq][mount_windswept_miniboss_ch_5] DefeatedBoss cutscene start")
-  SV.Chapter5.MountMiniBossCleared = true
+-- Corps de la cinematique, appele sous pcall par DefeatedBoss() : toute erreur
+-- Lua ici ne doit JAMAIS laisser le joueur sur un ecran noir definitif.
+local function DefeatedBossBody()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local gligar = CharacterEssentials.MakeCharactersFromList({
@@ -284,19 +374,21 @@ function mount_windswept_miniboss_ch_5.DefeatedBoss()
     {'Skarmory', 268, 192, Direction.Down}
   })
 
-  GROUND:CharSetAction(gligar, RogueEssence.Ground.PoseGroundAction(
-    gligar.Position, gligar.Direction,
-    RogueEssence.Content.GraphicsManager.GetAnimIndex("Faint")))
-  GROUND:CharSetAction(skarmory, RogueEssence.Ground.PoseGroundAction(
-    skarmory.Position, skarmory.Direction,
-    RogueEssence.Content.GraphicsManager.GetAnimIndex("Faint")))
+  -- LOT 2.3 — pas de PoseGroundAction/"Faint" : les sentinelles restent
+  -- visibles pendant les dialogues, puis disparaissent au flash blanc.
+  GROUND:CharSetAnim(gligar, "Idle", true)
+  GROUND:CharSetAnim(skarmory, "Idle", true)
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
-  GROUND:TeleportTo(hero, 240, 340, Direction.Up)
-  GROUND:TeleportTo(partner, 208, 340, Direction.Up)
-  GAME:MoveCamera(224, 240, 1, false)
+  GROUND:TeleportTo(hero, 240, 272, Direction.Up)
+  GROUND:TeleportTo(partner, 208, 272, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 176, 288, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 272, 288, Direction.Up) end
+  GAME:MoveCamera(224, 232, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -320,6 +412,47 @@ function mount_windswept_miniboss_ch_5.DefeatedBoss()
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWM_014']), "Worried")
   -- "Peut-être. Ou peut-être qu'elle veut juste nous voir réussir."
 
+  -- LOT 8.3 — le retrait des sentinelles, choisi et non subi.
+  GAME:WaitFrames(15)
+  GAME:MoveCamera(224, 214, 40, false)
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_036']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(15)
+  -- ================= ELLES ENREGISTRENT LE DUO =================
+  -- Paiement de la scene d'avant-combat : le peage a ete acquitte, donc
+  -- elles inscrivent. La chute (« ecris cette partie deux fois ») dit le
+  -- theme du chapitre 5 sans le commenter — ce qui compte, c'est ENSEMBLE.
+  GAME:MoveCamera(224, 214, 40, false)
+  UI:SetSpeaker(gligar)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_044']))
+  -- "Paye. Integralement."
+  GAME:WaitFrames(15)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_045']))
+  -- "Enregistre-les, alors."
+  GAME:WaitFrames(15)
+  UI:SetSpeaker(skarmory)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_046']))
+  -- "Deux grimpeurs. Noms inconnus. Montes ensemble."
+  GAME:WaitFrames(18)
+  UI:SetSpeaker(gligar)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_047']))
+  -- "Ecris cette derniere partie deux fois. C'est celle qui compte."
+  GAME:WaitFrames(25)
+
+  GAME:MoveCamera(224, 246, 40, false)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWM_037']), "Normal")
+  -- "Ils auraient pu continuer. Ils ont choisi que non."
+  GAME:WaitFrames(20)
+
+  -- LOT 4 — on nomme l'enjeu du sommet, juste avant le gardien final.
+  GAME:WaitFrames(20)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Determined")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_028']))
+  -- "Le sommet est proche. Ce qu'on a senti depuis le départ... c'est là-haut."
+
   GAME:WaitFrames(20)
 
   local fadeEmitter = RogueEssence.Content.FlashEmitter()
@@ -334,11 +467,25 @@ function mount_windswept_miniboss_ch_5.DefeatedBoss()
   GAME:WaitFrames(16)
   GROUND:Hide('Gligar')
   GROUND:Hide('Skarmory')
-  GAME:WaitFrames(40)
+  GAME:WaitFrames(30)
 
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
+end
+
+function mount_windswept_miniboss_ch_5.DefeatedBoss()
+  PrintInfo("[BossSeq][mount_windswept_miniboss_ch_5] DefeatedBoss cutscene start")
+  SV.Chapter5.MountMiniBossCleared = true
+
+  local ok, err = pcall(DefeatedBossBody)
+  if not ok then
+    PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
+    pcall(function() GAME:FadeOut(false, 20) end)
+  end
+
+  -- Sortie garantie, quoi qu'il arrive.
   GAME:CutsceneMode(false)
+  PrintInfo("[BossSeq][mount_windswept_miniboss_ch_5] DefeatedBoss -> mount_windswept_midpoint")
   GAME:EnterGroundMap("mount_windswept_midpoint", "Main_Entrance_Marker")
 end
 
@@ -354,7 +501,7 @@ function mount_windswept_miniboss_ch_5.DiedToBoss()
   local partner = CH('Teammate1')
 
   GAME:CutsceneMode(true)
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
   local gligar = CharacterEssentials.MakeCharactersFromList({
@@ -367,11 +514,15 @@ function mount_windswept_miniboss_ch_5.DiedToBoss()
   GROUND:CharSetAnim(skarmory, "Idle", true)
 
   -- L'équipe est au sol, vaincue.
-  GROUND:TeleportTo(hero, 240, 320, Direction.Up)
-  GROUND:TeleportTo(partner, 208, 320, Direction.Up)
+  GROUND:TeleportTo(hero, 240, 272, Direction.Up)
+  GROUND:TeleportTo(partner, 208, 272, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 176, 288, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 272, 288, Direction.Up) end
   GROUND:CharSetAnim(hero, "EventSleep", true)
   GROUND:CharSetAnim(partner, "EventSleep", true)
-  GAME:MoveCamera(224, 250, 1, false)
+  GAME:MoveCamera(224, 232, 1, false)
 
   GAME:FadeIn(60)
   GAME:WaitFrames(40)
@@ -399,7 +550,7 @@ function mount_windswept_miniboss_ch_5.DiedToBoss()
   GAME:WaitFrames(30)
 
   -- La caméra redescend sur le duo ; le partenaire se redresse à peine.
-  GAME:MoveCamera(224, 260, 40, false)
+  GAME:MoveCamera(224, 250, 40, false)
   GROUND:CharEndAnim(partner)
   GeneralFunctions.DoAnimation(partner, 'Wake')
   GAME:WaitFrames(12)

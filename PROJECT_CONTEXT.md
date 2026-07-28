@@ -309,3 +309,126 @@ Les modifications précédentes restent non commitées :
 - `Data/Script/halcyon/ground/metano_town/init.lua`
 - `verify_new_era.sh`
 - `PROJECT_CONTEXT.md` non suivi
+
+---
+
+## Session 2026-07-27 (agent Arena.ai) — Addendum boss Ch5 : LOT -1, 6, 7, 8
+
+Branche : `arena/019fa547-new-era-abyss-to-ascension-v4`. PR #3.
+
+### LOT -1 — Intégrité (vérifié AVANT toute écriture)
+
+- `git status` propre, `git ls-files` vs disque : **aucune différence** sur `Data/Map/*.rsmap`.
+- Les 6 `.rsmap` de boss présents et non vides (84 Ko à 229 Ko).
+- Aucun fichier de taille nulle dans `Data/Ground` / `Data/Map`.
+- **Correction d'une inexactitude de doc** : le guide maître annonce 370 `.rsmap` et 244 `.rsground`. Le dépôt contient **186 `.rsmap`** et 244 `.rsground`, et `git ls-files` en compte exactement 186 — ce n'est donc pas une perte de données mais un compteur faux dans la doc. `verify_new_era.sh` attend lui 68 `.rsground` (chiffre d'une ancienne arborescence). Ces compteurs sont à réconcilier un jour.
+
+### LOT 1 — Positions réelles des boss (vérifiées, pas estimées)
+
+Lues dans `MakeCharactersFromList` : Mudbray (184,232) + Stantler (152,200) ; Stantler Alpha (184,200) ; Torkoal (220,232) + Magmar (292,208) ; Magcargo (256,192) ; Gligar (180,240) + Skarmory (268,192) ; Aerodactyl (224,192).
+Toutes conformes aux estimations du prompt (±8 px) **sauf** le second membre de chaque duo, plus haut/latéral que l'estimation. Positions duo/coéquipiers recalculées sur la position réelle du boss le plus bas de chaque arène.
+
+### LOT 6.2 — Écran de résultats : bug trouvé et corrigé
+
+`GeneralFunctions.EndDungeonRun(result, zone, structure, mapid, entryid, display, fanfare)` : c'est **`display`** qui déclenche le journal de fin de donjon.
+
+- `vast_steppe_guardian` (Steppe → premier camp) passait `display=false, fanfare=false` → **aucun écran de résultats** avant la cinématique du camp. Corrigé en `true, true`.
+- Deux autres sorties de victoire ont le même défaut mais sont **hors périmètre autorisé** : `zone/vast_steppe/init.lua:133` (ground 47) et `zone/searing_tunnel/init.lua:216` (ground 49, Crucible). Le correctif a été préparé puis **annulé** (`git checkout`) pour respecter la liste blanche. **À corriger dans une prochaine tâche autorisant `Data/Script/halcyon/zone/`.**
+- Les mini-boss n'utilisent pas `EndDungeonRun` (ils restent dans la session : `EnterGroundMap` intra-zone ou `ContinueDungeon`) : pas d'écran de résultats attendu à ce stade, c'est cohérent.
+- `mount_windswept_guardian` (fin de chapitre) était déjà correct (`true, true`).
+
+### LOT 8 — Modèle Crooked Cavern + portraits
+
+- Référence étudiée : `ground/crooked_den/crooked_den_ch_3.lua` (108 clés FR). Caméra assez **statique** (3 `MoveCamera` sur toute la scène) mais **densité et variété d'emotes très supérieures** : Angry, Crying, Joyous, Special1/2, Stunned… Écart signalé : les scènes Ch5 visent une caméra plus mobile que ce modèle ; c'est assumé et conforme à l'addendum.
+- **Portraits : contrainte majeure.** `Content/Portrait/` ne contient que **34 portraits**, indexés par n° national. **Aucune espèce de boss du Ch5 n'a de portrait** : Mudbray #749, Stantler #234, Torkoal #324, Magmar #126, Gligar #207, Skarmory #227, Aerodactyl #142, Magcargo #219 — tous absents. Growlithe #58 (Hyko) et Audino #531 (Rin) également absents. Présents : starters, Zigzagoon #263 (Almotz), Tropius #357 (Penticus).
+  → Conséquence : les boss **ne peuvent pas** avoir de portrait dans une boîte de dialogue. Le texte narratif les concernant est donc écrit en boîte centrée (`UI:SetCenter(true)`), comme le fait déjà le code existant. Les emotes employées sont toutes issues du jeu de Crooked Cavern (Normal, Worried, Determined, Surprised, Sad, Pain, Inspired), donc sûres.
+
+### Durée / densité (LOT 6.1 et 8.3) — mesuré, non atteint, signalé
+
+Estimation (12 car/s + 1,2 s par boîte, hors combats et exploration) :
+
+| Scène | Avant | Après |
+|---|---|---|
+| Steppe mini-boss | 2,0 min | **3,2 min** |
+| Steppe gardien | 1,8 min | **2,7 min** |
+| Tunnel mini-boss | 1,9 min | **2,5 min** |
+| Crucible (créateur) | 9,5 min | 9,5 min |
+| Mont mini-boss | 2,0 min | **2,8 min** |
+| Mont gardien | 1,8 min | **2,6 min** |
+| **Total cinématiques boss** | 19,0 min | **23,3 min** |
+
++48 clés EN/FR ajoutées. L'objectif de 10 min par scène **n'est pas atteint** (sauf Crucible) et n'a pas été forcé : conformément à la consigne, on signale plutôt que de remplir. Le Crucible montre qu'atteindre 10 min demande ~86 boîtes et plusieurs PNJ nommés présents dans la scène — les arènes de boss n'ont que héros + partenaire + une Voix sans portrait.
+
+**Estimation durée totale Ch5 : ~2 h 30 à 3 h 30** (36 étages procéduraux + 6 arènes + cinématiques + camp), donc **en dessous des 5 h visées**. Le levier réaliste n'est pas le dialogue de boss mais les relais (`vast_steppe_midpoint` n'a que **4 clés**) et les lots A-F de `docs/production_ch5_dialogues.md`.
+
+---
+
+## Session 2026-07-31 (agent Arena.ai) — arc 2, add-ons, Grodoudou, Team Dazzling
+
+Branche `arena/019fa547`. **PR #3 toujours OUVERTE** — rien n'est mergé, rien n'est testé en jeu.
+
+### Livré dans cette session
+
+| Vague | Contenu |
+|---|---|
+| Boss ch5 | cadrage caméra, flash blanc, stats 25-32, dialogues, tag |
+| Réseau des Anciens Chemins | Veilleurs (12 arènes) + ouverture des voies + 12 derniers donjons pmd-red (zones 44-55) |
+| Réseau du Ciel | 67 zones EoS (`new_era_sky_00..66`), 25 Stations-Relais |
+| Tunnel Ardent | fix brume + **arène mini-boss qui n'existait pas** + clan de lave développé |
+| Arc 2 | `SuaireArc.lua` (5 actes) + `SuaireJobs.lua` (5 contrats de job board) |
+| Grodoudou | déplacée au comptoir libre + cinématique d'arrivée |
+| Team Dazzling | audit + **16 clés de dialogue non traduites** corrigées |
+
+### Bugs réels trouvés et corrigés (pas des ajouts, des réparations)
+
+1. **`searing_tunnel_miniboss.rsmap` était orpheline** : aucun segment ne la chargeait.
+   Le combat Torkoal/Magmar n'avait donc jamais lieu, et `DefeatedBoss`/`DiedToBoss`
+   étaient du code mort. Segment d'arène créé, renumérotation complète de la zone.
+2. **Brume du Tunnel** : `AddMapStatus("steam")` absent, remplacé par un overlay
+   ponctuel sur une carte de 416×544 → salle couverte en partie seulement.
+3. **`colossus_quarry`** : `cloven_ruins` n'appelait jamais `SetDefeated`. La zone-amie
+   Regigigas à 22 000 P n'était jamais marquée comme conquise. `verify_legend` passe
+   maintenant à **0 échec** (contre 2 au baseline).
+4. **16 clés Team Dazzling** (MT6_101..116) écrites en français dans le fichier
+   **anglais** et absentes du fichier FR → le joueur FR voyait du texte non traduit sur
+   toute la scène de défaite et de victoire du ch6.
+5. **`TunnelMiniBossDefeated/Lost`** non déclarés dans `scriptvars`, contrairement à
+   leurs 6 homologues.
+
+### ⚠️ Risque à tester en priorité
+
+**La renumérotation des segments de `searing_tunnel`** : avant `2=Crucible, 3=annexe`,
+après `2=arène, 3=Crucible, 4=annexe`. Le moteur stocke segment+étage dans le `ZoneLoc`
+de la sauvegarde. Une partie sauvegardée **à l'intérieur** du Tunnel peut pointer sur un
+segment qui a changé de sens. Un `ZoneLoc` n'est pas modifiable depuis Lua : le décalage
+est documenté dans `debug_tools` avec un garde `OnUpgrade`. **Sortir du donjon avant de
+charger cette version.**
+
+### État chiffré du dépôt
+
+- **202 donjons** (12 histoire + 68 Ancrages/secondaires + 46 pmd-red + 67 EoS + 9 mazes)
+- **73 ont une arène de boss** ; les 67 zones EoS et 34 des 46 pmd-red n'en ont pas
+  (choix assumé des vagues : les cinématiques viendront après)
+- Validation intégrale : Lua **634/634**, zones **208/208**, resx **555/555**,
+  rsground **269/269**, index **209 entrées, 0 zone manquante**
+
+### Corrections d'idées fausses de mes rapports précédents
+
+- **Les portraits ne manquent pas.** Les 34 fichiers de `Content/Portrait/` sont des
+  surcharges du mod ; le moteur PMDO fournit nativement les autres. Mes réserves sur
+  Torkoal/Magmar/Suaire/Veilleurs étaient infondées.
+- **`Data/Monster/` ne contient que des surcharges** (12 espèces). La liste réelle est
+  dans `Data/Misc/MonsterFeature.json` (975 espèces) — c'est la source à interroger.
+- **Les autotiles de donjon viennent du jeu de base**, pas du dépôt. Vérifier leur
+  existence dans `Data/AutoTile/` (8 fichiers seulement) donne un faux négatif ; le bon
+  critère est « déjà référencé par une zone existante ».
+
+### Ce qui reste (par valeur décroissante)
+
+1. **Tester en jeu.** 10 vagues de contenu non testé, c'est le vrai risque du projet.
+2. Cinématiques de boss pour les 67 zones EoS et les 34 pmd-red sans arène.
+3. Densité des relais ch5 : `vast_steppe_midpoint` et `mount_windswept_midpoint` n'ont
+   que **4 clés** chacun, contre 42 pour `searing_tunnel_midpoint`.
+4. Chapitres 11-32 : donjons et 42 cinématiques d'Ancrage prêts, **scénario non écrit**.
+5. `normal_maze` déclare 38 GroundMaps (toute la ville, la guilde…) — résidu de test à
+   nettoyer, sans danger immédiat mais brouille les audits.

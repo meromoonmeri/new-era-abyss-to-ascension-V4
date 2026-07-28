@@ -373,6 +373,170 @@ function DebugTools:OnUpgrade()
 	if not GAME:DungeonUnlocked("new_era_zone_41") then GAME:UnlockDungeon("new_era_zone_41") end
 	if not GAME:DungeonUnlocked("new_era_zone_42") then GAME:UnlockDungeon("new_era_zone_42") end
 	if not GAME:DungeonUnlocked("new_era_zone_43") then GAME:UnlockDungeon("new_era_zone_43") end
+	if not GAME:DungeonUnlocked("new_era_zone_44") then GAME:UnlockDungeon("new_era_zone_44") end
+	if not GAME:DungeonUnlocked("new_era_zone_45") then GAME:UnlockDungeon("new_era_zone_45") end
+	if not GAME:DungeonUnlocked("new_era_zone_46") then GAME:UnlockDungeon("new_era_zone_46") end
+	if not GAME:DungeonUnlocked("new_era_zone_47") then GAME:UnlockDungeon("new_era_zone_47") end
+	if not GAME:DungeonUnlocked("new_era_zone_48") then GAME:UnlockDungeon("new_era_zone_48") end
+ end
+ --Rattrapage des sauvegardes bloquees en fin de chapitre 6.
+ --La progression s'arretait la : aucun declencheur ne portait Chapter de 6 a 7,
+ --et cloven_ruins n'etait UnlockDungeon nulle part. Une partie ayant deja vu la
+ --scene de retour du chapitre 6 resterait donc coincee meme apres cette mise a
+ --jour, car DaysToReach n'avait jamais ete arme pour le palier suivant.
+ --On l'arme ici (le declencheur de guild_heros_room fera le reste a la
+ --prochaine nuit). Idempotent : ne s'applique qu'une fois, tant qu'on est au
+ --chapitre 6 avec la mission bouclee.
+ if SV.ChapterProgression.Chapter == 6 and SV.Chapter6 ~= nil
+    and SV.Chapter6.PostMissionScenePlayed == true
+    and (SV.ChapterProgression.DaysToReach == nil or SV.ChapterProgression.DaysToReach < 0) then
+	SV.ChapterProgression.DaysToReach = SV.ChapterProgression.DaysPassed
+ end
+
+ --Rejouabilite des donjons d'histoire : un donjon dont la conclusion a ete vue
+ --reste joignable depuis le comptoir de Metano, comme dans les PMD officiels.
+ --Les 7 donjons ch5-ch10 n'etaient jamais passes a UnlockDungeon : ils
+ --disparaissaient de la liste des destinations une fois le chapitre fini.
+ --Rattrapage retroactif ici pour les sauvegardes en cours ; le comptoir
+ --(metano_town.East_Exit_Touch) refait le meme balayage a chaque ouverture.
+ require 'halcyon.ReplayEnding'
+ ReplayEnding.SyncUnlocks()
+
+ --Scenes d'apres-boss des chapitres 8, 9 et 10 (ChapterAftermath.lua).
+ --Marquees comme vues si le boss est deja vaincu : une partie qui a passe ces
+ --combats avant cette mise a jour ne rejouera pas la scene hors contexte.
+ if SV.Chapter8 ~= nil and SV.Chapter8.PlayedVictoryScene == nil then
+	SV.Chapter8.PlayedVictoryScene = (SV.Chapter8.DefeatedDiancie == true)
+ end
+ if SV.Chapter9 ~= nil and SV.Chapter9.PlayedVictoryScene == nil then
+	SV.Chapter9.PlayedVictoryScene = (SV.Chapter9.DefeatedMegaBlastoise == true)
+ end
+ if SV.Chapter10 ~= nil and SV.Chapter10.PlayedVictoryScene == nil then
+	SV.Chapter10.PlayedVictoryScene = (SV.Chapter10.DefeatedLugia == true)
+ end
+
+ --Scenes d'arrivee des chapitres 8, 9 et 10 (ChapterScenes.lua).
+ if SV.Chapter8 ~= nil and SV.Chapter8.PlayedArrivalScene == nil then
+	SV.Chapter8.PlayedArrivalScene = (SV.Chapter8.EnteredSanctuary == true)
+ end
+ if SV.Chapter9 ~= nil and SV.Chapter9.PlayedArrivalScene == nil then
+	SV.Chapter9.PlayedArrivalScene = (SV.Chapter9.EnteredMarsh == true)
+ end
+ if SV.Chapter10 ~= nil and SV.Chapter10.PlayedArrivalScene == nil then
+	SV.Chapter10.PlayedArrivalScene = (SV.Chapter10.EnteredPeak == true)
+ end
+
+ --Visions du passe du heros : etat cree retroactivement pour les parties
+ --en cours. Aucune vision n'est marquee comme vue, donc une sauvegarde
+ --existante les decouvrira normalement a partir de son chapitre courant.
+ if SV.Visions == nil then SV.Visions = {} end
+ if SV.Visions.Seen == nil then SV.Visions.Seen = {} end
+ if SV.Visions.Count == nil then SV.Visions.Count = 0 end
+
+ --Arc 2 « Ce que la brume emporte » : 5 quetes secondaires liees a l'intrigue.
+ --Disponible des le ch6 (apres l'expedition), retroactif pour les parties en cours.
+ if SV.SuaireArc == nil then SV.SuaireArc = {} end
+ if SV.SuaireArc.CurrentAct == nil then SV.SuaireArc.CurrentAct = 0 end
+ if SV.SuaireArc.ShardsRecovered == nil then SV.SuaireArc.ShardsRecovered = 0 end
+ if SV.SuaireArc.DreamFragments == nil then SV.SuaireArc.DreamFragments = 0 end
+ if (SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 6)
+    or SV.ChapterProgression.StoryCompleted == true then
+	if not SV.SuaireArc.Unlocked then
+		SV.SuaireArc.Unlocked = true
+		if SV.SuaireArc.CurrentAct == 0 then SV.SuaireArc.CurrentAct = 1 end
+	end
+	--les 5 donjons de l'arc doivent etre accessibles des que l'arc s'ouvre
+	if not GAME:DungeonUnlocked("bosquet_voile") then GAME:UnlockDungeon("bosquet_voile") end
+	if not GAME:DungeonUnlocked("grotte_mystere") then GAME:UnlockDungeon("grotte_mystere") end
+	if not GAME:DungeonUnlocked("jardin_secret") then GAME:UnlockDungeon("jardin_secret") end
+	if not GAME:DungeonUnlocked("col_foudre") then GAME:UnlockDungeon("col_foudre") end
+	if not GAME:DungeonUnlocked("antre_enigme") then GAME:UnlockDungeon("antre_enigme") end
+ end
+ --Add-on « Reseau du Ciel » (Explorateurs du Ciel) — 3 paliers.
+ if (SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 11) or SV.ChapterProgression.StoryCompleted == true then
+	if not GAME:DungeonUnlocked("new_era_sky_00") then GAME:UnlockDungeon("new_era_sky_00") end
+	if not GAME:DungeonUnlocked("new_era_sky_01") then GAME:UnlockDungeon("new_era_sky_01") end
+	if not GAME:DungeonUnlocked("new_era_sky_02") then GAME:UnlockDungeon("new_era_sky_02") end
+	if not GAME:DungeonUnlocked("new_era_sky_03") then GAME:UnlockDungeon("new_era_sky_03") end
+	if not GAME:DungeonUnlocked("new_era_sky_04") then GAME:UnlockDungeon("new_era_sky_04") end
+	if not GAME:DungeonUnlocked("new_era_sky_05") then GAME:UnlockDungeon("new_era_sky_05") end
+	if not GAME:DungeonUnlocked("new_era_sky_06") then GAME:UnlockDungeon("new_era_sky_06") end
+	if not GAME:DungeonUnlocked("new_era_sky_07") then GAME:UnlockDungeon("new_era_sky_07") end
+	if not GAME:DungeonUnlocked("new_era_sky_08") then GAME:UnlockDungeon("new_era_sky_08") end
+	if not GAME:DungeonUnlocked("new_era_sky_09") then GAME:UnlockDungeon("new_era_sky_09") end
+	if not GAME:DungeonUnlocked("new_era_sky_10") then GAME:UnlockDungeon("new_era_sky_10") end
+	if not GAME:DungeonUnlocked("new_era_sky_11") then GAME:UnlockDungeon("new_era_sky_11") end
+	if not GAME:DungeonUnlocked("new_era_sky_12") then GAME:UnlockDungeon("new_era_sky_12") end
+	if not GAME:DungeonUnlocked("new_era_sky_13") then GAME:UnlockDungeon("new_era_sky_13") end
+	if not GAME:DungeonUnlocked("new_era_sky_14") then GAME:UnlockDungeon("new_era_sky_14") end
+	if not GAME:DungeonUnlocked("new_era_sky_15") then GAME:UnlockDungeon("new_era_sky_15") end
+	if not GAME:DungeonUnlocked("new_era_sky_16") then GAME:UnlockDungeon("new_era_sky_16") end
+	if not GAME:DungeonUnlocked("new_era_sky_17") then GAME:UnlockDungeon("new_era_sky_17") end
+	if not GAME:DungeonUnlocked("new_era_sky_18") then GAME:UnlockDungeon("new_era_sky_18") end
+	if not GAME:DungeonUnlocked("new_era_sky_19") then GAME:UnlockDungeon("new_era_sky_19") end
+	if not GAME:DungeonUnlocked("new_era_sky_20") then GAME:UnlockDungeon("new_era_sky_20") end
+	if not GAME:DungeonUnlocked("new_era_sky_21") then GAME:UnlockDungeon("new_era_sky_21") end
+	if not GAME:DungeonUnlocked("new_era_sky_22") then GAME:UnlockDungeon("new_era_sky_22") end
+	if not GAME:DungeonUnlocked("new_era_sky_23") then GAME:UnlockDungeon("new_era_sky_23") end
+ end
+ if (SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 20) or SV.ChapterProgression.StoryCompleted == true then
+	if not GAME:DungeonUnlocked("new_era_sky_24") then GAME:UnlockDungeon("new_era_sky_24") end
+	if not GAME:DungeonUnlocked("new_era_sky_25") then GAME:UnlockDungeon("new_era_sky_25") end
+	if not GAME:DungeonUnlocked("new_era_sky_26") then GAME:UnlockDungeon("new_era_sky_26") end
+	if not GAME:DungeonUnlocked("new_era_sky_27") then GAME:UnlockDungeon("new_era_sky_27") end
+	if not GAME:DungeonUnlocked("new_era_sky_28") then GAME:UnlockDungeon("new_era_sky_28") end
+	if not GAME:DungeonUnlocked("new_era_sky_29") then GAME:UnlockDungeon("new_era_sky_29") end
+	if not GAME:DungeonUnlocked("new_era_sky_30") then GAME:UnlockDungeon("new_era_sky_30") end
+	if not GAME:DungeonUnlocked("new_era_sky_31") then GAME:UnlockDungeon("new_era_sky_31") end
+	if not GAME:DungeonUnlocked("new_era_sky_32") then GAME:UnlockDungeon("new_era_sky_32") end
+	if not GAME:DungeonUnlocked("new_era_sky_33") then GAME:UnlockDungeon("new_era_sky_33") end
+	if not GAME:DungeonUnlocked("new_era_sky_34") then GAME:UnlockDungeon("new_era_sky_34") end
+ end
+ if SV.ChapterProgression.StoryCompleted == true then
+	if not GAME:DungeonUnlocked("new_era_sky_35") then GAME:UnlockDungeon("new_era_sky_35") end
+	if not GAME:DungeonUnlocked("new_era_sky_36") then GAME:UnlockDungeon("new_era_sky_36") end
+	if not GAME:DungeonUnlocked("new_era_sky_37") then GAME:UnlockDungeon("new_era_sky_37") end
+	if not GAME:DungeonUnlocked("new_era_sky_38") then GAME:UnlockDungeon("new_era_sky_38") end
+	if not GAME:DungeonUnlocked("new_era_sky_39") then GAME:UnlockDungeon("new_era_sky_39") end
+	if not GAME:DungeonUnlocked("new_era_sky_40") then GAME:UnlockDungeon("new_era_sky_40") end
+	if not GAME:DungeonUnlocked("new_era_sky_41") then GAME:UnlockDungeon("new_era_sky_41") end
+	if not GAME:DungeonUnlocked("new_era_sky_42") then GAME:UnlockDungeon("new_era_sky_42") end
+	if not GAME:DungeonUnlocked("new_era_sky_43") then GAME:UnlockDungeon("new_era_sky_43") end
+	if not GAME:DungeonUnlocked("new_era_sky_44") then GAME:UnlockDungeon("new_era_sky_44") end
+	if not GAME:DungeonUnlocked("new_era_sky_45") then GAME:UnlockDungeon("new_era_sky_45") end
+	if not GAME:DungeonUnlocked("new_era_sky_46") then GAME:UnlockDungeon("new_era_sky_46") end
+	if not GAME:DungeonUnlocked("new_era_sky_47") then GAME:UnlockDungeon("new_era_sky_47") end
+	if not GAME:DungeonUnlocked("new_era_sky_48") then GAME:UnlockDungeon("new_era_sky_48") end
+	if not GAME:DungeonUnlocked("new_era_sky_49") then GAME:UnlockDungeon("new_era_sky_49") end
+	if not GAME:DungeonUnlocked("new_era_sky_50") then GAME:UnlockDungeon("new_era_sky_50") end
+	if not GAME:DungeonUnlocked("new_era_sky_51") then GAME:UnlockDungeon("new_era_sky_51") end
+	if not GAME:DungeonUnlocked("new_era_sky_52") then GAME:UnlockDungeon("new_era_sky_52") end
+	if not GAME:DungeonUnlocked("new_era_sky_53") then GAME:UnlockDungeon("new_era_sky_53") end
+	if not GAME:DungeonUnlocked("new_era_sky_54") then GAME:UnlockDungeon("new_era_sky_54") end
+	if not GAME:DungeonUnlocked("new_era_sky_55") then GAME:UnlockDungeon("new_era_sky_55") end
+	if not GAME:DungeonUnlocked("new_era_sky_56") then GAME:UnlockDungeon("new_era_sky_56") end
+	if not GAME:DungeonUnlocked("new_era_sky_57") then GAME:UnlockDungeon("new_era_sky_57") end
+	if not GAME:DungeonUnlocked("new_era_sky_58") then GAME:UnlockDungeon("new_era_sky_58") end
+	if not GAME:DungeonUnlocked("new_era_sky_59") then GAME:UnlockDungeon("new_era_sky_59") end
+	if not GAME:DungeonUnlocked("new_era_sky_60") then GAME:UnlockDungeon("new_era_sky_60") end
+	if not GAME:DungeonUnlocked("new_era_sky_61") then GAME:UnlockDungeon("new_era_sky_61") end
+	if not GAME:DungeonUnlocked("new_era_sky_62") then GAME:UnlockDungeon("new_era_sky_62") end
+	if not GAME:DungeonUnlocked("new_era_sky_63") then GAME:UnlockDungeon("new_era_sky_63") end
+	if not GAME:DungeonUnlocked("new_era_sky_64") then GAME:UnlockDungeon("new_era_sky_64") end
+	if not GAME:DungeonUnlocked("new_era_sky_65") then GAME:UnlockDungeon("new_era_sky_65") end
+	if not GAME:DungeonUnlocked("new_era_sky_66") then GAME:UnlockDungeon("new_era_sky_66") end
+ end
+ --Add-on v2 : donjons post-game du jeu d'origine (Relique des Glyphes, Tour de
+ --la Joie Premiere, Mer du Lointain, Foret de l'Epure, Ile des Vestiges, Mer des
+ --Merveilles, Detroit des Chimeres) : reserves a l'apres-histoire.
+ if SV.ChapterProgression.StoryCompleted == true then
+	if not GAME:DungeonUnlocked("new_era_zone_49") then GAME:UnlockDungeon("new_era_zone_49") end
+	if not GAME:DungeonUnlocked("new_era_zone_50") then GAME:UnlockDungeon("new_era_zone_50") end
+	if not GAME:DungeonUnlocked("new_era_zone_51") then GAME:UnlockDungeon("new_era_zone_51") end
+	if not GAME:DungeonUnlocked("new_era_zone_52") then GAME:UnlockDungeon("new_era_zone_52") end
+	if not GAME:DungeonUnlocked("new_era_zone_53") then GAME:UnlockDungeon("new_era_zone_53") end
+	if not GAME:DungeonUnlocked("new_era_zone_54") then GAME:UnlockDungeon("new_era_zone_54") end
+	if not GAME:DungeonUnlocked("new_era_zone_55") then GAME:UnlockDungeon("new_era_zone_55") end
  end
  --Vague 8 : etats de checkpoint (reveil au relais)
  --Audit IsGameOver : flags persistants de mini-boss pour les parties existantes.
@@ -389,6 +553,20 @@ function DebugTools:OnUpgrade()
 		SV.Chapter5.MountMiniBossCleared = (SV.ChapterProgression.Chapter > 5) or (SV.Chapter5.MountMiniBossSeen == true and SV.Chapter5.MountGuardianDefeated == true)
 	end
  end
+ --ATTENTION (2026-07-30) : la zone searing_tunnel a gagne un segment (arene du
+ --clan de lave inseree en seg 2). La numerotation a donc glisse :
+ --   avant : 0=etages 1=profondeurs 2=Crucible      3=annexe
+ --   apres : 0=etages 1=profondeurs 2=ARENE 3=Crucible 4=annexe
+ --Une sauvegarde faite A L'INTERIEUR du Tunnel (le moteur stocke segment+etage
+ --dans le ZoneLoc) peut donc pointer sur un segment qui a change de sens.
+ --On ne peut pas corriger un ZoneLoc depuis Lua : le filet est de renvoyer le
+ --joueur au relais si on le detecte dans le Tunnel avec un etat incoherent.
+ if SV.Chapter5 ~= nil and SV.Chapter5.TunnelSegmentsShiftedFix == nil then
+	SV.Chapter5.TunnelSegmentsShiftedFix = true
+	--Le joueur reprendra au relais (Terminal de Sauvegarde) plutot qu'au milieu
+	--d'un segment renumerote. Sans effet s'il n'est pas dans le Tunnel.
+	if SV.Chapter5.TunnelMidState == nil then SV.Chapter5.TunnelMidState = nil end
+ end
  if SV.Chapter7 ~= nil and SV.Chapter7.RuinsMidState == nil then SV.Chapter7.RuinsMidState = nil end
  if SV.Chapter8 ~= nil and SV.Chapter8.SanctuaryMidState == nil then SV.Chapter8.SanctuaryMidState = nil end
  if SV.Chapter9 ~= nil and SV.Chapter9.MarshMidState == nil then SV.Chapter9.MarshMidState = nil end
@@ -402,6 +580,10 @@ function DebugTools:OnUpgrade()
  end
  if SV.Chapter10 ~= nil and SV.Chapter10.PlayedPeakRelayIntro == nil then
 	SV.Chapter10.PlayedPeakRelayIntro = (SV.Chapter10.ReachedCloudRelay == true)
+ end
+ --Rejouabilite du Pic Celeste : jalon interne au parcours rejoue.
+ if SV.Chapter10 ~= nil and SV.Chapter10.ReplayPastFulgur == nil then
+	SV.Chapter10.ReplayPastFulgur = false
  end
  --Stations-Relais du Reseau : cinematique d'arrivee jouee une fois par station
  if SV.Reseau == nil then SV.Reseau = { Veilleurs = {} } end
@@ -445,7 +627,107 @@ function DebugTools:OnUpgrade()
  if SV.Chapter6 == nil then SV.Chapter6 = {} end
  if SV.Chapter6.GloomyPlayedMidpointIntro == nil then SV.Chapter6.GloomyPlayedMidpointIntro = false end
  if SV.Chapter6.GloomyMidpointState == nil then SV.Chapter6.GloomyMidpointState = 'FirstArrival' end
+
+ --Apres-boss de Zarude et Epreuve des Trois (DazzlingArc.lua).
+ --Une partie deja au-dela du chapitre 6 n'a jamais vu ces scenes : on ne
+ --les rejoue pas de force, mais on ouvre le duel a qui a battu Zarude,
+ --puisqu'il ne depend d'aucun etat de donjon.
+ if SV.Chapter6.PlayedVictoryScene == nil then
+	SV.Chapter6.PlayedVictoryScene = (SV.Chapter6.DefeatedGloomyBoss == true)
+ end
+ if SV.Chapter6.DazzlingTrialCleared == nil then SV.Chapter6.DazzlingTrialCleared = false end
+ if SV.Chapter6.DazzlingTrialStarted == nil then SV.Chapter6.DazzlingTrialStarted = false end
+ if SV.Chapter6.PlayedTrialVictory == nil then SV.Chapter6.PlayedTrialVictory = false end
+ if SV.Chapter6.PlayedTrialDefeat == nil then SV.Chapter6.PlayedTrialDefeat = false end
+ if SV.Chapter6.DazzlingTrialOffered == nil then
+	SV.Chapter6.DazzlingTrialOffered = (SV.Chapter6.DefeatedGloomyBoss == true)
+ end
  
+ --LA NUIT A METANO (TownNight / TownNightScenes). Rattrapage pour les
+ --sauvegardes anterieures a l'ajout de la nuit : sans ca, une partie en
+ --cours arriverait avec SV.TownNight == nil.
+ if SV.TownNight == nil then SV.TownNight = {} end
+ if SV.TownNight.Visits == nil then SV.TownNight.Visits = 0 end
+ if SV.TownNight.Met == nil then SV.TownNight.Met = {} end
+ if SV.TownNight.SawStars == nil then SV.TownNight.SawStars = false end
+ if SV.TownNight.Seen == nil then SV.TownNight.Seen = {} end
+ if SV.TownNight.VoiceHeard == nil then SV.TownNight.VoiceHeard = {} end
+
+ --LES PILLARDS DE METANO (TownRaid).
+ if SV.TownRaid == nil then SV.TownRaid = {} end
+ if SV.TownRaid.Repelled == nil then SV.TownRaid.Repelled = 0 end
+ if SV.TownRaid.Lost == nil then SV.TownRaid.Lost = 0 end
+ if SV.TownRaid.Pending == nil then SV.TownRaid.Pending = false end
+ if SV.TownRaid.Wave == nil then SV.TownRaid.Wave = 0 end
+ if SV.TownRaid.LastDay == nil then SV.TownRaid.LastDay = -1 end
+ if SV.TownRaid.Told == nil then SV.TownRaid.Told = {} end
+
+ --LE TOUR DE GUET (NightWatch). Rattrapage pour les sauvegardes
+ --anterieures : sans ca, une partie en cours arriverait avec nil.
+ if SV.NightWatch == nil then SV.NightWatch = {} end
+ if SV.NightWatch.Explained == nil then SV.NightWatch.Explained = false end
+ if SV.NightWatch.Tours == nil then SV.NightWatch.Tours = 0 end
+ if SV.NightWatch.LastTour == nil then SV.NightWatch.LastTour = -1 end
+ if SV.NightWatch.Assigned == nil then SV.NightWatch.Assigned = false end
+
+ --LE PRIX D'UNE NUIT PERDUE (TownPlunder).
+ if SV.TownPlunder == nil then SV.TownPlunder = {} end
+ if SV.TownPlunder.ShopsEmpty == nil then SV.TownPlunder.ShopsEmpty = false end
+ if SV.TownPlunder.LastStolen == nil then SV.TownPlunder.LastStolen = 0 end
+ if SV.TownPlunder.LastItems == nil then SV.TownPlunder.LastItems = {} end
+ if SV.TownPlunder.TotalRaids == nil then SV.TownPlunder.TotalRaids = 0 end
+
+ --CE QUE LA VILLE DONNE (TownReward). Rattrapage sauvegardes anterieures.
+ if SV.TownReward == nil then SV.TownReward = {} end
+ if SV.TownReward.Pending == nil then SV.TownReward.Pending = false end
+ if SV.TownReward.LastWave == nil then SV.TownReward.LastWave = 0 end
+ if SV.TownReward.LastItems == nil then SV.TownReward.LastItems = {} end
+ if SV.TownReward.LastMoney == nil then SV.TownReward.LastMoney = 0 end
+ if SV.TownReward.Total == nil then SV.TownReward.Total = 0 end
+
+ --LA VILLE PARLE DE LA NUIT (TownVoicesNight).
+ if SV.TownVoicesNight == nil then SV.TownVoicesNight = {} end
+ if SV.TownVoicesNight.Said == nil then SV.TownVoicesNight.Said = {} end
+
+ --LES SAISONS DE METANO (Seasons.lua). Rattrapage sauvegardes anterieures.
+ if SV.Seasons == nil then SV.Seasons = {} end
+ if SV.Seasons.Echelle == nil then SV.Seasons.Echelle = 'court' end
+ if SV.Seasons.Courante == nil then SV.Seasons.Courante = '' end
+ if SV.Seasons.Vues == nil then SV.Seasons.Vues = {} end
+ if SV.Seasons.Actif == nil then SV.Seasons.Actif = true end
+
+ --JALONS DE FIN DE DONJON ch8/9/10. Ecrits par les zones et lus par
+ --ReplayEnding + guild_heros_room, mais ils n'etaient declares nulle part.
+ --Sur une partie DEJA commencee, on les deduit de l'etat reel du chapitre
+ --plutot que de les forcer a false : un joueur ayant deja battu Diancie
+ --ne doit pas perdre l'acces au donjon suivant.
+ if SV.Chapter8.CrystalSanctuaryComplete == nil then
+	SV.Chapter8.CrystalSanctuaryComplete = (SV.Chapter8.DefeatedDiancie == true)
+ end
+ if SV.Chapter9.ForgottenMarshComplete == nil then
+	SV.Chapter9.ForgottenMarshComplete = (SV.Chapter9.DefeatedMegaBlastoise == true)
+ end
+ if SV.Chapter10.CelestialPeakComplete == nil then
+	SV.Chapter10.CelestialPeakComplete = (SV.Chapter10.DefeatedLugia == true)
+ end
+
+ --LA CHAMBRE DU MAITRE (ch6). Pour une sauvegarde deja lancee, on deduit
+ --l'etat de la porte plutot que de la refermer au nez du joueur : celui
+ --qui a deja depasse le ch6 l'a forcement meritee.
+ if SV.Chapter6.GuildmasterRoomUnlocked == nil then
+	SV.Chapter6.GuildmasterRoomUnlocked =
+		((SV.ChapterProgression.Chapter or 1) > 6)
+ end
+ if SV.Chapter6.PlayedGuildmasterAudience == nil then
+	SV.Chapter6.PlayedGuildmasterAudience = SV.Chapter6.GuildmasterRoomUnlocked
+ end
+
+ --LA CHAMBRE DU MAITRE (carte neuve). Rattrapage sauvegardes anterieures.
+ if SV.GuildmasterBedroom == nil then SV.GuildmasterBedroom = {} end
+ if SV.GuildmasterBedroom.Visited == nil then SV.GuildmasterBedroom.Visited = false end
+ if SV.GuildmasterBedroom.ReadPenticusBed == nil then SV.GuildmasterBedroom.ReadPenticusBed = false end
+ if SV.GuildmasterBedroom.ReadPhileasBed == nil then SV.GuildmasterBedroom.ReadPhileasBed = false end
+
  if SV.GuildSidequests == nil then SV.GuildSidequests = {} end
  
  if SV.GuildSidequests.ZigzagoonLevel == nil then SV.GuildSidequests.ZigzagoonLevel = 19 end 

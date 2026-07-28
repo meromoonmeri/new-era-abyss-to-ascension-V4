@@ -740,6 +740,16 @@ function guild_second_floor.Mission_Test_Action(chara, activator)
 end
 ]]--
 
+--PARLER A AUDINO DIRECTEMENT. Elle est posee avec triggerType = 1 et a
+--3 cases libres sur 4 : le joueur peut donc l'aborder, mais aucun handler
+--Assembly_Owner_Action n'existait et elle restait muette. On delegue au
+--pupitre voisin, qui porte deja toute la logique d'assemblee.
+--Elle est masquee tant que UnlockedAssembly est faux (init.lua:45), donc
+--ce handler ne peut pas se declencher trop tot.
+function guild_second_floor.Assembly_Owner_Action(chara, activator)
+  guild_second_floor.Assembly_Action(chara, activator)
+end
+
 function guild_second_floor.Assembly_Action(obj, activator)
 	--this reimplementation of start conversation may break if you can change player/partner using assembly...
 	local hero = CH('PLAYER')

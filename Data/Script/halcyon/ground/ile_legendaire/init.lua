@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local ile_legendaire = {}
 
@@ -48,11 +49,10 @@ function ile_legendaire.Enter(map)
   UI:SetCenter(false)
   GAME:WaitFrames(30)
 
-  -- 2. L'irruption (motif propre à ce gardien — fiche anti-répétition).
-  BossFX.Flash(248, 168, 10, 20, 30)
-  GROUND:Unhide('Solgaleo')
-  BossFX.Impact(3, true)
-  GAME:WaitFrames(20)
+  -- 2. L'irruption — LUMIERE : le soleil se leve dans la salle.
+  --    Avant ce lot : un BossFX.Flash generique, identique a 10 autres
+  --    arenes. Toutes les particules employees sont attestees.
+  BossFX.RadiantDawn(solgaleo, 248, 168)
 
   -- 3. Le recul du groupe.
   BossFX.PushBack({hero, partner}, Direction.Down)
@@ -64,7 +64,7 @@ function ile_legendaire.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(solgaleo, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('ile_legendaire')
   UI:WaitShowTitle("Solgaleo, la Première Lumière", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

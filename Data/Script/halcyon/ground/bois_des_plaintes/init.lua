@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local bois_des_plaintes = {}
 
@@ -62,7 +63,7 @@ function bois_des_plaintes.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(suicune, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('bois_des_plaintes')
   UI:WaitShowTitle("Suicune, le Gué des Eaux Claires", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

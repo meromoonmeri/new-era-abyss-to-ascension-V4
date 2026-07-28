@@ -6,6 +6,8 @@
 -- Commonly included lua functions and data
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.ReplayEnding'
+require 'halcyon.TownNight'
 
 -- [NREPROBE] sonde locale (audit runtime).
 local function nre_snap(tag)
@@ -36,7 +38,7 @@ function searing_tunnel.EnterSegment(zone, rescuing, segmentID, mapID)
 		COMMON.BeginDungeon(zone.ID, segmentID, mapID)
 	end
 	
-	if segmentID == 2 then
+	if segmentID == 3 then
 		--Setup variables for the lava flow handler. The boss fight starts with TopStraight alignment, so set these up here for the program to handle it correctly.
 		SV.SearingTunnel.LavaFlowDirection = 'TopStraight'
 		SV.SearingTunnel.LavaCountdown = -1--The script will default this to a proper value.
@@ -68,7 +70,7 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 	--I think even though it may be weird they just "disappear" upon exiting the segment, this approach is fine and best from a gameplay perspective.
 	--COMMON.ExitDungeonMissionCheck(zone.ID, segmentID)
 
-	if segmentID == 3 then
+	if segmentID == 4 then
 		-- Annexe de la Toupie (etage mystere) : sortie douce vers le bourg.
 		-- (Bloc remonte au niveau racine : il etait imbrique par erreur dans la
 		-- branche mort/fuite du segment 0, donc jamais atteint pour le segment 3.)
@@ -109,24 +111,18 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 				end			
 			else 
 				--Generic first segment death/escape.
-				SV.TemporaryFlags.Dinnertime = true 
-				SV.TemporaryFlags.Bedtime = true
-				SV.TemporaryFlags.MorningWakeup = true 
-				SV.TemporaryFlags.MorningAddress = true 
-				
-				--Go to dinner if a mission wasn't completed, otherwise, go to 2nd floor
-				local exit_ground = 6
-				if SV.TemporaryFlags.MissionCompleted then exit_ground = 22 end 
-				
-				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, exit_ground, 0, true, true)--go to dinner or the 2nd floor depending on whether a mission was done or not.
+				--CHOIX DE FIN DE JOURNEE (TownNight.EndDay). Hors ch5 uniquement :
+				--les branches du ch5 partent a l'entree du Tunnel (carte 47) et ne
+				--passent pas ici. Avant le ch6, comportement d'origine identique.
+				TownNight.EndDay(result, true)
 			end 
 		
 		--Cleared
 		else
-			-- Chapter 5 mini-boss check: if not yet encountered, go to mini-boss ground first
-			if SV.ChapterProgression.Chapter == 5 and not SV.Chapter5.TunnelMiniBossSeen then
-				PrintInfo("[NREPROBE][transition] searing_tunnel.ExitSegment -> EnterGroundMap('searing_tunnel_miniboss')") GAME:EnterGroundMap('searing_tunnel_miniboss', 'Main_Entrance_Marker')
-			elseif SV.ChapterProgression.Chapter == 5 then 
+			-- Le mini-boss ne se declenche PLUS ici : il attend desormais dans les
+			-- PROFONDEURS (sortie du segment 1), apres le point median. Le segment 0
+			-- mene donc directement au relais / Terminal de Sauvegarde (ground 48).
+			if SV.ChapterProgression.Chapter == 5 then 
 				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 48, 0, false, false)
 			else
 				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 48, 0, true, true)
@@ -169,17 +165,10 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 				SV.Chapter5.TunnelLastExitReason = 'Escaped'
 				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 47, 0, true, true) --Go to Searing Tunnel Entrance ground map		
 			else
-				SV.TemporaryFlags.Dinnertime = true 
-				SV.TemporaryFlags.Bedtime = true
-				SV.TemporaryFlags.MorningWakeup = true 
-				SV.TemporaryFlags.MorningAddress = true 
-				
-				--Go to dinner if a mission wasn't completed, otherwise, go to 2nd floor
-				local exit_ground = 6
-				if SV.TemporaryFlags.MissionCompleted then exit_ground = 22 end 
-				
-				--I use the components of the general function version of this so I can have the textbox pop up after the results screen
-				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, exit_ground, 0, true, true)--go to dinner or the 2nd floor depending on whether a mission was done or not.
+				--CHOIX DE FIN DE JOURNEE (TownNight.EndDay). Fuite volontaire hors
+				--ch5 : l'equipe abandonne pour aujourd'hui et rentre. Le ch5 part a
+				--l'entree du Tunnel (carte 47) juste au-dessus et n'arrive pas ici.
+				TownNight.EndDay(result, true)
 			end
 		--Cleared
 		else
@@ -192,10 +181,30 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 				SV.TemporaryFlags.MorningWakeup = true 
 				SV.TemporaryFlags.MorningAddress = true 
 			end 	
+			-- PROFONDEURS franchies : le clan de lave barre la route juste avant le
+			-- Crucible. Une seule fois (TunnelMiniBossSeen), ensuite on file au boss.
+			if SV.ChapterProgression.Chapter == 5 and not SV.Chapter5.TunnelMiniBossSeen then
+				PrintInfo("[NREPROBE][transition] searing_tunnel.ExitSegment -> EnterGroundMap('searing_tunnel_miniboss')")
+				GAME:EnterGroundMap('searing_tunnel_miniboss', 'Main_Entrance_Marker')
+				return
+			end
 			PrintInfo("[NREPROBE][transition] searing_tunnel.ExitSegment -> EnterGroundMap('searing_crucible')") GAME:EnterGroundMap('searing_crucible', 'Main_Entrance_Marker')
 			
 		end 
 		
+	elseif segmentID == 2 then --Arene du clan de lave (Torkoal + Magmar)
+		PrintInfo("=>> ExitSegment_searing_tunnel_miniboss result "..tostring(result))
+		SV.adventure.Thief = false
+		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+			SV.Chapter5.TunnelMiniBossDefeated = true
+		else
+			SV.Chapter5.TunnelMiniBossLost = true
+		end
+		-- Victoire comme defaite : on repasse par le ground, qui joue la scene
+		-- correspondante puis enchaine (Crucible ou repli).
+		PrintInfo("[NREPROBE][transition] searing_tunnel.ExitSegment -> EnterGroundMap('searing_tunnel_miniboss')")
+		GAME:EnterGroundMap('searing_tunnel_miniboss', 'Main_Entrance_Marker')
+
 	else--Searing Crucible Exit Segment
 	  PrintInfo("=>> ExitSegment_searing_crucible (Searing Crucible) result "..tostring(result).." segment "..tostring(segmentID))
 	  --This segment is only accessible during Chapter 5, for the boss fight.

@@ -9,10 +9,29 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
+require 'halcyon.ReplayEnding'
+require 'halcyon.BossMusic'
 local celestial_peak_boss = {}
 function celestial_peak_boss.Init(map) DEBUG.EnableDbgCoro() end
 function celestial_peak_boss.Enter(map)
   DEBUG.EnableDbgCoro()
+
+  -- Rejouabilite : le donjon d'histoire est boucle, le gardien n'est plus la.
+  -- Sans cette branche, revenir ici relancait la cinematique ET le combat.
+  if ReplayEnding.IsReplay('celestial_peak', 10) then
+    ReplayEnding.EmptyArena({
+      hero = {172, 180}, partner = {140, 180},
+      camera = {156, 156}, look = {156, 132},
+      walk = 40, title = true, music = 'Summit.ogg',
+      lines = {
+        { spk='partner', emo='Normal', key='CPB_R01', wait=10 },
+        { spk='hero',    emo='Normal', key='CPB_R02', wait=10 },
+        { spk='partner', emo='Normal', key='CPB_R03' },
+        { spk='narrator',              key='CPB_R04' },
+      },
+    })
+    return
+  end
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   GAME:CutsceneMode(true)
@@ -37,6 +56,10 @@ function celestial_peak_boss.Enter(map)
   GROUND:CharSetAnim(lugia, "Idle", true)
 
   -- Titre + jugement.
+  -- Sommet du Pic — theme de boss. Cette arene n'avait AUCUNE musique : le combat le plus
+  -- important du chapitre se jouait en silence complet. Le theme
+  -- demarre avec le titre, comme dans les 42 arenes de gardiens.
+  BossMusic.Play('celestial_peak_boss')
   UI:WaitShowTitle(lugia:GetDisplayName(), 20)
   GAME:WaitFrames(40)
   UI:WaitHideTitle(20)

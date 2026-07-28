@@ -16,12 +16,18 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
-  GROUND:TeleportTo(hero, 200, 400, Direction.Up)
-  GROUND:TeleportTo(partner, 168, 400, Direction.Up)
-  GAME:MoveCamera(184, 200, 1, false)
+  -- LOT 1 — l'equipe atterrit a ~64px sous le boss (y=288) apres sa marche de
+  -- 60px : on la fait donc apparaitre 60px plus bas (y=348).
+  GROUND:TeleportTo(hero, 200, 348, Direction.Up)
+  GROUND:TeleportTo(partner, 168, 348, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 136, 364, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 232, 364, Direction.Up) end
+  GAME:MoveCamera(184, 344, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -42,11 +48,19 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
     GAME:WaitFrames(6)
     GROUND:MoveInDirection(hero, Direction.Up, 60, false, 1)
   end)
-  local coro3 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(15)
-    GAME:MoveCamera(184, 160, 60, false)
+  local coro2b = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(10)
+    if t2 ~= nil then GROUND:MoveInDirection(t2, Direction.Up, 60, false, 1) end
   end)
-  TASK:JoinCoroutines({coro1, coro2, coro3})
+  local coro2c = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(12)
+    if t3 ~= nil then GROUND:MoveInDirection(t3, Direction.Up, 60, false, 1) end
+  end)
+  local coro3 = TASK:BranchCoroutine(function()
+    -- La camera se cale ENTRE l'equipe (y=288) et le gardien (y=200).
+    GAME:MoveCamera(184, 244, 90, false)
+  end)
+  TASK:JoinCoroutines({coro1, coro2, coro2b, coro2c, coro3})
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
@@ -68,6 +82,33 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   -- Brume montante
   BossFX.Overlay("Fog", 0, 0, 20, 70, 25, DrawLayer.Bottom, -1, 0)
 
+  -- LOT 8.3 — la harde assiste ; le duo se prepare. Camera mobile entre eux.
+  GAME:MoveCamera(184, 262, 40, false)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Surprised")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_028']))
+  -- "Toute la harde regarde depuis la brume. Ils sont venus voir ca."
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSG_029']), "Normal")
+  -- "Ses bois sont plus vieux que l'herbe..."
+  GAME:WaitFrames(20)
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_030']))
+  -- "Tu peux encore faire demi-tour."
+  GAME:WaitFrames(15)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Determined")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_031']))
+  -- "Nous, on s'en voudrait. Ca suffit."
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSG_032']), "Determined")
+  -- "Alors arrete de parler et tiens-toi droit. Il arrive."
+  GAME:WaitFrames(20)
+
+  -- PANORAMIQUE : cadre commun equipe (y=288) + gardien (y=200).
+  GAME:MoveCamera(184, 244, 60, false)
+  GAME:WaitFrames(10)
+
   -- Voix de l'Abysse
   BossFX.Voice('VSG_004')
 
@@ -75,17 +116,18 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   local center = GAME:GetCameraCenter()
   BossFX.Flash(center.X, center.Y, 3, 5, 15)
 
-  -- Tremblement puis materialisation depuis la brume
+  -- LOT 2 — apparition standardisee : flash blanc simple
   local stantler = CharacterEssentials.MakeCharactersFromList({
     {'Stantler', 184, 200, Direction.Down}
   })
   GROUND:Hide('Stantler')
   BossFX.Rumble({hero, partner}, 2)
-  BossFX.EmergeMist(stantler, stantler.Position.X + 8, stantler.Position.Y + 12)
   SOUND:PlayBGM('Rising Fear.ogg', true)
+  BossFX.Flash(184, 200, 3, 5, 20)
+  GAME:WaitFrames(8)
   GROUND:Unhide('Stantler')
-  GROUND:CharSetAnim(stantler, "Charge", true)
   BossFX.Impact(9)
+  GROUND:CharSetAnim(stantler, "Charge", true)
 
   coro1 = TASK:BranchCoroutine(function()
     GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
@@ -105,6 +147,36 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   -- "Ses bois...[pause=10] ils brillent !"
 
   GAME:WaitFrames(30)
+
+  -- ================= LE VIEUX GARDIEN PARLE =================
+  -- Avant ce lot il etait MUET : le duo commentait une silhouette. Or c'est
+  -- le personnage le plus ancien du chapitre 5, et le seul en position de
+  -- dire au joueur que le monde a change AVANT que l'histoire ne le montre.
+  -- Il ne teste pas comme la harde : il AVERTIT, puis s'ecarte.
+  GAME:MoveCamera(184, 218, 40, false)
+  UI:SetSpeaker(stantler)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_038']))
+  -- "Vous etes revenus. Ils reviennent toujours."
+  GAME:WaitFrames(15)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_039']))
+  -- "Je me tiens dans cette brume depuis plus longtemps que votre ville n'a un nom."
+  GAME:WaitFrames(18)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_040']))
+  -- "Assez longtemps pour remarquer quand la brume a eu un mauvais gout."
+  GAME:WaitFrames(20)
+  -- Le point de bascule du discours : on resserre.
+  GAME:MoveCamera(184, 210, 40, false)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_041']))
+  -- "Quelque chose sous l'herbe a cesse de dormir. Il y a des annees deja."
+  GAME:WaitFrames(22)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_042']))
+  -- "Je ne peux pas le suivre. Mes sabots appartiennent a cette plaine."
+  GAME:WaitFrames(18)
+  -- Cadre commun : il s'adresse enfin directement au duo.
+  GAME:MoveCamera(184, 244, 40, false)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_043']))
+  -- "Alors je m'ecarterai — une fois que vous aurez prouve que la route vous vaut."
+  GAME:WaitFrames(22)
 
   -- Voix a nouveau
   BossFX.Voice('VSG_006')
@@ -147,13 +219,17 @@ function vast_steppe_guardian_ch_5.SecondPreBossScene()
     {'Stantler', 184, 200, Direction.Down}
   })
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
   GROUND:CharSetAnim(stantler, "Charge", true)
 
-  GROUND:TeleportTo(hero, 200, 360, Direction.Up)
-  GROUND:TeleportTo(partner, 168, 360, Direction.Up)
-  GAME:MoveCamera(184, 200, 1, false)
+  GROUND:TeleportTo(hero, 200, 288, Direction.Up)
+  GROUND:TeleportTo(partner, 168, 288, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 136, 304, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 232, 304, Direction.Up) end
+  GAME:MoveCamera(184, 244, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -177,7 +253,9 @@ function vast_steppe_guardian_ch_5.SecondPreBossScene()
   PrintInfo("[NREPROBE][transition] vast_steppe_guardian_ch_5.lua ContinueDungeon('vast_steppe', 3)") GAME:ContinueDungeon("vast_steppe", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function vast_steppe_guardian_ch_5.DefeatedBoss()
+-- Corps de la cinématique, appelé sous pcall par DefeatedBoss() : toute erreur
+-- Lua ici ne doit JAMAIS laisser le joueur sur un écran noir définitif.
+local function DefeatedBossBody()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local stantler = CharacterEssentials.MakeCharactersFromList({
@@ -185,12 +263,16 @@ function vast_steppe_guardian_ch_5.DefeatedBoss()
   })
   GROUND:CharSetAnim(stantler, "Charge", true)
 
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
-  GROUND:TeleportTo(hero, 200, 300, Direction.Up)
-  GROUND:TeleportTo(partner, 168, 300, Direction.Up)
-  GAME:MoveCamera(184, 200, 1, false)
+  GROUND:TeleportTo(hero, 200, 288, Direction.Up)
+  GROUND:TeleportTo(partner, 168, 288, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 136, 304, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 232, 304, Direction.Up) end
+  GAME:MoveCamera(184, 244, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -216,9 +298,9 @@ function vast_steppe_guardian_ch_5.DefeatedBoss()
   flash.Anim = RogueEssence.Content.BGAnimData("White", 0)
   GROUND:PlayVFX(flash, stantler.Position.X, stantler.Position.Y)
   SOUND:PlayBattleSE("EVT_Battle_Flash")
-  GROUND:CharSetAction(stantler, RogueEssence.Ground.PoseGroundAction(
-    stantler.Position, stantler.Direction,
-    RogueEssence.Content.GraphicsManager.GetAnimIndex("Faint")))
+  -- LOT 2.3 — pas de PoseGroundAction/"Faint" : le gardien reste visible
+  -- pendant les dialogues, puis disparait au flash blanc.
+  GROUND:CharSetAnim(stantler, "Idle", true)
 
   GAME:WaitFrames(60)
 
@@ -236,12 +318,102 @@ function vast_steppe_guardian_ch_5.DefeatedBoss()
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSG_013']), "Normal")
   -- "On trouvera des réponses plus tard. Allons de l'avant."
 
+  -- LOT 8.3 — le salut du gardien, lu par le duo. Camera sur lui puis sur eux.
+  GAME:WaitFrames(15)
+  GAME:MoveCamera(184, 226, 40, false)
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_033']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(15)
+  GAME:MoveCamera(184, 258, 40, false)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Surprised")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_034']))
+  -- "Est-ce qu'il vient de... nous dire au revoir ?"
+  GAME:WaitFrames(15)
+
+  -- ================= IL PASSE LE RELAIS, ET AVERTIT =================
+  -- Le salut muet (VSG_033) ne suffisait pas : le vieux avait annonce qu'il
+  -- s'ecarterait, il doit le DIRE. Sa derniere phrase est la contrepartie
+  -- de celle de Stantler a la steppe : la brume ne lui a jamais parle.
+  -- Deux temoins independants, aucun des deux n'entend la Voix.
+  GAME:MoveCamera(184, 214, 40, false)
+  UI:SetSpeaker(stantler)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_044']))
+  -- "Bien. Je suis fatigue, et vous ne l'etes pas."
+  GAME:WaitFrames(15)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_045']))
+  -- "Prenez la plaine. Prenez la fumee derriere."
+  GAME:WaitFrames(20)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_046']))
+  -- "Et toi, petit — la brume ne m'a jamais parle. Demande-toi pourquoi."
+  GAME:WaitFrames(25)
+  GAME:MoveCamera(184, 258, 40, false)
+
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSG_035']), "Normal")
+  -- "Je crois qu'il a dit 'avancez'. Ce n'est pas pareil."
+  GAME:WaitFrames(20)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Inspired")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_036']))
+  -- "La brume se leve. Je vois enfin la ligne de crete."
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSG_037']), "Normal")
+  -- "Et de la fumee derriere. C'est la qu'on va, pas vrai."
+  GAME:WaitFrames(20)
+
+  -- LOT 4 — la Voix designe l'etape suivante de l'expedition...
+  GAME:WaitFrames(30)
+  BossFX.Voice('VSG_026')
+  -- "Tu as apaisé le veilleur des herbes. La montagne qui brûle jugera la suite."
+
+  -- ...et le partenaire fait le lien avec le Tunnel Ardent, ou l'expedition campe.
+  GAME:WaitFrames(20)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Surprised")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_027']))
+  -- "La montagne qui brûle... le Tunnel Ardent ! C'est là que l'expédition monte le camp !"
+
+  -- LOT 2.2 — disparition sous flash blanc, apres les dialogues de victoire.
+  GAME:WaitFrames(20)
+  SOUND:FadeOutBGM(60)
+  local flash = RogueEssence.Content.FlashEmitter()
+  flash.FadeInTime = 2
+  flash.HoldTime = 2
+  flash.FadeOutTime = 20
+  flash.StartColor = Color(255, 255, 255, 0)
+  flash.Layer = DrawLayer.Top
+  flash.Anim = RogueEssence.Content.BGAnimData("White", 0)
+  GROUND:PlayVFX(flash, stantler.Position.X, stantler.Position.Y)
+  SOUND:PlayBattleSE("EVT_Battle_Flash")
+  GAME:WaitFrames(16)
+  GROUND:Hide('Stantler')
+  GAME:WaitFrames(30)
+
   GAME:WaitFrames(60)
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(90)
+end
+
+function vast_steppe_guardian_ch_5.DefeatedBoss()
+  PrintInfo("[BossSeq][vast_steppe_guardian_ch_5] DefeatedBoss cutscene start")
+
+  local ok, err = pcall(DefeatedBossBody)
+  if not ok then
+    PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
+    pcall(function() GAME:FadeOut(false, 20) end)
+  end
+
+  -- Sortie garantie : la suite de l'expedition (Tunnel) doit TOUJOURS s'ouvrir.
   GAME:CutsceneMode(false)
-  -- Return to the expedition camp / next area
-  GAME:EnterGroundMap("searing_tunnel_entrance", "Main_Entrance_Marker")
+  PrintInfo("[BossSeq][vast_steppe_guardian_ch_5] DefeatedBoss -> searing_tunnel_entrance")
+  -- searing_tunnel_entrance appartient a master_zone (ground 47), pas a la zone
+  -- vast_steppe : EnterGroundMap inter-zone provoque "Invalid Ground Map Name".
+  -- La cinematique du premier camp se lance ensuite via searing_tunnel_entrance.PlotScripting.
+  -- LOT 6.2 : display=true / fanfare=true -> l'ecran de resultats standard (butin,
+  -- XP, etages) s'affiche AVANT que la cinematique du camp ne prenne le relais.
+  GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared, "master_zone", -1, 47, 0, true, true)
 end
 
 -- Player died to the boss
@@ -256,7 +428,7 @@ function vast_steppe_guardian_ch_5.DiedToBoss()
   local partner = CH('Teammate1')
 
   GAME:CutsceneMode(true)
-  AI:DisableCharacterAI(partner)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
   local stantler = CharacterEssentials.MakeCharactersFromList({
@@ -265,11 +437,15 @@ function vast_steppe_guardian_ch_5.DiedToBoss()
   GROUND:CharSetAnim(stantler, "Idle", true)
 
   -- L'équipe est au sol, vaincue.
-  GROUND:TeleportTo(hero, 200, 300, Direction.Up)
-  GROUND:TeleportTo(partner, 168, 300, Direction.Up)
+  GROUND:TeleportTo(hero, 200, 288, Direction.Up)
+  GROUND:TeleportTo(partner, 168, 288, Direction.Up)
+  local t2 = CH('Teammate2')
+  local t3 = CH('Teammate3')
+  if t2 ~= nil then GROUND:TeleportTo(t2, 136, 304, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 232, 304, Direction.Up) end
   GROUND:CharSetAnim(hero, "EventSleep", true)
   GROUND:CharSetAnim(partner, "EventSleep", true)
-  GAME:MoveCamera(184, 245, 1, false)
+  GAME:MoveCamera(184, 244, 1, false)
 
   GAME:FadeIn(60)
   GAME:WaitFrames(40)
@@ -296,7 +472,7 @@ function vast_steppe_guardian_ch_5.DiedToBoss()
   GAME:WaitFrames(30)
 
   -- La caméra redescend sur le duo ; le partenaire se redresse à peine.
-  GAME:MoveCamera(184, 255, 40, false)
+  GAME:MoveCamera(184, 266, 40, false)
   GROUND:CharEndAnim(partner)
   GeneralFunctions.DoAnimation(partner, 'Wake')
   GAME:WaitFrames(12)

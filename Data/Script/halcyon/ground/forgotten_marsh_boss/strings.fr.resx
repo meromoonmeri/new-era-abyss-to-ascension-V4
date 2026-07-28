@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="FMB_001" xml:space="preserve"><value>Tu oses troubler le sommeil du marais...[pause=15] Tu ne sais pas ce que tu réveilles.</value></data>
+  <data name="FMB_002" xml:space="preserve"><value>Je protège ces terres depuis des millénaires.[pause=15] Tu ne passeras pas.</value></data>
+  <data name="FMB_R01" xml:space="preserve"><value>La vase s'est refermée.[pause=20] Pas une bulle, pas un remous.</value></data>
+  <data name="FMB_R02" xml:space="preserve"><value>(Il a jailli de là.[pause=15] L'eau ne garde aucune trace.)</value></data>
+  <data name="FMB_R03" xml:space="preserve"><value>Le marais a repris son cours.[pause=20] Il n'a plus besoin qu'on le défende.</value></data>
+  <data name="FMB_R04" xml:space="preserve"><value>Il n'y a plus rien à trouver ici.[pause=0] Il est temps de rentrer.</value></data>
+</root>

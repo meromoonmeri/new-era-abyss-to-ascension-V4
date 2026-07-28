@@ -7,6 +7,8 @@
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.ChapterAftermath'
+require 'halcyon.ReplayEnding'
 
 local celestial_peak = {}
 
@@ -14,6 +16,12 @@ function celestial_peak.Init(zone)
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Init_celestial_peak")
   SV.TemporaryFlags.LastDungeonEntered = 'celestial_peak'
+  -- Rejouabilite : jalon interne au parcours rejoue (voir celestial_peak_relay).
+  -- Remis a zero a chaque entree dans le donjon, pour que la Mer de Nuages
+  -- (segment 2) soit bien retraversee avant le Sommet Sacre (segment 4).
+  if ReplayEnding.IsReplay('celestial_peak', 10) then
+    SV.Chapter10.ReplayPastFulgur = false
+  end
 end
 
 function celestial_peak.EnterSegment(zone, rescuing, segmentID, mapID)
@@ -47,7 +55,7 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
 
   if segmentID == 0 then
       -- Contreforts Venteux : 8 etages
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 10 then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('celestial_peak', 10) then
           SV.Chapter10.ReachedCloudRelay = true
           GAME:EnterGroundMap('celestial_peak_relay', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
@@ -70,7 +78,7 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
       end
   elseif segmentID == 2 then
       -- Mer de Nuages : 6 etages
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 10 then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('celestial_peak', 10) then
           SV.Chapter10.ReachedFulgurEncounter = true
           GAME:EnterGroundMap('celestial_peak_fulgur', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
@@ -103,7 +111,7 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
       end
   elseif segmentID == 4 then
       -- Sommet Sacre : 4 etages
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 10 then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('celestial_peak', 10) then
           SV.Chapter10.ReachedLugiaAltar = true
           -- Autel des Cieux : arene officielle importee 1:1 de pmd-red (D13P03,
           -- Sky Tower Summit) — remplace l'ancienne carte composee celestial_peak_boss.
@@ -127,10 +135,20 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
           SV.Chapter10.DefeatedLugia = true
           SV.Chapter10.CelestialPeakComplete = true
+          --Scene d'apres-boss : la consequence se joue AVANT le retour a la
+          --guilde. Sans elle, le combat le plus important du chapitre se
+          --terminait par un simple fondu vers la fin de journee.
+          ChapterAftermath.PeakVictory()
           -- Fin de l'histoire actuelle : debloque le contenu end-game (Mega-Pierres, etc.).
           -- Quand les chapitres 11+ existeront, deplacer cette ligne vers la vraie fin.
           SV.ChapterProgression.StoryCompleted = true
-          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 75, 0, true, true)
+          --Fin de chapitre : on rentre dormir a la guilde pour la veillee finale
+          --(guild_heros_room_ch_10). Carte 2 = guild_heros_room, la chambre.
+          SV.TemporaryFlags.Dinnertime = true
+          SV.TemporaryFlags.Bedtime = true
+          SV.TemporaryFlags.MorningWakeup = true
+          SV.TemporaryFlags.MorningAddress = true
+          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 2, 0, true, true)
       else
           SV.Chapter10.DiedToLugia = true
           SV.Chapter10.PeakMidState = 'DeathArrival'

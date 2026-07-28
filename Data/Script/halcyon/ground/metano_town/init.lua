@@ -3,6 +3,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.AudinoAssembly'
+require 'halcyon.ReplayEnding'
 require 'halcyon.ground.metano_town.metano_town_ch_1'
 require 'halcyon.ground.metano_town.metano_town_ch_2'
 require 'halcyon.ground.metano_town.metano_town_ch_3'
@@ -13,6 +14,11 @@ require 'halcyon.ground.metano_town.metano_town_ch_6'
 require 'halcyon.ground.metano_town.metano_town_legend'
 require 'halcyon.menu.single_deal_menu'
 require 'origin.menu.skill.SkillTutorMenu'
+require 'halcyon.SideQuests'
+require 'halcyon.TownPlunder'
+require 'halcyon.Seasons'
+require 'halcyon.TownVoicesNight'
+require 'halcyon.TownReward'
 
 
 
@@ -27,6 +33,15 @@ function metano_town.Init(map)
 	COMMON.RespawnAllies()
 	PartnerEssentials.InitializePartnerSpawn()
 	GROUND:AddMapStatus("clouds_overhead")
+
+	--SAISON DU BOURG (Seasons.lua). Le decor suit l'avancement du recit :
+	--petales au printemps, feuilles en automne, neige en hiver, rien en ete.
+	--Pose ICI et pas dans Enter, comme clouds_overhead juste au-dessus :
+	--Init s'execute carte chargee, avant que le joueur ne la voie.
+	--Apply() retire d'abord les trois statuts saisonniers — un MapStatus
+	--persiste (cf. guild_heros_room_ch_1.lua:162), donc sans ce nettoyage
+	--deux saisons finiraient par se superposer.
+	pcall(function() Seasons.Setup() end)
 
 	--Remove nicknames from characters if the nickname mod is enabled.
 	if CONFIG.UseNicknames() then
@@ -56,6 +71,12 @@ function metano_town.Enter(map)
 	DEBUG.EnableDbgCoro()
 	print('Enter_metano_town')
 	metano_town.PlotScripting()
+
+	--La premiere fois qu'une saison s'installe, le partenaire la remarque.
+	--Une seule fois par saison, deux boites. Appele APRES PlotScripting :
+	--une scene d'histoire garde toujours la priorite sur un commentaire
+	--de decor.
+	pcall(function() Seasons.Remark() end)
 end
 
 function metano_town.Update(map, time)
@@ -74,6 +95,15 @@ end
 
 
 function metano_town.PlotScripting()
+	--LES FELICITATIONS DU LENDEMAIN (TownReward). Jouees quand la nuit
+	--precedente a ete gagnee, AVANT le scripting de chapitre : c'est une
+	--breve reaction de la ville, pas une scene d'histoire. Elle se
+	--desarme d'elle-meme (Pending) et ne se joue donc qu'une fois.
+	--
+	--Placee ici et non dans Enter : PlotScripting est le point ou les
+	--scenes de ville se declenchent deja, on suit l'usage du fichier.
+	pcall(function() TownReward.Congratulations() end)
+
 	--plot scripting
 	if SV.ChapterProgression.Chapter == 1 then
 		if not SV.Chapter1.PartnerCompletedForest then
@@ -181,6 +211,11 @@ end
 
 function metano_town.East_Exit_Touch(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
+  --Rejouabilite : rouvre au voyage les donjons d'histoire deja termines.
+  --Les 7 donjons ch5-ch10 n'etaient jamais passes a UnlockDungeon, donc ils
+  --n'apparaissaient pas dans la liste ci-dessous meme une fois boucles.
+  --Idempotent et garde par pcall : n'empeche jamais l'ouverture du menu.
+  ReplayEnding.SyncUnlocks()
   GeneralFunctions.StartPartnerConversation("Où devrions-nous aller,[pause=10]" .. CH('PLAYER'):GetDisplayName() .. " ?", "Normal", false)
   GAME:WaitFrames(20)
   local dungeons = {"relic_forest", "illuminant_riverbed", "crooked_cavern", "apricorn_grove", "vast_steppe", "searing_tunnel", "mount_windswept", "gloomy_forest", "cloven_ruins", "crystal_sanctuary", "forgotten_marsh", "celestial_peak", "petit_tunnel", "bosquet_voile", "grotte_mystere", "vallee_fertile", "antre_enigme", "carriere_cuivre", "grotte_echoue"}--this needs to be updated when more dungeons come out.
@@ -734,7 +769,16 @@ function metano_town.GeneratePurpleKecleonStock(generate_random_item)
 end
 
 function metano_town.Shop_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Shop_Owner') then return end
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
+
+  --ETALS PILLES. Si les rodeurs ont vide la boutique cette nuit, le
+  --marchand le DIT au lieu d'ouvrir un catalogue vide : un menu sans
+  --article passerait pour un bug d'affichage. Voir TownPlunder.lua.
+  if TownPlunder.ShopExcuse() then return end
 
   local state = 0
   local repeated = false
@@ -944,6 +988,10 @@ end
 
 
 function metano_town.TM_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('TM_Owner') then return end
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
 
   local state = 0
@@ -1158,6 +1206,10 @@ end
 
 --todo: Tidy this up at some point?
 function metano_town.Musician_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Musician') then return end
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
   local chara = CH('Musician')
   local old_song = SOUND:GetCurrentSong()
@@ -1211,6 +1263,10 @@ end
 
 
 function metano_town.Storage_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Storage_Owner') then return end
 	DEBUG.EnableDbgCoro()
 
 	local hero = CH('PLAYER')
@@ -1315,6 +1371,10 @@ end
 
 
 function metano_town.Bank_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Bank_Owner') then return end
 	DEBUG.EnableDbgCoro()
 
     local hero = CH('PLAYER')
@@ -1393,6 +1453,10 @@ function metano_town.GenerateRedMerchantItem()
 end
 
 function metano_town.Red_Merchant_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Red_Merchant') then return end
 	DEBUG.EnableDbgCoro()
 	local state = 0
 	local repeated = false
@@ -1598,6 +1662,10 @@ end
 
 
 function metano_town.Green_Merchant_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Green_Merchant') then return end
 	DEBUG.EnableDbgCoro()
 	local state = 0
 	local repeated = false
@@ -1748,6 +1816,10 @@ end
 
 
 function metano_town.Swap_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Swap_Owner') then return end
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
 
   --silk/dust/gem/globes
@@ -1981,6 +2053,10 @@ end
 
 BasePowerType = luanet.import_type('RogueEssence.Dungeon.BasePowerState')
 function metano_town.Tutor_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Tutor_Owner') then return end
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
 
   local price = 0
@@ -2224,6 +2300,10 @@ end
 
 
 function metano_town.Appraisal_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Appraisal') then return end
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
 
   local state = 0
@@ -2736,16 +2816,28 @@ end
 --La logique vit dans metano_town_legend.lua ; ce callback n'est que le relais
 --appele par l'entite 'Legend_Merchant' de metano_town.rsground.
 function metano_town.Legend_Merchant_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Legend_Merchant') then return end
+  --Au retour de l'expedition, la premiere approche joue l'installation du
+  --stand ; la boutique ne s'ouvre qu'ensuite (au clic suivant).
+  if metano_town_legend.ArrivalScene(activator) then return end
   metano_town_legend.Legend_Merchant_Action(obj, activator)
 end
 
 --L'etal lui-meme renvoie vers la marchande : cliquer sur le comptoir
 --ou sur Grodoudou produit la meme scene.
 function metano_town.Legend_Stand_Action(obj, activator)
+  if metano_town_legend.ArrivalScene(activator) then return end
   metano_town_legend.Legend_Merchant_Action(CH('Legend_Merchant'), activator)
 end
 
 function metano_town.Growlithe_Desk_Action(obj, activator)
+  --LA VILLE PARLE DE LA NUIT. Si un raid a eu lieu, ce commercant en
+  --dit un mot AVANT d'ouvrir boutique. Une seule fois par journee, et
+  --rend la main aussitot : aucun dialogue existant n'est perdu.
+  if TownVoicesNight.Talk('Growlithe') then return end
  DEBUG.EnableDbgCoro() --Enable debugging this coroutine
  assert(pcall(load("metano_town_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Growlithe_Desk_Action(...,...)"), obj, activator))
 end
@@ -2902,11 +2994,22 @@ function metano_town.Postboard_Action(obj, activator)
 	  UI:SetCenter(false)
   end
   ]]--
-  UI:SetAutoFinish(true)
-  UI:SetCenter(true)
-  UI:WaitShowDialogue("Il n'y a rien ici pour le moment.\nRevenez une autre fois !")
-  UI:SetAutoFinish(false)
-  UI:SetCenter(false)
+  --TABLEAU DES REQUETES. Ce panneau ne servait plus a rien (son code
+  --d'origine est commente juste au-dessus). Il porte desormais les requetes
+  --de Metano : le joueur doit TOUJOURS pouvoir savoir ce qui lui manque,
+  --sinon une progression verrouillee devient une enigme frustrante.
+  GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+  GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+  local ch = SV.ChapterProgression.Chapter or 0
+  if #SideQuests.OfChapter(ch) > 0 then
+    SideQuests.Board(ch)
+  else
+    UI:SetAutoFinish(true)
+    UI:SetCenter(true)
+    UI:WaitShowDialogue("Il n'y a rien ici pour le moment.\nRevenez une autre fois !")
+    UI:SetAutoFinish(false)
+    UI:SetCenter(false)
+  end
 
   partner.IsInteracting = false
   GROUND:CharEndAnim(partner)
@@ -3112,6 +3215,49 @@ function metano_town.SetMerchantNicknames()
 	farfetchd.Data.Nickname = CharacterEssentials.GetCharacterName('Farfetchd')
 	growlithe.Data.Nickname = CharacterEssentials.GetCharacterName('Growlithe')
 
+end
+
+--------------------------------------------------------------------
+-- LES MARCHANDS REPONDENT QUAND ON LEUR PARLE
+--------------------------------------------------------------------
+-- Ces 7 PNJ sont poses sur la carte avec triggerType = 1 (interactif) et
+-- toutes leurs cases voisines sont libres : le joueur PEUT donc marcher
+-- jusqu'a eux et appuyer sur A. Mais aucun handler <Nom>_Action n'existait,
+-- et le moteur ne trouvait rien a appeler : le marchand restait muet.
+--
+-- Verifie a la main sur metano_town.rsground : Shop_Owner 4 cases libres
+-- sur 4, Bank_Owner 4/4, Storage_Owner 3/4, Swap_Owner 3/4, TM_Owner 3/4,
+-- Tutor_Owner 2/4, Growlithe 2/4. Aucun n'est adosse a un mur.
+--
+-- On delegue simplement au comptoir voisin, qui porte deja toute la
+-- logique de boutique : parler au vendeur ou toucher son etal doit faire
+-- exactement la meme chose.
+function metano_town.Shop_Owner_Action(chara, activator)
+  metano_town.Shop_Action(chara, activator)
+end
+
+function metano_town.Bank_Owner_Action(chara, activator)
+  metano_town.Bank_Action(chara, activator)
+end
+
+function metano_town.Storage_Owner_Action(chara, activator)
+  metano_town.Storage_Action(chara, activator)
+end
+
+function metano_town.Swap_Owner_Action(chara, activator)
+  metano_town.Swap_Action(chara, activator)
+end
+
+function metano_town.TM_Owner_Action(chara, activator)
+  metano_town.TM_Action(chara, activator)
+end
+
+function metano_town.Tutor_Owner_Action(chara, activator)
+  metano_town.Tutor_Action(chara, activator)
+end
+
+function metano_town.Growlithe_Action(chara, activator)
+  metano_town.Growlithe_Desk_Action(chara, activator)
 end
 
 return metano_town

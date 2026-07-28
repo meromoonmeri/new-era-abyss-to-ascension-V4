@@ -9,6 +9,7 @@ require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.npc_routines'
+require 'halcyon.TownVoicesLate'
 
 metano_town_ch_9 = {}
 
@@ -242,6 +243,10 @@ end
 -- ============================================================
 
 function metano_town_ch_9.Machamp_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Machamp', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -265,6 +270,10 @@ function metano_town_ch_9.Machamp_Action(chara, activator)
 end
 
 function metano_town_ch_9.Medicham_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Medicham', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -306,6 +315,10 @@ end
 -- ============================================================
 
 function metano_town_ch_9.Nidoqueen_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Nidoqueen', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -325,6 +338,10 @@ function metano_town_ch_9.Nidoqueen_Action(chara, activator)
 end
 
 function metano_town_ch_9.Nidoking_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Nidoking', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -343,6 +360,10 @@ function metano_town_ch_9.Nidoking_Action(chara, activator)
 end
 
 function metano_town_ch_9.Nidorina_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Nidorina', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -513,6 +534,10 @@ function metano_town_ch_9.Electrike_Action(chara, activator)
 end
 
 function metano_town_ch_9.Manectric_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Manectric', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -534,6 +559,10 @@ end
 -- ============================================================
 
 function metano_town_ch_9.Luxray_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Luxray', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -557,6 +586,10 @@ end
 -- ============================================================
 
 function metano_town_ch_9.Vileplume_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Vileplume', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -575,6 +608,10 @@ function metano_town_ch_9.Vileplume_Action(chara, activator)
 end
 
 function metano_town_ch_9.Bellossom_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Bellossom', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -592,6 +629,10 @@ function metano_town_ch_9.Bellossom_Action(chara, activator)
 end
 
 function metano_town_ch_9.Gloom_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Gloom', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -609,6 +650,10 @@ function metano_town_ch_9.Gloom_Action(chara, activator)
 end
 
 function metano_town_ch_9.Oddish_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Oddish', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -630,6 +675,10 @@ end
 -- ============================================================
 
 function metano_town_ch_9.Furret_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Furret', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -647,6 +696,10 @@ function metano_town_ch_9.Furret_Action(chara, activator)
 end
 
 function metano_town_ch_9.Linoone_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Linoone', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -664,6 +717,10 @@ function metano_town_ch_9.Linoone_Action(chara, activator)
 end
 
 function metano_town_ch_9.Sentret_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Sentret', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -685,6 +742,10 @@ end
 -- ============================================================
 
 function metano_town_ch_9.Wooper_Girl_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Wooper_Girl', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -702,6 +763,10 @@ function metano_town_ch_9.Wooper_Girl_Action(chara, activator)
 end
 
 function metano_town_ch_9.Wooper_Boy_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Wooper_Boy', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -723,6 +788,10 @@ end
 -- ============================================================
 
 function metano_town_ch_9.Gulpin_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Gulpin', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -740,6 +809,10 @@ function metano_town_ch_9.Gulpin_Action(chara, activator)
 end
 
 function metano_town_ch_9.Lickitung_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Lickitung', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -757,12 +830,20 @@ function metano_town_ch_9.Lickitung_Action(chara, activator)
 end
 
 function metano_town_ch_9.Spinda_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Spinda', 9) then return end
     GeneralFunctions.StartConversation(chara,
         STRINGS:Format(STRINGS.MapStrings['MT9_Spinda_001']), "Normal")
     GeneralFunctions.EndConversation(chara)
 end
 
 function metano_town_ch_9.Ludicolo_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Ludicolo', 9) then return end
     GeneralFunctions.StartConversation(chara,
         STRINGS:Format(STRINGS.MapStrings['MT9_Ludicolo_001']), "Normal")
     GeneralFunctions.EndConversation(chara)
@@ -786,6 +867,10 @@ function metano_town_ch_9.Azumarill_Action(chara, activator)
 end
 
 function metano_town_ch_9.Roselia_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Roselia', 9) then return end
     GeneralFunctions.StartConversation(chara,
         STRINGS:Format(STRINGS.MapStrings['MT9_Roselia_001']), "Normal")
     GeneralFunctions.EndConversation(chara)
@@ -796,6 +881,10 @@ end
 -- ============================================================
 
 function metano_town_ch_9.Jigglypuff_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Jigglypuff', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -809,6 +898,10 @@ function metano_town_ch_9.Jigglypuff_Action(chara, activator)
 end
 
 function metano_town_ch_9.Marill_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Marill', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -847,18 +940,30 @@ function metano_town_ch_9.Doduo_Action(chara, activator)
 end
 
 function metano_town_ch_9.Metapod_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Metapod', 9) then return end
     GeneralFunctions.StartConversation(chara,
         STRINGS:Format(STRINGS.MapStrings['MT9_Metapod_001']), "Normal")
     GeneralFunctions.EndConversation(chara)
 end
 
 function metano_town_ch_9.Silcoon_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Silcoon', 9) then return end
     GeneralFunctions.StartConversation(chara,
         STRINGS:Format(STRINGS.MapStrings['MT9_Silcoon_001']), "Normal")
     GeneralFunctions.EndConversation(chara)
 end
 
 function metano_town_ch_9.Mareep_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Mareep', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -872,6 +977,10 @@ function metano_town_ch_9.Mareep_Action(chara, activator)
 end
 
 function metano_town_ch_9.Cranidos_Action(chara, activator)
+  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
+  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
+  --n'a pas de fiche : aucun dialogue existant n'est perdu.
+  if TownVoicesLate.Talk('Cranidos', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,

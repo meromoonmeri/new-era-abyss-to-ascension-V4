@@ -2,6 +2,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.BossFX'
 
 searing_crucible_ch_5 = {}
 
@@ -60,7 +61,7 @@ function searing_crucible_ch_5.FirstPreBossScene()
 		})
 	GROUND:Hide('Magcargo')
 	
-	AI:DisableCharacterAI(partner)
+	if partner ~= nil then AI:DisableCharacterAI(partner) end
 	SOUND:StopBGM()
 	
 	GROUND:TeleportTo(hero, 240, 472, Direction.Up)
@@ -565,11 +566,11 @@ function searing_crucible_ch_5.FirstPreBossScene()
 	coro1 = TASK:BranchCoroutine(function() GROUND:MoveScreen(RogueEssence.Content.ScreenMover(3, 6, 30))
 											GAME:WaitFrames(10)	
 											SOUND:PlayBattleSE("_UNK_EVT_003")
-											local arriveAnim = RogueEssence.Content.StaticAnim(RogueEssence.Content.AnimData("Sacred_Fire_Ranger", 3), 1)
-											arriveAnim:SetupEmitted(RogueElements.Loc(magcargo.Position.X + 8, magcargo.Position.Y), 32, RogueElements.Dir8.Down)
-											GROUND:PlayVFXAnim(arriveAnim, RogueEssence.Content.DrawLayer.Front)
-											GAME:WaitFrames(3)
+											--LOT 2.1 : apparition standardisee sous flash blanc.
+											BossFX.Flash(256, 192, 3, 5, 20)
+											GAME:WaitFrames(8)
 											GROUND:Unhide('Magcargo')
+											BossFX.Impact(9)
 											GAME:WaitFrames(37)		
 											end)
 
@@ -606,13 +607,19 @@ function searing_crucible_ch_5.FirstPreBossScene()
 	UI:SetSpeaker(magcargo)
 	UI:SetSpeakerEmotion("Determined")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_033']))
+
+	--LOT 4 : la Voix mysterieuse s'invite avant l'epreuve du feu.
+	GAME:WaitFrames(20)
+	BossFX.Voice('SC5_085')
+	--"Voici la fournaise. Brule, ou deviens digne."
+	GAME:WaitFrames(20)
 	
 	--Setup for lavaflow variables will happen in the zone's enter segment.
 	COMMON.BossTransition()
 	GAME:CutsceneMode(false)	
 	SV.Chapter5.EncounteredBoss = true
 	--enter fight
-	GAME:ContinueDungeon("searing_tunnel", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+	GAME:ContinueDungeon("searing_tunnel", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 	
 end
 
@@ -666,7 +673,7 @@ function searing_crucible_ch_5.SecondPreBossScene()
 		})
 	
 
-	AI:DisableCharacterAI(partner)
+	if partner ~= nil then AI:DisableCharacterAI(partner) end
 	SOUND:StopBGM()
 	
 	GROUND:TeleportTo(hero, 246, 246, Direction.Up)
@@ -731,13 +738,15 @@ function searing_crucible_ch_5.SecondPreBossScene()
 	COMMON.BossTransition()
 	GAME:CutsceneMode(false)	
 	--enter fight
-	GAME:ContinueDungeon("searing_tunnel", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+	GAME:ContinueDungeon("searing_tunnel", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 	
 	
 end
 
 --TASK:BranchCoroutine(searing_crucible_ch_5.DefeatedBoss)
-function searing_crucible_ch_5.DefeatedBoss()
+-- Corps de la cinematique, appele sous pcall par DefeatedBoss() : toute erreur
+-- Lua ici ne doit JAMAIS laisser le joueur sur un ecran noir definitif.
+local function DefeatedBossBody()
 	--magcargo is actually defeated, and offers his neck metaphorically to the stone, party explains that they didn't even want to fight
 	--magcargo explains he thought the outlanders were causing all the issues the tunnel's been experiencing
 	--after they disappear, partner should mention that he's glad hyko and almotz were there. Just him and the palyer wouldn't have been able to deal with all those enemies at once
@@ -791,7 +800,7 @@ function searing_crucible_ch_5.DefeatedBoss()
 	GROUND:CharSetAnim(magcargo, "Charge", true)
 	
 	
-	AI:DisableCharacterAI(partner)
+	if partner ~= nil then AI:DisableCharacterAI(partner) end
 	SOUND:StopBGM()
 	
 	GROUND:TeleportTo(hero, 244, 240, Direction.Up)
@@ -1092,11 +1101,17 @@ function searing_crucible_ch_5.DefeatedBoss()
 	coro1 = TASK:BranchCoroutine(function() GROUND:MoveScreen(RogueEssence.Content.ScreenMover(3, 6, 30))
 											GAME:WaitFrames(10)	
 											SOUND:StopBGM()
-											SOUND:PlayBattleSE("_UNK_EVT_003")
-											local arriveAnim = RogueEssence.Content.StaticAnim(RogueEssence.Content.AnimData("Sacred_Fire_Ranger", 3), 1)
-											arriveAnim:SetupEmitted(RogueElements.Loc(magcargo.Position.X + 8, magcargo.Position.Y), 32, RogueElements.Dir8.Down)
-											GROUND:PlayVFXAnim(arriveAnim, RogueEssence.Content.DrawLayer.Front)
-											GAME:WaitFrames(3)
+											SOUND:PlayBattleSE("EVT_Battle_Flash")
+											--LOT 2.2 : disparition standardisee sous flash blanc.
+											local flash = RogueEssence.Content.FlashEmitter()
+											flash.FadeInTime = 2
+											flash.HoldTime = 2
+											flash.FadeOutTime = 20
+											flash.StartColor = Color(255, 255, 255, 0)
+											flash.Layer = DrawLayer.Top
+											flash.Anim = RogueEssence.Content.BGAnimData("White", 0)
+											GROUND:PlayVFX(flash, magcargo.Position.X, magcargo.Position.Y)
+											GAME:WaitFrames(16)
 											GROUND:Hide('Magcargo')
 											end)
 
@@ -1215,6 +1230,14 @@ function searing_crucible_ch_5.DefeatedBoss()
 	UI:SetSpeaker(growlithe)
 	UI:SetSpeakerEmotion("Surprised")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_081']))
+
+	--LOT 4 : le partenaire fixe le cap sur la derniere etape de l'expedition.
+	GAME:WaitFrames(20)
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Determined")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_086']))
+	--"Apres le feu... il ne reste que le vent. Le Mont Venteux nous attend."
+	GAME:WaitFrames(20)
 	
 	--they leave
 	coro1 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
@@ -1234,8 +1257,21 @@ function searing_crucible_ch_5.DefeatedBoss()
 	
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
 	GAME:WaitFrames(90)
+end
+
+function searing_crucible_ch_5.DefeatedBoss()
+	PrintInfo("[BossSeq][searing_crucible_ch_5] DefeatedBoss cutscene start")
+
+	local ok, err = pcall(DefeatedBossBody)
+	if not ok then
+		PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
+		pcall(function() GAME:FadeOut(false, 20) end)
+	end
+
+	-- Sortie garantie : la suite de l'expedition (Mont) doit TOUJOURS s'ouvrir.
 	GAME:CutsceneMode(false)
-	GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker')	
+	PrintInfo("[BossSeq][searing_crucible_ch_5] DefeatedBoss -> mount_windswept_entrance")
+	GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker')
 end
 
 

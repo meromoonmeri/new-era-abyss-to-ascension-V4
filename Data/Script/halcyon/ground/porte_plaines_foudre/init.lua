@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local porte_plaines_foudre = {}
 
@@ -48,11 +49,10 @@ function porte_plaines_foudre.Enter(map)
   UI:SetCenter(false)
   GAME:WaitFrames(30)
 
-  -- 2. L'irruption (motif propre à ce gardien — fiche anti-répétition).
-  BossFX.Flash(224, 176, 4, 6, 10)
-  GROUND:Unhide('Electhor')
-  BossFX.Impact(3, true)
-  GAME:WaitFrames(20)
+  -- 2. L'irruption — ELECTRIQUE : l'oiseau de foudre se forme dans l'orage.
+  --    Avant ce lot : un BossFX.Flash generique, identique a 10 autres
+  --    arenes. Toutes les particules employees sont attestees.
+  BossFX.StrikeThunder(electhor, 224, 176)
 
   -- 3. Le recul du groupe.
   BossFX.PushBack({hero, partner}, Direction.Down)
@@ -64,7 +64,7 @@ function porte_plaines_foudre.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(electhor, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('porte_plaines_foudre')
   UI:WaitShowTitle("Électhor, le Grand Conducteur", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

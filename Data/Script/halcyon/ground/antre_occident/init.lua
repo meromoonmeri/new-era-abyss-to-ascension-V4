@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local antre_occident = {}
 
@@ -19,6 +20,68 @@ end
 
 function antre_occident.Enter(map)
   DEBUG.EnableDbgCoro()
+  -- === RESEAU DES ANCIENS CHEMINS (new_era_zone_23) ===
+  -- Ce ground sert AUSSI de cinematique d'Ancrage (chemin d'origine, plus bas,
+  -- inchange). Quand on y arrive depuis la zone Reseau, c'est le Veilleur
+  -- qu'on rencontre, pas le gardien d'Ancrage.
+  if tostring(_ZONE.CurrentZoneID) == 'new_era_zone_23' then
+    local hero = CH('PLAYER')
+    local partner = CH('Teammate1')
+    GAME:CutsceneMode(true)
+    GROUND:TeleportTo(hero, 176, 168, Direction.Up)
+    if partner ~= nil then GROUND:TeleportTo(partner, 152, 168, Direction.Up) end
+    local portier = CharacterEssentials.MakeCharactersFromList({{'PortierDuVide', 160, 240, Direction.Down}})
+    GROUND:Hide('PortierDuVide')
+    GAME:MoveCamera(160, 204, 1, false)
+    GAME:FadeIn(40)
+    GAME:WaitFrames(30)
+
+    if SV.Reseau ~= nil and SV.Reseau.Veilleurs ~= nil and SV.Reseau.Veilleurs['new_era_zone_23'] then
+      GROUND:Unhide('PortierDuVide')
+      UI:SetSpeaker(portier)
+      UI:WaitShowDialogue("Toujours l'antichambre.[pause=20] Toujours pas le fond.")
+      COMMON.BossTransition()
+      GAME:CutsceneMode(false)
+      GAME:ContinueDungeon("new_era_zone_23", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+      return
+    end
+
+    UI:ResetSpeaker(false)
+    UI:SetCenter(true)
+    UI:WaitShowDialogue("LE SILENCE ICI N'EST PAS VIDE.[pause=20] IL EST TENU.")
+    UI:SetCenter(false)
+    GAME:WaitFrames(30)
+
+    BossFX.EmergeShadow(portier, 160, 240)
+    GAME:WaitFrames(20)
+    BossFX.PushBack({hero, partner}, Direction.Down)
+    GAME:WaitFrames(10)
+      GROUND:Unhide('PortierDuVide')
+    GAME:WaitFrames(18)
+
+    BossMusic.Play('antre_occident')
+    UI:WaitShowTitle("Portier-du-Vide, Veilleur du Silence", 20)
+    GAME:WaitFrames(50)
+    UI:WaitHideTitle(20)
+
+    UI:SetSpeaker(portier)
+    UI:WaitShowDialogue("Je garde l'antichambre.[pause=20] Rien de plus.")
+    UI:SetSpeaker(portier)
+    UI:WaitShowDialogue("Ce qui dort plus bas n'est pas prêt à te voir.[pause=25] Et toi, tu n'es pas prêt à le voir.")
+
+    if partner ~= nil then
+      UI:SetSpeaker(partner)
+      UI:SetSpeakerEmotion("Worried")
+      UI:WaitShowDialogue("« Ce qui dort plus bas »...[pause=20] Il y a autre chose sous cette caverne ?")
+    end
+    GeneralFunctions.HeroDialogue(hero, "Une porte à la fois.", "Determined")
+
+    COMMON.BossTransition()
+    GAME:CutsceneMode(false)
+    GAME:ContinueDungeon("new_era_zone_23", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    return
+  end
+
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   GAME:CutsceneMode(true)
@@ -65,7 +128,7 @@ function antre_occident.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(mewtwo, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('antre_occident')
   UI:WaitShowTitle("Mewtwo, le Silence Occidental", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

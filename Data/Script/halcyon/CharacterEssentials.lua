@@ -343,7 +343,7 @@ local characters = {
 		--Chapitre 5 : mini-boss et gardiens des donjons de l'expedition
 		Mudbray = {
 			species = "mudbray",
-			nickname = 'Mudbray',
+			nickname = 'Tiboudet',
 			instance = 'Mudbray',
 			gender = Gender.Male,
 			form = 0,
@@ -351,7 +351,7 @@ local characters = {
 		},
 		Stantler = {
 			species = "stantler",
-			nickname = 'Stantler',
+			nickname = 'Cerfrousse',
 			instance = 'Stantler',
 			gender = Gender.Male,
 			form = 0,
@@ -359,7 +359,7 @@ local characters = {
 		},
 		Torkoal = {
 			species = "torkoal",
-			nickname = 'Torkoal',
+			nickname = 'Chartor',
 			instance = 'Torkoal',
 			gender = Gender.Male,
 			form = 0,
@@ -375,7 +375,7 @@ local characters = {
 		},
 		Gligar = {
 			species = "gligar",
-			nickname = 'Gligar',
+			nickname = 'Scorplane',
 			instance = 'Gligar',
 			gender = Gender.Female,
 			form = 0,
@@ -383,7 +383,7 @@ local characters = {
 		},
 		Skarmory = {
 			species = "skarmory",
-			nickname = 'Skarmory',
+			nickname = 'Airmure',
 			instance = 'Skarmory',
 			gender = Gender.Male,
 			form = 0,
@@ -391,7 +391,7 @@ local characters = {
 		},
 		Aerodactyl = {
 			species = "aerodactyl",
-			nickname = 'Aerodactyl',
+			nickname = 'Ptéra',
 			instance = 'Aerodactyl',
 			gender = Gender.Male,
 			form = 0,
@@ -431,6 +431,144 @@ local characters = {
 			skin = "normal"
 		},
 		--Livre II : gardiens d'Ancrage (cinematiques vague 7)
+		--Chapitre 5 : sbires du clan de lave (Tunnel Ardent)
+		Limagma1 = {
+			species = "slugma",
+			nickname = 'Limagma',
+			instance = 'Limagma1',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Limagma2 = {
+			species = "slugma",
+			nickname = 'Limagma',
+			instance = 'Limagma2',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Limagma3 = {
+			species = "slugma",
+			nickname = 'Limagma',
+			instance = 'Limagma3',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Limagma4 = {
+			species = "slugma",
+			nickname = 'Limagma',
+			instance = 'Limagma4',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Limagma5 = {
+			species = "slugma",
+			nickname = 'Limagma',
+			instance = 'Limagma5',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		--Livre II : Veilleurs du Reseau des Anciens Chemins (grounds pmd-red)
+		Rempart = {
+			species = "bastiodon",
+			nickname = 'Rempart',
+			instance = 'Rempart',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		CableVif = {
+			species = "eelektross",
+			nickname = 'Câble-Vif',
+			instance = 'CableVif',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Fusible = {
+			species = "magmortar",
+			nickname = 'Fusible',
+			instance = 'Fusible',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		BlizzardSentinelle = {
+			species = "abomasnow",
+			nickname = 'Blizzard-Sentinelle',
+			instance = 'BlizzardSentinelle',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+		VoileBlanc = {
+			species = "froslass",
+			nickname = 'Voile-Blanc',
+			instance = 'VoileBlanc',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+		MasqueGel = {
+			species = "glalie",
+			nickname = 'Masque-Gel',
+			instance = 'MasqueGel',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		SoleilDeCendre = {
+			species = "volcarona",
+			nickname = 'Soleil-de-Cendre',
+			instance = 'SoleilDeCendre',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		DechireNuages = {
+			species = "salamence",
+			nickname = 'Déchire-Nuages',
+			instance = 'DechireNuages',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		LameDeFond = {
+			species = "gyarados",
+			nickname = 'Lame-de-Fond',
+			instance = 'LameDeFond',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		LanterneNoyee = {
+			species = "jellicent",
+			nickname = 'Lanterne-Noyée',
+			instance = 'LanterneNoyee',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+		AncreMorte = {
+			species = "dhelmise",
+			nickname = 'Ancre-Morte',
+			instance = 'AncreMorte',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		PortierDuVide = {
+			species = "dusknoir",
+			nickname = 'Portier-du-Vide',
+			instance = 'PortierDuVide',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
 		Groudon = {
 			species = "groudon",
 			nickname = 'Groudon',
@@ -807,6 +945,72 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
+		--Chapitre 7 : les trois gardiens scelles des Ruines Fendues
+		Regirock = {
+			species = "regirock",
+			nickname = 'Regirock',
+			instance = 'Regirock',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Regice = {
+			species = "regice",
+			nickname = 'Regice',
+			instance = 'Regice',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Registeel = {
+			species = "registeel",
+			nickname = 'Registeel',
+			instance = 'Registeel',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		--Zarbi de l'enigme des Ruines Fendues (formes R E G I S)
+		Zarbi_R = {
+			species = "unown",
+			nickname = 'Zarbi',
+			instance = 'Zarbi_R',
+			gender = Gender.Genderless,
+			form = 17,
+			skin = "normal"
+		},
+		Zarbi_E = {
+			species = "unown",
+			nickname = 'Zarbi',
+			instance = 'Zarbi_E',
+			gender = Gender.Genderless,
+			form = 4,
+			skin = "normal"
+		},
+		Zarbi_G = {
+			species = "unown",
+			nickname = 'Zarbi',
+			instance = 'Zarbi_G',
+			gender = Gender.Genderless,
+			form = 6,
+			skin = "normal"
+		},
+		Zarbi_I = {
+			species = "unown",
+			nickname = 'Zarbi',
+			instance = 'Zarbi_I',
+			gender = Gender.Genderless,
+			form = 8,
+			skin = "normal"
+		},
+		Zarbi_S = {
+			species = "unown",
+			nickname = 'Zarbi',
+			instance = 'Zarbi_S',
+			gender = Gender.Genderless,
+			form = 18,
+			skin = "normal"
+		},
 		--Chapitre 7 : Ruines Tordues — boss Regigigas
 		Regigigas = {
 			species = "regigigas",
@@ -840,6 +1044,70 @@ local characters = {
 			nickname = 'Lugia',
 			instance = 'Lugia',
 			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		--Arc 2 : le Cercle du Suaire (voleurs de fragments de Coeur)
+		--Xatu, le Veilleur du Canyon des Voix Eteintes.
+		--Dans les jeux d'origine, un Xatu se tient au bout du Grand Canyon : il
+		--voit, mais ne dit presque rien. On garde cette fonction — un devin qui
+		--se tait — et on la relie a NOTRE lore : il est le seul temoin exterieur
+		--a avoir compris ce que le heros porte, et il refuse de le nommer.
+		--PNJ nocturnes de Metano (metano_town_nuit). Ils n'existent QUE la
+		--nuit : ce ne sont pas des PNJ de jour deplaces a une autre heure.
+		Nuit_Garde = {
+			species = "granbull",
+			nickname = 'Veilleur de Nuit',
+			instance = 'Nuit_Garde',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Nuit_Etoiles = {
+			species = "murkrow",
+			nickname = 'Compteuse d\'Étoiles',
+			instance = 'Nuit_Etoiles',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+		Nuit_Insomniaque = {
+			species = "noctowl",
+			nickname = 'Plume-Grise',
+			instance = 'Nuit_Insomniaque',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Canyon_Xatu = {
+			species = "xatu",
+			nickname = 'Veilleur',
+			instance = 'Canyon_Xatu',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Suaire_Banette = {
+			species = "banette",
+			nickname = 'Suaire',
+			instance = 'Suaire_Banette',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Suaire_Gengar = {
+			species = "gengar",
+			nickname = 'Linceul',
+			instance = 'Suaire_Gengar',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Suaire_Noivern = {
+			species = "noivern",
+			nickname = 'Litanie',
+			instance = 'Suaire_Noivern',
+			gender = Gender.Female,
 			form = 0,
 			skin = "normal"
 		},

@@ -10,6 +10,9 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
+require 'halcyon.ChapterAftermath'
+require 'halcyon.ReplayEnding'
+require 'halcyon.BossMusic'
 local autel_celeste = {}
 function autel_celeste.Init(map)
   DEBUG.EnableDbgCoro()
@@ -18,6 +21,24 @@ function autel_celeste.Init(map)
 end
 function autel_celeste.Enter(map)
   DEBUG.EnableDbgCoro()
+
+  -- Rejouabilite : l'histoire est bouclee, l'Autel est desert. Positions
+  -- d'origine gs209 conservees (heros 296,296 / partenaire 256,296).
+  if ReplayEnding.IsReplay('celestial_peak', 10) then
+    ReplayEnding.EmptyArena({
+      hero = {296, 296}, partner = {256, 296},
+      camera = {276, 280}, look = {276, 248},
+      walk = 48, title = true, music = 'Rainbow Peak.ogg',
+      lines = {
+        { spk='partner', emo='Normal', key='CPB_R01', wait=10 },
+        { spk='hero',    emo='Normal', key='CPB_R02', wait=10 },
+        { spk='partner', emo='Normal', key='CPB_R03' },
+        { spk='narrator',              key='CPB_R04' },
+      },
+    })
+    return
+  end
+
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   GAME:CutsceneMode(true)
@@ -45,6 +66,14 @@ function autel_celeste.Enter(map)
   GROUND:CharSetAnim(lugia, "Attack", false)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(lugia, "Idle", true)
+
+  -- Autel de Lugia — theme de boss. Cette arene n'avait AUCUNE musique : le combat le plus
+
+  -- important du chapitre se jouait en silence complet. Le theme
+
+  -- demarre avec le titre, comme dans les 42 arenes de gardiens.
+
+  BossMusic.Play('autel_celeste')
 
   UI:WaitShowTitle(lugia:GetDisplayName(), 20)
   GAME:WaitFrames(40)

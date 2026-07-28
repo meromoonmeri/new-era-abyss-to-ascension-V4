@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local creux_ombres_scelle = {}
 
@@ -62,7 +63,7 @@ function creux_ombres_scelle.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(marshadow, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('creux_ombres_scelle')
   UI:WaitShowTitle("Marshadow, la Seule Ombre", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)
