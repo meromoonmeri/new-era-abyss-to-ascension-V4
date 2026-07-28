@@ -87,6 +87,11 @@ end
 ---searing_crucible.GameLoad(map)
 --Engine callback function
 function searing_crucible.GameLoad(map)
+	--Chargement d'une partie sauvegardee SUR cette carte : Init n'est pas
+	--rejoue, donc les allies (Teammate1-3) n'existeraient pas au sol et la
+	--cinematique post-boss (CH('Teammate2')/CH('Teammate3')) serait ecourtee
+	--par son pcall. On les fait reapparaitre comme le fait Init.
+	COMMON.RespawnAllies(true)
 	PartnerEssentials.LoadGamePartnerPosition(CH('Teammate1'))
 	searing_crucible.PlotScripting()
 end
