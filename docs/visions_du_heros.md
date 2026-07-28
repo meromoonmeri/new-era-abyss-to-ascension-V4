@@ -153,3 +153,104 @@ résolveur `resolve()` et le drapeau `literal`.
 
 Les visions couvrent Rouge/Bleu et Ciel. Rien n'empêche d'en ajouter :
 la table `HeroVisions.LIST` est déclarative — une entrée = une vision.
+
+---
+
+# Addendum — relecture des dépôts sources (build 2026-07-31-N)
+
+## La question posée
+
+> « Tu as pu voir des cinématiques équivalentes dans ces dépôts pour reproduire
+> et l'adapter à New Era dans PMDO ? »
+
+**Réponse honnête : non, pas pour la première version.** Les visions du build
+`-M` ont été écrites de mémoire, sur le patron interne `genesis_vision`. Les
+dépôts ont été relus **après** cette question. Ils ont apporté trois techniques
+concrètes qui manquaient.
+
+## Fichiers réellement ouverts
+
+| Dépôt | Fichier | Ce qu'il apporte |
+|---|---|---|
+| ExplorersOfSkyOrigins | `Data/Script/eos/ground/storm_cutscene_a/init.lua` | la vision d'ouverture de Ciel, en Lua PMDO |
+| ExplorersOfSkyOrigins | `Data/Script/eos/ground/chapter_card/init.lua` | carton-titre en coroutines parallèles |
+| ExplorersOfSkyOrigins | `Data/Script/eos/ground/guild_bedroom_night/init.lua` | scène de chambre + script GBA en commentaire |
+| pret/pmd-red | `data/scripts/` (`intro.inc`, `title.inc`) | structure des cinématiques d'ouverture |
+
+EoSO est un remake de Ciel **dans le même moteur que nous** : son code est
+directement transposable, contrairement à l'assembleur de `pmd-red`.
+
+## Les trois techniques reprises
+
+### 1. Le flash d'orage — remplace le voile coloré
+
+`storm_cutscene_a` ne pose **aucun** `FlashEmitter`. Il enchaîne :
+
+```lua
+SOUND:PlaySE("Battle/EVT_CH01_Thunder")
+GAME:FadeOut(true, 2)   -- true = fade le DÉCOR, garde l'interface
+GAME:WaitFrames(4)
+GAME:FadeIn(2)
+GAME:WaitFrames(4)
+```
+
+…deux fois de suite, avec un son par éclair. Le `true` est la clé : il produit
+le stroboscope caractéristique de Ciel. C'est plus net et plus lisible que le
+voile violet que j'avais écrit.
+
+Extrait en primitive : `VoiceVisions.Lightning(times, se)`, utilisée à
+l'entrée des visions (3 éclairs) et à chaque prise de parole de la Voix (2).
+
+### 2. La bascule de fin en trois coroutines synchronisées
+
+Pour sortir d'une vision, EoSO lance **en parallèle** un fondu d'image, une
+réplique calée sur la *même durée*, et un fondu du son — puis les joint :
+
+```lua
+local coro1 = TASK:BranchCoroutine(function() GAME:FadeOutFront(true, 120) end)
+local coro2 = TASK:BranchCoroutine(function() UI:WaitShowTimedDialogue(..., 120) end)
+local coro3 = TASK:BranchCoroutine(function() SOUND:FadeOutSE(..., 120) end)
+TASK:JoinCoroutines({coro1, coro2, coro3})
+```
+
+Résultat : **la phrase s'efface exactement avec l'image**. C'est la signature
+visuelle des visions de Sky, et je ne l'avais pas.
+
+Ajouté via le champ `lastWord` — une phrase-écho par vision :
+
+| Vision | Dernière phrase |
+|---|---|
+| La Chasse | « ...Ils ne m'ont jamais laissé m'expliquer. » |
+| La Météore | « ...Il a payé pour nous, et nous ne savons même pas son nom. » |
+| Le Rouage | « ...Le temps ne s'est pas arrêté. Il a été retenu. » |
+| Le Sommet | « ...Pardonnez-nous. Nous n'avions pas d'autre chemin. » |
+| L'Effacement | « ...Merci. Pour tout. Vraiment. » |
+
+### 3. Le speaker inconnu posé une seule fois
+
+EoSO appelle `ExplorerEssentials.SetSpeakerUnknown(nil)` **une fois** en tête de
+scène, plutôt que de répéter le `SetSpeaker` à chaque ligne. Notre `\uE040`
+produit le même effet ; il est désormais posé une seule fois par séquence.
+
+## Ce que j'ai délibérément **pas** copié
+
+- **`Data/Script/eos/…`** — l'arborescence d'EoSO est un mod complet séparé.
+  Importer ses fichiers créerait un conflit de namespace avec `halcyon`.
+- **Les sons `EVT_CH01_Thunder`** — ils appartiennent au contenu d'EoSO, absent
+  de notre dépôt. J'utilise `EVT_Battle_Flash` et `EVT_Battle_Transition`, déjà
+  employés ailleurs dans New Era.
+- **Le texte anglais d'origine** — les visions restent des créations New Era en
+  français. On reprend la *grammaire visuelle*, pas les dialogues.
+
+## Vérifications après relecture
+
+- Lua **640/640**, `.resx` 576/576, zones 209/209, `verify_legend` 0 échec
+- **40 chaînes affichées** dans `HeroVisions` : **0 nom interdit**
+- Les SE utilisés (`EVT_Battle_Flash`, `EVT_Battle_Transition`) sont déjà
+  appelés ailleurs dans le mod — donc fournis par le moteur
+
+## Ce qui reste non vérifié
+
+**Toujours rien testé en jeu.** Le flash d'orage et la bascule en trois
+coroutines sont transposés d'un code qui tourne (EoSO), mais leur rendu dans
+*notre* contexte — cartes, timings, musiques — n'a pas été observé.

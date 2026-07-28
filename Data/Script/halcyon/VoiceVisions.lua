@@ -3,6 +3,33 @@
 
     LA VOIX ET LES VISIONS DU HEROS
     ================================================================
+    SOURCES RELUES (pas de memoire — fichiers ouverts et compares) :
+      * Minemaker0430/ExplorersOfSkyOrigins, remake d'Explorateurs du Ciel
+        dans CE moteur (PMDO). Fichiers etudies :
+          Data/Script/eos/ground/storm_cutscene_a/init.lua
+          Data/Script/eos/ground/chapter_card/init.lua
+          Data/Script/eos/ground/guild_bedroom_night/init.lua
+        On y reprend trois techniques concretes, listees plus bas.
+      * pret/pmd-red, decompilation de Rouge : data/scripts/ (intro.inc,
+        title.inc) — structure des cinematiques d'ouverture.
+
+    CE QU'ON A REPRIS DE EoSO (et qui manquait a la v1 de ce module)
+    ------------------------------------------------------------------
+    1. LE FLASH D'ORAGE. storm_cutscene_a ne pose pas un FlashEmitter : il
+       enchaine FadeOut(true,2) / WaitFrames(4) / FadeIn(2) / WaitFrames(4),
+       deux fois de suite, avec un SE par eclair. Le `true` fade le DECOR en
+       gardant l'interface — d'ou l'effet stroboscopique caracteristique.
+       C'est net, court, et bien plus lisible qu'un voile colore.
+    2. LA BASCULE DE FIN. Pour sortir d'une vision, EoSO joue en parallele
+       (BranchCoroutine + JoinCoroutines) un FadeOutFront lent, une replique
+       en WaitShowTimedDialogue calee sur la MEME duree, et un fondu du son
+       ambiant. Les trois se terminent ensemble : la phrase s'efface avec
+       l'image. On applique ce patron a la sortie de vision.
+    3. LE SPEAKER INCONNU. EoSO a un helper dedie (SetSpeakerUnknown) appele
+       une fois avant toute la scene, plutot qu'un SetSpeaker repete. On
+       garde notre \uE040 (identique en effet) mais on le pose une seule
+       fois en debut de sequence, comme eux.
+
     Reprend le dispositif des jeux officiels :
 
       * PMD Rouge/Bleu — le heros fait des reves ou une voix lui parle
@@ -62,6 +89,26 @@ local function resolve(cfg, txt)
   if cfg.literal then return STRINGS:Format(txt) end
   local ms = cfg.strings or STRINGS.MapStrings
   return STRINGS:Format(ms[txt])
+end
+
+--------------------------------------------------------------------
+-- Flash d'orage — technique EoSO (storm_cutscene_a/init.lua).
+--------------------------------------------------------------------
+-- Enchaine des fondus tres courts sur le DECOR (FadeOut(true,...) garde
+-- l'interface visible), ce qui donne l'eclair stroboscopique de Ciel.
+-- `times` eclairs, avec un SE a chaque coup.
+function VoiceVisions.Lightning(times, se)
+  times = times or 2
+  se = se or 'EVT_Battle_Flash'
+  pcall(function()
+    for _ = 1, times do
+      SOUND:PlayBattleSE(se)
+      GAME:FadeOut(true, 2)
+      GAME:WaitFrames(4)
+      GAME:FadeIn(2)
+      GAME:WaitFrames(4)
+    end
+  end)
 end
 
 --------------------------------------------------------------------
@@ -127,15 +174,10 @@ function VoiceVisions.Speak(cfg)
     --2. Le haut-le-coeur.
     VoiceVisions.Nausea(hero, cfg.level)
 
-    --Voile sombre : le heros ne voit plus tres bien.
-    local center = GAME:GetCameraCenter()
-    local veil = RogueEssence.Content.FlashEmitter()
-    veil.FadeInTime = 6; veil.HoldTime = 10; veil.FadeOutTime = 30
-    veil.StartColor = Color(20, 10, 40, 0)
-    veil.Layer = DrawLayer.Top
-    veil.Anim = RogueEssence.Content.BGAnimData("White", 0)
-    GROUND:PlayVFX(veil, center.X, center.Y)
-    GAME:WaitFrames(16)
+    --Le monde clignote, comme sous l'orage de Ciel. Deux battements courts :
+    --technique reprise de storm_cutscene_a (EoSO), plus lisible qu'un voile.
+    VoiceVisions.Lightning(2)
+    GAME:WaitFrames(10)
 
     --3. La Voix. Speaker anonyme : ni nom, ni espece, ni portrait.
     UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
@@ -205,15 +247,11 @@ function VoiceVisions.Play(cfg)
     VoiceVisions.Nausea(hero, cfg.level or 3)
     GAME:WaitFrames(10)
 
-    --Bascule : ecran blanc puis noir, on quitte le present.
-    local center = GAME:GetCameraCenter()
-    local flash = RogueEssence.Content.FlashEmitter()
-    flash.FadeInTime = 4; flash.HoldTime = 6; flash.FadeOutTime = 20
-    flash.StartColor = Color(255, 255, 255, 0)
-    flash.Layer = DrawLayer.Top
-    flash.Anim = RogueEssence.Content.BGAnimData("White", 0)
-    GROUND:PlayVFX(flash, center.X, center.Y)
-    GAME:WaitFrames(20)
+    --Bascule vers la vision. Patron storm_cutscene_a (EoSO) : une salve
+    --d'eclairs sur le decor, puis le SE de transition, puis le noir complet.
+    VoiceVisions.Lightning(3)
+    GAME:WaitFrames(10)
+    pcall(function() SOUND:PlayBattleSE('EVT_Battle_Transition') end)
     GAME:FadeOut(false, 40)
     GAME:WaitFrames(40)
 
@@ -236,10 +274,24 @@ function VoiceVisions.Play(cfg)
       GAME:WaitFrames(10)
     end
 
-    --Retour au present.
-    SOUND:FadeOutBGM(60)
-    GAME:WaitFrames(40)
+    --Retour au present. Patron EoSO : la derniere phrase de la vision, le
+    --fondu de l'image et le fondu du son se terminent EXACTEMENT ensemble
+    --(trois coroutines jointes), pour que la phrase s'efface avec l'image.
+    if cfg.lastWord ~= nil then
+      local c1 = TASK:BranchCoroutine(function() GAME:FadeOutFront(true, 120) end)
+      local c2 = TASK:BranchCoroutine(function()
+        UI:WaitShowTimedDialogue(resolve(cfg, cfg.lastWord), 120) end)
+      local c3 = TASK:BranchCoroutine(function() SOUND:FadeOutBGM(120) end)
+      TASK:JoinCoroutines({c1, c2, c3})
+      GAME:WaitFrames(60)
+      GAME:FadeInFront(60)
+    else
+      SOUND:FadeOutBGM(60)
+      GAME:WaitFrames(40)
+    end
+
     GAME:FadeIn(40)
+    --Le reveil est aussi rude que le depart : le heros revient a lui d'un coup.
     VoiceVisions.Nausea(hero, 2)
     VoiceVisions.Recover(hero)
     GAME:WaitFrames(20)

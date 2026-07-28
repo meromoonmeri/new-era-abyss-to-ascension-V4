@@ -65,6 +65,7 @@ HeroVisions.LIST = {
       { bg='Dream_Back', hold=180, lines={
           "Le fugitif ne se défend pas.[pause=25] Il court, et il pleure,[pause=15] et personne ne l'écoute." } },
     },
+    lastWord = "« ...Ils ne m'ont jamais laissé m'expliquer. »",
     heroLine = "(Je ne connais pas ce visage.[pause=20] Alors pourquoi j'ai envie de courir ?)",
     witnessLine = "Hé...[pause=15] Tu es tout pâle.[pause=20] Tu t'es arrêté d'un coup, là.",
   },
@@ -86,6 +87,7 @@ HeroVisions.LIST = {
       { bg='Genesis_Fade', hold=180, lines={
           "Des éclats retombent en pluie de feu.[pause=25] Le monde est sauvé.[pause=20] Pour cette fois." } },
     },
+    lastWord = "« ...Il a payé pour nous, et nous ne savons même pas son nom. »",
     heroLine = "(J'ai senti la chaleur.[pause=25] Sur ma peau. Maintenant. Comment c'est possible ?)",
     witnessLine = "Tu trembles...[pause=20] Tu veux qu'on s'arrête un moment ?",
   },
@@ -105,6 +107,7 @@ HeroVisions.LIST = {
           "Un fleuve figé en pleine chute.[pause=25] Des oiseaux immobiles en plein ciel.",
           "Un monde sans soleil, où plus rien ne pousse et où plus rien ne meurt." } },
     },
+    lastWord = "« ...Le temps ne s'est pas arrêté. Il a été retenu. »",
     heroLine = "(Un monde où le temps s'est arrêté...[pause=25] Ce n'est pas une histoire. Je l'ai VU.)",
     witnessLine = "Tu as encore eu un malaise ?[pause=25] Ça fait trois fois cette semaine.",
   },
@@ -126,6 +129,7 @@ HeroVisions.LIST = {
       { bg='Genesis_Void', hold=190, lines={
           "Le combat déchire l'air.[pause=25] Ce n'est pas une bataille pour gagner.[pause=20] C'est une bataille pour réparer." } },
     },
+    lastWord = "« ...Pardonnez-nous. Nous n'avions pas d'autre chemin. »",
     heroLine = "(Il défendait son monde.[pause=25] Et ils ont dû le combattre pour le sauver.[pause=20] Où est le bien, là-dedans ?)",
     witnessLine = "Reste avec moi.[pause=20] Respire.[pause=25] ...Voilà. Doucement.",
   },
@@ -148,6 +152,7 @@ HeroVisions.LIST = {
           "Il s'efface.[pause=30] Et avec lui s'efface le souvenir qu'il ait jamais existé.",
           "Le monde continue, heureux, sauvé,[pause=20] et personne ne sait par qui." } },
     },
+    lastWord = "« ...Merci. Pour tout. Vraiment. »",
     heroLine = "(Il a tout donné.[pause=25] Et le monde ne se souvient même pas de son nom.[pause=30] ...Est-ce que ça m'attend, moi aussi ?)",
     witnessLine = "Tu pleures...[pause=25] Qu'est-ce que tu as vu ?[pause=20] Dis-le-moi. S'il te plaît.",
   },
@@ -174,6 +179,7 @@ function HeroVisions.TryTrigger(id, witness)
     witness      = witness,
     plates       = v.plates,
     heroLine     = v.heroLine,
+    lastWord     = v.lastWord,
     witnessLines = { v.witnessLine },
   })
 end
