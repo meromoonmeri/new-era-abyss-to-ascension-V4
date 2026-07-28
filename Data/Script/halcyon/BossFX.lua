@@ -296,11 +296,35 @@ end
 --------------------------------------------------------------------
 -- La Voix de l'Abysse : toujours AVANT l'apparition.
 --------------------------------------------------------------------
+-- Le heros est le SEUL a entendre cette voix, et l'entendre lui coute :
+-- l'ecran tangue et il a un haut-le-coeur avant chaque phrase. Les autres
+-- personnages presents ne reagissent pas — pour eux, il ne s'est rien passe.
+-- Un seul point de passage ici couvre toutes les scenes de boss du mod.
 function BossFX.Voice(key, mapStrings)
+    pcall(function()
+        local hero = CH('PLAYER')
+        if hero ~= nil then
+            GROUND:CharSetEmote(hero, "shock", 1)
+            GROUND:CharSetAnim(hero, "Hurt", true)
+        end
+        -- Vertige : amplitude faible, duree longue. Ce n'est pas un choc,
+        -- c'est un malaise.
+        GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 5, 26))
+        GAME:WaitFrames(26)
+    end)
+
     SOUND:PlayBattleSE('EVT_Emote_Shock_2')
     UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "",
                   RogueEssence.Data.Gender.Unknown)
     UI:WaitShowDialogue(STRINGS:Format((mapStrings or STRINGS.MapStrings)[key]))
+
+    pcall(function()
+        local hero = CH('PLAYER')
+        if hero ~= nil then
+            GROUND:CharSetEmote(hero, "", 0)
+            GROUND:CharSetAnim(hero, "Idle", true)
+        end
+    end)
 end
 
 return BossFX

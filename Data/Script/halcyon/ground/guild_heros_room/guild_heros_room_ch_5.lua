@@ -6,6 +6,7 @@
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.HeroVisions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.ground.guild_heros_room.guild_heros_room_helper'
 
@@ -165,6 +166,11 @@ function guild_heros_room_ch_5.PostExpeditionBedtalk()
   UI:WaitShowVoiceOver("(...![pause=20] Un rêve ?[pause=20] Je...[pause=20] je n'arrive déjà plus à m'en souvenir...)", -1)
   GAME:WaitFrames(60)
   SV.Chapter5.HadFirstDream = true
+
+    -- Vision du passe : le heros seul la traverse, endormi. Le partenaire dort
+  -- a cote de lui et ne verra rien. Ne se joue qu'une fois (PlayOnce).
+  HeroVisions.TryTrigger('meteore', partner)
+  GAME:WaitFrames(30)
 
   SV.Chapter5.FinishedBedtimeCutscene = true
   SV.ChapterProgression.CurrentStoryDungeon = ''

@@ -402,6 +402,13 @@ function DebugTools:OnUpgrade()
  require 'halcyon.ReplayEnding'
  ReplayEnding.SyncUnlocks()
 
+ --Visions du passe du heros : etat cree retroactivement pour les parties
+ --en cours. Aucune vision n'est marquee comme vue, donc une sauvegarde
+ --existante les decouvrira normalement a partir de son chapitre courant.
+ if SV.Visions == nil then SV.Visions = {} end
+ if SV.Visions.Seen == nil then SV.Visions.Seen = {} end
+ if SV.Visions.Count == nil then SV.Visions.Count = 0 end
+
  --Arc 2 « Ce que la brume emporte » : 5 quetes secondaires liees a l'intrigue.
  --Disponible des le ch6 (apres l'expedition), retroactif pour les parties en cours.
  if SV.SuaireArc == nil then SV.SuaireArc = {} end

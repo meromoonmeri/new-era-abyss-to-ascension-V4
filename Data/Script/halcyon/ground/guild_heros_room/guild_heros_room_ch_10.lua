@@ -12,6 +12,7 @@
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.HeroVisions'
 require 'halcyon.ground.guild_heros_room.guild_heros_room_helper'
 
 guild_heros_room_ch_10 = {}
@@ -137,6 +138,11 @@ function guild_heros_room_ch_10.PostPeakBedtalk()
 
   SOUND:FadeOutBGM(80)
   GAME:FadeOut(false, 120)
+
+    -- Vision du passe : le heros seul la traverse, endormi. Le partenaire dort
+  -- a cote de lui et ne verra rien. Ne se joue qu'une fois (PlayOnce).
+  HeroVisions.TryTrigger('effacement', partner)
+  GAME:WaitFrames(30)
 
   SV.Chapter10.FinishedBedtimeCutscene = true
   SV.TemporaryFlags.MorningAddress = true

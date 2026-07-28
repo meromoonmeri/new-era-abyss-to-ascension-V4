@@ -998,6 +998,16 @@ SV.Chapter9 =
 	PlayedMarshRelayIntro = false--cinematique d'arrivee au relais (marche + dialogue)
 }
 
+SV.Visions =
+{
+	-- Visions du passe du heros (HeroVisions.lua). Le heros est le SEUL a
+	-- entendre la Voix et le seul a voir ces fragments d'un autre temps :
+	-- a chaque fois il est pris de nausee, et son partenaire ne voit que sa
+	-- paleur. Seen[id] = true une fois la vision traversee.
+	Seen = {},
+	Count = 0
+}
+
 SV.SuaireArc =
 {
 	-- Arc 2 — « Ce que la brume emporte » : 5 quetes secondaires liees a
@@ -1125,4 +1135,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-07-31-L]')
+print('Script variables default values loaded! [build 2026-07-31-M]')

@@ -77,11 +77,32 @@ local function narrate(txt)
 end
 
 --La Voix : jamais nommée, jamais incarnée.
+--Le héros est le SEUL à l'entendre, et l'entendre lui coûte : l'écran tangue
+--et il a un haut-le-cœur juste avant. Les autres ne réagissent pas — pour eux,
+--il ne s'est rien passé.
 local function voice(txt)
+  pcall(function()
+    local hero = CH('PLAYER')
+    if hero ~= nil then
+      GROUND:CharSetEmote(hero, "shock", 1)
+      GROUND:CharSetAnim(hero, "Hurt", true)
+    end
+    GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 5, 26))
+    GAME:WaitFrames(26)
+  end)
+
   SOUND:PlayBattleSE('EVT_Emote_Shock_2')
   UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
   UI:WaitShowDialogue(txt)
   GAME:WaitFrames(12)
+
+  pcall(function()
+    local hero = CH('PLAYER')
+    if hero ~= nil then
+      GROUND:CharSetEmote(hero, "", 0)
+      GROUND:CharSetAnim(hero, "Idle", true)
+    end
+  end)
 end
 
 --Un fragment de mémoire du gardien du sceau. Toujours la même grammaire :
