@@ -662,6 +662,21 @@ function DebugTools:OnUpgrade()
  if SV.TownRaid.LastDay == nil then SV.TownRaid.LastDay = -1 end
  if SV.TownRaid.Told == nil then SV.TownRaid.Told = {} end
 
+ --LE TOUR DE GUET (NightWatch). Rattrapage pour les sauvegardes
+ --anterieures : sans ca, une partie en cours arriverait avec nil.
+ if SV.NightWatch == nil then SV.NightWatch = {} end
+ if SV.NightWatch.Explained == nil then SV.NightWatch.Explained = false end
+ if SV.NightWatch.Tours == nil then SV.NightWatch.Tours = 0 end
+ if SV.NightWatch.LastTour == nil then SV.NightWatch.LastTour = -1 end
+ if SV.NightWatch.Assigned == nil then SV.NightWatch.Assigned = false end
+
+ --LE PRIX D'UNE NUIT PERDUE (TownPlunder).
+ if SV.TownPlunder == nil then SV.TownPlunder = {} end
+ if SV.TownPlunder.ShopsEmpty == nil then SV.TownPlunder.ShopsEmpty = false end
+ if SV.TownPlunder.LastStolen == nil then SV.TownPlunder.LastStolen = 0 end
+ if SV.TownPlunder.LastItems == nil then SV.TownPlunder.LastItems = {} end
+ if SV.TownPlunder.TotalRaids == nil then SV.TownPlunder.TotalRaids = 0 end
+
  if SV.GuildSidequests == nil then SV.GuildSidequests = {} end
  
  if SV.GuildSidequests.ZigzagoonLevel == nil then SV.GuildSidequests.ZigzagoonLevel = 19 end 

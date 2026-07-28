@@ -923,6 +923,27 @@ SV.TownRaid =
 	Told = {}            --reactions de la ville deja vues
 }
 
+--LE TOUR DE GUET (NightWatch).
+--La guilde inscrit les equipes au registre des veilles : c'est la raison
+--narrative pour laquelle le heros est dehors la nuit.
+SV.NightWatch =
+{
+	Explained = false,   --la regle du registre a ete enseignee (1er tour)
+	Tours = 0,           --tours de garde effectues
+	LastTour = -1,       --DaysPassed du dernier tour, pour l'espacement
+	Assigned = false     --un tour est impose ce soir
+}
+
+--LE PRIX D'UNE NUIT PERDUE (TownPlunder).
+--Ce que les pillards emportent quand le raid est perdu.
+SV.TownPlunder =
+{
+	ShopsEmpty = false,  --les etals sont vides aujourd'hui
+	LastStolen = 0,      --argent pris a la banque la derniere fois
+	LastItems = {},      --noms des objets pris dans le sac
+	TotalRaids = 0       --nuits perdues au total
+}
+
 --info related to guild member sidequests.
 SV.GuildSidequests = 
 {
@@ -1185,4 +1206,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-08-01-J]')
+print('Script variables default values loaded! [build 2026-08-01-K]')

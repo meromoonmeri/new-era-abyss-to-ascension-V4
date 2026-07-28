@@ -18,6 +18,7 @@ require 'halcyon.ground.guild_heros_room.guild_heros_room_ch_5'
 require 'halcyon.ground.guild_heros_room.guild_heros_room_ch_6'
 require 'halcyon.ground.guild_heros_room.guild_heros_room_helper'
 require 'halcyon.SideQuests'
+require 'halcyon.NightWatch'
 
 
 -- Package name
@@ -206,6 +207,19 @@ function guild_heros_room.CheckTriggerEvent()
 end
 
 function guild_heros_room.PlotScripting()
+	--LE TOUR DE GUET (NightWatch). Il s'insere AVANT le coucher : quand la
+	--guilde inscrit l'equipe au registre des veilles, on ne dort pas, on
+	--sort veiller sur Metano. C'est ce qui donne une raison NARRATIVE a la
+	--ville de nuit, au lieu d'un heros qui se promene sans motif.
+	--
+	--IsAssigned() rend false des qu'une scene est imposee par le chapitre
+	--(memes drapeaux que TownNight.StoryLocked), donc le scenario garde la
+	--priorite. Begin() part en ville et pose Bedtime a false : le coucher
+	--aura lieu au RETOUR, via TownNight.GoHome().
+	if SV.TemporaryFlags.Bedtime and NightWatch.IsAssigned() then
+		if NightWatch.Begin() then return end
+	end
+
 	--if generic morning is flagged, prioritize that.
 	if SV.TemporaryFlags.MorningWakeup or SV.TemporaryFlags.Bedtime then
 		if SV.TemporaryFlags.Bedtime then guild_heros_room_helper.Bedtime(true) end

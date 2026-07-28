@@ -56,6 +56,7 @@ require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.TownNightScenes'
+require 'halcyon.NightWatch'
 
 TownNight = {}
 
@@ -429,6 +430,9 @@ function TownNight.GoHome()
     --La nuit se FERME. La scene de depart varie selon ce que le joueur a
     --reellement vecu (Voix entendue, Compteuse rencontree, ou rien).
     pcall(function() TownNightScenes.Departure() end)
+
+    --Fin du tour de guet, s'il y en avait un : la garde est levee.
+    pcall(function() NightWatch.End() end)
 
     SV.TemporaryFlags.Bedtime = true
     SV.TemporaryFlags.MorningWakeup = true

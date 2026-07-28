@@ -42,6 +42,12 @@ function GeneralFunctions.UpdateDailyFlags()
 	--Reset in-dungeon thief status so shopkeepers won't continue remember your crimes in the next dungeon run
 	SV.adventure.Thief = false
 
+	--PILLAGE DE LA NUIT (TownPlunder). Les etals vides ne le restent qu'un
+	--jour : le stock est justement regenere par cette fonction, juste
+	--au-dessus. On lève donc le drapeau ici, au meme endroit et au meme
+	--moment que le reste de la remise a zero quotidienne.
+	if TownPlunder ~= nil then TownPlunder.NewDay() end
+
 	--Generate jobs
 	MISSION_GEN.ResetBoards()
 	MISSION_GEN.RemoveMissionBackReference()

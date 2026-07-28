@@ -65,6 +65,8 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.BossFX'
+require 'halcyon.TownPlunder'
+require 'halcyon.NightWatch'
 
 TownRaid = {}
 
@@ -143,9 +145,16 @@ function TownRaid.ShouldTrigger()
   if s.LastDay == today then return false end
   if s.LastDay >= 0 and (today - s.LastDay) < 2 then return false end
 
-  --Environ une nuit sur trois.
+  --Environ une nuit sur trois. Mais une nuit de GARDE est plus exposee :
+  --c'est justement les nuits ou l'on veille que quelque chose arrive.
+  --Une nuit sur deux quand le tour de guet a ete impose par la guilde.
+  local bornes = 3
+  pcall(function()
+    if NightWatch.IsOnDuty() then bornes = 2 end
+  end)
+
   local roll = 0
-  pcall(function() roll = math.random(1, 3) end)
+  pcall(function() roll = math.random(1, bornes) end)
   return roll == 1
 end
 
@@ -283,6 +292,12 @@ function TownRaid.Defeat()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
+  --LE PILLAGE A LIEU POUR DE VRAI. Etals vides, banque entamee, sac
+  --allege. Applique AVANT la scene, pour que le constat puisse citer
+  --les montants exacts. Voir TownPlunder.lua pour les garde-fous.
+  local vole, objets = 0, {}
+  pcall(function() vole, objets = TownPlunder.Apply() end)
+
   return pcall(function()
     GAME:CutsceneMode(true)
     if partner ~= nil then AI:DisableCharacterAI(partner) end
@@ -291,6 +306,13 @@ function TownRaid.Defeat()
     narrate("Vous vous reveillez chez vous.[pause=30] Quelqu'un vous a ramenes. Vous ne saurez pas qui.")
     say(partner, 'Pain', "Ils ont pris ce qu'ils voulaient...[pause=30] et on n'a rien pu faire.")
     think(hero, 'Worried', "(Demain, quelqu'un ouvrira sa boutique et trouvera le vide.)")
+
+    --Le constat chiffre : le joueur doit SAVOIR ce qu'il a perdu, sinon
+    --la perte passe pour un bug.
+    GAME:WaitFrames(15)
+    pcall(function() TownPlunder.Report() end)
+    GAME:WaitFrames(10)
+
     say(partner, 'Determined', "La prochaine fois, on tiendra.[pause=25] Je te le promets.")
   end)
 end

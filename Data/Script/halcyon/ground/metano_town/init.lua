@@ -15,6 +15,7 @@ require 'halcyon.ground.metano_town.metano_town_legend'
 require 'halcyon.menu.single_deal_menu'
 require 'origin.menu.skill.SkillTutorMenu'
 require 'halcyon.SideQuests'
+require 'halcyon.TownPlunder'
 
 
 
@@ -742,6 +743,11 @@ end
 
 function metano_town.Shop_Action(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
+
+  --ETALS PILLES. Si les rodeurs ont vide la boutique cette nuit, le
+  --marchand le DIT au lieu d'ouvrir un catalogue vide : un menu sans
+  --article passerait pour un bug d'affichage. Voir TownPlunder.lua.
+  if TownPlunder.ShopExcuse() then return end
 
   local state = 0
   local repeated = false
