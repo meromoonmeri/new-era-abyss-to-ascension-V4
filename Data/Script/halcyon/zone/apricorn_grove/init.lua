@@ -6,6 +6,7 @@
 -- Commonly included lua functions and data
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.TownNight'
 
 local apricorn_grove = {}
 --------------------------------------------------
@@ -67,29 +68,18 @@ function apricorn_grove.ExitSegment(zone, result, rescue, segmentID, mapID)
 		SV.ApricornGrove.InDungeon = false
 		
 		--set generic flags for generic end of day / start of next day.
-		SV.TemporaryFlags.Dinnertime = true 
-		SV.TemporaryFlags.Bedtime = true
-		SV.TemporaryFlags.MorningWakeup = true 
-		SV.TemporaryFlags.MorningAddress = true 
-		
-			--Go to dinner if a mission wasn't completed, otherwise, go to 2nd floor
-		local exit_ground = 6
-		if SV.TemporaryFlags.MissionCompleted then exit_ground = 22 end 
-					
-		--I use the components of the general function version of this so I can have the textbox pop up after the results screen
-		--this saves the game, so it must be called 2nd to last.
-		GAME:EndDungeonRun(result, "master_zone", -1, exit_ground, 0, true, true)
+		--CHOIX DE FIN DE JOURNEE, variante a epilogue : la sauvegarde reste
+		--l'avant-dernier acte et la replique de defaite s'affiche APRES l'ecran
+		--de resultats, comme le voulait le code d'origine.
+		TownNight.EndDayWithEpilogue(result, function()
+			if not SV.Chapter4.FinishedGrove and result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then --team died before making it to the end for the first time. 
+				UI:SetSpeaker(GAME:GetPlayerPartyMember(1))--set partner as speaker 
+				UI:SetSpeakerEmotion("Pain")
+				GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Argh ![pause=0] Ça ne s'est pas passé comme prévu...", "Pain")
 
-		if not SV.Chapter4.FinishedGrove and result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then --team died before making it to the end for the first time. 
-			UI:SetSpeaker(GAME:GetPlayerPartyMember(1))--set partner as speaker 
-			UI:SetSpeakerEmotion("Pain")
-			GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Argh ![pause=0] Ça ne s'est pas passé comme prévu...", "Pain")
-
-			GAME:WaitFrames(20)
-		end
-				
-		--go to dinner room 
-		GAME:EnterZone("master_zone", -1, exit_ground, 0)
+				GAME:WaitFrames(20)
+			end
+		end)
 
 	
 	else 

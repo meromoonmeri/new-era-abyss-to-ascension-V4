@@ -1,5 +1,6 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.TownNight'
 
 local crooked_cavern = {}
 --------------------------------------------------
@@ -76,27 +77,19 @@ function crooked_cavern.ExitSegment(zone, result, rescue, segmentID, mapID)
 		elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
 			GAME:WaitFrames(20)
 
-			SV.TemporaryFlags.Dinnertime = true
-			SV.TemporaryFlags.Bedtime = true
-			SV.TemporaryFlags.MorningWakeup = true
-			SV.TemporaryFlags.MorningAddress = true
-
-			--Go to dinner if a mission wasn't completed, otherwise, go to 2nd floor
-			local exit_ground = 6
-			if SV.TemporaryFlags.MissionCompleted then exit_ground = 22 end
-
-			GAME:EndDungeonRun(result, "master_zone", -1, exit_ground, 0, true, true)
-
-			if not SV.Chapter3.DefeatedBoss and result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then --team died before making it to the end for the first time.
-				UI:SetSpeaker(GAME:GetPlayerPartyMember(1))--set partner as speaker
-				UI:SetSpeakerEmotion("Pain")
-				UI:WaitShowDialogue("Urf...[pause=0]C'est plus difficile que prévu...")
-				GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Nous ne pouvons pas continuer comme ça...[pause=0] Arrêtons-nous pour aujourd'hui.", "Pain")
-				SV.Chapter3.FailedCavern = true--mark that they died before the end so Team Style can taunt them for this.
-				GAME:WaitFrames(20)
-			end
-
-			GAME:EnterZone("master_zone", -1, exit_ground, 0)
+			--CHOIX DE FIN DE JOURNEE, variante a epilogue : la sauvegarde reste
+			--l'avant-dernier acte et les repliques de defaite s'affichent APRES
+			--l'ecran de resultats, comme dans le code d'origine.
+			TownNight.EndDayWithEpilogue(result, function()
+				if not SV.Chapter3.DefeatedBoss and result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then --team died before making it to the end for the first time.
+					UI:SetSpeaker(GAME:GetPlayerPartyMember(1))--set partner as speaker
+					UI:SetSpeakerEmotion("Pain")
+					UI:WaitShowDialogue("Urf...[pause=0]C'est plus difficile que prévu...")
+					GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Nous ne pouvons pas continuer comme ça...[pause=0] Arrêtons-nous pour aujourd'hui.", "Pain")
+					SV.Chapter3.FailedCavern = true--mark that they died before the end so Team Style can taunt them for this.
+					GAME:WaitFrames(20)
+				end
+			end)
 
 		--Cleared the first half.
 		else

@@ -7,6 +7,7 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.ReplayEnding'
+require 'halcyon.TownNight'
 
 -- [NREPROBE] sonde locale (audit runtime).
 local function nre_snap(tag)
@@ -122,16 +123,10 @@ function mount_windswept.ExitSegment(zone, result, rescue, segmentID, mapID)
 			GAME:WaitFrames(20)
 		end
 
-		SV.TemporaryFlags.Dinnertime = true
-		SV.TemporaryFlags.Bedtime = true
-		SV.TemporaryFlags.MorningWakeup = true
-		SV.TemporaryFlags.MorningAddress = true
-
-		--Go to dinner if a mission wasn't completed, otherwise, go to 2nd floor
-		local exit_ground = 6
-		if SV.TemporaryFlags.MissionCompleted then exit_ground = 22 end
-
-		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, exit_ground, 0, true, true)
+		--CHOIX DE FIN DE JOURNEE (TownNight.EndDay). La bascule ch5->ch6 vient
+		--d'avoir lieu juste au-dessus : au retour de l'expedition, le joueur est
+		--donc au ch6 et la nuit devient disponible. Avant, comportement d'origine.
+		TownNight.EndDay(result, true)
 	end
 end
 

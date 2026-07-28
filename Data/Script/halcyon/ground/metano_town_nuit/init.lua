@@ -51,6 +51,7 @@ require 'halcyon.CharacterEssentials'
 require 'halcyon.TownNight'
 require 'halcyon.SideQuests'
 require 'halcyon.TownNightScenes'
+require 'halcyon.TownRaid'
 
 local metano_town_nuit = {}
 
@@ -80,7 +81,23 @@ end
 function metano_town_nuit.Enter(map)
   DEBUG.EnableDbgCoro()
   GAME:FadeIn(30)
+
+  --RETOUR DE COMBAT. Si on revient d'une arene de raid, on ne rejoue pas
+  --l'arrivee : on enchaine sur la consequence. SV.TownRaid.Pending est
+  --pose par TownRaid.Begin() et retombe a false dans Victory/Defeat.
+  local s = TownRaid.Ensure()
+  if s.Pending then
+    pcall(function() TownRaid.Victory() end)
+    return
+  end
+
   pcall(function() TownNight.Arrival() end)
+
+  --LA VILLE EST ATTAQUEE. Le tirage a lieu APRES l'arrivee : le joueur a
+  --le temps de voir la ville endormie avant qu'elle ne bascule.
+  if TownRaid.ShouldTrigger() then
+    pcall(function() TownRaid.Begin() end)
+  end
 end
 
 function metano_town_nuit.Exit(map) end

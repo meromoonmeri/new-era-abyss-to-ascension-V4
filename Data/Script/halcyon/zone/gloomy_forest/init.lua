@@ -4,6 +4,7 @@ require 'halcyon.LegendZones'
 require 'halcyon.ReplayEnding'
 require 'halcyon.DazzlingArc'
 require 'halcyon.TownNight'
+require 'halcyon.TownRaid'
 
 local gloomy_forest = {}
 
@@ -42,43 +43,13 @@ end
 -- of Metano Town. Faithful mirror of zone/searing_tunnel + zone/crooked_cavern.
 -- See docs/audit_checkpoint_crooked_cavern.md (reusable pattern).
 ------------------------------------------------------------------
---Retour generique de fin de journee, aligne sur les 7 autres donjons de l'histoire :
---pose les drapeaux diner / nuit / lendemain puis sort vers le refectoire de la guilde
---(carte 6), ou le 2e etage (22) s'il reste une mission a rendre.
---N'est utilise QUE lorsque l'equipe rentre reellement dormir : les morts au-dela du
---relais de mi-donjon reapparaissent au relais (carte 61) et ne declenchent pas la nuit.
+--Retour de fin de journee. N'est utilise QUE lorsque l'equipe rentre
+--reellement dormir : les morts au-dela du relais de mi-donjon reapparaissent
+--au relais (carte 61) et ne declenchent pas la nuit. Le corps de cette fonction vivait ici et a ete
+--deplace dans TownNight.EndDay : les 8 autres donjons repetaient la meme
+--sequence, la partager evite d'en maintenir neuf copies.
 local function EndDayReturn(result)
-	--CHOIX DE FIN DE JOURNEE (cf. TownNight.lua). Le scenario garde la
-	--priorite : TownNight.Offer() renvoie 'diner' sans rien demander si une
-	--scene imposee attend (mission a rendre, reveil ou adresse en attente).
-	--Les trois branches reposent les MEMES drapeaux qu'avant : on encadre le
-	--circuit existant, on ne le remplace pas.
-	local choix = TownNight.Offer()
-
-	if choix == 'ville' then
-		--Sortie nocturne : ni diner ni coucher tout de suite. Les drapeaux de
-		--nuit seront poses par TownNight.GoHome() quand le joueur rentrera.
-		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
-		GAME:WaitFrames(20)
-		TownNight.Enter()
-		return
-	end
-
-	SV.TemporaryFlags.Bedtime = true
-	SV.TemporaryFlags.MorningWakeup = true
-	SV.TemporaryFlags.MorningAddress = true
-
-	if choix == 'dormir' then
-		--Le joueur saute le diner : on file droit a la chambre (carte 2).
-		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 2, 0, true, true)
-		return
-	end
-
-	--Comportement d'origine : diner a la guilde.
-	SV.TemporaryFlags.Dinnertime = true
-	local exit_ground = 6
-	if SV.TemporaryFlags.MissionCompleted then exit_ground = 22 end
-	GeneralFunctions.EndDungeonRun(result, "master_zone", -1, exit_ground, 0, true, true)
+	TownNight.EndDay(result, true)
 end
 
 function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
@@ -94,6 +65,30 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
     -- l'exploration du donjon reprend au meme titre qu'un etage traverse.
     GAME:WaitFrames(10)
     GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
+    return
+  end
+
+  -- PILLARDS DE METANO (segments 6, 7, 8). Ces trois arenes ne sont pas des
+  -- etages de la Foret : ce sont les vagues de raid nocturne, hebergees ici
+  -- parce qu'un segment doit appartenir a une zone existante. On rentre donc
+  -- a la VILLE DE NUIT, pas au donjon.
+  if segmentID >= 6 and segmentID <= 8 then
+    GAME:WaitFrames(20)
+    if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+      -- Victoire : retour a la nuit. TownRaid.Pending est encore vrai, donc
+      -- metano_town_nuit.Enter enchaine sur TownRaid.Victory().
+      GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
+      GAME:WaitFrames(20)
+      TownNight.Enter()
+    else
+      -- Defaite : la ville a ete pillee. On se reveille dans sa chambre, et
+      -- la journee suivante commence normalement.
+      pcall(function() TownRaid.Defeat() end)
+      SV.TemporaryFlags.Bedtime = true
+      SV.TemporaryFlags.MorningWakeup = true
+      SV.TemporaryFlags.MorningAddress = true
+      GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 2, 0, true, true)
+    end
     return
   end
 

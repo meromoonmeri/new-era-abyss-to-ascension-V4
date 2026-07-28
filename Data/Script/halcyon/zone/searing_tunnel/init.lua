@@ -7,6 +7,7 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.ReplayEnding'
+require 'halcyon.TownNight'
 
 -- [NREPROBE] sonde locale (audit runtime).
 local function nre_snap(tag)
@@ -110,16 +111,10 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 				end			
 			else 
 				--Generic first segment death/escape.
-				SV.TemporaryFlags.Dinnertime = true 
-				SV.TemporaryFlags.Bedtime = true
-				SV.TemporaryFlags.MorningWakeup = true 
-				SV.TemporaryFlags.MorningAddress = true 
-				
-				--Go to dinner if a mission wasn't completed, otherwise, go to 2nd floor
-				local exit_ground = 6
-				if SV.TemporaryFlags.MissionCompleted then exit_ground = 22 end 
-				
-				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, exit_ground, 0, true, true)--go to dinner or the 2nd floor depending on whether a mission was done or not.
+				--CHOIX DE FIN DE JOURNEE (TownNight.EndDay). Hors ch5 uniquement :
+				--les branches du ch5 partent a l'entree du Tunnel (carte 47) et ne
+				--passent pas ici. Avant le ch6, comportement d'origine identique.
+				TownNight.EndDay(result, true)
 			end 
 		
 		--Cleared
@@ -170,17 +165,10 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 				SV.Chapter5.TunnelLastExitReason = 'Escaped'
 				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 47, 0, true, true) --Go to Searing Tunnel Entrance ground map		
 			else
-				SV.TemporaryFlags.Dinnertime = true 
-				SV.TemporaryFlags.Bedtime = true
-				SV.TemporaryFlags.MorningWakeup = true 
-				SV.TemporaryFlags.MorningAddress = true 
-				
-				--Go to dinner if a mission wasn't completed, otherwise, go to 2nd floor
-				local exit_ground = 6
-				if SV.TemporaryFlags.MissionCompleted then exit_ground = 22 end 
-				
-				--I use the components of the general function version of this so I can have the textbox pop up after the results screen
-				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, exit_ground, 0, true, true)--go to dinner or the 2nd floor depending on whether a mission was done or not.
+				--CHOIX DE FIN DE JOURNEE (TownNight.EndDay). Fuite volontaire hors
+				--ch5 : l'equipe abandonne pour aujourd'hui et rentre. Le ch5 part a
+				--l'entree du Tunnel (carte 47) juste au-dessus et n'arrive pas ici.
+				TownNight.EndDay(result, true)
 			end
 		--Cleared
 		else

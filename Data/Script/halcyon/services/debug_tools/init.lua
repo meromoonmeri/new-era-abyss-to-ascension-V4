@@ -643,6 +643,25 @@ function DebugTools:OnUpgrade()
 	SV.Chapter6.DazzlingTrialOffered = (SV.Chapter6.DefeatedGloomyBoss == true)
  end
  
+ --LA NUIT A METANO (TownNight / TownNightScenes). Rattrapage pour les
+ --sauvegardes anterieures a l'ajout de la nuit : sans ca, une partie en
+ --cours arriverait avec SV.TownNight == nil.
+ if SV.TownNight == nil then SV.TownNight = {} end
+ if SV.TownNight.Visits == nil then SV.TownNight.Visits = 0 end
+ if SV.TownNight.Met == nil then SV.TownNight.Met = {} end
+ if SV.TownNight.SawStars == nil then SV.TownNight.SawStars = false end
+ if SV.TownNight.Seen == nil then SV.TownNight.Seen = {} end
+ if SV.TownNight.VoiceHeard == nil then SV.TownNight.VoiceHeard = {} end
+
+ --LES PILLARDS DE METANO (TownRaid).
+ if SV.TownRaid == nil then SV.TownRaid = {} end
+ if SV.TownRaid.Repelled == nil then SV.TownRaid.Repelled = 0 end
+ if SV.TownRaid.Lost == nil then SV.TownRaid.Lost = 0 end
+ if SV.TownRaid.Pending == nil then SV.TownRaid.Pending = false end
+ if SV.TownRaid.Wave == nil then SV.TownRaid.Wave = 0 end
+ if SV.TownRaid.LastDay == nil then SV.TownRaid.LastDay = -1 end
+ if SV.TownRaid.Told == nil then SV.TownRaid.Told = {} end
+
  if SV.GuildSidequests == nil then SV.GuildSidequests = {} end
  
  if SV.GuildSidequests.ZigzagoonLevel == nil then SV.GuildSidequests.ZigzagoonLevel = 19 end 

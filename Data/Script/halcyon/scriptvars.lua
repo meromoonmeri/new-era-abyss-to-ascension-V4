@@ -896,6 +896,33 @@ SV.Chapter6 =
 
 
 
+--LA NUIT A METANO (TownNight, TownNightScenes).
+--Declare ICI et pas seulement a l'usage : le bug des champs
+--GloomyPlayedMidpointIntro / GloomyMidpointState, jamais declares, a deja
+--coute une partie neuve qui arrivait avec nil. TownNight.Ensure() reste en
+--place pour les sauvegardes anterieures, mais une partie neuve doit trouver
+--la table complete.
+SV.TownNight =
+{
+	Visits = 0,          --nombre de nuits explorees
+	Met = {},            --[instance PNJ] = nombre de conversations
+	SawStars = false,    --la Compteuse d'Etoiles a livre sa revelation
+	Seen = {},           --['ChN'] = scene d'arrivee du chapitre N deja jouee
+	VoiceHeard = {}      --['ChN'] = la Voix a parle au puits au chapitre N
+}
+
+--LES PILLARDS DE METANO (TownRaid).
+--Raids nocturnes : le joueur defend la ville contre des rodeurs spectres.
+SV.TownRaid =
+{
+	Repelled = 0,        --raids repousses
+	Lost = 0,            --raids perdus
+	Pending = false,     --un raid est en cours (pose avant le combat)
+	Wave = 0,            --palier du dernier raid (1 a 3)
+	LastDay = -1,        --DaysPassed du dernier raid, pour l'espacement
+	Told = {}            --reactions de la ville deja vues
+}
+
 --info related to guild member sidequests.
 SV.GuildSidequests = 
 {
@@ -1158,4 +1185,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-08-01-I]')
+print('Script variables default values loaded! [build 2026-08-01-J]')

@@ -108,8 +108,24 @@ end
 -- PMDO n'expose pas de menu a 3 entrees dans ce projet (verifie : le
 -- seul menu custom est BoardMenu). On enchaine donc deux questions
 -- fermees, ce que le moteur sait faire nativement.
+--A PARTIR DE QUAND LA NUIT EXISTE
+--------------------------------------------------------------------
+-- Le choix libre n'apparait qu'a partir du CHAPITRE 6. Avant, le heros
+-- vient d'arriver, la routine de la guilde est encore en train de
+-- s'installer, et chaque soir des ch1-5 est occupe par une scene
+-- imposee : offrir « va te promener » y casserait le rythme.
+--
+-- La borne porte sur le CHAPITRE, pas sur le donjon : un joueur au
+-- ch8 qui rejoue la Foret des Reliques a droit a sa nuit, alors que le
+-- meme donjon au ch1 n'en propose pas.
+function TownNight.Available()
+  local ch = (SV.ChapterProgression and SV.ChapterProgression.Chapter) or 1
+  if ch < 6 then return false end
+  return not TownNight.StoryLocked()
+end
+
 function TownNight.Offer()
-  if TownNight.StoryLocked() then return 'diner' end
+  if not TownNight.Available() then return 'diner' end
 
   local res = 'diner'
   local ok = pcall(function()
@@ -129,6 +145,121 @@ function TownNight.Offer()
   if not ok then res = 'diner' end
   pcall(function() UI:ResetSpeaker() end)
   return res
+end
+
+--------------------------------------------------------------------
+-- LE RETOUR DE FIN DE JOURNEE, PARTAGE PAR TOUTES LES ZONES
+--------------------------------------------------------------------
+-- Ce bloc etait ecrit en dur dans zone/gloomy_forest. Les 8 autres
+-- donjons repetaient la MEME sequence sans le choix. Plutot que de
+-- copier ce code 9 fois, on le met ici : chaque zone appelle une
+-- ligne, et une correction future profite a tout le monde.
+--
+-- Comportement d'origine strictement preserve quand le choix n'a pas
+-- lieu d'etre (avant le ch6, ou scene imposee) : on repose les memes
+-- drapeaux et on part vers le refectoire (carte 6), ou le 2e etage
+-- (22) s'il reste une mission a rendre.
+--
+--   result  : le ResultType transmis par ExitSegment.
+--   soft    : true  -> GeneralFunctions.EndDungeonRun (cas courant)
+--             false -> GAME:EndDungeonRun + EnterZone, pour les zones
+--                      qui affichent une replique APRES l'ecran de
+--                      resultats (apricorn_grove, crooked_cavern,
+--                      illuminant_riverbed). Voir leur commentaire :
+--                      « so I can have the textbox pop up after the
+--                      results screen ».
+--
+-- Renvoie le choix retenu, pour que l'appelant sache s'il doit encore
+-- afficher sa propre replique de defaite ('ville' = non, le joueur est
+-- deja parti se promener).
+function TownNight.EndDay(result, soft)
+  if soft == nil then soft = true end
+  local choix = 'diner'
+  pcall(function() choix = TownNight.Offer() end)
+
+  if choix == 'ville' then
+    --Sortie nocturne : ni diner ni coucher tout de suite. Les drapeaux
+    --de nuit seront poses par TownNight.GoHome() au retour.
+    pcall(function()
+      GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
+      GAME:WaitFrames(20)
+      TownNight.Enter()
+    end)
+    return choix
+  end
+
+  SV.TemporaryFlags.Bedtime = true
+  SV.TemporaryFlags.MorningWakeup = true
+  SV.TemporaryFlags.MorningAddress = true
+
+  if choix == 'dormir' then
+    --Le joueur saute le diner : on file droit a la chambre (carte 2).
+    GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 2, 0, true, true)
+    return choix
+  end
+
+  --Comportement d'origine : diner a la guilde.
+  SV.TemporaryFlags.Dinnertime = true
+  local exit_ground = 6
+  if SV.TemporaryFlags.MissionCompleted then exit_ground = 22 end
+  if soft then
+    GeneralFunctions.EndDungeonRun(result, "master_zone", -1, exit_ground, 0, true, true)
+  else
+    GAME:EndDungeonRun(result, "master_zone", -1, exit_ground, 0, true, true)
+  end
+  return choix
+end
+
+-- VARIANTE AVEC EPILOGUE
+--------------------------------------------------------------------
+-- Trois zones (apricorn_grove, crooked_cavern, illuminant_riverbed)
+-- n'enchainent pas directement : elles sauvegardent, PUIS affichent une
+-- replique de defaite, PUIS transferent. Leur commentaire d'origine le
+-- dit : « so I can have the textbox pop up after the results screen ».
+--
+-- Cet ordre est volontaire et doit etre conserve au frame pres. On ne
+-- peut donc pas y appeler TownNight.EndDay, qui transfere tout de
+-- suite. `epilogue` est la fonction qui affiche la replique ; elle est
+-- jouee entre la sauvegarde et le transfert, exactement comme avant.
+function TownNight.EndDayWithEpilogue(result, epilogue)
+  local choix = 'diner'
+  pcall(function() choix = TownNight.Offer() end)
+
+  --Ou va-t-on ? Carte 1 = metano_town (relais avant la nuit),
+  --2 = chambre du heros, 6 = refectoire, 22 = 2e etage.
+  local target = 6
+  if choix == 'ville' then
+    target = 1
+  elseif choix == 'dormir' then
+    target = 2
+    SV.TemporaryFlags.Bedtime = true
+    SV.TemporaryFlags.MorningWakeup = true
+    SV.TemporaryFlags.MorningAddress = true
+  else
+    SV.TemporaryFlags.Dinnertime = true
+    SV.TemporaryFlags.Bedtime = true
+    SV.TemporaryFlags.MorningWakeup = true
+    SV.TemporaryFlags.MorningAddress = true
+    if SV.TemporaryFlags.MissionCompleted then target = 22 end
+  end
+
+  --1. Sauvegarde + ecran de resultats (doit rester l'avant-dernier acte).
+  GAME:EndDungeonRun(result, "master_zone", -1, target, 0, true, true)
+
+  --2. La replique de defaite, apres l'ecran de resultats.
+  if epilogue ~= nil then pcall(epilogue) end
+
+  --3. Le transfert.
+  if choix == 'ville' then
+    pcall(function()
+      GAME:EnterZone("master_zone", -1, 1, 0)
+      GAME:WaitFrames(20)
+      TownNight.Enter()
+    end)
+  else
+    GAME:EnterZone("master_zone", -1, target, 0)
+  end
+  return choix
 end
 
 --Entree dans la ville de nuit. metano_town_nuit est bien dans les
