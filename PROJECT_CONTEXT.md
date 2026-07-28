@@ -432,3 +432,48 @@ charger cette version.**
 4. Chapitres 11-32 : donjons et 42 cinématiques d'Ancrage prêts, **scénario non écrit**.
 5. `normal_maze` déclare 38 GroundMaps (toute la ville, la guilde…) — résidu de test à
    nettoyer, sans danger immédiat mais brouille les audits.
+
+
+## Audit de session 2026-07-28 — vérification des affirmations du build `2026-08-01-G` (cycle nuit + Rondoudou)
+
+Audité sur la branche `arena/019fa547-new-era-abyss-to-ascension-v4`, commit `7773049`.
+Étape 0 : `git status` propre, 0 `deleted:`, 271 `.rsground` / 497 `.tile` / 133 `.ogg` présents.
+
+### 1. Format `.tile` + roundtrip — CONFIRMÉ
+- `tools/tile_night.py` existe (7 071 o), documente le format `[u32 tileSize][u32 nb][table 16o][PNG 8×8]`.
+- `python3 tools/tile_night.py --check` réexécuté : **14/14 tilesets roundtrip=OK**, « FORMAT VALIDE ».
+- Vérification indépendante (script séparé) : Metano_Town_Base = 35 646 refs / 3 929 tuiles distinctes, PNG magic OK, MD5 `2dd72c6a…` conforme au commentaire du script.
+- Planche `docs/apercu_tuiles_nuit.png` présente (672×236 RGB, lisible).
+
+### 2. Carte `metano_town_nuit.rsground` — CONFIRMÉ avec 2 écarts
+- Fichier présent, 38 815 146 o (non vide).
+- **Écart 1** : la carte est à l'index **79** de `master_zone.json`, PAS 80 (80 = `guild_guildmasters_bedroom`). Le routage Lua (`TownNight.lua:272`, `NightWatch.lua:244`) passe par `EnterGroundMap('metano_town_nuit', …)` par nom → aucun impact fonctionnel, mais l'affirmation « index 80 » est fausse.
+- Les 14 tilesets `Metano_Town_*_Night.tile` existent physiquement dans `Content/Tile/` (listés un à un).
+- **Écart 2 (corrigé ce jour)** : les 14 tilesets Night étaient **absents de `Content/Tile/index.idx`** (483 entrées au lieu de 497). Régénéré via `tools/rebuild_tile_index.py` : 497 entrées, toutes les anciennes préservées bit à bit (vérifié par parsing comparatif). `Data/Zone/index.idx` contenait déjà `metano_town_nuit`.
+- Obstacles nuit == jour : **True** (comparaison structurelle des deux grilles 189×189, pas des tailles).
+- Musique : `Goodnight.ogg` (jour : `Treasure Town.ogg`).
+
+### 3. `TownNight.lua` + 3 PNJ — CONFIRMÉ avec 1 nuance
+- `Data/Script/halcyon/TownNight.lua` (446 l.). PNJ : `Nuit_Garde` (Veilleur de Nuit), `Nuit_Etoiles` (Compteuse d'Étoiles), `Nuit_Insomniaque` (Plume-Grise) — nicknames dans `CharacterEssentials.lua:1058-1076`.
+- 4 paliers **distincts** chacun (`TownNight.LINES`, l.324-364 ; textes différents vérifiés) ; sélection par compteur `s.Met[inst]` (`Talk`, l.366).
+- **Nuance** : les 12 marchands ne sont PAS retirés de la carte (les entités existent dans le `.rsground` nuit) ; ils sont masqués par `GROUND:Hide` à l'Init (`metano_town_nuit/init.lua:73-75`). Le code le documente honnêtement (l.345-352) et pose un filet : 12 handlers `*_Owner_Action` → réplique `absent(…)`.
+- Commerces fermés : `Shop/Bank/Storage/Swap/TM/Tutor/Appraisal_Action` + panneaux + `Legend_Stand_Action` donnent tous du texte (l.130-344). Vérifiable en statique uniquement — non testé en jeu.
+
+### 4. Choix de fin de journée — CONFIRMÉ avec 1 nuance
+- `TownNight.StoryLocked()` : `TownNight.lua:91`. `Offer()` (l.128) : deux ChoiceMenuYesNo enchaînés → 'diner'/'dormir'/'ville'. Gating chapitre ≥ 6 (`Available`, l.122).
+- **Nuance** : StoryLocked teste `MissionCompleted`, `MorningWakeup`, `MorningAddress` — mais PAS `Dinnertime`/`Bedtime` en entrée (ces deux-là sont *reposés* par `EndDay` l.192-241 pour préserver l'enchaînement d'origine). L'affirmation « teste les 4 drapeaux » est donc partiellement vraie (2/4 testés + MissionCompleted).
+- Point d'insertion : PAS dans `GeneralFunctions.lua` — dans les `zone/*/init.lua` (9 zones appellent `TownNight.EndDay`/`EndDayWithEpilogue` : gloomy_forest, mount_windswept, searing_tunnel, vast_steppe, relic_forest, apricorn_grove, crooked_cavern, illuminant_riverbed, …).
+
+### 5. Pas de système temporel parallèle — CONFIRMÉ
+- `DaysPassed` : 31 usages ; `EndOfDay` : 17 ; drapeaux fin de journée : 214 usages — tous en place.
+- Aucun `CurrentHour`/`TimeOfDay`/`NightMode` dans `scriptvars.lua` (grep = 0).
+
+### 6. Rondoudou (Grodoudou) — PARTIELLEMENT CONFIRMÉ
+- Entité `Legend_Merchant`, espèce `wigglytuff`, nick `Grodoudou`, **présente et visible** dans les DEUX cartes, pos **(656, 1272)** ; objet `Legend_Stand` (648,1248). Sprite : `Content/Chara/40.chara` ABSENT du dépôt (39 .chara custom seulement) → le sprite vient de l'asset pack PMDO de base, non vérifiable dans ce dépôt.
+- **Position vs « Ramolos »** : ambiguïté dans la demande. Le Kecleon (Shop_Owner « Lars ») est en **(1056, 832)** → ~594 px de Grodoudou : PAS adjacent. Le vrai Ramolos/Slowpoke (Tutor_Owner « Ezalor ») est en **(1159, 1277)** → ~503 px : PAS adjacent non plus. Grodoudou est dans la **rangée des étals** avec Mido/nuzleaf **(592, 1296)** et Rhizo/lombre **(720, 1296)** (~68 px chacun) — zone commerciale cohérente, mais PAS celle de Lars/Ezalor. À trancher : le déplacer ou valider l'emplacement actuel.
+- **Population du shop Kecleon** : autour de (1056,832) il n'y a que Lars et Zigs/TM_Owner (1080,832). Aucun client/passant statique dans la carte (les 12 MapChars sont tous des marchands + Hyko en 663,924) ; la vie ambiante repose sur les scripts (TownVoices…). Signalé, non « supposé normal ».
+- Interaction : `metano_town_legend.lua` a une vraie mise en scène d'achat (FaceUp, PurchaseFlash, émotes) — pas un menu sec.
+- **Cinématique d'introduction du stand : ELLE EXISTE** — `metano_town_legend.ArrivalScene` (`metano_town_legend.lua:215`), caméra sur le comptoir, partenaire + Grodoudou se présentent, jouée une fois après `FinishedExpedition`, branchée dans `metano_town/init.lua:2825/2832`.
+
+### Réserve générale
+Audit statique (fichiers/lignes). Aucun test en jeu dans cette sandbox.
