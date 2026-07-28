@@ -6,6 +6,7 @@
 -- Commonly included lua functions and data
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.ReplayEnding'
 
 -- [NREPROBE] sonde locale (audit runtime).
 local function nre_snap(tag)
@@ -72,10 +73,10 @@ function mount_windswept.ExitSegment(zone, result, rescue, segmentID, mapID)
 		-- branche du mini-boss, laissant la sortie du segment 4 sans gestion.)
 		GAME:WaitFrames(10)
 		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
-	elseif segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 5 then
+	elseif segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('mount_windswept', 5) then
 		-- Segment 0 cleared: go to midpoint rest stop before mini-boss
 		PrintInfo("[NREPROBE][transition] mount_windswept.ExitSegment -> EnterGroundMap('mount_windswept_midpoint')") GAME:EnterGroundMap('mount_windswept_midpoint', 'Main_Entrance_Marker')
-	elseif segmentID == 1 and SV.ChapterProgression.Chapter == 5 then
+	elseif segmentID == 1 and ReplayEnding.FollowsRoute('mount_windswept', 5) then
 		-- Mini-boss arena: win or loss both go back to mini-boss ground map
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 			SV.Chapter5.MountMiniBossDefeated = true
@@ -83,7 +84,7 @@ function mount_windswept.ExitSegment(zone, result, rescue, segmentID, mapID)
 			SV.Chapter5.MountMiniBossLost = true
 		end
 		PrintInfo("[NREPROBE][transition] mount_windswept.ExitSegment -> EnterGroundMap('mount_windswept_miniboss')") GAME:EnterGroundMap('mount_windswept_miniboss', 'Main_Entrance_Marker')
-	elseif segmentID == 2 and SV.ChapterProgression.Chapter == 5 and result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+	elseif segmentID == 2 and ReplayEnding.FollowsRoute('mount_windswept', 5) and result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
 		-- vague 8 : checkpoint mount_windswept — la mort dans la 2e moitié ramène au relais,
 		-- où la scène de réveil (WipedCutscene) prend le relai narratif.
 		GAME:WaitFrames(20)
@@ -95,10 +96,10 @@ function mount_windswept.ExitSegment(zone, result, rescue, segmentID, mapID)
 		else
 			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 63, 0, true, true)
 		end
-	elseif segmentID == 2 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 5 then
+	elseif segmentID == 2 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('mount_windswept', 5) then
 		-- Segment 2 cleared: go to guardian ground map
 		PrintInfo("[NREPROBE][transition] mount_windswept.ExitSegment -> EnterGroundMap('mount_windswept_guardian')") GAME:EnterGroundMap('mount_windswept_guardian', 'Main_Entrance_Marker')
-	elseif segmentID == 3 and SV.ChapterProgression.Chapter == 5 then
+	elseif segmentID == 3 and ReplayEnding.FollowsRoute('mount_windswept', 5) then
 		-- Guardian arena: win or loss both go back to guardian ground map
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 			SV.Chapter5.MountGuardianDefeated = true

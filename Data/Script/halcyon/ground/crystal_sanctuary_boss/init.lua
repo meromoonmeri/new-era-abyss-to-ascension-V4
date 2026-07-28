@@ -9,10 +9,28 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
+require 'halcyon.ReplayEnding'
 local crystal_sanctuary_boss = {}
 function crystal_sanctuary_boss.Init(map) DEBUG.EnableDbgCoro() end
 function crystal_sanctuary_boss.Enter(map)
   DEBUG.EnableDbgCoro()
+
+  -- Rejouabilite : le donjon d'histoire est boucle, le gardien n'est plus la.
+  -- Sans cette branche, revenir ici relancait la cinematique ET le combat.
+  if ReplayEnding.IsReplay('crystal_sanctuary', 8) then
+    ReplayEnding.EmptyArena({
+      hero = {172, 180}, partner = {140, 180},
+      camera = {156, 156}, look = {156, 132},
+      walk = 40, title = true, music = 'Boss Battle!.ogg',
+      lines = {
+        { spk='partner', emo='Normal', key='CSB_R01', wait=10 },
+        { spk='hero',    emo='Normal', key='CSB_R02', wait=10 },
+        { spk='partner', emo='Normal', key='CSB_R03' },
+        { spk='narrator',              key='CSB_R04' },
+      },
+    })
+    return
+  end
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   GAME:CutsceneMode(true)

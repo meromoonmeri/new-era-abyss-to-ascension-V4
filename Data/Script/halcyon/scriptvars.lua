@@ -1034,7 +1034,11 @@ SV.Chapter10 =
 	DiedToLugia = false,
 	SawNecrozmaVision = false,
 	PeakMidpointState = 'FirstArrival',
-	PlayedPeakRelayIntro = false--cinematique d'arrivee au relais (marche + dialogue)
+	PlayedPeakRelayIntro = false,--cinematique d'arrivee au relais (marche + dialogue)
+	--Rejouabilite : jalon interne a un parcours rejoue. OutranEscouadeFulgur
+	--reste vrai pour toujours et ne peut donc plus servir a savoir ou on en est
+	--dans l'ascension. Remis a false a chaque entree dans le donjon.
+	ReplayPastFulgur = false
 }
 
 
@@ -1118,4 +1122,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-07-31-H]')
+print('Script variables default values loaded! [build 2026-07-31-I]')

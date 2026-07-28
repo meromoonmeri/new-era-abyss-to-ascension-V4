@@ -7,6 +7,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.RelayScenes'
+require 'halcyon.ReplayEnding'
 
 local celestial_peak_relay = {}
 
@@ -86,7 +87,15 @@ function celestial_peak_relay.North_Exit_Touch(obj, activator)
     -- Le relais sert deux fois : avant la Mer de Nuages (segment 2),
     -- puis après la course contre l'Escouade Fulgur (segment 4, Sommet Sacré).
     local nextSegment = 2
-    if SV.Chapter10.OutranEscouadeFulgur then nextSegment = 4 end
+    if ReplayEnding.IsReplay('celestial_peak', 10) then
+      -- Rejouabilite : OutranEscouadeFulgur est vrai pour toujours, il ne peut
+      -- donc plus servir de reperage. Sans ce cas, le relais sautait droit au
+      -- segment 4 et la Mer de Nuages (segment 2) devenait injouable.
+      -- On suit un compteur de passage propre a la partie rejouee.
+      if SV.Chapter10.ReplayPastFulgur then nextSegment = 4 else nextSegment = 2 end
+    elseif SV.Chapter10.OutranEscouadeFulgur then
+      nextSegment = 4
+    end
     GAME:EnterDungeon("celestial_peak", nextSegment, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
   end
   partner.IsInteracting = false

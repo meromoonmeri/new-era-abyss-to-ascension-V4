@@ -5,6 +5,7 @@
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.ReplayEnding'
 require 'halcyon.LegendZones'
 
 local cloven_ruins = {}
@@ -46,7 +47,7 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
 
   if segmentID == 0 then
       -- Ruines Tordues : 15 etages
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 7 then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('cloven_ruins', 7) then
           -- Go to relay checkpoint
           GAME:EnterGroundMap('cloven_ruins_midpoint', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
@@ -68,7 +69,7 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
       end
   elseif segmentID == 2 then
       -- Profondeurs : 5 etages
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 7 then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('cloven_ruins', 7) then
           GAME:EnterGroundMap('cloven_ruins_boss', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)

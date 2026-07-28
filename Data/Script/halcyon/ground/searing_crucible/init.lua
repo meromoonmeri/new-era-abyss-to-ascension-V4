@@ -6,6 +6,7 @@
 -- Commonly included lua functions and data
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
+require 'halcyon.ReplayEnding'
 require 'halcyon.ground.searing_crucible.searing_crucible_ch_5'
 
 -- [NREPROBE] sonde locale : état complet de la scène à un point donné.
@@ -91,6 +92,23 @@ function searing_crucible.GameLoad(map)
 end
 
 function searing_crucible.PlotScripting()
+	-- Rejouabilite : l'expedition est bouclee, le Creuset est desert. Sans cette
+	-- branche, la carte hors chapitre 5 tombait dans le `else` (simple FadeIn)
+	-- et n'offrait AUCUNE sortie au joueur.
+	if ReplayEnding.IsReplay('searing_tunnel', 5) then
+		ReplayEnding.EmptyArena({
+			hero = {84, 120}, partner = {52, 120},
+			camera = {68, 96}, look = {68, 72},
+			walk = 32, title = true, music = 'In the Depths of the Pit.ogg',
+			lines = {
+				{ spk='partner', emo='Normal', key='SC5_R01', wait=10 },
+				{ spk='hero',    emo='Normal', key='SC5_R02', wait=10 },
+				{ spk='partner', emo='Normal', key='SC5_R03' },
+				{ spk='narrator',              key='SC5_R04' },
+			},
+		})
+		return
+	end
 	if SV.ChapterProgression.Chapter == 5 then
 		if SV.Chapter5.DefeatedBoss then 
 			searing_crucible_ch_5.DefeatedBoss()

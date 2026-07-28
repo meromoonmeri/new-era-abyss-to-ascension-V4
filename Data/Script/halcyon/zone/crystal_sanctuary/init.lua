@@ -5,6 +5,7 @@
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.ReplayEnding'
 
 local crystal_sanctuary = {}
 
@@ -45,7 +46,7 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
 
   if segmentID == 0 then
       -- Galerie Cristalline : 12 etages
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 8 then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('crystal_sanctuary', 8) then
           SV.Chapter8.ReachedCrystalRelay = true
           GAME:EnterGroundMap('crystal_sanctuary_relay', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
@@ -68,7 +69,7 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
       end
   elseif segmentID == 2 then
       -- Salles des Glyphes : 6 etages
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 8 then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('crystal_sanctuary', 8) then
           SV.Chapter8.ReachedDiancieChamber = true
           GAME:EnterGroundMap('crystal_sanctuary_boss', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then

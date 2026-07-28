@@ -6,6 +6,7 @@
 -- Commonly included lua functions and data
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.ReplayEnding'
 
 -- [NREPROBE] sonde locale (audit runtime).
 local function nre_snap(tag)

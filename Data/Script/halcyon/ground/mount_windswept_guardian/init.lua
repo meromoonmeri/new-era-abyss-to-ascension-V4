@@ -7,6 +7,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.ReplayEnding'
 require 'halcyon.ground.mount_windswept_guardian.mount_windswept_guardian_ch_5'
 
 -- [NREPROBE] sonde locale : état complet de la scène à un point donné.
@@ -46,6 +47,25 @@ function mount_windswept_guardian.Enter(map)
 	if SV.Chapter5.MountGuardianSeen == nil then SV.Chapter5.MountGuardianSeen = false end
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Enter_mount_windswept_guardian")
+
+  -- Rejouabilite : l'expedition est bouclee, le sommet est vide.
+  -- Attention : cette arene fait 208x176 px, le duo doit rester dans la carte.
+  if ReplayEnding.IsReplay('mount_windswept', 5) then
+    SV.Chapter5.MountGuardianDefeated = false
+    SV.Chapter5.MountGuardianLost = false
+    ReplayEnding.EmptyArena({
+      hero = {120, 144}, partner = {88, 144},
+      camera = {104, 120}, look = {104, 96},
+      walk = 40, title = true, music = 'Mt. Travail.ogg',
+      lines = {
+        { spk='partner', emo='Normal', key='MWG_R01', wait=10 },
+        { spk='hero',    emo='Normal', key='MWG_R02', wait=10 },
+        { spk='partner', emo='Normal', key='MWG_R03' },
+        { spk='narrator',              key='MWG_R04' },
+      },
+    })
+    return
+  end
 
   if SV.Chapter5.MountGuardianDefeated then
     SV.Chapter5.MountGuardianDefeated = false

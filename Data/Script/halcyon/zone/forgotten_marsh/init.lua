@@ -6,6 +6,7 @@
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.ReplayEnding'
 
 local forgotten_marsh = {}
 
@@ -46,7 +47,7 @@ function forgotten_marsh.ExitSegment(zone, result, rescue, segmentID, mapID)
 
   if segmentID == 0 then
       -- Berges Putrides : 10 etages
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 9 then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('forgotten_marsh', 9) then
           SV.Chapter9.ReachedMarshRelay = true
           GAME:EnterGroundMap('forgotten_marsh_relay', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
@@ -69,7 +70,7 @@ function forgotten_marsh.ExitSegment(zone, result, rescue, segmentID, mapID)
       end
   elseif segmentID == 2 then
       -- Abysses Vaseux : 8 etages — le Cercle du Suaire rode
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and SV.ChapterProgression.Chapter == 9 then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('forgotten_marsh', 9) then
           SV.Chapter9.ReachedMarshDepths = true
           SV.Chapter9.SawCercleDuSuaire = true
           GAME:EnterGroundMap('forgotten_marsh_boss', 'Main_Entrance_Marker')

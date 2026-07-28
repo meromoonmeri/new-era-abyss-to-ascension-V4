@@ -1,6 +1,7 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.LegendZones'
+require 'halcyon.ReplayEnding'
 
 local gloomy_forest = {}
 
@@ -81,7 +82,9 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 	end
 
 	if segmentID == 1 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-		if SV.Chapter6.ChenipentFound then
+		-- Rejouabilite : l'objectif de sauvetage du ch6 est deja accompli, le coeur
+		-- de la foret n'a plus de raison de rester ferme.
+		if SV.Chapter6.ChenipentFound or ReplayEnding.IsCleared('gloomy_forest') then
 			GAME:EnterGroundMap('gloomy_forest_boss', 'Main_Entrance_Marker')
 		else
 			-- The rescue objective is required before the heart of the forest opens.

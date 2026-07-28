@@ -379,6 +379,15 @@ function DebugTools:OnUpgrade()
 	if not GAME:DungeonUnlocked("new_era_zone_47") then GAME:UnlockDungeon("new_era_zone_47") end
 	if not GAME:DungeonUnlocked("new_era_zone_48") then GAME:UnlockDungeon("new_era_zone_48") end
  end
+ --Rejouabilite des donjons d'histoire : un donjon dont la conclusion a ete vue
+ --reste joignable depuis le comptoir de Metano, comme dans les PMD officiels.
+ --Les 7 donjons ch5-ch10 n'etaient jamais passes a UnlockDungeon : ils
+ --disparaissaient de la liste des destinations une fois le chapitre fini.
+ --Rattrapage retroactif ici pour les sauvegardes en cours ; le comptoir
+ --(metano_town.East_Exit_Touch) refait le meme balayage a chaque ouverture.
+ require 'halcyon.ReplayEnding'
+ ReplayEnding.SyncUnlocks()
+
  --Arc 2 « Ce que la brume emporte » : 5 quetes secondaires liees a l'intrigue.
  --Disponible des le ch6 (apres l'expedition), retroactif pour les parties en cours.
  if SV.SuaireArc == nil then SV.SuaireArc = {} end
@@ -526,6 +535,10 @@ function DebugTools:OnUpgrade()
  end
  if SV.Chapter10 ~= nil and SV.Chapter10.PlayedPeakRelayIntro == nil then
 	SV.Chapter10.PlayedPeakRelayIntro = (SV.Chapter10.ReachedCloudRelay == true)
+ end
+ --Rejouabilite du Pic Celeste : jalon interne au parcours rejoue.
+ if SV.Chapter10 ~= nil and SV.Chapter10.ReplayPastFulgur == nil then
+	SV.Chapter10.ReplayPastFulgur = false
  end
  --Stations-Relais du Reseau : cinematique d'arrivee jouee une fois par station
  if SV.Reseau == nil then SV.Reseau = { Veilleurs = {} } end

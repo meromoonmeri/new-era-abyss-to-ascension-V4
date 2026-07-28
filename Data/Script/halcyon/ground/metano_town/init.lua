@@ -3,6 +3,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.AudinoAssembly'
+require 'halcyon.ReplayEnding'
 require 'halcyon.ground.metano_town.metano_town_ch_1'
 require 'halcyon.ground.metano_town.metano_town_ch_2'
 require 'halcyon.ground.metano_town.metano_town_ch_3'
@@ -181,6 +182,11 @@ end
 
 function metano_town.East_Exit_Touch(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
+  --Rejouabilite : rouvre au voyage les donjons d'histoire deja termines.
+  --Les 7 donjons ch5-ch10 n'etaient jamais passes a UnlockDungeon, donc ils
+  --n'apparaissaient pas dans la liste ci-dessous meme une fois boucles.
+  --Idempotent et garde par pcall : n'empeche jamais l'ouverture du menu.
+  ReplayEnding.SyncUnlocks()
   GeneralFunctions.StartPartnerConversation("Où devrions-nous aller,[pause=10]" .. CH('PLAYER'):GetDisplayName() .. " ?", "Normal", false)
   GAME:WaitFrames(20)
   local dungeons = {"relic_forest", "illuminant_riverbed", "crooked_cavern", "apricorn_grove", "vast_steppe", "searing_tunnel", "mount_windswept", "gloomy_forest", "cloven_ruins", "crystal_sanctuary", "forgotten_marsh", "celestial_peak", "petit_tunnel", "bosquet_voile", "grotte_mystere", "vallee_fertile", "antre_enigme", "carriere_cuivre", "grotte_echoue"}--this needs to be updated when more dungeons come out.

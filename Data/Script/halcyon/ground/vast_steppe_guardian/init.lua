@@ -7,6 +7,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.ReplayEnding'
 require 'halcyon.ground.vast_steppe_guardian.vast_steppe_guardian_ch_5'
 
 -- [NREPROBE] sonde locale : état complet de la scène à un point donné.
@@ -46,6 +47,26 @@ function vast_steppe_guardian.Enter(map)
 	if SV.Chapter5.SteppeGuardianSeen == nil then SV.Chapter5.SteppeGuardianSeen = false end
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Enter_vast_steppe_guardian")
+
+  -- Rejouabilite : l'expedition est bouclee, le Gardien n'est plus la. On joue
+  -- le constat de salle vide, puis l'ecran de resultats et le retour a la guilde.
+  -- Sans cette branche, la carte hors chapitre 5 n'avait AUCUNE sortie.
+  if ReplayEnding.IsReplay('vast_steppe', 5) then
+    SV.Chapter5.SteppeGuardianDefeated = false
+    SV.Chapter5.SteppeGuardianLost = false
+    ReplayEnding.EmptyArena({
+      hero = {200, 348}, partner = {168, 348},
+      camera = {184, 344}, look = {184, 262},
+      walk = 60, title = true, music = 'Sky Peak Prairie.ogg',
+      lines = {
+        { spk='partner', emo='Normal',  key='VSG_R01', wait=10 },
+        { spk='hero',    emo='Normal',  key='VSG_R02', wait=10 },
+        { spk='partner', emo='Happy',   key='VSG_R03' },
+        { spk='narrator',               key='VSG_R04' },
+      },
+    })
+    return
+  end
 
   if SV.Chapter5.SteppeGuardianDefeated then
     SV.Chapter5.SteppeGuardianDefeated = false

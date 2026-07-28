@@ -2,6 +2,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.ReplayEnding'
 require 'halcyon.ground.gloomy_forest_boss.gloomy_forest_boss_ch_6'
 
 local gloomy_forest_boss = {}
@@ -27,6 +28,23 @@ function gloomy_forest_boss.GameSave(map)
 end
 
 function gloomy_forest_boss.PlotScripting()
+	-- Rejouabilite : Zarude a ete vaincu, la clairiere est vide. La revanche
+	-- volontaire passe par le segment 3 (zone-amie « Serment Verdoyant » achetee
+	-- chez Grodoudou), pas par ce ground.
+	if ReplayEnding.IsReplay('gloomy_forest', 6) then
+		ReplayEnding.EmptyArena({
+			hero = {276, 340}, partner = {308, 340},
+			camera = {292, 300}, look = {292, 240},
+			walk = 56, title = true, music = 'Mystifying Forest.ogg',
+			lines = {
+				{ spk='partner', emo='Normal', key='GF6B_R01', wait=10 },
+				{ spk='hero',    emo='Normal', key='GF6B_R02', wait=10 },
+				{ spk='partner', emo='Happy',  key='GF6B_R03' },
+				{ spk='narrator',              key='GF6B_R04' },
+			},
+		})
+		return
+	end
 	if SV.ChapterProgression.Chapter == 6 and not SV.Chapter6.GloomyBossEncountered then
 		gloomy_forest_boss_ch_6.FirstBossScene()
 	elseif SV.ChapterProgression.Chapter == 6 and not SV.Chapter6.DefeatedGloomyBoss then
