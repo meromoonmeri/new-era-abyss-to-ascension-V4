@@ -57,14 +57,15 @@ require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
+require 'halcyon.EngineKit'
 
 VeilleurArc = {}
 
+--Face a face natif (cf. EngineKit.lua).
 local function say(who, txt, emo)
   if who == nil then return end
-  UI:SetSpeaker(who)
-  if emo ~= nil then UI:SetSpeakerEmotion(emo) end
-  UI:WaitShowDialogue(txt)
+  local ally = (who == CH('PLAYER') or who == CH('Teammate1'))
+  EngineKit.Say(who, emo, txt, ally)
   GAME:WaitFrames(10)
 end
 

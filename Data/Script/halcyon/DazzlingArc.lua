@@ -84,6 +84,7 @@ require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
+require 'halcyon.EngineKit'
 
 DazzlingArc = {}
 
@@ -92,11 +93,13 @@ DazzlingArc = {}
 -- deux modules globaux doivent se lire de la meme facon).
 --------------------------------------------------------------------
 
+--Face a face natif (UI:SetSpeakerReverse, cf. EngineKit.lua) : sans lui,
+--les deux interlocuteurs regardent du meme cote et ne se font jamais face.
+--Convention New Era : allies portrait retourne, PNJ et boss a l'endroit.
 local function say(who, emo, txt)
   if who == nil then return end
-  UI:SetSpeaker(who)
-  UI:SetSpeakerEmotion(emo or 'Normal')
-  UI:WaitShowDialogue(txt)
+  local ally = (who == CH('PLAYER') or who == CH('Teammate1'))
+  EngineKit.Say(who, emo or 'Normal', txt, ally)
   GAME:WaitFrames(8)
 end
 
