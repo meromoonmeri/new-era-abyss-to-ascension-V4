@@ -1685,10 +1685,11 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	--ARRIVEE PAR LE SUD (retour du test en jeu : l'ancienne mise en place
 	--teleportait l'equipe au milieu de la carte puis la faisait marcher
 	--vers (92,176)/(60,136) — coordonnees HERITEES de la scene du Tunnel,
-	--dans l'angle ouest. Desormais : l'expedition debouche du sentier sud
-	--et remonte en LIGNE DROITE la colonne x=256 (verifiee rectiligne et
-	--praticable rows 50-79 apres degagement du couloir).
-	GAME:MoveCamera(256, 560, 1, false)
+	--dans l'angle ouest. Desormais : l'expedition debouche du sentier sud,
+	--le long de L'OCEAN qui borde la carte (rows 78-80, eau DuskBeach
+	--animee, infranchissable), et remonte en LIGNE DROITE la colonne
+	--x=256 (verifiee rectiligne et praticable rows 50-77).
+	GAME:MoveCamera(256, 524, 1, false)
 	--TRANSITION JOUR -> SOIR (Prompt Maitre 6.2). L'expedition arrive au
 	--couchant : "dusk" d'abord (patron exact de l'arrivee au Tunnel), la
 	--nuit noire ("darkness") ne tombe qu'au deploiement des couchages.
@@ -1697,8 +1698,8 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	--for debug purposes
 	GAME:FadeOut(false, 1)
 	
-	GROUND:TeleportTo(hero, 256, 588, Direction.Up)
-	GROUND:TeleportTo(partner, 256, 604, Direction.Up)
+	GROUND:TeleportTo(hero, 256, 540, Direction.Up)
+	GROUND:TeleportTo(partner, 256, 556, Direction.Up)
 	
 	local audino, snubbull, girafarig, breloom, growlithe, zigzagoon, tropius, noctowl, mareep, cranidos = 
 	CharacterEssentials.MakeCharactersFromList({
@@ -1706,8 +1707,8 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 		{'Snubbull'},
 		{'Girafarig'},
 		{'Breloom'},
-		{'Growlithe', 256, 620, Direction.Up},
-		{'Zigzagoon', 256, 636, Direction.Up},
+		{'Growlithe', 256, 572, Direction.Up},
+		{'Zigzagoon', 256, 588, Direction.Up},
 		{'Tropius'},
 		{'Noctowl'},
 		{'Mareep'},
