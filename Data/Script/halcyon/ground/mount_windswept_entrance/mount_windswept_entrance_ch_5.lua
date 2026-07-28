@@ -24,147 +24,777 @@ mount_windswept_entrance_ch_5 = {}
 -- flottait dans la falaise. Verifie case par case sur les 12 ; les 11
 -- autres sont sur du sol libre. Il est ramene sur le terrain plat.
 --------------------------------------------------------------------
--- LA VEILLEE AU CAMP — repas, silence, coucher
+-- LA VEILLEE AU CAMP — diner, conversations, coucher, matin
 --------------------------------------------------------------------
--- Jouee a la fin de l'arrivee. Elle donne enfin un usage aux douze
--- paillasses : sans elle, le joueur voyait un cercle de foin et
--- personne dedans.
+-- Portee au niveau de la scene soeur du Tunnel Incandescent
+-- (ArrivalDinnerNightAndAddressCutscene) : un cycle complet
+--   1. LE DINER        les 12 mangent autour du feu, camera qui balaie
+--   2. LES CONVERSATIONS  trois groupes paralleles (coroutines)
+--   3. LE COUCHER      chacun rejoint sa paillasse, en decale
+--   4. LE MATIN        reveil par Rin, gag de Kino, briefing de Penticus
 --
--- Trois temps, dans l'ordre reel d'un bivouac de montagne :
---   1. LE REPAS   on mange autour du feu, ca parle fort.
---   2. LE SILENCE la conversation retombe, on regarde les flammes.
---   3. LE COUCHER chacun rejoint sa couche, un par un.
+-- Toutes les repliques vivent dans strings.resx / strings.fr.resx
+-- (cles MWE5_021 a MWE5_071 + MWE5_201), comme les scenes du Tunnel.
 --
--- Les positions de couchage sont tirees de BEDS : personne ne dort a
--- cote de son lit. Les indices sont fixes pour que le maitre de guilde
--- soit toujours du meme cote du feu d'une partie a l'autre.
+-- APIs strictement attestees dans le depot (recherche par usage) :
+--   Eat / eating / Sleep / EventSleep / Wake  -> searing_tunnel_entrance_ch_5
+--   Food / Food_Flipped / Hay_Bed / Campfire  -> Content/Object/
+--   'Dinner Eating' / 'AMB_Fire_Loud'          -> Content/Sound/
+--   WaitShowTimedDialogue / WaitShowVoiceOver  -> searing_tunnel (STE5_213)
+--   Shake / Complain / Hop / DoAnimation       -> GeneralFunctions
 --
--- Texte litteral francais : ce fichier est un script de carte, mais
--- ces repliques n'existent dans aucun .resx. Les ecrire ici evite
--- d'inventer des cles MWE5_ qui n'existent pas.
---
--- « Sleep » est une animation attestee dans le depot
--- (guild_top_right_bedroom_ch_1.lua:14, metano_inn_ch_2.lua:37).
-function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, membres)
+-- Qui dort ou (indices dans BEDS) :
+--   1 Penticus  2 Phileas  3 Reinier  4 Ganlon   5 Shuca   6 partenaire
+--   7 heros     8 Hyko     9 Almotz  10 Rin     11 Kino   12 Coco
+--------------------------------------------------------------------
+function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	local B = mount_windswept_entrance_ch_5.BEDS
+	local mountain = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('mount_windswept')
+	local ruins = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('cloven_ruins')
 
-	--Qui dort ou. Indices dans BEDS, choisis pour repartir le groupe
-	--autour du feu sans croisement de trajets.
-	local COUCHES = {
-		[1] = 1,   -- Penticus, tete du cercle
-		[2] = 2,   -- Phileas a sa droite
-		[3] = 10,  -- Rin
-		[4] = 3,   -- Coco
-		[5] = 9,   -- Shuca
-		[6] = 4,   -- Ganlon
-		[7] = 8,   -- Hyko
-		[8] = 5,   -- Almotz
+	--Assignation des couches. La cle est le personnage, la valeur est
+	--{index de lit, direction assise}. Le +13/+10 du Tunnel place le
+	--sprite au centre de la paillasse.
+	local seats = {
+		{t.penticus, 1,  Direction.Down},
+		{t.phileas,  2,  Direction.Down},
+		{t.reinier,  3,  Direction.Left},
+		{t.ganlon,   4,  Direction.Up},
+		{t.shuca,    5,  Direction.Up},
+		{partner,    6,  Direction.Up},
+		{hero,       7,  Direction.Up},
+		{t.hyko,     8,  Direction.Up},
+		{t.almotz,   9,  Direction.Right},
+		{t.rin,      10, Direction.Down},
+		{t.kino,     11, Direction.Left},
+		{t.coco,     12, Direction.Down},
 	}
+	local function seatX(i) return B[i][1] + 13 end
+	local function seatY(i) return B[i][2] + 10 end
 
-	local ok = pcall(function()
-		---------------------------------------------------------------
-		-- 1. LE REPAS
-		---------------------------------------------------------------
-		UI:ResetSpeaker(false)
-		UI:SetCenter(true)
-		UI:WaitShowDialogue("Le feu prend.[pause=30] Quelqu'un sort les provisions du sac commun.")
-		UI:SetCenter(false)
-		UI:ResetSpeaker()
-		GAME:WaitFrames(25)
+	---------------------------------------------------------------
+	-- 1. KINO ET REINIER REJOIGNENT LE CAMP
+	---------------------------------------------------------------
+	--Ils fermaient la marche sur le sentier. Leur arrivee complete
+	--l'expedition : les 12 paillasses ont enfin leurs 12 dormeurs.
+	GROUND:Unhide(t.kino.EntName)
+	GROUND:Unhide(t.reinier.EntName)
+	GROUND:TeleportTo(t.kino, 236, 396, Direction.Up)
+	GROUND:TeleportTo(t.reinier, 276, 396, Direction.Up)
 
-		--Le groupe se tourne vers le feu : le cercle se referme.
-		local tours = {}
-		for i, c in ipairs(membres) do
-			tours[#tours+1] = TASK:BranchCoroutine(function()
-				GAME:WaitFrames(i * 4)
-				GROUND:CharTurnToCharAnimated(c, hero, 4)
-			end)
-		end
-		TASK:JoinCoroutines(tours)
-		GAME:WaitFrames(20)
-
-		UI:SetSpeaker(membres[4])            -- Coco, la cuisiniere
-		UI:SetSpeakerEmotion("Happy")
-		UI:WaitShowDialogue("Servez-vous tant que c'est chaud ![pause=25] En altitude, ca refroidit en deux minutes.")
-		GAME:WaitFrames(12)
-
-		UI:SetSpeaker(membres[6])            -- Ganlon
-		UI:SetSpeakerEmotion("Normal")
-		UI:WaitShowDialogue("C'est meilleur qu'a la guilde.[pause=30] Ne lui repetez pas.")
-		GAME:WaitFrames(12)
-
-		UI:SetSpeaker(membres[5])            -- Shuca
-		UI:SetSpeakerEmotion("Happy")
-		UI:WaitShowDialogue("Je n'avais jamais mange dehors ![pause=25] Ca a un gout different, non ?")
-		GAME:WaitFrames(12)
-
-		UI:SetSpeaker(partner)
-		UI:SetSpeakerEmotion("Happy")
-		UI:WaitShowDialogue("C'est le vent.[pause=25] Il met du froid dans tout, meme dans la soupe.")
-		GAME:WaitFrames(15)
-
-		---------------------------------------------------------------
-		-- 2. LE SILENCE
-		---------------------------------------------------------------
-		UI:ResetSpeaker(false)
-		UI:SetCenter(true)
-		UI:WaitShowDialogue("Peu a peu, on cesse de parler.[pause=30] Il ne reste que le bruit du feu.")
-		UI:SetCenter(false)
-		UI:ResetSpeaker()
-		GAME:WaitFrames(30)
-
-		UI:SetSpeaker(membres[1])            -- Penticus
-		UI:SetSpeakerEmotion("Normal")
-		UI:WaitShowDialogue("Demain, la montagne.[pause=30] Dormez pendant qu'elle vous laisse dormir.")
-		GAME:WaitFrames(20)
-
-		---------------------------------------------------------------
-		-- 3. LE COUCHER
-		---------------------------------------------------------------
-		--Chacun rejoint sa paillasse, en decale. Le decalage compte : un
-		--camp qui se couche d'un seul bloc a l'air mecanique.
-		local vers = {}
-		for i, c in ipairs(membres) do
-			local b = B[COUCHES[i]]
-			if b ~= nil then
-				vers[#vers+1] = TASK:BranchCoroutine(function()
-					GAME:WaitFrames(i * 12)
-					GROUND:MoveToPosition(c, b[1], b[2], false, 1)
-					GROUND:CharSetAnim(c, "Sleep", true)
-				end)
-			end
-		end
-
-		--Le duo se couche en dernier, cote a cote, sur les deux couches
-		--restees libres (11 et 12, a l'ecart du cercle).
-		vers[#vers+1] = TASK:BranchCoroutine(function()
-			GAME:WaitFrames(#membres * 12 + 10)
-			GROUND:MoveToPosition(partner, B[6][1], B[6][2], false, 1)
-			GROUND:CharSetAnim(partner, "Sleep", true)
-		end)
-		vers[#vers+1] = TASK:BranchCoroutine(function()
-			GAME:WaitFrames(#membres * 12 + 18)
-			GROUND:MoveToPosition(hero, B[7][1], B[7][2], false, 1)
-		end)
-		TASK:JoinCoroutines(vers)
-		GAME:WaitFrames(25)
-
-		--Le heros reste eveille un instant de plus. C'est lui qui ferme
-		--la scene, et c'est lui qui porte le poids de ce qui vient.
-		GeneralFunctions.HeroDialogue(hero,
-			"(Onze respirations autour d'un feu.[pause=30] Je n'avais jamais rien entendu d'aussi calme.)", "Normal")
-		GAME:WaitFrames(20)
-		GROUND:CharSetAnim(hero, "Sleep", true)
-		GAME:WaitFrames(40)
-
-		UI:ResetSpeaker(false)
-		UI:SetCenter(true)
-		UI:WaitShowDialogue("Le feu baisse.[pause=30] La montagne attend au-dessus, patiente.")
-		UI:SetCenter(false)
-		UI:ResetSpeaker()
-		GAME:WaitFrames(25)
+	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
+	local coro1 = TASK:BranchCoroutine(function()
+		GROUND:CharSetEmote(t.coco, "exclaim", 1)
+		GROUND:CharAnimateTurnTo(t.coco, Direction.Down, 4)
 	end)
-	if not ok then PrintInfo('[MWE5.CampNightfall] veillee ecourtee') end
+	local coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(8)
+		GROUND:CharSetEmote(t.shuca, "happy", 1)
+		GROUND:CharAnimateTurnTo(t.shuca, Direction.Down, 4)
+	end)
+	local coro3 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(12)
+		GROUND:CharTurnToCharAnimated(partner, t.kino, 4)
+	end)
+	local coro4 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(16)
+		GROUND:CharTurnToCharAnimated(hero, t.kino, 4)
+	end)
+	local coro5 = TASK:BranchCoroutine(function()
+		GROUND:MoveToPosition(t.kino, 236, 330, false, 1)
+	end)
+	local coro6 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		GROUND:MoveToPosition(t.reinier, 276, 330, false, 1)
+	end)
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coro6})
+
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(t.kino)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_021']))
+	GAME:WaitFrames(15)
+	UI:SetSpeaker(t.reinier)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_022']))
+	GAME:WaitFrames(20)
+
+	---------------------------------------------------------------
+	-- 2. LE DINER — tout le monde s'installe autour du feu
+	---------------------------------------------------------------
+	UI:ResetSpeaker(false)
+	UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_023']))
+	UI:SetCenter(false)
+	UI:ResetSpeaker()
+
+	--Chacun gagne sa place, en decale : un camp qui bouge d'un seul
+	--bloc a l'air mecanique.
+	local settle = {}
+	for i, s in ipairs(seats) do
+		local chara, bed, dir = s[1], s[2], s[3]
+		settle[#settle+1] = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(i * 6)
+			GROUND:MoveToPosition(chara, seatX(bed), seatY(bed), false, 1)
+			GROUND:CharAnimateTurnTo(chara, dir, 4)
+		end)
+	end
+	TASK:JoinCoroutines(settle)
+	GAME:WaitFrames(20)
+
+	--La nourriture apparait devant chaque convive, comme au Tunnel :
+	--Food au sud du personnage pour la moitie haute du cercle,
+	--Food_Flipped au nord pour la moitie basse.
+	local foods = {}
+	for i, s in ipairs(seats) do
+		local bed, dir = s[2], s[3]
+		local anim, fy
+		if dir == Direction.Up then
+			anim, fy = "Food_Flipped", B[bed][2]
+		else
+			anim, fy = "Food", B[bed][2] + 22
+		end
+		local food = RogueEssence.Ground.GroundObject(
+			RogueEssence.Content.ObjAnimData(anim, 1, 0, 0),
+			RogueElements.Rect(B[bed][1] + 13, fy, 16, 16),
+			RogueElements.Loc(0, 0),
+			false,
+			"CampFood" .. tostring(i))
+		food:ReloadEvents()
+		GAME:GetCurrentGround():AddTempObject(food)
+		foods[#foods+1] = food
+	end
+
+	--Tout le monde mange en meme temps.
+	for _, s in ipairs(seats) do
+		GROUND:CharSetAnim(s[1], "Eat", true)
+		GROUND:CharSetEmote(s[1], "eating", 0)
+	end
+
+	--La camera balaie le camp pendant le repas, la boite de dialogue
+	--"scrontch" tourne en boucle jusqu'a la fin du panoramique.
+	local stopEating = false
+	UI:SetSpeaker('', false, "", -1, "", RogueEssence.Data.Gender.Unknown)
+	SOUND:LoopSE('Dinner Eating')
+	coro1 = TASK:BranchCoroutine(function()
+		GAME:MoveCamera(200, 180, 100, false)
+		GAME:MoveCamera(312, 268, 140, false)
+		GAME:MoveCamera(256, 228, 70, false)
+		GAME:WaitFrames(30)
+		stopEating = true
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		while not stopEating do
+			UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_201']), 6)
+		end
+		SOUND:FadeOutSE('Dinner Eating', 90)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+	GAME:WaitFrames(30)
+
+	--Fin du repas : on retire la nourriture, on coupe les animations.
+	for _, food in ipairs(foods) do
+		GAME:GetCurrentGround():RemoveTempObject(food)
+	end
+	for _, s in ipairs(seats) do
+		GROUND:CharEndAnim(s[1])
+		GROUND:CharSetEmote(s[1], "", 0)
+	end
+	SOUND:LoopSE('AMB_Fire_Loud')
+	GAME:WaitFrames(20)
+
+	---------------------------------------------------------------
+	-- 3. LA TABLEE — la cuisiniere, le ronchon, la premiere fois
+	---------------------------------------------------------------
+	UI:SetSpeaker(t.coco)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_024']))
+	GAME:WaitFrames(15)
+
+	--Ganlon marmonne son compliment ; Coco a l'oreille fine. Les deux
+	--reactions se jouent en parallele.
+	UI:SetSpeaker(t.ganlon)
+	UI:SetSpeakerEmotion("Normal")
+	coro1 = TASK:BranchCoroutine(function()
+		GROUND:CharAnimateTurnTo(t.ganlon, Direction.UpLeft, 4)
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_025']))
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(20)
+		GROUND:CharSetEmote(t.coco, "notice", 1)
+		GROUND:CharTurnToCharAnimated(t.coco, t.ganlon, 4)
+	end)
+	coro3 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(26)
+		GROUND:CharSetEmote(t.shuca, "happy", 2)
+	end)
+	TASK:JoinCoroutines({coro1, coro2, coro3})
+
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(t.coco)
+	UI:SetSpeakerEmotion("Joyous")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_026'], t.ganlon:GetDisplayName()))
+	GAME:WaitFrames(15)
+
+	UI:SetSpeaker(t.shuca)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_027']))
+	GAME:WaitFrames(12)
+
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Happy")
+	coro1 = TASK:BranchCoroutine(function()
+		GROUND:CharTurnToCharAnimated(partner, t.shuca, 4)
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_028']))
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(14)
+		GROUND:CharTurnToCharAnimated(t.shuca, partner, 4)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+	GAME:WaitFrames(20)
+
+	---------------------------------------------------------------
+	-- 4. LES CONVERSATIONS PARALLELES — trois groupes autour du feu
+	---------------------------------------------------------------
+	--Groupe 1 : Almotz et son almanach, Hyko et ses etoiles.
+	--La camera isole le duo, pendant qu'en arriere-plan le reste du
+	--camp continue de vivre (animations cycliques sous coroutine,
+	--meme patron 'stopTalking' que la nuit du Tunnel).
+	local stopTalking = false
+	coro1 = TASK:BranchCoroutine(function()
+		GAME:MoveCamera(196, 236, 50, false)
+		GAME:WaitFrames(10)
+		GROUND:CharTurnToCharAnimated(t.almotz, t.hyko, 4)
+		GROUND:CharTurnToCharAnimated(t.hyko, t.almotz, 4)
+		UI:SetSpeaker(t.almotz)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_029']))
+		GAME:WaitFrames(10)
+		UI:SetSpeaker(t.hyko)
+		UI:SetSpeakerEmotion("Joyous")
+		GROUND:CharSetEmote(t.hyko, "glowing", 0)
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_030']))
+		GROUND:CharSetEmote(t.hyko, "", 0)
+		GAME:WaitFrames(10)
+		UI:SetSpeaker(t.almotz)
+		UI:SetSpeakerEmotion("Happy")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_031'], mountain:GetColoredName()))
+		stopTalking = true
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		while not stopTalking do
+			GROUND:CharSetAnim(t.shuca, "Idle", true)
+			GROUND:CharSetEmote(t.shuca, "happy", 0)
+			GAME:WaitFrames(60)
+			GROUND:CharEndAnim(t.shuca)
+			GROUND:CharSetEmote(t.shuca, "", 0)
+			GAME:WaitFrames(40)
+			if stopTalking then break end
+
+			GROUND:CharSetAnim(t.coco, "Idle", true)
+			GROUND:CharSetEmote(t.coco, "happy", 0)
+			GAME:WaitFrames(60)
+			GROUND:CharEndAnim(t.coco)
+			GROUND:CharSetEmote(t.coco, "", 0)
+			GAME:WaitFrames(40)
+		end
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+	GAME:WaitFrames(15)
+
+	--Groupe 2 : Reinier, sa queue, et les etincelles. La camera glisse
+	--vers lui pendant que Coco lui repond de l'autre bord du feu.
+	coro1 = TASK:BranchCoroutine(function()
+		GAME:MoveCamera(322, 214, 45, false)
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(20)
+		GROUND:CharSetEmote(t.reinier, "question", 1)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+	UI:SetSpeaker(t.reinier)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_032']))
+	GAME:WaitFrames(12)
+	UI:SetSpeaker(t.coco)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_033']))
+	GAME:WaitFrames(15)
+
+	--Groupe 3 : les anciens. Phileas et Penticus, en haut du cercle,
+	--parlent a voix basse de ce que le vent transporte. La camera les
+	--isole ; c'est le seul moment grave du repas.
+	GAME:MoveCamera(278, 168, 50, false)
+	GAME:WaitFrames(10)
+	coro1 = TASK:BranchCoroutine(function()
+		GROUND:CharTurnToCharAnimated(t.phileas, t.penticus, 4)
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(8)
+		GROUND:CharTurnToCharAnimated(t.penticus, t.phileas, 4)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+
+	UI:SetSpeaker(t.phileas)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_034']))
+	GAME:WaitFrames(20)
+	UI:SetSpeaker(t.penticus)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_035'], t.phileas:GetDisplayName()))
+	GAME:WaitFrames(15)
+	UI:SetSpeaker(t.phileas)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_036']))
+	GAME:WaitFrames(20)
+
+	--Retour au plan large : Rin fait sa tournee de soins.
+	GAME:MoveCamera(256, 228, 55, false)
+	GAME:WaitFrames(10)
+	GeneralFunctions.EmoteAndPause(t.rin, "Notice", true)
+	UI:SetSpeaker(t.rin)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_037'], t.ganlon:GetDisplayName()))
+	GAME:WaitFrames(10)
+
+	coro1 = TASK:BranchCoroutine(function()
+		GROUND:MoveToPosition(t.rin, seatX(4) - 24, seatY(4), false, 1)
+		GROUND:CharTurnToCharAnimated(t.rin, t.ganlon, 4)
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(20)
+		GROUND:CharSetEmote(t.ganlon, "sweatdrop", 1)
+		GROUND:CharTurnToCharAnimated(t.ganlon, t.rin, 4)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+
+	UI:SetSpeaker(t.ganlon)
+	UI:SetSpeakerEmotion("Sigh")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_038']))
+	GAME:WaitFrames(10)
+	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
+	coro1 = TASK:BranchCoroutine(function()
+		GROUND:CharSetEmote(t.coco, "happy", 2)
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(6)
+		GROUND:CharSetEmote(t.shuca, "happy", 2)
+	end)
+	coro3 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		GROUND:CharSetEmote(t.hyko, "happy", 2)
+	end)
+	TASK:JoinCoroutines({coro1, coro2, coro3})
+	UI:SetSpeaker(t.coco)
+	UI:SetSpeakerEmotion("Joyous")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_039']))
+	GAME:WaitFrames(25)
+
+	--Rin retourne a sa place.
+	GROUND:MoveToPosition(t.rin, seatX(10), seatY(10), false, 1)
+	GROUND:CharAnimateTurnTo(t.rin, Direction.Down, 4)
+	GAME:WaitFrames(15)
+
+	---------------------------------------------------------------
+	-- 5. LE SILENCE — le heros et la montagne
+	---------------------------------------------------------------
+	--La conversation retombe. Le heros fixe le sommet ; le partenaire
+	--est le seul a le remarquer. Fil rouge de la « sensation etrange »
+	--commence au camp du Tunnel : elle est plus forte ici.
+	SOUND:FadeOutSE('AMB_Fire_Loud', 60)
+	GAME:WaitFrames(30)
+	GROUND:EntTurn(hero, Direction.Up)
+	GAME:WaitFrames(20)
+	GAME:MoveCamera(238, 258, 40, false)
+	GAME:WaitFrames(15)
+
+	GeneralFunctions.EmoteAndPause(partner, "Question", true)
+	GROUND:CharTurnToCharAnimated(partner, hero, 4)
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_040'], hero:GetDisplayName()))
+	GAME:WaitFrames(15)
+
+	GROUND:CharTurnToCharAnimated(hero, partner, 4)
+	UI:SetSpeaker('', false, hero.CurrentForm.Species, hero.CurrentForm.Form, hero.CurrentForm.Skin, hero.CurrentForm.Gender)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_041']))
+	GAME:WaitFrames(15)
+
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Determined")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_042']))
+	GAME:WaitFrames(10)
+	GeneralFunctions.DoAnimation(hero, 'Nod')
+	UI:SetSpeaker('', false, hero.CurrentForm.Species, hero.CurrentForm.Form, hero.CurrentForm.Skin, hero.CurrentForm.Gender)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_043']))
+	GAME:WaitFrames(20)
+	SOUND:FadeInSE('AMB_Fire_Loud', 60)
+
+	---------------------------------------------------------------
+	-- 6. L'ORDRE DU SOIR — Penticus envoie tout le monde dormir
+	---------------------------------------------------------------
+	GAME:MoveCamera(256, 210, 45, false)
+	GROUND:CharEndAnim(t.penticus)
+	GAME:WaitFrames(10)
+
+	--Tout le cercle se tourne vers le maitre de guilde, en decale.
+	local heads = {}
+	local listeners = {partner, hero, t.hyko, t.almotz, t.rin, t.coco, t.shuca, t.ganlon, t.reinier, t.kino}
+	for i, c in ipairs(listeners) do
+		heads[#heads+1] = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(i * 3)
+			GROUND:CharTurnToCharAnimated(c, t.penticus, 4)
+		end)
+	end
+	TASK:JoinCoroutines(heads)
+	GAME:WaitFrames(10)
+
+	UI:SetSpeaker(t.penticus)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_044'], mountain:GetColoredName()))
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_045']))
+	GAME:WaitFrames(15)
+	UI:SetSpeaker(t.coco)
+	UI:SetSpeakerEmotion("Joyous")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_046']))
+	GAME:WaitFrames(20)
+
+	---------------------------------------------------------------
+	-- 7. LE COUCHER — un par un, respiration desynchronisee
+	---------------------------------------------------------------
+	--Phileas prend le premier tour de garde : il ne se couche pas.
+	--Il gagne le bord nord du camp et veille, comme il l'a annonce.
+	local vers = {}
+	local sleepOrder = {
+		{t.penticus, 1,  0},
+		{t.coco,     12, 14},
+		{t.shuca,    5,  26},
+		{t.ganlon,   4,  40},
+		{t.reinier,  3,  52},
+		{t.rin,      10, 66},
+		{t.kino,     11, 80},
+	}
+	for _, s in ipairs(sleepOrder) do
+		local chara, bed, delay = s[1], s[2], s[3]
+		vers[#vers+1] = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(delay)
+			GROUND:MoveToPosition(chara, seatX(bed), seatY(bed), false, 1)
+			GROUND:CharSetAnim(chara, "Sleep", true)
+		end)
+	end
+	vers[#vers+1] = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(20)
+		GROUND:MoveToPosition(t.phileas, 256, 148, false, 1)
+		GROUND:CharAnimateTurnTo(t.phileas, Direction.Down, 4)
+	end)
+	TASK:JoinCoroutines(vers)
+	GAME:WaitFrames(20)
+
+	--Hyko et Almotz chuchotent encore, chacun sur sa couche.
+	GROUND:CharTurnToCharAnimated(t.hyko, t.almotz, 4)
+	GROUND:CharTurnToCharAnimated(t.almotz, t.hyko, 4)
+	UI:SetSpeaker(t.hyko)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_047'], t.almotz:GetDisplayName()))
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(t.almotz)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_048'], t.hyko:GetDisplayName()))
+	GAME:WaitFrames(15)
+	GROUND:CharSetAnim(t.almotz, "EventSleep", true)
+	GAME:WaitFrames(8)
+	GROUND:CharSetAnim(t.hyko, "Sleep", true)
+	GAME:WaitFrames(25)
+
+	--Le duo se couche en dernier.
+	GROUND:CharTurnToCharAnimated(partner, hero, 4)
+	GROUND:CharTurnToCharAnimated(hero, partner, 4)
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_049'], hero:GetDisplayName()))
+	GAME:WaitFrames(15)
+	GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+	GROUND:CharSetAnim(partner, "EventSleep", true)
+	GAME:WaitFrames(30)
+
+	--Le heros reste eveille un instant de plus : c'est lui qui ferme
+	--la journee, et lui qui porte le poids de ce qui vient.
+	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_050']), "Normal")
+	GAME:WaitFrames(20)
+	GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+	GROUND:CharSetAnim(hero, "EventSleep", true)
+	GAME:WaitFrames(30)
+
+	--La camera derive au-dessus du camp endormi. Phileas, seul debout,
+	--pique du bec un instant — le meme gag de sentinelle qu'au Tunnel —
+	--puis se redresse.
+	SOUND:FadeOutSE('AMB_Fire_Loud', 90)
+	coro1 = TASK:BranchCoroutine(function()
+		GAME:MoveCamera(256, 268, 90, false)
+		GAME:MoveCamera(256, 160, 110, false)
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(120)
+		GROUND:CharSetAction(t.phileas, RogueEssence.Ground.FrameGroundAction(t.phileas.Position, t.phileas.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Sleep"), 0))
+		GAME:WaitFrames(25)
+		GROUND:CharEndAnim(t.phileas)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+	GAME:WaitFrames(20)
+
+	UI:ResetSpeaker(false)
+	UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_051']))
+	UI:SetCenter(false)
+	UI:ResetSpeaker()
+
+	GAME:FadeOut(false, 60)
+	GAME:WaitFrames(60)
+
+	---------------------------------------------------------------
+	-- 8. LE MATIN — reveil, gag de Kino, briefing de Penticus
+	---------------------------------------------------------------
+	--Mise en place : le jour se leve, Rin et Coco sont deja debout,
+	--Penticus et Phileas aussi. Le reste du camp dort encore.
+	GROUND:RemoveMapStatus("darkness")
+
+	GROUND:CharEndAnim(t.rin)
+	GROUND:CharEndAnim(t.coco)
+	GROUND:CharEndAnim(t.penticus)
+	GROUND:TeleportTo(t.rin, 232, 252, Direction.Right)
+	GROUND:TeleportTo(t.coco, 280, 252, Direction.Left)
+	GROUND:TeleportTo(t.penticus, 256, 152, Direction.Down)
+	GROUND:TeleportTo(t.phileas, 296, 160, Direction.DownLeft)
+	GAME:MoveCamera(256, 228, 1, false)
+
+	UI:SetAutoFinish(true)
+	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['MWE5_052']) .. "\n\n", -1)
+	UI:SetAutoFinish(false)
+	GAME:WaitFrames(40)
+
+	UI:SetSpeaker(t.rin)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_053']))
+	GAME:FadeIn(40)
+	GAME:WaitFrames(20)
+
+	SOUND:PlayBattleSE("DUN_Heal_Bell")
+	GROUND:CharSetAction(t.rin, RogueEssence.Ground.PoseGroundAction(t.rin.Position, t.rin.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pose")))
+	GAME:WaitFrames(100)
+	GROUND:CharEndAnim(t.rin)
+	GAME:WaitFrames(20)
+
+	--Tout le monde se reveille... sauf Kino. Chaque dormeur a son
+	--propre rythme : secousse, reveil, regard vers Rin.
+	coro1 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(20)
+		GeneralFunctions.Shake(hero)
+		GAME:WaitFrames(20)
+		GeneralFunctions.DoAnimation(hero, 'Wake')
+		GAME:WaitFrames(20)
+		GROUND:CharTurnToCharAnimated(hero, t.rin, 4)
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GeneralFunctions.Shake(partner)
+		GAME:WaitFrames(20)
+		GeneralFunctions.DoAnimation(partner, 'Wake')
+		GAME:WaitFrames(20)
+		GROUND:CharTurnToCharAnimated(partner, t.rin, 4)
+	end)
+	coro3 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		GeneralFunctions.Shake(t.almotz)
+		GAME:WaitFrames(20)
+		GeneralFunctions.DoAnimation(t.almotz, 'Wake')
+		GAME:WaitFrames(20)
+		GROUND:CharTurnToCharAnimated(t.almotz, t.rin, 4)
+	end)
+	coro4 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(4)
+		GeneralFunctions.Shake(t.hyko)
+		GAME:WaitFrames(70)
+		GROUND:CharEndAnim(t.hyko)
+		GAME:WaitFrames(20)
+		GROUND:CharTurnToCharAnimated(t.hyko, t.rin, 4)
+	end)
+	coro5 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(16)
+		GeneralFunctions.Shake(t.shuca)
+		GAME:WaitFrames(20)
+		GeneralFunctions.DoAnimation(t.shuca, 'Wake')
+		GAME:WaitFrames(20)
+		GROUND:CharTurnToCharAnimated(t.shuca, t.rin, 4)
+	end)
+	coro6 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(16)
+		GeneralFunctions.Shake(t.ganlon)
+		GAME:WaitFrames(10)
+		GeneralFunctions.Shake(t.ganlon)
+		GAME:WaitFrames(70)
+		GROUND:CharEndAnim(t.ganlon)
+		GAME:WaitFrames(20)
+		GROUND:CharTurnToCharAnimated(t.ganlon, t.rin, 4)
+	end)
+	local coro7 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(6)
+		GeneralFunctions.Shake(t.reinier)
+		GAME:WaitFrames(80)
+		GROUND:CharEndAnim(t.reinier)
+		GAME:WaitFrames(20)
+		GROUND:CharTurnToCharAnimated(t.reinier, t.rin, 4)
+	end)
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coro6, coro7})
+
+	SOUND:PlayBGM("Do Your Best, As Always!.ogg", true)
+	UI:SetSpeaker(t.rin)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_054']))
+	GAME:WaitFrames(30)
+
+	--Kino dort toujours. Comme au Tunnel. Comme toujours.
+	GeneralFunctions.EmoteAndPause(t.rin, "Notice", true)
+	GROUND:CharTurnToCharAnimated(t.rin, t.kino, 4)
+	GAME:WaitFrames(10)
+	UI:SetSpeakerEmotion("Sigh")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_055'], t.kino:GetDisplayName()))
+	GAME:WaitFrames(15)
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_056']))
+	GAME:WaitFrames(15)
+
+	--Rin traverse le camp jusqu'a la paillasse de Kino ; les autres la
+	--suivent du regard.
+	coro1 = TASK:BranchCoroutine(function()
+		GeneralFunctions.EightWayMoveRS(t.rin, seatX(11) - 32, seatY(11), false, 1)
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GeneralFunctions.FaceMovingCharacter(hero, t.rin, 4, Direction.Right)
+	end)
+	coro3 = TASK:BranchCoroutine(function()
+		GeneralFunctions.FaceMovingCharacter(partner, t.rin, 4, Direction.Right)
+	end)
+	coro4 = TASK:BranchCoroutine(function()
+		GeneralFunctions.FaceMovingCharacter(t.shuca, t.rin, 4, Direction.Right)
+	end)
+	coro5 = TASK:BranchCoroutine(function()
+		GeneralFunctions.FaceMovingCharacter(t.ganlon, t.rin, 4, Direction.Right)
+	end)
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
+
+	GAME:WaitFrames(10)
+	GeneralFunctions.Complain(t.rin)
+	UI:SetSpeaker(t.rin)
+	UI:SetSpeakerEmotion("Shouting")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_057'], t.kino:GetDisplayName()))
+	GAME:WaitFrames(10)
+
+	GeneralFunctions.Shake(t.kino)
+	GAME:WaitFrames(30)
+	GROUND:CharEndAnim(t.kino)
+	GAME:WaitFrames(20)
+	UI:SetSpeaker(t.kino)
+	UI:SetSpeakerEmotion("Sigh")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_058']))
+	GAME:WaitFrames(10)
+	GeneralFunctions.EmoteAndPause(t.rin, "Sweatdrop", true)
+	UI:SetSpeaker(t.rin)
+	UI:SetSpeakerEmotion("Sigh")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_059']))
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(t.ganlon)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_060']))
+	GAME:WaitFrames(25)
+
+	---------------------------------------------------------------
+	-- 9. LE BRIEFING — l'adresse du matin de Penticus
+	---------------------------------------------------------------
+	--Le camp se range face au maitre de guilde. Chacun se leve de sa
+	--couche et se tourne vers le nord du cercle.
+	GROUND:CharEndAnim(t.kino)
+	local rise = {}
+	local team = {hero, partner, t.hyko, t.almotz, t.shuca, t.ganlon, t.reinier, t.kino, t.coco, t.rin}
+	for i, c in ipairs(team) do
+		rise[#rise+1] = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(i * 4)
+			GROUND:CharTurnToCharAnimated(c, t.penticus, 4)
+		end)
+	end
+	TASK:JoinCoroutines(rise)
+	GAME:MoveCamera(256, 196, 40, false)
+	GAME:WaitFrames(15)
+
+	UI:SetSpeaker(t.penticus)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_061'], t.rin:GetDisplayName()))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_062'], mountain:GetColoredName(), ruins:GetColoredName()))
+	GAME:WaitFrames(15)
+	GROUND:CharTurnToChar(t.penticus, t.kino)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_063'], t.kino:GetDisplayName()))
+	GAME:WaitFrames(15)
+
+	--Kino, specialiste des donjons, fait son briefing — la meme scene
+	--qui, au Tunnel, presentait le donjon suivant.
+	UI:SetSpeaker(t.kino)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_064']))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_065']))
+	GAME:WaitFrames(12)
+	UI:SetSpeaker(t.reinier)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_066']))
+	GAME:WaitFrames(12)
+	UI:SetSpeaker(t.phileas)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_067']))
+	GAME:WaitFrames(20)
+
+	UI:SetSpeaker(t.penticus)
+	UI:SetSpeakerEmotion("Inspired")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_068']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_069']))
+	GAME:WaitFrames(10)
+
+	--Le cri de ralliement : tout le camp saute en meme temps.
+	local cheer = {}
+	for i, c in ipairs({partner, t.hyko, t.almotz, t.shuca, t.coco, t.kino}) do
+		cheer[#cheer+1] = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(i * 3)
+			GeneralFunctions.Hop(c, "Idle", 8, 20, 0, false)
+		end)
+	end
+	cheer[#cheer+1] = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(6)
+		GROUND:CharSetEmote(t.shuca, "happy", 1)
+	end)
+	cheer[#cheer+1] = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(9)
+		GROUND:CharSetEmote(t.hyko, "glowing", 1)
+	end)
+	TASK:JoinCoroutines(cheer)
+	UI:ResetSpeaker(false)
+	UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_070']))
+	UI:SetCenter(false)
+	UI:ResetSpeaker()
+	GAME:WaitFrames(20)
+
+	--Dernier mot : le duo, face au sommet.
+	GROUND:CharTurnToCharAnimated(partner, hero, 4)
+	GROUND:CharTurnToCharAnimated(hero, partner, 4)
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Determined")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_071'], hero:GetDisplayName()))
+	GAME:WaitFrames(10)
+	GeneralFunctions.DoAnimation(hero, 'Nod')
+	GAME:WaitFrames(30)
 end
 
 function mount_windswept_entrance_ch_5.BuildCamp()
@@ -481,8 +1111,11 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	-- ou ca se passe vraiment dans un bivouac : on partage le repas, la
 	-- conversation retombe, chacun rejoint sa couche.
 	mount_windswept_entrance_ch_5.CampNightfall(
-		hero, partner, {tropius, noctowl, audino, snubbull, mareep,
-		                cranidos, growlithe, zigzagoon})
+		hero, partner, {penticus = tropius, phileas = noctowl,
+		                rin = audino,      coco = snubbull,
+		                shuca = mareep,    ganlon = cranidos,
+		                hyko = growlithe,  almotz = zigzagoon,
+		                reinier = girafarig, kino = breloom})
 
 	GAME:FadeOut(false, 40)
 	GAME:WaitFrames(40)

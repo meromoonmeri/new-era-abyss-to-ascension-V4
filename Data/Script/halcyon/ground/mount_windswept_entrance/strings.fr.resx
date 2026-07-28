@@ -119,4 +119,160 @@
   <data name="MWE5_020" xml:space="preserve">
     <value>Demain, nous atteindrons le sommet.</value>
   </data>
+  <data name="MWE5_021" xml:space="preserve">
+    <value>Hé ![pause=0] Vous voilà enfin ![pause=10] Le dîner a bien failli commencer sans vous quatre !</value>
+  </data>
+  <data name="MWE5_022" xml:space="preserve">
+    <value>Hrm.[pause=10] Crum pariait que vous vous étiez perdus.[pause=0] Je lui ai dit qu'un garde de la guilde ne se perd jamais deux fois.</value>
+  </data>
+  <data name="MWE5_023" xml:space="preserve">
+    <value>Le camp se rassemble autour du feu.[pause=20] Pour une fois, le vent de la montagne semble presque doux.</value>
+  </data>
+  <data name="MWE5_024" xml:space="preserve">
+    <value>La soupe est prête ![pause=0] Mangez tant que c'est chaud ![pause=10] Ici, ça refroidit en deux minutes à peine !</value>
+  </data>
+  <data name="MWE5_025" xml:space="preserve">
+    <value>... C'est meilleur qu'à la guilde.[pause=10] Répétez ça à quelqu'un et je nierai tout.</value>
+  </data>
+  <data name="MWE5_026" xml:space="preserve">
+    <value>Je t'ai entendu, {0} ![pause=0] Ça ira droit dans mon carnet de recettes :[pause=10] « Même les ronchons en redemandent. »</value>
+  </data>
+  <data name="MWE5_027" xml:space="preserve">
+    <value>C'est la première fois que je mange à la belle étoile ![pause=0] La nourriture a toujours un goût différent, là-haut ?</value>
+  </data>
+  <data name="MWE5_028" xml:space="preserve">
+    <value>C'est le vent.[pause=10] Il glisse un peu de froid dans tout...[pause=10] même dans la soupe.</value>
+  </data>
+  <data name="MWE5_029" xml:space="preserve">
+    <value>Des notes, des notes...[pause=10] « Jour quatre :[pause=10] le vent double après le coucher du soleil. »[pause=0] Mon almanach va être ÉPAIS après cette expédition.</value>
+  </data>
+  <data name="MWE5_030" xml:space="preserve">
+    <value>Tu écris ENCORE ?[pause=0] Wouf ![pause=0] Pose tes notes et lève la tête ![pause=10] D'ici, on voit chaque étoile du ciel !</value>
+  </data>
+  <data name="MWE5_031" xml:space="preserve">
+    <value>... D'accord, ça aussi, ça va dans l'almanach.[pause=10] « Le ciel au-dessus de {0} :[pause=10] il vaut l'ascension à lui tout seul. »</value>
+  </data>
+  <data name="MWE5_032" xml:space="preserve">
+    <value>Hrm.[pause=10] Crum n'arrête pas de happer les étincelles.[pause=0] Même ma queue trouve ce feu plus vivant que l'âtre de la guilde.</value>
+  </data>
+  <data name="MWE5_033" xml:space="preserve">
+    <value>Profitez-en tant que ça dure ![pause=10] Là où nous allons demain, vous ne trouverez pas la moindre brindille à brûler.</value>
+  </data>
+  <data name="MWE5_034" xml:space="preserve">
+    <value>Le vent a encore tourné au crépuscule.[pause=10] C'est la troisième fois aujourd'hui.[pause=0] Je n'aime pas ce qu'il transporte, vieil ami.</value>
+  </data>
+  <data name="MWE5_035" xml:space="preserve">
+    <value>Moi non plus.[pause=20] Mais regarde-les, {0}.[pause=10] Regarde le chemin qu'ils ont parcouru.[pause=0] Quoi que le sommet nous envoie, nous l'affronterons ensemble.</value>
+  </data>
+  <data name="MWE5_036" xml:space="preserve">
+    <value>... Comme tu voudras.[pause=10] Je prendrai le premier tour de garde.[pause=0] Ces vieux yeux sont faits pour les nuits comme celle-ci.</value>
+  </data>
+  <data name="MWE5_037" xml:space="preserve">
+    <value>Avant que quiconque n'aille dormir :[pause=10] pattes, foulards, ampoules ![pause=0] En file, pas d'exception.[pause=10] Oui, {0}, toi aussi.</value>
+  </data>
+  <data name="MWE5_038" xml:space="preserve">
+    <value>Tss.[pause=10] D'accord.[pause=0] Mais si tu racontes que je t'ai laissée bander mon orteil, je t'abandonne sur cette montagne.</value>
+  </data>
+  <data name="MWE5_039" xml:space="preserve">
+    <value>Et c'est la chose la plus gentille qu'il ait dite de toute l'expédition !</value>
+  </data>
+  <data name="MWE5_040" xml:space="preserve">
+    <value>{0}... ?[pause=10] Tu recommences.[pause=0] Tu fixes le sommet.[pause=10] C'est encore cette sensation ?</value>
+  </data>
+  <data name="MWE5_041" xml:space="preserve">
+    <value>C'est plus fort ici.[pause=10] Comme si la montagne...[pause=10] fredonnait.[pause=0] Je ne peux pas l'expliquer mieux que ça.</value>
+  </data>
+  <data name="MWE5_042" xml:space="preserve">
+    <value>Alors nous comprendrons ça ensemble, là-haut.[pause=0] Quoi que ce soit,[pause=10] on l'affronte en équipe.[pause=10] Pas vrai ?</value>
+  </data>
+  <data name="MWE5_043" xml:space="preserve">
+    <value>Oui.[pause=10] En équipe.</value>
+  </data>
+  <data name="MWE5_044" xml:space="preserve">
+    <value>Très bien, tout le monde ![pause=10] Demain, nous entamons l'ascension finale,[pause=10] et {0} nous mettra tous à l'épreuve.</value>
+  </data>
+  <data name="MWE5_045" xml:space="preserve">
+    <value>Alors cette nuit, votre seule mission est de DORMIR ![pause=0] C'est un ordre du Maître de Guilde...[pause=10] et le plus facile que je donnerai jamais !</value>
+  </data>
+  <data name="MWE5_046" xml:space="preserve">
+    <value>Vous avez entendu le Maître ![pause=0] Le dernier endormi fera la vaisselle du petit-déjeuner !</value>
+  </data>
+  <data name="MWE5_047" xml:space="preserve">
+    <value>Psst...[pause=10] {0}.[pause=0] Le premier au sommet demain gagne la ration de dessert de l'autre.[pause=10] Wouf.</value>
+  </data>
+  <data name="MWE5_048" xml:space="preserve">
+    <value>Tope là.[pause=10] « Jour quatre, addendum :[pause=10] conclu un excellent marché. »[pause=20] ... Bonne nuit, {0}.</value>
+  </data>
+  <data name="MWE5_049" xml:space="preserve">
+    <value>Bonne nuit, {0}.[pause=20] Demain...[pause=10] le sommet.[pause=0] J'ai du mal à croire que nous y sommes vraiment.</value>
+  </data>
+  <data name="MWE5_050" xml:space="preserve">
+    <value>(Onze respirations autour d'un même feu.[pause=20] La montagne fredonne...[pause=10] mais ce son-là est plus fort.[pause=10] Et tant mieux.)</value>
+  </data>
+  <data name="MWE5_051" xml:space="preserve">
+    <value>Le feu baisse.[pause=20] Un à un, le camp s'endort...[pause=20] et au-dessus, patiente, la montagne attend.</value>
+  </data>
+  <data name="MWE5_052" xml:space="preserve">
+    <value>Le lendemain matin...</value>
+  </data>
+  <data name="MWE5_053" xml:space="preserve">
+    <value>Debout tout le monde ![pause=0] C'est le jour du sommet !</value>
+  </data>
+  <data name="MWE5_054" xml:space="preserve">
+    <value>Étirements complets, petit-déjeuner complet, gourdes pleines ![pause=10] Ce matin, MES ordres passent avant même ceux du Maître de Guilde !</value>
+  </data>
+  <data name="MWE5_055" xml:space="preserve">
+    <value>... {0}.[pause=20] Encore.</value>
+  </data>
+  <data name="MWE5_056" xml:space="preserve">
+    <value>Notre expert en donjons est en train de dormir...[pause=10] à deux pas du donjon.</value>
+  </data>
+  <data name="MWE5_057" xml:space="preserve">
+    <value>{0} !!![pause=0] Le sommet, c'est AUJOURD'HUI !!!</value>
+  </data>
+  <data name="MWE5_058" xml:space="preserve">
+    <value>Mmmrh...[pause=20] cinq minutes de plus...[pause=10] la montagne ne va pas s'envoler...</value>
+  </data>
+  <data name="MWE5_059" xml:space="preserve">
+    <value>Non, mais l'expédition, SI.[pause=20] Franchement...[pause=10] à chaque campement, sans exception.</value>
+  </data>
+  <data name="MWE5_060" xml:space="preserve">
+    <value>Pff...[pause=10] au moins, certaines choses ne changent jamais,[pause=10] même en montagne.</value>
+  </data>
+  <data name="MWE5_061" xml:space="preserve">
+    <value>Bonjour, Pokémon ![pause=0] J'espère que tout le monde est bien reposé,[pause=10] grâce à l'aide...[pause=10] énergique de {0} !</value>
+  </data>
+  <data name="MWE5_062" xml:space="preserve">
+    <value>Aujourd'hui, nous gravissons {0}.[pause=10] Au-delà se trouvent {1} :[pause=10] notre objectif,[pause=10] et le terme de cette expédition.</value>
+  </data>
+  <data name="MWE5_063" xml:space="preserve">
+    <value>{0} ![pause=10] Maintenant que tu es enfin RÉVEILLÉ,[pause=10] peux-tu nous dire ce que la montagne nous réserve ?</value>
+  </data>
+  <data name="MWE5_064" xml:space="preserve">
+    <value>Héhé...[pause=10] pardon, pardon.[pause=0] Écoutez bien,[pause=10] parce que là-haut, le vent ne vous laissera rien entendre deux fois !</value>
+  </data>
+  <data name="MWE5_065" xml:space="preserve">
+    <value>Les rafales arrivent par vagues.[pause=10] Quand l'une frappe, elle peut vous balayer du sentier.[pause=0] Alors plantez vos pattes[pause=10] et ATTENDEZ que ça passe.</value>
+  </data>
+  <data name="MWE5_066" xml:space="preserve">
+    <value>Et restez en formation serrée.[pause=10] Si le vent nous sépare comme l'a fait la steppe,[pause=10] n'errez pas :[pause=10] là-haut, les chemins changent comme dans tout donjon mystère.</value>
+  </data>
+  <data name="MWE5_067" xml:space="preserve">
+    <value>Je volerai en éclaireur là où les vents le permettront.[pause=10] Si vous entendez mon cri par-dessus la bourrasque,[pause=10] c'est que la voie est libre.</value>
+  </data>
+  <data name="MWE5_068" xml:space="preserve">
+    <value>Vous avez tous porté cette expédition plus loin que je n'osais l'espérer.[pause=20] Une dernière ascension, tout le monde !</value>
+  </data>
+  <data name="MWE5_069" xml:space="preserve">
+    <value>Pour la guilde,[pause=10] et les uns pour les autres ![pause=0] Montrons à cette montagne de quel bois nous nous chauffons !</value>
+  </data>
+  <data name="MWE5_070" xml:space="preserve">
+    <value>Ouais !!!</value>
+  </data>
+  <data name="MWE5_071" xml:space="preserve">
+    <value>Le sommet, {0}.[pause=10] C'est le grand jour.[pause=0] Finissons cette ascension ensemble !</value>
+  </data>
+  <data name="MWE5_201" xml:space="preserve">
+    <value>Scrontch-scrontch ! Miam-miam ! Chomp-chomp !\nScrontch-scrontch ! Miam-miam ! Chomp-chomp !</value>
+  </data>
 </root>
