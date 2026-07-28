@@ -1139,7 +1139,7 @@ local function DefeatedBossBody()
 	coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(6) GeneralFunctions.EmoteAndPause(hero, "Sweatdrop", false) end)
 	coro3 = TASK:BranchCoroutine(function() GAME:WaitFrames(2) GeneralFunctions.EmoteAndPause(growlithe, "Sweatdrop", false) end)
 	coro4 = TASK:BranchCoroutine(function() GAME:WaitFrames(4) GeneralFunctions.EmoteAndPause(zigzagoon, "Sweatdrop", false) end)
-	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro4})
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
 	GAME:WaitFrames(10)
 
 	UI:SetSpeaker(partner)

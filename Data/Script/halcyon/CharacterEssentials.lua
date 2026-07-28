@@ -1710,7 +1710,25 @@ function CharacterEssentials.GetCharacterName(name, no_color)
 	if no_color then
 		return nickname
 	else
-		return "[color=#00FFFF]" .. nickname .. "[color]"
+		-- Determine color: yellow if in party, cyan otherwise
+		local color = "#00FFFF" -- Default cyan
+		local pcall_ok, in_party = pcall(function()
+			for i = 0, GAME:GetPlayerPartyMemberCount() - 1 do
+				local member = GAME:GetPlayerPartyMember(i)
+				-- Compare against species and form to be sure
+				local char_data = characters[name]
+				if member.BaseForm.Species == char_data.species then
+					return true
+				end
+			end
+			return false
+		end)
+		
+		if pcall_ok and in_party then
+			color = "#FFFF00" -- Yellow
+		end
+		
+		return "[color=" .. color .. "]" .. nickname .. "[color]"
 	end
 end
 

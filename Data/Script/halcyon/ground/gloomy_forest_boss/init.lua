@@ -63,6 +63,8 @@ function gloomy_forest_boss.PlotScripting()
 		--Le joueur revient apres avoir perdu contre Zarude : GloomyBossEncountered est
 		--deja vrai, donc la premiere scene ne rejouera pas. Sans cette branche la carte
 		--n'a aucune sortie et le joueur reste bloque. On relance directement le combat.
+		require 'halcyon.BossMusic'
+		BossMusic.Play('gloomy_forest_boss')
 		GAME:FadeIn(20)
 		GAME:WaitFrames(20)
 		COMMON.BossTransition()

@@ -44,19 +44,19 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   -- Party walks forward into the misty steppe
   GAME:WaitFrames(30)
   local coro1 = TASK:BranchCoroutine(function()
-    GROUND:MoveInDirection(partner, Direction.Up, 80, false, 1)
+    GROUND:MoveInDirection(partner, Direction.Up, 80, false,  0.8)
   end)
   local coro2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(6)
-    GROUND:MoveInDirection(hero, Direction.Up, 80, false, 1)
+    GROUND:MoveInDirection(hero, Direction.Up, 80, false,  0.8)
   end)
   local coro2b = TASK:BranchCoroutine(function()
     GAME:WaitFrames(10)
-    if t2 ~= nil then GROUND:MoveInDirection(t2, Direction.Up, 80, false, 1) end
+    if t2 ~= nil then GROUND:MoveInDirection(t2, Direction.Up, 80, false,  0.8) end
   end)
   local coro2c = TASK:BranchCoroutine(function()
     GAME:WaitFrames(12)
-    if t3 ~= nil then GROUND:MoveInDirection(t3, Direction.Up, 80, false, 1) end
+    if t3 ~= nil then GROUND:MoveInDirection(t3, Direction.Up, 80, false,  0.8) end
   end)
   local coro3 = TASK:BranchCoroutine(function()
     -- La camera suit le duo et se cale ENTRE l'equipe (y=288) et le boss (y=200-232).
@@ -193,7 +193,7 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   -- Stantler steps forward through the mist
   GAME:WaitFrames(15)
   coro1 = TASK:BranchCoroutine(function()
-    GROUND:MoveInDirection(stantler, Direction.Down, 28, false, 1)
+    GROUND:MoveInDirection(stantler, Direction.Down, 28, false,  0.8)
     GROUND:CharAnimateTurnTo(stantler, Direction.Down, 4)
   end)
   coro2 = TASK:BranchCoroutine(function()

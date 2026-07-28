@@ -1,4 +1,4 @@
-﻿{
+{
  "Version": "0.8.9.0",
  "Object": {
   "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
@@ -289773,6 +289773,608 @@
        "Y": 104,
        "Width": 56,
        "Height": 8
+      }
+     },
+     {
+      "EntName": "Bed_1",
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Hay_Bed",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "Passable": true,
+      "CurrentAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "AnimTime": {
+       "Ticks": 0
+      },
+      "Cycles": 0,
+      "DrawOffset": {
+       "X": 0,
+       "Y": 0
+      },
+      "Collider": {
+       "X": 244,
+       "Y": 143,
+       "Width": 24,
+       "Height": 24
+      }
+     },
+     {
+      "EntName": "Bed_2",
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Hay_Bed",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "Passable": true,
+      "CurrentAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "AnimTime": {
+       "Ticks": 0
+      },
+      "Cycles": 0,
+      "DrawOffset": {
+       "X": 0,
+       "Y": 0
+      },
+      "Collider": {
+       "X": 276,
+       "Y": 151,
+       "Width": 24,
+       "Height": 24
+      }
+     },
+     {
+      "EntName": "Bed_3",
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Hay_Bed",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "Passable": true,
+      "CurrentAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "AnimTime": {
+       "Ticks": 0
+      },
+      "Cycles": 0,
+      "DrawOffset": {
+       "X": 0,
+       "Y": 0
+      },
+      "Collider": {
+       "X": 300,
+       "Y": 175,
+       "Width": 24,
+       "Height": 24
+      }
+     },
+     {
+      "EntName": "Bed_4",
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Hay_Bed",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "Passable": true,
+      "CurrentAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "AnimTime": {
+       "Ticks": 0
+      },
+      "Cycles": 0,
+      "DrawOffset": {
+       "X": 0,
+       "Y": 0
+      },
+      "Collider": {
+       "X": 309,
+       "Y": 208,
+       "Width": 24,
+       "Height": 24
+      }
+     },
+     {
+      "EntName": "Bed_5",
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Hay_Bed",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "Passable": true,
+      "CurrentAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "AnimTime": {
+       "Ticks": 0
+      },
+      "Cycles": 0,
+      "DrawOffset": {
+       "X": 0,
+       "Y": 0
+      },
+      "Collider": {
+       "X": 300,
+       "Y": 240,
+       "Width": 24,
+       "Height": 24
+      }
+     },
+     {
+      "EntName": "Bed_6",
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Hay_Bed",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "Passable": true,
+      "CurrentAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "AnimTime": {
+       "Ticks": 0
+      },
+      "Cycles": 0,
+      "DrawOffset": {
+       "X": 0,
+       "Y": 0
+      },
+      "Collider": {
+       "X": 276,
+       "Y": 264,
+       "Width": 24,
+       "Height": 24
+      }
+     },
+     {
+      "EntName": "Bed_7",
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Hay_Bed",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "Passable": true,
+      "CurrentAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "AnimTime": {
+       "Ticks": 0
+      },
+      "Cycles": 0,
+      "DrawOffset": {
+       "X": 0,
+       "Y": 0
+      },
+      "Collider": {
+       "X": 244,
+       "Y": 273,
+       "Width": 24,
+       "Height": 24
+      }
+     },
+     {
+      "EntName": "Bed_8",
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Hay_Bed",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "Passable": true,
+      "CurrentAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "AnimTime": {
+       "Ticks": 0
+      },
+      "Cycles": 0,
+      "DrawOffset": {
+       "X": 0,
+       "Y": 0
+      },
+      "Collider": {
+       "X": 211,
+       "Y": 264,
+       "Width": 24,
+       "Height": 24
+      }
+     },
+     {
+      "EntName": "Bed_9",
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Hay_Bed",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "Passable": true,
+      "CurrentAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "AnimTime": {
+       "Ticks": 0
+      },
+      "Cycles": 0,
+      "DrawOffset": {
+       "X": 0,
+       "Y": 0
+      },
+      "Collider": {
+       "X": 187,
+       "Y": 240,
+       "Width": 24,
+       "Height": 24
+      }
+     },
+     {
+      "EntName": "Bed_10",
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Hay_Bed",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "Passable": true,
+      "CurrentAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "AnimTime": {
+       "Ticks": 0
+      },
+      "Cycles": 0,
+      "DrawOffset": {
+       "X": 0,
+       "Y": 0
+      },
+      "Collider": {
+       "X": 179,
+       "Y": 208,
+       "Width": 24,
+       "Height": 24
+      }
+     },
+     {
+      "EntName": "Bed_11",
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Hay_Bed",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "Passable": true,
+      "CurrentAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "AnimTime": {
+       "Ticks": 0
+      },
+      "Cycles": 0,
+      "DrawOffset": {
+       "X": 0,
+       "Y": 0
+      },
+      "Collider": {
+       "X": 187,
+       "Y": 175,
+       "Width": 24,
+       "Height": 24
+      }
+     },
+     {
+      "EntName": "Bed_12",
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Hay_Bed",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "Passable": true,
+      "CurrentAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "AnimTime": {
+       "Ticks": 0
+      },
+      "Cycles": 0,
+      "DrawOffset": {
+       "X": 0,
+       "Y": 0
+      },
+      "Collider": {
+       "X": 211,
+       "Y": 151,
+       "Width": 24,
+       "Height": 24
+      }
+     },
+     {
+      "EntName": "Campfire",
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Campfire",
+       "FrameTime": 6,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "Passable": false,
+      "CurrentAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "AnimTime": {
+       "Ticks": 0
+      },
+      "Cycles": 0,
+      "DrawOffset": {
+       "X": 0,
+       "Y": 0
+      },
+      "Collider": {
+       "X": 248,
+       "Y": 212,
+       "Width": 16,
+       "Height": 16
+      }
+     },
+     {
+      "EntName": "Expedition_Bags",
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Grassy_Bag",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "Passable": false,
+      "CurrentAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "",
+       "FrameTime": 1,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": -1,
+       "Alpha": 255,
+       "AnimFlip": 0
+      },
+      "AnimTime": {
+       "Ticks": 0
+      },
+      "Cycles": 0,
+      "DrawOffset": {
+       "X": 0,
+       "Y": 0
+      },
+      "Collider": {
+       "X": 240,
+       "Y": 110,
+       "Width": 32,
+       "Height": 24
       }
      }
     ],

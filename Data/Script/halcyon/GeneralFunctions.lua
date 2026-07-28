@@ -1062,7 +1062,11 @@ function GeneralFunctions.Hop(chara, anim, height, duration, pause, sound)
 	end
 
 	if pause then
-		GROUND:CharWaitAction(chara, hop_action)
+		if GROUND.CharWaitAction then
+			GROUND:CharWaitAction(chara, hop_action)
+		else
+			GAME:WaitFrames(duration)
+		end
 	end
 
 end
@@ -1104,23 +1108,37 @@ function GeneralFunctions.Recoil(chara, anim, height, duration, sound, emote)
 	local animId = RogueEssence.Content.GraphicsManager.GetAnimIndex(anim)
 	local hop_action = RogueEssence.Ground.HopGroundAction(chara.Position, chara.Direction, animId, height, duration)
 	GROUND:CharSetAction(chara, hop_action)
-	GROUND:CharWaitAction(chara, hop_action)
+	if GROUND.CharWaitAction then
+		GROUND:CharWaitAction(chara, hop_action)
+	else
+		GAME:WaitFrames(duration)
+	end
 	if emote then GROUND:CharSetEmote(chara, "", 0) end
 
 end
 
 --Do an animation, posing on its last frame. Wait for the duration of this animation.
 function GeneralFunctions.PoseAndWait(chara, anim)
-	local pose_action = RogueEssence.Ground.PoseGroundAction(chara.Position, chara.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex(anim))
+	local animIndex = RogueEssence.Content.GraphicsManager.GetAnimIndex(anim)
+	local pose_action = RogueEssence.Ground.PoseGroundAction(chara.Position, chara.Direction, animIndex)
 	GROUND:CharSetAction(chara, pose_action)
-	GROUND:CharWaitAction(chara, pose_action)
+	if GROUND.CharWaitAction then
+		GROUND:CharWaitAction(chara, pose_action)
+	else
+		GROUND:CharWaitAnim(chara)
+	end
 end
 
 --Same as above, but does the animation in reverse.
 function GeneralFunctions.ReversePoseAndWait(chara, anim)
-	local pose_action = RogueEssence.Ground.ReverseGroundAction(chara.Position, chara.LocHeight, chara.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex(anim))
+	local animIndex = RogueEssence.Content.GraphicsManager.GetAnimIndex(anim)
+	local pose_action = RogueEssence.Ground.ReverseGroundAction(chara.Position, chara.LocHeight, chara.Direction, animIndex)
 	GROUND:CharSetAction(chara, pose_action)
-	GROUND:CharWaitAction(chara, pose_action)
+	if GROUND.CharWaitAction then
+		GROUND:CharWaitAction(chara, pose_action)
+	else
+		GROUND:CharWaitAnim(chara)
+	end
 	GROUND:CharEndAnim(chara)
 end
 

@@ -288,12 +288,9 @@ function guild_third_floor_lobby.MorningAddress(generic)
 	--TODO? Make this look less robotic, but honestly can't figure out a good way to handle it that is quick and logical
 	GAME:WaitFrames(40)
 	local coro1 = TASK:BranchCoroutine(function() guild_third_floor_lobby_helper.ApprenticeLeave(growlithe) end)
-	local coro2 = TASK:BranchCoroutine(function() --GAME:WaitFrames(6)
-											guild_third_floor_lobby_helper.ApprenticeLeaveBottom(zigzagoon) end)
-	local coro3 = TASK:BranchCoroutine(function() --GAME:WaitFrames(10)
-											guild_third_floor_lobby_helper.ApprenticeLeave(mareep) end)
-	local coro4 = TASK:BranchCoroutine(function() --GAME:WaitFrames(18)
-											guild_third_floor_lobby_helper.ApprenticeLeaveBottom(cranidos) end)
+	local coro2 = TASK:BranchCoroutine(function() guild_third_floor_lobby_helper.ApprenticeLeaveBottom(zigzagoon) end)
+	local coro3 = TASK:BranchCoroutine(function() guild_third_floor_lobby_helper.ApprenticeLeave(mareep) end)
+	local coro4 = TASK:BranchCoroutine(function() guild_third_floor_lobby_helper.ApprenticeLeaveBottom(cranidos) end)
 	local coro5 = TASK:BranchCoroutine(function() GAME:WaitFrames(10)
 											guild_third_floor_lobby_helper.ApprenticeLeaveFast(snubbull) end)
 	local coro6 = TASK:BranchCoroutine(function() GAME:WaitFrames(10)
@@ -304,15 +301,46 @@ function guild_third_floor_lobby.MorningAddress(generic)
 											guild_third_floor_lobby_helper.ApprenticeLeaveBottomFast(girafarig) end)
 	local coro9 = TASK:BranchCoroutine(function() GAME:WaitFrames(16)
 											GROUND:CharAnimateTurnTo(partner, Direction.Right, 4) end)
-	local coro10 = TASK:BranchCoroutine(function() GAME:WaitFrames(26)
-											 GROUND:CharAnimateTurnTo(hero, Direction.Right, 4) end)
+	
+	-- Hyko stays a bit longer and approaches Penticus for a brief exchange
+	local coro10 = TASK:BranchCoroutine(function() 
+		GAME:WaitFrames(26)
+		GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+		GROUND:MoveToPosition(hero, 440, 272, false, 1) 
+		GAME:WaitFrames(20)
+		GROUND:CharAnimateTurnTo(hero, Direction.Right, 4)
+		GAME:WaitFrames(10)
+		GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+	end)
+	
 	local coro11 = TASK:BranchCoroutine(function() GAME:WaitFrames(10)
 													GeneralFunctions.CenterCamera({hero, partner}, GAME:GetCameraCenter().X, GAME:GetCameraCenter().Y, 1) end)
-	local coro12 = TASK:BranchCoroutine(function() GAME:WaitFrames(20)
-												   GROUND:CharAnimateTurnTo(tropius, Direction.Up, 4)
-												   GROUND:MoveInDirection(tropius, Direction.Up, 24, false, 1)
-												   GAME:GetCurrentGround():RemoveTempChar(tropius) end)
+	
+	local coro12 = TASK:BranchCoroutine(function() 
+		GAME:WaitFrames(80)
+		GROUND:CharTurnToCharAnimated(tropius, hero, 4)
+		UI:SetSpeaker(tropius)
+		UI:WaitShowDialogue("Hé, " .. hero:GetDisplayName() .. ".[pause=20] Reste sur tes gardes aujourd'hui.")
+		GAME:WaitFrames(20)
+		GROUND:CharAnimateTurnTo(tropius, Direction.Up, 4)
+		GROUND:MoveInDirection(tropius, Direction.Up, 24, false, 1)
+		GAME:GetCurrentGround():RemoveTempChar(tropius) 
+	end)
+	
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coro6, coro7, coro8, coro9, coro10, coro11, coro12})
+
+	-- After the talk, Hyko joins the partner
+	coro1 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(partner, Direction.Down, 4) end)
+	coro2 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(hero, Direction.Down, 4) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue("Allez, c'est parti !")
+	
+	coro1 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(partner, Direction.Right, 4) end)
+	coro2 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(hero, Direction.Right, 4) end)
+	TASK:JoinCoroutines({coro1, coro2})
 
 
 	if generic then

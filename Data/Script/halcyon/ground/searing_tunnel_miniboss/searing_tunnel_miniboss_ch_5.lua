@@ -265,12 +265,12 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
     {'Limagma3', 208, 320, Direction.UpRight},
     {'Limagma4', 304, 320, Direction.UpLeft},
     {'Limagma5', 256, 336, Direction.Up}
-  })
-  for i = 1, 5 do GROUND:Hide('Limagma'..i) end
+  }, true)
+  for i = 1, 5 do GROUND:Hide(sbires[i].EntName) end
   local pts = {{200,264},{312,264},{208,320},{304,320},{256,336}}
   for i = 1, 5 do
     BossFX.Particle("Ember", pts[i][1], pts[i][2], 3)
-    GROUND:Unhide('Limagma'..i)
+    GROUND:Unhide(sbires[i].EntName)
     GAME:WaitFrames(6)
   end
   BossFX.Impact(7)
@@ -517,7 +517,7 @@ local function DefeatedBossBody()
   GAME:WaitFrames(16)
   GROUND:Hide('Torkoal')
   GROUND:Hide('Magmar')
-  for i = 1, 5 do pcall(function() GROUND:Hide('Limagma'..i) end) end
+  for i = 1, 5 do pcall(function() GROUND:Hide(sbires[i].EntName) end) end
   GAME:WaitFrames(30)
 
   GAME:FadeOut(false, 60)

@@ -48,32 +48,45 @@ function first_core_location_ch_3.RootDeactivationScene()
 	SOUND:FadeInSE('Anima Core Glow', 60)
 	GAME:FadeIn(60)
 
-	--setup darkness
-	--It'll fade in for 200 frames, last 0 frames, and fade out in 0 frames. It'll transition to the darkness map status though at 200 frames.
+	--setup instability (violet tint prefiguring the Abyss)
 	local overlay = RogueEssence.Content.FiniteOverlayEmitter()
     overlay.TotalTime = 0;
-	overlay.FadeIn = 200;
+	overlay.FadeIn = 180;
 	overlay.FadeOut = 0;
 	overlay.Layer = DrawLayer.Top;
 	overlay.Anim = RogueEssence.Content.BGAnimData("White", 0)
-	overlay.Color = Color(0, 0, 0, 76/255)
+	overlay.Color = Color(128, 0, 180, 100/255) -- Violet tint
 	
 	GROUND:ObjectSetDefaultAnim(root, 'Anima_Root', 10, 0, 15, Direction.Down)
 	GROUND:ObjectSetDefaultAnim(core, 'Anima_Core', 10, 0, 31, Direction.Down)
 
 	GROUND:ObjectWaitAnimFrame(core, 0)
 	GROUND:ObjectWaitAnimFrame(core, 25)
+	
+	-- First sign of instability
 	SOUND:FadeOutSE('Anima Core Glow', 60)
+	SOUND:PlayBattleSE('EVT_Emote_Confused')
+	GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 3, 40))
+	GAME:WaitFrames(40)
+	
 	GROUND:ObjectWaitAnimFrame(core, 0)
 	
+	-- Crisis: the core doesn't just turn off, it cracks under pressure
 	SOUND:PlayBattleSE('EVT_EP_Nightmare_Break')
 	GROUND:ObjectSetDefaultAnim(core, 'Core_Deactivation', 0, 0, 0, Direction.Down)
-
 	GROUND:ObjectSetAnim(core, 10, 0, 11, Direction.Down, 1)
 	GROUND:ObjectSetDefaultAnim(core, 'Core_Deactivation', 0, 11, 11, Direction.Down)
 	
-	GROUND:ObjectWaitAnimFrame(core, 11)
-	GAME:WaitFrames(40)
+	-- Unstable tremors
+	local coro1 = TASK:BranchCoroutine(function() 
+		for i = 1, 4 do
+			GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 2 + i, 20))
+			GAME:WaitFrames(20)
+		end
+	end)
+	TASK:JoinCoroutines({coro1})
+	
+	GAME:WaitFrames(20)
 	
 	--move core slowly down after deactivating
 	for i = 1, 10, 1 do
@@ -83,10 +96,12 @@ function first_core_location_ch_3.RootDeactivationScene()
 	
 	GROUND:ObjectWaitAnimFrame(root, 0)
 	
+	-- Violet flash + Root shuts down
 	GROUND:PlayVFX(overlay, core.Position.X, core.Position.Y)
 	SOUND:PlayBattleSE("_UNK_EVT_079")
+	SOUND:PlayBattleSE("EVT_Battle_Flash") -- Added flash
+	
 	GROUND:ObjectSetDefaultAnim(root, 'Anima_Root_Turnoff', 0, 0, 0, Direction.Down)
-
 	GROUND:ObjectSetAnim(root, 40, 0, 5, Direction.Down, 1)
 	GROUND:ObjectSetDefaultAnim(root, 'Anima_Root_Turnoff', 0, 5, 5, Direction.Down)
 	

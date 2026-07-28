@@ -43,19 +43,19 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(40)
   local coro1 = TASK:BranchCoroutine(function()
-    GROUND:MoveInDirection(partner, Direction.Up, 56, false, 1)
+    GROUND:MoveInDirection(partner, Direction.Up, 56, false,  0.8)
   end)
   local coro2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(6)
-    GROUND:MoveInDirection(hero, Direction.Up, 56, false, 1)
+    GROUND:MoveInDirection(hero, Direction.Up, 56, false,  0.8)
   end)
   local coro2b = TASK:BranchCoroutine(function()
     GAME:WaitFrames(10)
-    if t2 ~= nil then GROUND:MoveInDirection(t2, Direction.Up, 56, false, 1) end
+    if t2 ~= nil then GROUND:MoveInDirection(t2, Direction.Up, 56, false,  0.8) end
   end)
   local coro2c = TASK:BranchCoroutine(function()
     GAME:WaitFrames(12)
-    if t3 ~= nil then GROUND:MoveInDirection(t3, Direction.Up, 56, false, 1) end
+    if t3 ~= nil then GROUND:MoveInDirection(t3, Direction.Up, 56, false,  0.8) end
   end)
   local coro3 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(15)

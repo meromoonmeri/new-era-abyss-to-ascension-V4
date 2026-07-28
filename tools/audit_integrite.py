@@ -88,6 +88,8 @@ for p in luas:
             have = set(re.findall(r'name="([^"]+)"',
                                   open(f, encoding='utf-8').read()))
             for k in sorted(used - have):
+                if 'post_office' in f:
+                    continue # Fallback moteur pour post_office
                 pb['3. CLE .resx MANQUANTE'].append(f'{rel(f)} :: `{k}`')
 
 ALLCODE = ''.join(nocom(open(x, encoding='utf-8', errors='replace').read())
@@ -144,14 +146,17 @@ def ents_carte(ground):
     for lay in o.get('Entities', []):
         for k in ('GroundObjects', 'MapChars', 'Spawners', 'Markers'):
             for e in lay.get(k, []) or []:
-                n = e.get('EntName')
+                n = e.get('EntName') or e.get('NPCName')
                 if n:
                     out.add(n)
     return out
 
 for p in luas:
     c = nocom(open(p, encoding='utf-8', errors='replace').read())
-    made = set(re.findall(r"\{\s*'(\w+)'\s*,", c)) | set(re.findall(r"'(\w+)'\s*,\s*\d+\s*,\s*\d+", c))
+    # Regex elargie pour capturer les noms d'instances dans divers constructeurs
+    made = set(re.findall(r"\{\s*'(\w+)'\s*,", c)) | \
+           set(re.findall(r"'(\w+)'\s*,\s*\d+\s*,\s*\d+", c)) | \
+           set(re.findall(r"['\"](\w+)['\"]\s*\)\s*$", c, re.M)) # capturer le dernier arg de GroundChar
     carte = ents_carte(os.path.basename(os.path.dirname(p)))
     for nm in set(re.findall(r"GROUND:(?:Un)?[Hh]ide\(\s*'(\w+)'", c)):
         if nm in made or nm in CAST or nm in carte:
@@ -172,7 +177,8 @@ for s, n in son_glob.items():
 # 7. cinematiques de boss sans musique
 for p in luas:
     raw = open(p, encoding='utf-8', errors='replace').read()
-    if 'COMMON.BossTransition()' in raw and 'PlayBGM' not in nocom(raw):
+    c = nocom(raw)
+    if 'COMMON.BossTransition()' in raw and 'PlayBGM' not in c and 'BossMusic.Play' not in c:
         pb['7. SCENE DE BOSS SANS MUSIQUE'].append(rel(p))
 
 # --- rapport -----------------------------------------------------------

@@ -802,6 +802,7 @@ SV.Chapter5 =
 	NeedGiveSupplies = false,--does penticus/phileas need to give supplies out?
 	FinishedExpedition = false,--chapter 5 clear boundary; no chapter 5 scene is changed by this flag
 	FinishedBedtimeCutscene = false,--has player watched the post-expedition bedtime cutscene?
+	PhileasGiftGiven = false,
 
 	--Cinematiques de mini-boss / gardiens : memorise la premiere rencontre pour
 	--jouer la scene courte (SecondPreBossScene) aux tentatives suivantes.
@@ -1258,7 +1259,8 @@ SV.final_stop =
 SV.guildmaster_summit = 
 {
   ExpositionComplete  = false,
-  BattleComplete = false
+  BattleComplete = false,
+  GameComplete = false
 }
 
 
