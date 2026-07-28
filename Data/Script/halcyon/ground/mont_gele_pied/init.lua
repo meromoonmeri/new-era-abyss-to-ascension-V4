@@ -7,6 +7,7 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
+require 'halcyon.BossMusic'
 
 local mont_gele_pied = {}
 
@@ -70,7 +71,7 @@ function mont_gele_pied.Enter(map)
   GAME:WaitFrames(18)
 
   -- 5. Titre + theme.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('mont_gele_pied')
   UI:WaitShowTitle("Voile-Blanc et Masque-Gel, Veilleurs du Zéro", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

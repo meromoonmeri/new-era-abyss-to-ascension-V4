@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local plaines_brulees = {}
 
@@ -70,7 +71,7 @@ function plaines_brulees.Enter(map)
   GROUND:CharSetAnim(entei, "Idle", true)
   GROUND:CharSetAnim(victini, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('plaines_brulees')
   UI:WaitShowTitle("Entei et Victini, la Veillée des Braises", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

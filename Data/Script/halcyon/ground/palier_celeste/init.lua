@@ -7,6 +7,7 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
+require 'halcyon.BossMusic'
 
 local palier_celeste = {}
 
@@ -64,7 +65,7 @@ function palier_celeste.Enter(map)
   GAME:WaitFrames(18)
 
   -- 5. Titre + theme.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('palier_celeste')
   UI:WaitShowTitle("Déchire-Nuages, Veilleur du Ciel Fracturé", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

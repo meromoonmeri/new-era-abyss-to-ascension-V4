@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local labo_decrepit = {}
 
@@ -63,7 +64,7 @@ function labo_decrepit.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(genesect, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('labo_decrepit')
   UI:WaitShowTitle("Genesect, le Vieux Réacteur", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

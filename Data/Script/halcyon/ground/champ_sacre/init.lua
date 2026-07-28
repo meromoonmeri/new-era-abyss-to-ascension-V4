@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local champ_sacre = {}
 
@@ -62,7 +63,7 @@ function champ_sacre.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(shaymin, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('champ_sacre')
   UI:WaitShowTitle("Shaymin, Là où Fleurit le Merci", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

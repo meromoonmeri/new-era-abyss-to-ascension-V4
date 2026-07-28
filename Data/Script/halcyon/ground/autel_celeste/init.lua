@@ -12,6 +12,7 @@ require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.ChapterAftermath'
 require 'halcyon.ReplayEnding'
+require 'halcyon.BossMusic'
 local autel_celeste = {}
 function autel_celeste.Init(map)
   DEBUG.EnableDbgCoro()
@@ -72,7 +73,7 @@ function autel_celeste.Enter(map)
 
   -- demarre avec le titre, comme dans les 42 arenes de gardiens.
 
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('autel_celeste')
 
   UI:WaitShowTitle(lugia:GetDisplayName(), 20)
   GAME:WaitFrames(40)

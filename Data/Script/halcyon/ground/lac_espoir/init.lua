@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local lac_espoir = {}
 
@@ -62,7 +63,7 @@ function lac_espoir.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(crefollet, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('lac_espoir')
   UI:WaitShowTitle("Créfollet, le Sentiment Gardé", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

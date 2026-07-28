@@ -7,6 +7,7 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
+require 'halcyon.BossMusic'
 
 local mont_grondant_pied = {}
 
@@ -66,7 +67,7 @@ function mont_grondant_pied.Enter(map)
   GAME:WaitFrames(18)
 
   -- 5. Titre + theme.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('mont_grondant_pied')
   UI:WaitShowTitle("Câble-Vif, Veilleur du Grand Orage", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

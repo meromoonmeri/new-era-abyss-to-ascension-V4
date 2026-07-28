@@ -7,6 +7,7 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
+require 'halcyon.BossMusic'
 
 local pic_ferreux_pied = {}
 
@@ -65,7 +66,7 @@ function pic_ferreux_pied.Enter(map)
   GAME:WaitFrames(18)
 
   -- 5. Titre + theme.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('pic_ferreux_pied')
   UI:WaitShowTitle("Rempart, Veilleur du Vieux Fer", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

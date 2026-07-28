@@ -10,6 +10,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.ReplayEnding'
+require 'halcyon.BossMusic'
 local celestial_peak_boss = {}
 function celestial_peak_boss.Init(map) DEBUG.EnableDbgCoro() end
 function celestial_peak_boss.Enter(map)
@@ -58,7 +59,7 @@ function celestial_peak_boss.Enter(map)
   -- Sommet du Pic — theme de boss. Cette arene n'avait AUCUNE musique : le combat le plus
   -- important du chapitre se jouait en silence complet. Le theme
   -- demarre avec le titre, comme dans les 42 arenes de gardiens.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('celestial_peak_boss')
   UI:WaitShowTitle(lugia:GetDisplayName(), 20)
   GAME:WaitFrames(40)
   UI:WaitHideTitle(20)

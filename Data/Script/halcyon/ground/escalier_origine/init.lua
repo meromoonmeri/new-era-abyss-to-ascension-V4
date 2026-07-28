@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local escalier_origine = {}
 
@@ -63,7 +64,7 @@ function escalier_origine.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(arceus, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('escalier_origine')
   UI:WaitShowTitle("Arceus, le Premier Souffle", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

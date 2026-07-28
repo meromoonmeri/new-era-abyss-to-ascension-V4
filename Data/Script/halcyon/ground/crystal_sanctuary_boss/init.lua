@@ -11,6 +11,7 @@ require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.ChapterAftermath'
 require 'halcyon.ReplayEnding'
+require 'halcyon.BossMusic'
 local crystal_sanctuary_boss = {}
 function crystal_sanctuary_boss.Init(map) DEBUG.EnableDbgCoro() end
 function crystal_sanctuary_boss.Enter(map)
@@ -60,7 +61,7 @@ function crystal_sanctuary_boss.Enter(map)
   -- Chambre de Diancie — theme de boss. Cette arene n'avait AUCUNE musique : le combat le plus
   -- important du chapitre se jouait en silence complet. Le theme
   -- demarre avec le titre, comme dans les 42 arenes de gardiens.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('crystal_sanctuary_boss')
   UI:WaitShowTitle(diancie:GetDisplayName(), 20)
   GAME:WaitFrames(40)
   UI:WaitHideTitle(20)

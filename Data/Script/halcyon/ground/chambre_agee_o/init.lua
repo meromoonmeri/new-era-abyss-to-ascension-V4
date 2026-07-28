@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local chambre_agee_o = {}
 
@@ -63,7 +64,7 @@ function chambre_agee_o.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(palkia, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('chambre_agee_o')
   UI:WaitShowTitle("Palkia, la Colline Spatiale", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

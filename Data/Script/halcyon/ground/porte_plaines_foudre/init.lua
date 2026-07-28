@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local porte_plaines_foudre = {}
 
@@ -63,7 +64,7 @@ function porte_plaines_foudre.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(electhor, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('porte_plaines_foudre')
   UI:WaitShowTitle("Électhor, le Grand Conducteur", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local pre_tonnerre = {}
 
@@ -63,7 +64,7 @@ function pre_tonnerre.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(zeraora, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('pre_tonnerre')
   UI:WaitShowTitle("Zeraora, le Courant Sauvage", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

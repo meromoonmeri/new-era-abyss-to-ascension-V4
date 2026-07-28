@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local fosse_volcanique = {}
 
@@ -63,7 +64,7 @@ function fosse_volcanique.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(volcanion, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('fosse_volcanique')
   UI:WaitShowTitle("Volcanion, le Cœur de Vapeur", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

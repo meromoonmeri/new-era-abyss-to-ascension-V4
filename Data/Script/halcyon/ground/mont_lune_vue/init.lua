@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local mont_lune_vue = {}
 
@@ -70,7 +71,7 @@ function mont_lune_vue.Enter(map)
   GROUND:CharSetAnim(cresselia, "Idle", true)
   GROUND:CharSetAnim(darkrai, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('mont_lune_vue')
   UI:WaitShowTitle("Cresselia et Darkrai, les Deux Visages de la Lune", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

@@ -7,6 +7,7 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
+require 'halcyon.BossMusic'
 
 local fosse_ardente = {}
 
@@ -65,7 +66,7 @@ function fosse_ardente.Enter(map)
   GAME:WaitFrames(18)
 
   -- 5. Titre + theme.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('fosse_ardente')
   UI:WaitShowTitle("Soleil-de-Cendre, Veilleur de la Fournaise-Mère", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

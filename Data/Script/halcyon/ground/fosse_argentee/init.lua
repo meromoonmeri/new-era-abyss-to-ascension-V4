@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local fosse_argentee = {}
 
@@ -64,7 +65,7 @@ function fosse_argentee.Enter(map)
       GROUND:Unhide('AncreMorte')
     GAME:WaitFrames(18)
 
-    SOUND:PlayBGM('Boss Battle!.ogg', true)
+    BossMusic.Play('fosse_argentee')
     UI:WaitShowTitle("Lanterne-Noyée et Ancre-Morte, Veilleurs de la Fosse", 20)
     GAME:WaitFrames(50)
     UI:WaitHideTitle(20)
@@ -130,7 +131,7 @@ function fosse_argentee.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(lugia, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('fosse_argentee')
   UI:WaitShowTitle("Lugia, le Chœur Englouti", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

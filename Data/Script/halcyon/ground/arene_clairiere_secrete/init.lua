@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local arene_clairiere_secrete = {}
 
@@ -74,7 +75,7 @@ function arene_clairiere_secrete.Enter(map)
   GROUND:CharSetAnim(mew, "Idle", true)
   GROUND:CharSetAnim(hoopa, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('arene_clairiere_secrete')
   UI:WaitShowTitle("Mew et Hoopa, le Premier Berceau", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

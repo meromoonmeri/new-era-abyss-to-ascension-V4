@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local cretes_boreales = {}
 
@@ -70,7 +71,7 @@ function cretes_boreales.Enter(map)
   GROUND:CharSetAnim(latios, "Idle", true)
   GROUND:CharSetAnim(latias, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('cretes_boreales')
   UI:WaitShowTitle("Latios et Latias, la Faille Jumelle", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

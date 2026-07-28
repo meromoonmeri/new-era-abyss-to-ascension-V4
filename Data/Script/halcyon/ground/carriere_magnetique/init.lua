@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local carriere_magnetique = {}
 
@@ -63,7 +64,7 @@ function carriere_magnetique.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(magearna, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('carriere_magnetique')
   UI:WaitShowTitle("Magearna, le Cœur d'Engrenages", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

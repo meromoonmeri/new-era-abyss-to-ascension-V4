@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local vallon_malsain_fond = {}
 
@@ -64,7 +65,7 @@ function vallon_malsain_fond.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(yveltal, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('vallon_malsain_fond')
   UI:WaitShowTitle("Yveltal, le Cocon de la Ruine", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

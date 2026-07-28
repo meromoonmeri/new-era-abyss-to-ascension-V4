@@ -52,3 +52,18 @@
 
 ## Agents de développement
 - Agent Arena.ai — développement scripts, maps, dialogues, correctifs (V4.5.1+)
+
+## Direction musicale (2026-08-01)
+
+Aucune piste externe n'a été ajoutée. `Data/Script/halcyon/BossMusic.lua`
+**redistribue** les musiques déjà embarquées et déjà créditées ci-dessus :
+48 arènes de gardiens sur 49 jouaient le même `Boss Battle!.ogg`, et
+14 pistes n'étaient jamais jouées. La table attribue désormais 12 thèmes
+distincts selon sept registres (cosmique, ciel, ombre, nature, tellurique,
+machine, épreuve).
+
+**Note de licence** — les remixes de chaînes YouTube (type GlitchxCity) ont
+été écartés volontairement : un remixeur ne détient pas les droits de
+l'œuvre d'origine et ne peut donc pas en autoriser la redistribution dans
+un mod. Toute piste future doit venir d'un auteur autorisant explicitement
+l'usage en fangame, et être créditée ici avec sa licence.

@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local sommet_aurore = {}
 
@@ -62,7 +63,7 @@ function sommet_aurore.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(hooh, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('sommet_aurore')
   UI:WaitShowTitle("Ho-Oh, le Bûcher de l'Aurore", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

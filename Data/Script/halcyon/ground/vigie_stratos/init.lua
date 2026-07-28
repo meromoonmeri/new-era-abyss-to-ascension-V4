@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local vigie_stratos = {}
 
@@ -62,7 +63,7 @@ function vigie_stratos.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(rayquaza, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('vigie_stratos')
   UI:WaitShowTitle("Rayquaza, le Neuvième Sommet", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

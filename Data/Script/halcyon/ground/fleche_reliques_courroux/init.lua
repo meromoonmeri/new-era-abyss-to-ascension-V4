@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local fleche_reliques_courroux = {}
 
@@ -66,6 +67,8 @@ function fleche_reliques_courroux.Enter(map)
   GROUND:CharSetAnim(dialga, "Idle", true)
   -- 6. Titre + thème.
   SOUND:PlayBGM("Dialga's Fight To the Finish!.ogg", true)
+  -- Theme propre a cette arene (cf. BossMusic.lua).
+  BossMusic.Play('fleche_reliques_courroux')
   UI:WaitShowTitle("Dialga, l'Heure qui Traîne", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

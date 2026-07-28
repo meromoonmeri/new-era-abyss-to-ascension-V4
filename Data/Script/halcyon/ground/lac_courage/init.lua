@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local lac_courage = {}
 
@@ -63,7 +64,7 @@ function lac_courage.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(crefadet, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('lac_courage')
   UI:WaitShowTitle("Créfadet, la Dernière Résolution", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

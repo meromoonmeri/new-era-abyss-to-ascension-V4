@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local abime_tempetes = {}
 
@@ -58,7 +59,7 @@ function abime_tempetes.Enter(map)
       GROUND:Unhide('LameDeFond')
     GAME:WaitFrames(18)
 
-    SOUND:PlayBGM('Boss Battle!.ogg', true)
+    BossMusic.Play('abime_tempetes')
     UI:WaitShowTitle("Lame-de-Fond, Veilleur de la Mer sans Fin", 20)
     GAME:WaitFrames(50)
     UI:WaitHideTitle(20)
@@ -124,7 +125,7 @@ function abime_tempetes.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(kyogre, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('abime_tempetes')
   UI:WaitShowTitle("Kyogre, le Creux des Marées", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

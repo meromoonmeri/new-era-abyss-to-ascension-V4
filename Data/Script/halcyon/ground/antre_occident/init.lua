@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local antre_occident = {}
 
@@ -58,7 +59,7 @@ function antre_occident.Enter(map)
       GROUND:Unhide('PortierDuVide')
     GAME:WaitFrames(18)
 
-    SOUND:PlayBGM('Boss Battle!.ogg', true)
+    BossMusic.Play('antre_occident')
     UI:WaitShowTitle("Portier-du-Vide, Veilleur du Silence", 20)
     GAME:WaitFrames(50)
     UI:WaitHideTitle(20)
@@ -127,7 +128,7 @@ function antre_occident.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(mewtwo, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('antre_occident')
   UI:WaitShowTitle("Mewtwo, le Silence Occidental", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

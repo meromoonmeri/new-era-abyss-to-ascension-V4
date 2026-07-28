@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local arene_trone_magma = {}
 
@@ -65,7 +66,7 @@ function arene_trone_magma.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(groudon, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('arene_trone_magma')
   UI:WaitShowTitle("Groudon, le Trône de Magma", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local nef_prisme_est = {}
 
@@ -62,7 +63,7 @@ function nef_prisme_est.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(xerneas, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('nef_prisme_est')
   UI:WaitShowTitle("Xerneas, la Vie Donnée", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)

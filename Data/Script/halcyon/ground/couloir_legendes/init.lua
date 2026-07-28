@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
+require 'halcyon.BossMusic'
 
 local couloir_legendes = {}
 
@@ -64,7 +65,7 @@ function couloir_legendes.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(eternatus, "Idle", true)
   -- 6. Titre + thème.
-  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  BossMusic.Play('couloir_legendes')
   UI:WaitShowTitle("Eternatus, la Spirale Éternelle", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)
