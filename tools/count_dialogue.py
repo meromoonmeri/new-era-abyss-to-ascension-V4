@@ -11,20 +11,45 @@ PAT = re.compile(
     r'WaitShowDialogue|StartConversation|WaitShowTimedDialogue'
     r'|^\s*(?:say|think|narrate|voice)\(', re.M)
 
+# Modules a FICHES : la replique n'est pas un appel, c'est une valeur dans
+# une table lue plus tard par un unique StartConversation. TownVoices,
+# TownVoicesNight et TownVoicesLate totalisent 668 boites de dialogue et
+# n'en affichaient que 3 — une par module. On compte donc aussi les
+# champs de palier, qui sont bien des boites vues par le joueur.
+FICHE_PAT = re.compile(
+    r'^\s*(?:early|pre|during|post|quests|defendue|pillee)\s*=\s*"', re.M)
+FICHE_FILES = {'TownVoices.lua', 'TownVoicesNight.lua', 'TownVoicesLate.lua'}
+
 # Modules GLOBAUX rattaches a un chapitre precis. Sans cette table, leurs
 # repliques tombaient dans « commun » et le chapitre paraissait plus pauvre
 # qu'il ne l'est : DazzlingArc (ch6) pesait 77 lignes comptees nulle part.
 GLOBAL_CH = {
     'DazzlingArc.lua': 6,
     'SideQuests.lua': 6,      # requetes de Metano (fiches declaratives)
+    'TownVoices.lua': 6,      # 26 habitants du ch6
     'ChapterAftermath.lua': None,   # scenes ch8+ch9+ch10, ventilees a la main
+    'TownVoicesNight.lua': None,    # reactions aux raids, tous chapitres 6+
+    'TownVoicesLate.lua': None,     # ch7 a ch10, ventile par bloc FICHES[N]
 }
+
+# Modules couvrant PLUSIEURS chapitres : on lit le bloc de chacun pour
+# attribuer les repliques au bon chapitre, au lieu de tout jeter dans
+# « multi-chapitres ».
+def split_by_chapter(path):
+    t = open(path, encoding='utf-8', errors='replace').read()
+    out = {}
+    for m in re.finditer(r'FICHES\[(\d+)\] = \{(.*?)\n\}', t, re.S):
+        out[int(m.group(1))] = len(FICHE_PAT.findall(m.group(2)))
+    return out
 
 def count_file(path):
     t = open(path, encoding='utf-8', errors='replace').read()
     t = re.sub(r'--\[\[.*?\]\]', '', t, flags=re.S)
     t = re.sub(r'--[^\n]*', '', t)
-    return len(PAT.findall(t))
+    n = len(PAT.findall(t))
+    if path.split('/')[-1] in FICHE_FILES:
+        n += len(FICHE_PAT.findall(t))
+    return n
 
 per_ch = collections.Counter()
 detail = collections.defaultdict(list)
@@ -35,7 +60,13 @@ for f in glob.glob('Data/Script/halcyon/**/*.lua', recursive=True):
     base = f.split('/')[-1]
     forced = GLOBAL_CH.get(base)
     if base in GLOBAL_CH and forced is None:
-        per_ch['multi-chapitres (ChapterAftermath)'] = per_ch.get('multi-chapitres (ChapterAftermath)', 0) + n
+        parts = split_by_chapter(f) if base == 'TownVoicesLate.lua' else {}
+        if parts:
+            for c, cn in parts.items():
+                per_ch[c] += cn
+                detail[c].append((cn, base))
+            continue
+        per_ch['multi-chapitres'] = per_ch.get('multi-chapitres', 0) + n
         continue
     if m or forced:
         ch = int(m.group(1)) if m else forced

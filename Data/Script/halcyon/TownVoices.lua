@@ -71,6 +71,49 @@ function TownVoices.State(ch)
     if c6.DazzlingIntroPlayed then return 'pre' end
     return 'early'
   end
+
+  --CHAPITRES 7 A 10. Les etats sont ceux des fichiers de chapitre
+  --(Ch7State..Ch10State, releves un par un), pas des inventions. On les
+  --replie sur le meme vocabulaire que le ch6 pour que les fiches restent
+  --lisibles : early / pre / during / post / quests.
+  --  'post'   = le donjon est fait, la ville respire
+  --  'quests' = le dernier jalon du chapitre est franchi
+  if ch == 7 then
+    local c = SV.Chapter7 or {}
+    if c.HadFirstDream or c.HeardGenesisTale then return 'quests' end
+    if c.DefeatedRuinsBoss then return 'post' end
+    if c.EnteredRuins then return 'during' end
+    if c.RuinsAddressGiven then return 'pre' end
+    return 'early'
+  end
+
+  if ch == 8 then
+    local c = SV.Chapter8 or {}
+    if c.ObtainedCrystalFragment then return 'quests' end
+    if c.DefeatedDiancie then return 'post' end
+    if c.EnteredSanctuary or c.ReachedCrystalRelay then return 'during' end
+    if c.CrystalAddressGiven then return 'pre' end
+    return 'early'
+  end
+
+  if ch == 9 then
+    local c = SV.Chapter9 or {}
+    if c.PurifiedMarshCore then return 'quests' end
+    if c.DefeatedMegaBlastoise then return 'post' end
+    if c.EnteredMarsh or c.SawCercleDuSuaire then return 'during' end
+    if c.MarshAddressGiven then return 'pre' end
+    return 'early'
+  end
+
+  if ch == 10 then
+    local c = SV.Chapter10 or {}
+    if c.SawNecrozmaVision then return 'quests' end
+    if c.DefeatedLugia then return 'post' end
+    if c.EnteredPeak or c.ReachedFulgurEncounter then return 'during' end
+    if c.PeakAddressGiven then return 'pre' end
+    return 'early'
+  end
+
   return 'early'
 end
 
