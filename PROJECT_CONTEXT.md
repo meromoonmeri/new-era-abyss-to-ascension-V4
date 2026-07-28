@@ -477,3 +477,13 @@ Audité sur la branche `arena/019fa547-new-era-abyss-to-ascension-v4`, commit `7
 
 ### Réserve générale
 Audit statique (fichiers/lignes). Aucun test en jeu dans cette sandbox.
+
+
+## Correctifs test en jeu 2026-07-28 (2e passe) — Mount Windswept Entrance
+- BUG 1 (sacs multiples + Yellow_Box) : BuildCampDay = 1 seul Grassy_Bag (196,224), caisse supprimee ; BuildCampMorning = sac seul, feu eteint.
+- BUG 2 (Penticus sur le feu / immobile) : feu purge au matin (BuildCampMorning) + Penticus s'ecarte en (216,240) et Phileas (216,208) avant les departs (section 14).
+- Cameras trop brutes + arrivee : l'expedition arrive desormais PAR LE SUD (spawn 256,588-636) et remonte la colonne x=256 en ligne droite (couloir degage : 8 pointes rocheuses taillees cols 31-32), camera en 2 glissements longs (150/110 frames). Anciennes coords heritees du Tunnel (92,176/60,136) supprimees.
+- BUG 3 (carte) : agrandie 63x69 -> 63x81 (commit precedent) ; clairiere degagee ; 8 touffes Flowers_Town_3 (asset atteste au relais) posees en deco ; marker sud (256,616).
+- BUG 4 (coffre) : c'est Kangaskhan_Rock (depot Kangaskhan, GeneralFunctions.Kangashkhan_Rock_Interact — callback existant, pas un bug de script). Il etait INCRUSTE dans la falaise ouest (160,144, 3 cellules sous collision). Deplace en (176,352), zone 4x4 verifiee libre, accessible.
+- BUG 5 (vertige/reve invisibles) : le reve utilise desormais le patron des visions : DreamSky (Dream_Back+Dream_Front en parallaxe, les « fichiers dream qui se superposent » = leur usage prevu) + UI:WaitShowBG('Genesis_Void') par-dessus le fondu noir (comme HeroVisions), puis WaitHideBG. Le DizzyVeil du matin reste (ecran allume).
+- Reste a faire (assume, non code) : tentes (aucun asset objet 'tent' dans le depot — les tentes du relais sont dans SON tileset) et ocean visible (repeinture de tiles cote sud avec DuskBeach/beach_animation, gros chantier a part). Les lits n'apparaissent QUE la nuit (DeployBeds) et disparaissent au matin : le camp est bien « demonte au reveil ».

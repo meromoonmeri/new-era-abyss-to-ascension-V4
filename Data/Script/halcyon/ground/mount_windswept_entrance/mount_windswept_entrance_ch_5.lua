@@ -609,14 +609,21 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	---------------------------------------------------------------
 	-- 10. LE REVE — l'ombre inconnue (Prompt Maitre 6.6)
 	---------------------------------------------------------------
-	--Sur ecran noir, comme les paroles de la Voix (VoiceVisions.Speak,
-	--patron atteste) : haut-parleur ANONYME « ??? » (\uE040), ni nom,
-	--ni portrait, ni espece. Le fond onirique anime (DreamSky) dessine
-	--SOUS le fondu noir : il serait invisible ici — on ne l'utilise
-	--donc pas (verifie dans VoiceVisions.lua, pas suppose).
-	--Non resolutif : l'ombre annonce, le heros ne comprend pas.
+	--RETOUR DU TEST EN JEU : le reve se jouait sur ECRAN NOIR nu, les
+	--effets ne se voyaient pas. Correction par le patron ATTESTE des
+	--visions (VoiceVisions.Play, module verifie) :
+	--  * DreamSky : les DEUX couches Dream_Back + Dream_Front de
+	--    Content/BG defilent en parallaxe (l'animation superposee) ;
+	--  * UI:WaitShowBG('Genesis_Void') : fond onirique 320x240 anime,
+	--    affiche PAR-DESSUS le fondu noir (c'est ainsi que les
+	--    planches des visions s'affichent) ;
+	--  * haut-parleur anonyme « ??? » (\uE040), patron VoiceVisions.
 	SOUND:PlayBGM('I Saw Something Again....ogg', true)
-	GAME:WaitFrames(50)
+	GAME:WaitFrames(30)
+
+	pcall(function() VoiceVisions.DreamSky(560) end)
+	pcall(function() UI:WaitShowBG('Genesis_Void', 180, 30) end)
+	GAME:WaitFrames(20)
 
 	UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_080']))
@@ -628,11 +635,8 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_083']))
 	GAME:WaitFrames(30)
 
-	--Le sursaut du reve. Sur ecran NOIR, le voile DizzyVeil serait
-	--invisible (noir sur noir — meme raison, verifiee, qui interdit
-	--DreamSky ici). On ne garde donc que le tangage et le son : le
-	--vertige de Sky COMPLET (Nausea + voile) est joue au reveil du
-	--matin, quand l'ecran est rallume et l'effet perceptible.
+	--Le vertige du reve : tangage de l'ecran (ScreenMover, patron
+	--VoiceVisions.Nausea — API moteur, pas d'asset requis).
 	pcall(function()
 		SOUND:PlayBattleSE('EVT_Emote_Startled')
 		GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 6, 40))
@@ -640,6 +644,9 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GAME:WaitFrames(40)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_084']))
 	GAME:WaitFrames(20)
+
+	--Le reve s'efface : l'image onirique disparait, retour au noir.
+	pcall(function() UI:WaitHideBG(30) end)
 	SOUND:FadeOutBGM(60)
 	GAME:WaitFrames(40)
 
@@ -1675,7 +1682,13 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	GAME:CutsceneMode(true)
 	AI:DisableCharacterAI(partner)
 	SOUND:StopBGM()
-	GAME:MoveCamera(276, 248, 1, false)
+	--ARRIVEE PAR LE SUD (retour du test en jeu : l'ancienne mise en place
+	--teleportait l'equipe au milieu de la carte puis la faisait marcher
+	--vers (92,176)/(60,136) — coordonnees HERITEES de la scene du Tunnel,
+	--dans l'angle ouest. Desormais : l'expedition debouche du sentier sud
+	--et remonte en LIGNE DROITE la colonne x=256 (verifiee rectiligne et
+	--praticable rows 50-79 apres degagement du couloir).
+	GAME:MoveCamera(256, 560, 1, false)
 	--TRANSITION JOUR -> SOIR (Prompt Maitre 6.2). L'expedition arrive au
 	--couchant : "dusk" d'abord (patron exact de l'arrivee au Tunnel), la
 	--nuit noire ("darkness") ne tombe qu'au deploiement des couchages.
@@ -1684,8 +1697,8 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	--for debug purposes
 	GAME:FadeOut(false, 1)
 	
-	GROUND:TeleportTo(hero, 252, 396, Direction.Up)
-	GROUND:TeleportTo(partner, 284, 396, Direction.Right)
+	GROUND:TeleportTo(hero, 256, 588, Direction.Up)
+	GROUND:TeleportTo(partner, 256, 604, Direction.Up)
 	
 	local audino, snubbull, girafarig, breloom, growlithe, zigzagoon, tropius, noctowl, mareep, cranidos = 
 	CharacterEssentials.MakeCharactersFromList({
@@ -1693,8 +1706,8 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 		{'Snubbull'},
 		{'Girafarig'},
 		{'Breloom'},
-		{'Growlithe', 292, 428, Direction.Up},
-		{'Zigzagoon', 244, 428, Direction.Up},
+		{'Growlithe', 256, 620, Direction.Up},
+		{'Zigzagoon', 256, 636, Direction.Up},
 		{'Tropius'},
 		{'Noctowl'},
 		{'Mareep'},
@@ -1719,11 +1732,39 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	
 	GAME:FadeIn(40)
 	
-	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, 92, 176, false, 1) end)
-	local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames (10) GROUND:MoveToPosition(hero, 92, 144, false, 1) end)
-	local coro3 = TASK:BranchCoroutine(function() GAME:WaitFrames(2) GROUND:MoveToPosition(growlithe, 60, 184, false, 1) end)
-	local coro4 = TASK:BranchCoroutine(function() GAME:WaitFrames(6) GROUND:MoveToPosition(zigzagoon, 60, 136, false, 1) end)
-	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
+	--LA MONTEE. File indienne du sud vers le camp, sans zigzag ; la
+	--camera GLISSE avec la colonne (deux paliers longs, pas de saut).
+	--Au bord sud du camp, la file s'ouvre en eventail sur 4 positions
+	--verifiees libres.
+	local coro1 = TASK:BranchCoroutine(function()
+		GROUND:MoveToPosition(hero, 256, 316, false, 1)
+		GROUND:MoveToPosition(hero, 240, 300, false, 1)
+		GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+	end)
+	local coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(14)
+		GROUND:MoveToPosition(partner, 256, 332, false, 1)
+		GROUND:MoveToPosition(partner, 272, 300, false, 1)
+		GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+	end)
+	local coro3 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(28)
+		GROUND:MoveToPosition(growlithe, 256, 348, false, 1)
+		GROUND:MoveToPosition(growlithe, 240, 328, false, 1)
+		GROUND:CharAnimateTurnTo(growlithe, Direction.Up, 4)
+	end)
+	local coro4 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(42)
+		GROUND:MoveToPosition(zigzagoon, 256, 364, false, 1)
+		GROUND:MoveToPosition(zigzagoon, 272, 328, false, 1)
+		GROUND:CharAnimateTurnTo(zigzagoon, Direction.Up, 4)
+	end)
+	local coro5 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(20)
+		GAME:MoveCamera(256, 430, 150, false)
+		GAME:MoveCamera(256, 310, 110, false)
+	end)
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
 	GAME:WaitFrames(20)
 	UI:SetSpeaker(partner)
 	UI:SetSpeakerEmotion("Worried")

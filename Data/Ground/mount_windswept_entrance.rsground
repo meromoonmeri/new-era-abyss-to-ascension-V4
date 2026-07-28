@@ -31601,7 +31601,7 @@
       "Width": 8,
       "Height": 8
      },
-     "Tags": 1
+     "Tags": 0
     },
     {
      "Bounds": {
@@ -32170,7 +32170,7 @@
       "Width": 8,
       "Height": 8
      },
-     "Tags": 1
+     "Tags": 0
     },
     {
      "Bounds": {
@@ -34437,7 +34437,7 @@
       "Width": 8,
       "Height": 8
      },
-     "Tags": 1
+     "Tags": 0
     },
     {
      "Bounds": {
@@ -35006,7 +35006,7 @@
       "Width": 8,
       "Height": 8
      },
-     "Tags": 1
+     "Tags": 0
     },
     {
      "Bounds": {
@@ -38429,7 +38429,7 @@
       "Width": 8,
       "Height": 8
      },
-     "Tags": 1
+     "Tags": 0
     },
     {
      "Bounds": {
@@ -38998,7 +38998,7 @@
       "Width": 8,
       "Height": 8
      },
-     "Tags": 1
+     "Tags": 0
     },
     {
      "Bounds": {
@@ -41265,7 +41265,7 @@
       "Width": 8,
       "Height": 8
      },
-     "Tags": 1
+     "Tags": 0
     },
     {
      "Bounds": {
@@ -41834,7 +41834,7 @@
       "Width": 8,
       "Height": 8
      },
-     "Tags": 1
+     "Tags": 0
     },
     {
      "Bounds": {
@@ -221126,20 +221126,7 @@
       {
        "AutoTileset": "",
        "Associates": [],
-       "Layers": [
-        {
-         "Frames": [
-          {
-           "Sheet": "Mount_Windswept_Shadows",
-           "TexLoc": {
-            "X": 56,
-            "Y": 31
-           }
-          }
-         ],
-         "FrameLength": 60
-        }
-       ],
+       "Layers": [],
        "NeighborCode": -1
       },
       {
@@ -221623,20 +221610,7 @@
       {
        "AutoTileset": "",
        "Associates": [],
-       "Layers": [
-        {
-         "Frames": [
-          {
-           "Sheet": "Mount_Windswept_Shadows",
-           "TexLoc": {
-            "X": 57,
-            "Y": 31
-           }
-          }
-         ],
-         "FrameLength": 60
-        }
-       ],
+       "Layers": [],
        "NeighborCode": -1
       },
       {
@@ -222617,20 +222591,7 @@
       {
        "AutoTileset": "",
        "Associates": [],
-       "Layers": [
-        {
-         "Frames": [
-          {
-           "Sheet": "Mount_Windswept_Shadows",
-           "TexLoc": {
-            "X": 59,
-            "Y": 31
-           }
-          }
-         ],
-         "FrameLength": 60
-        }
-       ],
+       "Layers": [],
        "NeighborCode": -1
       },
       {
@@ -223153,20 +223114,7 @@
       {
        "AutoTileset": "",
        "Associates": [],
-       "Layers": [
-        {
-         "Frames": [
-          {
-           "Sheet": "Mount_Windswept_Shadows",
-           "TexLoc": {
-            "X": 60,
-            "Y": 31
-           }
-          }
-         ],
-         "FrameLength": 60
-        }
-       ],
+       "Layers": [],
        "NeighborCode": -1
       },
       {
@@ -223689,20 +223637,7 @@
       {
        "AutoTileset": "",
        "Associates": [],
-       "Layers": [
-        {
-         "Frames": [
-          {
-           "Sheet": "Mount_Windswept_Shadows",
-           "TexLoc": {
-            "X": 61,
-            "Y": 31
-           }
-          }
-         ],
-         "FrameLength": 60
-        }
-       ],
+       "Layers": [],
        "NeighborCode": -1
       },
       {
@@ -227181,20 +227116,7 @@
       {
        "AutoTileset": "",
        "Associates": [],
-       "Layers": [
-        {
-         "Frames": [
-          {
-           "Sheet": "Mount_Windswept_Shadows",
-           "TexLoc": {
-            "X": 56,
-            "Y": 31
-           }
-          }
-         ],
-         "FrameLength": 60
-        }
-       ],
+       "Layers": [],
        "NeighborCode": -1
       },
       {
@@ -227678,20 +227600,7 @@
       {
        "AutoTileset": "",
        "Associates": [],
-       "Layers": [
-        {
-         "Frames": [
-          {
-           "Sheet": "Mount_Windswept_Shadows",
-           "TexLoc": {
-            "X": 57,
-            "Y": 31
-           }
-          }
-         ],
-         "FrameLength": 60
-        }
-       ],
+       "Layers": [],
        "NeighborCode": -1
       },
       {
@@ -228672,20 +228581,7 @@
       {
        "AutoTileset": "",
        "Associates": [],
-       "Layers": [
-        {
-         "Frames": [
-          {
-           "Sheet": "Mount_Windswept_Shadows",
-           "TexLoc": {
-            "X": 59,
-            "Y": 31
-           }
-          }
-         ],
-         "FrameLength": 60
-        }
-       ],
+       "Layers": [],
        "NeighborCode": -1
       },
       {
@@ -229208,20 +229104,7 @@
       {
        "AutoTileset": "",
        "Associates": [],
-       "Layers": [
-        {
-         "Frames": [
-          {
-           "Sheet": "Mount_Windswept_Shadows",
-           "TexLoc": {
-            "X": 60,
-            "Y": 31
-           }
-          }
-         ],
-         "FrameLength": 60
-        }
-       ],
+       "Layers": [],
        "NeighborCode": -1
       },
       {
@@ -229744,20 +229627,7 @@
       {
        "AutoTileset": "",
        "Associates": [],
-       "Layers": [
-        {
-         "Frames": [
-          {
-           "Sheet": "Mount_Windswept_Shadows",
-           "TexLoc": {
-            "X": 61,
-            "Y": 31
-           }
-          }
-         ],
-         "FrameLength": 60
-        }
-       ],
+       "Layers": [],
        "NeighborCode": -1
       },
       {
@@ -230274,20 +230144,7 @@
       {
        "AutoTileset": "",
        "Associates": [],
-       "Layers": [
-        {
-         "Frames": [
-          {
-           "Sheet": "Mount_Windswept_Shadows",
-           "TexLoc": {
-            "X": 62,
-            "Y": 30
-           }
-          }
-         ],
-         "FrameLength": 60
-        }
-       ],
+       "Layers": [],
        "NeighborCode": -1
       },
       {
@@ -291465,20 +291322,7 @@
       {
        "AutoTileset": "",
        "Associates": [],
-       "Layers": [
-        {
-         "Frames": [
-          {
-           "Sheet": "Mount_Windswept_Objects",
-           "TexLoc": {
-            "X": 55,
-            "Y": 32
-           }
-          }
-         ],
-         "FrameLength": 60
-        }
-       ],
+       "Layers": [],
        "NeighborCode": -1
       },
       {
@@ -292027,20 +291871,7 @@
       {
        "AutoTileset": "",
        "Associates": [],
-       "Layers": [
-        {
-         "Frames": [
-          {
-           "Sheet": "Mount_Windswept_Objects",
-           "TexLoc": {
-            "X": 56,
-            "Y": 32
-           }
-          }
-         ],
-         "FrameLength": 60
-        }
-       ],
+       "Layers": [],
        "NeighborCode": -1
       },
       {
@@ -294256,20 +294087,7 @@
       {
        "AutoTileset": "",
        "Associates": [],
-       "Layers": [
-        {
-         "Frames": [
-          {
-           "Sheet": "Mount_Windswept_Objects",
-           "TexLoc": {
-            "X": 60,
-            "Y": 31
-           }
-          }
-         ],
-         "FrameLength": 60
-        }
-       ],
+       "Layers": [],
        "NeighborCode": -1
       },
       {
@@ -294844,20 +294662,7 @@
       {
        "AutoTileset": "",
        "Associates": [],
-       "Layers": [
-        {
-         "Frames": [
-          {
-           "Sheet": "Mount_Windswept_Objects",
-           "TexLoc": {
-            "X": 61,
-            "Y": 31
-           }
-          }
-         ],
-         "FrameLength": 60
-        }
-       ],
+       "Layers": [],
        "NeighborCode": -1
       },
       {
@@ -297871,20 +297676,7 @@
       {
        "AutoTileset": "",
        "Associates": [],
-       "Layers": [
-        {
-         "Frames": [
-          {
-           "Sheet": "Mount_Windswept_Objects",
-           "TexLoc": {
-            "X": 55,
-            "Y": 32
-           }
-          }
-         ],
-         "FrameLength": 60
-        }
-       ],
+       "Layers": [],
        "NeighborCode": -1
       },
       {
@@ -298433,20 +298225,7 @@
       {
        "AutoTileset": "",
        "Associates": [],
-       "Layers": [
-        {
-         "Frames": [
-          {
-           "Sheet": "Mount_Windswept_Objects",
-           "TexLoc": {
-            "X": 56,
-            "Y": 32
-           }
-          }
-         ],
-         "FrameLength": 60
-        }
-       ],
+       "Layers": [],
        "NeighborCode": -1
       },
       {
@@ -300662,20 +300441,7 @@
       {
        "AutoTileset": "",
        "Associates": [],
-       "Layers": [
-        {
-         "Frames": [
-          {
-           "Sheet": "Mount_Windswept_Objects",
-           "TexLoc": {
-            "X": 60,
-            "Y": 31
-           }
-          }
-         ],
-         "FrameLength": 60
-        }
-       ],
+       "Layers": [],
        "NeighborCode": -1
       },
       {
@@ -301250,20 +301016,7 @@
       {
        "AutoTileset": "",
        "Associates": [],
-       "Layers": [
-        {
-         "Frames": [
-          {
-           "Sheet": "Mount_Windswept_Objects",
-           "TexLoc": {
-            "X": 61,
-            "Y": 31
-           }
-          }
-         ],
-         "FrameLength": 60
-        }
-       ],
+       "Layers": [],
        "NeighborCode": -1
       },
       {
@@ -341327,7 +341080,136 @@
     "Name": "New Deco",
     "Layer": 0,
     "Visible": true,
-    "Anims": []
+    "Anims": [
+     {
+      "MapLoc": {
+       "X": 168,
+       "Y": 168
+      },
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Flowers_Town_3",
+       "FrameTime": 11,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": 2,
+       "Alpha": 255,
+       "AnimFlip": 0
+      }
+     },
+     {
+      "MapLoc": {
+       "X": 344,
+       "Y": 168
+      },
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Flowers_Town_3",
+       "FrameTime": 11,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": 2,
+       "Alpha": 255,
+       "AnimFlip": 0
+      }
+     },
+     {
+      "MapLoc": {
+       "X": 168,
+       "Y": 320
+      },
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Flowers_Town_3",
+       "FrameTime": 11,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": 2,
+       "Alpha": 255,
+       "AnimFlip": 0
+      }
+     },
+     {
+      "MapLoc": {
+       "X": 352,
+       "Y": 312
+      },
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Flowers_Town_3",
+       "FrameTime": 11,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": 2,
+       "Alpha": 255,
+       "AnimFlip": 0
+      }
+     },
+     {
+      "MapLoc": {
+       "X": 232,
+       "Y": 152
+      },
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Flowers_Town_3",
+       "FrameTime": 11,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": 2,
+       "Alpha": 255,
+       "AnimFlip": 0
+      }
+     },
+     {
+      "MapLoc": {
+       "X": 312,
+       "Y": 152
+      },
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Flowers_Town_3",
+       "FrameTime": 11,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": 2,
+       "Alpha": 255,
+       "AnimFlip": 0
+      }
+     },
+     {
+      "MapLoc": {
+       "X": 192,
+       "Y": 344
+      },
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Flowers_Town_3",
+       "FrameTime": 11,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": 2,
+       "Alpha": 255,
+       "AnimFlip": 0
+      }
+     },
+     {
+      "MapLoc": {
+       "X": 320,
+       "Y": 344
+      },
+      "ObjectAnim": {
+       "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+       "AnimIndex": "Flowers_Town_3",
+       "FrameTime": 11,
+       "StartFrame": -1,
+       "EndFrame": -1,
+       "AnimDir": 2,
+       "Alpha": 255,
+       "AnimFlip": 0
+      }
+     }
+    ]
    }
   ],
   "Entities": [
@@ -341373,8 +341255,8 @@
        "Y": 0
       },
       "Collider": {
-       "X": 160,
-       "Y": 144,
+       "X": 176,
+       "Y": 352,
        "Width": 32,
        "Height": 32
       }
