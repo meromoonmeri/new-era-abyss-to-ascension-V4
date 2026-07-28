@@ -309,7 +309,8 @@ Hors périmètre de ce lot, signalées pour mémoire :
 - **`post_office` : 37 clés `Connect_*`** référencées et absentes des deux
   fichiers. Probablement fournies par le moteur, à confirmer.
 - **`metano_town` : `Item_Give_Storage`** absente des deux fichiers.
-- **La progression de chapitre s'arrête à 6.** Les chapitres 7 à 10 ont leur
-  contenu (zones, grounds, cinématiques, dialogues) mais **aucun déclencheur
-  ne fait passer `Chapter` de 6 à 7**. En pratique le contenu ch7-10 est
-  inatteignable en partie normale. C'est le point le plus lourd de cette liste.
+- ~~**La progression de chapitre s'arrête à 6.**~~ **CORRIGÉ** dans le build
+  2026-07-31-J : paliers ch6→ch7→ch8→ch9→ch10 ajoutés, donjons déverrouillés,
+  délais armés, 4 zones passées à `Released=true`. Voir
+  `docs/deblocage_chapitres_7_a_10.md`. Les 12 donjons d'histoire sont
+  désormais atteignables, donc leur rejouabilité est testable.

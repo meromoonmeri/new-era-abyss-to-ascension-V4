@@ -260,7 +260,7 @@
           "fr": "Ruines Tordues"
         }
       },
-      "Released": false,
+      "Released": true,
       "SortOrder": 0
     },
     "crooked_cavern": {
@@ -1076,7 +1076,7 @@
           "fr": "Sanctuaire de Cristal"
         }
       },
-      "Released": false,
+      "Released": true,
       "SortOrder": 0
     },
     "forgotten_marsh": {
@@ -1138,7 +1138,7 @@
           "fr": "Marais de l'Oubli"
         }
       },
-      "Released": false,
+      "Released": true,
       "SortOrder": 0
     },
     "celestial_peak": {
@@ -1207,7 +1207,7 @@
           "fr": "Pic Celeste"
         }
       },
-      "Released": false,
+      "Released": true,
       "SortOrder": 0
     },
     "petit_tunnel": {

@@ -379,6 +379,20 @@ function DebugTools:OnUpgrade()
 	if not GAME:DungeonUnlocked("new_era_zone_47") then GAME:UnlockDungeon("new_era_zone_47") end
 	if not GAME:DungeonUnlocked("new_era_zone_48") then GAME:UnlockDungeon("new_era_zone_48") end
  end
+ --Rattrapage des sauvegardes bloquees en fin de chapitre 6.
+ --La progression s'arretait la : aucun declencheur ne portait Chapter de 6 a 7,
+ --et cloven_ruins n'etait UnlockDungeon nulle part. Une partie ayant deja vu la
+ --scene de retour du chapitre 6 resterait donc coincee meme apres cette mise a
+ --jour, car DaysToReach n'avait jamais ete arme pour le palier suivant.
+ --On l'arme ici (le declencheur de guild_heros_room fera le reste a la
+ --prochaine nuit). Idempotent : ne s'applique qu'une fois, tant qu'on est au
+ --chapitre 6 avec la mission bouclee.
+ if SV.ChapterProgression.Chapter == 6 and SV.Chapter6 ~= nil
+    and SV.Chapter6.PostMissionScenePlayed == true
+    and (SV.ChapterProgression.DaysToReach == nil or SV.ChapterProgression.DaysToReach < 0) then
+	SV.ChapterProgression.DaysToReach = SV.ChapterProgression.DaysPassed
+ end
+
  --Rejouabilite des donjons d'histoire : un donjon dont la conclusion a ete vue
  --reste joignable depuis le comptoir de Metano, comme dans les PMD officiels.
  --Les 7 donjons ch5-ch10 n'etaient jamais passes a UnlockDungeon : ils

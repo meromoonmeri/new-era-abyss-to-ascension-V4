@@ -127,6 +127,70 @@ function guild_heros_room.CheckTriggerEvent()
 		GeneralFunctions.PromptChapterSaveAndQuit("guild_heros_room", "Main_Entrance_Marker", 2)
 	end
 
+	--Start Chapter 7 a few in game days after the Gloomy Forest rescue.
+	--
+	--CE DECLENCHEUR MANQUAIT : la progression s'arretait au chapitre 6. Tout le
+	--contenu du chapitre 7 existait deja et etait cable (carton-titre et reve
+	--dans guild_heros_room_ch_7, adresse du matin dans guild_third_floor_lobby_ch_7,
+	--dialogues de ville dans metano_town_ch_7, donjon + arene + cinematiques des
+	--Ruines Tordues), mais rien ne portait jamais Chapter de 6 a 7 : le joueur
+	--restait bloque indefiniment en fin de chapitre 6.
+	--
+	--Le donjon lui-meme n'etait UnlockDungeon nulle part non plus, il faut donc
+	--l'ouvrir ici, comme le font les paliers precedents pour leur donjon.
+	--
+	--Condition alignee sur les paliers ch5 et ch6 : la mission du chapitre est
+	--terminee (PostMissionScenePlayed, pose par la scene de retour en ville) et
+	--le delai de quelques jours de missions libres est ecoule.
+	if SV.ChapterProgression.Chapter == 6 and SV.Chapter6.PostMissionScenePlayed and SV.ChapterProgression.DaysPassed >= SV.ChapterProgression.DaysToReach then
+		SV.ChapterProgression.Chapter = 7
+		SV.TemporaryFlags.MorningAddress = false
+		SV.TemporaryFlags.MorningWakeup = false
+		SV.ChapterProgression.CurrentStoryDungeon = "cloven_ruins"
+		SV.Dojo.NewMazeUnlocked = true
+		GAME:UnlockDungeon("cloven_ruins")
+		--Secondaires ouverts avec le chapitre 7. (water_maze est deja ouvert au
+		--chapitre 2 par guild_guildmasters_room_ch_2 : ne pas le redeclarer.)
+		GAME:UnlockDungeon("jardin_energie")
+		GAME:UnlockDungeon("toundra_desolee")
+		GAME:WaitFrames(60)
+		GeneralFunctions.PromptChapterSaveAndQuit("guild_heros_room", "Main_Entrance_Marker", 2)
+	end
+
+	--Chapitres 8, 9 et 10 : memes paliers, meme patron.
+	--
+	--Ces trois chapitres ont leur donjon complet (zone, segments, relais, arene
+	--de boss, cinematiques) et leurs dialogues de ville (metano_town_ch_8/9/10),
+	--mais aucun d'eux n'etait atteignable : ni declencheur de chapitre, ni
+	--UnlockDungeon. Ils sont ouverts ici sur la conclusion du chapitre precedent.
+	--
+	--Contrairement aux chapitres 1-7, ils n'ont pas de carton-titre ni d'adresse
+	--du matin dedies (pas de guild_heros_room_ch_8 ni de
+	--guild_third_floor_lobby_ch_8) : le reveil generique s'applique, et la
+	--decouverte passe par les dialogues de ville et le donjon lui-meme.
+	local chapter_gates = {
+		--[chapitre courant] = { drapeau de cloture, chapitre suivant, donjon, secondaires }
+		[7]  = { function() return SV.Chapter7.HadFirstDream end,            8,  "crystal_sanctuary", {"bassin_tari"} },
+		[8]  = { function() return SV.Chapter8.CrystalSanctuaryComplete end, 9,  "forgotten_marsh",   {"marais_errants"} },
+		[9]  = { function() return SV.Chapter9.ForgottenMarshComplete end,   10, "celestial_peak",    {"falaises_envol", "sentier_enneige"} },
+	}
+	local gate = chapter_gates[SV.ChapterProgression.Chapter]
+	if gate ~= nil and gate[1]() and SV.ChapterProgression.DaysPassed >= SV.ChapterProgression.DaysToReach then
+		SV.ChapterProgression.Chapter = gate[2]
+		SV.TemporaryFlags.MorningAddress = false
+		SV.TemporaryFlags.MorningWakeup = false
+		SV.ChapterProgression.CurrentStoryDungeon = gate[3]
+		SV.Dojo.NewMazeUnlocked = true
+		GAME:UnlockDungeon(gate[3])
+		for ii = 1, #gate[4], 1 do
+			GAME:UnlockDungeon(gate[4][ii])
+		end
+		--Delai avant le palier suivant, comme aux chapitres precedents.
+		SV.ChapterProgression.DaysToReach = SV.ChapterProgression.DaysPassed + 2
+		GAME:WaitFrames(60)
+		GeneralFunctions.PromptChapterSaveAndQuit("guild_heros_room", "Main_Entrance_Marker", 2)
+	end
+
 end
 
 function guild_heros_room.PlotScripting()

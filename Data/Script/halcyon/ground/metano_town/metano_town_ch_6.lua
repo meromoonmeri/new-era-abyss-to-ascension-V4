@@ -428,6 +428,12 @@ function metano_town_ch_6.PostMissionCutscene()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_034']))
 
 	SV.Chapter6.PostMissionScenePlayed = true
+	--Delai avant l'ouverture du chapitre 7, sur le modele des paliers ch4->ch5
+	--(guild_heros_room_ch_4:216, +3 jours) et ch5->ch6 (guild_heros_room_ch_5:175,
+	--+2 jours) : quelques jours de missions libres avant que l'histoire reprenne.
+	--Sans cette ligne, DaysToReach garderait la valeur du palier precedent et le
+	--chapitre 7 s'ouvrirait des la nuit suivante.
+	SV.ChapterProgression.DaysToReach = SV.ChapterProgression.DaysPassed + 2
 	GAME:WaitFrames(20)
 	GAME:CutsceneMode(false)
 	RestorePartnerAI(partner)

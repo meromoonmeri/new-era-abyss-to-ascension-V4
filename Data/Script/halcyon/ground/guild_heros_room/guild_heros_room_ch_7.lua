@@ -150,6 +150,10 @@ function guild_heros_room_ch_7.DreamCutscene()
   GAME:FadeOut(false, 120)
 
   SV.Chapter7.HadFirstDream = true
+  --Delai avant l'ouverture du chapitre 8, comme aux paliers precedents.
+  --Sans cette ligne, DaysToReach garderait la valeur du palier ch6->ch7 (deja
+  --depassee) et le chapitre 8 s'ouvrirait des la nuit suivante.
+  SV.ChapterProgression.DaysToReach = SV.ChapterProgression.DaysPassed + 2
   SV.TemporaryFlags.MorningAddress = true
   SV.TemporaryFlags.MorningWakeup = true
   GeneralFunctions.EndOfDay()
