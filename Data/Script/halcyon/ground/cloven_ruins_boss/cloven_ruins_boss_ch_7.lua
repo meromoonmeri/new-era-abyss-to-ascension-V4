@@ -95,6 +95,153 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
 
   GAME:WaitFrames(30)
 
+  -- ================================================================
+  -- ENIGME DES ZARBI (motif Aegis Cave : les Unown ecrivent le mot-cle
+  -- au-dessus de la porte scellee, et la porte s'ouvre quand on le lit).
+  -- Carte 240x320 px ; la porte est au nord, le duo arrive par le sud.
+  -- ================================================================
+  UI:ResetSpeaker(false)
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_028']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(12)
+
+  -- Les cinq Zarbi sortent des murs, un par un, et s'alignent : R E G I S.
+  local zx = {88, 116, 144, 172, 200}
+  local zid = {'Zarbi_R', 'Zarbi_E', 'Zarbi_G', 'Zarbi_I', 'Zarbi_S'}
+  local zarbis = {}
+  for i = 1, 5 do
+    zarbis[i] = CharacterEssentials.MakeCharactersFromList({
+      {zid[i], zx[i], 152, Direction.Down}
+    })
+    GROUND:Hide(zid[i])
+  end
+  GAME:MoveCamera(144, 168, 40, false)
+  for i = 1, 5 do
+    SOUND:PlayBattleSE('EVT_Emote_Shock_2')
+    BossFX.Flash(zx[i], 152, 2, 3, 12)
+    GROUND:Unhide(zid[i])
+    GAME:WaitFrames(10)
+  end
+  GAME:WaitFrames(15)
+
+  if partner ~= nil then
+    UI:SetSpeaker(partner)
+    UI:SetSpeakerEmotion("Surprised")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_029']))
+  end
+  GAME:WaitFrames(12)
+  UI:ResetSpeaker(false)
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_030']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(12)
+
+  if partner ~= nil then
+    UI:SetSpeaker(partner)
+    UI:SetSpeakerEmotion("Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_031']))
+  end
+  GAME:WaitFrames(12)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CRB_032']), "Normal")
+  GAME:WaitFrames(12)
+  if partner ~= nil then
+    UI:SetSpeaker(partner)
+    UI:SetSpeakerEmotion("Determined")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_033']))
+  end
+  GAME:WaitFrames(15)
+
+  -- La porte cede : les cinq Zarbi s'embrasent puis se dispersent.
+  SOUND:PlayBattleSE('EVT_Battle_Flash')
+  for i = 1, 5 do BossFX.Flash(zx[i], 152, 2, 4, 14) end
+  BossFX.ShakeScreen(5, 24)
+  GAME:WaitFrames(16)
+  for i = 1, 5 do GROUND:Hide(zid[i]) end
+  UI:ResetSpeaker(false)
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_034']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(20)
+
+  -- ================================================================
+  -- LES TROIS GARDIENS SCELLES — eveil un par un (motif Aegis Cave :
+  -- Regirock, Regice puis Registeel, chacun avec sa signature).
+  -- ================================================================
+  UI:ResetSpeaker(false)
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_035']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(12)
+
+  local regirock = CharacterEssentials.MakeCharactersFromList({
+    {'Regirock', 96, 120, Direction.Down}
+  })
+  local regice = CharacterEssentials.MakeCharactersFromList({
+    {'Regice', 144, 112, Direction.Down}
+  })
+  local registeel = CharacterEssentials.MakeCharactersFromList({
+    {'Registeel', 192, 120, Direction.Down}
+  })
+  GROUND:Hide('Regirock')
+  GROUND:Hide('Regice')
+  GROUND:Hide('Registeel')
+  GAME:MoveCamera(144, 148, 40, false)
+
+  -- Regirock : la pierre s'ebroue.
+  BossFX.Flash(96, 120, 3, 5, 18)
+  GAME:WaitFrames(8)
+  GROUND:Unhide('Regirock')
+  BossFX.Particle("Rock_Pieces", 96, 128, 3)
+  BossFX.Impact(8)
+  GROUND:CharSetAnim(regirock, "Idle", true)
+  UI:ResetSpeaker(false)
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_036']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(12)
+
+  -- Regice : le froid tombe d'un coup.
+  BossFX.Flash(144, 112, 3, 5, 18)
+  GAME:WaitFrames(8)
+  GROUND:Unhide('Regice')
+  BossFX.Impact(8)
+  GROUND:CharSetAnim(regice, "Idle", true)
+  UI:ResetSpeaker(false)
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_037']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(12)
+
+  -- Registeel : il ne s'eveille pas, il etait deja la.
+  BossFX.Flash(192, 120, 3, 5, 18)
+  GAME:WaitFrames(8)
+  GROUND:Unhide('Registeel')
+  BossFX.Impact(10)
+  GROUND:CharSetAnim(registeel, "Idle", true)
+  UI:ResetSpeaker(false)
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_038']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(15)
+
+  BossFX.Rumble({hero, partner}, 2)
+  if partner ~= nil then
+    UI:SetSpeaker(partner)
+    UI:SetSpeakerEmotion("Surprised")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_039']))
+  end
+  GAME:WaitFrames(12)
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_040']))
+  GAME:WaitFrames(12)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CRB_041']), "Worried")
+  GAME:WaitFrames(20)
+
+  -- La camera recule : les trois gardiens ET ce qui dort derriere eux.
+  GAME:MoveCamera(144, 176, 50, false)
+  GAME:WaitFrames(15)
+
   -- === FLASH + EMERGENCE DE REGIGIGAS ===
   local center = GAME:GetCameraCenter()
   BossFX.Flash(center.X, center.Y, 3, 6, 18)
@@ -292,6 +439,21 @@ function cloven_ruins_boss_ch_7.DiedToBoss()
   })
   GROUND:CharSetAnim(regigigas, "Idle", true)
 
+  -- Les trois gardiens sont la aussi : la defaite se joue devant la veille
+  -- au complet, pas devant le seul Titan.
+  local regirock = CharacterEssentials.MakeCharactersFromList({
+    {'Regirock', 96, 120, Direction.Down}
+  })
+  local regice = CharacterEssentials.MakeCharactersFromList({
+    {'Regice', 144, 112, Direction.Down}
+  })
+  local registeel = CharacterEssentials.MakeCharactersFromList({
+    {'Registeel', 192, 120, Direction.Down}
+  })
+  GROUND:CharSetAnim(regirock, "Idle", true)
+  GROUND:CharSetAnim(regice, "Idle", true)
+  GROUND:CharSetAnim(registeel, "Idle", true)
+
   -- L'équipe est au sol, vaincue, au pied du Titan.
   GROUND:TeleportTo(hero, 160, 230, Direction.Up)
   GROUND:TeleportTo(partner, 128, 230, Direction.Up)
@@ -350,6 +512,21 @@ function cloven_ruins_boss_ch_7.DiedToBoss()
   SV.TemporaryFlags.Bedtime = true
   SV.TemporaryFlags.MorningWakeup = true
   SV.TemporaryFlags.MorningAddress = true
+
+  -- Les trois regagnent leurs niches : la veille reprend, la porte se referme.
+  UI:ResetSpeaker(false)
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_042']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(12)
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_043']))
+  GAME:WaitFrames(12)
+  UI:ResetSpeaker(false)
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_044']))
+  UI:SetCenter(false)
+  GAME:WaitFrames(15)
 
   GROUND:CharEndAnim(hero)
   GROUND:CharEndAnim(partner)

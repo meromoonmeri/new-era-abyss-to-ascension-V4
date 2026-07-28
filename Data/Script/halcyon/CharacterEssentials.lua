@@ -945,6 +945,72 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
+		--Chapitre 7 : les trois gardiens scelles des Ruines Fendues
+		Regirock = {
+			species = "regirock",
+			nickname = 'Regirock',
+			instance = 'Regirock',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Regice = {
+			species = "regice",
+			nickname = 'Regice',
+			instance = 'Regice',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Registeel = {
+			species = "registeel",
+			nickname = 'Registeel',
+			instance = 'Registeel',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		--Zarbi de l'enigme des Ruines Fendues (formes R E G I S)
+		Zarbi_R = {
+			species = "unown",
+			nickname = 'Zarbi',
+			instance = 'Zarbi_R',
+			gender = Gender.Genderless,
+			form = 17,
+			skin = "normal"
+		},
+		Zarbi_E = {
+			species = "unown",
+			nickname = 'Zarbi',
+			instance = 'Zarbi_E',
+			gender = Gender.Genderless,
+			form = 4,
+			skin = "normal"
+		},
+		Zarbi_G = {
+			species = "unown",
+			nickname = 'Zarbi',
+			instance = 'Zarbi_G',
+			gender = Gender.Genderless,
+			form = 6,
+			skin = "normal"
+		},
+		Zarbi_I = {
+			species = "unown",
+			nickname = 'Zarbi',
+			instance = 'Zarbi_I',
+			gender = Gender.Genderless,
+			form = 8,
+			skin = "normal"
+		},
+		Zarbi_S = {
+			species = "unown",
+			nickname = 'Zarbi',
+			instance = 'Zarbi_S',
+			gender = Gender.Genderless,
+			form = 18,
+			skin = "normal"
+		},
 		--Chapitre 7 : Ruines Tordues — boss Regigigas
 		Regigigas = {
 			species = "regigigas",
