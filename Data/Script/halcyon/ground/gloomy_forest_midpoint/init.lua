@@ -6,6 +6,8 @@
 ]]--
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
+require 'halcyon.GeneralFunctions'
+require 'halcyon.CharacterEssentials'
 require 'halcyon.ground.gloomy_forest_midpoint.gloomy_forest_midpoint_ch_6'
 
 local gloomy_forest_midpoint = {}
@@ -41,6 +43,11 @@ function gloomy_forest_midpoint.GameLoad(map)
 end
 
 function gloomy_forest_midpoint.PlotScripting()
+  --L'Epreuve des Trois : la Team Dazzling campe au relais tant que le
+  --duel n'a pas eu lieu. Pose AVANT les cinematiques pour que les trois
+  --soient deja sur la carte quand le joueur reprend la main.
+  gloomy_forest_midpoint_ch_6.SetupDazzlingTrial()
+
   if SV.ChapterProgression.Chapter == 6 then
     if not SV.Chapter6.GloomyPlayedMidpointIntro then
       gloomy_forest_midpoint_ch_6.FirstArrival()
@@ -90,6 +97,22 @@ end
 function gloomy_forest_midpoint.Teammate1_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   gloomy_forest_midpoint_ch_6.Partner_Action(chara, activator)
+end
+
+-- L'Epreuve des Trois. Adagio lance le duel, les deux autres commentent.
+function gloomy_forest_midpoint.Adagio_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  gloomy_forest_midpoint_ch_6.Adagio_Action(chara, activator)
+end
+
+function gloomy_forest_midpoint.Aria_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  gloomy_forest_midpoint_ch_6.Aria_Action(chara, activator)
+end
+
+function gloomy_forest_midpoint.Sonata_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  gloomy_forest_midpoint_ch_6.Sonata_Action(chara, activator)
 end
 
 return gloomy_forest_midpoint

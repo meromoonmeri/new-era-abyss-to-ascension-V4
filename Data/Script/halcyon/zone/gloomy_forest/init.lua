@@ -2,6 +2,7 @@ require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.LegendZones'
 require 'halcyon.ReplayEnding'
+require 'halcyon.DazzlingArc'
 
 local gloomy_forest = {}
 
@@ -121,6 +122,14 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 			SV.Chapter6.MissionComplete = true
 			SV.Chapter6.DefeatedByZarude = false
 			SV.Chapter6.MissionAccepted = false
+			--Scene d'apres-boss : la consequence se joue AVANT le retour en
+			--ville, exactement comme aux chapitres 8, 9 et 10
+			--(ChapterAftermath). Sans elle, le seul boss « personnage » du
+			--chapitre s'eteignait sur un fondu au noir.
+			DazzlingArc.GloomyVictory()
+			--Le duel des Trois est desormais propose au relais : elles ont
+			--suivi l'equipe et attendent au coeur de la clairiere.
+			SV.Chapter6.DazzlingTrialOffered = true
 			-- Beat the boss: return to town (UNCHANGED).
 			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
 		else
@@ -148,6 +157,28 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 	-- Ici le Zarude n'est PAS Unrecruitable : le vaincre peut donc le
 	-- faire rejoindre l'equipe selon les regles de recrutement normales.
 	------------------------------------------------------------------
+	------------------------------------------------------------------
+	-- Segment 5 : le duel de la Team Dazzling (« L'Epreuve des Trois »).
+	-- Combat SANS ENJEU : ni Coeur, ni fragment, ni progression de
+	-- chapitre. Victoire comme defaite, on ressort au relais (carte 61)
+	-- et la journee n'avance pas — c'est un match, pas une expedition.
+	-- Les trois rivales sont Unrecruitable : ce sont des personnages
+	-- d'histoire, elles ne rejoignent pas l'equipe.
+	------------------------------------------------------------------
+	if segmentID == 5 then
+		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+			SV.Chapter6.DazzlingTrialCleared = true
+			DazzlingArc.TrialVictory()
+		else
+			DazzlingArc.TrialDefeat()
+		end
+		--Le duel ne se represente pas : gagne ou perdu, il a eu lieu.
+		SV.Chapter6.DazzlingTrialOffered = false
+		GAME:WaitFrames(20)
+		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 61, 0, false, false)
+		return
+	end
+
 	if segmentID == 3 then
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 			LegendZones.SetDefeated('verdant_oath')

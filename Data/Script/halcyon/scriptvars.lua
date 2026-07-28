@@ -874,7 +874,24 @@ SV.Chapter6 =
 	DefeatedByZarude = false,
 	DazzlingTownVisit = 0,
 	ShowedTitleCard = false,--Has the Chapter 6 title card been shown?
-	PostDefeatScenePlayed = false
+	PostDefeatScenePlayed = false,
+	--Relais de mi-donjon. Ces deux champs etaient lus par
+	--ground/gloomy_forest_midpoint et ecrits par zone/gloomy_forest, mais
+	--n'etaient declares NULLE PART : seul le rattrapage OnUpgrade de
+	--debug_tools les creait. Une partie NEUVE arrivait donc au relais avec
+	--GloomyPlayedMidpointIntro == nil.
+	GloomyPlayedMidpointIntro = false,
+	GloomyMidpointState = 'FirstArrival',
+	--Apres-boss de Zarude (DazzlingArc.GloomyVictory). Le chapitre 6 etait
+	--le seul chapitre a boss sans scene de consequence.
+	PlayedVictoryScene = false,
+	--Duel amical contre la Team Dazzling (segment 5 de gloomy_forest).
+	--Jusqu'ici elles narguaient le joueur sans l'avoir jamais affronte.
+	DazzlingTrialOffered = false,
+	DazzlingTrialStarted = false,
+	DazzlingTrialCleared = false,
+	PlayedTrialVictory = false,
+	PlayedTrialDefeat = false
 }
 
 
@@ -1141,4 +1158,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-07-31-T]')
+print('Script variables default values loaded! [build 2026-07-31-U]')

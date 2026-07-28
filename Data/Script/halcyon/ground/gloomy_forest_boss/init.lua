@@ -3,6 +3,7 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.ReplayEnding'
+require 'halcyon.DazzlingArc'
 require 'halcyon.ground.gloomy_forest_boss.gloomy_forest_boss_ch_6'
 
 local gloomy_forest_boss = {}
@@ -28,6 +29,17 @@ function gloomy_forest_boss.GameSave(map)
 end
 
 function gloomy_forest_boss.PlotScripting()
+	-- L'Epreuve des Trois : on arrive ici depuis le relais, apres avoir
+	-- accepte le defi d'Adagio. Ce test passe AVANT la rejouabilite et
+	-- avant Zarude — la clairiere sert alors de terrain de duel, pas
+	-- d'arene de boss.
+	if SV.Chapter6.DazzlingTrialOffered and not SV.Chapter6.DazzlingTrialCleared
+	   and SV.Chapter6.DefeatedGloomyBoss then
+		DazzlingArc.TrialIntro()
+		GAME:ContinueDungeon("gloomy_forest", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+		return
+	end
+
 	-- Rejouabilite : Zarude a ete vaincu, la clairiere est vide. La revanche
 	-- volontaire passe par le segment 3 (zone-amie « Serment Verdoyant » achetee
 	-- chez Grodoudou), pas par ce ground.
