@@ -48,11 +48,10 @@ function porte_plaines_foudre.Enter(map)
   UI:SetCenter(false)
   GAME:WaitFrames(30)
 
-  -- 2. L'irruption (motif propre à ce gardien — fiche anti-répétition).
-  BossFX.Flash(224, 176, 4, 6, 10)
-  GROUND:Unhide('Electhor')
-  BossFX.Impact(3, true)
-  GAME:WaitFrames(20)
+  -- 2. L'irruption — ELECTRIQUE : l'oiseau de foudre se forme dans l'orage.
+  --    Avant ce lot : un BossFX.Flash generique, identique a 10 autres
+  --    arenes. Toutes les particules employees sont attestees.
+  BossFX.StrikeThunder(electhor, 224, 176)
 
   -- 3. Le recul du groupe.
   BossFX.PushBack({hero, partner}, Direction.Down)

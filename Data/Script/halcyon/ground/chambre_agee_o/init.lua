@@ -48,12 +48,10 @@ function chambre_agee_o.Enter(map)
   UI:SetCenter(false)
   GAME:WaitFrames(30)
 
-  -- 2. L'irruption (motif propre à ce gardien — fiche anti-répétition).
-  BossFX.Flash(232, 200, 4, 4, 8)
-  BossFX.Flash(232 - 60, 200 + 20, 4, 4, 8)
-  BossFX.Flash(232 + 50, 200 - 10, 4, 4, 8)
-  GROUND:Unhide('Palkia')
-  GAME:WaitFrames(20)
+  -- 2. L'irruption — ESPACE : l'espace se plie. Il n'arrive jamais — il est simplement la.
+  --    Avant ce lot : un BossFX.Flash generique, identique a 10 autres
+  --    arenes. Toutes les particules employees sont attestees.
+  BossFX.WarpSpace(palkia, 232, 200)
 
   -- 3. Le recul du groupe.
   BossFX.PushBack({hero, partner}, Direction.Down)

@@ -48,13 +48,10 @@ function ile_close.Enter(map)
   UI:SetCenter(false)
   GAME:WaitFrames(30)
 
-  -- 2. L'irruption (motif propre à ce gardien — fiche anti-répétition).
-  SOUND:StopBGM()
-  GAME:WaitFrames(30)
-  BossFX.Flash(232, 200, 2, 4, 40)
-  GROUND:Unhide('Necrozma')
-  BossFX.Impact(4, true)
-  GAME:WaitFrames(20)
+  -- 2. L'irruption — LUMIERE VOLEE : meme montee, mais le flash est long et froid.
+  --    Avant ce lot : un BossFX.Flash generique, identique a 10 autres
+  --    arenes. Toutes les particules employees sont attestees.
+  BossFX.RadiantDawn(necrozma, 232, 200)
 
   -- 3. Le recul du groupe.
   BossFX.PushBack({hero, partner}, Direction.Down)

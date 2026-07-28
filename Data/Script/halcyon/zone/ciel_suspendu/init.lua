@@ -3,6 +3,7 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.LegendZones'
+require 'halcyon.LegendArc'
 
 local ciel_suspendu = {}
 
@@ -41,6 +42,9 @@ function ciel_suspendu.ExitSegment(zone, result, rescue, segmentID, mapID)
     -- Arene de l'Ancrage : victoire = gardien stabilise (revanche/recrutement via Grodoudou).
     if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
       LegendZones.SetDefeated('cells_gathering')
+      --Adieu du gardien : le combat ne le tue pas, il le STABILISE.
+      --Sans cette scene la victoire etait un simple fondu (audit boss : 17/100).
+      LegendArc.Victory('cells_gathering')
       if SV.Anchors == nil then SV.Anchors = { Stabilized = {} } end
       if SV.Anchors.Stabilized == nil then SV.Anchors.Stabilized = {} end
       SV.Anchors.Stabilized['cells_gathering'] = true

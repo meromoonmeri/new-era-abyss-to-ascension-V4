@@ -282,6 +282,135 @@ function BossFX.AwakenCrystal(chara, x, y)
     GAME:WaitFrames(16)
 end
 
+--------------------------------------------------------------------
+-- SIGNATURES AJOUTEES POUR LES ARENES DE LEGENDAIRES
+--------------------------------------------------------------------
+-- Constat de tools/audit_boss_cinematics.py : 11 des 42 arenes n'avaient
+-- qu'un BossFX.Flash generique — le meme eclair blanc pour Arceus, pour
+-- Genesect et pour Electhor. Un legendaire ne doit pas apparaitre comme
+-- n'importe quel autre.
+--
+-- REGLE DE PRUDENCE APPLIQUEE ICI : on ne cite QUE des animations deja
+-- utilisees par le contenu Halcyon d'origine (donc verifiees en jeu par
+-- ses auteurs) ou par BossFX lui-meme. Un nom d'animation inexistant
+-- echoue EN SILENCE cote moteur : l'effet ne se joue pas, et rien dans le
+-- log ne le signale. Aucune invention de nom dans ce lot.
+--
+-- Particules reutilisees : Power_Gem_Charge, Flash_Cannon_Sparkle,
+-- Power_Gem_Hit, Rock_Pieces, Rock_Piece_Rotating, Gust_Wind, Feather,
+-- Dark_Pulse_Particle, Shadow_Ball, Ember, Mud, Dig, Wave_Circle_Blue,
+-- Moonlight_Sparkles_2, Swift_Star, Meteor_Mash_Star, Steel_Wing.
+-- Fonds reutilises : White, Fog, Ominous_Wind, Cloudy_Sky, Sandstorm.
+
+--ELECTRIQUE : la charge monte, l'air claque, la foudre tombe sur le point
+--d'apparition. Pas de surgissement physique : le boss EST la decharge.
+function BossFX.StrikeThunder(chara, x, y)
+    BossFX.Overlay("Cloudy_Sky", 0, 0, 20, 70, 25, DrawLayer.Bottom, -1, 0)
+    SOUND:PlayBattleSE("DUN_Thunder_Wave")
+    --montee de charge : trois eclats de plus en plus rapproches
+    for i = 1, 3 do
+        BossFX.Particle("Flash_Cannon_Sparkle", x, y - 24 + i * 6, 3)
+        BossFX.ShakeScreen(3 + i, 8)
+        GAME:WaitFrames(14 - i * 3)
+    end
+    --l'impact
+    SOUND:PlayBattleSE("EVT_Battle_Flash")
+    BossFX.Flash(x, y, 2, 6, 22)
+    BossFX.Particle("Swift_Star", x - 20, y - 8, 2)
+    BossFX.Particle("Swift_Star", x + 20, y - 8, 2)
+    if chara ~= nil then
+        GROUND:Unhide(chara.EntName)
+        GROUND:CharSetEmote(chara, "glowing", 1)
+    end
+    BossFX.ShakeScreen(9, 26)
+    GAME:WaitFrames(18)
+end
+
+--MACHINE / ACIER : demarrage mecanique. Le boss ne surgit pas, il
+--S'ALLUME : cliquetis, plaques qui pivotent, puis mise sous tension.
+function BossFX.BootMachine(chara, x, y)
+    SOUND:PlayBattleSE("DUN_Rollout")
+    BossFX.Particle("Rock_Piece_Rotating", x, y + 8, 4)
+    GAME:WaitFrames(18)
+    SOUND:PlayBattleSE("DUN_Power_Gem")
+    BossFX.Particle("Steel_Wing", x - 18, y, 3)
+    BossFX.Particle("Steel_Wing", x + 18, y, 3)
+    GAME:WaitFrames(14)
+    --mise sous tension
+    BossFX.Particle("Power_Gem_Charge", x, y, 3)
+    if chara ~= nil then
+        GROUND:Unhide(chara.EntName)
+        GROUND:CharSetEmote(chara, "glowing", 1)
+    end
+    BossFX.Particle("Flash_Cannon_Sparkle", x, y - 12, 3)
+    BossFX.ShakeScreen(5, 18)
+    GAME:WaitFrames(16)
+end
+
+--PSY / ESPACE : l'espace se plie. Aucun bruit d'impact : une distorsion
+--silencieuse, puis le boss est simplement LA — il n'est jamais arrive.
+function BossFX.WarpSpace(chara, x, y)
+    SOUND:PlayBattleSE("DUN_Psybeam")
+    --le decor tangue : amplitude faible, duree longue (ce n'est pas un choc)
+    GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 4, 40))
+    BossFX.Particle("Moonlight_Sparkles_2", x, y, 4)
+    GAME:WaitFrames(24)
+    BossFX.Particle("Meteor_Mash_Star", x - 22, y - 10, 3)
+    BossFX.Particle("Meteor_Mash_Star", x + 22, y - 10, 3)
+    GAME:WaitFrames(16)
+    --pas de flash : l'apparition est douce, c'est ce qui la rend inquietante
+    if chara ~= nil then
+        GROUND:Unhide(chara.EntName)
+        GROUND:CharSetEmote(chara, "glowing", 1)
+    end
+    BossFX.Particle("Moonlight_Sparkles_2", x, y - 8, 3)
+    GAME:WaitFrames(20)
+end
+
+--LUMIERE / DIVIN : montee lente et solennelle. Le seul effet ou l'ecran
+--ne tremble PAS : rien ne s'impose, tout se revele.
+function BossFX.RadiantDawn(chara, x, y)
+    BossFX.Overlay("White", 0, 0, 40, 60, 40, DrawLayer.Bottom)
+    SOUND:PlayBattleSE("DUN_Power_Gem")
+    GAME:WaitFrames(30)
+    BossFX.Particle("Moonlight_Sparkles_2", x, y, 5)
+    BossFX.Particle("Flash_Cannon_Sparkle", x - 24, y - 12, 4)
+    BossFX.Particle("Flash_Cannon_Sparkle", x + 24, y - 12, 4)
+    GAME:WaitFrames(26)
+    if chara ~= nil then
+        GROUND:Unhide(chara.EntName)
+        GROUND:CharSetEmote(chara, "glowing", 1)
+    end
+    --un flash long et doux, pas un coup de foudre
+    BossFX.Flash(x, y, 20, 26, 40)
+    GAME:WaitFrames(24)
+end
+
+--METEORE : chute depuis le ciel avec impact au sol. Variante de
+--DescendSky pour les corps qui TOMBENT au lieu de se poser : la
+--trajectoire est rapide et l'arrivee brutale.
+function BossFX.CrashMeteor(chara, x, y, height)
+    height = height or 200
+    if chara == nil then return end
+    BossFX.Overlay("Cloudy_Sky", 0, 0, 15, 60, 20, DrawLayer.Bottom, -2, 0)
+    GROUND:Unhide(chara.EntName)
+    GROUND:TeleportTo(chara, x, y - height, Direction.Down)
+    BossFX.Particle("Meteor_Mash_Star", x, y - height + 16, 2)
+    SOUND:PlayBattleSE("DUN_Wind")
+    --chute rapide (vitesse 10 contre 6 pour une descente maitrisee)
+    GROUND:MoveToPosition(chara, x, y, false, 10)
+    --impact
+    SOUND:PlayBattleSE("DUN_Rock_Slide")
+    BossFX.Particle("Rock_Slide_Front", x, y + 8, 2)
+    BossFX.Particle("Rock_Pieces", x - 22, y + 10, 3)
+    BossFX.Particle("Rock_Pieces", x + 22, y + 10, 3)
+    BossFX.Particle("Mud", x, y + 12, 3)
+    BossFX.Flash(x, y, 2, 5, 20)
+    BossFX.ShakeScreen(11, 30)
+    BossFX.Impact(13)
+    GAME:WaitFrames(18)
+end
+
 --Recul du groupe : onde de choc qui repousse les personnages (A.3 etape 3).
 --Chaque membre est anime en "Hurt" dans la direction opposee au point d'emergence.
 function BossFX.PushBack(chars, awayFromDir)

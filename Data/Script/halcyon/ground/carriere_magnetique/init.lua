@@ -48,12 +48,10 @@ function carriere_magnetique.Enter(map)
   UI:SetCenter(false)
   GAME:WaitFrames(30)
 
-  -- 2. L'irruption (motif propre à ce gardien — fiche anti-répétition).
-  BossFX.Impact(2, false)
-  GAME:WaitFrames(20)
-  BossFX.Flash(232, 184, 4, 6, 10)
-  GROUND:Unhide('Magearna')
-  GAME:WaitFrames(20)
+  -- 2. L'irruption — MACHINE : elle ne surgit pas, elle S'ALLUME. Cliquetis puis tension.
+  --    Avant ce lot : un BossFX.Flash generique, identique a 10 autres
+  --    arenes. Toutes les particules employees sont attestees.
+  BossFX.BootMachine(magearna, 232, 184)
 
   -- 3. Le recul du groupe.
   BossFX.PushBack({hero, partner}, Direction.Down)

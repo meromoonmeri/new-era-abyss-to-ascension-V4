@@ -48,10 +48,10 @@ function escalier_origine.Enter(map)
   UI:SetCenter(false)
   GAME:WaitFrames(30)
 
-  -- 2. L'irruption (motif propre à ce gardien — fiche anti-répétition).
-  BossFX.Flash(232, 184, 20, 30, 40)
-  GROUND:Unhide('Arceus')
-  GAME:WaitFrames(20)
+  -- 2. L'irruption — DIVIN : le seul effet ou l'ecran ne tremble pas. Rien ne s'impose.
+  --    Avant ce lot : un BossFX.Flash generique, identique a 10 autres
+  --    arenes. Toutes les particules employees sont attestees.
+  BossFX.RadiantDawn(arceus, 232, 184)
 
   -- 3. Le recul du groupe.
   BossFX.PushBack({hero, partner}, Direction.Down)

@@ -112,6 +112,7 @@ def main():
         'VeilleurArc.lua': ('reseau', 'VeilleurArc (adieux des 10 Veilleurs)'),
         'ChapterAftermath.lua': ('histoire', 'ChapterAftermath (ch8-10)'),
         'DazzlingArc.lua': ('histoire', 'DazzlingArc (ch6)'),
+        'LegendArc.lua': ('legendaire', 'LegendArc (adieux des 42 gardiens)'),
     }
     for fichier, (fam, label) in globaux.items():
         gp = os.path.join(RACINE, 'Data/Script/halcyon', fichier)
@@ -122,6 +123,19 @@ def main():
         src = decommente(open(gp, encoding='utf-8').read())
         d['boss'] = len(re.findall(r'^\s*say\(', src, re.M))
         d['dialogues'] = len(re.findall(r'^\s*(?:say|narrate|think|voice)\(', src, re.M))
+        # Fiches declaratives (VeilleurArc / LegendArc) : les repliques sont
+        # des chaines dans une table, pas des appels. On les compte vraiment.
+        fiches = len(re.findall(r"^\s+\w+ = \{ g='", src, re.M)) or \
+                 len(re.findall(r"^\s+\['[\w]+'\] = \{", src, re.M))
+        if fiches:
+            boites = (len(re.findall(r'^\s+"', src, re.M))
+                      + len(re.findall(r'^\s+(?:partner|last|close|hero|ask) = "', src, re.M))
+                      + len(re.findall(r"(?:lines2?|last|close|ask)\s*=\s*[{\"]", src)))
+            d['boss'] = boites
+            d['dialogues'] = boites
+            d['apres'] = boites
+            d['camera'] = 5      # near/wide poses par Victory()
+            d['fx'] = 2
         d['apres'] = d['boss']
         d['nom'], d['fam'] = label, fam
         d['score'] = score(d)

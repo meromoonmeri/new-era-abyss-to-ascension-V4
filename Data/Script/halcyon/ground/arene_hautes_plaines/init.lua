@@ -48,11 +48,10 @@ function arene_hautes_plaines.Enter(map)
   UI:SetCenter(false)
   GAME:WaitFrames(30)
 
-  -- 2. L'irruption (motif propre à ce gardien — fiche anti-répétition).
-  BossFX.Flash(272, 224, 4, 6, 10)
-  GROUND:Unhide('Raikou')
-  BossFX.Impact(3, true)
-  GAME:WaitFrames(20)
+  -- 2. L'irruption — ELECTRIQUE : la foudre tombe. Raikou EST la decharge, il n'arrive pas.
+  --    Avant ce lot : un BossFX.Flash generique, identique a 10 autres
+  --    arenes. Toutes les particules employees sont attestees.
+  BossFX.StrikeThunder(raikou, 272, 224)
 
   -- 3. Le recul du groupe.
   BossFX.PushBack({hero, partner}, Direction.Down)
