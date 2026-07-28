@@ -137,7 +137,13 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
           -- Fin de l'histoire actuelle : debloque le contenu end-game (Mega-Pierres, etc.).
           -- Quand les chapitres 11+ existeront, deplacer cette ligne vers la vraie fin.
           SV.ChapterProgression.StoryCompleted = true
-          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 75, 0, true, true)
+          --Fin de chapitre : on rentre dormir a la guilde pour la veillee finale
+          --(guild_heros_room_ch_10). Carte 2 = guild_heros_room, la chambre.
+          SV.TemporaryFlags.Dinnertime = true
+          SV.TemporaryFlags.Bedtime = true
+          SV.TemporaryFlags.MorningWakeup = true
+          SV.TemporaryFlags.MorningAddress = true
+          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 2, 0, true, true)
       else
           SV.Chapter10.DiedToLugia = true
           SV.Chapter10.PeakMidState = 'DeathArrival'

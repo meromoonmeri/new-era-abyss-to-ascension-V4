@@ -973,6 +973,7 @@ SV.Chapter8 =
 	DiedToDiancie = false,
 	ObtainedCrystalFragment = false,
 	SanctuaryMidpointState = 'FirstArrival',
+	FinishedBedtimeCutscene = false,--veillee de fin de chapitre (guild_heros_room_ch_8)
 	PlayedSanctuaryRelayIntro = false--cinematique d'arrivee au relais (marche + dialogue)
 }
 
@@ -993,6 +994,7 @@ SV.Chapter9 =
 	PurifiedMarshCore = false,
 	FloatzelDisputeResolved = false,
 	MarshMidpointState = 'FirstArrival',
+	FinishedBedtimeCutscene = false,--veillee de fin de chapitre (guild_heros_room_ch_9)
 	PlayedMarshRelayIntro = false--cinematique d'arrivee au relais (marche + dialogue)
 }
 
@@ -1034,6 +1036,7 @@ SV.Chapter10 =
 	DiedToLugia = false,
 	SawNecrozmaVision = false,
 	PeakMidpointState = 'FirstArrival',
+	FinishedBedtimeCutscene = false,--veillee de fin de chapitre (guild_heros_room_ch_10)
 	PlayedPeakRelayIntro = false,--cinematique d'arrivee au relais (marche + dialogue)
 	--Rejouabilite : jalon interne a un parcours rejoue. OutranEscouadeFulgur
 	--reste vrai pour toujours et ne peut donc plus servir a savoir ou on en est
@@ -1122,4 +1125,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-07-31-K]')
+print('Script variables default values loaded! [build 2026-07-31-L]')

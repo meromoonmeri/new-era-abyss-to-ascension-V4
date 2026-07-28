@@ -92,7 +92,14 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter8.DefeatedDiancie = true
           SV.Chapter8.ObtainedCrystalFragment = true
           SV.Chapter8.CrystalSanctuaryComplete = true
-          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
+          --Fin de chapitre : on rentre dormir a la guilde pour la veillee
+          --(guild_heros_room_ch_8). Sans ces drapeaux la scene de chambre ne se
+          --declenchait JAMAIS, et sans la carte 2 on ressortait au relais du donjon.
+          SV.TemporaryFlags.Dinnertime = true
+          SV.TemporaryFlags.Bedtime = true
+          SV.TemporaryFlags.MorningWakeup = true
+          SV.TemporaryFlags.MorningAddress = true
+          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 2, 0, true, true)
       else
           SV.Chapter8.DiedToDiancie = true
           SV.Chapter8.SanctuaryMidState = 'DeathArrival'

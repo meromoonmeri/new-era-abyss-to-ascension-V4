@@ -94,7 +94,14 @@ function forgotten_marsh.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter9.DefeatedMegaBlastoise = true
           SV.Chapter9.PurifiedMarshCore = true
           SV.Chapter9.ForgottenMarshComplete = true
-          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 73, 0, true, true)
+          --Fin de chapitre : on rentre dormir a la guilde pour la veillee
+          --(guild_heros_room_ch_9). Sans ces drapeaux la scene de chambre ne se
+          --declenchait JAMAIS, et sans la carte 2 on ressortait au relais du donjon.
+          SV.TemporaryFlags.Dinnertime = true
+          SV.TemporaryFlags.Bedtime = true
+          SV.TemporaryFlags.MorningWakeup = true
+          SV.TemporaryFlags.MorningAddress = true
+          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 2, 0, true, true)
       else
           SV.Chapter9.DiedToMegaBlastoise = true
           SV.Chapter9.MarshMidState = 'DeathArrival'
