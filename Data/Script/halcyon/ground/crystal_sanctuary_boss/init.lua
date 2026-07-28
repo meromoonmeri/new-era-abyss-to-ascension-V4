@@ -9,6 +9,7 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
+require 'halcyon.ChapterAftermath'
 require 'halcyon.ReplayEnding'
 local crystal_sanctuary_boss = {}
 function crystal_sanctuary_boss.Init(map) DEBUG.EnableDbgCoro() end

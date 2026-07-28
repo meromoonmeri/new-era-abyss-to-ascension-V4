@@ -5,6 +5,7 @@
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.ChapterAftermath'
 require 'halcyon.ReplayEnding'
 
 local crystal_sanctuary = {}
@@ -92,6 +93,10 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter8.DefeatedDiancie = true
           SV.Chapter8.ObtainedCrystalFragment = true
           SV.Chapter8.CrystalSanctuaryComplete = true
+          --Scene d'apres-boss : la consequence se joue AVANT le retour a la
+          --guilde. Sans elle, le combat le plus important du chapitre se
+          --terminait par un simple fondu vers la fin de journee.
+          ChapterAftermath.CrystalVictory()
           --Fin de chapitre : on rentre dormir a la guilde pour la veillee
           --(guild_heros_room_ch_8). Sans ces drapeaux la scene de chambre ne se
           --declenchait JAMAIS, et sans la carte 2 on ressortait au relais du donjon.

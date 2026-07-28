@@ -975,7 +975,8 @@ SV.Chapter8 =
 	SanctuaryMidpointState = 'FirstArrival',
 	FinishedBedtimeCutscene = false,--veillee de fin de chapitre (guild_heros_room_ch_8)
 	PlayedSanctuaryRelayIntro = false,
-	PlayedArrivalScene = false--scene d'arrivee devant le donjon (ChapterScenes, ch8)
+	PlayedArrivalScene = false,--scene d'arrivee devant le donjon (ChapterScenes, ch8)
+	PlayedVictoryScene = false--scene d'apres-boss (ChapterAftermath, ch8)
 }
 
 SV.Chapter9 = 
@@ -997,7 +998,8 @@ SV.Chapter9 =
 	MarshMidpointState = 'FirstArrival',
 	FinishedBedtimeCutscene = false,--veillee de fin de chapitre (guild_heros_room_ch_9)
 	PlayedMarshRelayIntro = false,
-	PlayedArrivalScene = false--scene d'arrivee devant le donjon (ChapterScenes, ch9)
+	PlayedArrivalScene = false,--scene d'arrivee devant le donjon (ChapterScenes, ch9)
+	PlayedVictoryScene = false--scene d'apres-boss (ChapterAftermath, ch9)
 }
 
 SV.Visions =
@@ -1050,7 +1052,8 @@ SV.Chapter10 =
 	PeakMidpointState = 'FirstArrival',
 	FinishedBedtimeCutscene = false,--veillee de fin de chapitre (guild_heros_room_ch_10)
 	PlayedPeakRelayIntro = false,
-	PlayedArrivalScene = false,--scene d'arrivee devant le donjon (ChapterScenes, ch10)
+	PlayedArrivalScene = false,--scene d'arrivee devant le donjon (ChapterScenes, ch10),
+	PlayedVictoryScene = false,--scene d'apres-boss (ChapterAftermath, ch10)
 	--Rejouabilite : jalon interne a un parcours rejoue. OutranEscouadeFulgur
 	--reste vrai pour toujours et ne peut donc plus servir a savoir ou on en est
 	--dans l'ascension. Remis a false a chaque entree dans le donjon.
@@ -1138,4 +1141,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-07-31-Q]')
+print('Script variables default values loaded! [build 2026-07-31-R]')

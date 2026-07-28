@@ -8,6 +8,7 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
+require 'halcyon.ChapterAftermath'
 require 'halcyon.ReplayEnding'
 local forgotten_marsh_boss = {}
 function forgotten_marsh_boss.Init(map) DEBUG.EnableDbgCoro() end

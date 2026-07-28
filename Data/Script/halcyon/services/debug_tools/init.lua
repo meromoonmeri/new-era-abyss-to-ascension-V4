@@ -402,6 +402,19 @@ function DebugTools:OnUpgrade()
  require 'halcyon.ReplayEnding'
  ReplayEnding.SyncUnlocks()
 
+ --Scenes d'apres-boss des chapitres 8, 9 et 10 (ChapterAftermath.lua).
+ --Marquees comme vues si le boss est deja vaincu : une partie qui a passe ces
+ --combats avant cette mise a jour ne rejouera pas la scene hors contexte.
+ if SV.Chapter8 ~= nil and SV.Chapter8.PlayedVictoryScene == nil then
+	SV.Chapter8.PlayedVictoryScene = (SV.Chapter8.DefeatedDiancie == true)
+ end
+ if SV.Chapter9 ~= nil and SV.Chapter9.PlayedVictoryScene == nil then
+	SV.Chapter9.PlayedVictoryScene = (SV.Chapter9.DefeatedMegaBlastoise == true)
+ end
+ if SV.Chapter10 ~= nil and SV.Chapter10.PlayedVictoryScene == nil then
+	SV.Chapter10.PlayedVictoryScene = (SV.Chapter10.DefeatedLugia == true)
+ end
+
  --Scenes d'arrivee des chapitres 8, 9 et 10 (ChapterScenes.lua).
  if SV.Chapter8 ~= nil and SV.Chapter8.PlayedArrivalScene == nil then
 	SV.Chapter8.PlayedArrivalScene = (SV.Chapter8.EnteredSanctuary == true)

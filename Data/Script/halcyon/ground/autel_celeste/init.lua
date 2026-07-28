@@ -10,6 +10,7 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
+require 'halcyon.ChapterAftermath'
 require 'halcyon.ReplayEnding'
 local autel_celeste = {}
 function autel_celeste.Init(map)

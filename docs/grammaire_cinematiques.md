@@ -287,3 +287,119 @@ RESULTAT : AUCUN BUG DE FORMAT
   nuages masqueraient l'image fixe au lieu de passer derrière.
 - `Dream_Back`/`Front` ont **63 frames** : leur vitesse d'animation propre
   face à la durée d'affichage n'a pas été validée.
+
+---
+
+# Addendum 3 — après-boss ch8-10, d'après `pmd-red` (build 2026-07-31-R)
+
+## Le trou comblé
+
+Après le lot précédent, le manque le plus grave restait l'**après-boss**. On
+battait Diancie, Laggron ou Lugia, et… `SV.ChapterN.DefeatedX = true`, puis
+fin de journée. Les trois combats les plus importants du jeu se terminaient
+plus sèchement qu'un donjon secondaire.
+
+## Ce que `pret/pmd-red` apprend
+
+`data/scripts/intro.inc` est de l'assembleur GBA — illisible en tant que
+contenu, mais sa **structure d'exécution** est très instructive :
+
+**1. Les fils parallèles synchronisés par drapeaux.**
+```asm
+setFlag 5        @ thread A signale
+waitFlag 5       @ thread B attendait ce signal
+```
+Le script lance plusieurs threads : l'un anime la caméra, l'autre déplace un
+acteur, un troisième enchaîne les animations. Personne n'attend inutilement.
+→ Transposé en `BranchCoroutine` + `JoinCoroutines` : le boss s'effondre
+**pendant** que l'écran tremble, pas après.
+
+**2. La cascade d'animations sur un seul acteur.**
+```asm
+setAnimation 0xE ... setAnimation 0xF ... 0x10 ... 0x11
+```
+L'acteur ne joue pas *une* animation : il en traverse une **suite**, avec des
+déplacements entre. D'où la sensation d'un corps qui réagit dans la durée.
+→ Transposé dans `collapse()` : `Hurt` → secousse → `EventSleep`, avec des
+temps morts. Le boss ne disparaît plus d'un bloc.
+
+## Les trois scènes créées
+
+Chacune a une **fonction dramatique distincte** dans la montée de l'arc :
+
+| Ch. | Rôle | Ce qui se passe | Registre |
+|---|---|---|---|
+| 8 | **le doute semé** | Diancie ne perd pas : elle **cède** | trouble |
+| 9 | **la confirmation** | Le Cercle ne se bat pas : il **compte** | effroi froid |
+| 10 | **le vertige** | Lugia ne juge plus : il **s'excuse** | renversement |
+
+### Ch8 — la question qui reste
+
+Diancie s'agenouille et se débarrasse du Fragment plutôt que de le donner.
+Puis :
+
+> « Un gardien protège ce qui est fragile. Alors pourquoi les premiers ont-ils
+> bâti des **MURS** autour de leur lumière ? »
+> — « ...Je ne sais pas. » — « Moi non plus. Et j'ai eu mille ans pour y
+> réfléchir. »
+
+### Ch9 — la pièce du puzzle
+
+Le Cercle du Suaire n'attaque pas. Il **interrompt la joie** du partenaire en
+plein milieu (rupture de rythme volontaire) :
+
+> « Trois. » — « Nous ne sommes pas venus vous arrêter. Nous sommes venus
+> **COMPTER**. »
+> « Chaque Cœur que vous ranimez brille un peu plus fort. Et chaque fois qu'un
+> Cœur brille, **une paroi s'amincit**. »
+> — « Une paroi de QUOI ? » — « Continuez. Vous comprendrez au dernier. »
+
+Le mécanisme est nommé ; **ce qu'il retient ne l'est pas**. Le twist reste
+intact pour l'arc 6.
+
+### Ch10 — le renversement
+
+Le plus ancien gardien du monde demande pardon à deux gamins :
+
+> « Je gardais le sommet ? Non. » → *(Il gardait le CHEMIN. Pour que personne
+> n'arrive jusqu'ici.)*
+> « **Pardon.** Pour ce que nous avons fait, et pour ce que vous allez devoir
+> défaire. »
+
+Et pour la première fois, la Voix parle **devant témoin** — Lugia ne réagit
+pas, confirmant que le héros seul l'entend :
+
+> « ...Il en a trop dit. »
+> → *(Elle avait peur. Pour la première fois, elle avait PEUR.)*
+
+## Densité : résultat mesuré
+
+| Ch. | Départ | Après lot précédent | Maintenant |
+|---|---|---|---|
+| 8 | 71 | 81 | **96** |
+| 9 | 52 | 70 | **85** |
+| 10 | 53 | 71 | **86** |
+
+## Vérifications
+
+- Lua **642/642**, `.resx` 576/576, zones 209/209
+- `verify_legend` 0 échec, `verify_bg_format` aucun bug
+- **47 répliques**, **0 nom interdit** — le mot « prison » n'est jamais
+  prononcé (contrôlé automatiquement)
+- Réplique la plus longue : 118 caractères (limite ~150)
+- Casting vérifié présent : `Diancie`, `Swampert`, `Lugia`, `Suaire_Banette`
+- Rattrapage `OnUpgrade` : une partie ayant déjà battu le boss ne rejouera
+  pas la scène hors contexte
+
+## Non vérifié
+
+**Rien n'est testé en jeu.** Les positions (`hero`, `partner`, `camera`) et
+celles des boss suivent les conventions des scènes ch5, **sans ouverture des
+`.rsground`**. Sur `crystal_sanctuary_boss` et `forgotten_marsh_boss`
+(320×240), le cadrage est contraint — c'est le point le plus à risque.
+
+## Ce qui reste, honnêtement
+
+- **ch6 : 105 boîtes**, toujours pas traité.
+- Les **relais** ch8-10 n'ont que 3 boîtes chacun (`RelayScenes` générique).
+- Aucun **PNJ de ville réactif** à l'avancement intra-chapitre.
