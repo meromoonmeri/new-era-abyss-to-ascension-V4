@@ -402,6 +402,17 @@ function DebugTools:OnUpgrade()
  require 'halcyon.ReplayEnding'
  ReplayEnding.SyncUnlocks()
 
+ --Scenes d'arrivee des chapitres 8, 9 et 10 (ChapterScenes.lua).
+ if SV.Chapter8 ~= nil and SV.Chapter8.PlayedArrivalScene == nil then
+	SV.Chapter8.PlayedArrivalScene = (SV.Chapter8.EnteredSanctuary == true)
+ end
+ if SV.Chapter9 ~= nil and SV.Chapter9.PlayedArrivalScene == nil then
+	SV.Chapter9.PlayedArrivalScene = (SV.Chapter9.EnteredMarsh == true)
+ end
+ if SV.Chapter10 ~= nil and SV.Chapter10.PlayedArrivalScene == nil then
+	SV.Chapter10.PlayedArrivalScene = (SV.Chapter10.EnteredPeak == true)
+ end
+
  --Visions du passe du heros : etat cree retroactivement pour les parties
  --en cours. Aucune vision n'est marquee comme vue, donc une sauvegarde
  --existante les decouvrira normalement a partir de son chapitre courant.

@@ -92,6 +92,35 @@ local function resolve(cfg, txt)
 end
 
 --------------------------------------------------------------------
+-- Voile de vertige — technique EoSO (CharacterActions.DizzyFade).
+--------------------------------------------------------------------
+-- C'est L'effet des Cris Temporels d'Explorateurs du Ciel : un voile noir
+-- semi-transparent (alpha 128) qui monte et redescend sur tout l'ecran, en
+-- RepeatX/RepeatY pour couvrir quelle que soit la taille de la carte.
+--
+-- Difference importante avec un FlashEmitter : l'overlay est FINI (TotalTime)
+-- et repete, donc il couvre l'ecran entier sans dependre d'un point d'emission.
+-- C'est ce qui manquait a la premiere version de ce module, qui posait un
+-- FlashEmitter ponctuel — sur une grande carte, il ne couvrait qu'une partie.
+function VoiceVisions.DizzyVeil()
+  pcall(function()
+    local anim = RogueEssence.Content.BGAnimData("Black", 1, -1, -1, 128, Dir8.None)
+    local em = RogueEssence.Content.FiniteOverlayEmitter()
+    em.Anim = anim
+    em.Layer = DrawLayer.Top
+    em.TotalTime = 10
+    em.FadeIn = 10
+    em.FadeOut = 10
+    em.RepeatX = true
+    em.RepeatY = true
+    em.Color = Color.White
+    local c = GAME:GetCameraCenter()
+    GROUND:PlayVFX(em, c.X, c.Y)
+    GAME:WaitFrames(30)
+  end)
+end
+
+--------------------------------------------------------------------
 -- Flash d'orage — technique EoSO (storm_cutscene_a/init.lua).
 --------------------------------------------------------------------
 -- Enchaine des fondus tres courts sur le DECOR (FadeOut(true,...) garde
@@ -137,6 +166,9 @@ function VoiceVisions.Nausea(chara, level)
     GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, cfg.shake, cfg.frames))
     GAME:WaitFrames(cfg.frames)
   end)
+  --Puis le voile des Cris Temporels. Hors du pcall precedent pour qu'il
+  --s'affiche meme si l'animation du personnage a echoue.
+  if (level or 2) >= 2 then VoiceVisions.DizzyVeil() end
 end
 
 --Retour au calme apres un malaise.
