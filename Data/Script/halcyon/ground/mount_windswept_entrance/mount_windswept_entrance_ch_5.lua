@@ -222,9 +222,19 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_021']))
 	GAME:WaitFrames(15)
-	UI:SetSpeaker(t.reinier)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_022']))
+	--Reinier repond a Kino : les deux se font face, le camp les regarde
+	--arriver. Avant, ces deux repliques tombaient sur des sprites figes.
+	coro1 = TASK:BranchCoroutine(function()
+		pcall(function() GROUND:CharTurnToCharAnimated(t.reinier, t.kino, 4) end)
+		UI:SetSpeaker(t.reinier)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_022']))
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		pcall(function() GROUND:CharTurnToCharAnimated(t.kino, t.reinier, 4) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(20)
 
 	---------------------------------------------------------------
@@ -464,9 +474,20 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_034']))
 	GAME:WaitFrames(20)
-	UI:SetSpeaker(t.penticus)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_035'], t.phileas:GetDisplayName()))
+	--Penticus donne la parole a Phileas : il se tourne vers lui EN le
+	--nommant, et le cercle suit le mouvement. Le geste designe l'orateur
+	--suivant avant que la boite ne le dise.
+	coro1 = TASK:BranchCoroutine(function()
+		pcall(function() GROUND:CharTurnToCharAnimated(t.penticus, t.phileas, 4) end)
+		UI:SetSpeaker(t.penticus)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_035'], t.phileas:GetDisplayName()))
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(12)
+		Listen(t.phileas, {t.rin, t.coco, partner, hero})
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(15)
 	UI:SetSpeaker(t.phileas)
 	UI:SetSpeakerEmotion("Normal")
@@ -1030,6 +1051,10 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:SetAutoFinish(false)
 	GAME:WaitFrames(40)
 
+	--Rin lance le reveil : elle se tourne vers les dormeurs avant de
+	--donner de la voix (le corps parle avant la bouche).
+	pcall(function() GROUND:CharAnimateTurnTo(t.rin, Direction.Down, 4) end)
+	pcall(function() GeneralFunctions.EmoteAndPause(t.rin, "Happy", true) end)
 	UI:SetSpeaker(t.rin)
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_053']))
@@ -1121,8 +1146,11 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--l'ecran + voile noir semi-transparent qui monte et redescend
 	--(DizzyVeil, alpha 128, RepeatX/Y) — le reve colle a la peau du
 	--heros, visible par tous, comprehensible par lui seul.
+	--Retour PROGRESSIF (modele de fondu de pmd-sky) : le tangage s'eteint
+	--en paliers au lieu de se couper net. Le heros ne « redevient pas
+	--normal » d'une image a l'autre — le malaise le lache lentement.
 	pcall(function() VoiceVisions.Nausea(hero, 2) end)
-	pcall(function() VoiceVisions.Recover(hero) end)
+	pcall(function() VoiceVisions.Recover(hero, true) end)
 	GAME:WaitFrames(10)
 
 	--CE QU'IL RESTE DU REVE. Le heros tente de rattraper l'image et n'y
@@ -1222,6 +1250,10 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--(BuildCampDay) : la Ground raconte le camp pret au depart.
 	GROUND:CharEndAnim(t.kino)
 	GAME:MoveCamera(256, 196, 40, false)
+	--L'appel au rassemblement : tout le camp se retourne vers le maitre
+	--de guilde AVANT qu'il parle. C'est l'ordre qui fait lever les tetes.
+	Listen(t.penticus, {t.phileas, t.rin, t.coco, t.shuca, t.ganlon,
+	                    t.kino, t.reinier, t.hyko, t.almotz, partner, hero})
 	UI:SetSpeaker(t.penticus)
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_089']))
@@ -1266,9 +1298,19 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GAME:MoveCamera(256, 268, 90, false)
 	GAME:WaitFrames(15)
 
+	--Il remercie Rin en la regardant : on ne remercie pas dans le vide.
+	pcall(function() GROUND:CharTurnToCharAnimated(t.penticus, t.rin, 4) end)
+	GAME:WaitFrames(8)
 	UI:SetSpeaker(t.penticus)
 	UI:SetSpeakerEmotion("Happy")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_061'], t.rin:GetDisplayName()))
+	coro1 = TASK:BranchCoroutine(function()
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_061'], t.rin:GetDisplayName()))
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(12)
+		pcall(function() GROUND:CharSetEmote(t.rin, "happy", 1) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_062'], mountain:GetColoredName(), ruins:GetColoredName()))
 	GAME:WaitFrames(15)
@@ -1283,13 +1325,11 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_065']))
 	GAME:WaitFrames(12)
-	UI:SetSpeaker(t.reinier)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_066']))
+	--Chacun rend son rapport au maitre de guilde : celui qui parle se
+	--tourne vers Penticus, pas vers le vide.
+	Says(t.reinier, "Normal", 'MWE5_066', {t.penticus, t.kino})
 	GAME:WaitFrames(12)
-	UI:SetSpeaker(t.phileas)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_067']))
+	Says(t.phileas, "Normal", 'MWE5_067', {t.penticus, hero, partner})
 	GAME:WaitFrames(20)
 
 	---------------------------------------------------------------
@@ -1330,6 +1370,10 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 
 	--Cordee de soutien : Rin (soins), Coco (provisions), Shuca (les
 	--arrieres, et l'experience de sa premiere expedition encadree).
+	--On ne nomme pas une cordee dans le vide : Penticus se tourne vers
+	--celles qu'il designe, et elles se redressent en s'entendant nommer.
+	pcall(function() GROUND:CharTurnToCharAnimated(t.penticus, t.rin, 4) end)
+	Listen(t.penticus, {t.rin, t.coco, t.shuca})
 	UI:SetSpeaker(t.penticus)
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_096'], t.rin:GetDisplayName(), t.coco:GetDisplayName()))
@@ -1349,6 +1393,10 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--Cordee du sommet : le duo, Ganlon et Shuca. C'est la composition
 	--REELLE de l'equipe jouable dans le donjon (SetParty cree Ganlon
 	--et Shuca en Teammate2/3 a la fin de cette cinematique).
+	--La cordee du sommet, c'est le joueur : Penticus se tourne vers le
+	--heros pour l'annoncer, et les quatre nommes se tournent vers lui.
+	pcall(function() GROUND:CharTurnToCharAnimated(t.penticus, hero, 4) end)
+	Listen(t.penticus, {hero, partner, t.ganlon, t.shuca})
 	UI:SetSpeaker(t.penticus)
 	UI:SetSpeakerEmotion("Inspired")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_098'], hero:GetDisplayName(), partner:GetDisplayName(), t.ganlon:GetDisplayName(), t.shuca:GetDisplayName()))
@@ -1476,6 +1524,9 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
 	GAME:WaitFrames(20)
 
+	--Coco salue le duo avant de partir : un adieu se fait face a face.
+	pcall(function() GROUND:CharTurnToCharAnimated(t.coco, hero, 4) end)
+	pcall(function() GeneralFunctions.EmoteAndPause(t.coco, "Happy", true) end)
 	UI:SetSpeaker(t.coco)
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_106']))
@@ -1570,7 +1621,7 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:ResetSpeaker()
 	GAME:WaitFrames(30)
 
-	pcall(function() VoiceVisions.Recover(hero) end)
+	pcall(function() VoiceVisions.Recover(hero, true) end)
 	SOUND:PlayBGM('Sky Peak Prairie.ogg', true)
 	GAME:WaitFrames(20)
 
@@ -1630,9 +1681,20 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	SOUND:FadeOutBGM(60)
 	GAME:WaitFrames(40)
 
-	UI:SetSpeaker(t.penticus)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_110']))
+	--Derniere parole avant la porte : Penticus se tourne vers le duo.
+	coro1 = TASK:BranchCoroutine(function()
+		pcall(function() GROUND:CharTurnToCharAnimated(t.penticus, hero, 4) end)
+		UI:SetSpeaker(t.penticus)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_110']))
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		pcall(function() GROUND:CharTurnToCharAnimated(hero, t.penticus, 4) end)
+		GAME:WaitFrames(6)
+		pcall(function() GROUND:CharTurnToCharAnimated(partner, t.penticus, 4) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(20)
 
 	--Plan large : la camera monte vers la paroi, puis redescend sur
@@ -1795,12 +1857,19 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 		GAME:WaitFrames(15)
 	end
 
+	--Le partenaire a mal : le corps le dit avant la boite.
+	pcall(function() GeneralFunctions.Shake(partner) end)
+	pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
 	UI:SetSpeaker(partner)
 	UI:SetSpeakerEmotion("Pain")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_122']))
 	GAME:WaitFrames(20)
 
 	if penticus ~= nil then
+		--Penticus se penche sur les blesses avant de parler.
+		pcall(function() GROUND:CharTurnToCharAnimated(penticus, hero, 4) end)
+		pcall(function() GROUND:CharSetEmote(penticus, "sweatdrop", 1) end)
+		GAME:WaitFrames(12)
 		UI:SetSpeaker(penticus)
 		UI:SetSpeakerEmotion("Normal")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_123']))
@@ -2197,6 +2266,10 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	--calque (le doublement de decor d'avant ne peut plus se produire).
 	mount_windswept_entrance_ch_5.BuildCampDay()
 
+	--Ces deux repliques se jouent SOUS LE NOIR (FadeOut juste avant) :
+	--aucun sprite n'est visible, donc aucun geste a jouer. C'est le seul
+	--endroit de la carte ou l'immobilite est justifiee — on le note pour
+	--que personne ne « corrige » ce faux positif plus tard.
 	GAME:WaitFrames(40)
 	UI:SetSpeaker(partner)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_001'], tunnel:GetColoredName()))
@@ -2241,15 +2314,51 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	end)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
 	GAME:WaitFrames(20)
-	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Worried")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_003']))
-	UI:SetSpeaker(growlithe)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_004']))
-	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Happy")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_005']))
+
+	--LA PREMIERE VUE DU SOMMET. Le partenaire leve la tete AVANT de
+	--parler (le corps parle avant la bouche) ; Hyko le rejoint du
+	--regard, puis lui repond. Avant, ces trois repliques tombaient sur
+	--quatre sprites fixes qui regardaient tous dans la meme direction.
+	coro1 = TASK:BranchCoroutine(function()
+		pcall(function() GeneralFunctions.EmoteAndPause(partner, "Sweating", true) end)
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Worried")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_003']))
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(18)
+		pcall(function() GROUND:CharTurnToCharAnimated(growlithe, partner, 4) end)
+	end)
+	coro3 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(26)
+		pcall(function() GROUND:CharTurnToCharAnimated(zigzagoon, partner, 4) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2, coro3})
+
+	coro1 = TASK:BranchCoroutine(function()
+		UI:SetSpeaker(growlithe)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_004']))
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		pcall(function() GROUND:CharTurnToCharAnimated(partner, growlithe, 4) end)
+		GAME:WaitFrames(14)
+		pcall(function() GROUND:CharTurnToCharAnimated(hero, growlithe, 4) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+
+	--Le partenaire se retourne vers le heros : la relance est pour lui.
+	coro1 = TASK:BranchCoroutine(function()
+		pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Happy")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_005']))
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
 
 	-- Le camp s'anime autour du feu. L'expedition n'est plus representee
 	-- par deux sprites plantes a l'entree.
@@ -2288,48 +2397,177 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	end)
 	TASK:JoinCoroutines({camp1, camp2, camp3})
 
-	UI:SetSpeaker(noctowl)
-	UI:SetSpeakerEmotion("Worried")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_006']))
+	--------------------------------------------------------------------
+	-- L'ACCUEIL AU CAMP — quinze repliques, et personne ne bougeait.
+	--------------------------------------------------------------------
+	-- C'ETAIT LE PIRE PASSAGE DE LA CARTE. Mesure avant correction :
+	-- ArrivalCutscene comptait 18 repliques dont 17 SANS la moindre
+	-- reaction corporelle (94 %). Quinze boites de dialogue defilaient
+	-- d'affilee devant huit sprites parfaitement immobiles, qui ne se
+	-- tournaient meme pas vers celui qui parlait.
+	--
+	-- Les helpers Listen/Says de la veillee sont locaux a CampNightfall.
+	-- On redefinit ici les memes, sur les variables locales de cette
+	-- scene (tropius, noctowl... et non t.penticus, t.phileas...).
+	local function ListenA(speaker, listeners, emote)
+		if speaker == nil or listeners == nil then return end
+		local turns = {}
+		for i, who in ipairs(listeners) do
+			if who ~= nil and who ~= speaker then
+				turns[#turns+1] = TASK:BranchCoroutine(function()
+					pcall(function()
+						GAME:WaitFrames((i - 1) * 4)
+						GROUND:CharTurnToCharAnimated(who, speaker, 4)
+						if emote ~= nil then GROUND:CharSetEmote(who, emote, 1) end
+					end)
+				end)
+			end
+		end
+		if #turns > 0 then pcall(function() TASK:JoinCoroutines(turns) end) end
+	end
+	local function SaysA(speaker, emotion, key, listeners, emote)
+		ListenA(speaker, listeners, emote)
+		UI:SetSpeaker(speaker)
+		UI:SetSpeakerEmotion(emotion or "Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings[key]))
+	end
+
+	local arrivals = {hero, partner, growlithe, zigzagoon}
+	local campers  = {tropius, noctowl, audino, snubbull, mareep, cranidos}
+
+	--Phileas s'inquiete : le camp entier se tourne vers lui.
+	SaysA(noctowl, "Worried", 'MWE5_006', {tropius, audino, snubbull, mareep, cranidos})
+	--Il enchaine, et c'est LE DUO qui reagit — la remarque les concerne.
+	ListenA(noctowl, arrivals)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_007']))
-	UI:SetSpeaker(tropius)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_008']))
-	UI:SetSpeakerEmotion("Worried")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_009']))
-	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Determined")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_010']))
-	UI:SetSpeaker(hero)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_011']))
-	UI:SetSpeaker(growlithe)
-	UI:SetSpeakerEmotion("Happy")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_012']))
-	UI:SetSpeaker(cranidos)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_013']))
-	UI:SetSpeaker(mareep)
-	UI:SetSpeakerEmotion("Happy")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_014']))
-	UI:SetSpeaker(audino)
-	UI:SetSpeakerEmotion("Worried")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_015']))
-	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Happy")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_016']))
+	GAME:WaitFrames(12)
+
+	--Penticus reprend la main. Tout le monde se tourne vers le maitre
+	--de guilde : c'est lui qui tranche, la posture du camp le dit.
+	SaysA(tropius, "Normal", 'MWE5_008',
+	      {noctowl, audino, snubbull, mareep, cranidos, hero, partner, growlithe, zigzagoon})
+	--Son inquietude : il baisse la tete vers le duo pendant qu'il parle.
+	coro1 = TASK:BranchCoroutine(function()
+		UI:SetSpeakerEmotion("Worried")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_009']))
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		pcall(function() GROUND:CharTurnToCharAnimated(tropius, hero, 4) end)
+		GAME:WaitFrames(14)
+		pcall(function() GROUND:CharSetEmote(audino, "sweatdrop", 1) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+	GAME:WaitFrames(10)
+
+	--Le partenaire repond, le heros appuie : les deux se font face, et
+	--le camp les regarde. Le duo parle d'une seule voix, on le montre.
+	coro1 = TASK:BranchCoroutine(function()
+		SaysA(partner, "Determined", 'MWE5_010', campers)
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+
+	coro1 = TASK:BranchCoroutine(function()
+		UI:SetSpeaker(hero)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_011']))
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
+		GAME:WaitFrames(16)
+		pcall(function() GeneralFunctions.DoAnimation(partner, 'Nod') end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+	GAME:WaitFrames(12)
+
+	--Hyko s'enflamme (il rebondit), Ganlon le rabroue, Shuca s'illumine.
+	--Trois temperaments, trois gestes differents — pas trois boites.
+	coro1 = TASK:BranchCoroutine(function()
+		SaysA(growlithe, "Happy", 'MWE5_012', {zigzagoon, mareep, cranidos})
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(8)
+		pcall(function() GeneralFunctions.Hop(growlithe) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+
+	coro1 = TASK:BranchCoroutine(function()
+		SaysA(cranidos, "Normal", 'MWE5_013', {growlithe, mareep})
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(12)
+		pcall(function() GROUND:CharSetEmote(growlithe, "sweatdrop", 1) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+	GAME:WaitFrames(10)
+
+	coro1 = TASK:BranchCoroutine(function()
+		SaysA(mareep, "Happy", 'MWE5_014', {hero, partner, growlithe})
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		pcall(function() GROUND:CharSetEmote(mareep, "glowing", 1) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+	GAME:WaitFrames(10)
+
+	--Rin ramene tout le monde sur terre : elle s'avance vers le duo.
+	SaysA(audino, "Worried", 'MWE5_015', {hero, partner, tropius})
+	GAME:WaitFrames(12)
+
+	SaysA(partner, "Happy", 'MWE5_016', {audino, snubbull})
+	GAME:WaitFrames(12)
+
+	--Le cri de ralliement de Penticus : le camp entier converge vers lui
+	--et s'immobilise APRES avoir tourne — l'immobilite devient un choix
+	--de mise en scene au lieu d'un oubli.
+	ListenA(tropius, {noctowl, audino, snubbull, mareep, cranidos, growlithe,
+	                  zigzagoon, hero, partner})
 	UI:SetSpeaker(tropius)
 	UI:SetSpeakerEmotion("Inspired")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_017']))
-	UI:SetSpeaker(noctowl)
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_018']))
-	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Worried")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_019']))
-	UI:SetSpeaker(hero)
-	UI:SetSpeakerEmotion("Determined")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_020']))
+	coro1 = TASK:BranchCoroutine(function()
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_017']))
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(14)
+		pcall(function() GROUND:CharSetEmote(mareep, "glowing", 1) end)
+		GAME:WaitFrames(8)
+		pcall(function() GROUND:CharSetEmote(growlithe, "determined", 1) end)
+		GAME:WaitFrames(8)
+		pcall(function() GROUND:CharSetEmote(zigzagoon, "happy", 1) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+
+	SaysA(noctowl, "Normal", 'MWE5_018', {tropius, hero, partner})
+	GAME:WaitFrames(12)
+
+	--Le dernier echange du duo, en tete a tete : la camera est deja sur
+	--eux, ils se tournent l'un vers l'autre et le camp s'efface.
+	coro1 = TASK:BranchCoroutine(function()
+		pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
+		UI:SetSpeaker(partner)
+		UI:SetSpeakerEmotion("Worried")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_019']))
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(8)
+		pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+
+	coro1 = TASK:BranchCoroutine(function()
+		UI:SetSpeaker(hero)
+		UI:SetSpeakerEmotion("Determined")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_020']))
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(12)
+		pcall(function() GeneralFunctions.DoAnimation(partner, 'Nod') end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
 
 	GROUND:CharSetEmote(mareep, "", 0)
 	GROUND:CharSetEmote(tropius, "", 0)
@@ -2584,6 +2822,10 @@ function mount_windswept_entrance_ch_5.LegendOfTheSkyArbiter(chara)
 	SOUND:PlayBGM('Sky Peak Cave.ogg', true)
 	GAME:WaitFrames(30)
 
+	--Le conteur prend son public : il se tourne vers le heros, marque un
+	--temps, PUIS commence. Une legende ne se recite pas de dos.
+	pcall(function() GROUND:CharTurnToCharAnimated(chara, hero, 4) end)
+	GAME:WaitFrames(16)
 	UI:SetSpeaker(chara)
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue("On raconte...[pause=20] qu'il y a très longtemps,[pause=10] la mer et la terre se sont fait la guerre.")
@@ -2605,6 +2847,10 @@ function mount_windswept_entrance_ch_5.LegendOfTheSkyArbiter(chara)
 	GAME:WaitFrames(20)
 	GeneralFunctions.HeroDialogue(hero, "(Quelque chose qui franchit le ciel...[pause=0] Le Météno est tombé.[pause=0] Et la lumière du sommet,[pause=10] elle,[pause=10] cherche peut-être à monter.)", "Worried")
 
+	--Il redescend de sa legende et revient sur le heros : le ton change,
+	--la posture aussi.
+	pcall(function() GROUND:CharSetEmote(chara, "", 0) end)
+	pcall(function() GROUND:CharTurnToCharAnimated(chara, hero, 4) end)
 	UI:SetSpeaker(chara)
 	SOUND:FadeOutBGM(30)
 	GAME:WaitFrames(30)
@@ -2700,20 +2946,56 @@ function mount_windswept_entrance_ch_5.WindSecretScene()
 	SOUND:PlayBGM('On the Beach at Dusk.ogg', true)
 	GAME:WaitFrames(30)
 
+	--LA SCENE LA PLUS INTIME DE LA CARTE — et les deux personnages ne se
+	--regardaient jamais. Corrige ici temps par temps : chaque changement
+	--de locuteur s'accompagne du geste qui va avec, et les DEUX SILENCES
+	--(".........") sont joues comme des silences — Penticus se detourne
+	--vers la montagne avant de repondre, Hyko encaisse avant de parler.
+	GROUND:CharTurnToCharAnimated(growlithe, tropius, 4)
+	GAME:WaitFrames(10)
 	UI:SetSpeaker(growlithe)
 	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue("...Maître,[pause=10] avec tout mon respect,[pause=10] je dois vous le demander.[pause=0] Pourquoi moi ?")
-	UI:WaitShowDialogue("Vous m'avez gardé près de vous tout le voyage.[pause=0] Vous avez paniqué quand on a eu du retard au Tunnel.[pause=0] Les autres recrues n'ont pas ce traitement,[pause=10] wouf.")
-	UI:WaitShowDialogue("Je ne suis pas en sucre.[pause=0] Je suis un garde de la guilde.[pause=0] Alors...[pause=10] pourquoi ?")
 
+	--Penticus ne se retourne pas tout de suite : il sait ce qui vient.
+	coro1 = TASK:BranchCoroutine(function()
+		UI:WaitShowDialogue("Vous m'avez gardé près de vous tout le voyage.[pause=0] Vous avez paniqué quand on a eu du retard au Tunnel.[pause=0] Les autres recrues n'ont pas ce traitement,[pause=10] wouf.")
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(20)
+		pcall(function() GROUND:CharSetEmote(tropius, "sweatdrop", 1) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+
+	coro1 = TASK:BranchCoroutine(function()
+		UI:WaitShowDialogue("Je ne suis pas en sucre.[pause=0] Je suis un garde de la guilde.[pause=0] Alors...[pause=10] pourquoi ?")
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(14)
+		pcall(function() GROUND:CharTurnToCharAnimated(tropius, growlithe, 4) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+
+	--LE SILENCE. Penticus se detourne vers la montagne : c'est la qu'est
+	--son mort. Le geste dit ce que la boite ne dit pas encore.
 	GAME:WaitFrames(40)
 	UI:SetSpeaker(tropius)
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(".........")
-	GAME:WaitFrames(30)
+	coro1 = TASK:BranchCoroutine(function()
+		UI:WaitShowDialogue(".........")
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		pcall(function() GROUND:CharAnimateTurnTo(tropius, Direction.Up, 6) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+	GAME:WaitFrames(40)
+
+	--Il revient sur Hyko pour la phrase qui bascule tout.
+	GROUND:CharTurnToCharAnimated(tropius, growlithe, 4)
+	GAME:WaitFrames(12)
 	UI:WaitShowDialogue("...Tu as ses yeux,[pause=10] tu sais.")
 
-	GROUND:CharSetEmote(growlithe, "question", 1)
+	GeneralFunctions.EmoteAndPause(growlithe, "Question", true)
 	UI:SetSpeaker(growlithe)
 	UI:SetSpeakerEmotion("Surprised")
 	UI:WaitShowDialogue("...Les yeux de qui,[pause=10] Maître ?")
@@ -2722,26 +3004,76 @@ function mount_windswept_entrance_ch_5.WindSecretScene()
 	UI:SetSpeaker(tropius)
 	UI:SetSpeakerEmotion("Sad")
 	UI:WaitShowDialogue("Il y a vingt-cinq ans,[pause=10] j'avais un coéquipier.[pause=0] Un Arcanin.[pause=0] La tête brûlée la plus loyale que cette guilde ait jamais comptée.")
-	UI:WaitShowDialogue("Cette nuit-là...[pause=10] le monde entier tremblait.[pause=0] La dernière des grandes catastrophes.[pause=0] Et cette montagne...[pause=20] cette montagne s'était ALLUMÉE,[pause=10] exactement comme aujourd'hui.")
+
+	--« Cette montagne s'etait ALLUMEE » : il la regarde en le disant, et
+	--Hyko suit son regard. Deux tetes qui se levent vers le sommet.
+	coro1 = TASK:BranchCoroutine(function()
+		UI:WaitShowDialogue("Cette nuit-là...[pause=10] le monde entier tremblait.[pause=0] La dernière des grandes catastrophes.[pause=0] Et cette montagne...[pause=20] cette montagne s'était ALLUMÉE,[pause=10] exactement comme aujourd'hui.")
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(30)
+		pcall(function() GROUND:CharAnimateTurnTo(tropius, Direction.Up, 6) end)
+		GAME:WaitFrames(20)
+		pcall(function() GROUND:CharAnimateTurnTo(growlithe, Direction.Up, 6) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(20)
+
 	UI:WaitShowDialogue("Nous sommes montés tous les deux.[pause=0] Jeunes.[pause=0] Invincibles.[pause=0] Persuadés que le monde avait besoin de nous...[pause=10] et il avait besoin de nous.")
 	GAME:WaitFrames(30)
+
+	--La chute. Le corps parle avant la bouche : Penticus flanche PUIS
+	--raconte la corniche.
 	UI:SetSpeakerEmotion("Pain")
-	UI:WaitShowDialogue("Une corniche a cédé sous moi,[pause=10] près du sommet.[pause=0] Il m'a rattrapé.[pause=0] Il m'a HISSÉ.[pause=0] Et le temps que je me retourne...")
+	coro1 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(16)
+		UI:WaitShowDialogue("Une corniche a cédé sous moi,[pause=10] près du sommet.[pause=0] Il m'a rattrapé.[pause=0] Il m'a HISSÉ.[pause=0] Et le temps que je me retourne...")
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		pcall(function() GeneralFunctions.Shake(tropius) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(40)
+
+	--« ...le vent l'avait emporte. » Un souffle passe sur les deux.
+	pcall(function() SOUND:PlayBattleSE('EVT_Battle_Flash') end)
+	pcall(function() GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 2, 30)) end)
 	UI:WaitShowDialogue("...le vent l'avait emporté.[pause=0] Voilà ce que le vent a pris,[pause=10] cette nuit-là.[pause=0] Le meilleur d'entre nous.[pause=0] Ton père,[pause=10] Hyko.")
 
+	--LE CHOC. Hyko encaisse physiquement avant d'articuler : il recule
+	--d'un pas (Shake), l'emote tombe, PUIS la phrase sort.
 	GAME:WaitFrames(50)
-	GROUND:CharSetEmote(growlithe, "shock", 1)
-	SOUND:PlayBattleSE("EVT_Emote_Shock_2")
+	coro1 = TASK:BranchCoroutine(function()
+		pcall(function() GROUND:CharTurnToCharAnimated(growlithe, tropius, 4) end)
+		pcall(function() GeneralFunctions.Shake(growlithe) end)
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		pcall(function() GROUND:CharSetEmote(growlithe, "shock", 1) end)
+		pcall(function() SOUND:PlayBattleSE("EVT_Emote_Shock_2") end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+	GAME:WaitFrames(25)
+
 	UI:SetSpeaker(growlithe)
 	UI:SetSpeakerEmotion("Stunned")
 	UI:WaitShowDialogue("Mon...[pause=20] mon père ?[pause=0] Mais...[pause=10] on m'a toujours dit qu'il était mort en mission de routine...")
 
-	UI:SetSpeaker(tropius)
-	UI:SetSpeakerEmotion("Sad")
-	UI:WaitShowDialogue("C'est moi qui ai demandé qu'on te dise ça.[pause=0] Un petit ne devrait pas grandir en sachant que son père est mort pour une corniche...[pause=10] et pour un imbécile qui marchait dessus.")
+	--L'aveu. Penticus ne soutient pas son regard en le disant.
+	coro1 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(14)
+		UI:SetSpeaker(tropius)
+		UI:SetSpeakerEmotion("Sad")
+		UI:WaitShowDialogue("C'est moi qui ai demandé qu'on te dise ça.[pause=0] Un petit ne devrait pas grandir en sachant que son père est mort pour une corniche...[pause=10] et pour un imbécile qui marchait dessus.")
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		pcall(function() GROUND:CharAnimateTurnTo(tropius, Direction.Down, 6) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(30)
+
+	--Et il releve la tete pour la promesse. Le geste EST la promesse.
+	GROUND:CharTurnToCharAnimated(tropius, growlithe, 4)
+	GAME:WaitFrames(14)
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue("Alors oui.[pause=0] Je te garde près de moi.[pause=0] Pas parce que tu es fragile,[pause=10] Hyko.[pause=0] Parce que je lui dois de te ramener.[pause=0] De CHAQUE expédition.[pause=0] Jusqu'à ma dernière.")
 
@@ -2751,19 +3083,62 @@ function mount_windswept_entrance_ch_5.WindSecretScene()
 	SOUND:PlayBGM('Sympathy.ogg', true)
 	GAME:WaitFrames(30)
 
+	--LE SECOND SILENCE. Hyko baisse la tete, encaisse, et c'est en
+	--RELEVANT la tete qu'il repond — le redressement precede la
+	--determination, il ne la commente pas.
 	UI:SetSpeaker(growlithe)
 	UI:SetSpeakerEmotion("Teary-Eyed")
-	UI:WaitShowDialogue(".........")
+	coro1 = TASK:BranchCoroutine(function()
+		UI:WaitShowDialogue(".........")
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		pcall(function() GROUND:CharAnimateTurnTo(growlithe, Direction.Down, 6) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(40)
-	UI:SetSpeakerEmotion("Determined")
-	UI:WaitShowDialogue("...Merci de me l'avoir dit,[pause=10] Maître.[pause=0] Mais je vais vous demander une chose,[pause=10] et c'est la dernière fois que je la demanderai.")
-	UI:WaitShowDialogue("Ne me protégez plus DE la montagne.[pause=0] Apprenez-moi à la gravir.[pause=0] C'est comme ça qu'on honore ceux que le vent a pris,[pause=10] wouf.")
-	UI:WaitShowDialogue("Pas en gardant leurs enfants au camp.[pause=0] En en faisant des Pokémon...[pause=10] que le vent n'emporte pas.")
+
+	coro1 = TASK:BranchCoroutine(function()
+		pcall(function() GROUND:CharTurnToCharAnimated(growlithe, tropius, 4) end)
+		pcall(function() GROUND:CharSetEmote(growlithe, "determined", 1) end)
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(16)
+		UI:SetSpeakerEmotion("Determined")
+		UI:WaitShowDialogue("...Merci de me l'avoir dit,[pause=10] Maître.[pause=0] Mais je vais vous demander une chose,[pause=10] et c'est la dernière fois que je la demanderai.")
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+
+	--« Ne me protegez plus DE la montagne » : il se tourne vers elle.
+	coro1 = TASK:BranchCoroutine(function()
+		UI:WaitShowDialogue("Ne me protégez plus DE la montagne.[pause=0] Apprenez-moi à la gravir.[pause=0] C'est comme ça qu'on honore ceux que le vent a pris,[pause=10] wouf.")
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(24)
+		pcall(function() GROUND:CharAnimateTurnTo(growlithe, Direction.Up, 6) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+
+	coro1 = TASK:BranchCoroutine(function()
+		pcall(function() GROUND:CharTurnToCharAnimated(growlithe, tropius, 4) end)
+		UI:WaitShowDialogue("Pas en gardant leurs enfants au camp.[pause=0] En en faisant des Pokémon...[pause=10] que le vent n'emporte pas.")
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(20)
+		pcall(function() GROUND:CharSetEmote(tropius, "notice", 1) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
 
 	GAME:WaitFrames(50)
-	UI:SetSpeaker(tropius)
-	UI:SetSpeakerEmotion("Happy")
-	UI:WaitShowDialogue("...Tu as sa voix aussi,[pause=10] finalement.[pause=0] D'accord,[pause=10] Hyko.[pause=0] D'accord.")
+	coro1 = TASK:BranchCoroutine(function()
+		UI:SetSpeaker(tropius)
+		UI:SetSpeakerEmotion("Happy")
+		UI:WaitShowDialogue("...Tu as sa voix aussi,[pause=10] finalement.[pause=0] D'accord,[pause=10] Hyko.[pause=0] D'accord.")
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(18)
+		pcall(function() GeneralFunctions.DoAnimation(tropius, 'Nod') end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
 
 	-- Le heros se retire sans bruit.
 	GAME:WaitFrames(40)
