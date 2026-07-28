@@ -16,7 +16,7 @@
 | relation | **HEAD et `main` divergent** : ce sont deux commits frères, chacun a 1 commit que l'autre n'a pas |
 | clone | **superficiel** (`.git/shallow` contient `b7afed9` et `e6f9e8d`) : `git log` ne remonte pas au-delà |
 | arbre de travail | propre (`git status --porcelain` vide) |
-| tag de build | **`2026-08-01-V`** déjà posé dans les 3 fichiers — le prochain lot doit passer à `2026-08-01-W` |
+| tag de build | **`2026-08-01-W`** (posé le 2026-07-29) — le prochain lot doit passer à `2026-08-01-X` |
 
 **Attention — écart avec l'ancienne passation.** Elle annonçait « tout est mergé dans
 `main`, dernier tag `-U`, prochain `-V` ». C'est **faux sur ce checkout** :
@@ -400,6 +400,7 @@ UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gen
 | `verify_bg_format.py` | format des `.dir` | tout vert |
 | `validate_all.py` | géométrie des arènes | tout vert |
 | `audit_integrite.py .` | intégrité globale | **925** (dette connue) |
+| `verify_ground_reachability.py .` | ancres atteignables (BFS) | **27** (dette d'import) |
 | `count_dialogue.py` | densité par chapitre | ⚠ **sans argument** (voir §2.7) |
 | `audit_boss_cinematics.py` | qualité des scènes de boss | — |
 | `gen_season_particles.py` | génère les `.dir` de particules | — |
@@ -414,6 +415,7 @@ python3 tools/audit_bugs.py .
 python3 tools/verify_legend.py .
 python3 tools/verify_scene_positions.py .
 python3 tools/audit_integrite.py .
+python3 tools/verify_ground_reachability.py .
 python3 tools/count_dialogue.py          # SANS le point
 ```
 
@@ -520,7 +522,76 @@ Le total doit rester à **12**. S'il monte, c'est une régression du lot en cour
 
 ---
 
-## 14. MONT VENTEUX — CHANTIER **TERMINÉ** (à ne pas refaire)
+## 14bis. MONT VENTEUX — LA CARTE ÉTAIT CASSÉE (corrigé le 2026-07-29)
+
+Le §14 ci-dessous décrivait la scène comme « terminée » sur la foi de
+**métriques** (nombre de boîtes, d'émotions, de coroutines). Elles étaient
+bonnes. La carte, elle, était **injouable** — et aucune métrique ne le disait.
+
+**Leçon de méthode :** compter des appels ne prouve pas qu'une scène
+fonctionne. Il faut ouvrir la géométrie et vérifier chaque coordonnée contre
+la grille d'obstacles.
+
+### Cause racine — `obstacles` est indexé `[x][y]`
+
+Un lot antérieur a voulu ajouter un océan « au sud, rows 78-80 » et a rallongé
+la table `obstacles`. Comme elle est indexée `[x][y]`, **allonger la table du
+dessus agrandit la LARGEUR** :
+
+- carte passée de 552×504 à 648×504 (12 colonnes à l'**est**, zéro rangée au sud) ;
+- **2520 tuiles `DuskBeach`** — une plage au crépuscule — plaquées sur le flanc
+  d'une montagne ;
+- `Main_Entrance_Marker` déplacé en (256,592) = tuile (32,**74**) sur une grille
+  de 63 rangées : **le joueur apparaissait hors carte**.
+
+### Les 7 bugs corrigés
+
+1. **Arrivée hors carte** — duo téléporté en y=540/556, Hyko et Almotz en
+   y=572/588, caméra en (256,524). Maximum réel : 503.
+2. **Paillasse inatteignable** — lit 12 en (344,132) : sol libre, mais dans une
+   poche isolée. La carte a **3 composantes connexes** ; il était dans la mauvaise.
+3. **4 paires de paillasses en recouvrement** — `Hay_Bed` fait 40×40 (en-tête
+   `.dir` vérifié), lits 2/3, 4/5, 7/8, 9/10 se chevauchaient de 7×7 px.
+4. **Le dîner se tenait sur les paillasses** — chaque convive envoyé aux
+   coordonnées de sa couche, à ~100 px du feu, sur des lits pas encore déployés.
+5. **Personne ne rejoignait sa couche** — duo, Hyko et Almotz jouaient `Sleep`
+   debout à table ; 4 paillasses vides toute la nuit.
+6. **PNJ dans le décor** — Shuca sur la couche 9, Reinier sur la 7, Coco dans
+   le foyer, Penticus et Phileas sur la couche 1.
+7. **Rocher de Kangaskhan à 4/16 dans la roche**.
+
+### Nouvelle disposition : fer à cheval, pas cercle
+
+Ouverture plein sud (on arrive et repart par là). 12 positions validées sur
+4 critères : sprite 40×40 sur sol libre · connexe depuis l'entrée · sans
+recouvrement · assise (+13,+10) libre. `sleepOrder` **lit** `seats` via un
+index `bedOf` — les deux listes ne peuvent plus diverger.
+
+```lua
+BEDS = { {248,116},{298,168},{342,168},{330,210},
+         {372,216},{348,258},{320,300},{220,314},
+         {178,286},{156,244},{154,202},{170,160} }
+```
+
+Cercle de **repas** distinct (rayon ~44 px autour du feu en 256,220) : les
+convives mangent ensemble et tiennent dans un viewport 320×240.
+
+### Nouvel outil — `tools/verify_ground_reachability.py`
+
+`verify_scene_positions.py` tolère **un écran entier** de dépassement : le bug
+était à +36/+84 px, sous le seuil. **J'ai tenté de durcir ce seuil et je l'ai
+reverté** — mesure faite, le contenu d'origine jouable dépasse légitimement
+jusqu'à +69 px (`relic_forest`, `apricorn_glade`, `metano_altere_transition`).
+L'ampleur seule ne discrimine pas.
+
+Le nouvel outil teste ce que rien ne testait : **l'accessibilité par parcours
+en largeur** depuis l'entrée du joueur. Faux positifs triés avant livraison
+(`Boss_Marker`, `Food_*`, convives attablés sur le mobilier).
+**Référence : 27** — dette d'import préexistante, aucun sur les cartes du ch5.
+
+---
+
+## 14. MONT VENTEUX — CONTENU NARRATIF (ne pas réécrire)
 
 L'ancienne passation présentait ce chantier comme prioritaire, avec 6 actes à
 écrire. **Il a été réalisé** dans le commit `b7afed9` de cette branche.
@@ -700,10 +771,16 @@ Points les plus sensibles à surveiller au premier test :
 > **Validation avant chaque commit** : compilation Lua de tous les fichiers,
 > `audit_bugs.py .` (doit rester à 12), `verify_legend.py .`,
 > `verify_scene_positions.py .`, `audit_integrite.py .` (référence 925),
-> `count_dialogue.py` (sans argument).
+> `verify_ground_reachability.py .` (référence 27), `count_dialogue.py`.
+>
+> **Avant de déclarer une scène terminée** : ne pas se fier aux métriques
+> (nombre de boîtes, d'émotions, de coroutines). Ouvrir la géométrie de la
+> carte et vérifier CHAQUE coordonnée contre la grille d'obstacles — bornes,
+> marchabilité **et** accessibilité par parcours en largeur. Le Mont Venteux
+> avait d'excellentes métriques et une carte injouable (§14bis).
 >
 > **Chantier prioritaire** : le bureau du maître de guilde aux chapitres 7 à 10
-> — voir §15.A. Le Mont Venteux est **terminé** (§14), ne pas le refaire.
+> — voir §15.A.
 
 ---
 
