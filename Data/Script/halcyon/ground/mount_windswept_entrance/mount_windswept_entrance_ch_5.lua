@@ -125,6 +125,54 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	local function seatX(i) return B[i][1] + 13 end
 	local function seatY(i) return B[i][2] + 10 end
 
+	------------------------------------------------------------------
+	-- LE CAMP ECOUTE — un cercle vivant, pas douze statues.
+	------------------------------------------------------------------
+	-- Mesure faite sur cette scene avant correction : 68 repliques, dont
+	-- 22 (32 %) ou AUCUN personnage ne bougeait dans les six lignes
+	-- precedentes. Le joueur voyait des boites de dialogue s'enchainer
+	-- devant un cercle immobile.
+	--
+	-- Les deux helpers ci-dessous rendent l'ecoute automatique :
+	--
+	--   Listen(parleur, {auditeurs}, emote)
+	--     Les auditeurs se tournent vers celui qui parle, EN DECALE
+	--     (4 frames d'ecart) : un groupe qui pivote d'un seul bloc a
+	--     l'air mecanique. C'est la regle deja appliquee aux departs
+	--     de la scene, on l'etend a l'ecoute.
+	--
+	--   Says(parleur, emotion, cle, {auditeurs}, emote)
+	--     Regroupe « le corps parle avant la bouche » (grammaire du
+	--     projet, §4.6) : on tourne les tetes, PUIS on affiche la boite.
+	--
+	-- Toutes les API employees sont attestees dans le depot :
+	-- CharTurnToCharAnimated (547 fichiers), CharSetEmote, BranchCoroutine,
+	-- JoinCoroutines. Le tout sous pcall : un auditeur nil (personnage
+	-- deja retire de la carte) ne doit jamais interrompre la veillee.
+	local function Listen(speaker, listeners, emote)
+		if speaker == nil or listeners == nil then return end
+		local turns = {}
+		for i, who in ipairs(listeners) do
+			if who ~= nil and who ~= speaker then
+				turns[#turns+1] = TASK:BranchCoroutine(function()
+					pcall(function()
+						GAME:WaitFrames((i - 1) * 4)
+						GROUND:CharTurnToCharAnimated(who, speaker, 4)
+						if emote ~= nil then GROUND:CharSetEmote(who, emote, 1) end
+					end)
+				end)
+			end
+		end
+		if #turns > 0 then pcall(function() TASK:JoinCoroutines(turns) end) end
+	end
+
+	local function Says(speaker, emotion, key, listeners, emote)
+		Listen(speaker, listeners, emote)
+		UI:SetSpeaker(speaker)
+		UI:SetSpeakerEmotion(emotion or "Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings[key]))
+	end
+
 	--Index inverse « personnage -> sa couche », construit UNE fois a
 	--partir de `seats`. Toute la scene passe par lui : plus aucune
 	--section ne redeclare un numero de lit dans son coin, donc plus
@@ -266,9 +314,12 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	---------------------------------------------------------------
 	-- 3. LA TABLEE — la cuisiniere, le ronchon, la premiere fois
 	---------------------------------------------------------------
-	UI:SetSpeaker(t.coco)
-	UI:SetSpeakerEmotion("Happy")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_024']))
+	--Coco s'adresse au cercle entier : les tetes se tournent vers elle
+	--en cascade AVANT qu'elle ouvre la bouche (le corps parle avant la
+	--bouche). C'est ce qui manquait — la replique tombait sur douze
+	--personnages immobiles qui regardaient ailleurs.
+	Says(t.coco, "Happy", 'MWE5_024',
+	     {t.rin, t.shuca, partner, hero, t.hyko, t.almotz, t.kino, t.reinier})
 	GAME:WaitFrames(15)
 
 	--Ganlon marmonne son compliment ; Coco a l'oreille fine. Les deux
@@ -291,14 +342,27 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	TASK:JoinCoroutines({coro1, coro2, coro3})
 
 	GAME:WaitFrames(10)
+	--Coco prend Ganlon en flagrant delit de compliment. Le cercle
+	--proche se retourne pour voir sa tete — c'est un moment comique,
+	--il a besoin de spectateurs.
 	UI:SetSpeaker(t.coco)
 	UI:SetSpeakerEmotion("Joyous")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_026'], t.ganlon:GetDisplayName()))
+	coro1 = TASK:BranchCoroutine(function()
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_026'], t.ganlon:GetDisplayName()))
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(8)
+		Listen(t.ganlon, {t.rin, t.kino, t.reinier})
+	end)
+	coro3 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(22)
+		pcall(function() GROUND:CharSetEmote(t.ganlon, "sweatdrop", 1) end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2, coro3})
 	GAME:WaitFrames(15)
 
-	UI:SetSpeaker(t.shuca)
-	UI:SetSpeakerEmotion("Happy")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_027']))
+	--Shuca enchaine : les jeunes du cercle se tournent vers elle.
+	Says(t.shuca, "Happy", 'MWE5_027', {partner, hero, t.hyko, t.almotz})
 	GAME:WaitFrames(12)
 
 	UI:SetSpeaker(partner)
@@ -514,26 +578,40 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GAME:WaitFrames(10)
 
 	--Tout le cercle se tourne vers le maitre de guilde, en decale.
-	local heads = {}
 	local listeners = {partner, hero, t.hyko, t.almotz, t.rin, t.coco, t.shuca, t.ganlon, t.reinier, t.kino}
-	for i, c in ipairs(listeners) do
-		heads[#heads+1] = TASK:BranchCoroutine(function()
-			GAME:WaitFrames(i * 3)
-			GROUND:CharTurnToCharAnimated(c, t.penticus, 4)
-		end)
-	end
-	TASK:JoinCoroutines(heads)
+	Listen(t.penticus, listeners)
 	GAME:WaitFrames(10)
 
 	UI:SetSpeaker(t.penticus)
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_044'], mountain:GetColoredName()))
 	UI:SetSpeakerEmotion("Happy")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_045']))
+
+	--« Demain, le sommet. » Le camp accuse le coup pendant qu'il parle,
+	--chacun a sa maniere : les jeunes s'illuminent, le rale souffle, les
+	--anciens hochent. Trois reactions simultanees, pas une file d'attente.
+	coro1 = TASK:BranchCoroutine(function()
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_045']))
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		pcall(function() GROUND:CharSetEmote(t.shuca, "glowing", 1) end)
+		GAME:WaitFrames(8)
+		pcall(function() GROUND:CharSetEmote(t.hyko, "determined", 1) end)
+	end)
+	coro3 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(16)
+		pcall(function() GROUND:CharSetEmote(t.ganlon, "sweatdrop", 1) end)
+	end)
+	coro4 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(24)
+		pcall(function() GeneralFunctions.DoAnimation(t.reinier, 'Nod') end)
+	end)
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
 	GAME:WaitFrames(15)
-	UI:SetSpeaker(t.coco)
-	UI:SetSpeakerEmotion("Joyous")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_046']))
+
+	--Coco a le dernier mot : le cercle se retourne vers elle.
+	Says(t.coco, "Joyous", 'MWE5_046', {t.rin, t.shuca, t.ganlon, partner, hero})
 	GAME:WaitFrames(20)
 
 	---------------------------------------------------------------
@@ -734,46 +812,196 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	SOUND:PlayBGM('I Saw Something Again....ogg', true)
 	GAME:WaitFrames(30)
 
-	pcall(function() VoiceVisions.DreamSky(560) end)
+	------------------------------------------------------------------
+	-- STRUCTURE DU REVE — relevee dans pret/pmd-red, pas de memoire.
+	------------------------------------------------------------------
+	-- Fichier lu : src/data/ground/ground_data_a01p01_station.h, les huit
+	-- reves successifs du heros. Le jeu d'origine suit toujours le meme
+	-- ordre, et cet ordre EST l'effet :
+	--
+	--   1. MSG_QUIET "......" / "............" / ".................."
+	--      Trois boites de points, de plus en plus longues. Personne ne
+	--      parle : c'est le dormeur qui remonte vers la surface. C'est ce
+	--      qui manquait le plus ici — l'ancienne version ouvrait sur la
+	--      Voix, donc le joueur n'etait jamais « endormi ».
+	--   2. "Where..." / "Where am I?" / "Is this a dream...?"
+	--      La desorientation vient AVANT toute presence.
+	--   3. TEXTBOX_CLEAR + WAIT : la boite se FERME, il ne reste que
+	--      l'image. Un vrai silence, pas un blanc dans une boite ouverte.
+	--   4. "...Oh? There's someone here." / "Who is it...? Someone I know?"
+	--      La presence est apercue avant d'etre entendue.
+	--   5. "......Hmm... I can't remember."
+	--      L'oubli est pose DES le premier reve, avant meme le reveil.
+	--   6. MSG_NPC : l'entite parle enfin. Phrases courtes, beaucoup de
+	--      points de suspension, jamais plus de deux idees a la fois.
+	--   7. Le heros pose LA question : "Why do you appear in my dreams?"
+	--      C'est le pivot de la scene de Gardevoir, on le reprend tel quel.
+	--   8. "It will be morning soon." puis reveil en sursaut, et l'oubli.
+	--
+	-- TRANSPOSITION NEW ERA : l'entite reste ANONYME (\uE040, ni nom ni
+	-- portrait — regle projet), la ou Gardevoir est nommee et portraituree.
+	-- Le heros ne doit RIEN comprendre : c'est au joueur de reconnaitre.
+	------------------------------------------------------------------
+	pcall(function() VoiceVisions.DreamSky(900) end)
 	pcall(function() UI:WaitShowBG('Genesis_Void', 180, 30) end)
-	GAME:WaitFrames(20)
+	GAME:WaitFrames(60)
 
-	UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_080']))
+	--1. L'EMERGENCE. Voix off centree, sans locuteur : le dormeur n'est
+	--pas encore quelqu'un. Les trois boites s'allongent (pmd-red).
+	UI:ResetSpeaker(false)
+	UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_130']))
+	GAME:WaitFrames(20)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_131']))
 	GAME:WaitFrames(25)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_081']))
-	GAME:WaitFrames(20)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_082']))
-	GAME:WaitFrames(20)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_083']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_132']))
 	GAME:WaitFrames(30)
 
-	--Le vertige du reve : tangage de l'ecran (ScreenMover, patron
-	--VoiceVisions.Nausea — API moteur, pas d'asset requis).
+	--2. LA DESORIENTATION, avant toute presence.
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_133']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_134']))
+	GAME:WaitFrames(20)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_135']))
+
+	--3. LE SILENCE. La boite se ferme vraiment (TEXTBOX_CLEAR + WAIT(30)
+	--dans pmd-red) : l'image onirique reste seule a l'ecran.
+	UI:SetCenter(false)
+	UI:ResetSpeaker()
+	GAME:WaitFrames(50)
+
+	--4. LA PRESENCE EST APERCUE. Un souffle marque son entree — le vent
+	--est le motif du chapitre, il tient lieu du SE de Gardevoir.
+	pcall(function() SOUND:PlayBattleSE('_UNK_DUN_Water_Drop') end)
+	GAME:WaitFrames(40)
+	UI:ResetSpeaker(false)
+	UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_136']))
+	GAME:WaitFrames(15)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_137']))
+	GAME:WaitFrames(20)
+	--5. L'OUBLI, pose des maintenant.
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_138']))
+	UI:SetCenter(false)
+	UI:ResetSpeaker()
+	GAME:WaitFrames(40)
+
+	--6. L'ENTITE PARLE. Speaker anonyme pose UNE fois (patron EoSO
+	--SetSpeakerUnknown, cf. VoiceVisions) : ni nom, ni espece, ni portrait.
+	local function voice(key)
+		UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings[key]))
+	end
+	--Le heros repond en pensee, voix off centree : il rêve, il n'a pas
+	--de corps ici. C'est aussi ce que fait pmd-red (MSG_QUIET, jamais un
+	--portrait du heros pendant le reve).
+	local function dreamer(key)
+		UI:SetCenter(true)
+		UI:ResetSpeaker(false)
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings[key]))
+		UI:SetCenter(false)
+		UI:ResetSpeaker()
+	end
+
+	pcall(function() SOUND:PlayBattleSE('DUN_Heal_Bell') end)
+	GAME:WaitFrames(30)
+	voice('MWE5_139')
+	GAME:WaitFrames(20)
+	voice('MWE5_140')
+	GAME:WaitFrames(25)
+	dreamer('MWE5_141')
+	GAME:WaitFrames(20)
+	voice('MWE5_142')
+	GAME:WaitFrames(20)
+	dreamer('MWE5_143')
+	GAME:WaitFrames(25)
+	--« ... Par toi. » — la reponse qui ne s'explique pas. Un battement
+	--long avant et apres : c'est la phrase que le joueur doit entendre.
+	GAME:WaitFrames(20)
+	voice('MWE5_144')
+	GAME:WaitFrames(45)
+
+	--7. LA QUESTION. Pivot exact de la scene de Gardevoir.
+	dreamer('MWE5_145')
+	GAME:WaitFrames(25)
+	voice('MWE5_146')
+	GAME:WaitFrames(20)
+	voice('MWE5_147')
+	GAME:WaitFrames(35)
+
+	--La montagne. Le tangage du reve arrive ICI, sur « pas avec ce
+	--corps » : l'image vacille au moment ou le heros touche ce qu'il ne
+	--doit pas encore comprendre.
+	voice('MWE5_148')
+	GAME:WaitFrames(20)
+	voice('MWE5_149')
 	pcall(function()
 		SOUND:PlayBattleSE('EVT_Emote_Startled')
 		GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 6, 40))
 	end)
-	GAME:WaitFrames(40)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_084']))
-	GAME:WaitFrames(20)
+	GAME:WaitFrames(45)
+	dreamer('MWE5_150')
+	GAME:WaitFrames(25)
+	voice('MWE5_151')
+	GAME:WaitFrames(30)
+	--Le dernier avertissement, garde de la version precedente : c'est la
+	--phrase qui arme le sommet du chapitre. Le heros ne la comprend pas.
+	voice('MWE5_083')
+	GAME:WaitFrames(45)
 
-	--Le reve s'efface : l'image onirique disparait, retour au noir.
-	pcall(function() UI:WaitHideBG(30) end)
-	SOUND:FadeOutBGM(60)
-	GAME:WaitFrames(40)
-
-	--Le heros se reveille en sursaut dans le noir : deux pensees,
-	--puis il se rendort. Le trouble n'est pas resolu — il ressurgira
-	--au matin (11) et sur le chemin du nord (14).
-	UI:SetSpeaker('', false, hero.CurrentForm.Species, hero.CurrentForm.Form, hero.CurrentForm.Skin, hero.CurrentForm.Gender)
-	UI:SetSpeakerEmotion("Shouting")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_085']))
+	--8. LA SEPARATION. « Le jour va se lever » = « It will be morning
+	--soon. Au revoir. » L'image commence a se dissoudre pendant que
+	--l'entite parle encore : le fondu et la derniere phrase se terminent
+	--ensemble (patron EoSO, trois coroutines jointes).
+	voice('MWE5_152')
 	GAME:WaitFrames(20)
-	UI:SetSpeakerEmotion("Worried")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_086']))
+	dreamer('MWE5_153')
+	GAME:WaitFrames(25)
+
+	local dc1 = TASK:BranchCoroutine(function()
+		voice('MWE5_154')
+	end)
+	local dc2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(30)
+		pcall(function() UI:WaitHideBG(60) end)
+	end)
+	local dc3 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(30)
+		SOUND:FadeOutBGM(90)
+	end)
+	TASK:JoinCoroutines({dc1, dc2, dc3})
 	UI:ResetSpeaker()
-	GAME:WaitFrames(40)
+	GAME:WaitFrames(50)
+
+	--LE REVEIL. Le corps parle avant la bouche (grammaire du projet) :
+	--le sursaut physique, puis seulement la pensee. Le heros dort, donc
+	--on leve sa pose le temps du sursaut avant de le rendormir.
+	pcall(function() SOUND:PlayBattleSE('EVT_Emote_Exclaim_2') end)
+	pcall(function()
+		GROUND:CharEndAnim(hero)
+		GROUND:CharSetEmote(hero, "shock", 1)
+		GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 3, 20))
+	end)
+	GAME:WaitFrames(30)
+
+	UI:ResetSpeaker(false)
+	UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_155']))
+	GAME:WaitFrames(25)
+	--L'OUBLI IMMEDIAT — le coeur du dispositif de Rouge/Bleu.
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_156']))
+	GAME:WaitFrames(20)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_157']))
+	UI:SetCenter(false)
+	UI:ResetSpeaker()
+	GAME:WaitFrames(30)
+
+	--Il se rendort. Le trouble n'est pas resolu : il ressurgira au matin
+	--(section 11) et sur le chemin du nord (section 15).
+	pcall(function()
+		GROUND:CharSetEmote(hero, "", 0)
+		GROUND:CharSetAnim(hero, "EventSleep", true)
+	end)
+	GAME:WaitFrames(60)
 
 	---------------------------------------------------------------
 	-- 11. LE MATIN — reveil progressif, heros deboussole
@@ -896,6 +1124,22 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	pcall(function() VoiceVisions.Nausea(hero, 2) end)
 	pcall(function() VoiceVisions.Recover(hero) end)
 	GAME:WaitFrames(10)
+
+	--CE QU'IL RESTE DU REVE. Le heros tente de rattraper l'image et n'y
+	--arrive pas : deux pensees, en voix off centree (il ne parle a
+	--personne). C'est la reprise du dispositif de Rouge/Bleu — le reve
+	--s'efface a la seconde ou on se reveille, et seul le SENTIMENT reste.
+	--Ces deux repliques portaient deja ce role dans la version
+	--precedente ; elles reviennent ici, a leur vraie place.
+	UI:ResetSpeaker(false)
+	UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_085']))
+	GAME:WaitFrames(20)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_086']))
+	UI:SetCenter(false)
+	UI:ResetSpeaker()
+	GAME:WaitFrames(25)
+
 	GeneralFunctions.EmoteAndPause(partner, "Question", true)
 	GROUND:CharTurnToCharAnimated(partner, hero, 4)
 	UI:SetSpeaker(partner)
@@ -1297,9 +1541,40 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	TASK:JoinCoroutines({coro1, coro2, coro3})
 	GAME:WaitFrames(15)
 
-	--Le heros fixe le sommet ; le partenaire le rattrape.
+	--Le heros fixe le sommet — et LA VOIX REVIENT, en plein jour, une
+	--seule phrase. C'est le rappel du reve que le heros a deja oublie :
+	--le joueur, lui, reconnait la formule (« petit echo ») entendue cette
+	--nuit. Personne d'autre ne l'entend, et le heros ne la commente pas.
+	--
+	--Ces cinq cles (MWE5_080..084) portaient l'ancienne version du reve.
+	--Celui-ci a ete refondu sur la structure de pmd-red (cles 130+), mais
+	--leur TEXTE etait juste : on ne le jette pas, on le rend a l'endroit
+	--ou il fonctionne le mieux — la montagne en vue, le heros seul.
 	GROUND:EntTurn(hero, Direction.Up)
 	GAME:WaitFrames(30)
+
+	local vc1 = TASK:BranchCoroutine(function()
+		SOUND:FadeOutBGM(45)
+	end)
+	local vc2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(15)
+		pcall(function() VoiceVisions.Nausea(hero, 1) end)
+	end)
+	TASK:JoinCoroutines({vc1, vc2})
+	GAME:WaitFrames(20)
+
+	UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_082']))
+	GAME:WaitFrames(25)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_084']))
+	UI:ResetSpeaker()
+	GAME:WaitFrames(30)
+
+	pcall(function() VoiceVisions.Recover(hero) end)
+	SOUND:PlayBGM('Sky Peak Prairie.ogg', true)
+	GAME:WaitFrames(20)
+
+	--Le partenaire n'a RIEN entendu. Il a vu son ami s'arreter net.
 	GeneralFunctions.EmoteAndPause(partner, "Question", true)
 	UI:SetSpeaker(partner)
 	UI:SetSpeakerEmotion("Worried")

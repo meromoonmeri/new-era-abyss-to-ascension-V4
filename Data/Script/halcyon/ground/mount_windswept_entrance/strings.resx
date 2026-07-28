@@ -284,12 +284,6 @@
   <data name="MWE5_075" xml:space="preserve">
     <value>But we crossed the steppe.[pause=10] We crossed the tunnel.[pause=0] Tomorrow, we write the ending together.</value>
   </data>
-  <data name="MWE5_080" xml:space="preserve">
-    <value>...You are here again.[pause=30] Again.</value>
-  </data>
-  <data name="MWE5_081" xml:space="preserve">
-    <value>The mountain has lit up.[pause=20] Like last time.[pause=30] You have seen it burn before...[pause=20] haven't you?</value>
-  </data>
   <data name="MWE5_082" xml:space="preserve">
     <value>Climb.[pause=20] The wind remembers you,[pause=10] even if you remember nothing.</value>
   </data>
@@ -415,5 +409,89 @@
   </data>
   <data name="MWE5_117" xml:space="preserve">
     <value>...Yes, Master.[pause=20] But one day you will tell me why.</value>
+  </data>
+  <data name="MWE5_130" xml:space="preserve">
+    <value>......</value>
+  </data>
+  <data name="MWE5_131" xml:space="preserve">
+    <value>............</value>
+  </data>
+  <data name="MWE5_132" xml:space="preserve">
+    <value>..................</value>
+  </data>
+  <data name="MWE5_133" xml:space="preserve">
+    <value>Where...[pause=20]</value>
+  </data>
+  <data name="MWE5_134" xml:space="preserve">
+    <value>Where am I?</value>
+  </data>
+  <data name="MWE5_135" xml:space="preserve">
+    <value>Maybe...[pause=30] is this a dream?</value>
+  </data>
+  <data name="MWE5_136" xml:space="preserve">
+    <value>...Oh?[pause=30] There's someone here.</value>
+  </data>
+  <data name="MWE5_137" xml:space="preserve">
+    <value>Who is it...?[pause=30] Someone I know?</value>
+  </data>
+  <data name="MWE5_138" xml:space="preserve">
+    <value>......[pause=30] No.[pause=20] I can't remember.</value>
+  </data>
+  <data name="MWE5_139" xml:space="preserve">
+    <value>...There you are.</value>
+  </data>
+  <data name="MWE5_140" xml:space="preserve">
+    <value>You came all this way.[pause=30] Like last time.</value>
+  </data>
+  <data name="MWE5_141" xml:space="preserve">
+    <value>...Last time?[pause=30] Have we met before?</value>
+  </data>
+  <data name="MWE5_142" xml:space="preserve">
+    <value>You don't remember.[pause=20] That's how it should be.[pause=30] It was asked for.</value>
+  </data>
+  <data name="MWE5_143" xml:space="preserve">
+    <value>Asked for...?[pause=20] By whom?</value>
+  </data>
+  <data name="MWE5_144" xml:space="preserve">
+    <value>... By you.</value>
+  </data>
+  <data name="MWE5_145" xml:space="preserve">
+    <value>Why do you come into my dreams?</value>
+  </data>
+  <data name="MWE5_146" xml:space="preserve">
+    <value>Because this is the only place where you can still hear me.</value>
+  </data>
+  <data name="MWE5_147" xml:space="preserve">
+    <value>By day there is the wind.[pause=20] The noise.[pause=20] The others.[pause=30] At night, only you remain.</value>
+  </data>
+  <data name="MWE5_148" xml:space="preserve">
+    <value>Tomorrow you will climb.</value>
+  </data>
+  <data name="MWE5_149" xml:space="preserve">
+    <value>You have climbed a height like that before.[pause=30] Not with this body.</value>
+  </data>
+  <data name="MWE5_150" xml:space="preserve">
+    <value>...Not with this body?[pause=30] What does that mean?</value>
+  </data>
+  <data name="MWE5_151" xml:space="preserve">
+    <value>The wind up there will know you.[pause=30] Don't be afraid when it does.</value>
+  </data>
+  <data name="MWE5_152" xml:space="preserve">
+    <value>......[pause=30] Day is about to break.</value>
+  </data>
+  <data name="MWE5_153" xml:space="preserve">
+    <value>Wait —[pause=20] I didn't understand any of it.[pause=30] Stay.</value>
+  </data>
+  <data name="MWE5_154" xml:space="preserve">
+    <value>We will meet again.[pause=30] We always meet again.</value>
+  </data>
+  <data name="MWE5_155" xml:space="preserve">
+    <value>(...!)</value>
+  </data>
+  <data name="MWE5_156" xml:space="preserve">
+    <value>(A dream?[pause=30] I can't even remember it any more.)</value>
+  </data>
+  <data name="MWE5_157" xml:space="preserve">
+    <value>(There was someone.[pause=20] Someone speaking to me...[pause=30] and that's all that's left.)</value>
   </data>
 </root>
