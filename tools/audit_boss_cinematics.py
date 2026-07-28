@@ -106,6 +106,27 @@ def score(d):
 def main():
     base = os.path.join(RACINE, 'Data/Script/halcyon/ground')
     scenes = []
+    # Modules GLOBAUX d'apres-boss : ils portent la scene pour toute une
+    # famille et sont appeles depuis zone/. Sans eux la mesure est fausse.
+    globaux = {
+        'VeilleurArc.lua': ('reseau', 'VeilleurArc (adieux des 10 Veilleurs)'),
+        'ChapterAftermath.lua': ('histoire', 'ChapterAftermath (ch8-10)'),
+        'DazzlingArc.lua': ('histoire', 'DazzlingArc (ch6)'),
+    }
+    for fichier, (fam, label) in globaux.items():
+        gp = os.path.join(RACINE, 'Data/Script/halcyon', fichier)
+        if not os.path.exists(gp):
+            continue
+        d = analyse(gp)
+        # Dans ces modules les repliques passent par des helpers say()/narrate().
+        src = decommente(open(gp, encoding='utf-8').read())
+        d['boss'] = len(re.findall(r'^\s*say\(', src, re.M))
+        d['dialogues'] = len(re.findall(r'^\s*(?:say|narrate|think|voice)\(', src, re.M))
+        d['apres'] = d['boss']
+        d['nom'], d['fam'] = label, fam
+        d['score'] = score(d)
+        scenes.append(d)
+
     for path in sorted(glob.glob(os.path.join(base, '*', '*.lua'))):
         brut = open(path, encoding='utf-8', errors='replace').read()
         # On ne retient que les fichiers qui lancent VRAIMENT un combat de

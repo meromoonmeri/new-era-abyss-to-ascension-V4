@@ -283,6 +283,47 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
   -- "REGIGIGAS ! Le Titan des Ruines !"
 
   GAME:WaitFrames(30)
+
+  -- ================= LE TITAN PARLE =================
+  -- Audit tools/audit_boss_cinematics.py : cloven_ruins_boss etait le SEUL
+  -- boss d'histoire entierement MUET. 37 repliques dans la scene, aucune du
+  -- boss. Le partenaire criait son nom et on enchainait sur le combat.
+  --
+  -- Registre choisi : UNE SENTINELLE QUI N'A PLUS D'ORDRES. Il ne hait pas
+  -- (Zarude), il ne teste pas (la harde), il ne compte pas (les Sentinelles
+  -- du Pic) : il EXECUTE une consigne dont il a oublie l'auteur. Diction
+  -- hachee, presque militaire — un rapport, pas une conversation.
+  --
+  -- C'est le boss le plus proche du twist des Coeurs, donc celui qui doit
+  -- en dire le MOINS. Ici il ne pose que le cadre ; la question qui derange
+  -- est reservee a l'apres-boss.
+  GAME:MoveCamera(144, 138, 40, false)
+  UI:SetSpeaker(regigigas)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_045']))
+  -- "...Halte."
+  GAME:WaitFrames(20)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_046']))
+  -- "Designation : sentinelle. Poste : cette salle. Duree : inconnue."
+  GAME:WaitFrames(22)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_047']))
+  -- "On m'a dit de tenir jusqu'a la releve. Personne n'est venu."
+  GAME:WaitFrames(25)
+  -- Il s'adresse au duo : cadre commun.
+  GAME:MoveCamera(144, 176, 40, false)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_048']))
+  -- "Petits. Etes-vous la releve ?"
+  GAME:WaitFrames(25)
+  -- Il repond lui-meme. Personne n'a le temps de placer un mot : c'est ce
+  -- qui montre qu'il ne dialogue pas vraiment.
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_049']))
+  -- "Non. La releve n'arrive pas en armes."
+  GAME:WaitFrames(20)
+  pcall(function() GROUND:CharSetEmote(regigigas, "angry", 1) end)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_050']))
+  -- "Alors la consigne tient. Rien ne sort de cette salle."
+  GAME:WaitFrames(25)
+  pcall(function() GROUND:CharSetEmote(regigigas, "", 0) end)
+
   UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_008']))
   -- "Il protège ce qui reste du Cœur. Si tu le vaines, le Cœur est à toi."
@@ -389,6 +430,78 @@ local function DefeatedBossBody()
   -- "Le Cœur... il bat plus fort maintenant."
 
   GAME:WaitFrames(20)
+
+  -- ================= LE TITAN N'EST PAS VAINCU : IL EST RELEVE ==========
+  -- Renversement du sens du combat. Le duo croit avoir gagne ; il vient en
+  -- realite de liberer un veilleur de sa consigne. Cascade d'animations
+  -- (patron pmd-red) : le colosse se redresse a demi pour parler, puis
+  -- retombe. Il ne se releve jamais completement.
+  pcall(function()
+    GROUND:CharSetAnim(regigigas, "Hurt", true)
+    GAME:WaitFrames(25)
+    GROUND:CharSetAnim(regigigas, "Idle", true)
+  end)
+  GAME:MoveCamera(144, 150, 40, false)
+  GAME:WaitFrames(15)
+
+  UI:SetSpeaker(regigigas)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_051']))
+  -- "...Consigne. Rompue."
+  GAME:WaitFrames(20)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_052']))
+  -- "Sentinelle. Relevee."
+  GAME:WaitFrames(25)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_053']))
+  -- "Je ne me souviens pas de qui a donne la consigne. Je me souviens
+  --  d'avoir obei."
+  GAME:WaitFrames(22)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_054']))
+  -- "C'est tout ce qui reste de moi. L'obeissance."
+  GAME:WaitFrames(25)
+
+  -- La question qui derange. Camera serree : c'est LA phrase de la scene.
+  GAME:MoveCamera(144, 140, 40, false)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_055']))
+  -- "Prenez-le. Mais repondez-moi une chose, petits."
+  GAME:WaitFrames(25)
+  SOUND:PlayBattleSE('EVT_Emote_Shock_2')
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_056']))
+  -- "Si nous devions le proteger... pourquoi m'a-t-on poste FACE a lui ?"
+  GAME:WaitFrames(30)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_057']))
+  -- "Un garde fait face a ce qu'il tient dehors. J'ai fait face a ce Coeur
+  --  pendant mille ans."
+  GAME:WaitFrames(35)
+
+  -- Le duo encaisse. Le partenaire n'a pas de reponse : c'est voulu.
+  GAME:MoveCamera(136, 200, 40, false)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_059']))
+  -- "Face a lui...[pause=25] Mais alors ce n'etait pas une salle du tresor."
+  GAME:WaitFrames(25)
+
+  GAME:MoveCamera(144, 150, 40, false)
+  UI:SetSpeaker(regigigas)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_058']))
+  -- "Partez. Avant que je me souvienne du reste de la consigne."
+  GAME:WaitFrames(30)
+
+  -- Il retombe. Il ne disparait pas : il reste la, releve de sa faction.
+  pcall(function()
+    GROUND:CharSetAnim(regigigas, "EventSleep", true)
+  end)
+  BossFX.ShakeScreen(4, 20)
+  GAME:WaitFrames(25)
+  UI:ResetSpeaker(false)
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_060']))
+  -- "Le colosse se rassoit dans la poussiere,[pause=20] tourne vers le Coeur.
+  --  [pause=25] Comme il l'a toujours ete."
+  UI:SetCenter(false)
+  GAME:WaitFrames(25)
+
+  GAME:MoveCamera(136, 200, 40, false)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CRB_014']), "Worried")
   -- "(Cette voix... elle nous a guidés jusqu'ici exprès.)"
 
