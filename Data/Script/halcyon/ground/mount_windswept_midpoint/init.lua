@@ -153,7 +153,7 @@ end
 function mount_windswept_midpoint.Teammate2_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   if SV.ChapterProgression.Chapter == 5 then
-    mount_windswept_midpoint_ch_5.Hyko_Action(chara, activator)
+    mount_windswept_midpoint_ch_5.Ganlon_Action(chara, activator)
   else
     GeneralFunctions.GroundInteract(activator, chara)
   end
@@ -162,7 +162,7 @@ end
 function mount_windswept_midpoint.Teammate3_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   if SV.ChapterProgression.Chapter == 5 then
-    mount_windswept_midpoint_ch_5.Almotz_Action(chara, activator)
+    mount_windswept_midpoint_ch_5.Shuca_Action(chara, activator)
   else
     GeneralFunctions.GroundInteract(activator, chara)
   end

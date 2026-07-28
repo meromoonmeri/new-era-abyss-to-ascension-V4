@@ -87,17 +87,17 @@ end
 -- Mise en place des retours
 --------------------------------------------------------------------
 function mount_windswept_midpoint_ch_5.SetupGround()
-  local hyko = CH('Teammate2')
-  local almotz = CH('Teammate3')
+  local ganlon = CH('Teammate2')
+  local shuca = CH('Teammate3')
 
   if SV.Chapter5.MountMiniBossLost or SV.Chapter5.MountGuardianLost then
     -- Apres une defaite : regroupes pres du rocher de Kangourex.
-    if almotz ~= nil then GROUND:TeleportTo(almotz, 950, 390, Direction.Left) end
-    if hyko ~= nil then GROUND:TeleportTo(hyko, 1010, 390, Direction.Left) end
+    if shuca ~= nil then GROUND:TeleportTo(shuca, 950, 390, Direction.Left) end
+    if ganlon ~= nil then GROUND:TeleportTo(ganlon, 1010, 390, Direction.Left) end
   else
     -- Repos ordinaire : Almotz pres d'un feu de camp, Hyko en poste au bord est.
-    if almotz ~= nil then GROUND:TeleportTo(almotz, 340, 460, Direction.Up) end
-    if hyko ~= nil then GROUND:TeleportTo(hyko, 1060, 360, Direction.Left) end
+    if shuca ~= nil then GROUND:TeleportTo(shuca, 340, 460, Direction.Up) end
+    if ganlon ~= nil then GROUND:TeleportTo(ganlon, 1060, 360, Direction.Left) end
   end
 
   -- Cinematique contemplative du Fragment (une seule fois, apres le mini-boss).
@@ -152,30 +152,26 @@ end
 --------------------------------------------------------------------
 -- Hyko (Growlithe)
 --------------------------------------------------------------------
-function mount_windswept_midpoint_ch_5.Hyko_Action(chara, activator)
+function mount_windswept_midpoint_ch_5.Ganlon_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   if chara == nil then return end
 
   if SV.Chapter5.MountGuardianDefeated then
-    GeneralFunctions.StartConversation(chara, "Le passage vers le sommet est ouvert,[pause=10] wouf ![pause=0] Je l'ai consigné en triple exemplaire.", "Happy")
-    UI:SetSpeakerEmotion("Normal")
-    UI:WaitShowDialogue("Un pour le Maître de Guilde,[pause=10] un pour les archives,[pause=10] un pour...[pause=0] bon,[pause=10] le troisième est pour moi.[pause=0] Souvenir personnel.")
-  elseif SV.Chapter5.MountGuardianLost or SV.Chapter5.MountMiniBossLost then
-    GeneralFunctions.StartConversation(chara, "Ne perdons pas espoir,[pause=10] wouf ![pause=0] Un revers n'est pas une déroute !", "Determined")
-    UI:SetSpeakerEmotion("Worried")
-    UI:WaitShowDialogue("...C'est ce que dit le manuel,[pause=10] en tout cas.[pause=0] Page quarante-deux.[pause=0] Je l'ai relu trois fois cette nuit pour y croire.")
-    UI:SetSpeakerEmotion("Normal")
-    UI:WaitShowDialogue("Le manuel a toujours raison.[pause=0] Préparons-nous correctement,[pause=10] et le manuel gagnera.")
-  elseif SV.Chapter5.MountMiniBossDefeated then
-    GeneralFunctions.StartConversation(chara, "Wouf...[pause=0] Vous sentez cette odeur ?[pause=0] L'air du sommet est différent.[pause=0] Plus...[pause=10] chargé.", "Worried")
-    UI:WaitShowDialogue("Mon flair ne se trompe jamais.[pause=0] Enfin,[pause=10] rarement.[pause=0] Une fois,[pause=10] j'ai confondu un Chartor avec un rocher chaud,[pause=10] mais c'était un cas limite.")
-    UI:SetSpeakerEmotion("Normal")
-    UI:WaitShowDialogue("Ce que je veux dire,[pause=10] c'est :[pause=10] restez groupés là-haut.[pause=0] Quoi qu'il y ait au sommet,[pause=10] on l'affrontera ensemble.")
-  else
-    GeneralFunctions.StartConversation(chara, "Poste d'observation établi,[pause=10] wouf ![pause=0] De là,[pause=10] je vois toute la sortie est du canyon.", "Normal")
-    UI:WaitShowDialogue("Ces barrières et ces tentes sont solides.[pause=0] Du travail de guilde,[pause=10] du vrai.[pause=0] On reconnaît les nœuds réglementaires.")
+    GeneralFunctions.StartConversation(chara, "Le passage vers le sommet est ouvert.[pause=0] Ne me remerciez pas,[pause=10] j'ai juste tapé plus fort.", "Normal")
     UI:SetSpeakerEmotion("Happy")
-    UI:WaitShowDialogue("Un jour,[pause=10] c'est moi qui formerai les recrues aux nœuds réglementaires.[pause=0] C'est mon deuxième rêve.[pause=0] Le premier étant d'avoir ma propre patrouille,[pause=10] évidemment.")
+    UI:WaitShowDialogue("...Bon.[pause=20] On a bien tapé tous les quatre.[pause=0] Ne le répétez pas,[pause=10] ça ruinerait ma réputation.")
+  elseif SV.Chapter5.MountGuardianLost or SV.Chapter5.MountMiniBossLost then
+    GeneralFunctions.StartConversation(chara, "Un revers.[pause=20] Un seul.[pause=0] Ce piaf ne m'aura pas deux fois.", "Determined")
+    UI:SetSpeakerEmotion("Normal")
+    UI:WaitShowDialogue("Reposez-vous au lieu de me regarder.[pause=0] La montagne ne retient que ceux qui remontent.")
+  elseif SV.Chapter5.MountMiniBossDefeated then
+    GeneralFunctions.StartConversation(chara, "L'air du sommet est différent.[pause=0] Plus...[pause=10] chargé.[pause=0] Même mon crâne le sent.", "Worried")
+    UI:SetSpeakerEmotion("Normal")
+    UI:WaitShowDialogue("Restez groupés là-haut.[pause=0] Et gardez un œil sur Shuca.[pause=10] ...Quoi ?[pause=0] C'est une consigne tactique.")
+  else
+    GeneralFunctions.StartConversation(chara, "Ce canyon coupe le vent.[pause=0] Bon choix de camp.[pause=10] J'aurais fait pareil.", "Normal")
+    UI:SetSpeakerEmotion("Happy")
+    UI:WaitShowDialogue("Profitez du calme.[pause=0] Là-haut,[pause=10] c'est moi qui ouvrirai la marche.")
   end
   GeneralFunctions.EndConversation(chara)
 end
@@ -183,28 +179,26 @@ end
 --------------------------------------------------------------------
 -- Almotz (Zigzaton)
 --------------------------------------------------------------------
-function mount_windswept_midpoint_ch_5.Almotz_Action(chara, activator)
+function mount_windswept_midpoint_ch_5.Shuca_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   if chara == nil then return end
 
   if SV.Chapter5.MountGuardianDefeated then
-    GeneralFunctions.StartConversation(chara, "Le sommet...[pause=0] on y est presque ![pause=0] J'ai le ventre qui fait des nœuds,[pause=10] et pas de faim pour une fois.", "Happy")
+    GeneralFunctions.StartConversation(chara, "Le sommet...[pause=0] on y est presque ![pause=0] J'ai le cœur qui bourdonne comme un jour d'orage.", "Happy")
     UI:SetSpeakerEmotion("Normal")
-    UI:WaitShowDialogue("Quand tout ça sera fini,[pause=10] il faudra que quelqu'un m'explique ce qu'on est vraiment venus chercher ici.[pause=0] Parce que j'ai suivi,[pause=10] hein,[pause=10] mais j'ai pas tout compris.")
+    UI:WaitShowDialogue("Ganlon dit que l'émotion fait rater les attaques.[pause=0] Alors je respire.[pause=10] Très fort.[pause=0] Ça s'entend ?")
   elseif SV.Chapter5.MountGuardianLost or SV.Chapter5.MountMiniBossLost then
     GeneralFunctions.StartConversation(chara, "Brrr...[pause=0] Entre le vent et les plumes d'acier,[pause=10] je ne sais pas ce qui pique le plus.", "Pain")
     UI:SetSpeakerEmotion("Determined")
-    UI:WaitShowDialogue("Mais j'abandonne pas.[pause=0] Chez nous,[pause=10] on dit :[pause=10] «[pause=5] Le champ ne se laboure pas tout seul.[pause=5] »[pause=0] Bon,[pause=10] ça n'a rien à voir,[pause=10] mais ça me motive.")
+    UI:WaitShowDialogue("Mais j'abandonne pas.[pause=0] Ganlon non plus.[pause=0] Alors on remonte,[pause=10] et cette fois c'est le piaf qui redescendra.")
   elseif SV.Chapter5.MountMiniBossDefeated then
     GeneralFunctions.StartConversation(chara, "Vous avez vu la vue,[pause=10] depuis la crête ?[pause=0] On voyait la steppe,[pause=10] le tunnel,[pause=10] et même Metano tout au fond !", "Happy")
-    UI:WaitShowDialogue("Ma maison est quelque part là-dedans.[pause=0] Toute petite,[pause=10] d'ici.[pause=0] Toute ma famille dans un point minuscule.")
     UI:SetSpeakerEmotion("Normal")
-    UI:WaitShowDialogue("C'est drôle...[pause=0] plus on monte,[pause=10] plus j'ai l'impression de comprendre pourquoi je suis parti.[pause=0] Pour que le point minuscule reste tranquille.")
+    UI:WaitShowDialogue("C'est ma première vraie expédition.[pause=0] Là-haut,[pause=10] je veux voir le monde entier d'un coup.[pause=0] Tout entier.")
   else
     GeneralFunctions.StartConversation(chara, "Ils ont pensé à tout ici :[pause=10] des feux,[pause=10] des réserves,[pause=10] des tentes...[pause=0] Il ne manque qu'une marmite !", "Normal")
-    UI:WaitShowDialogue("J'ai vérifié dans les pots,[pause=10] là-bas.[pause=0] Vides.[pause=0] TOUS vides.[pause=0] Quel gâchis de pots.")
     UI:SetSpeakerEmotion("Happy")
-    UI:WaitShowDialogue("Heureusement,[pause=10] j'ai gardé trois Baies de secours.[pause=0] Enfin...[pause=10] deux.[pause=0] Enfin...[pause=10] vous en voulez une ?[pause=0] Dépêchez-vous avant que je change d'avis.")
+    UI:WaitShowDialogue("J'ai vérifié mes provisions trois fois.[pause=0] Quatre,[pause=10] avec celle-ci.[pause=0] Rin serait fière de moi !")
   end
   GeneralFunctions.EndConversation(chara)
 end
@@ -346,6 +340,8 @@ function mount_windswept_midpoint_ch_5.FallenFragmentScene()
   GAME:CutsceneMode(false)
   AI:EnableCharacterAI(partner)
   AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
+  --La camera revient au joueur (forme attestee : searing_tunnel:1480).
+  GAME:MoveCamera(0, 0, 1, true)
 end
 
 --------------------------------------------------------------------
@@ -357,9 +353,9 @@ end
 function mount_windswept_midpoint_ch_5.SummitVigilScene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
-  local hyko = CH('Teammate2')
-  local almotz = CH('Teammate3')
-  if hyko == nil or almotz == nil then GAME:FadeIn(20) return end
+  local ganlon = CH('Teammate2')
+  local shuca = CH('Teammate3')
+  if ganlon == nil or shuca == nil then GAME:FadeIn(20) return end
 
   GAME:CutsceneMode(true)
   AI:DisableCharacterAI(partner)
@@ -372,8 +368,8 @@ function mount_windswept_midpoint_ch_5.SummitVigilScene()
 
   GROUND:TeleportTo(hero, 804, 340, Direction.DownRight)
   GROUND:TeleportTo(partner, 868, 340, Direction.DownLeft)
-  GROUND:TeleportTo(hyko, 804, 416, Direction.UpRight)
-  GROUND:TeleportTo(almotz, 868, 416, Direction.UpLeft)
+  GROUND:TeleportTo(ganlon, 804, 416, Direction.UpRight)
+  GROUND:TeleportTo(shuca, 868, 416, Direction.UpLeft)
   GAME:MoveCamera(836, 376, 1, false)
 
   GAME:FadeIn(60)
@@ -385,19 +381,18 @@ function mount_windswept_midpoint_ch_5.SummitVigilScene()
 
   GAME:WaitFrames(20)
 
-  UI:SetSpeaker(almotz)
+  UI:SetSpeaker(shuca)
   UI:SetSpeakerEmotion("Normal")
-  UI:WaitShowDialogue("Vous savez pourquoi je suis venu,[pause=10] moi ?[pause=0] Pas pour la gloire.[pause=0] Pas pour la lumière.[pause=0] Pour la prime de mission.")
+  UI:WaitShowDialogue("Vous savez pourquoi je suis venue,[pause=10] moi ?[pause=0] Pour voir si je tenais la route.[pause=0] Ma première vraie expédition.")
   UI:SetSpeakerEmotion("Happy")
-  UI:WaitShowDialogue("...C'est ce que je raconte,[pause=10] en tout cas.[pause=0] La vérité,[pause=10] c'est que je voulais savoir si le petit gars de la ferme pouvait faire ça.[pause=0] Et il peut.[pause=0] On dirait bien qu'il peut.")
+  UI:WaitShowDialogue("Et demain je serai au sommet.[pause=0] Moi.[pause=0] Il faudra bien que quelqu'un me pince.")
 
-  UI:SetSpeaker(hyko)
+  UI:SetSpeaker(ganlon)
   UI:SetSpeakerEmotion("Normal")
-  UI:WaitShowDialogue("Moi,[pause=10] je suis venu parce que le Maître de Guilde l'a demandé,[pause=10] wouf.[pause=0] Un garde suit son chef.[pause=0] C'est la procédure.")
+  UI:WaitShowDialogue("Moi,[pause=10] on m'a dit «[pause=5] cordée du sommet[pause=5] »,[pause=10] j'ai dit oui.[pause=0] Fin de l'histoire.")
   GAME:WaitFrames(15)
   UI:SetSpeakerEmotion("Worried")
-  UI:WaitShowDialogue("...Non.[pause=0] Ce n'est pas toute la vérité non plus.[pause=0] Je suis venu parce que le Maître de Guilde a PEUR.[pause=0] Je le vois.[pause=0] Depuis le départ.")
-  UI:WaitShowDialogue("Et un garde ne laisse pas son chef porter sa peur tout seul.[pause=0] Ça,[pause=10] ce n'est écrit dans aucun manuel.[pause=0] Mais ça devrait,[pause=10] wouf.")
+  UI:WaitShowDialogue("...Non.[pause=0] Pas toute l'histoire.[pause=0] Je voulais voir si Shuca tiendrait.[pause=0] Elle tient.[pause=0] Mieux que moi à son âge.")
 
   GAME:WaitFrames(30)
 
@@ -414,13 +409,13 @@ function mount_windswept_midpoint_ch_5.SummitVigilScene()
   UI:SetSpeakerEmotion("Determined")
   UI:WaitShowDialogue("Demain,[pause=10] on monte.[pause=0] Tous les quatre.[pause=0] Et quoi que la lumière attende...[pause=10] elle nous trouvera prêts.")
 
-  UI:SetSpeaker(almotz)
+  UI:SetSpeaker(shuca)
   UI:SetSpeakerEmotion("Happy")
-  UI:WaitShowDialogue("Alors bonne nuit,[pause=10] l'équipe.[pause=0] Et...[pause=10] merci.[pause=0] Pour tout ce chemin.[pause=0] Voilà.[pause=0] C'est dit.[pause=0] Le premier qui en reparle demain aura affaire à moi.")
+  UI:WaitShowDialogue("Alors bonne nuit,[pause=10] l'équipe.[pause=0] Et...[pause=10] merci pour tout ce chemin.[pause=0] Voilà,[pause=10] c'est dit !")
 
-  UI:SetSpeaker(hyko)
+  UI:SetSpeaker(ganlon)
   UI:SetSpeakerEmotion("Happy")
-  UI:WaitShowDialogue("Consigné dans le rapport,[pause=10] wouf.[pause=0] «[pause=5] Vingt-deux heures :[pause=10] Almotz a dit merci.[pause=5] »[pause=0] C'est officiel maintenant.[pause=0] Impossible d'y échapper.")
+  UI:WaitShowDialogue("Hmph.[pause=20] «[pause=5] Shuca a dit merci.[pause=5] »[pause=0] Je le répéterai à toute la guilde.[pause=0] Chaque jour.")
 
   GAME:WaitFrames(40)
   SOUND:FadeOutBGM(40)
@@ -433,6 +428,8 @@ function mount_windswept_midpoint_ch_5.SummitVigilScene()
   GAME:CutsceneMode(false)
   AI:EnableCharacterAI(partner)
   AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
+  --La camera revient au joueur (forme attestee : searing_tunnel:1480).
+  GAME:MoveCamera(0, 0, 1, true)
   GAME:FadeIn(40)
 end
 
@@ -445,8 +442,8 @@ end
 function mount_windswept_midpoint_ch_5.WipedCutscene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
-  local hyko = CH('Teammate2')
-  local almotz = CH('Teammate3')
+  local ganlon = CH('Teammate2')
+  local shuca = CH('Teammate3')
 
   GAME:CutsceneMode(true)
   SOUND:StopBGM()
@@ -460,8 +457,8 @@ function mount_windswept_midpoint_ch_5.WipedCutscene()
   GROUND:CharSetAnim(hero, "EventSleep", true)
   if partner ~= nil then GROUND:CharSetAnim(partner, "EventSleep", true) end
   -- Hyko et Almotz ont porté le duo jusqu'au camp : ils veillent en contrebas.
-  if hyko ~= nil then GROUND:TeleportTo(hyko, 920, 400, Direction.UpRight) end
-  if almotz ~= nil then GROUND:TeleportTo(almotz, 1016, 400, Direction.UpLeft) end
+  if ganlon ~= nil then GROUND:TeleportTo(ganlon, 920, 400, Direction.UpRight) end
+  if shuca ~= nil then GROUND:TeleportTo(shuca, 1016, 400, Direction.UpLeft) end
   GAME:MoveCamera(976, 368, 1, false)
 
   GAME:FadeIn(60)
@@ -481,10 +478,10 @@ function mount_windswept_midpoint_ch_5.WipedCutscene()
     end end)
   local coro3 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(30)
-    if hyko ~= nil then GeneralFunctions.EmoteAndPause(hyko, "Exclaim", false) end end)
+    if ganlon ~= nil then GeneralFunctions.EmoteAndPause(ganlon, "Exclaim", false) end end)
   local coro4 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(44)
-    if almotz ~= nil then GROUND:CharAnimateTurnTo(almotz, Direction.Up, 4) end end)
+    if shuca ~= nil then GROUND:CharAnimateTurnTo(shuca, Direction.Up, 4) end end)
   TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
   GAME:WaitFrames(30)
 
@@ -493,8 +490,8 @@ function mount_windswept_midpoint_ch_5.WipedCutscene()
   UI:WaitShowDialogue("Olala...[pause=20] c'était dur.[pause=10] C'était vraiment, VRAIMENT dur.")
   GAME:WaitFrames(14)
 
-  if almotz ~= nil then
-    UI:SetSpeaker(almotz)
+  if shuca ~= nil then
+    UI:SetSpeaker(shuca)
     UI:SetSpeakerEmotion("Worried")
     UI:WaitShowDialogue("Vous étiez à deux doigts de passer par-dessus la corniche.[pause=20] Deux doigts.[pause=10] J'en tremble encore des moustaches.")
     GAME:WaitFrames(10)
@@ -505,8 +502,8 @@ function mount_windswept_midpoint_ch_5.WipedCutscene()
   UI:WaitShowDialogue("Les Crêtes...[pause=10] le vent là-haut ne souffle pas, il MORD.[pause=20] Une rafale nous a soulevés comme des feuilles.")
   GAME:WaitFrames(14)
 
-  if hyko ~= nil then
-    UI:SetSpeaker(hyko)
+  if ganlon ~= nil then
+    UI:SetSpeaker(ganlon)
     UI:SetSpeakerEmotion("Normal")
     UI:WaitShowDialogue("Le camp de base tient bon,[pause=10] wouf.[pause=0] Tant que les feux brûlent,[pause=10] personne ne gèlera sous ma garde.")
     GAME:WaitFrames(10)

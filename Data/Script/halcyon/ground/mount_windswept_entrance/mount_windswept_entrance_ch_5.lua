@@ -941,7 +941,7 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 
 	--Cordee d'ouverture : Kino (lecture du donjon), Reinier (lecture
 	--du terrain), Ganlon (le rythme). Chacun reagit a l'appel.
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_094'], t.kino:GetDisplayName(), t.reinier:GetDisplayName(), t.ganlon:GetDisplayName()))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_094'], t.kino:GetDisplayName(), t.reinier:GetDisplayName(), t.almotz:GetDisplayName()))
 	coro1 = TASK:BranchCoroutine(function()
 		GROUND:CharSetEmote(t.kino, "exclaim", 1)
 		GeneralFunctions.Hop(t.kino, "Idle", 8, 16, 0, false)
@@ -952,7 +952,7 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	end)
 	coro3 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(12)
-		GROUND:CharSetEmote(t.ganlon, "happy", 1)
+		GROUND:CharSetEmote(t.almotz, "notice", 1)
 	end)
 	TASK:JoinCoroutines({coro1, coro2, coro3})
 	UI:SetSpeaker(t.kino)
@@ -964,7 +964,7 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--arrieres, et l'experience de sa premiere expedition encadree).
 	UI:SetSpeaker(t.penticus)
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_096'], t.rin:GetDisplayName(), t.coco:GetDisplayName(), t.shuca:GetDisplayName()))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_096'], t.rin:GetDisplayName(), t.coco:GetDisplayName()))
 	coro1 = TASK:BranchCoroutine(function()
 		GROUND:CharSetEmote(t.rin, "happy", 1)
 	end)
@@ -972,26 +972,21 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		GAME:WaitFrames(8)
 		GROUND:CharSetEmote(t.coco, "glowing", 1)
 	end)
-	coro3 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(12)
-		GROUND:CharSetEmote(t.shuca, "happy", 1)
-		GeneralFunctions.Hop(t.shuca, "Idle", 8, 16, 0, false)
-	end)
-	TASK:JoinCoroutines({coro1, coro2, coro3})
+	TASK:JoinCoroutines({coro1, coro2})
 	UI:SetSpeaker(t.coco)
 	UI:SetSpeakerEmotion("Joyous")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_097']))
 	GAME:WaitFrames(15)
 
-	--Cordee du sommet : le duo, Hyko et Almotz. C'est la composition
-	--REELLE de l'equipe jouable dans le donjon (Teammate2 = Hyko,
-	--Teammate3 = Almotz, verifie dans mount_windswept_midpoint).
+	--Cordee du sommet : le duo, Ganlon et Shuca. C'est la composition
+	--REELLE de l'equipe jouable dans le donjon (SetParty cree Ganlon
+	--et Shuca en Teammate2/3 a la fin de cette cinematique).
 	UI:SetSpeaker(t.penticus)
 	UI:SetSpeakerEmotion("Inspired")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_098'], hero:GetDisplayName(), partner:GetDisplayName(), t.hyko:GetDisplayName(), t.almotz:GetDisplayName()))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_098'], hero:GetDisplayName(), partner:GetDisplayName(), t.ganlon:GetDisplayName(), t.shuca:GetDisplayName()))
 	coro1 = TASK:BranchCoroutine(function()
-		GROUND:CharSetEmote(t.hyko, "glowing", 1)
-		GeneralFunctions.Hop(t.hyko, "Idle", 8, 16, 0, false)
+		GROUND:CharSetEmote(t.shuca, "glowing", 1)
+		GeneralFunctions.Hop(t.shuca, "Idle", 8, 16, 0, false)
 	end)
 	coro2 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(6)
@@ -999,18 +994,33 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	end)
 	coro3 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(10)
-		GROUND:CharTurnToCharAnimated(t.hyko, t.almotz, 4)
+		GROUND:CharTurnToCharAnimated(t.shuca, t.ganlon, 4)
 	end)
 	TASK:JoinCoroutines({coro1, coro2, coro3})
-	UI:SetSpeaker(t.hyko)
+	UI:SetSpeaker(t.shuca)
 	UI:SetSpeakerEmotion("Joyous")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_099'], t.almotz:GetDisplayName()))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_099'], t.ganlon:GetDisplayName()))
 	GAME:WaitFrames(10)
 	GROUND:CharAnimateTurnTo(t.ganlon, Direction.UpRight, 4)
 	UI:SetSpeaker(t.ganlon)
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_100']))
 	GROUND:CharAnimateTurnTo(t.ganlon, Direction.Up, 4)
+	GAME:WaitFrames(15)
+
+	--HYKO RESTE AU CAMP DE BASE. C'est l'arc noue au Tunnel (l'auteur :
+	--Penticus, apres sa panique, veut garder Hyko pres de lui) et la
+	--condition de la WindSecretScene qui se joue ici meme, de nuit.
+	GROUND:CharTurnToChar(t.penticus, t.hyko)
+	UI:SetSpeaker(t.penticus)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_116'], t.hyko:GetDisplayName()))
+	GAME:WaitFrames(10)
+	GROUND:CharSetEmote(t.hyko, "sweatdrop", 1)
+	UI:SetSpeaker(t.hyko)
+	UI:SetSpeakerEmotion("Sigh")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_117']))
+	GROUND:CharAnimateTurnTo(t.penticus, Direction.Down, 4)
 	GAME:WaitFrames(15)
 
 	--Le camp de base : Penticus et Phileas. La justification est dans
@@ -1087,9 +1097,9 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	end)
 	coro3 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(32)
-		GeneralFunctions.EightWayMove(t.ganlon, 284, 216, false, 1)
-		GeneralFunctions.EightWayMove(t.ganlon, 284, 140, false, 1)
-		GROUND:Hide(t.ganlon.EntName)
+		GeneralFunctions.EightWayMove(t.almotz, 284, 216, false, 1)
+		GeneralFunctions.EightWayMove(t.almotz, 284, 140, false, 1)
+		GROUND:Hide(t.almotz.EntName)
 	end)
 	coro4 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(20)
@@ -1112,37 +1122,33 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		GeneralFunctions.EightWayMove(t.coco, 284, 132, false, 1)
 		GROUND:Hide(t.coco.EntName)
 	end)
-	coro3 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(32)
-		GeneralFunctions.EightWayMove(t.shuca, 284, 216, false, 1)
-		GeneralFunctions.EightWayMove(t.shuca, 284, 140, false, 1)
-		GROUND:Hide(t.shuca.EntName)
-	end)
-	TASK:JoinCoroutines({coro1, coro2, coro3})
+	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(20)
 
-	--Hyko et Almotz partent devant marquer la voie : dans le donjon,
-	--ils rejoignent l'equipe jouable (SetParty au depart du duo).
-	GROUND:CharTurnToCharAnimated(t.hyko, hero, 4)
-	UI:SetSpeaker(t.hyko)
+	--Ganlon et Shuca, la cordee du sommet, partent devant marquer la
+	--voie : dans le donjon ils rejoignent l'equipe jouable (SetParty,
+	--appele ci-dessous, cree Ganlon et Shuca en Teammate2/3 — la
+	--narration et l'equipe de jeu racontent ENFIN la meme chose).
+	GROUND:CharTurnToCharAnimated(t.shuca, hero, 4)
+	UI:SetSpeaker(t.shuca)
 	UI:SetSpeakerEmotion("Joyous")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_104']))
 	coro1 = TASK:BranchCoroutine(function()
-		GeneralFunctions.EightWayMove(t.hyko, 284, 200, false, 1)
-		GeneralFunctions.EightWayMove(t.hyko, 284, 124, false, 1)
-		GROUND:Hide(t.hyko.EntName)
+		GeneralFunctions.EightWayMove(t.ganlon, 284, 200, false, 1)
+		GeneralFunctions.EightWayMove(t.ganlon, 284, 124, false, 1)
+		GROUND:Hide(t.ganlon.EntName)
 	end)
 	coro2 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(18)
-		GeneralFunctions.EightWayMove(t.almotz, 284, 208, false, 1)
-		GeneralFunctions.EightWayMove(t.almotz, 284, 132, false, 1)
-		GROUND:Hide(t.almotz.EntName)
+		GeneralFunctions.EightWayMove(t.shuca, 284, 208, false, 1)
+		GeneralFunctions.EightWayMove(t.shuca, 284, 132, false, 1)
+		GROUND:Hide(t.shuca.EntName)
 	end)
 	coro3 = TASK:BranchCoroutine(function()
-		GeneralFunctions.FaceMovingCharacter(hero, t.hyko, 4, Direction.Up)
+		GeneralFunctions.FaceMovingCharacter(hero, t.ganlon, 4, Direction.Up)
 	end)
 	coro4 = TASK:BranchCoroutine(function()
-		GeneralFunctions.FaceMovingCharacter(partner, t.hyko, 4, Direction.Up)
+		GeneralFunctions.FaceMovingCharacter(partner, t.ganlon, 4, Direction.Up)
 	end)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
 	GAME:WaitFrames(25)
@@ -1210,11 +1216,16 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		GAME:WaitFrames(30)
 		GeneralFunctions.EightWayMove(t.phileas, 308, 196, false, 1)
 	end)
+	local coroH = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(36)
+		GeneralFunctions.EightWayMove(t.hyko, 224, 220, false, 1)
+		GROUND:CharAnimateTurnTo(t.hyko, Direction.UpRight, 4)
+	end)
 	coro5 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(10)
 		GAME:MoveCamera(280, 170, 80, false)
 	end)
-	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coroH})
 	GAME:WaitFrames(20)
 
 	SOUND:FadeOutBGM(60)
@@ -1276,8 +1287,8 @@ end
 function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	local hero = CH('PLAYER')
 	local partner = CH('Teammate1')
-	local hyko = CH('Teammate2')
-	local almotz = CH('Teammate3')
+	local ganlon = CH('Teammate2')   --cordee du sommet : Ganlon
+	local shuca = CH('Teammate3')    --et Shuca (SetParty de l'intro)
 	local penticus = CH('Tropius')
 	local rin = CH('Audino')
 	local phileas = CH('Noctowl')
@@ -1293,13 +1304,13 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	GROUND:TeleportTo(partner, 292, 156, Direction.Down)
 	GROUND:CharSetAnim(hero, "EventSleep", true)
 	GROUND:CharSetAnim(partner, "EventSleep", true)
-	if hyko ~= nil then
-		GROUND:TeleportTo(hyko, 244, 164, Direction.Down)
-		GROUND:CharSetAnim(hyko, "Sleep", true)
+	if ganlon ~= nil then
+		GROUND:TeleportTo(ganlon, 244, 164, Direction.Down)
+		GROUND:CharSetAnim(ganlon, "Sleep", true)
 	end
-	if almotz ~= nil then
-		GROUND:TeleportTo(almotz, 308, 164, Direction.Down)
-		GROUND:CharSetAnim(almotz, "EventSleep", true)
+	if shuca ~= nil then
+		GROUND:TeleportTo(shuca, 308, 164, Direction.Down)
+		GROUND:CharSetAnim(shuca, "EventSleep", true)
 	end
 
 	GAME:MoveCamera(276, 170, 1, false)
@@ -1360,19 +1371,19 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 		GeneralFunctions.LookAround(partner, 3, 4, false, false, true, Direction.Down)
 	end)
 	coro3 = TASK:BranchCoroutine(function()
-		if hyko ~= nil then
+		if ganlon ~= nil then
 			GAME:WaitFrames(26)
-			GeneralFunctions.DoAnimation(hyko, 'Rumble')
+			GeneralFunctions.DoAnimation(ganlon, 'Rumble')
 			GAME:WaitFrames(12)
-			GROUND:CharAnimateTurnTo(hyko, Direction.Down, 4)
+			GROUND:CharAnimateTurnTo(ganlon, Direction.Down, 4)
 		end
 	end)
 	coro4 = TASK:BranchCoroutine(function()
-		if almotz ~= nil then
+		if shuca ~= nil then
 			GAME:WaitFrames(6)
-			GeneralFunctions.DoAnimation(almotz, 'Wake')
+			GeneralFunctions.DoAnimation(shuca, 'Wake')
 			GAME:WaitFrames(10)
-			GROUND:CharAnimateTurnTo(almotz, Direction.Down, 4)
+			GROUND:CharAnimateTurnTo(shuca, Direction.Down, 4)
 		end
 	end)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
@@ -1430,6 +1441,8 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	AI:EnableCharacterAI(partner)
 	AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
 	GROUND:CharTurnToChar(partner, hero)
+	--La camera revient au joueur (forme attestee : searing_tunnel:1480).
+	GAME:MoveCamera(0, 0, 1, true)
 	GAME:CutsceneMode(false)
 end
 
@@ -1472,6 +1485,8 @@ function mount_windswept_entrance_ch_5.RetreatReturnCutscene()
 	AI:EnableCharacterAI(partner)
 	AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
 	GROUND:CharTurnToChar(partner, hero)
+	--La camera revient au joueur (forme attestee : searing_tunnel:1480).
+	GAME:MoveCamera(0, 0, 1, true)
 	GAME:CutsceneMode(false)
 end
 
@@ -1561,22 +1576,34 @@ mount_windswept_entrance_ch_5.BEDS = {
 }
 
 function mount_windswept_entrance_ch_5.SetupGround()	
-	--Camp de base du Mont Venteux : toute l'expedition est presente.
-	--Positions verifiees walkables (feu de camp decoratif en 256,220).
-	local tropius, noctowl, audino, snubbull, mareep, cranidos, breloom, girafarig =
+	--Camp de base du Mont Venteux, APRES l'intro : la cordee du sommet
+	--(hero, partenaire, Ganlon, Shuca) est DANS l'equipe du joueur — on
+	--ne les spawne donc pas en PNJ. Restent au camp : Penticus, Phileas
+	--(camp de base), Hyko (garde par Penticus — arc du Tunnel), Rin et
+	--Coco (soutien, redescendues au relais entre deux rotations), Kino,
+	--Reinier et Almotz (ouverture, idem). Positions verifiees libres.
+	local tropius, noctowl, audino, snubbull, growlithe, zigzagoon, breloom, girafarig =
 	CharacterEssentials.MakeCharactersFromList({
 		{'Tropius', 212, 244, Direction.DownRight},
 		{'Noctowl', 300, 244, Direction.DownLeft},
-		--Rin et Coco etaient posees SUR une paillasse (lits 7 et 5, a moins
-		--de 24 px) : le sprite chevauchait le decor. Remontees de 16 px,
-		--cases verifiees libres et degagees de tout couchage.
 		{'Audino', 220, 260, Direction.UpRight},
 		{'Snubbull', 292, 260, Direction.UpLeft},
-		{'Mareep', 204, 312, Direction.Right},
-		{'Cranidos', 308, 312, Direction.Left},
+		{'Growlithe', 224, 220, Direction.UpRight},
+		{'Zigzagoon', 204, 312, Direction.Right},
 		{'Breloom', 160, 300, Direction.Right},
 		{'Girafarig', 360, 300, Direction.Left}
 	})
+
+	--Ganlon et Shuca voyagent avec le joueur : s'ils sont dans l'equipe
+	--(post-intro), on les fait apparaitre pres du duo via les spawners
+	--TEAMMATE_2/3 (patron exact du camp du Tunnel, spawners presents
+	--dans le .rsground — verifie).
+	if GAME:GetPlayerPartyCount() > 3 then
+		GROUND:SpawnerSetSpawn("TEAMMATE_2", GAME:GetPlayerPartyMember(2))
+		GROUND:SpawnerDoSpawn("TEAMMATE_2")
+		GROUND:SpawnerSetSpawn("TEAMMATE_3", GAME:GetPlayerPartyMember(3))
+		GROUND:SpawnerDoSpawn("TEAMMATE_3")
+	end
 
 	--LE CAMP. Repose a neuf a chaque entree.
 	--
@@ -1878,9 +1905,24 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	for _, chara in ipairs({audino, snubbull, girafarig, breloom, growlithe, zigzagoon, tropius, noctowl, mareep, cranidos}) do
 		GAME:GetCurrentGround():RemoveTempChar(chara)
 	end
+
+	--L'EQUIPE DU DONJON = LA CORDEE DU SOMMET. SetParty retire Hyko et
+	--Almotz (restes du Tunnel) et cree Ganlon et Shuca en Teammate2/3.
+	--C'etait le bug de coherence vu en jeu : la cinematique annoncait
+	--une cordee, le donjon en donnait une autre. Patron du Tunnel :
+	--l'echange d'equipe se fait DANS la cinematique d'arrivee.
+	mount_windswept_entrance_ch_5.SetParty()
+	hero = CH('PLAYER')
+	partner = CH('Teammate1')
+
 	SV.Chapter5.FinishedMountWindsweptIntro = true
 	GAME:CutsceneMode(false)
 	AI:EnableCharacterAI(partner)
+	AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
+	--LA CAMERA REVIENT AU JOUEUR (bug vu en jeu : elle restait figee au
+	--dernier plan de la cinematique). Forme attestee : searing_tunnel
+	--_entrance_ch_5.lua:1480 « return camera control ».
+	GAME:MoveCamera(0, 0, 1, true)
 	SOUND:PlayBGM('Sky Peak Prairie.ogg', true)
 	GAME:FadeIn(40)
 
@@ -2174,7 +2216,9 @@ end
 function mount_windswept_entrance_ch_5.WindSecretScene()
 	local hero = CH('PLAYER')
 	local tropius = CH('Tropius')
-	local growlithe = CH('Teammate2')
+	--Hyko est reste au camp de base (garde par Penticus) : c'est le PNJ
+	--'Growlithe' pose par SetupGround, plus un Teammate.
+	local growlithe = CH('Growlithe')
 	if tropius == nil or growlithe == nil then GAME:FadeIn(20) return end
 
 	GAME:CutsceneMode(true)
@@ -2284,6 +2328,8 @@ function mount_windswept_entrance_ch_5.WindSecretScene()
 	GROUND:RemoveMapStatus("darkness")
 	SV.Chapter5.WindSecretSceneSeen = true
 	GAME:CutsceneMode(false)
+	--La camera revient au joueur (forme attestee : searing_tunnel:1480).
+	GAME:MoveCamera(0, 0, 1, true)
 	SOUND:PlayBGM('Mt. Travail.ogg', true)
 	GAME:FadeIn(40)
 end

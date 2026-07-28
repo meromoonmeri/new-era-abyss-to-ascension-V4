@@ -327,7 +327,7 @@
     <value>Comptez sur nous ![pause=0] Personne ne lit un donjon comme moi...[pause=20] quand je suis réveillé.</value>
   </data>
   <data name="MWE5_096" xml:space="preserve">
-    <value>Cordée de soutien :[pause=10] {0},[pause=10] {1}[pause=10] et {2}.[pause=0] Soins,[pause=10] provisions,[pause=10] et l'œil sur les arrières.</value>
+    <value>Cordée de soutien :[pause=10] {0}[pause=10] et {1}.[pause=0] Soins,[pause=10] provisions,[pause=10] et l'œil sur les arrières.</value>
   </data>
   <data name="MWE5_097" xml:space="preserve">
     <value>Personne ne montera le ventre vide,[pause=10] c'est promis !</value>
@@ -375,7 +375,7 @@
     <value>Le vent est franc, ce matin.[pause=10] C'est rare.[pause=0] Prenez-le comme un bon présage.</value>
   </data>
   <data name="MWE5_113" xml:space="preserve">
-    <value>{0},[pause=10] {1}...[pause=10] Hyko et Almotz vous attendent au premier replat.[pause=0] Quand vous serez prêts,[pause=10] montez.[pause=0] Et souvenez-vous...</value>
+    <value>{0},[pause=10] {1}...[pause=10] Ganlon et Shuca vous attendent au premier replat.[pause=0] Quand vous serez prêts,[pause=10] montez.[pause=0] Et souvenez-vous...</value>
   </data>
   <data name="MWE5_114" xml:space="preserve">
     <value>... on ne conquiert pas une montagne.[pause=20] On lui rend visite.[pause=0] Frappez à sa porte avec respect.</value>
@@ -408,6 +408,12 @@
     <value>Le vent tournera.[pause=10] Reposez-vous,[pause=10] puis retentez l'ascension.</value>
   </data>
   <data name="MWE5_104" xml:space="preserve">
-    <value>On part devant marquer la corde ![pause=0] Rendez-vous au premier replat,[pause=10] vous deux ![pause=0] Ne traînez pas,[pause=10] wouf !</value>
+    <value>On part devant marquer la corde ![pause=0] Rendez-vous au premier replat,[pause=10] vous deux !</value>
+  </data>
+  <data name="MWE5_116" xml:space="preserve">
+    <value>Pas toi, {0}.[pause=20] Tu tiens le camp de base avec nous.[pause=0] C'est un ordre...[pause=10] et une promesse que je tiens.</value>
+  </data>
+  <data name="MWE5_117" xml:space="preserve">
+    <value>... Oui, Maître.[pause=20] Mais un jour,[pause=10] vous me direz pourquoi.</value>
   </data>
 </root>

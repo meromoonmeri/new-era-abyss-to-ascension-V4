@@ -327,7 +327,7 @@
     <value>Count on us![pause=0] Nobody reads a dungeon like I do...[pause=20] when I'm awake.</value>
   </data>
   <data name="MWE5_096" xml:space="preserve">
-    <value>Support rope team:[pause=10] {0},[pause=10] {1}[pause=10] and {2}.[pause=0] Healing,[pause=10] provisions,[pause=10] and an eye on our backs.</value>
+    <value>Support rope team:[pause=10] {0}[pause=10] and {1}.[pause=0] Healing,[pause=10] provisions,[pause=10] and an eye on our backs.</value>
   </data>
   <data name="MWE5_097" xml:space="preserve">
     <value>No one climbs on an empty stomach,[pause=10] that's a promise!</value>
@@ -375,7 +375,7 @@
     <value>The wind is honest this morning.[pause=10] That is rare.[pause=0] Take it as a good omen.</value>
   </data>
   <data name="MWE5_113" xml:space="preserve">
-    <value>{0},[pause=10] {1}...[pause=10] Hyko and Almotz await you at the first ledge.[pause=0] When you are ready,[pause=10] climb.[pause=0] And remember...</value>
+    <value>{0},[pause=10] {1}...[pause=10] Ganlon and Shuca await you at the first ledge.[pause=0] When you are ready,[pause=10] climb.[pause=0] And remember...</value>
   </data>
   <data name="MWE5_114" xml:space="preserve">
     <value>...one does not conquer a mountain.[pause=20] One pays it a visit.[pause=0] Knock on its door with respect.</value>
@@ -408,6 +408,12 @@
     <value>The wind will turn.[pause=10] Rest,[pause=10] then attempt the climb again.</value>
   </data>
   <data name="MWE5_104" xml:space="preserve">
-    <value>We'll go ahead and mark the rope![pause=0] See you at the first ledge,[pause=10] you two![pause=0] Don't dawdle,[pause=10] ruff!</value>
+    <value>We'll go ahead and mark the rope![pause=0] See you at the first ledge,[pause=10] you two!</value>
+  </data>
+  <data name="MWE5_116" xml:space="preserve">
+    <value>Not you, {0}.[pause=20] You hold the base camp with us.[pause=0] That is an order...[pause=10] and a promise I keep.</value>
+  </data>
+  <data name="MWE5_117" xml:space="preserve">
+    <value>...Yes, Master.[pause=20] But one day you will tell me why.</value>
   </data>
 </root>

@@ -102,7 +102,7 @@ function mount_windswept.ExitSegment(zone, result, rescue, segmentID, mapID)
 				--boite de dialogue apres l'ecran de resultats (patron du
 				--Tunnel). EndDungeonRun sauvegarde : a appeler avant EnterZone.
 				GAME:EndDungeonRun(result, "master_zone", -1, 50, 0, true, true)
-				GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(2), "Wouf...[pause=0] Le vent...[pause=10] le vent était trop fort...", "Pain")--set Hyko as speaker
+				GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(2), "Le vent...[pause=10] le vent était trop fort...[pause=0] Relevez-vous.", "Pain")--set Ganlon (Teammate2 de la cordee du sommet) as speaker
 				GAME:WaitFrames(20)
 				GAME:EnterZone("master_zone", -1, 50, 0)--Exit back to Mt. Windswept Entrance
 			end
