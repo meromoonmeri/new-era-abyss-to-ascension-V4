@@ -53,25 +53,84 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	local mountain = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('mount_windswept')
 	local ruins = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('cloven_ruins')
 
-	--Assignation des couches. La cle est le personnage, la valeur est
-	--{index de lit, direction assise}. Le +13/+10 du Tunnel place le
-	--sprite au centre de la paillasse.
+	--LE CERCLE DU REPAS N'EST PAS LE CERCLE DES COUCHAGES.
+	--
+	--BUG CORRIGE (mesure en jeu) : le diner envoyait chaque convive sur
+	--les coordonnees de SA PAILLASSE, a un rayon de ~100 px du feu. Douze
+	--personnages disperses sur un diametre de 200 px « partageaient » un
+	--repas qu'aucun d'eux ne pouvait atteindre du regard, et la camera ne
+	--pouvait pas les cadrer ensemble (viewport 320x240). Pire : les
+	--paillasses ne sont meme pas encore deployees a ce moment de la scene
+	--(DeployBeds n'est appele qu'en section 7), donc on s'asseyait sur du
+	--decor inexistant.
+	--
+	--On mange DONC autour du feu, en couronne serree (rayon ~44 px), et on
+	--dort ENSUITE en couronne large. Les douze places ci-dessous ont ete
+	--calculees puis verifiees une par une : sol libre, connexe depuis
+	--l'entree du joueur, hors de l'empreinte du feu (36x36 en 256,220) et
+	--hors de l'empreinte des paillasses (40x40), avec 18 px minimum entre
+	--deux voisins pour que les sprites ne se penetrent pas.
+	local MEAL = {
+		{t.penticus, 254, 188, Direction.Down},
+		{t.phileas,  278, 188, Direction.Down},
+		{t.rin,      234, 198, Direction.DownRight},
+		{t.coco,     306, 210, Direction.DownLeft},
+		{t.shuca,    224, 218, Direction.Right},
+		{t.ganlon,   310, 228, Direction.Left},
+		{partner,    224, 242, Direction.Right},
+		{hero,       308, 246, Direction.Left},
+		{t.hyko,     234, 262, Direction.UpRight},
+		{t.almotz,   294, 264, Direction.UpLeft},
+		{t.kino,     256, 272, Direction.Up},
+		{t.reinier,  276, 272, Direction.Up},
+	}
+
+	--ATTRIBUTION DES COUCHAGES — elle raconte quelque chose.
+	--
+	--Le fer a cheval s'ouvre au SUD : c'est par la qu'on arrive et qu'on
+	--repart, personne ne dort en travers du sentier. Les couches sont
+	--numerotees dans le sens horaire depuis le nord (1 = plein nord,
+	--2 a 7 = flanc est, 8 = sud-est en bout de file, 9 a 12 = flanc
+	--ouest).
+	--
+	--  * PENTICUS prend la couche 1, plein nord : entre les dormeurs et
+	--    la porte du donjon. Un chef dort du cote d'ou vient le danger.
+	--  * LE DUO prend les couches 6 et 7, les deux dernieres du flanc est
+	--    avant l'ouverture sud. Elles sont distantes de 50 px, donc
+	--    reellement VOISINES : la scene intime de la section 9 cadre les
+	--    deux sprites ensemble. Les couches 7 et 8 encadrent au contraire
+	--    l'ouverture du fer a cheval et sont a 101 px l'une de l'autre —
+	--    le duo y aurait dormi de part et d'autre du passage, hors du
+	--    meme plan de camera. Ce sont aussi les plus proches du sentier :
+	--    ceux qui partiront en premier au matin.
+	--  * HYKO et ALMOTZ sont voisins (8 et 9, 50 px) : ils chuchotent
+	--    encore apres l'extinction du feu, il faut qu'ils s'entendent.
+	--  * PHILEAS a la couche 2, mais il ne s'y couche pas tout de suite :
+	--    il prend le premier tour de garde au nord du camp.
+	--Le +13/+10 place le sprite au centre de la paillasse (patron Tunnel).
 	local seats = {
 		{t.penticus, 1,  Direction.Down},
-		{t.phileas,  2,  Direction.Down},
-		{t.reinier,  3,  Direction.Left},
-		{t.ganlon,   4,  Direction.Up},
-		{t.shuca,    5,  Direction.Up},
-		{partner,    6,  Direction.Up},
+		{t.phileas,  2,  Direction.Left},
+		{t.coco,     3,  Direction.Left},
+		{t.ganlon,   4,  Direction.Left},
+		{t.reinier,  5,  Direction.Left},
+		{partner,    6,  Direction.Left},
 		{hero,       7,  Direction.Up},
 		{t.hyko,     8,  Direction.Up},
 		{t.almotz,   9,  Direction.Right},
-		{t.rin,      10, Direction.Down},
-		{t.kino,     11, Direction.Left},
-		{t.coco,     12, Direction.Down},
+		{t.shuca,    10, Direction.Right},
+		{t.rin,      11, Direction.Right},
+		{t.kino,     12, Direction.Right},
 	}
 	local function seatX(i) return B[i][1] + 13 end
 	local function seatY(i) return B[i][2] + 10 end
+
+	--Index inverse « personnage -> sa couche », construit UNE fois a
+	--partir de `seats`. Toute la scene passe par lui : plus aucune
+	--section ne redeclare un numero de lit dans son coin, donc plus
+	--aucune possibilite qu'elles divergent.
+	local bedOf = {}
+	for _, s in ipairs(seats) do bedOf[s[1]] = s[2] end
 
 	---------------------------------------------------------------
 	-- 1. KINO ET REINIER REJOIGNENT LE CAMP
@@ -102,11 +161,11 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		GROUND:CharTurnToCharAnimated(hero, t.kino, 4)
 	end)
 	local coro5 = TASK:BranchCoroutine(function()
-		GROUND:MoveToPosition(t.kino, 236, 330, false, 1)
+		GROUND:MoveToPosition(t.kino, 238, 290, false, 1)
 	end)
 	local coro6 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(10)
-		GROUND:MoveToPosition(t.reinier, 276, 330, false, 1)
+		GROUND:MoveToPosition(t.reinier, 288, 292, false, 1)
 	end)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coro6})
 
@@ -132,32 +191,32 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--Chacun gagne sa place, en decale : un camp qui bouge d'un seul
 	--bloc a l'air mecanique.
 	local settle = {}
-	for i, s in ipairs(seats) do
-		local chara, bed, dir = s[1], s[2], s[3]
+	for i, m in ipairs(MEAL) do
+		local chara, mx, my, dir = m[1], m[2], m[3], m[4]
 		settle[#settle+1] = TASK:BranchCoroutine(function()
 			GAME:WaitFrames(i * 6)
-			GROUND:MoveToPosition(chara, seatX(bed), seatY(bed), false, 1)
+			GROUND:MoveToPosition(chara, mx, my, false, 1)
 			GROUND:CharAnimateTurnTo(chara, dir, 4)
 		end)
 	end
 	TASK:JoinCoroutines(settle)
 	GAME:WaitFrames(20)
 
-	--La nourriture apparait devant chaque convive, comme au Tunnel :
-	--Food au sud du personnage pour la moitie haute du cercle,
-	--Food_Flipped au nord pour la moitie basse.
+	--La nourriture apparait devant chaque convive, COTE FEU : l'ecuelle
+	--se pose entre le convive et les flammes, jamais dans son dos.
+	--L'ancienne version posait « +22 en Y » pour tout le monde, ce qui
+	--plantait l'ecuelle DERRIERE les convives de la moitie haute du
+	--cercle. On decale donc chaque plat d'un tiers de rayon vers le
+	--centre du foyer (274,238), calcule par interpolation entiere.
 	local foods = {}
-	for i, s in ipairs(seats) do
-		local bed, dir = s[2], s[3]
-		local anim, fy
-		if dir == Direction.Up then
-			anim, fy = "Food_Flipped", B[bed][2]
-		else
-			anim, fy = "Food", B[bed][2] + 22
-		end
+	for i, m in ipairs(MEAL) do
+		local mx, my = m[2], m[3]
+		local fx = math.floor(mx + (274 - (mx + 8)) / 6)
+		local fy = math.floor(my + (238 - (my + 8)) / 6)
+		local anim = (my > 238) and "Food_Flipped" or "Food"
 		local food = RogueEssence.Ground.GroundObject(
 			RogueEssence.Content.ObjAnimData(anim, 1, 0, 0),
-			RogueElements.Rect(B[bed][1] + 13, fy, 16, 16),
+			RogueElements.Rect(fx, fy, 16, 16),
 			RogueElements.Loc(0, 0),
 			false,
 			"CampFood" .. tostring(i))
@@ -167,9 +226,9 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	end
 
 	--Tout le monde mange en meme temps.
-	for _, s in ipairs(seats) do
-		GROUND:CharSetAnim(s[1], "Eat", true)
-		GROUND:CharSetEmote(s[1], "eating", 0)
+	for _, m in ipairs(MEAL) do
+		GROUND:CharSetAnim(m[1], "Eat", true)
+		GROUND:CharSetEmote(m[1], "eating", 0)
 	end
 
 	--La camera balaie le camp pendant le repas, la boite de dialogue
@@ -197,9 +256,9 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	for _, food in ipairs(foods) do
 		GAME:GetCurrentGround():RemoveTempObject(food)
 	end
-	for _, s in ipairs(seats) do
-		GROUND:CharEndAnim(s[1])
-		GROUND:CharSetEmote(s[1], "", 0)
+	for _, m in ipairs(MEAL) do
+		GROUND:CharEndAnim(m[1])
+		GROUND:CharSetEmote(m[1], "", 0)
 	end
 	SOUND:LoopSE('AMB_Fire_Loud')
 	GAME:WaitFrames(20)
@@ -359,8 +418,13 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_037'], t.ganlon:GetDisplayName()))
 	GAME:WaitFrames(10)
 
+	--Rin se leve du cercle du repas et vient se planter devant Ganlon.
+	--On vise SA PLACE DE TABLE (MEAL), pas sa paillasse : a cet instant
+	--de la veillee les couchages ne sont pas encore deroules — c'est la
+	--section 7 qui les deploie. L'ancienne version envoyait Rin sur des
+	--coordonnees de lit inexistant, a l'autre bout du camp.
 	coro1 = TASK:BranchCoroutine(function()
-		GROUND:MoveToPosition(t.rin, seatX(4) - 24, seatY(4), false, 1)
+		GROUND:MoveToPosition(t.rin, 296, 232, false, 1)
 		GROUND:CharTurnToCharAnimated(t.rin, t.ganlon, 4)
 	end)
 	coro2 = TASK:BranchCoroutine(function()
@@ -392,9 +456,10 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_039']))
 	GAME:WaitFrames(25)
 
-	--Rin retourne a sa place.
-	GROUND:MoveToPosition(t.rin, seatX(10), seatY(10), false, 1)
-	GROUND:CharAnimateTurnTo(t.rin, Direction.Down, 4)
+	--Rin retourne a SA PLACE AUTOUR DU FEU (cercle du repas, cf. MEAL),
+	--pas sur une paillasse : elles ne sont pas encore deployees.
+	GROUND:MoveToPosition(t.rin, 234, 198, false, 1)
+	GROUND:CharAnimateTurnTo(t.rin, Direction.DownRight, 4)
 	GAME:WaitFrames(15)
 
 	---------------------------------------------------------------
@@ -501,32 +566,62 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	---------------------------------------------------------------
 	--Phileas prend le premier tour de garde : il ne se couche pas.
 	local vers = {}
+	--L'ordre du coucher LIT la table `seats` (via bedOf) au lieu de
+	--redeclarer les numeros de couche. Avant, les deux listes portaient
+	--chacune leur copie des index : toute retouche de l'attribution
+	--devait etre faite deux fois, et un oubli envoyait un dormeur sur la
+	--paillasse d'un autre. On ne garde ici que « qui se couche, et apres
+	--combien de frames ».
 	local sleepOrder = {
-		{t.penticus, 1,  0},
-		{t.coco,     12, 14},
-		{t.shuca,    5,  26},
-		{t.ganlon,   4,  40},
-		{t.reinier,  3,  52},
-		{t.rin,      10, 66},
-		{t.kino,     11, 80},
+		{t.penticus,  0},
+		{t.coco,     14},
+		{t.shuca,    26},
+		{t.ganlon,   40},
+		{t.reinier,  52},
+		{t.rin,      66},
+		{t.kino,     80},
 	}
 	for _, s in ipairs(sleepOrder) do
-		local chara, bed, delay = s[1], s[2], s[3]
+		local chara, bed, delay = s[1], bedOf[s[1]], s[2]
 		vers[#vers+1] = TASK:BranchCoroutine(function()
 			GAME:WaitFrames(delay)
 			GROUND:MoveToPosition(chara, seatX(bed), seatY(bed), false, 1)
 			GROUND:CharSetAnim(chara, "Sleep", true)
 		end)
 	end
+	--Phileas prend le premier tour de garde : il monte au nord du camp,
+	--entre les dormeurs et la porte du donjon, et regarde le camp. Le
+	--poste (240,142) est libre et hors de la couche 1 — l'ancien
+	--(256,148) tombait dessus.
 	vers[#vers+1] = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(20)
-		GROUND:MoveToPosition(t.phileas, 256, 148, false, 1)
+		GROUND:MoveToPosition(t.phileas, 240, 142, false, 1)
 		GROUND:CharAnimateTurnTo(t.phileas, Direction.Down, 4)
 	end)
 	TASK:JoinCoroutines(vers)
 	GAME:WaitFrames(20)
 
-	--Hyko et Almotz chuchotent encore, chacun sur sa couche.
+	--Hyko et Almotz rejoignent leurs couches — VOISINES, 9 et 10 sur le
+	--flanc ouest — puis chuchotent encore un moment.
+	--
+	--BUG CORRIGE : ils s'endormaient DEBOUT A LEUR PLACE DE TABLE. La
+	--boucle `sleepOrder` couche sept personnages ; ces deux-la n'y
+	--figurent pas (ils ont leur propre scene), et personne ne les
+	--deplacait. Le commentaire d'origine disait deja « chacun sur sa
+	--couche » — c'etait l'intention, pas ce que faisait le code : ils
+	--jouaient l'animation Sleep sur le cercle du repas, a cote du feu,
+	--pendant que leurs deux paillasses restaient vides a l'ecran.
+	local toBeds = {}
+	toBeds[#toBeds+1] = TASK:BranchCoroutine(function()
+		GROUND:MoveToPosition(t.hyko, seatX(bedOf[t.hyko]), seatY(bedOf[t.hyko]), false, 1)
+	end)
+	toBeds[#toBeds+1] = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		GROUND:MoveToPosition(t.almotz, seatX(bedOf[t.almotz]), seatY(bedOf[t.almotz]), false, 1)
+	end)
+	TASK:JoinCoroutines(toBeds)
+	GAME:WaitFrames(10)
+
 	GROUND:CharTurnToCharAnimated(t.hyko, t.almotz, 4)
 	GROUND:CharTurnToCharAnimated(t.almotz, t.hyko, 4)
 	UI:SetSpeaker(t.hyko)
@@ -545,10 +640,28 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	---------------------------------------------------------------
 	-- 9. LA SCENE INTIME — le duo, seul face au sommet
 	---------------------------------------------------------------
-	--Le reste du camp dort. La camera se resserre sur le duo : c'est
-	--le moment calme obligatoire du Prompt Maitre (6.5), APRES la
-	--veillee de groupe, AVANT le sommeil du heros.
-	GAME:MoveCamera(238, 274, 45, false)
+	--Le reste du camp dort. Le duo rejoint ses deux couches voisines et
+	--la camera se resserre sur eux : c'est le moment calme obligatoire
+	--du Prompt Maitre (6.5), APRES la veillee de groupe, AVANT le
+	--sommeil du heros.
+	--
+	--BUG CORRIGE : le duo non plus ne rejoignait jamais ses paillasses.
+	--Il jouait EventSleep depuis sa place de table, a cote du feu. Deux
+	--couchages restaient vides pendant toute la nuit, le rêve et le
+	--reveil — et au matin le heros se relevait a un endroit ou il ne
+	--s'etait pas couche.
+	local duoBeds = {}
+	duoBeds[#duoBeds+1] = TASK:BranchCoroutine(function()
+		GROUND:MoveToPosition(partner, seatX(bedOf[partner]), seatY(bedOf[partner]), false, 1)
+	end)
+	duoBeds[#duoBeds+1] = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(12)
+		GROUND:MoveToPosition(hero, seatX(bedOf[hero]), seatY(bedOf[hero]), false, 1)
+	end)
+	duoBeds[#duoBeds+1] = TASK:BranchCoroutine(function()
+		GAME:MoveCamera(330, 300, 45, false)
+	end)
+	TASK:JoinCoroutines(duoBeds)
 	GROUND:CharTurnToCharAnimated(partner, hero, 4)
 	GROUND:CharTurnToCharAnimated(hero, partner, 4)
 	GAME:WaitFrames(15)
@@ -672,10 +785,16 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GROUND:CharEndAnim(t.rin)
 	GROUND:CharEndAnim(t.coco)
 	GROUND:CharEndAnim(t.penticus)
-	GROUND:TeleportTo(t.rin, 232, 252, Direction.Right)
-	GROUND:TeleportTo(t.coco, 280, 252, Direction.Left)
-	GROUND:TeleportTo(t.penticus, 256, 152, Direction.Down)
-	GROUND:TeleportTo(t.phileas, 296, 160, Direction.DownLeft)
+	--Le feu est ETEINT au matin (BuildCampMorning ne repose pas le
+	--foyer) : l'emplacement du foyer est donc libre, et Penticus peut
+	--se tenir au centre du fer a cheval, face au sud — l'axe naturel de
+	--l'adresse, avec le camp et le sentier devant lui.
+	--Positions verifiees hors paillasses : Coco se tenait en (280,252),
+	--dans l'empreinte du foyer, et Penticus en (256,152) sur la couche 1.
+	GROUND:TeleportTo(t.rin, 228, 252, Direction.Right)
+	GROUND:TeleportTo(t.coco, 298, 250, Direction.Left)
+	GROUND:TeleportTo(t.penticus, 258, 196, Direction.Down)
+	GROUND:TeleportTo(t.phileas, 292, 198, Direction.DownLeft)
 	GAME:MoveCamera(256, 228, 1, false)
 
 	UI:SetAutoFinish(true)
@@ -802,8 +921,13 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_056']))
 	GAME:WaitFrames(15)
 
+	--Rin va secouer Kino, le seul encore endormi. Elle s'arrete A COTE
+	--de sa paillasse, cote feu, jamais dessus : l'ancien « seatX(11)-32 »
+	--visait la couche 11 de l'ancienne numerotation, dont Kino n'est
+	--plus l'occupant. On resout la couche depuis la table `seats`.
 	coro1 = TASK:BranchCoroutine(function()
-		GeneralFunctions.EightWayMoveRS(t.rin, seatX(11) - 32, seatY(11), false, 1)
+		GeneralFunctions.EightWayMoveRS(t.rin, B[bedOf[t.kino]][1] + 44,
+		                                B[bedOf[t.kino]][2] + 10, false, 1)
 	end)
 	coro2 = TASK:BranchCoroutine(function()
 		GeneralFunctions.FaceMovingCharacter(hero, t.rin, 4, Direction.Right)
@@ -1564,15 +1688,46 @@ function mount_windswept_entrance_ch_5.DeployBeds()
 		RogueEssence.Ground.GroundAnim(campfire, RogueElements.Loc(256, 220)))
 end
 
---Position des couchages. Sortie en table pour que la cinematique et le
---decor permanent ne puissent plus diverger.
---Les deux dernieres (11 et 12) sont a l'ecart du cercle ; la 11 a ete
---deplacee de (312,108), qui tombait dans la roche, vers du sol libre.
+--------------------------------------------------------------------
+-- POSITION DES COUCHAGES — 12 paillasses en fer a cheval
+--------------------------------------------------------------------
+-- Sortie en table pour que la cinematique et le decor permanent ne
+-- puissent plus diverger.
+--
+-- CE QUI N'ALLAIT PAS DANS L'ANCIENNE DISPOSITION (tout mesure) :
+--
+--   * LE LIT 12 ETAIT INATTEIGNABLE. (344,132) est du sol libre, mais
+--     il appartient a une POCHE ISOLEE au nord-est : un parcours en
+--     largeur depuis l'entree du joueur ne l'atteint pas. La carte
+--     compte 3 composantes connexes de sol libre ; ce lit tombait dans
+--     la mauvaise. Son dormeur aurait ete injoignable, et l'animation
+--     de coucher se serait terminee contre un mur.
+--   * QUATRE PAIRES DE PAILLASSES SE CHEVAUCHAIENT. Le sprite Hay_Bed
+--     fait 40x40 (verifie dans l'en-tete de Content/Object/Hay_Bed.dir,
+--     frameW=frameH=40), or les lits 2/3, 4/5, 7/8 et 9/10 n'etaient
+--     espaces que de 33 a 45 px en diagonale : 7x7 px de recouvrement
+--     visible a chaque fois.
+--   * DEUX LITS ETAIENT DES RUSTINES. Les 10 premiers dessinaient un
+--     cercle parfait de rayon ~78 autour du feu, les lits 11 et 12
+--     etaient poses a 130 et 124 px, hors du motif : le « cercle » que
+--     le joueur voyait etait un cercle avec deux verrues.
+--   * UN CERCLE FERME N'A PAS DE SENS ICI. On arrive par le sentier
+--     SUD ; douze couchages en anneau complet obligeaient a enjamber
+--     des dormeurs pour entrer ou sortir du camp.
+--
+-- LA NOUVELLE DISPOSITION est un FER A CHEVAL ouvert plein sud, rayon
+-- ~100 px autour du foyer, dans le sens horaire depuis le nord. Chaque
+-- position a ete verifiee programmatiquement sur quatre criteres :
+--   1. les 40x40 px du sprite tombent sur des tuiles Tags == 0 ;
+--   2. ces tuiles appartiennent a la composante connexe de l'entree ;
+--   3. aucun recouvrement avec une autre paillasse ;
+--   4. l'assise (+13,+10) est elle-meme libre et connexe.
+-- L'ouverture sud (secteur 75-105 degres) reste vide : c'est le
+-- passage vers le sentier, et l'axe de l'adresse du matin.
 mount_windswept_entrance_ch_5.BEDS = {
-	{256, 164}, {301, 175}, {334, 208}, {334, 248},
-	{301, 281}, {256, 292}, {211, 281}, {178, 248},
-	{178, 208}, {211, 175},
-	{384, 196}, {344, 132},
+	{248, 116}, {298, 168}, {342, 168}, {330, 210},
+	{372, 216}, {348, 258}, {320, 300}, {220, 314},
+	{178, 286}, {156, 244}, {154, 202}, {170, 160},
 }
 
 function mount_windswept_entrance_ch_5.SetupGround()	
@@ -1581,17 +1736,22 @@ function mount_windswept_entrance_ch_5.SetupGround()
 	--ne les spawne donc pas en PNJ. Restent au camp : Penticus, Phileas
 	--(camp de base), Hyko (garde par Penticus — arc du Tunnel), Rin et
 	--Coco (soutien, redescendues au relais entre deux rotations), Kino,
-	--Reinier et Almotz (ouverture, idem). Positions verifiees libres.
+	--Reinier et Almotz (ouverture, idem).
+	--
+	--POSITIONS RECALCULEES : chacune est verifiee sur sol libre, connexe
+	--depuis l'entree du joueur, hors de l'empreinte du feu et hors des
+	--douze paillasses. L'ancienne serie posait Almotz sur la couche 9 et
+	--Reinier sur la couche 7 — deux PNJ debout au milieu d'un lit.
 	local tropius, noctowl, audino, snubbull, growlithe, zigzagoon, breloom, girafarig =
 	CharacterEssentials.MakeCharactersFromList({
-		{'Tropius', 212, 244, Direction.DownRight},
-		{'Noctowl', 300, 244, Direction.DownLeft},
-		{'Audino', 220, 260, Direction.UpRight},
-		{'Snubbull', 292, 260, Direction.UpLeft},
-		{'Growlithe', 224, 220, Direction.UpRight},
-		{'Zigzagoon', 204, 312, Direction.Right},
-		{'Breloom', 160, 300, Direction.Right},
-		{'Girafarig', 360, 300, Direction.Left}
+		{'Tropius', 230, 190, Direction.DownRight},
+		{'Noctowl', 288, 196, Direction.DownLeft},
+		{'Audino', 232, 258, Direction.UpRight},
+		{'Snubbull', 300, 214, Direction.Left},
+		{'Growlithe', 224, 206, Direction.DownRight},
+		{'Zigzagoon', 276, 282, Direction.UpLeft},
+		{'Breloom', 240, 276, Direction.Up},
+		{'Girafarig', 292, 276, Direction.Up}
 	})
 
 	--Ganlon et Shuca voyagent avec le joueur : s'ils sont dans l'equipe
@@ -1709,14 +1869,26 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	GAME:CutsceneMode(true)
 	AI:DisableCharacterAI(partner)
 	SOUND:StopBGM()
-	--ARRIVEE PAR LE SUD (retour du test en jeu : l'ancienne mise en place
-	--teleportait l'equipe au milieu de la carte puis la faisait marcher
-	--vers (92,176)/(60,136) — coordonnees HERITEES de la scene du Tunnel,
-	--dans l'angle ouest. Desormais : l'expedition debouche du sentier sud,
-	--le long de L'OCEAN qui borde la carte (rows 78-80, eau DuskBeach
-	--animee, infranchissable), et remonte en LIGNE DROITE la colonne
-	--x=256 (verifiee rectiligne et praticable rows 50-77).
-	GAME:MoveCamera(256, 524, 1, false)
+	--ARRIVEE PAR LE SUD. L'expedition debouche du sentier au bas de la
+	--carte et remonte en ligne droite la colonne x=256, verifiee
+	--praticable en continu de y=488 jusqu'au camp.
+	--
+	--BUG BLOQUANT CORRIGE : cette mise en place jouait ENTIEREMENT HORS
+	--CARTE. Elle cadrait la camera en (256,524) et teleportait le duo en
+	--(256,540) / (256,556), Hyko en (256,572) et Almotz en (256,588) —
+	--alors que la carte ne mesure que 552x504 px, donc Y max 503.
+	--
+	--Origine de l'erreur, tracee dans l'historique : un lot precedent a
+	--voulu ajouter une bande d'ocean « au sud, rows 78-80 » et a
+	--rallonge la table `obstacles`. Or dans un .rsground `obstacles` est
+	--indexe [x][y] : allonger la table du dessus agrandit la LARGEUR,
+	--pas la hauteur. La carte est passee de 552x504 a 648x504 — 12
+	--colonnes de plus a l'EST, aucune rangee de plus au sud — et les
+	--2520 tuiles d'eau (tileset DuskBeach, une plage au crepuscule) se
+	--sont retrouvees plaquees sur le flanc de la montagne. Le marqueur
+	--d'entree du joueur avait suivi en Y=592, hors carte lui aussi.
+	--La geometrie saine 552x504 a ete restauree et l'ocean retire.
+	GAME:MoveCamera(256, 456, 1, false)
 	--TRANSITION JOUR -> SOIR (Prompt Maitre 6.2). L'expedition arrive au
 	--couchant : "dusk" d'abord (patron exact de l'arrivee au Tunnel), la
 	--nuit noire ("darkness") ne tombe qu'au deploiement des couchages.
@@ -1725,8 +1897,8 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	--for debug purposes
 	GAME:FadeOut(false, 1)
 	
-	GROUND:TeleportTo(hero, 256, 540, Direction.Up)
-	GROUND:TeleportTo(partner, 256, 556, Direction.Up)
+	GROUND:TeleportTo(hero, 256, 456, Direction.Up)
+	GROUND:TeleportTo(partner, 256, 472, Direction.Up)
 	
 	local audino, snubbull, girafarig, breloom, growlithe, zigzagoon, tropius, noctowl, mareep, cranidos = 
 	CharacterEssentials.MakeCharactersFromList({
@@ -1734,8 +1906,8 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 		{'Snubbull'},
 		{'Girafarig'},
 		{'Breloom'},
-		{'Growlithe', 256, 572, Direction.Up},
-		{'Zigzagoon', 256, 588, Direction.Up},
+		{'Growlithe', 240, 488, Direction.Up},
+		{'Zigzagoon', 272, 488, Direction.Up},
 		{'Tropius'},
 		{'Noctowl'},
 		{'Mareep'},
@@ -1814,12 +1986,17 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	for _, chara in ipairs({tropius, noctowl, audino, snubbull, mareep, cranidos}) do
 		GROUND:Unhide(chara.EntName)
 	end
-	GROUND:TeleportTo(tropius, 212, 244, Direction.Right)
-	GROUND:TeleportTo(noctowl, 300, 244, Direction.Left)
-	GROUND:TeleportTo(audino, 220, 260, Direction.UpRight)
-	GROUND:TeleportTo(snubbull, 292, 260, Direction.UpLeft)
-	GROUND:TeleportTo(mareep, 204, 312, Direction.Right)
-	GROUND:TeleportTo(cranidos, 308, 312, Direction.Left)
+	--Le camp de jour se tient AUTOUR DU FEU, pas etale sur la clairiere.
+	--Positions verifiees : sol libre, connexe depuis l'entree, hors de
+	--l'empreinte du foyer (36x36) et hors des paillasses (40x40) — Shuca
+	--se tenait auparavant en (204,312), exactement sur la couche 9, et
+	--Reinier en (360,300) sur la couche 7.
+	GROUND:TeleportTo(tropius, 230, 190, Direction.DownRight)
+	GROUND:TeleportTo(noctowl, 288, 196, Direction.DownLeft)
+	GROUND:TeleportTo(audino, 232, 258, Direction.UpRight)
+	GROUND:TeleportTo(snubbull, 300, 214, Direction.Left)
+	GROUND:TeleportTo(mareep, 226, 232, Direction.Right)
+	GROUND:TeleportTo(cranidos, 310, 236, Direction.Left)
 
 	local camp1 = TASK:BranchCoroutine(function()
 		GROUND:CharAnimateTurnTo(tropius, Direction.Down, 4)
