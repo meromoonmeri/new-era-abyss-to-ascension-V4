@@ -501,3 +501,102 @@ traitement :
 · Veilleur 208,152) reprennent celles de la scène précédente pour le duo, mais
 celle du Veilleur est **choisie sans avoir ouvert le `.rsground`** : il peut
 apparaître dans le vide ou derrière un relief.
+
+---
+
+# Addendum 5 — vérification des positions (build 2026-07-31-T)
+
+## La demande
+
+> « regarde les positions des entités des scènes venant des GitHub originaux »
+
+C'était le bon réflexe : je posais mes coordonnées « d'après les conventions
+des autres cartes », **sans jamais ouvrir les `.rsground`**. Je l'annonçais
+comme réserve à chaque lot. Cette fois j'ai vérifié — et je me suis trompé
+deux fois avant de trouver la bonne méthode.
+
+## Le piège : la taille d'une carte n'est pas dans `Layers`
+
+**Première tentative.** J'ai lu `Layers[0].Tiles` × 8 px. Résultat pour
+`vast_steppe_midpoint` : 176×264. L'outil a signalé 31 positions « hors
+carte »… dont celles du contenu Halcyon d'origine **qui fonctionne en jeu**.
+
+Signal d'alarme : quand un outil accuse du code testé et jouable, c'est
+l'outil qui a tort.
+
+**Vérification.** Le `.rsground` lui-même place `Stump_3` à (704,424) et
+`Kangaskhan_Rock` à (696,216) — largement au-delà de 176×264. Un fichier ne
+peut pas être hors de sa propre carte : ma lecture était fausse.
+
+**Deuxième tentative.** La vraie grille est `obstacles` (collision, cases de
+8 px). Mais j'ai lu `len(ob[0])` pour la largeur → `mount_windswept_midpoint`
+donnait 624×1152, alors que son `entrance_east` est à **x=1132**.
+
+**La bonne réponse.** La grille est indexée **`[x][y]`**, pas `[y][x]`.
+Vérifié statistiquement sur les **269 cartes** du dépôt, en confrontant chaque
+ancrage à sa propre carte :
+
+| Lecture | Ancrages aberrants |
+|---|---|
+| `[x][y]` (largeur = `len(ob)`) | **5** |
+| `[y][x]` (largeur = `len(ob[0])`) | **147** |
+
+## L'erreur que j'ai failli commettre
+
+Entre les deux, j'avais « corrigé » **14 arènes de légendaires** en recadrant
+tout sur des tailles fausses — par exemple `arene_trone_magma` ramenée à
+208×216 alors qu'elle fait réellement **624×648**.
+
+J'ai annulé (`git checkout`) dès que la contradiction est apparue. **Aucune de
+ces fausses corrections n'a été commitée.** Le contenu d'origine est intact.
+
+## Résultat, avec la bonne formule
+
+```
+385 fichier(s) de scène rattaché(s) à une carte.
+RESULTAT : AUCUNE ENTITE A PLUS D UN ECRAN HORS CARTE
+```
+
+**Aucun bug de position dans tout le dépôt.** Les entités qui sortent
+légèrement des bornes sont un usage **volontaire** : un personnage entre ou
+sort du champ. Le contenu Halcyon d'origine en est plein.
+
+## Une vraie correction : le Canyon
+
+La seule scène réellement mal placée était la mienne, écrite au lot précédent.
+
+| | Avant | Après | Source |
+|---|---|---|---|
+| Héros | (224, 224) | **(208, 232)** | `Main_Entrance_Marker` |
+| Partenaire | (192, 224) | **(256, 232)** | spawner `TEAMMATE_1` |
+| Veilleur | (208, 152) | **(240, 120)** | `Cutscene_Marker` |
+| Caméra | (208, 208) | **(240, 176)** | entre le duo et l'éperon |
+
+Le partenaire était à x=192 alors que son spawner officiel est à x=256 : il
+serait apparu **64 px à côté de sa place**. Les trois entités reposent
+désormais sur les ancrages du fichier, pas sur une supposition.
+
+## Nouvel outil : `tools/verify_scene_positions.py`
+
+- lit la taille réelle via `obstacles`, indexé `[x][y]` ;
+- extrait `TeleportTo`, `MoveCamera` et `MakeCharactersFromList` des scripts ;
+- ne signale que les positions à **plus d'un écran** hors carte — au-delà, le
+  sprite ne peut plus revenir dans le cadre ;
+- affiche les ancrages officiels du `.rsground` pour donner la bonne valeur.
+
+Le seuil est le point important : sans lui, l'outil noie les vrais défauts
+sous 31 faux positifs.
+
+## Sur `CregALeg/minior-game-jam`
+
+Dépôt consulté : mod PMDO complet (Minior the Fallen Star), même moteur.
+Rien n'en a été importé dans ce lot — le travail portait sur la **méthode de
+placement**, et celle-ci se lit dans nos propres `.rsground`. Le dépôt reste
+une référence utile pour de futurs patrons de scène.
+
+## Non vérifié
+
+Les positions sont désormais **exactes par rapport aux ancrages déclarés**.
+Reste ce qu'aucun script ne peut dire : si le décor à cet endroit est bien
+celui qu'on imagine (un éperon rocheux visible, et non un pan de ciel vide).
+Seul un test en jeu le confirmera.

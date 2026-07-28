@@ -63,9 +63,19 @@ local function Scene()
   GAME:CutsceneMode(true)
   if partner ~= nil then AI:DisableCharacterAI(partner) end
 
-  GROUND:TeleportTo(hero, 224, 224, Direction.Up)
-  if partner ~= nil then GROUND:TeleportTo(partner, 192, 224, Direction.Up) end
-  GAME:MoveCamera(208, 208, 1, false)
+  -- POSITIONS LUES DANS Data/Ground/grand_canyon_porte.rsground.
+  -- Carte reelle : 456 x 240 px — lue dans `obstacles`, indexe [x][y].
+  -- (Se fier a Layers[0].Tiles donne 240x456, soit les dimensions INVERSEES.
+  --  Verifie sur les 269 cartes du depot : la lecture [x][y] produit 5
+  --  ancrages aberrants contre 147 pour [y][x].)
+  --   Main_Entrance_Marker  (208, 232)   <- point d'entree officiel
+  --   TEAMMATE_1 spawner    (256, 232)   <- place prevue du partenaire
+  --   Cutscene_Marker       (240, 120)   <- cadrage prevu pour la scene
+  GROUND:TeleportTo(hero, 208, 232, Direction.Up)
+  if partner ~= nil then GROUND:TeleportTo(partner, 256, 232, Direction.Up) end
+  -- Camera cadree sur le Cutscene_Marker, entre le duo (y=232) et l'eperon
+  -- rocheux ou se tient le Veilleur (y=120).
+  GAME:MoveCamera(240, 176, 1, false)
   GAME:FadeIn(40)
   GAME:WaitFrames(30)
 
@@ -95,7 +105,9 @@ local function Scene()
   -- 2. Le Veilleur. Il etait deja la — il n'arrive pas.
   ------------------------------------------------------------------
   narrate("Sur l'éperon rocheux, en face,[pause=20] une silhouette immobile.[pause=25] Elle ne s'est pas posée : elle était là.")
-  local xatu = CharacterEssentials.MakeCharactersFromList({{'Canyon_Xatu', 208, 152, Direction.Down}})
+  -- Le Veilleur se tient exactement sur le Cutscene_Marker (240,120) :
+  -- l'eperon rocheux que ce marqueur designe, bien dans la carte de 456x240.
+  local xatu = CharacterEssentials.MakeCharactersFromList({{'Canyon_Xatu', 240, 120, Direction.Down}})
   GAME:WaitFrames(20)
   say("Surprised", "Depuis quand est-ce qu'il...[pause=25] Non. Il n'a pas bougé. C'est nous qui ne l'avions pas vu.")
   GAME:WaitFrames(15)
@@ -168,7 +180,7 @@ local function Scene()
   GAME:WaitFrames(20)
 
   SOUND:PlayBattleSE("EVT_Battle_Flash")
-  BossFX.Flash(208, 152, 3, 5, 20)
+  BossFX.Flash(240, 120, 3, 5, 20)
   pcall(function() GROUND:Hide('Canyon_Xatu') end)
   GAME:WaitFrames(25)
   narrate("Il n'est pas parti.[pause=25] Il a simplement cessé d'être visible,[pause=20] comme le reste des voix d'ici.")
