@@ -403,3 +403,101 @@ celles des boss suivent les conventions des scènes ch5, **sans ouverture des
 - **ch6 : 105 boîtes**, toujours pas traité.
 - Les **relais** ch8-10 n'ont que 3 boîtes chacun (`RelayScenes` générique).
 - Aucun **PNJ de ville réactif** à l'avancement intra-chapitre.
+
+---
+
+# Addendum 4 — le Veilleur du Canyon (build 2026-07-31-S)
+
+## L'exemple que tu as donné
+
+> « la scène avec Xatu tu peux la reprendre car tôt ou tard dans l'histoire on
+> devra aller au donjon Grand Canyon et à la fin pour lui parler »
+
+Bonne intuition : **tout était déjà en place**, sauf le personnage.
+
+| Élément | État avant |
+|---|---|
+| `Data/Ground/grand_canyon_porte.rsground` | importé 1:1 de pmd-red (D07P01) |
+| `new_era_zone_07` | « Canyon des Voix Éteintes », débloquée ch11+ |
+| Scène de fin de donjon | existante, mais **générique** (deux piliers qui s'allument) |
+| Xatu | **absent du casting** |
+
+## La fonction reprise, pas la scène
+
+Dans les jeux d'origine, le Xatu du Grand Canyon a une fonction dramatique
+précise : **c'est un témoin qui se tait**. Il voit, il sait, il refuse de dire.
+Le joueur repart avec moins de réponses qu'en arrivant — et c'est voulu.
+
+C'est **cette fonction** qui est reprise. Le reste est neuf, et surtout : il
+sert *notre* intrigue.
+
+### Trois raccords avec le lore existant
+
+**1. Il explique un détail déjà planté.** Le nom FR de la zone est « Canyon des
+Voix Éteintes », et la scène disait déjà que le canyon ne renvoie aucun écho.
+Le Veilleur donne la cause :
+
+> « Le canyon ne mange pas vos voix. **C'est moi.** Je les écoute depuis si
+> longtemps que je les garde. Toutes. Y compris celles qu'on ne devrait pas
+> entendre. »
+
+**2. Il est le premier tiers à confirmer la Voix.** Jusqu'ici, seuls le héros
+et le joueur savaient. Un personnage extérieur à l'intrigue le dit tout haut :
+
+> « Tu en portes une. Une voix qui n'est pas la tienne, et que personne d'autre
+> n'entend. »
+> — « Comment vous... Il ne l'a dit à PERSONNE. »
+> — « Il ne l'a pas dit. **Elle**, si. Elle parle fort, pour qui sait écouter
+> le silence. »
+
+Le héros a une **nausée** au moment où on en parle (`VoiceVisions.Nausea`) :
+le dispositif établi sert la scène au lieu d'être décoratif.
+
+**3. Il refuse de nommer — et donne une méthode.**
+
+> « Je vois assez loin pour savoir que nommer une chose, c'est lui ouvrir la
+> porte. »
+> « Vous demandez tous CE QUE c'est. Demandez plutôt **DEPUIS QUAND** elle lui
+> parle. »
+> → *(Depuis quand... Je ne me souviens pas d'un seul jour sans elle.)*
+
+Aucune révélation, aucun nom interdit. La quête est **relancée**, pas résolue.
+Et il donne rendez-vous : « quand vous reviendrez, rapportez-moi la réponse ».
+
+## Détails de mise en scène
+
+- **Il n'arrive pas** : « Il ne s'est pas posé : il était là. » Il ne repart
+  pas non plus, il « cesse d'être visible, comme le reste des voix d'ici ».
+- Le lieu est établi **avant** le personnage (règle tirée de `beach`).
+- Casting : `Canyon_Xatu`, surnommé **« Veilleur »** — le nom « Xatu »
+  n'apparaît jamais à l'écran, cohérent avec les autres Veilleurs du Réseau.
+
+## Vérifications
+
+- Lua **642/642**, `.resx` 576/576, zones 209/209
+- `verify_legend` 0 échec, `verify_bg_format` aucun bug
+- **29 répliques**, **0 nom interdit** (contrôle automatisé), plus longue
+  109 caractères
+- `xatu` confirmé présent dans `MonsterFeature.json` (1011 espèces)
+- `grand_canyon_porte` bien déclaré dans les `GroundMaps` de la zone **et**
+  dans `index.idx` — sans quoi `EnterGroundMap` échouerait
+- Sortie garantie hors du `pcall` : aucun blocage possible
+
+## Le patron est réutilisable
+
+**31 autres grounds pmd-red** sont importés et marqués « réserve » dans
+`docs/registre_donjons_new_era.md` : `mont_gele_pied`, `gouffre_muet_bord`,
+`foret_givree_oree`, `grotte_lazuli_seuil`… Chacun peut recevoir le même
+traitement :
+
+1. identifier la **fonction dramatique** du lieu d'origine ;
+2. trouver le **raccord** avec un élément déjà planté dans New Era ;
+3. créer un personnage au **rôle** équivalent, au nom et au propos neufs ;
+4. ne jamais résoudre — relancer.
+
+## Non vérifié
+
+**Rien n'est testé en jeu.** Les positions (héros 224,224 · partenaire 192,224
+· Veilleur 208,152) reprennent celles de la scène précédente pour le duo, mais
+celle du Veilleur est **choisie sans avoir ouvert le `.rsground`** : il peut
+apparaître dans le vide ou derrière un relief.

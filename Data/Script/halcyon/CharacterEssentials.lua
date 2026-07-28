@@ -1048,6 +1048,19 @@ local characters = {
 			skin = "normal"
 		},
 		--Arc 2 : le Cercle du Suaire (voleurs de fragments de Coeur)
+		--Xatu, le Veilleur du Canyon des Voix Eteintes.
+		--Dans les jeux d'origine, un Xatu se tient au bout du Grand Canyon : il
+		--voit, mais ne dit presque rien. On garde cette fonction — un devin qui
+		--se tait — et on la relie a NOTRE lore : il est le seul temoin exterieur
+		--a avoir compris ce que le heros porte, et il refuse de le nommer.
+		Canyon_Xatu = {
+			species = "xatu",
+			nickname = 'Veilleur',
+			instance = 'Canyon_Xatu',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
 		Suaire_Banette = {
 			species = "banette",
 			nickname = 'Suaire',
