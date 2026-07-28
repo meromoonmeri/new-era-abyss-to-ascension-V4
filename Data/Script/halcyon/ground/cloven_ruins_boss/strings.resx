@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <root>
   <data name="CRB_001" xml:space="preserve"><value>The heart of the ruins...[pause=15] It's still beating.</value></data>
-  <data name="CRB_002" xml:space="preserve"><value>Regarde ces veines dorées...[pause=15] Elles palpitent.</value></data>
+  <data name="CRB_002" xml:space="preserve"><value>Look at those golden veins...[pause=15] They're pulsing.</value></data>
   <data name="CRB_003" xml:space="preserve"><value>The Fallen Titan...[pause=30] It has waited for millennia.</value></data>
   <data name="CRB_004" xml:space="preserve"><value>You...[pause=10] You followed us all the way here?</value></data>
   <data name="CRB_005" xml:space="preserve"><value>I am wherever the life of the Hearts weakens.</value></data>
