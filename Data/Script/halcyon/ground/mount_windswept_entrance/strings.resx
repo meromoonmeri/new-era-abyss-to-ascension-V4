@@ -284,6 +284,12 @@
   <data name="MWE5_075" xml:space="preserve">
     <value>But we crossed the steppe.[pause=10] We crossed the tunnel.[pause=0] Tomorrow, we write the ending together.</value>
   </data>
+  <data name="MWE5_082" xml:space="preserve">
+    <value>Climb.[pause=20] The wind remembers you,[pause=10] even if you remember nothing.</value>
+  </data>
+  <data name="MWE5_084" xml:space="preserve">
+    <value>...We have met before,[pause=10] little echo.</value>
+  </data>
   <data name="MWE5_085" xml:space="preserve">
     <value>(A shadow...[pause=20] It spoke as if it knew me.[pause=20] « Little echo »...[pause=10] What does that mean?)</value>
   </data>
@@ -401,16 +407,130 @@
   <data name="MWE5_117" xml:space="preserve">
     <value>...Yes, Master.[pause=20] But one day you will tell me why.</value>
   </data>
-  <data name="MWE5_090" xml:space="preserve">
-    <value>Shh...[pause=10] softly now.[pause=0] It was only a dream.[pause=0] The mountain whispers loudly tonight.</value>
+  <data name="MWE5_155" xml:space="preserve">
+    <value>(...!)</value>
   </data>
-  <data name="MWE5_091" xml:space="preserve">
-    <value>(Phileas?![pause=10] He was keeping watch...[pause=20] How long has he been standing there?)</value>
+  <data name="MWE5_156" xml:space="preserve">
+    <value>(A dream?[pause=30] I can't even remember it any more.)</value>
   </data>
-  <data name="MWE5_118" xml:space="preserve">
-    <value>Here,[pause=10] the wind carries dreams that are not our own.[pause=0] The old outpost archives said as much.</value>
+  <data name="MWE5_157" xml:space="preserve">
+    <value>(There was someone.[pause=20] Someone speaking to me...[pause=30] and that's all that's left.)</value>
   </data>
-  <data name="MWE5_119" xml:space="preserve">
-    <value>Go back to sleep.[pause=0] Tomorrow,[pause=10] you will need your legs,[pause=10] not your questions.</value>
+  <data name="MWE5_158" xml:space="preserve">
+    <value>(They look like they're having a serious discussion...)</value>
+  </data>
+  <data name="MWE5_159" xml:space="preserve">
+    <value>...No. No, no, no.[pause=20] I refuse to let that one slide.</value>
+  </data>
+  <data name="MWE5_160" xml:space="preserve">
+    <value>It's a matter of PRINCIPLE at this point.</value>
+  </data>
+  <data name="MWE5_161" xml:space="preserve">
+    <value>The fate of the expedition may depend on it.[pause=20] Think carefully.</value>
+  </data>
+  <data name="MWE5_162" xml:space="preserve">
+    <value>So.[pause=20] One Oran Berry a day for a year...[pause=30] or ONE Perfect Apple, just once?</value>
+  </data>
+  <data name="MWE5_163" xml:space="preserve">
+    <value>...[pause=30] THAT's your serious discussion?</value>
+  </data>
+  <data name="MWE5_164" xml:space="preserve">
+    <value>They've been at it for an hour, woof.</value>
+  </data>
+  <data name="MWE5_165" xml:space="preserve">
+    <value>The Perfect Apple, obviously.[pause=0] You only live once.</value>
+  </data>
+  <data name="MWE5_166" xml:space="preserve">
+    <value>Wrong![pause=20] Three hundred and sixty-five berries is three hundred and sixty-five happy mornings.</value>
+  </data>
+  <data name="MWE5_167" xml:space="preserve">
+    <value>...You did the maths?[pause=30] You ACTUALLY did the maths?</value>
+  </data>
+  <data name="MWE5_168" xml:space="preserve">
+    <value>Of course I did.[pause=0] I don't debate lightly.</value>
+  </data>
+  <data name="MWE5_169" xml:space="preserve">
+    <value>Hmm.[pause=30] The Perfect Apple, no question.</value>
+  </data>
+  <data name="MWE5_170" xml:space="preserve">
+    <value>THANK YOU![pause=0] The Guildmaster has spoken!</value>
+  </data>
+  <data name="MWE5_171" xml:space="preserve">
+    <value>(...He answered instantly.[pause=20] He'd already thought about it.)</value>
+  </data>
+  <data name="MWE5_172" xml:space="preserve">
+    <value>There you are![pause=20] I've been watching that trail all evening.</value>
+  </data>
+  <data name="MWE5_173" xml:space="preserve">
+    <value>Nine hours late.[pause=20] I counted three times.</value>
+  </data>
+  <data name="MWE5_174" xml:space="preserve">
+    <value>YOU'RE ALIVE![pause=15] I knew it![pause=10] Well,[pause=10] I hoped.</value>
+  </data>
+  <data name="MWE5_175" xml:space="preserve">
+    <value>Sit down.[pause=15] I'm checking your wounds before you say a word.</value>
+  </data>
+  <data name="MWE5_176" xml:space="preserve">
+    <value>There's soup left.[pause=20] It's gone cold three times,[pause=10] but it's there.</value>
+  </data>
+  <data name="MWE5_177" xml:space="preserve">
+    <value>'Not too late'...[pause=25] We finished eating two hours ago.</value>
+  </data>
+  <data name="MWE5_178" xml:space="preserve">
+    <value>The wind turned at dusk.[pause=20] That's why they took so long.</value>
+  </data>
+  <data name="MWE5_181" xml:space="preserve">
+    <value>Hey,[pause=10] you big losers![pause=20] We're not waiting around all day!</value>
+  </data>
+  <data name="MWE5_182" xml:space="preserve">
+    <value>...What did you just say?</value>
+  </data>
+  <data name="MWE5_183" xml:space="preserve">
+    <value>I said...[pause=30] what a magnificent view,[pause=15] and we should enjoy it.</value>
+  </data>
+  <data name="MWE5_184" xml:space="preserve">
+    <value>That's what I thought.</value>
+  </data>
+  <data name="MWE5_185" xml:space="preserve">
+    <value>(...I think we just witnessed a rescue.)</value>
+  </data>
+  <data name="MWE5_186" xml:space="preserve">
+    <value>MASTER![pause=20] They're back,[pause=10] but they can't stand up!</value>
+  </data>
+  <data name="MWE5_187" xml:space="preserve">
+    <value>Move aside,[pause=10] give them room![pause=20] There,[pause=10] just breathe.</value>
+  </data>
+  <data name="MWE5_188" xml:space="preserve">
+    <value>Easy now.[pause=20] Nobody gets up all at once,[pause=10] and nobody has to.</value>
+  </data>
+  <data name="MWE5_189" xml:space="preserve">
+    <value>Here.[pause=20] An Oran Berry.[pause=10] Eat it before you say a word.</value>
+  </data>
+  <data name="MWE5_190" xml:space="preserve">
+    <value>There.[pause=30] Some colour coming back.[pause=10] That's a start.</value>
+  </data>
+  <data name="MWE5_191" xml:space="preserve">
+    <value>I can run fast and bite hard.[pause=20] Healing,[pause=10] that's not in my paws.</value>
+  </data>
+  <data name="MWE5_192" xml:space="preserve">
+    <value>Next time,[pause=10] I'm climbing with you.[pause=20] Then there'll be nothing to patch up.</value>
+  </data>
+  <data name="MWE5_193" xml:space="preserve">
+    <value>Hoo...[pause=20] You sat up all at once.[pause=15] I heard it from over there.</value>
+  </data>
+  <data name="MWE5_194" xml:space="preserve">
+    <value>Don't say anything yet.[pause=20] Breathe first.[pause=15] The words will come after.</value>
+  </data>
+  <data name="MWE5_195" xml:space="preserve">
+    <value>A dream,[pause=10] wasn't it?[pause=25] The kind you forget on waking,[pause=15] but that leaves the heart racing.</value>
+  </data>
+  <data name="MWE5_196" xml:space="preserve">
+    <value>(...He guessed.[pause=25] Or it's written on my face.)</value>
+  </data>
+  <data name="MWE5_197" xml:space="preserve">
+    <value>I've kept watch many a mountain night.[pause=25] They make sleep talkative,[pause=15] and dreams insistent.</value>
+  </data>
+  <data name="MWE5_198" xml:space="preserve">
+    <value>Go back to sleep.[pause=20] I'll stay awake.[pause=25] As long as someone keeps watch,[pause=15] no one wakes alone.</value>
   </data>
 </root>

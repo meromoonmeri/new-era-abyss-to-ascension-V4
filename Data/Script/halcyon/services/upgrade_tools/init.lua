@@ -36,7 +36,23 @@ end
       When a save file in an old version is loaded this is called!
 ---------------------------------------------------------------]]
 function UpgradeTools:OnUpgrade()
-
+  --RATTRAPAGE DES VARIABLES NEUVES SUR UNE SAUVEGARDE ANCIENNE.
+  --Une table SV creee par une version anterieure ne contient pas les
+  --champs ajoutes depuis. Lire un champ absent rend nil, et un test
+  --`if SV.Chapter5.CampNightWatchDone` sur nil est certes faux — mais
+  --l'ECRIRE dans une table Chapter5 elle-meme absente leverait une
+  --erreur. Tout est donc sous pcall, et on ne touche qu'aux champs
+  --reellement manquants (on n'ecrase jamais une progression existante).
+  pcall(function()
+    if SV.Chapter5 == nil then return end
+    --Le reve du Mont Venteux, joue sur sa carte dediee hero_dream.
+    if SV.Chapter5.CampNightWatchDone == nil then
+      SV.Chapter5.CampNightWatchDone = false
+    end
+    if SV.Chapter5.DreamSceneSeen == nil then
+      SV.Chapter5.DreamSceneSeen = false
+    end
+  end)
 end
 
 ---Summary

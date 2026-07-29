@@ -17,19 +17,56 @@ local mount_windswept_entrance = {}
 -- Ex:
 --      local localizedstring = STRINGS.MapStrings['SomeStringName']
 
-
--------------------------------
 -- Map Callbacks
--------------------------------
 ---mount_windswept_entrance.Init(map)
 --Engine callback function
 function mount_windswept_entrance.Init(map)
   DEBUG.EnableDbgCoro()
   print('=>> Init_mount_windswept_entrance <<=')
-  
+
+  --LE NOIR ET LE GEL, AVANT TOUT LE RESTE.
+  --
+  --Cet Init s'execute APRES que le moteur a place le joueur et recadre la
+  --camera (GSceneZone.EnterGround:22-27 -> ResetGround, ViewCenter=null),
+  --mais AVANT le Enter qui lance la cinematique (moveToZoneInit:770-775,
+  --commente « no fade; the script handles that itself »). Un rendu de la
+  --carte d'arrivee est donc possible des maintenant : c'est l'apercu de
+  --la NOUVELLE zone signale en jeu.
+  --
+  --Ces deux lignes sont donc les toutes premieres :
+  --  * FadeOut(false,1) : une frame, opacite 1.0 des le premier rendu.
+  --    Gratuit si l'ecran est deja noir (garde FadeEffect.cs:63-67).
+  --  * CutsceneMode(true) : gele GroundScene.ProcessInput (l.176), donc
+  --    ni entree joueur ni OnCheck pendant la mise en place.
+  --
+  --Le mode est pose SANS CONDITION. La version precedente le reservait au
+  --chapitre 5 via une lecture de SV sous pcall : si la lecture echouait,
+  --rien n'etait pose et la fenetre de rendu se rouvrait.
+  pcall(function() GAME:FadeOut(false, 1) end)
+  pcall(function() GAME:CutsceneMode(true) end)
+
   COMMON.RespawnAllies()
   GROUND:AddMapStatus("blowing_wind")
   PartnerEssentials.InitializePartnerSpawn()
+
+  --Entree LIBRE (hors chapitre 5, ou intro deja vue et aucune scene
+  --programmee) : aucune cinematique ne relacherait le mode et le joueur
+  --resterait fige, incapable de bouger. On le rend donc ici, la mise en
+  --place faite et l'ecran encore noir ; la branche `else` de
+  --PlotScripting enchaine sur son FadeIn(20).
+  --Les conditions sont EXACTEMENT celles lues par PlotScripting, pour que
+  --les deux ne puissent pas diverger.
+  pcall(function()
+    local sceneAVenir = false
+    if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5 then
+      local c5 = SV.Chapter5
+      sceneAVenir = (not c5.FinishedMountWindsweptIntro)
+                 or c5.PlayTempMountScene
+                 or (c5.MountGuardianDefeated and c5.MountVigilSceneSeen
+                     and not c5.WindSecretSceneSeen)
+    end
+    if not sceneAVenir then GAME:CutsceneMode(false) end
+  end)
 
 end
 
@@ -45,13 +82,11 @@ end
 --Engine callback function
 function mount_windswept_entrance.Exit(map)
 
-
 end
 
 ---mount_windswept_entrance.Update(map)
 --Engine callback function
 function mount_windswept_entrance.Update(map)
-
 
 end
 
@@ -72,13 +107,20 @@ end
 
 function mount_windswept_entrance.PlotScripting()
   if SV.ChapterProgression.Chapter == 5 then
-    if SV.Chapter5.MountDreamDone and not SV.Chapter5.FinishedMountWindsweptIntro then
-      --Retour du songe (map songe_source) : la nuit de la veillee se
-      --termine ici — reveil agite, veille de Phileas, puis le matin du
-      --depart. La carte arrive FRAICHE : la cinematique reconstruit
-      --elle-meme tout le camp de nuit sous le noir.
-      mount_windswept_entrance_ch_5.DreamWakeAndMorning()
-    elseif not SV.Chapter5.FinishedMountWindsweptIntro then
+    -- RETOUR DU REVE — cette branche passe AVANT toutes les autres.
+    -- La veillee (CampNightfall) se termine en envoyant le joueur sur la
+    -- carte dediee `hero_dream`. Celle-ci renvoie ici une fois le reve
+    -- fini. Sans cette branche, on retomberait sur ArrivalCutscene —
+    -- FinishedMountWindsweptIntro n'est pose qu'a la toute fin de
+    -- l'intro — et TOUTE la soiree se rejouerait en boucle.
+    -- CampNightWatchDone est pose juste avant le depart vers le reve ;
+    -- MorningAfterDream le consomme. Les deux drapeaux encadrent donc
+    -- exactement l'aller-retour, et la scene ne peut pas se rejouer.
+    if SV.Chapter5.CampNightWatchDone and not SV.Chapter5.FinishedMountWindsweptIntro then
+      mount_windswept_entrance_ch_5.ResumeAfterDream()
+      return
+    end
+    if not SV.Chapter5.FinishedMountWindsweptIntro then
       mount_windswept_entrance_ch_5.ArrivalCutscene()
     elseif SV.Chapter5.PlayTempMountScene then
       --Retour de la premiere moitie du donjon en mauvaise posture
@@ -106,33 +148,52 @@ function mount_windswept_entrance.PlotScripting()
   end
 end 
 
-
--------------------------------
 -- Entities Callbacks
--------------------------------
 function mount_windswept_entrance.Teammate1_Action(chara, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
   PartnerEssentials.GetPartnerDialogue(CH('Teammate1'))
  end
 
-function mount_windswept_entrance.Teammate2_Action(chara, activator)
-  DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-  if SV.ChapterProgression.Chapter == 5 then
-    --Post-intro, Teammate2 = Ganlon (SetParty) : ses dialogues, pas ceux de Hyko.
+-- QUI EST TEAMMATE2/3 ? CA CHANGE AU MILIEU DU CHAPITRE.
+local function talkToTeammate(chara, activator, slot)
+  if SV.ChapterProgression.Chapter ~= 5 then
+    COMMON.GroundInteract(activator, chara, true)
+    return
+  end
+
+  local who = nil
+  pcall(function() who = LTBL(chara).Importance end)
+  if who == nil or who == '' then
+    --Repli : on regarde l'espece du sprite present sur la carte.
+    pcall(function() who = chara.CurrentForm.Species end)
+    if who == 'cranidos' then who = 'Cranidos'
+    elseif who == 'mareep' then who = 'Mareep'
+    elseif who == 'growlithe' then who = 'Growlithe'
+    elseif who == 'zigzagoon' then who = 'Zigzagoon' end
+  end
+
+  if who == 'Cranidos' then
     mount_windswept_entrance_ch_5.Cranidos_Action(chara, activator)
+  elseif who == 'Mareep' then
+    mount_windswept_entrance_ch_5.Mareep_Action(chara, activator)
+  elseif who == 'Zigzagoon' then
+    mount_windswept_entrance_ch_5.Zigzagoon_Action(chara, activator)
+  elseif who == 'Growlithe' then
+    mount_windswept_entrance_ch_5.Growlithe_Action(chara, activator)
   else
+    --Inconnu : on ne met JAMAIS les mots d'un autre dans sa bouche.
     COMMON.GroundInteract(activator, chara, true)
   end
 end
 
+function mount_windswept_entrance.Teammate2_Action(chara, activator)
+  DEBUG.EnableDbgCoro() --Enable debugging this coroutine
+  talkToTeammate(chara, activator, 2)
+end
+
 function mount_windswept_entrance.Teammate3_Action(chara, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-  if SV.ChapterProgression.Chapter == 5 then
-    --Post-intro, Teammate3 = Shuca (SetParty) : ses dialogues, pas ceux d'Almotz.
-    mount_windswept_entrance_ch_5.Mareep_Action(chara, activator)
-  else
-    COMMON.GroundInteract(activator, chara, true)
-  end
+  talkToTeammate(chara, activator, 3)
 end
 
 --PNJ du camp de base (present uniquement au chapitre 5)
@@ -181,9 +242,7 @@ function mount_windswept_entrance.Kangaskhan_Rock_Action(obj, activator)
   GeneralFunctions.Kangashkhan_Rock_Interact(obj, activator)
 end
 
----------------------------
 -- Map Transitions
----------------------------
 function mount_windswept_entrance.Dungeon_Entrance_Touch(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
   local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("mount_windswept")
@@ -212,4 +271,3 @@ function mount_windswept_entrance.Dungeon_Entrance_Touch(obj, activator)
 end
 
 return mount_windswept_entrance
-
