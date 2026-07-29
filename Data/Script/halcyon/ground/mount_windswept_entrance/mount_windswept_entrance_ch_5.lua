@@ -1792,8 +1792,16 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	local ganlon = CH('Teammate2')   --cordee du sommet : Ganlon
 	local shuca = CH('Teammate3')    --et Shuca (SetParty de l'intro)
 	local penticus = CH('Tropius')
-	local rin = CH('Audino')
 	local phileas = CH('Noctowl')
+	--HYKO REMPLACE RIN. Rin (Audino) est partie avec la cordee de
+	--soutien a la fin de l'intro : elle n'est plus sur la carte, et
+	--CH('Audino') rendait nil. Toute la scene de secours reposait donc
+	--sur un personnage absent — le soin ne se jouait pas, et la replique
+	--MWE5_121 etait sautee en silence. Les trois presents au camp sont
+	--Penticus, Phileas et Hyko ; c'est Hyko qui accourt et qui soigne.
+	--Narrativement c'est meme plus juste : Penticus le garde au camp
+	--precisement pour qu'il serve ICI, et pas la-haut.
+	local hyko = CH('Growlithe')
 	local coro1, coro2, coro3, coro4
 
 	GAME:CutsceneMode(true)
@@ -1826,7 +1834,7 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 		GROUND:CharSetEmote(phileas, "exclaim", 1)
 		UI:SetSpeaker(phileas)
 		UI:SetSpeakerEmotion("Surprised")
-		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_120'], rin ~= nil and rin:GetDisplayName() or penticus:GetDisplayName()))
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_120'], hyko ~= nil and hyko:GetDisplayName() or penticus:GetDisplayName()))
 	end
 	GAME:WaitFrames(15)
 
@@ -1835,23 +1843,35 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	coro1 = TASK:BranchCoroutine(function()
 		if penticus ~= nil then
 			GeneralFunctions.EightWayMove(penticus, 276, 184, true, 2)
+			GROUND:CharTurnToCharAnimated(penticus, hero, 4)
 		end
 	end)
 	coro2 = TASK:BranchCoroutine(function()
-		if rin ~= nil then
+		if hyko ~= nil then
 			GAME:WaitFrames(10)
-			GeneralFunctions.EightWayMove(rin, 244, 184, true, 2)
+			GeneralFunctions.EightWayMove(hyko, 244, 184, true, 2)
+			GROUND:CharTurnToCharAnimated(hyko, hero, 4)
 		end
 	end)
-	TASK:JoinCoroutines({coro1, coro2})
+	coro3 = TASK:BranchCoroutine(function()
+		if phileas ~= nil then
+			GAME:WaitFrames(22)
+			GeneralFunctions.EightWayMove(phileas, 308, 184, true, 2)
+			GROUND:CharTurnToCharAnimated(phileas, partner, 4)
+		end
+	end)
+	TASK:JoinCoroutines({coro1, coro2, coro3})
 	GAME:WaitFrames(15)
 
-	--Le soin de Rin : cloche et pose, patron du reveil au camp.
-	if rin ~= nil then
+	--Le soin : cloche et pose, patron du reveil au camp. C'est Hyko qui
+	--l'administre — les baies de secours de la guilde, pas un don de
+	--soigneuse. Penticus veille a cote, ce qui est tout le sens de sa
+	--decision de le garder au camp.
+	if hyko ~= nil then
 		SOUND:PlayBattleSE("DUN_Heal_Bell")
-		GROUND:CharSetAction(rin, RogueEssence.Ground.PoseGroundAction(rin.Position, rin.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pose")))
+		GROUND:CharSetAction(hyko, RogueEssence.Ground.PoseGroundAction(hyko.Position, hyko.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pose")))
 		GAME:WaitFrames(100)
-		GROUND:CharEndAnim(rin)
+		GROUND:CharEndAnim(hyko)
 	end
 	GAME:WaitFrames(20)
 
@@ -1891,8 +1911,10 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
 	GAME:WaitFrames(20)
 
-	if rin ~= nil then
-		UI:SetSpeaker(rin)
+	if hyko ~= nil then
+		pcall(function() GROUND:CharTurnToCharAnimated(hyko, hero, 4) end)
+		pcall(function() GROUND:CharSetEmote(hyko, "sweatdrop", 1) end)
+		UI:SetSpeaker(hyko)
 		UI:SetSpeakerEmotion("Worried")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_121']))
 		GAME:WaitFrames(15)
@@ -1930,20 +1952,32 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 
 	--Penticus et Rin regagnent le camp ; le duo reste libre devant
 	--l'entree, pret a retenter l'ascension.
+	--Les trois regagnent EXACTEMENT leur poste de SetupGround : quand la
+	--camera revient au joueur, le camp est dans l'etat ou il le trouvera
+	--en se promenant. Avant, Penticus rentrait en (212,244) — une
+	--position qui n'existe plus dans SetupGround depuis le recalcul du
+	--camp : il se serait teleporte au premier rechargement de la carte.
 	coro1 = TASK:BranchCoroutine(function()
 		if penticus ~= nil then
-			GeneralFunctions.EightWayMove(penticus, 212, 244, false, 1)
+			GeneralFunctions.EightWayMove(penticus, 230, 190, false, 1)
 			GROUND:CharAnimateTurnTo(penticus, Direction.DownRight, 4)
 		end
 	end)
 	coro2 = TASK:BranchCoroutine(function()
-		if rin ~= nil then
+		if hyko ~= nil then
 			GAME:WaitFrames(12)
-			GeneralFunctions.EightWayMove(rin, 244, 252, false, 1)
-			GROUND:CharAnimateTurnTo(rin, Direction.Down, 4)
+			GeneralFunctions.EightWayMove(hyko, 224, 206, false, 1)
+			GROUND:CharAnimateTurnTo(hyko, Direction.DownRight, 4)
 		end
 	end)
-	TASK:JoinCoroutines({coro1, coro2})
+	coro3 = TASK:BranchCoroutine(function()
+		if phileas ~= nil then
+			GAME:WaitFrames(20)
+			GeneralFunctions.EightWayMove(phileas, 288, 196, false, 1)
+			GROUND:CharAnimateTurnTo(phileas, Direction.DownLeft, 4)
+		end
+	end)
+	TASK:JoinCoroutines({coro1, coro2, coro3})
 
 	SV.Chapter5.PlayTempMountScene = false
 
@@ -1976,17 +2010,62 @@ function mount_windswept_entrance_ch_5.RetreatReturnCutscene()
 	SOUND:PlayBGM('Spring Cave.ogg', true)
 	GAME:WaitFrames(30)
 
+	--Le repli volontaire : Penticus vient au-devant du duo, et Hyko le
+	--suit a distance. Deux presents valent mieux qu'un seul PNJ qui
+	--parle a des sprites immobiles — et Hyko a une raison d'etre la,
+	--c'est lui le garde du camp.
+	local hyko = CH('Growlithe')
 	if penticus ~= nil then
-		GeneralFunctions.EightWayMove(penticus, 276, 196, false, 1)
+		local c1 = TASK:BranchCoroutine(function()
+			GeneralFunctions.EightWayMove(penticus, 276, 196, false, 1)
+			GROUND:CharTurnToCharAnimated(penticus, hero, 4)
+		end)
+		local c2 = TASK:BranchCoroutine(function()
+			if hyko ~= nil then
+				GAME:WaitFrames(16)
+				GeneralFunctions.EightWayMove(hyko, 244, 200, false, 1)
+				GROUND:CharTurnToCharAnimated(hyko, hero, 4)
+			end
+		end)
+		local c3 = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(8)
+			pcall(function() GROUND:CharTurnToCharAnimated(hero, penticus, 4) end)
+			GAME:WaitFrames(6)
+			pcall(function() GROUND:CharTurnToCharAnimated(partner, penticus, 4) end)
+		end)
+		TASK:JoinCoroutines({c1, c2, c3})
 		GAME:WaitFrames(10)
+
 		UI:SetSpeaker(penticus)
 		UI:SetSpeakerEmotion("Normal")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_126']))
 		GAME:WaitFrames(15)
-		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_127']))
+		--Le partenaire encaisse la remarque pendant qu'elle tombe.
+		local c4 = TASK:BranchCoroutine(function()
+			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_127']))
+		end)
+		local c5 = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(14)
+			pcall(function() GROUND:CharSetEmote(partner, "sweatdrop", 1) end)
+		end)
+		TASK:JoinCoroutines({c4, c5})
 		GAME:WaitFrames(15)
-		GeneralFunctions.EightWayMove(penticus, 212, 244, false, 1)
-		GROUND:CharAnimateTurnTo(penticus, Direction.DownRight, 4)
+
+		--Retour au poste EXACT de SetupGround. L'ancienne destination
+		--(212,244) n'existe plus depuis le recalcul du camp : Penticus
+		--se serait teleporte au premier rechargement de la carte.
+		local c6 = TASK:BranchCoroutine(function()
+			GeneralFunctions.EightWayMove(penticus, 230, 190, false, 1)
+			GROUND:CharAnimateTurnTo(penticus, Direction.DownRight, 4)
+		end)
+		local c7 = TASK:BranchCoroutine(function()
+			if hyko ~= nil then
+				GAME:WaitFrames(14)
+				GeneralFunctions.EightWayMove(hyko, 224, 206, false, 1)
+				GROUND:CharAnimateTurnTo(hyko, Direction.DownRight, 4)
+			end
+		end)
+		TASK:JoinCoroutines({c6, c7})
 	end
 
 	SV.Chapter5.PlayTempMountScene = false
@@ -2132,28 +2211,46 @@ mount_windswept_entrance_ch_5.BEDS = {
 }
 
 function mount_windswept_entrance_ch_5.SetupGround()	
-	--Camp de base du Mont Venteux, APRES l'intro : la cordee du sommet
-	--(hero, partenaire, Ganlon, Shuca) est DANS l'equipe du joueur — on
-	--ne les spawne donc pas en PNJ. Restent au camp : Penticus, Phileas
-	--(camp de base), Hyko (garde par Penticus — arc du Tunnel), Rin et
-	--Coco (soutien, redescendues au relais entre deux rotations), Kino,
-	--Reinier et Almotz (ouverture, idem).
+	--------------------------------------------------------------------
+	-- LE CAMP APRES LE DEPART DE L'EXPEDITION — QUI RESTE, ET POURQUOI
+	--------------------------------------------------------------------
+	-- INCOHERENCE MAJEURE CORRIGEE. Cette fonction respawnait HUIT PNJ,
+	-- dont CINQ que la cinematique d'intro venait de faire partir en
+	-- expedition sous les yeux du joueur (GROUND:Hide en fin d'intro) :
 	--
-	--POSITIONS RECALCULEES : chacune est verifiee sur sol libre, connexe
-	--depuis l'entree du joueur, hors de l'empreinte du feu et hors des
-	--douze paillasses. L'ancienne serie posait Almotz sur la couche 9 et
-	--Reinier sur la couche 7 — deux PNJ debout au milieu d'un lit.
-	local tropius, noctowl, audino, snubbull, growlithe, zigzagoon, breloom, girafarig =
+	--     Kino (Breloom), Reinier (Girafarig), Almotz (Zigzagoon)
+	--     -> vague d'ouverture, montent tracer la voie
+	--     Rin (Audino), Coco (Snubbull)
+	--     -> cordee de soutien, montent au relais
+	--
+	-- Le joueur les regardait remonter le sentier nord et disparaitre,
+	-- puis reprenait la main... devant les cinq memes, plantes au camp.
+	-- Le commentaire d'origine s'en justifiait par « redescendues au
+	-- relais entre deux rotations » — sauf que la scene ne montre AUCUNE
+	-- redescente : elle les montre MONTER.
+	--
+	-- NE RESTENT DONC QUE CEUX QUE LA SCENE LAISSE SUR PLACE :
+	--   * PENTICUS (Tropius) : il tient le camp de base, il l'a dit.
+	--   * PHILEAS (Noctowl)  : idem, les vents le portent mal.
+	--   * HYKO (Growlithe)   : garde au camp par Penticus (arc du Tunnel,
+	--                          paye par la scene du vent).
+	-- Trois PNJ, exactement les trois que la cinematique finale laisse
+	-- devant la porte du donjon. La cordee du sommet (heros, partenaire,
+	-- Ganlon, Shuca) est dans l'equipe du joueur, pas en PNJ.
+	--
+	-- POSITIONS : verifiees sol libre, connexes depuis l'entree, hors
+	-- empreinte du feu (36x36 en 256,220), hors rocher de Kangaskhan
+	-- (32x32 en 160,144) et hors des onze paillasses.
+	local tropius, noctowl, growlithe =
 	CharacterEssentials.MakeCharactersFromList({
 		{'Tropius', 230, 190, Direction.DownRight},
 		{'Noctowl', 288, 196, Direction.DownLeft},
-		{'Audino', 232, 258, Direction.UpRight},
-		{'Snubbull', 300, 214, Direction.Left},
-		{'Growlithe', 224, 206, Direction.DownRight},
-		{'Zigzagoon', 276, 282, Direction.UpLeft},
-		{'Breloom', 240, 276, Direction.Up},
-		{'Girafarig', 292, 276, Direction.Up}
+		{'Growlithe', 224, 206, Direction.DownRight}
 	})
+	--Rendus nil explicitement : plusieurs branches de ce fichier les
+	--testent encore (if rin ~= nil...), et un nil franc vaut mieux
+	--qu'un PNJ fantome qui n'a rien a faire la.
+	local audino, snubbull, zigzagoon, breloom, girafarig = nil, nil, nil, nil, nil
 
 	--Ganlon et Shuca voyagent avec le joueur : s'ils sont dans l'equipe
 	--(post-intro), on les fait apparaitre pres du duo via les spawners
@@ -2175,9 +2272,16 @@ function mount_windswept_entrance_ch_5.SetupGround()
 	--redessiner : le decor est identique, mais il ne se duplique plus.
 	mount_windswept_entrance_ch_5.BuildCampDay()
 
-	--Apres une defaite en montagne, Rin se rapproche du feu pour soigner.
+	--Apres une defaite en montagne, c'est PHILEAS qui se rapproche du
+	--feu pour veiller sur les blesses. Ce bloc deplacait Rin — mais Rin
+	--est partie avec la cordee de soutien et n'est plus sur la carte :
+	--le TeleportTo s'appliquait a un `audino` desormais nil, donc a
+	--rien du tout. Le camp reduit doit assumer ce role avec les trois
+	--presents, pas avec un fantome.
 	if SV.Chapter5.LostMountain or SV.Chapter5.DiedToWind then
-		GROUND:TeleportTo(audino, 244, 252, Direction.Down)
+		pcall(function()
+			GROUND:TeleportTo(noctowl, 276, 236, Direction.DownLeft)
+		end)
 	end
 end
 
