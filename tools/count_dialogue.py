@@ -7,9 +7,16 @@ import re, glob, sys, collections
 # (say/think/narrate/voice dans ChapterAftermath.lua et DazzlingArc.lua).
 # Sans eux, un module ecrit proprement avec des helpers paraissait vide :
 # DazzlingArc affichait 3 lignes au lieu de 77.
+# Says/SaysA/greet : helpers locaux de mount_windswept_entrance_ch_5, qui
+# enveloppent chacun UN WaitShowDialogue (« le corps parle avant la
+# bouche » : ils tournent les tetes puis affichent la boite). Sans eux, la
+# carte du Mont Venteux sous-comptait de 33 boites — et surtout le compteur
+# restait STRICTEMENT IDENTIQUE quand on ajoutait du dialogue via ces
+# helpers, ce qui rendait l'outil aveugle au travail en cours.
+# `voice`/`dreamer` du reve sont deja couverts par `voice` ci-dessous.
 PAT = re.compile(
     r'WaitShowDialogue|StartConversation|WaitShowTimedDialogue'
-    r'|^\s*(?:say|think|narrate|voice)\(', re.M)
+    r'|^\s*(?:say|think|narrate|voice|Says|SaysA|greet)\(', re.M)
 
 # Modules a FICHES : la replique n'est pas un appel, c'est une valeur dans
 # une table lue plus tard par un unique StartConversation. TownVoices,

@@ -357,7 +357,34 @@ function VoiceVisions.Recover(chara, soft)
   pcall(function()
     if chara ~= nil then
       GROUND:CharSetEmote(chara, "", 0)
-      GROUND:CharSetAnim(chara, "Idle", true)
+      ------------------------------------------------------------------
+      -- ON REND LA POSE AU MOTEUR, ON N'EN IMPOSE PAS UNE.
+      ------------------------------------------------------------------
+      -- BUG VU EN JEU : « durant le rassemblement matinal mon heros
+      -- court sur du surplace ». C'etait cette ligne, et elle seule.
+      --
+      -- L'ancien code appelait CharSetAnim(chara, "Idle", true). Lu dans
+      -- le moteur (RogueCollab/RogueEssence, ScriptGround.cs:791) :
+      --     CharSetAnim -> new IdleAnimGroundAction(..., animIndex, loop)
+      -- c'est une action d'animation EXPLICITE et, avec loop = true, elle
+      -- ne se termine jamais. Le personnage reste verrouille dessus.
+      --
+      -- Or pendant une cinematique, GAME:CutsceneMode(true) met
+      -- GraphicsManager.GlobalIdle a 0 (ScriptGame.cs:1356) : tout le
+      -- monde se fige. Le heros, lui, avait recu une animation nommee
+      -- qui IGNORE ce gel — il etait donc le SEUL personnage anime de la
+      -- carte, a piétiner sa boucle d'idle pendant que les onze autres
+      -- se tenaient immobiles au garde-a-vous. D'ou l'impression, tres
+      -- juste, qu'il « courait sur place ».
+      --
+      -- CharEndAnim rend la main au moteur (ScriptGround.cs:801) :
+      --     new IdleGroundAction(...)  avec Override = -1
+      --     AnimFrameType => GraphicsManager.GlobalIdle
+      -- soit exactement la meme pose que tous les autres — figee pendant
+      -- la cinematique, vivante des que le joueur reprend la main. C'est
+      -- aussi ce qui efface proprement le "Hurt" pose par Nausea aux
+      -- niveaux 2 et 3, qui etait lui aussi en boucle.
+      GROUND:CharEndAnim(chara)
     end
   end)
 end

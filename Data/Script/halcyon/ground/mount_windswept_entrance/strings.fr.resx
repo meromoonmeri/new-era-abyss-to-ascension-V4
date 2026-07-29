@@ -536,4 +536,25 @@
   <data name="MWE5_171" xml:space="preserve">
     <value>(...Il a répondu du tac au tac.[pause=20] Il y avait déjà réfléchi.)</value>
   </data>
+  <data name="MWE5_172" xml:space="preserve">
+    <value>Vous voilà ![pause=20] J'ai guetté ce sentier toute la soirée.</value>
+  </data>
+  <data name="MWE5_173" xml:space="preserve">
+    <value>Neuf heures de retard.[pause=20] J'ai recompté trois fois.</value>
+  </data>
+  <data name="MWE5_174" xml:space="preserve">
+    <value>VOUS ÊTES VIVANTS ![pause=15] Je le savais ![pause=10] Enfin,[pause=10] j'espérais.</value>
+  </data>
+  <data name="MWE5_175" xml:space="preserve">
+    <value>Asseyez-vous.[pause=15] Je regarde vos blessures avant que vous ne disiez un mot.</value>
+  </data>
+  <data name="MWE5_176" xml:space="preserve">
+    <value>Il reste de la soupe.[pause=20] Elle a refroidi trois fois,[pause=10] mais elle est là.</value>
+  </data>
+  <data name="MWE5_177" xml:space="preserve">
+    <value>'Pas trop en retard'...[pause=25] On a fini de manger il y a deux heures.</value>
+  </data>
+  <data name="MWE5_178" xml:space="preserve">
+    <value>Le vent a tourné au crépuscule.[pause=20] Voilà pourquoi ils ont mis si longtemps.</value>
+  </data>
 </root>

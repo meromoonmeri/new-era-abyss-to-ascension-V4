@@ -33,6 +33,44 @@ end
 
 --Nappe plein ecran (Content/BG) : brume, eclair, lumiere...
 function BossFX.Overlay(anim, x, y, fadeIn, hold, fadeOut, layer, moveX, moveY, frameTime, alpha)
+    --------------------------------------------------------------------
+    -- UN OVERLAY EMIS EN (0,0) N'EST JAMAIS DESSINE.
+    --------------------------------------------------------------------
+    -- BUG VU EN JEU : « le reve ne s'affiche pas ». La parallaxe etait
+    -- bien creee, la musique jouait, les dialogues defilaient — mais
+    -- l'image n'arrivait jamais a l'ecran. La cause est dans le moteur,
+    -- et elle est purement geometrique (lu dans RogueCollab/RogueEssence) :
+    --
+    --   OverlayEmitter.cs:83   new OverlayAnim(..., omnipresent = FALSE, ...)
+    --   OverlayAnim.GetDrawSize()  -> si !Omnipresent : Loc(TileSize) = 24x24
+    --   BaseScene.IterateRelevantDraw()  -> ne rend le sprite QUE si
+    --       Rect(position, 24x24) COLLISIONNE le ViewRect de la camera
+    --   BaseGroundScene.cs:155  ViewRect = camera - 160,-120 .. +160,+120
+    --
+    -- Autrement dit le moteur traite l'overlay comme un objet ponctuel de
+    -- 24x24 px pour decider s'il faut le dessiner, ALORS MEME que son
+    -- rendu (RepeatX/RepeatY) couvre tout l'ecran. Un overlay pose en
+    -- (0,0) alors que la camera regarde le camp en (256,228) est donc
+    -- considere hors champ, et purement et simplement supprime du rendu.
+    --
+    -- Verifie par simulation sur les trois appels du depot :
+    --   DreamSky      emis (0,0)     camera (256,228) -> CULLED
+    --   DizzyVeil     emis (256,228) camera (256,228) -> dessine
+    --   first_core    emis (276,134) camera (276,134) -> dessine
+    -- C'est exactement pourquoi le vertige et l'anima fonctionnaient et
+    -- pourquoi le reve, lui, ne s'est jamais affiche.
+    --
+    -- CORRECTION : quand aucune position n'est demandee, on emet AU
+    -- CENTRE DE LA CAMERA. C'est sans effet de bord : ce helper force
+    -- toujours RepeatX/RepeatY, donc la planche pave l'ecran entier et sa
+    -- position ne joue que sur la phase du pavage (diff % TileWidth), pas
+    -- sur ce qui est visible. Les appels qui visent un point precis
+    -- (cloven_ruins_boss passe la position de Regigigas) sont intacts.
+    if (x == nil or x == 0) and (y == nil or y == 0) then
+        local ok, c = pcall(function() return GAME:GetCameraCenter() end)
+        if ok and c ~= nil then x, y = c.X, c.Y end
+    end
+
     local o = RogueEssence.Content.FiniteOverlayEmitter()
     o.FadeIn = fadeIn or 10
     o.TotalTime = hold or 60
