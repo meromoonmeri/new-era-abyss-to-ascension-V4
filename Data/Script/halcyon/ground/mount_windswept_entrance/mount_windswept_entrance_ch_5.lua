@@ -94,17 +94,37 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--
 	--Chaque convive regarde le foyer : la direction est calculee depuis
 	--l'angle reel vers le centre (274,238), pas posee a la main.
+	--PLACES REORDONNEES POUR QUE CHACUN DORME PRES DE SON ASSIETTE.
+	--BUG VU EN JEU : « quand les Pokemon vont au dodo, Riolu fait un
+	--long deplacement inutile ». Riolu, c'est le partenaire (ou le
+	--heros) : il mangeait a l'ouest du feu et dormait a l'EST, soit
+	--167 px a traverser tout le camp pendant que les autres se
+	--couchaient. Six autres faisaient plus de 70 px.
+	--
+	--Le cercle du repas et le fer a cheval des couchages sont tous deux
+	--centres sur le foyer (274,238). Il suffisait donc de les faire
+	--tourner DANS LE MEME SENS : chacun s'assied a table en face de sa
+	--propre paillasse, et n'a plus qu'a se retourner pour se coucher.
+	--
+	--Assignation calculee par tri angulaire des deux cercles. Trajet le
+	--plus long : 49 px (contre 167), total 368 px pour onze dormeurs.
+	--Les contraintes narratives sont conservees :
+	--  * le duo est cote a cote a table -> donc sur deux couches
+	--    voisines (7 et 8, 46 px) : la scene intime les cadre ensemble ;
+	--  * Hyko et Almotz de meme (9 et 11, 42 px) : ils chuchotent apres
+	--    l'extinction du feu ;
+	--  * Penticus reste au nord, entre les dormeurs et la porte.
 	local MEAL = {
 		{t.penticus, 284, 158, Direction.Down},
 		{t.phileas,  318, 176, Direction.DownLeft},
 		{t.coco,     338, 210, Direction.Left},
 		{t.ganlon,   338, 248, Direction.Left},
-		{hero,       320, 282, Direction.UpLeft},
-		{t.almotz,   286, 302, Direction.Up},
-		{t.reinier,  248, 302, Direction.Up},
-		{t.kino,     214, 284, Direction.UpRight},
+		{t.reinier,  320, 282, Direction.UpLeft},
+		{t.kino,     286, 302, Direction.Up},
+		{hero,       248, 302, Direction.Up},
+		{partner,    214, 284, Direction.UpRight},
 		{t.hyko,     194, 250, Direction.Right},
-		{partner,    194, 212, Direction.Right},
+		{t.almotz,   194, 212, Direction.Right},
 		{t.shuca,    212, 178, Direction.DownRight},
 		{t.rin,      246, 158, Direction.Down},
 	}
@@ -143,18 +163,22 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--    couchages (voir sa definition). DeployBeds n'en pose que onze,
 	--    donc plus aucune paillasse inutilisee a l'ecran.
 	--Le +13/+10 place le sprite au centre de la paillasse (patron Tunnel).
+	--COUCHAGES ALIGNES SUR LES PLACES DE TABLE (voir MEAL ci-dessus).
+	--Chacun dort face au foyer, a 49 px maximum de l'endroit ou il a
+	--mange. Les directions sont calculees depuis l'angle reel vers le
+	--centre (274,238), pas posees a la main.
 	local seats = {
-		{t.penticus, 1,  Direction.Down},
-		{t.coco,     2,  Direction.Left},
-		{t.ganlon,   3,  Direction.Left},
-		{t.reinier,  4,  Direction.Left},
-		{partner,    5,  Direction.Left},
-		{hero,       6,  Direction.Up},
-		{t.hyko,     7,  Direction.Up},
-		{t.almotz,   8,  Direction.Right},
-		{t.shuca,    9,  Direction.Right},
-		{t.rin,      10, Direction.Right},
-		{t.kino,     11, Direction.Right},
+		{t.penticus, 2,  Direction.DownLeft},
+		{t.coco,     3,  Direction.DownLeft},
+		{t.ganlon,   4,  Direction.Left},
+		{t.reinier,  5,  Direction.Left},
+		{partner,    8,  Direction.UpRight},
+		{hero,       7,  Direction.UpRight},
+		{t.hyko,     9,  Direction.Right},
+		{t.almotz,   11, Direction.Right},
+		{t.shuca,    10, Direction.Right},
+		{t.rin,      1,  Direction.Down},
+		{t.kino,     6,  Direction.UpLeft},
 	}
 	local function seatX(i) return B[i][1] + 13 end
 	local function seatY(i) return B[i][2] + 10 end
@@ -1270,22 +1294,27 @@ function mount_windswept_entrance_ch_5.ResumeAfterDream()
 	--Les dix membres du camp, recrees a leur place.
 	local audino, snubbull, girafarig, breloom, growlithe, zigzagoon, tropius, noctowl, mareep, cranidos =
 	CharacterEssentials.MakeCharactersFromList({
-		{'Audino',    B[10][1] + 13, B[10][2] + 10, Direction.Right},
-		{'Snubbull',  B[2][1]  + 13, B[2][2]  + 10, Direction.Left},
-		{'Girafarig', B[4][1]  + 13, B[4][2]  + 10, Direction.Left},
-		{'Breloom',   B[11][1] + 13, B[11][2] + 10, Direction.Right},
-		{'Growlithe', B[7][1]  + 13, B[7][2]  + 10, Direction.Up},
-		{'Zigzagoon', B[8][1]  + 13, B[8][2]  + 10, Direction.Right},
-		{'Tropius',   B[1][1]  + 13, B[1][2]  + 10, Direction.Down},
+		--Attribution synchronisee avec la table `seats` de CampNightfall
+		--(realignee sur le cercle du repas) : Rin 1, Penticus 2, Coco 3,
+		--Ganlon 4, Reinier 5, Kino 6, heros 7, partenaire 8, Hyko 9,
+		--Shuca 10, Almotz 11. Les deux listes DOIVENT rester d'accord :
+		--si l'une change, l'autre aussi.
+		{'Audino',    B[1][1]  + 13, B[1][2]  + 10, Direction.Down},
+		{'Snubbull',  B[3][1]  + 13, B[3][2]  + 10, Direction.DownLeft},
+		{'Girafarig', B[5][1]  + 13, B[5][2]  + 10, Direction.Left},
+		{'Breloom',   B[6][1]  + 13, B[6][2]  + 10, Direction.UpLeft},
+		{'Growlithe', B[9][1]  + 13, B[9][2]  + 10, Direction.Right},
+		{'Zigzagoon', B[11][1] + 13, B[11][2] + 10, Direction.Right},
+		{'Tropius',   B[2][1]  + 13, B[2][2]  + 10, Direction.DownLeft},
 		{'Noctowl',   241, 166, Direction.Down},
-		{'Mareep',    B[9][1]  + 13, B[9][2]  + 10, Direction.Right},
-		{'Cranidos',  B[3][1]  + 13, B[3][2]  + 10, Direction.Left}
+		{'Mareep',    B[10][1] + 13, B[10][2] + 10, Direction.Right},
+		{'Cranidos',  B[4][1]  + 13, B[4][2]  + 10, Direction.Left}
 	})
 
 	--Le duo sur ses couches : partenaire 5, heros 6 (voisines de 50 px,
 	--pour que la camera puisse les cadrer ensemble).
-	GROUND:TeleportTo(partner, B[5][1] + 13, B[5][2] + 10, Direction.Left)
-	GROUND:TeleportTo(hero,    B[6][1] + 13, B[6][2] + 10, Direction.Up)
+	GROUND:TeleportTo(partner, B[8][1] + 13, B[8][2] + 10, Direction.UpRight)
+	GROUND:TeleportTo(hero,    B[7][1] + 13, B[7][2] + 10, Direction.UpRight)
 
 	--Tout le monde dort. Phileas, lui, VEILLE debout a son poste : il
 	--n'a pas de couchage, c'est tout son role de la nuit.
@@ -1343,7 +1372,7 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	--construite a partir des personnages `t`, qui n'existent que le
 	--temps de la veillee. Une constante nommee vaut mieux qu'une table
 	--reconstruite a moitie.
-	local HERO_BED = 6
+	local HERO_BED = 7
 	local function seatX(i) return B[i][1] + 13 end
 	local function seatY(i) return B[i][2] + 10 end
 

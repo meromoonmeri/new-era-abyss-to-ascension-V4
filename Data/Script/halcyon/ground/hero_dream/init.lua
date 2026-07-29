@@ -55,6 +55,31 @@ function hero_dream.Init(map)
   --avec la camera en train de sauter a sa place. Instantane et
   --idempotent : si l'ecran est deja noir, il ne se passe rien.
   pcall(function() GAME:FadeOut(false, 1) end)
+
+  ------------------------------------------------------------------
+  -- LE JOUEUR DOIT EXISTER SUR LA CARTE.
+  ------------------------------------------------------------------
+  -- CRASH VU EN JEU : « quand je vais sur le ground du reve je crash ».
+  --
+  -- Cause : cet Init n'appelait PAS COMMON.RespawnAllies(). Toutes les
+  -- autres cartes du mod le font (personality_test/init.lua:494,
+  -- searing_crucible/init.lua:75, mount_windswept_entrance/init.lua...) :
+  -- c'est cette fonction qui appelle GROUND:RefreshPlayer() et qui
+  -- reconstruit l'equipe a l'arrivee. Sans elle, CH('PLAYER') n'est pas
+  -- garanti, et DreamScene appelait GROUND:TeleportTo(hero, ...) sur nil.
+  --
+  -- Second piege, corrige dans le .rsground : j'avais VIDE la liste des
+  -- Spawners de la carte. Or RespawnAllies fait, sans condition,
+  -- SpawnerSetSpawn("TEAMMATE_1") puis SpawnerDoSpawn("TEAMMATE_1"), et
+  -- ScriptGround.cs:249 leve une ArgumentException si le spawner
+  -- n'existe pas. personality_test — la carte dont hero_dream est copie —
+  -- garde precisement ce spawner unique. Il est restaure, pose au centre
+  -- et desactive (EntEnabled=false) : le partenaire n'a rien a faire
+  -- dans le reve du heros, mais le moteur exige que l'ancre existe.
+  --
+  -- reviveAll = false : on ne veut QUE le joueur. Les equipiers 2 et 3
+  -- (Ganlon, Shuca) ne rejoignent pas un reve.
+  COMMON.RespawnAllies()
 end
 
 function hero_dream.Enter(map)
@@ -132,12 +157,31 @@ end
 function hero_dream.DreamScene()
   local hero = CH('PLAYER')
 
+  --SORTIE DE SECOURS. Si le joueur n'est pas sur la carte, on ne joue
+  --RIEN et on renvoie immediatement au camp : mieux vaut sauter le reve
+  --que bloquer la partie sur une carte vide et sans sortie.
+  if hero == nil then
+    PrintInfo("[hero_dream] PLAYER introuvable — retour au camp sans jouer le reve")
+    SV.Chapter5.DreamSceneSeen = true
+    GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker', true)
+    return
+  end
+
   GAME:CutsceneMode(true)
   SOUND:StopBGM()
 
   ------------------------------------------------------------------
   -- MISE EN PLACE, SOUS LE NOIR
   ------------------------------------------------------------------
+  --LE HEROS REVE SEUL. RespawnAllies a pu faire apparaitre le
+  --partenaire (il est dans l'equipe) : on le retire de la carte, il
+  --n'a rien a faire dans ce reve. GROUND:Hide suffit — le supprimer
+  --casserait sa restauration au retour.
+  pcall(function()
+    local partner = CH('Teammate1')
+    if partner ~= nil then GROUND:Hide(partner.EntName) end
+  end)
+
   --Le heros au centre exact de l'ecran (152,112), couche. « EventSleep »
   --est la pose de sommeil utilisee par tout le mod pour le heros
   --(searing_tunnel_entrance, mount_windswept_entrance).

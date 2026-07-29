@@ -23,27 +23,6 @@ local mount_windswept_entrance = {}
 -------------------------------
 ---mount_windswept_entrance.Init(map)
 --Engine callback function
---Les scenes de cette carte qui commencent ECRAN NOIR. Si l'une d'elles
---va se jouer, Init doit garantir le noir AVANT le premier rendu.
-local function needsBlackOnEntry()
-  --Lire un champ d'une table ABSENTE crashe (regle projet §2.4) : sur
-  --une sauvegarde anterieure a ces flags, SV.Chapter5 pourrait manquer.
-  --Init ne doit jamais lever d'erreur — la carte deviendrait injouable.
-  local ok, res = pcall(function()
-    if SV.ChapterProgression == nil or SV.ChapterProgression.Chapter ~= 5 then
-      return false
-    end
-    local c5 = SV.Chapter5
-    if c5 == nil then return false end
-    if not c5.FinishedMountWindsweptIntro then return true end
-    if c5.PlayTempMountScene then return true end
-    if c5.MountGuardianDefeated and c5.MountVigilSceneSeen
-       and not c5.WindSecretSceneSeen then return true end
-    return false
-  end)
-  return ok and res or false
-end
-
 function mount_windswept_entrance.Init(map)
   DEBUG.EnableDbgCoro()
   print('=>> Init_mount_windswept_entrance <<=')
@@ -80,9 +59,34 @@ function mount_windswept_entrance.Init(map)
   -- (retour de donjon, promenade) dont la branche `else` de
   -- PlotScripting ne fait qu'un FadeIn(20) — l'ecran resterait noir une
   -- demi-seconde sans raison.
-  if needsBlackOnEntry() then
-    pcall(function() GAME:FadeOut(false, 1) end)
-  end
+  ------------------------------------------------------------------
+  -- LE NOIR EST POSE SANS CONDITION, ET AVANT TOUT LE RESTE.
+  ------------------------------------------------------------------
+  -- BUG SIGNALE DEUX FOIS : « quand on passe du ground du boss des
+  -- Limagma au Mont Venteux, y'a un souci de fondu ».
+  --
+  -- Le fondu du Crucible est sain (verifie par simulation de
+  -- ScreenFadeFX.Fade : coro5 monte fadeAmount a 1.0 et il y RESTE,
+  -- le second FadeOut est correctement ignore). Le probleme etait ici.
+  --
+  -- Ce FadeOut etait CONDITIONNE par needsBlackOnEntry(), qui lit
+  -- SV.Chapter5. Or cette fonction est enveloppee dans un pcall et
+  -- renvoie FALSE des qu'une lecture echoue — table absente, flag
+  -- manquant, sauvegarde d'une version anterieure. En cas d'echec
+  -- silencieux, aucun noir n'etait pose, et le premier rendu de la
+  -- carte se faisait a nu : on apercevait le Mont (ou le decor
+  -- precedent encore en memoire) avant que la cinematique ne demarre.
+  --
+  -- Un FadeOut de 1 frame sur un ecran DEJA noir ne coute rien : la
+  -- garde `if (!fadeIn && fadeAmount == 0f) yield break;` de
+  -- FadeEffect.cs:63 le rend idempotent. Le poser toujours est donc
+  -- strictement plus sur que de le poser parfois.
+  --
+  -- Le seul cas ou l'on ne veut PAS de noir, c'est l'entree libre sur
+  -- la carte (promenade, retour de donjon) : la branche `else` de
+  -- PlotScripting fait alors son FadeIn(20), qui le leve. On ne perd
+  -- donc rien, et on ne peut plus rater le noir.
+  pcall(function() GAME:FadeOut(false, 1) end)
 
   COMMON.RespawnAllies()
   GROUND:AddMapStatus("blowing_wind")
