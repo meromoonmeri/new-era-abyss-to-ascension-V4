@@ -35,7 +35,7 @@
 "Gender": -1
 },
 "CurrentForm": {
-"Species": "heatran",
+"Species": "magcargo",
 "Form": 0,
 "Skin": "normal",
 "Gender": 1
@@ -191,7 +191,7 @@
 "OriginalUUID": "",
 "OriginalTeam": "",
 "BaseForm": {
-"Species": "heatran",
+"Species": "magcargo",
 "Form": 0,
 "Skin": "normal",
 "Gender": 1

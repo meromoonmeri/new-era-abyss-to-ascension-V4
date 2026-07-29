@@ -55,11 +55,11 @@ function searing_crucible_ch_5.FirstPreBossScene()
 	GROUND:Hide('Slugma_Girl_3')
 	GROUND:Hide('Slugma_Girl_4')
 	
-	local heatran = 
+	local magcargo = 
 		CharacterEssentials.MakeCharactersFromList({
-			{'Heatran', 256, 192, Direction.Down}
+			{'Magcargo', 256, 192, Direction.Down}
 		})
-	GROUND:Hide('Heatran')
+	GROUND:Hide('Magcargo')
 	
 	if partner ~= nil then AI:DisableCharacterAI(partner) end
 	SOUND:StopBGM()
@@ -171,8 +171,8 @@ function searing_crucible_ch_5.FirstPreBossScene()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_006']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_007']))
 	GAME:WaitFrames(10)
-	--they're interrupted by the ground shaking, and the lava flowing (heatran doesn't have influence over these lava flows)
-	--having the lava show up first also makes heatran believe you're the one causing them (you showed up and it acted up)
+	--they're interrupted by the ground shaking, and the lava flowing (magcargo doesn't have influence over these lava flows)
+	--having the lava show up first also makes magcargo believe you're the one causing them (you showed up and it acted up)
 
 	--takes about 20f to react to slugma materialization. each frame of materialization is 3 frames
 
@@ -591,27 +591,27 @@ function searing_crucible_ch_5.FirstPreBossScene()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_031']))
 	GAME:WaitFrames(10)
 
-	--heatran spawns in via the heatran effect
+	--magcargo spawns in via the magcargo effect
 	coro1 = TASK:BranchCoroutine(function() GROUND:MoveScreen(RogueEssence.Content.ScreenMover(3, 6, 30))
 											GAME:WaitFrames(10)	
 											SOUND:PlayBattleSE("_UNK_EVT_003")
 										--RESTAURE (comparaison Palikadude/Halcyon, branche working-copy,
-										--2026-07) : retour a l'effet signature d'origine — Heatran surgit
+										--2026-07) : retour a l'effet signature d'origine — Magcargo surgit
 										--dans une colonne de flamme (Sacred_Fire_Ranger, calque Front), et
 										--non plus sous le flash blanc generique du LOT 2.1. Port exact de
-										--leur bloc (anim au pixel heatran.Position.X + 8, Unhide a t=3).
+										--leur bloc (anim au pixel magcargo.Position.X + 8, Unhide a t=3).
 										--L'AnimData n'est dans AUCUN des deux depots : il sort du contenu
 										--de base du moteur, comme Slugma_Materialize (meme cas). Filet
 										--pcall : si l'anim manquait chez un joueur, repli au flash blanc
 										--a sa position — la scene continue dans tous les cas.
 										local okFlamme = pcall(function()
 											local arriveAnim = RogueEssence.Content.StaticAnim(RogueEssence.Content.AnimData("Sacred_Fire_Ranger", 3), 1)
-											arriveAnim:SetupEmitted(RogueElements.Loc(heatran.Position.X + 8, heatran.Position.Y), 32, RogueElements.Dir8.Down)
+											arriveAnim:SetupEmitted(RogueElements.Loc(magcargo.Position.X + 8, magcargo.Position.Y), 32, RogueElements.Dir8.Down)
 											GROUND:PlayVFXAnim(arriveAnim, RogueEssence.Content.DrawLayer.Front)
 										end)
-										if not okFlamme then BossFX.Flash(heatran.Position.X, heatran.Position.Y, 3, 5, 20) end
+										if not okFlamme then BossFX.Flash(magcargo.Position.X, magcargo.Position.Y, 3, 5, 20) end
 										GAME:WaitFrames(3)
-										GROUND:Unhide('Heatran')
+										GROUND:Unhide('Magcargo')
 										GAME:WaitFrames(37)	
 											end)
 
@@ -642,11 +642,10 @@ function searing_crucible_ch_5.FirstPreBossScene()
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
 	GAME:WaitFrames(20)
 											
-	UI:SetSpeaker(STRINGS:Format("\\uE040"), true, heatran.CurrentForm.Species, heatran.CurrentForm.Form, heatran.CurrentForm.Skin, heatran.CurrentForm.Gender)				
+	UI:SetSpeaker(STRINGS:Format("\\uE040"), true, magcargo.CurrentForm.Species, magcargo.CurrentForm.Form, magcargo.CurrentForm.Skin, magcargo.CurrentForm.Gender)				
 	UI:SetSpeakerEmotion("Determined")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_032'], heatran:GetDisplayName(), _DATA:GetMonster('slugma'):GetColoredName()))
-	UI:SetSpeaker(heatran)
-	--REMOVED: Heatran has no custom expression sprites (base PMDO assets only)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_032'], magcargo:GetDisplayName(), _DATA:GetMonster('slugma'):GetColoredName()))
+	UI:SetSpeaker(magcargo)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_033']))
 
 	--LOT 4 : la Voix mysterieuse s'invite avant l'epreuve du feu.
@@ -667,7 +666,7 @@ end
 function searing_crucible_ch_5.SecondPreBossScene()
 	--instead of having it play out like the first time, cut right to the chase of being surrounded again. sky does this a lot and,
 	--while it is the lazy option, do you really want to see the same animation again? It'd be really contrived too at that part, or at least more so.
-	--Heatran says you continue to defile the lands and cause this crap. You truly are scum.
+	--Magcargo says you continue to defile the lands and cause this crap. You truly are scum.
 	--they try to speak up but get interrupted
 	
 	local hero = CH('PLAYER')
@@ -708,9 +707,9 @@ function searing_crucible_ch_5.SecondPreBossScene()
 	GAME:GetCurrentGround():AddTempChar(slugma_girl_4)
 	
 
-	local heatran = 
+	local magcargo = 
 		CharacterEssentials.MakeCharactersFromList({
-			{'Heatran', 256, 192, Direction.Down}
+			{'Magcargo', 256, 192, Direction.Down}
 		})
 	
 
@@ -753,8 +752,7 @@ function searing_crucible_ch_5.SecondPreBossScene()
 	
 	GAME:WaitFrames(40)
 	
-	UI:SetSpeaker(heatran)
-	--REMOVED: Heatran has no custom expression sprites (base PMDO assets only)
+	UI:SetSpeaker(magcargo)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_034']))
 	
 	GAME:WaitFrames(10)
@@ -769,8 +767,7 @@ function searing_crucible_ch_5.SecondPreBossScene()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_036']))
 
 	GAME:WaitFrames(20)	
-	UI:SetSpeaker(heatran)
-	--REMOVED: Heatran has no custom expression sprites (base PMDO assets only)
+	UI:SetSpeaker(magcargo)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_037']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_038']))
 	
@@ -788,12 +785,12 @@ end
 -- Corps de la cinematique, appele sous pcall par DefeatedBoss() : toute erreur
 -- Lua ici ne doit JAMAIS laisser le joueur sur un ecran noir definitif.
 local function DefeatedBossBody()
-	--heatran is actually defeated, and offers his neck metaphorically to the stone, party explains that they didn't even want to fight
-	--heatran explains he thought the outlanders were causing all the issues the tunnel's been experiencing
+	--magcargo is actually defeated, and offers his neck metaphorically to the stone, party explains that they didn't even want to fight
+	--magcargo explains he thought the outlanders were causing all the issues the tunnel's been experiencing
 	--after they disappear, partner should mention that he's glad hyko and almotz were there. Just him and the palyer wouldn't have been able to deal with all those enemies at once
 	--this took so long to sort out, it's probably night by now! We have to hurry ahead!
 	--commenting on his exit being as dramatic as his entrance (with sweatdrops)
-	--heatran realizes he endangered his tribe by attacking you without listening to what you had to say... he apologizes
+	--magcargo realizes he endangered his tribe by attacking you without listening to what you had to say... he apologizes
 	
 	local hero = CH('PLAYER')
 	local partner = CH('Teammate1')
@@ -833,12 +830,12 @@ local function DefeatedBossBody()
 	GAME:GetCurrentGround():AddTempChar(slugma_girl_4)
 	
 
-	local heatran = 
+	local magcargo = 
 		CharacterEssentials.MakeCharactersFromList({
-			{'Heatran', 256, 192, Direction.Down}
+			{'Magcargo', 256, 192, Direction.Down}
 		})
 	
-	GROUND:CharSetAnim(heatran, "Charge", true)
+	GROUND:CharSetAnim(magcargo, "Charge", true)
 	
 	
 	if partner ~= nil then AI:DisableCharacterAI(partner) end
@@ -863,8 +860,7 @@ local function DefeatedBossBody()
 	GAME:FadeIn(60)
 	GAME:WaitFrames(20)
 	
-	UI:SetSpeaker(heatran)
-	--REMOVED: Heatran has no custom expression sprites (base PMDO assets only)
+	UI:SetSpeaker(magcargo)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_039']))
 	GAME:WaitFrames(10)
 	
@@ -884,11 +880,11 @@ local function DefeatedBossBody()
     SOUND:PlayBattleSE("EVT_Battle_Flash")
 	GAME:WaitFrames(46)
 	
-	GROUND:CharEndAnim(heatran)
+	GROUND:CharEndAnim(magcargo)
 	GAME:WaitFrames(20)
 
 	--He collapses
-	GeneralFunctions.PoseAndWait(heatran, "Special0")
+	GeneralFunctions.PoseAndWait(magcargo, "Special0")
 	GAME:WaitFrames(30)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_040']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_041']))
@@ -906,9 +902,9 @@ local function DefeatedBossBody()
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coro6, coro7, coro8})
 
 	
-	--REFONTE CINÉ 2026-07-30 : l'équipe réagit à la soumission de Heatran.
+	--REFONTE CINÉ 2026-07-30 : l'équipe réagit à la soumission de Magcargo.
 	--Chacun regarde les Slugma se prosterner, puis se regardent entre eux
-	--(confusion), puis se retournent vers Heatran quand il parle.
+	--(confusion), puis se retournent vers Magcargo quand il parle.
 	GAME:WaitFrames(20)
 	-- Phase 1 : l'équipe regarde les Slugma (nord)
 	coro1 = TASK:BranchCoroutine(function()
@@ -949,7 +945,7 @@ local function DefeatedBossBody()
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
 	GAME:WaitFrames(20)
 
-	-- Phase 4 : retour vers Heatran (il va parler)
+	-- Phase 4 : retour vers Magcargo (il va parler)
 	coro1 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(partner, Direction.Up, 4) end)
 	coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(6) GROUND:CharAnimateTurnTo(hero, Direction.Up, 4) end)
 	coro3 = TASK:BranchCoroutine(function() GAME:WaitFrames(4) GROUND:CharAnimateTurnTo(growlithe, Direction.Up, 4) end)
@@ -967,13 +963,12 @@ local function DefeatedBossBody()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_043']))
 	GAME:WaitFrames(40)
 	
-	UI:SetSpeaker(heatran)
-	--REMOVED: Heatran has no custom expression sprites (base PMDO assets only)
+	UI:SetSpeaker(magcargo)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_044']))
  
 	--They raise their heads back up.
 	--TODO: Make sure Audino fixes this
-	GeneralFunctions.ReversePoseAndWait(heatran, "Special0")
+	GeneralFunctions.ReversePoseAndWait(magcargo, "Special0")
 	GAME:WaitFrames(10)
 	
 	coro1 = TASK:BranchCoroutine(function() GeneralFunctions.ReversePoseAndWait(slugma_boy_1, "Special0") end)
@@ -989,13 +984,13 @@ local function DefeatedBossBody()
 	GAME:WaitFrames(20)
 	
 	SOUND:PlayBGM('In the Depths of the Pit.ogg', false)
-	--REFONTE 2026-07-30 (P6) : recadrage camera sur Heatran qui parle
+	--REFONTE 2026-07-30 (P6) : recadrage camera sur Magcargo qui parle
 	GAME:MoveCamera(256, 220, 30, false)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_045']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_046']))
 	--he bows again
 	pcall(function()
-		GROUND:CharSetAction(heatran, RogueEssence.Ground.PoseGroundAction(heatran.Position, heatran.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex('Special0')))
+		GROUND:CharSetAction(magcargo, RogueEssence.Ground.PoseGroundAction(magcargo.Position, magcargo.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex('Special0')))
 	end)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_047']))
 	GAME:WaitFrames(20)
@@ -1010,19 +1005,18 @@ local function DefeatedBossBody()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_049']))
 	GAME:WaitFrames(20)
 	
-	--Heatran rises back up
-	pcall(function() GeneralFunctions.ReversePoseAndWait(heatran, "Special0") end)
-	--REFONTE 2026-07-30 (P8) : les auditeurs se tournent vers Heatran
+	--Magcargo rises back up
+	pcall(function() GeneralFunctions.ReversePoseAndWait(magcargo, "Special0") end)
+	--REFONTE 2026-07-30 (P8) : les auditeurs se tournent vers Magcargo
 	pcall(function()
-		GROUND:CharTurnToCharAnimated(partner, heatran, 4)
-		GROUND:CharTurnToCharAnimated(hero, heatran, 4)
+		GROUND:CharTurnToCharAnimated(partner, magcargo, 4)
+		GROUND:CharTurnToCharAnimated(hero, magcargo, 4)
 	end)
-	UI:SetSpeaker(heatran)
-	--REMOVED: Heatran has no custom expression sprites (base PMDO assets only)
+	UI:SetSpeaker(magcargo)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_050']))
 	UI:SetSpeakerEmotion("Sad")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_051']))
-	--REFONTE 2026-07-30 (P8) : reaction du partenaire au recit de Heatran
+	--REFONTE 2026-07-30 (P8) : reaction du partenaire au recit de Magcargo
 	pcall(function() GROUND:CharSetEmote(partner, "notice", 1) end)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_052']))
 	GAME:WaitFrames(20)
@@ -1033,10 +1027,9 @@ local function DefeatedBossBody()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_053']))
 	GAME:WaitFrames(20)
 	
-	UI:SetSpeaker(heatran)
+	UI:SetSpeaker(magcargo)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_054']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_055']))
-	--REMOVED: Heatran has no custom expression sprites (base PMDO assets only)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_056']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_057']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_058']))
@@ -1052,34 +1045,33 @@ local function DefeatedBossBody()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_063']))
 	GAME:WaitFrames(20)
 	
-	GeneralFunctions.EmoteAndPause(heatran, "Sweatdrop", true)
-	UI:SetSpeaker(heatran)
-	--REMOVED: Heatran has no custom expression sprites (base PMDO assets only)
+	GeneralFunctions.EmoteAndPause(magcargo, "Sweatdrop", true)
+	UI:SetSpeaker(magcargo)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_064']))
 	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_065']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_066']))
 	--bows once more
-	GROUND:CharSetAction(heatran, RogueEssence.Ground.PoseGroundAction(heatran.Position, heatran.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex('Special0')))
+	GROUND:CharSetAction(magcargo, RogueEssence.Ground.PoseGroundAction(magcargo.Position, magcargo.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex('Special0')))
 	UI:SetSpeakerEmotion("Sad")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_067']))
 	
 	GAME:WaitFrames(30)
-	--Heatran rises back up
-	GeneralFunctions.ReversePoseAndWait(heatran, "Special0")
+	--Magcargo rises back up
+	GeneralFunctions.ReversePoseAndWait(magcargo, "Special0")
 	GAME:WaitFrames(30)
-	GROUND:CharAnimateTurnTo(heatran, Direction.DownLeft, 4)
+	GROUND:CharAnimateTurnTo(magcargo, Direction.DownLeft, 4)
 	GAME:WaitFrames(40)
-	GROUND:CharAnimateTurnTo(heatran, Direction.DownRight, 4)
+	GROUND:CharAnimateTurnTo(magcargo, Direction.DownRight, 4)
 	GAME:WaitFrames(40)
-	GROUND:CharAnimateTurnTo(heatran, Direction.Down, 4)
+	GROUND:CharAnimateTurnTo(magcargo, Direction.Down, 4)
 	GAME:WaitFrames(40)
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_068']))
 	GAME:WaitFrames(10)
 	
 	
-	--Party looks around at them as the slugmas dematerialize. They're startled when Heatran explodes to disappear
+	--Party looks around at them as the slugmas dematerialize. They're startled when Magcargo explodes to disappear
 	local materializeAnimLeft = RogueEssence.Content.AnimData("Slugma_Materialize_Reverse", 3)
     local materializeAnimRight = RogueEssence.Content.AnimData("Slugma_Materialize_Reverse", 3)
     local leftFlip = 1
@@ -1186,20 +1178,20 @@ local function DefeatedBossBody()
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coro6, coro7, coro8})
 	GAME:WaitFrames(10)
 	
-	--heatran explodes to leave
+	--magcargo explodes to leave
 	coro1 = TASK:BranchCoroutine(function() GROUND:MoveScreen(RogueEssence.Content.ScreenMover(3, 6, 30))
 											GAME:WaitFrames(10)	
 											SOUND:StopBGM()
 										SOUND:PlayBattleSE("_UNK_EVT_003")
-										--RESTAURE (meme comparaison du LOT 2.1) : la sortie de Heatran
+										--RESTAURE (meme comparaison du LOT 2.1) : la sortie de Magcargo
 										--rejoue l'explosion de flamme d'origine (Sacred_Fire_Ranger,
-										--calque Front, heatran.Position.X + 8, Hide a t=3) au lieu du
+										--calque Front, magcargo.Position.X + 8, Hide a t=3) au lieu du
 										--flash blanc generique du LOT 2.2. Le son redevient celui du jeu
 										--d'origine (_UNK_EVT_003, comme a l'apparition). Filet pcall :
 										--repli au flash blanc si l'anim manque chez un joueur.
 										local okFlamme2 = pcall(function()
 											local arriveAnim2 = RogueEssence.Content.StaticAnim(RogueEssence.Content.AnimData("Sacred_Fire_Ranger", 3), 1)
-											arriveAnim2:SetupEmitted(RogueElements.Loc(heatran.Position.X + 8, heatran.Position.Y), 32, RogueElements.Dir8.Down)
+											arriveAnim2:SetupEmitted(RogueElements.Loc(magcargo.Position.X + 8, magcargo.Position.Y), 32, RogueElements.Dir8.Down)
 											GROUND:PlayVFXAnim(arriveAnim2, RogueEssence.Content.DrawLayer.Front)
 										end)
 										if not okFlamme2 then
@@ -1210,10 +1202,10 @@ local function DefeatedBossBody()
 											flash.StartColor = Color(255, 255, 255, 0)
 											flash.Layer = DrawLayer.Top
 											flash.Anim = RogueEssence.Content.BGAnimData("White", 0)
-											GROUND:PlayVFX(flash, heatran.Position.X, heatran.Position.Y)
+											GROUND:PlayVFX(flash, magcargo.Position.X, magcargo.Position.Y)
 										end
 										GAME:WaitFrames(3)
-										GROUND:Hide('Heatran')
+										GROUND:Hide('Magcargo')
 											end)
 
 	coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(20)
@@ -1298,7 +1290,7 @@ local function DefeatedBossBody()
 	--UI:WaitShowDialogue("But it explains why the lava suddenly blocked our path as we tried to pass through here.")
 	GAME:WaitFrames(20)
 	
-	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['SC5_083'], heatran:GetDisplayName()), "Worried")
+	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['SC5_083'], magcargo:GetDisplayName()), "Worried")
 	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['SC5_084']), "Worried")
 	GAME:WaitFrames(60)
 	
@@ -1325,7 +1317,7 @@ local function DefeatedBossBody()
 								
 	UI:SetSpeaker(zigzagoon)
 	UI:SetSpeakerEmotion("Surprised")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_080'], heatran:GetDisplayName()))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_080'], magcargo:GetDisplayName()))
 	GAME:WaitFrames(20)
 	
 	UI:SetSpeaker(growlithe)
