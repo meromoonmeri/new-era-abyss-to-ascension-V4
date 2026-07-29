@@ -28,20 +28,35 @@ filet — si la création échoue, la scène bascule sur la « présence de
 lumière » (brume, pulsations, scintillement, éclat) au lieu de casser ;
 toutes les touches sur le sprite sont gardées par `if elle ~= nil`. ✅
 
-## P1 — le Ground du rêve « moche » : une NOUVELLE map
+## P1 — le Ground du rêve « moche » : une NOUVELLE map ✅ livrée
 
 **Constat testeur** : le clone de `luminous_spring` déçoit ; une vraie
 map onirique était attendue (carte blanche §6 + brief : « Conception de
 la nouvelle Ground »).
 
-**Décision** : conception d'une ground dédiée, à même tileset que la
-Source (cohérence du souvenir, chapitre 2) mais composition ORIGINALE :
-jardins suspendus dans le vide étoilé (le dream parallax devient le ciel
-TOUT AUTOUR), terrasses de bassins, rive centrale, rideau d'arbres. Le
-kingpin : le vide noir latéral doit laisser voir la parallaxe défiler —
-c'est ça qui vend « cet endroit n'existe pas ». Chantier séparé,
-livrable : nouveau `Data/Ground/songe_source.rsground` + positions de la
-scène ré-ajustées à sa géométrie.
+**Réalisé** (`tools/make_dream_map.py`, idempotent) : nouvelle
+composition « jardins suspendus » à même tileset que la Source
+(souvenir du chapitre 2, cohérence du rêve) —
+- le bloc source (bassin, colonne de lumière, gemmes, rive) est
+  conservé à l'identique : **toutes les ancres de la scène sont
+  inchangées** (glow (390,205), rive y≈285-305, axe du héros col 16,
+  marqueur d'entrée (292,580)) — `PlayDream` n'a pas bougé ;
+- flancs et coins deviennent du vide transparent : la parallaxe de rêve
+  (Background identique au test de personnalité) se voit à travers —
+  le jardin flotte dans le songe ;
+- flancs et angles fondus en alpha (94 variantes de frames générées ;
+  le paquet `LuminousSpring.tile` est **étendu**, jamais modifié :
+  les 625 frames d'origine sont byte-identiques, `luminous_spring`
+  n'est pas touchée) ;
+- 6 îlots de pré suspendus, silhouettes en gouttière (coins retirés),
+  textures prélevées par patchs 3×3 sur la clairière d'origine (motif
+  cyclique mesuré) — deux points de lecture pour varier ;
+- obstacles recalculés (vide/eau/lumière/sous-bois bloqués ; clairière,
+  rive, îlots, aire d'atterrissage libres ; axe du héros col 16
+  y∈[264,456] et son point d'ancre (390,297) prouvés libres) ;
+- rendu de contrôle : `docs/renders/songe_source.png` (+ `_zoom`).
+**À confirmer en jeu** : la parallaxe de rêve doit défiler visiblement
+dans les zones noires (comportement moteur, impossible à valider ici).
 
 ## P1 — déplacements au coucher
 
