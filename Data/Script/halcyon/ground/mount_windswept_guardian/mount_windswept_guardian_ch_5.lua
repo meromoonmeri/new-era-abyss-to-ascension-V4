@@ -500,11 +500,18 @@ end
 function mount_windswept_guardian_ch_5.DefeatedBoss()
   PrintInfo("[BossSeq][mount_windswept_guardian_ch_5] DefeatedBoss cutscene start")
 
-  local ok, err = pcall(DefeatedBossBody)
-  if not ok then
-    PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
-    pcall(function() GAME:FadeOut(false, 20) end)
-  end
+  --APPEL DIRECT, SANS pcall.
+  --Aligne sur Halcyon (searing_crucible_ch_5.lua de la branche
+  --working-copy, l.1235-1238) : leurs cinematiques de boss appellent leur
+  --corps directement et enchainent sur CutsceneMode(false) puis le
+  --changement de carte. Aucun filet.
+  --
+  --Le pcall qui enveloppait ce corps ne protegeait rien d'utile : il
+  --avalait l'erreur, sautait tout le reste de la scene, et laissait le
+  --joueur devant une transition muette sans qu'aucun message ne remonte.
+  --C'est exactement ce qui a masque pendant des semaines le fait que
+  --PrintInfo n'existait pas. Une erreur doit se voir.
+  DefeatedBossBody()
 
   GAME:CutsceneMode(false)
 

@@ -519,21 +519,18 @@ end
 function cloven_ruins_boss_ch_7.DefeatedBoss()
   PrintInfo("[BossSeq][cloven_ruins_boss_ch_7] DefeatedBoss cutscene start")
 
-  local ok, err = pcall(DefeatedBossBody)
-  if not ok then
-    PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
-    -- COUPE FRANCHE, PAS UN DEGRADE. On n'arrive ici que si le corps de
-    -- la scene a echoue : le fondu de fin n'a donc jamais tourne et
-    -- l'ecran est CLAIR. Un FadeOut(20) depuis un ecran clair produit
-    -- 20 frames dessinees d'opacite 0.05, 0.10 ... 1.0
-    -- (FadeEffect.cs:30-43), pendant lesquelles la carte sortante reste
-    -- lisible : Draw affiche CurrentScene (GameManager.cs:1338) avant
-    -- fadeScreen (l.1363), et EnterGroundMap ne fait qu'armer
-    -- SceneOutcome (ScriptGame.cs:106). Avec 1 frame, le noir est plein
-    -- des le premier rendu. Si l'ecran etait deja noir, la garde
-    -- FadeEffect.cs:63-67 rend l'appel gratuit.
-    pcall(function() GAME:FadeOut(false, 1) end)
-  end
+  --APPEL DIRECT, SANS pcall.
+  --Aligne sur Halcyon (searing_crucible_ch_5.lua de la branche
+  --working-copy, l.1235-1238) : leurs cinematiques de boss appellent leur
+  --corps directement et enchainent sur CutsceneMode(false) puis le
+  --changement de carte. Aucun filet.
+  --
+  --Le pcall qui enveloppait ce corps ne protegeait rien d'utile : il
+  --avalait l'erreur, sautait tout le reste de la scene, et laissait le
+  --joueur devant une transition muette sans qu'aucun message ne remonte.
+  --C'est exactement ce qui a masque pendant des semaines le fait que
+  --PrintInfo n'existait pas. Une erreur doit se voir.
+  DefeatedBossBody()
 
   -- Flag de progression + sortie garantis, quoi qu'il arrive.
   SV.Chapter7.SawAnimaCoreCorruption = true

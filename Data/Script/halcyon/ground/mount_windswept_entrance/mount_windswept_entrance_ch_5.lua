@@ -10,110 +10,12 @@ mount_windswept_entrance_ch_5 = {}
 -- LE CAMP DE BASE — decor partage
 --------------------------------------------------------------------
 -- Un seul endroit qui dessine le bivouac, appele par SetupGround ET par
--- la cinematique d'arrivee. Avant, les deux posaient leur propre feu aux
--- MEMES coordonnees (256,220) : deux animations superposees des que la
--- scene se jouait.
---
--- LES PAILLASSES NE SONT PAS DU MOBILIER D'INTERIEUR. Verifie :
--- Hay_Bed.dir est range dans Content/Object/ juste a cote de
--- Campfire.dir, et la carte soeur mount_windswept_midpoint porte deja
--- 3 tentes et 4 feux poses en dur. Un bivouac EST le vocabulaire visuel
--- de ce donjon. On les garde donc, une par membre de l'expedition.
---
--- LE LIT 11 ETAIT DANS LA ROCHE. Sa position d'origine (312,108) tombe
--- sur une case dont Tags ~= 0, donc non marchable : une paillasse
--- flottait dans la falaise. Verifie case par case sur les 12 ; les 11
--- autres sont sur du sol libre. Il est ramene sur le terrain plat.
---------------------------------------------------------------------
--- LA VEILLEE AU CAMP — diner, conversations, coucher, matin
---------------------------------------------------------------------
--- Portee au niveau de la scene soeur du Tunnel Incandescent
--- (ArrivalDinnerNightAndAddressCutscene) : un cycle complet
---   1. LE DINER        les 12 mangent autour du feu, camera qui balaie
---   2. LES CONVERSATIONS  trois groupes paralleles (coroutines)
---   3. LE COUCHER      chacun rejoint sa paillasse, en decale
---   4. LE MATIN        reveil par Rin, gag de Kino, briefing de Penticus
---
--- Toutes les repliques vivent dans strings.resx / strings.fr.resx
--- (cles MWE5_021 a MWE5_071 + MWE5_201), comme les scenes du Tunnel.
---
--- APIs strictement attestees dans le depot (recherche par usage) :
---   Eat / eating / Sleep / EventSleep / Wake  -> searing_tunnel_entrance_ch_5
---   Food / Food_Flipped / Hay_Bed / Campfire  -> Content/Object/
---   'Dinner Eating' / 'AMB_Fire_Loud'          -> Content/Sound/
---   WaitShowTimedDialogue / WaitShowVoiceOver  -> searing_tunnel (STE5_213)
---   Shake / Complain / Hop / DoAnimation       -> GeneralFunctions
---
--- Qui dort ou (indices dans BEDS) :
---   1 Penticus  2 Phileas  3 Reinier  4 Ganlon   5 Shuca   6 partenaire
---   7 heros     8 Hyko     9 Almotz  10 Rin     11 Kino   12 Coco
---------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	local B = mount_windswept_entrance_ch_5.BEDS
 	local mountain = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('mount_windswept')
 	local ruins = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('cloven_ruins')
 
 	--LE CERCLE DU REPAS N'EST PAS LE CERCLE DES COUCHAGES.
-	--
-	--BUG CORRIGE (mesure en jeu) : le diner envoyait chaque convive sur
-	--les coordonnees de SA PAILLASSE, a un rayon de ~100 px du feu. Douze
-	--personnages disperses sur un diametre de 200 px « partageaient » un
-	--repas qu'aucun d'eux ne pouvait atteindre du regard, et la camera ne
-	--pouvait pas les cadrer ensemble (viewport 320x240). Pire : les
-	--paillasses ne sont meme pas encore deployees a ce moment de la scene
-	--(DeployBeds n'est appele qu'en section 7), donc on s'asseyait sur du
-	--decor inexistant.
-	--
-	--On mange DONC autour du feu, en couronne serree (rayon ~44 px), et on
-	--dort ENSUITE en couronne large. Les douze places ci-dessous ont ete
-	--calculees puis verifiees une par une : sol libre, connexe depuis
-	--l'entree du joueur, hors de l'empreinte du feu (36x36 en 256,220) et
-	--hors de l'empreinte des paillasses (40x40), avec 18 px minimum entre
-	--deux voisins pour que les sprites ne se penetrent pas.
-	--CERCLE ELARGI. BUG VU EN JEU : « garder un espacement credible
-	--entre les Pokemon : eviter les groupes trop compacts qui donnent
-	--une impression de blocage ou de collage ».
-	--
-	--L'ancien cercle avait un rayon de ~44 px : mesure des ecarts entre
-	--voisins, NEUF paires tombaient entre 18 et 22 px, soit a peine plus
-	--que la largeur d'un sprite (16). Les douze convives se touchaient
-	--presque, et surtout aucun chemin de 16 px de large ne subsistait
-	--entre eux — c'est ce qui rendait la mise en place impossible sans
-	--traversees (12 mesurees).
-	--
-	--Nouveau cercle : rayon 74, offset 14 degres, recherche exhaustive
-	--sur (rayon, offset) en maximisant l'ecart minimal. Resultat :
-	--34 px entre les deux places les plus proches, soit le DOUBLE de
-	--l'ancien minimum. Chaque place est verifiee sol libre, hors des
-	--flammes (36x36 en 256,220) et hors du bloqueur du foyer.
-	--L'emprise totale fait 159x159 px : le cercle entier tient dans le
-	--viewport de 320x240, la camera n'a personne a exclure du champ.
-	--
-	--Les paillasses ne genent pas : DeployBeds n'est appele qu'APRES le
-	--repas (section 7), le sol est donc nu a cet instant.
-	--
-	--Chaque convive regarde le foyer : la direction est calculee depuis
-	--l'angle reel vers le centre (274,238), pas posee a la main.
-	--PLACES REORDONNEES POUR QUE CHACUN DORME PRES DE SON ASSIETTE.
-	--BUG VU EN JEU : « quand les Pokemon vont au dodo, Riolu fait un
-	--long deplacement inutile ». Riolu, c'est le partenaire (ou le
-	--heros) : il mangeait a l'ouest du feu et dormait a l'EST, soit
-	--167 px a traverser tout le camp pendant que les autres se
-	--couchaient. Six autres faisaient plus de 70 px.
-	--
-	--Le cercle du repas et le fer a cheval des couchages sont tous deux
-	--centres sur le foyer (274,238). Il suffisait donc de les faire
-	--tourner DANS LE MEME SENS : chacun s'assied a table en face de sa
-	--propre paillasse, et n'a plus qu'a se retourner pour se coucher.
-	--
-	--Assignation calculee par tri angulaire des deux cercles. Trajet le
-	--plus long : 49 px (contre 167), total 368 px pour onze dormeurs.
-	--Les contraintes narratives sont conservees :
-	--  * le duo est cote a cote a table -> donc sur deux couches
-	--    voisines (7 et 8, 46 px) : la scene intime les cadre ensemble ;
-	--  * Hyko et Almotz de meme (9 et 11, 42 px) : ils chuchotent apres
-	--    l'extinction du feu ;
-	--  * Penticus reste au nord, entre les dormeurs et la porte.
 	local MEAL = {
 		{t.penticus, 284, 158, Direction.Down},
 		{t.phileas,  318, 176, Direction.DownLeft},
@@ -130,13 +32,11 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	}
 
 	--ATTRIBUTION DES COUCHAGES — elle raconte quelque chose.
-	--
 	--Le fer a cheval s'ouvre au SUD : c'est par la qu'on arrive et qu'on
 	--repart, personne ne dort en travers du sentier. Les couches sont
 	--numerotees dans le sens horaire depuis le nord (1 = plein nord,
 	--2 a 7 = flanc est, 8 = sud-est en bout de file, 9 a 12 = flanc
 	--ouest).
-	--
 	--  * PENTICUS prend la couche 1, plein nord : entre les dormeurs et
 	--    la porte du donjon. Un chef dort du cote d'ou vient le danger.
 	--  * LE DUO prend les couches 6 et 7, les deux dernieres du flanc est
@@ -149,7 +49,6 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--    ceux qui partiront en premier au matin.
 	--  * HYKO et ALMOTZ sont voisins (8 et 9, 50 px) : ils chuchotent
 	--    encore apres l'extinction du feu, il faut qu'ils s'entendent.
-	--
 	--  * PHILEAS N'A PAS DE PAILLASSE, ET C'EST VOULU. Il prend le
 	--    premier tour de garde : il monte au nord du camp et y reste
 	--    debout toute la nuit. Lui attribuer une couche qu'il n'occupe
@@ -158,7 +57,6 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--    onze dormeurs. C'est PENTICUS qui prend la couche 2, la sienne
 	--    reste la 1 : le maitre de guilde dort plein nord, entre les
 	--    dormeurs et la porte du donjon.
-	--
 	--    Conséquence directe : la table BEDS ne compte plus que ONZE
 	--    couchages (voir sa definition). DeployBeds n'en pose que onze,
 	--    donc plus aucune paillasse inutilisee a l'ecran.
@@ -183,26 +81,20 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	local function seatX(i) return B[i][1] + 13 end
 	local function seatY(i) return B[i][2] + 10 end
 
-	------------------------------------------------------------------
 	-- LE CAMP ECOUTE — un cercle vivant, pas douze statues.
-	------------------------------------------------------------------
 	-- Mesure faite sur cette scene avant correction : 68 repliques, dont
 	-- 22 (32 %) ou AUCUN personnage ne bougeait dans les six lignes
 	-- precedentes. Le joueur voyait des boites de dialogue s'enchainer
 	-- devant un cercle immobile.
-	--
 	-- Les deux helpers ci-dessous rendent l'ecoute automatique :
-	--
 	--   Listen(parleur, {auditeurs}, emote)
 	--     Les auditeurs se tournent vers celui qui parle, EN DECALE
 	--     (4 frames d'ecart) : un groupe qui pivote d'un seul bloc a
 	--     l'air mecanique. C'est la regle deja appliquee aux departs
 	--     de la scene, on l'etend a l'ecoute.
-	--
 	--   Says(parleur, emotion, cle, {auditeurs}, emote)
 	--     Regroupe « le corps parle avant la bouche » (grammaire du
 	--     projet, §4.6) : on tourne les tetes, PUIS on affiche la boite.
-	--
 	-- Toutes les API employees sont attestees dans le depot :
 	-- CharTurnToCharAnimated (547 fichiers), CharSetEmote, BranchCoroutine,
 	-- JoinCoroutines. Le tout sous pcall : un auditeur nil (personnage
@@ -238,9 +130,7 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	local bedOf = {}
 	for _, s in ipairs(seats) do bedOf[s[1]] = s[2] end
 
-	---------------------------------------------------------------
 	-- 1. KINO ET REINIER REJOIGNENT LE CAMP
-	---------------------------------------------------------------
 	--Ils fermaient la marche sur le sentier. Leur arrivee complete
 	--l'expedition : les 12 paillasses ont enfin leurs 12 dormeurs.
 	GROUND:Unhide(t.kino.EntName)
@@ -248,29 +138,7 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GROUND:TeleportTo(t.kino, 236, 396, Direction.Up)
 	GROUND:TeleportTo(t.reinier, 276, 396, Direction.Up)
 
-	------------------------------------------------------------------
 	-- TOUT LE CAMP LES REGARDE ARRIVER, ET LES SUIT DU REGARD.
-	------------------------------------------------------------------
-	-- BUG VU EN JEU : « quand Kino et Girafarig arrivent, personne ne
-	-- les calcule, y'a aucun mouvement de tete vers eux ou les suit du
-	-- regard ».
-	--
-	-- Exact. Quatre personnages sur dix reagissaient (Coco, Shuca et le
-	-- duo), et encore : par un CharAnimateTurnTo vers une direction
-	-- FIXE, joue une fois. Les deux arrivants traversaient ensuite tout
-	-- le camp sur 100 px sans qu'une seule tete ne bouge.
-	--
-	-- Deux temps, comme dans la vie :
-	--   1. LE BRUIT. Tout le monde tourne la tete vers la source, en
-	--      decale (4 a 6 frames d'ecart) : un camp qui pivote d'un bloc
-	--      a l'air mecanique. Ceux qui les connaissent le mieux
-	--      reagissent en premier et avec une emote ; les autres se
-	--      contentent de regarder.
-	--   2. LE SUIVI. Pendant toute leur remontee, six personnages les
-	--      SUIVENT DU REGARD via FaceMovingCharacter (patron atteste du
-	--      depot, GeneralFunctions.lua:741) — leur tete pivote au fur et
-	--      a mesure que les arrivants avancent. C'est ce qui manquait :
-	--      un regard qui accompagne, pas un coup d'oeil.
 	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
 	local greetKino = {}
 	--Ceux qui reagissent VIVEMENT : Coco (elle a garde le repas au
@@ -314,26 +182,7 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 			pcall(function() GeneralFunctions.FaceMovingCharacter(who, t.reinier, 4) end)
 		end)
 	end
-	------------------------------------------------------------------
 	-- ILS CONTOURNENT LE DUO, ILS NE LE TRAVERSENT PAS.
-	------------------------------------------------------------------
-	-- BUG VU EN JEU. Kino montait en ligne droite de (236,396) vers
-	-- (238,290) : un trajet qui passe EXACTEMENT sur Hyko (240,328) puis
-	-- sur le HEROS (240,300), et qui s'arretait a 10 px de ce dernier —
-	-- soit deux sprites de 16x16 imbriques. Reinier faisait de meme avec
-	-- Almotz puis le partenaire. Les quatre se traversaient a l'ecran.
-	--
-	-- Cause : la colonne centrale (x=240 et x=272) est occupee par la
-	-- file d'arrivee du duo, et ces deux trajets la remontaient tout
-	-- droit. Ils passent desormais PAR LES COTES et s'arretent DEVANT :
-	--
-	--   Kino     (236,396) -> (216,372) -> (216,308) -> (208,300)
-	--   Reinier  (276,396) -> (312,380) -> (312,308) -> (304,300)
-	--
-	-- Chaque segment est echantillonne et verifie : sol libre, connexe,
-	-- et jamais a moins de 16 px (largeur de sprite) du heros, du
-	-- partenaire, de Hyko ou d'Almotz. Le detour ouest passe par x=216
-	-- et non x=200 : un obstacle bouche x=184..208 entre y=356 et y=380.
 	local coro5 = TASK:BranchCoroutine(function()
 		--Trois segments, le dernier fusionne : (216,308) puis (208,300)
 		--ne faisait que 8 px et produisait un sautillement d'arrivee.
@@ -360,7 +209,6 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_021']))
 	GAME:WaitFrames(15)
 	--Reinier repond a Kino : les deux se font face, le camp les regarde
-	--arriver. Avant, ces deux repliques tombaient sur des sprites figes.
 	coro1 = TASK:BranchCoroutine(function()
 		pcall(function() GROUND:CharTurnToCharAnimated(t.reinier, t.kino, 4) end)
 		UI:SetSpeaker(t.reinier)
@@ -374,40 +222,14 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(20)
 
-	---------------------------------------------------------------
 	-- 2. LE DINER — tout le monde s'installe autour du feu
-	---------------------------------------------------------------
 	UI:ResetSpeaker(false)
 	UI:SetCenter(true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_023']))
 	UI:SetCenter(false)
 	UI:ResetSpeaker()
 
-	------------------------------------------------------------------
 	-- ON GAGNE SA PLACE SANS TRAVERSER PERSONNE.
-	------------------------------------------------------------------
-	-- BUG VU EN JEU : « Kino traverse Audino ». Mesure faite sur
-	-- l'ancienne mise en place : DOUZE traversees pendant ce seul
-	-- deplacement. Chacun filait en ligne droite vers sa place sans
-	-- tenir compte des onze autres, et l'ordre de depart etait
-	-- simplement l'ordre de la table.
-	--
-	-- Mes outils ne le voyaient pas : audit_scene_collisions ne teste
-	-- que les traversees de personnages IMMOBILES, or ici tout le monde
-	-- bouge en meme temps. C'est le seul cas de la carte ou douze
-	-- trajectoires se croisent.
-	--
-	-- Trois corrections combinees :
-	--   1. le cercle a ete elargi (ecart minimum 18 -> 34 px, voir MEAL) ;
-	--   2. l'ORDRE de depart est calcule, pas arbitraire : chacun part
-	--      apres ceux dont il doit croiser la place. Recherche sur 60000
-	--      permutations, minimisant les croisements ;
-	--   3. les trois derniers cas irreductibles recoivent un waypoint de
-	--      contournement, obtenu par recherche de chemin contre les onze
-	--      autres positions.
-	-- Resultat : 0 traversee. Tous les ratios de detour valent 1.00 sauf
-	-- Penticus (1.19, il contourne le foyer) — aucun chemin allonge sans
-	-- raison.
 	local MEAL_ROUTES = {
 		{t.penticus, {{260,192},{284,158}}, Direction.Down},
 		{t.shuca,    {{230,168},{212,178}}, Direction.DownRight},
@@ -447,15 +269,6 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--cercle. On decale donc chaque plat d'un tiers de rayon vers le
 	--centre du foyer (274,238), calcule par interpolation entiere.
 	--LE SERVICE SE FAIT SOUS UN FONDU COURT.
-	--
-	--BUG VU EN JEU : « pas de transition fond noir quand ils vont manger
-	--ou poser les paillasses ». Le deploiement des couchages, lui, avait
-	--bien son fondu (section 7). Le repas, non : les douze ecuelles
-	--surgissaient d'un coup au milieu du cercle, a vue.
-	--
-	--Meme patron que la section 7 : on baisse, on pose le decor, on
-	--remonte. C'est ainsi que le Tunnel remanie ses tables, et c'est ce
-	--qui permet a un decor d'apparaitre sans « pop ».
 	GAME:FadeOut(false, 30)
 	GAME:WaitFrames(20)
 
@@ -527,15 +340,12 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	SOUND:LoopSE('AMB_Fire_Loud')
 	GAME:WaitFrames(20)
 
-	---------------------------------------------------------------
 	-- 3. LA TABLEE — le faux debat solennel, puis la chute
-	---------------------------------------------------------------
 	-- LE GAG DU CAMP. Structure de Donjon Mystere : le comique ne vient
 	-- pas d'une blague, il vient du DECALAGE entre la solennite affichee
 	-- et la futilite du sujet. On installe donc le serieux d'abord — et
 	-- surtout, on le laisse durer assez longtemps pour que le joueur y
 	-- croie — avant de le faire tomber d'un coup.
-	--
 	-- Quatre temps, avec la musique qui joue le contrepoint :
 	--   1. le duo remarque le conciliabule ; on n'entend pas le sujet,
 	--      seulement le TON. La musique du camp s'efface.
@@ -546,10 +356,8 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--      EXACTEMENT dessus. Pas avant : la musique ne doit pas
 	--      annoncer la blague, elle doit la ponctuer.
 	--   4. l'escalade, puis Penticus qui tranche — et se trahit.
-	--
 	-- « Guildmaster Wigglytuff.ogg » est le theme comique canonique de la
 	-- guilde dans Explorateurs du Ciel : c'est celui qui accompagne les
-	-- lubies du maitre. Il est present dans Content/Music (verifie).
 
 	--1. LE CONSTAT. Le duo entend des voix graves sans distinguer les mots.
 	SOUND:FadeOutBGM(40)
@@ -681,7 +489,6 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GAME:MoveCamera(256, 228, 60, false)
 	GAME:WaitFrames(15)
 
-	---------------------------------------------------------------
 	--Coco s'adresse au cercle entier : les tetes se tournent vers elle
 	--en cascade AVANT qu'elle ouvre la bouche (le corps parle avant la
 	--bouche). C'est ce qui manquait — la replique tombait sur douze
@@ -746,9 +553,7 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(20)
 
-	---------------------------------------------------------------
 	-- 4. LES CONVERSATIONS PARALLELES — trois groupes autour du feu
-	---------------------------------------------------------------
 	--Groupe 1 : Almotz et son almanach, Hyko et ses etoiles.
 	--La camera isole le duo, pendant qu'en arriere-plan le reste du
 	--camp continue de vivre (animations cycliques sous coroutine,
@@ -905,16 +710,11 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GROUND:CharAnimateTurnTo(t.rin, Direction.DownRight, 4)
 	GAME:WaitFrames(15)
 
-	---------------------------------------------------------------
 	-- 5. LE SILENCE — le heros et la montagne
-	---------------------------------------------------------------
 	--La conversation retombe. Le heros fixe le sommet ; le partenaire
 	--est le seul a le remarquer. Fil rouge de la « sensation etrange »
 	--commence au camp du Tunnel : elle est plus forte ici.
 	--PREMIER FRISSON DU VERTIGE DE SKY : intensite 1 (tangage leger,
-	--sans voile — bareme NAUSEA de VoiceVisions, verifie). Le crescendo
-	--est voulu : niveau 1 a la veillee, tangage dans le reve, niveau 2
-	--au reveil. La montagne « appuie » de plus en plus fort.
 	SOUND:FadeOutSE('AMB_Fire_Loud', 60)
 	GAME:WaitFrames(30)
 	GROUND:EntTurn(hero, Direction.Up)
@@ -949,9 +749,7 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GAME:WaitFrames(20)
 	SOUND:FadeInSE('AMB_Fire_Loud', 60)
 
-	---------------------------------------------------------------
 	-- 6. L'ORDRE DU SOIR — Penticus envoie tout le monde dormir
-	---------------------------------------------------------------
 	GAME:MoveCamera(256, 210, 45, false)
 	GROUND:CharEndAnim(t.penticus)
 	GAME:WaitFrames(10)
@@ -993,9 +791,7 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	Says(t.coco, "Joyous", 'MWE5_046', {t.rin, t.shuca, t.ganlon, partner, hero})
 	GAME:WaitFrames(20)
 
-	---------------------------------------------------------------
 	-- 7. LE DEPLOIEMENT DES COUCHAGES — puis la nuit
-	---------------------------------------------------------------
 	--Les paillasses n'existent PAS avant cet instant : c'est ici que
 	--l'expedition ouvre les sacs et deroule les couchages (Prompt
 	--Maitre 6.3 — aucun lit avant la fin de la veillee). Le passage
@@ -1018,17 +814,10 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:ResetSpeaker()
 	GAME:WaitFrames(20)
 
-	---------------------------------------------------------------
 	-- 8. LE COUCHER — un par un, respiration desynchronisee
-	---------------------------------------------------------------
 	--Phileas prend le premier tour de garde : il ne se couche pas.
 	local vers = {}
 	--L'ordre du coucher LIT la table `seats` (via bedOf) au lieu de
-	--redeclarer les numeros de couche. Avant, les deux listes portaient
-	--chacune leur copie des index : toute retouche de l'attribution
-	--devait etre faite deux fois, et un oubli envoyait un dormeur sur la
-	--paillasse d'un autre. On ne garde ici que « qui se couche, et apres
-	--combien de frames ».
 	local sleepOrder = {
 		{t.penticus,  0},
 		{t.coco,     14},
@@ -1053,9 +842,6 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	vers[#vers+1] = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(20)
 		--(241,166) et non (240,142) : cette derniere case est SUR UN
-		--OBSTACLE (verifie sur la grille, sprite 16x16). Phileas y
-		--marchait donc dans la roche, et le trajet de retour depuis le
-		--chevet du heros n'aboutissait nulle part.
 		GeneralFunctions.EightWayMove(t.phileas, 241, 166, false, 1)
 		GROUND:CharAnimateTurnTo(t.phileas, Direction.Down, 4)
 	end)
@@ -1064,14 +850,6 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 
 	--Hyko et Almotz rejoignent leurs couches — VOISINES, 9 et 10 sur le
 	--flanc ouest — puis chuchotent encore un moment.
-	--
-	--BUG CORRIGE : ils s'endormaient DEBOUT A LEUR PLACE DE TABLE. La
-	--boucle `sleepOrder` couche sept personnages ; ces deux-la n'y
-	--figurent pas (ils ont leur propre scene), et personne ne les
-	--deplacait. Le commentaire d'origine disait deja « chacun sur sa
-	--couche » — c'etait l'intention, pas ce que faisait le code : ils
-	--jouaient l'animation Sleep sur le cercle du repas, a cote du feu,
-	--pendant que leurs deux paillasses restaient vides a l'ecran.
 	local toBeds = {}
 	toBeds[#toBeds+1] = TASK:BranchCoroutine(function()
 		GROUND:MoveToPosition(t.hyko, seatX(bedOf[t.hyko]), seatY(bedOf[t.hyko]), false, 1)
@@ -1080,23 +858,7 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		GAME:WaitFrames(10)
 		GROUND:MoveToPosition(t.almotz, seatX(bedOf[t.almotz]), seatY(bedOf[t.almotz]), false, 1)
 	end)
-	------------------------------------------------------------------
 	-- LE DUO NE RESTE PAS PLANTE PENDANT QUE LES AUTRES SE COUCHENT.
-	------------------------------------------------------------------
-	-- BUG VU EN JEU : « au moment du coucher, le partenaire reste
-	-- immobile un trop long moment pres de Kino pendant que les autres
-	-- parlent, et le heros aussi, c'est pas dynamique ».
-	--
-	-- Exact. Sept personnages rejoignaient leur couche (sleepOrder),
-	-- puis Hyko et Almotz gagnaient les leurs et echangeaient deux
-	-- repliques — et pendant TOUT ce temps le duo restait fige a sa
-	-- place de table, a ne rien faire. Le joueur regardait deux sprites
-	-- immobiles au premier plan.
-	--
-	-- Ils se mettent donc en route EN MEME TEMPS que Hyko et Almotz,
-	-- mais plus lentement (ils trainent, ils ne sont pas presses) et en
-	-- se parlant du regard. La scene intime qui suit les trouvera deja
-	-- en chemin au lieu de les teleporter dans l'instant.
 	toBeds[#toBeds+1] = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(20)
 		pcall(function()
@@ -1135,23 +897,11 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GROUND:CharSetAnim(t.hyko, "Sleep", true)
 	GAME:WaitFrames(25)
 
-	---------------------------------------------------------------
 	-- 9. LA SCENE INTIME — le duo, seul face au sommet
-	---------------------------------------------------------------
 	--Le reste du camp dort. Le duo rejoint ses deux couches voisines et
 	--la camera se resserre sur eux : c'est le moment calme obligatoire
 	--du Prompt Maitre (6.5), APRES la veillee de groupe, AVANT le
 	--sommeil du heros.
-	--
-	--BUG CORRIGE : le duo non plus ne rejoignait jamais ses paillasses.
-	--Il jouait EventSleep depuis sa place de table, a cote du feu. Deux
-	--couchages restaient vides pendant toute la nuit, le rêve et le
-	--reveil — et au matin le heros se relevait a un endroit ou il ne
-	--s'etait pas couche.
-	--Ils sont DEJA a leur couche (ils s'y sont rendus pendant la scene
-	--de Hyko et Almotz, cf. plus haut) : ces MoveToPosition ne sont donc
-	--plus qu'un filet de securite si une branche les a laisses ailleurs.
-	--La camera, elle, se resserre maintenant sur eux.
 	local duoBeds = {}
 	duoBeds[#duoBeds+1] = TASK:BranchCoroutine(function()
 		pcall(function() GROUND:MoveToPosition(partner, seatX(bedOf[partner]), seatY(bedOf[partner]), false, 1) end)
@@ -1160,28 +910,7 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		pcall(function() GROUND:MoveToPosition(hero, seatX(bedOf[hero]), seatY(bedOf[hero]), false, 1) end)
 	end)
 	duoBeds[#duoBeds+1] = TASK:BranchCoroutine(function()
-		------------------------------------------------------------
 		-- LA CAMERA SUIT LE DUO, ELLE NE VISE PLUS UN POINT FIXE.
-		------------------------------------------------------------
-		-- BUG VU EN JEU : « la camera avant de dormir n'est pas
-		-- ramenee sur le heros & le partenaire ».
-		--
-		-- Exact, et c'etait chiffrable. La camera visait (330,300),
-		-- une constante ecrite en dur. Or le duo rejoint ici ses
-		-- couches 7 et 8 de la table BEDS :
-		--     heros      couche 7 -> (223,320)
-		--     partenaire couche 8 -> (177,296)
-		--     milieu du duo       -> (200,308)
-		-- La camera etait donc a 130 px a l'EST du duo. Sur un ecran
-		-- de 320x240 (demi-champ 160x120), le partenaire tombait a
-		-- 153 px du centre : 7 px du bord, pour un sprite de 40 px de
-		-- large. Il etait coupe par le bord de l'ecran pendant tout
-		-- l'echange du coucher — le moment intime de la scene.
-		--
-		-- On cadre desormais le MILIEU du duo, calcule depuis la meme
-		-- table `bedOf`/`seatX` que leurs deplacements. Si les
-		-- couchages changent un jour, le cadrage suit tout seul : il
-		-- ne peut plus diverger.
 		local cx, cy = 256, 268
 		pcall(function()
 			cx = (seatX(bedOf[hero]) + seatX(bedOf[partner])) // 2
@@ -1247,64 +976,49 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GAME:FadeOut(false, 60)
 	GAME:WaitFrames(60)
 
-	---------------------------------------------------------------
 	-- 10. LE REVE — sur sa propre carte
-	---------------------------------------------------------------
 	-- LA SCENE DU REVE A ETE ENTIEREMENT REFAITE, ET DEPLACEE SUR UNE
 	-- CARTE DEDIEE : Data/Ground/hero_dream.rsground, script
 	-- Data/Script/halcyon/ground/hero_dream/init.lua.
-	--
 	-- Pourquoi une carte plutot qu'un overlay pose ici :
-	--   * l'overlay etait CULL par le moteur. OverlayEmitter.cs:83 cree
 	--     son OverlayAnim avec omnipresent = false ; GetDrawSize() rend
 	--     Loc(TileSize) = 24x24, et IterateRelevantDraw ne dessine que
 	--     si ce rectangle touche le ViewRect. Emis en (0,0) avec la
 	--     camera sur le camp, il disparaissait du rendu ;
 	--   * meme visible, il fallait masquer douze dormeurs, un feu, onze
 	--     paillasses et une falaise pour faire croire a un ailleurs.
-	--
 	-- Sur la carte dediee, le ciel onirique n'est plus un overlay :
 	-- c'est le FOND DE CARTE (Background.Layers / LayeredBG), copie
 	-- structurelle de personality_test.rsground. Le moteur le dessine
 	-- avant tout le reste, sans condition de culling — il ne peut plus
 	-- disparaitre. Et le heros y est SEUL, couche au centre.
-	--
 	-- Le reve se termine par un retour ici meme, ecran noir conserve :
 	-- c'est hero_dream qui rappelle mount_windswept_entrance, et
 	-- PlotScripting enchaine sur MorningAfterDream (section 11).
 	--LE MODE CINEMATIQUE RESTE ACTIF PENDANT LA BASCULE. Le couper ici
-	--reveillerait la boucle d'entree/rendu du camp (GroundScene.cs:176)
 	--pendant que SceneOutcome attend d'etre consomme au tour suivant
-	--(GameManager.cs:506) : le joueur reprendrait la main sur le bivouac
 	--une fraction de seconde avant de partir. hero_dream.DreamScene le
 	--repose immediatement de son cote.
 	SV.Chapter5.CampNightWatchDone = true
 	GAME:EnterGroundMap('hero_dream', 'Main_Entrance_Marker', true)
 end
 
---------------------------------------------------------------------
 -- LE MATIN — apres le reve, de retour au camp
---------------------------------------------------------------------
 -- Scindee de CampNightfall : un changement de carte doit etre la
 -- DERNIERE instruction d'une scene (le moteur poursuit la coroutine en
 -- arriere-plan pendant le chargement). Tout ce qui suivait le reve est
 -- donc devenu une fonction a part, rappelee par PlotScripting quand on
 -- revient de hero_dream.
---------------------------------------------------------------------
---------------------------------------------------------------------
 -- RETOUR DU REVE — on recompose le camp endormi, puis le matin.
---------------------------------------------------------------------
 -- Passer par une carte dediee a un cout : les dix PNJ du camp sont des
 -- personnages TEMPORAIRES (AddTempChar), ils n'existent plus au retour.
 -- Cette fonction les recree EXACTEMENT sur leur couche, dans la pose de
 -- sommeil, avant de rendre la main au matin. Le joueur ne voit rien de
 -- cette reconstruction : tout se passe sous l'ecran noir laisse par
 -- hero_dream et maintenu par Init.
---
 -- L'ordre des couchages est celui de la table `seats` de CampNightfall,
 -- recopie ici a l'identique. Les deux doivent rester d'accord : si l'un
 -- change, l'autre aussi.
---------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.ResumeAfterDream()
 	local hero = CH('PLAYER')
 	local partner = CH('Teammate1')
@@ -1437,16 +1151,13 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	UI:ResetSpeaker()
 	GAME:WaitFrames(35)
 
-	------------------------------------------------------------------
 	-- PHILEAS NE PEUT PAS RESTER PASSIF.
-	------------------------------------------------------------------
 	-- RETOUR DE L'UTILISATEUR, et il a entierement raison : le heros
 	-- vient de se redresser en criant au milieu de la nuit, et le seul
 	-- personnage EVEILLE du camp — celui dont c'est precisement le
 	-- tour de garde — ne bougeait pas d'un pixel. Le joueur ne pouvait
 	-- que se demander « pourquoi il ne reagit pas ? ». C'est le test de
 	-- credibilite, et la scene le ratait.
-	--
 	-- Ce que Phileas FAIT, dans l'ordre ou un veilleur le ferait :
 	--   1. il entend (il est de garde, c'est son role) et leve la tete ;
 	--   2. il se tourne vers la source du bruit AVANT de bouger ;
@@ -1457,7 +1168,6 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	--   5. il parle bas — il ne reveille pas le camp pour un cauchemar ;
 	--   6. il REPREND SON POSTE. Un veilleur ne s'installe pas au
 	--      chevet : il retourne guetter la porte du donjon.
-	--
 	-- Son registre est celui etabli ailleurs sur la carte (« Hou... »,
 	-- le vieux voilier qui observe avant de conclure) : il ne dramatise
 	-- pas, il constate, et c'est ce qui rassure.
@@ -1566,10 +1276,7 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	GAME:FadeOut(false, 50)
 	GAME:WaitFrames(30)
 
-
-	---------------------------------------------------------------
 	-- 11. LE MATIN — reveil progressif, heros deboussole
-	---------------------------------------------------------------
 	--Mise en place sous le noir : le jour se leve, Rin et Coco sont
 	--deja debout, Penticus et Phileas aussi. Le reste du camp dort.
 	GROUND:RemoveMapStatus("darkness")
@@ -1577,43 +1284,7 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	GROUND:CharEndAnim(t.rin)
 	GROUND:CharEndAnim(t.coco)
 	GROUND:CharEndAnim(t.penticus)
-	------------------------------------------------------------------
 	-- LE FEU BRULE ENCORE AU REVEIL, ET LES SPRITES SONT GRANDS.
-	------------------------------------------------------------------
-	-- BUG VU EN JEU : « Phileas etait sur le feu de camp ». Confirme,
-	-- et l'ancien commentaire ici disait exactement l'inverse de la
-	-- verite : il affirmait que « le feu est ETEINT au matin ». C'est
-	-- faux a CET endroit — BuildCampMorning n'est appele que 230 lignes
-	-- plus bas (section 12). Le foyer pose par DeployBeds brule donc
-	-- encore pendant toute la scene du reveil.
-	--
-	-- Deuxieme piege, invisible tant qu'on raisonne en cases : un
-	-- personnage n'occupe PAS 16x16 a l'ecran. GroundAction.GetDrawLoc
-	-- (l.116) centre la feuille de sprite sur le collider :
-	--     drawX = MapLoc.X + 16/2 - TileWidth/2
-	-- et les feuilles sont bien plus grandes que la case. Mesure faite
-	-- sur les .chara du depot (en-tete : TileWidth/TileHeight) :
-	--     Tropius/Penticus 40x40 · Noctowl/Phileas 38x32 · Growlithe 32x28
-	-- Le feu, lui, couvre x256..291 / y220..255.
-	-- Recouvrements reels de l'ancienne mise en place :
-	--     Penticus (258,196) -> 120 px de sprite SUR les flammes
-	--     Phileas  (292,198) ->  22 px
-	-- Les colliders ne se touchaient pas : c'est le DESSIN qui se
-	-- superposait, et le decor etant rendu avant les personnages
-	-- (BaseGroundScene.cs:235, groundDraw puis objectDraw), les deux
-	-- s'affichaient litteralement assis dans le foyer.
-	--
-	-- PHILEAS DORT. C'est le patron du Tunnel, cite en reference :
-	-- searing_tunnel_entrance_ch_5.lua:36-37 — « Noctowl catches his
-	-- sleep now since Tropius has supply duty handled », suivi de
-	-- CharSetAnim(noctowl,"Sleep",true). Il a veille toute la nuit
-	-- (section 7 : il monte au poste de garde), il est donc le seul a
-	-- ne pas etre debout au matin. Il reste a son poste (240,166,
-	-- sol libre verifie, hors de la couche 1) : il s'y est assoupi,
-	-- il n'est pas alle se coucher.
-	--
-	-- Positions recalculees, toutes verifiees SPRITE COMPRIS : hors des
-	-- flammes, hors du bloqueur du foyer, hors des onze paillasses.
 	GROUND:TeleportTo(t.rin, 240, 262, Direction.UpRight)
 	GROUND:TeleportTo(t.coco, 298, 250, Direction.Left)
 	GROUND:TeleportTo(t.penticus, 252, 268, Direction.Up)
@@ -1717,13 +1388,6 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	--Le partenaire remarque la paleur du heros (Prompt Maitre 6.7).
 	--LE VERTIGE DE SKY, cette fois a l'ecran : c'est l'effet des Cris
 	--Temporels d'Explorateurs du Ciel, porte du depot EoSO dans
-	--VoiceVisions (verifie, pas suppose). Niveau 2 = tangage de
-	--l'ecran + voile noir semi-transparent qui monte et redescend
-	--(DizzyVeil, alpha 128, RepeatX/Y) — le reve colle a la peau du
-	--heros, visible par tous, comprehensible par lui seul.
-	--Retour PROGRESSIF (modele de fondu de pmd-sky) : le tangage s'eteint
-	--en paliers au lieu de se couper net. Le heros ne « redevient pas
-	--normal » d'une image a l'autre — le malaise le lache lentement.
 	pcall(function() VoiceVisions.Nausea(hero, 2) end)
 	pcall(function() VoiceVisions.Recover(hero, true) end)
 	GAME:WaitFrames(10)
@@ -1769,19 +1433,10 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	GAME:WaitFrames(15)
 
 	--Rin va secouer Kino, le seul encore endormi.
-	--
 	--DEUX DEFAUTS CORRIGES, mesures sur la nouvelle disposition :
 	--  * elle visait « +44 en X », soit 31 px a l'est de l'assise de
 	--    Kino. Trop loin pour le secouer : elle l'engueulait a distance.
 	--  * pire, ce point est de l'AUTRE COTE de la paillasse : le trajet
-	--    depuis sa couche passait EXACTEMENT sur Kino endormi (verifie
-	--    en echantillonnant le segment, contact a 13 px).
-	--
-	--Elle s'arrete donc au NORD de la couche, entre le feu et lui : a
-	--24 px (une case et demie, distance de conversation), et le trajet
-	--depuis sa propre couche ne croise plus le dormeur. Les offsets sont
-	--calcules depuis la table BEDS via bedOf : si la couche de Kino
-	--change, l'approche de Rin suit.
 	coro1 = TASK:BranchCoroutine(function()
 		GeneralFunctions.EightWayMoveRS(t.rin, B[bedOf[t.kino]][1] + 13,
 		                                B[bedOf[t.kino]][2] - 14, false, 1)
@@ -1826,9 +1481,7 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_060']))
 	GAME:WaitFrames(25)
 
-	---------------------------------------------------------------
 	-- 12. LE RASSEMBLEMENT — rangs par deux, face a Penticus
-	---------------------------------------------------------------
 	--Penticus appelle au rassemblement. Le camp se range sous un
 	--fondu court (patron du matin du Tunnel : c'est SOUS FadeOut que
 	--sa formation de depart se met en place). Pendant le noir, les
@@ -1864,58 +1517,12 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 
 	--Camp du matin : paillasses rangees, feu ETEINT, seul le sac commun
 	--reste. Le foyer libere l'axe central : Penticus peut se tenir face
-	--aux rangs sans chevaucher les flammes (bug vu en jeu).
 	mount_windswept_entrance_ch_5.BuildCampMorning()
 
-	------------------------------------------------------------------
 	-- LA FORMATION DE LA GUILDE — celle des chapitres 3 et 4.
-	------------------------------------------------------------------
 	-- RETOUR DE L'UTILISATEUR : « tu as deja des exemples de
 	-- rassemblement matinal dans les chapitres 3/4 ou la guilde a une
 	-- disposition de rangee differente de ce que tu as fait ».
-	-- Verifie, et il a raison. La disposition canonique du mod est celle
-	-- de l'adresse matinale au troisieme etage, lue dans les marqueurs de
-	-- Data/Ground/guild_third_floor_lobby.rsground (et utilisee telle
-	-- quelle par guild_third_floor_lobby_helper.SetupMorningAddress aux
-	-- chapitres 1, 3, 4, 5 et 7) :
-	--
-	--     Tropius  (440,240)          <- le chef, seul, au centre devant
-	--     Noctowl  (400,248)          <- le savant, en retrait a sa gauche
-	--     rang 1 y=280 : 376 408 440 472 504   (Partner Breloom Snubbull
-	--                                           Mareep Growlithe)
-	--     rang 2 y=312 : 376 408 440 472 504   (Hero Girafarig Audino
-	--                                           Cranidos Zigzagoon)
-	--
-	-- Soit DEUX RANGEES DE CINQ, colonnes espacees de 32 px, rangees
-	-- espacees de 32 px, face au nord — et non cinq rangees de deux.
-	--
-	-- Pourquoi ma version etait mauvaise, au-dela de la fidelite : elle
-	-- empilait cinq rangs de y=284 a y=396, soit 112 px de profondeur
-	-- plus le chef a 240 — 156 px de haut pour un viewport de 240 px de
-	-- haut. La formation ne tenait PAS dans un plan : il fallait deux
-	-- mouvements de camera pour la parcourir, et le joueur ne voyait
-	-- jamais la guilde ensemble. En 2x5 elle tient entiere a l'ecran,
-	-- chef compris, et c'est precisement pour ca que le jeu d'origine
-	-- range ses troupes en largeur.
-	--
-	-- Les douze cases ci-dessous sont transposees sur le camp (le camp
-	-- est plus etroit que le hall) et verifiees une par une sur la
-	-- grille d'obstacles du .rsground : sol libre sur les 16x16 du
-	-- sprite, toutes connexes entre elles ET avec l'entree du donjon et
-	-- le sentier sud (BFS), ecart minimum de 32 px entre deux voisins.
-	--
-	-- L'ORDRE DES RANGS RACONTE LA HIERARCHIE, comme a la guilde :
-	-- devant les anciens et la cordee du sommet, derriere les recrues.
-	-- Le duo est en bout de rang cote ouest — la place d'ou l'on part.
-	--Coordonnees ecrites EN CLAIR et non via des variables : les outils
-	--d'audit du depot (audit_scene_collisions, audit_micro_moves) lisent
-	--le source statiquement et ne savent pas resoudre COL[i]/ROW_FRONT.
-	--Les masquer derriere des variables revenait a rendre cette
-	--formation invisible a la verification — exactement le genre
-	--d'angle mort qui a laisse passer les bugs precedents.
-	--  rang avant  y=272 : partenaire Shuca Kino Rin Hyko
-	--  rang arriere y=304 : heros Ganlon Reinier Coco Almotz
-	--  colonnes x = 192 224 256 288 320 (pas de 32 px)
 
 	--Le maitre de guilde fait face a ses troupes, seul au centre ; le
 	--savant se tient en retrait sur sa gauche. Ecart de 40 px : ils ne
@@ -1948,8 +1555,12 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	SOUND:PlayBGM("Spring Cave.ogg", true)
 	GAME:WaitFrames(20)
 
-	--Un leger recul pour poser la scene, sans quitter la formation.
-	GAME:MoveCamera(256, 276, 70, false)
+	--Le plan reste fixe. Il y avait ici un MoveCamera(256, 276, 70) : huit
+	--pixels de descente etales sur 70 frames, soit un neuvieme de pixel par
+	--frame — rigoureusement invisible, mais un mouvement de camera de plus
+	--a lire dans la scene. Halcyon en compte QUATRE sur toute sa scene de
+	--boss ; on ne garde donc que les cadrages qui montrent quelque chose.
+	--L'attente, elle, est conservee : elle fait partie du rythme.
 	GAME:WaitFrames(15)
 
 	--Il remercie Rin en la regardant : on ne remercie pas dans le vide.
@@ -1986,14 +1597,7 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	Says(t.phileas, "Normal", 'MWE5_067', {t.penticus, hero, partner})
 	GAME:WaitFrames(20)
 
-	---------------------------------------------------------------
 	-- 13. LES CORDEES — la repartition propre au Mont Venteux
-	---------------------------------------------------------------
-	--Logique DIFFERENTE des donjons precedents du chapitre (verifie :
-	--la steppe faisait DEUX GRANDES equipes de 4, VSE5_027/038 ; le
-	--tunnel reprenait deux equipes de 4, STE5_105/208). Ici : des
-	--CORDEES petites, reparties PAR ROLE, et Penticus justifie ce
-	--choix DANS le dialogue (la montagne separe les grands groupes).
 	GROUND:CharAnimateTurnTo(t.penticus, Direction.Down, 4)
 	UI:SetSpeaker(t.penticus)
 	UI:SetSpeakerEmotion("Normal")
@@ -2126,30 +1730,9 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	UI:ResetSpeaker()
 	GAME:WaitFrames(20)
 
-	---------------------------------------------------------------
 	-- 14. LES DEPARTS — cordee par cordee, par le sentier nord
-	---------------------------------------------------------------
 	--Personne ne disparait sur place : chaque cordee remonte le
 	--sentier est (x=284, seul couloir praticable vers l'entree,
-	--verifie sur la grille : la colonne x=276 est bloquee en y=120)
-	--et n'est masquee qu'une fois hors champ, au niveau de l'entree.
-	--
-	--PENTICUS S'ECARTE D'ABORD (bug vu en jeu : il restait plante au
-	--centre du camp, sur l'axe). Il regarde ses cordees partir, il ne
-	--leur barre pas la route.
-	--
-	--LE COULOIR DU NORD EST ETROIT, ET IL EST UNIQUE.
-	--Releve sur la grille d'obstacles : entre y=120 et y=160, SEULES les
-	--colonnes x=248 a x=288 sont praticables. A x=232 et x=296 la roche
-	--ferme deja, a x=216 et x=312 il n'y a plus rien. Tout ce qui monte
-	--vers l'entree du donjon passe donc par cette bande de 40 px.
-	--
-	--Consequence directe : personne ne doit stationner dedans pendant
-	--les departs. Penticus tenait le centre de l'adresse en (256,232),
-	--soit en plein milieu du goulot. Les deux se retirent donc a
-	--l'OUEST, bien en dehors (x=208 et x=184), d'ou ils voient les
-	--cordees monter sans leur barrer la route. Cases et trajets
-	--verifies libres sur la grille.
 	coro1 = TASK:BranchCoroutine(function()
 		GROUND:MoveToPosition(t.penticus, 208, 232, false, 1)
 		GROUND:CharAnimateTurnTo(t.penticus, Direction.UpRight, 4)
@@ -2165,19 +1748,15 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	UI:SetSpeaker(t.kino)
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_105']))
-	------------------------------------------------------------------
 	-- ILS SORTENT PAR LES COTES, PAS A TRAVERS LES RANGS.
-	------------------------------------------------------------------
 	-- Les partants quittaient la formation en diagonale et traversaient
 	-- les camarades restes en rang. Mesure : Kino passait sur Hyko,
 	-- Reinier sur Almotz, Rin sur Hyko, Coco sur le partenaire, Ganlon
 	-- sur Hyko. Cinq traversees, toutes visibles a l'ecran.
-	--
 	-- La formation occupe desormais DEUX RANGEES DE CINQ (colonnes 192 a
 	-- 320, rangees y=272 et y=304), et le couloir du nord n'est
 	-- praticable QUE entre x=248 et x=288 — releve sur la grille : a
 	-- x=232 et x=296 la roche ferme des y=128.
-	--
 	-- Les trajets ci-dessous ont donc ete entierement recalcules pour
 	-- cette disposition : chacun descend ou contourne par l'exterieur,
 	-- puis rejoint le goulot une fois les rangs depasses. Tous les
@@ -2227,8 +1806,6 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_106']))
 	coro1 = TASK:BranchCoroutine(function()
-		--Rin est au rang avant, cote est : elle rejoint le goulot en
-		--obliquant vers le centre, la voie est degagee devant elle.
 		GeneralFunctions.EightWayMove(t.rin, 288, 240, false, 1)
 		GeneralFunctions.EightWayMove(t.rin, 280, 160, false, 1)
 		GeneralFunctions.EightWayMove(t.rin, 260, 112, false, 1)
@@ -2236,29 +1813,7 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	end)
 	coro2 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(16)
-		------------------------------------------------------------------
 		-- AUCUN DETOUR : ELLE MONTE TOUT DROIT.
-		------------------------------------------------------------------
-		-- BUG VU EN JEU : « Coco effectue un detour inutile ». Exact, et
-		-- c'est moi qui l'avais introduit. Son trajet la faisait
-		-- redescendre plein sud (296,336), contourner par l'extreme est
-		-- (352,336 puis 352,240), avant de revenir vers le goulot :
-		-- 356 px parcourus pour rejoindre un point situe a 192 px, sans
-		-- qu'aucun obstacle ne le justifie.
-		--
-		-- Ma justification d'origine — « monter tout droit la ferait
-		-- passer sur Hyko » — etait fausse a double titre :
-		--   * Hyko est en (320,272), or la colonne x=288 est libre de
-		--     bout en bout (verifie case par case de y=200 a y=300) :
-		--     32 px d'ecart, largement au-dessus du seuil de 14 ;
-		--   * le detour traversait quand meme le bloqueur du foyer sur
-		--     son segment de retour. Il etait donc a la fois inutile ET
-		--     incorrect.
-		--
-		-- Elle emprunte desormais le chemin qu'une cuisiniere pressee
-		-- prendrait reellement : la colonne libre juste a l'est du foyer,
-		-- puis une oblique vers le goulot du nord. Deux segments, 192 px,
-		-- aucun contact, aucun retour sur ses pas.
 		GeneralFunctions.EightWayMove(t.coco, 288, 160, false, 1)
 		GeneralFunctions.EightWayMove(t.coco, 272, 112, false, 1)
 		GROUND:Hide(t.coco.EntName)
@@ -2266,21 +1821,7 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(20)
 
-	------------------------------------------------------------------
 	-- GANLON ET SHUCA NE PARTENT PAS. ILS NOUS ATTENDENT.
-	------------------------------------------------------------------
-	-- BUG DE CHRONOLOGIE CORRIGE. Cette scene les faisait monter le
-	-- sentier PUIS disparaitre (GROUND:Hide) — « ils partent devant
-	-- marquer la voie ». Or ce sont eux que SetParty transforme en
-	-- Teammate2/3 quelques lignes plus bas : le joueur les voyait donc
-	-- s'en aller seuls dans la montagne, et les retrouvait collés à lui
-	-- dans le donjon deux secondes plus tard. La narration disait
-	-- l'inverse de ce que le jeu faisait.
-	--
-	-- Desormais ils RESTENT, et c'est tout le sens de la cordee : on
-	-- part ENSEMBLE. Ils se placent en tete du sentier, face au nord,
-	-- et attendent que le duo les rejoigne — la formation de depart est
-	-- deja constituee quand le joueur reprend la main.
 	GROUND:CharTurnToCharAnimated(t.shuca, hero, 4)
 	UI:SetSpeaker(t.shuca)
 	UI:SetSpeakerEmotion("Joyous")
@@ -2324,9 +1865,7 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	GROUND:CharAnimateTurnTo(t.ganlon, Direction.Up, 4)
 	GAME:WaitFrames(25)
 
-	---------------------------------------------------------------
 	-- 15. LE CHEMIN DU NORD — la remarque du partenaire
-	---------------------------------------------------------------
 	--Le duo remonte a son tour. A mi-chemin, le partenaire s'arrete :
 	--il a REMARQUE. C'est la transition douce vers la scene finale
 	--(Prompt Maitre 6.10) — le contenu du reve n'est pas revele.
@@ -2359,7 +1898,6 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	--seule phrase. C'est le rappel du reve que le heros a deja oublie :
 	--le joueur, lui, reconnait la formule (« petit echo ») entendue cette
 	--nuit. Personne d'autre ne l'entend, et le heros ne la commente pas.
-	--
 	--Ces cinq cles (MWE5_080..084) portaient l'ancienne version du reve.
 	--Celui-ci a ete refondu sur la structure de pmd-red (cles 130+), mais
 	--leur TEXTE etait juste : on ne le jette pas, on le rend a l'endroit
@@ -2387,15 +1925,12 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	pcall(function() VoiceVisions.Recover(hero, true) end)
 	GAME:WaitFrames(20)
 
-	------------------------------------------------------------------
 	-- LA CORDEE S'IMPATIENTE — et le serieux s'effondre.
-	------------------------------------------------------------------
 	-- Demande de l'utilisateur, mise en scene sur le patron comique du
 	-- gag du camp (section 3) : le rire ne vient pas d'une blague, il
 	-- vient de la CHUTE DE TENSION. On sort d'une minute de silence, de
 	-- vertige et d'une voix que personne d'autre n'entend — puis Ganlon
 	-- gueule depuis le sentier, et tout retombe d'un coup.
-	--
 	-- Ce que la scene doit reussir :
 	--   1. L'insulte arrive de HORS CHAMP. La camera est sur le heros ;
 	--      on entend Ganlon avant de le voir, comme le camp entendait
@@ -2445,7 +1980,6 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_182']))
 	GAME:WaitFrames(30)
 
-	--Ganlon comprend son erreur. Le corps le trahit avant la bouche.
 	local gag5 = TASK:BranchCoroutine(function()
 		pcall(function() GeneralFunctions.EmoteAndPause(t.ganlon, "Sweatdrop", true) end)
 		UI:SetSpeaker(t.ganlon)
@@ -2507,9 +2041,7 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_109']))
 	GAME:WaitFrames(20)
 
-	---------------------------------------------------------------
 	-- 16. LA SCENE FINALE — Penticus, Phileas, et la porte du donjon
-	---------------------------------------------------------------
 	--Ne restent que quatre silhouettes devant l'entree (reference :
 	--Grand Stepped Entrance). Plans larges sur la montagne, plans
 	--rapproches sur les visages, silences.
@@ -2618,14 +2150,11 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	GeneralFunctions.DoAnimation(hero, 'Nod')
 	GAME:WaitFrames(30)
 
-	--------------------------------------------------------------------
 	-- CLOTURE DE L'INTRO — deplacee ici depuis ArrivalCutscene.
-	--------------------------------------------------------------------
 	-- CampNightfall se termine par un changement de carte (le reve) :
 	-- tout ce qui suivait dans ArrivalCutscene ne s'executait donc plus.
 	-- SetParty, le drapeau de fin et le rendu du controle vivent
 	-- desormais ici, a la seule fin de parcours reellement atteinte.
-	--
 	-- SetParty retire Hyko et Almotz (restes du Tunnel) et cree Ganlon
 	-- et Shuca en Teammate2/3 : c'est la cordee du sommet annoncee par
 	-- Penticus, et donc l'equipe reelle du donjon.
@@ -2644,21 +2173,7 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	GAME:FadeIn(40)
 end
 
---------------------------------------------------------------------
 -- LE RETOUR EN MAUVAISE POSTURE — KO / abandon dans la montagne
---------------------------------------------------------------------
--- Miroir des Died/Retreated Cutscenes du Tunnel (patron verifie ligne a
--- ligne). Jouees par PlotScripting quand SV.Chapter5.PlayTempMountScene
--- est vrai, APRES SetupGround : Penticus, Phileas et les autres membres
--- du camp existent deja sur la carte.
---
--- KODefeatCutscene : l'equipe s'est fait balayer dans la premiere
--- moitie du donjon. Elle git devant l'entree. HYKO donne l'alerte et
--- degage l'espace (c'est un garde, il ne soigne pas), PENTICUS
--- s'agenouille et remet une Baie Oran en main propre, puis les
--- provisions de repart. Hyko assume ensuite sa limite a voix haute.
--- Toutes les positions et trajets sont verifies praticables.
---------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	local hero = CH('PLAYER')
 	local partner = CH('Teammate1')
@@ -2671,11 +2186,6 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	--l'intro : CH('Audino') rend nil, et toute la scene de secours
 	--reposait a l'origine sur elle (soin non joue, MWE5_121 sautee en
 	--silence). Ma premiere correction avait donne son role a Hyko —
-	--erreur : un Growlithe de la garde n'a ni capacite de soin, ni
-	--formation, ni objet. Le role est donc REDISTRIBUE selon les
-	--competences reelles : Hyko alerte et degage, Penticus donne la
-	--baie. Personne ne « remplace » Rin ; son absence se sent, et
-	--c'est justement ce qui rend la scene juste.
 	local hyko = CH('Growlithe')
 	local coro1, coro2, coro3, coro4
 
@@ -2746,9 +2256,7 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	TASK:JoinCoroutines({coro1, coro2, coro3})
 	GAME:WaitFrames(15)
 
-	------------------------------------------------------------------
 	-- HYKO NE SOIGNE PAS. IL VA CHERCHER CELUI QUI SAIT.
-	------------------------------------------------------------------
 	-- RETOUR DE L'UTILISATEUR : « Hyko est incapable de soigner ».
 	-- Exact, et ma correction precedente n'allait pas au bout : j'avais
 	-- change le SON (DUN_Heal au lieu de DUN_Heal_Bell) et ajoute des
@@ -2757,7 +2265,6 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	-- garde ne soigne pas — il n'a ni capacite de soin, ni formation,
 	-- ni objet. Le son n'etait que le symptome ; le probleme etait le
 	-- ROLE.
-	--
 	-- Nouvelle repartition, conforme a ce que chacun sait faire :
 	--   * HYKO donne l'alerte et degage l'espace. C'est un garde :
 	--     il court, il crie, il fait de la place. Sa force, c'est la
@@ -2768,7 +2275,6 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	--   * HYKO conclut en assumant sa limite a voix haute. C'est ce qui
 	--     rend le personnage attachant plutot que decoratif : il sait
 	--     ce qu'il ne sait pas faire, et il propose autre chose.
-	--
 	-- Plus aucun SE de soin : une baie qu'on mange ne sonne pas comme
 	-- une capacite. Seul le fanfare d'objet de RewardItem se fait
 	-- entendre, ce qui est exactement le bon signal.
@@ -2923,14 +2429,6 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	--l'entree, pret a retenter l'ascension.
 	--Les trois regagnent EXACTEMENT leur poste de SetupGround : quand la
 	--camera revient au joueur, le camp est dans l'etat ou il le trouvera
-	--en se promenant. Avant, Penticus rentrait en (212,244) — une
-	--position qui n'existe plus dans SetupGround depuis le recalcul du
-	--camp : il se serait teleporte au premier rechargement de la carte.
-	--Postes mis a jour sur la composition autour du feu (cf. SetupGround).
-	--Les deux qui repassent pres du foyer le CONTOURNENT : un trajet
-	--direct traversait le bloqueur de collision (verifie par
-	--echantillonnage), et les personnages se seraient bloques dessus une
-	--fois le mode cinematique rendu.
 	coro1 = TASK:BranchCoroutine(function()
 		if penticus ~= nil then
 			--Contourne le foyer par l'ouest, puis descend a son poste sud.
@@ -2970,11 +2468,9 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	GAME:CutsceneMode(false)
 end
 
---------------------------------------------------------------------
 -- RetreatReturnCutscene : l'equipe a fait demi-tour d'elle-meme.
 -- Version courte et digne : pas de KO, Penticus salue la sagesse du
 -- repli (l'exact oppose de la lecon du Tunnel, ou fuir etait un echec).
---------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.RetreatReturnCutscene()
 	local hero = CH('PLAYER')
 	local partner = CH('Teammate1')
@@ -3083,43 +2579,7 @@ function mount_windswept_entrance_ch_5.PurgeDecor()
 	mount_windswept_entrance_ch_5.RemoveFireBlocker()
 end
 
---------------------------------------------------------------------
 -- LE FEU DE CAMP BLOQUE LE PASSAGE.
---------------------------------------------------------------------
--- BUG VU EN JEU : « la collision au feu de camp au centre n'est pas
--- respectee, on peut passer au travers ».
---
--- Cause racine, lue dans le moteur (RogueCollab/RogueEssence). Le foyer
--- est pose comme une GroundAnim, et l'en-tete de Ground/Maps/GroundAnim.cs
--- est explicite :
---     « An animated prop to be put on a GroundMap.
---       Unlike GroundObject, it cannot be collided or interacted with »
--- Une GroundAnim n'implemente pas IObstacle : elle n'est jamais versee
--- dans la grille de collision, elle est seulement DESSINEE. Aucun reglage
--- ne peut la rendre solide — c'est une limite de la classe, pas un oubli.
---
--- GroundObject, lui, implemente IObstacle et expose Tags (GroundObject.cs:22) :
---     Passable == false  ->  Tags = 1  ->  SlideResponse (on glisse le long)
--- C'est le patron deja employe par le depot pour barrer un passage sans
--- rien afficher : altere_pond_ch_5.lua:10 pose un GroundObject d'anim
--- VIDE ("") uniquement pour sa boite de collision.
---
--- On superpose donc au foyer un bloqueur invisible. Deux precautions :
---
---   * anim "" et non 'Campfire' : le feu est deja dessine par la
---     GroundAnim. Dupliquer l'anim afficherait DEUX foyers superposes.
---   * boite de 24x24 CENTREE sur le foyer, et non ses 36x36 complets.
---     Le sprite deborde largement sur sa base ; une boite pleine
---     grignotait les cases de circulation autour du feu. Verifie par
---     parcours en largeur sur la grille d'obstacles : avec 24x24, les
---     25 cases rendues inaccessibles sont EXACTEMENT celles couvertes
---     par la boite — zero deconnexion, l'entree du donjon, le camp nord
---     et le sentier sud restent tous atteignables depuis l'entree.
---
--- `passable` est le 4e argument positionnel de cette surcharge
--- (GroundObject.cs:70, `contact`), et il vaut `false` : on veut une
--- reponse de collision, pas un declencheur au contact.
---------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.AddFireBlocker()
 	pcall(function()
 		--Idempotent : deux appels de suite ne doivent pas empiler deux
@@ -3127,7 +2587,8 @@ function mount_windswept_entrance_ch_5.AddFireBlocker()
 		mount_windswept_entrance_ch_5.RemoveFireBlocker()
 		local blocker = RogueEssence.Ground.GroundObject(
 			RogueEssence.Content.ObjAnimData("", 1),
-			RogueElements.Rect(262, 226, 24, 24),
+			RogueElements.Rect(mount_windswept_entrance_ch_5.CAMP_X + 6,
+			                   mount_windswept_entrance_ch_5.CAMP_Y + 6, 24, 24),
 			RogueElements.Loc(0, 0),
 			false,
 			"Campfire_Blocker")
@@ -3147,15 +2608,12 @@ function mount_windswept_entrance_ch_5.RemoveFireBlocker()
 	end)
 end
 
---------------------------------------------------------------------
 -- LE CAMP DE JOUR — feu + materiel d'expedition, AUCUNE paillasse.
---------------------------------------------------------------------
 -- Prompt Maitre 6.3 : les couchages n'existent qu'apres la transition
 -- jour -> soir, deployes par les personnages a la fin de la veillee.
 -- Le camp de jour ne montre donc que le feu et le materiel range :
 -- sacs (Grassy_Bag) et caisses (Yellow_Box), assets attestes dans
 -- Content/Object/ et deja poses ailleurs (guild_guildmasters_room).
---------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.BuildCampDay()
 	mount_windswept_entrance_ch_5.PurgeDecor()
 	local ground = GAME:GetCurrentGround()
@@ -3163,7 +2621,8 @@ function mount_windswept_entrance_ch_5.BuildCampDay()
 
 	--Le feu, centre du camp.
 	ground.Decorations[0].Anims:Add(
-		RogueEssence.Ground.GroundAnim(campfire, RogueElements.Loc(256, 220)))
+		RogueEssence.Ground.GroundAnim(campfire, RogueElements.Loc(
+			mount_windswept_entrance_ch_5.CAMP_X, mount_windswept_entrance_ch_5.CAMP_Y)))
 	--Et sa collision : une GroundAnim seule se traverse (cf. AddFireBlocker).
 	mount_windswept_entrance_ch_5.AddFireBlocker()
 
@@ -3174,14 +2633,11 @@ function mount_windswept_entrance_ch_5.BuildCampDay()
 	--raconte par les couchages et le foyer.
 end
 
---------------------------------------------------------------------
 -- LE CAMP DU MATIN — feu eteint, sac pret au depart (Prompt 6.8).
---------------------------------------------------------------------
 -- Distinct du camp de jour : au matin du depart, le feu est ETEINT
 -- (aucune animation de flammes) et il ne reste que le sac commun.
 -- C'est aussi ce qui libere l'axe du rassemblement : Penticus se
 -- tient en (256,240), l'ancien feu (256,220) le chevauchait.
---------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.BuildCampMorning()
 	mount_windswept_entrance_ch_5.PurgeDecor()
 	--Camp du matin : le feu est eteint, le sac a ete retire (il genait le
@@ -3191,13 +2647,10 @@ function mount_windswept_entrance_ch_5.BuildCampMorning()
 	--PurgeDecor a deja retire ce bloqueur.
 end
 
---------------------------------------------------------------------
 -- LE DEPLOIEMENT DES COUCHAGES — la nuit seulement.
---------------------------------------------------------------------
 -- Appele par CampNightfall sous le fondu de la tombee de la nuit :
 -- 12 paillasses = 12 membres presents (10 guilde + le duo), pas une
 -- de plus. Le feu reste, le materiel de jour est remplace.
---------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.DeployBeds()
 	mount_windswept_entrance_ch_5.PurgeDecor()
 	local ground = GAME:GetCurrentGround()
@@ -3209,20 +2662,17 @@ function mount_windswept_entrance_ch_5.DeployBeds()
 			RogueEssence.Ground.GroundAnim(hay_bed, RogueElements.Loc(b[1], b[2])))
 	end
 	ground.Decorations[0].Anims:Add(
-		RogueEssence.Ground.GroundAnim(campfire, RogueElements.Loc(256, 220)))
+		RogueEssence.Ground.GroundAnim(campfire, RogueElements.Loc(
+			mount_windswept_entrance_ch_5.CAMP_X, mount_windswept_entrance_ch_5.CAMP_Y)))
 	--Le foyer de la nuit bloque lui aussi : on ne traverse pas les braises
 	--pour aller se coucher.
 	mount_windswept_entrance_ch_5.AddFireBlocker()
 end
 
---------------------------------------------------------------------
 -- POSITION DES COUCHAGES — 12 paillasses en fer a cheval
---------------------------------------------------------------------
 -- Sortie en table pour que la cinematique et le decor permanent ne
 -- puissent plus diverger.
---
 -- CE QUI N'ALLAIT PAS DANS L'ANCIENNE DISPOSITION (tout mesure) :
---
 --   * LE LIT 12 ETAIT INATTEIGNABLE. (344,132) est du sol libre, mais
 --     il appartient a une POCHE ISOLEE au nord-est : un parcours en
 --     largeur depuis l'entree du joueur ne l'atteint pas. La carte
@@ -3230,47 +2680,29 @@ end
 --     la mauvaise. Son dormeur aurait ete injoignable, et l'animation
 --     de coucher se serait terminee contre un mur.
 --   * QUATRE PAIRES DE PAILLASSES SE CHEVAUCHAIENT. Le sprite Hay_Bed
---     fait 40x40 (verifie dans l'en-tete de Content/Object/Hay_Bed.dir,
---     frameW=frameH=40), or les lits 2/3, 4/5, 7/8 et 9/10 n'etaient
---     espaces que de 33 a 45 px en diagonale : 7x7 px de recouvrement
---     visible a chaque fois.
---   * DEUX LITS ETAIENT DES RUSTINES. Les 10 premiers dessinaient un
---     cercle parfait de rayon ~78 autour du feu, les lits 11 et 12
---     etaient poses a 130 et 124 px, hors du motif : le « cercle » que
---     le joueur voyait etait un cercle avec deux verrues.
---   * UN CERCLE FERME N'A PAS DE SENS ICI. On arrive par le sentier
---     SUD ; douze couchages en anneau complet obligeaient a enjamber
---     des dormeurs pour entrer ou sortir du camp.
+--LE CAMP EST DEFINI PAR RAPPORT A SON FOYER.
+--Procede repris d'Halcyon (mount_windswept_entrance_ch_5.lua de la branche
+--working-copy, l.128-131), ou les douze paillasses derivent de deux
+--constantes `bedRelativeX/bedRelativeY`, avec ce commentaire de l'auteur :
+--« so I can copy and paste this code into other scenes and only change one
+--value ». Deplacer le bivouac ne demande alors qu'une seule modification.
 --
--- LA NOUVELLE DISPOSITION est un FER A CHEVAL ouvert plein sud, rayon
--- ~100 px autour du foyer, dans le sens horaire depuis le nord. Chaque
--- position a ete verifiee programmatiquement sur quatre criteres :
---   1. les 40x40 px du sprite tombent sur des tuiles Tags == 0 ;
---   2. ces tuiles appartiennent a la composante connexe de l'entree ;
---   3. aucun recouvrement avec une autre paillasse ;
---   4. l'assise (+13,+10) est elle-meme libre et connexe.
--- L'ouverture sud (secteur 70-115 degres) reste vide : c'est le
--- passage vers le sentier, et l'axe de l'adresse du matin.
---
--- ONZE COUCHAGES, PAS DOUZE. Phileas prend le premier tour de garde et
--- passe la nuit DEBOUT au nord du camp : lui reserver une paillasse
--- laissait un lit vide au milieu du cercle pendant toute la veillee, le
--- reve et le reveil. On en pose donc onze, un par dormeur reel
--- (10 membres au sol + le heros), et Penticus garde la couche 1.
---
--- Le rocher de Kangaskhan est REVENU a sa position d'origine (160,144),
--- au pied de la montagne. Les onze positions ci-dessous sont donc aussi
--- verifiees NE PAS CHEVAUCHER son emprise de 32x32 — l'ancienne serie ne
--- pouvait pas l'etre, le rocher etait alors pose ailleurs.
---
--- La couche 11 est sur le flanc EST et non a l'ouest : l'emplacement
--- ouest (200,180) tombait sous Penticus (230,190) et sous Hyko (224,206),
--- qui se tiennent la de jour. Un couchage sous les pieds d'un PNJ est
--- invisible pour un lecteur du code et flagrant a l'ecran.
+--Ici l'origine est le foyer lui-meme, puisque c'est autour de lui que tout
+--s'organise : les couchages, le cercle du repas, les places de garde.
+mount_windswept_entrance_ch_5.CAMP_X = 256
+mount_windswept_entrance_ch_5.CAMP_Y = 220
+
+local CX = mount_windswept_entrance_ch_5.CAMP_X
+local CY = mount_windswept_entrance_ch_5.CAMP_Y
+
+--Les onze couchages, en decalage par rapport au foyer. Valeurs identiques
+--aux anciennes coordonnees absolues, au pixel pres : le placement verifie
+--(sol libre, sprite 40x40, aucun recouvrement) est donc conserve tel quel.
 mount_windswept_entrance_ch_5.BEDS = {
-	{248, 116}, {298, 168}, {344, 168}, {356, 214},
-	{348, 260}, {322, 306}, {210, 310}, {164, 286},
-	{154, 240}, {154, 194}, {196, 224},
+	{CX -  8, CY - 104}, {CX + 42, CY -  52}, {CX + 88, CY - 52},
+	{CX + 100, CY -  6}, {CX + 92, CY +  40}, {CX + 66, CY + 86},
+	{CX -  46, CY + 90}, {CX - 92, CY +  66}, {CX - 102, CY + 20},
+	{CX - 102, CY - 26}, {CX - 60, CY +   4},
 }
 --LA COUCHE 11 (Kino) EST A LA PLACE DU SAC, contre le feu.
 --Elle etait reléguee en (362,300), a 136 px du foyer, sur le flanc est
@@ -3279,29 +2711,21 @@ mount_windswept_entrance_ch_5.BEDS = {
 --autour. La jouer a l'autre bout du camp obligeait la camera a quitter
 --le foyer, et Rin a traverser tout le bivouac.
 --Elle occupe donc l'emplacement du sac commun (196,224) : 58 px du feu
---au lieu de 136, dans le champ de la meme camera. Verifie sprite 40x40
---sur sol libre et connexe, assise libre, hors foyer, hors rocher, sans
---recouvrement avec les dix autres couches.
 
 function mount_windswept_entrance_ch_5.SetupGround()	
-	--------------------------------------------------------------------
 	-- LE CAMP APRES LE DEPART DE L'EXPEDITION — QUI RESTE, ET POURQUOI
-	--------------------------------------------------------------------
 	-- INCOHERENCE MAJEURE CORRIGEE. Cette fonction respawnait HUIT PNJ,
 	-- dont CINQ que la cinematique d'intro venait de faire partir en
 	-- expedition sous les yeux du joueur (GROUND:Hide en fin d'intro) :
-	--
 	--     Kino (Breloom), Reinier (Girafarig), Almotz (Zigzagoon)
 	--     -> vague d'ouverture, montent tracer la voie
 	--     Rin (Audino), Coco (Snubbull)
 	--     -> cordee de soutien, montent au relais
-	--
 	-- Le joueur les regardait remonter le sentier nord et disparaitre,
 	-- puis reprenait la main... devant les cinq memes, plantes au camp.
 	-- Le commentaire d'origine s'en justifiait par « redescendues au
 	-- relais entre deux rotations » — sauf que la scene ne montre AUCUNE
 	-- redescente : elle les montre MONTER.
-	--
 	-- NE RESTENT DONC QUE CEUX QUE LA SCENE LAISSE SUR PLACE :
 	--   * PENTICUS (Tropius) : il tient le camp de base, il l'a dit.
 	--   * PHILEAS (Noctowl)  : idem, les vents le portent mal.
@@ -3310,27 +2734,21 @@ function mount_windswept_entrance_ch_5.SetupGround()
 	-- Trois PNJ, exactement les trois que la cinematique finale laisse
 	-- devant la porte du donjon. La cordee du sommet (heros, partenaire,
 	-- Ganlon, Shuca) est dans l'equipe du joueur, pas en PNJ.
-	--
 	-- POSITIONS : verifiees sol libre, connexes depuis l'entree, hors
 	-- empreinte du feu (36x36 en 256,220), hors rocher de Kangaskhan
 	-- (32x32 en 160,144) et hors des onze paillasses.
-	--------------------------------------------------------------------
 	-- COMPOSITION DU CAMP — trois postes qui racontent trois roles.
-	--------------------------------------------------------------------
 	-- RETOUR DE L'UTILISATEUR : « Penticus et Hyko devraient etre
 	-- positionnes esthetiquement ». Les trois etaient agglutines au
 	-- nord-ouest (230,190 / 288,196 / 224,206), tous tournes vers le
 	-- bas, sans rapport au foyer : un alignement de PNJ, pas un camp.
-	--
 	-- Nouvelle composition, construite AUTOUR DU FEU (dessine
 	-- x256..291 / y220..255, foyer au centre en 274,238) :
-	--
 	--        Phileas (endormi, en retrait nord-ouest)
 	--                    .
 	--                 [ FEU ]        Hyko  (garde, a l'est, face au feu)
 	--                    .
 	--            Penticus (au sud, face au sentier d'arrivee)
-	--
 	--   * PENTICUS au SUD, tourne vers le HAUT : il fait face au sentier
 	--     par lequel on arrive. Le maitre de guilde guette le retour de
 	--     ses equipes — c'est sa premiere replique de la carte
@@ -3339,7 +2757,6 @@ function mount_windswept_entrance_ch_5.SetupGround()
 	--   * PHILEAS en RETRAIT au nord-ouest, ENDORMI. Il a veille la
 	--     nuit (section 7) ; patron du Tunnel, searing_tunnel_entrance
 	--     _ch_5.lua:36-37, ou Noctowl dort pendant que Tropius assure.
-	--
 	-- Toutes verifiees SPRITE COMPRIS (Tropius 40x40, Noctowl 38x32,
 	-- Growlithe 32x28, ancrage GroundAction.GetDrawLoc:116) : aucune ne
 	-- recouvre les flammes, ni le bloqueur du foyer, ni le rocher de
@@ -3362,7 +2779,6 @@ function mount_windswept_entrance_ch_5.SetupGround()
 	--Ganlon et Shuca voyagent avec le joueur : s'ils sont dans l'equipe
 	--(post-intro), on les fait apparaitre pres du duo via les spawners
 	--TEAMMATE_2/3 (patron exact du camp du Tunnel, spawners presents
-	--dans le .rsground — verifie).
 	if GAME:GetPlayerPartyCount() > 3 then
 		GROUND:SpawnerSetSpawn("TEAMMATE_2", GAME:GetPlayerPartyMember(2))
 		GROUND:SpawnerDoSpawn("TEAMMATE_2")
@@ -3370,21 +2786,7 @@ function mount_windswept_entrance_ch_5.SetupGround()
 		GROUND:SpawnerDoSpawn("TEAMMATE_3")
 	end
 
-	--------------------------------------------------------------------
 	-- LE CAMP DE JOUR — ET PAS DE FEU APRES UNE DEFAITE.
-	--------------------------------------------------------------------
-	-- BUG CORRIGE (1) : SetupGround est rappele par PlotScripting a
-	-- CHAQUE arrivee sur la carte, et le fichier comptait 14 appels
-	-- Anims:Add pour ZERO purge. Chaque retour au camp empilait un feu
-	-- de plus au meme endroit. BuildCampDay purge le calque avant de
-	-- redessiner.
-	--
-	-- BUG VU EN JEU (2) : « lorsque le joueur reapparait, le feu de camp
-	-- ne doit pas etre present ». Exact. Le retour apres une defaite se
-	-- joue au matin, l'expedition est partie depuis des heures : un
-	-- foyer qui flambe tout seul au milieu d'un camp desert n'a aucun
-	-- sens. C'est BuildCampMorning qu'il faut ici — meme camp, sans les
-	-- flammes ni leur bloqueur de collision.
 	if SV.Chapter5.LostMountain or SV.Chapter5.DiedToWind
 	   or SV.Chapter5.PlayTempMountScene then
 		mount_windswept_entrance_ch_5.BuildCampMorning()
@@ -3394,7 +2796,6 @@ function mount_windswept_entrance_ch_5.SetupGround()
 
 	--Apres une defaite en montagne, PHILEAS descend de son perchoir
 	--pour veiller sur les blesses : il ne dort plus, il surveille.
-	--
 	--DEUX BUGS ICI. Le bloc deplacait a l'origine Rin, partie avec la
 	--cordee de soutien : le TeleportTo s'appliquait a un `audino` nil,
 	--donc a rien. Puis, une fois reporte sur Phileas, il le posait en
@@ -3402,7 +2803,6 @@ function mount_windswept_entrance_ch_5.SetupGround()
 	--collider EN PLEIN dans le bloqueur du foyer : il s'y serait
 	--retrouve coince des le retour du controle au joueur.
 	--Il se poste donc a l'ouest du foyer, tourne vers lui, sprite
-	--verifie hors des flammes et hors du bloqueur.
 	if SV.Chapter5.LostMountain or SV.Chapter5.DiedToWind then
 		pcall(function()
 			GROUND:CharEndAnim(noctowl)
@@ -3467,7 +2867,6 @@ function mount_windswept_entrance_ch_5.SetParty()
     mareep_monster.ActionEvents:Add(talk_evt)
 	mareep_monster:RefreshTraits()
 	
-	
 	--Assign importances to identify who they are. Do this instead of just checking species just in case randomizers down the road or something.
 	local cTbl = LTBL(GAME:GetPlayerPartyMember(2))
 	local mTbl = LTBL(GAME:GetPlayerPartyMember(3))
@@ -3475,7 +2874,6 @@ function mount_windswept_entrance_ch_5.SetParty()
 	cTbl.Importance = "Cranidos"
 	mTbl.Importance = "Mareep"
 end
-
 
 function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	--It's already night when you arrive. Penticus is pacing around nervously wondering where you are before he realizes you're here
@@ -3490,7 +2888,6 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	--Later on, I was thinking of having Almotz/Rin/Coco kinda like, limp into camp after Windswept because they really struggled with it, and maybe they needed a save from Penticus for this, but this
 	--may be a bit too drastic or rough on them. The expedition shouldn't be TOO depressing...
 
-
 	local hero = CH('PLAYER')
 	local partner = CH('Teammate1')
 	local tunnel = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('searing_tunnel')
@@ -3500,73 +2897,11 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	GAME:CutsceneMode(true)
 	AI:DisableCharacterAI(partner)
 	SOUND:StopBGM()
-	--------------------------------------------------------------------
 	-- L'OST D'ARRIVEE — le camp s'entend avant de se voir.
-	--------------------------------------------------------------------
-	-- BUG RELEVE EN RELISANT : entre ce StopBGM et le PlayBGM final de
-	-- la scene, il y avait CINQ CENTS LIGNES DE SILENCE TOTAL. Toute la
-	-- montee du sentier, tout l'accueil au camp et toute la veillee se
-	-- jouaient sans une note. Pire, le gag du camp ouvre par un
-	-- FadeOutBGM(40) cense faire retomber la musique d'un coup — il
-	-- s'appliquait donc sur du vide, et l'effet « le silence se fait,
-	-- c'est donc grave » ne pouvait pas exister.
-	--
-	-- « Cliff Camp.ogg » est le theme de bivouac de montagne
-	-- d'Explorateurs du Ciel. Il est present dans Content/Music et deja
-	-- employe par le mod pour le camp de la Grande Steppe
-	-- (vast_steppe_midpoint_ch_5.lua:43) : c'est la couleur « campement
-	-- d'expedition » etablie du chapitre, on la reprend au lieu d'en
-	-- inventer une.
-	--
-	-- Il demarre SOUS LE NOIR, avant le premier plan : on entend le camp
-	-- avant de le voir, exactement comme on entend un feu avant
-	-- d'apercevoir sa lueur.
 	SOUND:PlayBGM('Cliff Camp.ogg', true)
 	--ARRIVEE PAR LE SUD. L'expedition debouche du sentier au bas de la
 	--carte et remonte en ligne droite la colonne x=256, verifiee
 	--praticable en continu de y=488 jusqu'au camp.
-	--
-	--BUG BLOQUANT CORRIGE : cette mise en place jouait ENTIEREMENT HORS
-	--CARTE. Elle cadrait la camera en (256,524) et teleportait le duo en
-	--(256,540) / (256,556), Hyko en (256,572) et Almotz en (256,588) —
-	--alors que la carte ne mesure que 552x504 px, donc Y max 503.
-	--
-	--Origine de l'erreur, tracee dans l'historique : un lot precedent a
-	--voulu ajouter une bande d'ocean « au sud, rows 78-80 » et a
-	--rallonge la table `obstacles`. Or dans un .rsground `obstacles` est
-	--indexe [x][y] : allonger la table du dessus agrandit la LARGEUR,
-	--pas la hauteur. La carte est passee de 552x504 a 648x504 — 12
-	--colonnes de plus a l'EST, aucune rangee de plus au sud — et les
-	--2520 tuiles d'eau (tileset DuskBeach, une plage au crepuscule) se
-	--sont retrouvees plaquees sur le flanc de la montagne. Le marqueur
-	--d'entree du joueur avait suivi en Y=592, hors carte lui aussi.
-	--La geometrie saine 552x504 a ete restauree et l'ocean retire.
-	------------------------------------------------------------------
-	-- L'ECRAN EST NOIR AVANT TOUTE AUTRE CHOSE.
-	------------------------------------------------------------------
-	-- BUG VU EN JEU : « on revoit le ground du tunnel quelques secondes
-	-- avant d'arriver a Windsep ». La cause n'etait PAS dans le Crucible
-	-- mais ICI, et elle tient a l'ordre des deux premieres instructions.
-	--
-	-- Sequence du moteur, lue dans la source (RogueCollab/RogueEssence,
-	-- GameManager.moveToZoneInit:773) :
-	--     GroundScene.InitGround()   -> appelle Init(map) du script
-	--     // « no fade; the script handles that itself »
-	--     GroundScene.BeginGround()  -> appelle Enter(map), donc
-	--                                   PlotScripting, donc cette scene
-	-- Le moteur ne pose AUCUN fondu de lui-meme : il laisse a l'ecran ce
-	-- que le script y avait mis. C'est donc a nous de garantir le noir.
-	--
-	-- Or cette scene commencait par MoveCamera puis AddMapStatus, et ne
-	-- posait son FadeOut qu'APRES. Pendant ces quelques images, la carte
-	-- du Mont etait deja chargee et VISIBLE, avec une camera en train de
-	-- sauter vers sa position d'arrivee — d'ou l'impression de « revoir
-	-- le decor precedent » puis un flash de rechargement.
-	--
-	-- Le FadeOut passe donc EN PREMIER, avant tout placement. Il est
-	-- instantane (1 frame) et redondant avec celui pose par le Crucible :
-	-- c'est voulu, une transition n'a pas de raison de dependre de ce que
-	-- la scene precedente a bien voulu faire. Idempotent, sans cout.
 	GAME:FadeOut(false, 1)
 
 	GAME:MoveCamera(256, 456, 1, false)
@@ -3578,23 +2913,7 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	GROUND:TeleportTo(hero, 256, 456, Direction.Up)
 	GROUND:TeleportTo(partner, 256, 472, Direction.Up)
 	
-	--------------------------------------------------------------------
 	-- LE CAMP EXISTE AVANT NOUS.
-	--------------------------------------------------------------------
-	-- BUG D'IMMERSION CORRIGE. Les six membres du camp etaient crees SANS
-	-- POSITION (« {'Tropius'} » tout court, donc en 0,0), laisses caches,
-	-- puis reveles d'un bloc par une boucle Unhide au milieu de la scene.
-	-- Le joueur voyait six Pokemon se materialiser d'un coup devant lui,
-	-- alors qu'ils sont censes camper la depuis des heures.
-	--
-	-- Desormais ils sont POSES A LEUR PLACE des la creation, chacun a son
-	-- occupation, et ils sont VISIBLES avant meme que le duo arrive. La
-	-- montee du sentier se fait donc vers un camp deja vivant : c'est ce
-	-- que fait un vrai Donjon Mystere, le lieu preexiste au heros.
-	--
-	-- Positions verifiees sol libre + connexes, hors emprise du feu
-	-- (36x36 en 256,220), hors rocher de Kangaskhan (32x32 en 160,144),
-	-- et espacees d'au moins 16 px (largeur de sprite) entre voisins.
 	local audino, snubbull, girafarig, breloom, growlithe, zigzagoon, tropius, noctowl, mareep, cranidos = 
 	CharacterEssentials.MakeCharactersFromList({
 		{'Audino',    222, 266, Direction.UpRight},
@@ -3610,21 +2929,8 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	})
 
 	--KINO ET REINIER NE SONT PAS ENCORE LA.
-	--
-	--BUG VU EN JEU : « quand on arrive y'a Kino et Girafarig alors qu'ils
-	--arrivent juste apres ». Ils etaient poses au camp des la creation,
-	--visibles — alors que la section 1 de CampNightfall les fait
-	--precisement ARRIVER du sentier sud, avec un Unhide et une replique
-	--(« ils fermaient la marche »). Le joueur les voyait donc deja
-	--attables avant qu'on annonce leur arrivee.
-	--
-	--Ils sont crees a leur position finale, mais MASQUES. CampNightfall
-	--les revele au bon moment : c'est deja ce que fait sa section 1
-	--(GROUND:Unhide + TeleportTo sur le sentier), il ne manquait que le
-	--Hide initial.
 	GROUND:Hide(breloom.EntName)
 	GROUND:Hide(girafarig.EntName)
-	
 	
 	--LE CAMP DE JOUR. Aucune paillasse a l'arrivee (Prompt Maitre 6.3) :
 	--les couchages ne sont deployes qu'a la fin de la veillee, sous le
@@ -3636,7 +2942,6 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	--Ces deux repliques se jouent SOUS LE NOIR (FadeOut juste avant) :
 	--aucun sprite n'est visible, donc aucun geste a jouer. C'est le seul
 	--endroit de la carte ou l'immobilite est justifiee — on le note pour
-	--que personne ne « corrige » ce faux positif plus tard.
 	GAME:WaitFrames(40)
 	UI:SetSpeaker(partner)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_001'], tunnel:GetColoredName()))
@@ -3647,15 +2952,12 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	
 	GAME:FadeIn(40)
 	
-	--------------------------------------------------------------------
 	-- LE CAMP VIT PENDANT QU'ON MONTE.
-	--------------------------------------------------------------------
 	-- Pendant toute la remontee du sentier, le camp continue ses
 	-- occupations SANS savoir qu'on arrive : Coco s'affaire au feu, Rin
 	-- range, Ganlon fait les cent pas, Penticus surveille la montagne.
 	-- Le joueur voit donc un lieu deja habite, avec sa propre vie, avant
 	-- d'y entrer — c'est exactement ce que fait un Donjon Mystere.
-	--
 	-- La boucle tourne en tache de fond et s'arrete d'elle-meme quand la
 	-- montee est finie (verrou `campBusy`, meme patron `stopTalking` que
 	-- la veillee). Tout est sous pcall : la vie de fond ne doit JAMAIS
@@ -3736,16 +3038,6 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	local coro5 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(20)
 		GAME:MoveCamera(256, 430, 150, false)
-		--CADRAGE D'ARRIVEE. BUG VU EN JEU : « quand on arrive, Phileas
-		--et Penticus sont a demi hors champ de la camera ».
-		--Mesure : avec la camera en (256,310), le champ va de y=190 a
-		--y=430. Or les sprites sont plus grands que leur collider
-		--(GroundAction.GetDrawLoc:116 centre la feuille sur la case) :
-		--Penticus, avec sa feuille de 40x40, se dessine de y=178 a 218
-		--— soit 12 px coupes en haut. Phileas 2 px, Shuca 18 px.
-		--En (264,262), le champ couvre y=142..382 : l'emprise complete
-		--du groupe (y=172..320, sprites compris) y tient entierement,
-		--et le duo qui arrive par le sud reste visible.
 		GAME:MoveCamera(264, 262, 110, false)
 	end)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
@@ -3760,8 +3052,6 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 
 	--LA PREMIERE VUE DU SOMMET. Le partenaire leve la tete AVANT de
 	--parler (le corps parle avant la bouche) ; Hyko le rejoint du
-	--regard, puis lui repond. Avant, ces trois repliques tombaient sur
-	--quatre sprites fixes qui regardaient tous dans la meme direction.
 	coro1 = TASK:BranchCoroutine(function()
 		pcall(function() GeneralFunctions.EmoteAndPause(partner, "Sweating", true) end)
 		UI:SetSpeaker(partner)
@@ -3803,15 +3093,12 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	end)
 	TASK:JoinCoroutines({coro1, coro2})
 
-	--------------------------------------------------------------------
 	-- LE CAMP REMARQUE QU'ON ARRIVE.
-	--------------------------------------------------------------------
 	-- Les six sont deja en place et visibles depuis le debut de la scene
 	-- (cf. MakeCharactersFromList plus haut) : plus aucun Unhide en bloc,
 	-- plus aucun TeleportTo qui les ferait sauter d'un point a l'autre
 	-- sous les yeux du joueur. Il ne reste donc ici qu'une chose a
 	-- jouer — le moment ou ils LEVENT LA TETE.
-	--
 	-- Et ils ne la levent pas tous en meme temps : Penticus le premier
 	-- (il guettait), Phileas ensuite, Shuca en dernier parce qu'elle
 	-- etait occupee ailleurs. Trois temps decales, comme un vrai groupe.
@@ -3842,15 +3129,12 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	end)
 	TASK:JoinCoroutines({camp1, camp2, camp3, camp4, camp5, camp6})
 
-	--------------------------------------------------------------------
 	-- SIX ACCUEILS, SIX CARACTERES.
-	--------------------------------------------------------------------
 	-- RETOUR DE L'UTILISATEUR : « faut des reactions diverses selon
 	-- leurs personnalites ». Le camp levait bien la tete, mais tout le
 	-- monde faisait EXACTEMENT le meme geste — se tourner — avant
 	-- d'enchainer sur un dialogue logistique. Six Pokemon, une seule
 	-- reaction : le groupe n'existait pas comme groupe de personnes.
-	--
 	-- Chacun accueille donc a sa maniere, et cette maniere est deja
 	-- ecrite ailleurs dans le mod (on ne reinvente aucun caractere) :
 	--   * PENTICUS le maitre de guilde a guette toute la soiree —
@@ -3863,7 +3147,6 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	--   * GANLON le raleur ne felicite personne, il tacle.
 	-- Puis Phileas donne l'explication meteo — la vraie raison du
 	-- retard — ce qui enchaine naturellement sur MWE5_006 juste apres.
-	--
 	-- Les gestes sont tous des API attestees du depot (CharSetEmote,
 	-- Hop, DoAnimation, EmoteAndPause, CharTurnToCharAnimated) et tout
 	-- passe par SaysA, qui tourne les tetes AVANT d'ouvrir la boite.
@@ -3955,15 +3238,12 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 		GROUND:CharTurnToCharAnimated(noctowl, hero, 4)
 	end)
 
-	--------------------------------------------------------------------
 	-- L'ACCUEIL AU CAMP — quinze repliques, et personne ne bougeait.
-	--------------------------------------------------------------------
 	-- C'ETAIT LE PIRE PASSAGE DE LA CARTE. Mesure avant correction :
 	-- ArrivalCutscene comptait 18 repliques dont 17 SANS la moindre
 	-- reaction corporelle (94 %). Quinze boites de dialogue defilaient
 	-- d'affilee devant huit sprites parfaitement immobiles, qui ne se
 	-- tournaient meme pas vers celui qui parlait.
-	--
 	-- Les helpers Listen/Says de la veillee sont locaux a CampNightfall.
 	-- On redefinit ici les memes, sur les variables locales de cette
 	-- scene (tropius, noctowl... et non t.penticus, t.phileas...).
@@ -4109,16 +3389,7 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	GROUND:CharSetEmote(tropius, "", 0)
 	GAME:WaitFrames(20)
 
-	--------------------------------------------------------------------
 	-- LA VEILLEE — le camp mange, puis s'endort
-	--------------------------------------------------------------------
-	-- Avant, la scene s'arretait sur la derniere replique et coupait au
-	-- noir : les douze paillasses restaient a l'ecran sans que personne
-	-- ne s'en serve. Le joueur voyait un cercle de foin inexplique.
-	--
-	-- On montre donc ce a quoi elles servent. Trois temps, dans l'ordre
-	-- ou ca se passe vraiment dans un bivouac : on partage le repas, la
-	-- conversation retombe, chacun rejoint sa couche.
 	mount_windswept_entrance_ch_5.CampNightfall(
 		hero, partner, {penticus = tropius, phileas = noctowl,
 		                rin = audino,      coco = snubbull,
@@ -4128,34 +3399,7 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 
 	GAME:FadeOut(false, 40)
 	GAME:WaitFrames(40)
-	--------------------------------------------------------------------
 	-- LE CAMP NE DOIT PAS SE VIDER.
-	--------------------------------------------------------------------
-	-- BUG VU EN JEU : « a la fin de la cinematique il reste des Pokemon
-	-- logiques a la narration sur le ground, un moment y'a plus
-	-- personne ».
-	--
-	-- Cause : cette boucle retirait LES DIX PNJ de la carte, y compris
-	-- les trois que la scene vient explicitement de laisser au camp —
-	-- Penticus, Phileas et Hyko. Or SetupGround, la fonction qui les
-	-- recree, n'est PAS appelee sur ce chemin : PlotScripting bascule
-	-- sur la branche `ArrivalCutscene` et rend la main directement.
-	-- Le joueur reprenait donc le controle dans un camp desert, apres
-	-- une scene ou trois personnages viennent de jurer d'y rester.
-	--
-	-- On ne retire donc QUE les sept partants, ceux que la scene a
-	-- effectivement montres en train de monter le sentier nord :
-	--   Rin, Coco       -> cordee de soutien
-	--   Kino, Reinier, Almotz -> vague d'ouverture
-	--   Ganlon, Shuca   -> cordee du sommet, ils rejoignent l'EQUIPE du
-	--                      joueur (SetParty les recree en Teammate2/3
-	--                      juste apres : les garder en PNJ ferait un
-	--                      doublon de chacun a l'ecran).
-	--
-	-- Penticus, Phileas et Hyko RESTENT. C'est exactement le trio que
-	-- SetupGround repose a chaque retour sur la carte : la population du
-	-- camp est donc la meme qu'on vienne de la cinematique ou qu'on
-	-- revienne du donjon. Plus de discontinuite.
 	for _, chara in ipairs({audino, snubbull, girafarig, breloom, zigzagoon, mareep, cranidos}) do
 		GAME:GetCurrentGround():RemoveTempChar(chara)
 	end
@@ -4182,10 +3426,8 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 end 
 
 --Ganlon hasn't been getting to act like a jerk much this expedition; give him some opportunies for his jerkiness to shine through here
---------------------------------------------------------------------
 -- PNJ du camp de base — dialogues a variantes (Prompt Maitre §4.2)
 -- Etats : avant l'entree / apres defaite / apres mini-boss / apres gardien.
---------------------------------------------------------------------
 
 --Penticus (Tropius), Maitre de Guilde : la facade sereine se fissure
 function mount_windswept_entrance_ch_5.Tropius_Action(chara, activator)
@@ -4379,7 +3621,6 @@ function mount_windswept_entrance_ch_5.Girafarig_Action(chara, activator)
 	GeneralFunctions.EndConversation(chara)
 end
 
---------------------------------------------------------------------
 -- LÉGENDE : « L'Arbitre du Ciel » (Reinier, veteran des caravanes)
 -- Mentions : Rayquaza (l'Arbitre, nomme a la fin seulement), Kyogre et
 -- Groudon evoques comme « la mer et la terre en guerre ». Motif New Era :
@@ -4387,7 +3628,6 @@ end
 -- (Meteno) tombe pres du relais, et prefiguration lointaine du lore
 -- Fil du Destin reserve a l'arc Jirachi.
 -- OST : Sky Peak Cave -> Rising Fear (bref) -> retour.
---------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.LegendOfTheSkyArbiter(chara)
 	local hero = CH('PLAYER')
 	SOUND:FadeOutBGM(60)
@@ -4470,7 +3710,6 @@ function mount_windswept_entrance_ch_5.Zigzagoon_Action(chara, activator)
 	GeneralFunctions.EndConversation(chara)
 end
 
---------------------------------------------------------------------
 -- CINÉMATIQUE ÉMOTIONNELLE — « Ce que le vent a emporté »
 -- Le secret Hyko × Penticus, en paiement de la dette narrative posée
 -- au Tunnel (« ce n'est pas mon histoire » — Phileas). Surprise nocturne :
@@ -4483,7 +3722,6 @@ end
 -- avant que le heros n'ait a faire le meme choix.
 -- OST : silence -> On the Beach at Dusk -> Sympathy.
 -- Declencheur : nuit au camp du Mont, apres le gardien, apres la veillee.
---------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.WindSecretScene()
 	local hero = CH('PLAYER')
 	local tropius = CH('Tropius')
@@ -4497,14 +3735,6 @@ function mount_windswept_entrance_ch_5.WindSecretScene()
 	GROUND:AddMapStatus("darkness")
 
 	-- Le heros se reveille seul ; deux silhouettes au bord du camp.
-	-- (Penticus etait pose en (352,200), case NON praticable — verifie
-	-- sur la grille d'obstacles : Tags ~= 0. Descendu en (352,216).)
-	--ECRAN NOIR D'ABORD. Le moteur ne pose aucun fondu entre deux cartes
-	--(GameManager.moveToZoneInit : « no fade; the script handles that
-	--itself ») : ce que le script laisse a l'ecran y reste. Sans ce
-	--FadeOut en tete, la carte est visible pendant qu'on y teleporte les
-	--personnages et qu'on deplace la camera — le joueur voit la mise en
-	--place. Instantane (1 frame) et idempotent.
 	GAME:FadeOut(false, 1)
 
 	GROUND:TeleportTo(hero, 256, 340, Direction.Up)
@@ -4528,10 +3758,6 @@ function mount_windswept_entrance_ch_5.WindSecretScene()
 	GAME:WaitFrames(30)
 
 	--LA SCENE LA PLUS INTIME DE LA CARTE — et les deux personnages ne se
-	--regardaient jamais. Corrige ici temps par temps : chaque changement
-	--de locuteur s'accompagne du geste qui va avec, et les DEUX SILENCES
-	--(".........") sont joues comme des silences — Penticus se detourne
-	--vers la montagne avant de repondre, Hyko encaisse avant de parler.
 	GROUND:CharTurnToCharAnimated(growlithe, tropius, 4)
 	GAME:WaitFrames(10)
 	UI:SetSpeaker(growlithe)

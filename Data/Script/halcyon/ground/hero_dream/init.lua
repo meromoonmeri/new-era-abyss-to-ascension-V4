@@ -40,9 +40,7 @@ require 'halcyon.CharacterEssentials'
 
 local hero_dream = {}
 
--------------------------------
 -- Map Callbacks
--------------------------------
 function hero_dream.Init(map)
   DEBUG.EnableDbgCoro()
   print('=>> Init_hero_dream <<=')
@@ -56,64 +54,28 @@ function hero_dream.Init(map)
   --idempotent : si l'ecran est deja noir, il ne se passe rien.
   pcall(function() GAME:FadeOut(false, 1) end)
 
-  ------------------------------------------------------------------
   -- LE JOUEUR DOIT EXISTER SUR LA CARTE.
-  ------------------------------------------------------------------
-  -- CRASH VU EN JEU : « quand je vais sur le ground du reve je crash ».
-  --
-  -- Cause : cet Init n'appelait PAS COMMON.RespawnAllies(). Toutes les
-  -- autres cartes du mod le font (personality_test/init.lua:494,
-  -- searing_crucible/init.lua:75, mount_windswept_entrance/init.lua...) :
-  -- c'est cette fonction qui appelle GROUND:RefreshPlayer() et qui
-  -- reconstruit l'equipe a l'arrivee. Sans elle, CH('PLAYER') n'est pas
-  -- garanti, et DreamScene appelait GROUND:TeleportTo(hero, ...) sur nil.
-  --
-  -- Second piege, corrige dans le .rsground : j'avais VIDE la liste des
-  -- Spawners de la carte. Or RespawnAllies fait, sans condition,
-  -- SpawnerSetSpawn("TEAMMATE_1") puis SpawnerDoSpawn("TEAMMATE_1"), et
-  -- ScriptGround.cs:249 leve une ArgumentException si le spawner
-  -- n'existe pas. personality_test — la carte dont hero_dream est copie —
-  -- garde precisement ce spawner unique. Il est restaure, pose au centre
-  -- et desactive (EntEnabled=false) : le partenaire n'a rien a faire
-  -- dans le reve du heros, mais le moteur exige que l'ancre existe.
-  --
-  -- reviveAll = false : on ne veut QUE le joueur. Les equipiers 2 et 3
-  -- (Ganlon, Shuca) ne rejoignent pas un reve.
   COMMON.RespawnAllies()
 
-  ------------------------------------------------------------------
   -- LE MODE CINEMATIQUE EST POSE DES L'INIT, PAS DANS LA SCENE.
-  ------------------------------------------------------------------
-  -- CRASH VU EN JEU, au moment du coucher :
-  --   System.NullReferenceException
-  --     at RogueEssence.Ground.GroundScene.ProcessInput()+MoveNext()
-  --
-  -- La ligne fautive est GroundScene.cs:165 :
   --     if (GameManager.Instance.SceneOutcome == null)
   --         yield return ... ZoneManager.Instance.CurrentGround.OnCheck();
   -- `CurrentGround` y est nul. Il l'est parce que la bascule de carte
-  -- passe par ExitGround (GSceneZone.cs:45-46), qui fait
   -- SetPlayerChar(null) puis SetCurrentMap(SegLoc.Invalid) — et
   -- SetCurrentMap appelle exitMap(), qui pose CurrentGround = null
-  -- (Zone.cs:140-142).
-  --
   -- Ce que ProcessInput ne fait PAS quand le mode cinematique est actif :
   -- la garde `if (DataManager.Instance.Save.CutsceneMode) yield break;`
-  -- (GroundScene.cs:176) sort AVANT tout, et surtout avant que la boucle
   -- n'atteigne OnCheck. Mode cinematique actif = aucun risque.
-  --
   -- Or DreamScene ne posait CutsceneMode(true) qu'apres son test
   -- `if hero == nil`, donc APRES Init et APRES le premier tour de boucle
   -- possible. Entre l'Init de cette carte et le Enter qui lance la
   -- scene, la boucle principale peut tourner (ScreenMainCoroutine
   -- l.505-507 appelle ProcessInput tant que SceneOutcome est nul), et
   -- elle tombe alors sur un CurrentGround en cours de remplacement.
-  --
   -- On le pose donc ICI, comme le fait la carte dont hero_dream est
   -- copie : personality_test/init.lua:86 ouvre CharacterSelect par
   -- GAME:CutsceneMode(true). C'est le patron atteste du depot.
   -- DreamScene le repose (idempotent, simple booleen de sauvegarde —
-  -- ScriptGame.cs:1384) et c'est le camp qui le relachera au reveil.
   pcall(function() GAME:CutsceneMode(true) end)
 end
 
@@ -132,13 +94,10 @@ function hero_dream.GameLoad(map)
   hero_dream.DreamScene()
 end
 
---------------------------------------------------------------------
 -- LA SCENE
---------------------------------------------------------------------
 -- Structure en huit temps, relevee dans pret/pmd-red
 -- (src/data/ground/ground_data_a01p01_station.h, les reves successifs
 -- du heros). L'ordre du jeu d'origine EST l'effet :
---
 --   1. Trois boites de points de plus en plus longues. Personne ne
 --      parle : c'est le dormeur qui remonte vers la surface.
 --   2. La desorientation vient AVANT toute presence.
@@ -148,7 +107,6 @@ end
 --   6. L'entite parle. Phrases courtes, beaucoup de suspension.
 --   7. Le heros pose LA question : « pourquoi mes reves ? »
 --   8. « Le jour se leve », puis le reveil et l'oubli.
---
 -- MISE EN SCENE. Une cinematique de Donjon Mystere ne se joue pas en
 -- enchainant des boites. Chaque replique de cette scene est portee par
 -- au moins un element non textuel :
@@ -159,7 +117,6 @@ end
 --     visible), jamais d'un coup ;
 --   * les silences sont ecrits comme des repliques : WaitFrames longs,
 --     boite fermee, rien a l'ecran que le ciel qui derive.
---------------------------------------------------------------------
 
 --Helper local : la Voix. Anonyme (\uE040), sans nom, sans portrait.
 --Regle projet non negociable — c'est au joueur de reconnaitre, jamais
@@ -193,14 +150,9 @@ function hero_dream.DreamScene()
   --LE MODE CINEMATIQUE D'ABORD, AVANT MEME DE LIRE LE JOUEUR.
   --Il est deja pose par Init ; on le repose ici car GameLoad appelle
   --aussi cette fonction sans repasser par Init. C'est un simple booleen
-  --de sauvegarde (ScriptGame.cs:1384) : le reposer ne coute rien.
-  --
   --Il doit surtout preceder la sortie de secours ci-dessous : celle-ci
   --appelle EnterGroundMap, qui ARME la bascule de carte
-  --(SceneOutcome, ScriptGame.cs:106). Des cet instant ExitGround va
-  --poser CurrentGround = null (GSceneZone.cs:45-46 -> Zone.cs:140-142),
   --et toute frame executee sans mode cinematique tombe sur
-  --GroundScene.cs:165 -> NullReferenceException. C'etait le crash vu en
   --jeu au moment du coucher.
   pcall(function() GAME:CutsceneMode(true) end)
 
@@ -218,9 +170,7 @@ function hero_dream.DreamScene()
 
   SOUND:StopBGM()
 
-  ------------------------------------------------------------------
   -- MISE EN PLACE, SOUS LE NOIR
-  ------------------------------------------------------------------
   --LE HEROS REVE SEUL. RespawnAllies a pu faire apparaitre le
   --partenaire (il est dans l'equipe) : on le retire de la carte, il
   --n'a rien a faire dans ce reve. GROUND:Hide suffit — le supprimer
@@ -245,12 +195,9 @@ function hero_dream.DreamScene()
   --met l'opacite a 0 — GroundAction.UpdateDrawEffects:79). Elle est
   --posee au nord du heros, legerement decalee : elle le domine sans
   --l'ecraser, et les deux tiennent dans le meme plan.
-  --
   --Le sprite est celui de Gardevoir (index national 282). PMDO fournit
   --nativement les sprites d'especes : Content/Chara/ d'un mod
   --ModType=Quest n'est qu'une SURCHARGE partielle, pas la liste des
-  --especes disponibles. Preuve : Halcyon joue skitty (300) et shinx
-  --(403) comme starters sans embarquer 300.chara ni 403.chara.
   local entity = nil
   pcall(function()
     local id = RogueEssence.Dungeon.MonsterID("gardevoir", 0, "normal", Gender.Female)
@@ -267,9 +214,7 @@ function hero_dream.DreamScene()
   GAME:FadeIn(70)
   GAME:WaitFrames(60)
 
-  ------------------------------------------------------------------
   -- 1. L'EMERGENCE — le dormeur remonte vers la surface
-  ------------------------------------------------------------------
   --Trois respirations, de plus en plus longues, entrecoupees de
   --silences croissants. Rien ne bouge a l'ecran que le ciel : c'est
   --voulu, le joueur doit se sentir endormi avant qu'il se passe quoi
@@ -285,9 +230,7 @@ function hero_dream.DreamScene()
   UI:ResetSpeaker()
   GAME:WaitFrames(45)
 
-  ------------------------------------------------------------------
   -- 2. LA DESORIENTATION — avant toute presence
-  ------------------------------------------------------------------
   --La camera commence a deriver, tres lentement, vers le haut : le
   --regard du dormeur cherche quelque chose qui n'est pas encore la.
   --12 px sur 150 frames = un mouvement qu'on ressent sans le voir.
@@ -304,9 +247,7 @@ function hero_dream.DreamScene()
   dreamer('DRM_006')
   silence(50)
 
-  ------------------------------------------------------------------
   -- 3. LA PRESENCE — elle apparait par clignotement
-  ------------------------------------------------------------------
   --L'APPARITION. Trois paliers d'opacite, exactement comme les
   --apparitions des jeux officiels : rien -> fantome -> presence.
   --Le moteur n'expose que trois etats (UpdateDrawEffects:78-82) :
@@ -360,9 +301,7 @@ function hero_dream.DreamScene()
   dreamer('DRM_009')
   silence(55)
 
-  ------------------------------------------------------------------
   -- 4. ELLE PARLE — accueil, pas menace
-  ------------------------------------------------------------------
   --Sa premiere phrase tombe apres un long silence : c'est elle qui
   --rompt le vide, et cela suffit a la rendre presente.
   voice('DRM_010')
@@ -383,9 +322,7 @@ function hero_dream.DreamScene()
   voice('DRM_015')
   silence(70)
 
-  ------------------------------------------------------------------
   -- 5. LA QUESTION PIVOT
-  ------------------------------------------------------------------
   --Le heros pose enfin la question. La camera se recentre doucement
   --sur lui pendant qu'il parle : le plan revient a celui qui demande.
   local q1 = TASK:BranchCoroutine(function()
@@ -403,9 +340,7 @@ function hero_dream.DreamScene()
   voice('DRM_018')
   silence(55)
 
-  ------------------------------------------------------------------
   -- 6. L'AVERTISSEMENT — demain, la montagne
-  ------------------------------------------------------------------
   voice('DRM_019')
   GAME:WaitFrames(35)
   voice('DRM_020')
@@ -427,9 +362,7 @@ function hero_dream.DreamScene()
   voice('DRM_023')
   silence(65)
 
-  ------------------------------------------------------------------
   -- 7. LA SEPARATION — elle s'efface pendant qu'elle parle
-  ------------------------------------------------------------------
   voice('DRM_024')
   GAME:WaitFrames(25)
 
@@ -461,9 +394,7 @@ function hero_dream.DreamScene()
   GAME:FadeOut(false, 70)
   GAME:WaitFrames(40)
 
-  ------------------------------------------------------------------
   -- 8. LE REVEIL — de l'autre cote, au camp
-  ------------------------------------------------------------------
   --La scene ne se termine PAS ici : elle rend la main a la carte du
   --camp, qui joue le sursaut et l'oubli. Le drapeau dit au camp que le
   --reve a eu lieu.

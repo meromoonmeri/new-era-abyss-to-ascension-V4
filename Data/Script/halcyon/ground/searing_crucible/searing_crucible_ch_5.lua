@@ -6,7 +6,6 @@ require 'halcyon.BossFX'
 
 searing_crucible_ch_5 = {}
 
-
 --TASK:BranchCoroutine(function() searing_crucible_ch_5.FirstPreBossScene() end)
 function searing_crucible_ch_5.FirstPreBossScene()
 	local hero = CH('PLAYER')
@@ -148,7 +147,6 @@ function searing_crucible_ch_5.FirstPreBossScene()
 
 	--takes about 20f to react to slugma materialization. each frame of materialization is 3 frames
 
-	
 	coro1 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
 											GROUND:MoveInDirection(partner, Direction.Up, 120, false, 1) end)			
 	coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(6)
@@ -187,7 +185,6 @@ function searing_crucible_ch_5.FirstPreBossScene()
 											end)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
 	    
-
 	--Lava starts spawning 80 frames in.
 	coro1 = TASK:BranchCoroutine(function() GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 4, 30))
 											GAME:WaitFrames(30)
@@ -287,14 +284,11 @@ function searing_crucible_ch_5.FirstPreBossScene()
 	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_014']))
 
-	
 	GAME:WaitFrames(20)
 	UI:SetSpeaker(partner)
 	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_015']))
 	
-	
-	--You arrived and then the lava shifted. You must be the cause! You and all the other outlanders that have been passing through!
 	GAME:WaitFrames(60)
 	UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)	
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_016']))
@@ -331,7 +325,6 @@ function searing_crucible_ch_5.FirstPreBossScene()
 	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_019']))
 	GAME:WaitFrames(40)
-	
 	
 	UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)	
 	coro1 = TASK:BranchCoroutine(function() UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_082']))
@@ -376,7 +369,6 @@ function searing_crucible_ch_5.FirstPreBossScene()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_022']))
 	GAME:WaitFrames(20)
 	
-
     local materializeAnimLeft = RogueEssence.Content.AnimData("Slugma_Materialize", 3)
     local materializeAnimRight = RogueEssence.Content.AnimData("Slugma_Materialize", 3)
     local leftFlip = 1
@@ -395,7 +387,6 @@ function searing_crucible_ch_5.FirstPreBossScene()
     local slugma_anim_left_4 = RogueEssence.Content.StaticAnim(materializeAnimLeft, 1)
     local slugma_anim_right_4 = RogueEssence.Content.StaticAnim(materializeAnimRight, 1)
     
-
     --Threat.ogg
     SOUND:PlayBGM('Rising Fear.ogg', true)
 
@@ -447,7 +438,6 @@ function searing_crucible_ch_5.FirstPreBossScene()
 											GROUND:CharSetAnim(slugma_girl_3, "Idle", true)
 											end)
 											
-	
 	coro4 = TASK:BranchCoroutine(function() GAME:WaitFrames(240)
 											SOUND:PlaySE('Slugma Materialize')
 											slugma_anim_right_4:SetupEmitted(RogueElements.Loc(slugma_girl_4.Position.X + 8, slugma_girl_4.Position.Y + 11), 0, RogueElements.Dir8.Down)
@@ -519,7 +509,6 @@ function searing_crucible_ch_5.FirstPreBossScene()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_025']))
 	GAME:WaitFrames(10)
 	
-	
 	--TODO: slow the movement speed down of the slugmas here if possible.
 	coro1 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(slugma_boy_1, Direction.Down, 16, false, 1) GROUND:CharSetAnim(slugma_boy_1, "Idle", true) end)
 	coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(2) GROUND:MoveInDirection(slugma_girl_1, Direction.Down, 16, false, 1) GROUND:CharSetAnim(slugma_girl_1, "Idle", true) end)
@@ -554,7 +543,6 @@ function searing_crucible_ch_5.FirstPreBossScene()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_027']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_028']))
 	GAME:WaitFrames(20)
-	
 	
 	UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)	
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_029']))
@@ -626,8 +614,6 @@ end
 function searing_crucible_ch_5.SecondPreBossScene()
 	--instead of having it play out like the first time, cut right to the chase of being surrounded again. sky does this a lot and,
 	--while it is the lazy option, do you really want to see the same animation again? It'd be really contrived too at that part, or at least more so.
-	--Magcargo says you continue to defile the lands and cause this crap. You truly are scum.
-	--they try to speak up but get interrupted
 	
 	local hero = CH('PLAYER')
 	local partner = CH('Teammate1')
@@ -666,13 +652,11 @@ function searing_crucible_ch_5.SecondPreBossScene()
 	GAME:GetCurrentGround():AddTempChar(slugma_girl_3)
 	GAME:GetCurrentGround():AddTempChar(slugma_girl_4)
 	
-
 	local magcargo = 
 		CharacterEssentials.MakeCharactersFromList({
 			{'Magcargo', 256, 192, Direction.Down}
 		})
 	
-
 	if partner ~= nil then AI:DisableCharacterAI(partner) end
 	SOUND:StopBGM()
 	
@@ -733,19 +717,15 @@ function searing_crucible_ch_5.SecondPreBossScene()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_037']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_038']))
 	
-	
 	--Setup for lavaflow variables will happen in the zone's enter segment.
 	COMMON.BossTransition()
 	GAME:CutsceneMode(false)	
 	--enter fight
 	GAME:ContinueDungeon("searing_tunnel", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 	
-	
 end
 
 --TASK:BranchCoroutine(searing_crucible_ch_5.DefeatedBoss)
--- Corps de la cinematique, appele sous pcall par DefeatedBoss() : toute erreur
--- Lua ici ne doit JAMAIS laisser le joueur sur un ecran noir definitif.
 local function DefeatedBossBody()
 	--magcargo is actually defeated, and offers his neck metaphorically to the stone, party explains that they didn't even want to fight
 	--magcargo explains he thought the outlanders were causing all the issues the tunnel's been experiencing
@@ -791,14 +771,12 @@ local function DefeatedBossBody()
 	GAME:GetCurrentGround():AddTempChar(slugma_girl_3)
 	GAME:GetCurrentGround():AddTempChar(slugma_girl_4)
 	
-
 	local magcargo = 
 		CharacterEssentials.MakeCharactersFromList({
 			{'Magcargo', 256, 192, Direction.Down}
 		})
 	
 	GROUND:CharSetAnim(magcargo, "Charge", true)
-	
 	
 	if partner ~= nil then AI:DisableCharacterAI(partner) end
 	SOUND:StopBGM()
@@ -856,7 +834,6 @@ local function DefeatedBossBody()
 	
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coro6, coro7, coro8})
 
-	
 	--player's party look at each other and sweat
 	GAME:WaitFrames(20)
 	coro1 = TASK:BranchCoroutine(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
@@ -990,7 +967,6 @@ local function DefeatedBossBody()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_068']))
 	GAME:WaitFrames(10)
 	
-	
 	--Party looks around at them as the slugmas dematerialize. They're startled when Magcargo explodes to disappear
 	local materializeAnimLeft = RogueEssence.Content.AnimData("Slugma_Materialize_Reverse", 3)
     local materializeAnimRight = RogueEssence.Content.AnimData("Slugma_Materialize_Reverse", 3)
@@ -1010,7 +986,6 @@ local function DefeatedBossBody()
     local slugma_anim_left_4 = RogueEssence.Content.StaticAnim(materializeAnimLeft, 1)
     local slugma_anim_right_4 = RogueEssence.Content.StaticAnim(materializeAnimRight, 1)
     
-
 	--4 sets of despawning
     coro1 = TASK:BranchCoroutine(function()	--bootleg animate turn to, im NOT nesting coroutines.
 											GROUND:EntTurn(slugma_boy_4, Direction.UpLeft)
@@ -1134,7 +1109,6 @@ local function DefeatedBossBody()
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
 	GAME:WaitFrames(90)
 		
-	
 	coro1 = TASK:BranchCoroutine(function() GeneralFunctions.EmoteAndPause(partner, "Sweatdrop", true) end)
 	coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(6) GeneralFunctions.EmoteAndPause(hero, "Sweatdrop", false) end)
 	coro3 = TASK:BranchCoroutine(function() GAME:WaitFrames(2) GeneralFunctions.EmoteAndPause(growlithe, "Sweatdrop", false) end)
@@ -1260,26 +1234,21 @@ local function DefeatedBossBody()
 end
 
 function searing_crucible_ch_5.DefeatedBoss()
-	------------------------------------------------------------------
 	-- TRANSITION D'ORIGINE (Halcyon, branche working-copy).
-	------------------------------------------------------------------
 	-- Restauree a l'identique sur demande, apres comparaison avec le
 	-- depot amont Palikadude/Halcyon :
 	--   Data/Script/halcyon/ground/searing_crucible/searing_crucible_ch_5.lua
 	--   lignes 1235-1238 de la branche working-copy.
-	--
 	-- Le code d'origine tient en quatre lignes, sans filet :
 	--     TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
 	--     GAME:WaitFrames(90)
 	--     GAME:CutsceneMode(false)
 	--     GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker')
-	--
 	-- Le fondu vient UNIQUEMENT de coro5, a l'interieur du corps de la
 	-- scene (FadeOutBGM(60) + FadeOut(false,60)). Il n'y a ni pcall, ni
 	-- fondu de rattrapage, ni PrintInfo : ces trois elements avaient ete
 	-- ajoutes par-dessus, et c'est le PrintInfo — fonction qui n'existait
 	-- pas — qui avortait la fonction des sa premiere ligne.
-	--
 	-- On revient donc a la forme amont. Une seule difference assumee :
 	-- le corps reste appele via DefeatedBossBody(), decoupage propre au
 	-- fork, car la scene y a ete etoffee. L'ordre des quatre instructions
@@ -1289,8 +1258,6 @@ function searing_crucible_ch_5.DefeatedBoss()
 	GAME:CutsceneMode(false)
 	GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker')
 end
-
-
 
 function searing_crucible_ch_5.SpawnLava(playAnimation)
 	--lava stuff. initialize it before using it all
@@ -1314,7 +1281,6 @@ function searing_crucible_ch_5.SpawnLava(playAnimation)
 	local lava_anim_big_right = RogueEssence.Content.ObjAnimData('Spring_Cave_Pit_Big_Lava_Stream', 4)
 	lava_anim_small_right.AnimFlip = LUA_ENGINE:LuaCast(rightFlip, fliptype)
 	lava_anim_big_right.AnimFlip = LUA_ENGINE:LuaCast(rightFlip, fliptype)
-	
 	
 	if playAnimation then
 		SOUND:LoopSE("Heavy Earthquake")
@@ -1354,4 +1320,3 @@ function searing_crucible_ch_5.SpawnLava(playAnimation)
 		GAME:GetCurrentGround().Decorations[0].Anims:Add(RogueEssence.Ground.GroundAnim(lava_anim_big_right, RogueElements.Loc(12 * 24 - 24, 8 * 24)))
 	end
 end
-

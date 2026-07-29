@@ -17,97 +17,31 @@ local mount_windswept_entrance = {}
 -- Ex:
 --      local localizedstring = STRINGS.MapStrings['SomeStringName']
 
-
--------------------------------
 -- Map Callbacks
--------------------------------
 ---mount_windswept_entrance.Init(map)
 --Engine callback function
 function mount_windswept_entrance.Init(map)
   DEBUG.EnableDbgCoro()
   print('=>> Init_mount_windswept_entrance <<=')
 
-  ------------------------------------------------------------------
   -- L'ECRAN EST NOIR AVANT LE PREMIER RENDU.
-  ------------------------------------------------------------------
-  -- BUG VU EN JEU : « le fond noir n'est pas maintenu, on revoit le
-  -- ground du tunnel avant d'arriver ». Poser le FadeOut en tete de
-  -- ArrivalCutscene ne suffisait pas — et la lecture du moteur dit
-  -- pourquoi (RogueCollab/RogueEssence) :
-  --
-  --   GameManager.moveToZoneInit:773
-  --       InitGround()   -> appelle CE Init(map)
-  --       // « no fade; the script handles that itself »
-  --       BeginGround()  -> appelle Enter(map), donc PlotScripting,
-  --                         donc seulement LA notre cinematique
-  --
-  --   GSceneZone.EnterGround:27  -> ResetGround()
-  --       ViewCenter = null : la camera SAUTE sur le joueur
-  --
-  -- Autrement dit, la carte est chargee, la camera repositionnee et le
-  -- premier rendu possible AVANT que Enter() ne s'execute. Tout fondu
-  -- pose dans la cinematique arrive donc une frame trop tard. Et le
-  -- moteur, lui, n'en pose aucun : il laisse ce que le script a laisse.
-  --
-  -- On pose donc le noir ICI, dans Init, avant COMMON.RespawnAllies et
-  -- avant le placement du partenaire. FadeOut(false, 1) est instantane
-  -- et idempotent : si l'ecran est deja noir (cas normal, le Crucible
-  -- l'a laisse ainsi), il ne fait rien de visible.
-  --
-  -- CONDITIONNE : uniquement si une cinematique qui commence dans le
-  -- noir va suivre. Sinon on noircirait une entree normale sur la carte
-  -- (retour de donjon, promenade) dont la branche `else` de
-  -- PlotScripting ne fait qu'un FadeIn(20) — l'ecran resterait noir une
-  -- demi-seconde sans raison.
-  ------------------------------------------------------------------
-  -- LE NOIR EST POSE SANS CONDITION, ET AVANT TOUT LE RESTE.
-  ------------------------------------------------------------------
-  -- BUG SIGNALE DEUX FOIS : « quand on passe du ground du boss des
-  -- Limagma au Mont Venteux, y'a un souci de fondu ».
-  --
-  -- Le fondu du Crucible est sain (verifie par simulation de
-  -- ScreenFadeFX.Fade : coro5 monte fadeAmount a 1.0 et il y RESTE,
-  -- le second FadeOut est correctement ignore). Le probleme etait ici.
-  --
-  -- Ce FadeOut etait CONDITIONNE par needsBlackOnEntry(), qui lit
-  -- SV.Chapter5. Or cette fonction est enveloppee dans un pcall et
-  -- renvoie FALSE des qu'une lecture echoue — table absente, flag
-  -- manquant, sauvegarde d'une version anterieure. En cas d'echec
-  -- silencieux, aucun noir n'etait pose, et le premier rendu de la
-  -- carte se faisait a nu : on apercevait le Mont (ou le decor
-  -- precedent encore en memoire) avant que la cinematique ne demarre.
-  --
-  -- Un FadeOut de 1 frame sur un ecran DEJA noir ne coute rien : la
-  -- garde `if (!fadeIn && fadeAmount == 0f) yield break;` de
-  -- FadeEffect.cs:63 le rend idempotent. Le poser toujours est donc
-  -- strictement plus sur que de le poser parfois.
-  --
-  -- Le seul cas ou l'on ne veut PAS de noir, c'est l'entree libre sur
-  -- la carte (promenade, retour de donjon) : la branche `else` de
-  -- PlotScripting fait alors son FadeIn(20), qui le leve. On ne perd
-  -- donc rien, et on ne peut plus rater le noir.
   pcall(function() GAME:FadeOut(false, 1) end)
 
   COMMON.RespawnAllies()
   GROUND:AddMapStatus("blowing_wind")
   PartnerEssentials.InitializePartnerSpawn()
 
-  ------------------------------------------------------------------
   -- MODE CINEMATIQUE POSE DES L'INIT QUAND UNE SCENE VA SUIVRE.
-  ------------------------------------------------------------------
   -- Meme correctif qu'au retour du reve (hero_dream/init.lua) et pour
   -- la meme raison, verifiee dans le moteur :
   --   GroundScene.ProcessInput l.165 dereference
   --   ZoneManager.Instance.CurrentGround.OnCheck(), et CurrentGround est
   --   nul pendant la bascule de carte (ExitGround -> SetCurrentMap
-  --   (Invalid) -> exitMap -> CurrentGround = null, Zone.cs:140-142).
   --   Seule la garde `if (Save.CutsceneMode) yield break;` (l.176) sort
   --   de ProcessInput avant d'y arriver.
-  --
   -- Entre cet Init et le Enter qui lance la cinematique, la boucle
   -- principale peut tourner (ScreenMainCoroutine l.505-507). Poser le
   -- mode ici ferme cette fenetre.
-  --
   -- CONDITIONNE, contrairement au FadeOut : le mode cinematique BLOQUE
   -- les entrees du joueur. Le poser sur une entree libre (promenade,
   -- retour de donjon hors scenario) figerait la carte, car la branche
@@ -135,13 +69,11 @@ end
 --Engine callback function
 function mount_windswept_entrance.Exit(map)
 
-
 end
 
 ---mount_windswept_entrance.Update(map)
 --Engine callback function
 function mount_windswept_entrance.Update(map)
-
 
 end
 
@@ -162,15 +94,12 @@ end
 
 function mount_windswept_entrance.PlotScripting()
   if SV.ChapterProgression.Chapter == 5 then
-    --------------------------------------------------------------------
     -- RETOUR DU REVE — cette branche passe AVANT toutes les autres.
-    --------------------------------------------------------------------
     -- La veillee (CampNightfall) se termine en envoyant le joueur sur la
     -- carte dediee `hero_dream`. Celle-ci renvoie ici une fois le reve
     -- fini. Sans cette branche, on retomberait sur ArrivalCutscene —
     -- FinishedMountWindsweptIntro n'est pose qu'a la toute fin de
     -- l'intro — et TOUTE la soiree se rejouerait en boucle.
-    --
     -- CampNightWatchDone est pose juste avant le depart vers le reve ;
     -- MorningAfterDream le consomme. Les deux drapeaux encadrent donc
     -- exactement l'aller-retour, et la scene ne peut pas se rejouer.
@@ -206,39 +135,13 @@ function mount_windswept_entrance.PlotScripting()
   end
 end 
 
-
--------------------------------
 -- Entities Callbacks
--------------------------------
 function mount_windswept_entrance.Teammate1_Action(chara, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
   PartnerEssentials.GetPartnerDialogue(CH('Teammate1'))
  end
 
---------------------------------------------------------------------
 -- QUI EST TEAMMATE2/3 ? CA CHANGE AU MILIEU DU CHAPITRE.
---------------------------------------------------------------------
--- BUG VU EN JEU : « Ganlon utilise les dialogues de Hyko ».
--- Exact, et c'etait une inversion complete des personnages.
---
--- Avant l'intro du Mont, les equipiers 2 et 3 sont HYKO (Growlithe) et
--- ALMOTZ (Zigzagoon), herites du Tunnel. Mais SetParty, appelee A LA
--- FIN de ArrivalCutscene, les retire et cree GANLON (Cranidos) et
--- SHUCA (Mareep) — c'est la « cordee du sommet » annoncee par
--- Penticus. Les slots Teammate2/3 changent donc d'occupant en cours
--- de chapitre.
---
--- Or ce routage etait CODE EN DUR sur Growlithe_Action et
--- Zigzagoon_Action. Apres l'intro, parler a Ganlon declenchait le
--- dialogue de Hyko (« wouf ! », le garde tatillon) et parler a Shuca
--- celui d'Almotz (« mes sept cailloux pour les petits »). Deux
--- personnages parlaient avec la voix et l'histoire de deux autres.
---
--- On lit donc l'ESPECE REELLE de l'equipier au lieu de la supposer.
--- `LTBL(chara).Importance` est le marqueur pose par SetParty
--- (mount_windswept_entrance_ch_5.lua:3172-3173) et le patron atteste du
--- depot (GeneralFunctions.lua:875-897, event_battle.lua:372).
--- Repli sur l'espece si le marqueur manque (sauvegarde ancienne).
 local function talkToTeammate(chara, activator, slot)
   if SV.ChapterProgression.Chapter ~= 5 then
     COMMON.GroundInteract(activator, chara, true)
@@ -326,9 +229,7 @@ function mount_windswept_entrance.Kangaskhan_Rock_Action(obj, activator)
   GeneralFunctions.Kangashkhan_Rock_Interact(obj, activator)
 end
 
----------------------------
 -- Map Transitions
----------------------------
 function mount_windswept_entrance.Dungeon_Entrance_Touch(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
   local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("mount_windswept")
@@ -357,4 +258,3 @@ function mount_windswept_entrance.Dungeon_Entrance_Touch(obj, activator)
 end
 
 return mount_windswept_entrance
-
