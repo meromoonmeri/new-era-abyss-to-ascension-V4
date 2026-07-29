@@ -218,12 +218,38 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		GAME:WaitFrames(16)
 		GROUND:CharTurnToCharAnimated(hero, t.kino, 4)
 	end)
+	------------------------------------------------------------------
+	-- ILS CONTOURNENT LE DUO, ILS NE LE TRAVERSENT PAS.
+	------------------------------------------------------------------
+	-- BUG VU EN JEU. Kino montait en ligne droite de (236,396) vers
+	-- (238,290) : un trajet qui passe EXACTEMENT sur Hyko (240,328) puis
+	-- sur le HEROS (240,300), et qui s'arretait a 10 px de ce dernier —
+	-- soit deux sprites de 16x16 imbriques. Reinier faisait de meme avec
+	-- Almotz puis le partenaire. Les quatre se traversaient a l'ecran.
+	--
+	-- Cause : la colonne centrale (x=240 et x=272) est occupee par la
+	-- file d'arrivee du duo, et ces deux trajets la remontaient tout
+	-- droit. Ils passent desormais PAR LES COTES et s'arretent DEVANT :
+	--
+	--   Kino     (236,396) -> (216,372) -> (216,308) -> (208,300)
+	--   Reinier  (276,396) -> (312,380) -> (312,308) -> (304,300)
+	--
+	-- Chaque segment est echantillonne et verifie : sol libre, connexe,
+	-- et jamais a moins de 16 px (largeur de sprite) du heros, du
+	-- partenaire, de Hyko ou d'Almotz. Le detour ouest passe par x=216
+	-- et non x=200 : un obstacle bouche x=184..208 entre y=356 et y=380.
 	local coro5 = TASK:BranchCoroutine(function()
-		GROUND:MoveToPosition(t.kino, 238, 290, false, 1)
+		GROUND:MoveToPosition(t.kino, 216, 372, false, 1)
+		GROUND:MoveToPosition(t.kino, 216, 308, false, 1)
+		GROUND:MoveToPosition(t.kino, 208, 300, false, 1)
+		GROUND:CharTurnToCharAnimated(t.kino, hero, 4)
 	end)
 	local coro6 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(10)
-		GROUND:MoveToPosition(t.reinier, 288, 292, false, 1)
+		GROUND:MoveToPosition(t.reinier, 312, 380, false, 1)
+		GROUND:MoveToPosition(t.reinier, 312, 308, false, 1)
+		GROUND:MoveToPosition(t.reinier, 304, 300, false, 1)
+		GROUND:CharTurnToCharAnimated(t.reinier, hero, 4)
 	end)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coro6})
 
@@ -1496,18 +1522,25 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--et n'est masquee qu'une fois hors champ, au niveau de l'entree.
 	--
 	--PENTICUS S'ECARTE D'ABORD (bug vu en jeu : il restait plante au
-	--centre du camp, sur l'axe). Il gagne le flanc ouest avec Phileas
-	--et se tourne vers le sentier : le maitre de guilde REGARDE ses
-	--cordees partir, il ne leur barre pas la route. Cases (216,240)
-	--et (216,208) verifiees libres sur la grille d'obstacles.
+	--centre du camp, sur l'axe). Il regarde ses cordees partir, il ne
+	--leur barre pas la route.
+	--
+	--MAIS PAS SUR LE FLANC OUEST : il s'y postait en (216,240) avec
+	--Phileas en (216,208), soit EXACTEMENT dans le couloir de sortie
+	--ouest que Kino, Rin et Ganlon empruntent quelques secondes plus
+	--tard. Les trois leur passaient au travers.
+	--
+	--Les deux se placent donc AU CENTRE, entre les deux couloirs
+	--(ouest x=216, est x=320/336), sur l'axe du sentier qu'ils
+	--regardent monter. Cases verifiees libres et connexes.
 	coro1 = TASK:BranchCoroutine(function()
-		GROUND:MoveToPosition(t.penticus, 216, 240, false, 1)
-		GROUND:CharAnimateTurnTo(t.penticus, Direction.UpRight, 4)
+		GROUND:MoveToPosition(t.penticus, 248, 222, false, 1)
+		GROUND:CharAnimateTurnTo(t.penticus, Direction.Up, 4)
 	end)
 	coro2 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(12)
-		GROUND:MoveToPosition(t.phileas, 216, 208, false, 1)
-		GROUND:CharAnimateTurnTo(t.phileas, Direction.Right, 4)
+		GROUND:MoveToPosition(t.phileas, 240, 246, false, 1)
+		GROUND:CharAnimateTurnTo(t.phileas, Direction.UpRight, 4)
 	end)
 	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(15)
@@ -1515,26 +1548,42 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:SetSpeaker(t.kino)
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_105']))
-	--FILES PARALLELES, PAS SUPERPOSEES. Les trois partaient sur la meme
-	--colonne x=284 avec 8 px d'ecart en Y : trois sprites de 16x16 qui
-	--se traversaient en montant. Chacun a maintenant SA colonne (16 px
-	--d'ecart minimum, largeur d'un sprite), sentier verifie praticable
-	--de x=252 a x=316 sur toute la remontee.
+	------------------------------------------------------------------
+	-- ILS SORTENT PAR LES COTES, PAS A TRAVERS LES RANGS.
+	------------------------------------------------------------------
+	-- Les partants quittaient la formation en diagonale et traversaient
+	-- les camarades restes en rang. Mesure : Kino passait sur Hyko,
+	-- Reinier sur Almotz, Rin sur Hyko, Coco sur le partenaire, Ganlon
+	-- sur Hyko. Cinq traversees, toutes visibles a l'ecran.
+	--
+	-- La formation occupe DEUX colonnes, x=240 et x=272. On sort donc
+	-- par l'exterieur — x=216 a l'ouest, x=320 a l'est — puis on rejoint
+	-- le goulot nord (praticable seulement entre x=232 et x=312) en
+	-- revenant vers le centre une fois la formation depassee.
+	--
+	-- Chaque segment est echantillonne contre les DOUZE positions de la
+	-- formation : aucun ne passe a moins de 14 px d'un camarade.
 	coro1 = TASK:BranchCoroutine(function()
-		GeneralFunctions.EightWayMove(t.kino, 268, 200, false, 1)
-		GeneralFunctions.EightWayMove(t.kino, 268, 124, false, 1)
+		GeneralFunctions.EightWayMove(t.kino, 216, 336, false, 1)
+		GeneralFunctions.EightWayMove(t.kino, 216, 216, false, 1)
+		GeneralFunctions.EightWayMove(t.kino, 248, 196, false, 1)
+		GeneralFunctions.EightWayMove(t.kino, 248, 124, false, 1)
 		GROUND:Hide(t.kino.EntName)
 	end)
 	coro2 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(16)
-		GeneralFunctions.EightWayMove(t.reinier, 284, 208, false, 1)
-		GeneralFunctions.EightWayMove(t.reinier, 284, 128, false, 1)
+		GeneralFunctions.EightWayMove(t.reinier, 320, 336, false, 1)
+		GeneralFunctions.EightWayMove(t.reinier, 320, 224, false, 1)
+		GeneralFunctions.EightWayMove(t.reinier, 288, 200, false, 1)
+		GeneralFunctions.EightWayMove(t.reinier, 288, 128, false, 1)
 		GROUND:Hide(t.reinier.EntName)
 	end)
 	coro3 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(32)
-		GeneralFunctions.EightWayMove(t.almotz, 300, 216, false, 1)
-		GeneralFunctions.EightWayMove(t.almotz, 300, 132, false, 1)
+		GeneralFunctions.EightWayMove(t.almotz, 336, 308, false, 1)
+		GeneralFunctions.EightWayMove(t.almotz, 336, 224, false, 1)
+		GeneralFunctions.EightWayMove(t.almotz, 296, 200, false, 1)
+		GeneralFunctions.EightWayMove(t.almotz, 296, 132, false, 1)
 		GROUND:Hide(t.almotz.EntName)
 	end)
 	coro4 = TASK:BranchCoroutine(function()
@@ -1551,14 +1600,18 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_106']))
 	coro1 = TASK:BranchCoroutine(function()
-		GeneralFunctions.EightWayMove(t.rin, 268, 200, false, 1)
-		GeneralFunctions.EightWayMove(t.rin, 268, 124, false, 1)
+		GeneralFunctions.EightWayMove(t.rin, 216, 364, false, 1)
+		GeneralFunctions.EightWayMove(t.rin, 216, 216, false, 1)
+		GeneralFunctions.EightWayMove(t.rin, 248, 196, false, 1)
+		GeneralFunctions.EightWayMove(t.rin, 248, 124, false, 1)
 		GROUND:Hide(t.rin.EntName)
 	end)
 	coro2 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(16)
-		GeneralFunctions.EightWayMove(t.coco, 300, 208, false, 1)
-		GeneralFunctions.EightWayMove(t.coco, 300, 128, false, 1)
+		GeneralFunctions.EightWayMove(t.coco, 320, 364, false, 1)
+		GeneralFunctions.EightWayMove(t.coco, 320, 224, false, 1)
+		GeneralFunctions.EightWayMove(t.coco, 288, 200, false, 1)
+		GeneralFunctions.EightWayMove(t.coco, 288, 128, false, 1)
 		GROUND:Hide(t.coco.EntName)
 	end)
 	TASK:JoinCoroutines({coro1, coro2})
@@ -1588,7 +1641,13 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--largeur d'un sprite) : ils ne se traversent pas, et ils laissent
 	--libre la colonne centrale par laquelle le duo va remonter.
 	coro1 = TASK:BranchCoroutine(function()
-		GeneralFunctions.EightWayMove(t.ganlon, 268, 232, false, 1)
+		--Ganlon contourne LARGEMENT par l'est : la montee directe depuis
+		--(240,396) passait sur Hyko (240,312), et un contournement trop
+		--serre passait sur le partenaire (272,284). Trajet verifie
+		--contre les cinq personnages restes en place a cet instant.
+		GeneralFunctions.EightWayMove(t.ganlon, 304, 380, false, 1)
+		GeneralFunctions.EightWayMove(t.ganlon, 304, 240, false, 1)
+		GeneralFunctions.EightWayMove(t.ganlon, 268, 208, false, 1)
 		GeneralFunctions.EightWayMove(t.ganlon, 268, 200, false, 1)
 		GROUND:CharAnimateTurnTo(t.ganlon, Direction.Up, 4)
 	end)
@@ -1624,7 +1683,11 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	end)
 	coro2 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(14)
+		--Le partenaire remonte l'axe central AVANT d'obliquer : la
+		--diagonale directe vers (300,168) passait sur Shuca, qui attend
+		--en (300,200).
 		GeneralFunctions.EightWayMove(partner, 284, 232, false, 1)
+		GeneralFunctions.EightWayMove(partner, 284, 176, false, 1)
 	end)
 	coro3 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(10)
@@ -1701,11 +1764,15 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	end)
 	coro3 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(20)
-		GeneralFunctions.EightWayMove(t.penticus, 256, 196, false, 1)
+		--Penticus remonte a la verticale : la diagonale vers (256,196)
+		--frolait Ganlon poste en (268,200).
+		GeneralFunctions.EightWayMove(t.penticus, 248, 196, false, 1)
 	end)
 	coro4 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(30)
-		GeneralFunctions.EightWayMove(t.phileas, 308, 196, false, 1)
+		--Phileas longe par l'est pour ne pas couper devant Shuca (300,200).
+		GeneralFunctions.EightWayMove(t.phileas, 316, 236, false, 1)
+		GeneralFunctions.EightWayMove(t.phileas, 316, 196, false, 1)
 	end)
 	local coroH = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(36)
