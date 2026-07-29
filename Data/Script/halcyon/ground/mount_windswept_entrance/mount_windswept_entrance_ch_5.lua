@@ -610,6 +610,9 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:SetCenter(false)
 	UI:ResetSpeaker()
 
+	--La musique du camp meurt avec l'image (audit I5) : le songe
+	--(songe_source) montera sa propre plage sous le noir.
+	SOUND:FadeOutBGM(60)
 	GAME:FadeOut(false, 60)
 	GAME:WaitFrames(60)
 
@@ -1909,14 +1912,20 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	mount_windswept_entrance_ch_5.BuildCampDay()
 
 	GAME:WaitFrames(40)
+	--GRAMMAIRE DE TRANSITION (audit I5, 2026-07-29) : le son monte,
+	--puis l'image, puis le mot. Avant, MWE5_001/002 se jouaient sur
+	--ecran noir et l'image se levait ensuite sur des personnages deja
+	--installes. La musique du camp (theme de la carte, attestee plus
+	--bas dans LegendOfTheSkyArbiter) accompagne toute la veillee.
+	SOUND:PlayBGM('Canyon Camp.ogg', true)
+	GAME:FadeIn(40)
+	GAME:WaitFrames(30)
 	UI:SetSpeaker(partner)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_001'], tunnel:GetColoredName()))
 	GAME:WaitFrames(20)
 	UI:SetSpeaker(growlithe)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_002']))
 	GAME:WaitFrames(20)
-	
-	GAME:FadeIn(40)
 	
 	--LA MONTEE. File indienne du sud vers le camp, sans zigzag ; la
 	--camera GLISSE avec la colonne (deux paliers longs, pas de saut).

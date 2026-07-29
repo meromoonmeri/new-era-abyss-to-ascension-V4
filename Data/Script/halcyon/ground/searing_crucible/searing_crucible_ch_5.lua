@@ -1250,13 +1250,16 @@ local function DefeatedBossBody()
 											GROUND:MoveInDirection(growlithe, Direction.Up, 110, false, 2) end)			
 	coro4 = TASK:BranchCoroutine(function() GAME:WaitFrames(30)
 											GROUND:MoveInDirection(zigzagoon, Direction.Up, 106, false, 2) end)	
-	coro5 = TASK:BranchCoroutine(function() GAME:WaitFrames(50) 
-											SOUND:FadeOutBGM(60)
-											GAME:FadeOut(false, 60)
-											end)
-	
-	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
-	GAME:WaitFrames(90)
+	--AUDIT I5 (2026-07-29) : le noir ne tombe qu'une fois les quatre
+	--files. Avant : le fondu demarrait a t=50, pendant que Zigzagoon
+	--marchait encore (fin de marche t~83), puis s'eternisait 90 frames
+	--sur le noir plein avant le changement de carte. Desormais : la
+	--marche va jusqu'au bout A L'IMAGE, puis le son descend, puis le
+	--noir, une respiration, et la carte change.
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
+	SOUND:FadeOutBGM(40)
+	GAME:FadeOut(false, 40)
+	GAME:WaitFrames(20)
 end
 
 function searing_crucible_ch_5.DefeatedBoss()
