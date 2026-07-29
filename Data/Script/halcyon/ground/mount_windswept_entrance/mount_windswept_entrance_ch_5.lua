@@ -908,7 +908,11 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--(256,148) tombait dessus.
 	vers[#vers+1] = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(20)
-		GROUND:MoveToPosition(t.phileas, 240, 142, false, 1)
+		--(241,166) et non (240,142) : cette derniere case est SUR UN
+		--OBSTACLE (verifie sur la grille, sprite 16x16). Phileas y
+		--marchait donc dans la roche, et le trajet de retour depuis le
+		--chevet du heros n'aboutissait nulle part.
+		GeneralFunctions.EightWayMove(t.phileas, 241, 166, false, 1)
 		GROUND:CharAnimateTurnTo(t.phileas, Direction.Down, 4)
 	end)
 	TASK:JoinCoroutines(vers)
@@ -1108,7 +1112,7 @@ function mount_windswept_entrance_ch_5.ResumeAfterDream()
 		{'Growlithe', B[7][1]  + 13, B[7][2]  + 10, Direction.Up},
 		{'Zigzagoon', B[8][1]  + 13, B[8][2]  + 10, Direction.Right},
 		{'Tropius',   B[1][1]  + 13, B[1][2]  + 10, Direction.Down},
-		{'Noctowl',   240, 142, Direction.Down},
+		{'Noctowl',   241, 166, Direction.Down},
 		{'Mareep',    B[9][1]  + 13, B[9][2]  + 10, Direction.Right},
 		{'Cranidos',  B[3][1]  + 13, B[3][2]  + 10, Direction.Left}
 	})
@@ -1211,6 +1215,123 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	UI:SetCenter(false)
 	UI:ResetSpeaker()
 	GAME:WaitFrames(35)
+
+	------------------------------------------------------------------
+	-- PHILEAS NE PEUT PAS RESTER PASSIF.
+	------------------------------------------------------------------
+	-- RETOUR DE L'UTILISATEUR, et il a entierement raison : le heros
+	-- vient de se redresser en criant au milieu de la nuit, et le seul
+	-- personnage EVEILLE du camp — celui dont c'est precisement le
+	-- tour de garde — ne bougeait pas d'un pixel. Le joueur ne pouvait
+	-- que se demander « pourquoi il ne reagit pas ? ». C'est le test de
+	-- credibilite, et la scene le ratait.
+	--
+	-- Ce que Phileas FAIT, dans l'ordre ou un veilleur le ferait :
+	--   1. il entend (il est de garde, c'est son role) et leve la tete ;
+	--   2. il se tourne vers la source du bruit AVANT de bouger ;
+	--   3. il traverse le camp — 128 px, quatre segments, trajet calcule
+	--      pour ne pieter aucun des dix dormeurs (seuil 14 px) ni le
+	--      foyer ;
+	--   4. il s'arrete a distance de conversation (26 px), pas colle ;
+	--   5. il parle bas — il ne reveille pas le camp pour un cauchemar ;
+	--   6. il REPREND SON POSTE. Un veilleur ne s'installe pas au
+	--      chevet : il retourne guetter la porte du donjon.
+	--
+	-- Son registre est celui etabli ailleurs sur la carte (« Hou... »,
+	-- le vieux voilier qui observe avant de conclure) : il ne dramatise
+	-- pas, il constate, et c'est ce qui rassure.
+	if t.phileas ~= nil then
+		--1-2. IL ENTEND ET SE TOURNE. La camera s'ecarte un peu pour le
+		--faire entrer dans le cadre : il ne doit pas parler hors champ.
+		local pw1 = TASK:BranchCoroutine(function()
+			pcall(function()
+				GROUND:CharEndAnim(t.phileas)
+				GeneralFunctions.EmoteAndPause(t.phileas, "Notice", true)
+				GROUND:CharTurnToCharAnimated(t.phileas, hero, 4)
+			end)
+		end)
+		local pw2 = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(10)
+			GAME:MoveCamera(324, 268, 60, false)
+		end)
+		TASK:JoinCoroutines({pw1, pw2})
+		GAME:WaitFrames(20)
+
+		--3. IL TRAVERSE LE CAMP. Waypoints calcules par recherche de
+		--chemin sur la grille d'obstacles, en tenant les dix dormeurs a
+		--14 px minimum : il slalome entre les paillasses au lieu de
+		--marcher dessus.
+		pcall(function()
+			GeneralFunctions.EightWayMove(t.phileas, 287, 212, false, 1)
+			GeneralFunctions.EightWayMove(t.phileas, 287, 248, false, 1)
+			GeneralFunctions.EightWayMove(t.phileas, 313, 294, false, 1)
+			--4. Il s'arrete et se tourne vers lui.
+			GROUND:CharTurnToCharAnimated(t.phileas, hero, 4)
+		end)
+		GAME:WaitFrames(15)
+
+		--Le heros le regarde arriver.
+		pcall(function() GROUND:CharTurnToCharAnimated(hero, t.phileas, 4) end)
+		GAME:WaitFrames(12)
+
+		--5. IL PARLE BAS. Trois repliques, entrecoupees de silences : il
+		--laisse le heros reprendre son souffle entre chaque.
+		UI:SetSpeaker(t.phileas)
+		UI:SetSpeakerEmotion("Worried")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_193']))
+		GAME:WaitFrames(25)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_194']))
+		GAME:WaitFrames(35)
+
+		--Il devine, parce qu'il a vu ca cent fois.
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_195']))
+		GAME:WaitFrames(20)
+
+		--Le heros ne repond pas a voix haute : il pense. C'est un
+		--cauchemar qu'on ne raconte pas, et Phileas ne le force pas.
+		UI:ResetSpeaker(false)
+		UI:SetCenter(true)
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_196']))
+		UI:SetCenter(false)
+		UI:ResetSpeaker()
+		GAME:WaitFrames(30)
+
+		UI:SetSpeaker(t.phileas)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_197']))
+		GAME:WaitFrames(25)
+
+		--La phrase qui rassure vraiment : elle ne nie pas le cauchemar,
+		--elle dit juste que quelqu'un veille.
+		UI:SetSpeakerEmotion("Happy")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_198']))
+		GAME:WaitFrames(30)
+
+		--Le heros acquiesce, puis se recouche.
+		pcall(function() GeneralFunctions.DoAnimation(hero, 'Nod') end)
+		GAME:WaitFrames(20)
+
+		--6. IL REPREND SON POSTE. Meme trajet en sens inverse : il ne
+		--disparait pas, il ne reste pas plante la. La camera le suit
+		--jusqu'a ce qu'il reparte, puis revient sur le dormeur.
+		local pb1 = TASK:BranchCoroutine(function()
+			pcall(function()
+				GROUND:CharTurnToCharAnimated(t.phileas, hero, 4)
+				GAME:WaitFrames(20)
+				GeneralFunctions.EightWayMove(t.phileas, 287, 248, false, 1)
+				GeneralFunctions.EightWayMove(t.phileas, 287, 212, false, 1)
+				GeneralFunctions.EightWayMove(t.phileas, 241, 166, false, 1)
+				GROUND:CharAnimateTurnTo(t.phileas, Direction.Down, 4)
+			end)
+		end)
+		local pb2 = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(60)
+			GAME:MoveCamera(seatX(HERO_BED), seatY(HERO_BED), 90, false)
+		end)
+		TASK:JoinCoroutines({pb1, pb2})
+		GAME:WaitFrames(20)
+	end
 
 	--Il se rendort. Le trouble n'est pas resolu : il ressurgira au matin
 	--et sur le chemin du nord.
@@ -1894,15 +2015,31 @@ function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
 	end)
 	coro2 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(16)
-		--Coco est au rang arriere : monter tout droit la ferait passer
-		--sur Hyko, reste en (320,272). Elle descend donc d'abord au sud,
-		--contourne largement par l'est (x=352), puis remonte le goulot.
-		GeneralFunctions.EightWayMove(t.coco, 296, 336, false, 1)
-		GeneralFunctions.EightWayMove(t.coco, 352, 336, false, 1)
-		GeneralFunctions.EightWayMove(t.coco, 352, 240, false, 1)
-		GeneralFunctions.EightWayMove(t.coco, 276, 208, false, 1)
-		GeneralFunctions.EightWayMove(t.coco, 276, 140, false, 1)
-		GeneralFunctions.EightWayMove(t.coco, 276, 112, false, 1)
+		------------------------------------------------------------------
+		-- AUCUN DETOUR : ELLE MONTE TOUT DROIT.
+		------------------------------------------------------------------
+		-- BUG VU EN JEU : « Coco effectue un detour inutile ». Exact, et
+		-- c'est moi qui l'avais introduit. Son trajet la faisait
+		-- redescendre plein sud (296,336), contourner par l'extreme est
+		-- (352,336 puis 352,240), avant de revenir vers le goulot :
+		-- 356 px parcourus pour rejoindre un point situe a 192 px, sans
+		-- qu'aucun obstacle ne le justifie.
+		--
+		-- Ma justification d'origine — « monter tout droit la ferait
+		-- passer sur Hyko » — etait fausse a double titre :
+		--   * Hyko est en (320,272), or la colonne x=288 est libre de
+		--     bout en bout (verifie case par case de y=200 a y=300) :
+		--     32 px d'ecart, largement au-dessus du seuil de 14 ;
+		--   * le detour traversait quand meme le bloqueur du foyer sur
+		--     son segment de retour. Il etait donc a la fois inutile ET
+		--     incorrect.
+		--
+		-- Elle emprunte desormais le chemin qu'une cuisiniere pressee
+		-- prendrait reellement : la colonne libre juste a l'est du foyer,
+		-- puis une oblique vers le goulot du nord. Deux segments, 192 px,
+		-- aucun contact, aucun retour sur ses pas.
+		GeneralFunctions.EightWayMove(t.coco, 288, 160, false, 1)
+		GeneralFunctions.EightWayMove(t.coco, 272, 112, false, 1)
 		GROUND:Hide(t.coco.EntName)
 	end)
 	TASK:JoinCoroutines({coro1, coro2})

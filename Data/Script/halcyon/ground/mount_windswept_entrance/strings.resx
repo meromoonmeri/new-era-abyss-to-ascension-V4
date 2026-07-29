@@ -515,4 +515,22 @@
   <data name="MWE5_192" xml:space="preserve">
     <value>Next time,[pause=10] I'm climbing with you.[pause=20] Then there'll be nothing to patch up.</value>
   </data>
+  <data name="MWE5_193" xml:space="preserve">
+    <value>Hoo...[pause=20] You sat up all at once.[pause=15] I heard it from over there.</value>
+  </data>
+  <data name="MWE5_194" xml:space="preserve">
+    <value>Don't say anything yet.[pause=20] Breathe first.[pause=15] The words will come after.</value>
+  </data>
+  <data name="MWE5_195" xml:space="preserve">
+    <value>A dream,[pause=10] wasn't it?[pause=25] The kind you forget on waking,[pause=15] but that leaves the heart racing.</value>
+  </data>
+  <data name="MWE5_196" xml:space="preserve">
+    <value>(...He guessed.[pause=25] Or it's written on my face.)</value>
+  </data>
+  <data name="MWE5_197" xml:space="preserve">
+    <value>I've kept watch many a mountain night.[pause=25] They make sleep talkative,[pause=15] and dreams insistent.</value>
+  </data>
+  <data name="MWE5_198" xml:space="preserve">
+    <value>Go back to sleep.[pause=20] I'll stay awake.[pause=25] As long as someone keeps watch,[pause=15] no one wakes alone.</value>
+  </data>
 </root>

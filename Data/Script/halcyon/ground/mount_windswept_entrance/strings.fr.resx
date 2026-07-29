@@ -515,4 +515,22 @@
   <data name="MWE5_192" xml:space="preserve">
     <value>La prochaine fois,[pause=10] je monte avec vous.[pause=20] Comme ça y'aura rien à recoudre.</value>
   </data>
+  <data name="MWE5_193" xml:space="preserve">
+    <value>Hou...[pause=20] Tu t'es redressé d'un coup.[pause=15] J'ai entendu d'ici.</value>
+  </data>
+  <data name="MWE5_194" xml:space="preserve">
+    <value>Ne dis rien tout de suite.[pause=20] Respire d'abord.[pause=15] Les mots viendront après.</value>
+  </data>
+  <data name="MWE5_195" xml:space="preserve">
+    <value>Un rêve,[pause=10] n'est-ce pas ?[pause=25] Le genre qu'on oublie en ouvrant les yeux,[pause=15] mais qui laisse le cœur battre.</value>
+  </data>
+  <data name="MWE5_196" xml:space="preserve">
+    <value>(...Il a deviné.[pause=25] Ou alors ça se voit sur mon visage.)</value>
+  </data>
+  <data name="MWE5_197" xml:space="preserve">
+    <value>J'ai veillé bien des nuits en montagne.[pause=25] Elles rendent le sommeil bavard,[pause=15] et les rêves plus insistants.</value>
+  </data>
+  <data name="MWE5_198" xml:space="preserve">
+    <value>Rendors-toi.[pause=20] Je reste éveillé.[pause=25] Tant que quelqu'un veille,[pause=15] personne ne se réveille seul.</value>
+  </data>
 </root>
