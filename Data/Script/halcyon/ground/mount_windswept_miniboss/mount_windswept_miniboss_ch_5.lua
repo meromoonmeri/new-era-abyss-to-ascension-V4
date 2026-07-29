@@ -88,7 +88,15 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   windEmitter.RepeatX = true
   windEmitter.Movement = RogueElements.Loc(-360, 0)
   windEmitter.Layer = DrawLayer.Back
-  windEmitter.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 0)
+  --ASSET INEXISTANT CORRIGE. "Ominous_Wind" n'existe ni dans ce mod, ni
+  --dans Halcyon upstream, ni nulle part sur le disque : le moteur rendait
+  --un damier noir/magenta (GraphicsManager.InitSystem:430, via
+  --DirSheet.LoadError). Patron atteste substitue : planche "White"
+  --teintee (first_core_location_ch_3.lua:58-59, identique chez
+  --Palikadude/Halcyon donc teste en jeu). Teinte bleu-gris pale : c'est
+  --une bourrasque d'altitude, pas une fumee.
+  windEmitter.Anim = RogueEssence.Content.BGAnimData("White", 0)
+  windEmitter.Color = Color(200, 210, 230, 90/255)
   GROUND:PlayVFX(windEmitter, 224, 160)
 
   SOUND:LoopSE("Heavy Earthquake")

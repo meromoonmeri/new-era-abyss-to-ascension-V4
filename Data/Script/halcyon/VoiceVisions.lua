@@ -30,6 +30,31 @@
        garde notre \uE040 (identique en effet) mais on le pose une seule
        fois en debut de sequence, comme eux.
 
+    ------------------------------------------------------------------
+    REGLE DE DECLENCHEMENT — relevee dans pret/pmd-sky
+    ------------------------------------------------------------------
+    Source lue : files/language-specific/US/SCRIPT/H02P99C/m20a0205.ssb,
+    la scene ou le dispositif est explique. Deux contraintes y sont
+    enoncees noir sur blanc, et elles valent pour nous :
+
+      « The Dimensional Scream requires the presence of a trusted
+        Pokemon partner. Without that partner, the ability cannot be
+        triggered. »
+
+      « The Dimensional Scream is not triggered [by] places that had no
+        tie to [the Time Gears]. »
+
+    Autrement dit, une vision n'est JAMAIS gratuite :
+      1. le partenaire de confiance doit etre PRESENT — c'est lui qui
+         rend la scene lisible, parce qu'il voit le heros vaciller sans
+         rien percevoir lui-meme ;
+      2. le lieu ou l'objet doit avoir un LIEN avec l'intrigue. Pas de
+         vertige decoratif « parce que l'ambiance s'y prete ».
+
+    En pratique, sur toute nouvelle scene : si `witness` est nil, se
+    demander pourquoi. Si le lieu n'a pas de lien etabli avec l'arc en
+    cours, ne pas declencher de vision du tout.
+
     Reprend le dispositif des jeux officiels :
 
       * PMD Rouge/Bleu — le heros fait des reves ou une voix lui parle
@@ -133,9 +158,45 @@ end
 -- et repete, donc il couvre l'ecran entier sans dependre d'un point d'emission.
 -- C'est ce qui manquait a la premiere version de ce module, qui posait un
 -- FlashEmitter ponctuel — sur une grande carte, il ne couvrait qu'une partie.
+-- BUG VU EN JEU : « des carres violets et noirs a la place de l'effet ».
+--
+-- Cette fonction demandait l'asset BG nomme "Black". Il N'EXISTE PAS.
+-- Preuve, en trois temps :
+--   1. Content/BG/Black.dir est absent de ce mod ;
+--   2. il est absent de Halcyon (Palikadude), dont ce projet est le fork :
+--      Halcyon n'appelle JAMAIS BGAnimData("Black"), il n'utilise que
+--      "White" (7 fois) et "Pre_Battle" (1 fois) ;
+--   3. dans notre depot, "White" est appele 21 fois et "Black" une seule —
+--      la mienne. C'etait une invention, exactement ce que la methodologie
+--      interdit (§2.2 : compter les occurrences AVANT d'utiliser un nom).
+--
+-- Ce que fait le moteur quand l'asset manque, lu dans la source
+-- (RogueCollab/RogueEssence, GraphicsManager.cs) :
+--     getDirSheetCache : si le fichier n'existe pas -> DirSheet.LoadError()
+--     InitSystem:430   : defaultTex = damier 32x32 alternant
+--                        Color.Black et Color(255, 0, 255)
+-- Soit un damier NOIR ET MAGENTA. C'est mot pour mot le symptome decrit.
+--
+-- CORRECTION : on reprend LE PATRON EXACT du code Halcyon d'origine,
+-- celui-la meme qui tourne en jeu depuis toujours —
+-- first_core_location_ch_3.lua:58-59 (present a l'identique chez
+-- Palikadude/Halcyon, donc teste par l'auteur du mod parent) :
+--
+--     overlay.Anim  = RogueEssence.Content.BGAnimData("White", 0)
+--     overlay.Color = Color(0, 0, 0, 76/255)
+--
+-- Deux enseignements qu'on ne pouvait pas deviner :
+--   * on assombrit avec la planche BLANCHE teintee en noir, pas avec une
+--     planche noire. L'overlay multiplie la texture par Color ;
+--   * l'ALPHA EST NORMALISE 0-1, pas 0-255. Le « 76/255 » du code
+--     d'origine le dit : ecrire Color(0,0,0,128) donnerait 128 fois
+--     l'opacite maximale, soit un ecran noir opaque.
+-- On monte legerement l'alpha (110/255) : le vertige doit peser plus
+-- qu'un simple assombrissement d'ambiance, mais rester traversable a
+-- l'oeil.
 function VoiceVisions.DizzyVeil()
   pcall(function()
-    local anim = RogueEssence.Content.BGAnimData("Black", 1, -1, -1, 128, Dir8.None)
+    local anim = RogueEssence.Content.BGAnimData("White", 0)
     local em = RogueEssence.Content.FiniteOverlayEmitter()
     em.Anim = anim
     em.Layer = DrawLayer.Top
@@ -144,7 +205,7 @@ function VoiceVisions.DizzyVeil()
     em.FadeOut = 10
     em.RepeatX = true
     em.RepeatY = true
-    em.Color = Color.White
+    em.Color = Color(0, 0, 0, 110/255)
     local c = GAME:GetCameraCenter()
     GROUND:PlayVFX(em, c.X, c.Y)
     GAME:WaitFrames(30)
@@ -194,16 +255,81 @@ function VoiceVisions.Nausea(chara, level)
     end
     --L'ecran tangue : c'est le vertige, pas un tremblement de terre.
     --Amplitude faible mais longue, contrairement a BossFX.ShakeScreen.
-    GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, cfg.shake, cfg.frames))
-    GAME:WaitFrames(cfg.frames)
+    --
+    --AMPLITUDE DEGRESSIVE (modele de fondu de pmd-sky, cf. FadeShake) :
+    --le tangage FOND vers zero au lieu de s'arreter net. Avant, un seul
+    --ScreenMover d'amplitude fixe se coupait brutalement — ca se lisait
+    --comme un bug d'affichage plutot que comme un malaise qui passe.
+    --Les niveaux 2 et 3 y gagnent le plus : plus le vertige est fort,
+    --plus sa retombee doit s'entendre.
+    local steps = (level or 2) >= 2 and 4 or 3
+    local slice = math.floor(cfg.frames / steps)
+    if slice < 6 then slice = 6 end
+    for i = steps, 1, -1 do
+      local amp = math.floor(cfg.shake * i / steps)
+      if amp < 1 then amp = 1 end
+      GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, amp, slice))
+      GAME:WaitFrames(slice)
+    end
   end)
   --Puis le voile des Cris Temporels. Hors du pcall precedent pour qu'il
   --s'affiche meme si l'animation du personnage a echoue.
   if (level or 2) >= 2 then VoiceVisions.DizzyVeil() end
 end
 
+--------------------------------------------------------------------
+-- Vertige degressif — modele de fondu releve dans pret/pmd-sky.
+--------------------------------------------------------------------
+-- Source lue : include/main_0200BC54.h, `struct screen_fade`. Explorateurs
+-- du Ciel ne pilote pas ses fondus par un booleen « visible / pas visible »
+-- mais par une LUMINOSITE SIGNEE, avec quatre champs :
+--
+--     target_delta_brightness   -- ou finit le fondu : +256 = blanc,
+--                                  -256 = noir
+--     max_brightness            -- amplitude maximale (256 = plein)
+--     delta_brightness          -- luminosite courante
+--     remaining_frames/duration -- l'avancement
+--
+-- Deux enseignements portables, et un piege :
+--
+--  1. UN FONDU A UNE AMPLITUDE, PAS SEULEMENT UNE DUREE. Un malaise leger
+--     est un fondu de FAIBLE amplitude, pas un fondu court a fond. C'est
+--     ce qui distingue un etourdissement d'un evanouissement.
+--  2. LE VERTIGE S'ETEINT, IL NE S'ARRETE PAS. `delta_brightness` revient
+--     progressivement vers 0. Notre ancienne Nausea posait UN ScreenMover
+--     d'amplitude fixe puis coupait net : le tangage s'interrompait d'un
+--     coup, ce qui se lit comme un bug plutot que comme un malaise.
+--  3. LE PIEGE : PMDO n'expose PAS de fondu vers le blanc. Verifie —
+--     GAME:FadeOut(true, n) ne fade pas en blanc, il masque le DECOR en
+--     gardant l'interface (usage atteste dans VoiceVisions.Lightning et
+--     dans storm_cutscene_a d'EoSO). On ne transpose donc PAS le +256 de
+--     Sky : on garde son modele d'AMPLITUDE DEGRESSIVE, qui lui se rend
+--     fidelement avec ScreenMover(min, max, duree).
+--
+-- Rend le tangage en paliers decroissants : l'amplitude fond vers zero au
+-- lieu de s'arreter net. `peak` = amplitude de depart, `steps` = nombre de
+-- paliers, `frames` = duree de chaque palier.
+function VoiceVisions.FadeShake(peak, steps, frames)
+  peak = peak or 8
+  steps = steps or 4
+  frames = frames or 16
+  pcall(function()
+    for i = steps, 1, -1 do
+      local amp = math.floor(peak * i / steps)
+      if amp < 1 then amp = 1 end
+      GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, amp, frames))
+      GAME:WaitFrames(frames)
+    end
+  end)
+end
+
 --Retour au calme apres un malaise.
-function VoiceVisions.Recover(chara)
+--
+--Le retour est lui aussi PROGRESSIF (modele de Sky) : on laisse le tangage
+--s'eteindre avant de rendre la pose normale, sinon le personnage se
+--redresse d'un coup au milieu d'un ecran qui bouge encore.
+function VoiceVisions.Recover(chara, soft)
+  if soft then VoiceVisions.FadeShake(3, 3, 10) end
   pcall(function()
     if chara ~= nil then
       GROUND:CharSetEmote(chara, "", 0)

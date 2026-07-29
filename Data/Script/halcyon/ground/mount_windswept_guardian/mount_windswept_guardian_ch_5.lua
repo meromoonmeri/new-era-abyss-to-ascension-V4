@@ -91,7 +91,13 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   darkCloud.FadeIn = 60
   darkCloud.TotalTime = 140
   darkCloud.Layer = DrawLayer.Top
-  darkCloud.Anim = RogueEssence.Content.BGAnimData("Cloudy_Sky", 0)
+  --ASSET INEXISTANT CORRIGE. "Cloudy_Sky" n'existe ni dans ce mod, ni dans
+  --Halcyon upstream, ni nulle part sur le disque : le moteur rendait un
+  --damier noir/magenta (GraphicsManager.InitSystem:430, DirSheet.LoadError).
+  --Patron atteste substitue : planche "White" teintee (first_core_location
+  --_ch_3.lua:58-59, identique chez Palikadude/Halcyon donc teste en jeu).
+  darkCloud.Anim = RogueEssence.Content.BGAnimData("White", 0)
+  darkCloud.Color = Color(20, 20, 45, 150/255)
   GROUND:PlayVFX(darkCloud, 224, 100)
 
   GAME:WaitFrames(60)
@@ -195,7 +201,13 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   impactDust.TotalTime = 50
   impactDust.Movement = RogueElements.Loc(-40, 0)
   impactDust.Layer = DrawLayer.Front
-  impactDust.Anim = RogueEssence.Content.BGAnimData("Sandstorm", 1)
+  --ASSET INEXISTANT CORRIGE. "Sandstorm" n'existe ni dans ce mod, ni dans
+  --Halcyon upstream, ni nulle part sur le disque : le moteur rendait un
+  --damier noir/magenta (GraphicsManager.InitSystem:430, DirSheet.LoadError).
+  --Patron atteste substitue : planche "White" teintee (first_core_location
+  --_ch_3.lua:58-59, identique chez Palikadude/Halcyon donc teste en jeu).
+  impactDust.Anim = RogueEssence.Content.BGAnimData("White", 0)
+  impactDust.Color = Color(190, 170, 130, 120/255)
   GROUND:PlayVFX(impactDust, aerodactyl.Position.X - 24, aerodactyl.Position.Y + 16)
 
   local impactDust2 = RogueEssence.Content.FiniteOverlayEmitter()
@@ -203,7 +215,8 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   impactDust2.TotalTime = 50
   impactDust2.Movement = RogueElements.Loc(40, 0)
   impactDust2.Layer = DrawLayer.Front
-  impactDust2.Anim = RogueEssence.Content.BGAnimData("Sandstorm", 1)
+  impactDust2.Anim = RogueEssence.Content.BGAnimData("White", 0)
+  impactDust2.Color = Color(190, 170, 130, 120/255)
   GROUND:PlayVFX(impactDust2, aerodactyl.Position.X + 24, aerodactyl.Position.Y + 16)
 
   GROUND:MoveScreen(RogueEssence.Content.ScreenMover(3, 5, 30))
@@ -246,7 +259,13 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   wingWind.RepeatX = true
   wingWind.Movement = RogueElements.Loc(-180, 0)
   wingWind.Layer = DrawLayer.Front
-  wingWind.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 1)
+  --ASSET INEXISTANT CORRIGE. "Ominous_Wind" n'existe ni dans ce mod, ni dans
+  --Halcyon upstream, ni nulle part sur le disque : le moteur rendait un
+  --damier noir/magenta (GraphicsManager.InitSystem:430, DirSheet.LoadError).
+  --Patron atteste substitue : planche "White" teintee (first_core_location
+  --_ch_3.lua:58-59, identique chez Palikadude/Halcyon donc teste en jeu).
+  wingWind.Anim = RogueEssence.Content.BGAnimData("White", 0)
+  wingWind.Color = Color(200, 210, 230, 90/255)
   GROUND:PlayVFX(wingWind, aerodactyl.Position.X, aerodactyl.Position.Y)
 
   local wingWind2 = RogueEssence.Content.FiniteOverlayEmitter()
@@ -255,7 +274,8 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   wingWind2.RepeatX = true
   wingWind2.Movement = RogueElements.Loc(180, 0)
   wingWind2.Layer = DrawLayer.Front
-  wingWind2.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 1)
+  wingWind2.Anim = RogueEssence.Content.BGAnimData("White", 0)
+  wingWind2.Color = Color(200, 210, 230, 90/255)
   GROUND:PlayVFX(wingWind2, aerodactyl.Position.X, aerodactyl.Position.Y)
 
   SOUND:PlayBattleSE('EVT_Battle_Transition')

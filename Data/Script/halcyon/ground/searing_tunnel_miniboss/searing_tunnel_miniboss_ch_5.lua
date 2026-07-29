@@ -236,7 +236,13 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
     smoke.FadeIn = 10
     smoke.TotalTime = 50
     smoke.Layer = DrawLayer.Front
-    smoke.Anim = RogueEssence.Content.BGAnimData("Fog", 0)
+    --ASSET INEXISTANT CORRIGE. "Fog" n'existe ni dans ce mod, ni dans
+    --Halcyon upstream, ni nulle part sur le disque : le moteur rendait un
+    --damier noir/magenta (GraphicsManager.InitSystem:430, DirSheet.LoadError).
+    --Patron atteste substitue : planche "White" teintee (first_core_location
+    --_ch_3.lua:58-59, identique chez Palikadude/Halcyon donc teste en jeu).
+    smoke.Anim = RogueEssence.Content.BGAnimData("White", 0)
+    smoke.Color = Color(70, 70, 75, 130/255)
     GROUND:PlayVFX(smoke, torkoal.Position.X, torkoal.Position.Y - 16)
   end)
   coro2 = TASK:BranchCoroutine(function()

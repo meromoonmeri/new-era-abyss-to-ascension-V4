@@ -18,10 +18,29 @@ visuel silencieux : rien ne casse, mais l'image est mal cadree a l'ecran.
 
 FORMAT DU .dir (retro-ingenierie, verifiee sur les 16 fichiers du depot)
 ------------------------------------------------------------------------
-    [ PNG complet ] [ 16 octets de metadonnees ]
+    [ uint32 taillePNG ] [ uint32 0 ] [ PNG complet ] [ 16 octets ]
 
 Les 16 derniers octets sont 4 uint32 little-endian :
-    frameWidth, frameHeight, 0, frameCount
+    frameWidth, frameHeight, LocHeight, frameCount
+
+L'EN-TETE DE 8 OCTETS EST OBLIGATOIRE — leçon payee en jeu
+-----------------------------------------------------------
+RogueEssence.Content.DirSheet.Load lit d'abord un uint32 de longueur, puis
+copie ce nombre d'octets. Cinq fonds du depot (les Genesis_*) etaient de
+simples PNG BRUTS renommes en .dir, avec le pied de 16 octets colle mais
+SANS cet en-tete. Le moteur lisait donc les 8 premiers octets de la
+signature PNG (89 50 4E 47 / 0D 0A 1A 0A) comme une longueur de
+1 196 314 761 octets, et plantait :
+
+    System.ArgumentOutOfRangeException: Offset and length were out of
+    bounds for the array (Parameter 'count')
+       at RogueEssence.Content.DirSheet.Load(BinaryReader reader)
+
+Et cet outil les declarait CONFORMES, parce qu'il cherchait la signature
+PNG n'importe ou dans le fichier (data.find) au lieu de l'exiger a
+l'offset 8. Il verifiait le cadrage sans jamais verifier que le fichier
+etait seulement LISIBLE. C'est corrige : read_bg valide desormais la
+structure complete, en simulant ce que fait le moteur.
 
 USAGE
 -----
@@ -39,17 +58,48 @@ import sys
 VIEWPORT = (320, 240)
 
 
+PNG_SIG = b'\x89PNG\r\n\x1a\n'
+
+
 def read_bg(path):
-    """Renvoie (pngW, pngH, frameW, frameH, frameCount) ou None."""
+    """Renvoie (pngW, pngH, frameW, frameH, frameCount) ou une chaine d'erreur.
+
+    Simule DirSheet.Load : on NE cherche PAS la signature PNG, on l'EXIGE
+    a l'offset 8, apres l'en-tete de longueur. C'est la seule facon de
+    detecter un fichier que le moteur refusera de charger.
+    """
     data = open(path, 'rb').read()
-    i = data.find(b'\x89PNG\r\n\x1a\n')
-    if i < 0:
-        return None
-    png_w, png_h = struct.unpack('>II', data[i + 16:i + 24])
-    tail = data[data.rfind(b'IEND') + 8:]
-    if len(tail) < 16:
-        return None
-    fw, fh, _unused, count = struct.unpack('<4I', tail[:16])
+    if len(data) < 24:
+        return 'fichier tronque (%d octets)' % len(data)
+
+    png_len, pad = struct.unpack('<II', data[:8])
+
+    # Le symptome exact du bug des Genesis_* : un PNG brut renomme .dir.
+    if data[:8] == PNG_SIG:
+        return ('PNG BRUT sans en-tete .dir — le moteur lira une longueur '
+                'de %d octets et plantera' % png_len)
+
+    if data[8:16] != PNG_SIG:
+        return 'pas de signature PNG a l offset 8 (en-tete corrompu)'
+
+    end = 8 + png_len
+    if end + 16 > len(data):
+        return ('taillePNG=%d incoherente : il faudrait %d octets, le '
+                'fichier en fait %d' % (png_len, end + 16, len(data)))
+
+    png_w, png_h = struct.unpack('>II', data[24:32])
+    fw, fh, _loc, count = struct.unpack('<4I', data[end:end + 16])
+
+    # PAS de controle sur les octets qui SUIVENT le pied de page.
+    # Faux positif mesure : SE5_Wind_Background.dir annonce png_len=10757
+    # alors que son PNG s'arrete a 15101 (IEND+8), et porte 4336 octets de
+    # rembourrage apres le pied. Le moteur s'en moque — il lit png_len puis
+    # les 16 octets suivants, et n'ouvre jamais la suite. Ce fond est
+    # utilise en jeu par ChapterScenes.lua et fonctionne. Interdire le
+    # rembourrage ferait crier l'outil sur du contenu sain.
+    if fw == 0 or fh == 0:
+        return 'taille de frame nulle (%dx%d)' % (fw, fh)
+
     return png_w, png_h, fw, fh, count
 
 
@@ -60,13 +110,17 @@ def main(root):
         return 1
 
     catalogue = {}
+    broken = []
     print('%-28s %-13s %-11s %-7s %s' % ('fond', 'planche', 'frame', 'frames', 'plein ecran'))
     print('-' * 78)
     for f in sorted(glob.glob(os.path.join(bg_dir, '*.dir'))):
         name = os.path.basename(f)[:-4]
         info = read_bg(f)
-        if info is None:
-            print('%-28s <illisible>' % name)
+        # Un .dir illisible est un CRASH en jeu, pas une ligne a ignorer.
+        if info is None or isinstance(info, str):
+            why = info if isinstance(info, str) else 'illisible'
+            print('%-28s *** %s' % (name, why))
+            broken.append((name, why))
             continue
         pw, ph, fw, fh, n = info
         catalogue[name] = (fw, fh, n)
@@ -102,6 +156,12 @@ def main(root):
 
     print()
     failures = []
+    # Un fichier que le moteur ne peut pas charger est l'echec le plus grave :
+    # il ne produit pas un defaut de cadrage, il jette une exception et coupe
+    # la cinematique. On le remonte AVANT les problemes de dimensions.
+    for name, why in broken:
+        users = used.get(name, set()) | overlay.get(name, set())
+        failures.append((name, 'ILLISIBLE PAR LE MOTEUR — ' + why, users))
     for name in sorted(overlay):
         if name not in catalogue:
             failures.append((name, 'overlay INTROUVABLE dans Content/BG', overlay[name]))
