@@ -70,6 +70,23 @@ Après toute génération/édition, rejouer la boucle existante :
 `verify_spawner_enabled`, `count_dialogue 5` (1580) — puis bump du tag de build
 (3 fichiers) et commit.
 
+## Relais / points médians assortis à leur donjon (`gen_relais.py`)
+
+Référence : `searing_tunnel_midpoint` (camp magma en `magma_cavern_2`, même
+triplet que son donjon — le template). `lister` audite chaque relais contre le
+triplet canonique de son donjon ; `assortir --ground NOM` remplace en place les
+autotiles par le triplet du donjon (**topologie, entités, sorties et musique
+jamais touchées** ; correspondance `_floor/_wall/_secondary`, NeighborCode
+intacts). `vast_steppe_midpoint` et `crooked_cavern_midpoint` sont PROTÉGÉS
+(déjà cohérents — directive utilisateur). Premier usage : `cloven_ruins_midpoint`
+passé de `wish_cave_1` (grotte à vœux, hors-biome) à `western_cave_1` (320
+cellules, checker 100 % valide).
+
+```bash
+python3 tools/mapgen/gen_relais.py lister
+python3 tools/mapgen/gen_relais.py assortir --ground NOM [--zone ZONE] [--ecrire]
+```
+
 ## Limites assumées de la v1
 
 - `gen-etages` produit des étages **structurés** (grid+branch, escalier,

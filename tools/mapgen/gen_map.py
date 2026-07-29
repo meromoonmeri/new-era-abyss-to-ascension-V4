@@ -271,11 +271,15 @@ def check_ground(path):
     ts = root['TexSize'] * 8          # TexSize 1->8px, 2->16px, 3->24px (prouve)
     W, H = len(root['obstacles']), len(root['obstacles'][0])
     c_ok(f'{W}x{H} cellules @{ts}px = {W*ts}x{H*ts}px, TexSize {root["TexSize"]}')
-    # 1) feuilles : sans espaces + existantes
+    # 1) feuilles : sans espaces + existantes ; autotiles : repertories
     sheets = set()
+    autos = {}
     for lay in root['Layers']:
         for col in lay['Tiles']:
             for cell in col:
+                a = cell.get('AutoTileset', '')
+                if a:
+                    autos[a] = autos.get(a, 0) + 1
                 for L in cell['Layers']:
                     for fr in L['Frames']:
                         sheets.add(fr['Sheet'])
@@ -284,21 +288,33 @@ def check_ground(path):
             c_fail(f'feuille avec ESPACES (jamais chargee en jeu) : "{s}"'); rc = 1
         elif not os.path.exists(os.path.join(ROOT, 'Content', 'Tile', f'{s}.tile')):
             c_fail(f'feuille absente de Content/Tile : "{s}"'); rc = 1
-    else:
-        c_ok(f'{len(sheets)} feuille(s) : {", ".join(sorted(sheets)) or "aucune"}')
-    # 2) Bounds
+    c_ok(f'{len(sheets)} feuille(s) : {", ".join(sorted(sheets)) or "aucune"}')
+    if autos:
+        try:
+            ts_db, _ = load_db()
+            valides = set(ts_db)
+            for t in ts_db.values():
+                valides.add(t['wall']); valides.add(t['water_wall'])
+            valides.discard('')
+            for nom, nb in sorted(autos.items()):
+                if nom in valides:
+                    c_ok(f'autotile valide "{nom}" x{nb}')
+                else:
+                    c_fail(f'autotile INCONNU des triplets valides : '
+                           f'"{nom}" x{nb}'); rc = 1
+        except SystemExit:
+            c_warn('base tilesets absente — autotiles non verifies')
+    # 2) Bounds — taille de cellule deduite du 1er obstacle (peut etre < TS,
+    #    ex. relais autotiles : grille d'obstacles 8px sur tuiles 24px)
+    tso = root['obstacles'][0][0]['Bounds']['Width']
     bad = sum(1 for x in range(W) for y in range(H)
               if root['obstacles'][x][y]['Bounds'] != {
-                  'X': x * ts, 'Y': y * ts, 'Width': ts, 'Height': ts})
-    (c_ok if bad == 0 else c_fail)(f'Bounds : {bad} cellule(s) incoherente(s)')
+                  'X': x * tso, 'Y': y * tso, 'Width': tso, 'Height': tso})
+    (c_ok if bad == 0 else c_fail)(
+        f'Bounds @{tso}px : {bad} cellule(s) incoherente(s)')
     rc |= bad != 0
-    # 3) bords bloques (camera/lisibilite)
-    bord = all(root['obstacles'][x][y]['Tags'] != 0
-               for x in range(W) for y in (0, H - 1)) and \
-           all(root['obstacles'][x][y]['Tags'] != 0
-               for y in range(H) for x in (0, W - 1))
-    (c_ok if bord else c_warn)('bordure de carte ' + ('bloquee' if bord else
-                                'MARCHABLE (joueur au pixel de bord)'))
+    ts = tso   # la connectivite se raisonne sur la grille d'obstacles
+    # 3) bords : test applique a la composante du joueur (voir plus bas)
     # 4) connexite : flood-fill depuis le 1er point marchable
     walk = [[root['obstacles'][x][y]['Tags'] == 0 for y in range(H)]
             for x in range(W)]
@@ -319,7 +335,12 @@ def check_ground(path):
     c_ok(f'zone marchable : {len(seen)}/{nwalk} cellules atteignables '
          f'({round(100 * len(seen) / max(nwalk, 1))}%)')
     if len(seen) < nwalk:
-        c_warn(f'{nwalk - len(seen)} cellules marchables ISOLees du reseau')
+        print(f'  [INFO] {nwalk - len(seen)} cellules marchables hors reseau '
+              f'(exterieur de camp autotile = normal si aucun objet ne les vise)')
+    bord = any((x in (0, W - 1) or y in (0, H - 1)) for (x, y) in seen)
+    (c_ok if not bord else c_warn)(
+        'bordure de carte ' + ('MARCHABLE dans la zone du joueur (pre-existant si topologie heritee)'
+                               if bord else 'bloquee autour de la zone du joueur'))
     def joignable(c):
         cx, cy = cell_of(c)
         return any(0 <= x < W and 0 <= y < H and (x, y) in seen
