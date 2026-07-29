@@ -1260,90 +1260,34 @@ local function DefeatedBossBody()
 end
 
 function searing_crucible_ch_5.DefeatedBoss()
-	PrintInfo("[BossSeq][searing_crucible_ch_5] DefeatedBoss cutscene start")
+	------------------------------------------------------------------
+	-- TRANSITION D'ORIGINE (Halcyon, branche working-copy).
+	------------------------------------------------------------------
+	-- Restauree a l'identique sur demande, apres comparaison avec le
+	-- depot amont Palikadude/Halcyon :
+	--   Data/Script/halcyon/ground/searing_crucible/searing_crucible_ch_5.lua
+	--   lignes 1235-1238 de la branche working-copy.
+	--
+	-- Le code d'origine tient en quatre lignes, sans filet :
+	--     TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
+	--     GAME:WaitFrames(90)
+	--     GAME:CutsceneMode(false)
+	--     GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker')
+	--
+	-- Le fondu vient UNIQUEMENT de coro5, a l'interieur du corps de la
+	-- scene (FadeOutBGM(60) + FadeOut(false,60)). Il n'y a ni pcall, ni
+	-- fondu de rattrapage, ni PrintInfo : ces trois elements avaient ete
+	-- ajoutes par-dessus, et c'est le PrintInfo — fonction qui n'existait
+	-- pas — qui avortait la fonction des sa premiere ligne.
+	--
+	-- On revient donc a la forme amont. Une seule difference assumee :
+	-- le corps reste appele via DefeatedBossBody(), decoupage propre au
+	-- fork, car la scene y a ete etoffee. L'ordre des quatre instructions
+	-- finales, lui, est celui d'Halcyon.
+	DefeatedBossBody()
 
-	local ok, err = pcall(DefeatedBossBody)
-	if not ok then
-		PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
-		--------------------------------------------------------------
-		-- COUPE FRANCHE, PAS UN FONDU.
-		--------------------------------------------------------------
-		-- Ce fondu de secours etait un FadeOut(false, 20), et c'etait
-		-- LUI qu'on apercevait. Preuve, en simulant ScreenFadeFX.Fade
-		-- + FadeInternal (FadeEffect.cs:30-43) :
-		--
-		--   FadeOut(20) depuis un ecran clair produit 20 frames
-		--   DESSINEES, d'opacite 0.05, 0.10, 0.15 ... 1.0
-		--
-		-- La premiere frame n'est noire qu'a 5 %. Comme Draw() dessine
-		-- CurrentScene (GameManager.cs:1338) AVANT fadeScreen (l.1363),
-		-- et que la carte courante est encore le Creuset tant que
-		-- SceneOutcome n'est pas consomme (l.505-518), le joueur voit
-		-- le Creuset en clair pendant ~20 frames, soit 0,33 s.
-		--
-		-- Or on n'arrive ici QUE si le corps de la scene a echoue : la
-		-- coroutine coro5, qui posait le noir en fin de scene, n'a
-		-- jamais tourne, et FadeIn(40) (l.814) a bel et bien rallume
-		-- l'ecran en ouverture. L'ecran est donc CLAIR, et c'est le
-		-- pire cas possible.
-		--
-		-- FadeOut(false, 1) donne une seule frame, a opacite 1.0 :
-		-- noir plein des le premier rendu, aucun apercu. Et si l'ecran
-		-- etait deja noir, la garde `if (fadeIn && fadeAmount == 1f)`
-		-- (FadeEffect.cs:63-67) le rend gratuit.
-		pcall(function() GAME:FadeOut(false, 1) end)
-	end
-
-	-- Sortie garantie : la suite de l'expedition (Mont) doit TOUJOURS s'ouvrir.
-	PrintInfo("[BossSeq][searing_crucible_ch_5] DefeatedBoss -> mount_windswept_entrance")
-
-	--------------------------------------------------------------------
-	-- TRANSITION VERS LE MONT — l'ecran doit RESTER noir.
-	--------------------------------------------------------------------
-	-- BUG VU EN JEU (deuxieme passe) : « le fond noir n'est pas constant,
-	-- on voit un apercu du ground du tunnel alors qu'on est cense etre en
-	-- deplacement vers l'entrance ».
-	--
-	-- CAUSE, et ce n'etait pas le fondu : c'etait CutsceneMode(false),
-	-- appele ICI, avant le depart. Lu dans le moteur — GroundScene.cs:176,
-	-- ProcessInput sort immediatement tant que Save.CutsceneMode est vrai.
-	-- Le couper rend donc la main au joueur, et surtout REVEILLE la boucle
-	-- de rendu normale de la carte, pendant les 30 frames de WaitFrames
-	-- qui suivent puis pendant tout le chargement.
-	--
-	-- Pire : EnterGroundMap ne change pas de carte sur-le-champ. Il ARME
-	-- GameManager.SceneOutcome (ScriptGame.cs:106), que la boucle
-	-- principale ne consomme qu'au tour suivant (GameManager.cs:506-512).
-	-- Entre le CutsceneMode(false) et le basculement reel, le Crucible
-	-- continuait donc d'etre affiche et joue.
-	--
-	-- On garde le mode cinematique JUSQU'AU BOUT. C'est la carte
-	-- d'arrivee qui le relachera, une fois son propre fondu pose :
-	-- mount_windswept_entrance/init.lua fait FadeOut(false,1) dans Init,
-	-- avant meme le premier rendu, puis ArrivalCutscene reprend la main.
-	--
-	-- Les deux autres garde-fous restent :
-	--   1. on REPOSE le fondu juste avant de partir. DefeatedBossBody le
-	--      pose deja dans une coroutine (coro5) ; si le corps de la scene
-	--      a echoue et qu'on arrive par la branche pcall, ce fondu n'a
-	--      jamais eu lieu. Le reposer est idempotent.
-	--   2. le 3e argument `true` (preserveMusic) evite que le moteur
-	--      relance la musique de la carte d'arrivee par-dessus le silence.
-	--   3. CE FONDU EST UNE COUPE FRANCHE (1 frame), PAS UN DEGRADE.
-	--      C'etait un FadeOut(false, 30). Sur le chemin nominal il est
-	--      gratuit (l'ecran est deja noir, garde FadeEffect.cs:63-67).
-	--      Mais sur le chemin de secours — corps de scene en erreur —
-	--      l'ecran est CLAIR, et un fondu de 30 frames affiche alors le
-	--      Creuset pendant une demi-seconde, du quasi-transparent
-	--      jusqu'au noir. C'est exactement l'apercu signale.
-	--      Avec 1 frame, la premiere image dessinee est deja noire a
-	--      100 %. Le fondu artistique de fin de scene, lui, reste en
-	--      place dans coro5 (60 frames) : on ne perd aucune esthetique,
-	--      on supprime seulement la fenetre de fuite.
-	SOUND:FadeOutBGM(20)
-	GAME:FadeOut(false, 1)
-	GAME:WaitFrames(30)
-	GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker', true)
+	GAME:CutsceneMode(false)
+	GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker')
 end
 
 
