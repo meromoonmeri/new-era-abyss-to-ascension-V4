@@ -40,7 +40,7 @@ TS = 16                                  # px par tuile -> TexSize 2
 WALK_BOXES = [
     (336, 544, 160, 48),    # chemin du haut (terre)           x336-496 y544-592
     (384, 592, 64, 48),     # passage entre cube et rocher     x384-448 y592-640
-    (432, 624, 96, 80),     # dalles du bas                    x432-528 y624-704
+    (432, 624, 96, 64),     # dalles du bas                    x432-528 y624-688 (bord sud bloque)
     (256, 448, 192, 64),    # pont de bois                     x256-448 y448-512
     (432, 496, 80, 48),     # dalle haute mousseuse            x432-512 y496-544
     (192, 352, 96, 96),     # escalier vers la terrasse        x192-288 y352-448
@@ -52,7 +52,7 @@ WALK_BOXES = [
     (216, 240, 56, 48),     # terrasse haute droite            x216-272 y240-288
     (216, 288, 56, 32),     # liaison terrasse                 x216-272 y288-320
     (16, 264, 144, 64),     # terrasse gauche                  x16-160  y264-328
-    (160, 320, 112, 80),    # terrasse basse gauche            x160-272 y320-400
+    (144, 320, 128, 80),    # terrasse basse gauche            x144-272 y320-400 (col 9 = liaison D2)
 ]
 # Entites (px) ---------------------------------------------------------------
 POS = {
