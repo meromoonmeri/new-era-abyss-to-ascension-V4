@@ -505,3 +505,101 @@ Conclusion actee : pas d'asset de tente reutilisable -> le camp reste raconte pa
 - Valide : luac OK, audit 0 defaut, BFS marker->feu->portail OK, rendu PNG controle. NON teste en jeu (pas d'executable dans la sandbox) : retest joueur requis.
 
 ### Rappel : retest en jeu des 5 bugs (31dce6b) + ocean (174df36) a faire par le joueur sur la save v6.
+
+
+## Session 2026-07-29 — Mont Venteux, retours de test en jeu (builds F et G)
+
+Branche : `arena/019faad0-new-era-abyss-to-ascension-v4`
+Commits : `1f9504a` (build F), `739b631` (build G). Poussés.
+Tag de build courant : **2026-08-02-G** (3 fichiers : `main.lua`, `scriptvars.lua`, `ground/vast_steppe_midpoint/init.lua`).
+
+### Bugs corrigés, avec la cause racine lue dans le moteur
+
+1. **Le rêve ne s'affichait pas** — deux causes cumulées, indépendantes.
+   - *Culling.* `OverlayEmitter.cs:83` construit son `OverlayAnim` avec `omnipresent = false` ;
+     `GetDrawSize()` renvoie alors `Loc(TileSize)` = 24×24, et `BaseScene.IterateRelevantDraw`
+     ne dessine que si ce rectangle touche le `ViewRect` (`BaseGroundScene.cs:155`).
+     Un overlay émis en **(0,0)** avec la caméra sur le camp (256,228) est donc supprimé du rendu,
+     alors même que `RepeatX/RepeatY` le ferait paver l'écran. `DizzyVeil` et `first_core`
+     marchaient car émis à la caméra / sur l'objet. Correctif dans `BossFX.Overlay` :
+     émission au centre caméra quand aucune position n'est demandée.
+   - *Le rêve jouait sous le fondu noir.* `fadeScreen` est dessiné **après** la scène
+     (`GameManager.Draw:1363`) : aucun overlay, même `DrawLayer.Top`, ne passe devant.
+     On lève donc la lumière après avoir posé la parallaxe (les planches `Dream_*` sont
+     opaques, alpha 255 mesuré, et masquent le bivouac).
+
+2. **Le héros « courait sur place »** — `VoiceVisions.Recover` posait
+   `CharSetAnim(chara,"Idle",true)`, une `IdleAnimGroundAction` explicite et **bouclée**
+   (`ScriptGround.cs:791`) qui ignore le gel de `CutsceneMode` (`GlobalIdle=0`).
+   Le héros était le seul personnage animé de la carte. Remplacé par `CharEndAnim`.
+
+3. **Formation du rassemblement** — reprise de la disposition canonique du mod, relevée dans
+   les marqueurs de `Data/Ground/guild_third_floor_lobby.rsground` et utilisée par
+   `guild_third_floor_lobby_helper.SetupMorningAddress` aux ch1/3/4/5/7 :
+   **2 rangées de 5**, colonnes tous les 32 px, chef devant, savant en retrait.
+   L'ancienne colonne de 5 rangs faisait 156 px de profondeur pour un viewport de 240.
+
+4. **Le feu de camp se traversait** — `Ground/Maps/GroundAnim.cs`, en-tête :
+   « Unlike GroundObject, it cannot be collided or interacted with ». `GroundAnim`
+   n'implémente pas `IObstacle`. Correctif : `GroundObject` invisible (anim `""`) superposé,
+   patron `altere_pond_ch_5.lua:10`, `Passable=false` → `Tags=1` → `SlideResponse`.
+   Boîte **24×24 centrée** (et non 36×36) : BFS sur la grille, les 25 cases perdues sont
+   exactement celles du foyer, **zéro déconnexion**.
+   Fonctions : `AddFireBlocker` / `RemoveFireBlocker`, appelées par `BuildCampDay`,
+   `DeployBeds` et `PurgeDecor`.
+
+5. **Le camp se vidait en fin de cinématique** — la fin d'`ArrivalCutscene` retirait les dix
+   PNJ, dont les trois que la scène laisse au camp ; `SetupGround` n'est pas appelée sur ce
+   chemin. Seuls les **sept partants** sont retirés désormais ; Penticus, Phileas et Hyko
+   restent, aux positions exactes de `SetupGround` (230,190 / 288,196 / 224,206).
+
+6. **Cinématique de secours (KO)** — Hyko jouait `DUN_Heal_Bell`, le son de la capacité Soin
+   (signature d'Audino) alors qu'il est de type Feu, et agissait **en silence**.
+   Remplacé par `DUN_Heal` (attesté `DazzlingArc.lua:561`, `event_battle.lua:1049`),
+   avec annonce avant et commentaire après (clés `MWE5_179`, `MWE5_180`).
+
+7. **Son de Soin dans le rêve** — `DUN_Heal_Bell` jouait à l'apparition de l'entité.
+   Remplacé par `_UNK_DUN_Water_Drop`, déjà la signature d'entrée de la présence
+   dans ce même rêve : une seule signature sonore pour l'entité.
+
+8. **Sac retiré** — le `Grassy_Bag` (260,196) encombrait le centre du camp.
+   `BuildCampMorning` laisse désormais le calque vide.
+
+9. **Accueil par caractère** (clés `MWE5_172..178`) et **gag de la cordée**
+   (clés `MWE5_181..185`, `Guildmaster Wigglytuff.ogg` démarrant exactement sur l'insulte).
+
+10. **OST d'arrivée** — il y avait ~500 lignes de silence total entre `StopBGM` et le
+    `PlayBGM` final : le `FadeOutBGM` qui ouvre le gag du camp s'appliquait sur du vide.
+    `Cliff Camp.ogg` (déjà le camp de la Grande Steppe) démarre sous le noir.
+
+### Outil corrigé
+`tools/count_dialogue.py` ignorait les helpers `Says` / `SaysA` / `greet` : la carte
+sous-comptait de 33 boîtes et **le compteur ne bougeait pas** quand on ajoutait du dialogue.
+Test négatif vérifié (1617 → 1616 → 1617).
+
+### Références de validation (à reproduire avant chaque commit)
+lua compile OK · `audit_bugs` 12 · `verify_legend` vert · `verify_scene_positions` vert ·
+`audit_integrite` 925 · `verify_ground_reachability` 27 · `verify_assets_exist` 0 ·
+`verify_bg_format` vert · `audit_scene_collisions` 0 · `audit_micro_moves` 0 ·
+`verify_scene_fades` 23 (dette) · `audit_scene_liveliness` 988 (dette mod entier).
+resx Mont Venteux : **173/173**, zéro manquante, zéro orpheline. ch5 : **1624** boîtes.
+`count_dialogue.py` se lance **sans argument** (plante avec `.`).
+
+### À TESTER EN JEU (rien de ce qui précède ne l'a été)
+- Le rêve s'affiche-t-il enfin (parallaxe du test de personnalité) ?
+- Le feu de camp bloque-t-il, sans coincer personne autour du foyer ?
+- Le camp reste-t-il peuplé (Penticus, Phileas, Hyko) après la cinématique ?
+- L'assemblée matinale : plus de course sur place, formation 2×5 lisible en un plan ?
+- Le gag Ganlon/Shuca tombe-t-il juste après la nausée ?
+- La scène de secours après KO est-elle cohérente (Hyko parle, son de baie) ?
+
+### Bugs connus NON résolus (hors périmètre de cette session)
+- Sprite de l'entité du rêve : `Content/Chara/282.chara` (Gardevoir) **absent**, le mod
+  n'embarque que 39 espèces. Décision utilisateur en attente (importer vs silhouette).
+- `GeneralFunctions.EmoteAndPause` est **défini deux fois** (lignes 398 et 455) ;
+  la seconde écrase la première.
+- 23 cartes sans garde-fou de fondu dans `Init` (`verify_scene_fades`).
+- Statisme : `mount_windswept_midpoint_ch_5` à 96 %, `vast_steppe_midpoint` 84 %,
+  `vast_steppe_guardian` 82 %, `searing_tunnel_entrance` 41 %.
+- Bureau du maître de guilde : ch7-10 inexistants, ch6 = 2 boîtes.
+- Densité : ch6 457 / ch7 397 / ch8 324 / ch9 307 / ch10 256, contre 7000 visés.
