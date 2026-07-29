@@ -6,10 +6,19 @@ require 'halcyon.CharacterEssentials'
 searing_tunnel_entrance_ch_5 = {}
 
 function searing_tunnel_entrance_ch_5.SetupGround()
+	--AUDIT 2026-07-29 (Bug 2) : purge des decorations avant rebuild.
+	--Sans cette purge, les objets (hay_beds, campfires, food) s'accumulent
+	--a chaque visite, creant des doublons visuels.
+	pcall(function()
+		local anims = GAME:GetCurrentGround().Decorations[0].Anims
+		while anims.Count > 0 do anims:RemoveAt(0) end
+	end)
 	if not SV.Chapter5.EnteredTunnel then
 		local tropius, noctowl, mareep, cranidos, snubbull, audino, breloom, girafarig, tail =
 		CharacterEssentials.MakeCharactersFromList({
-			{'Tropius', 336, 112, Direction.Down},
+			--AUDIT 2026-07-29 (Bug 3) : Tropius decale a l'est (336->420)
+			--pour ne plus bloquer le chemin vers Dungeon_Entrance.
+			{'Tropius', 420, 112, Direction.Down},
 			{'Noctowl', 224, 80, Direction.Down},
 			{'Mareep', 276, 260, Direction.UpLeft},
 			{'Cranidos', 240, 260, Direction.UpRight},
@@ -30,7 +39,7 @@ function searing_tunnel_entrance_ch_5.SetupGround()
 		local noctowl, tropius =
 		CharacterEssentials.MakeCharactersFromList({
 			{'Noctowl', 192, 80, Direction.Down},
-			{'Tropius', 376, 128, Direction.Down}
+			{'Tropius', 420, 128, Direction.Down}
 		})
 
 		--Noctowl catches his sleep now since Tropius has supply duty handled.

@@ -177,13 +177,20 @@ function gloomy_forest_midpoint_ch_6.FirstArrival()
   GAME:WaitFrames(10)
 
   UI:SetSpeaker(partner)
+  pcall(function() GROUND:CharSetEmote(partner, "notice", 1) end)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM6_001']))
   GeneralFunctions.EmoteAndPause(partner, "Exclaim", true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM6_002']))
   GAME:WaitFrames(10)
+  -- Le partenaire se tourne vers le héros
+  GROUND:CharTurnToCharAnimated(partner, hero, 4)
+  GAME:WaitFrames(6)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM6_003']))
   UI:SetSpeakerEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM6_004']))
+  -- Le héros répond du regard
+  GROUND:CharTurnToCharAnimated(hero, partner, 4)
+  GAME:WaitFrames(8)
 
   SV.Chapter6.GloomyPlayedMidpointIntro = true
   GeneralFunctions.PanCamera()
@@ -228,8 +235,12 @@ function gloomy_forest_midpoint_ch_6.WipedCutscene()
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Pain")
+  pcall(function() GROUND:CharSetEmote(partner, "sweatdrop", 1) end)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM6_020']))
   GAME:WaitFrames(20)
+  -- Se tourne vers le héros
+  GROUND:CharTurnToCharAnimated(partner, hero, 4)
+  GAME:WaitFrames(6)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM6_021']))
 
   -- GloomyBossEncountered distinguishes a Zarude wipe (true) from a depth-floors wipe (false).

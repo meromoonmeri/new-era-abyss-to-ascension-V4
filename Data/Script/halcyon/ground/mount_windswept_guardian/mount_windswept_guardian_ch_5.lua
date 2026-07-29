@@ -1,6 +1,6 @@
 --[[ 
     mount_windswept_guardian_ch_5.lua
-    Mont Venteux — Gardien : Aerodactyl
+    Mont Venteux — Gardien : Tornadus
     Apparition : Descend des nuages d'orage dans un cri perçant, fait trembler la montagne
 ]]
 
@@ -30,49 +30,66 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   GAME:MoveCamera(224, 324, 1, false)
 
   GAME:CutsceneMode(true)
-  GAME:WaitFrames(60)
+  --REFONTE CINÉ 2026-07-30 : stabilisation avant FadeIn.
+  --Les personnages sont teleportes, la camera placee. On attend 20f
+  --supplementaires pour que le moteur finisse le rendu avant d'ouvrir.
+  GAME:WaitFrames(80)
 
   UI:ResetSpeaker()
   UI:WaitShowTitle(GAME:GetCurrentGround().Name:ToLocal(), 20)
   GAME:WaitFrames(60)
   UI:WaitHideTitle(20)
-  GAME:FadeIn(40)
+  GAME:FadeIn(60)
 
   -- Dramatic silence — wind howling
   SOUND:PlayBGM('Mt. Travail.ogg', false)
 
   GAME:WaitFrames(40)
+  --REFONTE CINÉ 2026-07-30 : marche vers le sommet avec le vent qui pousse.
+  --L'equipe avance lentement (vitesse 1 = fatigue de l'altitude).
   local coro1 = TASK:BranchCoroutine(function()
     GROUND:MoveInDirection(partner, Direction.Up, 56, false, 1)
   end)
   local coro2 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(6)
+    GAME:WaitFrames(8)
     GROUND:MoveInDirection(hero, Direction.Up, 56, false, 1)
   end)
   local coro2b = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(10)
+    GAME:WaitFrames(14)
     if t2 ~= nil then GROUND:MoveInDirection(t2, Direction.Up, 56, false, 1) end
   end)
   local coro2c = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(12)
+    GAME:WaitFrames(18)
     if t3 ~= nil then GROUND:MoveInDirection(t3, Direction.Up, 56, false, 1) end
   end)
   local coro3 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(15)
-    -- La camera se cale ENTRE l'equipe (y=272) et le gardien (y=192).
+    GAME:WaitFrames(20)
     GAME:MoveCamera(224, 232, 40, false)
   end)
   TASK:JoinCoroutines({coro1, coro2, coro2b, coro2c, coro3})
 
   GAME:WaitFrames(20)
+  --REFONTE CINÉ 2026-07-30 : partner parle, l'equipe se tourne vers lui.
+  pcall(function()
+    GROUND:CharTurnToCharAnimated(hero, partner, 4)
+    if t2 ~= nil then GROUND:CharTurnToCharAnimated(t2, partner, 4) end
+    if t3 ~= nil then GROUND:CharTurnToCharAnimated(t3, partner, 4) end
+  end)
+  GAME:WaitFrames(8)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_001']))
   -- "Le sommet...[pause=15] On y est presque."
 
   GAME:WaitFrames(30)
-  GROUND:CharAnimateTurnTo(partner, Direction.Down, 4)
-  GROUND:CharAnimateTurnTo(hero, Direction.Down, 4)
+  --REFONTE CINÉ 2026-07-30 : partner regarde le ciel, les autres suivent.
+  GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+  GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+  pcall(function()
+    if t2 ~= nil then GROUND:CharAnimateTurnTo(t2, Direction.Up, 4) end
+    if t3 ~= nil then GROUND:CharAnimateTurnTo(t3, Direction.Up, 4) end
+    GROUND:CharSetEmote(partner, "notice", 1)
+  end)
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Worried")
@@ -134,179 +151,549 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(30)
 
-  -- === WHITE FLASH + LIGHTNING STRIKE ===
+  -- ================================================================
+  -- ENTRÉE LÉGENDAIRE DE BORÉAS (Tornadus) — 2026-07-30
+  -- ================================================================
+  -- 5 phases progressives : brise → vent → tempête → apparition → révélation
+  -- Aucun flash avant la phase 4. La montagne elle-même annonce le gardien.
+
+  -- PHASE 1 : LA BRISE CHANGE (subtil, 40f)
+  -- Le vent qui soufflait depuis le début de la scène change de nature.
+  SOUND:PlayBGM('Rising Fear.ogg', true)
+  pcall(function() GROUND:AddMapStatus("blowing_wind") end)
+  -- Overlay de vent subtil — alpha faible, vitesse lente
+  pcall(function()
+    local breeze = RogueEssence.Content.FiniteOverlayEmitter()
+    breeze.FadeIn = 20
+    breeze.TotalTime = 200
+    breeze.RepeatX = true
+    breeze.Movement = RogueElements.Loc(-60, 0)
+    breeze.Layer = DrawLayer.Front
+    breeze.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 1)
+    GROUND:PlayVFX(breeze, 224, 200)
+  end)
+  GAME:WaitFrames(20)
+
+  -- Le partenaire remarque le changement
+  pcall(function() GROUND:CharSetEmote(partner, "notice", 1) end)
+  GROUND:CharAnimateTurnTo(partner, Direction.UpLeft, 4)
+  GAME:WaitFrames(15)
+
+  -- PHASE 2 : LE VENT MONTE (modéré, 50f)
+  -- Les nuages s'accumulent, la caméra tremble légèrement
+  pcall(function() GROUND:AddMapStatus("clouds_overhead") end)
+  GAME:WaitFrames(10)
+  GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 3, 40))
+  -- Rafales plus fortes — deux couches croisées
+  pcall(function()
+    local gust1 = RogueEssence.Content.FiniteOverlayEmitter()
+    gust1.FadeIn = 10
+    gust1.TotalTime = 120
+    gust1.RepeatX = true
+    gust1.Movement = RogueElements.Loc(-120, 0)
+    gust1.Layer = DrawLayer.Front
+    gust1.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 1)
+    GROUND:PlayVFX(gust1, 224, 180)
+  end)
+  pcall(function()
+    local gust2 = RogueEssence.Content.FiniteOverlayEmitter()
+    gust2.FadeIn = 15
+    gust2.TotalTime = 100
+    gust2.RepeatX = true
+    gust2.Movement = RogueElements.Loc(100, 0)
+    gust2.Layer = DrawLayer.Back
+    gust2.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 1)
+    GROUND:PlayVFX(gust2, 224, 220)
+  end)
+  -- Plumes emportées par le vent
+  pcall(function()
+    local feathers = RogueEssence.Content.FiniteOverlayEmitter()
+    feathers.FadeIn = 10
+    feathers.TotalTime = 80
+    feathers.RepeatX = true
+    feathers.Movement = RogueElements.Loc(-80, 20)
+    feathers.Layer = DrawLayer.Front
+    feathers.Anim = RogueEssence.Content.BGAnimData("Feather", 1)
+    GROUND:PlayVFX(feathers, 280, 160)
+  end)
+  GAME:WaitFrames(20)
+
+  -- Le héros et le partenaire lèvent les yeux
+  pcall(function()
+    GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+    GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+    if t2 ~= nil then GROUND:CharAnimateTurnTo(t2, Direction.Up, 4) end
+    if t3 ~= nil then GROUND:CharAnimateTurnTo(t3, Direction.Up, 4) end
+  end)
+  GAME:WaitFrames(15)
+
+  -- PHASE 3 : LA TEMPÊTE (fort, 40f)
+  -- Poussière, secousses, vent argenté spectral
+  GROUND:MoveScreen(RogueEssence.Content.ScreenMover(3, 5, 30))
+  pcall(function()
+    local dust = RogueEssence.Content.FiniteOverlayEmitter()
+    dust.FadeIn = 5
+    dust.TotalTime = 60
+    dust.RepeatX = true
+    dust.Movement = RogueElements.Loc(-160, 0)
+    dust.Layer = DrawLayer.Front
+    dust.Anim = RogueEssence.Content.BGAnimData("Sandstorm", 1)
+    GROUND:PlayVFX(dust, 224, 240)
+  end)
+  -- Vent argenté — dimension légendaire
+  pcall(function()
+    local silver = RogueEssence.Content.FiniteOverlayEmitter()
+    silver.FadeIn = 10
+    silver.TotalTime = 80
+    silver.RepeatX = true
+    silver.Movement = RogueElements.Loc(-140, -20)
+    silver.Layer = DrawLayer.Back
+    silver.Anim = RogueEssence.Content.BGAnimData("Silver_Wind", 1)
+    GROUND:PlayVFX(silver, 224, 160)
+  end)
+  SOUND:PlayBattleSE('EVT_Tower_Quake')
+  GAME:WaitFrames(20)
+
+  -- L'équipe recule instinctivement
+  pcall(function()
+    GROUND:CharSetEmote(partner, "shock", 1)
+    GROUND:CharSetEmote(hero, "exclaim", 1)
+  end)
+  GAME:WaitFrames(15)
+
+  -- PHASE 4 : L'APPARITION (flash + Tornadus)
+  -- Le ciel se déchire. Flash blanc aveuglant.
   local center_flash = GAME:GetCameraCenter()
   local megaFlash = RogueEssence.Content.FlashEmitter()
   megaFlash.FadeInTime = 2
-  megaFlash.HoldTime = 4
-  megaFlash.FadeOutTime = 15
+  megaFlash.HoldTime = 6
+  megaFlash.FadeOutTime = 25
   megaFlash.StartColor = Color(255, 255, 255, 0)
   megaFlash.Layer = DrawLayer.Top
   megaFlash.Anim = RogueEssence.Content.BGAnimData("White", 0)
   GROUND:PlayVFX(megaFlash, center_flash.X, center_flash.Y)
   SOUND:PlayBattleSE('EVT_Battle_Flash')
-  GROUND:MoveScreen(RogueEssence.Content.ScreenMover(4, 8, 20))
+  GAME:WaitFrames(4)
 
-  GAME:WaitFrames(10)
-
-  -- === AERODACTYL DESCENDS FROM THE FLASH ===
+  -- Tourbillon au point d'apparition
   SOUND:PlayBattleSE('_UNK_EVT_003')
+  pcall(function()
+    local whirl = RogueEssence.Content.FiniteOverlayEmitter()
+    whirl.FadeIn = 2
+    whirl.TotalTime = 40
+    whirl.RepeatX = true
+    whirl.Movement = RogueElements.Loc(-200, 0)
+    whirl.Layer = DrawLayer.Front
+    whirl.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 1)
+    GROUND:PlayVFX(whirl, 224, 192)
+    local whirl2 = RogueEssence.Content.FiniteOverlayEmitter()
+    whirl2.FadeIn = 2
+    whirl2.TotalTime = 40
+    whirl2.RepeatX = true
+    whirl2.Movement = RogueElements.Loc(200, 0)
+    whirl2.Layer = DrawLayer.Front
+    whirl2.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 1)
+    GROUND:PlayVFX(whirl2, 224, 192)
+  end)
+  GAME:WaitFrames(6)
 
-  local aerodactyl = CharacterEssentials.MakeCharactersFromList({
-    {'Aerodactyl', 224, 192, Direction.Down}
-  })
-  GROUND:Hide('Aerodactyl')
+  -- BORÉAS SE RÉVÈLE
+  GROUND:Unhide('Tornadus')
+  GROUND:CharSetAnim(tornadus, "Charge", true)
+  GAME:WaitFrames(4)
 
-  -- LOT 8.3 — l'orage comme presence, le pacte du duo avant l'ultime gardien.
-  GAME:MoveCamera(224, 250, 40, false)
-  UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_030']))
-  -- "Cet orage n'est pas un phenomene. Il nous attendait."
-  GAME:WaitFrames(15)
-  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWG_031']), "Determined")
-  -- "Quoi qu'il se pose ici, on ne court pas. D'accord ?"
-  GAME:WaitFrames(15)
-  UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_032']))
-  -- "D'accord. Meme si mes pattes demandent a etre convaincues."
-  GAME:WaitFrames(20)
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_033']))
-  -- "Celui-ci se souvient d'un ciel sans grimpeurs."
-  GAME:WaitFrames(15)
-  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWG_034']), "Normal")
-  -- "Alors il a eu tout le temps de s'habituer a la deception."
-  GAME:WaitFrames(20)
-  GAME:MoveCamera(224, 232, 40, false)
+  -- PHASE 5 : L'IMPACT (onde de choc + réactions héroïques)
+  -- Tornadus touche le sol — impact massif
+  -- Son : séisme + collapse (deux SE superposés pour un impact lourd)
+  SOUND:PlayBattleSE('EVT_Tower_Quake')
+  GAME:WaitFrames(4)
+  SOUND:PlayBattleSE('EVT_CH03_Boss_Collapse')
+  -- Caméra : double secousse (impact initial + réplique)
+  GROUND:MoveScreen(RogueEssence.Content.ScreenMover(5, 8, 20))
+  GAME:WaitFrames(12)
+  GROUND:MoveScreen(RogueEssence.Content.ScreenMover(3, 5, 15))
+  BossFX.Impact(12)
 
-  -- === APPARITION SOUS FLASH BLANC (LOT 2) ===
-  SOUND:PlayBGM('Rising Fear.ogg', true)
-  BossFX.Flash(224, 192, 3, 5, 20)
+  -- Poussière explosive depuis Tornadus (deux couches, directions opposées)
+  pcall(function()
+    local impactDust = RogueEssence.Content.FiniteOverlayEmitter()
+    impactDust.FadeIn = 3
+    impactDust.TotalTime = 50
+    impactDust.Movement = RogueElements.Loc(-60, 0)
+    impactDust.Layer = DrawLayer.Front
+    impactDust.Anim = RogueEssence.Content.BGAnimData("Sandstorm", 1)
+    GROUND:PlayVFX(impactDust, tornadus.Position.X - 24, tornadus.Position.Y + 16)
+    local impactDust2 = RogueEssence.Content.FiniteOverlayEmitter()
+    impactDust2.FadeIn = 3
+    impactDust2.TotalTime = 50
+    impactDust2.Movement = RogueElements.Loc(60, 0)
+    impactDust2.Layer = DrawLayer.Front
+    impactDust2.Anim = RogueEssence.Content.BGAnimData("Sandstorm", 1)
+    GROUND:PlayVFX(impactDust2, tornadus.Position.X + 24, tornadus.Position.Y + 16)
+  end)
+  -- Pluie de plumes à l'impact
+  pcall(function()
+    local feathers2 = RogueEssence.Content.FiniteOverlayEmitter()
+    feathers2.FadeIn = 2
+    feathers2.TotalTime = 60
+    feathers2.RepeatX = true
+    feathers2.Movement = RogueElements.Loc(-40, 40)
+    feathers2.Layer = DrawLayer.Front
+    feathers2.Anim = RogueEssence.Content.BGAnimData("Feather", 1)
+    GROUND:PlayVFX(feathers2, tornadus.Position.X, tornadus.Position.Y - 20)
+  end)
+
   GAME:WaitFrames(8)
-  GROUND:Unhide('Aerodactyl')
-  BossFX.Impact(9)
-  GROUND:CharSetAnim(aerodactyl, "Charge", true)
-
-  -- Impact — ground shakes, dust everywhere
-  local impactDust = RogueEssence.Content.FiniteOverlayEmitter()
-  impactDust.FadeIn = 5
-  impactDust.TotalTime = 50
-  impactDust.Movement = RogueElements.Loc(-40, 0)
-  impactDust.Layer = DrawLayer.Front
-  impactDust.Anim = RogueEssence.Content.BGAnimData("Sandstorm", 1)
-  GROUND:PlayVFX(impactDust, aerodactyl.Position.X - 24, aerodactyl.Position.Y + 16)
-
-  local impactDust2 = RogueEssence.Content.FiniteOverlayEmitter()
-  impactDust2.FadeIn = 5
-  impactDust2.TotalTime = 50
-  impactDust2.Movement = RogueElements.Loc(40, 0)
-  impactDust2.Layer = DrawLayer.Front
-  impactDust2.Anim = RogueEssence.Content.BGAnimData("Sandstorm", 1)
-  GROUND:PlayVFX(impactDust2, aerodactyl.Position.X + 24, aerodactyl.Position.Y + 16)
-
-  GROUND:MoveScreen(RogueEssence.Content.ScreenMover(3, 5, 30))
-
-  GAME:WaitFrames(15)
   SOUND:PlayBattleSE('EVT_Battle_Flash')
 
-  -- Push the team back with the shockwave
-  GAME:WaitFrames(20)
+  -- RÉACTIONS DES HÉROS — séquence synchronisée avec l'impact
+  -- Chaque personnage réagit selon sa personnalité :
+  --   partner : sursaute, recule, emote shock
+  --   hero : recule d'un pas, emote exclaim, se reprend
+  --   t2 (Ganlon) : recule, posture défensive
+  --   t3 (Shuca) : sursaute, emote sweating, tremble
+
+  GAME:WaitFrames(6)
+  -- Partner : sursaute et recule (le plus proche de Tornadus)
   local coro_push1 = TASK:BranchCoroutine(function()
-    GROUND:AnimateInDirection(partner, "None", partner.Direction, Direction.Down, 8, 1, 1)
+    SOUND:PlayBattleSE('EVT_Emote_Shock_2')
+    pcall(function() GROUND:CharSetEmote(partner, "shock", 1) end)
+    pcall(function() GROUND:CharSetAnim(partner, "Hurt", true) end)
+    GROUND:AnimateInDirection(partner, "Walk", partner.Direction, Direction.Down, 8, 1, 1)
+    GAME:WaitFrames(10)
     GROUND:AnimateInDirection(partner, "Hurt", Direction.Down, Direction.Down, 8, 1, 2)
-    BossFX.Impact(12)
-  -- Signature ROCHE : l'impact fait s'ebouler la paroi, des blocs
-  -- degringolent autour de l'arene.
-  BossFX.RockFall(224, 200)
-  BossFX.Particle("Rock_Pieces", 196, 208, 3)
-  BossFX.Particle("Rock_Pieces", 252, 208, 3)
-  end)
-  local coro_push2 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(8)
+    pcall(function() GROUND:CharSetAnim(partner, "Idle", true) end)
+    -- Se relève, regarde Tornadus
     GAME:WaitFrames(6)
-    GROUND:AnimateInDirection(hero, "None", hero.Direction, Direction.Down, 8, 1, 1)
-    GROUND:AnimateInDirection(hero, "Hurt", Direction.Down, Direction.Down, 8, 1, 2)
+    GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+    pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
   end)
-  TASK:JoinCoroutines({coro_push1, coro_push2})
 
+  -- Hero : recule d'un pas, emote exclaim, se reprend
+  local coro_push2 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(4)
+    SOUND:PlayBattleSE('EVT_Emote_Exclaim_2')
+    pcall(function() GROUND:CharSetEmote(hero, "exclaim", 1) end)
+    GROUND:AnimateInDirection(hero, "Walk", hero.Direction, Direction.Down, 6, 1, 1)
+    GAME:WaitFrames(8)
+    GROUND:AnimateInDirection(hero, "None", hero.Direction, Direction.Down, 8, 1, 1)
+    GAME:WaitFrames(6)
+    -- Se reprend — posture déterminée
+    GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+    pcall(function() GROUND:CharSetEmote(hero, "determined", 1) end)
+  end)
+
+  -- t2 (Ganlon) : recule, posture défensive
+  local coro_push3 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(8)
+    if t2 ~= nil then
+      pcall(function() GROUND:CharSetEmote(t2, "shock", 1) end)
+      pcall(function() GROUND:CharSetAnim(t2, "Hurt", true) end)
+      GROUND:AnimateInDirection(t2, "Walk", t2.Direction, Direction.Down, 6, 1, 1)
+      GAME:WaitFrames(10)
+      pcall(function() GROUND:CharSetAnim(t2, "Idle", true) end)
+      GAME:WaitFrames(4)
+      GROUND:CharAnimateTurnTo(t2, Direction.Up, 4)
+      pcall(function() GROUND:CharSetEmote(t2, "angry", 1) end)
+    end
+  end)
+
+  -- t3 (Shuca) : sursaute, tremble, emote sweating
+  local coro_push4 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(12)
+    if t3 ~= nil then
+      SOUND:PlayBattleSE('EVT_Emote_Startled')
+      pcall(function() GROUND:CharSetEmote(t3, "shock", 1) end)
+      GROUND:AnimateInDirection(t3, "Hop", t3.Direction, Direction.Down, 4, 1, 1)
+      GAME:WaitFrames(8)
+      GROUND:AnimateInDirection(t3, "Hurt", Direction.Down, Direction.Down, 6, 1, 1)
+      GAME:WaitFrames(6)
+      pcall(function() GROUND:CharSetAnim(t3, "Idle", true) end)
+      GAME:WaitFrames(4)
+      GROUND:CharAnimateTurnTo(t3, Direction.Up, 4)
+      pcall(function() GROUND:CharSetEmote(t3, "sweating", 1) end)
+    end
+  end)
+
+  TASK:JoinCoroutines({coro_push1, coro_push2, coro_push3, coro_push4})
+
+  -- Seconde secousse de caméra (réplique du séisme)
+  GAME:WaitFrames(10)
+  GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 3, 15))
+  GAME:WaitFrames(20)
+
+  -- RÉVÉLATION : l'équipe lève les yeux vers Boréas
+  -- Tous regardent Tornadus — le silence après le choc
+  pcall(function()
+    GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+    GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+    if t2 ~= nil then GROUND:CharAnimateTurnTo(t2, Direction.Up, 4) end
+    if t3 ~= nil then GROUND:CharAnimateTurnTo(t3, Direction.Up, 4) end
+  end)
+  -- Silence pesant — le vent souffle, personne n'ose parler
   GAME:WaitFrames(30)
-  GROUND:CharSetEmote(partner, "shock", 1)
+
+  -- Le partenaire parle le premier, voix tremblante
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
+  UI:SetSpeakerEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_004']))
-  -- "Un...[pause=10] UN AERODACTYL !"
+  -- "C'est...[pause=10] le maître des vents !"
 
   GAME:WaitFrames(30)
-  -- Aerodactyl spreads its wings and roars
-  GROUND:CharSetAnim(aerodactyl, "Charge", true)
-  local wingWind = RogueEssence.Content.FiniteOverlayEmitter()
-  wingWind.FadeIn = 10
-  wingWind.TotalTime = 40
-  wingWind.RepeatX = true
-  wingWind.Movement = RogueElements.Loc(-180, 0)
-  wingWind.Layer = DrawLayer.Front
-  wingWind.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 1)
-  GROUND:PlayVFX(wingWind, aerodactyl.Position.X, aerodactyl.Position.Y)
 
-  local wingWind2 = RogueEssence.Content.FiniteOverlayEmitter()
-  wingWind2.FadeIn = 10
-  wingWind2.TotalTime = 40
-  wingWind2.RepeatX = true
-  wingWind2.Movement = RogueElements.Loc(180, 0)
-  wingWind2.Layer = DrawLayer.Front
-  wingWind2.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 1)
-  GROUND:PlayVFX(wingWind2, aerodactyl.Position.X, aerodactyl.Position.Y)
+  -- PHASE 6 : L'AURA PERSISTANTE
+  -- Boréas flotte, entouré de vents permanents
+  GROUND:CharSetAnim(tornadus, "Charge", true)
+  pcall(function()
+    local aura1 = RogueEssence.Content.FiniteOverlayEmitter()
+    aura1.FadeIn = 10
+    aura1.TotalTime = 80
+    aura1.RepeatX = true
+    aura1.Movement = RogueElements.Loc(-180, 0)
+    aura1.Layer = DrawLayer.Front
+    aura1.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 1)
+    GROUND:PlayVFX(aura1, tornadus.Position.X, tornadus.Position.Y)
+    local aura2 = RogueEssence.Content.FiniteOverlayEmitter()
+    aura2.FadeIn = 10
+    aura2.TotalTime = 80
+    aura2.RepeatX = true
+    aura2.Movement = RogueElements.Loc(180, 0)
+    aura2.Layer = DrawLayer.Front
+    aura2.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 1)
+    GROUND:PlayVFX(aura2, tornadus.Position.X, tornadus.Position.Y)
+  end)
 
   SOUND:PlayBattleSE('EVT_Battle_Transition')
   GAME:WaitFrames(20)
 
-  coro1 = TASK:BranchCoroutine(function()
-    GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
-  end)
-  coro2 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(6)
-    GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
-  end)
-  TASK:JoinCoroutines({coro1, coro2})
+  -- ================================================================
+  -- DIALOGUE PRÉ-COMBAT — Boréas et les héros (2-4 minutes)
+  -- ================================================================
+  -- Les héros ne connaissent pas Tornadus. Ils sont jeunes, inexpérimentés.
+  -- Tornadus les interroge : intrusion ou espoir ? Le vent monte avec ses émotions.
 
-  GAME:WaitFrames(10)
-
-  -- ================= LE GARDIEN DU CIEL PARLE =================
-  -- C'est le boss de CLOTURE du chapitre 5, et il etait muet. Or il est le
-  -- seul personnage du chapitre qui voit le monde d'en haut : c'est lui, et
-  -- personne d'autre, qui peut donner au duo la premiere image d'ensemble
-  -- du probleme. Il ne parle ni d'epreuve ni de garde — il decrit ce qu'il
-  -- a VU. « Rien de naturel n'a d'angles » plante l'arc des Coeurs sans
-  -- rien nommer : le joueur comprendra bien plus tard, le heros jamais ici.
+  -- PHASE A — OBSERVATION (Tornadus regarde, les héros ont peur)
   GAME:MoveCamera(224, 206, 40, false)
-  UI:SetSpeaker(aerodactyl)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_038']))
-  -- "Je vous ai vus depuis la crete. Deux points, qui grimpaient mal."
-  GAME:WaitFrames(15)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_039']))
-  -- "J'observe cette terre d'en haut depuis avant qu'elle ait des routes."
-  GAME:WaitFrames(18)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_040']))
-  -- "De la-haut, on cesse de voir des lieux. On voit des formes."
-  GAME:WaitFrames(20)
-  -- La revelation : plan serre, puis un temps long. C'est LA phrase.
-  GAME:MoveCamera(224, 198, 40, false)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_041']))
-  -- "Et il y a une forme sous votre monde, petits. Elle a des angles."
-  GAME:WaitFrames(25)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_042']))
-  -- "Rien de naturel n'a d'angles."
-  GAME:WaitFrames(30)
-  GAME:MoveCamera(224, 232, 40, false)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_043']))
-  -- "Je porte ca sur le dos depuis longtemps. Montrez-moi que vous pouvez aussi."
-  GAME:WaitFrames(22)
+  GAME:WaitFrames(40)
 
+  -- Tornadus observe en silence
+  pcall(function()
+    GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+    GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+    if t2 ~= nil then GROUND:CharAnimateTurnTo(t2, Direction.Up, 4) end
+    if t3 ~= nil then GROUND:CharAnimateTurnTo(t3, Direction.Up, 4) end
+  end)
+  GAME:WaitFrames(30)
+
+  UI:SetSpeaker(tornadus)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_050']))
+  -- "..."
+  GAME:WaitFrames(30)
+
+  -- Le partenaire, terrifié
+  pcall(function() GROUND:CharSetEmote(partner, "shock", 1) end)
+  GROUND:CharTurnToCharAnimated(partner, hero, 4)
+  GAME:WaitFrames(8)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_051']))
+  -- "Il... il nous regarde."
+  GAME:WaitFrames(20)
+
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWG_052']), "Worried")
+  -- "(Je n'ai jamais rien vu de pareil...)"
+  GAME:WaitFrames(30)
+
+  -- PHASE B — QUESTIONNEMENT
+  GAME:MoveCamera(224, 216, 30, false)
+  GAME:WaitFrames(15)
+
+  UI:SetSpeaker(tornadus)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_053']))
+  -- "Pourquoi êtes-vous venus jusqu'ici ?"
+  GAME:WaitFrames(25)
+
+  -- Le partenaire hésite
+  GROUND:CharTurnToCharAnimated(partner, hero, 4)
+  GAME:WaitFrames(10)
+  pcall(function() GROUND:CharSetEmote(partner, "sweatdrop", 1) end)
+  GROUND:CharTurnToCharAnimated(partner, tornadus, 4)
+  GAME:WaitFrames(8)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_054']))
+  -- "On... on fait partie de la guilde. On est en expédition."
+  GAME:WaitFrames(20)
+
+  UI:SetSpeaker(tornadus)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_055']))
+  -- "La guilde. Encore des grimpeurs. Toujours les mêmes."
+  GAME:WaitFrames(20)
+
+  -- Le vent réagit à l'émotion de Tornadus
+  pcall(function()
+    local windReact = RogueEssence.Content.FiniteOverlayEmitter()
+    windReact.FadeIn = 10
+    windReact.TotalTime = 40
+    windReact.RepeatX = true
+    windReact.Movement = RogueElements.Loc(-100, 0)
+    windReact.Layer = DrawLayer.Front
+    windReact.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 1)
+    GROUND:PlayVFX(windReact, 224, 200)
+  end)
+  GAME:WaitFrames(15)
+
+  UI:SetSpeaker(tornadus)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_056']))
+  -- "Savez-vous seulement où vous mettez les pieds ?"
+  GAME:WaitFrames(30)
+
+  -- PHASE C — MALENTENDU
+  pcall(function() GROUND:CharSetEmote(partner, "exclaim", 1) end)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Determined")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_010']))
-  -- "Alors on va lui montrer que notre voyage ne fait que commencer ! [hero], à nous deux !"
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_057']))
+  -- "On ne veut de mal à personne !"
+  GAME:WaitFrames(25)
+
+  UI:SetSpeaker(tornadus)
+  UI:SetSpeakerEmotion("Sad")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_058']))
+  -- "Comprendre ? Vous montez, vous prenez, vous repartez."
+  GAME:WaitFrames(25)
+
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWG_059']), "Worried")
+  -- "(Il est en colère... Mais pourquoi ?)"
+  GAME:WaitFrames(20)
+
+  UI:SetSpeaker(tornadus)
+  UI:SetSpeakerEmotion("Angry")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_060']))
+  -- "Ce sommet n'est pas un trophée."
+  GAME:WaitFrames(20)
+
+  -- Le vent monte avec la colère
+  GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 4, 30))
+  pcall(function()
+    local angerWind = RogueEssence.Content.FiniteOverlayEmitter()
+    angerWind.FadeIn = 5
+    angerWind.TotalTime = 60
+    angerWind.RepeatX = true
+    angerWind.Movement = RogueElements.Loc(-140, 0)
+    angerWind.Layer = DrawLayer.Front
+    angerWind.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 1)
+    GROUND:PlayVFX(angerWind, 224, 180)
+  end)
+  GAME:WaitFrames(20)
+
+  -- PHASE D — ESCALADE
+  UI:SetSpeaker(tornadus)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_061']))
+  -- "Depuis combien de temps croyez-vous que je souffle ici ?"
+  GAME:WaitFrames(25)
+
+  pcall(function() GROUND:CharSetEmote(partner, "sweating", 1) end)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_062']))
+  -- "Je... je ne sais pas..."
+  GAME:WaitFrames(20)
+
+  GAME:MoveCamera(224, 198, 30, false)
+  UI:SetSpeaker(tornadus)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_063']))
+  -- "Depuis avant vos routes. Avant vos guildes. Avant vos noms."
+  GAME:WaitFrames(30)
+
+  UI:SetSpeaker(tornadus)
+  UI:SetSpeakerEmotion("Angry")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_064']))
+  -- "Et vous arrivez. Sans demander. Sans écouter."
+  GAME:WaitFrames(20)
+
+  -- Rafale — l'équipe recule
+  GROUND:MoveScreen(RogueEssence.Content.ScreenMover(3, 5, 20))
+  pcall(function()
+    GROUND:AnimateInDirection(partner, "None", partner.Direction, Direction.Down, 4, 1, 1)
+    GAME:WaitFrames(4)
+    GROUND:AnimateInDirection(hero, "None", hero.Direction, Direction.Down, 4, 1, 1)
+  end)
+  GAME:WaitFrames(20)
+
+  -- PHASE E — LES HÉROS EXPLIQUENT
+  pcall(function() GROUND:CharSetEmote(partner, "determined", 1) end)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Determined")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_065']))
+  -- "On écoute ! C'est pour ça qu'on est montés !"
+  GAME:WaitFrames(25)
+
+  GAME:WaitFrames(30)
+  GAME:MoveCamera(224, 206, 30, false)
+  UI:SetSpeaker(tornadus)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_066']))
+  -- "...Vous cherchez les angles."
+  GAME:WaitFrames(25)
+
+  pcall(function() GROUND:CharSetEmote(partner, "question", 1) end)
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Surprised")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_067']))
+  -- "Les... les quoi ?"
+  GAME:WaitFrames(20)
+
+  -- La révélation — plan serré
+  GAME:MoveCamera(224, 194, 30, false)
+  UI:SetSpeaker(tornadus)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_068']))
+  -- "Rien de naturel n'a d'angles. Et pourtant ils sont là. Sous votre monde."
+  GAME:WaitFrames(40)
+
+  -- PHASE F — TRANSITION VERS LE COMBAT
+  GAME:MoveCamera(224, 216, 30, false)
+  GAME:WaitFrames(20)
+
+  UI:SetSpeaker(tornadus)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_069']))
+  -- "Je ne sais pas si vous êtes une menace... ou un espoir."
+  GAME:WaitFrames(30)
+
+  UI:SetSpeaker(tornadus)
+  UI:SetSpeakerEmotion("Determined")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_070']))
+  -- "Alors je vais le découvrir."
+  GAME:WaitFrames(15)
+
+  -- EXPLOSION DE VENT — transition combat
+  GROUND:MoveScreen(RogueEssence.Content.ScreenMover(5, 8, 20))
+  pcall(function()
+    local cw1 = RogueEssence.Content.FiniteOverlayEmitter()
+    cw1.FadeIn = 2; cw1.TotalTime = 40; cw1.RepeatX = true
+    cw1.Movement = RogueElements.Loc(-200, 0); cw1.Layer = DrawLayer.Front
+    cw1.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 1)
+    GROUND:PlayVFX(cw1, 224, 200)
+    local cw2 = RogueEssence.Content.FiniteOverlayEmitter()
+    cw2.FadeIn = 2; cw2.TotalTime = 40; cw2.RepeatX = true
+    cw2.Movement = RogueElements.Loc(200, 0); cw2.Layer = DrawLayer.Front
+    cw2.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 1)
+    GROUND:PlayVFX(cw2, 224, 200)
+  end)
+
+  -- L'équipe se prépare
+  pcall(function()
+    GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+    GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+    if t2 ~= nil then GROUND:CharAnimateTurnTo(t2, Direction.Up, 4) end
+    if t3 ~= nil then GROUND:CharAnimateTurnTo(t3, Direction.Up, 4) end
+    GROUND:CharSetEmote(partner, "determined", 1)
+    GROUND:CharSetEmote(hero, "determined", 1)
+  end)
+  GAME:WaitFrames(20)
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
@@ -317,13 +704,13 @@ end
 function mount_windswept_guardian_ch_5.SecondPreBossScene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
-  local aerodactyl = CharacterEssentials.MakeCharactersFromList({
-    {'Aerodactyl', 224, 192, Direction.Down}
+  local tornadus = CharacterEssentials.MakeCharactersFromList({
+    {'Tornadus', 224, 192, Direction.Down}
   })
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
-  GROUND:CharSetAnim(aerodactyl, "Charge", true)
+  GROUND:CharSetAnim(tornadus, "Charge", true)
 
   GROUND:TeleportTo(hero, 240, 272, Direction.Up)
   GROUND:TeleportTo(partner, 208, 272, Direction.Up)
@@ -361,10 +748,10 @@ end
 local function DefeatedBossBody()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
-  local aerodactyl = CharacterEssentials.MakeCharactersFromList({
-    {'Aerodactyl', 224, 192, Direction.Down}
+  local tornadus = CharacterEssentials.MakeCharactersFromList({
+    {'Tornadus', 224, 192, Direction.Down}
   })
-  GROUND:CharSetAnim(aerodactyl, "Charge", true)
+  GROUND:CharSetAnim(tornadus, "Charge", true)
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
@@ -378,22 +765,49 @@ local function DefeatedBossBody()
   GAME:MoveCamera(224, 232, 1, false)
 
   GAME:CutsceneMode(true)
+  --REFONTE CINÉ 2026-07-30 : stabilisation avant FadeIn.
+  pcall(function()
+    GROUND:CharSetAnim(hero, "Idle", true)
+    GROUND:CharSetAnim(partner, "Idle", true)
+    if t2 ~= nil then GROUND:CharSetAnim(t2, "Idle", true) end
+    if t3 ~= nil then GROUND:CharSetAnim(t3, "Idle", true) end
+  end)
   GAME:WaitFrames(60)
-  GAME:FadeIn(40)
+  GAME:FadeIn(60)
 
   GAME:WaitFrames(40)
 
-  -- Aerodactyl collapses dramatically
+  -- Tornadus collapses dramatically
   SOUND:PlayBattleSE('EVT_CH03_Boss_Collapse')
   GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 4, 20))
-  -- LOT 2.3 — pas de PoseGroundAction/"Faint" : le gardien reste visible
-  -- pendant les dialogues, puis disparait au flash blanc.
-  GROUND:CharSetAnim(aerodactyl, "Idle", true)
+  GROUND:CharSetAnim(tornadus, "Idle", true)
+
+  --REFONTE CINÉ 2026-07-30 : l'equipe entoure le gardien vaincu.
+  --Chacun regarde Tornadus avec un melange de respect et de soulagement.
+  pcall(function()
+    GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+    GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+    if t2 ~= nil then GROUND:CharAnimateTurnTo(t2, Direction.Up, 4) end
+    if t3 ~= nil then GROUND:CharAnimateTurnTo(t3, Direction.Up, 4) end
+  end)
 
   GAME:WaitFrames(60)
 
   -- The storm clears
   SOUND:PlayBGM('In the Depths of the Pit.ogg', false)
+
+  --REFONTE CINÉ 2026-07-30 : le partenaire se redresse, incredul.
+  --L'equipe entiere reagit en cascade — pas seulement partner.
+  GAME:WaitFrames(10)
+  pcall(function() GROUND:CharSetEmote(partner, "exclaim", 1) end)
+  GAME:WaitFrames(8)
+  pcall(function()
+    if t2 ~= nil then GROUND:CharSetEmote(t2, "notice", 1) end
+  end)
+  GAME:WaitFrames(6)
+  pcall(function()
+    if t3 ~= nil then GROUND:CharSetEmote(t3, "happy", 1) end
+  end)
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Inspired")
@@ -401,16 +815,25 @@ local function DefeatedBossBody()
   -- "On...[pause=10] On l'a vaincu !"
 
   GAME:WaitFrames(30)
+  -- Le partenaire regarde le ciel qui se dégage
+  GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+  GAME:WaitFrames(8)
   UI:SetSpeakerEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_013']))
   -- "Regarde ! L'orage se dissipe..."
 
   GAME:WaitFrames(20)
+  -- Se tourne vers le héros, pensif
+  GROUND:CharTurnToCharAnimated(partner, hero, 4)
+  GAME:WaitFrames(6)
   UI:SetSpeakerEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_014']))
   -- "Cette voix...[pause=15] Elle a dit quelque chose à propos de ruines ancestrales."
 
   GAME:WaitFrames(20)
+  -- Le héros répond, déterminé
+  GROUND:CharTurnToCharAnimated(hero, partner, 4)
+  GAME:WaitFrames(6)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWG_015']), "Determined")
   -- "C'est là qu'on va. Vers les Ruines du Cloven."
 
@@ -428,12 +851,20 @@ local function DefeatedBossBody()
   -- phrase retourne l'evidence — un mur peut enfermer autant qu'il protege.
   -- C'est la graine que Diancie fera germer au chapitre 8.
   GAME:MoveCamera(224, 206, 40, false)
-  UI:SetSpeaker(aerodactyl)
+  -- L'équipe lève les yeux vers Tornadus
+  pcall(function()
+    GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+    GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+  end)
+  GAME:WaitFrames(8)
+  UI:SetSpeaker(tornadus)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_044']))
   -- "Alors c'est a vous, maintenant. J'en suis heureux. C'etait lourd."
   GAME:WaitFrames(18)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_045']))
   -- "Descendez. Dormez. Mangez. Personne ne resout une forme le ventre vide."
+  -- Le partenaire réagit, mi-amusé mi-touché
+  pcall(function() GROUND:CharSetEmote(partner, "sweatdrop", 1) end)
   GAME:WaitFrames(20)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_046']))
   -- "Et quand vous trouverez les angles — ne supposez pas qu'ils ont ete
@@ -441,16 +872,35 @@ local function DefeatedBossBody()
   GAME:WaitFrames(28)
 
   GAME:MoveCamera(224, 248, 40, false)
+  --REFONTE CINÉ 2026-07-30 : l'equipe se regarde, partage le moment.
+  pcall(function()
+    GROUND:CharTurnToCharAnimated(partner, hero, 4)
+    if t2 ~= nil then GROUND:CharTurnToCharAnimated(t2, t3, 4) end
+    if t3 ~= nil then GROUND:CharTurnToCharAnimated(t3, partner, 4) end
+  end)
+  GAME:WaitFrames(8)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_036']))
   -- "On est montes ici pour l'expedition. Je l'avais oublie."
   GAME:WaitFrames(15)
+  GROUND:CharTurnToCharAnimated(hero, partner, 4)
+  GAME:WaitFrames(6)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWG_037']), "Normal")
   -- "Moi aussi. Quelque part en route, c'est devenu autre chose."
   GAME:WaitFrames(20)
 
-  GAME:WaitFrames(20)
+  --REFONTE CINÉ 2026-07-30 : reactions de t2/t3 au moment de verite.
+  pcall(function()
+    if t2 ~= nil then GROUND:CharSetEmote(t2, "notice", 1) end
+    if t3 ~= nil then GROUND:CharSetEmote(t3, "happy", 1) end
+  end)
+  GAME:WaitFrames(10)
+
+  -- Le partenaire se redresse, galvanisé
+  GAME:WaitFrames(10)
+  pcall(function() GROUND:CharSetEmote(partner, "glowing", 1) end)
+  GAME:WaitFrames(6)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_016']))
@@ -459,7 +909,7 @@ local function DefeatedBossBody()
   GAME:WaitFrames(30)
   SOUND:FadeOutBGM(60)
 
-  -- Aerodactyl disappears in a whirlwind
+  -- Tornadus disappears in a whirlwind
   local whirlwind = RogueEssence.Content.FlashEmitter()
   whirlwind.FadeInTime = 2
   whirlwind.HoldTime = 2
@@ -467,10 +917,10 @@ local function DefeatedBossBody()
   whirlwind.StartColor = Color(255, 255, 255, 0)
   whirlwind.Layer = DrawLayer.Top
   whirlwind.Anim = RogueEssence.Content.BGAnimData("White", 0)
-  GROUND:PlayVFX(whirlwind, aerodactyl.Position.X, aerodactyl.Position.Y)
+  GROUND:PlayVFX(whirlwind, tornadus.Position.X, tornadus.Position.Y)
   SOUND:PlayBattleSE("EVT_Battle_Flash")
   GAME:WaitFrames(16)
-  GROUND:Hide('Aerodactyl')
+  GROUND:Hide('Tornadus')
   GAME:WaitFrames(30)
 
   GAME:FadeOut(false, 60)
@@ -523,10 +973,10 @@ function mount_windswept_guardian_ch_5.DiedToBoss()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
-  local aerodactyl = CharacterEssentials.MakeCharactersFromList({
-    {'Aerodactyl', 224, 192, Direction.Down}
+  local tornadus = CharacterEssentials.MakeCharactersFromList({
+    {'Tornadus', 224, 192, Direction.Down}
   })
-  GROUND:CharSetAnim(aerodactyl, "Idle", true)
+  GROUND:CharSetAnim(tornadus, "Idle", true)
 
   -- L'équipe est au sol, vaincue.
   GROUND:TeleportTo(hero, 240, 272, Direction.Up)
@@ -547,7 +997,7 @@ function mount_windswept_guardian_ch_5.DiedToBoss()
   GAME:WaitFrames(10)
 
   -- Le boss triomphe.
-  GROUND:CharSetAnim(aerodactyl, "Charge", true)
+  GROUND:CharSetAnim(tornadus, "Charge", true)
   UI:ResetSpeaker()
   UI:SetCenter(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_021']))

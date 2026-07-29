@@ -1,7 +1,7 @@
 # Refonte de la cinématique du rêve de Gardevoir + Ground onirique
 
 Brief de tâche fourni par l'utilisateur le 2026-07-29. Complémentaire au fichier de
-méthode général (`prompt_mise_en_scene_optimise.md` = Annexe A de
+méthode général (`PROMPT_MAITRE.md` = Annexe A de
 `docs/PASSATION_AGENT_ARENA.md`). Toutes les règles générales de ce fichier — mise en
 scène, positionnement, orientation, caméra, déplacements, audit final, transitions —
 s'appliquent intégralement à cette scène sans exception. Ce brief ne couvre que ce qui est

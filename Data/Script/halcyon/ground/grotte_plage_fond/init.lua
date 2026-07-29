@@ -16,4 +16,15 @@ end
 function grotte_plage_fond.Update(map, time)
 end
 
+-- PNJ d'ambiance (corrigé audit 2026-07-29 : objets muets)
+function grotte_plage_fond.Koffing_Action(chara, activator)
+  GeneralFunctions.StartConversation(chara, "...", "Normal")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function grotte_plage_fond.Zubat_Action(chara, activator)
+  GeneralFunctions.StartConversation(chara, "...", "Normal")
+  GeneralFunctions.EndConversation(chara)
+end
+
 return grotte_plage_fond

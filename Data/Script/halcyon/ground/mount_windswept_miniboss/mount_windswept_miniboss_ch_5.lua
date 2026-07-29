@@ -122,11 +122,16 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   -- boss apparaissaient puis la Voix commentait apres coup.
   -- LOT 8.3 — l'altitude, la tactique des sentinelles, la question sans reponse.
   GAME:MoveCamera(224, 250, 40, false)
+  -- Le partenaire souffle, tourne vers le héros
+  GROUND:CharTurnToCharAnimated(partner, hero, 4)
+  GAME:WaitFrames(6)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Pain")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_029']))
   -- "L'air est rare ici."
   GAME:WaitFrames(15)
+  GROUND:CharTurnToCharAnimated(hero, partner, 4)
+  GAME:WaitFrames(6)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWM_030']), "Normal")
   -- "Un sur la roche, un dans le ciel. Ils ont deja fait ca."
   GAME:WaitFrames(20)
@@ -395,12 +400,26 @@ local function DefeatedBossBody()
   GAME:MoveCamera(224, 232, 1, false)
 
   GAME:CutsceneMode(true)
+  --REFONTE CINÉ 2026-07-30 : stabilisation avant FadeIn.
+  pcall(function()
+    GROUND:CharSetAnim(hero, "Idle", true)
+    GROUND:CharSetAnim(partner, "Idle", true)
+    if t2 ~= nil then GROUND:CharSetAnim(t2, "Idle", true) end
+    if t3 ~= nil then GROUND:CharSetAnim(t3, "Idle", true) end
+  end)
   GAME:WaitFrames(60)
-  GAME:FadeIn(40)
+  GAME:FadeIn(60)
 
   SOUND:PlayBGM('Mt. Travail.ogg', false)
 
   GAME:WaitFrames(30)
+  --REFONTE CINÉ 2026-07-30 : celebration en cascade.
+  pcall(function() GROUND:CharSetEmote(partner, "happy", 2) end)
+  GAME:WaitFrames(6)
+  pcall(function()
+    if t2 ~= nil then GROUND:CharSetEmote(t2, "happy", 1) end
+    if t3 ~= nil then GROUND:CharSetEmote(t3, "notice", 1) end
+  end)
   UI:SetSpeaker(partner)
   GeneralFunctions.Hop(partner)
   UI:SetSpeakerEmotion("Inspired")
@@ -408,11 +427,16 @@ local function DefeatedBossBody()
   -- "On a eu le dessus ! Ces deux-là ne nous arrêteront plus."
 
   GAME:WaitFrames(20)
+  -- Le partenaire se tourne vers le héros, pensif
+  GROUND:CharTurnToCharAnimated(partner, hero, 4)
+  GAME:WaitFrames(6)
   UI:SetSpeakerEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_013']))
   -- "Cette voix...[pause=15] Elle nous a donné un indice, tu crois ?"
 
   GAME:WaitFrames(20)
+  GROUND:CharTurnToCharAnimated(hero, partner, 4)
+  GAME:WaitFrames(6)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWM_014']), "Worried")
   -- "Peut-être. Ou peut-être qu'elle veut juste nous voir réussir."
 
@@ -445,13 +469,29 @@ local function DefeatedBossBody()
   -- "Ecris cette derniere partie deux fois. C'est celle qui compte."
   GAME:WaitFrames(25)
 
+  --REFONTE CINÉ 2026-07-30 : toute l'equipe regarde les sentinelles.
   GAME:MoveCamera(224, 246, 40, false)
+  pcall(function()
+    GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+    GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+    if t2 ~= nil then GROUND:CharAnimateTurnTo(t2, Direction.Up, 4) end
+    if t3 ~= nil then GROUND:CharAnimateTurnTo(t3, Direction.Up, 4) end
+  end)
+  GAME:WaitFrames(8)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWM_037']), "Normal")
   -- "Ils auraient pu continuer. Ils ont choisi que non."
+  --Reaction de t3 (Shuca) — emue par le choix des sentinelles
+  pcall(function()
+    if t3 ~= nil then GROUND:CharSetEmote(t3, "notice", 1) end
+  end)
   GAME:WaitFrames(20)
 
   -- LOT 4 — on nomme l'enjeu du sommet, juste avant le gardien final.
   GAME:WaitFrames(20)
+  -- Le partenaire se tourne vers le héros, déterminé
+  GROUND:CharTurnToCharAnimated(partner, hero, 4)
+  GAME:WaitFrames(6)
+  pcall(function() GROUND:CharSetEmote(partner, "glowing", 1) end)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_028']))

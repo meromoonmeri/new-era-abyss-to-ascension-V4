@@ -78,11 +78,20 @@ function gloomy_forest_boss_ch_6.FirstBossScene()
 	BossFX.Particle("Grass_Whistle", 276, 240, 4)
 	GAME:WaitFrames(20)
 
-	-- === LA VOIX DE L'ABYSSE PARLE AVANT TOUTE APPARITION ===
-	BossFX.Voice('GF6B_012')
-	GAME:WaitFrames(20)
-	BossFX.Voice('GF6B_013')
-	GAME:WaitFrames(24)
+	-- === ZARUDE SE MANIFESTE PAR L'ENVIRONNEMENT (Voix retiree, directive
+	-- boss_justification_narrative.md : la Voix est rare, Zarude n'a pas
+	-- besoin d'un commentaire exterieur — les lianes, le sol et l'ombre
+	-- suffisent a installer sa presence) ===
+	-- Le partenaire reagit a ce que la foret lui dit
+	GeneralFunctions.EmoteAndPause(partner, "Shock", true)
+	GAME:WaitFrames(12)
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6B_012']))
+	GAME:WaitFrames(16)
+	-- Deuxieme secousse — le heros se met en garde
+	GeneralFunctions.EmoteAndPause(hero, "Exclaim", false)
+	GAME:WaitFrames(12)
 
 	-- === FLASH BLANC ===
 	BossFX.Flash(276, 220)

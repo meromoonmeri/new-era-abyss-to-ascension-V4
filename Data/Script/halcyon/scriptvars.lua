@@ -939,6 +939,12 @@ SV.TownRaid =
 	Told = {}            --reactions de la ville deja vues
 }
 
+--ECRANS D'OUVERTURE DE CHAPITRE (ChapterTitles).
+--Chaque chapitre a un ecran titre avec fond + filtre + titre FR.
+--Cette table trace quels chapitres ont deja montre leur ecran titre
+--pour eviter les repetitions.
+SV.ChapterTitles = {}  --['chN'] = true si l'ecran du chapitre N a ete vu
+
 --LE TOUR DE GUET (NightWatch).
 --La guilde inscrit les equipes au registre des veilles : c'est la raison
 --narrative pour laquelle le heros est dehors la nuit.
@@ -1078,7 +1084,9 @@ SV.Chapter7 =
 	HadFirstDream = false,--Premier reve de Necrozma
 	RuinsAddressGiven = false,--Adresse du matin Ch7 donnee
 	MissionAccepted = false,--Mission Ruines Tordues acceptee
-	RuinsMidpointState = 'FirstArrival'
+	RuinsMidpointState = 'FirstArrival',
+	ClovenEntrancePlayed = false,--Cinematique d'arrivee aux ruines jouee
+	ClovenRuinsComplete = false   --Ruines terminees (boss vaincu + Cœur purifie)
 }
 
 SV.Chapter8 = 
@@ -1191,6 +1199,43 @@ SV.Chapter10 =
 	CelestialPeakComplete = false
 }
 
+--EXAMEN D'EXPLORATEUR — Quete annexe (metano_cafe_explorer_exam.lua)
+--Condition : Rang Argent (silver), apres chapitre 5.
+--3 epreuves : endurance, intelligence, coeur.
+SV.ExplorerExam =
+{
+	ExamStarted = false,          --introduction au cafe jouee
+	Trial1Complete = false,       --epreuve endurance reussie
+	BridgeCrossed = false,        --choix du pont (epreuve 1)
+	DashThrough = false,          --course a travers les pieges (epreuve 1)
+	PartnerHurt = false,          --partenaire a pris un piege pour le heros (epreuve 1)
+	TrustedPartner = false,       --confiance totale dans le partenaire (epreuve 1)
+	TrustedSelf = false,          --choix de l'inconnu (epreuve 1)
+	Trial2Complete = false,       --epreuve intelligence reussie
+	Trial3Complete = false,       --epreuve coeur reussie
+	ThirdPath = false,            --troisieme voie trouvee (epreuve 3)
+	SavedBoth = false,            --artefact + Pokemon sauves (epreuve 3)
+	SavedPokemon = false,         --Pokemon sauve, artefact perdu (epreuve 3)
+	TookArtifact = false,         --artefact pris, Pokemon perdu (epreuve 3)
+	ExamComplete = false,         --examen entier reussi
+	GouffreEchosUnlocked = false  --donjon Gouffre des Echos debloque
+}
+
+--CONSTRUCTION DE LA BASE — Quete annexe (metano_town_base_construction.lua)
+--Adaptation du Bois Brouhaha (Uproar Forest) de PMD Rescue Team.
+--Condition : DefeatedRuinsBoss + 10 missions accomplies.
+SV.BaseConstruction =
+{
+	Announced = false,            --Penticus a annonce le terrain
+	Recruited = false,            --Qulbutoke/Okeoke rencontres au cafe
+	CaterpieJoined = false,       --Chenipan rejoint l'equipe
+	BossFought = false,           --Combat Papilusion/Chenipan/Boustiflor
+	BuiltPhase1 = false,          --Construction phase 1 terminee
+	StrikeResolved = false,       --Greve de Boustiflor resolue
+	Complete = false,             --Base entierement construite
+	BaseUnlocked = false          --Base accessible comme ground
+}
+
 
 
 
@@ -1267,9 +1312,132 @@ SV.final_stop =
 SV.guildmaster_summit = 
 {
   ExpositionComplete  = false,
-  BattleComplete = false
+  BattleComplete = false,
+  GameComplete = false --lu par les scripts importes megastones/source_duns_imbi
 }
 
 
 ----------------------------------------------
 print('Script variables default values loaded! [build 2026-08-02-I]')
+
+----------------------------------------------
+-- AUDIT 2026-07-29 : champs SV manquants
+-- Ajoutés pour éliminer les nil silencieux
+----------------------------------------------
+
+-- Reseau des Anciens Chemins
+if SV.Reseau then
+  if SV.Reseau.Adieux == nil then SV.Reseau.Adieux = false end
+  if SV.Reseau.StationIntros == nil then SV.Reseau.StationIntros = {} end
+  if SV.Reseau.Veilleurs == nil then SV.Reseau.Veilleurs = {} end
+  if SV.Reseau.VoiesOuvertes == nil then SV.Reseau.VoiesOuvertes = {} end
+end
+
+-- LegendZones (Grodoudou)
+if SV.LegendZones then
+  if SV.LegendZones.ArrivalScenePlayed == nil then SV.LegendZones.ArrivalScenePlayed = {} end
+  if SV.LegendZones.Defeated == nil then SV.LegendZones.Defeated = {} end
+  if SV.LegendZones.MetMerchant == nil then SV.LegendZones.MetMerchant = {} end
+end
+
+-- TownNight (garde-fou pour sauvegardes anciennes)
+if SV.TownNight then
+  if SV.TownNight.SawStars == nil then SV.TownNight.SawStars = false end
+  if SV.TownNight.Seen == nil then SV.TownNight.Seen = {} end
+  if SV.TownNight.VoiceHeard == nil then SV.TownNight.VoiceHeard = {} end
+end
+
+-- Anchors
+if SV.Anchors then
+  if SV.Anchors.Adieux == nil then SV.Anchors.Adieux = false end
+  if SV.Anchors.Stabilized == nil then SV.Anchors.Stabilized = {} end
+end
+
+-- Chapter3 — relais
+if SV.Chapter3 then
+  if SV.Chapter3.CrookedMidpointState == nil then SV.Chapter3.CrookedMidpointState = 'FirstArrival' end
+  if SV.Chapter3.CrookedPlayedMidpointIntro == nil then SV.Chapter3.CrookedPlayedMidpointIntro = false end
+end
+
+-- DailyFlags
+if SV.DailyFlags then
+  if SV.DailyFlags.PurpleKecleonRefreshedStock == nil then SV.DailyFlags.PurpleKecleonRefreshedStock = false end
+  if SV.DailyFlags.PurpleKecleonStock == nil then SV.DailyFlags.PurpleKecleonStock = {} end
+end
+
+-- TownReward
+if SV.TownReward then
+  if SV.TownReward.LastMoney == nil then SV.TownReward.LastMoney = 0 end
+  if SV.TownReward.Total == nil then SV.TownReward.Total = 0 end
+end
+
+-- Chapter10 midpoint
+if SV.Chapter10 then
+  if SV.Chapter10.PeakMidState == nil then SV.Chapter10.PeakMidState = nil end
+end
+
+-- Chapter5 tunnel fix
+if SV.Chapter5 then
+  if SV.Chapter5.TunnelSegmentsShiftedFix == nil then SV.Chapter5.TunnelSegmentsShiftedFix = false end
+end
+
+-- Chapter7 midpoint
+if SV.Chapter7 then
+  if SV.Chapter7.RuinsMidState == nil then SV.Chapter7.RuinsMidState = nil end
+end
+
+-- Chapter8 midpoint
+if SV.Chapter8 then
+  if SV.Chapter8.SanctuaryMidState == nil then SV.Chapter8.SanctuaryMidState = nil end
+end
+
+-- Chapter9 midpoint
+if SV.Chapter9 then
+  if SV.Chapter9.MarshMidState == nil then SV.Chapter9.MarshMidState = nil end
+end
+
+-- Seasons
+if SV.Seasons == nil then SV.Seasons = {} end
+if SV.Seasons.Actif == nil then SV.Seasons.Actif = false end
+
+-- TownPlunder
+if SV.TownPlunder then
+  if SV.TownPlunder.TotalRaids == nil then SV.TownPlunder.TotalRaids = 0 end
+end
+
+--HERO DREAMS — Rêves récurrents du héros (HeroDreams.lua)
+--20 rêves planifiés ch1-32, Gardevoir progressive.
+SV.HeroDreams =
+{
+  DreamsSeen = {},         --[dream_id] = true
+  GardevoirPhase = 0,      --0=aucun, 1-6=phases de révélation
+  TotalDreams = 0,         --compteur de rêves vus
+  LastDreamChapter = 0     --chapitre du dernier rêve joué
+}
+
+--FUGITIVE ARC — Arc de fuite (ch14-18)
+SV.FugitiveArc =
+{
+  Started = false,         --l'arc a commencé
+  Fleeing = false,         --le duo est en fuite
+  Exonerated = false,      --la vérité est révélée
+  Returned = false         --retour à Metano
+}
+
+--FRIEND AREAS — Zones Amis de Rondoudou
+SV.FriendAreas =
+{
+  Unlocked = {},           --[zone_key] = true
+  Visited = {},            --[zone_key] = true
+  Residents = {},          --[zone_key] = {species1, species2, ...}
+  TotalPurchased = 0
+}
+
+--TORNADUS BATTLE — Phases de combat contre Boréas (TornadusBattle.lua)
+SV.TornadusBattle =
+{
+  Phase1Done = false,   --75% PV : vent léger
+  Phase2Done = false,   --50% PV : vent fort
+  Phase3Done = false,   --25% PV : tempête + repousse
+  Phase4Done = false    --10% PV : ouragan final
+}

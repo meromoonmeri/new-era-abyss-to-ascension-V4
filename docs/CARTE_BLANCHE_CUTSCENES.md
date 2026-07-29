@@ -8,7 +8,7 @@ Document directeur fourni par l'utilisateur le 2026-07-29. Source de vérité pe
 Carte blanche sur la façon d'exécuter une cutscene ou sa refonte : choix précis de mise en
 scène, de rythme, de découpage, d'effets, de composition. Cette liberté porte sur le
 **comment**. Elle ne porte jamais sur le **si** — les contraintes ci-dessous et celles du
-fichier de méthode général (`prompt_mise_en_scene_optimise.md`) sont non négociables et
+fichier de méthode général (`PROMPT_MAITRE.md`) sont non négociables et
 s'appliquent à toute cutscene, actuelle ou future, sans exception.
 
 Ne jamais considérer une contrainte comme un frein à la créativité. Elle définit le terrain
@@ -57,7 +57,7 @@ Elle doit être reconstruite entièrement, pas patchée point par point.
   (conservé dans `docs/BRIEF_REVE_GARDEVOIR.md`).
 - Contraintes de mise en scène non négociables sur cette refonte : ce document.
 - Règles générales de mise en scène, audit et transitions applicables à toute cutscene :
-  `prompt_mise_en_scene_optimise.md` (directive méthode = Annexe A de
+  `PROMPT_MAITRE.md` (directive méthode = Annexe A de
   `docs/PASSATION_AGENT_ARENA.md`).
 
 ## Portée future

@@ -849,6 +849,23 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
+		--REFONTE 2026-07-30 : Heatran (boss Le Creuset) et Tornadus (boss Sommet des Mille Vents)
+		Heatran = {
+			species = "heatran",
+			nickname = 'Heatran',
+			instance = 'Heatran',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Tornadus = {
+			species = "tornadus",
+			nickname = 'Boréas',
+			instance = 'Tornadus',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
 		Shaymin = {
 			species = "shaymin",
 			nickname = 'Shaymin',

@@ -152,7 +152,7 @@
     <value>It makes my blood boil with rage![pause=0] That tears it!</value>
   </data>
   <data name="SC5_032" xml:space="preserve">
-    <value>I am {0}![pause=0] Chieftain of the {1} clan!</value>
+    <value>I am {0}![pause=0] Master of these depths![pause=10] None disturb my domain with impunity!</value>
   </data>
   <data name="SC5_033" xml:space="preserve">
     <value>No mercy for those who defile our home![pause=0] Prepare yourselves,[pause=10] outlanders!</value>
@@ -179,7 +179,7 @@
     <value>Outlanders...[pause=0] Your strength...[pause=0] We are outmatched.</value>
   </data>
   <data name="SC5_041" xml:space="preserve">
-    <value>You have bested our clan.[pause=0] Do what you will with us.</value>
+    <value>You have bested me.[pause=0] Do what you will with me.</value>
   </data>
   <data name="SC5_042" xml:space="preserve">
     <value>What are you talking about?[pause=0] We don't want to hurt you!</value>
@@ -194,10 +194,10 @@
     <value>Outlanders...[pause=0] I do not know what to say.</value>
   </data>
   <data name="SC5_046" xml:space="preserve">
-    <value>Your forgiveness...[pause=0] it speaks volumes.[pause=0] I see now that you never harbored any ill will towards my clan.</value>
+    <value>Your forgiveness...[pause=0] it speaks volumes.[pause=0] I see now that you never harbored any ill will towards these depths.</value>
   </data>
   <data name="SC5_047" xml:space="preserve">
-    <value>We were wrong to attack you.[pause=0] On behalf of my clan,[pause=10] I offer my sincerest apologies.</value>
+    <value>I was wrong to attack you.[pause=0] On behalf of these depths,[pause=10] I offer my sincerest apologies.</value>
   </data>
   <data name="SC5_048" xml:space="preserve">
     <value>It's alright,[pause=10] we're all squared away now right?</value>
@@ -206,7 +206,7 @@
     <value>But I have to ask...[pause=0] Why did you attack us in the first place?[pause=0] Did we do something wrong?</value>
   </data>
   <data name="SC5_050" xml:space="preserve">
-    <value>...Our clan has suffered great tragedy at the hands of outlanders in days gone past.</value>
+    <value>...These depths have suffered great tragedy at the hands of outlanders in days gone past.</value>
   </data>
   <data name="SC5_051" xml:space="preserve">
     <value>Between the horrible fluctuations in the lava flow and all the other outlanders passing through here today...</value>
@@ -239,7 +239,7 @@
     <value>When the lava flow erupted as you outlanders passed through...[pause=0] I figured you were the culprits.</value>
   </data>
   <data name="SC5_061" xml:space="preserve">
-    <value>But given your mercy towards our clan,[pause=10] it is clear you are not to blame for this.[pause=0] It was merely a coincidence.</value>
+    <value>But given your mercy towards my charges,[pause=10] it is clear you are not to blame for this.[pause=0] It was merely a coincidence.</value>
   </data>
   <data name="SC5_062" xml:space="preserve">
     <value>So that's why you attacked us...</value>
@@ -248,10 +248,10 @@
     <value>But how could we have possibly caused the lava flow to change?[pause=0] We don't have that sort of power!</value>
   </data>
   <data name="SC5_064" xml:space="preserve">
-    <value>In hindsight...[pause=0] We did act rather rashly.</value>
+    <value>In hindsight...[pause=0] I did act rather rashly.</value>
   </data>
   <data name="SC5_065" xml:space="preserve">
-    <value>But please understand that our behavior was guided by agitation and mistrust rather than logic.</value>
+    <value>But please understand that my behavior was guided by agitation and mistrust rather than logic.</value>
   </data>
   <data name="SC5_066" xml:space="preserve">
     <value>All we can do now is allow you safe passage through the remainder of the cavern.</value>

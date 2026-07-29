@@ -5,6 +5,7 @@ require 'halcyon.CharacterEssentials'
 require 'halcyon.SideQuests'
 require 'halcyon.TownVoices'
 require 'halcyon.TownVoicesNight'
+require 'halcyon.TownPositions'
 
 metano_town_ch_6 = {}
 

@@ -40,21 +40,35 @@ function gloomy_forest_entrance_ch_6.ArrivalCutscene()
 	end)
 	TASK:JoinCoroutines({coro1, coro2})
 
+	-- Le duo se tourne vers Papilusion qui les interpelle
+	GROUND:CharAnimateTurnTo(hero, Direction.UpLeft, 4)
+	GROUND:CharAnimateTurnTo(partner, Direction.UpLeft, 4)
+	GAME:WaitFrames(8)
+
 	UI:SetSpeaker(butterfree)
 	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6E_001']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6E_002']))
 	GAME:WaitFrames(16)
 
+	-- Le partenaire répond, déterminé
+	GROUND:CharTurnToCharAnimated(partner, butterfree, 4)
+	GAME:WaitFrames(4)
 	UI:SetSpeaker(partner)
 	UI:SetSpeakerEmotion("Determined")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6E_003']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6E_004']))
 
+	-- Le héros regarde le partenaire puis Papilusion
+	GROUND:CharTurnToCharAnimated(hero, partner, 4)
+	GAME:WaitFrames(4)
 	UI:SetSpeaker(hero)
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6E_005']))
 
+	-- Papilusion réagit
+	GROUND:CharTurnToCharAnimated(butterfree, hero, 4)
+	GAME:WaitFrames(4)
 	UI:SetSpeaker(butterfree)
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6E_006']))
@@ -73,12 +87,19 @@ function gloomy_forest_entrance_ch_6.ArrivalCutscene()
 	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6E_010']))
 	GROUND:CharAnimateTurnTo(partner, Direction.UpRight, 4)
+	GROUND:CharAnimateTurnTo(hero, Direction.UpRight, 4)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6E_011']))
 
+	-- Le héros se tourne vers le partenaire, résolu
+	GROUND:CharTurnToCharAnimated(hero, partner, 4)
+	GAME:WaitFrames(4)
 	UI:SetSpeaker(hero)
 	UI:SetSpeakerEmotion("Determined")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6E_012']))
 
+	-- Papilusion les regarde
+	GROUND:CharTurnToCharAnimated(butterfree, hero, 4)
+	GAME:WaitFrames(4)
 	UI:SetSpeaker(butterfree)
 	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6E_013']))

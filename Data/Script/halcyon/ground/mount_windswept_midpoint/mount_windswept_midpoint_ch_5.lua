@@ -54,23 +54,33 @@ function mount_windswept_midpoint_ch_5.FirstArrival()
   TASK:JoinCoroutines({coro1, coro2})
 
   GAME:WaitFrames(20)
+  -- Le partenaire observe les alentours
+  pcall(function() GROUND:CharSetEmote(partner, "notice", 1) end)
+  GAME:WaitFrames(8)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Normal")
   UI:WaitShowDialogue("On a passé la première moitié de la montagne.[pause=0] Ce canyon nous protège du vent,[pause=10] pour l'instant.")
   UI:WaitShowDialogue("Un camp entier,[pause=10] taillé dans la roche...[pause=0] Les équipes qui ont balisé cette route ne plaisantaient pas.")
 
   GAME:WaitFrames(15)
+  -- Le partenaire se tourne vers le héros, plus grave
+  GROUND:CharTurnToCharAnimated(partner, hero, 4)
+  GAME:WaitFrames(6)
   UI:SetSpeakerEmotion("Worried")
   UI:WaitShowDialogue("Le vent devient plus fort à chaque palier...[pause=0] et cette voix ne nous a pas quittés depuis la steppe.")
   UI:WaitShowDialogue("Là-haut,[pause=10] au sommet...[pause=0] j'ai l'impression que quelque chose nous attend.[pause=0] Je ne sais pas si c'est bon ou mauvais signe.")
 
   GAME:WaitFrames(20)
+  -- Le héros se tourne vers le partenaire
+  GROUND:CharTurnToCharAnimated(hero, partner, 4)
+  GAME:WaitFrames(6)
   GeneralFunctions.HeroDialogue(hero, "(Le sommet est encore loin.[pause=0] Une pause ne fera pas de mal.)", "Normal")
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Normal")
   UI:WaitShowDialogue("Prenons un peu de repos près des feux.[pause=0] On repart quand on est prêts.")
+  pcall(function() GROUND:CharSetEmote(partner, "happy", 2) end)
   UI:WaitShowDialogue("Et...[pause=10] couvre-toi.[pause=0] Ce n'est pas le moment d'attraper froid,[pause=10] pas si près du but.")
 
   GAME:WaitFrames(40)
@@ -279,6 +289,12 @@ function mount_windswept_midpoint_ch_5.FallenFragmentScene()
   UI:SetSpeakerEmotion("Dizzy")
   UI:WaitShowDialogue("Ouille ouille ouille...[pause=0] Le grand plongeon...[pause=10] encore raté...")
 
+  -- Le partenaire s'approche du fragment et se tourne vers lui
+  GROUND:CharTurnToCharAnimated(partner, fragment, 4)
+  GROUND:CharTurnToCharAnimated(hero, fragment, 4)
+  GAME:WaitFrames(8)
+  pcall(function() GROUND:CharSetEmote(partner, "exclaim", 1) end)
+
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Surprised")
   UI:WaitShowDialogue("Un Météno ?![pause=0] Tombé...[pause=10] du ciel ?![pause=0] Hé,[pause=10] tu vas bien ?!")
@@ -288,6 +304,9 @@ function mount_windswept_midpoint_ch_5.FallenFragmentScene()
   UI:WaitShowDialogue("Bien ?[pause=0] Oh,[pause=10] oui,[pause=10] oui.[pause=0] Enfin,[pause=10] non.[pause=0] Enfin...[pause=10] physiquement,[pause=10] oui.[pause=0] On est faits pour tomber,[pause=10] nous autres.")
   UI:WaitShowDialogue("Mais là-haut...[pause=0] quelque chose ne va pas,[pause=10] là-haut.")
 
+  -- Le héros réagit
+  pcall(function() GROUND:CharSetEmote(hero, "question", 1) end)
+  GAME:WaitFrames(6)
   GeneralFunctions.HeroDialogue(hero, "(Là-haut ?[pause=0] Il parle du ciel...[pause=10] ou du sommet ?)", "Worried")
 
   UI:SetSpeaker(fragment)
@@ -295,13 +314,20 @@ function mount_windswept_midpoint_ch_5.FallenFragmentScene()
   UI:WaitShowDialogue("On était tout un banc,[pause=10] à danser au-dessus des nuages.[pause=0] Et puis la lumière du sommet s'est mise à...[pause=10] trembler.")
   UI:WaitShowDialogue("Pas comme une lumière qui s'éteint.[pause=0] Comme une lumière qui a PEUR.[pause=0] Mes amis se sont dispersés.[pause=10] Moi,[pause=10] je suis tombé.")
 
+  -- Le partenaire, grave, se tourne vers le héros
+  GROUND:CharTurnToCharAnimated(partner, hero, 4)
+  GAME:WaitFrames(6)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Worried")
   UI:WaitShowDialogue("La lumière du sommet...[pause=0] C'est là qu'on va,[pause=10] justement.")
 
+  -- Le fragment se tourne vers eux, surpris
+  GROUND:CharTurnToCharAnimated(fragment, partner, 4)
+  GAME:WaitFrames(4)
   UI:SetSpeaker(fragment)
   UI:SetSpeakerEmotion("Surprised")
   UI:WaitShowDialogue("Vous MONTEZ ?[pause=0] Alors que tout ce qui a des ailes redescend ?")
+  pcall(function() GROUND:CharSetEmote(partner, "sweatdrop", 1) end)
   GAME:WaitFrames(15)
   UI:SetSpeakerEmotion("Normal")
   UI:WaitShowDialogue("...Vous êtes bizarres.[pause=0] J'aime bien les bizarres.")
@@ -310,6 +336,9 @@ function mount_windswept_midpoint_ch_5.FallenFragmentScene()
 
   GAME:WaitFrames(30)
 
+  -- Le partenaire se redresse, déterminé
+  GROUND:CharTurnToCharAnimated(partner, fragment, 4)
+  GAME:WaitFrames(6)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Determined")
   UI:WaitShowDialogue("Raison de plus pour monter.[pause=0] Si quelque chose effraie même le ciel,[pause=10] la guilde doit savoir quoi.")
@@ -318,6 +347,7 @@ function mount_windswept_midpoint_ch_5.FallenFragmentScene()
   UI:SetSpeakerEmotion("Happy")
   UI:WaitShowDialogue("Alors bonne chance,[pause=10] les bizarres.[pause=0] Moi je vais rester par ici le temps de retrouver mon banc.")
   UI:WaitShowDialogue("Et si vous voyez mes amis là-haut...[pause=0] dites-leur que le Grand Plongeon,[pause=10] c'était pas ma faute cette fois.")
+  pcall(function() GROUND:CharSetEmote(partner, "happy", 2) end)
 
   -- Le Fragment roule derriere les rochers
   GROUND:MoveToPosition(fragment, 990, 340, false, 2)
@@ -378,17 +408,48 @@ function mount_windswept_midpoint_ch_5.SummitVigilScene()
   GAME:FadeIn(60)
   GAME:WaitFrames(50)
 
+  -- Le partenaire ouvre : tous se tournent vers lui
+  local c1 = TASK:BranchCoroutine(function()
+    GROUND:CharTurnToCharAnimated(ganlon, partner, 4)
+  end)
+  local c2 = TASK:BranchCoroutine(function()
+    GROUND:CharTurnToCharAnimated(shuca, partner, 4)
+  end)
+  TASK:JoinCoroutines({c1, c2})
+  GAME:WaitFrames(10)
+
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Normal")
   UI:WaitShowDialogue("Demain,[pause=10] le sommet.[pause=0] La fin de l'expédition.[pause=0] Quoi qu'il y ait là-haut.")
 
   GAME:WaitFrames(20)
 
+  -- Shuca prend la parole — les autres se tournent vers elle
+  local c3 = TASK:BranchCoroutine(function()
+    GROUND:CharTurnToCharAnimated(hero, shuca, 4)
+  end)
+  local c4 = TASK:BranchCoroutine(function()
+    GROUND:CharTurnToCharAnimated(partner, shuca, 4)
+  end)
+  local c5 = TASK:BranchCoroutine(function()
+    GROUND:CharTurnToCharAnimated(ganlon, shuca, 4)
+  end)
+  TASK:JoinCoroutines({c3, c4, c5})
+  GAME:WaitFrames(8)
+
   UI:SetSpeaker(shuca)
   UI:SetSpeakerEmotion("Normal")
   UI:WaitShowDialogue("Vous savez pourquoi je suis venue,[pause=10] moi ?[pause=0] Pour voir si je tenais la route.[pause=0] Ma première vraie expédition.")
+  GROUND:CharSetEmote(shuca, "happy", 2)
   UI:SetSpeakerEmotion("Happy")
   UI:WaitShowDialogue("Et demain je serai au sommet.[pause=0] Moi.[pause=0] Il faudra bien que quelqu'un me pince.")
+  -- Ganlon réagit avec un sourire discret
+  pcall(function() GROUND:CharSetEmote(ganlon, "happy", 2) end)
+  GAME:WaitFrames(12)
+
+  -- Ganlon prend la parole — Shuca se tourne vers lui
+  GROUND:CharTurnToCharAnimated(shuca, ganlon, 4)
+  GAME:WaitFrames(6)
 
   UI:SetSpeaker(ganlon)
   UI:SetSpeakerEmotion("Normal")
@@ -396,29 +457,81 @@ function mount_windswept_midpoint_ch_5.SummitVigilScene()
   GAME:WaitFrames(15)
   UI:SetSpeakerEmotion("Worried")
   UI:WaitShowDialogue("...Non.[pause=0] Pas toute l'histoire.[pause=0] Je voulais voir si Shuca tiendrait.[pause=0] Elle tient.[pause=0] Mieux que moi à son âge.")
+  -- Shuca touchée
+  pcall(function() GROUND:CharSetEmote(shuca, "notice", 1) end)
+  GAME:WaitFrames(10)
 
   GAME:WaitFrames(30)
+
+  -- Le partenaire reprend, inquiet — tous se tournent vers lui
+  local c6 = TASK:BranchCoroutine(function()
+    GROUND:CharTurnToCharAnimated(hero, partner, 4)
+  end)
+  local c7 = TASK:BranchCoroutine(function()
+    GROUND:CharTurnToCharAnimated(shuca, partner, 4)
+  end)
+  local c8 = TASK:BranchCoroutine(function()
+    GROUND:CharTurnToCharAnimated(ganlon, partner, 4)
+  end)
+  TASK:JoinCoroutines({c6, c7, c8})
+  GAME:WaitFrames(8)
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Worried")
   UI:WaitShowDialogue("Et si on n'est pas à la hauteur,[pause=10] là-haut ?[pause=0] Le gardien,[pause=10] on l'a battu à quatre.[pause=0] Mais cette lumière...[pause=0] même le Météno en parlait comme d'une chose qui dépasse le ciel.")
 
+  -- Silence — tous se tournent vers le héros qui va parler
+  GAME:WaitFrames(15)
+  local c9 = TASK:BranchCoroutine(function()
+    GROUND:CharTurnToCharAnimated(partner, hero, 4)
+  end)
+  local c10 = TASK:BranchCoroutine(function()
+    GROUND:CharTurnToCharAnimated(shuca, hero, 4)
+  end)
+  local c11 = TASK:BranchCoroutine(function()
+    GROUND:CharTurnToCharAnimated(ganlon, hero, 4)
+  end)
+  TASK:JoinCoroutines({c9, c10, c11})
+  GAME:WaitFrames(10)
+
   GeneralFunctions.HeroDialogue(hero, "(Elle avait peur.[pause=0] La lumière avait peur.[pause=0] Alors peut-être qu'elle n'attend pas des Pokémon plus forts...[pause=10] peut-être qu'elle attend juste quelqu'un qui monte quand tout redescend.)", "Normal")
 
   GAME:WaitFrames(20)
+  -- Le partenaire se tourne vers le héros, touché
+  GROUND:CharTurnToCharAnimated(partner, hero, 4)
+  GAME:WaitFrames(6)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Normal")
   UI:WaitShowDialogue("...Tu as raison.[pause=0] Tu as cette tête-là,[pause=10] celle des jours où tu as raison.")
+  GROUND:CharSetEmote(partner, "glowing", 1)
   UI:SetSpeakerEmotion("Determined")
   UI:WaitShowDialogue("Demain,[pause=10] on monte.[pause=0] Tous les quatre.[pause=0] Et quoi que la lumière attende...[pause=10] elle nous trouvera prêts.")
+
+  -- Shuca se tourne vers le groupe, émue
+  local c12 = TASK:BranchCoroutine(function()
+    GROUND:CharTurnToCharAnimated(shuca, partner, 4)
+  end)
+  local c13 = TASK:BranchCoroutine(function()
+    GROUND:CharTurnToCharAnimated(ganlon, partner, 4)
+  end)
+  TASK:JoinCoroutines({c12, c13})
+  GAME:WaitFrames(10)
 
   UI:SetSpeaker(shuca)
   UI:SetSpeakerEmotion("Happy")
   UI:WaitShowDialogue("Alors bonne nuit,[pause=10] l'équipe.[pause=0] Et...[pause=10] merci pour tout ce chemin.[pause=0] Voilà,[pause=10] c'est dit !")
+  pcall(function() GROUND:CharSetEmote(shuca, "happy", 2) end)
+  GAME:WaitFrames(10)
 
+  -- Ganlon réagit à Shuca
+  GROUND:CharTurnToCharAnimated(ganlon, shuca, 4)
+  GAME:WaitFrames(6)
   UI:SetSpeaker(ganlon)
   UI:SetSpeakerEmotion("Happy")
   UI:WaitShowDialogue("Hmph.[pause=20] «[pause=5] Shuca a dit merci.[pause=5] »[pause=0] Je le répéterai à toute la guilde.[pause=0] Chaque jour.")
+  -- Shuca agacée/amusee
+  pcall(function() GROUND:CharSetEmote(shuca, "sweatdrop", 1) end)
+  GAME:WaitFrames(10)
 
   GAME:WaitFrames(40)
   SOUND:FadeOutBGM(40)

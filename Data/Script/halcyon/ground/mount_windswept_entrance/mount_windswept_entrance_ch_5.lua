@@ -2939,16 +2939,20 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	--calque (le doublement de decor d'avant ne peut plus se produire).
 	mount_windswept_entrance_ch_5.BuildCampDay()
 
-	--Ces deux repliques se jouent SOUS LE NOIR (FadeOut juste avant) :
-	--aucun sprite n'est visible, donc aucun geste a jouer. C'est le seul
-	--endroit de la carte ou l'immobilite est justifiee — on le note pour
-	GAME:WaitFrames(40)
+	--RESPIRATION NOIRE (transition depuis le Crucible, PROMPT_MAITRE.md) :
+	--le joueur arrive en noir complet apres 90 frames de silence dans le
+	--Crucible. La musique du camp monte DANS le noir — grammaire "le son,
+	--puis l'image, puis le mot". 30 frames de respiration avant les mots.
+	GAME:WaitFrames(30)
 	UI:SetSpeaker(partner)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_001'], tunnel:GetColoredName()))
-	GAME:WaitFrames(20)
+	GAME:WaitFrames(15)
+	-- Growlithe se tourne vers l'arrivee (sous le noir, prepare le FadeIn :
+	-- quand l'image monte, il regarde deja le duo).
+	pcall(function() GROUND:CharAnimateTurnTo(growlithe, Direction.Down, 4) end)
 	UI:SetSpeaker(growlithe)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_002']))
-	GAME:WaitFrames(20)
+	GAME:WaitFrames(15)
 	
 	GAME:FadeIn(40)
 	

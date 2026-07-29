@@ -1,4 +1,4 @@
-﻿{
+{
 "Version": "0.8.9.0",
 "Object": {
 "$type": "RogueEssence.Dungeon.Map, RogueEssence",
@@ -35,7 +35,7 @@
 "Gender": -1
 },
 "CurrentForm": {
-"Species": "magcargo",
+"Species": "heatran",
 "Form": 0,
 "Skin": "normal",
 "Gender": 1
@@ -191,12 +191,12 @@
 "OriginalUUID": "",
 "OriginalTeam": "",
 "BaseForm": {
-"Species": "magcargo",
+"Species": "heatran",
 "Form": 0,
 "Skin": "normal",
 "Gender": 1
 },
-"Level": 29,
+"Level": 36,
 "EXP": 0,
 "MaxHPBonus": 120,
 "AtkBonus": 0,

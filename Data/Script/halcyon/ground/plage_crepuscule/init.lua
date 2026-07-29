@@ -16,4 +16,15 @@ end
 function plage_crepuscule.Update(map, time)
 end
 
+-- PNJ d'ambiance (corrigé audit 2026-07-29 : objets muets)
+function plage_crepuscule.Koffing_Action(chara, activator)
+  GeneralFunctions.StartConversation(chara, "...", "Normal")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function plage_crepuscule.Zubat_Action(chara, activator)
+  GeneralFunctions.StartConversation(chara, "...", "Normal")
+  GeneralFunctions.EndConversation(chara)
+end
+
 return plage_crepuscule

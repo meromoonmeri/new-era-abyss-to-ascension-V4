@@ -135,7 +135,10 @@ end
 -- FlashEmitter ponctuel — sur une grande carte, il ne couvrait qu'une partie.
 function VoiceVisions.DizzyVeil()
   pcall(function()
-    local anim = RogueEssence.Content.BGAnimData("Black", 1, -1, -1, 128, Dir8.None)
+    --AUDIT 2026-07-29 (Bug 5) : BGAnimData 6 params non supporte par le moteur.
+    --Le constructeur standard est BGAnimData(name, frameIndex).
+    --L'alpha 128 est passe via em.Color au lieu du 5e parametre.
+    local anim = RogueEssence.Content.BGAnimData("Black", 0)
     local em = RogueEssence.Content.FiniteOverlayEmitter()
     em.Anim = anim
     em.Layer = DrawLayer.Top
@@ -144,7 +147,7 @@ function VoiceVisions.DizzyVeil()
     em.FadeOut = 10
     em.RepeatX = true
     em.RepeatY = true
-    em.Color = Color.White
+    em.Color = Color(255, 255, 255, 128)
     local c = GAME:GetCameraCenter()
     GROUND:PlayVFX(em, c.X, c.Y)
     GAME:WaitFrames(30)

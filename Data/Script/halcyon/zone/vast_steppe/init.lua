@@ -139,11 +139,18 @@ function vast_steppe.ExitSegment(zone, result, rescue, segmentID, mapID)
 			--Other zones have a 20 frame wait on not winning, so adding this here for consistency.
 			GAME:WaitFrames(20)
 		end
-			
-		--CHOIX DE FIN DE JOURNEE (TownNight.EndDay). Avant le ch6 et pendant
-		--toute scene imposee, comportement d'origine strictement identique :
-		--memes drapeaux, sortie vers le refectoire (6) ou le 2e etage (22).
-		TownNight.EndDay(result, true)
+		--AUDIT 2026-07-29 : garde-fou pour les missions hors ch5.
+		--TownNight.EndDay suppose des drapeaux Bedtime/Dinnertime qui ne
+		--sont pas toujours poses quand le joueur fait des missions libres.
+		--Avant le ch6, retour simple a l'entree de la steppe (46).
+		if SV.ChapterProgression.Chapter < 6 then
+			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+		else
+			--CHOIX DE FIN DE JOURNEE (TownNight.EndDay). Avant le ch6 et pendant
+			--toute scene imposee, comportement d'origine strictement identique :
+			--memes drapeaux, sortie vers le refectoire (6) ou le 2e etage (22).
+			TownNight.EndDay(result, true)
+		end
 	end
 end
 	

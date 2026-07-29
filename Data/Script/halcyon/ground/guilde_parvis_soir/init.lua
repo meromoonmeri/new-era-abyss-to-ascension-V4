@@ -16,4 +16,15 @@ end
 function guilde_parvis_soir.Update(map, time)
 end
 
+-- PNJ d'ambiance (corrigé audit 2026-07-29 : objets muets)
+function guilde_parvis_soir.Koffing_Action(chara, activator)
+  GeneralFunctions.StartConversation(chara, "...", "Normal")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function guilde_parvis_soir.Zubat_Action(chara, activator)
+  GeneralFunctions.StartConversation(chara, "...", "Normal")
+  GeneralFunctions.EndConversation(chara)
+end
+
 return guilde_parvis_soir

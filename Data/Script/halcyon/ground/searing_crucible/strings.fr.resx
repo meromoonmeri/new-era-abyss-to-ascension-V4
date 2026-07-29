@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -152,7 +152,7 @@
     <value>Cela fait bouillir mon sang de rage ![pause=0] C'en est trop !</value>
   </data>
   <data name="SC5_032" xml:space="preserve">
-    <value>Je suis {0} ![pause=0] Chef du clan {1} !</value>
+    <value>Je suis {0} ![pause=0] Maître de ces profondeurs ![pause=10] Nul ne trouble mon domaine impunément !</value>
   </data>
   <data name="SC5_033" xml:space="preserve">
     <value>Aucune pitié pour ceux qui profanent notre foyer ![pause=0] Préparez-vous,[pause=10] étrangers !</value>
@@ -179,7 +179,7 @@
     <value>Étrangers...[pause=0] Votre force...[pause=0] Nous sommes surclassés.</value>
   </data>
   <data name="SC5_041" xml:space="preserve">
-    <value>Vous avez vaincu notre clan.[pause=0] Faites de nous ce que vous voudrez.</value>
+    <value>Vous m'avez vaincu.[pause=0] Faites de moi ce que vous voudrez.</value>
   </data>
   <data name="SC5_042" xml:space="preserve">
     <value>De quoi parlez-vous ?[pause=0] Nous ne voulons pas vous faire de mal !</value>
@@ -194,10 +194,10 @@
     <value>Étrangers...[pause=0] Je ne sais que dire.</value>
   </data>
   <data name="SC5_046" xml:space="preserve">
-    <value>Votre pardon...[pause=0] en dit long.[pause=0] Je vois à présent que vous n'avez jamais nourri de mauvaises intentions envers mon clan.</value>
+    <value>Votre pardon...[pause=0] en dit long.[pause=0] Je vois à présent que vous n'avez jamais nourri de mauvaises intentions envers ces lieux.</value>
   </data>
   <data name="SC5_047" xml:space="preserve">
-    <value>Nous avons eu tort de vous attaquer.[pause=0] Au nom de mon clan,[pause=10] je vous présente mes plus sincères excuses.</value>
+    <value>J'ai eu tort de vous attaquer.[pause=0] Au nom de ces profondeurs,[pause=10] je vous présente mes plus sincères excuses.</value>
   </data>
   <data name="SC5_048" xml:space="preserve">
     <value>Ce n'est rien,[pause=10] nous sommes quittes maintenant, pas vrai ?</value>
@@ -206,7 +206,7 @@
     <value>Mais je dois demander...[pause=0] Pourquoi nous avoir attaqués ?[pause=0] Avons-nous fait quelque chose de mal ?</value>
   </data>
   <data name="SC5_050" xml:space="preserve">
-    <value>...Notre clan a subi de grandes tragédies aux mains des étrangers par le passé.</value>
+    <value>...Ces profondeurs ont subi de grandes tragédies aux mains des étrangers par le passé.</value>
   </data>
   <data name="SC5_051" xml:space="preserve">
     <value>Entre les terribles fluctuations de la coulée de lave et tous ces étrangers qui traversent aujourd'hui...</value>
@@ -239,7 +239,7 @@
     <value>Quand la lave a jailli à votre passage, étrangers...[pause=0] j'ai cru que vous étiez les coupables.</value>
   </data>
   <data name="SC5_061" xml:space="preserve">
-    <value>Mais vu votre clémence envers notre clan,[pause=10] il est clair que vous n'y êtes pour rien.[pause=0] Ce n'était qu'une coïncidence.</value>
+    <value>Mais vu votre clémence envers mes protégés,[pause=10] il est clair que vous n'y êtes pour rien.[pause=0] Ce n'était qu'une coïncidence.</value>
   </data>
   <data name="SC5_062" xml:space="preserve">
     <value>Alors c'est pour ça que vous nous avez attaqués...</value>
@@ -248,10 +248,10 @@
     <value>Mais comment aurions-nous pu changer la coulée de lave ?[pause=0] Nous n'avons pas un tel pouvoir !</value>
   </data>
   <data name="SC5_064" xml:space="preserve">
-    <value>Avec le recul...[pause=0] Nous avons agi bien imprudemment.</value>
+    <value>Avec le recul...[pause=0] J'ai agi bien imprudemment.</value>
   </data>
   <data name="SC5_065" xml:space="preserve">
-    <value>Mais comprenez que notre comportement était guidé par l'agitation et la méfiance plutôt que la raison.</value>
+    <value>Mais comprenez que mon comportement était guidé par l'agitation et la méfiance plutôt que la raison.</value>
   </data>
   <data name="SC5_066" xml:space="preserve">
     <value>Tout ce que nous pouvons faire à présent, c'est vous garantir un passage sûr dans le reste de la caverne.</value>

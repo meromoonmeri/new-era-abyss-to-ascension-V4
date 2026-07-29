@@ -10,7 +10,7 @@
     <value>C'est...[pause=10] un orage ?!</value>
   </data>
   <data name="MWG_004" xml:space="preserve">
-    <value>Un...[pause=10] UN AERODACTYL !</value>
+    <value>C'est...[pause=10] le maître des vents !</value>
   </data>
   <data name="MWG_005" xml:space="preserve">
     <value>Le Prédateur Ancestral du Ciel...</value>
@@ -57,4 +57,79 @@
   <data name="MWG_019" xml:space="preserve">
     <value>Repose-toi.[pause=30] Le sommet t'attendra.</value>
   </data>
-<data name="MWG_020" xml:space="preserve"><value>Je...[pause=5] je ne tiens plus debout...[pause=15] L'Aerodactyl est trop puissant !</value></data><data name="MWG_021" xml:space="preserve"><value>L'Aerodactyl pousse un cri perçant qui déchire le ciel.[pause=15] Il te domine de toute sa stature.</value></data><data name="MWG_022" xml:space="preserve"><value>Tu n'es pas le premier à tomber,[pause=20] petit grimpeur.[pause=25] Et tu ne seras pas le dernier.</value></data><data name="MWG_023" xml:space="preserve"><value>Il remonte dans l'orage en deux battements d'ailes.[pause=20] La montagne tremble encore.</value></data><data name="MWG_024" xml:space="preserve"><value>Le prédateur ancestral s'effondre dans un nuage de poussière.[pause=15] L'orage se dissipe.</value></data><data name="MWG_025" xml:space="preserve"><value>L'Aerodactyl te regarde, haletant.[pause=20] Puis il baisse la tête.</value></data><data name="MWG_026" xml:space="preserve"><value>Tu as vaincu le roi de ces cieux.[pause=25] Je... je ne pensais pas voir ça un jour.[pause=30] Va. Le sommet est à toi.</value></data><data name="MWG_027" xml:space="preserve"><value>Il déploie ses ailes une dernière fois et disparaît dans les nuages.[pause=15] Le silence revient.</value></data><data name="MWG_028" xml:space="preserve"><value>On l'a...[pause=10] ON L'A VAINCU ![pause=15] Le sommet est à nous !</value></data><data name="MWG_029" xml:space="preserve"><value>Le plus vieux prédateur plie devant toi.[pause=25] Tu changes les règles de ce monde.</value></data><data name="MWG_030" xml:space="preserve"><value>Cet orage n'est pas un phénomène.[pause=20] Il nous attendait.</value></data><data name="MWG_031" xml:space="preserve"><value>Quoi qu'il se pose ici,[pause=10] on ne court pas.[pause=15] D'accord ?</value></data><data name="MWG_032" xml:space="preserve"><value>D'accord.[pause=15] Même si mes pattes demandent à être convaincues.</value></data><data name="MWG_033" xml:space="preserve"><value>Celui-ci se souvient d'un ciel sans grimpeurs.</value></data><data name="MWG_034" xml:space="preserve"><value>Alors il a eu tout le temps de s'habituer à la déception.</value></data><data name="MWG_035" xml:space="preserve"><value>Il replie ses ailes.[pause=15] L'orage se replie avec lui.</value></data><data name="MWG_036" xml:space="preserve"><value>On est montés ici pour l'expédition.[pause=20] Je l'avais oublié.</value></data><data name="MWG_037" xml:space="preserve"><value>Moi aussi.[pause=15] Quelque part en route,[pause=10] c'est devenu autre chose.</value></data><data name="MWG_R01" xml:space="preserve"><value>Le vent est toujours aussi coupant, là-haut.[pause=20] Mais le ciel est vide.</value></data><data name="MWG_R02" xml:space="preserve"><value>(Aucune ombre ne passe devant le soleil.[pause=15] Aucun cri contre la roche.)</value></data><data name="MWG_R03" xml:space="preserve"><value>Il doit nicher plus haut maintenant.[pause=20] Quelque part où on n'ira jamais.</value></data><data name="MWG_R04" xml:space="preserve"><value>Il n'y a plus rien à trouver ici.[pause=0] Il est temps de rentrer.</value></data><data name="MWG_038" xml:space="preserve"><value>Je vous ai vus depuis la crête.[pause=25] Deux points, qui grimpaient mal.</value></data><data name="MWG_039" xml:space="preserve"><value>J'observe cette terre d'en haut depuis avant qu'elle ait des routes.</value></data><data name="MWG_040" xml:space="preserve"><value>De là-haut, on cesse de voir des lieux.[pause=25] On commence à voir des formes.</value></data><data name="MWG_041" xml:space="preserve"><value>Et il y a une forme sous votre monde, petits.[pause=30] Elle a des angles.</value></data><data name="MWG_042" xml:space="preserve"><value>Rien de naturel n'a d'angles.</value></data><data name="MWG_043" xml:space="preserve"><value>Je porte ça sur le dos depuis très longtemps.[pause=30] Montrez-moi que vous pouvez le porter aussi.</value></data><data name="MWG_044" xml:space="preserve"><value>Alors c'est à vous, maintenant.[pause=30] J'en suis heureux. C'était lourd.</value></data><data name="MWG_045" xml:space="preserve"><value>Descendez.[pause=15] Dormez.[pause=15] Mangez.[pause=25] Personne ne résout une forme le ventre vide.</value></data><data name="MWG_046" xml:space="preserve"><value>Et quand vous trouverez les angles —[pause=30] ne supposez pas qu'ils ont été bâtis pour vous garder DEHORS.</value></data></root>
+<data name="MWG_020" xml:space="preserve"><value>Je...[pause=5] je ne tiens plus debout...[pause=15] Boréas est trop puissant !</value></data><data name="MWG_021" xml:space="preserve"><value>Boréas pousse un hurlement qui déchire le ciel.[pause=15] Le vent lui-même s'incline devant lui.</value></data><data name="MWG_022" xml:space="preserve"><value>Tu n'es pas le premier à tomber,[pause=20] petit grimpeur.[pause=25] Le vent emporte tous ceux qui montent trop haut.</value></data><data name="MWG_023" xml:space="preserve"><value>Il s'élève dans la tempête en un tourbillon.[pause=20] La montagne tremble encore.</value></data><data name="MWG_024" xml:space="preserve"><value>Le maître des vents retombe dans un nuage de poussière.[pause=15] La tempête se dissipe.</value></data><data name="MWG_025" xml:space="preserve"><value>Boréas te regarde, haletant.[pause=20] Puis le vent s'apaise autour de lui.</value></data><data name="MWG_026" xml:space="preserve"><value>Tu as vaincu le maître de ces cieux.[pause=25] Je... je ne pensais pas voir ça un jour.[pause=30] Va. Le sommet est à toi.</value></data><data name="MWG_027" xml:space="preserve"><value>Il s'élève une dernière fois et disparaît dans les vents.[pause=15] Le silence revient.</value></data><data name="MWG_028" xml:space="preserve"><value>On l'a...[pause=10] ON L'A VAINCU ![pause=15] Le sommet est à nous !</value></data><data name="MWG_029" xml:space="preserve"><value>Le plus vieux vent plie devant toi.[pause=25] Tu changes les règles de ce monde.</value></data><data name="MWG_030" xml:space="preserve"><value>Cet orage n'est pas un phénomène.[pause=20] Il nous attendait.</value></data><data name="MWG_031" xml:space="preserve"><value>Quoi qu'il se pose ici,[pause=10] on ne court pas.[pause=15] D'accord ?</value></data><data name="MWG_032" xml:space="preserve"><value>D'accord.[pause=15] Même si mes pattes demandent à être convaincues.</value></data><data name="MWG_033" xml:space="preserve"><value>Celui-ci se souvient d'un ciel sans grimpeurs.</value></data><data name="MWG_034" xml:space="preserve"><value>Alors il a eu tout le temps de s'habituer à la déception.</value></data><data name="MWG_035" xml:space="preserve"><value>Le vent retombe.[pause=15] La tempête se replie avec lui.</value></data><data name="MWG_036" xml:space="preserve"><value>On est montés ici pour l'expédition.[pause=20] Je l'avais oublié.</value></data><data name="MWG_037" xml:space="preserve"><value>Moi aussi.[pause=15] Quelque part en route,[pause=10] c'est devenu autre chose.</value></data><data name="MWG_R01" xml:space="preserve"><value>Le vent souffle encore, là-haut.[pause=20] Mais il est seul maintenant.</value></data><data name="MWG_R02" xml:space="preserve"><value>(Aucune ombre ne passe devant le soleil.[pause=15] Aucun cri contre la roche.)</value></data><data name="MWG_R03" xml:space="preserve"><value>Il doit souffler plus haut maintenant.[pause=20] Quelque part où on n'ira jamais.</value></data><data name="MWG_R04" xml:space="preserve"><value>Il n'y a plus rien à trouver ici.[pause=0] Il est temps de rentrer.</value></data><data name="MWG_038" xml:space="preserve"><value>Je vous ai vus depuis la crête.[pause=25] Deux points, qui grimpaient mal.</value></data><data name="MWG_039" xml:space="preserve"><value>J'observe cette terre d'en haut depuis avant qu'elle ait des routes.</value></data><data name="MWG_040" xml:space="preserve"><value>De là-haut, on cesse de voir des lieux.[pause=25] On commence à voir des formes.</value></data><data name="MWG_041" xml:space="preserve"><value>Et il y a une forme sous votre monde, petits.[pause=30] Elle a des angles.</value></data><data name="MWG_042" xml:space="preserve"><value>Rien de naturel n'a d'angles.</value></data><data name="MWG_043" xml:space="preserve"><value>Je porte ça sur le dos depuis très longtemps.[pause=30] Montrez-moi que vous pouvez le porter aussi.</value></data><data name="MWG_044" xml:space="preserve"><value>Alors c'est à vous, maintenant.[pause=30] J'en suis heureux. C'était lourd.</value></data><data name="MWG_045" xml:space="preserve"><value>Descendez.[pause=15] Dormez.[pause=15] Mangez.[pause=25] Personne ne résout une forme le ventre vide.</value></data><data name="MWG_046" xml:space="preserve"><value>Et quand vous trouverez les angles —[pause=30] ne supposez pas qu'ils ont été bâtis pour vous garder DEHORS.</value></data>  <data name="MWG_050" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="MWG_051" xml:space="preserve">
+    <value>Il...[pause=15] il nous regarde.</value>
+  </data>
+  <data name="MWG_052" xml:space="preserve">
+    <value>(Je n'ai jamais rien vu de pareil.[pause=20] C'est...[pause=15] immense.)</value>
+  </data>
+  <data name="MWG_053" xml:space="preserve">
+    <value>Pourquoi êtes-vous venus jusqu'ici ?</value>
+  </data>
+  <data name="MWG_054" xml:space="preserve">
+    <value>On...[pause=15] on fait partie de la guilde.[pause=20] On est en expédition.</value>
+  </data>
+  <data name="MWG_055" xml:space="preserve">
+    <value>La guilde.[pause=20] Encore des grimpeurs.[pause=25] Toujours les mêmes.</value>
+  </data>
+  <data name="MWG_056" xml:space="preserve">
+    <value>Savez-vous seulement où vous mettez les pieds ?</value>
+  </data>
+  <data name="MWG_057" xml:space="preserve">
+    <value>On ne veut de mal à personne ![pause=20] On cherche juste à comprendre ce qui se passe dans la région.</value>
+  </data>
+  <data name="MWG_058" xml:space="preserve">
+    <value>Comprendre ?[pause=25] Vous montez,[pause=15] vous prenez,[pause=15] vous repartez.[pause=20] C'est tout ce que vous savez faire.</value>
+  </data>
+  <data name="MWG_059" xml:space="preserve">
+    <value>(Il est en colère...[pause=20] Mais pourquoi ?[pause=25] Qu'est-ce qu'on a fait ?)</value>
+  </data>
+  <data name="MWG_060" xml:space="preserve">
+    <value>Ce sommet n'est pas un trophée.[pause=25] Ce vent n'est pas un spectacle.</value>
+  </data>
+  <data name="MWG_061" xml:space="preserve">
+    <value>Depuis combien de temps croyez-vous que je souffle ici ?</value>
+  </data>
+  <data name="MWG_062" xml:space="preserve">
+    <value>Je...[pause=15] je ne sais pas...</value>
+  </data>
+  <data name="MWG_063" xml:space="preserve">
+    <value>Depuis avant vos routes.[pause=25] Avant vos guildes.[pause=25] Avant vos noms.</value>
+  </data>
+  <data name="MWG_064" xml:space="preserve">
+    <value>Et vous arrivez.[pause=20] Sans demander.[pause=20] Sans écouter.</value>
+  </data>
+  <data name="MWG_065" xml:space="preserve">
+    <value>On écoute ![pause=20] C'est pour ça qu'on est montés ![pause=25] Quelque chose ne va pas dans cette région et on veut savoir quoi !</value>
+  </data>
+  <data name="MWG_066" xml:space="preserve">
+    <value>...Vous cherchez les angles.</value>
+  </data>
+  <data name="MWG_067" xml:space="preserve">
+    <value>Les...[pause=15] les quoi ?</value>
+  </data>
+  <data name="MWG_068" xml:space="preserve">
+    <value>Rien de naturel n'a d'angles.[pause=30] Et pourtant ils sont là.[pause=25] Sous votre monde.</value>
+  </data>
+  <data name="MWG_069" xml:space="preserve">
+    <value>Je ne sais pas si vous êtes une menace...[pause=25] ou un espoir.</value>
+  </data>
+  <data name="MWG_070" xml:space="preserve">
+    <value>Alors je vais le découvrir.</value>
+  </data>
+  <data name="MWG_080" xml:space="preserve">
+    <value>Vous résistez au vent.[pause=20] Intéressant.</value>
+  </data>
+  <data name="MWG_081" xml:space="preserve">
+    <value>Peut-être n'êtes-vous pas comme les autres.[pause=25] Peut-être.</value>
+  </data>
+  <data name="MWG_082" xml:space="preserve">
+    <value>Très bien.[pause=20] Montrez-moi ce que vous valez vraiment.</value>
+  </data>
+  <data name="MWG_083" xml:space="preserve">
+    <value>Ce vent...[pause=25] est tout ce qui me reste.</value>
+  </data>
+</root>
