@@ -137,13 +137,37 @@ end
 --
 -- Back defile lentement (loin), Front plus vite (proche) : c'est ce
 -- differentiel qui cree la profondeur.
+-- REGLAGES COPIES SUR LE TEST DE PERSONNALITE, pas inventes.
+--
+-- Data/Ground/personality_test.rsground declare son fond ainsi (lu dans
+-- le JSON, champ Background.Layers) :
+--
+--   couche 1  AnimIndex 'Dream_Back'   FrameTime 8   Alpha 255
+--             BGMovement { X = +30, Y = 0 }   RepeatX
+--   couche 2  AnimIndex 'Dream_Front'  FrameTime 8   Alpha 128
+--             BGMovement { X = -30, Y = 0 }   RepeatX
+--
+-- C'est CE decor que le joueur reconnait comme « le fond du test de
+-- personnalite » : deux planches de nuages qui glissent EN SENS
+-- CONTRAIRES, la plus proche a demi transparente. Le croisement des deux
+-- derives est ce qui produit la profondeur onirique.
+--
+-- Ma version precedente s'en ecartait sur trois points, et c'est pour ca
+-- que le rendu ne ressemblait a rien :
+--   * frameTime 0 -> les 63 frames de la planche ne defilaient PAS,
+--     une seule image figee s'affichait ;
+--   * aucun alpha -> la couche Front masquait completement la Back ;
+--   * mouvements de MEME sens (24 et 56) -> pas de croisement, donc
+--     pas de parallaxe, juste un defilement plat.
 function VoiceVisions.DreamSky(hold)
   hold = hold or 240
   pcall(function()
-    -- couche lointaine, lente, sous la couche proche
-    BossFX.Overlay('Dream_Back', 0, 0, 30, hold, 40, DrawLayer.Bottom, 24, 0)
-    -- couche proche, plus rapide, par-dessus
-    BossFX.Overlay('Dream_Front', 0, 0, 30, hold, 40, DrawLayer.Back, 56, 0)
+    -- couche lointaine : opaque, derive vers la droite
+    BossFX.Overlay('Dream_Back', 0, 0, 30, hold, 40, DrawLayer.Bottom,
+                   30, 0, 8, 255)
+    -- couche proche : semi-transparente, derive vers la GAUCHE
+    BossFX.Overlay('Dream_Front', 0, 0, 30, hold, 40, DrawLayer.Back,
+                   -30, 0, 8, 128)
   end)
 end
 

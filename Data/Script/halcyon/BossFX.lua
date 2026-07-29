@@ -32,7 +32,7 @@ function BossFX.Particle(anim, x, y, frames, layer)
 end
 
 --Nappe plein ecran (Content/BG) : brume, eclair, lumiere...
-function BossFX.Overlay(anim, x, y, fadeIn, hold, fadeOut, layer, moveX, moveY)
+function BossFX.Overlay(anim, x, y, fadeIn, hold, fadeOut, layer, moveX, moveY, frameTime, alpha)
     local o = RogueEssence.Content.FiniteOverlayEmitter()
     o.FadeIn = fadeIn or 10
     o.TotalTime = hold or 60
@@ -43,7 +43,27 @@ function BossFX.Overlay(anim, x, y, fadeIn, hold, fadeOut, layer, moveX, moveY)
     if moveX or moveY then
         o.Movement = RogueElements.Loc(moveX or 0, moveY or 0)
     end
-    o.Anim = RogueEssence.Content.BGAnimData(anim, 0)
+    --frameTime 0 = image FIGEE. Une planche animee (Dream_Back a 63
+    --frames) doit recevoir un frameTime > 0 pour defiler, sinon seule la
+    --premiere image s'affiche.
+    --
+    --Le 11e parametre accepte DEUX formes, parce que les deux usages
+    --existent dans le depot :
+    --  * un NOMBRE  -> alpha de la planche (0..255). Sert a superposer
+    --    deux couches sans que la plus proche masque l'autre : c'est le
+    --    patron du test de personnalite (couche lointaine opaque,
+    --    couche proche a 128).
+    --    Surcharge moteur attestee : BGAnimData(anim, ft, start, end, alpha).
+    --  * une COULEUR -> teinte de l'overlay. Sert a remplacer un fond
+    --    inexistant par la planche "White" coloree, seul patron atteste
+    --    pour assombrir ou colorer l'ecran (first_core_location_ch_3:58,
+    --    identique chez Palikadude/Halcyon donc teste en jeu).
+    if type(alpha) == 'number' then
+        o.Anim = RogueEssence.Content.BGAnimData(anim, frameTime or 0, -1, -1, alpha)
+    else
+        o.Anim = RogueEssence.Content.BGAnimData(anim, frameTime or 0)
+        if alpha ~= nil then o.Color = alpha end
+    end
     GROUND:PlayVFX(o, x or 0, y or 0)
     return o
 end
@@ -179,7 +199,7 @@ end
 
 --FEU : vapeur sous pression puis emergence depuis la lave.
 function BossFX.EmergeFire(chara, x, y)
-    BossFX.Overlay("Heat_Wave", 0, 0, 20, 70, 25, DrawLayer.Bottom)
+    BossFX.Overlay("White", 0, 0, 20, 70, 25, DrawLayer.Bottom, 0, 0, 0, Color(200, 110, 40, 110/255))
     SOUND:PlayBattleSE("DUN_Fire_Spin")
     BossFX.Particle("Lava_Plume_Smoke", x, y + 6, 4)
     GAME:WaitFrames(16)
@@ -198,7 +218,7 @@ end
 
 --TENEBRES / PLANTE : l'ombre s'etire, les lianes s'ecartent, le boss en sort.
 function BossFX.EmergeShadow(chara, x, y)
-    BossFX.Overlay("Ominous_Wind", 0, 0, 25, 80, 25, DrawLayer.Bottom)
+    BossFX.Overlay("White", 0, 0, 25, 80, 25, DrawLayer.Bottom, 0, 0, 0, Color(200, 210, 230, 90/255))
     SOUND:PlayBattleSE("DUN_Shadow_Force")
     BossFX.Particle("Dark_Pulse_Particle", x, y + 4, 4)
     GAME:WaitFrames(14)
@@ -227,10 +247,10 @@ end
 
 --NORMAL / spectral : la brume se condense et la silhouette se materialise.
 function BossFX.EmergeMist(chara, x, y)
-    BossFX.Overlay("Fog", 0, 0, 30, 90, 30, DrawLayer.Bottom, -1, 0)
+    BossFX.Overlay("White", 0, 0, 30, 90, 30, DrawLayer.Bottom, -1, 0, 0, Color(70, 70, 75, 130/255))
     SOUND:PlayBattleSE("DUN_Mist")
     GAME:WaitFrames(20)
-    BossFX.Overlay("Silver_Wind", 0, 0, 12, 40, 18, DrawLayer.Top)
+    BossFX.Overlay("White", 0, 0, 12, 40, 18, DrawLayer.Top, 0, 0, 0, Color(225, 230, 240, 100/255))
     if chara ~= nil then
         GROUND:Unhide(chara.EntName)
         GROUND:CharSetEmote(chara, "glowing", 1)
@@ -305,7 +325,7 @@ end
 --ELECTRIQUE : la charge monte, l'air claque, la foudre tombe sur le point
 --d'apparition. Pas de surgissement physique : le boss EST la decharge.
 function BossFX.StrikeThunder(chara, x, y)
-    BossFX.Overlay("Cloudy_Sky", 0, 0, 20, 70, 25, DrawLayer.Bottom, -1, 0)
+    BossFX.Overlay("White", 0, 0, 20, 70, 25, DrawLayer.Bottom, -1, 0, 0, Color(20, 20, 45, 150/255))
     SOUND:PlayBattleSE("DUN_Thunder_Wave")
     --montee de charge : trois eclats de plus en plus rapproches
     for i = 1, 3 do
@@ -392,7 +412,7 @@ end
 function BossFX.CrashMeteor(chara, x, y, height)
     height = height or 200
     if chara == nil then return end
-    BossFX.Overlay("Cloudy_Sky", 0, 0, 15, 60, 20, DrawLayer.Bottom, -2, 0)
+    BossFX.Overlay("White", 0, 0, 15, 60, 20, DrawLayer.Bottom, -2, 0, 0, Color(20, 20, 45, 150/255))
     GROUND:Unhide(chara.EntName)
     GROUND:TeleportTo(chara, x, y - height, Direction.Down)
     BossFX.Particle("Meteor_Mash_Star", x, y - height + 16, 2)

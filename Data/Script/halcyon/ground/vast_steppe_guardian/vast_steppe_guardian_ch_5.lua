@@ -80,7 +80,7 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   GAME:WaitFrames(30)
 
   -- Brume montante
-  BossFX.Overlay("Fog", 0, 0, 20, 70, 25, DrawLayer.Bottom, -1, 0)
+  BossFX.Overlay("White", 0, 0, 20, 70, 25, DrawLayer.Bottom, -1, 0, 0, Color(70, 70, 75, 130/255))
 
   -- LOT 8.3 — la harde assiste ; le duo se prepare. Camera mobile entre eux.
   GAME:MoveCamera(184, 262, 40, false)

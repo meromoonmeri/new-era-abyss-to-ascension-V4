@@ -68,6 +68,26 @@ import sys
 # N'ajouter QUE sur preuve d'usage fonctionnel (cf. en-tete).
 BASE_GAME = {'White', 'Pre_Battle'}
 
+# LES PARTICULES D'ATTAQUES SONT FOURNIES PAR PMDO.
+#
+# Preuve : Halcyon upstream (Palikadude/Halcyon), dont ce projet est le
+# fork et qui tourne en jeu, appelle Flamethrower, Moonlight_Sparkles_2
+# et Column_Yellow alors que son Content/Particle ne contient QU'UN
+# fichier (Emote_Eating.dir). Ces noms sont donc resolus par le jeu de
+# base, exactement comme "White" pour les fonds.
+#
+# On ne signale donc pas les particules absentes du mod : ce serait
+# 30 faux positifs. En revanche les FONDS (BG) restent controles
+# strictement — c'est la que se trouvaient les cinq vraies inventions
+# (Black, Cloudy_Sky, Ominous_Wind, Sandstorm, Fog), chacune confirmee
+# par le damier noir/magenta vu en jeu.
+#
+# Consequence assumee : une particule reellement inventee ne serait pas
+# attrapee. C'est le prix a payer pour un outil qui ne crie pas au loup,
+# et le risque est faible — une particule manquante ne casse pas une
+# scene, la ou un fond manquant occupe tout l'ecran.
+SKIP_KINDS = {'Particle_helper'}
+
 FOLDERS = {
     'BG': 'Content/BG',
     'Object': 'Content/Object',
@@ -78,6 +98,26 @@ FOLDERS = {
 PATTERNS = {
     'BG': re.compile(r'BGAnimData\(\s*[\'"]([^\'"]+)[\'"]'),
     'Object': re.compile(r'ObjAnimData\(\s*[\'"]([^\'"]+)[\'"]'),
+    # LES HELPERS COMPTENT AUSSI — angle mort corrige.
+    #
+    # BossFX.Overlay(nom, ...) construit un BGAnimData en interne, et
+    # BossFX.Particle(nom, ...) un AnimData. Ne scanner que les appels
+    # DIRECTS laissait passer dix references mortes (Fog, Fog_2,
+    # Cloudy_Sky x2, Ominous_Wind x2, Silver_Wind, Heat_Wave,
+    # Cosmic_Power) : l'outil declarait « tous les assets existent »
+    # alors que ces effets rendaient le damier noir/magenta en jeu.
+    # Un helper n'est pas une frontiere : le nom finit au meme endroit.
+    'BG_helper': re.compile(r'BossFX\.Overlay\(\s*[\'"]([^\'"]+)[\'"]'),
+    'Particle_helper': re.compile(r'BossFX\.Particle\(\s*[\'"]([^\'"]+)[\'"]'),
+}
+
+# Un nom vu via un helper doit etre cherche dans le dossier que ce
+# helper adresse reellement.
+KIND_FOLDER = {
+    'BG': 'BG',
+    'BG_helper': 'BG',
+    'Object': 'Object',
+    'Particle_helper': 'Particle',
 }
 
 
@@ -109,7 +149,13 @@ def main(root='.'):
     missing = []
     base = []
     for (kind, name), files in sorted(found.items()):
-        if name in present.get(kind, set()):
+        # Un nom vu via un helper se cherche dans le dossier que ce
+        # helper adresse (BossFX.Overlay -> BG, BossFX.Particle ->
+        # Particle), pas dans un dossier portant le nom du motif.
+        if kind in SKIP_KINDS:
+            continue
+        folder_kind = KIND_FOLDER.get(kind, kind)
+        if name in present.get(folder_kind, set()):
             continue
         if name in BASE_GAME:
             base.append((kind, name))

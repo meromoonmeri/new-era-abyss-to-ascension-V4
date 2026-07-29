@@ -55,7 +55,7 @@ function gloomy_forest_boss_ch_6.FirstBossScene()
 	-- === LA FORET SE TAIT, L'OMBRE S'EPAISSIT ===
 	SOUND:FadeOutBGM(60)
 	GAME:WaitFrames(40)
-	BossFX.Overlay("Fog_2", 0, 0, 30, 110, 30, DrawLayer.Bottom, -1, 0)
+	BossFX.Overlay("White", 0, 0, 30, 110, 30, DrawLayer.Bottom, -1, 0, 0, Color(60, 70, 60, 130/255))
 	SOUND:PlayBattleSE("DUN_Grass_Knot")
 	GAME:WaitFrames(20)
 

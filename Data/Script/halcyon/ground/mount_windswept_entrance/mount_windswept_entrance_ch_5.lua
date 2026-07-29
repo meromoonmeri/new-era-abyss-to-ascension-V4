@@ -302,6 +302,19 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--plantait l'ecuelle DERRIERE les convives de la moitie haute du
 	--cercle. On decale donc chaque plat d'un tiers de rayon vers le
 	--centre du foyer (274,238), calcule par interpolation entiere.
+	--LE SERVICE SE FAIT SOUS UN FONDU COURT.
+	--
+	--BUG VU EN JEU : « pas de transition fond noir quand ils vont manger
+	--ou poser les paillasses ». Le deploiement des couchages, lui, avait
+	--bien son fondu (section 7). Le repas, non : les douze ecuelles
+	--surgissaient d'un coup au milieu du cercle, a vue.
+	--
+	--Meme patron que la section 7 : on baisse, on pose le decor, on
+	--remonte. C'est ainsi que le Tunnel remanie ses tables, et c'est ce
+	--qui permet a un decor d'apparaitre sans « pop ».
+	GAME:FadeOut(false, 30)
+	GAME:WaitFrames(20)
+
 	local foods = {}
 	for i, m in ipairs(MEAL) do
 		local mx, my = m[2], m[3]
@@ -318,6 +331,14 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		GAME:GetCurrentGround():AddTempObject(food)
 		foods[#foods+1] = food
 	end
+
+	--Les convives sont deja attables quand la lumiere revient : on met
+	--la pose de repas AVANT le FadeIn, pas apres.
+	for _, m in ipairs(MEAL) do
+		pcall(function() GROUND:CharAnimateTurnTo(m[1], m[4], 1) end)
+	end
+	GAME:FadeIn(30)
+	GAME:WaitFrames(10)
 
 	--Tout le monde mange en meme temps.
 	for _, m in ipairs(MEAL) do
@@ -346,7 +367,11 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(30)
 
-	--Fin du repas : on retire la nourriture, on coupe les animations.
+	--Fin du repas : la desserte se fait sous fondu, comme le service.
+	--Douze ecuelles qui disparaissent d'un coup a l'ecran font le meme
+	--effet de « pop » que douze qui apparaissent.
+	GAME:FadeOut(false, 30)
+	GAME:WaitFrames(20)
 	for _, food in ipairs(foods) do
 		GAME:GetCurrentGround():RemoveTempObject(food)
 	end
@@ -354,6 +379,7 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		GROUND:CharEndAnim(m[1])
 		GROUND:CharSetEmote(m[1], "", 0)
 	end
+	GAME:FadeIn(30)
 	SOUND:LoopSE('AMB_Fire_Loud')
 	GAME:WaitFrames(20)
 
@@ -1051,8 +1077,28 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	-- portrait — regle projet), la ou Gardevoir est nommee et portraituree.
 	-- Le heros ne doit RIEN comprendre : c'est au joueur de reconnaitre.
 	------------------------------------------------------------------
+	------------------------------------------------------------------
+	-- LE DECOR DU REVE = CELUI DU TEST DE PERSONNALITE.
+	------------------------------------------------------------------
+	-- RETOUR DE JEU : « je voulais le fond du personality test, les
+	-- effets de couleur parallaxe ». Deux erreurs empechaient de le voir.
+	--
+	-- 1. UI:WaitShowBG('Genesis_Void') posait une planche OPAQUE
+	--    par-dessus tout. La parallaxe de DreamSky tournait bien en
+	--    dessous — invisible. On retire donc ce fond : la parallaxe EST
+	--    le decor, elle n'a rien a porter par-dessus elle.
+	--
+	-- 2. DreamSky ne reproduisait pas les reglages du test de
+	--    personnalite. Corrige dans VoiceVisions (frameTime 8, alpha
+	--    128 sur la couche proche, derives OPPOSEES +30/-30) d'apres le
+	--    JSON de Data/Ground/personality_test.rsground, champ
+	--    Background.Layers. C'est ce croisement de deux derives qui
+	--    donne la profondeur que le joueur reconnait.
+	--
+	-- La duree couvre tout le reve : 900 frames, soit ~15 s a 60 fps,
+	-- assez pour les huit temps ci-dessous sans que le ciel ne se coupe
+	-- au milieu d'une replique.
 	pcall(function() VoiceVisions.DreamSky(900) end)
-	pcall(function() UI:WaitShowBG('Genesis_Void', 180, 30) end)
 	GAME:WaitFrames(60)
 
 	--1. L'EMERGENCE. Voix off centree, sans locuteur : le dormeur n'est
@@ -1171,7 +1217,12 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	end)
 	local dc2 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(30)
-		pcall(function() UI:WaitHideBG(60) end)
+		--Le ciel de reve s'eteint dans le noir. UI:WaitHideBG ne sert
+		--plus a rien ici : il masquait la planche Genesis_Void, qu'on
+		--n'affiche plus. C'est la parallaxe qui EST le decor, et un
+		--overlay ne se « cache » pas — il se recouvre. On fond donc au
+		--noir, ce qui eteint tout d'un coup : le ciel, et le reve avec.
+		pcall(function() GAME:FadeOut(false, 60) end)
 	end)
 	local dc3 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(30)
@@ -1192,6 +1243,15 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--donne l'amplitude DEGRESSIVE portee de pmd-sky (le vertige s'eteint
 	--au lieu de se couper net) sans le voile noir des niveaux 2 et 3,
 	--qui serait de trop ici — on est deja dans le noir de la nuit.
+	--ON REVIENT AU CAMP AVANT LE SURSAUT. Le reve vient de s'eteindre au
+	--noir ; sans ce FadeIn, tout le reveil — le tangage, l'emote de
+	--choc, le heros assis sur sa paillasse — se jouerait sur un ecran
+	--noir, donc invisible. On remonte la lumiere sur la nuit du camp
+	--(le statut "darkness" est encore actif, on ne voit donc que la
+	--penombre du bivouac), PUIS le corps reagit.
+	GAME:FadeIn(40)
+	GAME:WaitFrames(20)
+
 	pcall(function() SOUND:PlayBattleSE('EVT_Emote_Exclaim_2') end)
 	pcall(function() GROUND:CharEndAnim(hero) end)
 	pcall(function() VoiceVisions.Nausea(hero, 1) end)
@@ -1216,6 +1276,14 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		GROUND:CharSetAnim(hero, "EventSleep", true)
 	end)
 	GAME:WaitFrames(60)
+
+	--LA NUIT PASSE. On repasse au noir avant la mise en place du matin :
+	--depuis le reveil en sursaut l'ecran est ECLAIRE (FadeIn ci-dessus),
+	--et la section 11 se declare « sous le noir » puis termine par un
+	--FadeIn — sans ce fondu, elle remonterait une lumiere deja levee et
+	--le joueur verrait Rin, Coco et Penticus se teleporter a leur poste.
+	GAME:FadeOut(false, 50)
+	GAME:WaitFrames(30)
 
 	---------------------------------------------------------------
 	-- 11. LE MATIN — reveil progressif, heros deboussole
@@ -2727,6 +2795,22 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 		{'Mareep',    246, 176, Direction.Down},
 		{'Cranidos',  310, 236, Direction.Left}
 	})
+
+	--KINO ET REINIER NE SONT PAS ENCORE LA.
+	--
+	--BUG VU EN JEU : « quand on arrive y'a Kino et Girafarig alors qu'ils
+	--arrivent juste apres ». Ils etaient poses au camp des la creation,
+	--visibles — alors que la section 1 de CampNightfall les fait
+	--precisement ARRIVER du sentier sud, avec un Unhide et une replique
+	--(« ils fermaient la marche »). Le joueur les voyait donc deja
+	--attables avant qu'on annonce leur arrivee.
+	--
+	--Ils sont crees a leur position finale, mais MASQUES. CampNightfall
+	--les revele au bon moment : c'est deja ce que fait sa section 1
+	--(GROUND:Unhide + TeleportTo sur le sentier), il ne manquait que le
+	--Hide initial.
+	GROUND:Hide(breloom.EntName)
+	GROUND:Hide(girafarig.EntName)
 	
 	
 	--LE CAMP DE JOUR. Aucune paillasse a l'arrivee (Prompt Maitre 6.3) :

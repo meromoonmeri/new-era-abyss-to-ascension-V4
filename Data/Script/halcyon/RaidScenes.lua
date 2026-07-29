@@ -347,7 +347,7 @@ function RaidScenes.ShadowsFlee(wave)
 
     --Le reflux. Vent sombre en fond, puis les silhouettes se defont.
     pcall(function()
-      BossFX.Overlay("Ominous_Wind", 0, 0, 25, 90, 25, DrawLayer.Bottom)
+      BossFX.Overlay("White", 0, 0, 25, 90, 25, DrawLayer.Bottom, 0, 0, 0, Color(200, 210, 230, 90/255))
       SOUND:PlayBattleSE("DUN_Shadow_Force")
     end)
     GAME:WaitFrames(25)
