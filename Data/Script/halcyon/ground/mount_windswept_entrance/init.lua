@@ -92,6 +92,35 @@ function mount_windswept_entrance.Init(map)
   GROUND:AddMapStatus("blowing_wind")
   PartnerEssentials.InitializePartnerSpawn()
 
+  ------------------------------------------------------------------
+  -- MODE CINEMATIQUE POSE DES L'INIT QUAND UNE SCENE VA SUIVRE.
+  ------------------------------------------------------------------
+  -- Meme correctif qu'au retour du reve (hero_dream/init.lua) et pour
+  -- la meme raison, verifiee dans le moteur :
+  --   GroundScene.ProcessInput l.165 dereference
+  --   ZoneManager.Instance.CurrentGround.OnCheck(), et CurrentGround est
+  --   nul pendant la bascule de carte (ExitGround -> SetCurrentMap
+  --   (Invalid) -> exitMap -> CurrentGround = null, Zone.cs:140-142).
+  --   Seule la garde `if (Save.CutsceneMode) yield break;` (l.176) sort
+  --   de ProcessInput avant d'y arriver.
+  --
+  -- Entre cet Init et le Enter qui lance la cinematique, la boucle
+  -- principale peut tourner (ScreenMainCoroutine l.505-507). Poser le
+  -- mode ici ferme cette fenetre.
+  --
+  -- CONDITIONNE, contrairement au FadeOut : le mode cinematique BLOQUE
+  -- les entrees du joueur. Le poser sur une entree libre (promenade,
+  -- retour de donjon hors scenario) figerait la carte, car la branche
+  -- `else` de PlotScripting ne fait qu'un FadeIn et ne le relacherait
+  -- jamais. On ne le pose donc que si une cinematique est effectivement
+  -- programmee — les memes conditions que celles lues par PlotScripting.
+  pcall(function()
+    if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+       and not SV.Chapter5.FinishedMountWindsweptIntro then
+      GAME:CutsceneMode(true)
+    end
+  end)
+
 end
 
 ---mount_windswept_entrance.Enter(map)

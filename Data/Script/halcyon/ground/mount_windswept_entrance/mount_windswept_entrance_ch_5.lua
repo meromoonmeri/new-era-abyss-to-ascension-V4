@@ -1160,7 +1160,34 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		pcall(function() GROUND:MoveToPosition(hero, seatX(bedOf[hero]), seatY(bedOf[hero]), false, 1) end)
 	end)
 	duoBeds[#duoBeds+1] = TASK:BranchCoroutine(function()
-		GAME:MoveCamera(330, 300, 45, false)
+		------------------------------------------------------------
+		-- LA CAMERA SUIT LE DUO, ELLE NE VISE PLUS UN POINT FIXE.
+		------------------------------------------------------------
+		-- BUG VU EN JEU : « la camera avant de dormir n'est pas
+		-- ramenee sur le heros & le partenaire ».
+		--
+		-- Exact, et c'etait chiffrable. La camera visait (330,300),
+		-- une constante ecrite en dur. Or le duo rejoint ici ses
+		-- couches 7 et 8 de la table BEDS :
+		--     heros      couche 7 -> (223,320)
+		--     partenaire couche 8 -> (177,296)
+		--     milieu du duo       -> (200,308)
+		-- La camera etait donc a 130 px a l'EST du duo. Sur un ecran
+		-- de 320x240 (demi-champ 160x120), le partenaire tombait a
+		-- 153 px du centre : 7 px du bord, pour un sprite de 40 px de
+		-- large. Il etait coupe par le bord de l'ecran pendant tout
+		-- l'echange du coucher — le moment intime de la scene.
+		--
+		-- On cadre desormais le MILIEU du duo, calcule depuis la meme
+		-- table `bedOf`/`seatX` que leurs deplacements. Si les
+		-- couchages changent un jour, le cadrage suit tout seul : il
+		-- ne peut plus diverger.
+		local cx, cy = 256, 268
+		pcall(function()
+			cx = (seatX(bedOf[hero]) + seatX(bedOf[partner])) // 2
+			cy = (seatY(bedOf[hero]) + seatY(bedOf[partner])) // 2
+		end)
+		GAME:MoveCamera(cx, cy, 45, false)
 	end)
 	TASK:JoinCoroutines(duoBeds)
 	GROUND:CharTurnToCharAnimated(partner, hero, 4)

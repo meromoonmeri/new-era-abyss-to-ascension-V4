@@ -80,6 +80,41 @@ function hero_dream.Init(map)
   -- reviveAll = false : on ne veut QUE le joueur. Les equipiers 2 et 3
   -- (Ganlon, Shuca) ne rejoignent pas un reve.
   COMMON.RespawnAllies()
+
+  ------------------------------------------------------------------
+  -- LE MODE CINEMATIQUE EST POSE DES L'INIT, PAS DANS LA SCENE.
+  ------------------------------------------------------------------
+  -- CRASH VU EN JEU, au moment du coucher :
+  --   System.NullReferenceException
+  --     at RogueEssence.Ground.GroundScene.ProcessInput()+MoveNext()
+  --
+  -- La ligne fautive est GroundScene.cs:165 :
+  --     if (GameManager.Instance.SceneOutcome == null)
+  --         yield return ... ZoneManager.Instance.CurrentGround.OnCheck();
+  -- `CurrentGround` y est nul. Il l'est parce que la bascule de carte
+  -- passe par ExitGround (GSceneZone.cs:45-46), qui fait
+  -- SetPlayerChar(null) puis SetCurrentMap(SegLoc.Invalid) — et
+  -- SetCurrentMap appelle exitMap(), qui pose CurrentGround = null
+  -- (Zone.cs:140-142).
+  --
+  -- Ce que ProcessInput ne fait PAS quand le mode cinematique est actif :
+  -- la garde `if (DataManager.Instance.Save.CutsceneMode) yield break;`
+  -- (GroundScene.cs:176) sort AVANT tout, et surtout avant que la boucle
+  -- n'atteigne OnCheck. Mode cinematique actif = aucun risque.
+  --
+  -- Or DreamScene ne posait CutsceneMode(true) qu'apres son test
+  -- `if hero == nil`, donc APRES Init et APRES le premier tour de boucle
+  -- possible. Entre l'Init de cette carte et le Enter qui lance la
+  -- scene, la boucle principale peut tourner (ScreenMainCoroutine
+  -- l.505-507 appelle ProcessInput tant que SceneOutcome est nul), et
+  -- elle tombe alors sur un CurrentGround en cours de remplacement.
+  --
+  -- On le pose donc ICI, comme le fait la carte dont hero_dream est
+  -- copie : personality_test/init.lua:86 ouvre CharacterSelect par
+  -- GAME:CutsceneMode(true). C'est le patron atteste du depot.
+  -- DreamScene le repose (idempotent, simple booleen de sauvegarde —
+  -- ScriptGame.cs:1384) et c'est le camp qui le relachera au reveil.
+  pcall(function() GAME:CutsceneMode(true) end)
 end
 
 function hero_dream.Enter(map)
@@ -155,6 +190,20 @@ local function silence(frames)
 end
 
 function hero_dream.DreamScene()
+  --LE MODE CINEMATIQUE D'ABORD, AVANT MEME DE LIRE LE JOUEUR.
+  --Il est deja pose par Init ; on le repose ici car GameLoad appelle
+  --aussi cette fonction sans repasser par Init. C'est un simple booleen
+  --de sauvegarde (ScriptGame.cs:1384) : le reposer ne coute rien.
+  --
+  --Il doit surtout preceder la sortie de secours ci-dessous : celle-ci
+  --appelle EnterGroundMap, qui ARME la bascule de carte
+  --(SceneOutcome, ScriptGame.cs:106). Des cet instant ExitGround va
+  --poser CurrentGround = null (GSceneZone.cs:45-46 -> Zone.cs:140-142),
+  --et toute frame executee sans mode cinematique tombe sur
+  --GroundScene.cs:165 -> NullReferenceException. C'etait le crash vu en
+  --jeu au moment du coucher.
+  pcall(function() GAME:CutsceneMode(true) end)
+
   local hero = CH('PLAYER')
 
   --SORTIE DE SECOURS. Si le joueur n'est pas sur la carte, on ne joue
@@ -167,7 +216,6 @@ function hero_dream.DreamScene()
     return
   end
 
-  GAME:CutsceneMode(true)
   SOUND:StopBGM()
 
   ------------------------------------------------------------------
