@@ -603,3 +603,92 @@ resx Mont Venteux : **173/173**, zéro manquante, zéro orpheline. ch5 : **1624*
   `vast_steppe_guardian` 82 %, `searing_tunnel_entrance` 41 %.
 - Bureau du maître de guilde : ch7-10 inexistants, ch6 = 2 boîtes.
 - Densité : ch6 457 / ch7 397 / ch8 324 / ch9 307 / ch10 256, contre 7000 visés.
+
+
+## Session 2026-07-29 (suite) — builds H à K
+
+Commits : `7652fec` (H) · `aa4d3d4` (I) · `6894d3a` (J) · `7619a06` (K). Tous poussés.
+Tag de build courant : **2026-08-02-K**.
+
+### LE RÊVE A SA PROPRE CARTE
+`Data/Ground/hero_dream.rsground` (320×240) + `Data/Script/halcyon/ground/hero_dream/`.
+
+Le décor onirique n'est plus un overlay mais le **fond de carte**
+(`Background.Layers` / `LayeredBG`), copie structurelle de `personality_test.rsground` :
+`Dream_Back` alpha 255 dérive +30, `Dream_Front` alpha 128 dérive −30, sens contraires.
+Le moteur le dessine avant tout le reste, **sans condition de culling** — contrairement à
+un `FiniteOverlayEmitter`, qui était supprimé du rendu (voir plus haut, `GetDrawSize()`).
+
+L'entité apparaît par **clignotement** en enchaînant les trois seuls paliers d'opacité que
+le moteur expose (`UpdateDrawEffects:78-82`) : `Absent`=0, `Transparent`=128, rien=255.
+
+### ⚠️ DÉCLARER UNE CARTE DEMANDE **DEUX** FICHIERS
+Erreur commise, crash bloquant en jeu (`Invalid Ground Map Name: hero_dream`).
+
+Le moteur ne lit **pas** `Data/Zone/master_zone.json` pour valider un nom de ground :
+il interroge l'index compilé `Data/Zone/index.idx`
+(`GameManager.MoveToGround:712` → `ZoneEntrySummary.GroundValid` → `Grounds.Contains`).
+`index.idx` est du **JSON** malgré son extension.
+
+→ Toute nouvelle carte doit être ajoutée **à la même position dans les deux fichiers**,
+et les deux listes doivent rester strictement identiques.
+Contrôle : comparer `index.idx > Object > master_zone > Grounds` avec le `GroundMaps`
+de `master_zone.json`.
+
+### UN CHANGEMENT DE CARTE NE DOIT JAMAIS COUPER `CutsceneMode`
+Cause du bug « on revoit le ground du tunnel pendant la transition ».
+`GroundScene.cs:176` : couper le mode cinématique réveille la boucle de rendu de la carte
+sortante. Or `EnterGroundMap` ne bascule pas sur-le-champ — il arme `SceneOutcome`, que la
+boucle principale consomme au tour suivant (`GameManager.cs:506-512`).
+→ Garder `CutsceneMode(true)` jusqu'au bout ; c'est la carte d'**arrivée** qui le relâche
+après avoir posé son propre fondu.
+
+### LES SPRITES SONT PLUS GRANDS QUE LES COLLIDERS
+Un personnage n'occupe pas 16×16 à l'écran. `GroundAction.GetDrawLoc:116` centre la feuille
+sur le collider : `drawX = MapLoc.X + 8 − TileWidth/2`.
+Mesuré dans l'en-tête des `.chara` : **Tropius 40×40 · Noctowl 38×32 · Growlithe 32×28**.
+→ Tout contrôle de recouvrement (feu, décor, cadrage caméra) doit se faire **sprite compris**,
+jamais sur le collider seul.
+
+### Corrections de mise en scène
+- **Cercle du repas élargi** : 9 paires de voisins étaient à 18-22 px (une largeur de sprite) —
+  aucun passage ne subsistait, d'où 12 traversées. Rayon 74 / offset 14, écart minimum **34 px**.
+  Ordre de départ calculé (60000 permutations) + waypoints → **0 traversée**.
+- **Kino / Reinier** : les dix membres tournent la tête en décalé, sept les **suivent du regard**
+  pendant la remontée (`FaceMovingCharacter`).
+- **Cadrage d'arrivée** : caméra (256,310) → (264,262). Penticus était coupé de 12 px.
+- **Duo au coucher** : il n'était pas dans `sleepOrder` et attendait figé. Il part maintenant
+  avec Hyko et Almotz — le partenaire s'étire, le héros s'attarde vers le sommet.
+- **Phileas réagit au cauchemar** : il entend, se tourne, traverse le camp (trajet calculé
+  sans piétiner les dix dormeurs), s'arrête à 26 px, parle, **reprend son poste**.
+- **Poste de garde de Phileas** (240,142) était **sur un obstacle** → (241,166).
+- **Hyko ne soigne plus** : il alerte et dégage, Penticus donne la Baie Oran.
+- **Ganlon parlait avec la voix de Hyko** : `Teammate2/3` était routé en dur alors que
+  `SetParty` échange la cordée. On lit désormais `LTBL(chara).Importance`.
+
+### NOUVEL OUTIL — `tools/audit_detours.py`
+Signale les trajectoires qui rallongent sans raison (ratio parcouru/direct), et vérifie sur
+la grille d'obstacles si le trajet **direct** était praticable.
+Deux garde-fous après faux positifs mesurés : frontières de fonction, et détection de
+demi-tour retenue seulement si le trajet rallonge (≥ 5 %).
+Référence : **0**. Test négatif vérifié (détour de Coco réintroduit → détecté).
+
+### Références de validation (build K)
+lua OK · `audit_bugs` 12 · `verify_legend` vert · `verify_scene_positions` vert ·
+`audit_integrite` **925** · `verify_ground_reachability` 27 · `verify_assets_exist` 0 ·
+`verify_bg_format` vert · `audit_scene_collisions` 0 · `audit_micro_moves` 0 ·
+**`audit_detours` 0** · `verify_scene_fades` 23 (dette).
+
+### À TESTER EN JEU — rien de tout cela ne l'a été
+Le jeu **plantait** avant d'atteindre le rêve (crash `hero_dream`) : toute la mise en scène
+du rêve est donc écrite mais **jamais vue tourner**.
+1. Le jeu atteint-il le rêve sans crasher ?
+2. Le fond parallaxe s'affiche-t-il, l'entité clignote-t-elle ?
+3. Le retour au camp recrée-t-il les dix PNJ sur leurs couches (`ResumeAfterDream`) ?
+4. L'intro ne se rejoue-t-elle pas en boucle ?
+5. Plus d'aperçu du Crucible pendant la transition ?
+6. Le cercle du repas est-il lisible, sans personne qui se traverse ?
+
+### Manque identifié
+Aucun outil ne contrôle la cohérence `index.idx` ↔ `master_zone.json`. C'est précisément
+ce qui a produit le crash : à écrire avant la prochaine création de carte.
