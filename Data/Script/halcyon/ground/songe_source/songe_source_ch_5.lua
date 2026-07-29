@@ -39,9 +39,12 @@
     COMPOSITION (mesurée sur docs/renders/luminous_spring.png)
       * clairière : y 310-525 ; rive sableuse au bord de la source : y 285-305 ;
       * glow de la source : ~(390,205) ; axe unique source/elle/héros en x=390 ;
-      * caméras : veille (390,360), apparition (390,290), dialogue (390,315),
-        dissolution (390,335) — la source et les deux personnages restent
-        cadres à chaque beat (pas d'action hors champ).
+      * caméras : veille (390,315) — le halo de la source entre dans le
+        plan d'intro (205 > 315-120=195) ; la caméra accompagne la marche
+        jusqu'à (390,300) ; apparition (390,285) ; dialogue (390,315) ;
+        dissolution (390,330) — la source et les deux personnages restent
+        cadrés à chaque beat (pas d'action hors champ), conformes à la DA
+        de docs/CONCEPTION_songe_source.md.
 
     REGLES DU PROJET RESPECTEES
       * Speaker anonyme E040 (deux backslashes dans la source, patron
@@ -89,10 +92,14 @@ function songe_source_ch_5.PlayDream()
 			{'Gardevoir', 390, 297, Direction.Down} })
 		GROUND:Hide(elle.EntName)
 
-		--Le heros, endormi, au centre de la clairiere.
+		--Le heros, endormi, au centre de la clairiere. Camera d'intro en
+		--(390,315) : le halo de la source (y~205) ENTRE dans le plan de
+		--decouverte (bord haut 195) ET les pieds du heros restent cadres
+		--(bord bas 435, marge 5 px) — alignement sur la DA du doc de
+		--conception (l'ancienne 360 rognait la source du premier plan).
 		GROUND:TeleportTo(hero, 390, 430, Direction.Up)
 		GROUND:CharSetAnim(hero, "EventSleep", true)
-		GAME:MoveCamera(390, 360, 1, false)
+		GAME:MoveCamera(390, 315, 1, false)
 
 		--Les petales du songe, suspendus au-dessus de la prairie.
 		local coroP = TASK:BranchCoroutine(function()
@@ -137,8 +144,15 @@ function songe_source_ch_5.PlayDream()
 		GAME:WaitFrames(18)
 
 		--Attire par la lueur : quelques pas vers la source, puis l'arret.
-		--C'est son SEUL trajet libre : il reconnait l'endroit.
-		GROUND:MoveToPosition(hero, 390, 382, false, 1)
+		--C'est son SEUL trajet libre : il reconnait l'endroit. La camera
+		--accompagne la marche (315 -> 300) : elle aussi est attiree.
+		local coro1 = TASK:BranchCoroutine(function()
+			GROUND:MoveToPosition(hero, 390, 382, false, 1)
+		end)
+		local coro2 = TASK:BranchCoroutine(function()
+			GAME:MoveCamera(390, 300, 60, false)
+		end)
+		TASK:JoinCoroutines({coro1, coro2})
 		GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
 		GAME:WaitFrames(10)
 		pensee('REVE5_002', 'Worried')
@@ -148,9 +162,10 @@ function songe_source_ch_5.PlayDream()
 		-- ACTE 2 — L'APPARITION (silence temporaire, lumiere etrange,
 		-- scintillement progressif — jamais instantane)
 		---------------------------------------------------------------
-		--La musique se retire : le silence est l'effet.
+		--La musique se retire : le silence est l'effet. La camera est
+		--attiree vers la rive (300 -> 285) : elle aussi retient son souffle.
 		SOUND:FadeOutBGM(120)
-		GAME:MoveCamera(390, 290, 110, false)
+		GAME:MoveCamera(390, 285, 110, false)
 		GAME:WaitFrames(110)
 
 		--La source pulse deux fois : quelque chose la traverse.
@@ -241,7 +256,7 @@ function songe_source_ch_5.PlayDream()
 		-- ACTE 5 — LA DISSOLUTION (conclusion)
 		---------------------------------------------------------------
 		SOUND:FadeOutBGM(150)
-		GAME:MoveCamera(390, 335, 120, false)
+		GAME:MoveCamera(390, 330, 120, false)
 		GAME:WaitFrames(20)
 		elle_dit('REVE5_011')
 		GAME:WaitFrames(12)

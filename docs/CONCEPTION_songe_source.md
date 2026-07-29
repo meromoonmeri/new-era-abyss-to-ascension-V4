@@ -112,7 +112,11 @@ Composition (mesurée sur le rendu pixel de la map, `docs/renders/`) :
 - héros : prairie, (390, 430) — centre de la clairière ;
 - Gardevoir : rive sableuse au bord de la source, (390, 297) — l'eau comme ancre,
   glow de la source derrière elle (composition verticale : cascade → source → elle → héros) ;
-- caméra : intro (390,300) plan large clairière+source ; apparition (390,285) ;
+- caméra : intro **(390,315)** plan large clairière+source — arbitrage au pixel :
+  le halo (y≈205) et les pieds du héros (y=430) distants de 225 px, écran 240 px ;
+  315 laisse 5 px sous ses pieds ET le halo visible (bord haut 195) — la
+  proposition initiale (390,300) lui rognait 10 px de chausses. La caméra
+  accompagne ensuite sa marche jusqu'à (390,300) ; apparition (390,285) ;
   dialogue (390,315) (cadre source + les deux) ; dissolution (390,330).
 
 1. **L'éveil dans le songe** — noir, la musique du test de personnalité ENTRE dans
