@@ -129,6 +129,22 @@ end
 
 function mount_windswept_entrance.PlotScripting()
   if SV.ChapterProgression.Chapter == 5 then
+    --------------------------------------------------------------------
+    -- RETOUR DU REVE — cette branche passe AVANT toutes les autres.
+    --------------------------------------------------------------------
+    -- La veillee (CampNightfall) se termine en envoyant le joueur sur la
+    -- carte dediee `hero_dream`. Celle-ci renvoie ici une fois le reve
+    -- fini. Sans cette branche, on retomberait sur ArrivalCutscene —
+    -- FinishedMountWindsweptIntro n'est pose qu'a la toute fin de
+    -- l'intro — et TOUTE la soiree se rejouerait en boucle.
+    --
+    -- CampNightWatchDone est pose juste avant le depart vers le reve ;
+    -- MorningAfterDream le consomme. Les deux drapeaux encadrent donc
+    -- exactement l'aller-retour, et la scene ne peut pas se rejouer.
+    if SV.Chapter5.CampNightWatchDone and not SV.Chapter5.FinishedMountWindsweptIntro then
+      mount_windswept_entrance_ch_5.ResumeAfterDream()
+      return
+    end
     if not SV.Chapter5.FinishedMountWindsweptIntro then
       mount_windswept_entrance_ch_5.ArrivalCutscene()
     elseif SV.Chapter5.PlayTempMountScene then
@@ -166,22 +182,69 @@ function mount_windswept_entrance.Teammate1_Action(chara, activator)
   PartnerEssentials.GetPartnerDialogue(CH('Teammate1'))
  end
 
-function mount_windswept_entrance.Teammate2_Action(chara, activator)
-  DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-  if SV.ChapterProgression.Chapter == 5 then
+--------------------------------------------------------------------
+-- QUI EST TEAMMATE2/3 ? CA CHANGE AU MILIEU DU CHAPITRE.
+--------------------------------------------------------------------
+-- BUG VU EN JEU : « Ganlon utilise les dialogues de Hyko ».
+-- Exact, et c'etait une inversion complete des personnages.
+--
+-- Avant l'intro du Mont, les equipiers 2 et 3 sont HYKO (Growlithe) et
+-- ALMOTZ (Zigzagoon), herites du Tunnel. Mais SetParty, appelee A LA
+-- FIN de ArrivalCutscene, les retire et cree GANLON (Cranidos) et
+-- SHUCA (Mareep) — c'est la « cordee du sommet » annoncee par
+-- Penticus. Les slots Teammate2/3 changent donc d'occupant en cours
+-- de chapitre.
+--
+-- Or ce routage etait CODE EN DUR sur Growlithe_Action et
+-- Zigzagoon_Action. Apres l'intro, parler a Ganlon declenchait le
+-- dialogue de Hyko (« wouf ! », le garde tatillon) et parler a Shuca
+-- celui d'Almotz (« mes sept cailloux pour les petits »). Deux
+-- personnages parlaient avec la voix et l'histoire de deux autres.
+--
+-- On lit donc l'ESPECE REELLE de l'equipier au lieu de la supposer.
+-- `LTBL(chara).Importance` est le marqueur pose par SetParty
+-- (mount_windswept_entrance_ch_5.lua:3172-3173) et le patron atteste du
+-- depot (GeneralFunctions.lua:875-897, event_battle.lua:372).
+-- Repli sur l'espece si le marqueur manque (sauvegarde ancienne).
+local function talkToTeammate(chara, activator, slot)
+  if SV.ChapterProgression.Chapter ~= 5 then
+    COMMON.GroundInteract(activator, chara, true)
+    return
+  end
+
+  local who = nil
+  pcall(function() who = LTBL(chara).Importance end)
+  if who == nil or who == '' then
+    --Repli : on regarde l'espece du sprite present sur la carte.
+    pcall(function() who = chara.CurrentForm.Species end)
+    if who == 'cranidos' then who = 'Cranidos'
+    elseif who == 'mareep' then who = 'Mareep'
+    elseif who == 'growlithe' then who = 'Growlithe'
+    elseif who == 'zigzagoon' then who = 'Zigzagoon' end
+  end
+
+  if who == 'Cranidos' then
+    mount_windswept_entrance_ch_5.Cranidos_Action(chara, activator)
+  elseif who == 'Mareep' then
+    mount_windswept_entrance_ch_5.Mareep_Action(chara, activator)
+  elseif who == 'Zigzagoon' then
+    mount_windswept_entrance_ch_5.Zigzagoon_Action(chara, activator)
+  elseif who == 'Growlithe' then
     mount_windswept_entrance_ch_5.Growlithe_Action(chara, activator)
   else
+    --Inconnu : on ne met JAMAIS les mots d'un autre dans sa bouche.
     COMMON.GroundInteract(activator, chara, true)
   end
 end
 
+function mount_windswept_entrance.Teammate2_Action(chara, activator)
+  DEBUG.EnableDbgCoro() --Enable debugging this coroutine
+  talkToTeammate(chara, activator, 2)
+end
+
 function mount_windswept_entrance.Teammate3_Action(chara, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-  if SV.ChapterProgression.Chapter == 5 then
-    mount_windswept_entrance_ch_5.Zigzagoon_Action(chara, activator)
-  else
-    COMMON.GroundInteract(activator, chara, true)
-  end
+  talkToTeammate(chara, activator, 3)
 end
 
 --PNJ du camp de base (present uniquement au chapitre 5)

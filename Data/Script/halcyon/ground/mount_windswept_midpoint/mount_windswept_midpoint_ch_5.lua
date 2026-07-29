@@ -150,7 +150,10 @@ function mount_windswept_midpoint_ch_5.Partner_Action(chara, activator)
 end
 
 --------------------------------------------------------------------
--- Hyko (Growlithe)
+-- GANLON (Cranidos) — l'equipier 2 de la cordee du sommet.
+-- Le commentaire disait « Hyko (Growlithe) » : faux depuis que
+-- SetParty echange la cordee a la fin de l'intro du Mont. Le contenu,
+-- lui, etait bien celui de Ganlon (le raleur au crane dur).
 --------------------------------------------------------------------
 function mount_windswept_midpoint_ch_5.Ganlon_Action(chara, activator)
   DEBUG.EnableDbgCoro()
@@ -177,7 +180,8 @@ function mount_windswept_midpoint_ch_5.Ganlon_Action(chara, activator)
 end
 
 --------------------------------------------------------------------
--- Almotz (Zigzaton)
+-- SHUCA (Mareep) — l'equipiere 3, premiere vraie expedition.
+-- Le commentaire disait « Almotz (Zigzaton) » : meme erreur.
 --------------------------------------------------------------------
 function mount_windswept_midpoint_ch_5.Shuca_Action(chara, activator)
   DEBUG.EnableDbgCoro()

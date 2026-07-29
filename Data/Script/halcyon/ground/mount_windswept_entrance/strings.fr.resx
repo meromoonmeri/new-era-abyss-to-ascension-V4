@@ -287,9 +287,6 @@
   <data name="MWE5_082" xml:space="preserve">
     <value>Monte.[pause=20] Le vent se souvient de toi,[pause=10] même si toi, tu ne te souviens de rien.</value>
   </data>
-  <data name="MWE5_083" xml:space="preserve">
-    <value>Quand tu atteindras le sommet...[pause=20] ne me cherche pas.[pause=30] C'est moi qui te trouverai.</value>
-  </data>
   <data name="MWE5_084" xml:space="preserve">
     <value>... Nous nous sommes déjà rencontrés,[pause=10] petit écho.</value>
   </data>
@@ -409,81 +406,6 @@
   </data>
   <data name="MWE5_117" xml:space="preserve">
     <value>... Oui, Maître.[pause=20] Mais un jour,[pause=10] vous me direz pourquoi.</value>
-  </data>
-  <data name="MWE5_130" xml:space="preserve">
-    <value>......</value>
-  </data>
-  <data name="MWE5_131" xml:space="preserve">
-    <value>............</value>
-  </data>
-  <data name="MWE5_132" xml:space="preserve">
-    <value>..................</value>
-  </data>
-  <data name="MWE5_133" xml:space="preserve">
-    <value>Où...[pause=20]</value>
-  </data>
-  <data name="MWE5_134" xml:space="preserve">
-    <value>Où est-ce que je suis ?</value>
-  </data>
-  <data name="MWE5_135" xml:space="preserve">
-    <value>Peut-être que...[pause=30] c'est un rêve ?</value>
-  </data>
-  <data name="MWE5_136" xml:space="preserve">
-    <value>...Oh ?[pause=30] Il y a quelqu'un.</value>
-  </data>
-  <data name="MWE5_137" xml:space="preserve">
-    <value>Qui est-ce...?[pause=30] Quelqu'un que je connais ?</value>
-  </data>
-  <data name="MWE5_138" xml:space="preserve">
-    <value>......[pause=30] Non.[pause=20] Je n'arrive pas à me souvenir.</value>
-  </data>
-  <data name="MWE5_139" xml:space="preserve">
-    <value>... Te voilà.</value>
-  </data>
-  <data name="MWE5_140" xml:space="preserve">
-    <value>Tu es venu jusqu'ici.[pause=30] Comme la dernière fois.</value>
-  </data>
-  <data name="MWE5_141" xml:space="preserve">
-    <value>...La dernière fois ?[pause=30] On s'est déjà vus ?</value>
-  </data>
-  <data name="MWE5_142" xml:space="preserve">
-    <value>Tu ne t'en souviens pas.[pause=20] C'est normal.[pause=30] C'est ce qui a été demandé.</value>
-  </data>
-  <data name="MWE5_143" xml:space="preserve">
-    <value>Demandé...?[pause=20] Par qui ?</value>
-  </data>
-  <data name="MWE5_144" xml:space="preserve">
-    <value>... Par toi.</value>
-  </data>
-  <data name="MWE5_145" xml:space="preserve">
-    <value>Pourquoi tu viens dans mes rêves ?</value>
-  </data>
-  <data name="MWE5_146" xml:space="preserve">
-    <value>Parce que c'est le seul endroit où tu m'entends encore.</value>
-  </data>
-  <data name="MWE5_147" xml:space="preserve">
-    <value>Le jour, il y a le vent.[pause=20] Le bruit.[pause=20] Les autres.[pause=30] La nuit, il ne reste que toi.</value>
-  </data>
-  <data name="MWE5_148" xml:space="preserve">
-    <value>Demain, tu monteras.</value>
-  </data>
-  <data name="MWE5_149" xml:space="preserve">
-    <value>Tu as déjà gravi une hauteur comme celle-là.[pause=30] Pas avec ce corps.</value>
-  </data>
-  <data name="MWE5_150" xml:space="preserve">
-    <value>...Pas avec ce corps ?[pause=30] Qu'est-ce que ça veut dire ?</value>
-  </data>
-  <data name="MWE5_151" xml:space="preserve">
-    <value>Le vent, là-haut, te reconnaîtra.[pause=30] N'aie pas peur quand il le fera.</value>
-  </data>
-  <data name="MWE5_152" xml:space="preserve">
-    <value>......[pause=30] Le jour va se lever.</value>
-  </data>
-  <data name="MWE5_153" xml:space="preserve">
-    <value>Attends —[pause=20] je n'ai rien compris.[pause=30] Reste.</value>
-  </data>
-  <data name="MWE5_154" xml:space="preserve">
-    <value>Nous nous reverrons.[pause=30] Nous nous revoyons toujours.</value>
   </data>
   <data name="MWE5_155" xml:space="preserve">
     <value>(...!)</value>

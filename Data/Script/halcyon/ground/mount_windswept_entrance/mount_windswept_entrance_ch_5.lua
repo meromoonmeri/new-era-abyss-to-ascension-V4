@@ -1033,296 +1033,197 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GAME:WaitFrames(60)
 
 	---------------------------------------------------------------
-	-- 10. LE REVE — l'ombre inconnue (Prompt Maitre 6.6)
+	-- 10. LE REVE — sur sa propre carte
 	---------------------------------------------------------------
-	--RETOUR DU TEST EN JEU : le reve se jouait sur ECRAN NOIR nu, les
-	--effets ne se voyaient pas. Correction par le patron ATTESTE des
-	--visions (VoiceVisions.Play, module verifie) :
-	--  * DreamSky : les DEUX couches Dream_Back + Dream_Front de
-	--    Content/BG defilent en parallaxe (l'animation superposee) ;
-	--  * UI:WaitShowBG('Genesis_Void') : fond onirique 320x240 anime,
-	--    affiche PAR-DESSUS le fondu noir (c'est ainsi que les
-	--    planches des visions s'affichent) ;
-	--  * haut-parleur anonyme « ??? » (\uE040), patron VoiceVisions.
-	SOUND:PlayBGM('I Saw Something Again....ogg', true)
-	GAME:WaitFrames(30)
+	-- LA SCENE DU REVE A ETE ENTIEREMENT REFAITE, ET DEPLACEE SUR UNE
+	-- CARTE DEDIEE : Data/Ground/hero_dream.rsground, script
+	-- Data/Script/halcyon/ground/hero_dream/init.lua.
+	--
+	-- Pourquoi une carte plutot qu'un overlay pose ici :
+	--   * l'overlay etait CULL par le moteur. OverlayEmitter.cs:83 cree
+	--     son OverlayAnim avec omnipresent = false ; GetDrawSize() rend
+	--     Loc(TileSize) = 24x24, et IterateRelevantDraw ne dessine que
+	--     si ce rectangle touche le ViewRect. Emis en (0,0) avec la
+	--     camera sur le camp, il disparaissait du rendu ;
+	--   * meme visible, il fallait masquer douze dormeurs, un feu, onze
+	--     paillasses et une falaise pour faire croire a un ailleurs.
+	--
+	-- Sur la carte dediee, le ciel onirique n'est plus un overlay :
+	-- c'est le FOND DE CARTE (Background.Layers / LayeredBG), copie
+	-- structurelle de personality_test.rsground. Le moteur le dessine
+	-- avant tout le reste, sans condition de culling — il ne peut plus
+	-- disparaitre. Et le heros y est SEUL, couche au centre.
+	--
+	-- Le reve se termine par un retour ici meme, ecran noir conserve :
+	-- c'est hero_dream qui rappelle mount_windswept_entrance, et
+	-- PlotScripting enchaine sur MorningAfterDream (section 11).
+	SV.Chapter5.CampNightWatchDone = true
+	GAME:CutsceneMode(false)
+	GAME:EnterGroundMap('hero_dream', 'Main_Entrance_Marker', true)
+end
 
-	------------------------------------------------------------------
-	-- STRUCTURE DU REVE — relevee dans pret/pmd-red, pas de memoire.
-	------------------------------------------------------------------
-	-- Fichier lu : src/data/ground/ground_data_a01p01_station.h, les huit
-	-- reves successifs du heros. Le jeu d'origine suit toujours le meme
-	-- ordre, et cet ordre EST l'effet :
-	--
-	--   1. MSG_QUIET "......" / "............" / ".................."
-	--      Trois boites de points, de plus en plus longues. Personne ne
-	--      parle : c'est le dormeur qui remonte vers la surface. C'est ce
-	--      qui manquait le plus ici — l'ancienne version ouvrait sur la
-	--      Voix, donc le joueur n'etait jamais « endormi ».
-	--   2. "Where..." / "Where am I?" / "Is this a dream...?"
-	--      La desorientation vient AVANT toute presence.
-	--   3. TEXTBOX_CLEAR + WAIT : la boite se FERME, il ne reste que
-	--      l'image. Un vrai silence, pas un blanc dans une boite ouverte.
-	--   4. "...Oh? There's someone here." / "Who is it...? Someone I know?"
-	--      La presence est apercue avant d'etre entendue.
-	--   5. "......Hmm... I can't remember."
-	--      L'oubli est pose DES le premier reve, avant meme le reveil.
-	--   6. MSG_NPC : l'entite parle enfin. Phrases courtes, beaucoup de
-	--      points de suspension, jamais plus de deux idees a la fois.
-	--   7. Le heros pose LA question : "Why do you appear in my dreams?"
-	--      C'est le pivot de la scene de Gardevoir, on le reprend tel quel.
-	--   8. "It will be morning soon." puis reveil en sursaut, et l'oubli.
-	--
-	-- TRANSPOSITION NEW ERA : l'entite reste ANONYME (\uE040, ni nom ni
-	-- portrait — regle projet), la ou Gardevoir est nommee et portraituree.
-	-- Le heros ne doit RIEN comprendre : c'est au joueur de reconnaitre.
-	------------------------------------------------------------------
-	------------------------------------------------------------------
-	-- LE DECOR DU REVE = CELUI DU TEST DE PERSONNALITE.
-	------------------------------------------------------------------
-	-- RETOUR DE JEU : « je voulais le fond du personality test, les
-	-- effets de couleur parallaxe ». Deux erreurs empechaient de le voir.
-	--
-	-- 1. UI:WaitShowBG('Genesis_Void') posait une planche OPAQUE
-	--    par-dessus tout. La parallaxe de DreamSky tournait bien en
-	--    dessous — invisible. On retire donc ce fond : la parallaxe EST
-	--    le decor, elle n'a rien a porter par-dessus elle.
-	--
-	-- 2. DreamSky ne reproduisait pas les reglages du test de
-	--    personnalite. Corrige dans VoiceVisions (frameTime 8, alpha
-	--    128 sur la couche proche, derives OPPOSEES +30/-30) d'apres le
-	--    JSON de Data/Ground/personality_test.rsground, champ
-	--    Background.Layers. C'est ce croisement de deux derives qui
-	--    donne la profondeur que le joueur reconnait.
-	--
-	-- La duree couvre tout le reve : 900 frames, soit ~15 s a 60 fps,
-	-- assez pour les huit temps ci-dessous sans que le ciel ne se coupe
-	-- au milieu d'une replique.
-	--
-	------------------------------------------------------------------
-	-- IL FAUT LEVER LE VOILE NOIR AVANT D'AFFICHER LE REVE.
-	------------------------------------------------------------------
-	-- BUG VU EN JEU (2e cause, independante de la premiere) : « le reve
-	-- ne s'affiche pas ». La section 9 se termine par un FadeOut(false,
-	-- 60) — l'ecran est donc COUVERT quand on arrive ici, et rien ne le
-	-- levait avant le FadeIn du reveil, 200 lignes plus bas.
-	--
-	-- Or le fondu du moteur n'est pas un calque de scene : il est
-	-- dessine APRES elle, par-dessus tout (GameManager.Draw:1363,
-	-- « draw transitions » -> fadeScreen.Draw, posterieur a
-	-- CurrentScene.Draw). Un overlay de scene, meme en DrawLayer.Top,
-	-- passe donc SOUS lui. La parallaxe tournait bel et bien : elle
-	-- tournait sous un rectangle noir opaque.
-	--
-	-- On leve donc la lumiere AVANT de poser le ciel de reve. Le decor
-	-- du camp n'apparait pas pour autant : les deux planches Dream_Back
-	-- et Dream_Front sont opaques (alpha 255 mesure sur le PNG) et
-	-- pavent tout l'ecran en RepeatX/RepeatY — c'est le reve lui-meme
-	-- qui masque le monde reel, comme dans le test de personnalite.
-	--
-	-- L'ordre compte : on pose la parallaxe d'abord (elle a 30 frames de
-	-- fondu d'entree propre), puis on leve le noir par-dessus. Le
-	-- spectateur voit le noir s'ouvrir DIRECTEMENT sur le ciel onirique,
-	-- sans jamais entrapercevoir le bivouac.
-	pcall(function() VoiceVisions.DreamSky(900) end)
-	GAME:WaitFrames(10)
-	GAME:FadeIn(50)
-	GAME:WaitFrames(50)
+--------------------------------------------------------------------
+-- LE MATIN — apres le reve, de retour au camp
+--------------------------------------------------------------------
+-- Scindee de CampNightfall : un changement de carte doit etre la
+-- DERNIERE instruction d'une scene (le moteur poursuit la coroutine en
+-- arriere-plan pendant le chargement). Tout ce qui suivait le reve est
+-- donc devenu une fonction a part, rappelee par PlotScripting quand on
+-- revient de hero_dream.
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+-- RETOUR DU REVE — on recompose le camp endormi, puis le matin.
+--------------------------------------------------------------------
+-- Passer par une carte dediee a un cout : les dix PNJ du camp sont des
+-- personnages TEMPORAIRES (AddTempChar), ils n'existent plus au retour.
+-- Cette fonction les recree EXACTEMENT sur leur couche, dans la pose de
+-- sommeil, avant de rendre la main au matin. Le joueur ne voit rien de
+-- cette reconstruction : tout se passe sous l'ecran noir laisse par
+-- hero_dream et maintenu par Init.
+--
+-- L'ordre des couchages est celui de la table `seats` de CampNightfall,
+-- recopie ici a l'identique. Les deux doivent rester d'accord : si l'un
+-- change, l'autre aussi.
+--------------------------------------------------------------------
+function mount_windswept_entrance_ch_5.ResumeAfterDream()
+	local hero = CH('PLAYER')
+	local partner = CH('Teammate1')
+	local B = mount_windswept_entrance_ch_5.BEDS
 
-	--1. L'EMERGENCE. Voix off centree, sans locuteur : le dormeur n'est
-	--pas encore quelqu'un. Les trois boites s'allongent (pmd-red).
-	UI:ResetSpeaker(false)
-	UI:SetCenter(true)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_130']))
-	GAME:WaitFrames(20)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_131']))
-	GAME:WaitFrames(25)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_132']))
-	GAME:WaitFrames(30)
+	GAME:CutsceneMode(true)
+	pcall(function() GAME:FadeOut(false, 1) end)
+	--La nuit est encore la : le matin se leve dans MorningAfterDream.
+	pcall(function() GROUND:AddMapStatus("darkness") end)
 
-	--2. LA DESORIENTATION, avant toute presence.
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_133']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_134']))
-	GAME:WaitFrames(20)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_135']))
+	--Le bivouac de la nuit : paillasses + foyer (et son bloqueur).
+	mount_windswept_entrance_ch_5.DeployBeds()
 
-	--3. LE SILENCE. La boite se ferme vraiment (TEXTBOX_CLEAR + WAIT(30)
-	--dans pmd-red) : l'image onirique reste seule a l'ecran.
-	UI:SetCenter(false)
-	UI:ResetSpeaker()
-	GAME:WaitFrames(50)
+	--Les dix membres du camp, recrees a leur place.
+	local audino, snubbull, girafarig, breloom, growlithe, zigzagoon, tropius, noctowl, mareep, cranidos =
+	CharacterEssentials.MakeCharactersFromList({
+		{'Audino',    B[10][1] + 13, B[10][2] + 10, Direction.Right},
+		{'Snubbull',  B[2][1]  + 13, B[2][2]  + 10, Direction.Left},
+		{'Girafarig', B[4][1]  + 13, B[4][2]  + 10, Direction.Left},
+		{'Breloom',   B[11][1] + 13, B[11][2] + 10, Direction.Right},
+		{'Growlithe', B[7][1]  + 13, B[7][2]  + 10, Direction.Up},
+		{'Zigzagoon', B[8][1]  + 13, B[8][2]  + 10, Direction.Right},
+		{'Tropius',   B[1][1]  + 13, B[1][2]  + 10, Direction.Down},
+		{'Noctowl',   240, 142, Direction.Down},
+		{'Mareep',    B[9][1]  + 13, B[9][2]  + 10, Direction.Right},
+		{'Cranidos',  B[3][1]  + 13, B[3][2]  + 10, Direction.Left}
+	})
 
-	--4. LA PRESENCE EST APERCUE. Un souffle marque son entree — le vent
-	--est le motif du chapitre, il tient lieu du SE de Gardevoir.
-	pcall(function() SOUND:PlayBattleSE('_UNK_DUN_Water_Drop') end)
-	GAME:WaitFrames(40)
-	UI:ResetSpeaker(false)
-	UI:SetCenter(true)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_136']))
-	GAME:WaitFrames(15)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_137']))
-	GAME:WaitFrames(20)
-	--5. L'OUBLI, pose des maintenant.
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_138']))
-	UI:SetCenter(false)
-	UI:ResetSpeaker()
-	GAME:WaitFrames(40)
+	--Le duo sur ses couches : partenaire 5, heros 6 (voisines de 50 px,
+	--pour que la camera puisse les cadrer ensemble).
+	GROUND:TeleportTo(partner, B[5][1] + 13, B[5][2] + 10, Direction.Left)
+	GROUND:TeleportTo(hero,    B[6][1] + 13, B[6][2] + 10, Direction.Up)
 
-	--6. L'ENTITE PARLE. Speaker anonyme pose UNE fois (patron EoSO
-	--SetSpeakerUnknown, cf. VoiceVisions) : ni nom, ni espece, ni portrait.
-	local function voice(key)
-		UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+	--Tout le monde dort. Phileas, lui, VEILLE debout a son poste : il
+	--n'a pas de couchage, c'est tout son role de la nuit.
+	for _, c in ipairs({audino, snubbull, girafarig, breloom, growlithe,
+	                    zigzagoon, tropius, mareep, cranidos}) do
+		pcall(function() GROUND:CharSetAnim(c, "Sleep", true) end)
+	end
+	pcall(function() GROUND:CharSetAnim(partner, "EventSleep", true) end)
+	pcall(function() GROUND:CharSetAnim(hero, "EventSleep", true) end)
+
+	--Puis le matin, avec la meme table de personnages que la veillee.
+	mount_windswept_entrance_ch_5.MorningAfterDream(
+		hero, partner, {penticus = tropius, phileas = noctowl,
+		                rin = audino,      coco = snubbull,
+		                shuca = mareep,    ganlon = cranidos,
+		                hyko = growlithe,  almotz = zigzagoon,
+		                reinier = girafarig, kino = breloom})
+end
+
+function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
+	local B = mount_windswept_entrance_ch_5.BEDS
+	local mountain = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('mount_windswept')
+	local ruins = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('cloven_ruins')
+	local coro1, coro2, coro3, coro4, coro5, coro6
+
+	--Helpers d'ecoute, identiques a ceux de la veillee : le corps parle
+	--avant la bouche. Redefinis ici car ils etaient locaux a
+	--CampNightfall, dont cette fonction a ete detachee.
+	local function Listen(speaker, listeners, emote)
+		if speaker == nil or listeners == nil then return end
+		local turns = {}
+		for i, who in ipairs(listeners) do
+			if who ~= nil and who ~= speaker then
+				turns[#turns+1] = TASK:BranchCoroutine(function()
+					pcall(function()
+						GAME:WaitFrames((i - 1) * 4)
+						GROUND:CharTurnToCharAnimated(who, speaker, 4)
+						if emote ~= nil then GROUND:CharSetEmote(who, emote, 1) end
+					end)
+				end)
+			end
+		end
+		if #turns > 0 then pcall(function() TASK:JoinCoroutines(turns) end) end
+	end
+	local function Says(speaker, emotion, key, listeners, emote)
+		Listen(speaker, listeners, emote)
+		UI:SetSpeaker(speaker)
+		UI:SetSpeakerEmotion(emotion or "Normal")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings[key]))
 	end
-	--Le heros repond en pensee, voix off centree : il rêve, il n'a pas
-	--de corps ici. C'est aussi ce que fait pmd-red (MSG_QUIET, jamais un
-	--portrait du heros pendant le reve).
-	local function dreamer(key)
-		UI:SetCenter(true)
-		UI:ResetSpeaker(false)
-		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings[key]))
-		UI:SetCenter(false)
-		UI:ResetSpeaker()
-	end
+	--LA COUCHE DU HEROS. C'est la 6 : voir la table `seats` de
+	--CampNightfall, ou le duo occupe les couches 5 (partenaire) et 6
+	--(heros), les deux dernieres du flanc est avant l'ouverture sud.
+	--On ne partage pas `seats` entre les deux fonctions : elle est
+	--construite a partir des personnages `t`, qui n'existent que le
+	--temps de la veillee. Une constante nommee vaut mieux qu'une table
+	--reconstruite a moitie.
+	local HERO_BED = 6
+	local function seatX(i) return B[i][1] + 13 end
+	local function seatY(i) return B[i][2] + 10 end
 
-	--PAS LE SON DE SOIN. BUG VU EN JEU : « dans le reve on devrait pas
-	--entendre le son de Soin de Rin ». C'etait bien « DUN_Heal_Bell »
-	--qui jouait ici — la signature sonore d'Audino, en plein reve
-	--onirique, alors que Rin dort a l'autre bout du camp. Le joueur
-	--l'associait a elle et cherchait sa presence dans la scene.
-	--
-	--« _UNK_DUN_Water_Drop » est deja le son d'entree de la presence
-	--dans ce meme reve (section 4 ci-dessus, et 2 usages attestes dans
-	--le depot) : une goutte suspendue, sans appartenance a personne.
-	--On garde donc UNE seule signature sonore pour l'entite, ce qui la
-	--rend identifiable au lieu de la confondre avec un PNJ du camp.
-	pcall(function() SOUND:PlayBattleSE('_UNK_DUN_Water_Drop') end)
-	GAME:WaitFrames(30)
-	voice('MWE5_139')
-	GAME:WaitFrames(20)
-	voice('MWE5_140')
+	GAME:CutsceneMode(true)
+	if partner ~= nil then AI:DisableCharacterAI(partner) end
+
+	--L'ECRAN EST DEJA NOIR : hero_dream est parti dessus, et Init l'a
+	--repose ici. La mise en place du matin se fait donc a l'abri.
+	pcall(function() GAME:FadeOut(false, 1) end)
+
+	--LE SURSAUT DU REVEIL. Le heros se redresse d'un coup : c'est la
+	--seule trace que le reve laisse dans son corps. Il joue MAINTENANT,
+	--au retour, et non plus dans le reve — le reveil appartient au
+	--monde reel.
+	GAME:MoveCamera(seatX(HERO_BED), seatY(HERO_BED), 1, false)
+	GAME:FadeIn(45)
 	GAME:WaitFrames(25)
-	dreamer('MWE5_141')
-	GAME:WaitFrames(20)
-	voice('MWE5_142')
-	GAME:WaitFrames(20)
-	dreamer('MWE5_143')
-	GAME:WaitFrames(25)
-	--« ... Par toi. » — la reponse qui ne s'explique pas. Un battement
-	--long avant et apres : c'est la phrase que le joueur doit entendre.
-	GAME:WaitFrames(20)
-	voice('MWE5_144')
-	GAME:WaitFrames(45)
-
-	--7. LA QUESTION. Pivot exact de la scene de Gardevoir.
-	dreamer('MWE5_145')
-	GAME:WaitFrames(25)
-	voice('MWE5_146')
-	GAME:WaitFrames(20)
-	voice('MWE5_147')
-	GAME:WaitFrames(35)
-
-	--La montagne. Le tangage du reve arrive ICI, sur « pas avec ce
-	--corps » : l'image vacille au moment ou le heros touche ce qu'il ne
-	--doit pas encore comprendre.
-	voice('MWE5_148')
-	GAME:WaitFrames(20)
-	voice('MWE5_149')
-	pcall(function()
-		SOUND:PlayBattleSE('EVT_Emote_Startled')
-		GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 6, 40))
-	end)
-	GAME:WaitFrames(45)
-	dreamer('MWE5_150')
-	GAME:WaitFrames(25)
-	voice('MWE5_151')
-	GAME:WaitFrames(30)
-	--Le dernier avertissement, garde de la version precedente : c'est la
-	--phrase qui arme le sommet du chapitre. Le heros ne la comprend pas.
-	voice('MWE5_083')
-	GAME:WaitFrames(45)
-
-	--8. LA SEPARATION. « Le jour va se lever » = « It will be morning
-	--soon. Au revoir. » L'image commence a se dissoudre pendant que
-	--l'entite parle encore : le fondu et la derniere phrase se terminent
-	--ensemble (patron EoSO, trois coroutines jointes).
-	voice('MWE5_152')
-	GAME:WaitFrames(20)
-	dreamer('MWE5_153')
-	GAME:WaitFrames(25)
-
-	local dc1 = TASK:BranchCoroutine(function()
-		voice('MWE5_154')
-	end)
-	local dc2 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(30)
-		--Le ciel de reve s'eteint dans le noir. UI:WaitHideBG ne sert
-		--plus a rien ici : il masquait la planche Genesis_Void, qu'on
-		--n'affiche plus. C'est la parallaxe qui EST le decor, et un
-		--overlay ne se « cache » pas — il se recouvre. On fond donc au
-		--noir, ce qui eteint tout d'un coup : le ciel, et le reve avec.
-		pcall(function() GAME:FadeOut(false, 60) end)
-	end)
-	local dc3 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(30)
-		SOUND:FadeOutBGM(90)
-	end)
-	TASK:JoinCoroutines({dc1, dc2, dc3})
-	UI:ResetSpeaker()
-	GAME:WaitFrames(50)
-
-	--LE REVEIL. Le corps parle avant la bouche (grammaire du projet) :
-	--le sursaut physique, puis seulement la pensee. Le heros dort, donc
-	--on leve sa pose le temps du sursaut avant de le rendormir.
-	--LE SURSAUT. Le heros se redresse d'un coup, et la piece tangue
-	--autour de lui : c'est le reveil de Rouge/Bleu, ou l'on se reveille
-	--MAL. On leve d'abord sa pose de sommeil (sinon Nausea joue sur un
-	--personnage couche et le tangage ne se lit pas), puis on passe par
-	--VoiceVisions.Nausea au lieu d'un ScreenMover isole : le niveau 1
-	--donne l'amplitude DEGRESSIVE portee de pmd-sky (le vertige s'eteint
-	--au lieu de se couper net) sans le voile noir des niveaux 2 et 3,
-	--qui serait de trop ici — on est deja dans le noir de la nuit.
-	--ON REVIENT AU CAMP AVANT LE SURSAUT. Le reve vient de s'eteindre au
-	--noir ; sans ce FadeIn, tout le reveil — le tangage, l'emote de
-	--choc, le heros assis sur sa paillasse — se jouerait sur un ecran
-	--noir, donc invisible. On remonte la lumiere sur la nuit du camp
-	--(le statut "darkness" est encore actif, on ne voit donc que la
-	--penombre du bivouac), PUIS le corps reagit.
-	GAME:FadeIn(40)
-	GAME:WaitFrames(20)
 
 	pcall(function() SOUND:PlayBattleSE('EVT_Emote_Exclaim_2') end)
 	pcall(function() GROUND:CharEndAnim(hero) end)
 	pcall(function() VoiceVisions.Nausea(hero, 1) end)
-	GAME:WaitFrames(20)
+	GAME:WaitFrames(25)
 
+	--L'OUBLI IMMEDIAT — le coeur du dispositif de Rouge/Bleu. Trois
+	--pensees, entrecoupees de silences : il tente de rattraper l'image
+	--et n'y arrive pas.
 	UI:ResetSpeaker(false)
 	UI:SetCenter(true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_155']))
-	GAME:WaitFrames(25)
-	--L'OUBLI IMMEDIAT — le coeur du dispositif de Rouge/Bleu.
+	GAME:WaitFrames(30)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_156']))
-	GAME:WaitFrames(20)
+	GAME:WaitFrames(25)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_157']))
 	UI:SetCenter(false)
 	UI:ResetSpeaker()
-	GAME:WaitFrames(30)
+	GAME:WaitFrames(35)
 
 	--Il se rendort. Le trouble n'est pas resolu : il ressurgira au matin
-	--(section 11) et sur le chemin du nord (section 15).
+	--et sur le chemin du nord.
 	pcall(function()
 		GROUND:CharSetEmote(hero, "", 0)
 		GROUND:CharSetAnim(hero, "EventSleep", true)
 	end)
 	GAME:WaitFrames(60)
 
-	--LA NUIT PASSE. On repasse au noir avant la mise en place du matin :
-	--depuis le reveil en sursaut l'ecran est ECLAIRE (FadeIn ci-dessus),
-	--et la section 11 se declare « sous le noir » puis termine par un
-	--FadeIn — sans ce fondu, elle remonterait une lumiere deja levee et
-	--le joueur verrait Rin, Coco et Penticus se teleporter a leur poste.
+	--LA NUIT PASSE.
 	GAME:FadeOut(false, 50)
 	GAME:WaitFrames(30)
+
 
 	---------------------------------------------------------------
 	-- 11. LE MATIN — reveil progressif, heros deboussole
@@ -2358,6 +2259,31 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GAME:WaitFrames(10)
 	GeneralFunctions.DoAnimation(hero, 'Nod')
 	GAME:WaitFrames(30)
+
+	--------------------------------------------------------------------
+	-- CLOTURE DE L'INTRO — deplacee ici depuis ArrivalCutscene.
+	--------------------------------------------------------------------
+	-- CampNightfall se termine par un changement de carte (le reve) :
+	-- tout ce qui suivait dans ArrivalCutscene ne s'executait donc plus.
+	-- SetParty, le drapeau de fin et le rendu du controle vivent
+	-- desormais ici, a la seule fin de parcours reellement atteinte.
+	--
+	-- SetParty retire Hyko et Almotz (restes du Tunnel) et cree Ganlon
+	-- et Shuca en Teammate2/3 : c'est la cordee du sommet annoncee par
+	-- Penticus, et donc l'equipe reelle du donjon.
+	mount_windswept_entrance_ch_5.SetParty()
+	hero = CH('PLAYER')
+	partner = CH('Teammate1')
+
+	SV.Chapter5.FinishedMountWindsweptIntro = true
+	SV.Chapter5.CampNightWatchDone = false
+	GAME:CutsceneMode(false)
+	AI:EnableCharacterAI(partner)
+	AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
+	--La camera revient au joueur (forme attestee : searing_tunnel:1480).
+	GAME:MoveCamera(0, 0, 1, true)
+	SOUND:PlayBGM('Sky Peak Prairie.ogg', true)
+	GAME:FadeIn(40)
 end
 
 --------------------------------------------------------------------
@@ -3086,24 +3012,43 @@ function mount_windswept_entrance_ch_5.SetupGround()
 		GROUND:SpawnerDoSpawn("TEAMMATE_3")
 	end
 
-	--LE CAMP. Repose a neuf a chaque entree.
+	--------------------------------------------------------------------
+	-- LE CAMP DE JOUR — ET PAS DE FEU APRES UNE DEFAITE.
+	--------------------------------------------------------------------
+	-- BUG CORRIGE (1) : SetupGround est rappele par PlotScripting a
+	-- CHAQUE arrivee sur la carte, et le fichier comptait 14 appels
+	-- Anims:Add pour ZERO purge. Chaque retour au camp empilait un feu
+	-- de plus au meme endroit. BuildCampDay purge le calque avant de
+	-- redessiner.
 	--
-	--BUG CORRIGE : SetupGround est rappele par PlotScripting a CHAQUE
-	--arrivee sur la carte (branche 'else'), et le fichier comptait 14
-	--appels Anims:Add pour ZERO purge. Chaque retour au camp empilait
-	--donc un feu de plus au meme endroit. On vide le calque avant de
-	--redessiner : le decor est identique, mais il ne se duplique plus.
-	mount_windswept_entrance_ch_5.BuildCampDay()
+	-- BUG VU EN JEU (2) : « lorsque le joueur reapparait, le feu de camp
+	-- ne doit pas etre present ». Exact. Le retour apres une defaite se
+	-- joue au matin, l'expedition est partie depuis des heures : un
+	-- foyer qui flambe tout seul au milieu d'un camp desert n'a aucun
+	-- sens. C'est BuildCampMorning qu'il faut ici — meme camp, sans les
+	-- flammes ni leur bloqueur de collision.
+	if SV.Chapter5.LostMountain or SV.Chapter5.DiedToWind
+	   or SV.Chapter5.PlayTempMountScene then
+		mount_windswept_entrance_ch_5.BuildCampMorning()
+	else
+		mount_windswept_entrance_ch_5.BuildCampDay()
+	end
 
-	--Apres une defaite en montagne, c'est PHILEAS qui se rapproche du
-	--feu pour veiller sur les blesses. Ce bloc deplacait Rin — mais Rin
-	--est partie avec la cordee de soutien et n'est plus sur la carte :
-	--le TeleportTo s'appliquait a un `audino` desormais nil, donc a
-	--rien du tout. Le camp reduit doit assumer ce role avec les trois
-	--presents, pas avec un fantome.
+	--Apres une defaite en montagne, PHILEAS descend de son perchoir
+	--pour veiller sur les blesses : il ne dort plus, il surveille.
+	--
+	--DEUX BUGS ICI. Le bloc deplacait a l'origine Rin, partie avec la
+	--cordee de soutien : le TeleportTo s'appliquait a un `audino` nil,
+	--donc a rien. Puis, une fois reporte sur Phileas, il le posait en
+	--(276,236) — soit 756 px de son sprite DANS les flammes, et son
+	--collider EN PLEIN dans le bloqueur du foyer : il s'y serait
+	--retrouve coince des le retour du controle au joueur.
+	--Il se poste donc a l'ouest du foyer, tourne vers lui, sprite
+	--verifie hors des flammes et hors du bloqueur.
 	if SV.Chapter5.LostMountain or SV.Chapter5.DiedToWind then
 		pcall(function()
-			GROUND:TeleportTo(noctowl, 276, 236, Direction.DownLeft)
+			GROUND:CharEndAnim(noctowl)
+			GROUND:TeleportTo(noctowl, 224, 236, Direction.Right)
 		end)
 	end
 end
@@ -3858,25 +3803,13 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 		GROUND:CharSetAnim(noctowl, "Sleep", true)
 	end)
 
-	--L'EQUIPE DU DONJON = LA CORDEE DU SOMMET. SetParty retire Hyko et
-	--Almotz (restes du Tunnel) et cree Ganlon et Shuca en Teammate2/3.
-	--C'etait le bug de coherence vu en jeu : la cinematique annoncait
-	--une cordee, le donjon en donnait une autre. Patron du Tunnel :
-	--l'echange d'equipe se fait DANS la cinematique d'arrivee.
-	mount_windswept_entrance_ch_5.SetParty()
-	hero = CH('PLAYER')
-	partner = CH('Teammate1')
-
-	SV.Chapter5.FinishedMountWindsweptIntro = true
-	GAME:CutsceneMode(false)
-	AI:EnableCharacterAI(partner)
-	AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
-	--LA CAMERA REVIENT AU JOUEUR (bug vu en jeu : elle restait figee au
-	--dernier plan de la cinematique). Forme attestee : searing_tunnel
-	--_entrance_ch_5.lua:1480 « return camera control ».
-	GAME:MoveCamera(0, 0, 1, true)
-	SOUND:PlayBGM('Sky Peak Prairie.ogg', true)
-	GAME:FadeIn(40)
+	--LA SCENE NE SE TERMINE PAS ICI. CampNightfall part desormais vers
+	--la carte du reve (hero_dream) : la cloture de l'intro — SetParty,
+	--le drapeau FinishedMountWindsweptIntro, le rendu du controle — a
+	--donc ete deplacee a la FIN de MorningAfterDream, seule fonction
+	--qui s'execute encore apres le retour du reve. La laisser ici
+	--l'aurait rendue inatteignable, et l'intro se serait rejouee en
+	--boucle a chaque entree sur la carte.
 
 end 
 

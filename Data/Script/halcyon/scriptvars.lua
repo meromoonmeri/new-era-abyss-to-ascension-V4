@@ -792,6 +792,13 @@ SV.Chapter5 =
 	GrowlitheTropiusBossInterrupt = false,--did Hyko stop you from telling Penticus about the boss?
 	
 	FinishedMountWindsweptIntro = false,--Did the player see the intro cutscene for Mt. Windswept?
+	--LE REVE DU HEROS se joue sur sa propre carte (hero_dream). Ce drapeau
+	--encadre l'aller-retour : pose par CampNightfall juste avant le
+	--depart, consomme par MorningAfterDream au retour. Sans lui,
+	--PlotScripting relancerait ArrivalCutscene et toute la soiree se
+	--rejouerait en boucle.
+	CampNightWatchDone = false,
+	DreamSceneSeen = false,--Le reve du Mont Venteux a-t-il ete vu ?
 	MountLastExitReason = '',--Why did the player exit Mt. Windswept back to the entrance? Should be Died or Retreated.
 	PlayTempMountScene = false,--Do we need to play a one time scene outside Mt. Windswept for having died/escaped/given up in the first stretch?
 	EnteredMountain = false,--did player enter Mt. Windswept?
@@ -1265,4 +1272,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-08-02-H]')
+print('Script variables default values loaded! [build 2026-08-02-I]')
