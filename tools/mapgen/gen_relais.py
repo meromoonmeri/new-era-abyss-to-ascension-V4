@@ -36,6 +36,14 @@ RELAIS = {
 }
 PROTEGES = {'crooked_cavern_midpoint', 'vast_steppe_midpoint'}  # directive user
 
+# Relais new_era_sky_detectes automatiquement : new_era_sky_XX_relais -> new_era_sky_XX
+import glob as _glob
+for _p in sorted(_glob.glob(os.path.join(
+        os.path.normpath(os.path.join(HERE, '..', '..')),
+        'Data', 'Ground', 'new_era_sky_*_relais.rsground'))):
+    _g = os.path.basename(_p)[:-9]
+    RELAIS[_g] = _g.replace('_relais', '')
+
 
 def load_db():
     ts = json.load(open(os.path.join(HERE, 'data', 'tilesets_donjons.json'),

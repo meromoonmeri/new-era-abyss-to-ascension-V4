@@ -80,7 +80,11 @@ jamais touchées** ; correspondance `_floor/_wall/_secondary`, NeighborCode
 intacts). `vast_steppe_midpoint` et `crooked_cavern_midpoint` sont PROTÉGÉS
 (déjà cohérents — directive utilisateur). Premier usage : `cloven_ruins_midpoint`
 passé de `wish_cave_1` (grotte à vœux, hors-biome) à `western_cave_1` (320
-cellules, checker 100 % valide).
+cellules, checker 100 % valide). La famille `new_era_sky_XX_relais` est
+détectée automatiquement : les 25 relais, tous clonés en magma, ont été
+assortis au triplet de leur donjon (361 cellules chacun, 0 FAIL). Les
+autotiles DA ne sont pas rendables hors-moteur : vérification visuelle en
+jeu requise.
 
 ```bash
 python3 tools/mapgen/gen_relais.py lister
