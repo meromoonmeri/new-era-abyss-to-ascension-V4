@@ -289,6 +289,8 @@ function DebugTools:OnUpgrade()
  if SV.Chapter5.JustDiedToBoss == nil then SV.Chapter5.JustDiedToBoss = false end
  if SV.Chapter5.SpokeToNoctowlTunnel == nil then SV.Chapter5.SpokeToNoctowlTunnel = false end
  if SV.Chapter5.FinishedMountWindsweptIntro == nil then SV.Chapter5.FinishedMountWindsweptIntro = false end
+ if SV.Chapter5.MountDreamPending == nil then SV.Chapter5.MountDreamPending = false end
+ if SV.Chapter5.MountDreamDone == nil then SV.Chapter5.MountDreamDone = false end
  if SV.Chapter5.EnteredMountain == nil then SV.Chapter5.EnteredMountain = false end
  if SV.Chapter5.LostMountain == nil then SV.Chapter5.LostMountain = false end
  if SV.Chapter5.DiedToWind == nil then SV.Chapter5.DiedToWind = false end

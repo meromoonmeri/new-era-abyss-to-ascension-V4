@@ -1371,6 +1371,21 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
+
+
+		--La presence du songe (chap. 5, map songe_source). Ce n'est PAS un
+		--personnage de la region : une figure ancienne qui traverse les reves
+		--du heros. Elle ne recoit pas de nom affichable — son speaker reste
+		--l'anonymat E040 (la Voix qui prend corps) ; le '???' n'est jamais
+		--montre (aucun SetSpeaker sur elle dans les scenes).
+		Gardevoir = {
+			species = "gardevoir",
+			nickname = '???',
+			instance = 'Gardevoir',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
 		
 		
 		

@@ -284,21 +284,6 @@
   <data name="MWE5_075" xml:space="preserve">
     <value>But we crossed the steppe.[pause=10] We crossed the tunnel.[pause=0] Tomorrow, we write the ending together.</value>
   </data>
-  <data name="MWE5_080" xml:space="preserve">
-    <value>...You are here again.[pause=30] Again.</value>
-  </data>
-  <data name="MWE5_081" xml:space="preserve">
-    <value>The mountain has lit up.[pause=20] Like last time.[pause=30] You have seen it burn before...[pause=20] haven't you?</value>
-  </data>
-  <data name="MWE5_082" xml:space="preserve">
-    <value>Climb.[pause=20] The wind remembers you,[pause=10] even if you remember nothing.</value>
-  </data>
-  <data name="MWE5_083" xml:space="preserve">
-    <value>When you reach the summit...[pause=20] do not look for me.[pause=30] I will find you.</value>
-  </data>
-  <data name="MWE5_084" xml:space="preserve">
-    <value>...We have met before,[pause=10] little echo.</value>
-  </data>
   <data name="MWE5_085" xml:space="preserve">
     <value>(A shadow...[pause=20] It spoke as if it knew me.[pause=20] « Little echo »...[pause=10] What does that mean?)</value>
   </data>
@@ -415,5 +400,17 @@
   </data>
   <data name="MWE5_117" xml:space="preserve">
     <value>...Yes, Master.[pause=20] But one day you will tell me why.</value>
+  </data>
+  <data name="MWE5_090" xml:space="preserve">
+    <value>Shh...[pause=10] softly now.[pause=0] It was only a dream.[pause=0] The mountain whispers loudly tonight.</value>
+  </data>
+  <data name="MWE5_091" xml:space="preserve">
+    <value>(Phileas?![pause=10] He was keeping watch...[pause=20] How long has he been standing there?)</value>
+  </data>
+  <data name="MWE5_118" xml:space="preserve">
+    <value>Here,[pause=10] the wind carries dreams that are not our own.[pause=0] The old outpost archives said as much.</value>
+  </data>
+  <data name="MWE5_119" xml:space="preserve">
+    <value>Go back to sleep.[pause=0] Tomorrow,[pause=10] you will need your legs,[pause=10] not your questions.</value>
   </data>
 </root>

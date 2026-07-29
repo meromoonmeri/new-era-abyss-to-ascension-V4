@@ -72,7 +72,13 @@ end
 
 function mount_windswept_entrance.PlotScripting()
   if SV.ChapterProgression.Chapter == 5 then
-    if not SV.Chapter5.FinishedMountWindsweptIntro then
+    if SV.Chapter5.MountDreamDone and not SV.Chapter5.FinishedMountWindsweptIntro then
+      --Retour du songe (map songe_source) : la nuit de la veillee se
+      --termine ici — reveil agite, veille de Phileas, puis le matin du
+      --depart. La carte arrive FRAICHE : la cinematique reconstruit
+      --elle-meme tout le camp de nuit sous le noir.
+      mount_windswept_entrance_ch_5.DreamWakeAndMorning()
+    elseif not SV.Chapter5.FinishedMountWindsweptIntro then
       mount_windswept_entrance_ch_5.ArrivalCutscene()
     elseif SV.Chapter5.PlayTempMountScene then
       --Retour de la premiere moitie du donjon en mauvaise posture

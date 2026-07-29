@@ -32,7 +32,14 @@ mount_windswept_entrance_ch_5 = {}
 --   1. LE DINER        les 12 mangent autour du feu, camera qui balaie
 --   2. LES CONVERSATIONS  trois groupes paralleles (coroutines)
 --   3. LE COUCHER      chacun rejoint sa paillasse, en decale
---   4. LE MATIN        reveil par Rin, gag de Kino, briefing de Penticus
+--   4. LE SONGE        map 'songe_source' : le heros physiquement dans
+--                      son reve, Gardevoir (docs/CONCEPTION_songe_source.md)
+--   5. LE REVEIL       agite, dans la nuit du camp — la veille de Phileas
+--   6. LE MATIN        reveil par Rin, gag de Kino, briefing de Penticus
+--
+-- La nuit se joue en TROIS cartes-coupures : la veillee (CampNightfall,
+-- sections 1-9), le songe (songe_source.PlayDream), puis la fin de
+-- nuit (DreamWakeAndMorning : reveil, veille, sections 11-16).
 --
 -- Toutes les repliques vivent dans strings.resx / strings.fr.resx
 -- (cles MWE5_021 a MWE5_071 + MWE5_201), comme les scenes du Tunnel.
@@ -607,60 +614,175 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GAME:WaitFrames(60)
 
 	---------------------------------------------------------------
-	-- 10. LE REVE — l'ombre inconnue (Prompt Maitre 6.6)
+	-- 10. LE SONGE — DEPLACE sur sa propre carte
 	---------------------------------------------------------------
-	--RETOUR DU TEST EN JEU : le reve se jouait sur ECRAN NOIR nu, les
-	--effets ne se voyaient pas. Correction par le patron ATTESTE des
-	--visions (VoiceVisions.Play, module verifie) :
-	--  * DreamSky : les DEUX couches Dream_Back + Dream_Front de
-	--    Content/BG defilent en parallaxe (l'animation superposee) ;
-	--  * UI:WaitShowBG('Genesis_Void') : fond onirique 320x240 anime,
-	--    affiche PAR-DESSUS le fondu noir (c'est ainsi que les
-	--    planches des visions s'affichent) ;
-	--  * haut-parleur anonyme « ??? » (\uE040), patron VoiceVisions.
-	SOUND:PlayBGM('I Saw Something Again....ogg', true)
-	GAME:WaitFrames(30)
+	--Regle 6 du mode operatoire (docs/CARTE_BLANCHE_CUTSCENES.md) : un
+	--heros qui dort et reve est PHYSIQUEMENT present dans son reve —
+	--jamais un ecran noir. L'ancien reve (planche Genesis_Void sur
+	--fondu) a ete demoli ; le songe se joue sur la map 'songe_source'
+	--(docs/CONCEPTION_songe_source.md). ArrivalCutscene enchaine sur
+	--EnterGroundMap ; la nuit se termine au retour, dans
+	--DreamWakeAndMorning ci-dessous.
+end
 
-	pcall(function() VoiceVisions.DreamSky(560) end)
-	pcall(function() UI:WaitShowBG('Genesis_Void', 180, 30) end)
-	GAME:WaitFrames(20)
 
-	UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_080']))
-	GAME:WaitFrames(25)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_081']))
-	GAME:WaitFrames(20)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_082']))
-	GAME:WaitFrames(20)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_083']))
-	GAME:WaitFrames(30)
+--------------------------------------------------------------------
+-- LA NUIT, DEUXIEME PARTIE — retour du songe
+--------------------------------------------------------------------
+--Jouee au retour de 'songe_source' (route : init.PlotScripting). La
+--carte arrive FRAICHE : tout le camp de nuit est reconstruit sous le
+--noir, a L'ETAT EXACT ou CampNightfall l'a laisse (qui dort ou, quel
+--plan, dans quelle posture), puis :
+--  a. LE REVEIL AGITE   le reve colle a la peau, le heros sursaute
+--  b. LA VEILLE         Phileas a entendu : il quitte son poste,
+--                       s'approche a distance credible, rassure, puis
+--                       retourne veiller (trajet BFS prouve :
+--                       corridor ouest, ~26 px des dormeurs max)
+--  c. LE MATIN          reveil, rassemblement, cordees, departs,
+--                       scene finale — reprises a l'identique de la
+--                       veillee d'origine.
+--------------------------------------------------------------------
+function mount_windswept_entrance_ch_5.DreamWakeAndMorning()
+	local hero = CH('PLAYER')
+	local partner = CH('Teammate1')
+	local B = mount_windswept_entrance_ch_5.BEDS
+	local mountain = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('mount_windswept')
+	local ruins = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('cloven_ruins')
+	local function seatX(i) return B[i][1] + 13 end
+	local function seatY(i) return B[i][2] + 10 end
 
-	--Le vertige du reve : tangage de l'ecran (ScreenMover, patron
-	--VoiceVisions.Nausea — API moteur, pas d'asset requis).
-	pcall(function()
-		SOUND:PlayBattleSE('EVT_Emote_Startled')
-		GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 6, 40))
-	end)
-	GAME:WaitFrames(40)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_084']))
-	GAME:WaitFrames(20)
+	GAME:CutsceneMode(true)
+	AI:DisableCharacterAI(partner)
+	SOUND:StopBGM()
+	GAME:FadeOut(false, 1)
 
-	--Le reve s'efface : l'image onirique disparait, retour au noir.
-	pcall(function() UI:WaitHideBG(30) end)
-	SOUND:FadeOutBGM(60)
-	GAME:WaitFrames(40)
+	--Mise en place sous le noir : paillasses + feu (constructeur
+	--partage), nuit noire, et CHAQUE dormeur a SA couche dans SA
+	--posture de fin de section 9 (Sleep / EventSleep identiques).
+	--Phileas, lui, est a son poste de veille (256,148).
+	mount_windswept_entrance_ch_5.DeployBeds()
+	GROUND:AddMapStatus("darkness")
 
-	--Le heros se reveille en sursaut dans le noir : deux pensees,
-	--puis il se rendort. Le trouble n'est pas resolu — il ressurgira
-	--au matin (11) et sur le chemin du nord (14).
+	local tropius, noctowl, audino, snubbull, girafarig, breloom, growlithe, zigzagoon, mareep, cranidos =
+		CharacterEssentials.MakeCharactersFromList({
+			{'Tropius',   seatX(1),  seatY(1),  Direction.Down},
+			{'Audino',    seatX(10), seatY(10), Direction.Down},
+			{'Snubbull',  seatX(12), seatY(12), Direction.Down},
+			{'Girafarig', seatX(3),  seatY(3),  Direction.Left},
+			{'Breloom',   seatX(11), seatY(11), Direction.Left},
+			{'Growlithe', seatX(8),  seatY(8),  Direction.Up},
+			{'Zigzagoon', seatX(9),  seatY(9),  Direction.Right},
+			{'Mareep',    seatX(5),  seatY(5),  Direction.Up},
+			{'Cranidos',  seatX(4),  seatY(4),  Direction.Up},
+			{'Noctowl',   256, 148, Direction.Down}
+		})
+	local t = {penticus = tropius, phileas = noctowl,
+	           rin = audino,      coco = snubbull,
+	           shuca = mareep,    ganlon = cranidos,
+	           hyko = growlithe,  almotz = zigzagoon,
+	           reinier = girafarig, kino = breloom}
+
+	GROUND:CharSetAnim(t.penticus, "Sleep", true)
+	GROUND:CharSetAnim(t.rin, "Sleep", true)
+	GROUND:CharSetAnim(t.coco, "Sleep", true)
+	GROUND:CharSetAnim(t.reinier, "Sleep", true)
+	GROUND:CharSetAnim(t.kino, "Sleep", true)
+	GROUND:CharSetAnim(t.hyko, "Sleep", true)
+	GROUND:CharSetAnim(t.almotz, "EventSleep", true)
+	GROUND:CharSetAnim(t.shuca, "Sleep", true)
+	GROUND:CharSetAnim(t.ganlon, "Sleep", true)
+	GROUND:TeleportTo(partner, seatX(6), seatY(6), Direction.Up)
+	GROUND:CharSetAnim(partner, "EventSleep", true)
+	GROUND:TeleportTo(hero, seatX(7), seatY(7), Direction.Up)
+	GROUND:CharSetAnim(hero, "EventSleep", true)
+
+	GAME:MoveCamera(256, 230, 1, false)
+	GAME:FadeIn(60)
+	GAME:WaitFrames(50)
+
+	---------------------------------------------------------------
+	-- a. LE REVEIL AGITE — le reve colle a la peau
+	---------------------------------------------------------------
+	--Patron du reveil de la DiedCutscene du Tunnel : sursauts, Wake,
+	--regard perdu. Personne d'autre ne bouge : il est seul a l'avoir vu.
+	GeneralFunctions.Shake(hero)
+	GAME:WaitFrames(10)
+	GeneralFunctions.Shake(hero)
+	GAME:WaitFrames(16)
+	GeneralFunctions.DoAnimation(hero, 'Wake')
+	GAME:WaitFrames(24)
+	GeneralFunctions.LookAround(hero, 3, 4, false, false, false, Direction.Up)
+	GAME:WaitFrames(14)
+	GAME:MoveCamera(232, 262, 70, false)
+	GAME:WaitFrames(10)
+
+	--Ses pensees dans la nuit : ce sont les anciennes MWE5_085/086,
+	--qui ont plus de poids ICI, au pied du lit, que sur le fondu noir
+	--de l'ancien reve.
 	UI:SetSpeaker('', false, hero.CurrentForm.Species, hero.CurrentForm.Form, hero.CurrentForm.Skin, hero.CurrentForm.Gender)
 	UI:SetSpeakerEmotion("Shouting")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_085']))
-	GAME:WaitFrames(20)
+	GAME:WaitFrames(18)
 	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_086']))
 	UI:ResetSpeaker()
-	GAME:WaitFrames(40)
+	GAME:WaitFrames(26)
+
+	---------------------------------------------------------------
+	-- b. LA VEILLE — Phileas ne peut pas rester passif
+	---------------------------------------------------------------
+	--Le heros s'est reveille en sursaut sous sa fenetre : le veilleur a
+	--ENTENDU. Un battement, puis il quitte son poste. Trajet verifie
+	--BFS sur la grille du .rsground : corridor a l'ouest du maitre de
+	--guilde, jamais a moins de 26 px d'un dormeur ; arret a deux cases
+	--du lit (distance credible), tourne vers le heros.
+	GROUND:CharSetEmote(t.phileas, "notice", 1)
+	GAME:WaitFrames(22)
+	GeneralFunctions.EightWayMove(t.phileas, 244, 156, false, 1)
+	GeneralFunctions.EightWayMove(t.phileas, 244, 204, false, 1)
+	GeneralFunctions.EightWayMove(t.phileas, 236, 268, false, 1)
+	GROUND:CharTurnToCharAnimated(t.phileas, hero, 4)
+	GAME:WaitFrames(12)
+
+	UI:SetSpeaker(t.phileas)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_090']))
+	GAME:WaitFrames(12)
+
+	--Le heros sursaute : il croyait la nuit vide.
+	GROUND:CharSetEmote(hero, "shock", 1)
+	GROUND:CharTurnToCharAnimated(hero, t.phileas, 4)
+	GAME:WaitFrames(10)
+	UI:SetSpeaker('', false, hero.CurrentForm.Species, hero.CurrentForm.Form, hero.CurrentForm.Skin, hero.CurrentForm.Gender)
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_091']))
+	UI:ResetSpeaker()
+	GAME:WaitFrames(14)
+
+	UI:SetSpeaker(t.phileas)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_118']))
+	GAME:WaitFrames(12)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_119']))
+	GAME:WaitFrames(18)
+
+	--Le heros rend les armes a la nuit ; Phileas le regarde se
+	--recoucher, PUIS repart — on ne quitte jamais le plan avant la
+	--fin du geste. Retour par le meme corridor, reposture de veille.
+	GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+	GROUND:CharSetAnim(hero, "EventSleep", true)
+	GAME:WaitFrames(24)
+	GeneralFunctions.EightWayMove(t.phileas, 244, 204, false, 1)
+	GeneralFunctions.EightWayMove(t.phileas, 244, 156, false, 1)
+	GeneralFunctions.EightWayMove(t.phileas, 256, 148, false, 1)
+	GROUND:CharAnimateTurnTo(t.phileas, Direction.Down, 4)
+	GAME:WaitFrames(20)
+	GAME:MoveCamera(256, 230, 80, false)
+	GAME:WaitFrames(30)
+
+	GAME:FadeOut(false, 60)
+	GAME:WaitFrames(60)
 
 	---------------------------------------------------------------
 	-- 11. LE MATIN — reveil progressif, heros deboussole
@@ -1269,7 +1391,31 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GAME:WaitFrames(10)
 	GeneralFunctions.DoAnimation(hero, 'Nod')
 	GAME:WaitFrames(30)
+
+	GAME:FadeOut(false, 40)
+	GAME:WaitFrames(40)
+	for _, chara in ipairs({audino, snubbull, girafarig, breloom, growlithe, zigzagoon, tropius, noctowl, mareep, cranidos}) do
+		GAME:GetCurrentGround():RemoveTempChar(chara)
+	end
+
+	--L'EQUIPE DU DONJON = LA CORDEE DU SOMMET. SetParty retire Hyko et
+	--Almotz (restes du Tunnel) et cree Ganlon et Shuca en Teammate2/3 :
+	--la narration et l'equipe de jeu racontent la meme chose.
+	mount_windswept_entrance_ch_5.SetParty()
+	hero = CH('PLAYER')
+	partner = CH('Teammate1')
+
+	SV.Chapter5.MountDreamDone = false
+	SV.Chapter5.FinishedMountWindsweptIntro = true
+	GAME:CutsceneMode(false)
+	AI:EnableCharacterAI(partner)
+	AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
+	--LA CAMERA REVIENT AU JOUEUR (forme attestee : searing_tunnel:1480).
+	GAME:MoveCamera(0, 0, 1, true)
+	SOUND:PlayBGM('Sky Peak Prairie.ogg', true)
+	GAME:FadeIn(40)
 end
+
 
 --------------------------------------------------------------------
 -- LE RETOUR EN MAUVAISE POSTURE — KO / abandon dans la montagne
@@ -1912,32 +2058,21 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 		                hyko = growlithe,  almotz = zigzagoon,
 		                reinier = girafarig, kino = breloom})
 
-	GAME:FadeOut(false, 40)
-	GAME:WaitFrames(40)
-	for _, chara in ipairs({audino, snubbull, girafarig, breloom, growlithe, zigzagoon, tropius, noctowl, mareep, cranidos}) do
-		GAME:GetCurrentGround():RemoveTempChar(chara)
-	end
 
-	--L'EQUIPE DU DONJON = LA CORDEE DU SOMMET. SetParty retire Hyko et
-	--Almotz (restes du Tunnel) et cree Ganlon et Shuca en Teammate2/3.
-	--C'etait le bug de coherence vu en jeu : la cinematique annoncait
-	--une cordee, le donjon en donnait une autre. Patron du Tunnel :
-	--l'echange d'equipe se fait DANS la cinematique d'arrivee.
-	mount_windswept_entrance_ch_5.SetParty()
-	hero = CH('PLAYER')
-	partner = CH('Teammate1')
-
-	SV.Chapter5.FinishedMountWindsweptIntro = true
+	--------------------------------------------------------------------
+	-- LA NUIT CONTINUE DANS LE SONGE
+	--------------------------------------------------------------------
+	--Le camp dort. Le heros est emporte sur la carte dediee au reve
+	--(regle 6 du mode operatoire : physiquement present, jamais un
+	--ecran noir ; docs/CONCEPTION_songe_source.md). Le drapeau est pose
+	--AVANT le changement de carte : un rechargement en plein songe le
+	--relance proprement (filet de songe_source.init). Au retour,
+	--PlotScripting enchaine sur DreamWakeAndMorning (reveil, veille,
+	--matin) : c'est elle qui termine l'ancienne queue de cette fonction
+	--(nettoyage, SetParty, passage de relais au joueur).
+	SV.Chapter5.MountDreamPending = true
 	GAME:CutsceneMode(false)
-	AI:EnableCharacterAI(partner)
-	AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
-	--LA CAMERA REVIENT AU JOUEUR (bug vu en jeu : elle restait figee au
-	--dernier plan de la cinematique). Forme attestee : searing_tunnel
-	--_entrance_ch_5.lua:1480 « return camera control ».
-	GAME:MoveCamera(0, 0, 1, true)
-	SOUND:PlayBGM('Sky Peak Prairie.ogg', true)
-	GAME:FadeIn(40)
-
+	GAME:EnterGroundMap('songe_source', 'Main_Entrance_Marker')
 end 
 
 --Ganlon hasn't been getting to act like a jerk much this expedition; give him some opportunies for his jerkiness to shine through here

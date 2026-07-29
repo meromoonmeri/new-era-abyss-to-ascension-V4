@@ -241,7 +241,7 @@ Chantier d'enrichissement, par sections, sur validation.
 | lot | contenu | périmètre fichiers | risque |
 |---|---|---|---|
 | **1. Corrections confirmées** ✅ livré `77401fb` | I1 (routage Actions), I2 (« wouf », commentaires), I3 (speaker Voix), I4 (purge feu), I7 (commentaires) + tag build **W** | entrance/init.lua, entrance_ch_5.lua (commentaires), midpoint_ch_5.lua, miniboss_ch_5.lua + 3 fichiers de tag | faible, chirurgical |
-| **2. R1 — la veille de Phileas** | insertion réveil nocturne (textes validés au préalable) | entrance_ch_5.lua + strings resx FR/EN si nouvelles clés | moyen (écriture neuve) |
+| **2. Le rêve de la Source + R1** ✅ livré (tag build **X**) | **Dépassement de scope acté par l'utilisateur (carte blanche 2026-07-29)** : le rêve noir (détail juste au-dessous, §5 R1) est **reconstruit en entier** — nouvelle map `songe_source` (clone de luminous_spring + dream parallax du test de personnalité), apparition progressive de Gardevoir, dialogue héros↔elle ; et R1 s'y emboîte au retour : réveil agité au camp + veille de Phileas (`DreamWakeAndMorning`, MWE5_090/091/118/119). Voir `docs/CONCEPTION_songe_source.md`. | songe_source.* (créés), entrance_ch_5.lua, entrance/init.lua, CharacterEssentials, scriptvars, debug_tools, resx ×4 | moyen (écriture neuve + nouvelle carte) |
 | **3. I5 — transition Tunnel→Mont** | FadeIn avant `MWE5_001`, résorption des 90 frames de noir (côté crucible) | searing_crucible_ch_5.lua, entrance_ch_5.lua | moyen (visuel, validé par l'utilisateur) |
 | **4. R2 — standard gestuel** | sections 3, 12, 13 : chaque réplique accompagnée | entrance_ch_5.lua | faible mais volumineux |
 

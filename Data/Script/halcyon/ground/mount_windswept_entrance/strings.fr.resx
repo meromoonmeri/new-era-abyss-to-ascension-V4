@@ -284,21 +284,6 @@
   <data name="MWE5_075" xml:space="preserve">
     <value>Mais on a traversé la steppe.[pause=10] On a traversé le tunnel.[pause=0] Demain, on écrira la fin ensemble.</value>
   </data>
-  <data name="MWE5_080" xml:space="preserve">
-    <value>... Te voilà encore.[pause=30] Encore une fois.</value>
-  </data>
-  <data name="MWE5_081" xml:space="preserve">
-    <value>La montagne s'est allumée.[pause=20] Comme la dernière fois.[pause=30] Tu l'as déjà vue brûler...[pause=20] n'est-ce pas ?</value>
-  </data>
-  <data name="MWE5_082" xml:space="preserve">
-    <value>Monte.[pause=20] Le vent se souvient de toi,[pause=10] même si toi, tu ne te souviens de rien.</value>
-  </data>
-  <data name="MWE5_083" xml:space="preserve">
-    <value>Quand tu atteindras le sommet...[pause=20] ne me cherche pas.[pause=30] C'est moi qui te trouverai.</value>
-  </data>
-  <data name="MWE5_084" xml:space="preserve">
-    <value>... Nous nous sommes déjà rencontrés,[pause=10] petit écho.</value>
-  </data>
   <data name="MWE5_085" xml:space="preserve">
     <value>(Une ombre...[pause=20] Elle me parlait comme si elle me connaissait.[pause=20] « Petit écho »...[pause=10] Qu'est-ce que ça veut dire ?)</value>
   </data>
@@ -415,5 +400,17 @@
   </data>
   <data name="MWE5_117" xml:space="preserve">
     <value>... Oui, Maître.[pause=20] Mais un jour,[pause=10] vous me direz pourquoi.</value>
+  </data>
+  <data name="MWE5_090" xml:space="preserve">
+    <value>Chhh...[pause=10] doucement.[pause=0] Ce n'était qu'un rêve.[pause=0] La montagne murmure fort,[pause=10] cette nuit.</value>
+  </data>
+  <data name="MWE5_091" xml:space="preserve">
+    <value>(Phileas ?![pause=10] Il était en veille...[pause=20] Depuis combien de temps est-il là ?)</value>
+  </data>
+  <data name="MWE5_118" xml:space="preserve">
+    <value>Ici,[pause=10] le vent porte des rêves qui ne nous appartiennent pas.[pause=0] Les archives du vieux poste le disaient déjà.</value>
+  </data>
+  <data name="MWE5_119" xml:space="preserve">
+    <value>Rendors-toi.[pause=0] Demain,[pause=10] tu auras besoin de tes pattes,[pause=10] pas de tes questions.</value>
   </data>
 </root>

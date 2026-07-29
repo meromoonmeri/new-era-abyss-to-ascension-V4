@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.NetStandard.ResXResourceReader, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <data name="REVE5_001" xml:space="preserve">
+    <value>(No wind...[pause=10] No fire,[pause=10] no mountain,[pause=10] no camp...[pause=20] Everything is gone.)</value>
+  </data>
+  <data name="REVE5_002" xml:space="preserve">
+    <value>(That spring...[pause=10] I know it.[pause=20] But this sky, these petals, this light...[pause=15] I'm dreaming.[pause=0] This is a dream.)</value>
+  </data>
+  <data name="REVE5_003" xml:space="preserve">
+    <value>...You are here again.[pause=30] Again.</value>
+  </data>
+  <data name="REVE5_004" xml:space="preserve">
+    <value>(That shape...[pause=10] That voice...[pause=15] It's YOU.[pause=10] You're the one I've been hearing all along!)</value>
+  </data>
+  <data name="REVE5_005" xml:space="preserve">
+    <value>Do not be afraid,[pause=10] little echo.[pause=20] This place is only a reflection —[pause=10] the shape your heart lends to mine.</value>
+  </data>
+  <data name="REVE5_006" xml:space="preserve">
+    <value>(Who... who are you?[pause=20] How do you know me?)</value>
+  </data>
+  <data name="REVE5_007" xml:space="preserve">
+    <value>A friend from another time.[pause=20] That is all the dream allows me to give you.</value>
+  </data>
+  <data name="REVE5_008" xml:space="preserve">
+    <value>The mountain has lit up.[pause=20] Like last time.[pause=30] You have seen it burn before...[pause=20] haven't you?</value>
+  </data>
+  <data name="REVE5_009" xml:space="preserve">
+    <value>(Burn...?![pause=15] No...[pause=10] I...[pause=10] I don't remember anything!)</value>
+  </data>
+  <data name="REVE5_010" xml:space="preserve">
+    <value>Climb.[pause=20] The wind remembers you,[pause=10] even if you remember nothing.</value>
+  </data>
+  <data name="REVE5_011" xml:space="preserve">
+    <value>When you reach the summit...[pause=20] do not look for me.[pause=30] I will find you.</value>
+  </data>
+  <data name="REVE5_012" xml:space="preserve">
+    <value>(Wait![pause=20] What do you mean, "burn"?![pause=15] Tell me!)</value>
+  </data>
+  <data name="REVE5_013" xml:space="preserve">
+    <value>We have met before,[pause=10] little echo.[pause=25] And we will meet again.</value>
+  </data>
+</root>
