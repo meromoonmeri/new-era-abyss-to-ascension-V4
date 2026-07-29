@@ -24,35 +24,48 @@ function mount_windswept_entrance.Init(map)
   DEBUG.EnableDbgCoro()
   print('=>> Init_mount_windswept_entrance <<=')
 
-  -- L'ECRAN EST NOIR AVANT LE PREMIER RENDU.
+  --LE NOIR ET LE GEL, AVANT TOUT LE RESTE.
+  --
+  --Cet Init s'execute APRES que le moteur a place le joueur et recadre la
+  --camera (GSceneZone.EnterGround:22-27 -> ResetGround, ViewCenter=null),
+  --mais AVANT le Enter qui lance la cinematique (moveToZoneInit:770-775,
+  --commente « no fade; the script handles that itself »). Un rendu de la
+  --carte d'arrivee est donc possible des maintenant : c'est l'apercu de
+  --la NOUVELLE zone signale en jeu.
+  --
+  --Ces deux lignes sont donc les toutes premieres :
+  --  * FadeOut(false,1) : une frame, opacite 1.0 des le premier rendu.
+  --    Gratuit si l'ecran est deja noir (garde FadeEffect.cs:63-67).
+  --  * CutsceneMode(true) : gele GroundScene.ProcessInput (l.176), donc
+  --    ni entree joueur ni OnCheck pendant la mise en place.
+  --
+  --Le mode est pose SANS CONDITION. La version precedente le reservait au
+  --chapitre 5 via une lecture de SV sous pcall : si la lecture echouait,
+  --rien n'etait pose et la fenetre de rendu se rouvrait.
   pcall(function() GAME:FadeOut(false, 1) end)
+  pcall(function() GAME:CutsceneMode(true) end)
 
   COMMON.RespawnAllies()
   GROUND:AddMapStatus("blowing_wind")
   PartnerEssentials.InitializePartnerSpawn()
 
-  -- MODE CINEMATIQUE POSE DES L'INIT QUAND UNE SCENE VA SUIVRE.
-  -- Meme correctif qu'au retour du reve (hero_dream/init.lua) et pour
-  -- la meme raison, verifiee dans le moteur :
-  --   GroundScene.ProcessInput l.165 dereference
-  --   ZoneManager.Instance.CurrentGround.OnCheck(), et CurrentGround est
-  --   nul pendant la bascule de carte (ExitGround -> SetCurrentMap
-  --   Seule la garde `if (Save.CutsceneMode) yield break;` (l.176) sort
-  --   de ProcessInput avant d'y arriver.
-  -- Entre cet Init et le Enter qui lance la cinematique, la boucle
-  -- principale peut tourner (ScreenMainCoroutine l.505-507). Poser le
-  -- mode ici ferme cette fenetre.
-  -- CONDITIONNE, contrairement au FadeOut : le mode cinematique BLOQUE
-  -- les entrees du joueur. Le poser sur une entree libre (promenade,
-  -- retour de donjon hors scenario) figerait la carte, car la branche
-  -- `else` de PlotScripting ne fait qu'un FadeIn et ne le relacherait
-  -- jamais. On ne le pose donc que si une cinematique est effectivement
-  -- programmee — les memes conditions que celles lues par PlotScripting.
+  --Entree LIBRE (hors chapitre 5, ou intro deja vue et aucune scene
+  --programmee) : aucune cinematique ne relacherait le mode et le joueur
+  --resterait fige, incapable de bouger. On le rend donc ici, la mise en
+  --place faite et l'ecran encore noir ; la branche `else` de
+  --PlotScripting enchaine sur son FadeIn(20).
+  --Les conditions sont EXACTEMENT celles lues par PlotScripting, pour que
+  --les deux ne puissent pas diverger.
   pcall(function()
-    if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
-       and not SV.Chapter5.FinishedMountWindsweptIntro then
-      GAME:CutsceneMode(true)
+    local sceneAVenir = false
+    if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5 then
+      local c5 = SV.Chapter5
+      sceneAVenir = (not c5.FinishedMountWindsweptIntro)
+                 or c5.PlayTempMountScene
+                 or (c5.MountGuardianDefeated and c5.MountVigilSceneSeen
+                     and not c5.WindSecretSceneSeen)
     end
+    if not sceneAVenir then GAME:CutsceneMode(false) end
   end)
 
 end

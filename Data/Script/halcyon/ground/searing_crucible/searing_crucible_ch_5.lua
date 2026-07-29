@@ -1234,28 +1234,37 @@ local function DefeatedBossBody()
 end
 
 function searing_crucible_ch_5.DefeatedBoss()
-	-- TRANSITION D'ORIGINE (Halcyon, branche working-copy).
-	-- Restauree a l'identique sur demande, apres comparaison avec le
-	-- depot amont Palikadude/Halcyon :
-	--   Data/Script/halcyon/ground/searing_crucible/searing_crucible_ch_5.lua
-	--   lignes 1235-1238 de la branche working-copy.
-	-- Le code d'origine tient en quatre lignes, sans filet :
-	--     TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
-	--     GAME:WaitFrames(90)
-	--     GAME:CutsceneMode(false)
-	--     GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker')
-	-- Le fondu vient UNIQUEMENT de coro5, a l'interieur du corps de la
-	-- scene (FadeOutBGM(60) + FadeOut(false,60)). Il n'y a ni pcall, ni
-	-- fondu de rattrapage, ni PrintInfo : ces trois elements avaient ete
-	-- ajoutes par-dessus, et c'est le PrintInfo — fonction qui n'existait
-	-- pas — qui avortait la fonction des sa premiere ligne.
-	-- On revient donc a la forme amont. Une seule difference assumee :
-	-- le corps reste appele via DefeatedBossBody(), decoupage propre au
-	-- fork, car la scene y a ete etoffee. L'ordre des quatre instructions
-	-- finales, lui, est celui d'Halcyon.
 	DefeatedBossBody()
 
-	GAME:CutsceneMode(false)
+	--LE NOIR DOIT TENIR JUSQU'A L'ARRIVEE AU MONT.
+	--
+	--Halcyon ecrit ici CutsceneMode(false) AVANT EnterGroundMap
+	--(searing_crucible_ch_5.lua:1237 de la branche working-copy). On s'en
+	--ecarte VOLONTAIREMENT, sur autorisation : tenir le noir prime sur la
+	--fidelite au style amont.
+	--
+	--Pourquoi cette ligne est genante ici. EnterGroundMap ne change pas de
+	--carte sur-le-champ : il arme GameManager.SceneOutcome
+	--(ScriptGame.cs:106), que la boucle principale ne consomme qu'au tour
+	--suivant (GameManager.cs:505-518). Pendant cet intervalle la carte
+	--COURANTE est toujours le Creuset, et elle est dessinee a chaque frame
+	--(GameManager.Draw:1338). Tant que CutsceneMode est vrai,
+	--GroundScene.ProcessInput sort immediatement (GroundScene.cs:176) et
+	--la carte reste gelee ; le couper ici rend la main au joueur sur une
+	--carte qu'on est en train de quitter.
+	--
+	--On garde donc le mode actif pendant toute la bascule. C'est la carte
+	--D'ARRIVEE qui le relache : mount_windswept_entrance/init.lua le
+	--repose des son Init, et les cinematiques du Mont appellent
+	--CutsceneMode(false) a leur terme (chaine verifiee fonction par
+	--fonction : ArrivalCutscene -> ... -> MorningAfterDream).
+	--
+	--Le fondu est deja a 1.0 : coro5 pose FadeOut(false,60),
+	--JoinCoroutines l'attend, puis 90 frames s'ecoulent. Le FadeOut(1)
+	--ci-dessous est donc gratuit dans le cas nominal (garde
+	--FadeEffect.cs:63-67 : ecran deja noir, 0 frame jouee) et ne sert que
+	--de filet si le corps s'est termine autrement que prevu.
+	GAME:FadeOut(false, 1)
 	GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker')
 end
 
