@@ -24,7 +24,7 @@
 #
 # IDEMPOTENT : si la map porte deja la marque de cet outil, refuse de tourner.
 # =============================================================================
-import json, struct, io, copy, sys
+import json, struct, io, copy, sys, os
 
 MAP_PATH = 'Data/Ground/cloven_ruins_entrance.rsground'
 MARK = 'make_cloven_entrance v1'
@@ -68,6 +68,15 @@ def find(seq, name):
 def main():
     root = json.load(open(MAP_PATH, encoding='utf-8-sig'))
     old = root['Object']
+    # Donneur de schema : la version ORIGINALE de la map (avant cet outil),
+    # recuperee de l'historique git. Les entrees Layers/Decorations y sont
+    # conformes moteur (champ 'Layer', clefs completes). Sans donneur, on
+    # retombe sur le fichier courant (deja marque => pas de clefs fiables).
+    donor_path = os.environ.get('CLOVEN_ORIG')
+    if donor_path:
+        donor = json.load(open(donor_path, encoding='utf-8-sig'))['Object']
+    else:
+        donor = old
     if MARK in str(old.get('Comment', '')) and '--force' not in sys.argv:
         print('Refus: la map porte deja la marque', MARK, '— rien a faire (--force pour reposer).')
         return
@@ -177,31 +186,39 @@ def main():
     if ks is not None:
         ks['Collider'] = {'Height': 24, 'Width': 24, 'X': 312, 'Y': 376}
 
-    # --- format obstacles : meme representation que le fichier d'origine ---
-    o0 = old['obstacles'][0][0]
-    if isinstance(o0, dict):
-        keys = list(o0.keys())
-        if 'Tags' in o0:
-            obs_out = [[{**copy.deepcopy(o0), 'Tags': obs[x][y] if isinstance(o0.get('Tags'), int) else [obs[x][y]]}
-                        for y in range(H_CELLS)] for x in range(W_CELLS)]
-        else:
-            obs_out = obs
-    else:
-        obs_out = obs
+    # --- format obstacles : {"Bounds":{"X":x*8,"Y":y*8,"Width":8,"Height":8},
+    # "Tags":n} PAR CELLULE (preuve : texte brut de relic_forest.rsground).
+    # Ne JAMAIS copier la Bounds d'une cellule sur une autre : le moteur s'en
+    # sert pour indexer la grille de collisions (sinon : collisions cassees/crash).
+    obs_out = [[{"Bounds": {"X": x * PX, "Y": y * PX, "Width": PX, "Height": PX},
+                 "Tags": obs[x][y]} for y in range(H_CELLS)] for x in range(W_CELLS)]
 
     new_obj = copy.deepcopy(old)
     new_obj['Comment'] = (f'{MARK} — portique enfoui dans la foret ; Old Ruins Stairs (3 calques) '
                           '+ piliers Blob ; corridor de marche verifie par rendu')
-    new_obj['Layers'] = [
-        {'Name': 'Base',          'Visible': True, 'Tiles': layers['Base']},
-        {'Name': 'Objects Under', 'Visible': True, 'Tiles': layers['Objects Under']},
-        {'Name': 'Objects',       'Visible': True, 'Tiles': layers['Objects']},
-        {'Name': 'Fringe',        'Visible': True, 'Tiles': layers['Fringe']},
-    ]
+    # Layers : CLONER les entrees de l'ancienne map (champ 'Layer' requis par
+    # le moteur, prouve par le texte brut de relic_forest) et ne remplacer
+    # que 'Tiles'. Ne PAS construire d'entrees minimales.
+    old_by_name = {L['Name']: L for L in donor['Layers']}
+    new_layers = []
+    for i, name in enumerate(('Base', 'Objects Under', 'Objects', 'Fringe')):
+        if name in old_by_name:
+            nl = copy.deepcopy(old_by_name[name])
+        else:
+            nl = copy.deepcopy(donor['Layers'][min(i, len(donor['Layers']) - 1)])
+            nl['Name'] = name
+        nl['Tiles'] = layers[name]
+        new_layers.append(nl)
+    new_obj['Layers'] = new_layers
     new_obj['obstacles'] = obs_out
     new_obj['Entities'] = [ents]
-    new_obj['Decorations'] = [{'$type': old['Decorations'][0].get('$type') if old.get('Decorations') else
-                                  'RogueEssence.Ground.GroundAnimLayer, RogueEssence', 'Anims': []}]
+    # Decorations : meme logique — cloner l'entree d'origine (clefs
+    # Name/Layer/Visible/Anims, sans $type) et vider ses anims.
+    if donor.get('Decorations'):
+        deco = copy.deepcopy(donor['Decorations'][0])
+        deco.pop('$type', None)
+        deco['Anims'] = []
+        new_obj['Decorations'] = [deco]
     new_obj['MapChars'] = old.get('MapChars', new_obj.get('MapChars', []))
 
     text = '﻿' + json.dumps({'Version': root.get('Version', '0.8.9.0'), 'Object': new_obj},
