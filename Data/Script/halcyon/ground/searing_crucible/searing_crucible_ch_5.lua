@@ -646,7 +646,7 @@ function searing_crucible_ch_5.FirstPreBossScene()
 	UI:SetSpeakerEmotion("Determined")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_032'], heatran:GetDisplayName(), _DATA:GetMonster('slugma'):GetColoredName()))
 	UI:SetSpeaker(heatran)
-	UI:SetSpeakerEmotion("Determined")
+	--REMOVED: Heatran has no custom expression sprites (base PMDO assets only)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_033']))
 
 	--LOT 4 : la Voix mysterieuse s'invite avant l'epreuve du feu.
@@ -754,7 +754,7 @@ function searing_crucible_ch_5.SecondPreBossScene()
 	GAME:WaitFrames(40)
 	
 	UI:SetSpeaker(heatran)
-	UI:SetSpeakerEmotion("Determined")
+	--REMOVED: Heatran has no custom expression sprites (base PMDO assets only)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_034']))
 	
 	GAME:WaitFrames(10)
@@ -770,7 +770,7 @@ function searing_crucible_ch_5.SecondPreBossScene()
 
 	GAME:WaitFrames(20)	
 	UI:SetSpeaker(heatran)
-	UI:SetSpeakerEmotion("Determined")
+	--REMOVED: Heatran has no custom expression sprites (base PMDO assets only)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_037']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_038']))
 	
@@ -864,7 +864,7 @@ local function DefeatedBossBody()
 	GAME:WaitFrames(20)
 	
 	UI:SetSpeaker(heatran)
-	UI:SetSpeakerEmotion("Pain")
+	--REMOVED: Heatran has no custom expression sprites (base PMDO assets only)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_039']))
 	GAME:WaitFrames(10)
 	
@@ -968,7 +968,7 @@ local function DefeatedBossBody()
 	GAME:WaitFrames(40)
 	
 	UI:SetSpeaker(heatran)
-	UI:SetSpeakerEmotion("Worried")
+	--REMOVED: Heatran has no custom expression sprites (base PMDO assets only)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_044']))
  
 	--They raise their heads back up.
@@ -1018,7 +1018,7 @@ local function DefeatedBossBody()
 		GROUND:CharTurnToCharAnimated(hero, heatran, 4)
 	end)
 	UI:SetSpeaker(heatran)
-	UI:SetSpeakerEmotion("Worried")
+	--REMOVED: Heatran has no custom expression sprites (base PMDO assets only)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_050']))
 	UI:SetSpeakerEmotion("Sad")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_051']))
@@ -1036,7 +1036,7 @@ local function DefeatedBossBody()
 	UI:SetSpeaker(heatran)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_054']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_055']))
-	UI:SetSpeakerEmotion("Worried")
+	--REMOVED: Heatran has no custom expression sprites (base PMDO assets only)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_056']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_057']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_058']))
@@ -1054,7 +1054,7 @@ local function DefeatedBossBody()
 	
 	GeneralFunctions.EmoteAndPause(heatran, "Sweatdrop", true)
 	UI:SetSpeaker(heatran)
-	UI:SetSpeakerEmotion("Sad")
+	--REMOVED: Heatran has no custom expression sprites (base PMDO assets only)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_064']))
 	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_065']))
@@ -1398,14 +1398,14 @@ function searing_crucible_ch_5.DefeatedBoss()
 		pcall(function() GAME:FadeOut(false, 20) end)
 	end
 
-	--TRANSITION : CutsceneMode reste actif pendant EnterGroundMap pour
-	--eviter tout flash d'input joueur entre les deux cartes. Le mode
-	--sera desactive par l'ArrivalCutscene du Mont qui pose son propre
-	--CutsceneMode(true).
-	--Securite : si le corps n'a pas pose le noir, on le force ici.
+	--TRANSITION INTER-ZONE : searing_crucible (zone searing_tunnel) →
+	--mount_windswept_entrance (zone mount_windswept).
+	--EnterGroundMap ne fonctionne PAS entre zones (crash garanti).
+	--On utilise EndDungeonRun qui gère correctement les transitions inter-zones.
+	--Ground index 40 = mount_windswept_entrance dans master_zone.json.
 	pcall(function() GAME:FadeOut(false, 1) end)
-	PrintInfo("[BossSeq][searing_crucible_ch_5] DefeatedBoss -> mount_windswept_entrance")
-	GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker')
+	PrintInfo("[BossSeq][searing_crucible_ch_5] DefeatedBoss -> master_zone ground 40 (mount_windswept_entrance)")
+	GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared, "master_zone", -1, 40, 0, true, true)
 end
 
 
