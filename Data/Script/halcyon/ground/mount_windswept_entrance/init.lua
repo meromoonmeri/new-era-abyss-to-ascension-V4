@@ -23,10 +23,67 @@ local mount_windswept_entrance = {}
 -------------------------------
 ---mount_windswept_entrance.Init(map)
 --Engine callback function
+--Les scenes de cette carte qui commencent ECRAN NOIR. Si l'une d'elles
+--va se jouer, Init doit garantir le noir AVANT le premier rendu.
+local function needsBlackOnEntry()
+  --Lire un champ d'une table ABSENTE crashe (regle projet §2.4) : sur
+  --une sauvegarde anterieure a ces flags, SV.Chapter5 pourrait manquer.
+  --Init ne doit jamais lever d'erreur — la carte deviendrait injouable.
+  local ok, res = pcall(function()
+    if SV.ChapterProgression == nil or SV.ChapterProgression.Chapter ~= 5 then
+      return false
+    end
+    local c5 = SV.Chapter5
+    if c5 == nil then return false end
+    if not c5.FinishedMountWindsweptIntro then return true end
+    if c5.PlayTempMountScene then return true end
+    if c5.MountGuardianDefeated and c5.MountVigilSceneSeen
+       and not c5.WindSecretSceneSeen then return true end
+    return false
+  end)
+  return ok and res or false
+end
+
 function mount_windswept_entrance.Init(map)
   DEBUG.EnableDbgCoro()
   print('=>> Init_mount_windswept_entrance <<=')
-  
+
+  ------------------------------------------------------------------
+  -- L'ECRAN EST NOIR AVANT LE PREMIER RENDU.
+  ------------------------------------------------------------------
+  -- BUG VU EN JEU : « le fond noir n'est pas maintenu, on revoit le
+  -- ground du tunnel avant d'arriver ». Poser le FadeOut en tete de
+  -- ArrivalCutscene ne suffisait pas — et la lecture du moteur dit
+  -- pourquoi (RogueCollab/RogueEssence) :
+  --
+  --   GameManager.moveToZoneInit:773
+  --       InitGround()   -> appelle CE Init(map)
+  --       // « no fade; the script handles that itself »
+  --       BeginGround()  -> appelle Enter(map), donc PlotScripting,
+  --                         donc seulement LA notre cinematique
+  --
+  --   GSceneZone.EnterGround:27  -> ResetGround()
+  --       ViewCenter = null : la camera SAUTE sur le joueur
+  --
+  -- Autrement dit, la carte est chargee, la camera repositionnee et le
+  -- premier rendu possible AVANT que Enter() ne s'execute. Tout fondu
+  -- pose dans la cinematique arrive donc une frame trop tard. Et le
+  -- moteur, lui, n'en pose aucun : il laisse ce que le script a laisse.
+  --
+  -- On pose donc le noir ICI, dans Init, avant COMMON.RespawnAllies et
+  -- avant le placement du partenaire. FadeOut(false, 1) est instantane
+  -- et idempotent : si l'ecran est deja noir (cas normal, le Crucible
+  -- l'a laisse ainsi), il ne fait rien de visible.
+  --
+  -- CONDITIONNE : uniquement si une cinematique qui commence dans le
+  -- noir va suivre. Sinon on noircirait une entree normale sur la carte
+  -- (retour de donjon, promenade) dont la branche `else` de
+  -- PlotScripting ne fait qu'un FadeIn(20) — l'ecran resterait noir une
+  -- demi-seconde sans raison.
+  if needsBlackOnEntry() then
+    pcall(function() GAME:FadeOut(false, 1) end)
+  end
+
   COMMON.RespawnAllies()
   GROUND:AddMapStatus("blowing_wind")
   PartnerEssentials.InitializePartnerSpawn()

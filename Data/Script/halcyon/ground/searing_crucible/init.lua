@@ -46,7 +46,32 @@ function searing_crucible.Init(map)
   nre_snap('searing_crucible.Init')
   DEBUG.EnableDbgCoro()
   print('=>> Init_searing_crucible <<=')
-  
+
+  ------------------------------------------------------------------
+  -- ECRAN NOIR AVANT LE PREMIER RENDU (meme correctif qu'au Mont).
+  ------------------------------------------------------------------
+  -- Les trois scenes de cette carte (FirstPreBossScene,
+  -- SecondPreBossScene, DefeatedBoss) ouvrent toutes par un FadeIn :
+  -- elles SUPPOSENT donc un ecran noir a l'arrivee. Mais le moteur
+  -- charge la carte, repositionne la camera (EnterGround ->
+  -- ResetGround, ViewCenter=null) et peut dessiner AVANT que Enter()
+  -- n'appelle PlotScripting — le commentaire de moveToZoneInit est
+  -- explicite : « no fade; the script handles that itself ».
+  --
+  -- Sans ce noir pose des Init, le joueur apercoit le Creuset et le
+  -- saut de camera avant que la scene ne commence. Instantane et
+  -- idempotent : si l'ecran est deja noir, rien de visible.
+  --
+  -- Conditionne au chapitre 5 hors rejouabilite : les autres cas
+  -- tombent sur la branche `else` de PlotScripting, un simple
+  -- FadeIn(20), et n'ont pas a etre noircis.
+  pcall(function()
+    if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+       and not ReplayEnding.IsReplay('searing_tunnel', 5) then
+      GAME:FadeOut(false, 1)
+    end
+  end)
+
   COMMON.RespawnAllies(true)
   GROUND:AddMapStatus("steam")
   PartnerEssentials.InitializePartnerSpawn()
