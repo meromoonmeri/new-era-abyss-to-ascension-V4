@@ -112,7 +112,8 @@ function mount_windswept_entrance.Teammate1_Action(chara, activator)
 function mount_windswept_entrance.Teammate2_Action(chara, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
   if SV.ChapterProgression.Chapter == 5 then
-    mount_windswept_entrance_ch_5.Growlithe_Action(chara, activator)
+    --Post-intro, Teammate2 = Ganlon (SetParty) : ses dialogues, pas ceux de Hyko.
+    mount_windswept_entrance_ch_5.Cranidos_Action(chara, activator)
   else
     COMMON.GroundInteract(activator, chara, true)
   end
@@ -121,7 +122,8 @@ end
 function mount_windswept_entrance.Teammate3_Action(chara, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
   if SV.ChapterProgression.Chapter == 5 then
-    mount_windswept_entrance_ch_5.Zigzagoon_Action(chara, activator)
+    --Post-intro, Teammate3 = Shuca (SetParty) : ses dialogues, pas ceux d'Almotz.
+    mount_windswept_entrance_ch_5.Mareep_Action(chara, activator)
   else
     COMMON.GroundInteract(activator, chara, true)
   end

@@ -95,7 +95,7 @@ function mount_windswept_midpoint_ch_5.SetupGround()
     if shuca ~= nil then GROUND:TeleportTo(shuca, 950, 390, Direction.Left) end
     if ganlon ~= nil then GROUND:TeleportTo(ganlon, 1010, 390, Direction.Left) end
   else
-    -- Repos ordinaire : Almotz pres d'un feu de camp, Hyko en poste au bord est.
+    -- Repos ordinaire : Shuca pres d'un feu de camp, Ganlon en poste au bord est.
     if shuca ~= nil then GROUND:TeleportTo(shuca, 340, 460, Direction.Up) end
     if ganlon ~= nil then GROUND:TeleportTo(ganlon, 1060, 360, Direction.Left) end
   end
@@ -363,6 +363,9 @@ function mount_windswept_midpoint_ch_5.SummitVigilScene()
   GROUND:AddMapStatus("darkness")
 
   local campfire = RogueEssence.Content.ObjAnimData('Campfire', 6)
+  --Index capture a l'ajout : le feu sera retire en fin de scene, lui et
+  --rien d'autre (decor en dur en tete de calque, patron event_single:724).
+  local fireIdx = GAME:GetCurrentGround().Decorations[0].Anims.Count
   GAME:GetCurrentGround().Decorations[0].Anims:Add(
     RogueEssence.Ground.GroundAnim(campfire, RogueElements.Loc(830, 372)))
 
@@ -423,6 +426,12 @@ function mount_windswept_midpoint_ch_5.SummitVigilScene()
   GAME:WaitFrames(30)
 
   GROUND:RemoveMapStatus("darkness")
+  --Le feu de la veillee s'eteint avec la nuit : retire SOUS le fondu, lui
+  --seul, pour ne pas en faire un residu permanent au centre du relais.
+  pcall(function()
+    local anims = GAME:GetCurrentGround().Decorations[0].Anims
+    if fireIdx < anims.Count then anims:RemoveAt(fireIdx) end
+  end)
   SV.Chapter5.MountVigilSceneSeen = true
   SOUND:PlayBGM('Canyon Camp.ogg', true)
   GAME:CutsceneMode(false)
@@ -456,7 +465,7 @@ function mount_windswept_midpoint_ch_5.WipedCutscene()
   if partner ~= nil then GROUND:TeleportTo(partner, 992, 384, Direction.Right) end
   GROUND:CharSetAnim(hero, "EventSleep", true)
   if partner ~= nil then GROUND:CharSetAnim(partner, "EventSleep", true) end
-  -- Hyko et Almotz ont porté le duo jusqu'au camp : ils veillent en contrebas.
+  -- Ganlon et Shuca ont porté le duo jusqu'au camp : ils veillent en contrebas.
   if ganlon ~= nil then GROUND:TeleportTo(ganlon, 920, 400, Direction.UpRight) end
   if shuca ~= nil then GROUND:TeleportTo(shuca, 1016, 400, Direction.UpLeft) end
   GAME:MoveCamera(976, 368, 1, false)
@@ -493,7 +502,7 @@ function mount_windswept_midpoint_ch_5.WipedCutscene()
   if shuca ~= nil then
     UI:SetSpeaker(shuca)
     UI:SetSpeakerEmotion("Worried")
-    UI:WaitShowDialogue("Vous étiez à deux doigts de passer par-dessus la corniche.[pause=20] Deux doigts.[pause=10] J'en tremble encore des moustaches.")
+    UI:WaitShowDialogue("Vous étiez à deux doigts de passer par-dessus la corniche.[pause=20] Deux doigts.[pause=10] J'en tremble encore de la laine.")
     GAME:WaitFrames(10)
   end
 
@@ -505,7 +514,7 @@ function mount_windswept_midpoint_ch_5.WipedCutscene()
   if ganlon ~= nil then
     UI:SetSpeaker(ganlon)
     UI:SetSpeakerEmotion("Normal")
-    UI:WaitShowDialogue("Le camp de base tient bon,[pause=10] wouf.[pause=0] Tant que les feux brûlent,[pause=10] personne ne gèlera sous ma garde.")
+    UI:WaitShowDialogue("Le camp de base tient bon.[pause=0] Et il tiendra.[pause=0] Tant que les feux brûlent,[pause=10] personne ne gèlera pendant ma garde.")
     GAME:WaitFrames(10)
   end
 

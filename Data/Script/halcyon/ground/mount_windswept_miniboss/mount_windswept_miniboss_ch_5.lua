@@ -155,6 +155,10 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   -- "Surveille celui du ciel, pas celui du sol."
   GAME:WaitFrames(20)
   -- LOT 4 — la Voix pose l'enjeu : meriter le sommet.
+  --Portee par le haut-parleur anonyme, comme toutes ses autres lignes de
+  --cette scene (MWM_008, MWM_015...) : sans SetSpeaker, la replique
+  --s'affichait en boite narration au lieu de la Voix.
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_027']))
   -- "Le ciel a ses gardiens. Prouvez que vous méritez le sommet."
   GAME:WaitFrames(20)

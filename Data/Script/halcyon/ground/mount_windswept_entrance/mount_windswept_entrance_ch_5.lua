@@ -1490,13 +1490,21 @@ function mount_windswept_entrance_ch_5.RetreatReturnCutscene()
 	GAME:CutsceneMode(false)
 end
 
+--Decorations POSEES EN DUR dans le .rsground : 14 anims (8 fleurs, 6
+--cailloux), mesurees le 2026-07-29. Le patron event_single.lua:724 montre
+--qu'elles occupent les PREMIERS indices du calque ; les ajouts du script
+--(feu, sac, paillasses) viennent APRES. La purge ne doit retirer QUE ces
+--ajouts : vider le calque entier effacait silencieusement les 14 anims du
+--decor naturel a chaque entree sur la carte.
+local NB_ANIMS_EN_DUR = 14
 function mount_windswept_entrance_ch_5.PurgeDecor()
 	--Purge du calque. « Anims:Clear() » n'existe pas : la seule methode
 	--de retrait attestee dans le depot est RemoveAt (event_single.lua:724).
-	--On retire depuis la fin, index par index, sous pcall.
+	--On retire depuis la fin, index par index, sous pcall, en s'arretant
+	--au stock en dur.
 	pcall(function()
 		local anims = GAME:GetCurrentGround().Decorations[0].Anims
-		for i = anims.Count - 1, 0, -1 do
+		for i = anims.Count - 1, NB_ANIMS_EN_DUR, -1 do
 			anims:RemoveAt(i)
 		end
 	end)
@@ -1620,7 +1628,11 @@ function mount_windswept_entrance_ch_5.SetupGround()
 	end
 end
 
---for testing 
+--L'EQUIPE DU DONJON = LA CORDEE DU SOMMET. Appele a la fin de la
+--cinematique d'arrivee : retire Hyko et Almotz (restes du Tunnel) et cree
+--Ganlon et Shuca en Teammate2/3, pour que la narration et l'equipe de jeu
+--racontent la meme chose. (Reassigne hero/partner en global : des versions
+--"fantomes" d'avant DefaultParty cassaient les teleports ulterieurs.)
 function mount_windswept_entrance_ch_5.SetParty()
 	--Clean up the existing spawns, then call SetupGround to spawn them in.
 	--Record the level of Hyko and Almotz for later use. Check to make sure they exist before doing so (mostly just so I can run this scene without needing them in the party)
