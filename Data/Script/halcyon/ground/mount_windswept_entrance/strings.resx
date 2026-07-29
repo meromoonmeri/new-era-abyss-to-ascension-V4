@@ -557,4 +557,25 @@
   <data name="MWE5_178" xml:space="preserve">
     <value>The wind turned at dusk.[pause=20] That's why they took so long.</value>
   </data>
+  <data name="MWE5_179" xml:space="preserve">
+    <value>Hang on![pause=20] I've got the emergency berries,[pause=10] I'm coming!</value>
+  </data>
+  <data name="MWE5_180" xml:space="preserve">
+    <value>There.[pause=20] It's no Heal Bell like Rin's,[pause=10] but it gets you up.</value>
+  </data>
+  <data name="MWE5_181" xml:space="preserve">
+    <value>Hey,[pause=10] you big losers![pause=20] We're not waiting around all day!</value>
+  </data>
+  <data name="MWE5_182" xml:space="preserve">
+    <value>...What did you just say?</value>
+  </data>
+  <data name="MWE5_183" xml:space="preserve">
+    <value>I said...[pause=30] what a magnificent view,[pause=15] and we should enjoy it.</value>
+  </data>
+  <data name="MWE5_184" xml:space="preserve">
+    <value>That's what I thought.</value>
+  </data>
+  <data name="MWE5_185" xml:space="preserve">
+    <value>(...I think we just witnessed a rescue.)</value>
+  </data>
 </root>

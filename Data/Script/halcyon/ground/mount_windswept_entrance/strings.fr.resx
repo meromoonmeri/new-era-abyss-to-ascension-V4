@@ -557,4 +557,25 @@
   <data name="MWE5_178" xml:space="preserve">
     <value>Le vent a tourné au crépuscule.[pause=20] Voilà pourquoi ils ont mis si longtemps.</value>
   </data>
+  <data name="MWE5_179" xml:space="preserve">
+    <value>Tenez bon ![pause=20] J'ai les baies de secours,[pause=10] j'arrive !</value>
+  </data>
+  <data name="MWE5_180" xml:space="preserve">
+    <value>Voilà.[pause=20] C'est pas du soin de Rin,[pause=10] mais ça remet debout.</value>
+  </data>
+  <data name="MWE5_181" xml:space="preserve">
+    <value>Eh,[pause=10] les gros nazes ![pause=20] On va pas attendre toute la journée !</value>
+  </data>
+  <data name="MWE5_182" xml:space="preserve">
+    <value>...Qu'est-ce que tu as dit ?</value>
+  </data>
+  <data name="MWE5_183" xml:space="preserve">
+    <value>J'ai dit...[pause=30] qu'on avait un magnifique panorama,[pause=15] et qu'il fallait en profiter.</value>
+  </data>
+  <data name="MWE5_184" xml:space="preserve">
+    <value>C'est bien ce qu'il me semblait.</value>
+  </data>
+  <data name="MWE5_185" xml:space="preserve">
+    <value>(...Je crois qu'on vient d'assister à un sauvetage.)</value>
+  </data>
 </root>

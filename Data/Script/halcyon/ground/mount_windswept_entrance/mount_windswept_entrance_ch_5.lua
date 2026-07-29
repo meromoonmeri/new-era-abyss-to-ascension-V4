@@ -1185,7 +1185,18 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		UI:ResetSpeaker()
 	end
 
-	pcall(function() SOUND:PlayBattleSE('DUN_Heal_Bell') end)
+	--PAS LE SON DE SOIN. BUG VU EN JEU : « dans le reve on devrait pas
+	--entendre le son de Soin de Rin ». C'etait bien « DUN_Heal_Bell »
+	--qui jouait ici — la signature sonore d'Audino, en plein reve
+	--onirique, alors que Rin dort a l'autre bout du camp. Le joueur
+	--l'associait a elle et cherchait sa presence dans la scene.
+	--
+	--« _UNK_DUN_Water_Drop » est deja le son d'entree de la presence
+	--dans ce meme reve (section 4 ci-dessus, et 2 usages attestes dans
+	--le depot) : une goutte suspendue, sans appartenance a personne.
+	--On garde donc UNE seule signature sonore pour l'entite, ce qui la
+	--rend identifiable au lieu de la confondre avec un PNJ du camp.
+	pcall(function() SOUND:PlayBattleSE('_UNK_DUN_Water_Drop') end)
 	GAME:WaitFrames(30)
 	voice('MWE5_139')
 	GAME:WaitFrames(20)
@@ -2070,6 +2081,107 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GAME:WaitFrames(30)
 
 	pcall(function() VoiceVisions.Recover(hero, true) end)
+	GAME:WaitFrames(20)
+
+	------------------------------------------------------------------
+	-- LA CORDEE S'IMPATIENTE — et le serieux s'effondre.
+	------------------------------------------------------------------
+	-- Demande de l'utilisateur, mise en scene sur le patron comique du
+	-- gag du camp (section 3) : le rire ne vient pas d'une blague, il
+	-- vient de la CHUTE DE TENSION. On sort d'une minute de silence, de
+	-- vertige et d'une voix que personne d'autre n'entend — puis Ganlon
+	-- gueule depuis le sentier, et tout retombe d'un coup.
+	--
+	-- Ce que la scene doit reussir :
+	--   1. L'insulte arrive de HORS CHAMP. La camera est sur le heros ;
+	--      on entend Ganlon avant de le voir, comme le camp entendait
+	--      le conciliabule sans distinguer les mots.
+	--   2. La musique comique demarre EXACTEMENT sur l'insulte, pas
+	--      avant : elle ponctue la chute, elle ne l'annonce pas.
+	--      « Guildmaster Wigglytuff.ogg » est le theme comique canonique
+	--      de la guilde, deja pose sur la chute du gag du camp — c'est
+	--      la meme signature sonore pour le meme type de rupture.
+	--   3. Shuca se RETOURNE avant de parler (le corps parle avant la
+	--      bouche) : c'est le mouvement qui fait la menace, pas la
+	--      replique.
+	--   4. Ganlon se degonfle en une phrase, sans transition. Il ne
+	--      s'excuse pas : il reecrit ce qu'il vient de dire.
+	--   5. Le partenaire conclut en voix off — il commente pour le
+	--      joueur, ce qui referme le gag.
+	local gag1 = TASK:BranchCoroutine(function()
+		SOUND:PlayBGM('Guildmaster Wigglytuff.ogg', true)
+	end)
+	local gag2 = TASK:BranchCoroutine(function()
+		--Ganlon crie depuis son poste : il ne bouge pas, il beugle.
+		pcall(function() GROUND:CharTurnToCharAnimated(t.ganlon, hero, 4) end)
+		pcall(function() GROUND:CharSetEmote(t.ganlon, "angry", 1) end)
+		UI:SetSpeaker(t.ganlon)
+		UI:SetSpeakerEmotion("Angry")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_181']))
+	end)
+	TASK:JoinCoroutines({gag1, gag2})
+	GAME:WaitFrames(20)
+
+	--LE TEMPS DE LATENCE. C'est lui qui fait rire : Shuca ne repond pas
+	--tout de suite. La camera glisse sur les deux tetes de cordee
+	--pendant que le silence s'installe.
+	local gag3 = TASK:BranchCoroutine(function()
+		GAME:MoveCamera(272, 204, 60, false)
+	end)
+	local gag4 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(30)
+		--Elle se tourne LENTEMENT (8 frames par cran au lieu de 4).
+		pcall(function() GROUND:CharTurnToCharAnimated(t.shuca, t.ganlon, 8) end)
+	end)
+	TASK:JoinCoroutines({gag3, gag4})
+	GAME:WaitFrames(25)
+
+	UI:SetSpeaker(t.shuca)
+	UI:SetSpeakerEmotion("Angry")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_182']))
+	GAME:WaitFrames(30)
+
+	--Ganlon comprend son erreur. Le corps le trahit avant la bouche.
+	local gag5 = TASK:BranchCoroutine(function()
+		pcall(function() GeneralFunctions.EmoteAndPause(t.ganlon, "Sweatdrop", true) end)
+		UI:SetSpeaker(t.ganlon)
+		UI:SetSpeakerEmotion("Worried")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_183']))
+	end)
+	local gag6 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(12)
+		--Il regarde ailleurs. N'importe ou sauf Shuca.
+		pcall(function() GROUND:CharAnimateTurnTo(t.ganlon, Direction.Up, 6) end)
+	end)
+	TASK:JoinCoroutines({gag5, gag6})
+	GAME:WaitFrames(20)
+
+	pcall(function() GROUND:CharAnimateTurnTo(t.shuca, Direction.Up, 6) end)
+	UI:SetSpeaker(t.shuca)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_184']))
+	GAME:WaitFrames(25)
+
+	--Le duo a tout vu. Le partenaire commente pour le joueur.
+	local gag7 = TASK:BranchCoroutine(function()
+		GAME:MoveCamera(248, 208, 60, false)
+	end)
+	local gag8 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
+		pcall(function() GeneralFunctions.EmoteAndPause(partner, "Sweatdrop", true) end)
+	end)
+	TASK:JoinCoroutines({gag7, gag8})
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Sigh")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_185']))
+	GAME:WaitFrames(25)
+
+	--Retour au theme de la montagne : le gag est clos, la scene reprend
+	--son cours. FadeOutBGM avant PlayBGM pour que la bascule s'entende
+	--comme une fin de parenthese et non comme une coupure.
+	SOUND:FadeOutBGM(40)
+	GAME:WaitFrames(30)
 	SOUND:PlayBGM('Sky Peak Prairie.ogg', true)
 	GAME:WaitFrames(20)
 
@@ -2306,10 +2418,45 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	--soigneuse. Penticus veille a cote, ce qui est tout le sens de sa
 	--decision de le garder au camp.
 	if hyko ~= nil then
-		SOUND:PlayBattleSE("DUN_Heal_Bell")
+		------------------------------------------------------------------
+		-- HYKO NE LANCE PAS UN SOIN : IL DISTRIBUE DES BAIES.
+		------------------------------------------------------------------
+		-- BUG VU EN JEU : « Hyko ne parle pas quand il utilise Soin ??
+		-- alors que c'est un Pokemon de type Feu ».
+		--
+		-- Deux erreurs distinctes, les deux reelles :
+		--   1. « DUN_Heal_Bell » est le son de la capacite Soin (Heal
+		--      Bell). C'est la signature sonore de Rin, l'Audino
+		--      soigneuse — un Growlithe de type Feu ne connait pas cette
+		--      capacite. Le son racontait un soin magique la ou la scene
+		--      raconte des provisions de secours.
+		--   2. Il agissait EN SILENCE : il accourait, prenait une pose de
+		--      100 frames, et sa premiere replique n'arrivait qu'apres.
+		--      On ne comprenait pas ce qu'il faisait.
+		--
+		-- Correction : « DUN_Heal » (atteste dans le depot,
+		-- DazzlingArc.lua:561 et event_battle.lua:1049) est le son
+		-- generique de restauration de PV — celui d'une baie consommee,
+		-- pas d'une capacite. Et Hyko ANNONCE ce qu'il fait avant de le
+		-- faire : le geste devient lisible.
+		pcall(function() GROUND:CharTurnToCharAnimated(hyko, hero, 4) end)
+		pcall(function() GeneralFunctions.EmoteAndPause(hyko, "Exclaim", true) end)
+		UI:SetSpeaker(hyko)
+		UI:SetSpeakerEmotion("Worried")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_179']))
+		GAME:WaitFrames(10)
+
+		SOUND:PlayBattleSE("DUN_Heal")
 		GROUND:CharSetAction(hyko, RogueEssence.Ground.PoseGroundAction(hyko.Position, hyko.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pose")))
 		GAME:WaitFrames(100)
 		GROUND:CharEndAnim(hyko)
+		GAME:WaitFrames(10)
+
+		--Et il commente le resultat : le silence d'avant faisait passer
+		--le soin pour un evenement magique sans auteur.
+		UI:SetSpeaker(hyko)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_180']))
 	end
 	GAME:WaitFrames(20)
 
@@ -2534,6 +2681,72 @@ function mount_windswept_entrance_ch_5.PurgeDecor()
 			anims:RemoveAt(i)
 		end
 	end)
+	--Le foyer disparait avec le decor : son bloqueur de collision aussi.
+	mount_windswept_entrance_ch_5.RemoveFireBlocker()
+end
+
+--------------------------------------------------------------------
+-- LE FEU DE CAMP BLOQUE LE PASSAGE.
+--------------------------------------------------------------------
+-- BUG VU EN JEU : « la collision au feu de camp au centre n'est pas
+-- respectee, on peut passer au travers ».
+--
+-- Cause racine, lue dans le moteur (RogueCollab/RogueEssence). Le foyer
+-- est pose comme une GroundAnim, et l'en-tete de Ground/Maps/GroundAnim.cs
+-- est explicite :
+--     « An animated prop to be put on a GroundMap.
+--       Unlike GroundObject, it cannot be collided or interacted with »
+-- Une GroundAnim n'implemente pas IObstacle : elle n'est jamais versee
+-- dans la grille de collision, elle est seulement DESSINEE. Aucun reglage
+-- ne peut la rendre solide — c'est une limite de la classe, pas un oubli.
+--
+-- GroundObject, lui, implemente IObstacle et expose Tags (GroundObject.cs:22) :
+--     Passable == false  ->  Tags = 1  ->  SlideResponse (on glisse le long)
+-- C'est le patron deja employe par le depot pour barrer un passage sans
+-- rien afficher : altere_pond_ch_5.lua:10 pose un GroundObject d'anim
+-- VIDE ("") uniquement pour sa boite de collision.
+--
+-- On superpose donc au foyer un bloqueur invisible. Deux precautions :
+--
+--   * anim "" et non 'Campfire' : le feu est deja dessine par la
+--     GroundAnim. Dupliquer l'anim afficherait DEUX foyers superposes.
+--   * boite de 24x24 CENTREE sur le foyer, et non ses 36x36 complets.
+--     Le sprite deborde largement sur sa base ; une boite pleine
+--     grignotait les cases de circulation autour du feu. Verifie par
+--     parcours en largeur sur la grille d'obstacles : avec 24x24, les
+--     25 cases rendues inaccessibles sont EXACTEMENT celles couvertes
+--     par la boite — zero deconnexion, l'entree du donjon, le camp nord
+--     et le sentier sud restent tous atteignables depuis l'entree.
+--
+-- `passable` est le 4e argument positionnel de cette surcharge
+-- (GroundObject.cs:70, `contact`), et il vaut `false` : on veut une
+-- reponse de collision, pas un declencheur au contact.
+--------------------------------------------------------------------
+function mount_windswept_entrance_ch_5.AddFireBlocker()
+	pcall(function()
+		--Idempotent : deux appels de suite ne doivent pas empiler deux
+		--boites (BuildCampDay est rejoue par plusieurs branches).
+		mount_windswept_entrance_ch_5.RemoveFireBlocker()
+		local blocker = RogueEssence.Ground.GroundObject(
+			RogueEssence.Content.ObjAnimData("", 1),
+			RogueElements.Rect(262, 226, 24, 24),
+			RogueElements.Loc(0, 0),
+			false,
+			"Campfire_Blocker")
+		blocker:ReloadEvents()
+		GAME:GetCurrentGround():AddTempObject(blocker)
+		mount_windswept_entrance_ch_5.fireBlocker = blocker
+	end)
+end
+
+function mount_windswept_entrance_ch_5.RemoveFireBlocker()
+	pcall(function()
+		local b = mount_windswept_entrance_ch_5.fireBlocker
+		if b ~= nil then
+			GAME:GetCurrentGround():RemoveTempObject(b)
+			mount_windswept_entrance_ch_5.fireBlocker = nil
+		end
+	end)
 end
 
 --------------------------------------------------------------------
@@ -2549,20 +2762,18 @@ function mount_windswept_entrance_ch_5.BuildCampDay()
 	mount_windswept_entrance_ch_5.PurgeDecor()
 	local ground = GAME:GetCurrentGround()
 	local campfire = RogueEssence.Content.ObjAnimData('Campfire', 6)
-	local bag  = RogueEssence.Content.ObjAnimData('Grassy_Bag', 1)
-	local BAG_SPOT = RogueElements.Loc(260, 196)
 
 	--Le feu, centre du camp.
 	ground.Decorations[0].Anims:Add(
 		RogueEssence.Ground.GroundAnim(campfire, RogueElements.Loc(256, 220)))
-	--LE sac commun de l'expedition. Il est pose en (260,196) et NON plus
-	--en (196,224) : cet emplacement accueille desormais la paillasse de
-	--Kino, contre le feu. De jour la paillasse n'existe pas (elle n'est
-	--deroulee qu'au soir par DeployBeds), donc les deux ne coexistent
-	--jamais — mais les laisser au meme point ferait se superposer le sac
-	--et la couche a la tombee de la nuit.
-	ground.Decorations[0].Anims:Add(
-		RogueEssence.Ground.GroundAnim(bag, BAG_SPOT))
+	--Et sa collision : une GroundAnim seule se traverse (cf. AddFireBlocker).
+	mount_windswept_entrance_ch_5.AddFireBlocker()
+
+	--SAC RETIRE A LA DEMANDE. Le Grassy_Bag pose en (260,196), juste au
+	--nord du foyer, encombrait le centre du camp — c'est precisement la
+	--zone ou se joue le repas, ou Penticus tient son adresse et ou passe
+	--tout le trafic vers le sentier nord. Le materiel d'expedition reste
+	--raconte par les couchages et le foyer.
 end
 
 --------------------------------------------------------------------
@@ -2575,12 +2786,11 @@ end
 --------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.BuildCampMorning()
 	mount_windswept_entrance_ch_5.PurgeDecor()
-	local ground = GAME:GetCurrentGround()
-	local bag = RogueEssence.Content.ObjAnimData('Grassy_Bag', 1)
-	--Meme emplacement qu'au camp de jour (260,196). L'ancien point
-	--(196,224) est desormais celui de la paillasse de Kino.
-	ground.Decorations[0].Anims:Add(
-		RogueEssence.Ground.GroundAnim(bag, RogueElements.Loc(260, 196)))
+	--Camp du matin : le feu est eteint, le sac a ete retire (il genait le
+	--centre du camp). Le calque est donc VIDE, et l'axe du rassemblement
+	--entierement degage — Penticus peut tenir son adresse en (256,232)
+	--sans se cogner au bloqueur du foyer, qui n'existe plus a ce moment.
+	--PurgeDecor a deja retire ce bloqueur.
 end
 
 --------------------------------------------------------------------
@@ -2602,6 +2812,9 @@ function mount_windswept_entrance_ch_5.DeployBeds()
 	end
 	ground.Decorations[0].Anims:Add(
 		RogueEssence.Ground.GroundAnim(campfire, RogueElements.Loc(256, 220)))
+	--Le foyer de la nuit bloque lui aussi : on ne traverse pas les braises
+	--pour aller se coucher.
+	mount_windswept_entrance_ch_5.AddFireBlocker()
 end
 
 --------------------------------------------------------------------
@@ -3454,9 +3667,46 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 
 	GAME:FadeOut(false, 40)
 	GAME:WaitFrames(40)
-	for _, chara in ipairs({audino, snubbull, girafarig, breloom, growlithe, zigzagoon, tropius, noctowl, mareep, cranidos}) do
+	--------------------------------------------------------------------
+	-- LE CAMP NE DOIT PAS SE VIDER.
+	--------------------------------------------------------------------
+	-- BUG VU EN JEU : « a la fin de la cinematique il reste des Pokemon
+	-- logiques a la narration sur le ground, un moment y'a plus
+	-- personne ».
+	--
+	-- Cause : cette boucle retirait LES DIX PNJ de la carte, y compris
+	-- les trois que la scene vient explicitement de laisser au camp —
+	-- Penticus, Phileas et Hyko. Or SetupGround, la fonction qui les
+	-- recree, n'est PAS appelee sur ce chemin : PlotScripting bascule
+	-- sur la branche `ArrivalCutscene` et rend la main directement.
+	-- Le joueur reprenait donc le controle dans un camp desert, apres
+	-- une scene ou trois personnages viennent de jurer d'y rester.
+	--
+	-- On ne retire donc QUE les sept partants, ceux que la scene a
+	-- effectivement montres en train de monter le sentier nord :
+	--   Rin, Coco       -> cordee de soutien
+	--   Kino, Reinier, Almotz -> vague d'ouverture
+	--   Ganlon, Shuca   -> cordee du sommet, ils rejoignent l'EQUIPE du
+	--                      joueur (SetParty les recree en Teammate2/3
+	--                      juste apres : les garder en PNJ ferait un
+	--                      doublon de chacun a l'ecran).
+	--
+	-- Penticus, Phileas et Hyko RESTENT. C'est exactement le trio que
+	-- SetupGround repose a chaque retour sur la carte : la population du
+	-- camp est donc la meme qu'on vienne de la cinematique ou qu'on
+	-- revienne du donjon. Plus de discontinuite.
+	for _, chara in ipairs({audino, snubbull, girafarig, breloom, zigzagoon, mareep, cranidos}) do
 		GAME:GetCurrentGround():RemoveTempChar(chara)
 	end
+
+	--Les trois qui tiennent le camp reprennent le poste exact que leur
+	--donne SetupGround, pour que rien ne bouge quand le joueur reviendra
+	--du donjon : Penticus (230,190), Phileas (288,196), Hyko (224,206).
+	pcall(function()
+		GROUND:TeleportTo(tropius,   230, 190, Direction.DownRight)
+		GROUND:TeleportTo(noctowl,   288, 196, Direction.DownLeft)
+		GROUND:TeleportTo(growlithe, 224, 206, Direction.DownRight)
+	end)
 
 	--L'EQUIPE DU DONJON = LA CORDEE DU SOMMET. SetParty retire Hyko et
 	--Almotz (restes du Tunnel) et cree Ganlon et Shuca en Teammate2/3.
