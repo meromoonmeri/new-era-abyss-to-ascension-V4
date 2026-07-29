@@ -217,17 +217,19 @@ if __name__ == '__main__':
     
     ground_data = generate_handdrawn_ground(
         asset_name=bg_asset,
-        name_en="Celestial Peak Entrance (Painted)",
-        name_fr="Entrée du Pic Céleste (Peinte)",
+        name_en="Celestial Peak Entrance",
+        name_fr="Entrée du Pic Céleste",
         width_px=1376,
         height_px=768,
         walkable_rects=walkable_areas,
         music_bg="Sky Peak Cave.ogg"
     )
+    # Remplacer directement celestial_peak_entrance
+    ground_data["Object"]["AssetName"] = "celestial_peak_entrance"
     
     out_dir = "Data/Ground"
     os.makedirs(out_dir, exist_ok=True)
-    out_file = os.path.join(out_dir, "celestial_peak_entrance_handdrawn.rsground")
+    out_file = os.path.join(out_dir, "celestial_peak_entrance.rsground")
     
     with open(out_file, 'w', encoding='utf-8-sig') as f:
         json.dump(ground_data, f, ensure_ascii=False, indent=2)
