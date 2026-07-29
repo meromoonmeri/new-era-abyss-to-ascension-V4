@@ -63,9 +63,15 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--Assignation des couches. La cle est le personnage, la valeur est
 	--{index de lit, direction assise}. Le +13/+10 du Tunnel place le
 	--sprite au centre de la paillasse.
+	--AUDIT DEPLACEMENTS (2026-07-30) : la table est ORDONNEE EN ANNEAU
+	--autour du feu (du nord, sens horaire) — l'installation et le
+	--service du repas suivent cet ordre, donc personne ne traverse le
+	--diametre du cercle pendant qu'un autre bouge.
 	local seats = {
 		{t.penticus, 1,  Direction.Down},
+		{t.coco,     12, Direction.Down},
 		{t.phileas,  2,  Direction.Down},
+		{t.kino,     11, Direction.Left},
 		{t.reinier,  3,  Direction.Left},
 		{t.ganlon,   4,  Direction.Up},
 		{t.shuca,    5,  Direction.Up},
@@ -74,8 +80,6 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		{t.hyko,     8,  Direction.Up},
 		{t.almotz,   9,  Direction.Right},
 		{t.rin,      10, Direction.Down},
-		{t.kino,     11, Direction.Left},
-		{t.coco,     12, Direction.Down},
 	}
 	local function seatX(i) return B[i][1] + 13 end
 	local function seatY(i) return B[i][2] + 10 end
@@ -137,12 +141,15 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:ResetSpeaker()
 
 	--Chacun gagne sa place, en decale : un camp qui bouge d'un seul
-	--bloc a l'air mecanique.
+	--bloc a l'air mecanique. AUDIT DEPLACEMENTS : la table etant en
+	--anneau et la cadence a i*10, chaque marcheur se sert du passage
+	--laisse libre par le precedent — plus de trajectoires qui se
+	--croisent au milieu du camp.
 	local settle = {}
 	for i, s in ipairs(seats) do
 		local chara, bed, dir = s[1], s[2], s[3]
 		settle[#settle+1] = TASK:BranchCoroutine(function()
-			GAME:WaitFrames(i * 6)
+			GAME:WaitFrames(i * 10)
 			GROUND:MoveToPosition(chara, seatX(bed), seatY(bed), false, 1)
 			GROUND:CharAnimateTurnTo(chara, dir, 4)
 		end)
@@ -524,6 +531,16 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	mount_windswept_entrance_ch_5.DeployBeds()
 	GROUND:RemoveMapStatus("dusk")
 	GROUND:AddMapStatus("darkness")
+
+	--NETTOYAGE DE COMPOSITION SOUS LE FONDU (audit deplacements
+	--2026-07-30) : la veillee a fait bouger certains dormeurs (Rin va
+	--et vient soigner, les chuchotis...). Chacun est replace pile
+	--devant sa paillasse AVANT la reouverture : apres, plus personne
+	--n'a a traverser le camp pour se coucher — le partenaire compris,
+	--proche de sa couche comme tout le monde.
+	for _, s in ipairs(seats) do
+		if s[1] ~= nil then GROUND:TeleportTo(s[1], seatX(s[2]), seatY(s[2]), s[3]) end
+	end
 	GAME:WaitFrames(10)
 	GAME:FadeIn(40)
 
@@ -538,27 +555,34 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	---------------------------------------------------------------
 	-- 8. LE COUCHER — un par un, respiration desynchronisee
 	---------------------------------------------------------------
-	--Phileas prend le premier tour de garde : il ne se couche pas.
+	--AUDIT DEPLACEMENTS (2026-07-30) : le coucher ne comporte plus
+	--AUCUN trajet. Depuis la section 7, chacun est deja pile devant
+	--sa couche : on s'allonge sur place, un par un, en respiration
+	--desynchronisee — plus aucune traversee possible.
+	--Phileas prend le premier tour de garde : il part APRES tout le
+	--monde, quand chacun est deja etendu sur sa couche (les dormeurs
+	--ne sont plus des figurants en mouvement qu'on traverse), et par
+	--un trajet en deux points qui le tient au large des lits.
 	local vers = {}
 	local sleepOrder = {
-		{t.penticus, 1,  0},
-		{t.coco,     12, 14},
-		{t.shuca,    5,  26},
-		{t.ganlon,   4,  40},
-		{t.reinier,  3,  52},
-		{t.rin,      10, 66},
-		{t.kino,     11, 80},
+		{t.penticus, 0},
+		{t.coco,     14},
+		{t.shuca,    26},
+		{t.ganlon,   40},
+		{t.reinier,  52},
+		{t.rin,      66},
+		{t.kino,     80},
 	}
 	for _, s in ipairs(sleepOrder) do
-		local chara, bed, delay = s[1], s[2], s[3]
+		local chara, delay = s[1], s[2]
 		vers[#vers+1] = TASK:BranchCoroutine(function()
 			GAME:WaitFrames(delay)
-			GROUND:MoveToPosition(chara, seatX(bed), seatY(bed), false, 1)
 			GROUND:CharSetAnim(chara, "Sleep", true)
 		end)
 	end
 	vers[#vers+1] = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(20)
+		GAME:WaitFrames(100)
+		GROUND:MoveToPosition(t.phileas, 314, 156, false, 1)
 		GROUND:MoveToPosition(t.phileas, 256, 148, false, 1)
 		GROUND:CharAnimateTurnTo(t.phileas, Direction.Down, 4)
 	end)
@@ -2209,7 +2233,7 @@ function mount_windswept_entrance_ch_5.Tropius_Action(chara, activator)
 		UI:SetSpeakerEmotion("Worried")
 		UI:WaitShowDialogue("...Et si je vous semble inquiet,[pause=10] c'est que je le suis.[pause=0] Un bon chef ne ment pas à ses équipes sur ce point.")
 	elseif SV.Chapter5.MountGuardianLost then
-		GeneralFunctions.StartConversation(chara, "L'Aérodactyle vous a repoussés ?[pause=0] Ne baissez pas la tête.[pause=0] Ce gardien veille sur ce col depuis des générations.", "Normal")
+		GeneralFunctions.StartConversation(chara, "L'Aerodactyl vous a repoussés ?[pause=0] Ne baissez pas la tête.[pause=0] Ce gardien veille sur ce col depuis des générations.", "Normal")
 		UI:WaitShowDialogue("Les anciens l'appelaient «[pause=5] la Serre du Ciel[pause=5] ».[pause=0] On disait qu'il ne laissait passer que ceux dont le cœur ne tremble pas.")
 		UI:SetSpeakerEmotion("Determined")
 		UI:WaitShowDialogue("Votre cœur ne tremble pas.[pause=0] Il apprend.[pause=0] Retournez-y quand vous serez prêts.")
@@ -2236,13 +2260,13 @@ end
 function mount_windswept_entrance_ch_5.Noctowl_Action(chara, activator)
 	DEBUG.EnableDbgCoro()
 	if SV.Chapter5.MountGuardianDefeated then
-		GeneralFunctions.StartConversation(chara, "Hou...[pause=0] L'Aérodactyle s'est incliné.[pause=0] Voilà qui confirme une vieille théorie personnelle.", "Normal")
+		GeneralFunctions.StartConversation(chara, "Hou...[pause=0] L'Aerodactyl s'est incliné.[pause=0] Voilà qui confirme une vieille théorie personnelle.", "Normal")
 		UI:WaitShowDialogue("Les gardiens de cette région ne défendent pas un territoire.[pause=0] Ils défendent quelque chose DANS le territoire.[pause=0] Nuance capitale.")
 		UI:SetSpeakerEmotion("Worried")
 		UI:WaitShowDialogue("Ce que la lueur du sommet protège...[pause=10] ou ce dont elle se protège...[pause=0] nous le saurons très bientôt.[pause=0] Trop vite,[pause=10] peut-être.")
 	elseif SV.Chapter5.MountGuardianLost then
 		GeneralFunctions.StartConversation(chara, "Repoussés par le gardien ?[pause=0] Intéressant.[pause=0] Douloureux pour vous,[pause=10] mais intéressant.", "Normal")
-		UI:WaitShowDialogue("Un Aérodactyle territorial attaque au premier contact.[pause=0] Celui-ci vous a laissés approcher AVANT de frapper.[pause=0] Il évalue.[pause=10] Il choisit.")
+		UI:WaitShowDialogue("Un Aerodactyl territorial attaque au premier contact.[pause=0] Celui-ci vous a laissés approcher AVANT de frapper.[pause=0] Il évalue.[pause=10] Il choisit.")
 		UI:SetSpeakerEmotion("Happy")
 		UI:WaitShowDialogue("Montrez-lui une escouade digne de ce nom,[pause=10] et je pense qu'il vous ouvrira le ciel lui-même.")
 	elseif SV.Chapter5.MountMiniBossDefeated then

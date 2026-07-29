@@ -1,4 +1,4 @@
-﻿{
+{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -83072,6 +83072,7 @@
       "illuminant_riverbed_entrance",
       "metano_inn",
       "personality_test",
+      "songe_source",
       "crooked_cavern_entrance",
       "crooked_den",
       "first_core_location",

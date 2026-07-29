@@ -87,10 +87,18 @@ function songe_source_ch_5.PlayDream()
 		end
 
 		--Elle est posee sur la rive, invisible : creation cachee, jamais
-		--un sprite simplement pose (battements plus bas).
-		local elle = CharacterEssentials.MakeCharactersFromList({
-			{'Gardevoir', 390, 297, Direction.Down} })
-		GROUND:Hide(elle.EntName)
+		--un sprite simplement pose (battements plus bas). SECURITE : le
+		--spawn reste sous pcall — si le moteur ne resout pas le sprite,
+		--le songe continue en « presence de lumiere » pure au lieu de
+		--casser le reve (toutes les touches sur elle sont gardees par
+		--elle ~= nil, plus bas).
+		local elle = nil
+		local okElle = pcall(function()
+			elle = CharacterEssentials.MakeCharactersFromList({
+				{'Gardevoir', 390, 297, Direction.Down} })
+			GROUND:Hide(elle.EntName)
+		end)
+		if not okElle then elle = nil end
 
 		--Le heros, endormi, au centre de la clairiere. Camera d'intro en
 		--(390,315) : le halo de la source (y~205) ENTRE dans le plan de
@@ -187,16 +195,16 @@ function songe_source_ch_5.PlayDream()
 		--a chaque apparition. Elle se stabilise AU TROISIEME, pas avant.
 		local battements = {{6, 20}, {10, 14}, {16, 10}}
 		for i, b in ipairs(battements) do
-			GROUND:Unhide(elle.EntName)
+			if elle ~= nil then GROUND:Unhide(elle.EntName) end
 			pcall(function() SOUND:PlayBattleSE('DUN_Power_Gem') end)
 			GAME:WaitFrames(b[1])
 			if i < #battements then
-				GROUND:Hide(elle.EntName)
+				if elle ~= nil then GROUND:Hide(elle.EntName) end
 				GAME:WaitFrames(b[2])
 			end
 		end
 		pcall(function() BossFX.Flash(390, 297, 14, 18, 34) end)
-		GROUND:CharSetEmote(elle, "glowing", 1)
+		if elle ~= nil then GROUND:CharSetEmote(elle, "glowing", 1) end
 		GAME:WaitFrames(24)
 
 		--Elle est la. Le dialogue ne commence QU'APRES la stabilisation.
@@ -226,7 +234,7 @@ function songe_source_ch_5.PlayDream()
 		--pleinement vers lui.
 		GROUND:MoveToPosition(hero, 390, 350, false, 1)
 		GROUND:CharAnimateTurnTo(hero, Direction.Up, 2)
-		GROUND:CharTurnToCharAnimated(elle, hero, 2)
+		if elle ~= nil then GROUND:CharTurnToCharAnimated(elle, hero, 2) end
 		GAME:WaitFrames(12)
 		pensee('REVE5_006', 'Worried')
 		GAME:WaitFrames(12)
@@ -272,10 +280,10 @@ function songe_source_ch_5.PlayDream()
 		local estompe = {{16, 8}, {10, 12}, {6, 18}}
 		for i, b in ipairs(estompe) do
 			GAME:WaitFrames(b[1])
-			GROUND:Hide(elle.EntName)
+			if elle ~= nil then GROUND:Hide(elle.EntName) end
 			GAME:WaitFrames(b[2])
 			if i < #estompe then
-				GROUND:Unhide(elle.EntName)
+				if elle ~= nil then GROUND:Unhide(elle.EntName) end
 				pcall(function() SOUND:PlayBattleSE('DUN_Power_Gem') end)
 			end
 		end
