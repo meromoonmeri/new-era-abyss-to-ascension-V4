@@ -32,22 +32,36 @@ MARK = 'make_gemini_cloven v1'
 TS = 16                                  # px par tuile -> TexSize 2
 
 # ---- GEOMETRIE (px, dans le repere de l'image) ------------------------------
-# Zones de marche (x, y, l, h). Recalees sur l'apercu overlay.
+# Zones de marche (x, y, l, h) en px, alignees 16, calibrees sur grille 64px :
+#   terrasse gauche (arbre bleu) -> escalier de pierre -> pont de bois ->
+#   sentier du bas -> pierres sautees de la gorge -> parvis -> porte.
+#   NON marchable : gouffre, falaises, eau bas-gauche, statue golem et
+#   arche haut-droite (corniches visees, sans pont dans l'image).
 WALK_BOXES = [
-    (0,   560, 560, 128),   # sentier du bas (herbe/terre)
-    (280, 460, 140, 110),   # ponts de bois montant au centre-gauche
-    (360, 350, 230, 120),   # dalles de pierre traversant la gorge
-    (470, 270, 120, 100),   # escalier vers la porte
-    (560, 210, 150, 80),    # plateforme de la porte
+    (336, 544, 160, 48),    # chemin du haut (terre)           x336-496 y544-592
+    (384, 592, 64, 48),     # passage entre cube et rocher     x384-448 y592-640
+    (432, 624, 96, 80),     # dalles du bas                    x432-528 y624-704
+    (256, 448, 192, 64),    # pont de bois                     x256-448 y448-512
+    (432, 496, 80, 48),     # dalle haute mousseuse            x432-512 y496-544
+    (192, 352, 96, 96),     # escalier vers la terrasse        x192-288 y352-448
+    (464, 448, 96, 48),     # pierre sautee 2                  x464-560 y448-496
+    (496, 400, 96, 48),     # pierre sautee 3                  x496-592 y400-448
+    (528, 356, 96, 48),     # pierre sautee 4                  x528-624 y356-404
+    (544, 320, 160, 96),    # parvis de la porte               x544-704 y320-416
+    (96, 240, 64, 48),      # terrasse haute gauche            x96-160  y240-288
+    (216, 240, 56, 48),     # terrasse haute droite            x216-272 y240-288
+    (216, 288, 56, 32),     # liaison terrasse                 x216-272 y288-320
+    (16, 264, 144, 64),     # terrasse gauche                  x16-160  y264-328
+    (160, 320, 112, 80),    # terrasse basse gauche            x160-272 y320-400
 ]
 # Entites (px) ---------------------------------------------------------------
 POS = {
-    'Main_Entrance_Marker': (408, 592),   # spawn sur le sentier
-    'TEAMMATE_1': (448, 592),
-    'TEAMMATE_2': (376, 600),
-    'TEAMMATE_3': (448, 616),
-    'Kangaskhan_Rock': (312, 592),        # au bord du sentier
-    'Dungeon_Entrance': (600, 232, 48, 24),  # gueule de la porte (x, y, l, h)
+    'Main_Entrance_Marker': (432, 576),   # spawn sur le sentier de terre
+    'TEAMMATE_1': (384, 568),
+    'TEAMMATE_2': (480, 576),
+    'TEAMMATE_3': (432, 616),
+    'Kangaskhan_Rock': (556, 376),        # statue de sauvegarde sur le parvis
+    'Dungeon_Entrance': (600, 320, 96, 32),  # gueule de la porte (x, y, l, h)
 }
 # -----------------------------------------------------------------------------
 
@@ -147,9 +161,11 @@ def write_pkg(img_path, out_path):
     W2, H2 = -(-W // TS) * TS, -(-H // TS) * TS
     if (W2, H2) != (W, H):
         pad = Image.new('RGBA', (W2, H2))
-        pad.paste(im.landscape if False else im, (0, 0))
-        pad.paste(im.crop((W - 1, 0, W, H)).resize((W2 - W, H), Image.NEAREST), (W, 0))
-        pad.paste(im.crop((0, H - 1, W2, H)).resize((W2, H2 - H), Image.NEAREST), (0, H))
+        pad.paste(im, (0, 0))
+        if W2 > W:
+            pad.paste(im.crop((W - 1, 0, W, H)).resize((W2 - W, H), Image.NEAREST), (W, 0))
+        if H2 > H:
+            pad.paste(im.crop((0, H - 1, W2, H)).resize((W2, H2 - H), Image.NEAREST), (0, H))
         im = pad
     gx, gy = W2 // TS, H2 // TS
     print(f'decoupe: {gx}x{gy} cellules {TS}px (image {W}x{H} paddee {W2}x{H2})')
