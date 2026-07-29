@@ -566,12 +566,24 @@ function searing_crucible_ch_5.FirstPreBossScene()
 	coro1 = TASK:BranchCoroutine(function() GROUND:MoveScreen(RogueEssence.Content.ScreenMover(3, 6, 30))
 											GAME:WaitFrames(10)	
 											SOUND:PlayBattleSE("_UNK_EVT_003")
-											--LOT 2.1 : apparition standardisee sous flash blanc.
-											BossFX.Flash(256, 192, 3, 5, 20)
-											GAME:WaitFrames(8)
-											GROUND:Unhide('Magcargo')
-											BossFX.Impact(9)
-											GAME:WaitFrames(37)		
+										--RESTAURE (comparaison Palikadude/Halcyon, branche working-copy,
+										--2026-07) : retour a l'effet signature d'origine — Magcargo surgit
+										--dans une colonne de flamme (Sacred_Fire_Ranger, calque Front), et
+										--non plus sous le flash blanc generique du LOT 2.1. Port exact de
+										--leur bloc (anim au pixel magcargo.Position.X + 8, Unhide a t=3).
+										--L'AnimData n'est dans AUCUN des deux depots : il sort du contenu
+										--de base du moteur, comme Slugma_Materialize (meme cas). Filet
+										--pcall : si l'anim manquait chez un joueur, repli au flash blanc
+										--a sa position — la scene continue dans tous les cas.
+										local okFlamme = pcall(function()
+											local arriveAnim = RogueEssence.Content.StaticAnim(RogueEssence.Content.AnimData("Sacred_Fire_Ranger", 3), 1)
+											arriveAnim:SetupEmitted(RogueElements.Loc(magcargo.Position.X + 8, magcargo.Position.Y), 32, RogueElements.Dir8.Down)
+											GROUND:PlayVFXAnim(arriveAnim, RogueEssence.Content.DrawLayer.Front)
+										end)
+										if not okFlamme then BossFX.Flash(magcargo.Position.X, magcargo.Position.Y, 3, 5, 20) end
+										GAME:WaitFrames(3)
+										GROUND:Unhide('Magcargo')
+										GAME:WaitFrames(37)	
 											end)
 
 	coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(20)
@@ -1101,8 +1113,19 @@ local function DefeatedBossBody()
 	coro1 = TASK:BranchCoroutine(function() GROUND:MoveScreen(RogueEssence.Content.ScreenMover(3, 6, 30))
 											GAME:WaitFrames(10)	
 											SOUND:StopBGM()
-											SOUND:PlayBattleSE("EVT_Battle_Flash")
-											--LOT 2.2 : disparition standardisee sous flash blanc.
+										SOUND:PlayBattleSE("_UNK_EVT_003")
+										--RESTAURE (meme comparaison du LOT 2.1) : la sortie de Magcargo
+										--rejoue l'explosion de flamme d'origine (Sacred_Fire_Ranger,
+										--calque Front, magcargo.Position.X + 8, Hide a t=3) au lieu du
+										--flash blanc generique du LOT 2.2. Le son redevient celui du jeu
+										--d'origine (_UNK_EVT_003, comme a l'apparition). Filet pcall :
+										--repli au flash blanc si l'anim manque chez un joueur.
+										local okFlamme2 = pcall(function()
+											local arriveAnim2 = RogueEssence.Content.StaticAnim(RogueEssence.Content.AnimData("Sacred_Fire_Ranger", 3), 1)
+											arriveAnim2:SetupEmitted(RogueElements.Loc(magcargo.Position.X + 8, magcargo.Position.Y), 32, RogueElements.Dir8.Down)
+											GROUND:PlayVFXAnim(arriveAnim2, RogueEssence.Content.DrawLayer.Front)
+										end)
+										if not okFlamme2 then
 											local flash = RogueEssence.Content.FlashEmitter()
 											flash.FadeInTime = 2
 											flash.HoldTime = 2
@@ -1111,8 +1134,9 @@ local function DefeatedBossBody()
 											flash.Layer = DrawLayer.Top
 											flash.Anim = RogueEssence.Content.BGAnimData("White", 0)
 											GROUND:PlayVFX(flash, magcargo.Position.X, magcargo.Position.Y)
-											GAME:WaitFrames(16)
-											GROUND:Hide('Magcargo')
+										end
+										GAME:WaitFrames(3)
+										GROUND:Hide('Magcargo')
 											end)
 
 	coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(20)
