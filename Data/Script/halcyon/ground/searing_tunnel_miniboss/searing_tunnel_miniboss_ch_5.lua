@@ -537,7 +537,17 @@ function searing_tunnel_miniboss_ch_5.DefeatedBoss()
   local ok, err = pcall(DefeatedBossBody)
   if not ok then
     PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
-    pcall(function() GAME:FadeOut(false, 20) end)
+    -- COUPE FRANCHE, PAS UN DEGRADE. On n'arrive ici que si le corps de
+    -- la scene a echoue : le fondu de fin n'a donc jamais tourne et
+    -- l'ecran est CLAIR. Un FadeOut(20) depuis un ecran clair produit
+    -- 20 frames dessinees d'opacite 0.05, 0.10 ... 1.0
+    -- (FadeEffect.cs:30-43), pendant lesquelles la carte sortante reste
+    -- lisible : Draw affiche CurrentScene (GameManager.cs:1338) avant
+    -- fadeScreen (l.1363), et EnterGroundMap ne fait qu'armer
+    -- SceneOutcome (ScriptGame.cs:106). Avec 1 frame, le noir est plein
+    -- des le premier rendu. Si l'ecran etait deja noir, la garde
+    -- FadeEffect.cs:63-67 rend l'appel gratuit.
+    pcall(function() GAME:FadeOut(false, 1) end)
   end
 
   -- Sortie garantie, quoi qu'il arrive.

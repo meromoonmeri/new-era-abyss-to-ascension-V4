@@ -1265,7 +1265,33 @@ function searing_crucible_ch_5.DefeatedBoss()
 	local ok, err = pcall(DefeatedBossBody)
 	if not ok then
 		PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
-		pcall(function() GAME:FadeOut(false, 20) end)
+		--------------------------------------------------------------
+		-- COUPE FRANCHE, PAS UN FONDU.
+		--------------------------------------------------------------
+		-- Ce fondu de secours etait un FadeOut(false, 20), et c'etait
+		-- LUI qu'on apercevait. Preuve, en simulant ScreenFadeFX.Fade
+		-- + FadeInternal (FadeEffect.cs:30-43) :
+		--
+		--   FadeOut(20) depuis un ecran clair produit 20 frames
+		--   DESSINEES, d'opacite 0.05, 0.10, 0.15 ... 1.0
+		--
+		-- La premiere frame n'est noire qu'a 5 %. Comme Draw() dessine
+		-- CurrentScene (GameManager.cs:1338) AVANT fadeScreen (l.1363),
+		-- et que la carte courante est encore le Creuset tant que
+		-- SceneOutcome n'est pas consomme (l.505-518), le joueur voit
+		-- le Creuset en clair pendant ~20 frames, soit 0,33 s.
+		--
+		-- Or on n'arrive ici QUE si le corps de la scene a echoue : la
+		-- coroutine coro5, qui posait le noir en fin de scene, n'a
+		-- jamais tourne, et FadeIn(40) (l.814) a bel et bien rallume
+		-- l'ecran en ouverture. L'ecran est donc CLAIR, et c'est le
+		-- pire cas possible.
+		--
+		-- FadeOut(false, 1) donne une seule frame, a opacite 1.0 :
+		-- noir plein des le premier rendu, aucun apercu. Et si l'ecran
+		-- etait deja noir, la garde `if (fadeIn && fadeAmount == 1f)`
+		-- (FadeEffect.cs:63-67) le rend gratuit.
+		pcall(function() GAME:FadeOut(false, 1) end)
 	end
 
 	-- Sortie garantie : la suite de l'expedition (Mont) doit TOUJOURS s'ouvrir.
@@ -1303,8 +1329,19 @@ function searing_crucible_ch_5.DefeatedBoss()
 	--      jamais eu lieu. Le reposer est idempotent.
 	--   2. le 3e argument `true` (preserveMusic) evite que le moteur
 	--      relance la musique de la carte d'arrivee par-dessus le silence.
+	--   3. CE FONDU EST UNE COUPE FRANCHE (1 frame), PAS UN DEGRADE.
+	--      C'etait un FadeOut(false, 30). Sur le chemin nominal il est
+	--      gratuit (l'ecran est deja noir, garde FadeEffect.cs:63-67).
+	--      Mais sur le chemin de secours — corps de scene en erreur —
+	--      l'ecran est CLAIR, et un fondu de 30 frames affiche alors le
+	--      Creuset pendant une demi-seconde, du quasi-transparent
+	--      jusqu'au noir. C'est exactement l'apercu signale.
+	--      Avec 1 frame, la premiere image dessinee est deja noire a
+	--      100 %. Le fondu artistique de fin de scene, lui, reste en
+	--      place dans coro5 (60 frames) : on ne perd aucune esthetique,
+	--      on supprime seulement la fenetre de fuite.
 	SOUND:FadeOutBGM(20)
-	GAME:FadeOut(false, 30)
+	GAME:FadeOut(false, 1)
 	GAME:WaitFrames(30)
 	GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker', true)
 end

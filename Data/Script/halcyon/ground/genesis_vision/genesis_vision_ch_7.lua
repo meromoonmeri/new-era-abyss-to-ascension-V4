@@ -235,6 +235,19 @@ function genesis_vision_ch_7.PlayGenesis()
     SV.Chapter7.HeardGenesisTale = true
     GAME:CutsceneMode(false)
   end)
+
+  --FILET DE SECURITE DU NOIR, HORS DU pcall.
+  --Le long fondu de 120 frames ci-dessus est le fondu ARTISTIQUE de fin de
+  --vision, et il est a sa place. Mais il est a l'INTERIEUR du pcall : si une
+  --de ses lignes echoue (ou si le corps de la scene a deja echoue plus haut),
+  --aucun noir n'est pose et on enchaine vers la transition sur un ecran
+  --clair. Le joueur apercoit alors la carte de la vision, car Draw dessine
+  --CurrentScene (GameManager.cs:1338) avant fadeScreen (l.1363) et
+  --EnterGroundMap ne fait qu'armer SceneOutcome (ScriptGame.cs:106).
+  --Cette coupe franche d'une frame ne coute rien quand le fondu a eu lieu
+  --(garde FadeEffect.cs:63-67, ecran deja noir) et garantit le noir sinon.
+  pcall(function() GAME:FadeOut(false, 1) end)
+
   GAME:EnterGroundMap('guild_third_floor_lobby', 'Main_Entrance_Marker')
 end
 
