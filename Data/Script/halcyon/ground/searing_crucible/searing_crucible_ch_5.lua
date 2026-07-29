@@ -1269,32 +1269,40 @@ function searing_crucible_ch_5.DefeatedBoss()
 	end
 
 	-- Sortie garantie : la suite de l'expedition (Mont) doit TOUJOURS s'ouvrir.
-	GAME:CutsceneMode(false)
 	PrintInfo("[BossSeq][searing_crucible_ch_5] DefeatedBoss -> mount_windswept_entrance")
 
 	--------------------------------------------------------------------
 	-- TRANSITION VERS LE MONT — l'ecran doit RESTER noir.
 	--------------------------------------------------------------------
-	-- BUG VU EN JEU : apres la scene des Limagma, on revoyait brievement
-	-- le decor du Crucible avant d'arriver a l'entree du Mont.
+	-- BUG VU EN JEU (deuxieme passe) : « le fond noir n'est pas constant,
+	-- on voit un apercu du ground du tunnel alors qu'on est cense etre en
+	-- deplacement vers l'entrance ».
 	--
-	-- Cause : EnterGroundMap etait appele SANS son troisieme argument.
-	-- Le patron du depot est constant — FadeOut, puis EnterGroundMap avec
-	-- `true`, et c'est la carte d'ARRIVEE qui fait le FadeIn :
-	--     metano_cave/init.lua:101      FadeOut(false,20) puis (..., true)
-	--     metano_altere_transition:85   idem
-	--     first_core_location_ch_3:32   idem
-	-- Sans ce `true`, le moteur RETABLIT la luminosite au chargement : le
-	-- fondu que DefeatedBossBody vient de poser est annule, et la carte
-	-- sortante redevient visible une poignee d'images avant le basculement.
+	-- CAUSE, et ce n'etait pas le fondu : c'etait CutsceneMode(false),
+	-- appele ICI, avant le depart. Lu dans le moteur — GroundScene.cs:176,
+	-- ProcessInput sort immediatement tant que Save.CutsceneMode est vrai.
+	-- Le couper rend donc la main au joueur, et surtout REVEILLE la boucle
+	-- de rendu normale de la carte, pendant les 30 frames de WaitFrames
+	-- qui suivent puis pendant tout le chargement.
 	--
-	-- Deux garde-fous ici plutot qu'un :
+	-- Pire : EnterGroundMap ne change pas de carte sur-le-champ. Il ARME
+	-- GameManager.SceneOutcome (ScriptGame.cs:106), que la boucle
+	-- principale ne consomme qu'au tour suivant (GameManager.cs:506-512).
+	-- Entre le CutsceneMode(false) et le basculement reel, le Crucible
+	-- continuait donc d'etre affiche et joue.
+	--
+	-- On garde le mode cinematique JUSQU'AU BOUT. C'est la carte
+	-- d'arrivee qui le relachera, une fois son propre fondu pose :
+	-- mount_windswept_entrance/init.lua fait FadeOut(false,1) dans Init,
+	-- avant meme le premier rendu, puis ArrivalCutscene reprend la main.
+	--
+	-- Les deux autres garde-fous restent :
 	--   1. on REPOSE le fondu juste avant de partir. DefeatedBossBody le
-	--      pose deja, mais il le fait DANS une coroutine (coro5) ; si le
-	--      corps de la scene a echoue et qu'on arrive par la branche
-	--      pcall, ce fondu n'a jamais eu lieu. Le reposer est idempotent.
-	--   2. on passe `true` pour que la carte d'arrivee herite d'un ecran
-	--      deja noir. ArrivalCutscene fait son propre FadeIn (verifie).
+	--      pose deja dans une coroutine (coro5) ; si le corps de la scene
+	--      a echoue et qu'on arrive par la branche pcall, ce fondu n'a
+	--      jamais eu lieu. Le reposer est idempotent.
+	--   2. le 3e argument `true` (preserveMusic) evite que le moteur
+	--      relance la musique de la carte d'arrivee par-dessus le silence.
 	SOUND:FadeOutBGM(20)
 	GAME:FadeOut(false, 30)
 	GAME:WaitFrames(30)

@@ -383,7 +383,9 @@ function hero_dream.DreamScene()
   --On repart vers le camp, ecran noir conserve (3e argument =
   --preserveMusic : il n'y a plus de musique a preserver, mais il evite
   --que le moteur relance celle de la carte d'arrivee avant le reveil).
-  GAME:CutsceneMode(false)
+  --On NE relache PAS le mode cinematique ici : ResumeAfterDream le
+  --reprend des l'arrivee, et le couper laisserait le joueur bouger sur
+  --la carte du reve pendant que la bascule se prepare.
   GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker', true)
 end
 

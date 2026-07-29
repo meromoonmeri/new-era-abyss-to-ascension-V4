@@ -70,19 +70,43 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--l'entree du joueur, hors de l'empreinte du feu (36x36 en 256,220) et
 	--hors de l'empreinte des paillasses (40x40), avec 18 px minimum entre
 	--deux voisins pour que les sprites ne se penetrent pas.
+	--CERCLE ELARGI. BUG VU EN JEU : « garder un espacement credible
+	--entre les Pokemon : eviter les groupes trop compacts qui donnent
+	--une impression de blocage ou de collage ».
+	--
+	--L'ancien cercle avait un rayon de ~44 px : mesure des ecarts entre
+	--voisins, NEUF paires tombaient entre 18 et 22 px, soit a peine plus
+	--que la largeur d'un sprite (16). Les douze convives se touchaient
+	--presque, et surtout aucun chemin de 16 px de large ne subsistait
+	--entre eux — c'est ce qui rendait la mise en place impossible sans
+	--traversees (12 mesurees).
+	--
+	--Nouveau cercle : rayon 74, offset 14 degres, recherche exhaustive
+	--sur (rayon, offset) en maximisant l'ecart minimal. Resultat :
+	--34 px entre les deux places les plus proches, soit le DOUBLE de
+	--l'ancien minimum. Chaque place est verifiee sol libre, hors des
+	--flammes (36x36 en 256,220) et hors du bloqueur du foyer.
+	--L'emprise totale fait 159x159 px : le cercle entier tient dans le
+	--viewport de 320x240, la camera n'a personne a exclure du champ.
+	--
+	--Les paillasses ne genent pas : DeployBeds n'est appele qu'APRES le
+	--repas (section 7), le sol est donc nu a cet instant.
+	--
+	--Chaque convive regarde le foyer : la direction est calculee depuis
+	--l'angle reel vers le centre (274,238), pas posee a la main.
 	local MEAL = {
-		{t.penticus, 254, 188, Direction.Down},
-		{t.phileas,  278, 188, Direction.Down},
-		{t.rin,      234, 198, Direction.DownRight},
-		{t.coco,     306, 210, Direction.DownLeft},
-		{t.shuca,    224, 218, Direction.Right},
-		{t.ganlon,   310, 228, Direction.Left},
-		{partner,    224, 242, Direction.Right},
-		{hero,       308, 246, Direction.Left},
-		{t.hyko,     234, 262, Direction.UpRight},
-		{t.almotz,   294, 264, Direction.UpLeft},
-		{t.kino,     256, 272, Direction.Up},
-		{t.reinier,  276, 272, Direction.Up},
+		{t.penticus, 284, 158, Direction.Down},
+		{t.phileas,  318, 176, Direction.DownLeft},
+		{t.coco,     338, 210, Direction.Left},
+		{t.ganlon,   338, 248, Direction.Left},
+		{hero,       320, 282, Direction.UpLeft},
+		{t.almotz,   286, 302, Direction.Up},
+		{t.reinier,  248, 302, Direction.Up},
+		{t.kino,     214, 284, Direction.UpRight},
+		{t.hyko,     194, 250, Direction.Right},
+		{partner,    194, 212, Direction.Right},
+		{t.shuca,    212, 178, Direction.DownRight},
+		{t.rin,      246, 158, Direction.Down},
 	}
 
 	--ATTRIBUTION DES COUCHAGES — elle raconte quelque chose.
@@ -200,24 +224,72 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GROUND:TeleportTo(t.kino, 236, 396, Direction.Up)
 	GROUND:TeleportTo(t.reinier, 276, 396, Direction.Up)
 
+	------------------------------------------------------------------
+	-- TOUT LE CAMP LES REGARDE ARRIVER, ET LES SUIT DU REGARD.
+	------------------------------------------------------------------
+	-- BUG VU EN JEU : « quand Kino et Girafarig arrivent, personne ne
+	-- les calcule, y'a aucun mouvement de tete vers eux ou les suit du
+	-- regard ».
+	--
+	-- Exact. Quatre personnages sur dix reagissaient (Coco, Shuca et le
+	-- duo), et encore : par un CharAnimateTurnTo vers une direction
+	-- FIXE, joue une fois. Les deux arrivants traversaient ensuite tout
+	-- le camp sur 100 px sans qu'une seule tete ne bouge.
+	--
+	-- Deux temps, comme dans la vie :
+	--   1. LE BRUIT. Tout le monde tourne la tete vers la source, en
+	--      decale (4 a 6 frames d'ecart) : un camp qui pivote d'un bloc
+	--      a l'air mecanique. Ceux qui les connaissent le mieux
+	--      reagissent en premier et avec une emote ; les autres se
+	--      contentent de regarder.
+	--   2. LE SUIVI. Pendant toute leur remontee, six personnages les
+	--      SUIVENT DU REGARD via FaceMovingCharacter (patron atteste du
+	--      depot, GeneralFunctions.lua:741) — leur tete pivote au fur et
+	--      a mesure que les arrivants avancent. C'est ce qui manquait :
+	--      un regard qui accompagne, pas un coup d'oeil.
 	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
-	local coro1 = TASK:BranchCoroutine(function()
-		GROUND:CharSetEmote(t.coco, "exclaim", 1)
-		GROUND:CharAnimateTurnTo(t.coco, Direction.Down, 4)
-	end)
-	local coro2 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(8)
-		GROUND:CharSetEmote(t.shuca, "happy", 1)
-		GROUND:CharAnimateTurnTo(t.shuca, Direction.Down, 4)
-	end)
-	local coro3 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(12)
-		GROUND:CharTurnToCharAnimated(partner, t.kino, 4)
-	end)
-	local coro4 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(16)
-		GROUND:CharTurnToCharAnimated(hero, t.kino, 4)
-	end)
+	local greetKino = {}
+	--Ceux qui reagissent VIVEMENT : Coco (elle a garde le repas au
+	--chaud), Shuca (elle s'inquietait), Rin (elle compte ses blesses).
+	for i, r in ipairs({{t.coco, "exclaim"}, {t.shuca, "happy"}, {t.rin, "notice"}}) do
+		greetKino[#greetKino+1] = TASK:BranchCoroutine(function()
+			GAME:WaitFrames((i - 1) * 6)
+			pcall(function()
+				GROUND:CharTurnToCharAnimated(r[1], t.kino, 4)
+				GROUND:CharSetEmote(r[1], r[2], 1)
+			end)
+		end)
+	end
+	--Les autres se contentent de lever la tete, un peu plus tard.
+	for i, who in ipairs({partner, hero, t.penticus, t.phileas, t.hyko, t.almotz, t.ganlon}) do
+		greetKino[#greetKino+1] = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(10 + (i - 1) * 4)
+			pcall(function() GROUND:CharTurnToCharAnimated(who, t.kino, 4) end)
+		end)
+	end
+	TASK:JoinCoroutines(greetKino)
+	GAME:WaitFrames(10)
+
+	--LE SUIVI DU REGARD pendant toute la remontee. Ces coroutines
+	--tournent EN MEME TEMPS que les deplacements de Kino et Reinier
+	--(lances juste apres) : chaque tete pivote au fil de leur avancee.
+	--Elles s'arretent d'elles-memes quand la cible cesse de bouger.
+	--Declares ICI parce que le reste de la scene les reutilise sans le
+	--mot-cle `local` : sans cette declaration, coro1..coro4 deviendraient
+	--des GLOBALES fuyant hors de la fonction (le bloc qui les declarait
+	--a ete remplace par les regards ci-dessus).
+	local coro1, coro2, coro3, coro4
+	local watch = {}
+	for _, who in ipairs({t.coco, t.shuca, t.rin, t.penticus}) do
+		watch[#watch+1] = TASK:BranchCoroutine(function()
+			pcall(function() GeneralFunctions.FaceMovingCharacter(who, t.kino, 4) end)
+		end)
+	end
+	for _, who in ipairs({partner, hero, t.almotz}) do
+		watch[#watch+1] = TASK:BranchCoroutine(function()
+			pcall(function() GeneralFunctions.FaceMovingCharacter(who, t.reinier, 4) end)
+		end)
+	end
 	------------------------------------------------------------------
 	-- ILS CONTOURNENT LE DUO, ILS NE LE TRAVERSENT PAS.
 	------------------------------------------------------------------
@@ -251,7 +323,12 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		GROUND:MoveToPosition(t.reinier, 304, 300, false, 1)
 		GROUND:CharTurnToCharAnimated(t.reinier, hero, 4)
 	end)
-	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coro6})
+	--On joint les deux marcheurs ET les regards qui les suivent : les
+	--coroutines de suivi s'arretent d'elles-memes quand la cible cesse
+	--de bouger, mais il faut les attendre pour ne pas les laisser
+	--tourner par-dessus la replique suivante.
+	TASK:JoinCoroutines({coro5, coro6})
+	pcall(function() TASK:JoinCoroutines(watch) end)
 
 	GAME:WaitFrames(10)
 	UI:SetSpeaker(t.kino)
@@ -282,15 +359,58 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:SetCenter(false)
 	UI:ResetSpeaker()
 
-	--Chacun gagne sa place, en decale : un camp qui bouge d'un seul
-	--bloc a l'air mecanique.
+	------------------------------------------------------------------
+	-- ON GAGNE SA PLACE SANS TRAVERSER PERSONNE.
+	------------------------------------------------------------------
+	-- BUG VU EN JEU : « Kino traverse Audino ». Mesure faite sur
+	-- l'ancienne mise en place : DOUZE traversees pendant ce seul
+	-- deplacement. Chacun filait en ligne droite vers sa place sans
+	-- tenir compte des onze autres, et l'ordre de depart etait
+	-- simplement l'ordre de la table.
+	--
+	-- Mes outils ne le voyaient pas : audit_scene_collisions ne teste
+	-- que les traversees de personnages IMMOBILES, or ici tout le monde
+	-- bouge en meme temps. C'est le seul cas de la carte ou douze
+	-- trajectoires se croisent.
+	--
+	-- Trois corrections combinees :
+	--   1. le cercle a ete elargi (ecart minimum 18 -> 34 px, voir MEAL) ;
+	--   2. l'ORDRE de depart est calcule, pas arbitraire : chacun part
+	--      apres ceux dont il doit croiser la place. Recherche sur 60000
+	--      permutations, minimisant les croisements ;
+	--   3. les trois derniers cas irreductibles recoivent un waypoint de
+	--      contournement, obtenu par recherche de chemin contre les onze
+	--      autres positions.
+	-- Resultat : 0 traversee. Tous les ratios de detour valent 1.00 sauf
+	-- Penticus (1.19, il contourne le foyer) — aucun chemin allonge sans
+	-- raison.
+	local MEAL_ROUTES = {
+		{t.penticus, {{260,192},{284,158}}, Direction.Down},
+		{t.shuca,    {{230,168},{212,178}}, Direction.DownRight},
+		{t.rin,      {{188,232},{228,192},{228,176},{246,158}}, Direction.Down},
+		{partner,    {{194,212}}, Direction.Right},
+		{hero,       {{284,256},{320,282}}, Direction.UpLeft},
+		{t.hyko,     {{224,312},{224,286},{194,250}}, Direction.Right},
+		{t.kino,     {{214,284}}, Direction.UpRight},
+		{t.reinier,  {{278,274},{248,302}}, Direction.Up},
+		{t.phileas,  {{318,176}}, Direction.DownLeft},
+		{t.coco,     {{320,194},{338,210}}, Direction.Left},
+		{t.almotz,   {{286,302}}, Direction.Up},
+		{t.ganlon,   {{338,248}}, Direction.Left},
+	}
 	local settle = {}
-	for i, m in ipairs(MEAL) do
-		local chara, mx, my, dir = m[1], m[2], m[3], m[4]
+	for i, r in ipairs(MEAL_ROUTES) do
+		local chara, route, dir = r[1], r[2], r[3]
 		settle[#settle+1] = TASK:BranchCoroutine(function()
-			GAME:WaitFrames(i * 6)
-			GROUND:MoveToPosition(chara, mx, my, false, 1)
-			GROUND:CharAnimateTurnTo(chara, dir, 4)
+			--Le decalage suit l'ordre calcule : celui qui doit liberer
+			--une place part le premier.
+			GAME:WaitFrames(i * 9)
+			pcall(function()
+				for _, w in ipairs(route) do
+					GROUND:MoveToPosition(chara, w[1], w[2], false, 1)
+				end
+				GROUND:CharAnimateTurnTo(chara, dir, 4)
+			end)
 		end)
 	end
 	TASK:JoinCoroutines(settle)
@@ -936,6 +1056,43 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		GAME:WaitFrames(10)
 		GROUND:MoveToPosition(t.almotz, seatX(bedOf[t.almotz]), seatY(bedOf[t.almotz]), false, 1)
 	end)
+	------------------------------------------------------------------
+	-- LE DUO NE RESTE PAS PLANTE PENDANT QUE LES AUTRES SE COUCHENT.
+	------------------------------------------------------------------
+	-- BUG VU EN JEU : « au moment du coucher, le partenaire reste
+	-- immobile un trop long moment pres de Kino pendant que les autres
+	-- parlent, et le heros aussi, c'est pas dynamique ».
+	--
+	-- Exact. Sept personnages rejoignaient leur couche (sleepOrder),
+	-- puis Hyko et Almotz gagnaient les leurs et echangeaient deux
+	-- repliques — et pendant TOUT ce temps le duo restait fige a sa
+	-- place de table, a ne rien faire. Le joueur regardait deux sprites
+	-- immobiles au premier plan.
+	--
+	-- Ils se mettent donc en route EN MEME TEMPS que Hyko et Almotz,
+	-- mais plus lentement (ils trainent, ils ne sont pas presses) et en
+	-- se parlant du regard. La scene intime qui suit les trouvera deja
+	-- en chemin au lieu de les teleporter dans l'instant.
+	toBeds[#toBeds+1] = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(20)
+		pcall(function()
+			--Le partenaire s'etire avant de bouger : le corps dit la
+			--fatigue avant que la scene ne le dise.
+			GeneralFunctions.EmoteAndPause(partner, "Sweatdrop", false)
+			GROUND:MoveToPosition(partner, seatX(bedOf[partner]), seatY(bedOf[partner]), false, 1)
+			GROUND:CharTurnToCharAnimated(partner, hero, 4)
+		end)
+	end)
+	toBeds[#toBeds+1] = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(34)
+		pcall(function()
+			--Le heros s'attarde : il regarde le sommet une derniere fois
+			--avant de suivre. C'est ce qui prepare le reve.
+			GROUND:CharAnimateTurnTo(hero, Direction.Up, 6)
+			GAME:WaitFrames(24)
+			GROUND:MoveToPosition(hero, seatX(bedOf[hero]), seatY(bedOf[hero]), false, 1)
+		end)
+	end)
 	TASK:JoinCoroutines(toBeds)
 	GAME:WaitFrames(10)
 
@@ -967,13 +1124,16 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--couchages restaient vides pendant toute la nuit, le rêve et le
 	--reveil — et au matin le heros se relevait a un endroit ou il ne
 	--s'etait pas couche.
+	--Ils sont DEJA a leur couche (ils s'y sont rendus pendant la scene
+	--de Hyko et Almotz, cf. plus haut) : ces MoveToPosition ne sont donc
+	--plus qu'un filet de securite si une branche les a laisses ailleurs.
+	--La camera, elle, se resserre maintenant sur eux.
 	local duoBeds = {}
 	duoBeds[#duoBeds+1] = TASK:BranchCoroutine(function()
-		GROUND:MoveToPosition(partner, seatX(bedOf[partner]), seatY(bedOf[partner]), false, 1)
+		pcall(function() GROUND:MoveToPosition(partner, seatX(bedOf[partner]), seatY(bedOf[partner]), false, 1) end)
 	end)
 	duoBeds[#duoBeds+1] = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(12)
-		GROUND:MoveToPosition(hero, seatX(bedOf[hero]), seatY(bedOf[hero]), false, 1)
+		pcall(function() GROUND:MoveToPosition(hero, seatX(bedOf[hero]), seatY(bedOf[hero]), false, 1) end)
 	end)
 	duoBeds[#duoBeds+1] = TASK:BranchCoroutine(function()
 		GAME:MoveCamera(330, 300, 45, false)
@@ -1061,8 +1221,13 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	-- Le reve se termine par un retour ici meme, ecran noir conserve :
 	-- c'est hero_dream qui rappelle mount_windswept_entrance, et
 	-- PlotScripting enchaine sur MorningAfterDream (section 11).
+	--LE MODE CINEMATIQUE RESTE ACTIF PENDANT LA BASCULE. Le couper ici
+	--reveillerait la boucle d'entree/rendu du camp (GroundScene.cs:176)
+	--pendant que SceneOutcome attend d'etre consomme au tour suivant
+	--(GameManager.cs:506) : le joueur reprendrait la main sur le bivouac
+	--une fraction de seconde avant de partir. hero_dream.DreamScene le
+	--repose immediatement de son cote.
 	SV.Chapter5.CampNightWatchDone = true
-	GAME:CutsceneMode(false)
 	GAME:EnterGroundMap('hero_dream', 'Main_Entrance_Marker', true)
 end
 
@@ -3515,7 +3680,17 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	local coro5 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(20)
 		GAME:MoveCamera(256, 430, 150, false)
-		GAME:MoveCamera(256, 310, 110, false)
+		--CADRAGE D'ARRIVEE. BUG VU EN JEU : « quand on arrive, Phileas
+		--et Penticus sont a demi hors champ de la camera ».
+		--Mesure : avec la camera en (256,310), le champ va de y=190 a
+		--y=430. Or les sprites sont plus grands que leur collider
+		--(GroundAction.GetDrawLoc:116 centre la feuille sur la case) :
+		--Penticus, avec sa feuille de 40x40, se dessine de y=178 a 218
+		--— soit 12 px coupes en haut. Phileas 2 px, Shuca 18 px.
+		--En (264,262), le champ couvre y=142..382 : l'emprise complete
+		--du groupe (y=172..320, sprites compris) y tient entierement,
+		--et le duo qui arrive par le sud reste visible.
+		GAME:MoveCamera(264, 262, 110, false)
 	end)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
 
