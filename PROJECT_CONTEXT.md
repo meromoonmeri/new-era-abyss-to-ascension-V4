@@ -692,3 +692,33 @@ du rêve est donc écrite mais **jamais vue tourner**.
 ### Manque identifié
 Aucun outil ne contrôle la cohérence `index.idx` ↔ `master_zone.json`. C'est précisément
 ce qui a produit le crash : à écrire avant la prochaine création de carte.
+
+## Piège moteur : `EntEnabled` d'un spawner (le `true/false` du rêve)
+
+`GroundSpawner.Spawn` — `Ground/Maps/GroundSpawner.cs:78-81` :
+
+```csharp
+public virtual GroundChar Spawn(GroundMap currentmap)
+{
+    if (!EntEnabled)
+        return null;
+```
+
+Un spawner à `EntEnabled=False` **ne crée jamais son personnage**, et
+`SpawnerDoSpawn` renvoie `null` sans lever d'erreur
+(`ScriptGround.cs:243-258` : l'exception est attrapée et loguée).
+
+Conséquence en chaîne, constatée sur `hero_dream` :
+`COMMON.RespawnAllies` tolère le `nil`, mais
+`PartnerEssentials.InitializePartnerSpawn` ne teste que la TAILLE de
+l'équipe (`GetPlayerPartyCount() < 2`) avant de faire
+`partner.Direction`. L'équipe contient bien 2 membres, la garde est donc
+franchie — et on indexe un `nil`. Le moteur avorte la coroutine
+(xpcall, `LuaEngine.cs:895`) : pas de plantage visible, mais la scène
+s'arrête net et l'écran reste noir, sans sortie.
+
+**Règle** : un spawner `TEAMMATE_*` doit toujours être `EntEnabled=True`.
+Pour qu'un personnage n'apparaisse pas dans une scène, utiliser
+`GROUND:Hide(chara.EntName)` APRÈS le spawn — c'est ce que fait
+`hero_dream.DreamScene`. Référence : `personality_test.rsground`, la carte
+modèle, a bien `Teammate1` à `True`.

@@ -18351,7 +18351,7 @@
       },
       "EntName": "TEAMMATE_1",
       "Direction": 6,
-      "EntEnabled": false,
+      "EntEnabled": true,
       "EntOrder": 0,
       "InteractOrder": 0,
       "triggerType": 0,

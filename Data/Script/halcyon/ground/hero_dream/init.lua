@@ -146,7 +146,11 @@ local function silence(frames)
   GAME:WaitFrames(frames or 40)
 end
 
-function hero_dream.DreamScene()
+--Corps du reve. Scinde de DreamScene pour que la SORTIE soit garantie :
+--une erreur au milieu de la scene laissait auparavant le joueur sur un
+--ecran noir sans issue, exactement le symptome signale (« le moment du
+--reve est toujours un crash black screen »). Le contenu est inchange.
+local function DreamSceneBody()
   --LE MODE CINEMATIQUE D'ABORD, AVANT MEME DE LIRE LE JOUEUR.
   --Il est deja pose par Init ; on le repose ici car GameLoad appelle
   --aussi cette fonction sans repasser par Init. C'est un simple booleen
@@ -161,10 +165,12 @@ function hero_dream.DreamScene()
   --SORTIE DE SECOURS. Si le joueur n'est pas sur la carte, on ne joue
   --RIEN et on renvoie immediatement au camp : mieux vaut sauter le reve
   --que bloquer la partie sur une carte vide et sans sortie.
+  --On se contente de SORTIR DU CORPS : le retour au camp est desormais
+  --assure par DreamScene, apres le pcall. Appeler EnterGroundMap ici
+  --aurait arme la bascule une premiere fois, puis le wrapper une seconde
+  --— deux SceneOutcome pour un seul changement de carte.
   if hero == nil then
-    PrintInfo("[hero_dream] PLAYER introuvable — retour au camp sans jouer le reve")
-    SV.Chapter5.DreamSceneSeen = true
-    GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker', true)
+    PrintInfo("[hero_dream] PLAYER introuvable — reve saute, retour au camp")
     return
   end
 
@@ -409,6 +415,30 @@ function hero_dream.DreamScene()
   --On NE relache PAS le mode cinematique ici : ResumeAfterDream le
   --reprend des l'arrivee, et le couper laisserait le joueur bouger sur
   --la carte du reve pendant que la bascule se prepare.
+end
+
+function hero_dream.DreamScene()
+  --SORTIE GARANTIE.
+  --Le corps est joue sous pcall : si une seule de ses instructions echoue,
+  --le moteur avorte la coroutine (xpcall, LuaEngine.cs:895) et plus rien
+  --ne s'execute — l'ecran reste noir et la partie est bloquee, sans
+  --sortie ni message. C'est ce qui se passait.
+  --
+  --Desormais l'erreur est tracee, puis on repart vers le camp quoi qu'il
+  --arrive. Un reve rate vaut mieux qu'une partie perdue.
+  local ok, err = pcall(DreamSceneBody)
+  if not ok then
+    PrintInfo('[hero_dream] reve ecourte : '..tostring(err))
+  end
+
+  --Le drapeau est pose meme en cas d'echec : sans lui, PlotScripting du
+  --camp rejouerait la veillee en boucle et on repartirait vers le reve.
+  SV.Chapter5.DreamSceneSeen = true
+
+  --Ecran noir avant la bascule, et mode cinematique conserve : la carte
+  --d'arrivee (ResumeAfterDream) les reprend a son compte.
+  pcall(function() GAME:CutsceneMode(true) end)
+  pcall(function() GAME:FadeOut(false, 1) end)
   GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker', true)
 end
 
