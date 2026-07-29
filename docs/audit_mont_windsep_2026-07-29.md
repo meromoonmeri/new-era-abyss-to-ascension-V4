@@ -116,7 +116,7 @@ Flags relus : cohérents (`MountMiniBossSeen/Defeated/Lost/Cleared`,
 
 ## 4. INCOHÉRENCES CONFIRMÉES
 
-### I1 — Entrée : Ganlon/Shuca parlent avec les dialogues de Hyko/Almotz — **HAUTE**
+### I1 — Entrée : Ganlon/Shuca parlent avec les dialogues de Hyko/Almotz — **HAUTE** — ✅ CORRIGÉ (lot 1, 77401fb)
 `ground/mount_windswept_entrance/init.lua:108-120` : `Teammate2_Action` →
 `Growlithe_Action`, `Teammate3_Action` → `Zigzagoon_Action`.
 Or après `SetParty` (appelé à la fin d'`ArrivalCutscene`,
@@ -240,7 +240,7 @@ Chantier d'enrichissement, par sections, sur validation.
 
 | lot | contenu | périmètre fichiers | risque |
 |---|---|---|---|
-| **1. Corrections confirmées** | I1 (routage Actions), I2 (« wouf », commentaires), I3 (speaker Voix), I4 (purge feu), I7 (commentaires) + tag build **W** | entrance/init.lua, entrance_ch_5.lua (commentaires), midpoint_ch_5.lua, miniboss_ch_5.lua + 3 fichiers de tag | faible, chirurgical |
+| **1. Corrections confirmées** ✅ livré `77401fb` | I1 (routage Actions), I2 (« wouf », commentaires), I3 (speaker Voix), I4 (purge feu), I7 (commentaires) + tag build **W** | entrance/init.lua, entrance_ch_5.lua (commentaires), midpoint_ch_5.lua, miniboss_ch_5.lua + 3 fichiers de tag | faible, chirurgical |
 | **2. R1 — la veille de Phileas** | insertion réveil nocturne (textes validés au préalable) | entrance_ch_5.lua + strings resx FR/EN si nouvelles clés | moyen (écriture neuve) |
 | **3. I5 — transition Tunnel→Mont** | FadeIn avant `MWE5_001`, résorption des 90 frames de noir (côté crucible) | searing_crucible_ch_5.lua, entrance_ch_5.lua | moyen (visuel, validé par l'utilisateur) |
 | **4. R2 — standard gestuel** | sections 3, 12, 13 : chaque réplique accompagnée | entrance_ch_5.lua | faible mais volumineux |
