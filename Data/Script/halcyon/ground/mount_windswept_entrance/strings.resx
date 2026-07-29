@@ -557,12 +557,6 @@
   <data name="MWE5_178" xml:space="preserve">
     <value>The wind turned at dusk.[pause=20] That's why they took so long.</value>
   </data>
-  <data name="MWE5_179" xml:space="preserve">
-    <value>Hang on![pause=20] I've got the emergency berries,[pause=10] I'm coming!</value>
-  </data>
-  <data name="MWE5_180" xml:space="preserve">
-    <value>There.[pause=20] It's no Heal Bell like Rin's,[pause=10] but it gets you up.</value>
-  </data>
   <data name="MWE5_181" xml:space="preserve">
     <value>Hey,[pause=10] you big losers![pause=20] We're not waiting around all day!</value>
   </data>
@@ -577,5 +571,26 @@
   </data>
   <data name="MWE5_185" xml:space="preserve">
     <value>(...I think we just witnessed a rescue.)</value>
+  </data>
+  <data name="MWE5_186" xml:space="preserve">
+    <value>MASTER![pause=20] They're back,[pause=10] but they can't stand up!</value>
+  </data>
+  <data name="MWE5_187" xml:space="preserve">
+    <value>Move aside,[pause=10] give them room![pause=20] There,[pause=10] just breathe.</value>
+  </data>
+  <data name="MWE5_188" xml:space="preserve">
+    <value>Easy now.[pause=20] Nobody gets up all at once,[pause=10] and nobody has to.</value>
+  </data>
+  <data name="MWE5_189" xml:space="preserve">
+    <value>Here.[pause=20] An Oran Berry.[pause=10] Eat it before you say a word.</value>
+  </data>
+  <data name="MWE5_190" xml:space="preserve">
+    <value>There.[pause=30] Some colour coming back.[pause=10] That's a start.</value>
+  </data>
+  <data name="MWE5_191" xml:space="preserve">
+    <value>I can run fast and bite hard.[pause=20] Healing,[pause=10] that's not in my paws.</value>
+  </data>
+  <data name="MWE5_192" xml:space="preserve">
+    <value>Next time,[pause=10] I'm climbing with you.[pause=20] Then there'll be nothing to patch up.</value>
   </data>
 </root>

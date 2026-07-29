@@ -557,12 +557,6 @@
   <data name="MWE5_178" xml:space="preserve">
     <value>Le vent a tourné au crépuscule.[pause=20] Voilà pourquoi ils ont mis si longtemps.</value>
   </data>
-  <data name="MWE5_179" xml:space="preserve">
-    <value>Tenez bon ![pause=20] J'ai les baies de secours,[pause=10] j'arrive !</value>
-  </data>
-  <data name="MWE5_180" xml:space="preserve">
-    <value>Voilà.[pause=20] C'est pas du soin de Rin,[pause=10] mais ça remet debout.</value>
-  </data>
   <data name="MWE5_181" xml:space="preserve">
     <value>Eh,[pause=10] les gros nazes ![pause=20] On va pas attendre toute la journée !</value>
   </data>
@@ -577,5 +571,26 @@
   </data>
   <data name="MWE5_185" xml:space="preserve">
     <value>(...Je crois qu'on vient d'assister à un sauvetage.)</value>
+  </data>
+  <data name="MWE5_186" xml:space="preserve">
+    <value>MAÎTRE ![pause=20] Ils sont revenus,[pause=10] mais ils tiennent plus debout !</value>
+  </data>
+  <data name="MWE5_187" xml:space="preserve">
+    <value>Poussez-vous,[pause=10] laissez-lui de la place ![pause=20] Allez,[pause=10] on respire.</value>
+  </data>
+  <data name="MWE5_188" xml:space="preserve">
+    <value>Doucement.[pause=20] Personne ne se releve d'un coup,[pause=10] et personne n'y est obligé.</value>
+  </data>
+  <data name="MWE5_189" xml:space="preserve">
+    <value>Tiens.[pause=20] Une Baie Oran.[pause=10] Mange-la avant de dire quoi que ce soit.</value>
+  </data>
+  <data name="MWE5_190" xml:space="preserve">
+    <value>Là.[pause=30] Les joues reprennent des couleurs.[pause=10] C'est déjà ça de gagné.</value>
+  </data>
+  <data name="MWE5_191" xml:space="preserve">
+    <value>Moi je sais courir vite et mordre fort.[pause=20] Soigner,[pause=10] c'est pas dans mes pattes.</value>
+  </data>
+  <data name="MWE5_192" xml:space="preserve">
+    <value>La prochaine fois,[pause=10] je monte avec vous.[pause=20] Comme ça y'aura rien à recoudre.</value>
   </data>
 </root>

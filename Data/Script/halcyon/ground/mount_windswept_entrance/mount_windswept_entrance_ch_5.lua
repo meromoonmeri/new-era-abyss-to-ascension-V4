@@ -1334,17 +1334,49 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GROUND:CharEndAnim(t.rin)
 	GROUND:CharEndAnim(t.coco)
 	GROUND:CharEndAnim(t.penticus)
-	--Le feu est ETEINT au matin (BuildCampMorning ne repose pas le
-	--foyer) : l'emplacement du foyer est donc libre, et Penticus peut
-	--se tenir au centre du fer a cheval, face au sud — l'axe naturel de
-	--l'adresse, avec le camp et le sentier devant lui.
-	--Positions verifiees hors paillasses : Coco se tenait en (280,252),
-	--dans l'empreinte du foyer, et Penticus en (256,152) sur la couche 1.
-	GROUND:TeleportTo(t.rin, 228, 252, Direction.Right)
+	------------------------------------------------------------------
+	-- LE FEU BRULE ENCORE AU REVEIL, ET LES SPRITES SONT GRANDS.
+	------------------------------------------------------------------
+	-- BUG VU EN JEU : « Phileas etait sur le feu de camp ». Confirme,
+	-- et l'ancien commentaire ici disait exactement l'inverse de la
+	-- verite : il affirmait que « le feu est ETEINT au matin ». C'est
+	-- faux a CET endroit — BuildCampMorning n'est appele que 230 lignes
+	-- plus bas (section 12). Le foyer pose par DeployBeds brule donc
+	-- encore pendant toute la scene du reveil.
+	--
+	-- Deuxieme piege, invisible tant qu'on raisonne en cases : un
+	-- personnage n'occupe PAS 16x16 a l'ecran. GroundAction.GetDrawLoc
+	-- (l.116) centre la feuille de sprite sur le collider :
+	--     drawX = MapLoc.X + 16/2 - TileWidth/2
+	-- et les feuilles sont bien plus grandes que la case. Mesure faite
+	-- sur les .chara du depot (en-tete : TileWidth/TileHeight) :
+	--     Tropius/Penticus 40x40 · Noctowl/Phileas 38x32 · Growlithe 32x28
+	-- Le feu, lui, couvre x256..291 / y220..255.
+	-- Recouvrements reels de l'ancienne mise en place :
+	--     Penticus (258,196) -> 120 px de sprite SUR les flammes
+	--     Phileas  (292,198) ->  22 px
+	-- Les colliders ne se touchaient pas : c'est le DESSIN qui se
+	-- superposait, et le decor etant rendu avant les personnages
+	-- (BaseGroundScene.cs:235, groundDraw puis objectDraw), les deux
+	-- s'affichaient litteralement assis dans le foyer.
+	--
+	-- PHILEAS DORT. C'est le patron du Tunnel, cite en reference :
+	-- searing_tunnel_entrance_ch_5.lua:36-37 — « Noctowl catches his
+	-- sleep now since Tropius has supply duty handled », suivi de
+	-- CharSetAnim(noctowl,"Sleep",true). Il a veille toute la nuit
+	-- (section 7 : il monte au poste de garde), il est donc le seul a
+	-- ne pas etre debout au matin. Il reste a son poste (240,166,
+	-- sol libre verifie, hors de la couche 1) : il s'y est assoupi,
+	-- il n'est pas alle se coucher.
+	--
+	-- Positions recalculees, toutes verifiees SPRITE COMPRIS : hors des
+	-- flammes, hors du bloqueur du foyer, hors des onze paillasses.
+	GROUND:TeleportTo(t.rin, 240, 262, Direction.UpRight)
 	GROUND:TeleportTo(t.coco, 298, 250, Direction.Left)
-	GROUND:TeleportTo(t.penticus, 258, 196, Direction.Down)
-	GROUND:TeleportTo(t.phileas, 292, 198, Direction.DownLeft)
-	GAME:MoveCamera(256, 228, 1, false)
+	GROUND:TeleportTo(t.penticus, 252, 268, Direction.Up)
+	GROUND:TeleportTo(t.phileas, 240, 166, Direction.Down)
+	pcall(function() GROUND:CharSetAnim(t.phileas, "Sleep", true) end)
+	GAME:MoveCamera(256, 240, 1, false)
 
 	UI:SetAutoFinish(true)
 	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['MWE5_052']) .. "\n\n", -1)
@@ -1561,6 +1593,19 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--(BuildCampDay) : la Ground raconte le camp pret au depart.
 	GROUND:CharEndAnim(t.kino)
 	GAME:MoveCamera(256, 196, 40, false)
+	--PHILEAS SE REVEILLE EN DERNIER — et c'est un gag, pas un oubli.
+	--Il dort depuis le reveil du camp (il a veille toute la nuit). Le
+	--sortir du sommeil ICI, au moment ou l'ordre tombe, sert deux
+	--choses a la fois : techniquement il faut lever son animation
+	--bouclee avant que Listen ne le fasse pivoter (un dormeur qui se
+	--tourne vers le maitre de guilde sans se reveiller, c'est le genre
+	--de detail qui casse une scene) ; narrativement, le savant pris en
+	--flagrant delit de somnolence, c'est tout son personnage.
+	pcall(function()
+		GROUND:CharEndAnim(t.phileas)
+		GeneralFunctions.EmoteAndPause(t.phileas, "Exclaim", true)
+	end)
+	GAME:WaitFrames(10)
 	--L'appel au rassemblement : tout le camp se retourne vers le maitre
 	--de guilde AVANT qu'il parle. C'est l'ordre qui fait lever les tetes.
 	Listen(t.penticus, {t.phileas, t.rin, t.coco, t.shuca, t.ganlon,
@@ -2324,9 +2369,11 @@ end
 -- du camp existent deja sur la carte.
 --
 -- KODefeatCutscene : l'equipe s'est fait balayer dans la premiere
--- moitie du donjon. Elle git devant l'entree ; Rin accourt, soigne,
--- Penticus console et redonne des provisions (RewardItem, patron du
--- Tunnel). Toutes les positions et trajets sont verifies praticables.
+-- moitie du donjon. Elle git devant l'entree. HYKO donne l'alerte et
+-- degage l'espace (c'est un garde, il ne soigne pas), PENTICUS
+-- s'agenouille et remet une Baie Oran en main propre, puis les
+-- provisions de repart. Hyko assume ensuite sa limite a voix haute.
+-- Toutes les positions et trajets sont verifies praticables.
 --------------------------------------------------------------------
 function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	local hero = CH('PLAYER')
@@ -2335,14 +2382,16 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	local shuca = CH('Teammate3')    --et Shuca (SetParty de l'intro)
 	local penticus = CH('Tropius')
 	local phileas = CH('Noctowl')
-	--HYKO REMPLACE RIN. Rin (Audino) est partie avec la cordee de
-	--soutien a la fin de l'intro : elle n'est plus sur la carte, et
-	--CH('Audino') rendait nil. Toute la scene de secours reposait donc
-	--sur un personnage absent — le soin ne se jouait pas, et la replique
-	--MWE5_121 etait sautee en silence. Les trois presents au camp sont
-	--Penticus, Phileas et Hyko ; c'est Hyko qui accourt et qui soigne.
-	--Narrativement c'est meme plus juste : Penticus le garde au camp
-	--precisement pour qu'il serve ICI, et pas la-haut.
+	--RIN N'EST PLUS LA — ET PERSONNE NE LA REMPLACE COMME SOIGNEUSE.
+	--Rin (Audino) est partie avec la cordee de soutien a la fin de
+	--l'intro : CH('Audino') rend nil, et toute la scene de secours
+	--reposait a l'origine sur elle (soin non joue, MWE5_121 sautee en
+	--silence). Ma premiere correction avait donne son role a Hyko —
+	--erreur : un Growlithe de la garde n'a ni capacite de soin, ni
+	--formation, ni objet. Le role est donc REDISTRIBUE selon les
+	--competences reelles : Hyko alerte et degage, Penticus donne la
+	--baie. Personne ne « remplace » Rin ; son absence se sent, et
+	--c'est justement ce qui rend la scene juste.
 	local hyko = CH('Growlithe')
 	local coro1, coro2, coro3, coro4
 
@@ -2413,52 +2462,75 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	TASK:JoinCoroutines({coro1, coro2, coro3})
 	GAME:WaitFrames(15)
 
-	--Le soin : cloche et pose, patron du reveil au camp. C'est Hyko qui
-	--l'administre — les baies de secours de la guilde, pas un don de
-	--soigneuse. Penticus veille a cote, ce qui est tout le sens de sa
-	--decision de le garder au camp.
+	------------------------------------------------------------------
+	-- HYKO NE SOIGNE PAS. IL VA CHERCHER CELUI QUI SAIT.
+	------------------------------------------------------------------
+	-- RETOUR DE L'UTILISATEUR : « Hyko est incapable de soigner ».
+	-- Exact, et ma correction precedente n'allait pas au bout : j'avais
+	-- change le SON (DUN_Heal au lieu de DUN_Heal_Bell) et ajoute des
+	-- repliques, mais Hyko restait celui qui administrait le secours,
+	-- avec une pose de 100 frames en gros plan. Un Growlithe de la
+	-- garde ne soigne pas — il n'a ni capacite de soin, ni formation,
+	-- ni objet. Le son n'etait que le symptome ; le probleme etait le
+	-- ROLE.
+	--
+	-- Nouvelle repartition, conforme a ce que chacun sait faire :
+	--   * HYKO donne l'alerte et degage l'espace. C'est un garde :
+	--     il court, il crie, il fait de la place. Sa force, c'est la
+	--     vitesse de reaction.
+	--   * PENTICUS soigne — en donnant une BAIE ORAN, pas une capacite.
+	--     C'est le maitre de guilde : il porte les provisions, il
+	--     s'agenouille, il parle doucement. Aucun effet magique.
+	--   * HYKO conclut en assumant sa limite a voix haute. C'est ce qui
+	--     rend le personnage attachant plutot que decoratif : il sait
+	--     ce qu'il ne sait pas faire, et il propose autre chose.
+	--
+	-- Plus aucun SE de soin : une baie qu'on mange ne sonne pas comme
+	-- une capacite. Seul le fanfare d'objet de RewardItem se fait
+	-- entendre, ce qui est exactement le bon signal.
 	if hyko ~= nil then
-		------------------------------------------------------------------
-		-- HYKO NE LANCE PAS UN SOIN : IL DISTRIBUE DES BAIES.
-		------------------------------------------------------------------
-		-- BUG VU EN JEU : « Hyko ne parle pas quand il utilise Soin ??
-		-- alors que c'est un Pokemon de type Feu ».
-		--
-		-- Deux erreurs distinctes, les deux reelles :
-		--   1. « DUN_Heal_Bell » est le son de la capacite Soin (Heal
-		--      Bell). C'est la signature sonore de Rin, l'Audino
-		--      soigneuse — un Growlithe de type Feu ne connait pas cette
-		--      capacite. Le son racontait un soin magique la ou la scene
-		--      raconte des provisions de secours.
-		--   2. Il agissait EN SILENCE : il accourait, prenait une pose de
-		--      100 frames, et sa premiere replique n'arrivait qu'apres.
-		--      On ne comprenait pas ce qu'il faisait.
-		--
-		-- Correction : « DUN_Heal » (atteste dans le depot,
-		-- DazzlingArc.lua:561 et event_battle.lua:1049) est le son
-		-- generique de restauration de PV — celui d'une baie consommee,
-		-- pas d'une capacite. Et Hyko ANNONCE ce qu'il fait avant de le
-		-- faire : le geste devient lisible.
-		pcall(function() GROUND:CharTurnToCharAnimated(hyko, hero, 4) end)
+		pcall(function() GROUND:CharTurnToCharAnimated(hyko, penticus, 4) end)
 		pcall(function() GeneralFunctions.EmoteAndPause(hyko, "Exclaim", true) end)
 		UI:SetSpeaker(hyko)
 		UI:SetSpeakerEmotion("Worried")
-		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_179']))
-		GAME:WaitFrames(10)
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_186']))
+		GAME:WaitFrames(12)
 
-		SOUND:PlayBattleSE("DUN_Heal")
-		GROUND:CharSetAction(hyko, RogueEssence.Ground.PoseGroundAction(hyko.Position, hyko.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pose")))
-		GAME:WaitFrames(100)
-		GROUND:CharEndAnim(hyko)
-		GAME:WaitFrames(10)
-
-		--Et il commente le resultat : le silence d'avant faisait passer
-		--le soin pour un evenement magique sans auteur.
-		UI:SetSpeaker(hyko)
-		UI:SetSpeakerEmotion("Normal")
-		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_180']))
+		--Il s'ecarte pour laisser passer le maitre de guilde : le
+		--mouvement raconte le passage de relais mieux qu'une phrase.
+		local h1 = TASK:BranchCoroutine(function()
+			pcall(function() GeneralFunctions.EightWayMove(hyko, 224, 192, false, 1) end)
+			pcall(function() GROUND:CharTurnToCharAnimated(hyko, hero, 4) end)
+		end)
+		local h2 = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(14)
+			UI:SetSpeaker(hyko)
+			UI:SetSpeakerEmotion("Normal")
+			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_187']))
+		end)
+		TASK:JoinCoroutines({h1, h2})
+		GAME:WaitFrames(15)
 	end
-	GAME:WaitFrames(20)
+
+	--PENTICUS S'OCCUPE DES BLESSES. Il se penche d'abord, il parle
+	--ensuite : le corps avant la bouche.
+	if penticus ~= nil then
+		pcall(function() GROUND:CharTurnToCharAnimated(penticus, hero, 4) end)
+		pcall(function() GROUND:CharSetEmote(penticus, "sweatdrop", 1) end)
+		GAME:WaitFrames(12)
+		UI:SetSpeaker(penticus)
+		UI:SetSpeakerEmotion("Worried")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_188']))
+		GAME:WaitFrames(15)
+
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_189']))
+		--UNE seule baie Oran, remise en main propre. Le 3e argument de
+		--RewardItem est la quantite (GeneralFunctions.lua:1245) : sans
+		--lui, la fonction donne un stack entier.
+		GeneralFunctions.RewardItem("berry_oran", false, 1)
+		GAME:WaitFrames(20)
+	end
 
 	--L'equipe revient a elle, un par un, sonnee (Shake + Wake +
 	--LookAround, patron de la DiedCutscene du Tunnel).
@@ -2496,11 +2568,17 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
 	GAME:WaitFrames(20)
 
-	if hyko ~= nil then
-		pcall(function() GROUND:CharTurnToCharAnimated(hyko, hero, 4) end)
-		pcall(function() GROUND:CharSetEmote(hyko, "sweatdrop", 1) end)
-		UI:SetSpeaker(hyko)
-		UI:SetSpeakerEmotion("Worried")
+	--PENTICUS constate le mieux : c'est lui qui a donne la baie, c'est
+	--donc lui qui en lit l'effet. MWE5_121 (« Respirez... voila. Le vent
+	--vous a battus, pas brises. ») est une phrase de soignant : elle
+	--etait attribuee a Hyko, qui ne soigne pas. Elle revient au maitre
+	--de guilde, dont c'est exactement le registre.
+	if penticus ~= nil then
+		pcall(function() GROUND:CharSetEmote(penticus, "", 0) end)
+		UI:SetSpeaker(penticus)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_190']))
+		GAME:WaitFrames(12)
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_121']))
 		GAME:WaitFrames(15)
 	end
@@ -2525,15 +2603,37 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 		UI:SetSpeakerEmotion("Worried")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_124']))
 		GAME:WaitFrames(15)
-		GeneralFunctions.RewardItem("food_apple")
-		GeneralFunctions.RewardItem("berry_oran")
-		GeneralFunctions.RewardItem("berry_oran")
-		GeneralFunctions.RewardItem("berry_leppa")
+		--LES PROVISIONS DE REPART, ET RIEN DE PLUS.
+		--La Baie Oran du secours a deja ete remise plus haut, une seule,
+		--en main propre : c'est le geste de soin. Ce lot-ci est autre
+		--chose — de quoi RETENTER l'ascension. Les redonner en double
+		--(l'ancien code remettait une Pomme, DEUX Oran et une Mepo,
+		--stacks entiers) noyait le geste de secours sous un inventaire.
+		GeneralFunctions.RewardItem("food_apple", false, 1)
+		GeneralFunctions.RewardItem("berry_leppa", false, 1)
 		GAME:WaitFrames(15)
 		UI:SetSpeakerEmotion("Normal")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_125']))
 	end
 	GAME:WaitFrames(20)
+
+	--HYKO ASSUME SA LIMITE. C'est le coeur du correctif demande : il ne
+	--soigne pas, il le SAIT, et il le dit lui-meme. Ce qui aurait pu
+	--n'etre qu'une contrainte technique devient un trait de caractere,
+	--et prepare l'arc du personnage (il veut monter avec l'equipe).
+	if hyko ~= nil then
+		pcall(function() GROUND:CharTurnToCharAnimated(hyko, hero, 4) end)
+		pcall(function() GeneralFunctions.EmoteAndPause(hyko, "Sweatdrop", true) end)
+		UI:SetSpeaker(hyko)
+		UI:SetSpeakerEmotion("Sigh")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_191']))
+		GAME:WaitFrames(15)
+		--Puis il se redresse : la promesse, pas la plainte.
+		pcall(function() GROUND:CharSetEmote(hyko, "determined", 1) end)
+		UI:SetSpeakerEmotion("Determined")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_192']))
+		GAME:WaitFrames(20)
+	end
 
 	--Penticus et Rin regagnent le camp ; le duo reste libre devant
 	--l'entree, pret a retenter l'ascension.
@@ -2542,24 +2642,36 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	--en se promenant. Avant, Penticus rentrait en (212,244) — une
 	--position qui n'existe plus dans SetupGround depuis le recalcul du
 	--camp : il se serait teleporte au premier rechargement de la carte.
+	--Postes mis a jour sur la composition autour du feu (cf. SetupGround).
+	--Les deux qui repassent pres du foyer le CONTOURNENT : un trajet
+	--direct traversait le bloqueur de collision (verifie par
+	--echantillonnage), et les personnages se seraient bloques dessus une
+	--fois le mode cinematique rendu.
 	coro1 = TASK:BranchCoroutine(function()
 		if penticus ~= nil then
-			GeneralFunctions.EightWayMove(penticus, 230, 190, false, 1)
-			GROUND:CharAnimateTurnTo(penticus, Direction.DownRight, 4)
+			--Contourne le foyer par l'ouest, puis descend a son poste sud.
+			GeneralFunctions.EightWayMove(penticus, 232, 196, false, 1)
+			GeneralFunctions.EightWayMove(penticus, 232, 256, false, 1)
+			GeneralFunctions.EightWayMove(penticus, 252, 268, false, 1)
+			GROUND:CharAnimateTurnTo(penticus, Direction.Up, 4)
 		end
 	end)
 	coro2 = TASK:BranchCoroutine(function()
 		if hyko ~= nil then
 			GAME:WaitFrames(12)
-			GeneralFunctions.EightWayMove(hyko, 224, 206, false, 1)
-			GROUND:CharAnimateTurnTo(hyko, Direction.DownRight, 4)
+			--Contourne par l'est pour rejoindre son poste de garde.
+			GeneralFunctions.EightWayMove(hyko, 308, 196, false, 1)
+			GeneralFunctions.EightWayMove(hyko, 300, 236, false, 1)
+			GROUND:CharAnimateTurnTo(hyko, Direction.Left, 4)
 		end
 	end)
 	coro3 = TASK:BranchCoroutine(function()
 		if phileas ~= nil then
 			GAME:WaitFrames(20)
-			GeneralFunctions.EightWayMove(phileas, 288, 196, false, 1)
-			GROUND:CharAnimateTurnTo(phileas, Direction.DownLeft, 4)
+			GeneralFunctions.EightWayMove(phileas, 212, 180, false, 1)
+			GROUND:CharAnimateTurnTo(phileas, Direction.Down, 4)
+			--Il se rendort : il a veille toute la nuit.
+			GROUND:CharSetAnim(phileas, "Sleep", true)
 		end
 	end)
 	TASK:JoinCoroutines({coro1, coro2, coro3})
@@ -2644,18 +2756,20 @@ function mount_windswept_entrance_ch_5.RetreatReturnCutscene()
 		TASK:JoinCoroutines({c4, c5})
 		GAME:WaitFrames(15)
 
-		--Retour au poste EXACT de SetupGround. L'ancienne destination
-		--(212,244) n'existe plus depuis le recalcul du camp : Penticus
-		--se serait teleporte au premier rechargement de la carte.
+		--Retour au poste EXACT de SetupGround, foyer contourne (le trajet
+		--direct traversait le bloqueur de collision du feu).
 		local c6 = TASK:BranchCoroutine(function()
-			GeneralFunctions.EightWayMove(penticus, 230, 190, false, 1)
-			GROUND:CharAnimateTurnTo(penticus, Direction.DownRight, 4)
+			GeneralFunctions.EightWayMove(penticus, 232, 196, false, 1)
+			GeneralFunctions.EightWayMove(penticus, 232, 256, false, 1)
+			GeneralFunctions.EightWayMove(penticus, 252, 268, false, 1)
+			GROUND:CharAnimateTurnTo(penticus, Direction.Up, 4)
 		end)
 		local c7 = TASK:BranchCoroutine(function()
 			if hyko ~= nil then
 				GAME:WaitFrames(14)
-				GeneralFunctions.EightWayMove(hyko, 224, 206, false, 1)
-				GROUND:CharAnimateTurnTo(hyko, Direction.DownRight, 4)
+				GeneralFunctions.EightWayMove(hyko, 308, 196, false, 1)
+				GeneralFunctions.EightWayMove(hyko, 300, 236, false, 1)
+				GROUND:CharAnimateTurnTo(hyko, Direction.Left, 4)
 			end
 		end)
 		TASK:JoinCoroutines({c6, c7})
@@ -2916,12 +3030,46 @@ function mount_windswept_entrance_ch_5.SetupGround()
 	-- POSITIONS : verifiees sol libre, connexes depuis l'entree, hors
 	-- empreinte du feu (36x36 en 256,220), hors rocher de Kangaskhan
 	-- (32x32 en 160,144) et hors des onze paillasses.
+	--------------------------------------------------------------------
+	-- COMPOSITION DU CAMP — trois postes qui racontent trois roles.
+	--------------------------------------------------------------------
+	-- RETOUR DE L'UTILISATEUR : « Penticus et Hyko devraient etre
+	-- positionnes esthetiquement ». Les trois etaient agglutines au
+	-- nord-ouest (230,190 / 288,196 / 224,206), tous tournes vers le
+	-- bas, sans rapport au foyer : un alignement de PNJ, pas un camp.
+	--
+	-- Nouvelle composition, construite AUTOUR DU FEU (dessine
+	-- x256..291 / y220..255, foyer au centre en 274,238) :
+	--
+	--        Phileas (endormi, en retrait nord-ouest)
+	--                    .
+	--                 [ FEU ]        Hyko  (garde, a l'est, face au feu)
+	--                    .
+	--            Penticus (au sud, face au sentier d'arrivee)
+	--
+	--   * PENTICUS au SUD, tourne vers le HAUT : il fait face au sentier
+	--     par lequel on arrive. Le maitre de guilde guette le retour de
+	--     ses equipes — c'est sa premiere replique de la carte
+	--     (« j'ai guette ce sentier toute la soiree ») rendue visible.
+	--   * HYKO a l'EST, tourne vers le feu : en poste, mais au chaud.
+	--   * PHILEAS en RETRAIT au nord-ouest, ENDORMI. Il a veille la
+	--     nuit (section 7) ; patron du Tunnel, searing_tunnel_entrance
+	--     _ch_5.lua:36-37, ou Noctowl dort pendant que Tropius assure.
+	--
+	-- Toutes verifiees SPRITE COMPRIS (Tropius 40x40, Noctowl 38x32,
+	-- Growlithe 32x28, ancrage GroundAction.GetDrawLoc:116) : aucune ne
+	-- recouvre les flammes, ni le bloqueur du foyer, ni le rocher de
+	-- Kangaskhan, ni aucune des onze paillasses. Ecarts de 48 a 88 px :
+	-- lisibles a l'ecran, et tous les trois tiennent dans un plan.
 	local tropius, noctowl, growlithe =
 	CharacterEssentials.MakeCharactersFromList({
-		{'Tropius', 230, 190, Direction.DownRight},
-		{'Noctowl', 288, 196, Direction.DownLeft},
-		{'Growlithe', 224, 206, Direction.DownRight}
+		{'Tropius', 252, 268, Direction.Up},
+		{'Noctowl', 212, 180, Direction.Down},
+		{'Growlithe', 300, 236, Direction.Left}
 	})
+	--Phileas dort a son poste : il n'est pas alle se coucher, il s'est
+	--assoupi la ou il veillait.
+	pcall(function() GROUND:CharSetAnim(noctowl, "Sleep", true) end)
 	--Rendus nil explicitement : plusieurs branches de ce fichier les
 	--testent encore (if rin ~= nil...), et un nil franc vaut mieux
 	--qu'un PNJ fantome qui n'a rien a faire la.
@@ -3703,9 +3851,11 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	--donne SetupGround, pour que rien ne bouge quand le joueur reviendra
 	--du donjon : Penticus (230,190), Phileas (288,196), Hyko (224,206).
 	pcall(function()
-		GROUND:TeleportTo(tropius,   230, 190, Direction.DownRight)
-		GROUND:TeleportTo(noctowl,   288, 196, Direction.DownLeft)
-		GROUND:TeleportTo(growlithe, 224, 206, Direction.DownRight)
+		GROUND:TeleportTo(tropius,   252, 268, Direction.Up)
+		GROUND:TeleportTo(noctowl,   212, 180, Direction.Down)
+		GROUND:TeleportTo(growlithe, 300, 236, Direction.Left)
+		--Phileas a veille la nuit : au matin, il dort a son poste.
+		GROUND:CharSetAnim(noctowl, "Sleep", true)
 	end)
 
 	--L'EQUIPE DU DONJON = LA CORDEE DU SOMMET. SetParty retire Hyko et
@@ -3773,6 +3923,16 @@ end
 --Phileas (Noctowl) : l'erudit qui en sait plus qu'il ne dit
 function mount_windswept_entrance_ch_5.Noctowl_Action(chara, activator)
 	DEBUG.EnableDbgCoro()
+	--ON LE REVEILLE AVANT QU'IL PARLE. Phileas dort a son poste depuis
+	--SetupGround (il a veille toute la nuit). Sans cette levee, son
+	--animation « Sleep » est BOUCLEE : il tiendrait tout son dialogue
+	--les yeux fermes, couche. Le sursaut fait aussi le gag — on prend
+	--l'archiviste en flagrant delit de sieste.
+	pcall(function()
+		GROUND:CharEndAnim(chara)
+		GeneralFunctions.EmoteAndPause(chara, "Exclaim", true)
+		GROUND:CharTurnToCharAnimated(chara, CH('PLAYER'), 4)
+	end)
 	if SV.Chapter5.MountGuardianDefeated then
 		GeneralFunctions.StartConversation(chara, "Hou...[pause=0] L'Aérodactyle s'est incliné.[pause=0] Voilà qui confirme une vieille théorie personnelle.", "Normal")
 		UI:WaitShowDialogue("Les gardiens de cette région ne défendent pas un territoire.[pause=0] Ils défendent quelque chose DANS le territoire.[pause=0] Nuance capitale.")
