@@ -136,4 +136,7 @@
   <data name="DRM_026" xml:space="preserve">
     <value>We will meet again.[pause=40] We always meet again.</value>
   </data>
+  <data name="DRM_000" xml:space="preserve">
+    <value>It had been a long time,[pause=40] such a long time...</value>
+  </data>
 </root>

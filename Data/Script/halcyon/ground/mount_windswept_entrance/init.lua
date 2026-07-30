@@ -22,7 +22,7 @@ local mount_windswept_entrance = {}
 --Engine callback function
 function mount_windswept_entrance.Init(map)
   DEBUG.EnableDbgCoro()
-  print('=>> Init_mount_windswept_entrance <<= [build 2026-08-03-I]')
+  print('=>> Init_mount_windswept_entrance <<= [build 2026-08-03-J]')
 
   --LE NOIR ET LE GEL, AVANT TOUT LE RESTE.
   --

@@ -43,7 +43,7 @@ local hero_dream = {}
 -- Map Callbacks
 function hero_dream.Init(map)
   DEBUG.EnableDbgCoro()
-  print('=>> Init_hero_dream <<=')
+  print('=>> Init_hero_dream <<= [build 2026-08-03-J]')
 
   --L'ECRAN EST NOIR AVANT LE PREMIER RENDU.
   --Le moteur ne pose aucun fondu entre deux cartes : moveToZoneInit
@@ -183,6 +183,42 @@ local function DreamSceneBody()
 
   SOUND:StopBGM()
 
+  -- 0. L'ECRAN NOIR SILENCIEUX — « Cela faisait longtemps, »
+  --
+  -- Brief, section 3 : « Avant que le reve ne s'ouvre visuellement, la
+  -- scene passe par un ECRAN NOIR AVEC DU TEXTE, dans le meme esprit
+  -- qu'un texte de transition "le lendemain matin" — ici la ligne est
+  -- "Cela faisait longtemps,". Ce moment doit etre TOTALEMENT
+  -- SILENCIEUX : aucune musique, aucun bruitage, aucun son — le silence
+  -- est un choix de mise en scene assume, pas un flottement technique.
+  -- Ce n'est QU'APRES ce texte en ecran noir silencieux que l'on
+  -- enchaine vers l'ouverture visuelle du reve : c'est a cet instant
+  -- precis que le parallax et la musique demarrent ENSEMBLE. »
+  --
+  -- Ce beat manquait entierement : on passait du noir directement au
+  -- FadeIn avec la musique. La bascule entre le silence et l'entree dans
+  -- le reve n'existait donc pas.
+  --
+  -- Le silence est REEL, et pas seulement suppose :
+  --   * StopBGM ci-dessus a coupe la musique du camp ;
+  --   * FadeOutSE coupe l'ambiance de feu que la veillee laissait
+  --     tourner en boucle (AMB_Fire_Loud, LoopSE dans CampNightfall) —
+  --     sans lui, le « totalement silencieux » du brief etait faux, on
+  --     aurait entendu le bivouac par-dessus l'ecran noir ;
+  --   * aucun PlayBGM ne survient avant le FadeIn, plus bas.
+  --
+  -- L'ecran est deja noir (Init a pose FadeOut(false,1)) : la boite
+  -- s'affiche donc bien SUR le noir, pas sur le decor.
+  pcall(function() SOUND:FadeOutSE('AMB_Fire_Loud', 30) end)
+  GAME:WaitFrames(50)
+
+  UI:ResetSpeaker(false)
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['DRM_000']))
+  UI:SetCenter(false)
+  UI:ResetSpeaker()
+  GAME:WaitFrames(40)
+
   -- MISE EN PLACE, SOUS LE NOIR
   --LE HEROS REVE SEUL. RespawnAllies a pu faire apparaitre le
   --partenaire (il est dans l'equipe) : on le retire de la carte, il
@@ -223,7 +259,24 @@ local function DreamSceneBody()
   --Le ciel de reve tourne deja derriere le noir. On leve la lumiere
   --DESSUS : le joueur voit le noir s'ouvrir directement sur le ciel
   --onirique, sans jamais entrapercevoir le camp.
-  SOUND:PlayBGM('I Saw Something Again....ogg', true)
+  --LA MEME MUSIQUE QUE LE TEST DE PERSONNALITE, A L'IDENTIQUE.
+  --
+  --Brief, section 3, option B (celle retenue) : « le parallax et la
+  --musique de cette scene de reve NE SONT PAS une nouvelle creation
+  --"dans l'esprit de" celle du test de personnalite — ce sont LES MEMES
+  --ASSETS, REUTILISES A L'IDENTIQUE : meme parallax de couleur, meme
+  --morceau de musique. Aucune variation ou nouvelle version ne doit etre
+  --produite pour cette scene ; l'objectif est la reconnaissance
+  --immediate par le joueur du meme langage visuel et sonore. »
+  --
+  --Le parallax etait deja conforme (Dream_Back, verifie identique au
+  --champ Background de personality_test.rsground, octet pour octet).
+  --La MUSIQUE, elle, ne l'etait pas : cette scene jouait
+  --'I Saw Something Again....ogg', un morceau d'inquietude, alors que le
+  --test de personnalite joue 'Welcome to the World of Pokémon!.ogg'
+  --(personality_test/init.lua:141). Le joueur perdait donc exactement la
+  --reconnaissance que le brief demande — moitie du dispositif seulement.
+  SOUND:PlayBGM('Welcome to the World of Pokémon!.ogg', true)
   GAME:FadeIn(70)
   GAME:WaitFrames(60)
 
@@ -315,11 +368,49 @@ local function DreamSceneBody()
   silence(55)
 
   -- 4. ELLE PARLE — accueil, pas menace
+  --
+  -- SON CORPS PARLE AUSSI, ET C'EST UNE EXIGENCE DU BRIEF.
+  -- « Ses mouvements doivent etre elegants — elle ne se comporte jamais
+  --   comme un PNJ banal. »
+  -- Elle etait jusqu'ici parfaitement immobile pendant les dix-sept
+  -- repliques : bien apparue, puis plantee. Un sprite qui ne bouge plus
+  -- redevient exactement le PNJ banal que le brief refuse.
+  --
+  -- Le vocabulaire gestuel est volontairement PAUVRE et LENT : elle ne
+  -- gesticule pas, elle incline la tete et flotte de quelques pixels.
+  -- Trois gestes seulement sur toute la scene, aux trois moments qui
+  -- comptent — c'est la regle de dosage du fichier de methode : la
+  -- rarete d'un effet fait son impact.
+  --
+  -- `hoverEntity` : une derive verticale de 4 px, aller-retour, sur une
+  -- duree longue. Ce n'est pas un saut — Hop culmine et retombe sec.
+  -- On passe par MoveToPosition en vitesse 1 (la plus lente attestee du
+  -- depot) pour obtenir un glissement, jamais un pas.
+  local function hoverEntity()
+    if entity == nil then return end
+    pcall(function()
+      local x, y = entity.Position.X, entity.Position.Y
+      GROUND:MoveToPosition(entity, x, y - 4, false, 1)
+      GROUND:MoveToPosition(entity, x, y, false, 1)
+    end)
+  end
+
+  --Elle s'adresse a lui : elle s'oriente vers le dormeur AVANT de
+  --parler (le corps parle avant la bouche, regle du projet).
+  if entity ~= nil then
+    pcall(function() GROUND:CharTurnToCharAnimated(entity, hero, 8) end)
+    GAME:WaitFrames(20)
+  end
+
   --Sa premiere phrase tombe apres un long silence : c'est elle qui
   --rompt le vide, et cela suffit a la rendre presente.
   voice('DRM_010')
   GAME:WaitFrames(35)
-  voice('DRM_011')
+  --Elle flotte doucement en disant « tu as fait tout ce chemin » : le
+  --seul mouvement du plan, donc on le remarque.
+  local h1 = TASK:BranchCoroutine(function() hoverEntity() end)
+  local h2 = TASK:BranchCoroutine(function() voice('DRM_011') end)
+  TASK:JoinCoroutines({h1, h2})
   silence(40)
 
   dreamer('DRM_012')
@@ -332,6 +423,18 @@ local function DreamSceneBody()
   --si. » est la phrase qui doit rester au joueur : on la laisse
   --arriver dans le vide, et on la laisse resonner apres.
   silence(60)
+  --DEUXIEME GESTE. Elle detourne le regard une seconde avant de
+  --repondre — la seule fois de la scene ou elle ne le fixe pas. C'est
+  --ce que fait quelqu'un qui en sait plus qu'il n'en dit, et ca prepare
+  --« Et pourtant si. » sans qu'aucune ligne n'ait a l'expliquer.
+  if entity ~= nil then
+    pcall(function()
+      GROUND:CharAnimateTurnTo(entity, Direction.DownRight, 8)
+    end)
+    GAME:WaitFrames(30)
+    pcall(function() GROUND:CharTurnToCharAnimated(entity, hero, 8) end)
+    GAME:WaitFrames(15)
+  end
   voice('DRM_015')
   silence(70)
 
@@ -389,6 +492,17 @@ local function DreamSceneBody()
     voice('DRM_026')
   end)
   local f2 = TASK:BranchCoroutine(function()
+    --TROISIEME ET DERNIER GESTE. Elle s'eleve de 6 px pendant qu'elle
+    --s'efface : elle ne PART pas (aucune sortie de champ, aucune
+    --marche), elle se dissout en montant. C'est le geste qui distingue
+    --une presence onirique d'un PNJ qui s'en va — et c'est le dernier
+    --de la scene, donc celui qu'on retient.
+    if entity ~= nil then
+      pcall(function()
+        local x, y = entity.Position.X, entity.Position.Y
+        GROUND:MoveToPosition(entity, x, y - 6, false, 1)
+      end)
+    end
     GAME:WaitFrames(30)
     if entity ~= nil then
       pcall(function() GROUND:CharSetDrawEffect(entity, DrawEffect.Transparent) end)
