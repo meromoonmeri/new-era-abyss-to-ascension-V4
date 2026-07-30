@@ -141,3 +141,8 @@ Passe de finition (2026-07-30, suite)
 Correctif d'arrivée (2026-07-30)
 -Plus d'aperçu de la zone précédente en arrivant quelque part. En quittant le Creuset pour le Mont Venteux, l'écran laissait passer un éclair de carte nue — décor pas encore posé, caméra pas encore cadrée — juste avant les répliques sur le noir. Le fondu de sécurité est désormais la toute première instruction de chaque scène d'arrivée, avant même la musique.
 -22 scènes d'arrivée corrigées au total : Creuset, Mont Venteux, Steppe, Tunnel, Ruines Fendues, Forêt Lugubre, Bosquet, Antre Tordu et les relais.
+
+Campement du Mont Venteux (2026-07-30)
+-Au réveil, le Maître de Guilde n'est plus planté dans Rin. Il se tenait à 13 pixels d'elle et passait devant : elle disparaissait sous lui. Il est désormais debout près du foyer, face au camp qu'il s'apprête à réveiller.
+-Plum débarque enfin au campement. Elle a suivi l'expédition depuis Metano à pied, s'est perdue en route, et arrive en courant au milieu du repas — chute comprise. Personne ne la renvoie sur le sentier à cette heure-là.
+-Nouvelle scène au coucher : les plus jeunes se racontent des histoires qui font peur, chacune plus grosse que la précédente. Philéas finit par gronder tout le monde et cite Kino en exemple — Kino qui dort déjà comme une souche.

@@ -710,6 +710,188 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GROUND:CharAnimateTurnTo(t.rin, Direction.DownRight, 4)
 	GAME:WaitFrames(15)
 
+	-- 4bis. L'IRRUPTION DE PLUM — le gag du repas
+	--
+	-- Demande explicite : « l'arrivee de plum de maniere comique est pas
+	-- arrivee ». Elle est ecrite ici, entre les conversations paralleles
+	-- (acte 4) et le silence du heros (acte 5) : c'est le seul creux du
+	-- repas, donc le seul endroit ou une irruption fait un vrai contraste.
+	--
+	-- MECANIQUE DU COMIQUE, dans l'ordre ou elle se joue :
+	--   1. un CALME de trois secondes — sans ce vide, la chute ne surprend
+	--      personne. Le feu seul, personne ne parle.
+	--   2. un BRUIT hors champ, avant l'image : on entend Plum avant de la
+	--      voir. La camera part le chercher, elle ne le trouve pas deja la.
+	--   3. la COURSE puis la CHUTE, et la musique demarre EXACTEMENT sur
+	--      l'impact — pas une frame avant.
+	--   4. un SILENCE COURT apres la chute. C'est le beat : sans lui, la
+	--      reaction collective arrive trop tot et tombe a plat.
+	--   5. la REACTION DE GROUPE, decalee de 4 frames par personnage et
+	--      avec des emotes DIFFERENTES : jamais un bloc identique.
+	--
+	-- Plum = Jigglypuff (CharacterEssentials:202-210). Elle n'existe pas
+	-- encore sur cette carte : on la cree, cachee, puis on la revele.
+	local plum = nil
+	pcall(function()
+		local made = CharacterEssentials.MakeCharactersFromList({
+			{'Jigglypuff', 256, 452, Direction.Up}
+		})
+		plum = made
+	end)
+	if plum == nil then pcall(function() plum = CH('Jigglypuff') end) end
+
+	if plum ~= nil then
+		pcall(function() GROUND:Hide(plum.EntName) end)
+
+		--1. LE CALME. La conversation est retombee, il ne reste que le feu.
+		--Les convives restent dans leur pose d'attente : personne ne
+		--s'agite pour meubler.
+		SOUND:FadeOutBGM(50)
+		GAME:WaitFrames(70)
+
+		--2. LE BRUIT HORS CHAMP. On l'entend avant de la voir. Le duo et
+		--les plus proches du sentier tournent la tete vers le sud —
+		--chacun selon SA position, pas tous dans la meme direction.
+		--Des pas qui COURENT : on les boucle pendant l'approche et on les
+		--coupe a la chute. PlaySE aurait joue un coup unique — un bruit
+		--sec, pas une course. LoopSE/StopSE est le patron atteste
+		--(vast_steppe_entrance_ch_5:113 et :154).
+		pcall(function() SOUND:LoopSE("Guild's Feet Pitterpatter") end)
+		GAME:WaitFrames(18)
+		local look = {}
+		for _, who in ipairs({hero, partner, t.almotz, t.hyko}) do
+			if who ~= nil then
+				look[#look+1] = TASK:BranchCoroutine(function()
+					pcall(function()
+						GAME:WaitFrames(#look * 5)
+						GROUND:CharAnimateTurnTo(who, Direction.Down, 4)
+					end)
+				end)
+			end
+		end
+		pcall(function() TASK:JoinCoroutines(look) end)
+		pcall(function() GeneralFunctions.EmoteAndPause(partner, "Question", true) end)
+
+		--Le heros commente — pensee courte, il reagit a ce qu'il entend,
+		--il ne raconte pas la scene a la place du joueur.
+		GeneralFunctions.HeroDialogue(hero, "(Des pas.[pause=15] Qui court, a cette heure-ci ?)", "Question")
+		GAME:WaitFrames(12)
+
+		--3. LA COURSE ET LA CHUTE. La camera descend vers le sentier pour
+		--l'accueillir : mouvement justifie, on suit une arrivee.
+		local cam = TASK:BranchCoroutine(function()
+			pcall(function() GAME:MoveCamera(256, 300, 30, false) end)
+		end)
+		pcall(function() GROUND:Unhide(plum.EntName) end)
+		local run = TASK:BranchCoroutine(function()
+			pcall(function() GROUND:MoveToPosition(plum, 256, 340, true, 5) end)
+		end)
+		pcall(function() TASK:JoinCoroutines({cam, run}) end)
+
+		--LA CHUTE. Elle ne s'arrete pas : elle se prend les pieds. Anim
+		--Hurt sur une derniere glissade, SE d'impact, et la musique
+		--comique demarre SUR l'impact — c'est la synchro qui fait le gag.
+		pcall(function() GROUND:AnimateToPosition(plum, "Hurt", Direction.Up, 256, 300, 2, 6, 0) end)
+		pcall(function() SOUND:StopSE("Guild's Feet Pitterpatter") end)
+		pcall(function() SOUND:PlayBattleSE('DUN_Rollout') end)
+		pcall(function() SOUND:PlayBGM('Guildmaster Wigglytuff.ogg', false) end)
+		pcall(function() GROUND:CharSetAnim(plum, "Sleep", true) end)
+		pcall(function() GeneralFunctions.EmoteAndPause(plum, "Shock", true) end)
+
+		--4. LE BEAT. Une seconde de rien. Personne ne bouge. C'est ce
+		--silence qui rend la reaction suivante drole.
+		GAME:WaitFrames(55)
+
+		--Le camp se retourne — en cascade, chacun depuis SA place.
+		local turn = {}
+		local temoins = {t.penticus, t.phileas, t.rin, t.coco, t.shuca,
+		                 t.ganlon, t.kino, t.reinier, t.hyko, t.almotz}
+		for i, who in ipairs(temoins) do
+			if who ~= nil then
+				turn[#turn+1] = TASK:BranchCoroutine(function()
+					pcall(function()
+						GAME:WaitFrames((i - 1) * 4)
+						GROUND:CharTurnToCharAnimated(who, plum, 4)
+					end)
+				end)
+			end
+		end
+		pcall(function() TASK:JoinCoroutines(turn) end)
+		GAME:WaitFrames(20)
+
+		--Plum se releve et debite sa tirade sans reprendre son souffle.
+		pcall(function() GROUND:CharEndAnim(plum) end)
+		pcall(function() GeneralFunctions.Hop(plum) end)
+		UI:SetSpeaker(plum)
+		UI:SetSpeakerEmotion("Pain")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_P01']))
+		UI:SetSpeakerEmotion("Sad")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_P02']))
+		UI:SetSpeakerEmotion("Determined")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_P03']))
+		GAME:WaitFrames(15)
+
+		--5. LA REACTION DE GROUPE. Meme instant, emotes DIFFERENTES :
+		--l'agacement de Penticus n'est pas la gene de Coco. Decalage de
+		--4 frames pour que ca ondule au lieu de claquer d'un bloc.
+		local react = {
+			{t.penticus, "Sweatdrop"}, {t.rin, "Sweating"},
+			{t.phileas, "Sweatdrop"},  {t.coco, "Sweating"},
+			{t.ganlon, "Question"},    {t.shuca, "Exclaim"},
+			{t.kino, "Sweatdrop"},     {t.reinier, "Sweating"},
+			{t.hyko, "Question"},      {t.almotz, "Exclaim"},
+			{partner, "Sweatdrop"},
+		}
+		local rc = {}
+		for i, r in ipairs(react) do
+			if r[1] ~= nil then
+				rc[#rc+1] = TASK:BranchCoroutine(function()
+					pcall(function()
+						GAME:WaitFrames((i - 1) * 4)
+						GeneralFunctions.EmoteAndPause(r[1], r[2], i == 1)
+					end)
+				end)
+			end
+		end
+		pcall(function() TASK:JoinCoroutines(rc) end)
+
+		GeneralFunctions.HeroDialogue(hero, "(...Elle nous a suivis depuis Metano.[pause=20] A pied.)", "Sweating")
+		GAME:WaitFrames(15)
+
+		--Penticus tranche, en maitre de guilde : il ne la renvoie pas la
+		--nuit, sur une montagne. Il constate, et il l'installe.
+		pcall(function() GROUND:CharTurnToCharAnimated(t.penticus, plum, 4) end)
+		UI:SetSpeaker(t.penticus)
+		UI:SetSpeakerEmotion("Sigh")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_P04']))
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_P05']))
+		GAME:WaitFrames(12)
+
+		--Coco l'adopte immediatement : c'est sa maniere a elle.
+		pcall(function() GROUND:CharTurnToCharAnimated(t.coco, plum, 4) end)
+		UI:SetSpeaker(t.coco)
+		UI:SetSpeakerEmotion("Happy")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_P06']))
+		pcall(function() GeneralFunctions.EmoteAndPause(plum, "Happy", true) end)
+		UI:SetSpeaker(plum)
+		UI:SetSpeakerEmotion("Joyous")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_P07']))
+		GAME:WaitFrames(15)
+
+		--Elle rejoint le cercle, a une place LIBRE (verifiee marchable,
+		-->=34 px de tout le monde). Plus de course : elle marche, elle
+		--est cuite.
+		--(280,252) : 50 px du convive le plus proche, 40 px du feu, sol
+		--libre verifie. Position mesuree, pas estimee — l'ancienne (288,282)
+		--tombait a 20 px d'Almotz et 32 px du heros, soit deux sprites qui
+		--se chevauchent.
+		pcall(function() GeneralFunctions.EightWayMove(plum, 280, 252, false, 1) end)
+		pcall(function() GROUND:CharAnimateTurnTo(plum, Direction.UpLeft, 4) end)
+		UI:ResetSpeaker()
+		GAME:WaitFrames(20)
+	end
+
 	-- 5. LE SILENCE — le heros et la montagne
 	--La conversation retombe. Le heros fixe le sommet ; le partenaire
 	--est le seul a le remarquer. Fil rouge de la « sensation etrange »
@@ -881,6 +1063,147 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	end)
 	TASK:JoinCoroutines(toBeds)
 	GAME:WaitFrames(10)
+
+	-- 8bis. LES HISTOIRES QUI FONT PEUR — les jeunes sur leurs paillasses
+	--
+	-- Demande explicite du brief. Trois recits ORIGINAUX, ecrits pour New
+	-- Era : aucun n'est repris d'une creation existante. Ils s'appuient
+	-- sur ce que la carte a deja etabli — le vent qui ne s'arrete jamais,
+	-- la montagne qu'on gravit demain — donc ils font peur ICI et nulle
+	-- part ailleurs. Chacun surenchérit sur le precedent : c'est la
+	-- mecanique reelle d'une veillee entre gamins.
+	--
+	-- Ils chuchotent : le camp dort, et c'est justement l'interdit qui
+	-- rend l'echange savoureux. Phileas, de garde, entend tout.
+	local jeunes = {t.shuca, t.almotz, t.hyko}
+	pcall(function()
+		--Shuca commence. Elle se redresse sur sa couche : le corps parle
+		--avant la bouche.
+		if t.shuca ~= nil then
+			GROUND:CharEndAnim(t.shuca)
+			GROUND:CharTurnToCharAnimated(t.shuca, t.almotz, 4)
+		end
+	end)
+	UI:SetSpeaker(t.shuca)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_H01']))
+	GAME:WaitFrames(14)
+	UI:SetSpeakerEmotion("Sad")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_H02']))
+	GAME:WaitFrames(18)
+
+	--Almotz surenchérit — il ne veut pas avoir l'air impressionne.
+	pcall(function()
+		if t.almotz ~= nil then
+			GROUND:CharEndAnim(t.almotz)
+			GROUND:CharTurnToCharAnimated(t.almotz, t.shuca, 4)
+			GeneralFunctions.EmoteAndPause(t.almotz, "Exclaim", true)
+		end
+	end)
+	UI:SetSpeaker(t.almotz)
+	UI:SetSpeakerEmotion("Determined")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_H03']))
+	GAME:WaitFrames(12)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_H04']))
+	GAME:WaitFrames(18)
+
+	--Hyko, le garde, se veut rationnel — et se trahit sur la fin.
+	pcall(function()
+		if t.hyko ~= nil then
+			GROUND:CharEndAnim(t.hyko)
+			GROUND:CharTurnToCharAnimated(t.hyko, t.almotz, 4)
+		end
+	end)
+	UI:SetSpeaker(t.hyko)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_H05']))
+	GAME:WaitFrames(10)
+	pcall(function() GeneralFunctions.EmoteAndPause(t.hyko, "Sweatdrop", true) end)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_H06']))
+	GAME:WaitFrames(16)
+
+	--Le heros commente, court : il ecoute sans intervenir.
+	GeneralFunctions.HeroDialogue(hero, "(Ils vont s'empecher de dormir tout seuls.)", "Sweating")
+	GAME:WaitFrames(14)
+
+	-- PHILEAS INTERVIENT. Il est de garde a 96 px au nord : il entend, il
+	-- se tourne, il gronde depuis son poste — il ne traverse pas le camp
+	-- pour trois gamins qui chuchotent.
+	pcall(function()
+		if t.phileas ~= nil then
+			GROUND:CharTurnToCharAnimated(t.phileas, t.almotz, 4)
+			GeneralFunctions.EmoteAndPause(t.phileas, "Angry", true)
+		end
+	end)
+	local ecoute = {}
+	for i, who in ipairs(jeunes) do
+		if who ~= nil then
+			ecoute[#ecoute+1] = TASK:BranchCoroutine(function()
+				pcall(function()
+					GAME:WaitFrames((i - 1) * 5)
+					GROUND:CharTurnToCharAnimated(who, t.phileas, 4)
+					GeneralFunctions.EmoteAndPause(who, "Sweatdrop", i == 1)
+				end)
+			end)
+		end
+	end
+	pcall(function() TASK:JoinCoroutines(ecoute) end)
+	UI:SetSpeaker(t.phileas)
+	UI:SetSpeakerEmotion("Angry")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_H07']))
+	GAME:WaitFrames(12)
+
+	-- LE GAG : il cite Kino en exemple. Kino DORT DEJA, et profondement.
+	-- Le decalage doit se VOIR : la camera va le chercher pendant que
+	-- Phileas parle de lui, et on le trouve ecrase sur sa paillasse.
+	pcall(function()
+		if t.kino ~= nil then
+			GROUND:CharSetAnim(t.kino, "Sleep", true)
+		end
+	end)
+	UI:SetSpeaker(t.phileas)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_H08'], t.kino:GetDisplayName()))
+
+	--La camera part sur Kino PENDANT que la phrase resonne encore.
+	pcall(function() GAME:MoveCamera(seatX(bedOf[t.kino]), seatY(bedOf[t.kino]), 32, false) end)
+	GAME:WaitFrames(20)
+	--Kino dort a poings fermes. Pas d'emote « Sleeping » : elle n'existe
+	--pas dans EmoteAndPause (GeneralFunctions:438-482), le else final
+	--l'aurait rendue en goutte de sueur — contresens. L'anim Sleep suffit,
+	--et c'est elle qui porte le gag : on le VOIT dormir.
+	GAME:WaitFrames(45)
+
+	--Les trois regardent Kino, puis se recouchent sans un mot.
+	local vers = {}
+	for i, who in ipairs(jeunes) do
+		if who ~= nil then
+			vers[#vers+1] = TASK:BranchCoroutine(function()
+				pcall(function()
+					GAME:WaitFrames((i - 1) * 6)
+					GROUND:CharTurnToCharAnimated(who, t.kino, 4)
+				end)
+			end)
+		end
+	end
+	pcall(function() TASK:JoinCoroutines(vers) end)
+	GAME:WaitFrames(18)
+
+	GeneralFunctions.HeroDialogue(hero, "(...Il ronflait deja pendant l'histoire.)", "Sweating")
+	GAME:WaitFrames(15)
+
+	--Retour au cadre du camp, et Shuca rend les armes.
+	pcall(function() GAME:MoveCamera(256, 240, 36, false) end)
+	UI:SetSpeaker(t.shuca)
+	UI:SetSpeakerEmotion("Sigh")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_H09']))
+	GAME:WaitFrames(12)
+	pcall(function()
+		if t.shuca ~= nil then GROUND:CharSetAnim(t.shuca, "Sleep", true) end
+	end)
+	GAME:WaitFrames(20)
 
 	GROUND:CharTurnToCharAnimated(t.hyko, t.almotz, 4)
 	GROUND:CharTurnToCharAnimated(t.almotz, t.hyko, 4)
@@ -1148,6 +1471,22 @@ function mount_windswept_entrance_ch_5.ResumeAfterDreamBody()
 		{'Cranidos',  B[4][1]  + 13, B[4][2]  + 10, Direction.Left}
 	})
 
+	--PLUM DORT AUSSI. Elle est arrivee la veille au soir (section 4bis) :
+	--si on ne la recree pas ici, elle disparaitrait du camp entre le
+	--coucher et le reveil, sans un mot — le joueur le remarquerait.
+	--Elle n'a pas de paillasse (elle n'etait pas prevue) : elle dort
+	--roulee en boule pres du foyer, ce qui est exactement son entree en
+	--matiere. (272,238) : sol libre verifie, >=36 px de tous les dormeurs.
+	local plumMorning = nil
+	pcall(function()
+		plumMorning = CharacterEssentials.MakeCharactersFromList({
+			{'Jigglypuff', 272, 238, Direction.Left}
+		})
+		if plumMorning ~= nil then
+			GROUND:CharSetAnim(plumMorning, "Sleep", true)
+		end
+	end)
+
 	--Le duo sur ses couches : partenaire 5, heros 6 (voisines de 50 px,
 	--pour que la camera puisse les cadrer ensemble).
 	GROUND:TeleportTo(partner, B[8][1] + 13, B[8][2] + 10, Direction.UpRight)
@@ -1396,9 +1735,26 @@ function mount_windswept_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 	GROUND:CharEndAnim(t.coco)
 	GROUND:CharEndAnim(t.penticus)
 	-- LE FEU BRULE ENCORE AU REVEIL, ET LES SPRITES SONT GRANDS.
+	--
+	-- BUG CORRIGE (signale en jeu : « au reveil dans mont windsep penticus
+	-- est devant audino immobile c'est pas beau et pas esthetique &
+	-- illogique »). Penticus etait teleporte en (252,268) et Rin en
+	-- (240,262) : 13,4 px d'ecart, mesures. Un sprite de Pokemon fait
+	-- 24 a 32 px de large — le maitre de guilde etait donc litteralement
+	-- PLANTE DANS Rin, et comme il est teleporte APRES elle, il passait
+	-- devant : Rin disparaissait sous lui.
+	--
+	-- Illogique aussi, et c'est le vrai reproche : Penticus dirige
+	-- l'expedition. Au reveil il n'est pas colle a la cuisiniere, il est
+	-- DEBOUT PRES DU FOYER, face au camp qu'il va mettre en route.
+	--
+	-- Nouvelle place (286,216) : 65 px de Rin, 30 px du feu, sol libre
+	-- verifie (Tags==0), dans le cadre de la camera (256,240). Il regarde
+	-- vers l'ouest, c'est-a-dire vers les dormeurs qu'il s'apprete a
+	-- reveiller — orientation coherente avec ce qu'il fait ensuite.
 	GROUND:TeleportTo(t.rin, 240, 262, Direction.UpRight)
 	GROUND:TeleportTo(t.coco, 298, 250, Direction.Left)
-	GROUND:TeleportTo(t.penticus, 252, 268, Direction.Up)
+	GROUND:TeleportTo(t.penticus, 286, 216, Direction.Left)
 	GROUND:TeleportTo(t.phileas, 240, 166, Direction.Down)
 	pcall(function() GROUND:CharSetAnim(t.phileas, "Sleep", true) end)
 	GAME:MoveCamera(256, 240, 1, false)

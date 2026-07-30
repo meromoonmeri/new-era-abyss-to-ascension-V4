@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -532,5 +532,53 @@
   </data>
   <data name="MWE5_198" xml:space="preserve">
     <value>Go back to sleep.[pause=20] I'll stay awake.[pause=25] As long as someone keeps watch,[pause=15] no one wakes alone.</value>
+  </data>
+  <data name="MWE5_P01" xml:space="preserve">
+    <value>Haah...[pause=20] I made it...[pause=0] I finally made it...[pause=15] just let me...[pause=10] let me breathe...</value>
+  </data>
+  <data name="MWE5_P02" xml:space="preserve">
+    <value>I walked all the way from Metano![pause=0] FROM METANO![pause=15] I lost sight of you at the very first bend,[pause=10] so I asked for directions.[pause=0] Eleven times.</value>
+  </data>
+  <data name="MWE5_P03" xml:space="preserve">
+    <value>And I was SO bored back there.[pause=0] You all head off on an adventure,[pause=10] and I stay behind counting clouds?[pause=15] Absolutely not.</value>
+  </data>
+  <data name="MWE5_P04" xml:space="preserve">
+    <value>...Eleven times.[pause=25] And nobody thought to send you back?</value>
+  </data>
+  <data name="MWE5_P05" xml:space="preserve">
+    <value>Right.[pause=20] We're not sending anyone down that trail at this hour.[pause=15] You eat, you sleep, and we'll see about tomorrow.</value>
+  </data>
+  <data name="MWE5_P06" xml:space="preserve">
+    <value>There's soup left![pause=0] And by the look of those paws,[pause=10] you'll be needing two helpings.</value>
+  </data>
+  <data name="MWE5_P07" xml:space="preserve">
+    <value>Two helpings?![pause=15] ...Worth the walk.</value>
+  </data>
+  <data name="MWE5_H01" xml:space="preserve">
+    <value>Say...[pause=20] do you know why the wind never stops up here?</value>
+  </data>
+  <data name="MWE5_H02" xml:space="preserve">
+    <value>My grandmother said there's something at the very top,[pause=10] breathing.[pause=25] And the wind is just its breath coming back down.</value>
+  </data>
+  <data name="MWE5_H03" xml:space="preserve">
+    <value>Pff, that's nothing![pause=0] I know a REAL one.</value>
+  </data>
+  <data name="MWE5_H04" xml:space="preserve">
+    <value>They say an explorer got lost on this cliff face.[pause=15] He shouted for three days.[pause=20][br]And ever since,[pause=10] when the wind turns,[pause=10] you can still hear his echo...[pause=25] but it never answers when you call back.</value>
+  </data>
+  <data name="MWE5_H05" xml:space="preserve">
+    <value>Those are campfire stories.[pause=0] An echo is an echo.[pause=15] There's nothing up there but rock and cold.</value>
+  </data>
+  <data name="MWE5_H06" xml:space="preserve">
+    <value>...That said,[pause=15] I'll be sleeping facing the fire tonight.</value>
+  </data>
+  <data name="MWE5_H07" xml:space="preserve">
+    <value>Hoo.[pause=25] Little rascals.[pause=0] It's past midnight,[pause=10] and you're climbing a mountain tomorrow.</value>
+  </data>
+  <data name="MWE5_H08" xml:space="preserve">
+    <value>Take a page from {0}.[pause=20] Now there's someone who knows how to turn in when told.</value>
+  </data>
+  <data name="MWE5_H09" xml:space="preserve">
+    <value>...Fine.[pause=20] Fine, I'm sleeping.</value>
   </data>
 </root>

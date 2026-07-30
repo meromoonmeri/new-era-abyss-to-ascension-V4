@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -532,5 +532,53 @@
   </data>
   <data name="MWE5_198" xml:space="preserve">
     <value>Rendors-toi.[pause=20] Je reste éveillé.[pause=25] Tant que quelqu'un veille,[pause=15] personne ne se réveille seul.</value>
+  </data>
+  <data name="MWE5_P01" xml:space="preserve">
+    <value>Aaah...[pause=20] j'y suis...[pause=0] j'y suis enfin...[pause=15] laissez-moi...[pause=10] laissez-moi juste respirer...</value>
+  </data>
+  <data name="MWE5_P02" xml:space="preserve">
+    <value>J'ai marché depuis Metano ![pause=0] DEPUIS METANO ![pause=15] Je vous ai perdus de vue au premier virage,[pause=10] alors j'ai demandé mon chemin.[pause=0] Onze fois.</value>
+  </data>
+  <data name="MWE5_P03" xml:space="preserve">
+    <value>Et je m'ennuyais TELLEMENT là-bas.[pause=0] Vous partez tous à l'aventure,[pause=10] et moi je reste à compter les nuages ?[pause=15] Sûrement pas.</value>
+  </data>
+  <data name="MWE5_P04" xml:space="preserve">
+    <value>...Onze fois.[pause=25] Et personne n'a pensé à te dire de faire demi-tour ?</value>
+  </data>
+  <data name="MWE5_P05" xml:space="preserve">
+    <value>Bon.[pause=20] On ne renvoie personne sur ce sentier à cette heure-ci.[pause=15] Tu manges, tu dors, et demain on avise.</value>
+  </data>
+  <data name="MWE5_P06" xml:space="preserve">
+    <value>Il reste de la soupe ![pause=0] Et vu l'état de tes pattes,[pause=10] tu vas en avoir besoin de deux parts.</value>
+  </data>
+  <data name="MWE5_P07" xml:space="preserve">
+    <value>Deux parts ?![pause=15] ...Ça valait le coup de marcher.</value>
+  </data>
+  <data name="MWE5_H01" xml:space="preserve">
+    <value>Dites...[pause=20] vous savez pourquoi le vent ne s'arrête jamais, ici ?</value>
+  </data>
+  <data name="MWE5_H02" xml:space="preserve">
+    <value>Ma grand-mère disait qu'il y a quelque chose, tout en haut,[pause=10] qui respire.[pause=25] Et que le vent,[pause=10] c'est juste son souffle qui redescend.</value>
+  </data>
+  <data name="MWE5_H03" xml:space="preserve">
+    <value>Pfff, c'est rien du tout, ça ![pause=0] Moi j'en connais une VRAIE.</value>
+  </data>
+  <data name="MWE5_H04" xml:space="preserve">
+    <value>On raconte qu'un explorateur s'est perdu sur cette paroi.[pause=15] Il a crié pendant trois jours.[pause=20][br]Et depuis,[pause=10] quand le vent tourne,[pause=10] on entend encore son écho...[pause=25] mais il répond jamais quand on l'appelle.</value>
+  </data>
+  <data name="MWE5_H05" xml:space="preserve">
+    <value>Ce sont des histoires de veillée.[pause=0] Un écho, c'est un écho.[pause=15] Il n'y a rien là-haut à part de la roche et du froid.</value>
+  </data>
+  <data name="MWE5_H06" xml:space="preserve">
+    <value>...Cela dit,[pause=15] je vais quand même dormir tourné vers le feu.</value>
+  </data>
+  <data name="MWE5_H07" xml:space="preserve">
+    <value>Hou.[pause=25] Petits garnements.[pause=0] Il est minuit passé,[pause=10] et vous grimpez une montagne demain.</value>
+  </data>
+  <data name="MWE5_H08" xml:space="preserve">
+    <value>Prenez donc exemple sur {0}.[pause=20] Voilà quelqu'un qui sait se coucher quand on le lui dit.</value>
+  </data>
+  <data name="MWE5_H09" xml:space="preserve">
+    <value>...D'accord.[pause=20] D'accord, je dors.</value>
   </data>
 </root>
