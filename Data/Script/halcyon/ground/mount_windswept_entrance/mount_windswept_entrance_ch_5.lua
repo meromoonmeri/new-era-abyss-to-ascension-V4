@@ -1072,6 +1072,25 @@ end
 -- recopie ici a l'identique. Les deux doivent rester d'accord : si l'un
 -- change, l'autre aussi.
 function mount_windswept_entrance_ch_5.ResumeAfterDream()
+	--SORTIE GARANTIE — meme patron que DreamScene wrapper. Ce chemin
+	--recree les dix PNJ (MakeCharactersFromList) et teleporte heros et
+	--partenaire EN BRUT, entierement SOUS L'ECRAN NOIR (hero_dream est
+	--parti dessus, l'Init et cette fonction le reposent) : la moindre
+	--erreur y laissait le joueur fige sur noir, mode cinematique actif,
+	--sans recours — un « black screen au coucher » de plus. Une scene
+	--du matin degradee vaut mieux qu'une partie gelee : on trace, on
+	--cloture l'intro (pour ne pas rejouer la veillee en boucle), on
+	--rend la main et on rallume.
+	local okR, errR = pcall(mount_windswept_entrance_ch_5.ResumeAfterDreamBody)
+	if not okR then
+		PrintInfo('[MWE5] recompositon du camp ecourtee : '..tostring(errR))
+		pcall(function() SV.Chapter5.FinishedMountWindsweptIntro = true end)
+		pcall(function() GAME:CutsceneMode(false) end)
+		pcall(function() GAME:FadeIn(20) end)
+	end
+end
+
+function mount_windswept_entrance_ch_5.ResumeAfterDreamBody()
 	local hero = CH('PLAYER')
 	local partner = CH('Teammate1')
 	local B = mount_windswept_entrance_ch_5.BEDS
@@ -1128,6 +1147,21 @@ function mount_windswept_entrance_ch_5.ResumeAfterDream()
 end
 
 function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
+	--SORTIE GARANTIE — meme patron que DreamScene wrapper et
+	--ResumeAfterDream. La scene du matin est une longue chaine de
+	--dialogues en brut qui s'ouvre SOUS LE NOIR : si elle meurt avant
+	--son FadeIn(45), le joueur reste sur un ecran noir sans recours.
+	--On trace et on rallume plutot que de geler la partie.
+	local okM, errM = pcall(mount_windswept_entrance_ch_5.MorningAfterDreamBody, hero, partner, t)
+	if not okM then
+		PrintInfo('[MWE5] scene du matin ecourtee : '..tostring(errM))
+		pcall(function() SV.Chapter5.FinishedMountWindsweptIntro = true end)
+		pcall(function() GAME:CutsceneMode(false) end)
+		pcall(function() GAME:FadeIn(20) end)
+	end
+end
+
+function mount_windswept_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 	local B = mount_windswept_entrance_ch_5.BEDS
 	local mountain = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('mount_windswept')
 	local ruins = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('cloven_ruins')
