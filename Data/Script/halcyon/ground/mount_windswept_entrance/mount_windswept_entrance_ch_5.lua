@@ -1592,6 +1592,16 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--une fraction de seconde avant de partir. hero_dream.DreamScene le
 	--repose immediatement de son cote.
 	SV.Chapter5.CampNightWatchDone = true
+	--TRACE DE DIAGNOSTIC. Tu as signale « je n'ai pas vu la cinematique du
+	--reve ». Le cablage est correct (verifie : hero_dream est en position
+	--51 de master_zone.GroundMaps, Enter appelle DreamScene, la bascule
+	--retour existe) — mais sans trace, impossible de distinguer en jeu
+	--entre « la veillee ne va jamais jusqu'ici » et « le preflight refuse
+	--la bascule ». Ces deux lignes tranchent la question dans le log :
+	--si la premiere apparait sans la seconde, c'est le preflight ; si
+	--aucune n'apparait, la veillee s'est arretee avant (c'etait le cas
+	--au build H : le crash de portrait bloquait des l'arrivee au camp).
+	PrintInfo('[MWE5] fin de veillee — preparation de la bascule vers hero_dream')
 	--VERIFICATION PREALABLE DU CHARGEMENT, FAITE AVANT D'ARMER LA BASCULE.
 	--EnterGroundMap est un iterateur C# PARESSEUX (ScriptGame.cs : il se
 	--contente de construire la coroutine MoveToGround, sans executer la
@@ -1656,6 +1666,7 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	end
 	--Bascule normale. Le pcall est conserve en ceinture (il ne peut
 	--rien attraper de la bascule elle-meme), il ne coute rien.
+	PrintInfo('[MWE5] preflight reve OK — bascule armee vers hero_dream')
 	local okDream, errDream = pcall(function()
 		GAME:EnterGroundMap('hero_dream', 'Main_Entrance_Marker', true)
 	end)
@@ -2163,11 +2174,28 @@ function mount_windswept_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 	--arrive pas. C'est la reprise du dispositif de Rouge/Bleu — le reve
 	--s'efface a la seconde ou on se reveille, et seul le SENTIMENT reste.
 	--
-	--Comme les trois pensees du reveil nocturne, elles passent par
-	--HeroDialogue : ce sont des pensees du heros, elles portent donc son
+	--MWE5_085 RETIREE (« Une ombre... Elle me parlait comme si elle me
+	--connaissait. »). Deux raisons, et la premiere est la tienne :
+	--  * elle DECRIT Gardevoir comme « une ombre ». Cette formulation
+	--    datait d'une version ou le sprite ne s'affichait pas : le texte
+	--    compensait alors une image absente. Le sprite s'affiche
+	--    desormais (hero_dream cree un GroundChar gardevoir, sprites
+	--    fournis nativement par PMDO) — le joueur a VU une silhouette
+	--    nette, verte et blanche, pas une ombre. La replique contredisait
+	--    donc l'ecran.
+	--  * elle cassait le dispositif d'oubli qu'elle est censee servir :
+	--    le heros y restitue le contenu du reve (« petit echo ») ET son
+	--    intention, alors que tout l'interet est qu'il n'en garde QUE le
+	--    sentiment. Les trois pensees du reveil nocturne (MWE5_155-157)
+	--    disent deja l'oubli, correctement.
+	--
+	--MWE5_086 reste : elle ne decrit rien du reve, elle dit l'apres — le
+	--vent, le camp qui dort, et qu'il faut se rendormir. C'est le bon
+	--registre.
+	--
+	--Comme les trois pensees du reveil nocturne, elle passe par
+	--HeroDialogue : c'est une pensee du heros, elle porte donc son
 	--portrait. Seule la narration d'acte (sur fondu) reste centree.
-	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_085']), "Worried")
-	GAME:WaitFrames(20)
 	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_086']), "Sad")
 	UI:ResetSpeaker()
 	GAME:WaitFrames(25)

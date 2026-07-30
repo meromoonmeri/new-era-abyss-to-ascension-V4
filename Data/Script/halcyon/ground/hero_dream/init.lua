@@ -43,7 +43,7 @@ local hero_dream = {}
 -- Map Callbacks
 function hero_dream.Init(map)
   DEBUG.EnableDbgCoro()
-  print('=>> Init_hero_dream <<= [build 2026-08-03-J]')
+  print('=>> Init_hero_dream <<= [build 2026-08-03-K]')
 
   --L'ECRAN EST NOIR AVANT LE PREMIER RENDU.
   --Le moteur ne pose aucun fondu entre deux cartes : moveToZoneInit
@@ -87,6 +87,10 @@ function hero_dream.Init(map)
 end
 
 function hero_dream.Enter(map)
+  --Trace d'entree : si cette ligne apparait dans le log, la bascule a
+  --bien abouti et la scene demarre. Son absence, alors que le camp a
+  --logue « bascule armee », signifierait un echec cote moteur.
+  PrintInfo('[hero_dream] Enter — la scene du reve demarre')
   hero_dream.DreamScene()
 end
 
