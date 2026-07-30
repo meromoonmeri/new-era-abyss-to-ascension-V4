@@ -505,3 +505,23 @@ Conclusion actee : pas d'asset de tente reutilisable -> le camp reste raconte pa
 - Valide : luac OK, audit 0 defaut, BFS marker->feu->portail OK, rendu PNG controle. NON teste en jeu (pas d'executable dans la sandbox) : retest joueur requis.
 
 ### Rappel : retest en jeu des 5 bugs (31dce6b) + ocean (174df36) a faire par le joueur sur la save v6.
+
+
+## Audit v2 transition Creuset -> Mont Venteux + crash reve (2026-07-30, build -W)
+
+### Verdict principal : le depot etait deja correct — le jeu chargeait un master_zone.json ANCIEN
+- `hero_dream` EST declare dans `Data/Zone/master_zone.json` (index 51, 86 GroundMaps) depuis `cb10d10`, appele PAR NOM (`EnterGroundMap('hero_dream','Main_Entrance_Marker',true)`), `Main_Entrance_Marker` present dans le rsground. `Data/Zone/index.idx` contient aussi hero_dream dans le resume `Grounds` de master_zone. Paire idx/json du depot coherente.
+- Preuve moteur definitive (RogueEssence) : deux barriers distinctes dans `MoveToGround` — `GameManager.cs:714` `summary.GroundValid(mapname)` (resume de zone, issu de `index.idx` → `ZoneEntrySummary.Grounds`, ZoneData.cs:294) qui jette `Invalid Ground Map Name`, PUIS `GameManager.cs:730-731` `CurrentZone.GroundMaps.FindIndex` (zone data reellement chargee = master_zone.json) qui jette `Cannot find ground map of name X in zone Y`. Le log du joueur montre le 2e jet : **le resume connaissait hero_dream, la zone chargee non** → les deux fichiers du dossier de jeu n'etaient PAS de la meme version (synchro partielle de mod : index.idx/scripts recents, master_zone.json < cb10d10).
+- Consequence : aucune correction JSON n'etait possible/utile cote depot ; la correction est cote INSTALLATION DU JEU (recopier l'integralite de Data/, verifier la 1re ligne du log `[NREPROBE] build 2026-08-02-W` au lancement).
+
+### Hardening livre (build -W) — 3e garde des preflights reve
+- Nouvelle fonction `zoneConnait(nom)` dans les deux preflights du reve (aller : mount_windswept_entrance_ch_5.lua ; retour : hero_dream/init.lua) : reproduction EXACTE du test de bascule (`_ZONE.CurrentZone.GroundMaps`, public, lie ; ZoneManager.CurrentZone, ZoneManager.cs:73). Si la zone EN MEMOIRE ne connait pas la destination → verdict certain → bascule refusee, repli degrade au camp, log explicite. nil = indecidable (liaison absente) → politique inchangee, on tente quand meme (anti faux negatif).
+- Effet : meme si une future installation joue avec index.idx et master_zone.json desynchronises, plus JAMAIS de cascade NRE ProcessInput : le reve est saute proprement.
+
+### Probleme "flash du creuset" avant le camp — analyse moteur
+- Faits moteur : `GAME:FadeOut(false, 40)` = coroutine BLOQUANTE cote script (ScriptGame.cs Coroutine, "waits to complete"), noir garanti avant l'armement ; la couverture de fondu est GLOBALE et persistante (GameManager fadeScreen dessinee a chaque frame hors chargement, commentaire l.402) ; meme-zone = chargement synchrone (Zone.cs:319 GetGround direct) → aucune frame presentee pendant le bloc de chargement ; l'Init du camp repose `FadeOut(1)` + `CutsceneMode(true)` sans condition avant tout FadeIn. **Aucun chemin du code actuel (-S a -W) ne peut reafficher le creuset.**
+- Le symptome decrit (noir -> bref retour au creuset vide -> bascule) correspond au comportement des builds ANTERIEURES a -S. Meme conclusion que le crash : la build jouee n'est pas celle du depot. Le tag [NREPROBE] tranchera.
+
+### Lecons (formulation corrigee, remplace les versions du prompt externes)
+- L15 revu : une ground map appelee par EnterGroundMap doit etre dans le GroundMaps de la zone — ET les deux fichiers temoins doivent rester synchrones : `master_zone.json` ET `index.idx` (cb10d10 a fait les deux). Le test discriminant dans un log : "Invalid Ground Map Name" = resume ignorant ; "Cannot find ground map of name X in zone Y" = resume sachant mais zone chargee vieille → synchro d'installation en cause, pas le depot.
+- L16-VISUEL revu : `GAME:FadeOut` est bloquant ; l'ordre outro valide ch1-4 = `FadeOut` (noir complet) -> `CutsceneMode(false)` -> `WaitFrames(30)` -> `EnterGroundMap` en DERNIERE ligne, LA CARTE D'ARRIVEE reposant `FadeOut(1)` + `CutsceneMode(true)` dans son Init AVANT tout FadeIn. Un apercu de la carte sortante malgre ce patron = la build jouee n'est pas celle du depot (verifier [NREPROBE]).

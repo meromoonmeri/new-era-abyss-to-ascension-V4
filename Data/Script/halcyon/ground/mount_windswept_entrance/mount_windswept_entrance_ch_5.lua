@@ -1156,10 +1156,35 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--3e cas : si le preflight LUI-MEME est casse (liaison moteur
 	--absente), on tente la bascule quand meme — un risque connu vaut
 	--mieux qu'un reve toujours saute sur un faux negatif.
+	--3e garde (crash reel du 2026-07-30) : LA ZONE EN MEMOIRE doit connaitre
+	--la map — c'est le test que MoveToGround rejoue lui-meme
+	--(GameManager.cs:730-731, CurrentZone.GroundMaps.FindIndex). Ce jour-la,
+	--le resume de zone etait a jour (GroundValid OK) mais la zone chargee
+	--etait ancienne (master_zone.json anterieur a cb10d10) : FindIndex
+	--rendait -1 -> exception -> NRE ProcessInput en boucle. zoneConnait
+	--rend nil si la liaison est absente : indecidable, on ne bloque pas
+	--(politique inchangee : eviter les faux negatifs).
+	local function zoneConnait(nom)
+		local okZ, resZ = pcall(function()
+			local z = _ZONE.CurrentZone
+			if z == nil then return nil end
+			for i = 0, z.GroundMaps.Count - 1 do
+				if tostring(z.GroundMaps[i]) == nom then return true end
+			end
+			return false
+		end)
+		if not okZ then return nil end
+		return resZ
+	end
 	local canDream = true
 	local okPre, resPre = pcall(function()
 		local summary = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('master_zone')
 		if not summary:GroundValid('hero_dream') then return false end
+		local reg = zoneConnait('hero_dream')
+		if reg == false then
+			PrintInfo('[MWE5] hero_dream absente de la ZONE EN MEMOIRE (index.idx et master_zone.json desynchronises cote jeu) — reve saute, retour au camp')
+			return false
+		end
 		return _DATA:GetGround('hero_dream') ~= nil
 	end)
 	if okPre then

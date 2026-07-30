@@ -460,10 +460,33 @@ function hero_dream.DreamScene()
   --arrete le jeu (trace du 2026-07-30). On ne l'arme donc JAMAIS vers une
   --carte non chargeable : on degrade en CHAINE vers des cartes attestees
   --de master_zone, toutes avec Main_Entrance_Marker.
+  --3e garde (meme correctif que l'aller, crash reel du 2026-07-30) : la
+  --ZONE EN MEMOIRE doit connaitre la carte de destination — reproduction
+  --exacte du test de MoveToGround (GameManager.cs:730-731). GroundValid ne
+  --lit que le RESUME (index.idx) ; si le master_zone.json charge par le jeu
+  --est plus vieux que l'index, GroundValid passe et la bascule echoue.
+  --nil = indecidable (liaison absente) => on ne bloque pas.
+  local function zoneConnait(nom)
+    local okZ, resZ = pcall(function()
+      local z = _ZONE.CurrentZone
+      if z == nil then return nil end
+      for i = 0, z.GroundMaps.Count - 1 do
+        if tostring(z.GroundMaps[i]) == nom then return true end
+      end
+      return false
+    end)
+    if not okZ then return nil end
+    return resZ
+  end
   local function groundLoadable(nom)
     local okT, resT = pcall(function()
       local summary = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('master_zone')
       if not summary:GroundValid(nom) then return false end
+      local reg = zoneConnait(nom)
+      if reg == false then
+        PrintInfo('[hero_dream] '..nom..' absente de la ZONE EN MEMOIRE (index.idx et master_zone.json desynchronises cote jeu) — carte non chargeable')
+        return false
+      end
       return _DATA:GetGround(nom) ~= nil
     end)
     if not okT then
