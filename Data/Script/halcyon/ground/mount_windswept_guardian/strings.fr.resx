@@ -28,10 +28,10 @@
     <value>Échoue...[pause=30] et ton voyage s'arrête ici.</value>
   </data>
   <data name="MWG_010" xml:space="preserve">
-    <value>Alors on va lui montrer que notre voyage ne fait que commencer ![pause=10] [player], à nous deux !</value>
+    <value>Alors on va lui montrer que notre voyage ne fait que commencer ![pause=10] {0}, à nous deux !</value>
   </data>
   <data name="MWG_011" xml:space="preserve">
-    <value>Cette fois, on le terrasse.[pause=15] Promis, [player].</value>
+    <value>Cette fois, on le terrasse.[pause=15] Promis, {0}.</value>
   </data>
   <data name="MWG_012" xml:space="preserve">
     <value>On...[pause=10] On l'a vaincu !</value>

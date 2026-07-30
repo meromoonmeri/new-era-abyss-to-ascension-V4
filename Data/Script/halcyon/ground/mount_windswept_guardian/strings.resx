@@ -28,10 +28,10 @@
     <value>Fail...[pause=30] and your journey ends here.</value>
   </data>
   <data name="MWG_010" xml:space="preserve">
-    <value>Then let's show it our journey is just beginning![pause=10] [player], let's do this!</value>
+    <value>Then let's show it our journey is just beginning![pause=10] {0}, let's do this!</value>
   </data>
   <data name="MWG_011" xml:space="preserve">
-    <value>This time, we take it down.[pause=15] I promise, [player].</value>
+    <value>This time, we take it down.[pause=15] I promise, {0}.</value>
   </data>
   <data name="MWG_012" xml:space="preserve">
     <value>We...[pause=10] We beat it!</value>

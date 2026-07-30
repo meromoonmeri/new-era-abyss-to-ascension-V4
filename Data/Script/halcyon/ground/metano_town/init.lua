@@ -2613,7 +2613,11 @@ end
 
 function metano_town.Camerupt_Action(obj, activator)
  DEBUG.EnableDbgCoro() --Enable debugging this coroutine
- assert(pcall(load("metano_town_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Camerupt_Action(...,...)"), obj, activator))
+ GeneralFunctions.ChapterDispatch("metano_town_ch_", "Camerupt_Action", obj, activator,
+    function(c)
+      GeneralFunctions.StartConversation(c, "Les routes sont plus sures depuis que la guilde s'en mele.[pause=15] Merci pour ca.", "Normal")
+      GeneralFunctions.EndConversation(c)
+    end)
 end
 
 function metano_town.Machamp_Action(obj, activator)
@@ -2804,7 +2808,11 @@ end
 
 function metano_town.Audino_Action(obj, activator)
  DEBUG.EnableDbgCoro() --Enable debugging this coroutine
- assert(pcall(load("metano_town_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Audino_Action(...,...)"), obj, activator))
+ GeneralFunctions.ChapterDispatch("metano_town_ch_", "Audino_Action", obj, activator,
+    function(c)
+      GeneralFunctions.StartConversation(c, "Si vous avez besoin de soins,[pause=10] vous savez ou me trouver.", "Happy")
+      GeneralFunctions.EndConversation(c)
+    end)
 end
 
 function metano_town.Zigzagoon_Action(obj, activator)

@@ -11,7 +11,7 @@
   <data name="CRM_005" xml:space="preserve"><value>Et ce colosse...[pause=15] Un Golemastoc ![pause=10] Ils gardent le passage !</value></data>
   <data name="CRM_006" xml:space="preserve"><value>HALTE.[pause=15] Sanctuaire scellé.[pause=15] Aucun vivant ne franchit ce poste.</value></data>
   <data name="CRM_007" xml:space="preserve"><value>...</value></data>
-  <data name="CRM_008" xml:space="preserve"><value>Ils obéissent à une vieille consigne...[pause=15] mais nous devons passer ![pause=10] [hero],[pause=10] en avant !</value></data>
+  <data name="CRM_008" xml:space="preserve"><value>Ils obéissent à une vieille consigne...[pause=15] mais nous devons passer ![pause=10] {0},[pause=10] en avant !</value></data>
   <data name="CRM_009" xml:space="preserve"><value>Les sentinelles se sont rallumées.[pause=15] Cette fois,[pause=10] on passe !</value></data>
   <data name="CRM_010" xml:space="preserve"><value>CONSIGNE REMPLIE.[pause=20] Les vivants ont prouvé leur passage.</value></data>
   <data name="CRM_011" xml:space="preserve"><value>...</value></data>

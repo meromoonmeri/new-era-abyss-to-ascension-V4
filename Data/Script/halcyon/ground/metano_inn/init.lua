@@ -6,6 +6,7 @@
 -- Commonly included lua functions and data
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
+require 'halcyon.GeneralFunctions'--ChapterDispatch (repli des PNJ permanents hors chapitres couverts)
 require 'halcyon.ground.metano_inn.metano_inn_ch_2'
 require 'halcyon.ground.metano_inn.metano_inn_ch_3'
 require 'halcyon.ground.metano_inn.metano_inn_ch_4'
@@ -106,7 +107,11 @@ function metano_inn.Nidoking_Action(chara, activator)
   --ils resteraient muets sur un raid, alors qu'ils l'ont vecu aussi.
   if TownVoicesNight.Talk('Nidoking') then return end
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-  assert(pcall(load("metano_inn_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Nidoking_Action(...,...)"), chara, activator))
+  GeneralFunctions.ChapterDispatch("metano_inn_ch_", "Nidoking_Action", chara, activator,
+    function(c)
+      GeneralFunctions.StartConversation(c, "Bienvenue a l'auberge ![pause=0] Il reste toujours un lit pour la guilde.", "Happy")
+      GeneralFunctions.EndConversation(c)
+    end)
 end
 
 function metano_inn.Nidoqueen_Action(chara, activator)
@@ -115,7 +120,11 @@ function metano_inn.Nidoqueen_Action(chara, activator)
   --ils resteraient muets sur un raid, alors qu'ils l'ont vecu aussi.
   if TownVoicesNight.Talk('Nidoqueen') then return end
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-  assert(pcall(load("metano_inn_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Nidoqueen_Action(...,...)"), chara, activator))
+  GeneralFunctions.ChapterDispatch("metano_inn_ch_", "Nidoqueen_Action", chara, activator,
+    function(c)
+      GeneralFunctions.StartConversation(c, "Les chambres sont pretes.[pause=15] Mon mari s'occupe du registre,[pause=10] moi du reste.", "Normal")
+      GeneralFunctions.EndConversation(c)
+    end)
 end
 
 function metano_inn.Nidoran_M_Action(chara, activator)
@@ -129,19 +138,37 @@ function metano_inn.Nidorina_Action(chara, activator)
   --ils resteraient muets sur un raid, alors qu'ils l'ont vecu aussi.
   if TownVoicesNight.Talk('Nidorina') then return end
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-  assert(pcall(load("metano_inn_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Nidorina_Action(...,...)"), chara, activator))
+  GeneralFunctions.ChapterDispatch("metano_inn_ch_", "Nidorina_Action", chara, activator,
+    function(c)
+      GeneralFunctions.StartConversation(c, "J'aide a l'auberge quand je peux ![pause=0] Enfin...[pause=10] surtout quand papa regarde.", "Happy")
+      GeneralFunctions.EndConversation(c)
+    end)
 end
 
 
 --the innkeeper desks are what you use to talk to the NPC behind the desk
+--Les deux comptoirs sont des GroundObjects PERMANENTS du .rsground
+--(triggerType 1). Il n'existe de fichier de chapitre que pour ch2 a ch5 :
+--du ch6 au ch10 l'auberge etait donc totalement muette, alors que c'est un
+--service de la ville. Repli ajoute via GeneralFunctions.ChapterDispatch.
 function metano_inn.Innkeeper_Desk_Left_Action(chara, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-  assert(pcall(load("metano_inn_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Innkeeper_Desk_Left_Action(...,...)"), chara, activator))
+  GeneralFunctions.ChapterDispatch("metano_inn_ch_", "Innkeeper_Desk_Left_Action", chara, activator,
+    function(c)
+      GeneralFunctions.StartConversation(c, "Une chambre ?[pause=0] Il y a toujours de la place pour la guilde.", "Happy")
+      UI:WaitShowDialogue("Reposez-vous autant qu'il vous faut.[pause=15] La route ne va nulle part sans vous.")
+      GeneralFunctions.EndConversation(c)
+    end)
 end
 
 function metano_inn.Innkeeper_Desk_Right_Action(chara, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-  assert(pcall(load("metano_inn_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Innkeeper_Desk_Right_Action(...,...)"), chara, activator))
+  GeneralFunctions.ChapterDispatch("metano_inn_ch_", "Innkeeper_Desk_Right_Action", chara, activator,
+    function(c)
+      GeneralFunctions.StartConversation(c, "Le registre est a jour,[pause=10] si c'est ce que vous cherchez.", "Normal")
+      UI:WaitShowDialogue("Beaucoup de passage ces temps-ci.[pause=15] Des tetes qu'on ne connait pas.")
+      GeneralFunctions.EndConversation(c)
+    end)
 end
 
 

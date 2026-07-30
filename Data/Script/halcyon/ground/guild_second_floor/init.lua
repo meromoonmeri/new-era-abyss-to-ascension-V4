@@ -692,7 +692,11 @@ end
 
 function guild_second_floor.Noctowl_Action(chara, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-  assert(pcall(load("guild_second_floor_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Noctowl_Action(...,...)"), chara, activator))
+  GeneralFunctions.ChapterDispatch("guild_second_floor_ch_", "Noctowl_Action", chara, activator,
+    function(c)
+      GeneralFunctions.StartConversation(c, "Le tableau des missions est a jour.[pause=15] Prenez ce qui vous convient.", "Normal")
+      GeneralFunctions.EndConversation(c)
+    end)
 end
 
 function guild_second_floor.Camerupt_Action(chara, activator)

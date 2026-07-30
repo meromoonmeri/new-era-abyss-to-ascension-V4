@@ -48,7 +48,7 @@ function metano_town_ch_10.Noctowl_Action(chara, activator)
         GeneralFunctions.EndConversation(chara)
     elseif s == "post_vision" then
         GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Noctowl_010']))
-        UI:SetSpeakerEmotion("Shock"); UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT10_Noctowl_011']))
+        UI:SetSpeakerEmotion("Surprised"); UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT10_Noctowl_011']))
         UI:SetSpeakerEmotion("Determined"); UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT10_Noctowl_012']))
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT10_Noctowl_013']))
         UI:SetSpeakerEmotion("Normal"); UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT10_Noctowl_014']))

@@ -75,7 +75,7 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Normal")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_002']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_002'], hero:GetDisplayName()))
   -- "Tu entends ça, [hero] ? On dirait... de la vapeur sous pression."
 
   GAME:WaitFrames(30)
@@ -336,7 +336,7 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Determined")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_010']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_010'], hero:GetDisplayName()))
   -- "On n'a pas fait tout ce chemin pour rien ! [hero], en avant !"
 
   COMMON.BossTransition()

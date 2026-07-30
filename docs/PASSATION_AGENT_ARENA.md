@@ -343,7 +343,7 @@ Assets présents : `Dream_Back.dir`, `Dream_Front.dir` (192×240, 63 frames).
 
 ## 9. OUTILS (tools/) — INVENTAIRE COMPLET
 
-**41 scripts au total.** Ils se rangent en quatre familles. Les VÉRIFICATEURS
+**54 scripts au total** *(recompté le 2026-07-30 ; la valeur 41 datait d'une session antérieure).* Ils se rangent en quatre familles. Les VÉRIFICATEURS
 tournent avant chaque commit ; les autres sont des outils ponctuels, gardés
 comme référence de méthode.
 
@@ -449,7 +449,7 @@ pas à jour — voir §0.
 | ch | boîtes | objectif |
 |---|---|---|
 | 1-4 | 2481 | — |
-| 5 | 1480 | 7000 |
+| 5 | 1586 | 7000 |
 | 6 | **457** | 7000 |
 | 7 | **397** | 7000 |
 | 8 | **324** | 7000 |

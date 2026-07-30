@@ -6,6 +6,7 @@
 -- Commonly included lua functions and data
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
+require 'halcyon.GeneralFunctions'--ChapterDispatch (repli des PNJ permanents hors chapitres couverts)
 require 'halcyon.ground.metano_cave.metano_cave_ch_2'
 require 'halcyon.ground.metano_cave.metano_cave_ch_3'
 require 'halcyon.ground.metano_cave.metano_cave_ch_4'
@@ -108,9 +109,17 @@ end
 -- Entities Callbacks
 -------------------------------
 
+--Sunflora est un MapChar PERMANENT du .rsground (triggerType 1). Il
+--n'existe de fichier de chapitre que pour ch2 a ch4 : muet au ch1 et du
+--ch5 au ch10, soit la majorite de la partie.
 function metano_cave.Sunflora_Action(chara, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-  assert(pcall(load("metano_cave_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Sunflora_Action(...,...)"), chara, activator))
+  GeneralFunctions.ChapterDispatch("metano_cave_ch_", "Sunflora_Action", chara, activator,
+    function(c)
+      GeneralFunctions.StartConversation(c, "Il fait sombre ici,[pause=10] mais on s'y habitue.[pause=0] Et puis c'est calme.", "Normal")
+      UI:WaitShowDialogue("Chacun sa lumiere,[pause=10] pas vrai ?[pause=15] La mienne, je la garde a l'interieur.")
+      GeneralFunctions.EndConversation(c)
+    end)
 end
 
 function metano_cave.Oddish_Action(chara, activator)

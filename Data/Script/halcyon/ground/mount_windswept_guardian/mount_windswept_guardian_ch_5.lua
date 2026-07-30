@@ -305,7 +305,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Determined")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_010']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_010'], hero:GetDisplayName()))
   -- "Alors on va lui montrer que notre voyage ne fait que commencer ! [hero], à nous deux !"
 
   COMMON.BossTransition()
@@ -347,7 +347,7 @@ function mount_windswept_guardian_ch_5.SecondPreBossScene()
   GAME:WaitFrames(30)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Determined")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_011']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_011'], hero:GetDisplayName()))
   -- "Cette fois, on le terrasse. Promis, [hero]."
 
   COMMON.BossTransition()

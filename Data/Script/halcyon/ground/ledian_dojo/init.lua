@@ -6,6 +6,7 @@
 -- Commonly included lua functions and data
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
+require 'halcyon.GeneralFunctions'--ChapterDispatch (repli des PNJ permanents hors chapitres couverts)
 require 'halcyon.ground.ledian_dojo.ledian_dojo_ch_2'
 require 'halcyon.ground.ledian_dojo.ledian_dojo_ch_3'
 require 'halcyon.ground.ledian_dojo.ledian_dojo_ch_4'
@@ -88,6 +89,11 @@ function ledian_dojo.PlotScripting()
 			ledian_dojo_ch_3.SetupGround()
 	elseif SV.ChapterProgression.Chapter == 4 then
 			ledian_dojo_ch_4.SetupGround()
+	elseif SV.ChapterProgression.Chapter == 5 then
+			--ledian_dojo_ch_5.SetupGround() existait et etait require
+			--(ligne 12), mais aucune branche ne l'appelait : Azumarill
+			--n'apparaissait pas et Gible restait a sa position par defaut.
+			ledian_dojo_ch_5.SetupGround()
 	else
 		--GAME:FadeIn(20)
 	end
@@ -127,14 +133,28 @@ function ledian_dojo.PlotScripting()
 	end
 end
 
+--Gible est un MapChar PERMANENT du .rsground (triggerType 1). Il n'existe
+--de fichier de chapitre que pour ch2 a ch5 : muet au ch1 et du ch6 au ch10.
 function ledian_dojo.Gible_Action(chara, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-  assert(pcall(load("ledian_dojo_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Gible_Action(...,...)"), chara, activator))
+  GeneralFunctions.ChapterDispatch("ledian_dojo_ch_", "Gible_Action", chara, activator,
+    function(c)
+      GeneralFunctions.StartConversation(c, "Un jour je serai assez fort pour partir en expedition,[pause=10] moi aussi ![pause=0] Maitre Ledian dit que ca demande de la patience.", "Determined")
+      UI:WaitShowDialogue("La patience,[pause=10] c'est la seule chose que je n'arrive pas a entrainer.")
+      GeneralFunctions.EndConversation(c)
+    end)
 end
 
+--Azumarill est place par SetupGround selon le chapitre : hors de ces
+--chapitres il n'est pas sur la carte, le repli ne peut donc pas etre
+--sollicite. Il est present par securite, sans cout.
 function ledian_dojo.Azumarill_Action(chara, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-  assert(pcall(load("ledian_dojo_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Azumarill_Action(...,...)"), chara, activator))
+  GeneralFunctions.ChapterDispatch("ledian_dojo_ch_", "Azumarill_Action", chara, activator,
+    function(c)
+      GeneralFunctions.StartConversation(c, "Merci de veiller sur lui pendant son entrainement.", "Happy")
+      GeneralFunctions.EndConversation(c)
+    end)
 end
 
 function ledian_dojo.Sensei_Action(chara, activator)

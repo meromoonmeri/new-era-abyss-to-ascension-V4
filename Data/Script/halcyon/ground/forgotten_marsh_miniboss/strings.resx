@@ -11,7 +11,7 @@
   <data name="FMM_005" xml:space="preserve"><value>And a Toxicroak![pause=15] Its venom is dripping...</value></data>
   <data name="FMM_006" xml:space="preserve"><value>Fresh meat, rarely this willing...[pause=15] The marsh shall be fed.</value></data>
   <data name="FMM_007" xml:space="preserve"><value>The marsh keeps whatever it is given.[pause=15] You shall not leave.</value></data>
-  <data name="FMM_008" xml:space="preserve"><value>Nice welcome![pause=15] We're not game![pause=10] [hero],[pause=10] let's show them!</value></data>
+  <data name="FMM_008" xml:space="preserve"><value>Nice welcome![pause=15] We're not game![pause=10] {0},[pause=10] let's show them!</value></data>
   <data name="FMM_009" xml:space="preserve"><value>The two maws are still wide open.[pause=15] Let's shut them this time!</value></data>
   <data name="FMM_010" xml:space="preserve"><value>Glp...[pause=20] Too tough for our stomachs.</value></data>
   <data name="FMM_011" xml:space="preserve"><value>The marsh spat you out.[pause=15] Enjoy it,[pause=10] it never happens twice.</value></data>

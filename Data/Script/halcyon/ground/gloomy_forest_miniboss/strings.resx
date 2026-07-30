@@ -12,7 +12,7 @@
   <data name="GFM_006" xml:space="preserve"><value>And a Murkrow![pause=15] They're standing guard together!</value></data>
   <data name="GFM_007" xml:space="preserve"><value>None approach the heart without the forest's consent.</value></data>
   <data name="GFM_008" xml:space="preserve"><value>The old master dislikes being disturbed.[pause=15] Turn back.</value></data>
-  <data name="GFM_009" xml:space="preserve"><value>We have a friend to find in the heart of this forest![pause=15] [hero],[pause=10] let's go!</value></data>
+  <data name="GFM_009" xml:space="preserve"><value>We have a friend to find in the heart of this forest![pause=15] {0},[pause=10] let's go!</value></data>
   <data name="GFM_010" xml:space="preserve"><value>The guardians again...[pause=15] This time we end it![pause=0] Let's go!</value></data>
   <data name="GFM_011" xml:space="preserve"><value>So be it.[pause=20] The forest has heard your answer.</value></data>
   <data name="GFM_012" xml:space="preserve"><value>The old master will judge you himself.[pause=15] Go on,[pause=10] then.</value></data>

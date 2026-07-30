@@ -6,6 +6,7 @@
 -- Commonly included lua functions and data
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
+require 'halcyon.GeneralFunctions'--ChapterDispatch (repli des PNJ hors chapitres couverts)
 require 'halcyon.ground.metano_normal_home.metano_normal_home_ch_2'
 require 'halcyon.ground.metano_normal_home.metano_normal_home_ch_4'
 require 'halcyon.ground.metano_normal_home.metano_normal_home_ch_5'
@@ -114,7 +115,11 @@ end
 
 function metano_normal_home.Zigzagoon_Action(chara, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-  assert(pcall(load("metano_normal_home_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Zigzagoon_Action(...,...)"), chara, activator))
+  GeneralFunctions.ChapterDispatch("metano_normal_home_ch_", "Zigzagoon_Action", chara, activator,
+    function(c)
+      GeneralFunctions.StartConversation(c, "Un jour je rejoindrai la guilde,[pause=10] moi aussi ![pause=0] Maman dit que je suis encore petit.", "Determined")
+      GeneralFunctions.EndConversation(c)
+    end)
 end
 
 function metano_normal_home.Sentret_Action(chara, activator)

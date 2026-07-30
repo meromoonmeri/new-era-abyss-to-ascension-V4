@@ -129,7 +129,7 @@ function crystal_sanctuary_miniboss_ch_8.FirstPreBossScene()
   GAME:MoveCamera(CAM_TEAM[1], CAM_TEAM[2] - 40, 40, false)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Determined")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CSM_008']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CSM_008'], hero:GetDisplayName()))
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)

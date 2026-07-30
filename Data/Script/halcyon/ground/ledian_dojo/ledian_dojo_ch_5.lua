@@ -43,4 +43,22 @@ function ledian_dojo_ch_5.Gible_Action(chara, activator)
 	GeneralFunctions.EndConversation(chara)
 end
 
-	
+--Azumarill est place par SetupGround ci-dessus, et init.lua:135 dispatche
+--Azumarill_Action vers ce fichier. Le handler manquait ici alors qu'il
+--existe au ch4 : l'assert(pcall(load(...))) levait a chaque interaction et
+--le PNJ restait muet. Meme voix qu'au ch4 (la mere inquiete pour Gible),
+--avancee d'un chapitre : l'entrainement a porte ses fruits.
+function ledian_dojo_ch_5.Azumarill_Action(chara, activator)
+	if SV.Chapter5.FinishedExpedition then
+		GeneralFunctions.StartConversation(chara, "Vous revoila ![pause=0] " .. chara:GetDisplayName() .. " n'a pas arrete de parler de vous pendant votre absence.", "Happy", false)
+		UI:WaitShowDialogue("Il s'entraine tous les matins maintenant.[pause=0] Tous les matins ![pause=10] Je ne sais pas si je dois m'en rejouir ou m'en inquieter.")
+	elseif SV.Chapter5.ReadyForExpedition or SV.Chapter5.FinishedExpeditionAddress then
+		GeneralFunctions.StartConversation(chara, "Vous partez en expedition aujourd'hui ?[pause=0] " .. chara:GetDisplayName() .. " a demande a vous suivre,[pause=10] vous savez.", "Worried", false)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue("J'ai dit non.[pause=0] Il est encore petit.[pause=15] Mais rentrez-nous entiers,[pause=10] sinon il ne me le pardonnera jamais.")
+	else
+		GeneralFunctions.StartConversation(chara, "Merci encore d'avoir aide " .. chara:GetDisplayName() .. " a s'entrainer.[pause=0] Il a beaucoup moins peur qu'avant.", "Happy", false)
+		UI:WaitShowDialogue("Douze pompes de nageoires,[pause=10] il m'a dit.[pause=0] Je crois qu'il en a fait quatre.[pause=15] Mais il les a faites.")
+	end
+	GeneralFunctions.EndConversation(chara)
+end

@@ -661,7 +661,7 @@ function metano_town_ch_6.Oddish_Action(chara, activator)
   if s == "post" then
     GeneralFunctions.StartConversation(chara, "Chenipent dit que vous etes ses heros ![pause=15] Il le dit a TOUT le monde !", "Happy")
   else
-    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_064']), "Normal")
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_064'], CH('PLAYER'):GetDisplayName(), CH('Teammate1'):GetDisplayName()), "Normal")
   end
   GeneralFunctions.EndConversation(chara)
 end
@@ -702,7 +702,7 @@ function metano_town_ch_6.Machamp_Action(chara, activator)
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_095']), "Happy")
   else
-    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_064']), "Normal")
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_064'], CH('PLAYER'):GetDisplayName(), CH('Teammate1'):GetDisplayName()), "Normal")
   end
   GeneralFunctions.EndConversation(chara)
 end
@@ -1149,7 +1149,7 @@ function metano_town_ch_6.Zigzagoon_Action(chara, activator)
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_094']), "Happy")
   else
-    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_064']), "Determined")
+    GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_064'], CH('PLAYER'):GetDisplayName(), CH('Teammate1'):GetDisplayName()), "Determined")
   end
   GeneralFunctions.EndConversation(chara)
 end
@@ -1294,7 +1294,7 @@ function metano_town_ch_6.PostDefeatCutscene()
 	GROUND:CharSetEmote(partner, "determined", 1)
 	UI:SetSpeaker(partner)
 	UI:SetSpeakerEmotion("Determined")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_111']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_111'], hero:GetDisplayName()))
 
 	SV.Chapter6.PostDefeatScenePlayed = true
 	GAME:WaitFrames(20)

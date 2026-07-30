@@ -35,12 +35,12 @@ Contrôles effectués le 2026-07-26 :
 - `git ls-files -d` : aucun fichier suivi supprimé.
 - `git fsck --no-progress` : aucune sortie signalant un problème.
 - Fichiers suivis vs présents :
-  - `Data/Ground/*.rsground` : 68 suivis, 68 présents.
-  - `Content/Tile/*.tile` : 248 suivis, 248 présents.
-  - `Content/Music/*.ogg` : 51 suivis, 51 présents.
+  - `Data/Ground/*.rsground` : 68 suivis, 68 présents. *(2026-07-30 : le dépôt en contient désormais **276**.)*
+  - `Content/Tile/*.tile` : 248 suivis, 248 présents. *(2026-07-30 : **498**.)*
+  - `Content/Music/*.ogg` : 51 suivis, 51 présents. *(2026-07-30 : **133**.)*
 - Tous les gros fichiers critiques observés sont présents, notamment `Data/Ground/metano_town.rsground` (~38,3 Mo), `Content/Tile/index.idx` (~4,4 Mo), `Content/Music/Team_Dazzling.ogg`.
 
-Attention : `verify_new_era.sh` est obsolète sur les compteurs exacts. Il attend 61 `.rsground` et 219 `.tile`, mais le dépôt actuel en contient 68 et 248. Le script signale donc 2 erreurs de comptage alors que les fichiers suivis sont présents.
+~~Attention : `verify_new_era.sh` est obsolète sur les compteurs exacts.~~ **RÉSOLU le 2026-07-30** : seuils resynchronisés à 276 / 498 / 133, le script passe au vert.
 
 ## Validation exécutée
 
@@ -74,7 +74,7 @@ Attention : `verify_new_era.sh` est obsolète sur les compteurs exacts. Il atten
 
 ## Points d'attention trouvés pendant la prise en main
 
-1. `verify_new_era.sh` doit être mis à jour : ses seuils exacts 61 maps / 219 tilesets sont faux pour le dépôt courant (68 / 248).
+1. ~~`verify_new_era.sh` doit être mis à jour~~ — **fait le 2026-07-30** (276 / 498 / 133).
 2. `docs/audit_critique_2026-07-26.md` dit que la branche défaite Team Dazzling est absente, mais le code courant contient `PostDefeatCutscene()` et le dispatch depuis `metano_town/init.lua`. Cet audit est donc au moins partiellement dépassé.
 3. Suspicion de bug dans `metano_town_ch_6.SetupGround()` : en branche `SV.Chapter6.DefeatedByZarude`, le code appelle `GROUND:TeleportTo(hero, ...)` et `GROUND:TeleportTo(partner, ...)` sans déclarer `local hero = CH('PLAYER')` ni `local partner = CH('Teammate1')` dans cette fonction. À confirmer/corriger avant de travailler sur la branche défaite.
 4. Suspicion de bug de progression Ch6 : `PostDefeatCutscene()` pose `SV.Chapter6.PostMissionScenePlayed = true`. Comme le dispatch de la scène de victoire vérifie `MissionComplete and not PostMissionScenePlayed`, cela pourrait empêcher la scène post-victoire après une défaite préalable. À confirmer en test / simulation avant correction.

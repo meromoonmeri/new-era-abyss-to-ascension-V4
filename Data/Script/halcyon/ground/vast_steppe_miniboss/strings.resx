@@ -4,7 +4,7 @@
     <value>This mist is getting thicker...[pause=10] I can barely see anything.</value>
   </data>
   <data name="VSM_002" xml:space="preserve">
-    <value>Hey, [player]...[pause=10] Does it feel like we're being watched?</value>
+    <value>Hey, {0}...[pause=10] Does it feel like we're being watched?</value>
   </data>
   <data name="VSM_003" xml:space="preserve">
     <value>...Yeah.[pause=15] For a while now.</value>
@@ -31,7 +31,7 @@
     <value>Show them your resolve...[pause=20] or perish.</value>
   </data>
   <data name="VSM_011" xml:space="preserve">
-    <value>No choice![pause=10] [player], let's fight!</value>
+    <value>No choice![pause=10] {0}, let's fight!</value>
   </data>
   <data name="VSM_012" xml:space="preserve">
     <value>They're still here...[pause=15] We're not losing this time!</value>

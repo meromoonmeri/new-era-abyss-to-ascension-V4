@@ -9,6 +9,11 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.ground.metano_electric_home.metano_electric_home_ch_2'
 require 'halcyon.ground.metano_electric_home.metano_electric_home_ch_3'
 require 'halcyon.ground.metano_electric_home.metano_electric_home_ch_4'
+--Le ch5 existe depuis longtemps (2 PNJ, cles MEH5_001/002 traduites) mais
+--n'etait pas require : sa table globale restait nil, donc les trois
+--dispatch load("metano_electric_home_ch_5.X_Action") echouaient et
+--l'assert avortait le callback. Maison vide et muette au chapitre 5.
+require 'halcyon.ground.metano_electric_home.metano_electric_home_ch_5'
 
 -- Package name
 local metano_electric_home = {}
@@ -74,6 +79,11 @@ function metano_electric_home.PlotScripting()
 		metano_electric_home_ch_3.SetupGround()	
 	elseif SV.ChapterProgression.Chapter == 4 then 
 		metano_electric_home_ch_4.SetupGround()
+	elseif SV.ChapterProgression.Chapter == 5 then
+		--Sans cette branche, SetupGround n'etait jamais appele au ch5 :
+		--MapChars est vide dans le .rsground, tous les habitants viennent
+		--du script. La maison s'ouvrait donc deserte.
+		metano_electric_home_ch_5.SetupGround()
 	else
 		GAME:FadeIn(20)
 	end

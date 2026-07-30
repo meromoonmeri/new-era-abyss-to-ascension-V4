@@ -660,6 +660,36 @@ SV.LegendZones =
 }
 
 
+--LES 42 ANCRAGES (LegendArc.lua) ET LE RESEAU DES VEILLEURS (VeilleurArc.lua)
+--
+--Ces deux tables etaient lues 219 et 184 fois SANS etre declarees ici. Le
+--code s'en sortait grace a des gardes dispersees (43 pour Anchors, 28 pour
+--Reseau) du type « if SV.Anchors == nil then SV.Anchors = {} end » posees
+--dans chaque fonction, plus un rattrapage dans debug_tools:589 pour Reseau.
+--
+--Deux raisons de les declarer malgre tout :
+--  1. Le rattrapage de debug_tools vit dans OnUpgrade, qui n'est publie que
+--     si Save.IsOldVersion() est vrai (TopMenu.cs:244, GameProgress.cs:1008).
+--     Une partie neuve sur la version courante ne le declenche jamais.
+--  2. Lire un champ d'une table ABSENTE crashe ; lire un champ absent d'une
+--     table existante rend nil. Declarer supprime la classe d'erreur entiere
+--     au lieu de compter sur l'exhaustivite des gardes.
+--Les gardes existantes restent en place : elles sont idempotentes.
+SV.Anchors =
+{
+	Adieux = {},    --[key] = true : l'adieu du gardien a deja ete joue
+	Stabilized = {} --[key] = true : l'ancrage est stabilise
+}
+
+SV.Reseau =
+{
+	Veilleurs = {},     --[zone] = true : le veilleur de cette station est acquis
+	Adieux = {},        --[key] = true : scene d'adieu jouee
+	StationIntros = {}, --[station] = true : cinematique d'arrivee jouee une fois
+	VoiesOuvertes = false--premiere victoire : ouvre le reseau
+}
+
+
 SV.ChapterProgression = 
 {
 	DaysPassed = 0,--total number of in game days played in the game
@@ -1294,4 +1324,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-08-02-Z]')
+print('Script variables default values loaded! [build 2026-08-03-A]')

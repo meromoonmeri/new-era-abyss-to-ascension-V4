@@ -408,7 +408,7 @@ function NPCRoutines.TriggerFloatzelQuagsireDispute()
 	UI:WaitShowDialogue("...[pause=30] Tu n'es jamais là.[pause=25] L'étang est vide sans toi.")
 
 	UI:SetSpeaker(floatzel)
-	UI:SetSpeakerEmotion("Shock")
+	UI:SetSpeakerEmotion("Surprised")
 	UI:WaitShowDialogue("Maris...[pause=25] Je... je ne savais pas.")
 
 	UI:SetSpeaker(quagsire)

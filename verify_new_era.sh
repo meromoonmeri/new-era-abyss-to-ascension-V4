@@ -10,9 +10,12 @@ echo "VÉRIFICATION NEW ERA : ABYSS TO ASCENSION"
 echo "============================================================"
 
 ERRORS=0
-EXPECTED_GROUNDS=68
-EXPECTED_TILESETS=248
-EXPECTED_MUSIC=51
+# Seuils resynchronises le 2026-07-30 (mesure sur le depot, commit 843256e).
+# Les anciennes valeurs 68/248/51 dataient de la v0.4 : le script signalait
+# 2 erreurs de comptage en permanence sur un depot pourtant sain.
+EXPECTED_GROUNDS=276
+EXPECTED_TILESETS=498
+EXPECTED_MUSIC=133
 
 # 1. Ground maps
 echo ""

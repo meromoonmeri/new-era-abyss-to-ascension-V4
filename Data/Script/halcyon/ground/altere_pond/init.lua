@@ -6,6 +6,7 @@
 -- Commonly included lua functions and data
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
+require 'halcyon.GeneralFunctions'--ChapterDispatch (repli des PNJ permanents hors chapitres couverts)
 require 'halcyon.ground.altere_pond.altere_pond_ch_1'
 require 'halcyon.ground.altere_pond.altere_pond_ch_2'
 require 'halcyon.ground.altere_pond.altere_pond_ch_3'
@@ -149,9 +150,16 @@ end
 --NPCS 
 ----------------
 
+--Relicanth est un MapChar PERMANENT du .rsground (triggerType 1). Il
+--n'existe de fichier de chapitre que pour ch1 a ch5 : muet du ch6 au ch10.
 function altere_pond.Relicanth_Action(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
- assert(pcall(load("altere_pond_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Relicanth_Action(...,...)"), obj, activator))
+  GeneralFunctions.ChapterDispatch("altere_pond_ch_", "Relicanth_Action", obj, activator,
+    function(c)
+      GeneralFunctions.StartConversation(c, "L'etang change moins vite que le reste du monde.[pause=15] C'est pour ca que j'y reste.", "Normal")
+      UI:WaitShowDialogue("Revenez quand vous voudrez.[pause=0] Moi,[pause=10] je ne bouge pas.")
+      GeneralFunctions.EndConversation(c)
+    end)
 end
 
 

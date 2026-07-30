@@ -405,6 +405,25 @@ function metano_normal_home_ch_5.Farewell_Cutscene()
 
 	SV.Chapter5.SawZigzagoonFamilyCutscene = true
 
+	--SORTIE GARANTIE. La scene armait CutsceneMode(true) ligne 26 et
+	--DisableCharacterAI ligne 27 sans jamais les desarmer : le commentaire
+	--« they leave, end cutscene. » ligne 260 disait l'intention, le code
+	--manquait. Consequence en jeu : GroundScene.ProcessInput sort en
+	--yield break tant que Save.CutsceneMode est vrai (GroundScene.cs:176),
+	--donc plus aucune entree joueur, menu compris. Et comme CutsceneMode
+	--est un champ de la SAUVEGARDE (ScriptGame.cs:1382), le gel survivait
+	--au rechargement, avec SawZigzagoonFamilyCutscene deja pose : la scene
+	--ne se rejouait pas et rien ne remettait la main au joueur.
+	--Patron repris de RaidScenes.lua:313-320.
+	pcall(function()
+		UI:ResetSpeaker()
+		if partner ~= nil then
+			AI:EnableCharacterAI(partner)
+			AI:SetCharacterAI(partner, 'origin.ai.ground_partner', CH('PLAYER'), partner.Position)
+		end
+	end)
+	GAME:CutsceneMode(false)
+
 end
 
 --Have fun! Make sure to get plenty of rest!

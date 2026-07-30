@@ -128,7 +128,7 @@ function metano_town_ch_7.Snubbull_Action(chara, activator)
     elseif s == "post_boss" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Snubbull_001']))
-        UI:SetSpeakerEmotion("Shock")
+        UI:SetSpeakerEmotion("Surprised")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Snubbull_002']))
         GeneralFunctions.EndConversation(chara)
     elseif s == "pre" or s == "during" then
@@ -864,7 +864,7 @@ function metano_town_ch_7.Wooper_Girl_Action(chara, activator)
         GeneralFunctions.EndConversation(chara)
     elseif s == "pre" or s == "during" then
         GeneralFunctions.StartConversation(chara,
-            STRINGS:Format(STRINGS.MapStrings['MT7_088']), "Inspired")
+            STRINGS:Format(STRINGS.MapStrings['MT7_088'], CH('PLAYER'):GetDisplayName()), "Inspired")
         GeneralFunctions.EndConversation(chara)
     else
         GeneralFunctions.StartConversation(chara,

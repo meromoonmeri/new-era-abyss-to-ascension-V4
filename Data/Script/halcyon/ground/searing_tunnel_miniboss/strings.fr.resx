@@ -4,7 +4,7 @@
     <value>Cette chaleur devient étouffante...[pause=15] On doit approcher d'une poche de magma.</value>
   </data>
   <data name="STM_002" xml:space="preserve">
-    <value>Tu entends ça, [player] ?[pause=15] On dirait... de la vapeur sous pression.</value>
+    <value>Tu entends ça, {0} ?[pause=15] On dirait... de la vapeur sous pression.</value>
   </data>
   <data name="STM_003" xml:space="preserve">
     <value>De la vapeur ![pause=10] Elle vient de partout !</value>
@@ -28,7 +28,7 @@
     <value>À moins que tu ne prouves ta propre flamme...</value>
   </data>
   <data name="STM_010" xml:space="preserve">
-    <value>On n'a pas fait tout ce chemin pour rien ![pause=10] [player], en avant !</value>
+    <value>On n'a pas fait tout ce chemin pour rien ![pause=10] {0}, en avant !</value>
   </data>
   <data name="STM_011" xml:space="preserve">
     <value>De retour.[pause=15] Cette fois, on est prêts !</value>

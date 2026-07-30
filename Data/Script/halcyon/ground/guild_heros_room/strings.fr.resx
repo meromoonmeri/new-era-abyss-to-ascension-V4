@@ -596,7 +596,7 @@
     <value>Bonne nuit,[pause=10] {0}.</value>
   </data>
   <data name="GHR5_001" xml:space="preserve">
-    <value>On l'a fait, [player]...[pause=10] L'expédition est terminée !</value>
+    <value>On l'a fait, {0}...[pause=10] L'expédition est terminée !</value>
   </data>
   <data name="GHR5_002" xml:space="preserve">
     <value>La Grande Steppe, le Tunnel Incandescent, le Mont Venteux...</value>
@@ -641,7 +641,7 @@
     <value>(Tu as raison.[pause=20] Prenons quelques jours pour nous entraîner.)</value>
   </data>
   <data name="GHR5_016" xml:space="preserve">
-    <value>Bonne nuit, [player].[pause=25] À demain !</value>
+    <value>Bonne nuit, {0}.[pause=25] À demain !</value>
   </data>
   <data name="GHR5_017" xml:space="preserve">
     <value>Zzz...</value>

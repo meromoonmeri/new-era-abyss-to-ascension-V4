@@ -11,7 +11,7 @@
   <data name="CRM_005" xml:space="preserve"><value>And that colossus...[pause=15] A Golurk![pause=10] They guard the way through!</value></data>
   <data name="CRM_006" xml:space="preserve"><value>HALT.[pause=15] Sanctuary sealed.[pause=15] No living being crosses this post.</value></data>
   <data name="CRM_007" xml:space="preserve"><value>...</value></data>
-  <data name="CRM_008" xml:space="preserve"><value>They're following an old directive...[pause=15] but we HAVE to pass![pause=10] [hero],[pause=10] let's go!</value></data>
+  <data name="CRM_008" xml:space="preserve"><value>They're following an old directive...[pause=15] but we HAVE to pass![pause=10] {0},[pause=10] let's go!</value></data>
   <data name="CRM_009" xml:space="preserve"><value>The sentinels have lit up again.[pause=15] This time we pass!</value></data>
   <data name="CRM_010" xml:space="preserve"><value>DIRECTIVE FULFILLED.[pause=20] The living have earned their passage.</value></data>
   <data name="CRM_011" xml:space="preserve"><value>...</value></data>

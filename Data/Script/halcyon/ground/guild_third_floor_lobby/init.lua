@@ -379,7 +379,11 @@ end
 
 function guild_third_floor_lobby.Noctowl_Action(chara, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
- assert(pcall(load("guild_third_floor_lobby_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Noctowl_Action(...,...)"), chara, activator))
+ GeneralFunctions.ChapterDispatch("guild_third_floor_lobby_ch_", "Noctowl_Action", chara, activator,
+    function(c)
+      GeneralFunctions.StartConversation(c, "Toujours quelque chose a archiver.[pause=15] Le savoir ne se range pas tout seul.", "Normal")
+      GeneralFunctions.EndConversation(c)
+    end)
 end
 
 function guild_third_floor_lobby.Test_Action(chara, activator)

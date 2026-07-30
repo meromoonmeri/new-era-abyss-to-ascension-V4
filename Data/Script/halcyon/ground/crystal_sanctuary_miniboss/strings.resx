@@ -11,7 +11,7 @@
   <data name="CSM_005" xml:space="preserve"><value>A Froslass![pause=15] The air is freezing around her!</value></data>
   <data name="CSM_006" xml:space="preserve"><value>Visitors of the threshold.[pause=15] Measure your light against ours.</value></data>
   <data name="CSM_007" xml:space="preserve"><value>The cold keeps the sanctuary from lukewarm hearts.</value></data>
-  <data name="CSM_008" xml:space="preserve"><value>We came to save,[pause=10] not to plunder![pause=15] [hero],[pause=10] show them!</value></data>
+  <data name="CSM_008" xml:space="preserve"><value>We came to save,[pause=10] not to plunder![pause=15] {0},[pause=10] show them!</value></data>
   <data name="CSM_009" xml:space="preserve"><value>The herald and the spectre are still on watch.[pause=15] This time we pass!</value></data>
   <data name="CSM_010" xml:space="preserve"><value>Your light stands tall.[pause=20] The threshold acknowledges you.</value></data>
   <data name="CSM_011" xml:space="preserve"><value>The cold withdraws.[pause=15] Pass,[pause=10] limpid hearts.</value></data>

@@ -596,7 +596,7 @@
     <value>Good night,[pause=10] {0}.</value>
   </data>
   <data name="GHR5_001" xml:space="preserve">
-    <value>We did it, [player]...[pause=10] The expedition is over!</value>
+    <value>We did it, {0}...[pause=10] The expedition is over!</value>
   </data>
   <data name="GHR5_002" xml:space="preserve">
     <value>The Vast Steppe, the Searing Tunnel, Mt. Windswept...</value>
@@ -641,7 +641,7 @@
     <value>(You're right.[pause=20] Let's take a few days to train.)</value>
   </data>
   <data name="GHR5_016" xml:space="preserve">
-    <value>Good night, [player].[pause=25] See you tomorrow!</value>
+    <value>Good night, {0}.[pause=25] See you tomorrow!</value>
   </data>
   <data name="GHR5_017" xml:space="preserve">
     <value>Zzz...</value>

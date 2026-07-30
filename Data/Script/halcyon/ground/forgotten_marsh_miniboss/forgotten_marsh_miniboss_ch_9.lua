@@ -53,7 +53,10 @@ function forgotten_marsh_miniboss_ch_9.FirstPreBossScene()
   UI:WaitHideTitle(20)
   GAME:FadeIn(40)
 
-  SOUND:PlayBGM('Murky Cave.ogg', false)
+  --'Murky Cave.ogg' n'existe pas dans Content/Music : GameManager.BGM
+  --fait File.Exists (GameManager.cs:287) puis joue le silence. Les deux
+  --scenes du mini-boss du marais etaient muettes.
+  SOUND:PlayBGM('Foggy Forest.ogg', false)
 
   -- L'équipe s'avance vers le nord de la salle.
   GAME:WaitFrames(30)
@@ -128,7 +131,7 @@ function forgotten_marsh_miniboss_ch_9.FirstPreBossScene()
   GAME:MoveCamera(CAM_TEAM[1], CAM_TEAM[2] - 40, 40, false)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Determined")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['FMM_008']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['FMM_008'], hero:GetDisplayName()))
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
@@ -201,7 +204,10 @@ local function DefeatedBossBody()
   GAME:WaitFrames(60)
   GAME:FadeIn(40)
 
-  SOUND:PlayBGM('Murky Cave.ogg', false)
+  --'Murky Cave.ogg' n'existe pas dans Content/Music : GameManager.BGM
+  --fait File.Exists (GameManager.cs:287) puis joue le silence. Les deux
+  --scenes du mini-boss du marais etaient muettes.
+  SOUND:PlayBGM('Foggy Forest.ogg', false)
 
   GAME:WaitFrames(30)
   UI:SetSpeaker(swalot)

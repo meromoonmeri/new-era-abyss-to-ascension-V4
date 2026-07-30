@@ -4,7 +4,7 @@
     <value>Cette brume est de plus en plus épaisse...[pause=10] On n'y voit presque rien.</value>
   </data>
   <data name="VSM_002" xml:space="preserve">
-    <value>Hé, [player]...[pause=10] Tu as l'impression qu'on est observés ?</value>
+    <value>Hé, {0}...[pause=10] Tu as l'impression qu'on est observés ?</value>
   </data>
   <data name="VSM_003" xml:space="preserve">
     <value>...Oui.[pause=15] Depuis un moment déjà.</value>
@@ -31,7 +31,7 @@
     <value>Montre-leur ta détermination...[pause=20] ou péris.</value>
   </data>
   <data name="VSM_011" xml:space="preserve">
-    <value>Pas le choix ![pause=10] [player], on se bat !</value>
+    <value>Pas le choix ![pause=10] {0}, on se bat !</value>
   </data>
   <data name="VSM_012" xml:space="preserve">
     <value>Ils sont encore là...[pause=15] Cette fois, on ne perd pas !</value>

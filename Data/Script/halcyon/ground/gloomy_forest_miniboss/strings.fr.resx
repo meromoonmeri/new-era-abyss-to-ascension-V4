@@ -12,7 +12,7 @@
   <data name="GFM_006" xml:space="preserve"><value>Et un Cornèbre ![pause=15] Ils montent la garde ensemble !</value></data>
   <data name="GFM_007" xml:space="preserve"><value>Nul n'approche le cœur sans l'assentiment de la forêt.</value></data>
   <data name="GFM_008" xml:space="preserve"><value>Le vieux maître n'aime pas qu'on le dérange.[pause=15] Rebroussez chemin.</value></data>
-  <data name="GFM_009" xml:space="preserve"><value>On a un ami à retrouver au cœur de cette forêt ![pause=15] [hero],[pause=10] en avant !</value></data>
+  <data name="GFM_009" xml:space="preserve"><value>On a un ami à retrouver au cœur de cette forêt ![pause=15] {0},[pause=10] en avant !</value></data>
   <data name="GFM_010" xml:space="preserve"><value>Encore les gardiens...[pause=15] Cette fois,[pause=10] on les fait taire ![pause=0] En avant !</value></data>
   <data name="GFM_011" xml:space="preserve"><value>Soit.[pause=20] La forêt a entendu ta réponse.</value></data>
   <data name="GFM_012" xml:space="preserve"><value>Le vieux maître jugera lui-même.[pause=15] Allez,[pause=10] filez.</value></data>

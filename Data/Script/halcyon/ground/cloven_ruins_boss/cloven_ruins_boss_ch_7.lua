@@ -341,7 +341,7 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Determined")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_010']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_010'], hero:GetDisplayName()))
   -- "Alors on ne peut pas perdre. [hero], à nous !"
 
   COMMON.BossTransition()

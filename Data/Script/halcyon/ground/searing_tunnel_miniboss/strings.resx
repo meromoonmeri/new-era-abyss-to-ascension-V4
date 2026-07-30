@@ -4,7 +4,7 @@
     <value>This heat is suffocating...[pause=15] We must be nearing a magma pocket.</value>
   </data>
   <data name="STM_002" xml:space="preserve">
-    <value>Hear that, [player]?[pause=15] Sounds like... pressurized steam.</value>
+    <value>Hear that, {0}?[pause=15] Sounds like... pressurized steam.</value>
   </data>
   <data name="STM_003" xml:space="preserve">
     <value>Steam![pause=10] It's coming from everywhere!</value>
@@ -28,7 +28,7 @@
     <value>Unless you prove your own flame...</value>
   </data>
   <data name="STM_010" xml:space="preserve">
-    <value>We didn't come all this way for nothing![pause=10] [player], let's go!</value>
+    <value>We didn't come all this way for nothing![pause=10] {0}, let's go!</value>
   </data>
   <data name="STM_011" xml:space="preserve">
     <value>We're back.[pause=15] This time, we're ready!</value>

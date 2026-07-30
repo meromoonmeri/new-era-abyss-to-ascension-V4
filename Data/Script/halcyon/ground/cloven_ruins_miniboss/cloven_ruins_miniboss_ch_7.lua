@@ -128,7 +128,7 @@ function cloven_ruins_miniboss_ch_7.FirstPreBossScene()
   GAME:MoveCamera(CAM_TEAM[1], CAM_TEAM[2] - 40, 40, false)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Determined")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRM_008']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRM_008'], hero:GetDisplayName()))
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)

@@ -11,7 +11,7 @@
   <data name="FMM_005" xml:space="preserve"><value>Et un Coatox ![pause=15] Son venin dégouline...</value></data>
   <data name="FMM_006" xml:space="preserve"><value>De la viande fraîche rarement volontaire...[pause=15] Le marais sera nourri.</value></data>
   <data name="FMM_007" xml:space="preserve"><value>Le marais garde ce qu'on lui abandonne.[pause=15] Vous ne repartirez pas.</value></data>
-  <data name="FMM_008" xml:space="preserve"><value>Sympa l'accueil ![pause=15] On n'est pas du gibier ![pause=10] [hero],[pause=10] on leur montre !</value></data>
+  <data name="FMM_008" xml:space="preserve"><value>Sympa l'accueil ![pause=15] On n'est pas du gibier ![pause=10] {0},[pause=10] on leur montre !</value></data>
   <data name="FMM_009" xml:space="preserve"><value>Les deux gueules sont toujours ouvertes.[pause=15] Refermons-les cette fois !</value></data>
   <data name="FMM_010" xml:space="preserve"><value>Glot...[pause=20] Trop coriaces pour nos estomacs.</value></data>
   <data name="FMM_011" xml:space="preserve"><value>Le marais vous a crachés.[pause=15] Profitez-en,[pause=10] il ne le fait jamais deux fois.</value></data>

@@ -80,7 +80,7 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Normal")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_002']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_002'], hero:GetDisplayName()))
   -- "Hé, [hero]... Tu as l'impression qu'on est observés ?"
 
   GAME:WaitFrames(20)
@@ -331,7 +331,7 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Determined")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_011']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_011'], hero:GetDisplayName()))
   -- "Pas le choix ! [hero], on se bat !"
 
   -- === BOSS TRANSITION ===

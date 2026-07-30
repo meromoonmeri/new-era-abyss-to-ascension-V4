@@ -41,7 +41,7 @@
           },
           "Value": {
            "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-           "Music": "Murky Cave.ogg",
+           "Music": "Foggy Forest.ogg",
            "TimeLimit": 1500,
            "TileSight": 0,
            "CharSight": 0,
@@ -533,7 +533,7 @@
           },
           "Value": {
            "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-           "Music": "Murky Cave.ogg",
+           "Music": "Foggy Forest.ogg",
            "TimeLimit": 1500,
            "TileSight": 0,
            "CharSight": 0,
@@ -1095,7 +1095,7 @@
           },
           "Value": {
            "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-           "Music": "Murky Cave.ogg",
+           "Music": "Foggy Forest.ogg",
            "TimeLimit": 1500,
            "TileSight": 0,
            "CharSight": 0,
@@ -1620,7 +1620,7 @@
           },
           "Value": {
            "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-           "Music": "Murky Cave.ogg",
+           "Music": "Foggy Forest.ogg",
            "TimeLimit": 1500,
            "TileSight": 0,
            "CharSight": 0,

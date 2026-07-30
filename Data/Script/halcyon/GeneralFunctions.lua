@@ -2,6 +2,46 @@ require 'origin.common'
 require 'halcyon.SuaireJobs'
 GeneralFunctions = {}
 
+--[[----------------------------------------------------------------------
+  AIGUILLAGE PAR CHAPITRE, AVEC REPLI
+
+  Le patron historique du depot est :
+      assert(pcall(load("<carte>_ch_" .. Chapitre .. ".X_Action(...,...)"), a, b))
+
+  Il suppose qu'un fichier <carte>_ch_N.lua existe pour le chapitre courant.
+  Quand ce n'est pas le cas, la table globale est nil, load() produit une
+  closure qui indexe nil, pcall renvoie false et l'assert LEVE. Le moteur
+  enveloppe chaque callback d'entite dans un xpcall (LuaEngine.cs:895) : le
+  jeu ne plante pas, il avorte l'interaction. Le PNJ est simplement MUET.
+
+  Sans consequence pour un PNJ cree par script (il est absent en meme temps
+  que son handler), mais grave pour une entite PERMANENTE du .rsground :
+  elle est visible, le joueur la sollicite, et rien ne se produit.
+
+  Cas mesures : Innkeeper_Desk_Left/Right (metano_inn, ch1 et ch6-10),
+  Gible (ledian_dojo, ch1 et ch6-10), Sunflora (metano_cave, ch1 et ch5-10),
+  Relicanth (altere_pond, ch6-10).
+
+  GeneralFunctions.ChapterDispatch resout la table sans lever, appelle le
+  handler s'il existe, et sinon execute le repli fourni. Retourne true si
+  le handler de chapitre a bien ete trouve et appele.
+------------------------------------------------------------------------]]
+function GeneralFunctions.ChapterDispatch(prefix, handler, chara, activator, fallback)
+	local chapter = 0
+	pcall(function() chapter = SV.ChapterProgression.Chapter end)
+
+	local mod = nil
+	pcall(function() mod = _G[prefix .. tostring(chapter)] end)
+
+	if mod ~= nil and type(mod[handler]) == 'function' then
+		mod[handler](chara, activator)
+		return true
+	end
+
+	if type(fallback) == 'function' then fallback(chara, activator) end
+	return false
+end
+
 --[[These are functions/procedures that are useful in a multitude of different maps or situations. Things such as
 reseting daily flags, a function to have the pokemon look in a random number of directions, etc.
 

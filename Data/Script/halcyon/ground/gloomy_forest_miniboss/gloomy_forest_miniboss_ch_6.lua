@@ -136,7 +136,7 @@ function gloomy_forest_miniboss_ch_6.FirstPreBossScene()
   GAME:MoveCamera(CAM_TEAM[1], CAM_TEAM[2] - 40, 40, false)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Determined")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM_009']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM_009'], hero:GetDisplayName()))
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)

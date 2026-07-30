@@ -104,3 +104,30 @@ V0.5.0
 -Fixed a mistake where Katrine was male instead of female in Metano Town's overworld.
 -Added Decoy Seeds to Apricorn Grove to help guard against Bug Bite pineco.
 -Updated Linoone and Zigzagoon portraits.
+
+V 0.5.1
+Note : les versions 0.5.0 et 0.5.1 n'avaient pas de section ici. Ce bloc
+couvre la passe de correction technique du 2026-07-30.
+
+Blocages corrigés
+-Le joueur ne peut plus se retrouver figé chez la famille d'Almotz au chapitre 5. La scène d'adieu activait le mode cinématique sans jamais le désactiver : les commandes étaient perdues, et l'état étant sauvegardé, recharger n'y changeait rien.
+-La maison électrique de Metano n'est plus vide au chapitre 5 : son fichier de chapitre existait mais n'était pas chargé, ses habitants n'apparaissaient pas et restaient muets.
+-Le dojo peuple à nouveau sa salle au chapitre 5 (Azumarill était absent, Gible mal placé), et Azumarill répond quand on lui parle.
+
+Affichage
+-L'entrée des Ruines Fendues s'affichait entièrement en tuiles d'erreur : son jeu de tuiles manquait à l'index. Corrigé.
+-La Source Lumineuse était touchée par le même défaut, en pire : son index était périmé et 624 de ses 625 tuiles pointaient sur des données invalides. Index régénéré, 720 tuiles toutes valides.
+-Les dialogues n'affichent plus « [player] » ou « [hero] » en toutes lettres : 16 répliques utilisaient une balise que le moteur ne remplace pas. Le nom du héros s'affiche désormais correctement.
+-Trois répliques demandaient une émotion de portrait inexistante ; le portrait ne s'affichait pas. Remplacée par l'émotion équivalente.
+
+Personnages muets
+-L'auberge répond à nouveau du chapitre 6 au chapitre 10 : ses deux comptoirs n'avaient aucun dialogue prévu au-delà du chapitre 5.
+-Même correction pour Relicanth à l'Étang Alteré (ch6-10), Gible au dojo (ch1 et ch6-10), Sunflora à la grotte (ch1 et ch5-10), et huit autres habitants de Metano et de la guilde.
+-Un mécanisme de repli garantit désormais qu'un personnage visible a toujours quelque chose à dire, même à un chapitre pour lequel aucun texte n'a encore été écrit.
+
+Audio
+-Le Marais Oublié était entièrement silencieux : la musique déclarée n'existait pas dans le mod. Remplacée par « Foggy Forest ».
+
+Interne
+-Déclaration des tables de sauvegarde des Ancrages et du Réseau des Veilleurs, jusqu'ici créées à la volée.
+-Compteurs de verify_new_era.sh resynchronisés (276 cartes, 498 jeux de tuiles, 133 musiques).
