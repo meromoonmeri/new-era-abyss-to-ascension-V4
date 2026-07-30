@@ -115,17 +115,23 @@ cinématique) :
   LegendZones, raid Metano 6-8→8-10, annexe 4→6, duel Dazzling 5→7).
 - Grounds enregistrées dans `index.idx` + `master_zone.json` **À LA FIN**
   (mapIDs 82-85, aucun décalage des 82 premières cartes).
-**Transitions & ouvertures de scènes (build 2026-08-02-M)** — audit comparatif
-ch1-4 vs ch5 (référence creuset → mont Venteux) :
+**Transitions (builds 2026-08-02-L a -N)** — audit comparatif ch1-4 vs ch5,
+**ch1-4 inchangés** (validés en jeu, rétablis après un passage de correctifs
+non demandés) ; c'est la transition vers le mont Venteux et le rêve qui sont
+alignées sur leur rythme :
 
-- Ch1-4 et ch5 utilisent les **mêmes mécaniques** de sortie de donjon
-  (chaînage `EnterGroundMap`/`EnterZone`/`EndDungeonRun`) ; les seuls écarts
-  mesurés : morts du ch1 sans écran de résultats (`display=false` → long noir
-  avec réplique flottante), fin du ch3 FirstCore en coupure sèche, départ du
-  rêve sans fondu de musique, ouvertures des salles de mini-boss sans noir
-  posé (sauf searing, le seul conforme). Tout est aligné.
-- Chemin d'erreur des mini-boss : `FadeOut(20)` de secours complété par
-  `WaitFrames(20)` avant la bascule (vast/searing/windswept).
+- **Aperçu du creuset supprimé** (retour utilisateur) : le fondu de sortie du
+  creuset démarre désormais avec la marche (noir complet ~40 frames) au lieu
+  d'arriver après ~90 frames de pleine lumière ; le mode cinématique n'est
+  plus coupé avant la bascule (fenêtre où l'ancienne carte se redessinait).
+- **Arrivée au camp** : la carte se révèle immédiatement (`FadeIn` replacé
+  avant les 2 répliques d'accueil, au lieu de 2 dialogues à valider sur
+  écran noir) — « directement la scène de l'arrivée ».
+- **Départ vers le rêve** : `FadeOutBGM` ajouté (la musique du bivouac ne
+  joue plus sur le noir) ; noir tenu des deux côtés (déjà garanti).
+- Ouvertures des 10 scènes de mini-boss alignées sur le patron searing
+  (noir posé avant la mise en place) + fuites de fondu en chemin d'erreur
+  bouchées (`WaitFrames` après le `FadeOut` de secours).
 
 - 4 donjons ch6+ ont un **pool de spawn sauvage vide** (constat audit) :
   les rencontres procédurales restent à remplir (chantier séparé).

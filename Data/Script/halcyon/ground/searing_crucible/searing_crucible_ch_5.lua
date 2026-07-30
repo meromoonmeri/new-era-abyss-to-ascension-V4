@@ -1274,18 +1274,17 @@ local function DefeatedBossBody()
 											GROUND:MoveInDirection(growlithe, Direction.Up, 110, false, 2) end)			
 	coro4 = TASK:BranchCoroutine(function() GAME:WaitFrames(30)
 											GROUND:MoveInDirection(zigzagoon, Direction.Up, 106, false, 2) end)	
-	--RE-AUDIT DU FONDU (retour de jeu 2026-07-30) : la camera est en
-	--(264,264) — les quatre marcheurs s'arretent pile dans le cadre.
-	--Qu'ils s'immobilisent en pleine lumiere PUIS que le noir tombe :
-	--c'est ca, le fondu casse. Le fondu accompagne maintenant la fin
-	--de la marche (il demarre a t=30 pendant qu'ils progressent et
-	--atteint le noir complet pile quand le dernier s'arrete, t~83-90).
-	--Personne n'est jamais vu debout immobile en pleine lumiere.
-	--Et le noir mort de 90 frames du scenario d'origine ne revient
-	--pas : une respiration, puis la carte change.
-	coro5 = TASK:BranchCoroutine(function() GAME:WaitFrames(30)
-							SOUND:FadeOutBGM(60)
-							GAME:FadeOut(false, 60)
+	--LE NOIR COMMENCE AVEC LA MARCHE, PAS A SA FIN (retour de jeu :
+	--« un apercu de l'ancienne zone du creuset juste apres la fin de
+	--leurs dialogues »). Le fondu demarrait a t=30 et n'etait complet
+	--qu'a t=90 : le creuset restait donc VISIBLE plus d'une seconde
+	--apres le dernier dialogue. Desormais le fondu demarre a t=0, en
+	--meme temps que les marcheurs : ils s'eloignent pendant que le noir
+	--tombe, et l'ecran est noir complet bien avant la fin de la marche
+	--(t=40 vs t~83). Noir TENU sans trou jusqu'a la scene d'arrivee.
+	coro5 = TASK:BranchCoroutine(function()
+							SOUND:FadeOutBGM(40)
+							GAME:FadeOut(false, 40)
 							end)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
 	GAME:WaitFrames(20)
@@ -1297,11 +1296,15 @@ function searing_crucible_ch_5.DefeatedBoss()
 	local ok, err = pcall(DefeatedBossBody)
 	if not ok then
 		PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
-		pcall(function() GAME:FadeOut(false, 20) end)
+		pcall(function() GAME:FadeOut(false, 20) GAME:WaitFrames(20) end)
 	end
 
 	-- Sortie garantie : la suite de l'expedition (Mont) doit TOUJOURS s'ouvrir.
-	GAME:CutsceneMode(false)
+	--LE MODE CINEMATIQUE RESTE ACTIF PENDANT LA BASCULE (patron hero_dream) :
+	--le couper ici laissait au moteur des frames de gameplay sur la carte
+	--sortante pendant l'armement du changement — une fenetre ou l'ancienne
+	--zone pouvait se redessiner a l'ecran. mount_windswept_entrance repose
+	--le mode sans condition dans son Init.
 	PrintInfo("[BossSeq][searing_crucible_ch_5] DefeatedBoss -> mount_windswept_entrance")
 	GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker')
 end

@@ -2945,18 +2945,21 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	--calque (le doublement de decor d'avant ne peut plus se produire).
 	mount_windswept_entrance_ch_5.BuildCampDay()
 
-	--Ces deux repliques se jouent SOUS LE NOIR (FadeOut juste avant) :
-	--aucun sprite n'est visible, donc aucun geste a jouer. C'est le seul
-	--endroit de la carte ou l'immobilite est justifiee — on le note pour
-	GAME:WaitFrames(40)
+	--LA CARTE D'ABORD, LES DIALOGUES ENSUITE (retour utilisateur : la
+	--transition vers le Mont doit se comporter comme les transitions des
+	--chapitres 1-4 — la carte se revele vite, les repliques arrivent sur
+	--la scene visible. Avant, deux dialogues se jouaient SOUS LE NOIR :
+	--deux appuis du joueur face a un ecran noir, et le camp n'apparaissait
+	--qu'apres. C'etait « l'ecran noir pas le meme » signale.
+	GAME:WaitFrames(20)
+	GAME:FadeIn(40)
+	GAME:WaitFrames(20)
 	UI:SetSpeaker(partner)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_001'], tunnel:GetColoredName()))
 	GAME:WaitFrames(20)
 	UI:SetSpeaker(growlithe)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_002']))
 	GAME:WaitFrames(20)
-	
-	GAME:FadeIn(40)
 	
 	-- LE CAMP VIT PENDANT QU'ON MONTE.
 	-- Pendant toute la remontee du sentier, le camp continue ses
