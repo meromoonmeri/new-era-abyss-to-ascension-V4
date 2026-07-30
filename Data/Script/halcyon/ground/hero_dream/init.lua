@@ -190,7 +190,8 @@ local function DreamSceneBody()
   --est la pose de sommeil utilisee par tout le mod pour le heros
   --(searing_tunnel_entrance, mount_windswept_entrance).
   GROUND:TeleportTo(hero, 152, 112, Direction.Down)
-  pcall(function() GROUND:CharSetAnim(hero, "EventSleep", true) end)
+  GROUND:CharSetAnim(hero, "EventSleep", true)
+  GAME:WaitFrames(10) -- Stabilisation avant FadeIn (structure chapitres 1-4)
 
   --La camera est centree sur lui et NE LE QUITTERA PAS. Tous les
   --mouvements de cette scene sont des derives de quelques pixels
