@@ -137,3 +137,7 @@ Passe de finition (2026-07-30, suite)
 -La boutique clandestine de Méga-Gemmes est traduite en français (36 répliques). Elle s'affichait entièrement en anglais.
 -Les explications de l'Assemblée au 3e étage de la guilde affichaient « info 1 », « info 2 »... au lieu du vrai texte. Corrigé dans les deux langues.
 -Le bureau de poste affichait des codes internes à la place de 37 messages : menu réseau, appels de détresse, retours de sauvetage. Tout est rédigé et traduit.
+
+Correctif d'arrivée (2026-07-30)
+-Plus d'aperçu de la zone précédente en arrivant quelque part. En quittant le Creuset pour le Mont Venteux, l'écran laissait passer un éclair de carte nue — décor pas encore posé, caméra pas encore cadrée — juste avant les répliques sur le noir. Le fondu de sécurité est désormais la toute première instruction de chaque scène d'arrivée, avant même la musique.
+-22 scènes d'arrivée corrigées au total : Creuset, Mont Venteux, Steppe, Tunnel, Ruines Fendues, Forêt Lugubre, Bosquet, Antre Tordu et les relais.

@@ -12,6 +12,16 @@ require 'halcyon.BossFX'
 cloven_ruins_boss_ch_7 = {}
 
 function cloven_ruins_boss_ch_7.FirstPreBossScene()
+
+	--LE NOIR AVANT TOUT APPEL MOTEUR (correctif d'arrivee, 2026-07-30).
+	--Cette scene se joue sous le noir laisse par la carte precedente et ne
+	--rallume qu'a son FadeIn final. Mais GAME:FadeOut est BLOQUANT
+	--(ScriptGame.cs:1590) et rend la main au moteur : tout appel place
+	--avant le premier fondu laisse passer des frames RENDUES, sur une
+	--carte chargee mais NON MONTEE (joueur au marqueur par defaut, camera
+	--non recadree, decor absent). D'ou l'eclair de zone nue signale en
+	--jeu. FadeOut(false,1) sur ecran deja noir = no-op (FadeEffect.cs:63).
+	pcall(function() GAME:FadeOut(false, 1) end)
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
@@ -350,6 +360,16 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
 end
 
 function cloven_ruins_boss_ch_7.SecondPreBossScene()
+
+	--LE NOIR AVANT TOUT APPEL MOTEUR (correctif d'arrivee, 2026-07-30).
+	--Cette scene se joue sous le noir laisse par la carte precedente et ne
+	--rallume qu'a son FadeIn final. Mais GAME:FadeOut est BLOQUANT
+	--(ScriptGame.cs:1590) et rend la main au moteur : tout appel place
+	--avant le premier fondu laisse passer des frames RENDUES, sur une
+	--carte chargee mais NON MONTEE (joueur au marqueur par defaut, camera
+	--non recadree, decor absent). D'ou l'eclair de zone nue signale en
+	--jeu. FadeOut(false,1) sur ecran deja noir = no-op (FadeEffect.cs:63).
+	pcall(function() GAME:FadeOut(false, 1) end)
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local regigigas = CharacterEssentials.MakeCharactersFromList({

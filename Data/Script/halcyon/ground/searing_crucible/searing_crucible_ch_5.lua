@@ -9,6 +9,16 @@ searing_crucible_ch_5 = {}
 
 --TASK:BranchCoroutine(function() searing_crucible_ch_5.FirstPreBossScene() end)
 function searing_crucible_ch_5.FirstPreBossScene()
+
+	--LE NOIR AVANT TOUT APPEL MOTEUR (correctif d'arrivee, 2026-07-30).
+	--Cette scene se joue sous le noir laisse par la carte precedente et ne
+	--rallume qu'a son FadeIn final. Mais GAME:FadeOut est BLOQUANT
+	--(ScriptGame.cs:1590) et rend la main au moteur : tout appel place
+	--avant le premier fondu laisse passer des frames RENDUES, sur une
+	--carte chargee mais NON MONTEE (joueur au marqueur par defaut, camera
+	--non recadree, decor absent). D'ou l'eclair de zone nue signale en
+	--jeu. FadeOut(false,1) sur ecran deja noir = no-op (FadeEffect.cs:63).
+	pcall(function() GAME:FadeOut(false, 1) end)
 	local hero = CH('PLAYER')
 	local partner = CH('Teammate1')
 	local growlithe = CH('Teammate2')
@@ -636,6 +646,16 @@ function searing_crucible_ch_5.FirstPreBossScene()
 end
 
 function searing_crucible_ch_5.SecondPreBossScene()
+
+	--LE NOIR AVANT TOUT APPEL MOTEUR (correctif d'arrivee, 2026-07-30).
+	--Cette scene se joue sous le noir laisse par la carte precedente et ne
+	--rallume qu'a son FadeIn final. Mais GAME:FadeOut est BLOQUANT
+	--(ScriptGame.cs:1590) et rend la main au moteur : tout appel place
+	--avant le premier fondu laisse passer des frames RENDUES, sur une
+	--carte chargee mais NON MONTEE (joueur au marqueur par defaut, camera
+	--non recadree, decor absent). D'ou l'eclair de zone nue signale en
+	--jeu. FadeOut(false,1) sur ecran deja noir = no-op (FadeEffect.cs:63).
+	pcall(function() GAME:FadeOut(false, 1) end)
 	--instead of having it play out like the first time, cut right to the chase of being surrounded again. sky does this a lot and,
 	--while it is the lazy option, do you really want to see the same animation again? It'd be really contrived too at that part, or at least more so.
 	--Magcargo says you continue to defile the lands and cause this crap. You truly are scum.

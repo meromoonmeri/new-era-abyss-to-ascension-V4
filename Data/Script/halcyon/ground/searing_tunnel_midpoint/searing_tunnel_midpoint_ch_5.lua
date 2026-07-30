@@ -191,6 +191,16 @@ end
 
 --TASK:BranchCoroutine(searing_tunnel_midpoint_ch_5.FirstArrival)
 function searing_tunnel_midpoint_ch_5.FirstArrival()
+
+	--LE NOIR AVANT TOUT APPEL MOTEUR (correctif d'arrivee, 2026-07-30).
+	--Cette scene se joue sous le noir laisse par la carte precedente et ne
+	--rallume qu'a son FadeIn final. Mais GAME:FadeOut est BLOQUANT
+	--(ScriptGame.cs:1590) et rend la main au moteur : tout appel place
+	--avant le premier fondu laisse passer des frames RENDUES, sur une
+	--carte chargee mais NON MONTEE (joueur au marqueur par defaut, camera
+	--non recadree, decor absent). D'ou l'eclair de zone nue signale en
+	--jeu. FadeOut(false,1) sur ecran deja noir = no-op (FadeEffect.cs:63).
+	pcall(function() GAME:FadeOut(false, 1) end)
 	--We've made it pretty far...
 	--Ugh, this heat is sweltering! I hope we don't have too much farther to go.
 	--Almotz explains it can't be far now, since they've hit a midpoint

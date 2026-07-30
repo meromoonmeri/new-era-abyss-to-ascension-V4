@@ -84,6 +84,16 @@ end
 
 -- First time the duo reaches the relay: brief calm intro, then free control.
 function crooked_cavern_midpoint_ch_3.FirstArrival()
+
+	--LE NOIR AVANT TOUT APPEL MOTEUR (correctif d'arrivee, 2026-07-30).
+	--Cette scene se joue sous le noir laisse par la carte precedente et ne
+	--rallume qu'a son FadeIn final. Mais GAME:FadeOut est BLOQUANT
+	--(ScriptGame.cs:1590) et rend la main au moteur : tout appel place
+	--avant le premier fondu laisse passer des frames RENDUES, sur une
+	--carte chargee mais NON MONTEE (joueur au marqueur par defaut, camera
+	--non recadree, decor absent). D'ou l'eclair de zone nue signale en
+	--jeu. FadeOut(false,1) sur ecran deja noir = no-op (FadeEffect.cs:63).
+	pcall(function() GAME:FadeOut(false, 1) end)
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 

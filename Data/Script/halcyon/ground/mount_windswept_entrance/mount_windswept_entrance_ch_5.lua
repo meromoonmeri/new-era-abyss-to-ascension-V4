@@ -2987,6 +2987,32 @@ function mount_windswept_entrance_ch_5.SetParty()
 end
 
 function mount_windswept_entrance_ch_5.ArrivalCutscene()
+
+	--LE NOIR EN PREMIER, AVANT LE MOINDRE APPEL MOTEUR.
+	--
+	--BUG CORRIGE (signale en jeu : « quand je quitte le crucible y'a ENCORE
+	--un apercu de la zone apres les dialogues dans le noir »).
+	--
+	--Le FadeOut de securite se trouvait plus bas, APRES CutsceneMode,
+	--DisableCharacterAI, StopBGM et PlayBGM. Or GAME:FadeOut est BLOQUANT
+	--(ScriptGame.cs:1590 : coroutine.yield sur _FadeOut) et FadeInternal
+	--(FadeEffect.cs:30-42) rend la main au moteur a chaque frame de fondu.
+	--Tout appel place avant lui laisse donc passer des frames RENDUES.
+	--
+	--A cet instant la carte du camp est deja chargee et affichable, mais :
+	--  * le joueur est encore au marqueur d'entree par defaut ;
+	--  * la camera n'a pas ete recadree (MoveCamera vient plus bas) ;
+	--  * le decor n'est pas monte (BuildCampDay plus bas encore).
+	--Le joueur voyait donc un eclair de carte nue, camera au mauvais
+	--endroit — percu comme « un apercu de la zone ».
+	--
+	--Ces deux lignes sont desormais les toutes premieres. Patron identique
+	--a hero_dream/init.lua:45-46 et mount_windswept_entrance/init.lua:45-46,
+	--ou le meme raisonnement est deja applique. FadeOut(false,1) sur un
+	--ecran deja noir est un no-op (FadeEffect.cs:63-64) : gratuit quand le
+	--fondu du creuset a tenu, salvateur quand il n'a pas eu lieu.
+	pcall(function() GAME:FadeOut(false, 1) end)
+	pcall(function() GAME:CutsceneMode(true) end)
 	--It's already night when you arrive. Penticus is pacing around nervously wondering where you are before he realizes you're here
 	--He runs up to hyko relieved and asks wtf happened. He went through the dungeon since it got late and you guys weren't here when he arrived.
 	--You explain and he's super concerned that you had to fight an entire clan of Slugma.
