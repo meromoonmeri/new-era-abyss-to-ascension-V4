@@ -447,29 +447,51 @@ function hero_dream.DreamScene()
   pcall(function() GAME:CutsceneMode(true) end)
   pcall(function() GAME:FadeOut(false, 1) end)
   --BASCULE DE RETOUR. Mecanique (ScriptGame.cs) : EnterGroundMap est un
-  --iterateur paresseux, le pcall est donc une ceinture, pas une
-  --protection contre la bascule elle-meme.
-  --PREFLIGHT A COUT NUL (le meme que cote aller, sans le GetGround qui
-  --reparserait le gros rsground du camp pour rien) : si la resolution
-  --par NOM est cassee (enregistrement), on bascule directement sur le
-  --filet EnterZone par mapID — qui n'a pas besoin du nom.
-  local canCamp = true
-  local okCampPre, resCampPre = pcall(function()
-    local summary = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('master_zone')
-    return summary:GroundValid('mount_windswept_entrance') == true
-  end)
-  if okCampPre then canCamp = (resCampPre == true) end
-  if not canCamp then
-    PrintInfo('[hero_dream] mount_windswept_entrance non resolvable — secours master_zone direct')
-    pcall(function() GAME:EnterZone('master_zone', -1, 50, 0) end)
-    return
+  --iterateur paresseux — rien ne s'execute a l'appel, le pcall est une
+  --ceinture, pas une protection contre la bascule elle-meme.
+  --PREFLIGHT COMPLET (meme niveau que l'aller, cote camp) : NOM enregistre
+  --ET asset reellement chargeable. C'est le trou de l'ancienne version :
+  --GroundValid seul ne voyait pas l'echec de CHARGEMENT du rsground.
+  --DataManager.GetGround (DataManager.cs:1138) ne cache rien, logue
+  --« Loading rsground file » / « Missing Data », avale l'exception reelle
+  --et rend nil ; la bascule se plante alors dans MoveToGround sur
+  --CurrentGround.GetEntryPointIdx (GameManager.cs:743) avec CurrentGround
+  --deja nullifie — LA NullReferenceException ProcessInput en boucle qui
+  --arrete le jeu (trace du 2026-07-30). On ne l'arme donc JAMAIS vers une
+  --carte non chargeable : on degrade en CHAINE vers des cartes attestees
+  --de master_zone, toutes avec Main_Entrance_Marker.
+  local function groundLoadable(nom)
+    local okT, resT = pcall(function()
+      local summary = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('master_zone')
+      if not summary:GroundValid(nom) then return false end
+      return _DATA:GetGround(nom) ~= nil
+    end)
+    if not okT then
+      --Meme politique qu'a l'aller : si la liaison moteur elle-meme est
+      --cassee, un faux negatif ne doit pas court-circuiter le retour.
+      PrintInfo('[hero_dream] preflight '..nom..' indisponible ('..tostring(resT)..') — considere chargeable')
+      return true
+    end
+    return resT == true
   end
-  local okBack, errBack = pcall(function()
-    GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker', true)
-  end)
-  if not okBack then
-    PrintInfo('[hero_dream] retour au camp impossible ('..tostring(errBack)..') — secours master_zone')
-    pcall(function() GAME:EnterZone('master_zone', -1, 50, 0) end)
+
+  if groundLoadable('mount_windswept_entrance') then
+    PrintInfo('[hero_dream] preflight retour OK — bascule vers le camp')
+    pcall(function() GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker', true) end)
+  elseif groundLoadable('vast_steppe_midpoint') then
+    PrintInfo('[hero_dream] camp non chargeable — repli vast_steppe_midpoint (scene du matin sautee)')
+    pcall(function() GAME:EnterGroundMap('vast_steppe_midpoint', 'Main_Entrance_Marker', true) end)
+  elseif groundLoadable('guild_guildmasters_bedroom') then
+    PrintInfo('[hero_dream] camp et premier repli non chargeables — repli ultime guilde')
+    pcall(function() GAME:EnterGroundMap('guild_guildmasters_bedroom', 'Main_Entrance_Marker', true) end)
+  else
+    --AUCUNE carte connue ne charge : installer est casse au-dela de cette
+    --scene. Armer quand meme = bascule morte = NRE ProcessInput en boucle
+    --= arret du jeu. On n'arme RIEN et on rend la main ici : un reve
+    --termine sur place vaut mieux qu'une partie stoppee par le moteur.
+    PrintInfo('[hero_dream] ALERTE — aucune carte de repli chargeable, bascule non armee, controle rendu')
+    pcall(function() GAME:CutsceneMode(false) end)
+    pcall(function() GAME:FadeIn(20) end)
   end
 end
 
