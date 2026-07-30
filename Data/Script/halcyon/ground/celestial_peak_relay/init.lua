@@ -7,9 +7,35 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.RelayScenes'
+require 'halcyon.MidpointTemplate'
 require 'halcyon.ReplayEnding'
 
 local celestial_peak_relay = {}
+
+--------------------------------------------------------------------
+-- HABILLAGE DU POINT MEDIAN — Pic Celeste (408x384)
+--
+-- STRUCTURE : halcyon.MidpointTemplate, commune a tous les relais.
+-- HABILLAGE : propre a ce biome, jamais recopie tel quel ailleurs.
+--
+--   Biome     : corniche battue par les vents, au-dessus des nuages. Le
+--               palier, ici, c'est le dernier replat avant le vide.
+--   Ambiance  : 'blowing_wind_fast' — vent d'altitude, plus vif que le
+--               'blowing_wind' du Mont Venteux : meme famille, degre
+--               different, pour marquer la montee en altitude.
+--   Musique   : 'Summit.ogg', deja utilisee par l'arrivee de ce relais.
+--
+-- Positions reprises de l'arrivee existante (deja verifiees).
+--------------------------------------------------------------------
+local RELAY_SKIN = {
+  music     = 'Summit.ogg',
+  wakeMusic = 'Heartwarming.ogg',
+  status    = 'blowing_wind_fast',
+  hero      = {212, 304},
+  partner   = {180, 304},
+  camera    = {196, 250},
+  walk      = 48,
+}
 
 function celestial_peak_relay.Init(map)
   DEBUG.EnableDbgCoro()
@@ -50,6 +76,22 @@ function celestial_peak_relay.Enter(map)
         },
       })
     end
+  elseif SV.Chapter10.PeakMidReturn then
+    --ETAT « RepeatArrival » DU TEMPLATE — retour a l'amiable
+    --(repli volontaire, ou reprise d'une sauvegarde faite ici).
+    --Ce relais ne connaissait que l'arrivee et le reveil apres KO :
+    --revenir sur ses pas ne donnait qu'un fondu muet.
+    SV.Chapter10.PeakMidReturn = false
+    local partner = CH('Teammate1')
+    MidpointTemplate.RepeatArrival({
+      skin = RELAY_SKIN,
+      lines = {
+        { who = partner, spk = 'partner', emo = 'Normal',
+          txt = "On est revenus sur la corniche.[pause=0] Le vent n'a pas faibli d'un souffle.", wait = 10 },
+        { who = partner, spk = 'partner', emo = 'Determined',
+          txt = "Dernier replat avant le sommet.[pause=0] Prends ton temps,[pause=10] après il n'y en aura plus." },
+      },
+    })
   else
     GAME:FadeIn(20)
   end
@@ -61,9 +103,14 @@ function celestial_peak_relay.GameSave(map)
   PartnerEssentials.SaveGamePartnerPosition(CH('Teammate1'))
 end
 
+-- Reprise d'une sauvegarde faite AU relais : sortie a l'amiable.
+-- On arme le retour sobre du template plutot qu'un fondu muet.
 function celestial_peak_relay.GameLoad(map)
   PartnerEssentials.LoadGamePartnerPosition(CH('Teammate1'))
-  GAME:FadeIn(20)
+  if SV.Chapter10.PlayedPeakRelayIntro and SV.Chapter10.PeakMidState ~= 'DeathArrival' then
+    SV.Chapter10.PeakMidReturn = true
+  end
+  celestial_peak_relay.Enter(map)
 end
 
 function celestial_peak_relay.North_Exit_Touch(obj, activator)
@@ -119,6 +166,9 @@ function celestial_peak_relay.South_Exit_Touch(obj, activator)
   UI:SetCenter(false)
   if res then
     SV.adventure.Thief = false
+    --Repli VOLONTAIRE : sortie a l'amiable, on arme le retour sobre
+    --du template pour la prochaine venue au relais.
+    SV.Chapter10.PeakMidReturn = true
     SOUND:FadeOutBGM(60)
     GAME:FadeOut(false, 60)
     partner.IsInteracting = false

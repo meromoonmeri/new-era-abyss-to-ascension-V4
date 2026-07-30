@@ -7,8 +7,34 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.RelayScenes'
+require 'halcyon.MidpointTemplate'
 
 local crystal_sanctuary_relay = {}
+
+--------------------------------------------------------------------
+-- HABILLAGE DU POINT MEDIAN — Sanctuaire de Cristal (600x648)
+--
+-- STRUCTURE : halcyon.MidpointTemplate, commune a tous les relais.
+-- HABILLAGE : propre a ce biome, jamais recopie tel quel ailleurs.
+--
+--   Biome     : salle de cristal sous la roche. Le calme y vient de la
+--               PIERRE CHANTANTE : les prismes cessent de vibrer, et
+--               c'est ce silence-la qui signale le palier.
+--   Ambiance  : 'winter_snow' — poussiere de cristal en suspension, propre
+--               a ce sanctuaire. Aucun autre relais ne l'emploie.
+--   Musique   : 'Snow Camp.ogg', deja utilisee par l'arrivee de ce relais.
+--
+-- Positions reprises de l'arrivee existante (deja verifiees).
+--------------------------------------------------------------------
+local RELAY_SKIN = {
+  music     = 'Snow Camp.ogg',
+  wakeMusic = 'Heartwarming.ogg',
+  status    = 'winter_snow',
+  hero      = {308, 628},
+  partner   = {276, 628},
+  camera    = {292, 560},
+  walk      = 56,
+}
 
 function crystal_sanctuary_relay.Init(map)
   DEBUG.EnableDbgCoro()
@@ -49,6 +75,22 @@ function crystal_sanctuary_relay.Enter(map)
         },
       })
     end
+  elseif SV.Chapter8.SanctuaryMidReturn then
+    --ETAT « RepeatArrival » DU TEMPLATE — retour a l'amiable
+    --(repli volontaire, ou reprise d'une sauvegarde faite ici).
+    --Ce relais ne connaissait que l'arrivee et le reveil apres KO :
+    --revenir sur ses pas ne donnait qu'un fondu muet.
+    SV.Chapter8.SanctuaryMidReturn = false
+    local partner = CH('Teammate1')
+    MidpointTemplate.RepeatArrival({
+      skin = RELAY_SKIN,
+      lines = {
+        { who = partner, spk = 'partner', emo = 'Normal',
+          txt = "Les cristaux se sont tus de nouveau.[pause=0] On est revenus au bon endroit.", wait = 10 },
+        { who = partner, spk = 'partner', emo = 'Normal',
+          txt = "La statue n'a pas bougé.[pause=0] Sauvegardons avant de repartir vers la gardienne." },
+      },
+    })
   else
     GAME:FadeIn(20)
   end
@@ -60,9 +102,14 @@ function crystal_sanctuary_relay.GameSave(map)
   PartnerEssentials.SaveGamePartnerPosition(CH('Teammate1'))
 end
 
+-- Reprise d'une sauvegarde faite AU relais : sortie a l'amiable.
+-- On arme le retour sobre du template plutot qu'un fondu muet.
 function crystal_sanctuary_relay.GameLoad(map)
   PartnerEssentials.LoadGamePartnerPosition(CH('Teammate1'))
-  GAME:FadeIn(20)
+  if SV.Chapter8.PlayedSanctuaryRelayIntro and SV.Chapter8.SanctuaryMidState ~= 'DeathArrival' then
+    SV.Chapter8.SanctuaryMidReturn = true
+  end
+  crystal_sanctuary_relay.Enter(map)
 end
 
 function crystal_sanctuary_relay.North_Exit_Touch(obj, activator)
@@ -106,6 +153,9 @@ function crystal_sanctuary_relay.South_Exit_Touch(obj, activator)
   UI:SetCenter(false)
   if res then
     SV.adventure.Thief = false
+    --Repli VOLONTAIRE : sortie a l'amiable, on arme le retour sobre
+    --du template pour la prochaine venue au relais.
+    SV.Chapter8.SanctuaryMidReturn = true
     SOUND:FadeOutBGM(60)
     GAME:FadeOut(false, 60)
     partner.IsInteracting = false

@@ -7,8 +7,35 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.RelayScenes'
+require 'halcyon.MidpointTemplate'
 
 local forgotten_marsh_relay = {}
+
+--------------------------------------------------------------------
+-- HABILLAGE DU POINT MEDIAN — Marais de l'Oubli (408x432)
+--
+-- STRUCTURE : halcyon.MidpointTemplate, commune a tous les relais.
+-- HABILLAGE : propre a ce biome, jamais recopie tel quel ailleurs.
+--
+--   Biome     : ilot de terre ferme au milieu des eaux stagnantes. Le
+--               palier se reconnait au sol qui cesse enfin de ceder.
+--   Ambiance  : 'mysterious_distortion' — brume malsaine qui deforme l'air
+--               au-dessus de l'eau. Partage le nom du statut avec les
+--               Ruines, mais sur une musique et un decor differents :
+--               la signature complete (musique + statut) reste unique.
+--   Musique   : 'Cave Camp.ogg', deja utilisee par l'arrivee de ce relais.
+--
+-- Positions reprises de l'arrivee existante (deja verifiees).
+--------------------------------------------------------------------
+local RELAY_SKIN = {
+  music     = 'Cave Camp.ogg',
+  wakeMusic = 'Heartwarming.ogg',
+  status    = 'mysterious_distortion',
+  hero      = {212, 408},
+  partner   = {180, 408},
+  camera    = {196, 352},
+  walk      = 56,
+}
 
 function forgotten_marsh_relay.Init(map)
   DEBUG.EnableDbgCoro()
@@ -49,6 +76,22 @@ function forgotten_marsh_relay.Enter(map)
         },
       })
     end
+  elseif SV.Chapter9.MarshMidReturn then
+    --ETAT « RepeatArrival » DU TEMPLATE — retour a l'amiable
+    --(repli volontaire, ou reprise d'une sauvegarde faite ici).
+    --Ce relais ne connaissait que l'arrivee et le reveil apres KO :
+    --revenir sur ses pas ne donnait qu'un fondu muet.
+    SV.Chapter9.MarshMidReturn = false
+    local partner = CH('Teammate1')
+    MidpointTemplate.RepeatArrival({
+      skin = RELAY_SKIN,
+      lines = {
+        { who = partner, spk = 'partner', emo = 'Normal',
+          txt = "Terre ferme.[pause=0] Après des heures dans la vase,[pause=10] ça n'a pas de prix.", wait = 10 },
+        { who = partner, spk = 'partner', emo = 'Normal',
+          txt = "Le rocher tient bon sur cet îlot.[pause=0] Reprenons des forces avant de replonger." },
+      },
+    })
   else
     GAME:FadeIn(20)
   end
@@ -60,9 +103,14 @@ function forgotten_marsh_relay.GameSave(map)
   PartnerEssentials.SaveGamePartnerPosition(CH('Teammate1'))
 end
 
+-- Reprise d'une sauvegarde faite AU relais : sortie a l'amiable.
+-- On arme le retour sobre du template plutot qu'un fondu muet.
 function forgotten_marsh_relay.GameLoad(map)
   PartnerEssentials.LoadGamePartnerPosition(CH('Teammate1'))
-  GAME:FadeIn(20)
+  if SV.Chapter9.PlayedMarshRelayIntro and SV.Chapter9.MarshMidState ~= 'DeathArrival' then
+    SV.Chapter9.MarshMidReturn = true
+  end
+  forgotten_marsh_relay.Enter(map)
 end
 
 function forgotten_marsh_relay.North_Exit_Touch(obj, activator)
@@ -106,6 +154,9 @@ function forgotten_marsh_relay.South_Exit_Touch(obj, activator)
   UI:SetCenter(false)
   if res then
     SV.adventure.Thief = false
+    --Repli VOLONTAIRE : sortie a l'amiable, on arme le retour sobre
+    --du template pour la prochaine venue au relais.
+    SV.Chapter9.MarshMidReturn = true
     SOUND:FadeOutBGM(60)
     GAME:FadeOut(false, 60)
     partner.IsInteracting = false

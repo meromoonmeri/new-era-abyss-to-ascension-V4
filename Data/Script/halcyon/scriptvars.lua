@@ -1168,6 +1168,11 @@ SV.Chapter8 =
 	SanctuaryMidpointState = 'FirstArrival',
 	FinishedBedtimeCutscene = false,--veillee de fin de chapitre (guild_heros_room_ch_8)
 	PlayedSanctuaryRelayIntro = false,
+	--Relais du Sanctuaire : 'DeathArrival' si KO au-dela du checkpoint
+	--(lu par ground/crystal_sanctuary_relay). SanctuaryMidReturn porte le
+	--retour A L'AMIABLE (repli volontaire ou sauvegarde reprise sur place).
+	SanctuaryMidState = nil,
+	SanctuaryMidReturn = false,
 	PlayedArrivalScene = false,--scene d'arrivee devant le donjon (ChapterScenes, ch8)
 	PlayedVictoryScene = false,--scene d'apres-boss (ChapterAftermath, ch8)
 	--Jalon de fin de donjon, ecrit par zone/crystal_sanctuary:95 et lu par
@@ -1200,6 +1205,10 @@ SV.Chapter9 =
 	MarshMidpointState = 'FirstArrival',
 	FinishedBedtimeCutscene = false,--veillee de fin de chapitre (guild_heros_room_ch_9)
 	PlayedMarshRelayIntro = false,
+	--Relais du Marais : 'DeathArrival' si KO au-dela du checkpoint.
+	--MarshMidReturn porte le retour a l'amiable (template point median).
+	MarshMidState = nil,
+	MarshMidReturn = false,
 	PlayedArrivalScene = false,--scene d'arrivee devant le donjon (ChapterScenes, ch9)
 	PlayedVictoryScene = false,--scene d'apres-boss (ChapterAftermath, ch9)
 	--Meme cas que ch8 : ecrit par zone/forgotten_marsh:96, jamais declare.
@@ -1261,6 +1270,10 @@ SV.Chapter10 =
 	PeakMidpointState = 'FirstArrival',
 	FinishedBedtimeCutscene = false,--veillee de fin de chapitre (guild_heros_room_ch_10)
 	PlayedPeakRelayIntro = false,
+	--Relais du Pic : 'DeathArrival' si KO au-dela du checkpoint.
+	--PeakMidReturn porte le retour a l'amiable (template point median).
+	PeakMidState = nil,
+	PeakMidReturn = false,
 	PlayedArrivalScene = false,--scene d'arrivee devant le donjon (ChapterScenes, ch10),
 	PlayedVictoryScene = false,--scene d'apres-boss (ChapterAftermath, ch10)
 	--Rejouabilite : jalon interne a un parcours rejoue. OutranEscouadeFulgur
