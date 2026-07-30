@@ -1270,6 +1270,7 @@ function searing_crucible_ch_5.DefeatedBoss()
 
 	-- Sortie garantie : la suite de l'expedition (Mont) doit TOUJOURS s'ouvrir.
 	GAME:CutsceneMode(false)
+	GAME:WaitFrames(65) -- FIX L16-VISUEL: ecran noir complet avant changement de Ground
 	PrintInfo("[BossSeq][searing_crucible_ch_5] DefeatedBoss -> mount_windswept_entrance")
 	GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker')
 end
