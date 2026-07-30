@@ -964,41 +964,20 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		GAME:WaitFrames(25)
 		GROUND:CharEndAnim(t.phileas)
 	end)
-	TASK:JoinCoroutines({coro1, coro2})
+	--FIX TRANSITION 2026-07-30 : suppression du premier FadeOut (redondant).
+	--Un seul FadeOut juste avant EnterGroundMap, après immobilisation totale.
+	--Tous les personnages doivent être en pose Sleep AVANT le FadeOut.
+	pcall(function()
+		GROUND:CharSetAnim(t.phileas, "Sleep", true)
+	end)
 	GAME:WaitFrames(20)
-
+	
 	UI:ResetSpeaker(false)
 	UI:SetCenter(true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_051']))
 	UI:SetCenter(false)
 	UI:ResetSpeaker()
 
-	GAME:FadeOut(false, 60)
-	GAME:WaitFrames(60)
-
-	-- 10. LE REVE — sur sa propre carte
-	-- LA SCENE DU REVE A ETE ENTIEREMENT REFAITE, ET DEPLACEE SUR UNE
-	-- CARTE DEDIEE : Data/Ground/hero_dream.rsground, script
-	-- Data/Script/halcyon/ground/hero_dream/init.lua.
-	-- Pourquoi une carte plutot qu'un overlay pose ici :
-	--     son OverlayAnim avec omnipresent = false ; GetDrawSize() rend
-	--     Loc(TileSize) = 24x24, et IterateRelevantDraw ne dessine que
-	--     si ce rectangle touche le ViewRect. Emis en (0,0) avec la
-	--     camera sur le camp, il disparaissait du rendu ;
-	--   * meme visible, il fallait masquer douze dormeurs, un feu, onze
-	--     paillasses et une falaise pour faire croire a un ailleurs.
-	-- Sur la carte dediee, le ciel onirique n'est plus un overlay :
-	-- c'est le FOND DE CARTE (Background.Layers / LayeredBG), copie
-	-- structurelle de personality_test.rsground. Le moteur le dessine
-	-- avant tout le reste, sans condition de culling — il ne peut plus
-	-- disparaitre. Et le heros y est SEUL, couche au centre.
-	-- Le reve se termine par un retour ici meme, ecran noir conserve :
-	-- c'est hero_dream qui rappelle mount_windswept_entrance, et
-	-- PlotScripting enchaine sur MorningAfterDream (section 11).
-	--LE MODE CINEMATIQUE RESTE ACTIF PENDANT LA BASCULE. Le couper ici
-	--pendant que SceneOutcome attend d'etre consomme au tour suivant
-	--une fraction de seconde avant de partir. hero_dream.DreamScene le
-	--repose immediatement de son cote.
 	--FIX TRANSITION 2026-07-30 : FadeOut avant EnterGroundMap pour éviter
 	--le flash parasite de la map mount_windswept_entrance.
 	--Le joueur ne doit voir AUCUNE frame de la map actuelle avant hero_dream.
