@@ -79,3 +79,27 @@ La progression de biome doit rester synchronisée avec les cutscenes qui ponctue
 - Si une cutscene se déclenche dans ce segment, son décor correspond-il exactement au biome atteint à ce point du donjon ?
 
 Si l'une de ces questions révèle une incohérence, le segment n'est pas terminé.
+
+---
+
+## Annexe d'application (état d'avancement, 2026-07-29)
+
+**Barème d'étages retenu** (« les donjons gagnent 5 à 10 étages par chapitre ») :
+rampe **+5 par chapitre**, ligne de base ch6 = 21 étages procéduraux (Forêt
+Lugubre inchangée). Structure cible partout : **approche → relais → 3F →
+mini-boss → 3F → boss**.
+
+| Ch | Donjon | Étages avant | Étages après | Mini-boss | Statut |
+|---|---|---|---|---|---|
+| 6 | Forêt Lugubre | 18+3 | 18+3 (inchangé) + OST propre (Hidden Highland.ogg, Sky) | à insérer (relais + arène à câbler) | partiel |
+| 7 | Ruines Tordues | 15+5 | **20**+3 | à créer (arène template Chartor/Limagma) | partiel |
+| 8 | Sanctuaire de Cristal | 12+6 | **25**+3 | à créer | partiel |
+| 9 | Marais de l'Oubli | 10+8 | **30**+3 | à créer | partiel |
+| 10 | Pic Céleste | 8+6+4 | **35**+3+3 | Salle Fulgurée (déjà en place) | **CONFORME** |
+
+Reste à faire (ordre) : (1) créer les 4 arènes mini-boss manquantes sur le
+template Chartor & Limagma (casting biome cohérent : espèces déjà dans les
+pools de spawn du donjon) ; (2) splitter le segment post-relais des 4 donjons
+en 3F + 3F autour de l'arène ; (3) pour Lugubre, câbler le relais
+`gloomy_forest_midpoint` (ground existant inutilisé) ; (4) restauration PP/
+faim systématique aux relais ; (5) rencontres inoffensives près des relais.
