@@ -5355,237 +5355,330 @@ Comme c'est un volontaire, il ne restera pas avec toi après la sortie.
     <value>Secourez mon rival, pitié ! Nous n'avons pas fini\nde voir qui est le plus courageux ! Pitié, pitié !</value>
   </data>
   <data name="TALK_FULL_3100" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (brusque) 1</value>
+    <value>Marche devant si tu veux.[pause=0] Moi je frappe ce qui bouge.</value>
   </data>
   <data name="TALK_FULL_3101" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (brusque) 2</value>
+    <value>Ce donjon ?[pause=0] Des cailloux et du vent.[pause=10] J'ai connu pire.</value>
   </data>
   <data name="TALK_FULL_3102" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (brusque) 3</value>
+    <value>Tu comptes discuter longtemps,[pause=10] [player] ?[pause=0] On a un sommet à atteindre.</value>
   </data>
   <data name="TALK_FULL_3103" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (brusque) 4</value>
+    <value>Un [kind] m'a chargé tout à l'heure.[pause=0] Un.[pause=20] Ça n'a pas duré.</value>
   </data>
   <data name="TALK_FULL_3104" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (brusque) 5</value>
+    <value>Hmph.[pause=0] Tant que personne ne me ralentit,[pause=10] tout va bien.</value>
   </data>
   <data name="TALK_HALF_3100" xml:space="preserve">
-    <value>Cranidos — réplique à mi-PV (brusque) 1</value>
+    <value>C'est rien.[pause=0] Un crâne comme le mien,[pause=10] ça ne se fend pas si facilement.</value>
   </data>
   <data name="TALK_HALF_3101" xml:space="preserve">
-    <value>Cranidos — réplique à mi-PV (brusque) 2</value>
+    <value>J'ai encaissé.[pause=0] Et alors ?[pause=20] Continue d'avancer.</value>
   </data>
   <data name="TALK_HALF_3102" xml:space="preserve">
-    <value>Cranidos — réplique à mi-PV (brusque) 3</value>
+    <value>Ne me regarde pas comme ça.[pause=0] Je tiens debout,[pause=10] c'est l'essentiel.</value>
   </data>
   <data name="TALK_PINCH_3100" xml:space="preserve">
-    <value>Cranidos — réplique à PV critique (brusque) 1</value>
+    <value>Tch...[pause=20] Ça commence à faire beaucoup,[pause=10] même pour moi...</value>
   </data>
   <data name="TALK_PINCH_3101" xml:space="preserve">
-    <value>Cranidos — réplique à PV critique (brusque) 2</value>
+    <value>Je... ne vais pas tomber ici.[pause=0] Pas devant tout le monde...</value>
   </data>
   <data name="TALK_PINCH_3102" xml:space="preserve">
-    <value>Cranidos — réplique à PV critique (brusque) 3</value>
+    <value>Une Baie...[pause=20] si t'en as une en trop.[pause=0] Je demande pas deux fois.</value>
   </data>
   <data name="TALK_FULL_3110" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (timide) 1</value>
+    <value>...Quoi ?[pause=0] Je surveille les angles,[pause=10] c'est tout.[pause=0] C'est mon poste.</value>
   </data>
   <data name="TALK_FULL_3111" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (timide) 2</value>
+    <value>[(Mareep)] avance bien.[pause=20] ...Enfin.[pause=0] L'équipe avance bien.</value>
   </data>
   <data name="TALK_FULL_3112" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (timide) 3</value>
+    <value>Reste groupé.[pause=0] Si quelqu'un se fait encercler ici,[pause=10] ça finit mal.</value>
   </data>
   <data name="TALK_FULL_3113" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (timide) 4</value>
+    <value>Je ne suis pas distrait.[pause=20] Je suis... attentif.[pause=0] Nuance.</value>
   </data>
   <data name="TALK_FULL_3114" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (timide) 5</value>
+    <value>On parlera au camp.[pause=0] Ici,[pause=10] j'ai besoin de mes oreilles.</value>
   </data>
   <data name="TALK_HALF_3110" xml:space="preserve">
-    <value>Cranidos — réplique à mi-PV (timide) 1</value>
+    <value>Ça va.[pause=0] Ne le répète pas à [(Mareep)],[pause=10] elle s'inquiéterait pour rien.</value>
   </data>
   <data name="TALK_HALF_3111" xml:space="preserve">
-    <value>Cranidos — réplique à mi-PV (timide) 2</value>
+    <value>Quelques bosses.[pause=0] Rien qui m'empêche de couvrir l'arrière.</value>
   </data>
   <data name="TALK_HALF_3112" xml:space="preserve">
-    <value>Cranidos — réplique à mi-PV (timide) 3</value>
+    <value>Je tiens ma place.[pause=20] Occupe-toi de la tienne.</value>
   </data>
   <data name="TALK_PINCH_3110" xml:space="preserve">
-    <value>Cranidos — réplique à PV critique (timide) 1</value>
+    <value>Ne dis rien à [(Mareep)]...[pause=20] Je t'en prie.</value>
   </data>
   <data name="TALK_PINCH_3111" xml:space="preserve">
-    <value>Cranidos — réplique à PV critique (timide) 2</value>
+    <value>Je dois tenir...[pause=0] Si je tombe,[pause=10] elle se retrouve à découvert...</value>
   </data>
   <data name="TALK_PINCH_3112" xml:space="preserve">
-    <value>Cranidos — réplique à PV critique (timide) 3</value>
+    <value>Encore un peu...[pause=20] Juste... encore un peu...</value>
   </data>
   <data name="TALK_FULL_3120" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (gêné) 1</value>
+    <value>S-Shuca ?![pause=20] Euh.[pause=0] Oui.[pause=0] Tout est sous contrôle.[pause=10] Totalement.</value>
   </data>
   <data name="TALK_FULL_3121" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (gêné) 2</value>
+    <value>Tu... tu te débrouilles bien,[pause=10] aujourd'hui.[pause=20] Voilà.[pause=0] C'est dit.</value>
   </data>
   <data name="TALK_FULL_3122" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (gêné) 3</value>
+    <value>Ne t'éloigne pas trop.[pause=20] C'est une consigne tactique ![pause=0] Rien d'autre.</value>
   </data>
   <data name="TALK_FULL_3123" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (gêné) 4</value>
+    <value>Hein ?[pause=0] Non, je ne te regardais pas.[pause=20] Je regardais... derrière toi.</value>
   </data>
   <data name="TALK_FULL_3124" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (gêné) 5</value>
+    <value>Si un truc t'approche,[pause=10] tu cries.[pause=0] Et j'arrive.[pause=20] C'est tout.</value>
   </data>
   <data name="TALK_HALF_3120" xml:space="preserve">
-    <value>Cranidos — réplique à mi-PV (gêné) 1</value>
+    <value>Ce n'est rien ![pause=20] Vraiment.[pause=0] Ne fais pas cette tête, Shuca...</value>
   </data>
   <data name="TALK_HALF_3121" xml:space="preserve">
-    <value>Cranidos — réplique à mi-PV (gêné) 2</value>
+    <value>J-je vais bien.[pause=0] Arrête de me fixer comme ça,[pause=10] tu me déconcentres.</value>
   </data>
   <data name="TALK_HALF_3122" xml:space="preserve">
-    <value>Cranidos — réplique à mi-PV (gêné) 3</value>
+    <value>C'est une égratignure.[pause=20] Une grosse égratignure.[pause=0] Ça arrive.</value>
   </data>
   <data name="TALK_PINCH_3120" xml:space="preserve">
-    <value>Cranidos — réplique à PV critique (gêné) 1</value>
+    <value>Ne...[pause=20] ne me regarde pas comme ça.[pause=0] Je suis censé te protéger,[pause=10] moi...</value>
   </data>
   <data name="TALK_PINCH_3121" xml:space="preserve">
-    <value>Cranidos — réplique à PV critique (gêné) 2</value>
+    <value>Je suis désolé, Shuca.[pause=20] Je devais être plus solide que ça.</value>
   </data>
   <data name="TALK_PINCH_3122" xml:space="preserve">
-    <value>Cranidos — réplique à PV critique (gêné) 3</value>
+    <value>Recule.[pause=20] S'il te plaît.[pause=0] Laisse-moi au moins... faire ça bien.</value>
   </data>
   <data name="TALK_FULL_3130" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (critique, Shuca en difficulté) 1</value>
+    <value>REGARDE dans quel état elle est ![pause=20] Soigne-la.[pause=0] MAINTENANT.</value>
   </data>
   <data name="TALK_FULL_3131" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (critique, Shuca en difficulté) 2</value>
+    <value>Tu l'as laissée en première ligne.[pause=20] Ne refais jamais ça.</value>
   </data>
   <data name="TALK_FULL_3132" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (critique, Shuca en difficulté) 3</value>
+    <value>Une Baie.[pause=0] Une Baie, tout de suite ![pause=20] Ne discute pas, [player] !</value>
   </data>
   <data name="TALK_FULL_3133" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (critique, Shuca en difficulté) 4</value>
+    <value>Si elle tombe ici,[pause=10] je ne te le pardonnerai pas.[pause=0] Jamais.</value>
   </data>
   <data name="TALK_FULL_3134" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (critique, Shuca en difficulté) 5</value>
+    <value>Je me fiche du sommet ![pause=20] Sors-la de là,[pause=10] c'est tout ce qui compte !</value>
   </data>
   <data name="TALK_HALF_3130" xml:space="preserve">
-    <value>Cranidos — réplique à mi-PV (critique, Shuca en difficulté) 1</value>
+    <value>Ne t'occupe pas de moi ![pause=20] C'est ELLE qui a besoin d'aide !</value>
   </data>
   <data name="TALK_HALF_3131" xml:space="preserve">
-    <value>Cranidos — réplique à mi-PV (critique, Shuca en difficulté) 2</value>
+    <value>Mes blessures attendront.[pause=0] Les siennes,[pause=10] non.</value>
   </data>
   <data name="TALK_HALF_3132" xml:space="preserve">
-    <value>Cranidos — réplique à mi-PV (critique, Shuca en difficulté) 3</value>
+    <value>Bouge ![pause=20] Chaque seconde compte,[pause=10] tu ne le vois pas ?!</value>
   </data>
   <data name="TALK_PINCH_3130" xml:space="preserve">
-    <value>Cranidos — réplique à PV critique (critique, Shuca en difficulté) 1</value>
+    <value>On est... tous les deux à terre...[pause=20] Sors-la d'ici.[pause=0] Elle d'abord.</value>
   </data>
   <data name="TALK_PINCH_3131" xml:space="preserve">
-    <value>Cranidos — réplique à PV critique (critique, Shuca en difficulté) 2</value>
+    <value>Laisse-moi...[pause=20] Prends Shuca et pars.[pause=0] C'est un ordre.</value>
   </data>
   <data name="TALK_PINCH_3132" xml:space="preserve">
-    <value>Cranidos — réplique à PV critique (critique, Shuca en difficulté) 3</value>
+    <value>J'ai... échoué...[pause=20] Ne la laisse pas tomber aussi...</value>
   </data>
   <data name="TALK_FULL_3140" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (à Shuca, qui est en difficulté) 1</value>
+    <value>Shuca.[pause=20] Reste derrière moi.[pause=0] Je ne te le demande pas deux fois.</value>
   </data>
   <data name="TALK_FULL_3141" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (à Shuca, qui est en difficulté) 2</value>
+    <value>Tu tiens le coup ?[pause=20] ...Non.[pause=0] Ne mens pas.[pause=10] Je le vois bien.</value>
   </data>
   <data name="TALK_FULL_3142" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (à Shuca, qui est en difficulté) 3</value>
+    <value>Respire.[pause=20] Je suis là.[pause=0] Rien ne t'atteindra tant que je suis debout.</value>
   </data>
   <data name="TALK_FULL_3143" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (à Shuca, qui est en difficulté) 4</value>
+    <value>On rentre.[pause=20] Le sommet attendra.[pause=0] Toi, tu n'attendras pas.</value>
   </data>
   <data name="TALK_FULL_3144" xml:space="preserve">
-    <value>Cranidos — commentaire d’expédition (à Shuca, qui est en difficulté) 5</value>
+    <value>Ne t'excuse pas.[pause=20] Tu es venue jusqu'ici.[pause=0] C'est déjà énorme.</value>
   </data>
   <data name="TALK_HALF_3140" xml:space="preserve">
-    <value>Cranidos — réplique à mi-PV (à Shuca, qui est en difficulté) 1</value>
+    <value>Je saigne un peu,[pause=10] et alors ?[pause=0] Toi, tu tiens à peine debout.</value>
   </data>
   <data name="TALK_HALF_3141" xml:space="preserve">
-    <value>Cranidos — réplique à mi-PV (à Shuca, qui est en difficulté) 2</value>
+    <value>Ne pense pas à moi.[pause=20] Pense à respirer.[pause=0] Juste ça.</value>
   </data>
   <data name="TALK_HALF_3142" xml:space="preserve">
-    <value>Cranidos — réplique à mi-PV (à Shuca, qui est en difficulté) 3</value>
+    <value>On est deux à être amochés.[pause=20] Au moins on est deux.</value>
   </data>
   <data name="TALK_PINCH_3140" xml:space="preserve">
-    <value>Cranidos — réplique à PV critique (à Shuca, qui est en difficulté) 1</value>
+    <value>Shuca...[pause=20] si l'un de nous doit s'en sortir,[pause=10] ce sera toi.</value>
   </data>
   <data name="TALK_PINCH_3141" xml:space="preserve">
-    <value>Cranidos — réplique à PV critique (à Shuca, qui est en difficulté) 2</value>
+    <value>Reste éveillée.[pause=20] Parle-moi.[pause=0] N'importe quoi,[pause=10] mais parle-moi.</value>
   </data>
   <data name="TALK_PINCH_3142" xml:space="preserve">
-    <value>Cranidos — réplique à PV critique (à Shuca, qui est en difficulté) 3</value>
+    <value>J'aurais dû...[pause=20] être devant toi.[pause=0] Depuis le début.</value>
   </data>
   <data name="TALK_FULL_3150" xml:space="preserve">
-    <value>Mareep — commentaire d’expédition 1</value>
+    <value>C'est ma première vraie expédition, tu sais ![pause=0] J'essaie de tout retenir.</value>
   </data>
   <data name="TALK_FULL_3151" xml:space="preserve">
-    <value>Mareep — commentaire d’expédition 2</value>
+    <value>Tu crois qu'on racontera ça à la guilde ?[pause=20] Moi j'ai déjà préparé mon récit !</value>
   </data>
   <data name="TALK_FULL_3152" xml:space="preserve">
-    <value>Mareep — commentaire d’expédition 3</value>
+    <value>J'ai des provisions pour tout le monde.[pause=0] Demande,[pause=10] surtout !</value>
   </data>
   <data name="TALK_FULL_3153" xml:space="preserve">
-    <value>Mareep — commentaire d’expédition 4</value>
+    <value>Un [kind] ![pause=20] J'en avais seulement vu en dessin...</value>
   </data>
   <data name="TALK_FULL_3154" xml:space="preserve">
-    <value>Mareep — commentaire d’expédition 5</value>
+    <value>Mes pattes tremblent un peu.[pause=20] Mais c'est de l'excitation ![pause=0] Promis !</value>
   </data>
   <data name="TALK_HALF_3150" xml:space="preserve">
-    <value>Mareep — réplique à mi-PV 1</value>
+    <value>Aïe...[pause=0] Bon.[pause=20] Ça pique, mais je continue !</value>
   </data>
   <data name="TALK_HALF_3151" xml:space="preserve">
-    <value>Mareep — réplique à mi-PV 2</value>
+    <value>Je me suis pris un mauvais coup...[pause=0] Ne le dis pas à Ganlon,[pause=10] d'accord ?</value>
   </data>
   <data name="TALK_HALF_3152" xml:space="preserve">
-    <value>Mareep — réplique à mi-PV 3</value>
+    <value>Je tiens ![pause=20] Je ne veux pas être celle qui ralentit tout le monde.</value>
   </data>
   <data name="TALK_PINCH_3150" xml:space="preserve">
-    <value>Mareep — réplique à PV critique 1</value>
+    <value>J-je ne vois plus très bien...[pause=20] Il me faudrait une Baie...</value>
   </data>
   <data name="TALK_PINCH_3151" xml:space="preserve">
-    <value>Mareep — réplique à PV critique 2</value>
+    <value>Je voulais aller au sommet...[pause=20] avec vous tous...</value>
   </data>
   <data name="TALK_PINCH_3152" xml:space="preserve">
-    <value>Mareep — réplique à PV critique 3</value>
+    <value>Maman avait raison...[pause=20] c'était peut-être trop tôt pour moi...</value>
   </data>
   <data name="TALK_FULL_3160" xml:space="preserve">
-    <value>Mareep — commentaire d’expédition (à Cranidos) 1</value>
+    <value>Ganlon ![pause=0] Tu as vu comme j'ai visé, cette fois ?[pause=20] Hein ?[pause=0] Tu as vu ?</value>
   </data>
   <data name="TALK_FULL_3161" xml:space="preserve">
-    <value>Mareep — commentaire d’expédition (à Cranidos) 2</value>
+    <value>Tu fais semblant d'être ronchon,[pause=10] mais tu m'as encore couverte tout à l'heure.</value>
   </data>
   <data name="TALK_FULL_3162" xml:space="preserve">
-    <value>Mareep — commentaire d’expédition (à Cranidos) 3</value>
+    <value>Merci d'être là.[pause=20] Voilà.[pause=0] Je le dis maintenant,[pause=10] comme ça c'est fait !</value>
   </data>
   <data name="TALK_FULL_3163" xml:space="preserve">
-    <value>Mareep — commentaire d’expédition (à Cranidos) 4</value>
+    <value>Tu grognes tout le temps,[pause=10] mais tu ne me lâches jamais d'une semelle.</value>
   </data>
   <data name="TALK_FULL_3164" xml:space="preserve">
-    <value>Mareep — commentaire d’expédition (à Cranidos) 5</value>
+    <value>Un jour je serai aussi solide que toi.[pause=20] Tu verras !</value>
   </data>
   <data name="TALK_HALF_3160" xml:space="preserve">
-    <value>Mareep — réplique à mi-PV (à Cranidos) 1</value>
+    <value>Ne fais pas cette tête, Ganlon ![pause=0] Ce n'est qu'une éraflure !</value>
   </data>
   <data name="TALK_HALF_3161" xml:space="preserve">
-    <value>Mareep — réplique à mi-PV (à Cranidos) 2</value>
+    <value>Je sais, je sais...[pause=0] « reste derrière ».[pause=20] J'y retourne, promis.</value>
   </data>
   <data name="TALK_HALF_3162" xml:space="preserve">
-    <value>Mareep — réplique à mi-PV (à Cranidos) 3</value>
+    <value>Tu t'inquiètes ?[pause=20] Toi ?[pause=0] ...Ça me fait plaisir, en fait.</value>
   </data>
   <data name="TALK_PINCH_3160" xml:space="preserve">
-    <value>Mareep — réplique à PV critique (à Cranidos) 1</value>
+    <value>Ganlon...[pause=20] je crois que j'ai besoin d'aide...</value>
   </data>
   <data name="TALK_PINCH_3161" xml:space="preserve">
-    <value>Mareep — réplique à PV critique (à Cranidos) 2</value>
+    <value>Ne te fâche pas...[pause=20] j'ai vraiment fait de mon mieux...</value>
   </data>
   <data name="TALK_PINCH_3162" xml:space="preserve">
-    <value>Mareep — réplique à PV critique (à Cranidos) 3</value>
+    <value>Reste près de moi...[pause=20] s'il te plaît...</value>
   </data>
-  <data name="TALK_FULL_9999" xml:space="preserve">
+    <data name="TALK_FULL_3170" xml:space="preserve">
+    <value>Le vent se lève déjà.[pause=0] Attends de voir plus haut.</value>
+  </data>
+  <data name="TALK_FULL_3171" xml:space="preserve">
+    <value>Cette montagne ne veut pas de nous.[pause=20] Tant mieux.[pause=0] Ça motive.</value>
+  </data>
+  <data name="TALK_FULL_3172" xml:space="preserve">
+    <value>Garde les pattes au sol.[pause=0] Une rafale mal placée,[pause=10] et tu pars avec.</value>
+  </data>
+  <data name="TALK_FULL_3173" xml:space="preserve">
+    <value>Ici, le vent ne souffle plus.[pause=20] Il MORD.[pause=0] Serre les rangs.</value>
+  </data>
+  <data name="TALK_FULL_3174" xml:space="preserve">
+    <value>On voit la steppe d'ici.[pause=20] On est montés haut, [player].[pause=0] Très haut.</value>
+  </data>
+  <data name="TALK_FULL_3175" xml:space="preserve">
+    <value>Plus qu'une crête.[pause=0] Ne me fais pas redescendre pour aller te chercher.</value>
+  </data>
+  <data name="TALK_FULL_3176" xml:space="preserve">
+    <value>Enfin quelque chose qui vaut le déplacement.[pause=0] Écarte-toi.</value>
+  </data>
+  <data name="TALK_FULL_3177" xml:space="preserve">
+    <value>Il est plus gros que moi.[pause=20] Il n'est pas plus dur que moi.</value>
+  </data>
+  <data name="TALK_FULL_3178" xml:space="preserve">
+    <value>Frappe quand il se pose.[pause=0] C'est le seul moment où il est à nous.</value>
+  </data>
+  <data name="TALK_FULL_3180" xml:space="preserve">
+    <value>Le Mont Venteux ![pause=20] Je l'ai dessiné cent fois sans jamais le voir.</value>
+  </data>
+  <data name="TALK_FULL_3181" xml:space="preserve">
+    <value>Ma laine gonfle avec le vent...[pause=20] Je dois avoir l'air ridicule.</value>
+  </data>
+  <data name="TALK_FULL_3182" xml:space="preserve">
+    <value>Ganlon marche devant depuis le départ.[pause=0] Il ne le dira jamais,[pause=10] mais c'est exprès.</value>
+  </data>
+  <data name="TALK_FULL_3183" xml:space="preserve">
+    <value>On est plus haut que les nuages ![pause=20] Personne à la guilde ne me croira.</value>
+  </data>
+  <data name="TALK_FULL_3184" xml:space="preserve">
+    <value>Le vent hurle si fort ici...[pause=20] On dirait presque une voix.</value>
+  </data>
+  <data name="TALK_FULL_3185" xml:space="preserve">
+    <value>J'ai froid,[pause=10] j'ai peur,[pause=10] et je suis heureuse.[pause=20] Tout en même temps !</value>
+  </data>
+  <data name="TALK_FULL_3186" xml:space="preserve">
+    <value>Il est... immense.[pause=20] Bon.[pause=0] Je reste.[pause=0] Je reste !</value>
+  </data>
+  <data name="TALK_FULL_3187" xml:space="preserve">
+    <value>Je vise les ailes ![pause=0] S'il ne vole plus,[pause=10] il n'est plus intouchable !</value>
+  </data>
+  <data name="TALK_FULL_3188" xml:space="preserve">
+    <value>On est quatre.[pause=20] Il est seul.[pause=0] Je me répète ça depuis tout à l'heure.</value>
+  </data>
+  <data name="TALK_FULL_3200" xml:space="preserve">
+    <value>Chaque palier change le vent.[pause=0] Tu le sens aussi,[pause=10] [player] ?</value>
+  </data>
+  <data name="TALK_FULL_3201" xml:space="preserve">
+    <value>On grimpe depuis ce matin,[pause=10] et le sommet n'a pas l'air plus proche.</value>
+  </data>
+  <data name="TALK_FULL_3202" xml:space="preserve">
+    <value>Reste près de moi dans les passages étroits.[pause=0] Une chute ici,[pause=10] et c'est fini.</value>
+  </data>
+  <data name="TALK_HALF_3203" xml:space="preserve">
+    <value>Le vent me pousse plus fort quand je suis fatigué...[pause=20] Ça va aller.</value>
+  </data>
+  <data name="TALK_PINCH_3204" xml:space="preserve">
+    <value>Je n'arrive plus...[pause=20] à tenir contre les rafales...</value>
+  </data>
+  <data name="TALK_FULL_3205" xml:space="preserve">
+    <value>Cette voix qu'on entend depuis la steppe...[pause=20] elle est plus nette ici.</value>
+  </data>
+  <data name="TALK_FULL_3206" xml:space="preserve">
+    <value>Regarde en bas.[pause=20] Tout ce chemin,[pause=10] c'est nous qui l'avons fait.</value>
+  </data>
+  <data name="TALK_FULL_3207" xml:space="preserve">
+    <value>Quoi qu'il y ait au sommet,[pause=10] on y arrivera ensemble.[pause=0] Comme toujours.</value>
+  </data>
+  <data name="TALK_FULL_3208" xml:space="preserve">
+    <value>Il garde ce passage.[pause=20] Il ne nous laissera pas passer en discutant.</value>
+  </data>
+  <data name="TALK_FULL_3209" xml:space="preserve">
+    <value>Reste mobile ![pause=0] Il utilise le vent mieux que nous !</value>
+  </data>
+  <data name="TALK_FULL_3210" xml:space="preserve">
+    <value>On l'affronte à quatre.[pause=0] Ne nous éparpillons pas,[pause=10] [player] !</value>
+  </data>
+  <data name="TALK_HALF_3211" xml:space="preserve">
+    <value>Il frappe fort...[pause=20] mais il fatigue aussi.[pause=0] Tenons bon !</value>
+  </data>
+  <data name="TALK_PINCH_3212" xml:space="preserve">
+    <value>Je ne peux plus encaisser...[pause=20] Il faut faire quelque chose,[pause=10] vite...</value>
+  </data>
+<data name="TALK_FULL_9999" xml:space="preserve">
     <value>C'est un message d'erreur de personnalité. Indique à Palika ce qui a conduit à cette erreur.</value>
   </data>
   <data name="TALK_HALF_9999" xml:space="preserve">

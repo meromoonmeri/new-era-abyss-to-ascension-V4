@@ -871,10 +871,15 @@ SV.Chapter5 =
 	LegendLakeHeard = false,--Relicanth (etang) : les Trois Lacs (Crehelf/Crefollet/Crefadet)
 	LegendSkyHeard = false,--Aubergiste Nidoqueen : les deux Gardiens du ciel (Ho-Oh/Lugia)
 	LegendFurnaceHeard = false,--Phileas (camp du Tunnel) : le Fourneau et les Coeurs (Heatran)
-	LegendEarthHeard = false,
+	LegendEarthHeard = false,--Dotra (maison feu) : Celui qui Dort sous les Volcans (Groudon)
 	SteppeMidState = nil,--vague 8 : 'DeathArrival' si mort au-dela du checkpoint
 	TunnelMidState = nil,
-	WindsweptMidState = nil,--Dotra (maison feu) : Celui qui Dort sous les Volcans (Groudon)
+	WindsweptMidState = nil,--vague 8 : 'DeathArrival' si mort au-dela du checkpoint
+	--Retour A L'AMIABLE au relais du Mont (repli volontaire par la sortie
+	--sud, ou reprise d'une sauvegarde faite au rocher de Kangourex).
+	--Declenche l'etat RepeatArrival du template de point median, distinct
+	--du reveil apres KO porte par WindsweptMidState.
+	WindsweptMidReturn = false,
 	LegendHeroesHeard = false,--Grodoudou : les Heros d'Autrefois (meteorite, temps arrete, 25 ans de calme)
 	LegendSkyArbiterHeard = false,--Reinier (camp du Mont) : l'Arbitre du Ciel (Rayquaza)
 
@@ -935,6 +940,10 @@ SV.Chapter6 =
 	--GloomyPlayedMidpointIntro == nil.
 	GloomyPlayedMidpointIntro = false,
 	GloomyMidpointState = 'FirstArrival',
+	--Retour A L'AMIABLE au relais de la Foret (reprise d'une sauvegarde
+	--faite sur place : ce relais n'a pas de sortie arriere). Declenche
+	--l'etat RepeatArrival du template de point median.
+	GloomyMidReturn = false,
 	--Apres-boss de Zarude (DazzlingArc.GloomyVictory). Le chapitre 6 etait
 	--le seul chapitre a boss sans scene de consequence.
 	PlayedVictoryScene = false,
@@ -1130,6 +1139,11 @@ SV.Chapter7 =
 	RuinsAddressGiven = false,--Adresse du matin Ch7 donnee
 	MissionAccepted = false,--Mission Ruines Tordues acceptee
 	RuinsMidpointState = 'FirstArrival',
+	--Retour A L'AMIABLE au relais des Ruines (repli volontaire par la
+	--sortie sud, ou reprise d'une sauvegarde faite sur place). Declenche
+	--l'etat RepeatArrival du template de point median ; distinct de
+	--RuinsMidState, qui porte le reveil apres un KO.
+	RuinsMidReturn = false,
 	--Gardiens antiques (mini-boss segment 3 : Kaorine + Golemastoc).
 	--Lus par ground/cloven_ruins_miniboss, ecrits par zone/cloven_ruins (seg 3).
 	RuinsMiniBossSeen = false,
@@ -1338,4 +1352,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-08-03-L]')
+print('Script variables default values loaded! [build 2026-08-03-M]')

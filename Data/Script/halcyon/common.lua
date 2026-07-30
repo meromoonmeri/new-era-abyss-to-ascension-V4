@@ -313,6 +313,99 @@ COMMON.PERSONALITY[316] = {
 	WAIT = {1000}
 }
 
+--------------------------------------------------------------------
+-- MONT VENTEUX — variantes par segment (cordee du sommet).
+-- Hyko et Almotz avaient deja 4 etats par segment dans le Tunnel
+-- (personnalites 302-309) ; Ganlon et Shuca n'en avaient aucun. Ces
+-- pools comblent le manque pour que leurs repliques suivent la
+-- progression du donjon au lieu de rester generiques.
+-- Segments (Data/Zone/mount_windswept.json) :
+--   0 = Mont Venteux (1re moitie)   1 = Defile Venteux (mini-boss)
+--   2 = Cretes du Mont Venteux      3 = Sommet Venteux (gardien)
+-- Les pools courts (HALF/PINCH) reprennent les repliques de base :
+-- blesse, chacun retombe sur son fond de caractere.
+--------------------------------------------------------------------
+
+--Ganlon - Mont Venteux, premiere moitie
+COMMON.PERSONALITY[317] = {
+	FULL = {3170, 3171, 3172},
+	HALF = {3100, 3101, 3102},
+	PINCH = {3100, 3101, 3102},
+	WAIT = {1000}
+}
+
+--Ganlon - Cretes du Mont Venteux (seconde moitie)
+COMMON.PERSONALITY[318] = {
+	FULL = {3173, 3174, 3175},
+	HALF = {3100, 3101, 3102},
+	PINCH = {3100, 3101, 3102},
+	WAIT = {1000}
+}
+
+--Ganlon - arenes de boss (Defile / Sommet)
+COMMON.PERSONALITY[319] = {
+	FULL = {3176, 3177, 3178},
+	HALF = {3100, 3101, 3102},
+	PINCH = {3100, 3101, 3102},
+	WAIT = {1000}
+}
+
+--Shuca - Mont Venteux, premiere moitie
+COMMON.PERSONALITY[320] = {
+	FULL = {3180, 3181, 3182},
+	HALF = {3150, 3151, 3152},
+	PINCH = {3150, 3151, 3152},
+	WAIT = {1000}
+}
+
+--Shuca - Cretes du Mont Venteux (seconde moitie)
+COMMON.PERSONALITY[321] = {
+	FULL = {3183, 3184, 3185},
+	HALF = {3150, 3151, 3152},
+	PINCH = {3150, 3151, 3152},
+	WAIT = {1000}
+}
+
+--Shuca - arenes de boss (Defile / Sommet)
+COMMON.PERSONALITY[322] = {
+	FULL = {3186, 3187, 3188},
+	HALF = {3150, 3151, 3152},
+	PINCH = {3150, 3151, 3152},
+	WAIT = {1000}
+}
+
+--------------------------------------------------------------------
+-- PARTENAIRE — donjons de l'expedition et au-dela.
+-- Le partenaire n'avait de personnalite d'histoire que pour les
+-- chapitres 1 a 4 (event_battle.lua:554-575). Passe l'expedition, il
+-- retombait sur la personnalite generique 51. Ces pools lui rendent
+-- une voix propre a chaque donjon majeur.
+--------------------------------------------------------------------
+
+--Partenaire - Mont Venteux, premiere moitie
+COMMON.PERSONALITY[330] = {
+	FULL = {1000, 1001, 1002, 1003, 1004, 3200, 3201, 3202},
+	HALF = {1000, 1001, 1002, 3203},
+	PINCH = {1000, 1001, 1002, 3204},
+	WAIT = {1000}
+}
+
+--Partenaire - Cretes du Mont Venteux (seconde moitie)
+COMMON.PERSONALITY[331] = {
+	FULL = {1000, 1001, 1002, 1003, 1004, 3205, 3206, 3207},
+	HALF = {1000, 1001, 1002, 3203},
+	PINCH = {1000, 1001, 1002, 3204},
+	WAIT = {1000}
+}
+
+--Partenaire - arenes de boss du Mont (Defile / Sommet)
+COMMON.PERSONALITY[332] = {
+	FULL = {3208, 3209, 3210},
+	HALF = {3203, 3211},
+	PINCH = {3204, 3212},
+	WAIT = {1000}
+}
+
 
 
 

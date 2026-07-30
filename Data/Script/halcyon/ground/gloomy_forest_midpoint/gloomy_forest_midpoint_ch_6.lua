@@ -2,6 +2,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.MidpointTemplate'
 
 gloomy_forest_midpoint_ch_6 = {}
 
@@ -15,6 +16,58 @@ gloomy_forest_midpoint_ch_6 = {}
 ------------------------------------------------------------------
 
 -- Quiet resting arrangement when arriving freely (not a cutscene).
+--------------------------------------------------------------------
+-- HABILLAGE DU POINT MEDIAN — Foret Lugubre (forest_camp, 912x720)
+--
+-- STRUCTURE : halcyon.MidpointTemplate, identique a tous les relais.
+-- HABILLAGE : propre a ce biome, et a lui seul.
+--
+--   Biome     : clairiere sous canopee epaisse. Le calme y vient du
+--               couvert vegetal, la ou le Mont le tient d'un canyon
+--               coupe-vent et le Tunnel d'une poche de vapeur.
+--   Ambiance  : 'autumn_leaves' — feuilles qui tombent en continu.
+--               Ni 'blowing_wind' (Mont) ni 'steam' (Tunnel) : chaque
+--               relais a son propre statut, jamais recopie.
+--   Musique   : 'Mystifying Forest.ogg', theme de la carte elle-meme.
+--   Lumiere   : sous-bois tamise, aucun 'darkness' de jour.
+--
+-- Positions verifiees marchables (tools/nea_map.py).
+--------------------------------------------------------------------
+gloomy_forest_midpoint_ch_6.SKIN = {
+  music     = 'Mystifying Forest.ogg',
+  wakeMusic = 'Heartwarming.ogg',
+  status    = 'autumn_leaves',
+  hero      = {292, 272},
+  partner   = {260, 272},
+  camera    = {276, 200},
+  walk      = 56,
+  wake = {
+    hero        = {276, 180}, heroFace    = Direction.Left,
+    partner     = {308, 180}, partnerFace = Direction.Right,
+    camera      = {292, 176},
+  },
+}
+
+--------------------------------------------------------------------
+-- ETAT « RepeatArrival » DU TEMPLATE — retour a l'amiable.
+-- Le relais existait avec cet etat en NOM (GloomyMidpointState vaut
+-- 'RepeatArrival') mais aucune scene ne lui etait associee : on
+-- retombait sur SetupGround + fondu muet. Meme fonction que sur le
+-- Tunnel et le Mont, habillage de sous-bois.
+--------------------------------------------------------------------
+function gloomy_forest_midpoint_ch_6.RepeatArrival()
+  local partner = CH('Teammate1')
+  MidpointTemplate.RepeatArrival({
+    skin = gloomy_forest_midpoint_ch_6.SKIN,
+    lines = {
+      { who = partner, spk = 'partner', emo = 'Normal',
+        txt = "La clairière n'a pas bougé.[pause=0] Même les feuilles tombent au même rythme.", wait = 10 },
+      { who = partner, spk = 'partner', emo = 'Normal',
+        txt = "Le rocher de Kangourex est toujours là.[pause=0] Reprenons des forces avant les profondeurs." },
+    },
+  })
+end
+
 function gloomy_forest_midpoint_ch_6.SetupGround()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')

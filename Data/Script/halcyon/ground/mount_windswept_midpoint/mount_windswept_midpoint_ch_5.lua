@@ -13,8 +13,65 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
+require 'halcyon.MidpointTemplate'
 
 mount_windswept_midpoint_ch_5 = {}
+
+--------------------------------------------------------------------
+-- HABILLAGE DU POINT MEDIAN — Mont Venteux (canyon_camp, 1152x624)
+--
+-- La STRUCTURE vient de halcyon.MidpointTemplate et ne varie pas d'un
+-- donjon a l'autre. Ce qui suit est l'habillage PROPRE a ce biome, et
+-- lui seul : aucun autre relais ne doit reutiliser cette table.
+--
+--   Biome        : canyon d'altitude, roche seche, vent coupe par les
+--                  parois. Le camp est le seul endroit calme du Mont.
+--   Ambiance     : 'blowing_wind' — le vent reste audible mais le
+--                  canyon l'attenue ; c'est ce contraste qui fait le
+--                  soulagement du palier (le Tunnel, lui, pose 'steam').
+--   Musique      : 'Canyon Camp.ogg' (verifiee presente).
+--   Lumiere      : de jour, pas de 'darkness' ici — la nuit n'est posee
+--                  que par les veillees scenarisees plus bas.
+--
+-- Toutes les positions sont verifiees marchables (tools/nea_map.py).
+--------------------------------------------------------------------
+mount_windswept_midpoint_ch_5.SKIN = {
+  music     = 'Canyon Camp.ogg',
+  wakeMusic = 'Heartwarming.ogg',
+  status    = 'blowing_wind',
+  hero      = {852, 416},
+  partner   = {820, 416},
+  camera    = {836, 376},
+  walk      = 48,
+  wake = {
+    hero        = {960, 360}, heroFace    = Direction.Left,
+    partner     = {992, 384}, partnerFace = Direction.Right,
+    camera      = {976, 368},
+  },
+}
+
+--Postes de repos des deux equipiers, selon l'issue de la derniere
+--sortie. Les positions d'origine sont conservees telles quelles.
+function mount_windswept_midpoint_ch_5.Cast(defeated)
+  local ganlon = CH('Teammate2')
+  local shuca  = CH('Teammate3')
+  if defeated then
+    -- Apres une defaite : regroupes pres du rocher de Kangourex.
+    return {
+      { chara = shuca,  post = {950, 390},  face = Direction.Left,
+        watch = {1016, 400}, watchFace = Direction.UpLeft,  enter = {884, 416} },
+      { chara = ganlon, post = {1010, 390}, face = Direction.Left,
+        watch = {920, 400},  watchFace = Direction.UpRight, enter = {788, 416} },
+    }
+  end
+  -- Repos ordinaire : Shuca pres d'un feu, Ganlon en poste au bord est.
+  return {
+    { chara = shuca,  post = {340, 460},  face = Direction.Up,
+      watch = {1016, 400}, watchFace = Direction.UpLeft,  enter = {884, 416} },
+    { chara = ganlon, post = {1060, 360}, face = Direction.Left,
+      watch = {920, 400},  watchFace = Direction.UpRight, enter = {788, 416} },
+  }
+end
 
 --------------------------------------------------------------------
 -- Arrivee initiale
@@ -91,6 +148,72 @@ function mount_windswept_midpoint_ch_5.FirstArrival()
 
   GAME:CutsceneMode(false)
   GAME:EnterGroundMap("mount_windswept_midpoint", "Main_Entrance_Marker")
+end
+
+--------------------------------------------------------------------
+-- ETAT « RepeatArrival » DU TEMPLATE — retour a l'amiable.
+--
+-- Joue quand le joueur revient au relais SANS avoir ete mis KO :
+-- repli volontaire par la sortie sud, ou reprise d'une sauvegarde
+-- faite ici au rocher de Kangourex. Le Tunnel Incandescent a toujours
+-- eu cet etat (searing_tunnel_midpoint/init.lua:164) ; le Mont ne
+-- l'avait pas, et retombait donc sur un simple fondu.
+--
+-- Sobre par construction : le camp est deja connu, pas de carton-titre,
+-- pas de redecouverte. On reprend le fil, c'est tout.
+--------------------------------------------------------------------
+--Une cinematique de progression attend-elle d'etre jouee sur ce
+--relais ? Si oui, elle prime sur le retour a l'amiable : on ne veut
+--pas qu'un simple rechargement de sauvegarde escamote le Fragment ou
+--la derniere veillee. Conditions recopiees a l'identique de
+--SetupGround (ci-dessous) pour que les deux ne puissent pas diverger.
+function mount_windswept_midpoint_ch_5.HasPendingScene()
+  local c5 = SV.Chapter5
+  if c5.PlayedMountMidpointIntro and not c5.FragmentSceneSeen
+     and (c5.MountMiniBossDefeated or c5.MountMiniBossLost) then
+    return true
+  end
+  if c5.MountGuardianDefeated and not c5.MountVigilSceneSeen then
+    return true
+  end
+  return false
+end
+
+function mount_windswept_midpoint_ch_5.RepeatArrival()
+  local defeated = SV.Chapter5.MountMiniBossLost or SV.Chapter5.MountGuardianLost
+  local partner = CH('Teammate1')
+  local lines = {}
+
+  --La replique s'accorde a l'avancee : on ne dit pas la meme chose
+  --selon qu'on redescend avant le mini-boss ou avant le sommet.
+  if SV.Chapter5.MountGuardianDefeated then
+    lines = {
+      { who = partner, spk = 'partner', emo = 'Normal',
+        txt = "Le camp n'a pas bougé.[pause=0] Après ce qu'on a vu là-haut,[pause=10] ça fait presque étrange de le retrouver intact.", wait = 10 },
+      { who = partner, spk = 'partner', emo = 'Determined',
+        txt = "Le passage du sommet est ouvert.[pause=0] On remonte quand tu veux." },
+    }
+  elseif defeated then
+    lines = {
+      { who = partner, spk = 'partner', emo = 'Worried',
+        txt = "Retour au canyon...[pause=0] Au moins, ici, le vent ne nous cherche pas.", wait = 10 },
+      { who = partner, spk = 'partner', emo = 'Determined',
+        txt = "Refais le plein au rocher.[pause=0] On repart dès que tu te sens prêt." },
+    }
+  else
+    lines = {
+      { who = partner, spk = 'partner', emo = 'Normal',
+        txt = "Nous revoilà au camp du canyon.[pause=0] Les feux brûlent toujours.", wait = 10 },
+      { who = partner, spk = 'partner', emo = 'Normal',
+        txt = "Prends le temps qu'il faut au rocher.[pause=0] La montagne ne s'en ira pas." },
+    }
+  end
+
+  MidpointTemplate.RepeatArrival({
+    skin  = mount_windswept_midpoint_ch_5.SKIN,
+    cast  = mount_windswept_midpoint_ch_5.Cast(defeated),
+    lines = lines,
+  })
 end
 
 --------------------------------------------------------------------

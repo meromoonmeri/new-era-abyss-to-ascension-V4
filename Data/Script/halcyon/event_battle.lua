@@ -552,11 +552,18 @@ function BATTLE_SCRIPT.PartnerInteract(owner, ownerChar, context, args)
 		end
 	else
 		--Story personalities
-		if SV.ChapterProgression.Chapter == 1 and dungeon == 'Relic Forest' then
+		--BUG CORRIGE : ces branches comparaient `dungeon`, qui vient de
+		--GAME:GetCurrentDungeon().Name:ToLocal() — donc le nom TRADUIT
+		--(Text.cs:1052-1067) — a des litteraux anglais. En francais,
+		--`dungeon` vaut « Foret des Reliques », jamais « Relic Forest » :
+		--aucune de ces conditions ne pouvait etre vraie, et le partenaire
+		--retombait toujours sur la personnalite generique 51.
+		--On compare desormais l'ID interne de zone, invariant par langue.
+		if SV.ChapterProgression.Chapter == 1 and zone_id == 'relic_forest' then
 			personality = 60
-		elseif SV.ChapterProgression.Chapter == 2 and dungeon == 'Illuminant Riverbed' then
+		elseif SV.ChapterProgression.Chapter == 2 and zone_id == 'illuminant_riverbed' then
 			personality = 61
-		elseif SV.ChapterProgression.Chapter == 3 and dungeon == 'Crooked Cavern' then
+		elseif SV.ChapterProgression.Chapter == 3 and zone_id == 'crooked_cavern' then
 			if not SV.Chapter3.EncounteredBoss and segment == 0 then --dungeon, havent fought boss yet
 				personality = 62
 			elseif SV.Chapter3.EncounteredBoss and not SV.Chapter3.DefeatedBoss and not SV.Chapter3.FinishedRootScene and segment == 0 then --dungeon, lost to boss already
@@ -565,11 +572,25 @@ function BATTLE_SCRIPT.PartnerInteract(owner, ownerChar, context, args)
 				personality = 64
 				GeneralFunctions.SetEmotion("Determined")--this is overriden to worried/pain if hp is low enough
 			end
-		elseif SV.ChapterProgression.Chapter == 4 and dungeon == 'Apricorn Grove' then
+		elseif SV.ChapterProgression.Chapter == 4 and zone_id == 'apricorn_grove' then
 			if not SV.Chapter4.ReachedGlade then
 				personality = 65
 			elseif not SV.Chapter4.FinishedGrove then
 				personality = 66
+			end
+		elseif zone_id == 'mount_windswept' then
+			--EXPEDITION — Mont Venteux. Le partenaire n'avait aucune
+			--personnalite au-dela du chapitre 4 : il commentait le Mont
+			--avec les repliques generiques de la guilde. Segments :
+			--  0 = 1re moitie, 1 = Defile (mini-boss),
+			--  2 = Cretes,     3 = Sommet (gardien).
+			if segment == 1 or segment == 3 then
+				personality = 332
+				GeneralFunctions.SetEmotion("Determined")
+			elseif segment == 2 then
+				personality = 331
+			elseif segment == 0 then
+				personality = 330
 			end
 		end
 	end
@@ -752,6 +773,13 @@ function BATTLE_SCRIPT.GuildmateInteract(owner, ownerChar, context, args)
 
 	local dungeon = GAME:GetCurrentDungeon().Name:ToLocal()
 	local segment = _ZONE.CurrentMapID.Segment
+	--IDENTIFIANT INTERNE de la zone, et non son nom affiche.
+	--`dungeon` ci-dessus passe par LocalText:ToLocal() (Text.cs:1052),
+	--qui rend la traduction : en francais il vaut « Mont Venteux », pas
+	--« Mt. Windswept ». Comparer un nom localise a un litteral anglais
+	--ne matche jamais hors anglais. On route donc sur l'ID de zone,
+	--stable quelle que soit la langue.
+	local zone_id = tostring(_ZONE.CurrentZoneID)
 
 
 	local target_tbl = LTBL(target)
@@ -815,8 +843,23 @@ function BATTLE_SCRIPT.GuildmateInteract(owner, ownerChar, context, args)
 				elseif nextToShuca then
 					personality = 311--timid when next to Shuca
 				else
-					GeneralFunctions.SetEmotion("Determined")--Jerk if she isn't next to him
-					personality = 310
+					--PAS DE SHUCA A COTE : Ganlon commente le donjon lui-meme.
+					--Les etats relationnels ci-dessus priment toujours ; on ne
+					--descend ici que s'il n'y a rien de plus fort a jouer.
+					--Segments du Mont (Data/Zone/mount_windswept.json) :
+					--  0 = 1re moitie, 1 = Defile (mini-boss),
+					--  2 = Cretes,     3 = Sommet (gardien).
+					GeneralFunctions.SetEmotion("Determined")
+					personality = 310--repli : le fond de caractere, brusque
+					if zone_id == "mount_windswept" then
+						if segment == 1 or segment == 3 then
+							personality = 319--arene de boss
+						elseif segment == 2 then
+							personality = 318--Cretes
+						elseif segment == 0 then
+							personality = 317--premiere moitie
+						end
+					end
 				end
 			end
 		elseif target_importance == "Mareep" then
@@ -825,7 +868,16 @@ function BATTLE_SCRIPT.GuildmateInteract(owner, ownerChar, context, args)
 				GeneralFunctions.SetEmotion("Happy")
 				personality = 316
 			else
-				personality = 315
+				personality = 315--repli : Shuca en general
+				if zone_id == "mount_windswept" then
+					if segment == 1 or segment == 3 then
+						personality = 322--arene de boss
+					elseif segment == 2 then
+						personality = 321--Cretes
+					elseif segment == 0 then
+						personality = 320--premiere moitie
+					end
+				end
 			end
 		end
 	else--For chapters down the road

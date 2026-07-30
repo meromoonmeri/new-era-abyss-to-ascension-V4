@@ -7,8 +7,41 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.RelayScenes'
+require 'halcyon.MidpointTemplate'
 
 local cloven_ruins_midpoint = {}
+
+--------------------------------------------------------------------
+-- HABILLAGE DU POINT MEDIAN — Ruines Tordues (384x480)
+--
+-- STRUCTURE : halcyon.MidpointTemplate, commune a tous les relais.
+-- HABILLAGE : propre a ce biome, jamais recopie ailleurs.
+--
+--   Biome     : esplanade taillee au coeur de ruines souterraines.
+--               Le calme ne vient ni du vent coupe (Mont) ni du
+--               couvert vegetal (Foret) : il vient de la PIERRE, d'une
+--               salle que ses batisseurs ont voulu voir survivre.
+--   Ambiance  : 'mysterious_distortion' — l'air vibre au-dessus des
+--               veines dorees. Statut distinct des trois autres relais.
+--   Musique   : 'In the Depths of the Pit.ogg', theme de la carte.
+--   Lumiere   : souterraine, portee par les veines dans la pierre.
+--
+-- Positions verifiees marchables (tools/nea_map.py).
+--------------------------------------------------------------------
+local RUINS_SKIN = {
+  music     = 'In the Depths of the Pit.ogg',
+  wakeMusic = 'Heartwarming.ogg',
+  status    = 'mysterious_distortion',
+  hero      = {212, 456},
+  partner   = {180, 456},
+  camera    = {196, 400},
+  walk      = 56,
+  wake = {
+    hero        = {172, 344}, heroFace    = Direction.Left,
+    partner     = {204, 344}, partnerFace = Direction.Right,
+    camera      = {188, 336},
+  },
+}
 
 function cloven_ruins_midpoint.Init(map)
   DEBUG.EnableDbgCoro()
@@ -50,6 +83,22 @@ function cloven_ruins_midpoint.Enter(map)
         },
       })
     end
+  elseif SV.Chapter7.RuinsMidReturn then
+    --ETAT « RepeatArrival » DU TEMPLATE — retour a l'amiable
+    --(repli volontaire par la sortie sud, ou reprise d'une sauvegarde
+    --faite ici). Le relais ne connaissait que FirstArrival et le reveil
+    --apres KO : revenir sur ses pas ne donnait qu'un fondu muet.
+    SV.Chapter7.RuinsMidReturn = false
+    local partner = CH('Teammate1')
+    MidpointTemplate.RepeatArrival({
+      skin = RUINS_SKIN,
+      lines = {
+        { who = partner, spk = 'partner', emo = 'Normal',
+          txt = "L'esplanade est intacte.[pause=0] Dans ces ruines,[pause=10] c'est presque rassurant.", wait = 10 },
+        { who = partner, spk = 'partner', emo = 'Normal',
+          txt = "Sauvegardons avant de redescendre.[pause=0] Le Cœur n'attend que nous." },
+      },
+    })
   else
     GAME:FadeIn(20)
   end
@@ -62,9 +111,15 @@ function cloven_ruins_midpoint.GameSave(map)
   PartnerEssentials.SaveGamePartnerPosition(CH('Teammate1'))
 end
 
+-- Reprise d'une sauvegarde faite AU relais : sortie a l'amiable, on
+-- arme le retour sobre du template plutot qu'un fondu muet.
 function cloven_ruins_midpoint.GameLoad(map)
   PartnerEssentials.LoadGamePartnerPosition(CH('Teammate1'))
-  GAME:FadeIn(20)
+  if SV.Chapter7.RuinsMidpointState ~= 'FirstArrival'
+     and SV.Chapter7.RuinsMidState ~= 'DeathArrival' then
+    SV.Chapter7.RuinsMidReturn = true
+  end
+  cloven_ruins_midpoint.Enter(map)
 end
 
 -- Sortie nord : continuer vers les profondeurs (segment 2)
@@ -110,6 +165,8 @@ function cloven_ruins_midpoint.South_Exit_Touch(obj, activator)
   UI:SetCenter(false)
   if res then
     SV.adventure.Thief = false
+    --Repli VOLONTAIRE : sortie a l'amiable, on arme le retour sobre.
+    SV.Chapter7.RuinsMidReturn = true
     SOUND:FadeOutBGM(60)
     GAME:FadeOut(false, 60)
     partner.IsInteracting = false

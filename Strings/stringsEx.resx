@@ -4444,115 +4444,115 @@
 
 
   <data name="TALK_FULL_3100" xml:space="preserve">
-    <value>Cranidos Jerk Expedition Comment 1</value>
+    <value>Walk ahead if you want.[pause=0] I hit whatever moves.</value>
     <comment>Expedition - Cranidos Jerk comment</comment>  </data>
    <data name="TALK_FULL_3101" xml:space="preserve">
-    <value>Cranidos Jerk Expedition Comment 2</value>
+    <value>This dungeon?[pause=0] Rocks and wind.[pause=10] I've seen worse.</value>
     <comment>Expedition - Cranidos Jerk comment</comment>  </data>
    <data name="TALK_FULL_3102" xml:space="preserve">
-    <value>Cranidos Jerk Expedition Comment 3</value>
+    <value>Planning to chat all day,[pause=10] [player]?[pause=0] We have a summit to reach.</value>
     <comment>Expedition - Cranidos Jerk comment</comment>  </data>
    <data name="TALK_FULL_3103" xml:space="preserve">
-    <value>Cranidos Jerk Expedition Comment 4</value>
+    <value>A [kind] charged me earlier.[pause=0] One.[pause=20] It didn't last.</value>
     <comment>Expedition - Cranidos Jerk comment</comment>  </data>
    <data name="TALK_FULL_3104" xml:space="preserve">
-    <value>Cranidos Jerk Expedition Comment 5</value>
+    <value>Hmph.[pause=0] As long as nobody slows me down,[pause=10] we're fine.</value>
     <comment>Expedition - Cranidos Jerk comment</comment>  </data>
  
   <data name="TALK_HALF_3100" xml:space="preserve">
-    <value>Cranidos Jerk Half HP 1</value>
+    <value>It's nothing.[pause=0] A skull like mine,[pause=10] it doesn't crack that easy.</value>
     <comment>Expedition - Cranidos Jerk comment</comment>  </data>
   <data name="TALK_HALF_3101" xml:space="preserve">
-    <value>Cranidos Jerk Half HP 2</value>
+    <value>So I took a hit.[pause=0] And?[pause=20] Keep moving.</value>
     <comment>Expedition - Cranidos Jerk comment</comment>  </data>
   <data name="TALK_HALF_3102" xml:space="preserve">
-    <value>Cranidos Jerk Half HP 3</value>
+    <value>Don't look at me like that.[pause=0] I'm standing,[pause=10] that's what counts.</value>
     <comment>Expedition - Cranidos Jerk comment</comment>  </data>
 
   <data name="TALK_PINCH_3100" xml:space="preserve">
-    <value>Cranidos Jerk Pinch HP 1</value>
+    <value>Tch...[pause=20] That's adding up,[pause=10] even for me...</value>
     <comment>Expedition - Cranidos Jerk comment</comment>  </data>
   <data name="TALK_PINCH_3101" xml:space="preserve">
-    <value>Cranidos Jerk Pinch HP 2</value>
+    <value>I'm... not going down here.[pause=0] Not in front of everyone...</value>
     <comment>Expedition - Cranidos Jerk comment</comment>  </data>
   <data name="TALK_PINCH_3102" xml:space="preserve">
-    <value>Cranidos Jerk Pinch HP 3</value>
+    <value>A Berry...[pause=20] if you've got a spare.[pause=0] I won't ask twice.</value>
     <comment>Expedition - Cranidos Jerk comment</comment>  </data>
 
 
 
   <data name="TALK_FULL_3110" xml:space="preserve">
-    <value>Cranidos Timid Expedition Comment 1</value>
+    <value>...What?[pause=0] I'm watching the flanks,[pause=10] that's all.[pause=0] It's my post.</value>
     <comment>Expedition - Cranidos Timid comment</comment>  </data>
    <data name="TALK_FULL_3111" xml:space="preserve">
-    <value>Cranidos Timid Expedition Comment 2</value>
+    <value>[(Mareep)] is doing well.[pause=20] ...I mean.[pause=0] The team is doing well.</value>
     <comment>Expedition - Cranidos Timid comment</comment>  </data>
    <data name="TALK_FULL_3112" xml:space="preserve">
-    <value>Cranidos Timid Expedition Comment 3</value>
+    <value>Stay together.[pause=0] If someone gets surrounded here,[pause=10] it ends badly.</value>
     <comment>Expedition - Cranidos Timid comment</comment>  </data>
    <data name="TALK_FULL_3113" xml:space="preserve">
-    <value>Cranidos Timid Expedition Comment 4</value>
+    <value>I'm not distracted.[pause=20] I'm... attentive.[pause=0] There's a difference.</value>
     <comment>Expedition - Cranidos Timid comment</comment>  </data>
    <data name="TALK_FULL_3114" xml:space="preserve">
-    <value>Cranidos Timid Expedition Comment 5</value>
+    <value>We'll talk at camp.[pause=0] Out here,[pause=10] I need my ears.</value>
     <comment>Expedition - Cranidos Timid comment</comment>  </data>
  
   <data name="TALK_HALF_3110" xml:space="preserve">
-    <value>Cranidos Timid Half HP 1</value>
+    <value>I'm fine.[pause=0] Don't mention it to [(Mareep)],[pause=10] she'd worry over nothing.</value>
     <comment>Expedition - Cranidos Timid comment</comment>  </data>
   <data name="TALK_HALF_3111" xml:space="preserve">
-    <value>Cranidos Timid Half HP 2</value>
+    <value>A few bruises.[pause=0] Nothing that stops me covering the rear.</value>
     <comment>Expedition - Cranidos Timid comment</comment>  </data>
   <data name="TALK_HALF_3112" xml:space="preserve">
-    <value>Cranidos Timid Half HP 3</value>
+    <value>I'm holding my position.[pause=20] Mind your own.</value>
     <comment>Expedition - Cranidos Timid comment</comment>  </data>
 
   <data name="TALK_PINCH_3110" xml:space="preserve">
-    <value>Cranidos Timid Pinch HP 1</value>
+    <value>Don't tell [(Mareep)]...[pause=20] Please.</value>
     <comment>Expedition - Cranidos Timid comment</comment>  </data>
   <data name="TALK_PINCH_3111" xml:space="preserve">
-    <value>Cranidos Timid Pinch HP 2</value>
+    <value>I have to hold...[pause=0] If I fall,[pause=10] she's left exposed...</value>
     <comment>Expedition - Cranidos Timid comment</comment>  </data>
   <data name="TALK_PINCH_3112" xml:space="preserve">
-    <value>Cranidos Timid Pinch HP 3</value>
+    <value>A little longer...[pause=20] Just... a little longer...</value>
     <comment>Expedition - Cranidos Timid comment</comment>  </data>
 
 
 
   <data name="TALK_FULL_3120" xml:space="preserve">
-    <value>Cranidos Blushing Expedition Comment 1</value>
+    <value>S-Shuca?![pause=20] Uh.[pause=0] Yes.[pause=0] Everything's under control.[pause=10] Totally.</value>
     <comment>Expedition - Cranidos Blushing comment</comment>  </data>
    <data name="TALK_FULL_3121" xml:space="preserve">
-    <value>Cranidos Blushing Expedition Comment 2</value>
+    <value>You're... doing well today.[pause=20] There.[pause=0] I said it.</value>
     <comment>Expedition - Cranidos Blushing comment</comment>  </data>
    <data name="TALK_FULL_3122" xml:space="preserve">
-    <value>Cranidos Blushing Expedition Comment 3</value>
+    <value>Don't wander off.[pause=20] That's a tactical order![pause=0] Nothing else.</value>
     <comment>Expedition - Cranidos Blushing comment</comment>  </data>
    <data name="TALK_FULL_3123" xml:space="preserve">
-    <value>Cranidos Blushing Expedition Comment 4</value>
+    <value>Huh?[pause=0] No, I wasn't looking at you.[pause=20] I was looking... behind you.</value>
     <comment>Expedition - Cranidos Blushing comment</comment>  </data>
    <data name="TALK_FULL_3124" xml:space="preserve">
-    <value>Cranidos Blushing Expedition Comment 5</value>
+    <value>If something comes at you,[pause=10] you shout.[pause=0] And I come.[pause=20] That's all.</value>
     <comment>Expedition - Cranidos Blushing comment</comment>  </data>
  
   <data name="TALK_HALF_3120" xml:space="preserve">
-    <value>Cranidos Blushing Half HP 1</value>
+    <value>It's nothing![pause=20] Really.[pause=0] Don't make that face, Shuca...</value>
     <comment>Expedition - Cranidos Blushing comment</comment>  </data>
   <data name="TALK_HALF_3121" xml:space="preserve">
-    <value>Cranidos Blushing Half HP 2</value>
+    <value>I-I'm fine.[pause=0] Stop staring at me like that,[pause=10] you're breaking my focus.</value>
     <comment>Expedition - Cranidos Blushing comment</comment>  </data>
   <data name="TALK_HALF_3122" xml:space="preserve">
-    <value>Cranidos Blushing Half HP 3</value>
+    <value>It's a scratch.[pause=20] A big scratch.[pause=0] It happens.</value>
     <comment>Expedition - Cranidos Blushing comment</comment>  </data>
 
   <data name="TALK_PINCH_3120" xml:space="preserve">
-    <value>Cranidos Blushing Pinch HP 1</value>
+    <value>Don't...[pause=20] don't look at me like that.[pause=0] I'm supposed to protect you...</value>
     <comment>Expedition - Cranidos Blushing comment</comment>  </data>
   <data name="TALK_PINCH_3121" xml:space="preserve">
-    <value>Cranidos Blushing Pinch HP 2</value>
+    <value>I'm sorry, Shuca.[pause=20] I should have been tougher than this.</value>
     <comment>Expedition - Cranidos Blushing comment</comment>  </data>
   <data name="TALK_PINCH_3122" xml:space="preserve">
-    <value>Cranidos Blushing Pinch HP 3</value>
+    <value>Step back.[pause=20] Please.[pause=0] At least let me... do this right.</value>
     <comment>Expedition - Cranidos Blushing comment</comment>  </data>
 
 
@@ -4567,39 +4567,39 @@
 	
 	
    <data name="TALK_FULL_3130" xml:space="preserve">
-    <value>Cranidos Critical Shuca Expedition Comment 1</value>
+    <value>LOOK at the state she's in![pause=20] Heal her.[pause=0] NOW.</value>
     <comment>Expedition - Cranidos Critical Shuca comment</comment>  </data>
    <data name="TALK_FULL_3131" xml:space="preserve">
-    <value>Cranidos Critical Shuca Expedition Comment 2</value>
+    <value>You left her on the front line.[pause=20] Never do that again.</value>
     <comment>Expedition - Cranidos Critical Shuca comment</comment>  </data>
    <data name="TALK_FULL_3132" xml:space="preserve">
-    <value>Cranidos Critical Shuca Expedition Comment 3</value>
+    <value>A Berry.[pause=0] A Berry, right now![pause=20] Don't argue, [player]!</value>
     <comment>Expedition - Cranidos Critical Shuca comment</comment>  </data>
    <data name="TALK_FULL_3133" xml:space="preserve">
-    <value>Cranidos Critical Shuca Expedition Comment 4</value>
+    <value>If she goes down here,[pause=10] I will never forgive you.[pause=0] Ever.</value>
     <comment>Expedition - Cranidos Critical Shuca comment</comment>  </data>
    <data name="TALK_FULL_3134" xml:space="preserve">
-    <value>Cranidos Critical Shuca Expedition Comment 5</value>
+    <value>I don't care about the summit![pause=20] Get her out,[pause=10] that's all that matters!</value>
     <comment>Expedition - Cranidos Critical Shuca comment</comment>  </data>
  
   <data name="TALK_HALF_3130" xml:space="preserve">
-    <value>Cranidos Critical Shuca Half HP 1</value>
+    <value>Don't worry about me![pause=20] SHE's the one who needs help!</value>
     <comment>Expedition - Cranidos Critical Shuca comment</comment>  </data>
   <data name="TALK_HALF_3131" xml:space="preserve">
-    <value>Cranidos Critical Shuca Half HP 2</value>
+    <value>My wounds can wait.[pause=0] Hers can't.</value>
     <comment>Expedition - Cranidos Critical Shuca comment</comment>  </data>
   <data name="TALK_HALF_3132" xml:space="preserve">
-    <value>Cranidos Critical Shuca Half HP 3</value>
+    <value>Move![pause=20] Every second counts,[pause=10] can't you see that?!</value>
     <comment>Expedition - Cranidos Critical Shuca comment</comment>  </data>
 
   <data name="TALK_PINCH_3130" xml:space="preserve">
-    <value>Cranidos Critical Shuca Pinch HP 1</value>
+    <value>We're... both down...[pause=20] Get her out of here.[pause=0] Her first.</value>
     <comment>Expedition - Cranidos Critical Shuca comment</comment>  </data>
   <data name="TALK_PINCH_3131" xml:space="preserve">
-    <value>Cranidos Critical Shuca Pinch HP 2</value>
+    <value>Leave me...[pause=20] Take Shuca and go.[pause=0] That's an order.</value>
     <comment>Expedition - Cranidos Critical Shuca comment</comment>  </data>
   <data name="TALK_PINCH_3132" xml:space="preserve">
-    <value>Cranidos Critical Shuca Pinch HP 3</value>
+    <value>I... failed...[pause=20] Don't let her fall too...</value>
     <comment>Expedition - Cranidos Critical Shuca comment</comment>  </data>
 	
 	
@@ -4608,39 +4608,39 @@
 	
 	
    <data name="TALK_FULL_3140" xml:space="preserve">
-    <value>Cranidos Critical Shuca to Shuca Expedition Comment 1</value>
+    <value>Shuca.[pause=20] Stay behind me.[pause=0] I won't ask twice.</value>
     <comment>Expedition - Cranidos Critical Shuca to Shuca comment</comment>  </data>
    <data name="TALK_FULL_3141" xml:space="preserve">
-    <value>Cranidos Critical Shuca to Shuca Expedition Comment 2</value>
+    <value>Are you holding up?[pause=20] ...No.[pause=0] Don't lie.[pause=10] I can see it.</value>
     <comment>Expedition - Cranidos Critical Shuca to Shuca comment</comment>  </data>
    <data name="TALK_FULL_3142" xml:space="preserve">
-    <value>Cranidos Critical Shuca to Shuca Expedition Comment 3</value>
+    <value>Breathe.[pause=20] I'm here.[pause=0] Nothing reaches you while I'm standing.</value>
     <comment>Expedition - Cranidos Critical Shuca to Shuca comment</comment>  </data>
    <data name="TALK_FULL_3143" xml:space="preserve">
-    <value>Cranidos Critical Shuca to Shuca Expedition Comment 4</value>
+    <value>We're going back.[pause=20] The summit will wait.[pause=0] You won't.</value>
     <comment>Expedition - Cranidos Critical Shuca to Shuca comment</comment>  </data>
    <data name="TALK_FULL_3144" xml:space="preserve">
-    <value>Cranidos Critical Shuca to Shuca Expedition Comment 5</value>
+    <value>Don't apologize.[pause=20] You made it this far.[pause=0] That's already huge.</value>
     <comment>Expedition - Cranidos Critical Shuca to Shuca comment</comment>  </data>
  
   <data name="TALK_HALF_3140" xml:space="preserve">
-    <value>Cranidos Critical Shuca to Shuca Half HP 1</value>
+    <value>So I'm bleeding a little.[pause=0] You can barely stand.</value>
     <comment>Expedition - Cranidos Critical Shuca to Shuca comment</comment>  </data>
   <data name="TALK_HALF_3141" xml:space="preserve">
-    <value>Cranidos Critical Shuca to Shuca Half HP 2</value>
+    <value>Don't think about me.[pause=20] Think about breathing.[pause=0] Just that.</value>
     <comment>Expedition - Cranidos Critical Shuca to Shuca comment</comment>  </data>
   <data name="TALK_HALF_3142" xml:space="preserve">
-    <value>Cranidos Critical Shuca to Shuca Half HP 3</value>
+    <value>We're both banged up.[pause=20] At least there's two of us.</value>
     <comment>Expedition - Cranidos Critical Shuca to Shuca comment</comment>  </data>
 
   <data name="TALK_PINCH_3140" xml:space="preserve">
-    <value>Cranidos Critical Shuca to Shuca Pinch HP 1</value>
+    <value>Shuca...[pause=20] if one of us walks out,[pause=10] it's you.</value>
     <comment>Expedition - Cranidos Critical Shuca to Shuca comment</comment>  </data>
   <data name="TALK_PINCH_3141" xml:space="preserve">
-    <value>Cranidos Critical Shuca to Shuca Pinch HP 2</value>
+    <value>Stay awake.[pause=20] Talk to me.[pause=0] Anything,[pause=10] just talk.</value>
     <comment>Expedition - Cranidos Critical Shuca to Shuca comment</comment>  </data>
   <data name="TALK_PINCH_3142" xml:space="preserve">
-    <value>Cranidos Critical Shuca to Shuca Pinch HP 3</value>
+    <value>I should have...[pause=20] been in front of you.[pause=0] From the start.</value>
     <comment>Expedition - Cranidos Critical Shuca to Shuca comment</comment>  </data>
 	
 	
@@ -4655,39 +4655,39 @@
 
 
   <data name="TALK_FULL_3150" xml:space="preserve">
-    <value>Mareep Expedition Comment 1</value>
+    <value>This is my first real expedition![pause=0] I'm trying to remember everything.</value>
     <comment>Expedition - Mareep comment</comment>  </data>
    <data name="TALK_FULL_3151" xml:space="preserve">
-    <value>Mareep Expedition Comment 2</value>
+    <value>Think we'll tell the guild about this?[pause=20] I've already prepared my story!</value>
     <comment>Expedition - Mareep comment</comment>  </data>
    <data name="TALK_FULL_3152" xml:space="preserve">
-    <value>Mareep Expedition Comment 3</value>
+    <value>I packed supplies for everyone.[pause=0] Just ask,[pause=10] really!</value>
     <comment>Expedition - Mareep comment</comment>  </data>
    <data name="TALK_FULL_3153" xml:space="preserve">
-    <value>Mareep Expedition Comment 4</value>
+    <value>A [kind]![pause=20] I'd only ever seen one in a drawing...</value>
     <comment>Expedition - Mareep comment</comment>  </data>
    <data name="TALK_FULL_3154" xml:space="preserve">
-    <value>Mareep Expedition Comment 5</value>
+    <value>My legs are shaking a bit.[pause=20] But it's excitement![pause=0] Promise!</value>
     <comment>Expedition - Mareep comment</comment>  </data>
  
   <data name="TALK_HALF_3150" xml:space="preserve">
-    <value>Mareep Half HP 1</value>
+    <value>Ow...[pause=0] Okay.[pause=20] That stings, but I'm going on!</value>
     <comment>Expedition - Mareep comment</comment>  </data>
   <data name="TALK_HALF_3151" xml:space="preserve">
-    <value>Mareep Half HP 2</value>
+    <value>I took a bad hit...[pause=0] Don't tell Ganlon,[pause=10] okay?</value>
     <comment>Expedition - Mareep comment</comment>  </data>
   <data name="TALK_HALF_3152" xml:space="preserve">
-    <value>Mareep Half HP 3</value>
+    <value>I'm holding on![pause=20] I don't want to be the one slowing everyone down.</value>
     <comment>Expedition - Mareep comment</comment>  </data>
 
   <data name="TALK_PINCH_3150" xml:space="preserve">
-    <value>Mareep Pinch HP 1</value>
+    <value>I-I can't see straight...[pause=20] I could really use a Berry...</value>
     <comment>Expedition - Mareep comment</comment>  </data>
   <data name="TALK_PINCH_3151" xml:space="preserve">
-    <value>Mareep Pinch HP 2</value>
+    <value>I wanted to reach the summit...[pause=20] with all of you...</value>
     <comment>Expedition - Mareep comment</comment>  </data>
   <data name="TALK_PINCH_3152" xml:space="preserve">
-    <value>Mareep Pinch HP 3</value>
+    <value>Mom was right...[pause=20] maybe it was too soon for me...</value>
     <comment>Expedition - Mareep comment</comment>  </data>
 
 
@@ -4697,46 +4697,170 @@
 
 
   <data name="TALK_FULL_3160" xml:space="preserve">
-    <value>Mareep to Cranidos Expedition Comment 1</value>
+    <value>Ganlon![pause=0] Did you see my aim that time?[pause=20] Huh?[pause=0] Did you see?</value>
     <comment>Expedition - Mareep comment - To Cranidos</comment>  </data>
    <data name="TALK_FULL_3161" xml:space="preserve">
-    <value>Mareep to Cranidos Expedition Comment 2</value>
+    <value>You act all grumpy,[pause=10] but you covered me again just now.</value>
     <comment>Expedition - Mareep comment - To Cranidos</comment>  </data>
    <data name="TALK_FULL_3162" xml:space="preserve">
-    <value>Mareep to Cranidos Expedition Comment 3</value>
+    <value>Thanks for being here.[pause=20] There.[pause=0] Said it now,[pause=10] so it's done!</value>
     <comment>Expedition - Mareep comment - To Cranidos</comment>  </data>
    <data name="TALK_FULL_3163" xml:space="preserve">
-    <value>Mareep to Cranidos Expedition Comment 4</value>
+    <value>You grumble constantly,[pause=10] but you never leave my side.</value>
     <comment>Expedition - Mareep comment - To Cranidos</comment>  </data>
    <data name="TALK_FULL_3164" xml:space="preserve">
-    <value>Mareep to Cranidos Expedition Comment 5</value>
+    <value>One day I'll be as tough as you.[pause=20] You'll see!</value>
     <comment>Expedition - Mareep comment - To Cranidos</comment>  </data>
  
   <data name="TALK_HALF_3160" xml:space="preserve">
-    <value>Mareep to Cranidos Half HP 1</value>
+    <value>Don't make that face, Ganlon![pause=0] It's just a scrape!</value>
     <comment>Expedition - Mareep comment - To Cranidos</comment>  </data>
   <data name="TALK_HALF_3161" xml:space="preserve">
-    <value>Mareep to Cranidos Half HP 2</value>
+    <value>I know, I know...[pause=0] "stay behind".[pause=20] Going back, promise.</value>
     <comment>Expedition - Mareep comment - To Cranidos</comment>  </data>
   <data name="TALK_HALF_3162" xml:space="preserve">
-    <value>Mareep to Cranidos Half HP 3</value>
+    <value>You're worried?[pause=20] You?[pause=0] ...That actually makes me happy.</value>
     <comment>Expedition - Mareep comment - To Cranidos</comment>  </data>
 
   <data name="TALK_PINCH_3160" xml:space="preserve">
-    <value>Mareep to Cranidos Pinch HP 1</value>
+    <value>Ganlon...[pause=20] I think I need help...</value>
     <comment>Expedition - Mareep comment - To Cranidos</comment>  </data>
   <data name="TALK_PINCH_3161" xml:space="preserve">
-    <value>Mareep to Cranidos Pinch HP 2</value>
+    <value>Don't be angry...[pause=20] I really did my best...</value>
     <comment>Expedition - Mareep comment - To Cranidos</comment>  </data>
   <data name="TALK_PINCH_3162" xml:space="preserve">
-    <value>Mareep to Cranidos Pinch HP 3</value>
+    <value>Stay close to me...[pause=20] please...</value>
     <comment>Expedition - Mareep comment - To Cranidos</comment>  </data>
 
 
 
 
 
-  <data name="TALK_FULL_9999" xml:space="preserve">
+    <data name="TALK_FULL_3170" xml:space="preserve">
+    <value>The wind's picking up already.[pause=0] Wait until we're higher.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3171" xml:space="preserve">
+    <value>This mountain doesn't want us here.[pause=20] Good.[pause=0] Keeps me sharp.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3172" xml:space="preserve">
+    <value>Keep your feet planted.[pause=0] One bad gust,[pause=10] and off you go.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3173" xml:space="preserve">
+    <value>Up here the wind doesn't blow.[pause=20] It BITES.[pause=0] Close ranks.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3174" xml:space="preserve">
+    <value>You can see the steppe from here.[pause=20] We climbed high, [player].[pause=0] Very high.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3175" xml:space="preserve">
+    <value>One more ridge.[pause=0] Don't make me climb back down to fetch you.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3176" xml:space="preserve">
+    <value>Finally, something worth the trip.[pause=0] Stand back.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3177" xml:space="preserve">
+    <value>It's bigger than me.[pause=20] It isn't tougher than me.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3178" xml:space="preserve">
+    <value>Strike when it lands.[pause=0] That's the only moment it's ours.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3180" xml:space="preserve">
+    <value>Mt. Windswept![pause=20] I've drawn it a hundred times without ever seeing it.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3181" xml:space="preserve">
+    <value>My wool puffs right up in this wind...[pause=20] I must look ridiculous.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3182" xml:space="preserve">
+    <value>Ganlon's walked in front since we started.[pause=0] He'll never say it,[pause=10] but it's on purpose.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3183" xml:space="preserve">
+    <value>We're above the clouds![pause=20] Nobody at the guild will believe me.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3184" xml:space="preserve">
+    <value>The wind howls so loud up here...[pause=20] It almost sounds like a voice.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3185" xml:space="preserve">
+    <value>I'm cold,[pause=10] I'm scared,[pause=10] and I'm happy.[pause=20] All at once!</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3186" xml:space="preserve">
+    <value>It's... enormous.[pause=20] Okay.[pause=0] I'm staying.[pause=0] I'm staying!</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3187" xml:space="preserve">
+    <value>I'm aiming for the wings![pause=0] If it can't fly,[pause=10] it isn't untouchable!</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3188" xml:space="preserve">
+    <value>There are four of us.[pause=20] It's alone.[pause=0] I've been repeating that to myself.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3200" xml:space="preserve">
+    <value>The wind changes at every level.[pause=0] Do you feel it too,[pause=10] [player]?</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3201" xml:space="preserve">
+    <value>We've been climbing since morning,[pause=10] and the summit looks no closer.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3202" xml:space="preserve">
+    <value>Stay close in the narrow stretches.[pause=0] One fall here,[pause=10] and it's over.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_HALF_3203" xml:space="preserve">
+    <value>The wind pushes harder when I'm tired...[pause=20] I'll be fine.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_PINCH_3204" xml:space="preserve">
+    <value>I can't...[pause=20] hold against the gusts anymore...</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3205" xml:space="preserve">
+    <value>That voice we've heard since the steppe...[pause=20] it's clearer up here.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3206" xml:space="preserve">
+    <value>Look down.[pause=20] All that distance,[pause=10] we covered it ourselves.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3207" xml:space="preserve">
+    <value>Whatever waits at the summit,[pause=10] we'll reach it together.[pause=0] Like always.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3208" xml:space="preserve">
+    <value>It's guarding this pass.[pause=20] It won't let us through by talking.</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3209" xml:space="preserve">
+    <value>Keep moving![pause=0] It uses the wind better than we do!</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_FULL_3210" xml:space="preserve">
+    <value>We face it four against one.[pause=0] Let's not scatter,[pause=10] [player]!</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_HALF_3211" xml:space="preserve">
+    <value>It hits hard...[pause=20] but it's tiring too.[pause=0] Let's hold!</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+  <data name="TALK_PINCH_3212" xml:space="preserve">
+    <value>I can't take another hit...[pause=20] We need to do something,[pause=10] fast...</value>
+    <comment>Expedition - Mt. Windswept</comment>
+  </data>
+<data name="TALK_FULL_9999" xml:space="preserve">
     <value>This is a personality error message. Please tell Palika what happened leading up to this.</value>
     <comment>Personality Error Message</comment>  </data>
   <data name="TALK_HALF_9999" xml:space="preserve">

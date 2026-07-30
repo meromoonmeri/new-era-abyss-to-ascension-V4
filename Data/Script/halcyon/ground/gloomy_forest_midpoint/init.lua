@@ -37,8 +37,17 @@ function gloomy_forest_midpoint.GameSave(map)
   PartnerEssentials.SaveGamePartnerPosition(CH('Teammate1'))
 end
 
+-- Reprise d'une sauvegarde faite AU relais (rocher de Kangourex).
+-- Ce relais n'a pas de sortie arriere : la sauvegarde est donc le seul
+-- retour « a l'amiable » possible ici. On arme l'etat correspondant,
+-- sauf si l'intro n'a pas encore tourne ou si un reveil apres KO attend.
 function gloomy_forest_midpoint.GameLoad(map)
   PartnerEssentials.LoadGamePartnerPosition(CH('Teammate1'))
+  if SV.ChapterProgression.Chapter == 6
+     and SV.Chapter6.GloomyPlayedMidpointIntro
+     and not SV.GloomyForest.DiedPastCheckpoint then
+    SV.Chapter6.GloomyMidReturn = true
+  end
   gloomy_forest_midpoint.PlotScripting()
 end
 
@@ -48,11 +57,19 @@ function gloomy_forest_midpoint.PlotScripting()
   --soient deja sur la carte quand le joueur reprend la main.
   gloomy_forest_midpoint_ch_6.SetupDazzlingTrial()
 
+  -- ROUTEUR DU POINT MEDIAN — meme ordre de branches que le Tunnel
+  -- Incandescent et le Mont Venteux (template partage).
   if SV.ChapterProgression.Chapter == 6 then
     if not SV.Chapter6.GloomyPlayedMidpointIntro then
       gloomy_forest_midpoint_ch_6.FirstArrival()
     elseif SV.GloomyForest.DiedPastCheckpoint then
+      SV.Chapter6.GloomyMidReturn = false
       gloomy_forest_midpoint_ch_6.WipedCutscene()
+    elseif SV.Chapter6.GloomyMidReturn then
+      --Retour a l'amiable : reprise d'une sauvegarde faite au relais.
+      --Drapeau consomme aussitot pour ne jouer qu'une fois par retour.
+      SV.Chapter6.GloomyMidReturn = false
+      gloomy_forest_midpoint_ch_6.RepeatArrival()
     else
       gloomy_forest_midpoint_ch_6.SetupGround()
     end

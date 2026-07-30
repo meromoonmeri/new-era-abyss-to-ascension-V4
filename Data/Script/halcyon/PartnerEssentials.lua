@@ -148,7 +148,53 @@ case statement methinks.
 ]]--
 function PartnerEssentials.GetPartnerDialogue(partner)
 
-	assert(pcall(load("PartnerEssentials.Chapter_" .. tostring(SV.ChapterProgression.Chapter) .. "_Dialogue(...)"), partner))
+	--BUG CORRIGE : cette fonction chargeait « Chapter_<N>_Dialogue » sans
+	--verifier son existence. Or seules les variantes 1 a 4 sont ecrites.
+	--A partir du chapitre 5, `load` produisait un appel a une valeur nil,
+	--pcall renvoyait false, et l'assert levait une erreur Lua — parler au
+	--partenaire hors donjon cassait donc le script de la carte (entree du
+	--Mont, relais, Foret Lugubre, Ruines...).
+	--On resout maintenant la fonction par une vraie recherche de table,
+	--avec repli sur la variante la plus recente disponible.
+	if partner == nil then return end
+
+	local chapter = SV.ChapterProgression.Chapter or 1
+	local fn = PartnerEssentials['Chapter_' .. tostring(chapter) .. '_Dialogue']
+
+	--Repli : on redescend vers le chapitre ecrit le plus proche, pour que
+	--le partenaire ait toujours QUELQUE CHOSE a dire plutot que planter.
+	if type(fn) ~= 'function' then
+		for c = chapter - 1, 1, -1 do
+			local alt = PartnerEssentials['Chapter_' .. tostring(c) .. '_Dialogue']
+			if type(alt) == 'function' then
+				PrintInfo('[PARTENAIRE] aucun dialogue pour le chapitre ' ..
+				          tostring(chapter) .. ' -> repli sur le chapitre ' .. tostring(c))
+				fn = alt
+				break
+			end
+		end
+	end
+
+	if type(fn) ~= 'function' then
+		PrintInfo('[PARTENAIRE] aucun dialogue disponible (chapitre ' ..
+		          tostring(chapter) .. ')')
+		return
+	end
+
+	--pcall conserve : une erreur DANS le dialogue ne doit pas figer le
+	--joueur en mode conversation. On trace au lieu de laisser filer.
+	local ok, err = pcall(fn, partner)
+	if not ok then
+		PrintInfo('[PARTENAIRE] erreur de dialogue : ' .. tostring(err))
+		--Filet de securite : sans ca, le duo resterait bloque en
+		--IsInteracting/CharSetAnim si l'erreur survient au milieu.
+		pcall(function()
+			local hero = CH('PLAYER')
+			GROUND:CharEndAnim(partner)
+			GROUND:CharEndAnim(hero)
+			partner.IsInteracting = false
+		end)
+	end
 
 end
 
@@ -1224,6 +1270,73 @@ function PartnerEssentials.Chapter_4_Dialogue(partner)
 		end
 	else
 		UI:WaitShowDialogue("Dialogue du chapitre 4 introuvable pour ce terrain/scénario. Veuillez en informer Palika.")
+	end
+
+	GROUND:CharEndAnim(partner)
+	GROUND:CharEndAnim(hero)
+	partner.IsInteracting = false
+end
+
+--------------------------------------------------------------------
+-- CHAPITRE 5 — L'EXPEDITION.
+-- Le partenaire n'avait aucun dialogue de suivi passe le chapitre 4 :
+-- lui parler hors donjon levait une erreur Lua (voir le correctif dans
+-- GetPartnerDialogue ci-dessus). Cette variante couvre les cartes de
+-- l'expedition, avec un repli propre pour toutes les autres.
+--------------------------------------------------------------------
+function PartnerEssentials.Chapter_5_Dialogue(partner)
+	local ground = GAME:GetCurrentGround().AssetName
+	local hero = CH('PLAYER')
+	UI:SetSpeaker(partner)
+	partner.IsInteracting = true
+	GROUND:CharSetAnim(partner, 'None', true)
+	GROUND:CharSetAnim(hero, 'None', true)
+	GROUND:CharTurnToCharAnimated(partner, hero, 4)
+	GROUND:CharTurnToCharAnimated(hero, partner, 4)
+	GeneralFunctions.SetEmotion('Normal')
+
+	local c5 = SV.Chapter5
+
+	if ground == 'mount_windswept_midpoint' then
+		--Relais du Mont : la parole suit l'avancee dans le donjon.
+		if c5.MountGuardianDefeated then
+			GeneralFunctions.SetEmotion('Determined')
+			UI:WaitShowDialogue("Le gardien nous a laissé le passage.[pause=0] Le sommet est ouvert,[pause=10] " .. hero:GetDisplayName() .. ".")
+			UI:WaitShowDialogue("Reprends des forces au rocher.[pause=0] Après ça,[pause=10] il n'y aura plus de demi-tour.")
+		elseif c5.MountMiniBossDefeated then
+			UI:WaitShowDialogue("Le Défilé est derrière nous.[pause=0] Les Crêtes,[pause=10] c'est une autre affaire.")
+			GeneralFunctions.SetEmotion('Worried')
+			UI:WaitShowDialogue("Là-haut, le vent ne pardonne rien.[pause=0] Ne partons pas sans être prêts.")
+		elseif c5.MountMiniBossLost or c5.MountGuardianLost then
+			GeneralFunctions.SetEmotion('Worried')
+			UI:WaitShowDialogue("On s'est fait sortir...[pause=0] mais on est vivants,[pause=10] et le camp tient.")
+			GeneralFunctions.SetEmotion('Determined')
+			UI:WaitShowDialogue("On repart quand tu veux.[pause=0] Cette fois,[pause=10] on saura à quoi s'attendre.")
+		else
+			UI:WaitShowDialogue("Ce canyon coupe le vent.[pause=0] C'est le seul endroit calme de toute la montagne.")
+			UI:WaitShowDialogue("Profites-en pour trier le sac.[pause=0] Le rocher de Kangourex est juste là.")
+		end
+
+	elseif ground == 'mount_windswept_entrance' then
+		if c5.MountGuardianDefeated then
+			GeneralFunctions.SetEmotion('Inspired')
+			UI:WaitShowDialogue("Quand je repense à ce qu'on a vu là-haut...[pause=0] J'ai encore du mal à y croire.")
+		elseif c5.EnteredMountain then
+			UI:WaitShowDialogue("Le Mont Venteux nous attend.[pause=0] On remonte dès que tu es prêt,[pause=10] " .. hero:GetDisplayName() .. ".")
+		else
+			GeneralFunctions.SetEmotion('Determined')
+			UI:WaitShowDialogue("Voilà donc le Mont Venteux.[pause=0] Le dernier morceau de l'expédition.")
+		end
+
+	elseif ground == 'searing_tunnel_midpoint' or ground == 'searing_tunnel_entrance' then
+		UI:WaitShowDialogue("Cette chaleur me colle à la peau...[pause=0] Mais on avance,[pause=10] c'est l'essentiel.")
+
+	elseif ground == 'vast_steppe_midpoint' or ground == 'vast_steppe_entrance' then
+		UI:WaitShowDialogue("La steppe n'en finit pas.[pause=0] Et cette voix dans les herbes...[pause=10] tu l'entends aussi ?")
+
+	else
+		--Repli generique d'expedition : jamais de boite vide.
+		UI:WaitShowDialogue("L'expédition continue,[pause=10] " .. hero:GetDisplayName() .. ".[pause=0] Reste près de moi.")
 	end
 
 	GROUND:CharEndAnim(partner)

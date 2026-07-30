@@ -22,7 +22,7 @@ local mount_windswept_midpoint = {}
 
 function mount_windswept_midpoint.Init(map)
   DEBUG.EnableDbgCoro()
-  print('=>> Init_mount_windswept_midpoint <<=')
+  print('=>> Init_mount_windswept_midpoint <<= [build 2026-08-03-M]')
   COMMON.RespawnAllies(true)
   PartnerEssentials.InitializePartnerSpawn()
 end
@@ -30,6 +30,7 @@ end
 function mount_windswept_midpoint.Enter(map)
   nre_snap('mount_windswept_midpoint.Enter')
 	if SV.Chapter5.PlayedMountMidpointIntro == nil then SV.Chapter5.PlayedMountMidpointIntro = false end
+	if SV.Chapter5.WindsweptMidReturn == nil then SV.Chapter5.WindsweptMidReturn = false end
   mount_windswept_midpoint.PlotScripting()
 end
 
@@ -40,20 +41,50 @@ function mount_windswept_midpoint.GameSave(map)
   PartnerEssentials.SaveGamePartnerPosition(CH('Teammate1'))
 end
 
+-- Reprise d'une sauvegarde faite AU relais (rocher de Kangourex,
+-- « Sauvegarder et quitter »). C'est l'autre moitie du cas « sortie a
+-- l'amiable » : le joueur revient sur ce palier sans y avoir echoue.
+-- On arme donc l'etat RepeatArrival, sauf si l'intro n'a jamais tourne
+-- (le joueur doit d'abord decouvrir le lieu) ou si un reveil apres KO
+-- est deja en attente.
 function mount_windswept_midpoint.GameLoad(map)
   PartnerEssentials.LoadGamePartnerPosition(CH('Teammate1'))
+  if SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5.PlayedMountMidpointIntro
+     and SV.Chapter5.WindsweptMidState ~= 'DeathArrival' then
+    SV.Chapter5.WindsweptMidReturn = true
+  end
   mount_windswept_midpoint.PlotScripting()
 end
 
+-- ROUTEUR DU POINT MEDIAN — meme ordre de branches que le Tunnel
+-- Incandescent (searing_tunnel_midpoint/init.lua:159-166), qui sert de
+-- reference au template. Les 4 etats sont :
+--   DeathArrival  : KO au-dela du checkpoint  -> reveil au sol
+--   FirstArrival  : premiere venue            -> decouverte + titre
+--   RepeatArrival : retour a l'amiable        -> reprise sobre
+--   (defaut)      : relais connu              -> SetupGround + fondu
 function mount_windswept_midpoint.PlotScripting()
   if SV.Chapter5.WindsweptMidState == 'DeathArrival' then
     SV.Chapter5.WindsweptMidState = nil
+    --Le reveil consomme aussi le drapeau de retour a l'amiable : on ne
+    --veut pas enchainer les deux cinematiques au meme chargement.
+    SV.Chapter5.WindsweptMidReturn = false
     mount_windswept_midpoint_ch_5.WipedCutscene()
     return
   end
   if SV.ChapterProgression.Chapter == 5 then
     if not SV.Chapter5.PlayedMountMidpointIntro then
       mount_windswept_midpoint_ch_5.FirstArrival()
+    elseif SV.Chapter5.WindsweptMidReturn
+       and not mount_windswept_midpoint_ch_5.HasPendingScene() then
+      --Retour a l'amiable (repli volontaire ou sauvegarde reprise ici).
+      --Drapeau consomme immediatement : la scene ne joue qu'une fois
+      --par retour, pas a chaque rechargement de la carte.
+      --La garde HasPendingScene evite d'ecraser une cinematique de
+      --progression (Fragment, derniere veillee) qui, elle, prime.
+      SV.Chapter5.WindsweptMidReturn = false
+      mount_windswept_midpoint_ch_5.RepeatArrival()
     else
       mount_windswept_midpoint_ch_5.SetupGround()
     end
@@ -123,6 +154,10 @@ function mount_windswept_midpoint.South_Exit_Touch(obj, activator)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     SV.adventure.Thief = false
+    --Repli VOLONTAIRE : c'est une sortie a l'amiable. On arme le retour
+    --sobre du template pour la prochaine venue au relais, afin que
+    --remonter au camp ne soit pas un simple fondu muet.
+    SV.Chapter5.WindsweptMidReturn = true
     SOUND:FadeOutBGM(60)
     GAME:FadeOut(false, 60)
     partner.IsInteracting = false
