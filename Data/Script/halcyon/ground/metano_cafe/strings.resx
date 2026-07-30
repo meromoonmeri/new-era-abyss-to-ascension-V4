@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -58,10 +58,7 @@
   <resheader name="writer">
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
-  <data name="test" xml:space="preserve">
-    <value>test</value>
-  </data>
-  <data name="Cafe_Intro" xml:space="preserve">
+<data name="Cafe_Intro" xml:space="preserve">
     <value>Welcome to the Metano Café! How can I help you today?</value>
   </data>
   <data name="Cafe_Intro_Return" xml:space="preserve">

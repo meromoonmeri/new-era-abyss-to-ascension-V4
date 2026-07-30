@@ -22,7 +22,7 @@ end
 function metano_water_home_ch_5.Floatzel_Action(chara, activator)
 	if SV.Chapter5.FinishedExpedition then
 		GeneralFunctions.StartConversation(chara, "Psst.[pause=0] Vous revenez de l'expédition,[pause=10] pas vrai ?[pause=0] J'ai une proposition COMMERCIALE.", "Happy")
-		UI:WaitShowDialogue("Des visites guidées «[pause=5] Sur les traces des héros[pause=5] ».[pause=0] Vous racontez,[pause=10] je vends les billets.[pause=0] Soixante-quarante.[pause=0] Le soixante pour moi,[pause=10] évidemment,[pause=10] c'est mon idée.")
+		UI:WaitShowDialogue("Des visites guidées «[pause=5] Sur les traces des héros[pause=5] ».[pause=0] Vous racontez,[pause=10] je vends les billets.[pause=0][br]Soixante-quarante.[pause=0] Le soixante pour moi,[pause=10] évidemment,[pause=10] c'est mon idée.")
 		UI:SetSpeakerEmotion("Worried")
 		UI:WaitShowDialogue("...Maris me fait les gros yeux.[pause=0] Bon.[pause=0] Cinquante-cinquante.[pause=0] Elle négocie dur,[pause=10] même sans parler.")
 	elseif SV.Chapter5.ReadyForExpedition or SV.Chapter5.FinishedExpeditionAddress then

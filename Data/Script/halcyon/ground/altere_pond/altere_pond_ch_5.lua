@@ -38,7 +38,7 @@ function altere_pond_ch_5.Relicanth_Action(chara, activator)
 		end
 	elseif SV.Chapter5.ReadyForExpedition or SV.Chapter5.FinishedExpeditionAddress then
 		GeneralFunctions.StartConversation(chara, "Mmm...[pause=0] Une expédition vers le nord.[pause=0] J'ai vu partir la dernière,[pause=10] il y a bien longtemps.", "Normal", true, false)
-		UI:WaitShowDialogue("Je nageais déjà dans cet étang quand vos grands-parents apprenaient à marcher.[pause=0] Mmm.[pause=0] Les jeunes partent toujours vers le nord.[pause=0] Les sages reviennent toujours par le sud.")
+		UI:WaitShowDialogue("Je nageais déjà dans cet étang quand vos grands-parents apprenaient à marcher.[pause=0] Mmm.[pause=0][br]Les jeunes partent toujours vers le nord.[pause=0] Les sages reviennent toujours par le sud.")
 		UI:WaitShowDialogue("...Ne me demandez pas ce que ça signifie.[pause=0] À mon âge,[pause=10] on dit les choses,[pause=10] et c'est aux jeunes de les comprendre.")
 	else
 		GeneralFunctions.StartConversation(chara, "Mmm...[pause=0] L'étang est calme aujourd'hui.[pause=0] Trop calme.[pause=0] Même les Magicarpe se taisent.", "Normal", true, false)

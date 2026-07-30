@@ -105,7 +105,7 @@ function metano_cafe_ch_5.LegendOfTheTitans(chara)
 	GAME:WaitFrames(20)
 	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue("Un Colosse.[pause=0] Si vaste qu'il aurait remorqué les continents à la force des bras.[pause=0] Si vieux que la mousse a poussé sur ses épaules pendant son sommeil.")
-	UI:WaitShowDialogue("Et on raconte...[pause=20] qu'il dort encore.[pause=0] Sous des ruines,[pause=10] quelque part au nord.[pause=0] Avec,[pause=10] dans la poitrine,[pause=10] un cœur qui bat trop lentement pour qu'on l'entende.")
+	UI:WaitShowDialogue("Et on raconte...[pause=20] qu'il dort encore.[pause=0] Sous des ruines,[pause=10] quelque part au nord.[pause=0][br]Avec,[pause=10] dans la poitrine,[pause=10] un cœur qui bat trop lentement pour qu'on l'entende.")
 
 	GAME:WaitFrames(30)
 	GeneralFunctions.HeroDialogue(hero, "(Un cœur qui bat sous des ruines...[pause=0] Pourquoi est-ce que ça me donne des frissons ?)", "Worried")

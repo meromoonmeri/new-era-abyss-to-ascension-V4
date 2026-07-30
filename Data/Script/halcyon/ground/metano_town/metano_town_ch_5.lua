@@ -35,7 +35,7 @@ function metano_town_ch_5.Noctowl_Action(chara, activator)
             UI:WaitShowDialogue("Or une chose qui appelle crie de plus en plus fort.[pause=0] Une chose qui attaque frappe de plus en plus vite.[pause=0] Mais une chose qui faiblit ainsi...")
             GAME:WaitFrames(30)
             GROUND:CharSetEmote(chara, "sweating", 1)
-            UI:WaitShowDialogue("...c'est une chose qui LUTTE.[pause=0] Qui s'épuise à tenir quelque chose fermé.[pause=0] Hou.[pause=0] Et je n'ose pas écrire dans mon registre ce qui arrivera le jour où elle lâchera.")
+            UI:WaitShowDialogue("...c'est une chose qui LUTTE.[pause=0] Qui s'épuise à tenir quelque chose fermé.[pause=0] Hou.[pause=0][br]Et je n'ose pas écrire dans mon registre ce qui arrivera le jour où elle lâchera.")
         end
         GeneralFunctions.EndConversation(chara)
     end
@@ -87,10 +87,10 @@ function metano_town_ch_5.Doduo_Action(chara, activator)
     if Ch5State()=="post_expedition" then GeneralFunctions.StartConversation(chara,STRINGS:Format(STRINGS.MapStrings['MT5_Doduo_001']),"Happy");UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT5_Doduo_002']))
         --Amorce Escouade Fulgur (trame arc 1 : « une équipe aux yeux d'or ») — le courrier voit tout.
         UI:SetSpeakerEmotion("Worried")
-        UI:WaitShowDialogue("Ah,[pause=10] et puisque vous êtes de la guilde...[pause=0] Sur la route de la côte,[pause=10] j'ai croisé une équipe que je ne connaissais pas.[pause=0] Trois Pokémon.[pause=0] Des yeux d'or,[pause=10] tous les trois.")
-        UI:WaitShowDialogue("Polis,[pause=10] rapides,[pause=10] très bien équipés.[pause=0] Mais ils posaient des questions bizarres.[pause=0] Pas sur les chemins,[pause=10] non.[pause=0] Sur les SOURCES.[pause=0] Les sources chaudes,[pause=10] les clairières qui ne gèlent jamais...")
+        UI:WaitShowDialogue("Ah,[pause=10] et puisque vous êtes de la guilde...[pause=0] Sur la route de la côte,[pause=10] j'ai croisé une équipe que je ne connaissais pas.[pause=0][br]Trois Pokémon.[pause=0] Des yeux d'or,[pause=10] tous les trois.")
+        UI:WaitShowDialogue("Polis,[pause=10] rapides,[pause=10] très bien équipés.[pause=0] Mais ils posaient des questions bizarres.[pause=0] Pas sur les chemins,[pause=10] non.[pause=0][br]Sur les SOURCES.[pause=0] Les sources chaudes,[pause=10] les clairières qui ne gèlent jamais...")
         UI:SetSpeakerEmotion("Normal")
-        UI:WaitShowDialogue("Ma deuxième tête dit que ce sont des collectionneurs.[pause=0] Ma première tête dit qu'on n'interroge pas les facteurs sur les sources chaudes quand on collectionne des badges.[pause=0] Enfin.[pause=0] Ce ne sont pas mes affaires.")
+        UI:WaitShowDialogue("Ma deuxième tête dit que ce sont des collectionneurs.[pause=0][br]Ma première tête dit qu'on n'interroge pas les facteurs sur les sources chaudes quand on collectionne des badges.[pause=0] Enfin.[pause=0] Ce ne sont pas mes affaires.")
     else GeneralFunctions.StartConversation(chara,STRINGS:Format(STRINGS.MapStrings['MT5_Doduo_003']),"Normal") end
     GeneralFunctions.EndConversation(chara)
 end
@@ -155,7 +155,7 @@ function metano_town_ch_5.Gloom_Action(chara, activator)
         --Amorce Cercle du Suaire (trame arc 2) : menace feutree, brume, vol d'eclats.
         UI:SetSpeakerEmotion("Worried")
         UI:WaitShowDialogue("...Dites.[pause=0] Vous qui êtes de la guilde.[pause=0] C'est normal,[pause=10] la brume qui traîne près de la source chaude,[pause=10] ces derniers matins ?")
-        UI:WaitShowDialogue("Mes fleurs fanent de ce côté-là.[pause=0] SEULEMENT de ce côté-là.[pause=0] Et avant-hier,[pause=10] à l'aube...[pause=10] j'ai cru voir trois silhouettes dedans.[pause=0] Immobiles.[pause=0] Comme si elles écoutaient le sol.")
+        UI:WaitShowDialogue("Mes fleurs fanent de ce côté-là.[pause=0] SEULEMENT de ce côté-là.[pause=0] Et avant-hier,[pause=10] à l'aube...[pause=10][br]j'ai cru voir trois silhouettes dedans.[pause=0] Immobiles.[pause=0] Comme si elles écoutaient le sol.")
         UI:SetSpeakerEmotion("Normal")
         UI:WaitShowDialogue("Quand j'ai cligné des yeux,[pause=10] plus rien.[pause=0] Juste la brume.[pause=0] Et une odeur...[pause=10] d'encens froid.[pause=0] Enfin.[pause=0] Je dors mal en ce moment,[pause=10] c'est sûrement ça.")
     else GeneralFunctions.StartConversation(chara,STRINGS:Format(STRINGS.MapStrings['MT5_Gloom_002']),"Normal") end

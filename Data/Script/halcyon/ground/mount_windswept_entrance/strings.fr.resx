@@ -255,7 +255,7 @@
     <value>Les rafales arrivent par vagues.[pause=10] Quand l'une frappe, elle peut vous balayer du sentier.[pause=0] Alors plantez vos pattes[pause=10] et ATTENDEZ que ça passe.</value>
   </data>
   <data name="MWE5_066" xml:space="preserve">
-    <value>Et restez en formation serrée.[pause=10] Si le vent nous sépare comme l'a fait la steppe,[pause=10] n'errez pas :[pause=10] là-haut, les chemins changent comme dans tout donjon mystère.</value>
+    <value>Et restez en formation serrée.[pause=10][br]Si le vent nous sépare comme l'a fait la steppe,[pause=10] n'errez pas :[pause=10] là-haut, les chemins changent comme dans tout donjon mystère.</value>
   </data>
   <data name="MWE5_067" xml:space="preserve">
     <value>Je volerai en éclaireur là où les vents le permettront.[pause=10] Si vous entendez mon cri par-dessus la bourrasque,[pause=10] c'est que la voie est libre.</value>

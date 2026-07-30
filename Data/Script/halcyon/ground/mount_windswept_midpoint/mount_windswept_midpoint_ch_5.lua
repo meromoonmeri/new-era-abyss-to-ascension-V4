@@ -401,7 +401,7 @@ function mount_windswept_midpoint_ch_5.SummitVigilScene()
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Worried")
-  UI:WaitShowDialogue("Et si on n'est pas à la hauteur,[pause=10] là-haut ?[pause=0] Le gardien,[pause=10] on l'a battu à quatre.[pause=0] Mais cette lumière...[pause=0] même le Météno en parlait comme d'une chose qui dépasse le ciel.")
+  UI:WaitShowDialogue("Et si on n'est pas à la hauteur,[pause=10] là-haut ?[pause=0] Le gardien,[pause=10] on l'a battu à quatre.[pause=0][br]Mais cette lumière...[pause=0] même le Météno en parlait comme d'une chose qui dépasse le ciel.")
 
   GeneralFunctions.HeroDialogue(hero, "(Elle avait peur.[pause=0] La lumière avait peur.[pause=0] Alors peut-être qu'elle n'attend pas des Pokémon plus forts...[pause=10] peut-être qu'elle attend juste quelqu'un qui monte quand tout redescend.)", "Normal")
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -58,10 +58,7 @@
   <resheader name="writer">
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
-  <data name="dummy_string" xml:space="preserve">
-    <value>dummy string</value>
-  </data>
-  <data name="G1F1_001" xml:space="preserve">
+<data name="G1F1_001" xml:space="preserve">
     <value>It's incredible that an entire guild was built inside a tree,[pause=10] isn't it?</value>
   </data>
   <data name="G1F1_002" xml:space="preserve">

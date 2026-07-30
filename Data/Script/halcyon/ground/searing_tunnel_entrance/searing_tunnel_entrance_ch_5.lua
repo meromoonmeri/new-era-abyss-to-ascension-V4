@@ -2342,7 +2342,7 @@ function searing_tunnel_entrance_ch_5.FurnaceLegendScene()
 	UI:SetSpeaker(noctowl)
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue("Hou...[pause=0] Vous vous demandez tous pourquoi le clan de Limagma défend ce tunnel comme une forteresse,[pause=10] n'est-ce pas ?")
-	UI:WaitShowDialogue("Alors approchez.[pause=0] Ce que je vais vous raconter,[pause=10] je le tiens des archives les plus anciennes de la guilde.[pause=0] Et des soirs comme celui-ci sont faits pour les vieilles histoires.")
+	UI:WaitShowDialogue("Alors approchez.[pause=0] Ce que je vais vous raconter,[pause=10] je le tiens des archives les plus anciennes de la guilde.[pause=0][br]Et des soirs comme celui-ci sont faits pour les vieilles histoires.")
 
 	GAME:WaitFrames(30)
 	GROUND:CharSetEmote(noctowl, "glowing", 1)

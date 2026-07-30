@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -204,5 +204,116 @@
   </data>
   <data name="Rescue_Info_Rescue_006" xml:space="preserve">
     <value>Une fois cette lettre reçue,[pause=10] il pourra reprendre là où il est tombé dans ce donjon.</value>
+  </data>
+  <data name="Connect_Goodbye" xml:space="preserve">
+    <value>Revenez quand vous voulez ![pause=0] Le courrier finit toujours par passer.</value>
+  </data>
+  <data name="Connect_Info_Ask" xml:space="preserve">
+    <value>Sur quoi voulez-vous en savoir plus ?</value>
+  </data>
+  <data name="Connect_Info_Friends_004" xml:space="preserve">
+    <value>Une fois les codes échangés,[pause=10] l'équipe de votre ami restera dans votre liste.</value>
+  </data>
+  <data name="Connect_Info_P2P_009" xml:space="preserve">
+    <value>C'est le plus rapide quand vous êtes connectés tous les deux en même temps.</value>
+  </data>
+  <data name="Connect_Info_Server_Host_001" xml:space="preserve">
+    <value>Héberger un serveur permet aux autres explorateurs de vous joindre directement.</value>
+  </data>
+  <data name="Connect_Info_Server_Host_002" xml:space="preserve">
+    <value>Il faudra confier l'adresse à ceux que vous voulez laisser entrer.</value>
+  </data>
+  <data name="Connect_Info_Server_Host_003" xml:space="preserve">
+    <value>Réservez-la à des personnes de confiance ![pause=0] La réputation d'une guilde voyage vite.</value>
+  </data>
+  <data name="Connect_Info_Trade_Item_001" xml:space="preserve">
+    <value>L'échange d'objets permet d'envoyer un trésor à une autre équipe,[pause=10] sans contrepartie.</value>
+  </data>
+  <data name="Connect_Info_Trade_Mail_001" xml:space="preserve">
+    <value>Le courrier transporte un mot écrit, en plus de ce que vous y joignez.</value>
+  </data>
+  <data name="Connect_Info_Trade_Team_001" xml:space="preserve">
+    <value>L'échange d'équipiers déplace un membre d'une équipe à une autre.[pause=0] Réfléchissez bien !</value>
+  </data>
+  <data name="Connect_Intro_Return" xml:space="preserve">
+    <value>De retour ?[pause=0] Que peut la poste pour vous ?</value>
+  </data>
+  <data name="Connect_No_Server" xml:space="preserve">
+    <value>Vous n'avez pas encore choisi de serveur.[pause=0] Sélectionnez-en un dans la liste !</value>
+  </data>
+  <data name="Connect_Option_Advanced" xml:space="preserve">
+    <value>Options avancées</value>
+  </data>
+  <data name="Connect_Option_Connect" xml:space="preserve">
+    <value>Se connecter</value>
+  </data>
+  <data name="Connect_Option_File_Rescue" xml:space="preserve">
+    <value>Sauvetage par fichier</value>
+  </data>
+  <data name="Connect_Option_Friend_Rescue" xml:space="preserve">
+    <value>Secourir un ami</value>
+  </data>
+  <data name="Connect_Option_Friends" xml:space="preserve">
+    <value>Amis</value>
+  </data>
+  <data name="Connect_Option_Host" xml:space="preserve">
+    <value>Héberger</value>
+  </data>
+  <data name="Connect_Option_P2P" xml:space="preserve">
+    <value>Pair-à-pair</value>
+  </data>
+  <data name="Connect_Option_Server" xml:space="preserve">
+    <value>Serveurs</value>
+  </data>
+  <data name="Connect_Option_Teammate" xml:space="preserve">
+    <value>Envoyer un équipier</value>
+  </data>
+  <data name="Connect_Option_Treasure" xml:space="preserve">
+    <value>Envoyer un trésor</value>
+  </data>
+  <data name="Rescue_Return_Success_001" xml:space="preserve">
+    <value>Vous voilà de retour ![pause=0] Et vous les avez ramenés sains et saufs !</value>
+  </data>
+  <data name="Rescue_Return_Success_003" xml:space="preserve">
+    <value>Un sauvetage pareil,[pause=10] ça se raconte vite d'une guilde à l'autre.</value>
+  </data>
+  <data name="Rescue_Return_Success_004" xml:space="preserve">
+    <value>Merci de leur part.[pause=0] C'est à ça que sert ce bureau.</value>
+  </data>
+  <data name="Rescue_Return_Miss_001" xml:space="preserve">
+    <value>Vous êtes rentrés...[pause=0] mais l'équipe que vous cherchiez n'est pas avec vous.</value>
+  </data>
+  <data name="Rescue_Return_Miss_002" xml:space="preserve">
+    <value>Le donjon a été bouclé,[pause=10] mais le sauvetage n'a pas eu lieu.</value>
+  </data>
+  <data name="Rescue_Return_Fail_002" xml:space="preserve">
+    <value>Ne le prenez pas trop mal.[pause=0] Certains étages ne laissent passer personne.</value>
+  </data>
+  <data name="Rescue_Begin" xml:space="preserve">
+    <value>Je fais passer le mot,[pause=10] alors.[pause=0] Bonne chance là-bas !</value>
+  </data>
+  <data name="Rescue_Confirm" xml:space="preserve">
+    <value>Vous partiriez pour {0}.[pause=0] Vous êtes prêts ?</value>
+  </data>
+  <data name="Rescue_AOK_None" xml:space="preserve">
+    <value>Personne n'a encore répondu à votre appel.[pause=0] Laissez-lui un peu de temps.</value>
+  </data>
+  <data name="Rescue_SOS_None" xml:space="preserve">
+    <value>Aucun appel de détresse en attente pour le moment.</value>
+  </data>
+  <data name="Rescue_Info_Rescue_001" xml:space="preserve">
+    <value>Quand une équipe tombe K.O. dans un donjon,[pause=10] elle peut lancer un appel de détresse.[pause=0] N'importe qui peut y répondre.</value>
+  </data>
+  <data name="Rescue_Intro_Return" xml:space="preserve">
+    <value>Autre chose au sujet des sauvetages ?</value>
+  </data>
+  <data name="Rescue_Goodbye" xml:space="preserve">
+    <value>Bon voyage ![pause=0] Je garde une oreille sur les appels.</value>
+  </data>
+  <data name="Rescue_Option_AOK" xml:space="preserve">
+    <value>Voir les réponses</value>
+  </data>
+  <data name="Rescue_Option_SOS" xml:space="preserve">
+    <value>Répondre à un appel</value>
   </data>
 </root>

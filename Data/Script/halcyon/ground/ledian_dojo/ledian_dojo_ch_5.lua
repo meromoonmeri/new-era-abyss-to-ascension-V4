@@ -30,7 +30,7 @@ end
 function ledian_dojo_ch_5.Gible_Action(chara, activator)
 	if SV.Chapter5.FinishedExpedition then
 		GeneralFunctions.StartConversation(chara, "Vous êtes revenus ![pause=0] Alors ?[pause=0] ALORS ?[pause=0] Le gardien du sommet,[pause=10] il était grand comment ?[pause=0] Grand comme le dojo ?[pause=0] Plus grand ?!", "Inspired")
-		UI:WaitShowDialogue("Maître Ledian dit que je dois d'abord battre le labyrinthe des débutants avant de rêver aux gardiens.[pause=0] Mais je RÊVE QUAND MÊME.[pause=0] Il ne peut pas contrôler mes rêves.")
+		UI:WaitShowDialogue("Maître Ledian dit que je dois d'abord battre le labyrinthe des débutants avant de rêver aux gardiens.[pause=0][br]Mais je RÊVE QUAND MÊME.[pause=0] Il ne peut pas contrôler mes rêves.")
 	elseif SV.Chapter5.ReadyForExpedition or SV.Chapter5.FinishedExpeditionAddress then
 		GeneralFunctions.StartConversation(chara, "L'expédition part aujourd'hui,[pause=10] pas vrai ?[pause=0] J'ai demandé à venir.[pause=0] On m'a dit non.[pause=0] TROIS fois.", "Sad")
 		UI:SetSpeakerEmotion("Determined")

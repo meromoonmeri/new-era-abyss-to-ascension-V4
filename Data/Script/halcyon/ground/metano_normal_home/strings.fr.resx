@@ -248,7 +248,7 @@
     <value>On pensait avoir un peu plus de préavis !</value>
   </data>
   <data name="MNH5_057" xml:space="preserve">
-    <value>Oui.[pause=0] Le Maître de Guilde disait qu'il fallait attendre le retour de {0} et {1},[pause=10] mais je ne pensais pas partir à la minute où ils rentreraient !</value>
+    <value>Oui.[pause=0][br]Le Maître de Guilde disait qu'il fallait attendre le retour de {0} et {1},[pause=10] mais je ne pensais pas partir à la minute où ils rentreraient !</value>
   </data>
   <data name="MNH5_058" xml:space="preserve">
     <value>...Alors on ne te verra plus pendant un bon moment.</value>
