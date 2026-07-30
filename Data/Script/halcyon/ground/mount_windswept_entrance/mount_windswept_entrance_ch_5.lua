@@ -2942,7 +2942,6 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 
 	local hero = CH('PLAYER')
 	local partner = CH('Teammate1')
-	local tunnel = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('searing_tunnel')
 	local steppe = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('vast_steppe')
 	local mountain = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('mount_windswept')
 	local ruins = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('cloven_ruins')
@@ -2991,17 +2990,12 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	--calque (le doublement de decor d'avant ne peut plus se produire).
 	mount_windswept_entrance_ch_5.BuildCampDay()
 
-	--LES REPLIQUES D'ARRIVEE SE JOUENT SOUS LE NOIR (deroule valide par
-	--le joueur : « ecran noir qui s'applique et qui doit etre leve apres
-	--le dialogue »). Le noir pose avant la bascule du creuset tient
-	--jusqu'ici, sans trou ; la carte du camp n'est revelee qu'apres.
-	GAME:WaitFrames(40)
-	UI:SetSpeaker(partner)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_001'], tunnel:GetColoredName()))
-	GAME:WaitFrames(20)
-	UI:SetSpeaker(growlithe)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_002']))
-	GAME:WaitFrames(20)
+	-- LES REPLIQUES DE SORTIE SE JOUENT DESORMAIS AU CREUSET, AVANT LE
+	-- NOIR (ordre demande par le joueur le 2026-07-30 : « le fond NOIR
+	-- doit etre apres le dialogue dans le noir des pokemon au creuset »).
+	-- Le noir pose au creuset tient jusqu'ici, sans trou ; le camp est
+	-- revele directement, sans dialogue sur le noir.
+	GAME:WaitFrames(30)
 	GAME:FadeIn(40)
 	
 	-- LE CAMP VIT PENDANT QU'ON MONTE.

@@ -58,12 +58,6 @@
   <resheader name="writer">
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
-  <data name="MWE5_001" xml:space="preserve">
-    <value>Finally![pause=0] We're out of {0}!</value>
-  </data>
-  <data name="MWE5_002" xml:space="preserve">
-    <value>Oh,[pause=10] the sun is already setting![pause=0] I hope we're not too late...</value>
-  </data>
   <data name="MWE5_003" xml:space="preserve">
     <value>We should set up camp here and rest before the final climb.</value>
   </data>

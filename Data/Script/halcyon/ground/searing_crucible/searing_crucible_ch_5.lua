@@ -1275,16 +1275,32 @@ local function DefeatedBossBody()
 	coro4 = TASK:BranchCoroutine(function() GAME:WaitFrames(30)
 											GROUND:MoveInDirection(zigzagoon, Direction.Up, 106, false, 2) end)	
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
-	--LE NOIR S'APPLIQUE APRES LA MARCHE, PAS PENDANT (deroule valide par
-	--le joueur : dialogues -> deplacement visible -> ecran noir -> 2
-	--repliques sur le noir -> le noir se leve sur le camp). Le fondu
-	--branche dans la marche effacait les marcheurs a mi-trajet ; un
-	--fondu trop tardif laissait revoir le creuset apres le noir. Ici :
-	--la marche se termine en pleine lumiere, PUIS le noir tombe, tenu
-	--sans trou jusqu'a la scene d'arrivee.
+	-- REPLIQUES DE SORTIE AU CREUSET, VISIBLES, SOUS LE CREPUSCULE
+	-- (ordre demande par le joueur le 2026-07-30 : « le fond NOIR doit
+	-- etre apres le dialogue dans le noir des pokemon au creuset »).
+	-- La scene s'assombrit (statut "dusk", meme technique que l'arrivee
+	-- au camp), puis les deux repliques se jouent ICI, protagonistes
+	-- visibles — « le soleil se couche » doit se VOIR, pas se lire sur
+	-- ecran noir. Le fondu branche dans la marche effacait les
+	-- marcheurs a mi-trajet ; jouer ces repliques sur le noir masquait
+	-- la scene et laissait ensuite revoir le creuset.
+	pcall(function() GROUND:AddMapStatus("dusk") end)
+	GAME:WaitFrames(30)
+	GROUND:CharAnimateTurnTo(partner, Direction.Down, 4)
+	GAME:WaitFrames(8)
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_087'],
+		_DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('searing_tunnel'):GetColoredName()))
+	GAME:WaitFrames(20)
+	UI:SetSpeaker(growlithe)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['SC5_088']))
+	GAME:WaitFrames(20)
+	-- LE NOIR NE TOMBE QU'APRES LES REPLIQUES, tenu sans trou jusqu'au
+	-- camp ; la carte du mont n'est revelee qu'au FadeIn d'arrivee.
 	SOUND:FadeOutBGM(40)
 	GAME:FadeOut(false, 40)
-	GAME:WaitFrames(50)
 end
 
 function searing_crucible_ch_5.DefeatedBoss()
@@ -1297,11 +1313,17 @@ function searing_crucible_ch_5.DefeatedBoss()
 	end
 
 	-- Sortie garantie : la suite de l'expedition (Mont) doit TOUJOURS s'ouvrir.
-	--LE MODE CINEMATIQUE RESTE ACTIF PENDANT LA BASCULE (patron hero_dream) :
-	--le couper ici laissait au moteur des frames de gameplay sur la carte
-	--sortante pendant l'armement du changement — une fenetre ou l'ancienne
-	--zone pouvait se redessiner a l'ecran. mount_windswept_entrance repose
-	--le mode sans condition dans son Init.
+	--BASCULE CALQUEE SUR LA TRANSITION VALIDEE EN JEU DES CH1-4
+	--(altere_pond_ch_1.lua:322-326) : FadeOut complet -> CutsceneMode(false)
+	---> Wait(30) -> EnterGroundMap en TOUTE DERNIERE LIGNE, puis plus RIEN
+	--ne touche la carte sortante. Ordre demande par le joueur le
+	--2026-07-30 : « reproduis exactement leur logique ». L'attente entre
+	--le noir et l'armement est integralement couverte par le fondu
+	--moteur (couverture persistante, redessinee apres la scene a chaque
+	--frame) ; mount_windswept_entrance repose FadeOut(1) et
+	--CutsceneMode(true) sans condition dans son Init.
+	GAME:CutsceneMode(false)
+	GAME:WaitFrames(30)
 	PrintInfo("[BossSeq][searing_crucible_ch_5] DefeatedBoss -> mount_windswept_entrance")
 	GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker')
 end
