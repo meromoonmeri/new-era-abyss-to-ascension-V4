@@ -140,6 +140,13 @@ function first_core_location_ch_3.RootDeactivationScene()
 	SV.TemporaryFlags.MorningAddress = true
 	SV.TemporaryFlags.MorningWakeup = true
 	GeneralFunctions.EndOfDay()
+	--LE NOIR AVANT LA BASCULE (patron ch5 : on fond, PUIS on change de
+	--carte — le moteur ne pose aucun fondu de lui-meme). Auparavant la
+	--derniere replique restait a l'ecran et la chambre du heros
+	--apparaissait d'un coup sec.
+	SOUND:FadeOutBGM(40)
+	GAME:FadeOut(false, 40)
+	GAME:WaitFrames(40)
 	GAME:CutsceneMode(false)
 	GAME:EnterGroundMap('guild_heros_room', 'Main_Entrance_Marker')
 end

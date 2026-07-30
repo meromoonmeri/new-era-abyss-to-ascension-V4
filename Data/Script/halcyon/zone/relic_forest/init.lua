@@ -41,7 +41,12 @@ function relic_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 		if result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
 			--todo: make zone numbering consistent and perhaps better ordered
 			if SV.Chapter1.PartnerEnteredForest and not SV.Chapter1.PartnerCompletedForest then--partner died solo before clearing
-				GAME:EndDungeonRun(result, "master_zone", -1, 9, 0, false, false)
+				--ECRAN DE RESULTATS AFFICHE (display=true, fanfare=true), comme le
+				--font les morts du chapitre 5 (searing_tunnel/mount_windswept).
+				--Avec display=false, le joueur avait un long noir avec une replique
+				--flottante a la place de l'ecran de resultats : « l'ecran noir
+				--n'est pas le meme » entre les chapitres.
+				GAME:EndDungeonRun(result, "master_zone", -1, 9, 0, true, true)
 				--set partner as speaker
 				GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(0), "Ouf...[pause=0] C'est difficile...", "Pain")
 	
@@ -50,7 +55,9 @@ function relic_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 				GAME:EnterZone("master_zone", -1, 9, 0)
 
 			elseif SV.Chapter1.PartnerCompletedForest then--the duo wiped before making it back to town
-				GAME:EndDungeonRun(result, "master_zone", -1, 0, 0, false, false)
+				--Meme alignement que ci-dessus : ecran de resultats affiche,
+				--patron identique a la defaite ch5.
+				GAME:EndDungeonRun(result, "master_zone", -1, 0, 0, true, true)
 				--set partner as speaker
 				GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Ouf...[pause=0] C'est difficile...", "Pain")
 				

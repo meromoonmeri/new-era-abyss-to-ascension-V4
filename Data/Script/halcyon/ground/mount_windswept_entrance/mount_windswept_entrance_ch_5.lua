@@ -973,6 +973,12 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:SetCenter(false)
 	UI:ResetSpeaker()
 
+	--LA MUSIQUE PART AVEC L'IMAGE. Sans ce FadeOutBGM, la musique du
+	--bivouac continuait de jouer pendant le noir (jusqu'au StopBGM de
+	--hero_dream) : le passage au reve s'entendait avant de se voir.
+	--C'est le meme patron que la bascule vers le matin (section 12 :
+	--FadeOutBGM(60) + FadeOut(false, 60), dos a dos).
+	SOUND:FadeOutBGM(60)
 	GAME:FadeOut(false, 60)
 	GAME:WaitFrames(60)
 
