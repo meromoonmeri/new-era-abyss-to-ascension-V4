@@ -978,11 +978,12 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:SetCenter(false)
 	UI:ResetSpeaker()
 
-	--FIX TRANSITION 2026-07-30 : FadeOut(120) comme dans les chapitres 1-4
-	--Structure correcte : FadeOut(120 frames = 2 secondes) + EnterGroundMap immédiat
-	--Le joueur ne doit voir AUCUNE frame de la map actuelle avant hero_dream.
+	--FIX TRANSITION 2026-07-30 : structure complète des chapitres 1-4
+	--Pattern correct : FadeOut(120) + CutsceneMode(false) + WaitFrames(120) + EnterGroundMap
 	SOUND:FadeOutBGM(40)
 	GAME:FadeOut(false, 120)
+	GAME:CutsceneMode(false)
+	GAME:WaitFrames(120)
 	SV.Chapter5.CampNightWatchDone = true
 	GAME:EnterGroundMap('hero_dream', 'Main_Entrance_Marker', true)
 end
