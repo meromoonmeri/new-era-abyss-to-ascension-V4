@@ -999,6 +999,12 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--pendant que SceneOutcome attend d'etre consomme au tour suivant
 	--une fraction de seconde avant de partir. hero_dream.DreamScene le
 	--repose immediatement de son cote.
+	--FIX TRANSITION 2026-07-30 : FadeOut avant EnterGroundMap pour éviter
+	--le flash parasite de la map mount_windswept_entrance.
+	--Le joueur ne doit voir AUCUNE frame de la map actuelle avant hero_dream.
+	SOUND:FadeOutBGM(40)
+	GAME:FadeOut(false, 60)
+	GAME:WaitFrames(60)
 	SV.Chapter5.CampNightWatchDone = true
 	GAME:EnterGroundMap('hero_dream', 'Main_Entrance_Marker', true)
 end

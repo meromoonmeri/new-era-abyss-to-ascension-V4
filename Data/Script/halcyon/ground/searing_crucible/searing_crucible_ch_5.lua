@@ -1361,10 +1361,11 @@ function searing_crucible_ch_5.DefeatedBoss()
 
 	--TRANSITION INTER-ZONE : searing_crucible (zone searing_tunnel) →
 	--mount_windswept_entrance (zone mount_windswept).
-	--EnterGroundMap ne fonctionne PAS entre zones (crash garanti).
-	--On utilise EndDungeonRun qui gère correctement les transitions inter-zones.
-	--Ground index 40 = mount_windswept_entrance dans master_zone.json.
+	--FIX TRANSITION 2026-07-30 : FadeOut persistant avant EndDungeonRun.
+	--Le FadeOut(false, 1) est instantané mais EndDungeonRun peut reset le fade.
+	--On ajoute un WaitFrames pour s'assurer que le noir est persistant.
 	pcall(function() GAME:FadeOut(false, 1) end)
+	GAME:WaitFrames(10)
 	PrintInfo("[BossSeq][searing_crucible_ch_5] DefeatedBoss -> master_zone ground 40 (mount_windswept_entrance)")
 	GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared, "master_zone", -1, 40, 0, true, true)
 end
