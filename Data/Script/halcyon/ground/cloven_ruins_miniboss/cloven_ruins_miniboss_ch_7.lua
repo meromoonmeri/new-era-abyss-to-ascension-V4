@@ -36,7 +36,11 @@ function cloven_ruins_miniboss_ch_7.FirstPreBossScene()
   local partner = CH('Teammate1')
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
-  SOUND:StopBGM()
+  SOUND:FadeOutBGM(60)
+  -- NOIR AVANT LA MISE EN PLACE (patron searing_tunnel_miniboss : teleports
+  -- et camera sous le fondu, plus de flash de la carte a l'arrivee).
+  GAME:FadeOut(false, 60)
+  GAME:WaitFrames(60)
   PlaceTeam(hero, partner)
   GAME:MoveCamera(CAM_TEAM[1], CAM_TEAM[2], 1, false)
 
@@ -145,7 +149,9 @@ function cloven_ruins_miniboss_ch_7.SecondPreBossScene()
   })
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
-  SOUND:StopBGM()
+  SOUND:FadeOutBGM(60)
+  GAME:FadeOut(false, 60)
+  GAME:WaitFrames(60)
   GROUND:CharSetAnim(claydol, "Idle", true)
   GROUND:CharSetAnim(golurk, "Idle", true)
   PlaceTeam(hero, partner)

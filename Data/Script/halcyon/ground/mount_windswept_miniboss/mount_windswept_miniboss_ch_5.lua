@@ -17,7 +17,11 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   local partner = CH('Teammate1')
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
-  SOUND:StopBGM()
+  SOUND:FadeOutBGM(60)
+  -- NOIR AVANT LA MISE EN PLACE (meme patron que searing_tunnel_miniboss :
+  -- teleports et camera sous le fondu, plus de flash de la carte a l'arrivee).
+  GAME:FadeOut(false, 60)
+  GAME:WaitFrames(60)
 
   -- LOT 1 — l'equipe atterrit a ~64px sous les boss (y=272) apres sa marche de
   -- 72px : on la fait donc apparaitre 72px plus bas (y=344).
@@ -332,7 +336,9 @@ function mount_windswept_miniboss_ch_5.SecondPreBossScene()
   })
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
-  SOUND:StopBGM()
+  SOUND:FadeOutBGM(60)
+  GAME:FadeOut(false, 60)
+  GAME:WaitFrames(60)
   GROUND:CharSetAnim(gligar, "Idle", true)
   GROUND:CharSetAnim(skarmory, "Idle", true)
 
@@ -484,7 +490,7 @@ function mount_windswept_miniboss_ch_5.DefeatedBoss()
   local ok, err = pcall(DefeatedBossBody)
   if not ok then
     PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
-    pcall(function() GAME:FadeOut(false, 20) end)
+    pcall(function() GAME:FadeOut(false, 20) GAME:WaitFrames(20) end)
   end
 
   -- Sortie garantie, quoi qu'il arrive.

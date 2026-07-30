@@ -115,6 +115,18 @@ cinématique) :
   LegendZones, raid Metano 6-8→8-10, annexe 4→6, duel Dazzling 5→7).
 - Grounds enregistrées dans `index.idx` + `master_zone.json` **À LA FIN**
   (mapIDs 82-85, aucun décalage des 82 premières cartes).
+**Transitions & ouvertures de scènes (build 2026-08-02-M)** — audit comparatif
+ch1-4 vs ch5 (référence creuset → mont Venteux) :
+
+- Ch1-4 et ch5 utilisent les **mêmes mécaniques** de sortie de donjon
+  (chaînage `EnterGroundMap`/`EnterZone`/`EndDungeonRun`) ; les seuls écarts
+  mesurés : morts du ch1 sans écran de résultats (`display=false` → long noir
+  avec réplique flottante), fin du ch3 FirstCore en coupure sèche, départ du
+  rêve sans fondu de musique, ouvertures des salles de mini-boss sans noir
+  posé (sauf searing, le seul conforme). Tout est aligné.
+- Chemin d'erreur des mini-boss : `FadeOut(20)` de secours complété par
+  `WaitFrames(20)` avant la bascule (vast/searing/windswept).
+
 - 4 donjons ch6+ ont un **pool de spawn sauvage vide** (constat audit) :
   les rencontres procédurales restent à remplir (chantier séparé).
 

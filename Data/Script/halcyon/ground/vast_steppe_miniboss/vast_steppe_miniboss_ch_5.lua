@@ -17,7 +17,11 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   local partner = CH('Teammate1')
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
-  SOUND:StopBGM()
+  SOUND:FadeOutBGM(60)
+  -- NOIR AVANT LA MISE EN PLACE (patron searing_tunnel_miniboss : teleports
+  -- et camera sous le fondu, plus de flash de la carte a l'arrivee).
+  GAME:FadeOut(false, 60)
+  GAME:WaitFrames(60)
 
   -- Position the team entering the deep steppe
   -- LOT 1 — l'equipe atterrit a ~64px sous le boss (y=288) apres sa marche de
@@ -350,7 +354,9 @@ function vast_steppe_miniboss_ch_5.SecondPreBossScene()
   })
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
-  SOUND:StopBGM()
+  SOUND:FadeOutBGM(60)
+  GAME:FadeOut(false, 60)
+  GAME:WaitFrames(60)
   GROUND:CharSetAnim(mudbray, "Idle", true)
   GROUND:CharSetAnim(stantler, "Charge", true)
 
@@ -535,7 +541,9 @@ function vast_steppe_miniboss_ch_5.DefeatedBoss()
   if not ok then
     PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
     -- On sort proprement malgré l'erreur : jamais d'écran noir définitif.
-    pcall(function() GAME:FadeOut(false, 20) end)
+    -- Le WaitFrames complete le fondu AVANT la bascule (sinon la carte
+    -- sortante reste dessinee 20 frames — fuite signalee par audit_fade_leaks).
+    pcall(function() GAME:FadeOut(false, 20) GAME:WaitFrames(20) end)
   end
 
   -- Sortie garantie, quoi qu'il arrive.

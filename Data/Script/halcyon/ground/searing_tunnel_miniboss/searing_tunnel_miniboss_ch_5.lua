@@ -531,7 +531,9 @@ function searing_tunnel_miniboss_ch_5.DefeatedBoss()
   local ok, err = pcall(DefeatedBossBody)
   if not ok then
     PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
-    pcall(function() GAME:FadeOut(false, 20) end)
+    -- Le WaitFrames complete le fondu AVANT la bascule (sinon la carte
+    -- sortante reste dessinee 20 frames — fuite signalee par audit_fade_leaks).
+    pcall(function() GAME:FadeOut(false, 20) GAME:WaitFrames(20) end)
   end
 
   -- Sortie garantie, quoi qu'il arrive.
