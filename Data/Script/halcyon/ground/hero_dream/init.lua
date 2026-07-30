@@ -439,7 +439,16 @@ function hero_dream.DreamScene()
   --d'arrivee (ResumeAfterDream) les reprend a son compte.
   pcall(function() GAME:CutsceneMode(true) end)
   pcall(function() GAME:FadeOut(false, 1) end)
-  GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker', true)
+  --BASCULE BLINDEE (meme filet que cote camp) : si le retour au camp
+  --echoue, on tente la voie master_zone (mapID 50 = mount_windswept_entrance)
+  --plutot que de laisser le joueur fige sur une carte de reve sans sortie.
+  local okBack, errBack = pcall(function()
+    GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker', true)
+  end)
+  if not okBack then
+    PrintInfo('[hero_dream] retour au camp impossible ('..tostring(errBack)..') — secours master_zone')
+    pcall(function() GAME:EnterZone('master_zone', -1, 50, 0) end)
+  end
 end
 
 return hero_dream

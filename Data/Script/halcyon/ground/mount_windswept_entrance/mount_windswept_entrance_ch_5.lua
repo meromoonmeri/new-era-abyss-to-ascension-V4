@@ -960,9 +960,9 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	end)
 	coro2 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(120)
-		GROUND:CharSetAction(t.phileas, RogueEssence.Ground.FrameGroundAction(t.phileas.Position, t.phileas.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Sleep"), 0))
+		pcall(function() GROUND:CharSetAction(t.phileas, RogueEssence.Ground.FrameGroundAction(t.phileas.Position, t.phileas.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Sleep"), 0)) end)
 		GAME:WaitFrames(25)
-		GROUND:CharEndAnim(t.phileas)
+		pcall(function() GROUND:CharEndAnim(t.phileas) end)
 	end)
 	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(20)
@@ -1006,7 +1006,22 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--une fraction de seconde avant de partir. hero_dream.DreamScene le
 	--repose immediatement de son cote.
 	SV.Chapter5.CampNightWatchDone = true
-	GAME:EnterGroundMap('hero_dream', 'Main_Entrance_Marker', true)
+	--BASCULE BLINDEE. Le seul crash jamais constate a ce point precis
+	--etait EnterGroundMap vers une map inconnue (hero_dream non
+	--enregistree, P0 du 2026-07-29 : crash + ecran noir au coucher).
+	--L'appel echoue AVANT d'armer le changement de carte (lookup de la
+	--map) : le pcall le rend donc recuperable, et on repart alors
+	--directement vers le matin sur cette meme carte — un reve saute
+	--vaut mieux qu'une partie figee. Si l'appel reussit, aucune
+	--seconde bascule n'est armee.
+	local okDream, errDream = pcall(function()
+		GAME:EnterGroundMap('hero_dream', 'Main_Entrance_Marker', true)
+	end)
+	if not okDream then
+		PrintInfo('[MWE5] hero_dream indisponible ('..tostring(errDream)..') — reve saute, retour au camp')
+		SV.Chapter5.DreamSceneSeen = true
+		GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker', true)
+	end
 end
 
 -- LE MATIN — apres le reve, de retour au camp
