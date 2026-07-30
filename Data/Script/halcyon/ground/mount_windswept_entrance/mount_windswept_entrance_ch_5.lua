@@ -3243,13 +3243,21 @@ function mount_windswept_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 
 	SV.Chapter5.FinishedMountWindsweptIntro = true
 	SV.Chapter5.CampNightWatchDone = false
-	GAME:CutsceneMode(false)
 	AI:EnableCharacterAI(partner)
 	AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
+	--FONDU AVANT LA REPRISE DE MAIN (demande du joueur). L'ancien
+	--enchainement coupait sec de la scene finale a l'exploration :
+	--CutsceneMode(false) puis un FadeIn(40) qui ne faisait rien, l'ecran
+	--etant deja allume. On noircit donc VRAIMENT, on recadre sous le
+	--noir, et on rallume sur une image en place.
+	--La musique part avec le noir, pas apres : elle accompagne la
+	--bascule au lieu de la suivre.
+	pcall(function() GAME:FadeOut(false, 20) end)
+	SOUND:PlayBGM('Sky Peak Prairie.ogg', true)
+	GAME:CutsceneMode(false)
 	--La camera revient au joueur (forme attestee : searing_tunnel:1480).
 	GAME:MoveCamera(0, 0, 1, true)
-	SOUND:PlayBGM('Sky Peak Prairie.ogg', true)
-	GAME:FadeIn(40)
+	GAME:FadeIn(20)
 end
 
 -- LE RETOUR EN MAUVAISE POSTURE — KO / abandon dans la montagne
@@ -3542,9 +3550,10 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	AI:EnableCharacterAI(partner)
 	AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
 	GROUND:CharTurnToChar(partner, hero)
-	--La camera revient au joueur (forme attestee : searing_tunnel:1480).
-	GAME:MoveCamera(0, 0, 1, true)
-	GAME:CutsceneMode(false)
+	--FONDU AVANT LA REPRISE DE MAIN (demande du joueur) : on noircit,
+	--on recadre sur le heros sous le noir, puis on rallume. Un simple
+	--CutsceneMode(false) rendait la main par une coupe seche.
+	GeneralFunctions.RendreLaMain()
 end
 
 -- RetreatReturnCutscene : l'equipe a fait demi-tour d'elle-meme.
@@ -3639,9 +3648,10 @@ function mount_windswept_entrance_ch_5.RetreatReturnCutscene()
 	AI:EnableCharacterAI(partner)
 	AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
 	GROUND:CharTurnToChar(partner, hero)
-	--La camera revient au joueur (forme attestee : searing_tunnel:1480).
-	GAME:MoveCamera(0, 0, 1, true)
-	GAME:CutsceneMode(false)
+	--FONDU AVANT LA REPRISE DE MAIN (demande du joueur) : on noircit,
+	--on recadre sur le heros sous le noir, puis on rallume. Un simple
+	--CutsceneMode(false) rendait la main par une coupe seche.
+	GeneralFunctions.RendreLaMain()
 end
 
 function mount_windswept_entrance_ch_5.PurgeDecor()
@@ -3893,21 +3903,37 @@ function mount_windswept_entrance_ch_5.SetupGround()
 	--assoupi la ou il veillait.
 	pcall(function() GROUND:CharSetAnim(noctowl, "Sleep", true) end)
 
+	-- QUATRIEME POSTE : PLUM — DEPLACEE, ELLE BARRAIT LE PASSAGE.
+	--
+	-- BUG SIGNALE EN JEU : « plum a la cinematique de respawn elle est
+	-- devant le passage inerte et immobile ».
+	-- Mesure faite sur la grille : a hauteur y=174, le sol libre qui mene
+	-- a la porte du donjon s'etend de x=248 a x=304. Plum etait posee en
+	-- (278,174) — soit EXACTEMENT au milieu de ce goulot, avec un sprite
+	-- de 24 a 32 px de large. Le joueur qui remonte vers l'entree lui
+	-- rentrait dedans, et comme un GroundChar est solide, elle bloquait
+	-- reellement la progression.
+	-- Nouveau poste (236,230), a l'OUEST du foyer : sol libre verifie,
+	-- 39 px des marmites (elle tient toujours la cuisine), 41 px de
+	-- Penticus, 55 px de Phileas, 64 px de Hyko. Surtout : la distance
+	-- MINIMALE entre elle et n'importe quel point du couloir d'acces
+	-- (x 248..304, y 112..206) est de 29 px — le passage est franc.
+	--
 	-- QUATRIEME POSTE : PLUM, ET ELLE A UNE RAISON D'ETRE LA.
 	-- Penticus lui a donne un poste au matin (section 11bis) et Coco lui a
 	-- passe la cuisine du camp avant de monter au relais. Elle n'est donc
 	-- pas un PNJ de plus pose sur la carte : elle occupe la fonction que
 	-- deux scenes precedentes lui ont explicitement confiee.
 	-- Elle tient les marmites : sa place est PRES DU FOYER, tournee vers
-	-- lui. (278,174) : sol libre verifie sprite compris, 40 px des flammes
-	-- et hors du bloqueur du foyer (elle ne peut pas s'y retrouver
-	-- coincee), 66 px du plus proche des trois autres postes. Le camp
-	-- compte donc quatre silhouettes lisibles, chacune a son ouvrage.
+	-- lui — mais A L'OUEST, pas dans l'axe de la porte.
+	-- Direction.Right : elle fait face au foyer (a l'est de sa position),
+	-- donc dos au vide. Une cuisiniere ne tourne pas le dos a ses
+	-- marmites.
 	local jigglypuff = nil
 	if SV.Chapter5.PlumAtMountCamp then
 		pcall(function()
 			jigglypuff = CharacterEssentials.MakeCharactersFromList({
-				{'Jigglypuff', 278, 174, Direction.Down}
+				{'Jigglypuff', 236, 230, Direction.Right}
 			})
 		end)
 	end
@@ -3947,6 +3973,56 @@ function mount_windswept_entrance_ch_5.SetupGround()
 		pcall(function()
 			GROUND:CharEndAnim(noctowl)
 			GROUND:TeleportTo(noctowl, 224, 236, Direction.Right)
+		end)
+	end
+
+	-- LE CAMP N'EST PAS UN DIORAMA — VIE DE FOND EN EXPLORATION.
+	--
+	-- Second volet du retour « plum [...] inerte et immobile ». Le
+	-- deplacement reglait le blocage du passage ; l'inertie, elle, ne
+	-- concernait pas qu'elle : AUCUN des PNJ de ce camp n'avait de
+	-- comportement une fois la main rendue au joueur. Quatre sprites
+	-- plantes, figes dans leur direction de depart, jusqu'a ce qu'on
+	-- leur parle. C'est exactement le « pourquoi ce PNJ reste-t-il
+	-- immobile ? » du test de credibilite.
+	--
+	-- On leur pose donc l'IA de fond du projet, `halcyon.ai.ground_talking`,
+	-- deja employee au camp du Tunnel (searing_tunnel_entrance_ch_5:108
+	-- et :114) et a la guilde. Elle fait tourner la tete, jouer des
+	-- emotes et regarder ses voisins, sans jamais deplacer le PNJ de son
+	-- poste — ce qui compte ici, puisque chaque position a ete calculee.
+	--
+	-- Signature (ai/ground_talking.lua) :
+	--   AI:SetCharacterAI(chara, script, Turn, IdleTime, EmoteIdleTime,
+	--                     InitialDelay, RandomTalk, Personality, Friends)
+	-- Les DELAIS INITIAUX sont tous differents (0 / 90 / 150 / 210) :
+	-- sans cela les quatre s'animeraient a la meme frame, et le camp
+	-- respirerait comme un seul bloc mecanique — precisement le defaut
+	-- que la directive interdit pour les reactions de groupe.
+	--
+	-- Chacun regarde qui il a une raison de regarder :
+	--   * Penticus guette le sentier, mais jette un oeil a Hyko poste
+	--     pres du feu ;
+	--   * Hyko, le garde, surveille le maitre de guilde ;
+	--   * Plum et Hyko sont les deux qui restent au camp : ils se
+	--     tiennent compagnie ;
+	--   * Phileas DORT (CharSetAnim "Sleep" plus haut) : on ne lui pose
+	--     AUCUNE IA, elle leverait son animation de sommeil. Son
+	--     immobilite a lui est justifiee — il a veille toute la nuit.
+	pcall(function()
+		AI:SetCharacterAI(tropius, "halcyon.ai.ground_talking",
+		                  false, 90, 60, 0, false, 'Default', {growlithe})
+	end)
+	pcall(function()
+		AI:SetCharacterAI(growlithe, "halcyon.ai.ground_talking",
+		                  false, 90, 60, 90, false, 'Default', {tropius})
+	end)
+	if jigglypuff ~= nil then
+		pcall(function()
+			--Plum s'affaire a ses marmites : IdleTime plus court, elle
+			--est la plus remuante des quatre. C'est son caractere.
+			AI:SetCharacterAI(jigglypuff, "halcyon.ai.ground_talking",
+			                  false, 60, 60, 150, false, 'Default', {growlithe})
 		end)
 	end
 end

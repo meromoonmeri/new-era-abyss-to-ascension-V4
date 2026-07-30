@@ -22,7 +22,7 @@ local mount_windswept_entrance = {}
 --Engine callback function
 function mount_windswept_entrance.Init(map)
   DEBUG.EnableDbgCoro()
-  print('=>> Init_mount_windswept_entrance <<= [build 2026-08-03-K]')
+  print('=>> Init_mount_windswept_entrance <<= [build 2026-08-03-L]')
 
   --LE NOIR ET LE GEL, AVANT TOUT LE RESTE.
   --
@@ -331,6 +331,14 @@ function mount_windswept_entrance.Dungeon_Entrance_Touch(obj, activator)
       UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_E04']))
       GAME:WaitFrames(15)
       UI:ResetSpeaker()
+      --PAS DE FONDU ICI, ET C'EST DELIBERE.
+      --La regle « un fondu avant chaque reprise de main » vise le
+      --passage cinematique -> EXPLORATION. Ce n'est pas le cas de cet
+      --echange : le joueur ne reprend pas la main sur la carte, le menu
+      --« Voulez-vous entrer ? » s'ouvre immediatement apres (quelques
+      --lignes plus bas). Noircir puis rallumer entre la derniere
+      --replique et la question ferait clignoter l'ecran pour rien, et
+      --casserait l'enchainement voulu par le beat 4.10 du plan.
       GAME:CutsceneMode(false)
     end
   end

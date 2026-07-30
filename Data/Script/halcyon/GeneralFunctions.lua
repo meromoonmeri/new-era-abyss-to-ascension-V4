@@ -64,6 +64,41 @@ GeneralFunctions.EMOTIONS_PORTRAIT = {
 --Pose l'emotion du locuteur SANS jamais pouvoir ecrire -1 dans le moteur.
 --C'est le seul point de passage : si le nom est inconnu, on retombe sur
 --"Normal" (toujours valide) et on trace, plutot que de crasher le rendu.
+--RENDRE LA MAIN AU JOUEUR, AVEC UNE VRAIE RESPIRATION.
+--
+--Demande du joueur : « j'aimerais un fondu a chaque fois qu'avant le
+--joueur reprend la main sur l'exploration ».
+--
+--POURQUOI UN FadeIn SEUL NE SUFFISAIT PAS. La plupart des cinematiques
+--se terminent ECRAN DEJA ALLUME : elles ont fait leur FadeIn bien plus
+--tot, pendant la scene. Y rajouter un FadeIn est alors un no-op complet
+--(FadeEffect.cs:63-64 : un fondu vers un etat deja atteint ne fait
+--rien). Pour qu'un fondu SE VOIE, il faut noircir PUIS rallumer.
+--
+--Deroule, et l'ordre compte :
+--  1. FadeOut(20)      — l'ecran s'eteint pendant que le mode
+--                        cinematique est ENCORE actif, donc le joueur ne
+--                        peut pas bouger pendant le noir ;
+--  2. CutsceneMode(false) + camera rendue au heros, SOUS LE NOIR : le
+--     joueur ne voit pas le recadrage se faire ;
+--  3. FadeIn(20)       — l'exploration s'ouvre sur une image deja en
+--                        place.
+--Total ~0,7 s : une respiration, pas une attente.
+--
+--MoveCamera(0,0,1,true) est la forme attestee du depot pour recentrer
+--sur le joueur (searing_tunnel:1480). `rendreCamera` permet de la sauter
+--pour les scenes qui gerent leur cadrage elles-memes.
+function GeneralFunctions.RendreLaMain(rendreCamera)
+	if rendreCamera == nil then rendreCamera = true end
+	pcall(function() GAME:FadeOut(false, 20) end)
+	pcall(function() GAME:CutsceneMode(false) end)
+	if rendreCamera then
+		pcall(function() GAME:MoveCamera(0, 0, 1, true) end)
+	end
+	pcall(function() GAME:FadeIn(20) end)
+end
+
+
 function GeneralFunctions.SetEmotion(emotion)
 	if emotion == nil or emotion == '' then emotion = 'Normal' end
 	if not GeneralFunctions.EMOTIONS_PORTRAIT[emotion] then
