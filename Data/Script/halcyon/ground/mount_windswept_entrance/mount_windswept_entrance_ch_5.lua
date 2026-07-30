@@ -1006,14 +1006,45 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--une fraction de seconde avant de partir. hero_dream.DreamScene le
 	--repose immediatement de son cote.
 	SV.Chapter5.CampNightWatchDone = true
-	--BASCULE BLINDEE. Le seul crash jamais constate a ce point precis
-	--etait EnterGroundMap vers une map inconnue (hero_dream non
-	--enregistree, P0 du 2026-07-29 : crash + ecran noir au coucher).
-	--L'appel echoue AVANT d'armer le changement de carte (lookup de la
-	--map) : le pcall le rend donc recuperable, et on repart alors
-	--directement vers le matin sur cette meme carte — un reve saute
-	--vaut mieux qu'une partie figee. Si l'appel reussit, aucune
-	--seconde bascule n'est armee.
+	--VERIFICATION PREALABLE DU CHARGEMENT, FAITE AVANT D'ARMER LA BASCULE.
+	--EnterGroundMap est un iterateur C# PARESSEUX (ScriptGame.cs : il se
+	--contente de construire la coroutine MoveToGround, sans executer la
+	--moindre ligne de son corps) : AUCUN lookup n'a lieu a l'appel Lua,
+	--et un pcall autour ne peut donc rien attraper. La bascule ne
+	--s'execute que lorsque ScreenMainCoroutine consomme SceneOutcome —
+	--et si elle meurt en route (asset absent ou illisible : Zone.cs
+	--nullifie CurrentGround AVANT le chargement, et DataManager.GetGround
+	--AVALE l'exception reelle en rendant null), le moteur retombe sur
+	--ProcessInput avec CurrentGround == null : NullReferenceException a
+	--chaque frame, jusqu'a l'arret du jeu (trace « GroundScene.
+	--ProcessInput()+MoveNext » relevee en jeu le 2026-07-30).
+	--Toute la securite doit donc se jouer ICI, en amont :
+	--  1. GroundValid : la map est-elle enregistree dans la zone — le
+	--     MEME test que MoveToGround, mais avant qu'il ne soit trop tard ;
+	--  2. GetGround : l'asset est-il reellement chargeable (en cas
+	--     d'echec le moteur logue « Missing Data » et rend nil).
+	--3e cas : si le preflight LUI-MEME est casse (liaison moteur
+	--absente), on tente la bascule quand meme — un risque connu vaut
+	--mieux qu'un reve toujours saute sur un faux negatif.
+	local canDream = true
+	local okPre, resPre = pcall(function()
+		local summary = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('master_zone')
+		if not summary:GroundValid('hero_dream') then return false end
+		return _DATA:GetGround('hero_dream') ~= nil
+	end)
+	if okPre then
+		canDream = (resPre == true)
+	else
+		PrintInfo('[MWE5] preflight reve indisponible ('..tostring(resPre)..') — bascule tentee quand meme')
+	end
+	if not canDream then
+		PrintInfo('[MWE5] hero_dream absente de la zone ou asset illisible — reve saute, retour au camp')
+		SV.Chapter5.DreamSceneSeen = true
+		GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker', true)
+		return
+	end
+	--Bascule normale. Le pcall est conserve en ceinture (il ne peut
+	--rien attraper de la bascule elle-meme), il ne coute rien.
 	local okDream, errDream = pcall(function()
 		GAME:EnterGroundMap('hero_dream', 'Main_Entrance_Marker', true)
 	end)
@@ -3418,32 +3449,19 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 		                hyko = growlithe,  almotz = zigzagoon,
 		                reinier = girafarig, kino = breloom})
 
-	GAME:FadeOut(false, 40)
-	GAME:WaitFrames(40)
-	-- LE CAMP NE DOIT PAS SE VIDER.
-	for _, chara in ipairs({audino, snubbull, girafarig, breloom, zigzagoon, mareep, cranidos}) do
-		GAME:GetCurrentGround():RemoveTempChar(chara)
-	end
-
-	--Les trois qui tiennent le camp reprennent le poste exact que leur
-	--donne SetupGround, pour que rien ne bouge quand le joueur reviendra
-	--du donjon : Penticus (230,190), Phileas (288,196), Hyko (224,206).
-	pcall(function()
-		GROUND:TeleportTo(tropius,   252, 268, Direction.Up)
-		GROUND:TeleportTo(noctowl,   212, 180, Direction.Down)
-		GROUND:TeleportTo(growlithe, 300, 236, Direction.Left)
-		--Phileas a veille la nuit : au matin, il dort a son poste.
-		GROUND:CharSetAnim(noctowl, "Sleep", true)
-	end)
-
-	--LA SCENE NE SE TERMINE PAS ICI. CampNightfall part desormais vers
-	--la carte du reve (hero_dream) : la cloture de l'intro — SetParty,
-	--le drapeau FinishedMountWindsweptIntro, le rendu du controle — a
-	--donc ete deplacee a la FIN de MorningAfterDream, seule fonction
-	--qui s'execute encore apres le retour du reve. La laisser ici
-	--l'aurait rendue inatteignable, et l'intro se serait rejouee en
-	--boucle a chaque entree sur la carte.
-
+	--RIEN NE S'EXECUTE APRES CAMPNIGHTFALL — volontairement.
+	--CampNightfall termine en armant la bascule vers la carte du reve
+	--(EnterGroundMap) : le moteur poursuit cette coroutine en
+	--arriere-plan pendant la consommation de SceneOutcome, et tout code
+	--place ici tournait PENDANT la bascule, sur une carte en cours de
+	--destruction (Zone.cs : CurrentGround est nullifie puis recharge).
+	--Le « nettoyage » qui se trouvait ici — FadeOut supplementaire,
+	--RemoveTempChar des sept partants, TeleportTo des trois restants —
+	--mutait donc une carte mise au rebut. Il etait de surcroit inutile :
+	--la carte du camp est rechargee de zero a chaque entree et
+	--reconstruite par ResumeAfterDream (retour du reve) puis SetupGround
+	--(retours ulterieurs). Supprime, pas deplace : une bascule armee
+	--doit rester la DERNIERE instruction d'une scene.
 end 
 
 --Ganlon hasn't been getting to act like a jerk much this expedition; give him some opportunies for his jerkiness to shine through here

@@ -142,3 +142,45 @@ Reste à faire (ordre) : (1) restauration PP/faim systématique aux relais ;
 (2) rencontres inoffensives près des relais ; (3) remplir les pools de spawn
 des donjons ch7+ ; (4) test en jeu des 4 mini-boss (ni la géométrie des
 salles ni les cinématiques n'ont été vues en jeu à ce stade).
+
+**Crash au coucher résolu côté scripts (build 2026-08-02-Q)** — trace joueur
+du 2026-07-30 : `NullReferenceException` dans `GroundScene.ProcessInput()`,
+Lua Trace vide, bloc répété en boucle. Analyse menée directement sur la
+source moteur (`RogueCollab/RogueEssence`, `master`) :
+
+- `GameManager.ScreenMainCoroutine` **nullifie `SceneOutcome` AVANT**
+  d'exécuter la bascule. Si la coroutine de bascule meurt en route, la
+  boucle reprend → `ProcessInput()` → `ZoneManager.Instance.CurrentGround
+  .OnCheck()` ; or `Zone.SetCurrentMap` nullifie `CurrentGround` **avant**
+  le chargement → NRE à chaque frame (180 frames d'erreur → arrêt du jeu).
+- `GAME:EnterGroundMap` est un **itérateur C# paresseux** (`ScriptGame.cs`)
+  : aucun code ne s'exécute à l'appel Lua. Aucun `pcall` Lua ne peut donc
+  attraper un échec de bascule — le « filet » du build -O était illusoire.
+- `DataManager.Instance.GetGround` **avale l'exception réelle, logue et
+  rend `null`** : un asset absent/illisible ne lève rien, la bascule
+  continue sur une carte nulle. Il écrit en revanche deux lignes de log
+  décisives : `Loading rsground file: hero_dream` puis `Completed file
+  load.` **ou** `Missing Data: hero_dream`.
+- `ZoneEntrySummary.GroundValid(nom)` est le test d'enregistrement exact
+  utilisé par `MoveToGround` — appelable depuis Lua.
+
+Correctifs appliqués :
+
+- **Préflight avant armement** (CampNightfall) : `GroundValid('hero_dream')`
+  + `GetGround('hero_dream') ~= nil` via `_DATA`. Si refus → rêve sauté
+  proprement vers le matin + ligne de log dédiée. Si le préflight lui-même
+  est cassé (liaison absente), la bascule est tentée quand même
+  (dégradation ouverte, jamais de faux négatif).
+- **Code mort supprimé après l'armement** (ArrivalCutscene) : le bloc de
+  « nettoyage » du camp (fondu, `RemoveTempChar` ×7, téléportations ×3)
+  s'exécutait **pendant** la bascule, sur une carte en cours de
+  destruction — et mutait une carte de toute façon rechargée de zéro à
+  chaque entrée. Une bascule armée reste la dernière instruction d'une
+  scène, sans exception.
+- `COMMON.RespawnAllies()` passé sous `pcall` dans `hero_dream.Init`
+  (il s'exécute dans la coroutine de bascule ; une erreur y serait fatale
+  de la même façon — et DreamScene sait renoncer si le héros est absent).
+
+Diagnostic en jeu désormais tranchable en trois lignes de log : le tag de
+build (`[NREPROBE] build 2026-08-02-Q`), puis `Loading rsground file:
+hero_dream` → `Completed file load.` ou `Missing Data: hero_dream`.

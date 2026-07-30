@@ -55,7 +55,14 @@ function hero_dream.Init(map)
   pcall(function() GAME:FadeOut(false, 1) end)
 
   -- LE JOUEUR DOIT EXISTER SUR LA CARTE.
-  COMMON.RespawnAllies()
+  -- Sous pcall, comme tout le reste de cet Init : cet appel s'execute
+  -- DANS la coroutine de bascule (moveToZoneInit -> InitGround). S'il
+  -- levait une erreur, la coroutine mourrait au milieu du changement
+  -- de carte — casse prouvee : CurrentGround null + SceneOutcome null
+  -- = NullReferenceException dans ProcessInput a chaque frame (trace
+  -- relevee en jeu le 2026-07-30). En cas d'echec, DreamScene sait
+  -- renoncer proprement (test hero == nil -> retour au camp garanti).
+  pcall(function() COMMON.RespawnAllies() end)
 
   -- LE MODE CINEMATIQUE EST POSE DES L'INIT, PAS DANS LA SCENE.
   --     if (GameManager.Instance.SceneOutcome == null)
@@ -439,9 +446,14 @@ function hero_dream.DreamScene()
   --d'arrivee (ResumeAfterDream) les reprend a son compte.
   pcall(function() GAME:CutsceneMode(true) end)
   pcall(function() GAME:FadeOut(false, 1) end)
-  --BASCULE BLINDEE (meme filet que cote camp) : si le retour au camp
-  --echoue, on tente la voie master_zone (mapID 50 = mount_windswept_entrance)
-  --plutot que de laisser le joueur fige sur une carte de reve sans sortie.
+  --BASCULE DE RETOUR. Rappel mecanique (ScriptGame.cs) : EnterGroundMap
+  --est un iterateur paresseux, le pcall ne peut donc rien attraper de la
+  --bascule elle-meme — il est conserve en ceinture, pas en protection.
+  --Pas de preflight GetGround ici, volontairement : la carte du camp
+  --vient d'etre chargee avec succes il y a quelques secondes, et son
+  --rsground est volumineux — le reparser pour rien n'ajouterait aucune
+  --securite reelle. Le secours EnterZone (mapID 50) couvre le cas
+  --pathologique d'une censure de la bascule nominative.
   local okBack, errBack = pcall(function()
     GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker', true)
   end)
