@@ -130,104 +130,122 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	local bedOf = {}
 	for _, s in ipairs(seats) do bedOf[s[1]] = s[2] end
 
-	-- 1. KINO ET REINIER REJOIGNENT LE CAMP
-	--Ils fermaient la marche sur le sentier. Leur arrivee complete
-	--l'expedition : les 12 paillasses ont enfin leurs 12 dormeurs.
-	GROUND:Unhide(t.kino.EntName)
-	GROUND:Unhide(t.reinier.EntName)
-	GROUND:TeleportTo(t.kino, 236, 396, Direction.Up)
-	GROUND:TeleportTo(t.reinier, 276, 396, Direction.Up)
-
-	-- TOUT LE CAMP LES REGARDE ARRIVER, ET LES SUIT DU REGARD.
-	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
-	local greetKino = {}
-	--Ceux qui reagissent VIVEMENT : Coco (elle a garde le repas au
-	--chaud), Shuca (elle s'inquietait), Rin (elle compte ses blesses).
-	for i, r in ipairs({{t.coco, "exclaim"}, {t.shuca, "happy"}, {t.rin, "notice"}}) do
-		greetKino[#greetKino+1] = TASK:BranchCoroutine(function()
-			GAME:WaitFrames((i - 1) * 6)
-			pcall(function()
-				GROUND:CharTurnToCharAnimated(r[1], t.kino, 4)
-				GROUND:CharSetEmote(r[1], r[2], 1)
-			end)
-		end)
-	end
-	--Les autres se contentent de lever la tete, un peu plus tard.
-	for i, who in ipairs({partner, hero, t.penticus, t.phileas, t.hyko, t.almotz, t.ganlon}) do
-		greetKino[#greetKino+1] = TASK:BranchCoroutine(function()
-			GAME:WaitFrames(10 + (i - 1) * 4)
-			pcall(function() GROUND:CharTurnToCharAnimated(who, t.kino, 4) end)
-		end)
-	end
-	TASK:JoinCoroutines(greetKino)
-	GAME:WaitFrames(10)
-
-	--LE SUIVI DU REGARD pendant toute la remontee. Ces coroutines
-	--tournent EN MEME TEMPS que les deplacements de Kino et Reinier
-	--(lances juste apres) : chaque tete pivote au fil de leur avancee.
-	--Elles s'arretent d'elles-memes quand la cible cesse de bouger.
-	--Declares ICI parce que le reste de la scene les reutilise sans le
-	--mot-cle `local` : sans cette declaration, coro1..coro4 deviendraient
-	--des GLOBALES fuyant hors de la fonction (le bloc qui les declarait
-	--a ete remplace par les regards ci-dessus).
+	-- 1. LE RASSEMBLEMENT — c'est l'arrivee du heros qui le declenche
+	--
+	-- PLAN, ACTE 1 : « tous les membres de la Guilde sont deja presents
+	-- au campement — personne n'arrive de l'exterieur apres le heros. »
+	-- « Le rassemblement collectif se produit AU MOMENT OU LE HEROS
+	--   ARRIVE : c'est son arrivee qui sert de declencheur pour que les
+	--   membres deja presents convergent et se regroupent, pas une
+	--   succession d'arrivees exterieures. »
+	--
+	-- CE QUI A CHANGE, ET POURQUOI.
+	-- Cette section faisait exactement l'inverse : Kino et Reinier
+	-- etaient caches a l'arrivee (GROUND:Hide dans ArrivalCutscene),
+	-- teleportes au bas du sentier en (236,396)/(276,396), puis ils
+	-- remontaient au camp sous les yeux du joueur. Le declencheur du
+	-- rassemblement etait donc une arrivee exterieure DE PLUS, apres
+	-- celle du heros — precisement ce que le plan interdit.
+	--
+	-- Ils sont desormais sur la carte des la premiere frame, a l'ecart
+	-- au sud-est, en pleine discussion a eux (ArrivalCutscene). Ils
+	-- remarquent le heros les derniers (beat 1.3), le rejoignent par un
+	-- deplacement reel (beat 1.4) et ont chacun leur commentaire propre
+	-- (beat 1.5, cles MWE5_179 et MWE5_180) — le tout dans
+	-- ArrivalCutscene, qui est la scene ou le heros arrive reellement.
+	--
+	-- CampNightfall reprend donc APRES le rassemblement : tout le monde
+	-- est deja groupe autour du duo, et la soiree peut commencer.
+	-- Les repliques MWE5_021 et MWE5_022 (« vous voila enfin ! ») sont
+	-- retirees : elles disaient une arrivee qui n'a plus lieu ici.
+	--
+	-- `coro1..coro4` restent declares ici : tout le reste de la scene
+	-- les reutilise sans le mot-cle `local`, et sans cette declaration
+	-- ils fuiraient en globales hors de la fonction.
 	local coro1, coro2, coro3, coro4
-	local watch = {}
-	for _, who in ipairs({t.coco, t.shuca, t.rin, t.penticus}) do
-		watch[#watch+1] = TASK:BranchCoroutine(function()
-			pcall(function() GeneralFunctions.FaceMovingCharacter(who, t.kino, 4) end)
-		end)
-	end
-	for _, who in ipairs({partner, hero, t.almotz}) do
-		watch[#watch+1] = TASK:BranchCoroutine(function()
-			pcall(function() GeneralFunctions.FaceMovingCharacter(who, t.reinier, 4) end)
-		end)
-	end
-	-- ILS CONTOURNENT LE DUO, ILS NE LE TRAVERSENT PAS.
-	local coro5 = TASK:BranchCoroutine(function()
-		--Trois segments, le dernier fusionne : (216,308) puis (208,300)
-		--ne faisait que 8 px et produisait un sautillement d'arrivee.
-		GROUND:MoveToPosition(t.kino, 216, 372, false, 1)
-		GROUND:MoveToPosition(t.kino, 208, 300, false, 1)
-		GROUND:CharTurnToCharAnimated(t.kino, hero, 4)
-	end)
-	local coro6 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(10)
-		GROUND:MoveToPosition(t.reinier, 312, 380, false, 1)
-		GROUND:MoveToPosition(t.reinier, 304, 300, false, 1)
-		GROUND:CharTurnToCharAnimated(t.reinier, hero, 4)
-	end)
-	--On joint les deux marcheurs ET les regards qui les suivent : les
-	--coroutines de suivi s'arretent d'elles-memes quand la cible cesse
-	--de bouger, mais il faut les attendre pour ne pas les laisser
-	--tourner par-dessus la replique suivante.
-	TASK:JoinCoroutines({coro5, coro6})
-	pcall(function() TASK:JoinCoroutines(watch) end)
-
-	GAME:WaitFrames(10)
-	UI:SetSpeaker(t.kino)
-	UI:SetSpeakerEmotion("Happy")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_021']))
-	GAME:WaitFrames(15)
-	--Reinier repond a Kino : les deux se font face, le camp les regarde
-	coro1 = TASK:BranchCoroutine(function()
-		pcall(function() GROUND:CharTurnToCharAnimated(t.reinier, t.kino, 4) end)
-		UI:SetSpeaker(t.reinier)
-		UI:SetSpeakerEmotion("Normal")
-		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_022']))
-	end)
-	coro2 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(10)
-		pcall(function() GROUND:CharTurnToCharAnimated(t.kino, t.reinier, 4) end)
-	end)
-	TASK:JoinCoroutines({coro1, coro2})
-	GAME:WaitFrames(20)
 
 	-- 2. LE DINER — tout le monde s'installe autour du feu
-	UI:ResetSpeaker(false)
-	UI:SetCenter(true)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_023']))
-	UI:SetCenter(false)
-	UI:ResetSpeaker()
+	--
+	-- PLAN, REGLE DE NARRATION : « Aucune boite de narration omnisciente.
+	-- A la place, c'est le heros qui commente les evenements dans ses
+	-- pensees. » Et : « La narration ne doit etre utilisee qu'a des
+	-- moments tres precis : clore un acte, ouvrir un acte, introduire un
+	-- chapitre. Elle accompagne TOUJOURS un fondu au noir. »
+	--
+	-- Il y avait ici une boite centree (MWE5_023 : « Le camp se rassemble
+	-- autour du feu... »), en plein milieu d'un acte, sans fondu. Elle
+	-- decrivait de surcroit ce que l'image montre deja — l'autre interdit
+	-- explicite du plan (« les pensees du heros ne doivent jamais resumer
+	-- ce que le joueur voit deja a l'ecran »).
+	--
+	-- Elle est remplacee par ce que le plan demande : un PERSONNAGE qui
+	-- porte l'action (« si le repas est pret, c'est un personnage qui
+	-- l'annonce naturellement »). Coco appelle a table — c'est sa
+	-- fonction dans la guilde, et c'est elle qui a garde le repas au
+	-- chaud pendant neuf heures.
+	--
+	-- L'ANNONCE DU REPAS EST AUSSI LE DECLENCHEUR DU GAG GALON (beat 1.8
+	-- du plan) : « tout le monde se tourne spontanement vers Galon a
+	-- l'annonce du repas, a cause de sa reputation de gros gourmand ».
+	-- On le joue ICI, sur l'annonce reelle, et pas sur une phrase
+	-- rapportee — le gag a besoin du mot « manger » prononce a voix haute.
+	SOUND:FadeOutBGM(40)
+	GAME:WaitFrames(20)
+	Says(t.coco, "Joyous", 'MWE5_G01',
+	     {t.rin, t.shuca, t.penticus, t.phileas, partner, hero,
+	      t.hyko, t.almotz, t.kino, t.reinier})
+	GAME:WaitFrames(10)
+
+	-- LE GAG GALON. Trois temps, et c'est le silence du deuxieme qui le
+	-- fait exister :
+	--   1. le camp se tourne vers lui EN CASCADE — pas d'un bloc. Chacun
+	--      pivote depuis SA place, dans l'ordre de sa distance a Coco ;
+	--   2. UNE SECONDE DE RIEN. Personne ne parle. Galon comprend
+	--      lentement que tout le monde le regarde ;
+	--   3. il craque : goutte de sueur, puis il se justifie.
+	local versGanlon = {}
+	for i, who in ipairs({t.coco, t.rin, t.shuca, t.kino, t.reinier,
+	                      t.hyko, t.almotz, t.phileas, t.penticus,
+	                      partner, hero}) do
+		if who ~= nil then
+			versGanlon[#versGanlon+1] = TASK:BranchCoroutine(function()
+				pcall(function()
+					GAME:WaitFrames((i - 1) * 4)
+					GROUND:CharTurnToCharAnimated(who, t.ganlon, 4)
+				end)
+			end)
+		end
+	end
+	pcall(function() TASK:JoinCoroutines(versGanlon) end)
+
+	--2. LE BEAT. Le vide avant la reaction : sans lui le gag tombe a plat.
+	GAME:WaitFrames(50)
+
+	--3. Galon craque. Il regarde a droite, a gauche, puis rend les armes.
+	pcall(function()
+		GeneralFunctions.LookAround(t.ganlon, 2, 5, false, false, true, Direction.Up)
+		GeneralFunctions.EmoteAndPause(t.ganlon, "Sweating", true)
+	end)
+	UI:SetSpeaker(t.ganlon)
+	UI:SetSpeakerEmotion("Sigh")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_G02']))
+	GAME:WaitFrames(12)
+
+	--Coco enfonce le clou, Galon abandonne. Deux repliques, pas dix :
+	--le plan demande que le gag reste court.
+	--Appel explicite et non `Says` : cette cle porte un {0} (le nom de
+	--Galon), or le helper Says appelle STRINGS:Format SANS argument —
+	--le marqueur serait reste affiche tel quel a l'ecran.
+	Listen(t.coco, {t.ganlon, t.rin, t.shuca})
+	UI:SetSpeaker(t.coco)
+	UI:SetSpeakerEmotion("Joyous")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_G03'], t.ganlon:GetDisplayName()))
+	GAME:WaitFrames(10)
+
+	--La pensee du heros ferme le beat — courte, amusee, elle n'explique
+	--pas le gag (le plan : « un seul apart, leger, pas une explication »).
+	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_G04']), "Sigh")
+	GAME:WaitFrames(18)
 
 	-- ON GAGNE SA PLACE SANS TRAVERSER PERSONNE.
 	local MEAL_ROUTES = {
@@ -360,13 +378,20 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	-- guilde dans Explorateurs du Ciel : c'est celui qui accompagne les
 
 	--1. LE CONSTAT. Le duo entend des voix graves sans distinguer les mots.
+	--
+	--C'EST UNE PENSEE DU HEROS, ELLE DOIT DONC AVOIR SON VISAGE.
+	--Le texte de MWE5_158 est deja redige comme un aparte du heros
+	--(« (Ils ont l'air d'avoir une discussion serieuse...) ») — c'est
+	--meme l'exemple exact que donne le plan pour illustrer sa regle :
+	-- « si un groupe discute serieusement, le heros peut simplement
+	--   penser : "Ils font une de ces tetes... Que se passe-t-il ?" ».
+	--Mais il s'affichait en boite CENTREE SANS LOCUTEUR, c'est-a-dire
+	--dans la forme reservee a la narration omnisciente. Le joueur ne
+	--pouvait pas distinguer une pensee du heros d'une voix de conteur.
+	--HeroDialogue pose le portrait du heros : la pensee est attribuee.
 	SOUND:FadeOutBGM(40)
 	GAME:WaitFrames(30)
-	UI:ResetSpeaker(false)
-	UI:SetCenter(true)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_158']))
-	UI:SetCenter(false)
-	UI:ResetSpeaker()
+	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_158']), "Question")
 
 	--2. LA CAMERA VA VOIR. Mouvement lent et appuye vers le groupe, dans
 	--le silence. Pendant ce temps les trois se tournent les uns vers les
@@ -400,13 +425,33 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(25)
 
-	--3. LA CHUTE. Le sujet tombe, et la musique comique demarre DESSUS.
+	--3. LA CHUTE. Le sujet tombe.
+	--
+	-- CORRECTION AUDIO IMPOSEE PAR LE PLAN (acte 2, gestion des OST) :
+	-- « Apres le debut du repas, TOUTE MUSIQUE DISPARAIT. Seules les
+	--   ambiances naturelles du campement subsistent. Ce silence doit
+	--   durer suffisamment longtemps pour installer une atmosphere
+	--   calme. Lorsque Plum surgit en courant, AUCUNE OST ne doit jouer
+	--   avant son arrivee. La musique de la Guilde reprend UNIQUEMENT au
+	--   moment exact ou elle apparait et chute dans le campement. »
+	--
+	-- Il y avait ici un PlayBGM('Guildmaster Wigglytuff.ogg') : la
+	-- musique de la Guilde demarrait donc des le debat de la Pomme
+	-- Parfaite et tournait sans interruption jusqu'a l'irruption de
+	-- Plum. La reprise censee ponctuer sa chute retombait sur un morceau
+	-- DEJA EN TRAIN DE JOUER — le contraste sonore, qui est tout le gag,
+	-- n'existait pas.
+	--
+	-- Le repas reste donc en silence musical du debut a la fin. La chute
+	-- du debat est ponctuee par un SE court (le « ! » de surprise du
+	-- duo), pas par un morceau : un bruitage ponctue sans occuper
+	-- l'espace sonore que le beat de Plum doit trouver vide.
 	coro1 = TASK:BranchCoroutine(function()
 		Says(t.kino, "Determined", 'MWE5_162', {t.ganlon, t.reinier})
 	end)
 	coro2 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(30)
-		SOUND:PlayBGM('Guildmaster Wigglytuff.ogg', true)
+		pcall(function() SOUND:PlayBattleSE('EVT_Emote_Exclaim_Surprised') end)
 	end)
 	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(20)
@@ -746,8 +791,22 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		--1. LE CALME. La conversation est retombee, il ne reste que le feu.
 		--Les convives restent dans leur pose d'attente : personne ne
 		--s'agite pour meubler.
+		--
+		--LE SILENCE EST DEJA INSTALLE DEPUIS LE DEBUT DU REPAS : plus
+		--aucun PlayBGM ne tourne depuis l'annonce de Coco (section 2), et
+		--le debat de la Pomme Parfaite se joue lui aussi a sec. Le
+		--FadeOutBGM ci-dessous est donc une CEINTURE, pas le mecanisme :
+		--il coupe ce qui aurait pu rester d'un morceau anterieur si le
+		--joueur arrive ici par un chemin different (rechargement, scene
+		--rejouee). Sur le parcours nominal c'est un no-op.
+		--
+		--Le plan demande que ce silence « dure suffisamment longtemps
+		--pour installer une atmosphere calme ». On garde donc l'ambiance
+		--du feu SEULE (AMB_Fire_Loud, en boucle depuis la fin du repas)
+		--pendant deux secondes pleines avant le premier bruit de pas :
+		--c'est ce vide-la que la musique viendra briser a la chute.
 		SOUND:FadeOutBGM(50)
-		GAME:WaitFrames(70)
+		GAME:WaitFrames(110)
 
 		--2. LE BRUIT HORS CHAMP. On l'entend avant de la voir. Le duo et
 		--les plus proches du sentier tournent la tete vers le sud —
@@ -998,14 +1057,33 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GROUND:RemoveMapStatus("dusk")
 	GROUND:AddMapStatus("darkness")
 	GAME:WaitFrames(10)
-	GAME:FadeIn(40)
 
+	-- LE TEXTE DE TRANSITION SE LIT SUR LE NOIR, PAS SUR L'IMAGE.
+	--
+	-- PLAN, section narration : « Fondu au noir -> Texte narratif ->
+	-- Ouverture de l'acte suivant. Elle accompagne TOUJOURS un fondu au
+	-- noir afin de marquer une ellipse, un changement d'heure, un
+	-- changement de lieu. »
+	--
+	-- Ces deux boites sont de la vraie narration d'acte (elles ouvrent
+	-- l'acte du coucher) : elles ont donc le droit d'exister — a la
+	-- difference de MWE5_023, supprimee, qui tombait en plein milieu du
+	-- repas sans aucun fondu.
+	-- Mais elles s'affichaient APRES le FadeIn(40), donc par-dessus le
+	-- camp deja rallume : le joueur lisait « les sacs s'ouvrent, douze
+	-- paillasses se deroulent » alors que les paillasses etaient deja
+	-- deroulees a l'ecran depuis une seconde. L'ordre du plan est
+	-- exactement l'inverse, et il a raison : le texte prepare l'image,
+	-- il ne la commente pas apres coup.
+	-- On lit donc sur le noir, PUIS on rallume.
 	UI:ResetSpeaker(false)
 	UI:SetCenter(true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_072']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_073']))
 	UI:SetCenter(false)
 	UI:ResetSpeaker()
+	GAME:WaitFrames(15)
+	GAME:FadeIn(40)
 	GAME:WaitFrames(20)
 
 	-- 8. LE COUCHER — un par un, respiration desynchronisee
@@ -1099,7 +1177,125 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	TASK:JoinCoroutines(toBeds)
 	GAME:WaitFrames(10)
 
-	-- 8bis. LES HISTOIRES QUI FONT PEUR — les jeunes sur leurs paillasses
+	-- 8bis. LA SCENE INTIME — le duo, et le partenaire qui lache
+	--
+	-- ORDRE DES BEATS CORRIGE D'APRES LE PLAN (acte 3).
+	-- Le plan place la discussion intime en 3.2, AVANT les histoires qui
+	-- font peur (3.6) : « Le heros et son partenaire ont un moment de
+	-- discussion calme, a l'ecart du reste du groupe, JUSTE AVANT LE
+	-- COUCHER », puis « les jeunes Pokemon COMMENCENT a se raconter une
+	-- histoire ». Le code faisait l'inverse (histoires en 8bis, intime en
+	-- 9), ce qui cassait deux choses :
+	--   * le partenaire s'endormait APRES la veillee, donc son
+	--     endormissement en pleine phrase n'avait plus rien a interrompre ;
+	--   * la scene se terminait sur le moment calme au lieu de se
+	--     terminer sur le gag de Kino, qui est la chute voulue de l'acte.
+	-- Les deux blocs ont donc ete permutes tels quels.
+	--
+	--Le camp s'installe et la camera se resserre sur le duo : c'est le
+	--moment calme obligatoire du Prompt Maitre (6.5).
+	--
+	--LES DEUX MoveToPosition QUI SE TROUVAIENT ICI ONT ETE RETIRES.
+	--A l'ancienne place de ce bloc (apres la veillee d'histoires) ils
+	--avaient un sens : le duo rejoignait alors ses couches. Depuis la
+	--permutation, la section 8 vient JUSTE de les y conduire — heros et
+	--partenaire sont deja exactement sur seatX/seatY de leur lit. Les
+	--rappeler produisait un ordre de deplacement de longueur nulle : le
+	--moteur fait pivoter le sprite sur place sans avancer, ce qui se voit
+	--a l'ecran comme un petit soubresaut avant le dialogue intime.
+	--Il ne reste donc que ce qui a encore une raison d'etre : le
+	--resserrement de camera, et les deux regards qui se croisent.
+	local duoBeds = {}
+	duoBeds[#duoBeds+1] = TASK:BranchCoroutine(function()
+		-- LA CAMERA SE RESSERRE SUR LES DEUX COUCHES VOISINES.
+		local cx, cy = 256, 268
+		pcall(function()
+			cx = (seatX(bedOf[hero]) + seatX(bedOf[partner])) // 2
+			cy = (seatY(bedOf[hero]) + seatY(bedOf[partner])) // 2
+		end)
+		GAME:MoveCamera(cx, cy, 45, false)
+	end)
+	TASK:JoinCoroutines(duoBeds)
+	GROUND:CharTurnToCharAnimated(partner, hero, 4)
+	GROUND:CharTurnToCharAnimated(hero, partner, 4)
+	GAME:WaitFrames(15)
+
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_074']))
+	GAME:WaitFrames(15)
+	UI:SetSpeakerEmotion("Determined")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_075']))
+	GAME:WaitFrames(10)
+	GeneralFunctions.DoAnimation(hero, 'Nod')
+	GAME:WaitFrames(15)
+
+	-- BEATS 3.3 A 3.5 DU PLAN — LE PARTENAIRE S'ENDORT EN PLEINE PHRASE.
+	--
+	-- « En plein milieu de la discussion, il s'endort progressivement,
+	--   sans prevenir. Endormissement JOUE VISUELLEMENT (paupieres qui
+	--   tombent, tete qui dodeline), pas juste une coupe brutale. »
+	-- « Le heros n'a aucune ligne parlee ici : sa reaction se joue
+	--   uniquement via un idle/animation dirige vers son partenaire
+	--   endormi. »
+	--
+	-- Avant, il finissait sa phrase proprement puis se couchait d'un
+	-- bloc. Le decalage comique du plan n'existait pas.
+	--
+	-- L'endormissement se joue en TROIS TEMPS mesurables a l'ecran :
+	--   a. la phrase se delite d'elle-meme — [speed=0.4] ralentit le
+	--      defilement du texte (balise attestee, Text.cs:38-46), donc on
+	--      ENTEND la fatigue avant de la voir ;
+	--   b. la tete dodeline : deux quarts de tour lents, aller-retour.
+	--      C'est LookAround avec un tres faible nombre de rotations et
+	--      des frames longues — le sprite pique du nez au lieu de
+	--      chercher quelque chose ;
+	--   c. il bascule en EventSleep. Les Z apparaissent apres, pas avant.
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_049'], hero:GetDisplayName()))
+	GAME:WaitFrames(15)
+
+	--a. La phrase de trop, celle qui n'arrive pas au bout.
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_D01']))
+	GAME:WaitFrames(10)
+
+	--b. La tete dodeline. Frames longues (10) et deux rotations : le
+	--sprite oscille lentement au lieu de pivoter vivement.
+	pcall(function()
+		GeneralFunctions.LookAround(partner, 2, 10, false, false, true, Direction.Up)
+	end)
+	GAME:WaitFrames(14)
+
+	--c. Il tombe.
+	--PAS DE PARTICULE « Sleep_Z » ICI, ET C'EST VERIFIE : Content/Particle
+	--du mod ne contient que Ash_Fall, Emote_Eating, Leaf_Fall,
+	--Sakura_Fall, Slugma_Materialize(_Reverse) et Snow_Fall. BossFX.
+	--Particle echoue EN SILENCE sur un nom absent (c'est ecrit en tete de
+	--BossFX.lua) : on aurait cru l'effet joue alors que rien ne s'affiche.
+	--L'animation EventSleep porte deja le sommeil a elle seule — meme
+	--raisonnement que pour Kino a la veillee.
+	pcall(function() GROUND:CharAnimateTurnTo(partner, Direction.Up, 6) end)
+	GROUND:CharSetAnim(partner, "EventSleep", true)
+	GAME:WaitFrames(35)
+
+	-- LE HEROS NE DIT RIEN. C'est la regle explicite du beat 3.5 : il
+	-- repond par le CORPS. Il se tourne vers le dormeur, marque un temps
+	-- (le temps de comprendre), et hausse les epaules — la goutte de
+	-- sueur d'amusement, pas d'agacement.
+	pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 6) end)
+	GAME:WaitFrames(28)
+	pcall(function() GeneralFunctions.EmoteAndPause(hero, "Sweatdrop", true) end)
+	GAME:WaitFrames(12)
+
+	--...et SEULEMENT APRES, une pensee. Elle ne decrit pas l'image (le
+	--joueur vient de voir le partenaire s'ecrouler) : elle dit ce que le
+	--heros en PENSE, avec l'excuse qu'il lui trouve aussitot.
+	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_D02']), "Sigh")
+	GAME:WaitFrames(20)
+
+	-- 8ter. LES HISTOIRES QUI FONT PEUR — les jeunes sur leurs paillasses
 	--
 	-- Demande explicite du brief. Trois recits ORIGINAUX, ecrits pour New
 	-- Era : aucun n'est repris d'une creation existante. Ils s'appuient
@@ -1330,50 +1526,6 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GAME:WaitFrames(8)
 	GROUND:CharSetAnim(t.hyko, "Sleep", true)
 	GAME:WaitFrames(25)
-
-	-- 9. LA SCENE INTIME — le duo, seul face au sommet
-	--Le reste du camp dort. Le duo rejoint ses deux couches voisines et
-	--la camera se resserre sur eux : c'est le moment calme obligatoire
-	--du Prompt Maitre (6.5), APRES la veillee de groupe, AVANT le
-	--sommeil du heros.
-	local duoBeds = {}
-	duoBeds[#duoBeds+1] = TASK:BranchCoroutine(function()
-		pcall(function() GROUND:MoveToPosition(partner, seatX(bedOf[partner]), seatY(bedOf[partner]), false, 1) end)
-	end)
-	duoBeds[#duoBeds+1] = TASK:BranchCoroutine(function()
-		pcall(function() GROUND:MoveToPosition(hero, seatX(bedOf[hero]), seatY(bedOf[hero]), false, 1) end)
-	end)
-	duoBeds[#duoBeds+1] = TASK:BranchCoroutine(function()
-		-- LA CAMERA SUIT LE DUO, ELLE NE VISE PLUS UN POINT FIXE.
-		local cx, cy = 256, 268
-		pcall(function()
-			cx = (seatX(bedOf[hero]) + seatX(bedOf[partner])) // 2
-			cy = (seatY(bedOf[hero]) + seatY(bedOf[partner])) // 2
-		end)
-		GAME:MoveCamera(cx, cy, 45, false)
-	end)
-	TASK:JoinCoroutines(duoBeds)
-	GROUND:CharTurnToCharAnimated(partner, hero, 4)
-	GROUND:CharTurnToCharAnimated(hero, partner, 4)
-	GAME:WaitFrames(15)
-
-	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Worried")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_074']))
-	GAME:WaitFrames(15)
-	UI:SetSpeakerEmotion("Determined")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_075']))
-	GAME:WaitFrames(10)
-	GeneralFunctions.DoAnimation(hero, 'Nod')
-	GAME:WaitFrames(15)
-
-	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Happy")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_049'], hero:GetDisplayName()))
-	GAME:WaitFrames(15)
-	GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
-	GROUND:CharSetAnim(partner, "EventSleep", true)
-	GAME:WaitFrames(30)
 
 	--Le heros reste eveille un instant de plus. C'est maintenant que
 	--sa couche est deployee dans la fiction : il s'y allonge en
@@ -1713,14 +1865,17 @@ function mount_windswept_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 	--L'OUBLI IMMEDIAT — le coeur du dispositif de Rouge/Bleu. Trois
 	--pensees, entrecoupees de silences : il tente de rattraper l'image
 	--et n'y arrive pas.
-	UI:ResetSpeaker(false)
-	UI:SetCenter(true)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_155']))
+	--
+	--ATTRIBUEES AU HEROS, plus en boite centree anonyme. Les trois cles
+	--sont deja ecrites entre parentheses — ce sont des pensees, pas la
+	--voix d'un narrateur. La forme centree sans locuteur est reservee a
+	--la narration d'acte (celle qui accompagne un fondu) ; l'employer
+	--ici brouillait les deux registres.
+	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_155']), "Pain")
 	GAME:WaitFrames(30)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_156']))
+	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_156']), "Worried")
 	GAME:WaitFrames(25)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_157']))
-	UI:SetCenter(false)
+	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_157']), "Sad")
 	UI:ResetSpeaker()
 	GAME:WaitFrames(35)
 
@@ -1794,10 +1949,9 @@ function mount_windswept_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 
 		--Le heros ne repond pas a voix haute : il pense. C'est un
 		--cauchemar qu'on ne raconte pas, et Phileas ne le force pas.
-		UI:ResetSpeaker(false)
-		UI:SetCenter(true)
-		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_196']))
-		UI:SetCenter(false)
+		--Pensee ATTRIBUEE (HeroDialogue) : la boite centree anonyme est
+		--reservee a la narration d'acte sur fondu.
+		GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_196']), "Worried")
 		UI:ResetSpeaker()
 		GAME:WaitFrames(30)
 
@@ -2006,17 +2160,15 @@ function mount_windswept_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 	GAME:WaitFrames(10)
 
 	--CE QU'IL RESTE DU REVE. Le heros tente de rattraper l'image et n'y
-	--arrive pas : deux pensees, en voix off centree (il ne parle a
-	--personne). C'est la reprise du dispositif de Rouge/Bleu — le reve
+	--arrive pas. C'est la reprise du dispositif de Rouge/Bleu — le reve
 	--s'efface a la seconde ou on se reveille, et seul le SENTIMENT reste.
-	--Ces deux repliques portaient deja ce role dans la version
-	--precedente ; elles reviennent ici, a leur vraie place.
-	UI:ResetSpeaker(false)
-	UI:SetCenter(true)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_085']))
+	--
+	--Comme les trois pensees du reveil nocturne, elles passent par
+	--HeroDialogue : ce sont des pensees du heros, elles portent donc son
+	--portrait. Seule la narration d'acte (sur fondu) reste centree.
+	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_085']), "Worried")
 	GAME:WaitFrames(20)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_086']))
-	UI:SetCenter(false)
+	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_086']), "Sad")
 	UI:ResetSpeaker()
 	GAME:WaitFrames(25)
 
@@ -2475,6 +2627,13 @@ function mount_windswept_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 		end)
 	end
 	TASK:JoinCoroutines(cheer)
+	--CETTE BOITE CENTREE RESTE, ET CE N'EST PAS UNE NARRATION.
+	--Le plan interdit les boites omniscientes en milieu d'acte ; celle-ci
+	--n'en est pas une : « Ouais !!! » est le CRI DE LA GUILDE, pousse
+	--par les six personnages qui viennent de bondir juste au-dessus
+	--(coroutines `cheer`). Aucun locuteur unique ne peut le porter — le
+	--format centre sans portrait est precisement la forme juste pour une
+	--replique chorale. On la garde donc telle quelle.
 	UI:ResetSpeaker(false)
 	UI:SetCenter(true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_070']))
@@ -2955,6 +3114,77 @@ function mount_windswept_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 	GeneralFunctions.DoAnimation(hero, 'Nod')
 	GAME:WaitFrames(30)
 
+	-- 17. LA DISPERSION — beat 4.7 du plan
+	--
+	-- « Une fois l'explication de Penticus terminee, le reste du groupe
+	--   se disperse — chacun part de son cote (occupations, preparatifs).
+	--   Deplacements reels de chacun. Coherent avec la logique de
+	--   campement vivant deja etablie a l'Acte 1 ; le heros reste seul
+	--   visible a l'ecran une fois la dispersion terminee. »
+	--
+	-- Avant, la scene rendait la main avec les quatre PNJ plantes la ou
+	-- la scene finale les avait laisses, en plein milieu du sentier :
+	-- Penticus en (248,200) barrait l'axe par lequel le joueur doit
+	-- monter, et personne ne bougeait plus jamais. Le camp passait de
+	-- « cinematique » a « decor fige » sans transition.
+	--
+	-- Chacun rejoint donc, par un deplacement VISIBLE, le poste exact que
+	-- SetupGround lui donnera ensuite. Les quatre positions d'arrivee
+	-- sont les memes que celles de SetupGround, au pixel pres : quand le
+	-- joueur reviendra sur cette carte, il les retrouvera ou il les a vus
+	-- s'installer. Aucune teleportation, aucune divergence possible.
+	-- Trajets reechantillonnes sur la grille d'obstacles, ecarts finaux
+	-- de 58 a 104 px.
+	local disperse = {}
+	disperse[#disperse+1] = TASK:BranchCoroutine(function()
+		pcall(function()
+			--Penticus redescend vers le sud du foyer : il reprend son
+			--poste de guet face au sentier d'arrivee.
+			GeneralFunctions.EightWayMove(t.penticus, 240, 232, false, 1)
+			GeneralFunctions.EightWayMove(t.penticus, 252, 268, false, 1)
+			GROUND:CharAnimateTurnTo(t.penticus, Direction.Up, 4)
+		end)
+	end)
+	disperse[#disperse+1] = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(16)
+		pcall(function()
+			--Phileas remonte a son perchoir nord-ouest. Il a veille toute
+			--la nuit : il ne fait pas trois pas de plus que necessaire.
+			GeneralFunctions.EightWayMove(t.phileas, 212, 180, false, 1)
+			GROUND:CharAnimateTurnTo(t.phileas, Direction.Down, 4)
+		end)
+	end)
+	disperse[#disperse+1] = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(28)
+		pcall(function()
+			--Hyko reprend sa faction a l'est du feu, tourne vers les
+			--flammes : en poste, mais au chaud.
+			GeneralFunctions.EightWayMove(t.hyko, 300, 236, false, 1)
+			GROUND:CharAnimateTurnTo(t.hyko, Direction.Left, 4)
+		end)
+	end)
+	if t.plum ~= nil then
+		disperse[#disperse+1] = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(40)
+			pcall(function()
+				--Plum rejoint les marmites : c'est le poste que Penticus
+				--lui a donne au matin et que Coco lui a transmis. Elle
+				--contourne le foyer par le nord.
+				GeneralFunctions.EightWayMove(t.plum, 310, 190, false, 1)
+				GeneralFunctions.EightWayMove(t.plum, 278, 174, false, 1)
+				GROUND:CharAnimateTurnTo(t.plum, Direction.Down, 4)
+			end)
+		end)
+	end
+	--La camera revient sur le camp pendant qu'ils s'installent : le
+	--mouvement est justifie, il suit la dispersion reelle du groupe.
+	disperse[#disperse+1] = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		pcall(function() GAME:MoveCamera(256, 220, 80, false) end)
+	end)
+	pcall(function() TASK:JoinCoroutines(disperse) end)
+	GAME:WaitFrames(25)
+
 	-- CLOTURE DE L'INTRO — deplacee ici depuis ArrivalCutscene.
 	-- CampNightfall se termine par un changement de carte (le reve) :
 	-- tout ce qui suivait dans ArrivalCutscene ne s'executait donc plus.
@@ -2963,6 +3193,22 @@ function mount_windswept_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 	-- SetParty retire Hyko et Almotz (restes du Tunnel) et cree Ganlon
 	-- et Shuca en Teammate2/3 : c'est la cordee du sommet annoncee par
 	-- Penticus, et donc l'equipe reelle du donjon.
+	--
+	-- POURQUOI SHUCA ET GALON NE SONT PAS « PRE-PLACES A L'ENTREE ».
+	-- Le beat 4.9 du plan les decrit postes devant la porte du donjon,
+	-- en attente. C'est impossible ICI, et pour une raison technique
+	-- verifiee, pas par facilite : SetParty les fait entrer dans
+	-- L'EQUIPE DU JOUEUR (Teammate2/3, GAME:AddPlayerTeam). Une fois le
+	-- controle rendu, le moteur les fait SUIVRE le heros — ils ne
+	-- peuvent pas rester plantes ailleurs sur la carte. Les y teleporter
+	-- produirait deux sprites qui glissent vers le joueur des la
+	-- premiere frame de gameplay.
+	-- L'intention du beat est donc rendue autrement, sans la trahir :
+	-- ils accompagnent le heros (ce que la scene precedente a etabli —
+	-- « ils nous attendent »), et c'est a l'ENTREE DU DONJON que
+	-- l'echange « Alors, vous etes prets ? » se declenche, joue par
+	-- Dungeon_Entrance_Touch (init.lua). Le joueur garde la main
+	-- jusque-la, exactement comme le plan le demande en 4.8.
 	mount_windswept_entrance_ch_5.SetParty()
 	hero = CH('PLAYER')
 	partner = CH('Teammate1')
@@ -3805,13 +4051,33 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	GROUND:TeleportTo(hero, 256, 456, Direction.Up)
 	GROUND:TeleportTo(partner, 256, 472, Direction.Up)
 	
-	-- LE CAMP EXISTE AVANT NOUS.
+	-- 1.0. LA DISPOSITION D'OUVERTURE — le camp existe avant nous
+	--
+	-- PLAN, ACTE 1, DISPOSITION D'OUVERTURE : « tous les membres de la
+	-- Guilde sont deja presents et disperses sur le campement, chacun
+	-- occupe. Kino et son partenaire, a l'ecart, discutent entre eux. »
+	-- « personne n'arrive de l'exterieur apres le heros. »
+	--
+	-- C'ETAIT LE DEFAUT STRUCTUREL DE L'ACTE 1. Kino (Breloom) et Reinier
+	-- (Girafarig) etaient crees ici puis CACHES, et ils remontaient le
+	-- sentier APRES le duo (ancienne section 1, « KINO ET REINIER
+	-- REJOIGNENT LE CAMP »). Le declencheur du rassemblement etait donc
+	-- une arrivee exterieure de plus, et non l'arrivee du heros.
+	--
+	-- Ils sont desormais sur la carte des la premiere frame, a l'ECART du
+	-- reste du camp, en pleine discussion a eux. Places mesurees sur la
+	-- grille d'obstacles : Kino (356,318) et Reinier (376,290), 34 px
+	-- l'un de l'autre — assez proches pour lire « ils se parlent »,
+	-- assez loin pour ne pas se recouvrir. 85 px du membre du camp le
+	-- plus proche (Ganlon), donc nettement « a l'ecart » ; sol libre
+	-- verifie, hors foyer, hors bloqueur, hors rocher de Kangaskhan.
+	-- Ils se font face : Kino regarde au nord-est, Reinier au sud-ouest.
 	local audino, snubbull, girafarig, breloom, growlithe, zigzagoon, tropius, noctowl, mareep, cranidos = 
 	CharacterEssentials.MakeCharactersFromList({
 		{'Audino',    222, 266, Direction.UpRight},
 		{'Snubbull',  300, 214, Direction.Left},
-		{'Girafarig', 292, 276, Direction.Up},
-		{'Breloom',   240, 276, Direction.Up},
+		{'Girafarig', 376, 290, Direction.DownLeft},
+		{'Breloom',   356, 318, Direction.UpRight},
 		{'Growlithe', 240, 488, Direction.Up},
 		{'Zigzagoon', 272, 488, Direction.Up},
 		{'Tropius',   230, 190, Direction.DownRight},
@@ -3819,10 +4085,6 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 		{'Mareep',    246, 176, Direction.Down},
 		{'Cranidos',  310, 236, Direction.Left}
 	})
-
-	--KINO ET REINIER NE SONT PAS ENCORE LA.
-	GROUND:Hide(breloom.EntName)
-	GROUND:Hide(girafarig.EntName)
 	
 	--LE CAMP DE JOUR. Aucune paillasse a l'arrivee (Prompt Maitre 6.3) :
 	--les couchages ne sont deployes qu'a la fin de la veillee, sous le
@@ -3844,7 +4106,8 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	GAME:WaitFrames(20)
 	GAME:FadeIn(40)
 	
-	-- LE CAMP VIT PENDANT QU'ON MONTE.
+	-- 1.1. LE CAMP VIT PENDANT QU'ON MONTE
+	-- (beat 1.1 du plan : le joueur decouvre la disposition d'ensemble)
 	-- Pendant toute la remontee du sentier, le camp continue ses
 	-- occupations SANS savoir qu'on arrive : Coco s'affaire au feu, Rin
 	-- range, Ganlon fait les cent pas, Penticus surveille la montagne.
@@ -3855,6 +4118,46 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	-- la veillee). Tout est sous pcall : la vie de fond ne doit JAMAIS
 	-- pouvoir interrompre l'arrivee du joueur.
 	local campBusy = true
+	-- KINO ET REINIER ONT LEUR PROPRE DISCUSSION, A L'ECART.
+	-- Plan, acte 1 : « Kino et son partenaire sont deja la, engages dans
+	-- leur propre discussion, chacun de son cote ». Ils ne regardent pas
+	-- le sentier, ils ne guettent personne : ils sont a leur affaire, et
+	-- c'est ce qui rend l'arrivee du heros interruptrice.
+	-- La boucle tourne en tache de fond pendant toute la montee et
+	-- s'arrete au meme verrou que le reste de la vie du camp.
+	local dubBusy = TASK:BranchCoroutine(function()
+		while campBusy do
+			pcall(function()
+				--Reinier expose, Kino ecoute en hochant : c'est leur
+				--dynamique etablie (le meticuleux et l'enthousiaste).
+				GROUND:CharSetEmote(girafarig, "notice", 0)
+			end)
+			GAME:WaitFrames(45)
+			if not campBusy then break end
+			pcall(function()
+				GROUND:CharSetEmote(girafarig, "", 0)
+				GeneralFunctions.DoAnimation(breloom, 'Nod')
+			end)
+			GAME:WaitFrames(55)
+			if not campBusy then break end
+			pcall(function()
+				GROUND:CharSetAnim(breloom, "Idle", true)
+				GROUND:CharSetEmote(breloom, "happy", 0)
+			end)
+			GAME:WaitFrames(40)
+			if not campBusy then break end
+			pcall(function()
+				GROUND:CharEndAnim(breloom)
+				GROUND:CharSetEmote(breloom, "", 0)
+			end)
+			GAME:WaitFrames(50)
+		end
+		pcall(function()
+			GROUND:CharEndAnim(breloom)
+			GROUND:CharSetEmote(breloom, "", 0)
+			GROUND:CharSetEmote(girafarig, "", 0)
+		end)
+	end)
 	local campLife = TASK:BranchCoroutine(function()
 		while campBusy do
 			pcall(function()
@@ -3939,7 +4242,7 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	--continuer pour qu'aucune animation cyclique ne se superpose a
 	--l'accueil (sinon Coco continuerait de s'agiter en pleine scene).
 	campBusy = false
-	pcall(function() TASK:JoinCoroutines({campLife}) end)
+	pcall(function() TASK:JoinCoroutines({campLife, dubBusy}) end)
 	GAME:WaitFrames(20)
 
 	--LA PREMIERE VUE DU SOMMET. Le partenaire leve la tete AVANT de
@@ -4019,9 +4322,41 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 		GAME:WaitFrames(36)
 		GROUND:CharTurnToCharAnimated(cranidos, hero, 4)
 	end)
-	TASK:JoinCoroutines({camp1, camp2, camp3, camp4, camp5, camp6})
+	-- 1.3. KINO REMARQUE, REINIER SUIT EN DIFFERE
+	-- BEAT 1.3 DU PLAN.
+	-- « Kino tourne la tete vers le heros ; son partenaire suit avec un
+	--   leger differe. Reaction non simultanee, pas en miroir parfait. »
+	-- Ils sont a l'ecart au sud-est et se parlaient : ils sont donc les
+	-- DERNIERS a s'apercevoir de quoi que ce soit, apres tout le camp.
+	-- Kino s'interrompt le premier (il regarde par-dessus l'epaule de
+	-- Reinier, qui lui tourne le dos au sentier), et Reinier ne comprend
+	-- qu'ensuite pourquoi son interlocuteur ne l'ecoute plus — d'ou son
+	-- point d'interrogation avant qu'il ne se retourne.
+	local camp7 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(44)
+		pcall(function()
+			GROUND:CharEndAnim(breloom)
+			GROUND:CharSetEmote(breloom, "", 0)
+			GROUND:CharTurnToCharAnimated(breloom, hero, 4)
+			GROUND:CharSetEmote(breloom, "exclaim", 1)
+		end)
+	end)
+	local camp8 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(64)
+		pcall(function()
+			GROUND:CharSetEmote(girafarig, "", 0)
+			--Il regarde d'abord Kino (« pourquoi tu ne m'ecoutes plus ? »),
+			--PUIS il suit son regard. Deux temps, pas une rotation seche.
+			GROUND:CharTurnToCharAnimated(girafarig, breloom, 4)
+			GROUND:CharSetEmote(girafarig, "question", 1)
+			GAME:WaitFrames(18)
+			GROUND:CharTurnToCharAnimated(girafarig, hero, 4)
+		end)
+	end)
+	TASK:JoinCoroutines({camp1, camp2, camp3, camp4, camp5, camp6, camp7, camp8})
 
-	-- SIX ACCUEILS, SIX CARACTERES.
+	-- 1.5. SIX ACCUEILS, SIX CARACTERES
+	-- (beat 1.5 du plan : chaque membre a un commentaire propre)
 	-- RETOUR DE L'UTILISATEUR : « faut des reactions diverses selon
 	-- leurs personnalites ». Le camp levait bien la tete, mais tout le
 	-- monde faisait EXACTEMENT le meme geste — se tourner — avant
@@ -4069,13 +4404,29 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings[key]))
 	end
 
+	-- HYKO ET ALMOTZ NE SONT PAS DES SPECTATEURS MUETS.
+	-- Signale par tools/audit_causalite.py : ils etaient manipules a
+	-- l'arrivee (montee du sentier), puis PLUS DU TOUT pendant les six
+	-- accueils, puis de nouveau au tour de table — trois beats entiers
+	-- pendant lesquels les deux equipiers du joueur restaient plantes a
+	-- regarder droit devant eux pendant que six PNJ parlaient.
+	-- C'est exactement le « figement directionnel » que la directive
+	-- interdit : ils sont dans le cadre, ils entendent tout, ils doivent
+	-- suivre la conversation.
+	-- On les ajoute donc a la liste des auditeurs de CHAQUE accueil :
+	-- ListenA les fait pivoter vers le locuteur, en decale de 4 frames,
+	-- exactement comme le duo. Aucune replique ajoutee (ils viennent de
+	-- traverser un donjon, ils sont laconiques), juste des tetes qui
+	-- suivent celui qui parle.
+	local ecoutants = {hero, partner, growlithe, zigzagoon}
+
 	local function greet(who, emotion, key, gesture)
 		local g = TASK:BranchCoroutine(function()
 			GAME:WaitFrames(8)
 			pcall(gesture)
 		end)
 		local s = TASK:BranchCoroutine(function()
-			SaysA(who, emotion, key, {hero, partner})
+			SaysA(who, emotion, key, ecoutants)
 		end)
 		TASK:JoinCoroutines({g, s})
 		GAME:WaitFrames(12)
@@ -4123,6 +4474,62 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 		GROUND:CharSetEmote(cranidos, "sweatdrop", 1)
 	end)
 
+	-- 1.6. LA CONVERGENCE DE KINO ET REINIER
+	-- BEATS 1.4 ET 1.5 DU PLAN.
+	-- « Chaque membre interrompt son activite et se dirige vers le point
+	--   de rassemblement — deplacement reel, pas de teleportation. »
+	-- « Chacun garde sa vitesse/maniere de se deplacer propre a sa
+	--   personnalite. »
+	-- « Chaque membre qui rejoint le groupe doit avoir au moins un
+	--   commentaire ou une reaction propre. »
+	--
+	-- Ce sont les deux seuls a devoir REELLEMENT traverser : les six
+	-- autres etaient deja autour du foyer et se sont contentes de lever
+	-- la tete (c'est la difference entre « converger » et « se
+	-- reorienter », et le plan distingue bien les deux).
+	--
+	-- Trajets verifies marchables sur la grille d'obstacles.
+	-- Kino part le premier et arrive en (326,326) : c'est lui qui a
+	-- remarque le duo en premier, il ne se fait pas prier.
+	-- Reinier arrive en (328,288), 38 px au nord de Kino : il boucle sa
+	-- phrase avant de bouger, d'ou son depart differe de 20 frames.
+	-- Aucun des deux ne passe a moins de 40 px d'un camarade.
+	local kinoWalk = TASK:BranchCoroutine(function()
+		pcall(function()
+			GeneralFunctions.EightWayMove(breloom, 326, 326, false, 1)
+			GROUND:CharTurnToCharAnimated(breloom, hero, 4)
+		end)
+	end)
+	local reinWalk = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(20)
+		pcall(function()
+			GeneralFunctions.EightWayMove(girafarig, 328, 288, false, 1)
+			GROUND:CharTurnToCharAnimated(girafarig, hero, 4)
+		end)
+	end)
+	--Le duo les suit du regard pendant qu'ils traversent : ils arrivent
+	--de derriere, personne ne doit rester tourne vers l'ancien foyer.
+	local kinoWatch = TASK:BranchCoroutine(function()
+		pcall(function() GeneralFunctions.FaceMovingCharacter(hero, breloom, 4) end)
+	end)
+	local reinWatch = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(20)
+		pcall(function() GeneralFunctions.FaceMovingCharacter(partner, girafarig, 4) end)
+	end)
+	TASK:JoinCoroutines({kinoWalk, reinWalk, kinoWatch, reinWatch})
+	GAME:WaitFrames(10)
+
+	--Kino : l'enthousiaste. Il ne demande pas comment ca s'est passe, il
+	--demande ce qu'il y avait dedans — c'est le specialiste des donjons.
+	greet(breloom, "Joyous", 'MWE5_179', function()
+		GeneralFunctions.Hop(breloom, "Idle", 8, 18, 0, false)
+	end)
+
+	--Reinier : le meticuleux. Il constate, il note, il ne s'emballe pas.
+	greet(girafarig, "Normal", 'MWE5_180', function()
+		GROUND:CharSetEmote(girafarig, "notice", 1)
+	end)
+
 	--Phileas conclut par l'explication meteo : elle amene MWE5_006.
 	greet(noctowl, "Normal", 'MWE5_178', function()
 		GROUND:CharAnimateTurnTo(noctowl, Direction.Up, 4)
@@ -4130,6 +4537,7 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 		GROUND:CharTurnToCharAnimated(noctowl, hero, 4)
 	end)
 
+	-- 1.7. LE TOUR DE TABLE — comment chacun est arrive
 	-- L'ACCUEIL AU CAMP — quinze repliques, et personne ne bougeait.
 	-- C'ETAIT LE PIRE PASSAGE DE LA CARTE. Mesure avant correction :
 	-- ArrivalCutscene comptait 18 repliques dont 17 SANS la moindre

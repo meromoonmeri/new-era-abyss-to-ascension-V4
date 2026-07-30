@@ -119,15 +119,6 @@
   <data name="MWE5_020" xml:space="preserve">
     <value>Demain, nous atteindrons le sommet.</value>
   </data>
-  <data name="MWE5_021" xml:space="preserve">
-    <value>Hé ![pause=0] Vous voilà enfin ![pause=10] Le dîner a bien failli commencer sans vous quatre !</value>
-  </data>
-  <data name="MWE5_022" xml:space="preserve">
-    <value>Hrm.[pause=10] Crum pariait que vous vous étiez perdus.[pause=0] Je lui ai dit qu'un garde de la guilde ne se perd jamais deux fois.</value>
-  </data>
-  <data name="MWE5_023" xml:space="preserve">
-    <value>Le camp se rassemble autour du feu.[pause=20] Pour une fois, le vent de la montagne semble presque doux.</value>
-  </data>
   <data name="MWE5_024" xml:space="preserve">
     <value>La soupe est prête ![pause=0] Mangez tant que c'est chaud ![pause=10] Ici, ça refroidit en deux minutes à peine !</value>
   </data>
@@ -213,7 +204,7 @@
     <value>Le feu baisse.[pause=20] Un à un, le camp s'endort...[pause=20] et au-dessus, patiente, la montagne attend.</value>
   </data>
   <data name="MWE5_052" xml:space="preserve">
-    <value>Le lendemain matin...</value>
+    <value>Après une soirée inoubliable tous ensemble...[pause=30] le lendemain matin.</value>
   </data>
   <data name="MWE5_053" xml:space="preserve">
     <value>Debout tout le monde ![pause=0] C'est le jour du sommet !</value>
@@ -273,7 +264,7 @@
     <value>Scrontch-scrontch ! Miam-miam ! Chomp-chomp !\nScrontch-scrontch ! Miam-miam ! Chomp-chomp !</value>
   </data>
   <data name="MWE5_072" xml:space="preserve">
-    <value>Les sacs s'ouvrent.[pause=20] Douze paillasses se déroulent autour du feu,[pause=10] une pour chaque membre de l'expédition.</value>
+    <value>Les sacs s'ouvrent.[pause=20] Une paillasse se déroule pour chacun,[pause=10] autour du feu qui baisse.</value>
   </data>
   <data name="MWE5_073" xml:space="preserve">
     <value>La nuit tombe pour de bon sur la montagne.</value>
@@ -610,5 +601,41 @@
   </data>
   <data name="MWE5_P15" xml:space="preserve">
     <value>...C'était une seule fois.[pause=20][br]Montez prudemment.[pause=15] Ce soir,[pause=10] il y aura de la lumière et quelque chose de chaud.[pause=20] Je m'en occupe.</value>
+  </data>
+  <data name="MWE5_179" xml:space="preserve">
+    <value>Vous êtes passés par le Creuset ?![pause=20] Attendez,[pause=10] attendez — il ressemblait à quoi, le dernier étage ?[pause=0] Non, ne dites rien, laissez-moi deviner.</value>
+  </data>
+  <data name="MWE5_180" xml:space="preserve">
+    <value>Il devinera faux.[pause=20] Il devine toujours faux.[pause=15][br]Contents de vous voir entiers,[pause=10] tous les deux.</value>
+  </data>
+  <data name="MWE5_G01" xml:space="preserve">
+    <value>Bon ![pause=0] C'est pas tout ça,[pause=10] mais ça fait neuf heures que je garde ce ragoût au chaud.[pause=20][br]TOUT LE MONDE À TABLE !</value>
+  </data>
+  <data name="MWE5_G02" xml:space="preserve">
+    <value>...Quoi ?[pause=25] Pourquoi vous me regardez tous ?[pause=20][br]J'ai rien dit, moi.[pause=15] J'ai même pas bougé.</value>
+  </data>
+  <data name="MWE5_G03" xml:space="preserve">
+    <value>Personne n'a dit ton nom, {0}.[pause=25] Personne.</value>
+  </data>
+  <data name="MWE5_G04" xml:space="preserve">
+    <value>(...Même moi j'ai capté l'allusion.)</value>
+  </data>
+  <data name="MWE5_D01" xml:space="preserve">
+    <value>Et puis demain,[pause=10] quand on sera là-haut,[pause=15] on pourra enfin voir si la carte de Kino disait vrai pour la corniche...[pause=25][speed=0.4]la corniche...[pause=20] est...[speed=1]</value>
+  </data>
+  <data name="MWE5_D02" xml:space="preserve">
+    <value>(...Il s'est endormi en pleine phrase.[pause=25] Faut dire qu'il a porté la moitié du matériel depuis le Tunnel.[pause=20] Je le laisse.)</value>
+  </data>
+  <data name="MWE5_E01" xml:space="preserve">
+    <value>Alors ?[pause=0] Vous êtes prêts ?[pause=20][br]Parce que moi ça fait deux jours que je suis prête,[pause=10] et j'ai fini par le dire à voix haute.[pause=0] Plusieurs fois.</value>
+  </data>
+  <data name="MWE5_E02" xml:space="preserve">
+    <value>Onze fois.[pause=25] J'ai compté.</value>
+  </data>
+  <data name="MWE5_E03" xml:space="preserve">
+    <value>...Bon.[pause=20] Le sommet nous attend, et il ne va pas se gravir tout seul.[pause=15][br]On y va.</value>
+  </data>
+  <data name="MWE5_E04" xml:space="preserve">
+    <value>Une dernière ascension.[pause=25] Ensemble.</value>
   </data>
 </root>

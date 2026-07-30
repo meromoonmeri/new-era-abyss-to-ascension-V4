@@ -123,7 +123,9 @@ RE_FUNC = re.compile(r'^\s*function\s+([\w.]+)\s*\(([^)]*)\)')
 # les listes numerotees a l'interieur d'un commentaire d'entete sont
 # indentees de trois espaces (« \t--   1. le duo remarque... »), ce qui
 # les exclut. Verifie sur les 40 occurrences du fichier de reference.
-RE_BEAT = re.compile(r'^\t?--+ (\d+(?:bis|ter)?)\. ?(\S.*)$')
+# Accepte aussi la numerotation a deux niveaux « 1.3. » utilisee par
+# les scenes decoupees d'apres le plan (acte.beat).
+RE_BEAT = re.compile(r'^\t?--+ (\d+(?:\.\d+)?(?:bis|ter)?)\. ?(\S.*)$')
 RE_TITRE_SECTION = re.compile(r'[A-ZÉÈÀÊÎÔÛ]{3,}')
 
 # Noms a ignorer : ce ne sont pas des personnages.
@@ -157,13 +159,29 @@ def noms(txt):
     # depot : « local listeners = {partner, hero, t.rin, ...} » puis
     # « Listen(t.penticus, listeners) ». Sans ce cas, tous les auditeurs
     # d'une adresse collective passaient pour absents du beat.
-    for m in re.finditer(
-            r'local\s+\w+\s*=\s*\{([^{}]*)\}\s*\n[^\n]*'
-            r'\b(?:Listen|ListenA)\s*\(', txt):
-        for n in m.group(1).split(','):
+    # ...ou passees par une VARIABLE, y compris declaree loin de l'appel.
+    # Patrons reels du depot :
+    #   local listeners = {partner, hero, ...}   puis  Listen(x, listeners)
+    #   local ecoutants = {hero, partner, ...}   puis  SaysA(x, e, k, ecoutants)
+    # On resout donc les tables locales du beat, et on developpe toute
+    # variable citee en argument d'auditeurs. Sans cela, un groupe qui
+    # ecoute via une variable passait pour absent du beat — faux positif
+    # constate sur les six accueils d'ArrivalCutscene.
+    tables = {}
+    for m in re.finditer(r'local\s+(\w+)\s*=\s*\{([^{}]*)\}', txt):
+        noms_tbl = set()
+        for n in m.group(2).split(','):
             n = n.strip()
-            if re.fullmatch(r'[A-Za-z_][\w.]*', n or ''):
-                out.add(n)
+            if re.fullmatch(r'[A-Za-z_][\w.]*', n or '') and n not in IGNORE:
+                noms_tbl.add(n)
+        if noms_tbl:
+            tables[m.group(1)] = noms_tbl
+    for m in re.finditer(
+            r'\b(?:Listen|ListenA)\s*\([^,()]+,\s*(\w+)\s*[,)]|'
+            r'\b(?:Says|SaysA)\s*\((?:[^,()]+,){3}\s*(\w+)\s*[,)]', txt):
+        var = m.group(1) or m.group(2)
+        if var in tables:
+            out |= tables[var]
     return {n for n in out
             if n not in IGNORE
             and not n.startswith(('coro', 'RogueEssence', 'RogueElements',

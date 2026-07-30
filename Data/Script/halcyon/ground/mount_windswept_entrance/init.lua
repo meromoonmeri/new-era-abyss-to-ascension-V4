@@ -22,7 +22,7 @@ local mount_windswept_entrance = {}
 --Engine callback function
 function mount_windswept_entrance.Init(map)
   DEBUG.EnableDbgCoro()
-  print('=>> Init_mount_windswept_entrance <<= [build 2026-08-03-G]')
+  print('=>> Init_mount_windswept_entrance <<= [build 2026-08-03-H]')
 
   --LE NOIR ET LE GEL, AVANT TOUT LE RESTE.
   --
@@ -269,6 +269,72 @@ function mount_windswept_entrance.Dungeon_Entrance_Touch(obj, activator)
   UI:ResetSpeaker()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
+
+  -- BEAT 4.10 DU PLAN — L'ECHANGE AVANT D'ENTRER.
+  -- « Shuca et/ou Galon lancent l'echange : "Alors, vous etes prets ?"
+  --   ... "Bon, on y va !" Court retour en mode scene pour ce dialogue
+  --   ponctuel, puis rendu de la main au joueur juste apres. Le ton est
+  --   motive, tourne vers l'action a venir, pas une redite du
+  --   rassemblement. »
+  --
+  -- Il se joue UNE SEULE FOIS, au premier passage apres l'intro : le
+  -- drapeau MountDoorTalkDone l'empeche de se rejouer a chaque
+  -- aller-retour du joueur devant la porte, ce qui le transformerait en
+  -- verbiage. Condition d'intro terminee : sans elle, l'echange se
+  -- declencherait aussi pendant les retours de donjon.
+  --
+  -- Ganlon et Shuca sont dans l'equipe (Teammate2/3, cf. SetParty) :
+  -- ils sont donc physiquement derriere le heros a cet instant, et
+  -- CharTurnToCharAnimated suffit — aucun deplacement a scripter.
+  if SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5.FinishedMountWindsweptIntro
+     and not SV.Chapter5.MountDoorTalkDone then
+    local ganlon = CH('Teammate2')
+    local shuca  = CH('Teammate3')
+    if ganlon ~= nil or shuca ~= nil then
+      SV.Chapter5.MountDoorTalkDone = true
+      GAME:CutsceneMode(true)
+      GAME:WaitFrames(15)
+      --Shuca prend la parole la premiere : c'est elle qui a hate.
+      if shuca ~= nil then
+        pcall(function()
+          GROUND:CharTurnToCharAnimated(shuca, hero, 4)
+          GROUND:CharTurnToCharAnimated(hero, shuca, 4)
+          GeneralFunctions.EmoteAndPause(shuca, "Glowing", true)
+        end)
+        UI:SetSpeaker(shuca)
+        UI:SetSpeakerEmotion("Joyous")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_E01']))
+        GAME:WaitFrames(12)
+      end
+      --Ganlon rale, comme toujours — et suit, comme toujours.
+      if ganlon ~= nil then
+        pcall(function()
+          GROUND:CharTurnToCharAnimated(ganlon, hero, 4)
+          GROUND:CharTurnToCharAnimated(hero, ganlon, 4)
+        end)
+        UI:SetSpeaker(ganlon)
+        UI:SetSpeakerEmotion("Sigh")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_E02']))
+        GAME:WaitFrames(10)
+        pcall(function() GROUND:CharSetEmote(ganlon, "determined", 1) end)
+        UI:SetSpeakerEmotion("Determined")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_E03']))
+        GAME:WaitFrames(12)
+      end
+      --Le partenaire clot, tourne vers la porte : on regarde ou on va.
+      pcall(function()
+        GROUND:CharTurnToCharAnimated(partner, hero, 4)
+      end)
+      UI:SetSpeaker(partner)
+      UI:SetSpeakerEmotion("Determined")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_E04']))
+      GAME:WaitFrames(15)
+      UI:ResetSpeaker()
+      GAME:CutsceneMode(false)
+    end
+  end
+
   partner.IsInteracting = true
   GROUND:CharSetAnim(partner, 'None', true)
   GROUND:CharSetAnim(hero, 'None', true)

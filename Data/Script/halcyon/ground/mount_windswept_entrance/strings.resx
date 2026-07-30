@@ -119,15 +119,6 @@
   <data name="MWE5_020" xml:space="preserve">
     <value>Tomorrow, we reach the summit.</value>
   </data>
-  <data name="MWE5_021" xml:space="preserve">
-    <value>Heh![pause=0] There you are at last![pause=10] Dinner nearly went ahead without you four!</value>
-  </data>
-  <data name="MWE5_022" xml:space="preserve">
-    <value>Hrm.[pause=10] Crum was betting you'd gotten lost.[pause=0] I told him a guild guard never loses his way twice.</value>
-  </data>
-  <data name="MWE5_023" xml:space="preserve">
-    <value>The camp gathers around the fire.[pause=20] For once, the mountain wind almost sounds gentle.</value>
-  </data>
   <data name="MWE5_024" xml:space="preserve">
     <value>Soup's ready![pause=0] Eat it while it's hot![pause=10] Up here, it goes cold in two minutes flat!</value>
   </data>
@@ -213,7 +204,7 @@
     <value>The fire burns low.[pause=20] One by one, the camp drifts off...[pause=20] and above, patient, the mountain waits.</value>
   </data>
   <data name="MWE5_052" xml:space="preserve">
-    <value>The next morning...</value>
+    <value>After an unforgettable evening all together...[pause=30] the next morning.</value>
   </data>
   <data name="MWE5_053" xml:space="preserve">
     <value>Rise and shine, everyone![pause=0] It's summit day!</value>
@@ -273,7 +264,7 @@
     <value>Crunch-munch! Om-nom-nom! Chomp-chomp!\nCrunch-munch! Om-nom-nom! Chomp-chomp!</value>
   </data>
   <data name="MWE5_072" xml:space="preserve">
-    <value>The packs open.[pause=20] Twelve bedrolls are laid out around the fire,[pause=10] one for every member of the expedition.</value>
+    <value>The packs open.[pause=20] A bedroll unrolls for each of them,[pause=10] around the dwindling fire.</value>
   </data>
   <data name="MWE5_073" xml:space="preserve">
     <value>Night falls for good upon the mountain.</value>
@@ -610,5 +601,41 @@
   </data>
   <data name="MWE5_P15" xml:space="preserve">
     <value>...That happened once.[pause=20][br]Climb safe.[pause=15] Tonight,[pause=10] there'll be a light on and something hot.[pause=20] I'll see to it.</value>
+  </data>
+  <data name="MWE5_179" xml:space="preserve">
+    <value>You came through the Crucible?![pause=20] Wait,[pause=10] wait — what did the last floor look like?[pause=0] No, don't tell me, let me guess.</value>
+  </data>
+  <data name="MWE5_180" xml:space="preserve">
+    <value>He'll guess wrong.[pause=20] He always guesses wrong.[pause=15][br]Good to see you both in one piece.</value>
+  </data>
+  <data name="MWE5_G01" xml:space="preserve">
+    <value>Right![pause=0] Enough of that,[pause=10] I've been keeping this stew warm for nine hours.[pause=20][br]EVERYONE, DINNER!</value>
+  </data>
+  <data name="MWE5_G02" xml:space="preserve">
+    <value>...What?[pause=25] Why is everyone looking at me?[pause=20][br]I didn't say anything.[pause=15] I didn't even move.</value>
+  </data>
+  <data name="MWE5_G03" xml:space="preserve">
+    <value>Nobody said your name, {0}.[pause=25] Nobody.</value>
+  </data>
+  <data name="MWE5_G04" xml:space="preserve">
+    <value>(...Even I caught that one.)</value>
+  </data>
+  <data name="MWE5_D01" xml:space="preserve">
+    <value>And tomorrow,[pause=10] once we're up there,[pause=15] we'll finally see if Kino's map was right about that ledge...[pause=25][speed=0.4]that ledge...[pause=20] is...[speed=1]</value>
+  </data>
+  <data name="MWE5_D02" xml:space="preserve">
+    <value>(...Asleep mid-sentence.[pause=25] Then again, he's been carrying half the gear since the Tunnel.[pause=20] I'll let him be.)</value>
+  </data>
+  <data name="MWE5_E01" xml:space="preserve">
+    <value>Well?[pause=0] Are you ready?[pause=20][br]Because I've been ready for two days,[pause=10] and I ended up saying so out loud.[pause=0] Several times.</value>
+  </data>
+  <data name="MWE5_E02" xml:space="preserve">
+    <value>Eleven times.[pause=25] I counted.</value>
+  </data>
+  <data name="MWE5_E03" xml:space="preserve">
+    <value>...Right.[pause=20] The summit's waiting, and it won't climb itself.[pause=15][br]Let's go.</value>
+  </data>
+  <data name="MWE5_E04" xml:space="preserve">
+    <value>One last climb.[pause=25] Together.</value>
   </data>
 </root>

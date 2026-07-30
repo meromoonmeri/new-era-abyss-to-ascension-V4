@@ -858,6 +858,10 @@ SV.Chapter5 =
 	--A-t-elle deja fait ses adieux au matin ? Empeche de rejouer la scene
 	--si le joueur repasse par le camp apres l'intro.
 	PlumLeftMountCamp = false,
+	--L'echange avec Shuca et Ganlon devant la porte du donjon (beat 4.10
+	--du plan) : joue UNE SEULE FOIS, au premier passage apres l'intro.
+	--Sans ce drapeau il se rejouerait a chaque aller-retour du joueur
+	MountDoorTalkDone = false,
 	FragmentSceneSeen = false,--Le Fragment (Meteno) est-il tombe pres du relais du Mont ?
 	SteppeNightSceneSeen = false,--La veillee du camp (Hyko x Almotz) a-t-elle ete jouee ?
 	MountVigilSceneSeen = false,--La derniere veillee avant le sommet a-t-elle ete jouee ?
@@ -1334,4 +1338,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-08-03-G]')
+print('Script variables default values loaded! [build 2026-08-03-H]')
