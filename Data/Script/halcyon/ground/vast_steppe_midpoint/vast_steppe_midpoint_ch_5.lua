@@ -421,8 +421,7 @@ function vast_steppe_midpoint_ch_5.NightWatchScene()
   UI:WaitShowDialogue("...Et là,[pause=10] mon frère ouvre le sac,[pause=10] et il n'y avait PLUS RIEN.[pause=0] Huit Baies.[pause=0] Envolées.[pause=0] Le mystère a duré deux ans.")
   UI:WaitShowDialogue("Jusqu'au jour où on a déplacé le buffet.[pause=0] Un nid de Rattata.[pause=10] Les plus gros Rattata de la région.[pause=0] Ils vivaient comme des rois.")
 
-  UI:SetSpeaker(hyko)
-  UI:SetSpeakerEmotion("Happy")
+  GeneralFunctions.Speak(hyko, "Happy")
   UI:WaitShowDialogue("Wouf...[pause=0] Chez nous,[pause=10] un vol pareil aurait déclenché une enquête officielle.[pause=0] Rapport,[pause=10] témoins,[pause=10] reconstitution.")
 
   UI:SetSpeaker(almotz)
@@ -435,8 +434,7 @@ function vast_steppe_midpoint_ch_5.NightWatchScene()
   SOUND:PlayBattleSE("DUN_Wind")
   GAME:WaitFrames(20)
 
-  UI:SetSpeaker(hyko)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.Speak(hyko, "Worried")
   UI:WaitShowDialogue("...Vous l'avez entendue aussi,[pause=10] n'est-ce pas ?[pause=0] Dans les herbes,[pause=10] pendant le combat contre le gardien.")
   UI:WaitShowDialogue("Ce n'était pas le vent.[pause=0] Le vent ne...[pause=10] wouf.[pause=0] Le vent ne murmure pas de mots.")
 
@@ -455,8 +453,7 @@ function vast_steppe_midpoint_ch_5.NightWatchScene()
 
   GAME:WaitFrames(30)
 
-  UI:SetSpeaker(hyko)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.Speak(hyko, "Determined")
   UI:WaitShowDialogue("Alors voilà ce que je propose,[pause=10] wouf.[pause=0] On consigne tout.[pause=0] Chaque murmure,[pause=10] chaque heure,[pause=10] chaque lieu.")
   UI:WaitShowDialogue("Si cette voix suit un motif,[pause=10] le Maître de Guilde saura le lire.[pause=0] Et sinon...[pause=10] au moins on aura fait notre travail.")
 
@@ -553,8 +550,7 @@ function vast_steppe_midpoint_ch_5.WipedCutscene()
   GAME:WaitFrames(30)
 
   if hyko ~= nil then
-    UI:SetSpeaker(hyko)
-    UI:SetSpeakerEmotion("Happy")
+    GeneralFunctions.Speak(hyko, "Happy")
     UI:WaitShowDialogue("Ils se réveillent ![pause=10] Wouf ![pause=0] Chef, ils se réveillent !")
     GAME:WaitFrames(10)
   end
@@ -577,8 +573,7 @@ function vast_steppe_midpoint_ch_5.WipedCutscene()
   GAME:WaitFrames(14)
 
   if hyko ~= nil then
-    UI:SetSpeaker(hyko)
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.Speak(hyko, "Worried")
     UI:WaitShowDialogue("Le garde du camp signale que les Profondeurs bougent encore,[pause=10] wouf.[pause=0] Reposez-vous d'abord.[pause=0] Ordre du protocole.")
     GAME:WaitFrames(10)
   end
