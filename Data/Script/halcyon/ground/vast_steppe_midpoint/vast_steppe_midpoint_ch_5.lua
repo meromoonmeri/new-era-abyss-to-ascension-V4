@@ -258,8 +258,7 @@ function vast_steppe_midpoint_ch_5.PlumSongScene()
   GROUND:MoveToPosition(plum, 388, 330, false, 2)
   GAME:WaitFrames(10)
 
-  UI:SetSpeaker(plum)
-  UI:SetSpeakerEmotion("Happy")
+  GeneralFunctions.Speak(plum, "Happy")
   UI:WaitShowDialogue("La la laaa ~[pause=0] Oh ![pause=0] Du public !")
   UI:WaitShowDialogue("Vous tombez bien.[pause=0] Je fais la tournée des camps de la steppe.[pause=0] Plum,[pause=10] artiste lyrique itinérante ![pause=0] Enchantée ~")
 
@@ -267,18 +266,15 @@ function vast_steppe_midpoint_ch_5.PlumSongScene()
   UI:SetSpeakerEmotion("Stunned")
   UI:WaitShowDialogue("Artiste...[pause=10] lyrique ?[pause=0] Ici ?[pause=0] Il n'y a personne à des kilomètres !")
 
-  UI:SetSpeaker(plum)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.Speak(plum, "Normal")
   UI:WaitShowDialogue("Détail.[pause=0] Les troupeaux m'adorent.[pause=0] Les Écrémeuh pleurent à la fin.[pause=0] Enfin je crois qu'elles pleurent.[pause=10] Elles s'allongent,[pause=10] en tout cas.")
 
   if hyko ~= nil then
-    UI:SetSpeaker(hyko)
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.Speak(hyko, "Worried")
     UI:WaitShowDialogue("Wouf.[pause=0] Madame,[pause=10] ce camp est une zone de repos réglementée de la guilde,[pause=10] et...")
   end
 
-  UI:SetSpeaker(plum)
-  UI:SetSpeakerEmotion("Happy")
+  GeneralFunctions.Speak(plum, "Happy")
   UI:WaitShowDialogue("Une répétition générale ![pause=0] Quelle merveilleuse idée,[pause=10] petit chien.[pause=0] Public assis,[pause=10] s'il vous plaît !")
 
   UI:SetSpeaker(partner)
@@ -320,8 +316,7 @@ function vast_steppe_midpoint_ch_5.PlumSongScene()
 
   -- Hyko resiste par devoir : le dernier debout
   if hyko ~= nil then
-    UI:SetSpeaker(hyko)
-    UI:SetSpeakerEmotion("Determined")
+    GeneralFunctions.Speak(hyko, "Determined")
     UI:WaitShowDialogue("Un garde...[pause=10] de la guilde...[pause=10] ne dort...[pause=10] JAMAIS...[pause=10] en service...[pause=10] wouf...")
     GAME:WaitFrames(30)
     BossFX.Particle("Music_Notes", hyko.Position.X, hyko.Position.Y - 12, 4)
@@ -332,8 +327,7 @@ function vast_steppe_midpoint_ch_5.PlumSongScene()
   end
 
   -- Plum, seule, vexee
-  UI:SetSpeaker(plum)
-  UI:SetSpeakerEmotion("Stunned")
+  GeneralFunctions.Speak(plum, "Stunned")
   UI:WaitShowDialogue(".........")
   UI:SetSpeakerEmotion("Angry")
   UI:WaitShowDialogue("ENCORE ?![pause=0] Mais c'est pas vrai ![pause=0] TOUS les publics de cette steppe ![pause=0] TOUS !")
@@ -348,8 +342,7 @@ function vast_steppe_midpoint_ch_5.PlumSongScene()
     UI:SetSpeaker(almotz)
     UI:WaitShowDialogue("[speed=0.6]...maman...[pause=20] garde-moi du gratin...[pause=20] je rentre bientôt...[speed=1]")
     GAME:WaitFrames(20)
-    UI:SetSpeaker(plum)
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.Speak(plum, "Normal")
     UI:WaitShowDialogue("...Bon.[pause=0] D'accord.[pause=0] Peut-être que ce n'est pas un si mauvais public.")
     UI:WaitShowDialogue("Dors bien,[pause=10] petit rayé.[pause=0] Celle-là,[pause=10] c'était la berceuse préférée de ma mère à moi aussi.")
   end
@@ -374,8 +367,7 @@ function vast_steppe_midpoint_ch_5.PlumSongScene()
   UI:WaitShowDialogue("...Hein ?[pause=0] Quoi ?[pause=0] Combien de temps on a dormi ?!")
 
   if hyko ~= nil then
-    UI:SetSpeaker(hyko)
-    UI:SetSpeakerEmotion("Shouting")
+    GeneralFunctions.Speak(hyko, "Shouting")
     UI:WaitShowDialogue("JE NE DORMAIS PAS ![pause=0] Je...[pause=10] j'inspectais l'intérieur de mes paupières,[pause=10] wouf ![pause=0] Procédure standard !")
   end
 

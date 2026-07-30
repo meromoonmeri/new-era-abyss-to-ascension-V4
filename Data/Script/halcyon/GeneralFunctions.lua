@@ -26,6 +26,115 @@ GeneralFunctions = {}
   handler s'il existe, et sinon execute le repli fourni. Retourne true si
   le handler de chapitre a bien ete trouve et appele.
 ------------------------------------------------------------------------]]
+--[[----------------------------------------------------------------------
+  LOCUTEUR SANS PORTRAIT — CRASH MOTEUR EVITE
+
+  CRASH REEL constate en jeu le 2026-07-30 (log du joueur), a l'arrivee
+  de Plum :
+      System.ArgumentOutOfRangeException: Index was out of range.
+        at RogueEssence.Menu.SpeakerPortrait.Draw(...)
+        at RogueEssence.Menu.DialogueBox.Draw(...)
+        at RogueEssence.Menu.MenuManager.DrawMenus(...)
+  repete a CHAQUE FRAME, avec un bref ecran noir.
+
+  MECANIQUE EXACTE, remontee dans le code moteur :
+    1. UI:SetSpeaker(chara) enregistre chara.CurrentForm comme locuteur.
+    2. Au dessin, GraphicsManager.GetPortrait echoue a charger la feuille
+       et rend PortraitSheet.LoadError() (GraphicsManager.cs:957), dont
+       l'emoteMap est VIDE (PortraitSheet.cs:295-298).
+    3. DrawPortrait fait `type.Emote = GetReferencedEmoteIndex(type.Emote)`
+       (PortraitSheet.cs:332). Sans aucune emote disponible, la boucle de
+       fallback s'epuise et rend -1 (PortraitSheet.cs:312-327).
+    4. Ce -1 est ECRIT dans la structure EmoteStyle. A la frame suivante,
+       GetReferencedEmoteIndex attaque `GraphicsManager.Emotions[type]`
+       avec type = -1 (PortraitSheet.cs:315) -> IndexOutOfRange, en
+       boucle tant que la boite de dialogue reste affichee.
+
+  POURQUOI CE HELPER PLUTOT QU'UNE LISTE D'ESPECES :
+  Content/Portrait/ du mod ne contient que 34 fichiers, mais PathMod
+  retombe sur le jeu de base (PathMod.cs:378-384) : PMDO fournit les
+  autres. Une liste codee en dur serait donc fausse et fragile — elle
+  casserait des locuteurs qui fonctionnent (Phileas parle 70 fois sans
+  incident). On ne devine pas : on DEMANDE au moteur, une seule fois par
+  espece, si la feuille chargee possede au moins une emote utilisable.
+
+  Speak() :
+    * feuille exploitable -> UI:SetSpeaker(chara), comportement inchange ;
+    * feuille vide        -> UI:SetSpeaker(nom, ...) : le nom s'affiche,
+      aucun portrait n'est demande au rendu, donc aucun crash possible.
+  La signature a 6 arguments est celle du moteur (ScriptUI.cs:428) et le
+  patron est deja employe pour la Voix anonyme (ChapterAftermath.lua:90,
+  SuaireArc.lua:95, BossFX.lua:446).
+------------------------------------------------------------------------]]
+GeneralFunctions._portraitOK = {}
+
+--SURCHARGES DE PORTRAIT REELLEMENT LIVREES PAR LE MOD (Content/Portrait/).
+--Sert UNIQUEMENT de repli si l'interrogation du moteur echoue : ces
+--especes-la ont un fichier dans le depot, donc leur portrait est sur.
+--Liste generee depuis le dossier, pas devinee.
+GeneralFunctions.PORTRAIT_SUR = {
+	--Les 26 especes identifiables parmi les 34 fichiers de
+	--Content/Portrait/ (les 8 restants, #899-906, sont hors Pokedex
+	--national : formes ou PNJ propres au projet, non nommables ici).
+	bulbasaur=true, charmander=true, squirtle=true, voltorb=true,
+	eevee=true,     chikorita=true,  cyndaquil=true, totodile=true,
+	girafarig=true, snubbull=true,   treecko=true,   torchic=true,
+	mudkip=true,    zigzagoon=true,  linoone=true,   kecleon=true,
+	tropius=true,   turtwig=true,    chimchar=true,  piplup=true,
+	luxio=true,     cranidos=true,   snivy=true,     tepig=true,
+	sandile=true,   zorua=true,
+}
+
+
+--Le portrait de ce personnage est-il reellement dessinable ?
+--On interroge la feuille chargee par le moteur : si GetReferencedEmoteIndex
+--rend -1 pour l'emote neutre (0), la feuille est vide et le dessin
+--crashera. Resultat memorise par espece : un seul test par partie.
+function GeneralFunctions.HasPortrait(chara)
+	if chara == nil then return false end
+	local cle = nil
+	pcall(function() cle = tostring(chara.CurrentForm.Species) end)
+	if cle == nil then return false end
+	if GeneralFunctions._portraitOK[cle] ~= nil then
+		return GeneralFunctions._portraitOK[cle]
+	end
+	local ok = false
+	local reussi = pcall(function()
+		local sheet = RogueEssence.Content.GraphicsManager.GetPortrait(chara.CurrentForm:ToCharID())
+		ok = (sheet ~= nil) and (sheet:GetReferencedEmoteIndex(0) >= 0)
+	end)
+	--LIAISON MOTEUR INDISPONIBLE : que faire ?
+	--Rendre `true` (= tenter le portrait) redonnerait exactement le crash
+	--qu'on corrige si l'espece n'en a pas. Rendre `false` partout ferait
+	--perdre TOUS les portraits, y compris ceux qui marchent.
+	--Compromis mesure : on ne tente le portrait que pour les especes dont
+	--le mod livre lui-meme la surcharge (Content/Portrait/, 34 fichiers,
+	--dont les starters et les PNJ de la guilde). Pour les autres, nom seul
+	--— degradation cosmetique, jamais un crash.
+	if not reussi then
+		ok = (GeneralFunctions.PORTRAIT_SUR[cle] == true)
+	end
+	GeneralFunctions._portraitOK[cle] = ok
+	return ok
+end
+
+--Pose un locuteur SANS jamais risquer le crash de portrait manquant.
+function GeneralFunctions.Speak(chara, emotion)
+	if chara == nil then UI:ResetSpeaker() return false end
+	if GeneralFunctions.HasPortrait(chara) then
+		UI:SetSpeaker(chara)
+		if emotion ~= nil then pcall(function() UI:SetSpeakerEmotion(emotion) end) end
+		return true
+	end
+	--Feuille vide : NOM SEUL. Pas de SetSpeakerEmotion — sans portrait il
+	--n'a aucun effet visible, et il rouvrirait la porte au crash.
+	local nom = ""
+	pcall(function() nom = chara:GetDisplayName() end)
+	UI:SetSpeaker(nom, true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+	return false
+end
+
+
 function GeneralFunctions.ChapterDispatch(prefix, handler, chara, activator, fallback)
 	local chapter = 0
 	pcall(function() chapter = SV.ChapterProgression.Chapter end)

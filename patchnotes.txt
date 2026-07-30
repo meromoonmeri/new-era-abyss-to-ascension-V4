@@ -150,3 +150,6 @@ Campement du Mont Venteux (2026-07-30)
 Correctif d'arrivée, suite (2026-07-30)
 -L'aperçu du Creuset après la victoire sur le boss est corrigé. La scène de retour montait tout son décor — apparition des Slugma, replacement de l'équipe, caméra — avant de poser son fondu : le joueur voyait la salle se recomposer pendant près d'une seconde. Le noir est maintenant posé en première instruction.
 -Même correction appliquée aux 19 autres scènes de retour de boss et de réveil après défaite, qui avaient toutes le même défaut d'ordre.
+
+Correctif de plantage (2026-07-30)
+-Plus de plantage à l'arrivée de Plum. Son portrait n'existe pas dans le jeu, et le moteur bouclait sur une erreur d'affichage à chaque image, provoquant l'écran noir. Elle parle désormais avec son nom, sans portrait.
