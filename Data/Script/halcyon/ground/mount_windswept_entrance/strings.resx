@@ -113,14 +113,8 @@
   <data name="MWE5_020" xml:space="preserve">
     <value>Tomorrow, we reach the summit.</value>
   </data>
-  <data name="MWE5_021" xml:space="preserve">
-    <value>Heh![pause=0] There you are at last![pause=10] Dinner nearly went ahead without you four!</value>
-  </data>
-  <data name="MWE5_022" xml:space="preserve">
-    <value>Hrm.[pause=10] Crum was betting you'd gotten lost.[pause=0] I told him a guild guard never loses his way twice.</value>
-  </data>
   <data name="MWE5_023" xml:space="preserve">
-    <value>The camp gathers around the fire.[pause=20] For once, the mountain wind almost sounds gentle.</value>
+    <value>(Everyone settles around the fire.[pause=15] For once,[pause=10] the wind feels almost gentle.)</value>
   </data>
   <data name="MWE5_024" xml:space="preserve">
     <value>Soup's ready![pause=0] Eat it while it's hot![pause=10] Up here, it goes cold in two minutes flat!</value>
@@ -204,7 +198,7 @@
     <value>(Eleven sets of breathing around one fire.[pause=20] The mountain hums...[pause=10] but this sound is louder.[pause=10] In the best way.)</value>
   </data>
   <data name="MWE5_051" xml:space="preserve">
-    <value>The fire burns low.[pause=20] One by one, the camp drifts off...[pause=20] and above, patient, the mountain waits.</value>
+    <value>(The fire wanes.[pause=15] One by one,[pause=10] the camp falls asleep...[pause=15] and the mountain,[pause=10] patient,[pause=10] waits.)</value>
   </data>
   <data name="MWE5_052" xml:space="preserve">
     <value>The next morning...</value>
@@ -267,10 +261,10 @@
     <value>Crunch-munch! Om-nom-nom! Chomp-chomp!\nCrunch-munch! Om-nom-nom! Chomp-chomp!</value>
   </data>
   <data name="MWE5_072" xml:space="preserve">
-    <value>The packs open.[pause=20] Twelve bedrolls are laid out around the fire,[pause=10] one for every member of the expedition.</value>
+    <value>(Bags open,[pause=10] bedrolls unfold around the fire.[pause=15] One for each — except Phileas,[pause=10] on watch.)</value>
   </data>
   <data name="MWE5_073" xml:space="preserve">
-    <value>Night falls for good upon the mountain.</value>
+    <value>(Night falls on the mountain for good.)</value>
   </data>
   <data name="MWE5_074" xml:space="preserve">
     <value>...You know,[pause=10] if the summit scares you...[pause=10] it scares me a little too.</value>
@@ -527,4 +521,4 @@
   <data name="MWE5_198" xml:space="preserve">
     <value>Go back to sleep.[pause=20] I'll stay awake.[pause=25] As long as someone keeps watch,[pause=15] no one wakes alone.</value>
   </data>
-</root>
+<data name="MWE5_202" xml:space="preserve"><value>Hey![pause=10] We brought the water![pause=20] Guess who carried it![pause=15] Hint:[pause=10] not me.</value></data><data name="MWE5_203" xml:space="preserve"><value>Hmf.[pause=10] A full jug the whole trail up...[pause=15] And not a single thank-you.</value></data><data name="MWE5_204" xml:space="preserve"><value>Survey complete.[pause=15] The summit trail is walkable — three quarters of it.</value></data><data name="MWE5_205" xml:space="preserve"><value>You're here at last.[pause=15] The wind didn't get you — nor did the lava.</value></data><data name="MWE5_206" xml:space="preserve"><value>Let me count...[pause=10] no scrapes?[pause=15] Good.[pause=20] Very good.</value></data><data name="MWE5_207" xml:space="preserve"><value>The stew is hot ONLY because I've been watching it all day.</value></data><data name="MWE5_208" xml:space="preserve"><value>Me?[pause=10] I followed a light![pause=15] ...Fine,[pause=10] a firefly.[pause=10] Long story.</value></data><data name="MWE5_209" xml:space="preserve"><value>Following the stew's smell:[pause=10] that's my navigation.[pause=15] It never fails.</value></data><data name="MWE5_210" xml:space="preserve"><value>Lost?[pause=10] Us?[pause=15] We took STRATEGIC detours,[pause=10] that's different.</value></data><data name="MWE5_211" xml:space="preserve"><value>I cut across the ridges.[pause=15] Shorter,[pause=10] quieter.[pause=15] Old caravan habits.</value></data><data name="MWE5_212" xml:space="preserve"><value>All logged in the journal:[pause=10] 47 bends,[pause=10] 2 rockslides,[pause=10] 1 rescue.</value></data><data name="MWE5_213" xml:space="preserve"><value>I barked REALLY loud,[pause=10] and someone found me.[pause=15] Reliable system![pause=0] Woof!</value></data><data name="MWE5_214" xml:space="preserve"><value>My method:[pause=10] markers every twelve steps,[pause=10] cross-checked notes.[pause=15] Zero errors.</value></data><data name="MWE5_215" xml:space="preserve"><value>The dungeon shifts with every trip.[pause=15] Each of you found YOUR way — and you all made it.</value></data><data name="MWE5_216" xml:space="preserve"><value>(Eleven ways to reach camp,[pause=10] zero plan,[pause=10] hundred percent success.[pause=15] What a guild.)</value></data><data name="MWE5_217" xml:space="preserve"><value>Well.[pause=10] Since everyone is here,[pause=10] Pokemon —[pause=15] it is time for dinner.</value></data><data name="MWE5_218" xml:space="preserve"><value>Hm?[pause=15] What?![pause=20] WHY is everyone looking at me?!</value></data><data name="MWE5_219" xml:space="preserve"><value>Because "dinner" is the only word you ever hear,[pause=10] you big glutton.</value></data><data name="MWE5_220" xml:space="preserve"><value>I...[pause=15] I can't anymore...[pause=20] My feet won't even answer!</value></data><data name="MWE5_221" xml:space="preserve"><value>You could have WAITED for me![pause=15] Not even a glance back!</value></data><data name="MWE5_222" xml:space="preserve"><value>At Metano,[pause=10] I was bored to death...[pause=15] So I trained,[pause=10] again and again...</value></data><data name="MWE5_223" xml:space="preserve"><value>...and I decided to FOLLOW you.[pause=20] Lost sight of you at the first bend.[pause=10] Both of you.</value></data><data name="MWE5_224" xml:space="preserve"><value>The Tunnel,[pause=10] I ran through it THREE TIMES![pause=20] THREE![pause=0] Get that into your heads!</value></data><data name="MWE5_225" xml:space="preserve"><value>(She crossed the Searing Tunnel...[pause=10] alone...?[pause=15] For US?!)</value></data><data name="MWE5_226" xml:space="preserve"><value>Crossing a dungeon alone is no small thing,[pause=10] little one.[pause=15] You're one of us.</value></data><data name="MWE5_227" xml:space="preserve"><value>Sit,[pause=10] eat,[pause=10] BREATHE.[pause=15] In that order.</value></data><data name="MWE5_228" xml:space="preserve"><value>Five plates![pause=15] ...What?[pause=10] You run with LEGS.[pause=10] I have FEET.</value></data><data name="MWE5_229" xml:space="preserve"><value>...At night,[pause=10] the mountain ANSWERS your call...[pause=15] with YOUR voice,[pause=10] one beat late.</value></data><data name="MWE5_230" xml:space="preserve"><value>I know worse:[pause=10] the lantern that climbs the trail alone...[pause=15] and you must NEVER follow it.</value></data><data name="MWE5_231" xml:space="preserve"><value>Mhm...[pause=15] And the traveler who shows you the way in a dream...[pause=20] and that dawn erases.</value></data><data name="MWE5_232" xml:space="preserve"><value>(Thanks,[pause=10] everyone.[pause=15] I'm never sleeping tonight.)</value></data><data name="MWE5_233" xml:space="preserve"><value>LITTLE RASCALS![pause=10] Bed,[pause=10] immediately![pause=15] Take example on Kino,[pause=10] at least he—</value></data><data name="MWE5_234" xml:space="preserve"><value>(...Kino's been asleep for ten minutes,[pause=10] Phileas.[pause=15] Sound asleep,[pause=10] at that.)</value></data><data name="MWE5_235" xml:space="preserve"><value>...Fine.[pause=15] Sleep.[pause=10] Like.[pause=10] Kino.[pause=15] That's an order.</value></data><data name="MWE5_236" xml:space="preserve"><value>...and they bought it![pause=15] "Lava?[pause=10] Reassuring!"[pause=15] Ha!</value></data><data name="MWE5_237" xml:space="preserve"><value>Kino.[pause=20] One day,[pause=10] your stories will catch up with you.</value></data><data name="MWE5_238" xml:space="preserve"><value>(Those two could do without us all evening.)</value></data></root>

@@ -113,14 +113,8 @@
   <data name="MWE5_020" xml:space="preserve">
     <value>Demain, nous atteindrons le sommet.</value>
   </data>
-  <data name="MWE5_021" xml:space="preserve">
-    <value>Hé ![pause=0] Vous voilà enfin ![pause=10] Le dîner a bien failli commencer sans vous quatre !</value>
-  </data>
-  <data name="MWE5_022" xml:space="preserve">
-    <value>Hrm.[pause=10] Crum pariait que vous vous étiez perdus.[pause=0] Je lui ai dit qu'un garde de la guilde ne se perd jamais deux fois.</value>
-  </data>
   <data name="MWE5_023" xml:space="preserve">
-    <value>Le camp se rassemble autour du feu.[pause=20] Pour une fois, le vent de la montagne semble presque doux.</value>
+    <value>(Tout le monde s'installe autour du feu.[pause=15] Pour une fois,[pause=10] le vent semble presque doux.)</value>
   </data>
   <data name="MWE5_024" xml:space="preserve">
     <value>La soupe est prête ![pause=0] Mangez tant que c'est chaud ![pause=10] Ici, ça refroidit en deux minutes à peine !</value>
@@ -204,7 +198,7 @@
     <value>(Onze respirations autour d'un même feu.[pause=20] La montagne fredonne...[pause=10] mais ce son-là est plus fort.[pause=10] Et tant mieux.)</value>
   </data>
   <data name="MWE5_051" xml:space="preserve">
-    <value>Le feu baisse.[pause=20] Un à un, le camp s'endort...[pause=20] et au-dessus, patiente, la montagne attend.</value>
+    <value>(Le feu baisse.[pause=15] Un à un,[pause=10] le camp s'endort...[pause=15] et la montagne,[pause=10] patiente,[pause=10] attend.)</value>
   </data>
   <data name="MWE5_052" xml:space="preserve">
     <value>Le lendemain matin...</value>
@@ -267,10 +261,10 @@
     <value>Scrontch-scrontch ! Miam-miam ! Chomp-chomp !\nScrontch-scrontch ! Miam-miam ! Chomp-chomp !</value>
   </data>
   <data name="MWE5_072" xml:space="preserve">
-    <value>Les sacs s'ouvrent.[pause=20] Douze paillasses se déroulent autour du feu,[pause=10] une pour chaque membre de l'expédition.</value>
+    <value>(Les sacs s'ouvrent,[pause=10] les paillasses se déroulent autour du feu.[pause=15] Une pour chacun — sauf Phileas,[pause=10] qui monte la garde.)</value>
   </data>
   <data name="MWE5_073" xml:space="preserve">
-    <value>La nuit tombe pour de bon sur la montagne.</value>
+    <value>(La nuit tombe pour de bon sur la montagne.)</value>
   </data>
   <data name="MWE5_074" xml:space="preserve">
     <value>... Tu sais,[pause=10] si le sommet te fait peur...[pause=10] à moi aussi, un peu.</value>
@@ -527,4 +521,4 @@
   <data name="MWE5_198" xml:space="preserve">
     <value>Rendors-toi.[pause=20] Je reste éveillé.[pause=25] Tant que quelqu'un veille,[pause=15] personne ne se réveille seul.</value>
   </data>
-</root>
+<data name="MWE5_202" xml:space="preserve"><value>Coucou ![pause=10] On rapporte l'eau ![pause=20] Et devinez qui l'a portée ![pause=15] Indice :[pause=10] pas moi.</value></data><data name="MWE5_203" xml:space="preserve"><value>Hmpf.[pause=10] Une cruche pleine sur tout le sentier...[pause=15] Et personne ne m'a remercié.</value></data><data name="MWE5_204" xml:space="preserve"><value>Relevés terminés.[pause=15] Le sentier du sommet est praticable — aux trois quarts.</value></data><data name="MWE5_205" xml:space="preserve"><value>Vous voilà enfin.[pause=15] Le vent n'a pas eu raison de vous — ni la lave.</value></data><data name="MWE5_206" xml:space="preserve"><value>Laissez-moi compter...[pause=10] aucune égratignure ?[pause=15] Bien.[pause=20] Très bien.</value></data><data name="MWE5_207" xml:space="preserve"><value>Le ragoût est chaud RIEN que parce que je l'ai surveillé toute la journée.</value></data><data name="MWE5_208" xml:space="preserve"><value>Moi ?[pause=10] Je suis venue en suivant une lumière ![pause=15] ...Bon,[pause=10] une luciole.[pause=10] Longue histoire.</value></data><data name="MWE5_209" xml:space="preserve"><value>Suivre l'odeur du ragoût :[pause=10] voilà ma navigation.[pause=15] Elle ne trompe jamais.</value></data><data name="MWE5_210" xml:space="preserve"><value>Perdus ?[pause=10] Nous ?[pause=15] On faisait des détours STRATÉGIQUES,[pause=10] c'est différent.</value></data><data name="MWE5_211" xml:space="preserve"><value>J'ai coupé par les corniches.[pause=15] Plus court,[pause=10] plus calme.[pause=15] L'habitude des caravanes.</value></data><data name="MWE5_212" xml:space="preserve"><value>Tout est noté dans le journal :[pause=10] 47 virages,[pause=10] 2 éboulis,[pause=10] 1 sauvetage.</value></data><data name="MWE5_213" xml:space="preserve"><value>J'ai aboyé TRES fort,[pause=10] et on m'a retrouvé.[pause=15] Système fiable ![pause=0] Wouf !</value></data><data name="MWE5_214" xml:space="preserve"><value>Ma méthode :[pause=10] repères tous les douze pas,[pause=10] notes croisées.[pause=15] Zéro erreur.</value></data><data name="MWE5_215" xml:space="preserve"><value>Le donjon change à chaque passage.[pause=15] Chacun a dû trouver SON chemin — et vous l'avez tous fait.</value></data><data name="MWE5_216" xml:space="preserve"><value>(Onze façons de gagner le camp,[pause=10] zéro plan,[pause=10] cent pour cent de réussite.[pause=15] Sacrée guilde.)</value></data><data name="MWE5_217" xml:space="preserve"><value>Bien.[pause=10] Puisque tout le monde est là,[pause=10] Pokémon —[pause=15] il est temps de dîner.</value></data><data name="MWE5_218" xml:space="preserve"><value>Hm ?[pause=15] Quoi ?![pause=20] POURQUOI tout le monde me regarde ?!</value></data><data name="MWE5_219" xml:space="preserve"><value>Parce que « dîner » est le seul mot que tu entends,[pause=10] gros gourmand.</value></data><data name="MWE5_220" xml:space="preserve"><value>J'en...[pause=15] j'en peux plus...[pause=20] Mes pattes ne répondent même plus !</value></data><data name="MWE5_221" xml:space="preserve"><value>Et dire que vous auriez pu m'ATTENDRE ![pause=15] Même pas un regard en arrière !</value></data><data name="MWE5_222" xml:space="preserve"><value>À Metano,[pause=10] je m'ennuyais à mourir...[pause=15] Alors je me suis entraînée,[pause=10] encore et encore...</value></data><data name="MWE5_223" xml:space="preserve"><value>...et j'ai décidé de vous SUIVRE.[pause=20] Perdue de vue au premier virage.[pause=10] Toutes les deux.</value></data><data name="MWE5_224" xml:space="preserve"><value>Le Tunnel,[pause=10] je l'ai refait TROIS FOIS ![pause=20] TROIS ![pause=0] Réalisez un peu !</value></data><data name="MWE5_225" xml:space="preserve"><value>(Elle a traversé le Tunnel Ardent...[pause=10] toute seule...?[pause=15] Pour NOUS ?!)</value></data><data name="MWE5_226" xml:space="preserve"><value>Franchir un donjon seule,[pause=10] ce n'est pas rien, petite.[pause=15] Tu es des nôtres.</value></data><data name="MWE5_227" xml:space="preserve"><value>Assieds-toi,[pause=10] mange,[pause=10] RESPIRE.[pause=15] Dans cet ordre.</value></data><data name="MWE5_228" xml:space="preserve"><value>Cinq assiettes ![pause=15] ...Quoi ?[pause=10] Vous,[pause=10] vous courez avec des jambes.[pause=10] Moi,[pause=10] j'ai des pattes.</value></data><data name="MWE5_229" xml:space="preserve"><value>...La nuit,[pause=10] la montagne RÉPOND à ton cri...[pause=15] avec TA voix,[pause=10] un battement plus tard.</value></data><data name="MWE5_230" xml:space="preserve"><value>Moi je sais pire :[pause=10] la lanterne qui monte le sentier toute seule...[pause=15] et qu'il ne faut JAMAIS suivre.</value></data><data name="MWE5_231" xml:space="preserve"><value>Mhm...[pause=15] Et le voyageur qui te montre le chemin dans un rêve...[pause=20] et que le réveil efface.</value></data><data name="MWE5_232" xml:space="preserve"><value>(Merci,[pause=10] tout le monde.[pause=15] Je ne dormirai JAMAIS cette nuit.)</value></data><data name="MWE5_233" xml:space="preserve"><value>PETITS GARNEMENTS ![pause=10] Au lit,[pause=10] immédiatement ![pause=15] Prenez exemple sur Kino,[pause=10] lui au moins—</value></data><data name="MWE5_234" xml:space="preserve"><value>(...Kino dort depuis dix minutes,[pause=10] Phileas.[pause=15] Profondément,[pause=10] même.)</value></data><data name="MWE5_235" xml:space="preserve"><value>...Bien.[pause=15] Dormez.[pause=10] Comme.[pause=10] Kino.[pause=15] C'est un ordre.</value></data><data name="MWE5_236" xml:space="preserve"><value>...et il y a cru ![pause=15] « La lave ?[pause=10] Rassurante ! »[pause=15] Ha !</value></data><data name="MWE5_237" xml:space="preserve"><value>Kino.[pause=20] Un jour,[pause=10] tes histoires finiront par te rattraper.</value></data><data name="MWE5_238" xml:space="preserve"><value>(Ces deux-là se passeraient de nous toute la soirée.)</value></data></root>
