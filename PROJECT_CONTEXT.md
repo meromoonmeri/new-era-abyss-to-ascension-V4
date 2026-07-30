@@ -542,3 +542,11 @@ Conclusion actee : pas d'asset de tente reutilisable -> le camp reste raconte pa
 - Correctif : arrivees Shuca/Ganlon/Phileas recodees en trajets courts et droits (teleport a ~20 px sud de la destination + marche nord), degagements >=18 px verifies contre les 12 positions debout, le duo (240,300)/(272,300) et le foyer; pcall ajoute autour des marches. Aucune replique ni beat modifie.
 - Regle projet ajoutee : jamais de MoveToPosition longue traversee dans une foule ; destinations a >=18 px de tout occupant ; toujours sous pcall dans une branche joignable.
 - NON teste en jeu : retest requis du campement complet (reunion -> repas -> Plum -> veillee).
+
+
+## Remise a l'etat d'avant (demande joueur 2026-07-30, build -Z) — ancienne scene + ancien fondu noir
+- Ordre du joueur : « remets avant tes modifications, remets l'ancienne scene et le fondu noir ». Executee uniquement sur les 6 fichiers concernes.
+- searing_crucible (ch5 + resx EN/FR) : restaure a c021422 (avant -S). Retour au patron d'origine : pas de replique de sortie sous crepuscule, CutsceneMode conserve actif pendant l'armement (patron hero_dream), EnterGroundMap en derniere ligne. Les cles SC5_087/088 disparaissent comme a l'origine.
+- campement (ch5 + resx EN/FR) : restaure a -U (b1d5a9d, donc SANS la refonte -V reunion progressive) + inversion propre du patch -S : le dialogue d'arrivee sur le noir (MWE5_001/002) est de retour. Protections anti-crash conservees et invisibles : preflight -T/-U du reve + re-greffe du garde zoneConnait (-W), sorties garanties -U, hero_dream/init.lua et init du camp inchanges (HEAD).
+- Consequence mesurable : count_dialogue ch5 repasse a 1580 (= baseline pre-V) ; audits integrite 925 / bugs 12 ; lupa OK x2 ; 158+86 cles completes EN/FR ; legend 0 echec.
+- NON teste en jeu. Si la frame parasite du creuset persiste sur cette build ANCIENNE, elle ne vient pas des versions recentes de ces scripts : il faudra les lignes de log [NREPROBE] + [BossSeq]/[MWE5] pour poursuivre.

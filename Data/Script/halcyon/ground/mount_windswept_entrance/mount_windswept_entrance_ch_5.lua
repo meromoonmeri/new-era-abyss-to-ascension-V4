@@ -130,133 +130,104 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	local bedOf = {}
 	for _, s in ipairs(seats) do bedOf[s[1]] = s[2] end
 
-	-- 1. LA REUNION (brief campement, 2026-07-30).
-	--    Kino et Reinier sont deja la, plonges dans leur PROPRE
-	--    discussion ; les autres membres rentrent PROGRESSIVEMENT
-	--    (Shuca et Ganlon, puis Phileas), chaque arrivee marquee d'une
-	--    replique ; chacun raconte ensuite SON trajet, a sa maniere ;
-	--    Penticus clos par l'appel du diner — detourne sur Ganlon.
-	--    Aucune narration omnisciente : le heros commente en pensee,
-	--    entre parentheses.
-	--Declares ICI : le reste de la scene reutilise coro1..coro4 sans
-	--le mot-cle local.
-	local coro1, coro2, coro3, coro4
+	-- 1. KINO ET REINIER REJOIGNENT LE CAMP
+	--Ils fermaient la marche sur le sentier. Leur arrivee complete
+	--l'expedition : les 12 paillasses ont enfin leurs 12 dormeurs.
+	GROUND:Unhide(t.kino.EntName)
+	GROUND:Unhide(t.reinier.EntName)
+	GROUND:TeleportTo(t.kino, 236, 396, Direction.Up)
+	GROUND:TeleportTo(t.reinier, 276, 396, Direction.Up)
 
-	-- 1a. LA DISCUSSION EN COURS, SURPRISE. La camera glisse vers Kino
-	--     et Reinier, qui ne se sont meme pas arretes de parler.
-	coro1 = TASK:BranchCoroutine(function() GAME:MoveCamera(266, 276, 60, false) end)
-	coro2 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(15)
-		pcall(function() GROUND:CharTurnToCharAnimated(t.kino, t.reinier, 4) end)
-		pcall(function() GROUND:CharSetEmote(t.kino, "happy", 1) end)
-	end)
-	TASK:JoinCoroutines({coro1, coro2})
-	Says(t.kino, "Happy", 'MWE5_236', {t.reinier})
-	GAME:WaitFrames(10)
-	Says(t.reinier, "Normal", 'MWE5_237', {t.kino})
-	GAME:WaitFrames(10)
-	pcall(function() GROUND:CharSetEmote(t.kino, "", 0) end)
-	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_238']), "Normal")
-	GAME:WaitFrames(15)
-
-	-- 1b. PREMIERE ARRIVEE : SHUCA ET GANLON remontent le sentier.
-	GAME:MoveCamera(256, 360, 45, false)
+	-- TOUT LE CAMP LES REGARDE ARRIVER, ET LES SUIT DU REGARD.
 	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
-	coro1 = TASK:BranchCoroutine(function()
-		for i, who in ipairs({partner, hero, t.coco, t.rin, t.hyko, t.almotz}) do
-			if i > 1 then GAME:WaitFrames(4) end
-			pcall(function() GROUND:CharAnimateTurnTo(who, Direction.Down, 4) end)
-		end
+	local greetKino = {}
+	--Ceux qui reagissent VIVEMENT : Coco (elle a garde le repas au
+	--chaud), Shuca (elle s'inquietait), Rin (elle compte ses blesses).
+	for i, r in ipairs({{t.coco, "exclaim"}, {t.shuca, "happy"}, {t.rin, "notice"}}) do
+		greetKino[#greetKino+1] = TASK:BranchCoroutine(function()
+			GAME:WaitFrames((i - 1) * 6)
+			pcall(function()
+				GROUND:CharTurnToCharAnimated(r[1], t.kino, 4)
+				GROUND:CharSetEmote(r[1], r[2], 1)
+			end)
+		end)
+	end
+	--Les autres se contentent de lever la tete, un peu plus tard.
+	for i, who in ipairs({partner, hero, t.penticus, t.phileas, t.hyko, t.almotz, t.ganlon}) do
+		greetKino[#greetKino+1] = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(10 + (i - 1) * 4)
+			pcall(function() GROUND:CharTurnToCharAnimated(who, t.kino, 4) end)
+		end)
+	end
+	TASK:JoinCoroutines(greetKino)
+	GAME:WaitFrames(10)
+
+	--LE SUIVI DU REGARD pendant toute la remontee. Ces coroutines
+	--tournent EN MEME TEMPS que les deplacements de Kino et Reinier
+	--(lances juste apres) : chaque tete pivote au fil de leur avancee.
+	--Elles s'arretent d'elles-memes quand la cible cesse de bouger.
+	--Declares ICI parce que le reste de la scene les reutilise sans le
+	--mot-cle `local` : sans cette declaration, coro1..coro4 deviendraient
+	--des GLOBALES fuyant hors de la fonction (le bloc qui les declarait
+	--a ete remplace par les regards ci-dessus).
+	local coro1, coro2, coro3, coro4
+	local watch = {}
+	for _, who in ipairs({t.coco, t.shuca, t.rin, t.penticus}) do
+		watch[#watch+1] = TASK:BranchCoroutine(function()
+			pcall(function() GeneralFunctions.FaceMovingCharacter(who, t.kino, 4) end)
+		end)
+	end
+	for _, who in ipairs({partner, hero, t.almotz}) do
+		watch[#watch+1] = TASK:BranchCoroutine(function()
+			pcall(function() GeneralFunctions.FaceMovingCharacter(who, t.reinier, 4) end)
+		end)
+	end
+	-- ILS CONTOURNENT LE DUO, ILS NE LE TRAVERSENT PAS.
+	local coro5 = TASK:BranchCoroutine(function()
+		--Trois segments, le dernier fusionne : (216,308) puis (208,300)
+		--ne faisait que 8 px et produisait un sautillement d'arrivee.
+		GROUND:MoveToPosition(t.kino, 216, 372, false, 1)
+		GROUND:MoveToPosition(t.kino, 208, 300, false, 1)
+		GROUND:CharTurnToCharAnimated(t.kino, hero, 4)
 	end)
-	TASK:JoinCoroutines({coro1})
-	--IMPORTANT (freeze constate en jeu, 2026-07-30) : MoveToPosition attend
-	--l'achevement de l'action ; si la cible est bloquee (entite sur place
-	--ou tuile occupee), la coroutine ne reprend JAMAIS
-	--(ScriptGround.cs:491-538) et JoinCoroutines gele la scene entiere.
-	--Les anciennes destinations (226,268)/(296,262) tombaient a 4-14 px de
-	--Rin (222,266) et Reinier (292,276) : SCENE FIGEE. Nouvelle regle :
-	--trajets COURTS et DROITS (pas de traverse du camp), destinations
-	--degagees de >=18 px de toute entite debout et du foyer (274,238).
-	--Shuca : arrivee (258,288)->(258,268) ; le duo occupe (240,300)/(272,300).
-	GROUND:TeleportTo(t.shuca,  258, 288, Direction.Up)
-	GROUND:TeleportTo(t.ganlon, 312, 286, Direction.Up)
-	GROUND:Unhide(t.shuca.EntName)
-	GROUND:Unhide(t.ganlon.EntName)
-	coro1 = TASK:BranchCoroutine(function() pcall(function() GROUND:MoveToPosition(t.shuca,  258, 268, false, 1) end) end)
-	coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(8) pcall(function() GROUND:MoveToPosition(t.ganlon, 312, 262, false, 1) end) end)
+	local coro6 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		GROUND:MoveToPosition(t.reinier, 312, 380, false, 1)
+		GROUND:MoveToPosition(t.reinier, 304, 300, false, 1)
+		GROUND:CharTurnToCharAnimated(t.reinier, hero, 4)
+	end)
+	--On joint les deux marcheurs ET les regards qui les suivent : les
+	--coroutines de suivi s'arretent d'elles-memes quand la cible cesse
+	--de bouger, mais il faut les attendre pour ne pas les laisser
+	--tourner par-dessus la replique suivante.
+	TASK:JoinCoroutines({coro5, coro6})
+	pcall(function() TASK:JoinCoroutines(watch) end)
+
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(t.kino)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_021']))
+	GAME:WaitFrames(15)
+	--Reinier repond a Kino : les deux se font face, le camp les regarde
+	coro1 = TASK:BranchCoroutine(function()
+		pcall(function() GROUND:CharTurnToCharAnimated(t.reinier, t.kino, 4) end)
+		UI:SetSpeaker(t.reinier)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_022']))
+	end)
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		pcall(function() GROUND:CharTurnToCharAnimated(t.kino, t.reinier, 4) end)
+	end)
 	TASK:JoinCoroutines({coro1, coro2})
-	Says(t.shuca, "Happy", 'MWE5_202', {t.coco, t.rin})
-	GAME:WaitFrames(10)
-	Says(t.ganlon, "Angry", 'MWE5_203', {t.shuca, t.coco})
-	GAME:WaitFrames(15)
-
-	-- 1c. DEUXIEME ARRIVEE : PHILEAS, dernier, methodique comme toujours.
-	--     Meme regle anti-freeze : trajet court, colonne x=252 degagee
-	--     (bord ouest du foyer a >=22 px, Penticus a 26 px), camera suivie.
-	GROUND:TeleportTo(t.phileas, 252, 230, Direction.Up)
-	GROUND:Unhide(t.phileas.EntName)
-	GAME:MoveCamera(256, 280, 45, false)
-	pcall(function() GROUND:MoveToPosition(t.phileas, 252, 204, false, 1) end)
-	Says(t.phileas, "Normal", 'MWE5_204', {t.penticus})
-	GAME:WaitFrames(15)
-
-	-- 1d. LE TOUR DE TABLE — chacun raconte SON trajet, a sa maniere.
-	GAME:MoveCamera(256, 240, 60, false)
-	Says(t.penticus, "Happy", 'MWE5_205', {hero, partner, t.rin})
-	GAME:WaitFrames(10)
-	Says(t.rin,      "Worried", 'MWE5_206', {hero, partner})
-	GAME:WaitFrames(10)
-	Says(t.coco,     "Normal",  'MWE5_207', {t.shuca, t.ganlon})
-	GAME:WaitFrames(10)
-	Says(t.shuca,    "Happy",   'MWE5_208', {t.ganlon, t.coco})
-	GAME:WaitFrames(10)
-	Says(t.ganlon,   "Angry",   'MWE5_209', {t.shuca, t.coco})
-	GAME:WaitFrames(10)
-	Says(t.kino,     "Happy",   'MWE5_210', {t.reinier, hero})
-	GAME:WaitFrames(10)
-	Says(t.reinier,  "Normal",  'MWE5_211', {t.kino, t.penticus})
-	GAME:WaitFrames(10)
-	Says(t.hyko,     "Determined", 'MWE5_212', {t.almotz, partner})
-	GAME:WaitFrames(10)
-	Says(t.almotz,   "Happy",   'MWE5_213', {t.hyko})
-	GAME:WaitFrames(10)
-	Says(t.phileas,  "Normal",  'MWE5_214', {t.penticus})
-	GAME:WaitFrames(10)
-	Says(t.penticus, "Normal",  'MWE5_215', {hero, partner, t.phileas})
-	GAME:WaitFrames(15)
-	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_216']), "Happy")
 	GAME:WaitFrames(20)
 
-	-- 1e. L'APPEL DU DINER — et le camp entier pivote sur GANLON.
-	--     Le silence AVANT le beat (pause courte), puis les tetes qui
-	--     pivotent en desordre calcule, jamais en bloc.
-	Says(t.penticus, "Normal",  'MWE5_217', {hero, partner, t.coco})
-	GAME:WaitFrames(18)
-	coro1 = TASK:BranchCoroutine(function()
-		for i, who in ipairs({t.coco, t.shuca, t.rin, t.penticus, t.kino, t.reinier, t.hyko, t.almotz, partner, hero, t.phileas}) do
-			if i > 1 then GAME:WaitFrames(2 + (i % 3)) end
-			pcall(function() GROUND:CharTurnToCharAnimated(who, t.ganlon, 4) end)
-		end
-	end)
-	TASK:JoinCoroutines({coro1})
-	pcall(function() GROUND:CharSetEmote(t.ganlon, "sweatdrop", 1) end)
-	Says(t.ganlon, "Surprised", 'MWE5_218', {t.coco, t.penticus})
-	GAME:WaitFrames(10)
-	Says(t.coco, "Happy", 'MWE5_219', {t.ganlon, t.shuca})
-	GAME:WaitFrames(15)
-	pcall(function() GROUND:CharSetEmote(t.ganlon, "", 0) end)
-
-	-- 1f. TRANSITION VERS LE REPAS : fondu au noir, la musique de la
-	--     guilde s'ARRETE — silence assume comme choix de mise en scene ;
-	--     la musique ne reprendra qu'a l'irruption de Plum (section 4b).
-	SOUND:FadeOutBGM(30)
-	GAME:FadeOut(false, 30)
-	GAME:WaitFrames(10)
-
 	-- 2. LE DINER — tout le monde s'installe autour du feu
-	--(Brief campement : zero narration omnisciente — le heros commente
-	--en pensee, entre parentheses, court et ponctuel.)
-	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_023']), "Normal")
+	UI:ResetSpeaker(false)
+	UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_023']))
+	UI:SetCenter(false)
+	UI:ResetSpeaker()
 
 	-- ON GAGNE SA PLACE SANS TRAVERSER PERSONNE.
 	local MEAL_ROUTES = {
@@ -391,7 +362,11 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--1. LE CONSTAT. Le duo entend des voix graves sans distinguer les mots.
 	SOUND:FadeOutBGM(40)
 	GAME:WaitFrames(30)
-	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_158']), "Worried")
+	UI:ResetSpeaker(false)
+	UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_158']))
+	UI:SetCenter(false)
+	UI:ResetSpeaker()
 
 	--2. LA CAMERA VA VOIR. Mouvement lent et appuye vers le groupe, dans
 	--le silence. Pendant ce temps les trois se tournent les uns vers les
@@ -425,16 +400,15 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(25)
 
-	--3. LA CHUTE. Le sujet tombe... et RIEN ne vient le ponctuer : la
-	--musique reste COUPEE pendant tout le repas (ordre du joueur,
-	--2026-07-30 : « la musique de la guilde est coupee »). Le faux
-	--debat solennel joue a sec — le silence rend la chute meilleure.
-	--Le theme comique de la guilde ne reprendra que sur l'entree en
-	--scene de Plum, bien plus tard dans la veillee.
+	--3. LA CHUTE. Le sujet tombe, et la musique comique demarre DESSUS.
 	coro1 = TASK:BranchCoroutine(function()
 		Says(t.kino, "Determined", 'MWE5_162', {t.ganlon, t.reinier})
 	end)
-	TASK:JoinCoroutines({coro1})
+	coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(30)
+		SOUND:PlayBGM('Guildmaster Wigglytuff.ogg', true)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(20)
 
 	--Le duo accuse le coup. Le partenaire pose la question du joueur.
@@ -736,97 +710,6 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GROUND:CharAnimateTurnTo(t.rin, Direction.DownRight, 4)
 	GAME:WaitFrames(15)
 
-	-- 4b. L'IRRUPTION DE PLUM (brief campement, point 2).
-	--     L'agitation apres le calme du repas : elle de boule la place
-	--     en courant, tombe — et la musique de la guilde reprend PILE
-	--     sur la chute (le silence avant elle en fait le point
-	--     d'exclamation comique). Tirade essoufflee, puis une COURTE
-	--     pause avant la goutte collective — jouee en vagues
-	--     irregulieres, jamais en bloc identique.
-	local plum = CharacterEssentials.MakeCharactersFromList({{'Jigglypuff', 256, 452, Direction.Up}})
-	GAME:WaitFrames(20)
-	pcall(function() GROUND:CharAnimateTurnTo(t.coco, Direction.Down, 4) end)
-	GAME:WaitFrames(6)
-	pcall(function() GROUND:CharAnimateTurnTo(t.shuca, Direction.Down, 4) end)
-	GAME:WaitFrames(10)
-	pcall(function() GROUND:MoveToPosition(plum, 256, 316, false, 3) end)
-	--LA CHUTE. Le theme comique demarre EXACTEMENT dessus.
-	pcall(function() SOUND:PlayBattleSE('EVT_Emote_Startled') end)
-	pcall(function() GROUND:CharSetAnim(plum, "Laying", true) end)
-	SOUND:PlayBGM('Guildmaster Wigglytuff.ogg', true)
-	GAME:WaitFrames(30)
-	--Le camp converge en desordre — trois tempos differents.
-	coro1 = TASK:BranchCoroutine(function()
-		for i, who in ipairs({t.shuca, t.coco, t.rin, partner}) do
-			if i > 1 then GAME:WaitFrames(3 + (i % 4)) end
-			pcall(function() GROUND:CharTurnToCharAnimated(who, plum, 4) end)
-		end
-	end)
-	coro2 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(10)
-		for i, who in ipairs({t.penticus, t.kino, t.reinier, t.ganlon, t.hyko, t.almotz, t.phileas, hero}) do
-			if i > 1 then GAME:WaitFrames(2 + (i % 3)) end
-			pcall(function() GROUND:CharTurnToCharAnimated(who, plum, 4) end)
-		end
-	end)
-	TASK:JoinCoroutines({coro1, coro2})
-	--La tirade essoufflee. Elle se releve d'un bond pour la jouer.
-	pcall(function() GROUND:CharEndAnim(plum) end)
-	pcall(function() GROUND:CharSetEmote(plum, "crying", 1) end)
-	Says(plum, "Teary",    'MWE5_220', {t.penticus, partner})
-	GAME:WaitFrames(8)
-	pcall(function() GROUND:CharSetEmote(plum, "angry", 1) end)
-	Says(plum, "Angry",     'MWE5_221', {partner, hero, t.penticus})
-	GAME:WaitFrames(8)
-	pcall(function() GROUND:CharSetEmote(plum, "", 0) end)
-	Says(plum, "Worried",   'MWE5_222', {t.coco, t.shuca})
-	GAME:WaitFrames(8)
-	Says(plum, "Determined",'MWE5_223', {partner, hero})
-	GAME:WaitFrames(8)
-	pcall(function() GROUND:CharSetEmote(plum, "crying", 1) end)
-	Says(plum, "Teary",    'MWE5_224', {t.penticus, t.coco})
-	GAME:WaitFrames(12)
-	pcall(function() GROUND:CharSetEmote(plum, "", 0) end)
-	--LE SILENCE AVANT LE BEAT. Puis la goutte collective, en trois
-	--vagues irregulieres (brief : reaction synchronisee mais variee).
-	GAME:WaitFrames(22)
-	coro1 = TASK:BranchCoroutine(function()
-		for i, who in ipairs({t.coco, hero, t.ganlon, t.hyko}) do
-			if i > 1 then GAME:WaitFrames(3 + (i % 2)) end
-			pcall(function() GROUND:CharSetEmote(who, "sweatdrop", 1) end)
-		end
-	end)
-	coro2 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(6)
-		for i, who in ipairs({t.shuca, partner, t.reinier}) do
-			if i > 1 then GAME:WaitFrames(4) end
-			pcall(function() GROUND:CharSetEmote(who, "sweatdrop", 1) end)
-		end
-	end)
-	coro3 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(10)
-		for i, who in ipairs({t.kino, t.almotz, t.phileas, t.rin, t.penticus}) do
-			if i > 1 then GAME:WaitFrames(3) end
-			pcall(function() GROUND:CharSetEmote(who, "sweatdrop", 1) end)
-		end
-	end)
-	TASK:JoinCoroutines({coro1, coro2, coro3})
-	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_225']), "Surprised")
-	GAME:WaitFrames(10)
-	pcall(function() GROUND:CharSetEmote(plum, "happy", 1) end)
-	Says(t.penticus, "Normal", 'MWE5_226', {plum, t.coco, t.rin})
-	GAME:WaitFrames(10)
-	Says(t.coco, "Normal", 'MWE5_227', {plum, t.shuca})
-	GAME:WaitFrames(10)
-	Says(plum, "Happy", 'MWE5_228', {t.coco, partner})
-	pcall(function() GROUND:CharSetEmote(plum, "", 0) end)
-	GAME:WaitFrames(10)
-	--Elle rejoint le cercle du feu ; elle s'endormira sur place au
-	--coucher (section 8) — elle n'a plus une patte.
-	pcall(function() GROUND:MoveToPosition(plum, 262, 288, false, 1) end)
-	pcall(function() GROUND:CharAnimateTurnTo(plum, Direction.Up, 4) end)
-	GAME:WaitFrames(20)
-
 	-- 5. LE SILENCE — le heros et la montagne
 	--La conversation retombe. Le heros fixe le sommet ; le partenaire
 	--est le seul a le remarquer. Fil rouge de la « sensation etrange »
@@ -923,8 +806,12 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GAME:WaitFrames(10)
 	GAME:FadeIn(40)
 
-	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_072']), "Normal")
-	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_073']), "Normal")
+	UI:ResetSpeaker(false)
+	UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_072']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_073']))
+	UI:SetCenter(false)
+	UI:ResetSpeaker()
 	GAME:WaitFrames(20)
 
 	-- 8. LE COUCHER — un par un, respiration desynchronisee
@@ -1005,39 +892,6 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_048'], t.hyko:GetDisplayName()))
 	GAME:WaitFrames(15)
-
-	--HISTOIRES QUI FONT PEUR (brief campement, point 3) — recits
-	--ORIGINAUX propres a New Era, chuchotes entre les paillasses, dans
-	--l'esprit des legendes inquietantes du monde Pokemon. Puis
-	--l'enervement de Phileas, et le contre-exemple VISIBLE : Kino,
-	--cite en modele, dort deja depuis longtemps.
-	pcall(function() GROUND:CharTurnToCharAnimated(t.almotz, t.shuca, 4) end)
-	Says(t.almotz, "Worried", 'MWE5_229', {t.hyko, t.shuca})
-	GAME:WaitFrames(10)
-	Says(t.hyko, "Surprised", 'MWE5_230', {t.almotz, partner})
-	GAME:WaitFrames(10)
-	Says(partner, "Worried", 'MWE5_231', {hero, t.hyko, t.almotz})
-	GAME:WaitFrames(15)
-	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_232']), "Worried")
-	GAME:WaitFrames(15)
-	--Phileas explose depuis son poste de garde.
-	pcall(function() SOUND:PlayBattleSE('EVT_Emote_Startled') end)
-	pcall(function() GROUND:CharTurnToCharAnimated(t.phileas, t.hyko, 4) end)
-	Says(t.phileas, "Angry", 'MWE5_233', {t.hyko, t.almotz, t.shuca, partner})
-	--LA CAMERA VA VOIR KINO... qui dort profondement (endormi le
-	--premier, des le debut du coucher). Le decalage est JOUE, pas dit.
-	pcall(function()
-		local kx, ky = seatX(bedOf[t.kino]), seatY(bedOf[t.kino])
-		GAME:MoveCamera(kx, ky, 50, false)
-	end)
-	GAME:WaitFrames(25)
-	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_234']), "Worried")
-	GAME:WaitFrames(15)
-	Says(t.phileas, "Sigh", 'MWE5_235', {t.hyko, t.almotz})
-	GAME:WaitFrames(15)
-	--Rideau sur les chuchoteurs... et sur Plum, endormie net sur place.
-	pcall(function() GROUND:CharSetAnim(plum, "Sleep", true) end)
-
 	GROUND:CharSetAnim(t.almotz, "EventSleep", true)
 	GAME:WaitFrames(8)
 	GROUND:CharSetAnim(t.hyko, "Sleep", true)
@@ -1113,7 +967,11 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(20)
 
-	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWE5_051']), "Normal")
+	UI:ResetSpeaker(false)
+	UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_051']))
+	UI:SetCenter(false)
+	UI:ResetSpeaker()
 
 	--LA MUSIQUE PART AVEC L'IMAGE. Sans ce FadeOutBGM, la musique du
 	--bivouac continuait de jouer pendant le noir (jusqu'au StopBGM de
@@ -3143,6 +3001,7 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 
 	local hero = CH('PLAYER')
 	local partner = CH('Teammate1')
+	local tunnel = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('searing_tunnel')
 	local steppe = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('vast_steppe')
 	local mountain = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('mount_windswept')
 	local ruins = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('cloven_ruins')
@@ -3180,16 +3039,9 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 		{'Cranidos',  310, 236, Direction.Left}
 	})
 
-	--KINO ET REINIER SONT DEJA LA (ordre du joueur, 2026-07-30) : des
-	--l'arrivee au camp, tout le monde est present, chacun discutant de
-	--son cote. Plus de masquage ni d'entree en scene tardive — la
-	--section 1 de CampNightfall est devenue LA REUNION de la guilde.
-	--SHUCA, GANLON ET PHILEAS NE SONT PAS ENCORE RENTRES : les membres
-	--de la guilde arrivent PROGRESSIVEMENT, chacun marque d'une
-	--replique propre (CampNightfall, section 1 - LA REUNION).
-	GROUND:Hide(mareep.EntName)
-	GROUND:Hide(cranidos.EntName)
-	GROUND:Hide(noctowl.EntName)
+	--KINO ET REINIER NE SONT PAS ENCORE LA.
+	GROUND:Hide(breloom.EntName)
+	GROUND:Hide(girafarig.EntName)
 	
 	--LE CAMP DE JOUR. Aucune paillasse a l'arrivee (Prompt Maitre 6.3) :
 	--les couchages ne sont deployes qu'a la fin de la veillee, sous le
@@ -3198,12 +3050,17 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 	--calque (le doublement de decor d'avant ne peut plus se produire).
 	mount_windswept_entrance_ch_5.BuildCampDay()
 
-	-- LES REPLIQUES DE SORTIE SE JOUENT DESORMAIS AU CREUSET, AVANT LE
-	-- NOIR (ordre demande par le joueur le 2026-07-30 : « le fond NOIR
-	-- doit etre apres le dialogue dans le noir des pokemon au creuset »).
-	-- Le noir pose au creuset tient jusqu'ici, sans trou ; le camp est
-	-- revele directement, sans dialogue sur le noir.
-	GAME:WaitFrames(30)
+	--LES REPLIQUES D'ARRIVEE SE JOUENT SOUS LE NOIR (deroule valide par
+	--le joueur : « ecran noir qui s'applique et qui doit etre leve apres
+	--le dialogue »). Le noir pose avant la bascule du creuset tient
+	--jusqu'ici, sans trou ; la carte du camp n'est revelee qu'apres.
+	GAME:WaitFrames(40)
+	UI:SetSpeaker(partner)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_001'], tunnel:GetColoredName()))
+	GAME:WaitFrames(20)
+	UI:SetSpeaker(growlithe)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_002']))
+	GAME:WaitFrames(20)
 	GAME:FadeIn(40)
 	
 	-- LE CAMP VIT PENDANT QU'ON MONTE.
@@ -3232,25 +3089,6 @@ function mount_windswept_entrance_ch_5.ArrivalCutscene()
 			end)
 			GAME:WaitFrames(40)
 			if not campBusy then break end
-			--Kino et Reinier ont leur PROPRE conversation, que l'arrivee
-			--du heros peut surprendre (brief campement, point 1).
-			pcall(function()
-				GROUND:CharTurnToCharAnimated(breloom, girafarig, 4)
-				GROUND:CharSetEmote(breloom, "happy", 0)
-			end)
-			GAME:WaitFrames(50)
-			if not campBusy then break end
-			pcall(function()
-				GROUND:CharSetEmote(breloom, "", 0)
-				GROUND:CharTurnToCharAnimated(girafarig, breloom, 4)
-				GROUND:CharSetEmote(girafarig, "sweatdrop", 0)
-			end)
-			GAME:WaitFrames(40)
-			pcall(function()
-				GROUND:CharSetEmote(girafarig, "", 0)
-				GROUND:CharEndAnim(breloom)
-			end)
-			GAME:WaitFrames(30)
 			pcall(function()
 				GROUND:CharAnimateTurnTo(cranidos, Direction.Left, 4)
 				GROUND:CharSetAnim(audino, "Idle", true)
