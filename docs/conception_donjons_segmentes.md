@@ -4,6 +4,12 @@
 sur les biomes inférés de `tools/mapgen/data/` : tout conflit se résout en
 faveur de ce document.*
 
+> **PORTÉE (précision utilisateur) : ces conceptions s'appliquent À PARTIR DU
+> CHAPITRE 6** (Forêt Lugubre → Pic Céleste et tout donjon ultérieur). Les
+> chapitres 1-5 (jusqu'au Mont Venteux inclus, le modèle) ne sont pas repris.
+> Règles associées déjà données : mini-boss à 3 étages d'un relais, boss 3
+> étages au-dessus du mini-boss ; les donjons gagnent 5-10 étages par chapitre.
+
 ## Principe général
 
 Un donjon à plusieurs segments (relais) n'est pas une succession de zones interchangeables reliées par des points de passage neutres. Chaque segment doit exprimer visuellement une étape de la progression à l'intérieur du donjon — altitude, distance parcourue, dangerosité croissante, changement d'environnement logique. Le joueur doit pouvoir dire à quel moment de sa progression il se trouve rien qu'en regardant le décor, sans avoir besoin d'un indicateur de texte.
