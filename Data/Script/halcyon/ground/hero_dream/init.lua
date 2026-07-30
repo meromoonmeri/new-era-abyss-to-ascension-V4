@@ -443,7 +443,7 @@ function hero_dream.DreamScene()
   --echoue, on tente la voie master_zone (mapID 50 = mount_windswept_entrance)
   --plutot que de laisser le joueur fige sur une carte de reve sans sortie.
   local okBack, errBack = pcall(function()
-    GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker', true)
+    GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker', false)
   end)
   if not okBack then
     PrintInfo('[hero_dream] retour au camp impossible ('..tostring(errBack)..') — secours master_zone')

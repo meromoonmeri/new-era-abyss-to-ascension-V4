@@ -1015,12 +1015,12 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--vaut mieux qu'une partie figee. Si l'appel reussit, aucune
 	--seconde bascule n'est armee.
 	local okDream, errDream = pcall(function()
-		GAME:EnterGroundMap('hero_dream', 'Main_Entrance_Marker', true)
+		GAME:EnterGroundMap('hero_dream', 'Main_Entrance_Marker', false)
 	end)
 	if not okDream then
 		PrintInfo('[MWE5] hero_dream indisponible ('..tostring(errDream)..') — reve saute, retour au camp')
 		SV.Chapter5.DreamSceneSeen = true
-		GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker', true)
+		GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker', false)
 	end
 end
 
