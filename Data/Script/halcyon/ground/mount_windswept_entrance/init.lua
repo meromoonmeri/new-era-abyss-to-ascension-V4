@@ -45,9 +45,17 @@ function mount_windswept_entrance.Init(map)
   pcall(function() GAME:FadeOut(false, 1) end)
   pcall(function() GAME:CutsceneMode(true) end)
 
+  --LES DEUX APPELS SUIVANTS s'executent dans la coroutine de bascule
+  --du moteur (moveToZoneInit -> InitGround -> OnInit) : on les protege
+  --parce qu'ils sont idempotents et non vitaux — une anomalie y sera
+  --tracee au lieu d'interrompre la mise en place.
+  --RespawnAllies reste volontairement NON protege : si le joueur ne
+  --peut pas etre place, l'erreur doit etre visible dans le log plutot
+  --qu'avalee (un joueur absent produit des etats bien pires, en
+  --silence). C'est aussi l'appel atteste par toutes les cartes du jeu.
   COMMON.RespawnAllies()
-  GROUND:AddMapStatus("blowing_wind")
-  PartnerEssentials.InitializePartnerSpawn()
+  pcall(function() GROUND:AddMapStatus("blowing_wind") end)
+  pcall(function() PartnerEssentials.InitializePartnerSpawn() end)
 
   --Entree LIBRE (hors chapitre 5, ou intro deja vue et aucune scene
   --programmee) : aucune cinematique ne relacherait le mode et le joueur

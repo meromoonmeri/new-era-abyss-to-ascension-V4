@@ -446,14 +446,24 @@ function hero_dream.DreamScene()
   --d'arrivee (ResumeAfterDream) les reprend a son compte.
   pcall(function() GAME:CutsceneMode(true) end)
   pcall(function() GAME:FadeOut(false, 1) end)
-  --BASCULE DE RETOUR. Rappel mecanique (ScriptGame.cs) : EnterGroundMap
-  --est un iterateur paresseux, le pcall ne peut donc rien attraper de la
-  --bascule elle-meme — il est conserve en ceinture, pas en protection.
-  --Pas de preflight GetGround ici, volontairement : la carte du camp
-  --vient d'etre chargee avec succes il y a quelques secondes, et son
-  --rsground est volumineux — le reparser pour rien n'ajouterait aucune
-  --securite reelle. Le secours EnterZone (mapID 50) couvre le cas
-  --pathologique d'une censure de la bascule nominative.
+  --BASCULE DE RETOUR. Mecanique (ScriptGame.cs) : EnterGroundMap est un
+  --iterateur paresseux, le pcall est donc une ceinture, pas une
+  --protection contre la bascule elle-meme.
+  --PREFLIGHT A COUT NUL (le meme que cote aller, sans le GetGround qui
+  --reparserait le gros rsground du camp pour rien) : si la resolution
+  --par NOM est cassee (enregistrement), on bascule directement sur le
+  --filet EnterZone par mapID — qui n'a pas besoin du nom.
+  local canCamp = true
+  local okCampPre, resCampPre = pcall(function()
+    local summary = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('master_zone')
+    return summary:GroundValid('mount_windswept_entrance') == true
+  end)
+  if okCampPre then canCamp = (resCampPre == true) end
+  if not canCamp then
+    PrintInfo('[hero_dream] mount_windswept_entrance non resolvable — secours master_zone direct')
+    pcall(function() GAME:EnterZone('master_zone', -1, 50, 0) end)
+    return
+  end
   local okBack, errBack = pcall(function()
     GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker', true)
   end)

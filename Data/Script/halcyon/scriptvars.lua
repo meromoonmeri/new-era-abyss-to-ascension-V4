@@ -1294,4 +1294,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-08-02-Q]')
+print('Script variables default values loaded! [build 2026-08-02-R]')
