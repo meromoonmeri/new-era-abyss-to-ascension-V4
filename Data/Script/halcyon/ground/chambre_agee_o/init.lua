@@ -71,7 +71,7 @@ function chambre_agee_o.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("La salle est plus GRANDE à l'intérieur ![pause=20] On a marché dix pas et reculé de cent !", hero:GetDisplayName()))
   UI:SetSpeaker(palkia)
   UI:WaitShowDialogue("L'espace plie où je veux.[pause=20] Voyons où VOUS pliez.")

@@ -87,7 +87,7 @@ end
 
 function guild_second_floor_ch_5.Spinda_Action(chara, activator)
 	GeneralFunctions.StartConversation(chara, "Lah ![pause=0] Aucune tâche ne résiste à la danse.", "Normal", true, false)
-	UI:SetSpeakerEmotion("Happy")
+	GeneralFunctions.SetEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G2F5_008']))
 	GeneralFunctions.EndConversation(chara)
 end

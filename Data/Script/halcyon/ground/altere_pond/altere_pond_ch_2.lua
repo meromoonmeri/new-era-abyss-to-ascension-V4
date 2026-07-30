@@ -50,7 +50,7 @@ function altere_pond_ch_2.Relicanth_Action(chara, activator)
 	GROUND:CharTurnToCharAnimated(hero, chara, 4)
 
 	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Stunned")
+	GeneralFunctions.SetEmotion("Stunned")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['AP2_003']))
 	GeneralFunctions.EndConversation(chara, false)
 end

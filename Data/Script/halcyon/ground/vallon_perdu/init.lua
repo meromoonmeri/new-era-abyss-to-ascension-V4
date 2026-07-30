@@ -73,7 +73,7 @@ function vallon_perdu.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("Ce cratère au milieu du vallon...[pause=20] ce n'est pas une météorite qui l'a creusé.[pause=10] C'est LUI.", hero:GetDisplayName()))
   UI:SetSpeaker(deoxys)
   UI:WaitShowDialogue("FORME : ATTAQUE.[pause=20] Vous êtes ma leçon du jour.")

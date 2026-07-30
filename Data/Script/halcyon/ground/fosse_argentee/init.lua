@@ -77,7 +77,7 @@ function fosse_argentee.Enter(map)
 
     if partner ~= nil then
       UI:SetSpeaker(partner)
-      UI:SetSpeakerEmotion("Worried")
+      GeneralFunctions.SetEmotion("Worried")
       UI:WaitShowDialogue("Une lanterne et une ancre...[pause=20] L'une appelle, l'autre retient.")
     end
     GeneralFunctions.HeroDialogue(hero, "On descendra à notre rythme.", "Determined")
@@ -138,7 +138,7 @@ function fosse_argentee.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("C'est... le même chant qu'au Pic Céleste ![pause=20] Mais... plus profond. Plus ancien. Plus TRISTE.", hero:GetDisplayName()))
   UI:SetSpeaker(lugia)
   UI:WaitShowDialogue("Tu m'as déjà rencontré là-haut.[pause=20] Ici, en bas, je ne juge pas :[pause=10] je pèse.")

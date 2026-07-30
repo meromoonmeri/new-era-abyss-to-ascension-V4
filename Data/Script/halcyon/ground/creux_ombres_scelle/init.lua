@@ -70,7 +70,7 @@ function creux_ombres_scelle.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("{0}...[pause=20] ton ombre.[pause=10] ELLE S'EST LEVÉE TOUTE SEULE.", hero:GetDisplayName()))
   UI:SetSpeaker(marshadow)
   UI:WaitShowDialogue("...")

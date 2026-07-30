@@ -61,7 +61,7 @@ function altere_pond_ch_5.LegendOfTheLakes(chara)
 	GAME:WaitFrames(30)
 
 	UI:SetSpeaker(chara)
-	UI:SetSpeakerEmotion("Normal")
+	GeneralFunctions.SetEmotion("Normal")
 	UI:WaitShowDialogue("On raconte...[pause=20] que lorsque le monde ouvrit les yeux pour la première fois,[pause=10] il ne savait rien,[pause=10] ne ressentait rien,[pause=10] ne voulait rien.")
 	GAME:WaitFrames(20)
 	UI:WaitShowDialogue("Alors trois étincelles descendirent se poser sur trois lacs.[pause=0] Mmm.[pause=0] Trois lacs si clairs qu'on ne sait jamais si l'on regarde l'eau ou le ciel.")
@@ -71,7 +71,7 @@ function altere_pond_ch_5.LegendOfTheLakes(chara)
 	UI:WaitShowDialogue("La troisième lui apprit à VOULOIR.[pause=0] [color=#00BFFF]Créfadet[color].[pause=0] Sans elle,[pause=10] mmm...[pause=10] personne ne se lèverait le matin.[pause=0] Personne ne partirait en expédition.")
 
 	GAME:WaitFrames(30)
-	UI:SetSpeakerEmotion("Worried")
+	GeneralFunctions.SetEmotion("Worried")
 	UI:WaitShowDialogue("Ma grand-mère disait :[pause=10] «[pause=5] Tant que les trois lacs sont clairs,[pause=10] le monde sait,[pause=10] ressent et veut.[pause=5] »")
 	UI:WaitShowDialogue("Mais elle disait aussi...[pause=20] «[pause=5] Le jour où une ombre boira l'un des trois lacs,[pause=10] le monde commencera à oublier.[pause=5] »[pause=0] Mmm.")
 
@@ -79,7 +79,7 @@ function altere_pond_ch_5.LegendOfTheLakes(chara)
 	GeneralFunctions.HeroDialogue(hero, "(Savoir,[pause=10] ressentir,[pause=10] vouloir...[pause=0] Et si les Anima des Cœurs étaient faits de la même eau ?)", "Worried")
 
 	UI:SetSpeaker(chara)
-	UI:SetSpeakerEmotion("Normal")
+	GeneralFunctions.SetEmotion("Normal")
 	UI:WaitShowDialogue("Mmm.[pause=0] Vous avez le regard de quelqu'un qui vient de comprendre quelque chose.[pause=0] Gardez-le précieusement.[pause=0] C'est le cadeau de Créhelf.")
 
 	SV.Chapter5.LegendLakeHeard = true
@@ -99,7 +99,7 @@ function altere_pond_ch_5.Event_Trigger_1_Touch(obj, activator)
 	GeneralFunctions.StartPartnerConversation(STRINGS:Format(STRINGS.MapStrings['AP5_004'], zone:GetColoredName()))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['AP5_001']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['AP5_002']))
-	UI:SetSpeakerEmotion("Inspired")
+	GeneralFunctions.SetEmotion("Inspired")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['AP5_003'], hero:GetDisplayName()))
 	GeneralFunctions.EndConversation(partner)
 

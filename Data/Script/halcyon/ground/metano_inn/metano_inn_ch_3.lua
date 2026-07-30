@@ -62,7 +62,7 @@ function metano_inn_ch_3.Innkeeper_Desk_Right_Action(chara, activator)
 	if not SV.Chapter3.DefeatedBoss then
 		local nidoqueen = CH('Nidoqueen')
 		GeneralFunctions.StartConversation(nidoqueen, "On dirait qu'il n'y avait rien de dangereux en ville après tout.[pause=0]Ce jeune venait de s'éloigner, c'est tout !")
-		UI:SetSpeakerEmotion("Happy")
+		GeneralFunctions.SetEmotion("Happy")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MI3_003']))
 		GeneralFunctions.EndConversation(nidoqueen)
 	else

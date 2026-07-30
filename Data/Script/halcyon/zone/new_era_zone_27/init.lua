@@ -42,12 +42,12 @@ function new_era_zone_27.ExitSegment(zone, result, rescue, segmentID, mapID)
       SV.Reseau.Veilleurs['new_era_zone_27'] = true
       GAME:WaitFrames(20)
       UI:SetSpeaker(GAME:GetPlayerPartyMember(1))
-      UI:SetSpeakerEmotion("Happy")
+      GeneralFunctions.SetEmotion("Happy")
       UI:WaitShowDialogue("Le Golem-Registre retourne à son socle.[pause=20] La Relique Ensevelie livre ses salles.")
     else
       GAME:WaitFrames(20)
       UI:SetSpeaker(GAME:GetPlayerPartyMember(1))
-      UI:SetSpeakerEmotion("Sad")
+      GeneralFunctions.SetEmotion("Sad")
       UI:WaitShowDialogue("Le Golem ne dort jamais...[pause=20] La Relique reste scellée.")
     end
     GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)

@@ -320,7 +320,7 @@ function SINGLE_CHAR_SCRIPT.OutlawFloor(owner, ownerChar, context, args)
 		if mission.Type == COMMON.MISSION_TYPE_OUTLAW_FLEE then
 			GAME:WaitFrames(20)
 			UI:SetSpeaker(outlaw)
-			UI:SetSpeakerEmotion("Surprised")
+			GeneralFunctions.SetEmotion("Surprised")
 			UI:WaitShowDialogue("Waah ! A-aventuriers ! Courez!")
 			local leaderDir = _DUNGEON.ActiveTeam.Leader.CharDir
 			outlaw.CharDir = leaderDir

@@ -44,12 +44,12 @@ function guild_heros_room_ch_7.DreamCutscene()
   GAME:WaitFrames(40)
 
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR7_001']))
   -- "Quelle journee...[pause=15] Phileas nous a raconte des choses incroyables."
 
   GAME:WaitFrames(20)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR7_002']))
   -- "Mew...[pause=20] les Coeurs des Anima...[pause=15] tout ca me depasse."
 
@@ -117,7 +117,7 @@ function guild_heros_room_ch_7.DreamCutscene()
 
   GAME:WaitFrames(30)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
+  GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR7_007']))
   -- "Hein ?![pause=10] Qu'est-ce que...[pause=15] Tu as fait un cauchemar ?"
 
@@ -127,7 +127,7 @@ function guild_heros_room_ch_7.DreamCutscene()
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR7_009']))
   -- "Encore la Voix ?[pause=15] Non...[pause=20] Celle-ci etait differente, c'est ca ?"
 
@@ -137,7 +137,7 @@ function guild_heros_room_ch_7.DreamCutscene()
 
   GAME:WaitFrames(40)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR7_011']))
   -- "On en parlera demain.[pause=25] Essaie de te rendormir."
 

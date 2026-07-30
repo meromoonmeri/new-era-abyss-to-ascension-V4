@@ -78,7 +78,7 @@ function recif_genereux.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format("Un chant...[pause=10] sous l'eau ?[pause=20] Le récif entier fredonne avec eux !", hero:GetDisplayName()))
   UI:SetSpeaker(manaphy)
   UI:WaitShowDialogue("Le petit et moi, on protège le berceau.[pause=20] Prouvez que vous ne venez pas le briser !")

@@ -303,7 +303,7 @@ function metano_cafe.Cafe_Action(obj, activator)
 
 	--He has a new type of drink he can serve
 	if SV.metano_cafe.NewDrinkUnlocked then
-		UI:SetSpeakerEmotion("Happy")
+		GeneralFunctions.SetEmotion("Happy")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Cafe_New_Drink_1']))
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Cafe_New_Drink_2']))
 		SV.metano_cafe.NewDrinkUnlocked = false
@@ -312,9 +312,9 @@ function metano_cafe.Cafe_Action(obj, activator)
 	
 	--He gives a free Domi Blend before the expedition
 	if SV.ChapterProgression.Chapter == 5 and not SV.Chapter5.GotFreeCafeItem then
-		UI:SetSpeakerEmotion("Inspired")
+		GeneralFunctions.SetEmotion("Inspired")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Cafe_Expedition_Item_Intro_1']))
-		UI:SetSpeakerEmotion("Happy")
+		GeneralFunctions.SetEmotion("Happy")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Cafe_Expedition_Item_Intro_2']))
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Cafe_Expedition_Item_Intro_3']))
 		GAME:WaitFrames(20)
@@ -327,10 +327,10 @@ function metano_cafe.Cafe_Action(obj, activator)
 	if SV.metano_cafe.FermentedItem ~= "" and SV.metano_cafe.ItemFinishedFermenting then
 		local juiceEntry = RogueEssence.Data.DataManager.Instance:GetItem(SV.metano_cafe.FermentedItem)
 		local juice = RogueEssence.Dungeon.InvItem(SV.metano_cafe.FermentedItem, false, juiceEntry.MaxStack)
-		UI:SetSpeakerEmotion('Normal')
+		GeneralFunctions.SetEmotion('Normal')
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Cafe_Fermented_Give_Item_1'], juice:GetDisplayName()))
 		if GAME:GetPlayerBagCount() + GAME:GetPlayerEquippedCount() >= GAME:GetPlayerBagLimit() then
-			UI:SetSpeakerEmotion('Worried')
+			GeneralFunctions.SetEmotion('Worried')
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Cafe_Bag_Full'], CharacterEssentials.GetCharacterName('Kangaskhan')))
 			state = -1 --don't go to normal dialogue if he cant give you the fermented item.
 		else
@@ -341,7 +341,7 @@ function metano_cafe.Cafe_Action(obj, activator)
 			GAME:WaitFrames(60)
 			SOUND:PlayBattleSE('DUN_Worry_Seed')
 			GROUND:CharSetAction(owner, RogueEssence.Ground.PoseGroundAction(owner.Position, owner.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Special2")))
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Cafe_Fermented_Give_Item_2'], juice:GetDisplayName()))
 			GROUND:CharSetAnim(owner, "None", true)
 		
@@ -361,7 +361,7 @@ function metano_cafe.Cafe_Action(obj, activator)
 	--Normal Cafe Shop script
 	while state > -1 do
 		UI:SetSpeaker(owner)
-		UI:SetSpeakerEmotion("Normal")
+		GeneralFunctions.SetEmotion("Normal")
 		local msg = STRINGS:Format(STRINGS.MapStrings['Cafe_Intro'])
 		if repeated then 
 			msg = STRINGS:Format(STRINGS.MapStrings['Cafe_Intro_Return'])
@@ -382,12 +382,12 @@ function metano_cafe.Cafe_Action(obj, activator)
 			--Can't brew items if you're about to go on the expedition
 			--This is to safeguard you against using up items that you may potentially want to use on the expedition, rather than lock them away here for the duration of it
 			elseif SV.ChapterProgression.Chapter == 5 then
-				UI:SetSpeakerEmotion("Worried")
+				GeneralFunctions.SetEmotion("Worried")
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Cafe_Expedition_Prevent_Fermenting_1']))
-				UI:SetSpeakerEmotion("Normal")
+				GeneralFunctions.SetEmotion("Normal")
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Cafe_Expedition_Prevent_Fermenting_2']))
 			else		
-				UI:SetSpeakerEmotion("Normal")
+				GeneralFunctions.SetEmotion("Normal")
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Cafe_Ferment_Prompt']))
 				
 				local CreateFermentMenu = CreateFermentMenu()
@@ -435,7 +435,7 @@ function metano_cafe.Cafe_Action(obj, activator)
 					if confirm then
 						SV.metano_cafe.FermentedItem = menu_item.item_to_ferment
 						metano_cafe.RemoveItems(menu_item.recipe_list)
-						UI:SetSpeakerEmotion("Happy")
+						GeneralFunctions.SetEmotion("Happy")
 						UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Cafe_Begin_Fermenting_1']))
 						--puts the items in his shell
 						SOUND:PlayBattleSE('DUN_Equip')
@@ -452,10 +452,10 @@ function metano_cafe.Cafe_Action(obj, activator)
 						GROUND:CharEndDrawEffect(owner, DrawEffect.Trembling)
 						GROUND:CharWaitAnim(owner, "Special1")
 						GROUND:CharSetAnim(owner, "None", true)
-						UI:SetSpeakerEmotion("Inspired")
+						GeneralFunctions.SetEmotion("Inspired")
 						UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['Cafe_Begin_Fermenting_2']), 60)
 						GAME:WaitFrames(20)
-						UI:SetSpeakerEmotion("Happy")
+						GeneralFunctions.SetEmotion("Happy")
 						UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Cafe_Begin_Fermenting_3'], ferment_item:GetDisplayName()))
 					end
 				end
@@ -471,21 +471,21 @@ function metano_cafe.Cafe_Action(obj, activator)
 				UI:WaitForChoice()
 				if menu.result then
 					if specialPrice > GAME:GetPlayerMoney() then --Menu coding prevents this from being hit (can't try to buy if no money), but keep this here in case.
-						UI:SetSpeakerEmotion('Worried')
+						GeneralFunctions.SetEmotion('Worried')
 						UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Cafe_No_Money']))
-						UI:SetSpeakerEmotion('Normal')
+						GeneralFunctions.SetEmotion('Normal')
 					elseif GAME:GetPlayerBagCount() + GAME:GetPlayerEquippedCount() >= GAME:GetPlayerBagLimit() then
-						UI:SetSpeakerEmotion('Worried')
+						GeneralFunctions.SetEmotion('Worried')
 						UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Cafe_Bag_Full'], CharacterEssentials.GetCharacterName('Kangaskhan')))
-						UI:SetSpeakerEmotion('Normal')
+						GeneralFunctions.SetEmotion('Normal')
 					else
 						SV.metano_cafe.BoughtSpecial = true
 						GAME:RemoveFromPlayerMoney(specialPrice)
 						GAME:GivePlayerItem(special.ID, 1)
 						SOUND:PlayBattleSE("DUN_Money")
-						UI:SetSpeakerEmotion("Happy")
+						GeneralFunctions.SetEmotion("Happy")
 						UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Cafe_Special_Complete'], specialName))
-						UI:SetSpeakerEmotion("Normal")
+						GeneralFunctions.SetEmotion("Normal")
 					end
 				end 
 			end
@@ -497,9 +497,9 @@ function metano_cafe.Cafe_Action(obj, activator)
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Cafe_Info_5']))
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Cafe_Info_6']))
 		else--exit
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Cafe_Goodbye']))
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			state = -1
 		end
 				

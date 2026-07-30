@@ -82,7 +82,7 @@ function grotte_rocheuse.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("Les flaques de métal FRISSONNENT...[pause=20] et la petite goutte là-bas nous fait... coucou ?", hero:GetDisplayName()))
   UI:SetSpeaker(melmetal)
   UI:WaitShowDialogue("GLOONG.[pause=20] (Le colosse fait tinter son poing comme une cloche.[pause=10] C'est probablement une invitation.)")

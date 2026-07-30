@@ -23,12 +23,12 @@ end
 --Cory cracking lame jokes
 function metano_inn_ch_5.Passerby_1_Action(chara, activator)
 	GeneralFunctions.StartConversation(chara, "On dirait que toute la ville CROÂ-sse au sujet de l'expédition de la guilde.", "Happy")
-	UI:SetSpeakerEmotion("Inspired")
+	GeneralFunctions.SetEmotion("Inspired")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MI5_001']))
-	UI:SetSpeakerEmotion("Joyous")
+	GeneralFunctions.SetEmotion("Joyous")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MI5_002']))
 	--GAME:WaitFrames(20)
-	UI:SetSpeakerEmotion("Normal")
+	GeneralFunctions.SetEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MI5_003']))
 	GeneralFunctions.EndConversation(chara)
 	--The whole town seems extra busy today! What's everyone CROWING about?
@@ -89,14 +89,14 @@ function metano_inn_ch_5.LegendOfTheSky(chara)
 	GAME:WaitFrames(30)
 
 	UI:SetSpeaker(chara)
-	UI:SetSpeakerEmotion("Normal")
+	GeneralFunctions.SetEmotion("Normal")
 	UI:WaitShowDialogue("On raconte...[pause=20] que le ciel a deux gardiens,[pause=10] et qu'ils ne se rencontrent jamais.")
 	GAME:WaitFrames(20)
 	UI:WaitShowDialogue("Le premier vole si haut que ses plumes prennent les couleurs de l'arc-en-ciel.[pause=0][br][color=#FF4500]Ho-Oh[color],[pause=10] disait ma mère.[pause=0] Ceux qui l'aperçoivent reçoivent un bonheur éternel.")
 	UI:WaitShowDialogue("Le second...[pause=10] dort au fond des mers,[pause=10] car son simple battement d'ailes déchaîne des tempêtes de quarante jours.[pause=0][br][color=#C0C0FF]Lugia[color].[pause=0] Le Gardien des Cieux qui vit sous l'eau.")
 	GAME:WaitFrames(20)
 	GROUND:CharSetEmote(chara, "glowing", 1)
-	UI:SetSpeakerEmotion("Worried")
+	GeneralFunctions.SetEmotion("Worried")
 	UI:WaitShowDialogue("Ma mère disait :[pause=10] «[pause=5] Si un jour tu vois Lugia hors de l'eau,[pause=10] ma fille,[pause=10] ne te réjouis pas.[pause=5] »")
 	UI:WaitShowDialogue("«[pause=5] Car le Gardien des Cieux ne remonte...[pause=20] que lorsque le ciel lui-même est en danger.[pause=5] »")
 
@@ -104,7 +104,7 @@ function metano_inn_ch_5.LegendOfTheSky(chara)
 	GeneralFunctions.HeroDialogue(hero, "(Une lumière qui a peur,[pause=10] au sommet d'une montagne qui touche le ciel...[pause=0] J'espère que le Gardien dort encore.)", "Worried")
 
 	UI:SetSpeaker(chara)
-	UI:SetSpeakerEmotion("Normal")
+	GeneralFunctions.SetEmotion("Normal")
 	UI:WaitShowDialogue("Enfin ![pause=0] Ce sont des contes de comptoir.[pause=0] Ma mère en connaissait cent.[pause=0] Votre chambre est prête,[pause=10] si vous voulez dormir sur cette histoire.")
 
 	SV.Chapter5.LegendSkyHeard = true

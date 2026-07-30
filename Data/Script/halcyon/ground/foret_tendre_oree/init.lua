@@ -35,13 +35,13 @@ function foret_tendre_oree.Enter(map)
 
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Regarde...[pause=20] la clairière s'est ouverte toute seule devant nous.")
   end
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Happy")
+    GeneralFunctions.SetEmotion("Happy")
     UI:WaitShowDialogue("L'herbe est si douce ici.[pause=20] On dirait qu'elle n'a jamais été piétinée.")
   end
   GAME:WaitFrames(12)
@@ -62,13 +62,13 @@ function foret_tendre_oree.Enter(map)
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Surprised")
+    GeneralFunctions.SetEmotion("Surprised")
     UI:WaitShowDialogue("Ça ronronne ![pause=20] Comme les Terminaux de Sauvegarde de la guilde !")
   end
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Alors c'est vrai...[pause=20] les vieilles voies se rallument une par une.")
   end
   GAME:WaitFrames(12)
@@ -76,7 +76,7 @@ function foret_tendre_oree.Enter(map)
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Inspired")
+    GeneralFunctions.SetEmotion("Inspired")
     UI:WaitShowDialogue("Une voie de plus rouverte.[pause=20] Rentrons le dire à la guilde !")
   end
   GAME:WaitFrames(12)

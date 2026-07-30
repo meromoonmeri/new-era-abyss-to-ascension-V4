@@ -27,7 +27,7 @@ end
 function metano_water_home_ch_4.Floatzel_Action(chara, activator)
 	GeneralFunctions.StartConversation(chara, "Je dois faire profil bas après mon braquage magistral jusqu'à ce que la chaleur se calme un peu.")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWH4_001']))
-	UI:SetSpeakerEmotion("Joyous")
+	GeneralFunctions.SetEmotion("Joyous")
 	GROUND:CharSetEmote(chara, "happy", 0)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWH4_002']))
 	GROUND:CharSetEmote(chara, "", 0)

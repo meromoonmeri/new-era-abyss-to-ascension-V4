@@ -63,7 +63,7 @@ end
 
 local function line(who, emo, txt)
   UI:SetSpeaker(who)
-  if emo ~= nil then UI:SetSpeakerEmotion(emo) end
+  if emo ~= nil then GeneralFunctions.SetEmotion(emo) end
   UI:WaitShowDialogue(txt)
   GAME:WaitFrames(10)
 end
@@ -181,7 +181,7 @@ function SuaireArc.Act2(hero, partner)
 
   voice("Tu ramasses ce que d'autres ont jugé bon d'emporter.")
   if partner ~= nil then
-    line(partner, "Shocked", "Encore cette voix ![pause=20] Elle nous suit depuis la steppe...")
+    line(partner, "Surprised", "Encore cette voix ![pause=20] Elle nous suit depuis la steppe...")
   end
   voice("Ils ne volent pas par cupidité, petit.[pause=25] Demande-toi ce qu'ils croient éteindre.")
   GeneralFunctions.HeroDialogue(hero, "« Éteindre »...[pause=20] Pas « prendre ». Éteindre.", "Worried")

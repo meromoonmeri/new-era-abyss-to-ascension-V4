@@ -71,7 +71,7 @@ function abime_tempetes.Enter(map)
 
     if partner ~= nil then
       UI:SetSpeaker(partner)
-      UI:SetSpeakerEmotion("Worried")
+      GeneralFunctions.SetEmotion("Worried")
       UI:WaitShowDialogue("Les vagues se dressent comme un mur...[pause=20] Il commande à toute la mer !")
     end
     GeneralFunctions.HeroDialogue(hero, "Alors on apprendra à nager droit.", "Determined")
@@ -132,7 +132,7 @@ function abime_tempetes.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("Les vagues tournent en cercle...[pause=20] On est au centre exact de la tempête !", hero:GetDisplayName()))
   UI:SetSpeaker(kyogre)
   UI:WaitShowDialogue("Chaque marée est une question.[pause=20] Réponds, ou coule.")

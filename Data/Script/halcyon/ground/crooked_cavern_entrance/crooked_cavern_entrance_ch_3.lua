@@ -34,12 +34,12 @@ function crooked_cavern_entrance_ch_3.FirstAttemptCutscene()
 	GROUND:CharTurnToCharAnimated(hero, partner, 4)
 	
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CCE3_002'], CharacterEssentials.GetCharacterName("Sandile")))
-	UI:SetSpeakerEmotion("Worried")
+	GeneralFunctions.SetEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CCE3_003'], CharacterEssentials.GetCharacterName("Mareep")))
 	GAME:WaitFrames(20)
 	
 	GeneralFunctions.DoubleHop(partner)
-	UI:SetSpeakerEmotion("Determined")
+	GeneralFunctions.SetEmotion("Determined")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CCE3_004'], CharacterEssentials.GetCharacterName('Cranidos')))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CCE3_005'], hero:GetDisplayName()))
 	
@@ -93,12 +93,12 @@ function crooked_cavern_entrance_ch_3.LostBeforeStyle()
 	GROUND:CharTurnToCharAnimated(hero, partner, 4)
 	
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CCE3_007'], CharacterEssentials.GetCharacterName("Sandile")))
-	UI:SetSpeakerEmotion("Worried")
+	GeneralFunctions.SetEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CCE3_008']))
 	GAME:WaitFrames(20)
 	
 	GeneralFunctions.DoubleHop(partner)
-	UI:SetSpeakerEmotion("Determined")
+	GeneralFunctions.SetEmotion("Determined")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CCE3_009']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CCE3_010'], CharacterEssentials.GetCharacterName('Cranidos')))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CCE3_011'], hero:GetDisplayName()))
@@ -150,11 +150,11 @@ function crooked_cavern_entrance_ch_3.LostToStyle()
 	GROUND:CharTurnToCharAnimated(partner, hero, 4)
 	GROUND:CharTurnToCharAnimated(hero, partner, 4)
 	
-	UI:SetSpeakerEmotion("Worried")
+	GeneralFunctions.SetEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CCE3_013'], CharacterEssentials.GetCharacterName("Sandile")))
 	GAME:WaitFrames(20)
 	
-	UI:SetSpeakerEmotion("Determined")
+	GeneralFunctions.SetEmotion("Determined")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CCE3_014']))
 	
 	GeneralFunctions.DoubleHop(partner)

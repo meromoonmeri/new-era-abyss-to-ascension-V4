@@ -70,7 +70,7 @@ function lac_savoir.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("La brume...[pause=10] elle se souvient de nous, {0}.[pause=20] Comme si on était déjà venus.", hero:GetDisplayName()))
   UI:SetSpeaker(crehelf)
   UI:WaitShowDialogue("Je n'ouvre les yeux qu'une fois.[pause=20] Fais que cela en vaille la peine.")

@@ -71,7 +71,7 @@ function lac_courage.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format("Il était déjà là ![pause=20] Depuis le début — il attendait de voir si on OSERAIT !", hero:GetDisplayName()))
   UI:SetSpeaker(crefadet)
   UI:WaitShowDialogue("Bien.[pause=10] Tu n'as pas reculé.[pause=20] Voyons si c'est du courage ou de l'orgueil.")

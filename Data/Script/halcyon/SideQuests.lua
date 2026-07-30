@@ -167,7 +167,7 @@ SideQuests.LIST = {
 local function say(who, emo, txt)
   if who == nil then return end
   UI:SetSpeaker(who)
-  if emo ~= nil then UI:SetSpeakerEmotion(emo) end
+  if emo ~= nil then GeneralFunctions.SetEmotion(emo) end
   UI:WaitShowDialogue(txt)
   GAME:WaitFrames(8)
 end

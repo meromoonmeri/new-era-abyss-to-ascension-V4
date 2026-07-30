@@ -75,7 +75,7 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_001']))
   -- "Cette chaleur devient étouffante... On doit approcher d'une poche de magma."
 
@@ -84,7 +84,7 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
   GROUND:CharAnimateTurnTo(hero, Direction.Down, 4)
 
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_002'], hero:GetDisplayName()))
   -- "Tu entends ça, [hero] ? On dirait... de la vapeur sous pression."
 
@@ -120,7 +120,7 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
     GAME:WaitFrames(20)
     GeneralFunctions.EmoteAndPause(partner, "Sweating", true)
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_003']))
     -- "De la vapeur ! Elle vient de partout !"
     continueSteam = false
@@ -139,7 +139,7 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
   -- LOT 8.3 — la chaleur et le statut d'intrus, avant que la Voix ne tranche.
   GAME:MoveCamera(256, 258, 40, false)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Pain")
+  GeneralFunctions.SetEmotion("Pain")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_029']))
   -- "La roche est brulante sous mes pattes."
   GAME:WaitFrames(15)
@@ -147,7 +147,7 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
   -- "Ces deux-la ne gardent pas un passage. Ils gardent un foyer."
   GAME:WaitFrames(15)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Sad")
+  GeneralFunctions.SetEmotion("Sad")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_031']))
   -- "Alors c'est nous, les intrus."
   GAME:WaitFrames(15)
@@ -191,7 +191,7 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(15)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
+  GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_004']))
   -- "Un Torkoal ! Il nous barre la route !"
 
@@ -223,7 +223,7 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(15)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
+  GeneralFunctions.SetEmotion("Surprised")
   GROUND:CharSetEmote(partner, "shock", 1)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_007']))
   -- "Cette voix, encore !"
@@ -293,7 +293,7 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
   GAME:WaitFrames(15)
 
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
+  GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_042']))
   GAME:WaitFrames(12)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['STM_043']), "Determined")
@@ -318,13 +318,13 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
   -- Le duo comprend, et fait le lien avec la Grande Steppe.
   GAME:MoveCamera(256, 268, 40, false)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Sad")
+  GeneralFunctions.SetEmotion("Sad")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_048']))
   GAME:WaitFrames(12)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['STM_049']), "Normal")
   GAME:WaitFrames(15)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_050']))
   GAME:WaitFrames(12)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['STM_051']), "Determined")
@@ -345,7 +345,7 @@ function searing_tunnel_miniboss_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_010'], hero:GetDisplayName()))
   -- "On n'a pas fait tout ce chemin pour rien ! [hero], en avant !"
 
@@ -403,7 +403,7 @@ function searing_tunnel_miniboss_ch_5.SecondPreBossScene()
 
   GAME:WaitFrames(30)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_011']))
   -- "De retour. Cette fois, on est prêts !"
 
@@ -463,12 +463,12 @@ local function DefeatedBossBody()
 
   GAME:WaitFrames(30)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Inspired")
+  GeneralFunctions.SetEmotion("Inspired")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_012']))
   -- "On a survécu à la fournaise !"
 
   GAME:WaitFrames(20)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_013']))
   -- "Cette voix...[pause=15] Elle semble tout savoir de ce donjon."
 
@@ -506,7 +506,7 @@ local function DefeatedBossBody()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_061']))
   GAME:WaitFrames(12)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_062']))
   GAME:WaitFrames(20)
 
@@ -520,7 +520,7 @@ local function DefeatedBossBody()
   GAME:WaitFrames(15)
   GAME:MoveCamera(256, 254, 40, false)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Sad")
+  GeneralFunctions.SetEmotion("Sad")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_036']))
   -- "Pas de cris de joie cette fois."
   GAME:WaitFrames(15)
@@ -531,7 +531,7 @@ local function DefeatedBossBody()
   -- LOT 4 — le clan libere le passage : cap sur le relais.
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_028']))
   -- "Le clan de lave nous laisse passer... le relais ne doit plus être loin."
 
@@ -643,7 +643,7 @@ function searing_tunnel_miniboss_ch_5.DiedToBoss()
   GeneralFunctions.DoAnimation(partner, 'Wake')
   GAME:WaitFrames(12)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Pain")
+  GeneralFunctions.SetEmotion("Pain")
   UI:WaitShowDialogue("Trop... trop chaud...[pause=20] On ne passera pas cette fois...")
   GAME:WaitFrames(20)
 

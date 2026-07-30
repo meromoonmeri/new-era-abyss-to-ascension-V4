@@ -71,7 +71,7 @@ function grotte_cryptique.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("Il vient de traverser le MUR ![pause=20] Pas une brèche, pas une porte — le mur PLEIN !", hero:GetDisplayName()))
   UI:SetSpeaker(giratina)
   UI:WaitShowDialogue("Perdus ?[pause=10] Non.[pause=20] Vous êtes exactement là où le monde vous a rangés :[pause=10] à l'envers.")

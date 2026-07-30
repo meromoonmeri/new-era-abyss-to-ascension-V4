@@ -71,7 +71,7 @@ function fosse_volcanique.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("Les geysers respirent comme des soufflets de forge ![pause=20] Toute la fosse est SA machine !", hero:GetDisplayName()))
   UI:SetSpeaker(volcanion)
   UI:WaitShowDialogue("Ne bouchez jamais mes évents.[pause=20] Dernier avertissement gratuit.")

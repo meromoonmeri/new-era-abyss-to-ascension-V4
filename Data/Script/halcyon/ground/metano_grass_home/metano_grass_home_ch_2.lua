@@ -35,7 +35,7 @@ end
 function metano_grass_home_ch_2.Gloom_Action(chara, activator)
 	local numel_species = _DATA:GetMonster('numel'):GetColoredName()
 	GeneralFunctions.StartConversation(chara, CharacterEssentials.GetCharacterName("Nidorina") .. " n'est pas autorisé à sortir pour le moment à cause de l'enfant " .. numel_species .. " disparu.[pause=0]Ses parents s'inquiètent,[pause=10]je suppose.")
-	UI:SetSpeakerEmotion("Worried")
+	GeneralFunctions.SetEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MGH2_004'], CharacterEssentials.GetCharacterName("Numel"), CharacterEssentials.GetCharacterName("Nidorina")))
 	GeneralFunctions.EndConversation(chara)
 end

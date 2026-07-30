@@ -59,7 +59,7 @@ function metano_cafe_ch_3.Initial_Girafarig_Breloom_Conversation(chara, activato
 	GAME:WaitFrames(10)
 	GeneralFunctions.EmoteAndPause(partner, "Question", true)
 	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Worried")
+	GeneralFunctions.SetEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MCF3_005']))
 
 	GAME:WaitFrames(20)
@@ -67,9 +67,9 @@ function metano_cafe_ch_3.Initial_Girafarig_Breloom_Conversation(chara, activato
 	GROUND:CharTurnToChar(hero, breloom)
 	UI:SetSpeaker(breloom)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MCF3_006']))
-	UI:SetSpeakerEmotion("Inspired")
+	GeneralFunctions.SetEmotion("Inspired")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MCF3_007']))
-	UI:SetSpeakerEmotion("Normal")
+	GeneralFunctions.SetEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MCF3_008']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MCF3_009'], girafarig:GetDisplayName()))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MCF3_010']))
@@ -77,7 +77,7 @@ function metano_cafe_ch_3.Initial_Girafarig_Breloom_Conversation(chara, activato
 
 	GAME:WaitFrames(20)
 	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Inspired")
+	GeneralFunctions.SetEmotion("Inspired")
 	GROUND:CharSetEmote(partner, "happy", 0)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MCF3_012']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MCF3_013'], hero:GetDisplayName()))
@@ -87,14 +87,14 @@ function metano_cafe_ch_3.Initial_Girafarig_Breloom_Conversation(chara, activato
 	UI:SetSpeaker(girafarig)
 	GROUND:CharTurnToChar(partner, girafarig)
 	GROUND:CharTurnToChar(hero, girafarig)
-	UI:SetSpeakerEmotion("Happy")
+	GeneralFunctions.SetEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MCF3_014']))
 
 	GAME:WaitFrames(20)
 	GROUND:CharTurnToChar(partner, breloom)
 	GROUND:CharTurnToChar(hero, breloom)
 	UI:SetSpeaker(breloom)
-	UI:SetSpeakerEmotion("Happy")
+	GeneralFunctions.SetEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MCF3_015'], girafarig:GetDisplayName()))
 
 

@@ -78,7 +78,7 @@ function mont_lune_vue.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("Deux présences ![pause=20] Une qui apaise...[pause=10] une qui GLACE.[pause=20] Et elles ne se battent PAS entre elles ?!", hero:GetDisplayName()))
   UI:SetSpeaker(cresselia)
   UI:WaitShowDialogue("Il est mon ombre. Je suis son excuse.[pause=20] L'Ancrage nous a liés :[pause=10] affrontez-nous ENSEMBLE, ou pas du tout.")

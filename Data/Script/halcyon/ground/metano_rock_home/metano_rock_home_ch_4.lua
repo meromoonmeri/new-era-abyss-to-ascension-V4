@@ -24,7 +24,7 @@ function metano_rock_home_ch_4.Meditite_Action(chara, activator)
 	--I'm trying, but I'm struggling to make friends... It's really getting me down...
 	--But I can't give up, or I'll never have any friends! I have to keep trying!
 	GeneralFunctions.StartConversation(chara, "J'essaie,[pause=10]mais j'ai du mal à me faire des amis.[pause=0]Ça me déprime vraiment,[pause=10]c'est...", "Sad")
-	UI:SetSpeakerEmotion("Normal")
+	GeneralFunctions.SetEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MRH4_001']))
 	GeneralFunctions.EndConversation(chara)
 end

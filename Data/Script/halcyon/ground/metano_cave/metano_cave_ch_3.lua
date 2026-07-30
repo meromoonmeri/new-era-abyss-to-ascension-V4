@@ -15,7 +15,7 @@ function metano_cave_ch_3.Sunflora_Action(chara, activator)
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MC3_001']))
 	else
 		GeneralFunctions.StartConversation(chara, "...Outlaws,[pause=10] huh?", "Worried", true, false)
-		UI:SetSpeakerEmotion("Pain")
+		GeneralFunctions.SetEmotion("Pain")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MC3_002']))
 	end
 	GeneralFunctions.EndConversation(chara, false)

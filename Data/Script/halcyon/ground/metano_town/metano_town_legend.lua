@@ -76,10 +76,10 @@ local function BuyMenu(chara)
     local offers = LegendZones.GetAvailable()
 
     if #offers == 0 then
-        UI:SetSpeakerEmotion("Sad")
+        GeneralFunctions.SetEmotion("Sad")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['LZ_Shop_Nothing_001']))
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['LZ_Shop_Nothing_002']))
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
         return false
     end
 
@@ -99,9 +99,9 @@ local function BuyMenu(chara)
     local entry = offers[pick]
 
     -- Le boniment propre a cette zone, puis ce qu'on y verrait.
-    UI:SetSpeakerEmotion("Inspired")
+    GeneralFunctions.SetEmotion("Inspired")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings[entry.blurb]))
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings[entry.sight]))
 
     -- Rappel explicite : on achete un chemin, pas un Pokemon.
@@ -112,15 +112,15 @@ local function BuyMenu(chara)
         LegendZones.ZoneName(entry), STRINGS:FormatKey("MONEY_AMOUNT", entry.price)), false)
     UI:WaitForChoice()
     if not UI:ChoiceResult() then
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['LZ_Shop_Declined']))
         return false
     end
 
     if entry.price > GAME:GetPlayerMoney() then
-        UI:SetSpeakerEmotion("Worried")
+        GeneralFunctions.SetEmotion("Worried")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['LZ_Shop_No_Money']))
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
         return false
     end
 
@@ -132,10 +132,10 @@ local function BuyMenu(chara)
 
     -- Retour a la boutique, confirmation de la zone debloquee.
     UI:SetSpeaker(chara)
-    UI:SetSpeakerEmotion("Joyous")
+    GeneralFunctions.SetEmotion("Joyous")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['LZ_Shop_Bought_001'],
         LegendZones.ZoneName(entry)))
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['LZ_Shop_Bought_002']))
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['LZ_Shop_Bought_003'],
         LegendZones.SpeciesName(entry)))
@@ -175,9 +175,9 @@ local function TravelMenu(chara)
     UI:WaitForChoice()
     if not UI:ChoiceResult() then return false end
 
-    UI:SetSpeakerEmotion("Determined")
+    GeneralFunctions.SetEmotion("Determined")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['LZ_Shop_Travel_Go']))
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
 
     GeneralFunctions.EndConversation(CH('Teammate1'))
     SV.partner.Spawn = "Default"
@@ -241,58 +241,58 @@ function metano_town_legend.ArrivalScene(activator)
 
     GROUND:CharSetEmote(merchant, "happy", 1)
     UI:SetSpeaker(merchant)
-    UI:SetSpeakerEmotion("Joyous")
+    GeneralFunctions.SetEmotion("Joyous")
     UI:WaitShowDialogue("Youpiii ![pause=20] Non, attendez.[pause=15] Je recommence, je n'ai pas fini d'installer.")
     GAME:WaitFrames(12)
 
     if partner ~= nil then
         GROUND:CharTurnToChar(partner, merchant)
         UI:SetSpeaker(partner)
-        UI:SetSpeakerEmotion("Surprised")
+        GeneralFunctions.SetEmotion("Surprised")
         UI:WaitShowDialogue("Il y a quelqu'un au vieux comptoir ![pause=20] Il était libre depuis qu'on est arrivés...")
     end
 
     GAME:WaitFrames(10)
     UI:SetSpeaker(merchant)
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Libre, oui.[pause=20] Il m'attendait.[pause=15] Enfin, j'aime bien me le dire.")
-    UI:SetSpeakerEmotion("Joyous")
+    GeneralFunctions.SetEmotion("Joyous")
     UI:WaitShowDialogue("Grodoudou, pour vous servir ![pause=20] Je tenais une guilde, avant.[pause=15] Une vraie, avec un drapeau et tout.")
     GAME:WaitFrames(12)
 
     if partner ~= nil then
         UI:SetSpeaker(partner)
-        UI:SetSpeakerEmotion("Surprised")
+        GeneralFunctions.SetEmotion("Surprised")
         UI:WaitShowDialogue("Une guilde ?[pause=20] Ici, à Metano ?")
     end
 
     UI:SetSpeaker(merchant)
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Loin d'ici.[pause=20] Et il y a longtemps.[pause=15] Les guildes ferment, vous savez.[pause=10] Les chemins, eux, restent.")
     GAME:WaitFrames(15)
 
     -- Le vrai sujet : elle vend des chemins, pas des objets.
-    UI:SetSpeakerEmotion("Inspired")
+    GeneralFunctions.SetEmotion("Inspired")
     UI:WaitShowDialogue("C'est ça que je vends.[pause=20] Pas des baies, pas des orbes.[pause=15] Des chemins.")
     GAME:WaitFrames(10)
     GeneralFunctions.HeroDialogue(hero, "Des chemins vers quoi ?", "Normal")
     GAME:WaitFrames(10)
 
     UI:SetSpeaker(merchant)
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Vers les endroits où quelque chose vous attend encore.[pause=25] Vous en avez croisé un, là-haut sur le sommet.[pause=15] Ça se voit sur vous.")
     GAME:WaitFrames(12)
 
     if partner ~= nil then
         UI:SetSpeaker(partner)
-        UI:SetSpeakerEmotion("Worried")
+        GeneralFunctions.SetEmotion("Worried")
         UI:WaitShowDialogue("Comment vous pouvez savoir ça ?")
     end
 
     UI:SetSpeaker(merchant)
-    UI:SetSpeakerEmotion("Joyous")
+    GeneralFunctions.SetEmotion("Joyous")
     UI:WaitShowDialogue("Parce que j'ai fait la même tête, autrefois ![pause=20] Youpiii !")
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Revenez me voir quand vous aurez de quoi payer.[pause=20] Et quand vous serez prêts.[pause=15] Les deux comptent.")
     GAME:WaitFrames(20)
 
@@ -322,14 +322,14 @@ function metano_town_legend.Legend_Merchant_Action(chara, activator)
     -- Premiere rencontre : Grodoudou se presente. Une seule fois.
     if not SV.LegendZones.MetMerchant then
         SV.LegendZones.MetMerchant = true
-        UI:SetSpeakerEmotion("Joyous")
+        GeneralFunctions.SetEmotion("Joyous")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['LZ_Meet_001']))
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['LZ_Meet_002']))
-        UI:SetSpeakerEmotion("Inspired")
+        GeneralFunctions.SetEmotion("Inspired")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['LZ_Meet_003']))
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['LZ_Meet_004']))
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['LZ_Meet_005']))
     end
 
@@ -337,7 +337,7 @@ function metano_town_legend.Legend_Merchant_Action(chara, activator)
     -- Grodoudou a connu l'age d'or des equipes de secours : elle raconte.
     if SV.Chapter5.FinishedExpedition and not SV.Chapter5.LegendHeroesHeard then
         UI:SetSpeaker(merchant)
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
         UI:WaitShowDialogue("Alors c'est vous...[pause=0] l'équipe qui a vu la lumière du sommet.[pause=0] Youpiii...[pause=10] non,[pause=10] pardon.[pause=0] Ce n'est pas un jour à youpi.")
         UI:WaitShowDialogue("Approchez.[pause=0] Il est temps que quelqu'un vous raconte ce que les vieux de ce monde savent...[pause=10] et que les jeunes ont oublié.")
         UI:ResetSpeaker()
@@ -378,9 +378,9 @@ function metano_town_legend.Legend_Merchant_Action(chara, activator)
             elseif result == 3 then
                 InfoMenu()
             else
-                UI:SetSpeakerEmotion("Happy")
+                GeneralFunctions.SetEmotion("Happy")
                 UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['LZ_Shop_Goodbye']))
-                UI:SetSpeakerEmotion("Normal")
+                GeneralFunctions.SetEmotion("Normal")
                 state = -1
             end
 
@@ -420,7 +420,7 @@ function metano_town_legend.TalesOfOldHeroes(merchant, hero, partner)
     GAME:WaitFrames(40)
 
     UI:SetSpeaker(merchant)
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Il y a bien des années...[pause=20] bien avant votre naissance...[pause=10] une étoile est tombée du ciel.")
     UI:WaitShowDialogue("Pas une étoile filante,[pause=10] non.[pause=0] Une MÉTÉORE.[pause=0] Si vaste qu'elle aurait effacé le monde entier en touchant le sol.")
     GAME:WaitFrames(20)
@@ -432,18 +432,18 @@ function metano_town_legend.TalesOfOldHeroes(merchant, hero, partner)
         GROUND:CharSetEmote(partner, "shock", 1)
         SOUND:PlayBattleSE("EVT_Emote_Shock_2")
         UI:SetSpeaker(partner)
-        UI:SetSpeakerEmotion("Surprised")
+        GeneralFunctions.SetEmotion("Surprised")
         UI:WaitShowDialogue("Pas né Pokémon ?[pause=0] Qu'est-ce que ça veut dire,[pause=10] «[pause=5] pas né Pokémon[pause=5] » ?")
     end
 
     UI:SetSpeaker(merchant)
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Un HUMAIN,[pause=10] mon petit.[pause=0] Une créature d'un autre monde,[pause=10] réveillée un matin dans un corps de Pokémon,[pause=10] sans aucun souvenir.")
     UI:WaitShowDialogue("Avec son fidèle ami,[pause=10] ils ont secouru des centaines des nôtres.[pause=0] Ils ont gravi une montagne interdite.[pause=0] Ils ont parlé au maître du ciel lui-même.")
     UI:WaitShowDialogue("Et la météore...[pause=20] fut réduite en poussière à quelques instants de la fin.[pause=0][br]La pluie d'étoiles qui a suivi...[pause=10] les anciens en parlent encore les larmes aux yeux.")
 
     GAME:WaitFrames(30)
-    GeneralFunctions.HeroDialogue(hero, "(Un humain...[pause=10] devenu Pokémon...[pause=0] Pourquoi est-ce que mon cœur bat si fort d'un coup ?)", "Shock")
+    GeneralFunctions.HeroDialogue(hero, "(Un humain...[pause=10] devenu Pokémon...[pause=0] Pourquoi est-ce que mon cœur bat si fort d'un coup ?)", "Surprised")
 
     -- ACTE 2 : le temps arrete (echo Explorers of Sky).
     SOUND:FadeOutBGM(40)
@@ -452,21 +452,21 @@ function metano_town_legend.TalesOfOldHeroes(merchant, hero, partner)
     GAME:WaitFrames(30)
 
     UI:SetSpeaker(merchant)
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("Une autre fois...[pause=20] c'est le temps lui-même qui s'est arrêté.")
     UI:WaitShowDialogue("Pas partout d'un coup,[pause=10] non.[pause=0] Région par région.[pause=0] Les vagues figées en pleine écume.[pause=0][br]La pluie suspendue entre ciel et terre.[pause=0] Les Pokémon...[pause=10] immobiles,[pause=10] à jamais.")
     GAME:WaitFrames(20)
     UI:WaitShowDialogue("Et encore une fois...[pause=10] un humain réincarné en Pokémon.[pause=0] Venu du futur,[pause=10] disent certains.[pause=0] Un futur où tout était déjà perdu.")
     UI:WaitShowDialogue("Avec son fidèle ami,[pause=10] ils sont montés au sommet d'une tour qui touchait le ciel brisé.[pause=0] Et là-haut...[pause=20] ils ont rendu au monde son battement.")
     GAME:WaitFrames(20)
-    UI:SetSpeakerEmotion("Sad")
+    GeneralFunctions.SetEmotion("Sad")
     UI:WaitShowDialogue("On raconte que le prix payé fut...[pause=20] immense.[pause=0] Que le héros s'est effacé avec le futur qu'il venait empêcher.")
     UI:WaitShowDialogue("Mais on raconte AUSSI...[pause=10] que le monde,[pause=10] reconnaissant,[pause=10] le lui a rendu.[pause=0] Je préfère cette fin-là.[pause=0] Je choisis toujours cette fin-là.")
 
     if partner ~= nil then
         GAME:WaitFrames(20)
         UI:SetSpeaker(partner)
-        UI:SetSpeakerEmotion("Teary-Eyed")
+        GeneralFunctions.SetEmotion("Teary-Eyed")
         UI:WaitShowDialogue("Moi aussi...[pause=10] je choisis cette fin-là.")
     end
 
@@ -477,10 +477,10 @@ function metano_town_legend.TalesOfOldHeroes(merchant, hero, partner)
     GAME:WaitFrames(20)
 
     UI:SetSpeaker(merchant)
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Il y a eu d'autres grands cataclysmes,[pause=10] d'autres héros.[pause=0] Les mers en furie.[pause=0][br]L'espace déchiré.[pause=0] Chaque génération a eu son épreuve...[pause=10] et son équipe de deux.")
     GAME:WaitFrames(20)
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("Puis...[pause=20] plus rien.[pause=0] Vingt-cinq ans de calme.[pause=0] Vingt-cinq ans sans étoile qui tombe,[pause=10] sans temps qui bégaie,[pause=10] sans mer qui gronde.")
     UI:WaitShowDialogue("Les vieux comme moi ont fini par croire que le monde avait épuisé ses malheurs.[pause=0] Que les histoires de héros resteraient...[pause=10] des histoires.")
     GAME:WaitFrames(30)
@@ -493,7 +493,7 @@ function metano_town_legend.TalesOfOldHeroes(merchant, hero, partner)
 
     if partner ~= nil then
         UI:SetSpeaker(partner)
-        UI:SetSpeakerEmotion("Worried")
+        GeneralFunctions.SetEmotion("Worried")
         UI:WaitShowDialogue("Grodoudou...[pause=0] vous êtes en train de dire que...[pause=10] que c'est NOTRE tour ?")
     end
 
@@ -504,21 +504,21 @@ function metano_town_legend.TalesOfOldHeroes(merchant, hero, partner)
     GAME:WaitFrames(20)
 
     UI:SetSpeaker(merchant)
-    UI:SetSpeakerEmotion("Happy")
+    GeneralFunctions.SetEmotion("Happy")
     UI:WaitShowDialogue("Ce que je dis,[pause=10] c'est que les héros d'autrefois avaient tous DEUX choses :[pause=10] un ami fidèle...[pause=10] et un très bon fournisseur d'équipement.")
     GAME:WaitFrames(15)
-    UI:SetSpeakerEmotion("Joyous")
+    GeneralFunctions.SetEmotion("Joyous")
     UI:WaitShowDialogue("L'ami,[pause=10] vous l'avez déjà ![pause=0] Et pour le reste...[pause=10] youpiii ![pause=0] Vous connaissez mon stand !")
 
     if partner ~= nil then
         GROUND:CharSetEmote(partner, "sweatdrop", 1)
         UI:SetSpeaker(partner)
-        UI:SetSpeakerEmotion("Stunned")
+        GeneralFunctions.SetEmotion("Stunned")
         UI:WaitShowDialogue("...Et voilà.[pause=0] Le moment était PRESQUE solennel.")
     end
 
     UI:SetSpeaker(merchant)
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Le solennel,[pause=10] c'est pour les statues,[pause=10] mon petit.[pause=0] Les vivants,[pause=10] eux,[pause=10] doivent rire ET se préparer.[pause=0] Les deux.[pause=0] Toujours les deux.")
     GAME:WaitFrames(20)
     UI:WaitShowDialogue("Allez.[pause=0] Revenez me voir quand vous voulez.[pause=0] Et si un jour le ciel vous semble trop lourd...[pause=10][br]rappelez-vous :[pause=10] d'autres l'ont porté avant vous.[pause=0] À deux.[pause=0] Et ils ont tenu.")

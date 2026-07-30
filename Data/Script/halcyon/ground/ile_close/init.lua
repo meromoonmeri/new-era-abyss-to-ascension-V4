@@ -71,7 +71,7 @@ function ile_close.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format("C'est lui...[pause=20] celui des visions du Pic Céleste.[pause=10] Celui qui LUTTAIT.[pause=20] {0}... et si on s'était trompés depuis le début ?", hero:GetDisplayName()))
   UI:SetSpeaker(necrozma)
   UI:WaitShowDialogue("Chaque lumière que j'ai prise dort dans mes prismes,[pause=10] loin de LUI.[pause=30] Battez-moi si vous voulez.[pause=10] Mais quand les prismes tomberont...[pause=20] courez.")

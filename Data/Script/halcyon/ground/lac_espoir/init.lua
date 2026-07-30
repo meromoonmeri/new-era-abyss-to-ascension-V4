@@ -70,7 +70,7 @@ function lac_espoir.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format("Le lac reflète nos visages...[pause=20] mais pas nos expressions.[pause=10] Regarde, il nous montre... de l'espoir ?", hero:GetDisplayName()))
   UI:SetSpeaker(crefollet)
   UI:WaitShowDialogue("L'émotion est la première lumière.[pause=20] Prouve que la tienne ne vacille pas.")

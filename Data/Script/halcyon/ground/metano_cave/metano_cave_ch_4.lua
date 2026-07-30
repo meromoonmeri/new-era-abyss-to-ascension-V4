@@ -30,7 +30,7 @@ function metano_cave_ch_4.Sunflora_Action(chara, activator)
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MC4_003']))
 	else
 		GeneralFunctions.StartConversation(chara, "...Pourriez-vous sortir cet enfant d'ici ?", "Worried", true, false)
-		UI:SetSpeakerEmotion("Pain")
+		GeneralFunctions.SetEmotion("Pain")
 		--UI:WaitShowDialogue("I'd prefer to be alone,[pause=10] but she doesn't seem to understand...")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MC4_004']))
 	end

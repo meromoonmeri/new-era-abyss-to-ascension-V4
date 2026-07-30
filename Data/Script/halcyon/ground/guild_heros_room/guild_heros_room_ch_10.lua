@@ -51,11 +51,11 @@ function guild_heros_room_ch_10.PostPeakBedtalk()
   GAME:WaitFrames(40)
 
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Happy")
+  GeneralFunctions.SetEmotion("Happy")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR10_001']))
 
   GAME:WaitFrames(20)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR10_002']))
 
   GAME:WaitFrames(20)
@@ -63,7 +63,7 @@ function guild_heros_room_ch_10.PostPeakBedtalk()
 
   GAME:WaitFrames(30)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR10_004']))
 
   GAME:WaitFrames(40)
@@ -119,7 +119,7 @@ function guild_heros_room_ch_10.PostPeakBedtalk()
 
   GAME:WaitFrames(30)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR10_008']))
 
   GAME:WaitFrames(20)
@@ -127,7 +127,7 @@ function guild_heros_room_ch_10.PostPeakBedtalk()
 
   GAME:WaitFrames(30)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR10_010']))
 
   GAME:WaitFrames(60)

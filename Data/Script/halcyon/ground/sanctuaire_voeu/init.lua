@@ -70,7 +70,7 @@ function sanctuaire_voeu.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format("L'étoile...[pause=10] elle s'ouvre ![pause=20] {0}, il ÉTAIT là depuis mille ans — il nous ATTENDAIT ?", hero:GetDisplayName()))
   UI:SetSpeaker(jirachi)
   UI:WaitShowDialogue("Il y a vingt-cinq ans, quelqu'un est tombé du ciel et a fait un vœu pour vous tous.[pause=30] Venez.[pause=10] Je vous montrerai lequel.")

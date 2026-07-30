@@ -74,12 +74,12 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_001']))
   -- "La brume est encore plus dense ici... C'est presque irréel."
 
   GAME:WaitFrames(30)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_002']))
   -- "C'est le cœur de la steppe. Il doit y avoir quelque chose qui protège cet endroit."
 
@@ -95,7 +95,7 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   -- LOT 8.3 — la harde assiste ; le duo se prepare. Camera mobile entre eux.
   GAME:MoveCamera(184, 262, 40, false)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
+  GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_028']))
   -- "Toute la harde regarde depuis la brume. Ils sont venus voir ca."
   GAME:WaitFrames(15)
@@ -107,7 +107,7 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   -- "Tu peux encore faire demi-tour."
   GAME:WaitFrames(15)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_031']))
   -- "Nous, on s'en voudrait. Ca suffit."
   GAME:WaitFrames(15)
@@ -152,7 +152,7 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
+  GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_003']))
   -- "Ses bois...[pause=10] ils brillent !"
 
@@ -212,7 +212,7 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(15)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_008']))
   -- "C'est le dernier obstacle avant la sortie de la steppe ! On y va !"
 
@@ -264,7 +264,7 @@ function vast_steppe_guardian_ch_5.SecondPreBossScene()
 
   GAME:WaitFrames(30)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_009']))
   -- "On revient à la charge. Cette fois, c'est la bonne !"
 
@@ -315,7 +315,7 @@ local function DefeatedBossBody()
 
   GAME:WaitFrames(30)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Inspired")
+  GeneralFunctions.SetEmotion("Inspired")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_010']))
   -- "On a vaincu le gardien de la steppe !"
 
@@ -338,12 +338,12 @@ local function DefeatedBossBody()
   GAME:WaitFrames(60)
 
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_011']))
   -- "La brume commence à se dissiper..."
 
   GAME:WaitFrames(20)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_012']))
   -- "Cette voix...[pause=15] Elle savait qu'il était là."
 
@@ -361,7 +361,7 @@ local function DefeatedBossBody()
   GAME:WaitFrames(15)
   GAME:MoveCamera(184, 258, 40, false)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
+  GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_034']))
   -- "Est-ce qu'il vient de... nous dire au revoir ?"
   GAME:WaitFrames(15)
@@ -388,7 +388,7 @@ local function DefeatedBossBody()
   -- "Je crois qu'il a dit 'avancez'. Ce n'est pas pareil."
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Inspired")
+  GeneralFunctions.SetEmotion("Inspired")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_036']))
   -- "La brume se leve. Je vois enfin la ligne de crete."
   GAME:WaitFrames(15)
@@ -404,7 +404,7 @@ local function DefeatedBossBody()
   -- ...et le partenaire fait le lien avec le Tunnel Ardent, ou l'expedition campe.
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
+  GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_027']))
   -- "La montagne qui brûle... le Tunnel Ardent ! C'est là que l'expédition monte le camp !"
 
@@ -510,7 +510,7 @@ function vast_steppe_guardian_ch_5.DiedToBoss()
   GeneralFunctions.DoAnimation(partner, 'Wake')
   GAME:WaitFrames(12)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Pain")
+  GeneralFunctions.SetEmotion("Pain")
   UI:WaitShowDialogue("Ses bois... cette lumière...[pause=20] On n'était pas prêts...")
   GAME:WaitFrames(20)
 

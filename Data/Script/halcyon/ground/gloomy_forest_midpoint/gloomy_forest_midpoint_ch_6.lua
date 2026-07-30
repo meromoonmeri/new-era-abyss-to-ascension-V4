@@ -66,7 +66,7 @@ function gloomy_forest_midpoint_ch_6.Adagio_Action(chara, activator)
   GeneralFunctions.StartConversation(chara,
     "Vous voila.[pause=25] Nous vous avons suivis depuis l'entree.", "Normal")
   UI:WaitShowDialogue("Je veux un combat.[pause=25] Maintenant, pendant que vous etes vides.")
-  UI:SetSpeakerEmotion("Sigh")
+  GeneralFunctions.SetEmotion("Sigh")
   UI:WaitShowDialogue("Rien a gagner, rien a perdre.[pause=20] Refusez et nous partons sans un mot.")
   UI:ChoiceMenuYesNo("Accepter le defi de la Team Dazzling ?", false)
   UI:WaitForChoice()
@@ -75,7 +75,7 @@ function gloomy_forest_midpoint_ch_6.Adagio_Action(chara, activator)
 
   if not accepted then
     UI:SetSpeaker(chara)
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Sage.[pause=25] Nous serons la quand vous serez frais.")
     UI:ResetSpeaker()
     return
@@ -192,7 +192,7 @@ function gloomy_forest_midpoint_ch_6.FirstArrival()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM6_002']))
   GAME:WaitFrames(10)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM6_003']))
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM6_004']))
 
   SV.Chapter6.GloomyPlayedMidpointIntro = true
@@ -250,7 +250,7 @@ function gloomy_forest_midpoint_ch_6.WipedCutscene()
   GAME:WaitFrames(30)
 
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Pain")
+  GeneralFunctions.SetEmotion("Pain")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM6_020']))
   GAME:WaitFrames(20)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM6_021']))
@@ -259,14 +259,14 @@ function gloomy_forest_midpoint_ch_6.WipedCutscene()
   -- Unlike Crooked's LostToBoss, it must NOT be cleared here: gloomy_forest_boss uses it to
   -- pick the retry scene on the next visit.
   if SV.Chapter6.GloomyBossEncountered then
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM6_022']))
-    UI:SetSpeakerEmotion("Determined")
+    GeneralFunctions.SetEmotion("Determined")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM6_023']))
   else
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM6_024']))
-    UI:SetSpeakerEmotion("Determined")
+    GeneralFunctions.SetEmotion("Determined")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM6_025']))
   end
 

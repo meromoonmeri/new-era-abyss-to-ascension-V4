@@ -78,7 +78,7 @@ function palier_celeste.Enter(map)
 
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("Il est descendu d'un seul battement d'ailes...[pause=20] On est si haut.")
   end
   GeneralFunctions.HeroDialogue(hero, "La dernière marche est encore une marche.", "Determined")

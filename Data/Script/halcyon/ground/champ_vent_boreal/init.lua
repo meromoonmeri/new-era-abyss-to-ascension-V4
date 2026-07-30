@@ -70,7 +70,7 @@ function champ_vent_boreal.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("Plus un bruit...[pause=30] même le vent s'est tu.[pause=20] Il neige VERS LE HAUT, {0}...", hero:GetDisplayName()))
   UI:SetSpeaker(artikodin)
   UI:WaitShowDialogue("Vous avez marché longtemps dans mon silence.[pause=20] Voyons si vous savez aussi y combattre.")

@@ -30,7 +30,7 @@ end
 
 function metano_electric_home_ch_2.Manectric_Action(chara, activator)
 	GeneralFunctions.StartConversation(chara, "Mon adorable garçon est en train de jouer avec ses amis en ce moment.")
-	UI:SetSpeakerEmotion("Happy")
+	GeneralFunctions.SetEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MEH2_001']))
 	GeneralFunctions.EndConversation(chara)
 end

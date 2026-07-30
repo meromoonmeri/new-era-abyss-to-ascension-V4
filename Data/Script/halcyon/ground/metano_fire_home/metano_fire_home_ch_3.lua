@@ -22,7 +22,7 @@ end
 function metano_fire_home_ch_3.Camerupt_Action(chara, activator)
 	--too long with no nicknames
 	GeneralFunctions.StartConversation(chara, CharacterEssentials.GetCharacterName("Numel") .. " s'acquitte mieux de ses tâches depuis que vous l'avez sauvé.[pause=0]Il a également été plus prévenant.")
-	UI:SetSpeakerEmotion("Teary-Eyed")
+	GeneralFunctions.SetEmotion("Teary-Eyed")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MFH3_001']))
 	GeneralFunctions.EndConversation(chara)
 end

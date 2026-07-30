@@ -76,7 +76,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_001']))
   -- "Le sommet...[pause=15] On y est presque."
 
@@ -85,7 +85,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   GROUND:CharAnimateTurnTo(hero, Direction.Down, 4)
 
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_002']))
   -- "Regarde le ciel...[pause=15] Ces nuages ne sont pas normaux."
 
@@ -124,7 +124,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(15)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
+  GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_006']))
   -- "Toi...[pause=10] Tu savais qu'il était là !"
 
@@ -170,7 +170,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- LOT 8.3 — l'orage comme presence, le pacte du duo avant l'ultime gardien.
   GAME:MoveCamera(224, 250, 40, false)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_030']))
   -- "Cet orage n'est pas un phenomene. Il nous attendait."
   GAME:WaitFrames(15)
@@ -178,7 +178,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- "Quoi qu'il se pose ici, on ne court pas. D'accord ?"
   GAME:WaitFrames(15)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_032']))
   -- "D'accord. Meme si mes pattes demandent a etre convaincues."
   GAME:WaitFrames(20)
@@ -243,7 +243,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   GAME:WaitFrames(30)
   GROUND:CharSetEmote(partner, "shock", 1)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
+  GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_004']))
   -- "Un...[pause=10] UN AERODACTYL !"
 
@@ -314,7 +314,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   GAME:WaitFrames(22)
 
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_010'], hero:GetDisplayName()))
   -- "Alors on va lui montrer que notre voyage ne fait que commencer ! [hero], à nous deux !"
 
@@ -366,7 +366,7 @@ function mount_windswept_guardian_ch_5.SecondPreBossScene()
 
   GAME:WaitFrames(30)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_011'], hero:GetDisplayName()))
   -- "Cette fois, on le terrasse. Promis, [hero]."
 
@@ -429,17 +429,17 @@ local function DefeatedBossBody()
   SOUND:PlayBGM('In the Depths of the Pit.ogg', false)
 
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Inspired")
+  GeneralFunctions.SetEmotion("Inspired")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_012']))
   -- "On...[pause=10] On l'a vaincu !"
 
   GAME:WaitFrames(30)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_013']))
   -- "Regarde ! L'orage se dissipe..."
 
   GAME:WaitFrames(20)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_014']))
   -- "Cette voix...[pause=15] Elle a dit quelque chose à propos de ruines ancestrales."
 
@@ -475,7 +475,7 @@ local function DefeatedBossBody()
 
   GAME:MoveCamera(224, 248, 40, false)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_036']))
   -- "On est montes ici pour l'expedition. Je l'avais oublie."
   GAME:WaitFrames(15)
@@ -485,7 +485,7 @@ local function DefeatedBossBody()
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_016']))
   -- "Alors allons-y ! La fin de l'expédition nous attend !"
 
@@ -602,7 +602,7 @@ function mount_windswept_guardian_ch_5.DiedToBoss()
   GeneralFunctions.DoAnimation(partner, 'Wake')
   GAME:WaitFrames(12)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Pain")
+  GeneralFunctions.SetEmotion("Pain")
   UI:WaitShowDialogue("Il est... trop rapide...[pause=20] Le ciel entier est son territoire...")
   GAME:WaitFrames(20)
 

@@ -56,12 +56,12 @@ function guild_heros_room_ch_5.PostExpeditionBedtalk()
   GAME:WaitFrames(40)
 
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Inspired")
+  GeneralFunctions.SetEmotion("Inspired")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR5_001'], hero:GetDisplayName()))
   -- "On l'a fait, [hero]... L'expédition est terminée !"
 
   GAME:WaitFrames(20)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR5_002']))
   -- "La Grande Steppe, le Tunnel Incandescent, le Mont Venteux..."
 
@@ -74,7 +74,7 @@ function guild_heros_room_ch_5.PostExpeditionBedtalk()
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR5_005']))
   -- "Mais... cette voix qu'on a entendue. Plusieurs fois."
 
@@ -94,22 +94,22 @@ function guild_heros_room_ch_5.PostExpeditionBedtalk()
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR5_010']))
   -- "En tout cas, on a prouvé qu'on était de vrais aventuriers !"
 
   GAME:WaitFrames(15)
-  UI:SetSpeakerEmotion("Happy")
+  GeneralFunctions.SetEmotion("Happy")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR5_011']))
   -- "La guilde va être fière de nous. Surtout Penticus !"
 
   GAME:WaitFrames(20)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR5_012']))
   -- "Bon... on devrait se reposer un peu. Ces derniers jours ont été épuisants."
 
   GAME:WaitFrames(20)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR5_013']))
   -- "Mais dès qu'on est prêts, on devrait continuer à explorer."
 
@@ -122,7 +122,7 @@ function guild_heros_room_ch_5.PostExpeditionBedtalk()
 
   GAME:WaitFrames(40)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Happy")
+  GeneralFunctions.SetEmotion("Happy")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR5_016'], hero:GetDisplayName()))
   -- "Bonne nuit, [hero]. À demain !"
 

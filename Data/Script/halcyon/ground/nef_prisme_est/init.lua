@@ -70,7 +70,7 @@ function nef_prisme_est.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Happy")
+  GeneralFunctions.SetEmotion("Happy")
   UI:WaitShowDialogue(STRINGS:Format("Les bois de la nef...[pause=10] ils FLEURISSENT sur son passage ![pause=20] Chaque pas fait pousser quelque chose !", hero:GetDisplayName()))
   UI:SetSpeaker(xerneas)
   UI:WaitShowDialogue("La vie que je donne, je peux la reprendre.[pause=20] Montrez-moi que la vôtre est bien employée.")

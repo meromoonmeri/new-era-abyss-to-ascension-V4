@@ -90,7 +90,7 @@ function RelayScenes.DuoArrival(cfg)
     else
       if partner ~= nil then
         UI:SetSpeaker(partner)
-        UI:SetSpeakerEmotion(line.emo or 'Normal')
+        GeneralFunctions.SetEmotion(line.emo or 'Normal')
         UI:WaitShowDialogue(line.txt)
       end
     end

@@ -71,7 +71,7 @@ function labo_decrepit.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("Ces machines ont des SIÈCLES...[pause=20] et il y en a une qui vient de rallumer ses yeux.", hero:GetDisplayName()))
   UI:SetSpeaker(genesect)
   UI:WaitShowDialogue("Intrusion détectée.[pause=10] Protocole :[pause=10] évaluation par le combat.[pause=20] Commencer.")

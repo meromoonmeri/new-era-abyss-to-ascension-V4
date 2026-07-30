@@ -35,7 +35,7 @@ function gouffre_muet_bord.Enter(map)
 
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("Écoute...[pause=25] Non. Justement.[pause=20] On n'entend rien du tout.")
   end
   GAME:WaitFrames(12)
@@ -46,7 +46,7 @@ function gouffre_muet_bord.Enter(map)
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Surprised")
+    GeneralFunctions.SetEmotion("Surprised")
     UI:WaitShowDialogue("J'ai crié et je ne me suis pas entendu ![pause=20] C'est ce silence qui est anormal.")
   end
   GAME:WaitFrames(12)
@@ -62,13 +62,13 @@ function gouffre_muet_bord.Enter(map)
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Le son est... rendu ?[pause=20] Comme si le mécanisme le retenait jusqu'ici.")
   end
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("Les bâtisseurs ont fait taire ce gouffre exprès.[pause=20] Pour protéger quoi ?")
   end
   GAME:WaitFrames(12)
@@ -76,7 +76,7 @@ function gouffre_muet_bord.Enter(map)
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Inspired")
+    GeneralFunctions.SetEmotion("Inspired")
     UI:WaitShowDialogue("La voie est rouverte.[pause=20] Et elle a retrouvé sa voix.")
   end
   GAME:WaitFrames(12)

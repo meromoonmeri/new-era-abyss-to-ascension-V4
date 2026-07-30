@@ -78,7 +78,7 @@ function mont_cendre_pied.Enter(map)
 
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("Il rit ?[pause=20] Il garde une fournaise depuis des siècles et il RIT !")
   end
   GeneralFunctions.HeroDialogue(hero, "Il ne nous déteste pas. Il s'ennuie.", "Determined")

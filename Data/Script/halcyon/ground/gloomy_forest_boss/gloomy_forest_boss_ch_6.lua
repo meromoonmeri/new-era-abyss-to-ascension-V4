@@ -44,12 +44,12 @@ function gloomy_forest_boss_ch_6.FirstBossScene()
 	TASK:JoinCoroutines({coro1, coro2})
 
 	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Worried")
+	GeneralFunctions.SetEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6B_001']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6B_002']))
 
 	UI:SetSpeaker(hero)
-	UI:SetSpeakerEmotion("Determined")
+	GeneralFunctions.SetEmotion("Determined")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6B_003']))
 
 	-- === LA FORET SE TAIT, L'OMBRE S'EPAISSIT ===
@@ -70,7 +70,7 @@ function gloomy_forest_boss_ch_6.FirstBossScene()
 	TASK:JoinCoroutines({c1, c2})
 
 	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Worried")
+	GeneralFunctions.SetEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6B_011']))
 
 	-- Le sol vibre, les lianes fremissent
@@ -109,18 +109,18 @@ function gloomy_forest_boss_ch_6.FirstBossScene()
 	GAME:WaitFrames(20)
 
 	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Surprised")
+	GeneralFunctions.SetEmotion("Surprised")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6B_004']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6B_005']))
 
 	UI:SetSpeaker(zarude)
-	UI:SetSpeakerEmotion("Determined")
+	GeneralFunctions.SetEmotion("Determined")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6B_006']))
 	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Angry")
+	GeneralFunctions.SetEmotion("Angry")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6B_007']))
 	UI:SetSpeaker(hero)
-	UI:SetSpeakerEmotion("Determined")
+	GeneralFunctions.SetEmotion("Determined")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6B_008']))
 
 	-- Zarude entre en fureur : lianes et ombre se dechainent
@@ -131,7 +131,7 @@ function gloomy_forest_boss_ch_6.FirstBossScene()
 	BossFX.Particle("Dark_Pulse_Front", 276, 208, 3)
 	BossFX.ShakeScreen(8, 24)
 	UI:SetSpeaker(zarude)
-	UI:SetSpeakerEmotion("Shouting")
+	GeneralFunctions.SetEmotion("Shouting")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6B_009']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6B_010']))
 	GROUND:CharSetEmote(zarude, "", 0)

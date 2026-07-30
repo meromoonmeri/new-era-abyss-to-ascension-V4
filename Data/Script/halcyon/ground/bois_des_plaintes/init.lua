@@ -70,7 +70,7 @@ function bois_des_plaintes.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format("L'eau du gué est devenue... parfaitement claire.[pause=20] On voit chaque pierre du fond. C'est LUI qui fait ça ?", hero:GetDisplayName()))
   UI:SetSpeaker(suicune)
   UI:WaitShowDialogue("Je purifie ce que je touche.[pause=20] Voyons ce qu'il restera de vous.")

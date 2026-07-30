@@ -35,7 +35,7 @@ function bois_sombres_oree.Enter(map)
 
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("Il fait plus sombre ici qu'au fond du donjon...[pause=20] et pourtant on est à l'orée.")
   end
   GAME:WaitFrames(12)
@@ -46,7 +46,7 @@ function bois_sombres_oree.Enter(map)
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Surprised")
+    GeneralFunctions.SetEmotion("Surprised")
     UI:WaitShowDialogue("Tu as vu ?[pause=20] Ils forment une allée.[pause=15] Quelqu'un les a disposés ainsi.")
   end
   GAME:WaitFrames(12)
@@ -62,13 +62,13 @@ function bois_sombres_oree.Enter(map)
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Une borne...[pause=20] Elle marque le début du chemin, pas la fin.")
   end
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("Les bâtisseurs voulaient qu'on puisse retrouver la sortie dans le noir.")
   end
   GAME:WaitFrames(12)
@@ -76,7 +76,7 @@ function bois_sombres_oree.Enter(map)
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Inspired")
+    GeneralFunctions.SetEmotion("Inspired")
     UI:WaitShowDialogue("Et nous voilà.[pause=20] Une voie de plus rouverte.")
   end
   GAME:WaitFrames(12)

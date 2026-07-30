@@ -71,7 +71,7 @@ function escalier_origine.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format("Chaque marche qu'on a montée...[pause=20] je crois qu'elle n'existait pas avant qu'on la monte, {0}.", hero:GetDisplayName()))
   UI:SetSpeaker(arceus)
   UI:WaitShowDialogue("Vous avez stabilisé ce que mes enfants gardaient.[pause=30] Une dernière question, alors :[pause=20] à qui confierai-je le monde, désormais ?")

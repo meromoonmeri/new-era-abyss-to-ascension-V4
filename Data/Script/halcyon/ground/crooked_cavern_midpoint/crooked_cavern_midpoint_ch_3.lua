@@ -127,7 +127,7 @@ function crooked_cavern_midpoint_ch_3.FirstArrival()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CCM3_002']))
   GAME:WaitFrames(10)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CCM3_003']))
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CCM3_004']))
 
   SV.Chapter3.CrookedPlayedMidpointIntro = true
@@ -185,16 +185,16 @@ function crooked_cavern_midpoint_ch_3.WipedCutscene()
   GAME:WaitFrames(30)
 
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Pain")
+  GeneralFunctions.SetEmotion("Pain")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CCM3_020']))
   GAME:WaitFrames(20)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CCM3_021']))
 
   if SV.Chapter3.LostToBoss then
     -- Wipe was against the boss (Team Style).
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CCM3_022']))
-    UI:SetSpeakerEmotion("Determined")
+    GeneralFunctions.SetEmotion("Determined")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CCM3_023']))
     -- Clear LostToBoss so the next crooked_den visit plays SecondPreBossScene (retry)
     -- instead of DiedToBoss (which would send the duo back to town and break the
@@ -202,9 +202,9 @@ function crooked_cavern_midpoint_ch_3.WipedCutscene()
     SV.Chapter3.LostToBoss = false
   else
     -- Wipe was in the Profondeurs (second half).
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CCM3_024']))
-    UI:SetSpeakerEmotion("Determined")
+    GeneralFunctions.SetEmotion("Determined")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CCM3_025']))
   end
 

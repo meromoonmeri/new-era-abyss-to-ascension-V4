@@ -588,11 +588,11 @@ function COMMON.DungeonInteract(chara, target, action_cancel, turn_cancel)
       local num_pool = {}
       local key = ""
       if ratio <= 25 then
-        UI:SetSpeakerEmotion("Pain")
+        GeneralFunctions.SetEmotion("Pain")
         num_pool = personality_group.PINCH
         key = "TALK_PINCH_%04d"
       elseif ratio <= 50 then
-        UI:SetSpeakerEmotion("Worried")
+        GeneralFunctions.SetEmotion("Worried")
         num_pool = personality_group.HALF
         key = "TALK_HALF_%04d"
       else
@@ -610,13 +610,13 @@ function COMMON.DungeonInteract(chara, target, action_cancel, turn_cancel)
 
       local key = ""
       if target:GetStatusEffect("confuse") ~= nil then
-        UI:SetSpeakerEmotion("Dizzy")
+        GeneralFunctions.SetEmotion("Dizzy")
         key = "TALK_%02d_DIZZY_%03d"
       elseif ratio <= 25 then
-        UI:SetSpeakerEmotion("Pain")
+        GeneralFunctions.SetEmotion("Pain")
         key = "TALK_%02d_PINCH_%03d"
       elseif ratio <= 50 then
-        UI:SetSpeakerEmotion("Worried")
+        GeneralFunctions.SetEmotion("Worried")
         key = "TALK_%02d_HALF_%03d"
       else
         key = "TALK_%02d_FULL_%03d"

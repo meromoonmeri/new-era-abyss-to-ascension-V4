@@ -119,7 +119,7 @@ function vast_steppe.ExitSegment(zone, result, rescue, segmentID, mapID)
 			--this saves the game, so it must be called 2nd to last.
 			GAME:EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
 			UI:SetSpeaker(GAME:GetPlayerPartyMember(3))--set audino as speaker 
-			UI:SetSpeakerEmotion("Pain")
+			GeneralFunctions.SetEmotion("Pain")
 			UI:WaitShowDialogue("Ouf ![pause=0] C'est t-trop difficile...")
 			GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(3), "N-nous devons r-rebrousser chemin...", "Pain")
 			GAME:WaitFrames(20)

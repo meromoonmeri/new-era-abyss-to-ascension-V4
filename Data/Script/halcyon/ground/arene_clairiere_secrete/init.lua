@@ -82,7 +82,7 @@ function arene_clairiere_secrete.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format("Un anneau doré vient de... d'AVALER mon sac ?![pause=20] Et cette petite chose rose RIGOLE !", hero:GetDisplayName()))
   UI:SetSpeaker(mew)
   UI:WaitShowDialogue("Alohomora ![pause=10] Tout ce qui entre dans mes anneaux est à moi ![pause=20] Toi aussi, si tu perds !")

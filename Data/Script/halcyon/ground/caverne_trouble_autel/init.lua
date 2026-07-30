@@ -35,7 +35,7 @@ function caverne_trouble_autel.Enter(map)
 
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("L'eau est opaque...[pause=20] On ne voit même pas nos propres pattes.")
   end
   GAME:WaitFrames(12)
@@ -46,7 +46,7 @@ function caverne_trouble_autel.Enter(map)
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Un autel ?[pause=20] Non...[pause=15] regarde les rainures sur le dessus.")
   end
   GAME:WaitFrames(12)
@@ -62,13 +62,13 @@ function caverne_trouble_autel.Enter(map)
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Surprised")
+    GeneralFunctions.SetEmotion("Surprised")
     UI:WaitShowDialogue("L'eau lui obéit ![pause=20] Ce n'est pas un autel, c'est une écluse !")
   end
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Les bâtisseurs contrôlaient le niveau pour garder la voie praticable.")
   end
   GAME:WaitFrames(12)
@@ -76,7 +76,7 @@ function caverne_trouble_autel.Enter(map)
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Inspired")
+    GeneralFunctions.SetEmotion("Inspired")
     UI:WaitShowDialogue("Et ce quelqu'un, aujourd'hui, c'est nous.")
   end
   GAME:WaitFrames(12)

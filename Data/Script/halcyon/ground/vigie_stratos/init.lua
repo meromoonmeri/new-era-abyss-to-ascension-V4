@@ -70,7 +70,7 @@ function vigie_stratos.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("L'Arbitre du Ciel...[pause=20] La légende de Reinier disait vrai :[pause=10] il ne bouge que si on franchit SON ciel.[pause=20] Et on vient de le faire.", hero:GetDisplayName()))
   UI:SetSpeaker(rayquaza)
   UI:WaitShowDialogue("Vous avez franchi la ligne verte du monde.[pause=20] Nul ne redescend sans mon accord.")

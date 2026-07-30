@@ -80,7 +80,7 @@ function mont_grondant_pied.Enter(map)
 
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Surprised")
+    GeneralFunctions.SetEmotion("Surprised")
     UI:WaitShowDialogue("Sa voix grésille comme un parasite...[pause=20] Elle sort des câbles eux-mêmes !")
   end
   GeneralFunctions.HeroDialogue(hero, "On ne coupera pas la ligne. On la traverse.", "Determined")

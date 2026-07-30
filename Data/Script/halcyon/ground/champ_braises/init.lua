@@ -70,7 +70,7 @@ function champ_braises.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("Ces flammes ne brûlent pas la pierre...[pause=20] elles l'ÉCLAIRENT. C'est un gardien, {0} !", hero:GetDisplayName()))
   UI:SetSpeaker(sulfura)
   UI:WaitShowDialogue("Mon feu ne détruit que ce qui doit tomber.[pause=20] Tenez debout, et il vous éclairera.")

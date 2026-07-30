@@ -70,7 +70,7 @@ function bois_antan_verger.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("Les pommes...[pause=10] elles mûrissent et pourrissent en boucle ![pause=20] Le temps tourne en rond ici !", hero:GetDisplayName()))
   UI:SetSpeaker(celebi)
   UI:WaitShowDialogue("Tu portes une mémoire qui n'est pas la tienne.[pause=20] Voyons si tu mérites de la garder.")

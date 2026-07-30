@@ -26,112 +26,63 @@ GeneralFunctions = {}
   handler s'il existe, et sinon execute le repli fourni. Retourne true si
   le handler de chapitre a bien ete trouve et appele.
 ------------------------------------------------------------------------]]
---[[----------------------------------------------------------------------
-  LOCUTEUR SANS PORTRAIT — CRASH MOTEUR EVITE
-
-  CRASH REEL constate en jeu le 2026-07-30 (log du joueur), a l'arrivee
-  de Plum :
-      System.ArgumentOutOfRangeException: Index was out of range.
-        at RogueEssence.Menu.SpeakerPortrait.Draw(...)
-        at RogueEssence.Menu.DialogueBox.Draw(...)
-        at RogueEssence.Menu.MenuManager.DrawMenus(...)
-  repete a CHAQUE FRAME, avec un bref ecran noir.
-
-  MECANIQUE EXACTE, remontee dans le code moteur :
-    1. UI:SetSpeaker(chara) enregistre chara.CurrentForm comme locuteur.
-    2. Au dessin, GraphicsManager.GetPortrait echoue a charger la feuille
-       et rend PortraitSheet.LoadError() (GraphicsManager.cs:957), dont
-       l'emoteMap est VIDE (PortraitSheet.cs:295-298).
-    3. DrawPortrait fait `type.Emote = GetReferencedEmoteIndex(type.Emote)`
-       (PortraitSheet.cs:332). Sans aucune emote disponible, la boucle de
-       fallback s'epuise et rend -1 (PortraitSheet.cs:312-327).
-    4. Ce -1 est ECRIT dans la structure EmoteStyle. A la frame suivante,
-       GetReferencedEmoteIndex attaque `GraphicsManager.Emotions[type]`
-       avec type = -1 (PortraitSheet.cs:315) -> IndexOutOfRange, en
-       boucle tant que la boite de dialogue reste affichee.
-
-  POURQUOI CE HELPER PLUTOT QU'UNE LISTE D'ESPECES :
-  Content/Portrait/ du mod ne contient que 34 fichiers, mais PathMod
-  retombe sur le jeu de base (PathMod.cs:378-384) : PMDO fournit les
-  autres. Une liste codee en dur serait donc fausse et fragile — elle
-  casserait des locuteurs qui fonctionnent (Phileas parle 70 fois sans
-  incident). On ne devine pas : on DEMANDE au moteur, une seule fois par
-  espece, si la feuille chargee possede au moins une emote utilisable.
-
-  Speak() :
-    * feuille exploitable -> UI:SetSpeaker(chara), comportement inchange ;
-    * feuille vide        -> UI:SetSpeaker(nom, ...) : le nom s'affiche,
-      aucun portrait n'est demande au rendu, donc aucun crash possible.
-  La signature a 6 arguments est celle du moteur (ScriptUI.cs:428) et le
-  patron est deja employe pour la Voix anonyme (ChapterAftermath.lua:90,
-  SuaireArc.lua:95, BossFX.lua:446).
-------------------------------------------------------------------------]]
-GeneralFunctions._portraitOK = {}
-
---SURCHARGES DE PORTRAIT REELLEMENT LIVREES PAR LE MOD (Content/Portrait/).
---Sert UNIQUEMENT de repli si l'interrogation du moteur echoue : ces
---especes-la ont un fichier dans le depot, donc leur portrait est sur.
---Liste generee depuis le dossier, pas devinee.
-GeneralFunctions.PORTRAIT_SUR = {
-	--Les 26 especes identifiables parmi les 34 fichiers de
-	--Content/Portrait/ (les 8 restants, #899-906, sont hors Pokedex
-	--national : formes ou PNJ propres au projet, non nommables ici).
-	bulbasaur=true, charmander=true, squirtle=true, voltorb=true,
-	eevee=true,     chikorita=true,  cyndaquil=true, totodile=true,
-	girafarig=true, snubbull=true,   treecko=true,   torchic=true,
-	mudkip=true,    zigzagoon=true,  linoone=true,   kecleon=true,
-	tropius=true,   turtwig=true,    chimchar=true,  piplup=true,
-	luxio=true,     cranidos=true,   snivy=true,     tepig=true,
-	sandile=true,   zorua=true,
+--LES EMOTIONS DE PORTRAIT VALIDES, ET POURQUOI CETTE LISTE EXISTE.
+--
+--CAUSE RACINE DU CRASH EN BOUCLE « SpeakerPortrait.Draw -> Index was out
+--of range » (signale en jeu, ~60 fois par seconde, build 2026-08-03-H).
+--Chaine exacte, lue dans le moteur :
+--  1. ScriptUI.cs:599  SetSpeakerEmotion fait
+--       GraphicsManager.Emotions.FindIndex(nom)
+--     FindIndex rend -1 quand le nom n'existe pas. AUCUN controle : le -1
+--     est ecrit tel quel dans m_curspeakerEmo.Emote.
+--  2. PortraitSheet.cs:313  GetReferencedEmoteIndex fait
+--       EmotionType emoteData = GraphicsManager.Emotions[type];
+--     avec type == -1  ->  ArgumentOutOfRangeException.
+--  3. L'exception est levee dans Draw, donc a CHAQUE FRAME tant que la
+--     boite de dialogue reste affichee : d'ou la boucle dans le log.
+--
+--Les portraits sont NATIFS et fonctionnent : le probleme n'a jamais ete
+--l'absence de portrait, c'est un NOM D'EMOTION INVALIDE. Les fautifs
+--etaient des noms d'EMOTES DE BULLE ("Sweating", "Shock", "Question")
+--passes la ou le moteur attend une EMOTION DE PORTRAIT. Les deux
+--vocabulaires se ressemblent, d'ou la confusion.
+--
+--Liste etablie par releve des emotions REELLEMENT employees dans le
+--depot et qui n'ont jamais crashe (536 "Normal", 489 "Worried", 379
+--"Happy"...), plus les variantes Special0-2 utilisees par les scenes de
+--legende. Toute valeur hors de cette liste est refusee avant d'atteindre
+--le moteur.
+GeneralFunctions.EMOTIONS_PORTRAIT = {
+	Normal=true,   Happy=true,     Pain=true,      Angry=true,
+	Worried=true,  Sad=true,       Crying=true,    Shouting=true,
+	['Teary-Eyed']=true,           Determined=true,
+	Joyous=true,   Inspired=true,  Surprised=true, Dizzy=true,
+	Special0=true, Special1=true,  Special2=true,  Sigh=true,
+	Stunned=true,  Special3=true,  Special4=true,
 }
 
-
---Le portrait de ce personnage est-il reellement dessinable ?
---On interroge la feuille chargee par le moteur : si GetReferencedEmoteIndex
---rend -1 pour l'emote neutre (0), la feuille est vide et le dessin
---crashera. Resultat memorise par espece : un seul test par partie.
-function GeneralFunctions.HasPortrait(chara)
-	if chara == nil then return false end
-	local cle = nil
-	pcall(function() cle = tostring(chara.CurrentForm.Species) end)
-	if cle == nil then return false end
-	if GeneralFunctions._portraitOK[cle] ~= nil then
-		return GeneralFunctions._portraitOK[cle]
+--Pose l'emotion du locuteur SANS jamais pouvoir ecrire -1 dans le moteur.
+--C'est le seul point de passage : si le nom est inconnu, on retombe sur
+--"Normal" (toujours valide) et on trace, plutot que de crasher le rendu.
+function GeneralFunctions.SetEmotion(emotion)
+	if emotion == nil or emotion == '' then emotion = 'Normal' end
+	if not GeneralFunctions.EMOTIONS_PORTRAIT[emotion] then
+		PrintInfo('[EMOTION] nom invalide : "'..tostring(emotion)..
+		          '" -> repli sur Normal (aurait provoque '..
+		          'SpeakerPortrait.Draw / Index out of range)')
+		emotion = 'Normal'
 	end
-	local ok = false
-	local reussi = pcall(function()
-		local sheet = RogueEssence.Content.GraphicsManager.GetPortrait(chara.CurrentForm:ToCharID())
-		ok = (sheet ~= nil) and (sheet:GetReferencedEmoteIndex(0) >= 0)
-	end)
-	--LIAISON MOTEUR INDISPONIBLE : que faire ?
-	--Rendre `true` (= tenter le portrait) redonnerait exactement le crash
-	--qu'on corrige si l'espece n'en a pas. Rendre `false` partout ferait
-	--perdre TOUS les portraits, y compris ceux qui marchent.
-	--Compromis mesure : on ne tente le portrait que pour les especes dont
-	--le mod livre lui-meme la surcharge (Content/Portrait/, 34 fichiers,
-	--dont les starters et les PNJ de la guilde). Pour les autres, nom seul
-	--— degradation cosmetique, jamais un crash.
-	if not reussi then
-		ok = (GeneralFunctions.PORTRAIT_SUR[cle] == true)
-	end
-	GeneralFunctions._portraitOK[cle] = ok
-	return ok
+	UI:SetSpeakerEmotion(emotion)
 end
 
---Pose un locuteur SANS jamais risquer le crash de portrait manquant.
+--Pose un locuteur. Les portraits etant natifs, on passe simplement le
+--personnage au moteur : il resout lui-meme la feuille et ses replis
+--(PortraitSheet.GetReferencedEmoteIndex). Seule l'emotion est validee.
 function GeneralFunctions.Speak(chara, emotion)
 	if chara == nil then UI:ResetSpeaker() return false end
-	if GeneralFunctions.HasPortrait(chara) then
-		UI:SetSpeaker(chara)
-		if emotion ~= nil then pcall(function() UI:SetSpeakerEmotion(emotion) end) end
-		return true
-	end
-	--Feuille vide : NOM SEUL. Pas de SetSpeakerEmotion — sans portrait il
-	--n'a aucun effet visible, et il rouvrirait la porte au crash.
-	local nom = ""
-	pcall(function() nom = chara:GetDisplayName() end)
-	UI:SetSpeaker(nom, true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-	return false
+	UI:SetSpeaker(chara)
+	GeneralFunctions.SetEmotion(emotion)
+	return true
 end
 
 
@@ -521,7 +472,7 @@ function GeneralFunctions.HeroDialogue(chara, str, emotion)
 	if emotion == nil then emotion = "Normal" end
 
 	UI:SetSpeaker('', false, chara.CurrentForm.Species, chara.CurrentForm.Form, chara.CurrentForm.Skin, chara.CurrentForm.Gender)
-	UI:SetSpeakerEmotion(emotion)
+	GeneralFunctions.SetEmotion(emotion)
 	UI:WaitShowDialogue(str)
 end
 
@@ -1725,7 +1676,7 @@ function GeneralFunctions.StartConversation(target, dialogue, emotion, npcTurn, 
 	partner.IsInteracting = true
 	SV.TemporaryFlags.OldDirection = target.Direction
 	if changeSpeaker then UI:SetSpeaker(target) end
-	UI:SetSpeakerEmotion(emotion)
+	GeneralFunctions.SetEmotion(emotion)
 	GROUND:CharSetAnim(partner, animation, true)
 	GROUND:CharSetAnim(hero, animation, true)
 	if changeNPCanimation then GROUND:CharSetAnim(target, animation, true) end
@@ -1775,7 +1726,7 @@ function GeneralFunctions.StartPartnerConversation(dialogue, emotion, heroTurn)
 	local partner = CH('Teammate1')
 	partner.IsInteracting = true
 	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion(emotion)
+	GeneralFunctions.SetEmotion(emotion)
 	GROUND:CharSetAnim(partner, 'None', true)
 	GROUND:CharSetAnim(hero, 'None', true)
 
@@ -1800,7 +1751,7 @@ function GeneralFunctions.StartPartnerYesNo(dialogue, emotion, heroTurn, default
 	local result = false
 	partner.IsInteracting = true
 	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion(emotion)
+	GeneralFunctions.SetEmotion(emotion)
 	GROUND:CharSetAnim(partner, 'None', true)
 	GROUND:CharSetAnim(hero, 'None', true)
 
@@ -1824,7 +1775,7 @@ end
 -- simple so no second front-layer fade can strand the dungeon on black.
 function GeneralFunctions.DeathFadeOutDialogue(chara, dialogue, emotion)
     UI:SetSpeaker(chara)
-    UI:SetSpeakerEmotion(emotion)
+    GeneralFunctions.SetEmotion(emotion)
     UI:WaitShowDialogue(dialogue)
 end
 
@@ -1875,7 +1826,7 @@ end
 
 function GeneralFunctions.DeathFadeOutDialogue(chara, dialogue, emotion)
 	UI:SetSpeaker(chara)
-	UI:SetSpeakerEmotion(emotion)
+	GeneralFunctions.SetEmotion(emotion)
 	UI:WaitShowDialogue(dialogue)
 	UI:SetAutoFinish(true)
 	UI:WaitShowTimedDialogue(string.gsub(dialogue, "%[pause=0%]", "") .. "[script=0]", 60, {function() return GAME:FadeInFront(false, 60) end})--remove pause=0 to stop unneeded pauses

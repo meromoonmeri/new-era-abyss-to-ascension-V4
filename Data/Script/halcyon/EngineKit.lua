@@ -79,7 +79,7 @@ function EngineKit.Say(who, emo, txt, reverse)
   if who == nil or txt == nil then return end
   pcall(function() UI:SetSpeakerReverse(reverse == true) end)
   UI:SetSpeaker(who)
-  if emo ~= nil then UI:SetSpeakerEmotion(emo) end
+  if emo ~= nil then GeneralFunctions.SetEmotion(emo) end
   UI:WaitShowDialogue(txt)
   --On remet l'orientation par defaut : une scene qui oublierait de le
   --faire contaminerait toutes les repliques suivantes.

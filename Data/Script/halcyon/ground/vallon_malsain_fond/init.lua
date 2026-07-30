@@ -72,7 +72,7 @@ function vallon_malsain_fond.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("Les arbres gris...[pause=10] ils ne pourrissent pas, ils sont VIDÉS.[pause=20] Et ce cocon géant vient de s'ouvrir...", hero:GetDisplayName()))
   UI:SetSpeaker(yveltal)
   UI:WaitShowDialogue("Je dors pour que le monde vive.[pause=20] Vous m'avez réveillé.[pause=10] Assumez.")

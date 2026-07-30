@@ -34,22 +34,22 @@ function metano_town_ch_7.Noctowl_Action(chara, activator)
     if SV.Chapter7.SawAnimaCoreCorruption and not SV.Chapter7.HeardGenesisTale then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Noctowl_001']))
-        UI:SetSpeakerEmotion("Worried")
+        GeneralFunctions.SetEmotion("Worried")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Noctowl_002']))
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Noctowl_003']))
         GeneralFunctions.EndConversation(chara)
         GAME:EnterGroundMap('genesis_vision', 'Main_Entrance_Marker')
     elseif SV.Chapter7.HeardGenesisTale and not SV.Chapter7.HadFirstDream then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Noctowl_004']))
-        UI:SetSpeakerEmotion("Sad")
+        GeneralFunctions.SetEmotion("Sad")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Noctowl_005']))
         GeneralFunctions.EndConversation(chara)
     elseif SV.Chapter7.DefeatedRuinsBoss then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Noctowl_006']))
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Noctowl_007']))
         GeneralFunctions.EndConversation(chara)
     else
@@ -65,15 +65,15 @@ function metano_town_ch_7.Tropius_Action(chara, activator)
     if s == "post_boss" or s == "post_genesis" or s == "post_dream" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Tropius_001']))
-        UI:SetSpeakerEmotion("Happy")
+        GeneralFunctions.SetEmotion("Happy")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Tropius_002']))
-        UI:SetSpeakerEmotion("Inspired")
+        GeneralFunctions.SetEmotion("Inspired")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Tropius_003']))
         GeneralFunctions.EndConversation(chara)
     elseif s == "pre" or s == "during" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Tropius_004']))
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Tropius_005']))
         GeneralFunctions.EndConversation(chara)
     else
@@ -94,15 +94,15 @@ function metano_town_ch_7.Audino_Action(chara, activator)
     elseif s == "post_boss" or s == "post_genesis" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Audino_001']))
-        UI:SetSpeakerEmotion("Worried")
+        GeneralFunctions.SetEmotion("Worried")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Audino_002']))
-        UI:SetSpeakerEmotion("Happy")
+        GeneralFunctions.SetEmotion("Happy")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Audino_003']))
         GeneralFunctions.EndConversation(chara)
     elseif s == "during" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Audino_004']))
-        UI:SetSpeakerEmotion("Worried")
+        GeneralFunctions.SetEmotion("Worried")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Audino_005']))
         GeneralFunctions.EndConversation(chara)
     else
@@ -128,13 +128,13 @@ function metano_town_ch_7.Snubbull_Action(chara, activator)
     elseif s == "post_boss" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Snubbull_001']))
-        UI:SetSpeakerEmotion("Surprised")
+        GeneralFunctions.SetEmotion("Surprised")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Snubbull_002']))
         GeneralFunctions.EndConversation(chara)
     elseif s == "pre" or s == "during" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Snubbull_003']))
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Snubbull_004']))
         GeneralFunctions.EndConversation(chara)
     else
@@ -150,7 +150,7 @@ function metano_town_ch_7.Zigzagoon_Action(chara, activator)
     if s == "post_boss" or s == "post_genesis" or s == "post_dream" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Zigzagoon_001']))
-        UI:SetSpeakerEmotion("Inspired")
+        GeneralFunctions.SetEmotion("Inspired")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Zigzagoon_002']))
         GeneralFunctions.EndConversation(chara)
     else
@@ -175,14 +175,14 @@ function metano_town_ch_7.Relicanth_Action(chara, activator)
     elseif s == "post_genesis" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Relicanth_001']))
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Relicanth_002']))
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Relicanth_003']))
         GeneralFunctions.EndConversation(chara)
     elseif s == "post_boss" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Relicanth_004']))
-        UI:SetSpeakerEmotion("Worried")
+        GeneralFunctions.SetEmotion("Worried")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Relicanth_005']))
         GeneralFunctions.EndConversation(chara)
     else
@@ -203,13 +203,13 @@ function metano_town_ch_7.Bisharp_Action(chara, activator)
     elseif s == "post_boss" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Bisharp_001']))
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Bisharp_002']))
         GeneralFunctions.EndConversation(chara)
     elseif s == "pre" or s == "during" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Bisharp_003']))
-        UI:SetSpeakerEmotion("Determined")
+        GeneralFunctions.SetEmotion("Determined")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Bisharp_004']))
         GeneralFunctions.EndConversation(chara)
     else
@@ -230,7 +230,7 @@ function metano_town_ch_7.Ledian_Action(chara, activator)
     elseif s == "post_boss" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Ledian_001']))
-        UI:SetSpeakerEmotion("Inspired")
+        GeneralFunctions.SetEmotion("Inspired")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Ledian_002']))
         GeneralFunctions.EndConversation(chara)
     else
@@ -263,7 +263,7 @@ function metano_town_ch_7.Vileplume_Action(chara, activator)
     elseif s == "pre" or s == "during" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Vileplume_001']))
-        UI:SetSpeakerEmotion("Worried")
+        GeneralFunctions.SetEmotion("Worried")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Vileplume_002']))
         GeneralFunctions.EndConversation(chara)
     else
@@ -336,7 +336,7 @@ function metano_town_ch_7.Nidoqueen_Action(chara, activator)
     elseif s == "pre" or s == "during" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Nidoqueen_001']))
-        UI:SetSpeakerEmotion("Worried")
+        GeneralFunctions.SetEmotion("Worried")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Nidoqueen_002']))
         GeneralFunctions.EndConversation(chara)
     else
@@ -356,7 +356,7 @@ function metano_town_ch_7.Mawile_Action(chara, activator)
     elseif s == "post_genesis" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Mawile_001']))
-        UI:SetSpeakerEmotion("Surprised")
+        GeneralFunctions.SetEmotion("Surprised")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Mawile_002']))
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_107']))
         GeneralFunctions.EndConversation(chara)
@@ -386,7 +386,7 @@ function metano_town_ch_7.Floatzel_Action(chara, activator)
     elseif s == "pre" or s == "during" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Floatzel_001']))
-        UI:SetSpeakerEmotion("Worried")
+        GeneralFunctions.SetEmotion("Worried")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Floatzel_002']))
         GeneralFunctions.EndConversation(chara)
     else
@@ -425,7 +425,7 @@ function metano_town_ch_7.Nidorina_Action(chara, activator)
     if s == "post_boss" or s == "post_genesis" or s == "post_dream" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Nidorina_001']))
-        UI:SetSpeakerEmotion("Happy")
+        GeneralFunctions.SetEmotion("Happy")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Nidorina_002']))
         GeneralFunctions.EndConversation(chara)
     else
@@ -455,7 +455,7 @@ function metano_town_ch_7.Electrike_Action(chara, activator)
     else
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Electrike_001']))
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Electrike_002']))
         GeneralFunctions.EndConversation(chara)
     end
@@ -476,7 +476,7 @@ function metano_town_ch_7.Machamp_Action(chara, activator)
     elseif s == "post_boss" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Machamp_001']))
-        UI:SetSpeakerEmotion("Happy")
+        GeneralFunctions.SetEmotion("Happy")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Machamp_002']))
         GeneralFunctions.EndConversation(chara)
     else
@@ -504,7 +504,7 @@ function metano_town_ch_7.Adagio_Action(chara, activator)
     elseif s == "post_boss" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Adagio_001']))
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Adagio_002']))
         GeneralFunctions.EndConversation(chara)
     else
@@ -519,7 +519,7 @@ function metano_town_ch_7.Aria_Action(chara, activator)
     if s == "post_boss" or s == "post_genesis" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Aria_001']))
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Aria_002']))
         GeneralFunctions.EndConversation(chara)
     elseif s == "post_dream" then
@@ -539,7 +539,7 @@ function metano_town_ch_7.Sonata_Action(chara, activator)
     if s == "post_boss" or s == "post_genesis" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Sonata_001']))
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Sonata_002']))
         GeneralFunctions.EndConversation(chara)
     elseif s == "post_dream" then

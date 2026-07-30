@@ -70,7 +70,7 @@ function sommet_aurore.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Happy")
+  GeneralFunctions.SetEmotion("Happy")
   UI:WaitShowDialogue(STRINGS:Format("Un arc-en-ciel...[pause=10] en pleine nuit ![pause=20] {0}, regarde — le ciel BRÛLE de couleurs !", hero:GetDisplayName()))
   UI:SetSpeaker(hooh)
   UI:WaitShowDialogue("J'ai promis de revenir quand les cœurs seraient purs.[pause=20] Montrez-moi que j'ai bien choisi ma date.")

@@ -71,7 +71,7 @@ function terres_tues_porte.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("Ces points verts, partout...[pause=10] ils COULENT les uns vers les autres ![pause=20] Ça prend forme, {0} !", hero:GetDisplayName()))
   UI:SetSpeaker(zygarde)
   UI:WaitShowDialogue("Cent pour cent atteint.[pause=20] L'audit de vos intentions peut commencer.")

@@ -71,7 +71,7 @@ function ile_legendaire.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Happy")
+  GeneralFunctions.SetEmotion("Happy")
   UI:WaitShowDialogue(STRINGS:Format("L'aube...[pause=10] en PLEIN midi ?![pause=20] Sa crinière — c'est elle qui éclaire l'île entière !", hero:GetDisplayName()))
   UI:SetSpeaker(solgaleo)
   UI:WaitShowDialogue("Chaque histoire a besoin d'un soleil.[pause=20] Prouvez que la vôtre mérite le sien.")

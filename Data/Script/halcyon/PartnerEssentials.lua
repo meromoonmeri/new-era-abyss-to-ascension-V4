@@ -166,7 +166,7 @@ function PartnerEssentials.Chapter_1_Dialogue(partner)
 	GROUND:CharSetAnim(hero, 'None', true)
 	GROUND:CharTurnToCharAnimated(partner, hero, 4)
 	GROUND:CharTurnToCharAnimated(hero, partner, 4)
-	UI:SetSpeakerEmotion('Normal')
+	GeneralFunctions.SetEmotion('Normal')
 
 	if ground == 'guild_second_floor' then
 		--PartnerSecondFloorDialogue flag is 0-3, 0 happens once, 1 is a default message, and 2 and 3 are after speaking to guildmates. it cycles through available dialogues
@@ -175,11 +175,11 @@ function PartnerEssentials.Chapter_1_Dialogue(partner)
 			UI:WaitShowDialogue("De nombreux Pokémon différents se rassemblent ici tous les jours.[pause=0]Je suis sûr que nous rencontrerons toutes sortes de Pokémon ici !")
 			GAME:WaitFrames(20)
 			UI:WaitShowDialogue("Vous savez...[pause=0]Avant aujourd'hui,[pause=10]c'était la seule partie de l'intérieur de la guilde que j'avais vue.")
-			UI:SetSpeakerEmotion("Sad")
+			GeneralFunctions.SetEmotion("Sad")
 			UI:WaitShowDialogue("Sans partenaire,[pause=10], ils ne m'ont même pas donné la chance de devenir apprenti...")
 			UI:WaitShowDialogue("Je n'ai donc jamais vu la zone à l'étage ni le maître de guilde jusqu'à aujourd'hui.")
 			GAME:WaitFrames(20)
-			UI:SetSpeakerEmotion("Inspired")
+			GeneralFunctions.SetEmotion("Inspired")
 			UI:WaitShowDialogue("Mais ce n'est pas grave ![pause=0]Nous sommes avec la guilde maintenant et c'est tout ce qui compte !")
 			UI:WaitShowDialogue("Nous allons former une équipe fantastique " .. hero:GetDisplayName() .. "![pause=0]Je sais que nous allons faire du bien !")
 			SV.Chapter1.PartnerSecondFloorDialogue = 1
@@ -197,15 +197,15 @@ function PartnerEssentials.Chapter_1_Dialogue(partner)
 				SV.Chapter1.PartnerSecondFloorDialogue = 3
 			end
 		elseif SV.Chapter1.PartnerSecondFloorDialogue == 2 then--mareep/cranidos dialogue
-			UI:SetSpeakerEmotion("Angry")
+			GeneralFunctions.SetEmotion("Angry")
 			GROUND:CharSetEmote(partner, "angry", 0)
 			UI:WaitShowDialogue("Ce " .. CharacterEssentials.GetCharacterName('Cranidos') .. "...[pause=0]Quel tyran !")
 			UI:WaitShowDialogue("Je n'arrive toujours pas à croire à quel point il a été irrespectueux !")
 			GAME:WaitFrames(20)
 			GROUND:CharSetEmote(partner, "", 0)
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Cependant, " .. CharacterEssentials.GetCharacterName('Mareep') .. " était très gentille.[pause=0]Je suis curieux de savoir ce qu'elle a à nous montrer sur les hors-la-loi.")
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue("Elle doit être douée pour gérer les mauvais Pokémon si elle peut garder " .. CharacterEssentials.GetCharacterName('Cranidos') .. " sous contrôle,[pause=10]haha !")
 			if SV.Chapter1.MetZigzagoon then
 				SV.Chapter1.PartnerSecondFloorDialogue = 3
@@ -213,9 +213,9 @@ function PartnerEssentials.Chapter_1_Dialogue(partner)
 				SV.Chapter1.PartnerSecondFloorDialogue = 1
 			end
 		elseif SV.Chapter1.PartnerSecondFloorDialogue == 3 then
-			UI:SetSpeakerEmotion('Worried')
+			GeneralFunctions.SetEmotion('Worried')
 			UI:WaitShowDialogue("Pensez-vous que " .. CharacterEssentials.GetCharacterName('Zigzagoon') .. " va nous mettre dans son almanach ?")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Nous devrons vérifier après un moment pour voir,[pause=10]je suppose.[pause=0]Je veux savoir ce qu'il écrirait sur nous !")
 			SV.Chapter1.PartnerSecondFloorDialogue = 1
 		end
@@ -224,10 +224,10 @@ function PartnerEssentials.Chapter_1_Dialogue(partner)
 		UI:WaitShowDialogue("Mais il semble qu'il n'y ait personne ici.[pause=0]Regardons dans les autres pièces !")
 	elseif ground == 'guild_dining_room' then
 		if SV.Chapter1.MetSnubbull then
-			UI:SetSpeakerEmotion("Inspired")
+			GeneralFunctions.SetEmotion("Inspired")
 			UI:WaitShowDialogue("J'ai hâte de manger un repas avec tous nos nouveaux camarades de guilde !")
 			UI:WaitShowDialogue("Je n'ai jamais mangé à une grande table comme celle-ci auparavant !")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("J'espère juste que " .. CharacterEssentials.GetCharacterName("Snubbull") .. " est aussi bonne qu'un chef comme elle le prétend.")
 		else
 			UI:WaitShowDialogue("Oh,[pause=10], ça doit être la salle à manger.[pause=0]Vous pensez que la nourriture ici est bonne ?")
@@ -238,19 +238,19 @@ function PartnerEssentials.Chapter_1_Dialogue(partner)
 			UI:WaitShowDialogue("Bâillement...[pause=0]Je commence à avoir sommeil...")
 			UI:WaitShowDialogue("Faisons un peu de repos pour être prêts pour le début de notre entraînement demain !")
 		else
-			UI:SetSpeakerEmotion("Inspired")
+			GeneralFunctions.SetEmotion("Inspired")
 			UI:WaitShowDialogue("Tu peux croire qu'on a une chambre aussi jolie ?")
 			UI:WaitShowDialogue("Le reste de la guilde doit être aussi sympa !")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Nous devrions aller explorer la guilde et dire bonjour à tous nos nouveaux camarades de guilde !")
 		end
 	elseif ground == 'guild_bottom_left_bedroom' then
 		if SV.Chapter1.MetBreloomGirafarig then
-			UI:SetSpeakerEmotion("Stunned")
+			GeneralFunctions.SetEmotion("Stunned")
 			UI:WaitShowDialogue("Ces deux-là forment de nombreux personnages,[pause=10], n'est-ce pas... ?")
 			UI:WaitShowDialogue("Surtout que " .. CharacterEssentials.GetCharacterName("Girafarig") .. "...[pause=0]je ne sais toujours pas quoi penser de lui...")
 			GAME:WaitFrames(20)
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue("Eh bien,[pause=10], ils sont tous les deux amicaux de toute façon.[pause=0]Je suppose que c'est tout ce qui compte.")
 		else
 			UI:WaitShowDialogue("Oh,[pause=10], il y a quelques Pokémon là-bas ![pause=0]Disons bonjour !")
@@ -272,16 +272,16 @@ function PartnerEssentials.Chapter_1_Dialogue(partner)
 
 	elseif ground == 'guild_bedroom_hallway' then
 		UI:WaitShowDialogue("Je suppose que les pièces sur les côtés du couloir sont les chambres des autres membres de la guilde.")
-		UI:SetSpeakerEmotion("Worried")
+		GeneralFunctions.SetEmotion("Worried")
 		UI:WaitShowDialogue("J'espère que nous ne serions pas intrusifs si nous entrions.")
 
 	elseif ground == 'guild_storage_hallway' then
-		UI:SetSpeakerEmotion("Worried")
+		GeneralFunctions.SetEmotion("Worried")
 		UI:WaitShowDialogue("Pensez-vous que " .. CharacterEssentials.GetCharacterName("Audino") .. " devient aussi fou tous les soirs ?")
 		UI:WaitShowDialogue("J'ai l'impression que tu n'es pas le premier Pokémon sur lequel elle s'écrase...")
 	elseif ground == 'guild_storage_room' then
 		UI:WaitShowDialogue("Cela ressemble à la salle de stockage.[pause=0]Ils gardent probablement la plupart de la nourriture et des fournitures ici.")
-		UI:SetSpeakerEmotion("Worried")
+		GeneralFunctions.SetEmotion("Worried")
 		UI:WaitShowDialogue("Je ne toucherais à rien.[pause=0]Nous ne voulons pas avoir d'ennuis...")
 
 	else
@@ -305,51 +305,51 @@ function PartnerEssentials.Chapter_2_Dialogue(partner)
 	GROUND:CharSetAnim(hero, 'None', true)
 	GROUND:CharTurnToCharAnimated(partner, hero, 4)
 	GROUND:CharTurnToCharAnimated(hero, partner, 4)
-	UI:SetSpeakerEmotion('Normal')
+	GeneralFunctions.SetEmotion('Normal')
 
 	--yes i know this is yandere dev shit i dont know how better to structure this. a lua table doesn't really make sense here without having to do a bunch of extra bullshit that i feel makes it less categorized/ordered.
 	--can redo this with a better approach if a good one can be figured out.
 	if ground == 'guild_heros_room' then
 		if SV.TemporaryFlags.JustWokeUp then
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue("Bonjour,[pause=10]" .. hero:GetDisplayName() .. " !")
 			if not SV.Chapter2.FirstMorningMeetingDone then
-				UI:SetSpeakerEmotion("Normal")
+				GeneralFunctions.SetEmotion("Normal")
 				UI:WaitShowDialogue("Nous ferions mieux de nous rendre à la réunion du matin avant de rater quelque chose ![pause=0]C'est parti !")
 			end
 		elseif not SV.Chapter2.FinishedFirstDay then
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Cela aurait été bien si nous avions pu dormir un peu plus longtemps...")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Ah bien.[pause=0]Nous avons des choses plus importantes à faire que dormir,[pause=10]de toute façon.")
 			UI:WaitShowDialogue("Direction le dojo pour l'entraînement,[pause=10]" .. hero:GetDisplayName() .. ".")
 		else
-			UI:SetSpeakerEmotion("Determined")
+			GeneralFunctions.SetEmotion("Determined")
 			local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("illuminant_riverbed")
 			UI:WaitShowDialogue("Ce n’est pas le moment de se reposer,[pause=10]" .. hero:GetDisplayName() .. " !")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Nous devons nous rendre à " .. zone:GetColoredName() .. " pour trouver " .. CharacterEssentials.GetCharacterName("Numel") .. "![pause=0]C'est parti !")
 		end
 
 	elseif ground == 'guild_bottom_left_bedroom' then
 		if not SV.Chapter2.FinishedFirstDay then
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Je ne suis toujours pas sûr à cent pour cent de qui a quelle chambre...")
 			UI:WaitShowDialogue("Mais étant donné que nous les avons vus ici l'autre jour,[pause=10], je pense que c'est la chambre de " .. CharacterEssentials.GetCharacterName("Breloom") .. " et " .. CharacterEssentials.GetCharacterName("Girafarig") .. ".")
 			UI:WaitShowDialogue("... Aussi gentils soient-ils,[pause=10], je suis toujours un peu effrayé par " .. CharacterEssentials.GetCharacterName("Tail") .. ",[pause=10]pour être honnête.")
 		else
 			local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("illuminant_riverbed")
-			UI:SetSpeakerEmotion("Determined")
+			GeneralFunctions.SetEmotion("Determined")
 			UI:WaitShowDialogue("Allez " .. hero:GetDisplayName() .. " ![pause=0]Nous avons mieux à faire que de fouiner dans la chambre de " .. CharacterEssentials.GetCharacterName("Breloom") .. " et " .. CharacterEssentials.GetCharacterName("Girafarig") .. " !")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Nous devons nous rendre à " .. zone:GetColoredName() .. " pour trouver " .. CharacterEssentials.GetCharacterName("Numel") .. "![pause=0]C'est parti !")
 		end
 	elseif ground == 'guild_bottom_right_bedroom' then
 		if not SV.Chapter2.FinishedFirstDay then
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Hmm...[pause=0]Étant donné tous les livres et papiers éparpillés,[pause=10], je suppose que c'est la chambre de " .. CharacterEssentials.GetCharacterName('Zigzagoon') .. ".")
 			UI:WaitShowDialogue("Je pense que " .. CharacterEssentials.GetCharacterName("Growlithe") .. " m'a mentionné une fois que " .. CharacterEssentials.GetCharacterName('Zigzagoon') .. " était son partenaire,[pause=10]donc ça doit être aussi sa chambre.")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Pendant que nous sommes ici,[pause=10], pourquoi ne pas jeter un coup d'œil rapide aux almanachs sur lesquels " .. CharacterEssentials.GetCharacterName("Zigzagoon") .. " a travaillé ?")
 			UI:WaitShowDialogue("Je parie qu'ils contiennent des connaissances utiles !")
 		else
@@ -358,30 +358,30 @@ function PartnerEssentials.Chapter_2_Dialogue(partner)
 		end
 	elseif ground == 'guild_top_left_bedroom' then
 		if not SV.Chapter2.FinishedFirstDay then
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Étant donné à qui appartiennent les autres chambres,[pause=10], il doit s'agir de la chambre de " .. CharacterEssentials.GetCharacterName("Mareep") .. " et " .. CharacterEssentials.GetCharacterName("Cranidos") .. ".")
-			UI:SetSpeakerEmotion("Pain")
+			GeneralFunctions.SetEmotion("Pain")
 			UI:WaitShowDialogue("Nous ferions mieux de partir.[pause=0]Je ne veux pas me disputer avec " .. CharacterEssentials.GetCharacterName("Cranidos") .. " s'il nous surprend ici...")
 		else
 			local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("illuminant_riverbed")
-			UI:SetSpeakerEmotion("Determined")
+			GeneralFunctions.SetEmotion("Determined")
 			UI:WaitShowDialogue("Allez " .. hero:GetDisplayName() .. " ![pause=0]Nous avons mieux à faire que de fouiner dans la chambre de " .. CharacterEssentials.GetCharacterName("Mareep") .. " et " .. CharacterEssentials.GetCharacterName("Cranidos") .. " !")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Nous devons nous rendre à " .. zone:GetColoredName() .. " pour trouver " .. CharacterEssentials.GetCharacterName("Numel") .. "![pause=0]C'est parti !")
 		end
 	elseif ground == 'guild_top_right_bedroom' then
 		if not SV.Chapter2.FinishedFirstDay then
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Je pense avoir vu " .. CharacterEssentials.GetCharacterName("Snubbull") .. " entrer dans cette pièce hier soir...")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Je pense que " .. CharacterEssentials.GetCharacterName("Audino") .. " est son partenaire,[pause=10]donc ça doit être leur chambre.")
 			UI:WaitShowDialogue("Ces deux-là font certainement une grande partie du travail autour de la guilde elle-même,[pause=10], n'est-ce pas ?")
 			UI:WaitShowDialogue("C'est peut-être pour ça qu'ils forment une paire.")
 		else
 			local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("illuminant_riverbed")
-			UI:SetSpeakerEmotion("Determined")
+			GeneralFunctions.SetEmotion("Determined")
 			UI:WaitShowDialogue("Allez " .. hero:GetDisplayName() .. " ![pause=0]Nous avons mieux à faire que de fouiner dans la chambre de " .. CharacterEssentials.GetCharacterName("Audino") .. " et " .. CharacterEssentials.GetCharacterName("Snubbull") .. " !")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Nous devons nous rendre à " .. zone:GetColoredName() .. " pour trouver " .. CharacterEssentials.GetCharacterName("Numel") .. "![pause=0]C'est parti !")
 		end
 	elseif in_array(ground, {'guild_bedroom_hallway',
@@ -402,51 +402,51 @@ function PartnerEssentials.Chapter_2_Dialogue(partner)
 
 	elseif ground == 'guild_dining_room' then
 		if not SV.Chapter2.FinishedFirstDay then
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue("J'espère bien que " .. CharacterEssentials.GetCharacterName("Snubbull") .. " fera quelque chose de savoureux ce soir.")
 			UI:WaitShowDialogue("Je ne sais pas quel genre de choses elle fait,[pause=10]mais j'espère qu'il y aura des Orans confits pour le dessert.")
-			UI:SetSpeakerEmotion("Joyous")
+			GeneralFunctions.SetEmotion("Joyous")
 			UI:WaitShowDialogue("They're my favorite!")
 		else
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue("Le dîner d'hier soir était génial ![pause=0]" .. CharacterEssentials.GetCharacterName('Snubbull') .. " est un grand chef après tout !")
 			UI:WaitShowDialogue("Je sais que nous avons une mission à accomplir maintenant et tout...[br]Mais mon esprit ne peut s'empêcher de penser à ce qu'il y a pour le dîner ce soir pendant que je suis ici !")
 		end
 	elseif ground == 'guild_guildmasters_room' then
 		if not SV.Chapter2.FinishedFirstDay then
-			UI:SetSpeakerEmotion("Inspired")
+			GeneralFunctions.SetEmotion("Inspired")
 			UI:WaitShowDialogue("Le maître de guilde était un aventurier extraordinaire qui a voyagé partout dans le monde avant de rejoindre la guilde.")
 			UI:WaitShowDialogue("Ses exploits font partie de la raison pour laquelle je voulais tellement devenir un aventurier !")
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Je ne sais pas pourquoi il a décidé de créer la guilde.")
-			UI:SetSpeakerEmotion("Joyous")
+			GeneralFunctions.SetEmotion("Joyous")
 			UI:WaitShowDialogue("Si j'étais à sa place,[pause=10], je voudrais explorer et aventurer toute ma vie ![pause=0]Haha !")
 		elseif not SV.Chapter2.TropiusGaveReviver then
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Je me demande si le maître de guilde peut nous aider dans notre mission ?[pause=0]Peut-être qu'il a quelques conseils ou quelque chose du genre.")
 		else
 			local itemname = RogueEssence.Dungeon.InvItem("seed_reviver"):GetDisplayName()
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue("C'était gentil de la part du Maître de Guilde de nous donner ce " .. itemname .. ".")
 			UI:WaitShowDialogue("Cela sera utile si l'un de nous se retrouve dans une mauvaise situation.")
 		end
 	elseif ground == 'guild_storage_room' then
 		if not SV.Chapter2.FinishedFirstDay then
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Je sais qu'on ne devrait toucher à rien ici,[pause=10]mais...")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Je ne peux m'empêcher de me demander quel genre de choses sont stockées ici en dehors de la nourriture.")
 			UI:WaitShowDialogue("Pensez-vous qu'il y a quelque chose de cool ici ?")
 		else
 			local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("illuminant_riverbed")
-			UI:SetSpeakerEmotion("Determined")
+			GeneralFunctions.SetEmotion("Determined")
 			UI:WaitShowDialogue("Allez " .. hero:GetDisplayName() .. " ![pause=0]Nous avons des choses plus importantes à faire que de traîner dans le stockage !")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Nous devons nous rendre à " .. zone:GetColoredName() .. " pour trouver " .. CharacterEssentials.GetCharacterName("Numel") .. "![pause=0]C'est parti !")
 		end
 	elseif ground == 'ledian_dojo' then
 		if not SV.Chapter2.FinishedFirstDay then
-			UI:SetSpeakerEmotion("Inspired")
+			GeneralFunctions.SetEmotion("Inspired")
 			UI:WaitShowDialogue("Ce dojo est génial ![pause=0]Je suis content qu'il y ait un endroit comme celui-ci pour nous entraîner !")
 			UI:WaitShowDialogue("J'ai encore un peu d'énergie si tu veux t'entraîner encore,[pause=10]" .. hero:GetDisplayName() .. " !")
 			UI:WaitShowDialogue("Nous devons faire tout notre entraînement possible si nous voulons devenir de grands aventuriers !")
@@ -458,16 +458,16 @@ function PartnerEssentials.Chapter_2_Dialogue(partner)
 	elseif ground == 'metano_fire_home' then
 		if not SV.Chapter2.FinishedFirstDay then
 			UI:WaitShowDialogue("Cette maison appartient à la famille qui se disputait dehors.")
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("J'espère qu'ils pourront bientôt se réconcilier...")
 		else
-			UI:SetSpeakerEmotion("Determined")
+			GeneralFunctions.SetEmotion("Determined")
 			UI:WaitShowDialogue("Allez " .. hero:GetDisplayName() .. ".[pause=0]Allons ramener le petit garçon de " .. CharacterEssentials.GetCharacterName("Camerupt") .. " à la maison.")
 		end
 	elseif ground == 'metano_electric_home' then
 		if not SV.Chapter2.FinishedFirstDay then
 			UI:WaitShowDialogue("Cette maison appartient à une famille de types électriques.")
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Ils sont assez gentils,[pause=10]mais le père est plutôt distant.")
 		else
 			local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("illuminant_riverbed")
@@ -477,10 +477,10 @@ function PartnerEssentials.Chapter_2_Dialogue(partner)
 	elseif ground == 'metano_water_home' then
 		if not SV.Chapter2.FinishedFirstDay then
 			UI:WaitShowDialogue("Une famille de types Eau vit ici.")
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue("Ça doit être agréable d'avoir sa maison juste à côté d'une rivière si vous êtes du type Eau !")
 		else
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue("Hé,[pause=10]on dirait que quelqu'un fait des rêves agréables.")
 		end
 	elseif ground == 'metano_normal_home' then
@@ -504,7 +504,7 @@ function PartnerEssentials.Chapter_2_Dialogue(partner)
 	elseif ground == 'metano_grass_home' then
 		if not SV.Chapter2.FinishedFirstDay then
 			UI:WaitShowDialogue("Cette maison appartient à une famille de types Herbe.")
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue("Ils ont un beau jardin devant leur maison,[pause=10], vous ne trouvez pas ?")
 		else
 			local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("illuminant_riverbed")
@@ -523,10 +523,10 @@ function PartnerEssentials.Chapter_2_Dialogue(partner)
 	elseif ground == 'metano_cave' then
 		if not SV.Chapter2.FinishedFirstDay then
 			UI:WaitShowDialogue("Cet ermite vit dans cette grotte depuis longtemps.[pause=0]Je ne sais pas grand-chose d'autre à son sujet.")
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Je ne crois pas l'avoir déjà vue dehors...[pause=0]C'est étrange puisque[color=#00FF00]Sunflora[color]profite généralement du soleil.")
 		else
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Je m'inquiète parfois pour l'ermite ici...[pause=0]Elle est toujours ici après tout.")
 			UI:WaitShowDialogue("Pensez-vous qu'elle sait seulement qu'un des enfants de la ville a disparu ?")
 		end
@@ -536,29 +536,29 @@ function PartnerEssentials.Chapter_2_Dialogue(partner)
 			UI:WaitShowDialogue("C'est un endroit agréable pour se détendre,[pause=10]loin de l'agitation de la ville.")
 		else
 			local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("illuminant_riverbed")
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Que faisons-nous ici,[pause=10]" .. hero:GetDisplayName() .. " ?")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Nous devons nous rendre à " .. zone:GetColoredName() .. " et trouver " .. CharacterEssentials.GetCharacterName("Numel") .. ".[pause=0]. Nous devons nous diriger vers le nord,[pause=10]et non vers le sud !")
 		end
 	elseif ground == 'altere_pond' then
 		if not SV.Chapter2.FinishedFirstDay then
 			local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("relic_forest")
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Quoi que vous fassiez...[pause=0]Ne dites pas à " .. CharacterEssentials.GetCharacterName("Relicanth") .. " que nous étions dans " .. zone:GetColoredName() .. ".")
-			UI:SetSpeakerEmotion("Pain")
+			GeneralFunctions.SetEmotion("Pain")
 			UI:WaitShowDialogue("Il va nous harceler pendant des heures s'il le découvre.[pause=0]Croyez-moi,[pause=10], je le sais par expérience.")
 		else
 			local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("illuminant_riverbed")
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Que faisons-nous ici,[pause=10]" .. hero:GetDisplayName() .. " ?")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Nous devons nous rendre à " .. zone:GetColoredName() .. " et trouver " .. CharacterEssentials.GetCharacterName("Numel") .. ".[pause=0]. Nous devons nous diriger vers le nord,[pause=10]et non vers le sud !")
 		end
 	elseif ground == 'post_office' then
-		UI:SetSpeakerEmotion("Worried")
+		GeneralFunctions.SetEmotion("Worried")
 		UI:WaitShowDialogue("On dirait que notre rang n'est pas encore assez élevé pour utiliser la poste...")
-		UI:SetSpeakerEmotion("Normal")
+		GeneralFunctions.SetEmotion("Normal")
 		UI:WaitShowDialogue("Je suppose que nous devrons revenir lorsque notre rang sera plus élevé.")
 	elseif ground == 'metano_town' then
 		--metano town uses a series of touch objects to mark where the player/partner is on the map so the partner can comment on specific surroundings.
@@ -570,9 +570,9 @@ function PartnerEssentials.Chapter_2_Dialogue(partner)
 			if location == 'North Houses' or location == 'South Houses' then
 				UI:WaitShowDialogue("C'est ici que vivent la plupart des habitants de la ville.")
 				if SV.Chapter2.FinishedNumelTantrum then
-					UI:SetSpeakerEmotion("Worried")
+					GeneralFunctions.SetEmotion("Worried")
 					UI:WaitShowDialogue("Cette scène précédente était un peu alarmante...[pause=0]Ce genre de choses arrive rarement dans la ville de Metano.")
-					UI:SetSpeakerEmotion("Normal")
+					GeneralFunctions.SetEmotion("Normal")
 					UI:WaitShowDialogue("Quoi qu'il en soit, les Pokémon[pause=10]ici sont très accueillants,[pause=10]alors n'hésitez pas à entrer chez eux.")
 				else
 					UI:WaitShowDialogue("Les Pokémon ici sont très accueillants,[pause=10]alors n'hésitez pas à entrer chez eux.")
@@ -585,14 +585,14 @@ function PartnerEssentials.Chapter_2_Dialogue(partner)
 					UI:WaitShowDialogue("Il commence à se faire tard.[pause=0]Retournons à l'intérieur de la guilde pour dîner dès que vous êtes prêt,[pause=10]" .. hero:GetDisplayName() .. ".")
 				end
 			elseif location == 'Cafe' then
-				UI:SetSpeakerEmotion("Surprised")
+				GeneralFunctions.SetEmotion("Surprised")
 				UI:WaitShowDialogue("Oh![pause=0]J'avais presque oublié le café !")
-				UI:SetSpeakerEmotion("Happy")
+				GeneralFunctions.SetEmotion("Happy")
 				UI:WaitShowDialogue("Le café est l'endroit le plus populaire de la ville !")
 				UI:WaitShowDialogue("Le propriétaire " .. CharacterEssentials.GetCharacterName("Shuckle") .. " prépare toutes sortes de délicieuses boissons et collations ![pause=0]Ils sont vraiment bons !")
-				UI:SetSpeakerEmotion("Worried")
+				GeneralFunctions.SetEmotion("Worried")
 				UI:WaitShowDialogue("Il semblerait qu'il ne soit pas ouvert pour le moment...[pause=0]C'est dommage...")
-				UI:SetSpeakerEmotion("Inspired")
+				GeneralFunctions.SetEmotion("Inspired")
 				UI:WaitShowDialogue("Mais il faudra revenir une fois ouvert ![pause=0]Je vous le dis,[pause=10]c'est délicieux !")
 			elseif location == 'Cave' then
 				UI:WaitShowDialogue("Un ermite vit dans cette grotte moisie à flanc de falaise.[pause=0]Mais elle n'aime pas beaucoup les visiteurs.")
@@ -605,7 +605,7 @@ function PartnerEssentials.Chapter_2_Dialogue(partner)
 				UI:WaitShowDialogue("Mais les parents n'aiment pas que leurs enfants jouent ici.")
 				UI:WaitShowDialogue("Après tout, ils ne veulent pas qu’ils tombent à flanc de falaise !")
 			elseif location == 'Merchants' then
-				UI:SetSpeakerEmotion("Worried")
+				GeneralFunctions.SetEmotion("Worried")
 				UI:WaitShowDialogue("Habituellement, il y a deux marchands rivaux ici,[pause=10], qui vendent des articles tout en se chamaillant.")
 				UI:WaitShowDialogue("Mais je ne les ai pas vus là-bas depuis quelques jours.[pause=0]Je me demande où ils pourraient être ?")
 			elseif location == 'Dojo' then
@@ -613,9 +613,9 @@ function PartnerEssentials.Chapter_2_Dialogue(partner)
 					UI:WaitShowDialogue("Hé,[pause=10], il y a une échelle là-bas,[pause=10]" .. hero:GetDisplayName() "!")
 					UI:WaitShowDialogue("Ce doit être l'entrée du dojo.[pause=0]Allons-y !")
 				else
-					UI:SetSpeakerEmotion("Worried")
+					GeneralFunctions.SetEmotion("Worried")
 					UI:WaitShowDialogue("Je n'arrive toujours pas à croire qu'il y ait une caverne entière et un dojo en bas de cette échelle...")
-					UI:SetSpeakerEmotion("Joyous")
+					GeneralFunctions.SetEmotion("Joyous")
 					GROUND:CharSetEmote(partner, "glowing", 0)
 					UI:WaitShowDialogue("Je suis passé devant lui tellement de fois,[pause=10]mais je n'y suis jamais allé avant aujourd'hui ![pause=0]Haha !")
 					GROUND:CharSetEmote(partner, "", 0)
@@ -634,9 +634,9 @@ function PartnerEssentials.Chapter_2_Dialogue(partner)
 				UI:WaitShowDialogue(hero:GetDisplayName() .. "![pause=0]Nous devons sauver " .. CharacterEssentials.GetCharacterName("Numel") .. " !")
 				UI:WaitShowDialogue("Nous devrions nous préparer en ville,[pause=10], puis nous diriger vers le nord hors de la ville jusqu'à " .. zone:GetColoredName() .. " pour le trouver !")
 			elseif location == 'Cafe' then
-				UI:SetSpeakerEmotion("Worried")
+				GeneralFunctions.SetEmotion("Worried")
 				UI:WaitShowDialogue("Le café est toujours fermé,[pause=10], hein ?")
-				UI:SetSpeakerEmotion("Normal")
+				GeneralFunctions.SetEmotion("Normal")
 				UI:WaitShowDialogue("J'espère qu'il sera bientôt de nouveau ouvert.[pause=0]J'ai vraiment envie que vous essayiez certaines de leurs friandises !")
 			elseif location == 'Dojo' then
 				local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("illuminant_riverbed")
@@ -674,13 +674,13 @@ function PartnerEssentials.Chapter_3_Dialogue(partner)
 	GROUND:CharSetAnim(hero, 'None', true)
 	GROUND:CharTurnToCharAnimated(partner, hero, 4)
 	GROUND:CharTurnToCharAnimated(hero, partner, 4)
-	UI:SetSpeakerEmotion('Normal')
+	GeneralFunctions.SetEmotion('Normal')
 
 	--yes i know this is yandere dev shit i dont know how better to structure this. a lua table doesn't really make sense here without having to do a bunch of extra bullshit that i feel makes it less categorized/ordered.
 	--can redo this with a better approach if a good one can be figured out.
 	if ground == 'guild_heros_room' then
 		if SV.TemporaryFlags.JustWokeUp then
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue("Bonjour,[pause=10]" .. hero:GetDisplayName() .. " !")
 
 		elseif not SV.Chapter3.EncounteredBoss then
@@ -689,15 +689,15 @@ function PartnerEssentials.Chapter_3_Dialogue(partner)
 			UI:WaitShowDialogue("Nous devons aller à " .. zone:GetColoredName() .. " et capturer ce hors-la-loi " .. CharacterEssentials.GetCharacterName("Sandile") .. " !")
 			UI:WaitShowDialogue("Nous devrions aller en ville pour nous préparer, puis nous pourrons partir vers l'est lorsque nous serons prêts.[pause=0]C'est parti !")
 		elseif not SV.Chapter3.DefeatedBoss then
-			UI:SetSpeakerEmotion("Determined")
+			GeneralFunctions.SetEmotion("Determined")
 			local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("crooked_cavern")
 			UI:WaitShowDialogue("Cette équipe[color=#FFA5FF]Style[color]...[pause=0]Pour qui se prennent-ils ?")
 			UI:WaitShowDialogue("Nous devons retourner à " .. zone:GetColoredName() .. " pour vaincre l'équipe[color=#FFA5FF]Style[color]et aider " .. CharacterEssentials.GetCharacterName("Sandile") .. "![pause=0]Allez !")
 		else
 			UI:WaitShowDialogue("Aujourd'hui,[pause=10]" .. CharacterEssentials.GetCharacterName("Noctowl") .. " souhaite que nous effectuions des travaux affichés sur le Job Bulletin Board et le Outlaw Notice Board.")
-			UI:SetSpeakerEmotion("Sad")
+			GeneralFunctions.SetEmotion("Sad")
 			UI:WaitShowDialogue("Je me sens toujours déprimé à cause de toute cette épreuve avec " .. CharacterEssentials.GetCharacterName("Sandile") .. "...")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Espérons que ce genre de situation ne se reproduira plus avec d'autres emplois que nous accepterons.")
 			UI:WaitShowDialogue("Alors continuons notre bon travail,[pause=10]" .. hero:GetDisplayName() .. " !")
 		end
@@ -716,7 +716,7 @@ function PartnerEssentials.Chapter_3_Dialogue(partner)
 			UI:WaitShowDialogue("Nous devons aller à " .. zone:GetColoredName() .. " et capturer ce hors-la-loi " .. CharacterEssentials.GetCharacterName("Sandile") .. " !")
 			UI:WaitShowDialogue("Nous devrions aller en ville pour nous préparer, puis nous pourrons partir vers l'est lorsque nous serons prêts.[pause=0]C'est parti !")
 		elseif not SV.Chapter3.DefeatedBoss then
-			UI:SetSpeakerEmotion("Determined")
+			GeneralFunctions.SetEmotion("Determined")
 			local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("crooked_cavern")
 			UI:WaitShowDialogue("Cette équipe[color=#FFA5FF]Style[color]...[pause=0]Pour qui se prennent-ils ?")
 			UI:WaitShowDialogue("Nous devons retourner à " .. zone:GetColoredName() .. " pour vaincre l'équipe[color=#FFA5FF]Style[color]et aider " .. CharacterEssentials.GetCharacterName("Sandile") .. "![pause=0]Allez !")
@@ -726,17 +726,17 @@ function PartnerEssentials.Chapter_3_Dialogue(partner)
 				if SV.Chapter3.BreloomGirafarigConvo then
 					UI:WaitShowDialogue("Ils doivent faire partie de cette expédition dont ils parlaient au café l'autre jour.")
 				else
-					UI:SetSpeakerEmotion("Worried")
+					GeneralFunctions.SetEmotion("Worried")
 					UI:WaitShowDialogue("Je me demande où ils sont partis ?")
-					UI:SetSpeakerEmotion("Normal")
+					GeneralFunctions.SetEmotion("Normal")
 				end
 				UI:WaitShowDialogue("Quoi qu'il en soit,[pause=10]" .. CharacterEssentials.GetCharacterName("Noctowl") .. " veut que nous effectuions les travaux affichés sur le Job Bulletin Board et le Outlaw Notice Board.")
 				UI:WaitShowDialogue("Continuons à faire du bon travail comme toujours,[pause=10]" .. hero:GetDisplayName() .. " !")
 			else
 				UI:WaitShowDialogue("Aujourd'hui,[pause=10]" .. CharacterEssentials.GetCharacterName("Noctowl") .. " souhaite que nous effectuions des travaux affichés sur le Job Bulletin Board et le Outlaw Notice Board.")
-				UI:SetSpeakerEmotion("Sad")
+				GeneralFunctions.SetEmotion("Sad")
 				UI:WaitShowDialogue("Je me sens toujours déprimé à cause de toute cette épreuve avec " .. CharacterEssentials.GetCharacterName("Sandile") .. "...")
-				UI:SetSpeakerEmotion("Normal")
+				GeneralFunctions.SetEmotion("Normal")
 				UI:WaitShowDialogue("Espérons que ce genre de situation ne se reproduira plus avec d'autres emplois que nous accepterons.")
 				UI:WaitShowDialogue("Alors continuons notre bon travail,[pause=10]" .. hero:GetDisplayName() .. " !")
 			end
@@ -747,13 +747,13 @@ function PartnerEssentials.Chapter_3_Dialogue(partner)
 			UI:WaitShowDialogue("Peut-être que " .. CharacterEssentials.GetCharacterName("Zigzagoon") .. " a des informations sur les hors-la-loi dans l'un de ses almanachs !")
 			UI:WaitShowDialogue("Jetons un coup d'oeil ![pause=0]Tout ce que nous pouvons apprendre sur la façon de traiter avec les hors-la-loi pourrait nous aider dans notre mission !")
 		elseif not SV.Chapter3.DefeatedBoss then
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Pensez-vous qu'il y ait des informations sur l'équipe[color=#FFA5FF]Style[color]dans l'un de ces almanachs ?")
 		else
 			UI:WaitShowDialogue("Aujourd'hui,[pause=10]" .. CharacterEssentials.GetCharacterName("Noctowl") .. " souhaite que nous effectuions des travaux affichés sur le Job Bulletin Board et le Outlaw Notice Board.")
-			UI:SetSpeakerEmotion("Sad")
+			GeneralFunctions.SetEmotion("Sad")
 			UI:WaitShowDialogue("Je me sens toujours déprimé à cause de toute cette épreuve avec " .. CharacterEssentials.GetCharacterName("Sandile") .. "...")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Espérons que ce genre de situation ne se reproduira plus avec d'autres emplois que nous accepterons.")
 			UI:WaitShowDialogue("Alors continuons notre bon travail,[pause=10]" .. hero:GetDisplayName() .. " !")
 		end
@@ -761,24 +761,24 @@ function PartnerEssentials.Chapter_3_Dialogue(partner)
 		if not SV.Chapter3.EncounteredBoss then
 			local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("crooked_cavern")
 			UI:WaitShowDialogue("Eh bien,[pause=10], nous avons notre mission du jour.[pause=0]Nous devons nous rendre à " .. zone:GetColoredName() .. " et attraper le hors-la-loi " .. CharacterEssentials.GetCharacterName("Sandile") .. ".")
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Je pense que " .. CharacterEssentials.GetCharacterName("Cranidos") .. " a choisi un travail difficile pour nous faire mal paraître...")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Nous devrions faire de notre mieux et lui prouver qu'il a tort ![pause=0]Je sais que nous pouvons le faire,[pause=10]" .. hero:GetDisplayName() .. " !")
 			UI:WaitShowDialogue("Si nous avons des problèmes,[pause=10], je parie que " .. CharacterEssentials.GetCharacterName("Mareep") .. " peut également nous aider.")
 		elseif not SV.Chapter3.DefeatedBoss then
-			UI:SetSpeakerEmotion("Determined")
+			GeneralFunctions.SetEmotion("Determined")
 			local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("crooked_cavern")
 			UI:WaitShowDialogue("Team[color=#FFA5FF]Style[color]...[pause=0]Je n'arrive pas à les croire !")
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Cependant...[pause=10]Je pense que c'est quelque chose dont nous devrions essayer de prendre soin nous-mêmes.")
 			UI:WaitShowDialogue("Nous ne devrions pas en informer " .. CharacterEssentials.GetCharacterName("Mareep") .. " ou " .. CharacterEssentials.GetCharacterName("Cranidos") .. ".")
 			UI:WaitShowDialogue("Sinon, l'équipe[pause=10][color=#FFA5FF]Style[color]pourra toujours garder ça au dessus de nous,[pause=10]et je ne veux pas de ça...")
 		else
 			UI:WaitShowDialogue("Aujourd'hui,[pause=10]" .. CharacterEssentials.GetCharacterName("Noctowl") .. " veut que nous effectuions des travaux affichés sur les forums ici.")
-			UI:SetSpeakerEmotion("Sad")
+			GeneralFunctions.SetEmotion("Sad")
 			UI:WaitShowDialogue("Je me sens toujours déprimé à cause de toute cette épreuve avec " .. CharacterEssentials.GetCharacterName("Sandile") .. "...")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Espérons que ce genre de situation ne se reproduise plus avec les autres emplois que nous acceptons ici.")
 			UI:WaitShowDialogue("Alors continuons notre bon travail,[pause=10]" .. hero:GetDisplayName() .. " !")
 		end
@@ -787,23 +787,23 @@ function PartnerEssentials.Chapter_3_Dialogue(partner)
 			if SV.Chapter2.TropiusGaveReviver and not SV.Chapter3.TropiusGaveWand then
 				UI:WaitShowDialogue("Le maître de guilde a pu nous aider lors de notre dernière mission...[pause=0]Je parie qu'il pourrait nous aider à nouveau !")
 			elseif not SV.Chapter3.TropiusGaveWand then
-				UI:SetSpeakerEmotion("Worried")
+				GeneralFunctions.SetEmotion("Worried")
 				UI:WaitShowDialogue("Je me demande si le maître de guilde peut nous aider dans notre mission ?[pause=0]Peut-être qu'il a quelques conseils ou quelque chose du genre.")
 			elseif SV.Chapter3.TropiusGaveWand and not SV.Chapter3.EncounteredBoss then
 				local itemname = RogueEssence.Dungeon.InvItem("wand_totter"):GetDisplayName()
 				--take off the (0) from the string, then add on the color tag we remove by doing this
 				itemname = string.sub(itemname, 1, -12) .. '[color]'
-				UI:SetSpeakerEmotion("Happy")
+				GeneralFunctions.SetEmotion("Happy")
 				UI:WaitShowDialogue("Ces " .. itemname .. " que le Maître de Guilde nous a donnés devraient être très utiles pour notre mission !")
 				UI:WaitShowDialogue("Nous pouvons les utiliser pour confondre " .. CharacterEssentials.GetCharacterName("Sandile") .. ", ce qui devrait faciliter sa défaite !")
 			else
-				UI:SetSpeakerEmotion("Worried")
+				GeneralFunctions.SetEmotion("Worried")
 				UI:WaitShowDialogue("Euh,[pause=10]" .. hero:GetDisplayName() .. ",[pause=10]Je préfère ne pas parler de l'équipe[color=#FFA5FF]Style[color]au maître de guilde...")
 				UI:WaitShowDialogue("Je pense que c'est quelque chose dont nous devrions prendre soin nous-mêmes.")
 				UI:WaitShowDialogue("Sinon, l'équipe[pause=10][color=#FFA5FF]Style[color]pourra toujours garder ça au dessus de nous,[pause=10]et je ne veux pas de ça...")
 			end
 		else
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Pensez-vous que le maître de guilde a eu affaire à des équipes comme l'équipe[color=#FFA5FF]Style[color]lorsqu'il était un aventurier actif ?")
 			UI:WaitShowDialogue("Je me demande ce qu'il faisait chaque fois qu'il rencontrait des équipes comme celle-là...")
 		end
@@ -817,9 +817,9 @@ function PartnerEssentials.Chapter_3_Dialogue(partner)
 			UI:WaitShowDialogue("Je ne veux pas perdre la prochaine fois que nous les affronterons !")
 		else
 			UI:WaitShowDialogue("Aujourd'hui,[pause=10]" .. CharacterEssentials.GetCharacterName("Noctowl") .. " souhaite que nous effectuions des travaux affichés sur le Job Bulletin Board et le Outlaw Notice Board.")
-			UI:SetSpeakerEmotion("Sad")
+			GeneralFunctions.SetEmotion("Sad")
 			UI:WaitShowDialogue("Je me sens toujours déprimé à cause de toute cette épreuve avec " .. CharacterEssentials.GetCharacterName("Sandile") .. "...")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Espérons que ce genre de situation ne se reproduira plus avec d'autres emplois que nous accepterons.")
 			UI:WaitShowDialogue("Alors continuons notre bon travail,[pause=10]" .. hero:GetDisplayName() .. " !")
 		end
@@ -838,29 +838,29 @@ function PartnerEssentials.Chapter_3_Dialogue(partner)
 				UI:WaitShowDialogue("Nous devons aller à " .. zone:GetColoredName() .. " et capturer ce hors-la-loi " .. CharacterEssentials.GetCharacterName("Sandile") .. " !")
 				UI:WaitShowDialogue("Nous devrions nous préparer ici en ville, puis partir vers l'est lorsque nous serons prêts.[pause=0]C'est parti !")
 		elseif not SV.Chapter3.DefeatedBoss then
-			UI:SetSpeakerEmotion("Determined")
+			GeneralFunctions.SetEmotion("Determined")
 			local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("crooked_cavern")
 			UI:WaitShowDialogue("Je n'arrive toujours pas à croire que l'équipe[color=#FFA5FF]Style[color]![pause=0]pense qu'ils iraient aussi loin qu'ils l'ont fait...")
 			UI:WaitShowDialogue("Préparons-nous ici en ville,[pause=10]puis retournons à " .. zone:GetColoredName() .. " pour sauver " .. CharacterEssentials.GetCharacterName("Sandile") .. " de l'équipe[color=#FFA5FF]Style[color]!")
 		else
 			UI:WaitShowDialogue("Aujourd'hui,[pause=10]" .. CharacterEssentials.GetCharacterName("Noctowl") .. " souhaite que nous effectuions des travaux affichés sur le Job Bulletin Board et le Outlaw Notice Board.")
-			UI:SetSpeakerEmotion("Sad")
+			GeneralFunctions.SetEmotion("Sad")
 			UI:WaitShowDialogue("Je me sens toujours déprimé à cause de toute cette épreuve avec " .. CharacterEssentials.GetCharacterName("Sandile") .. "...")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Espérons que ce genre de situation ne se reproduira plus avec d'autres emplois que nous accepterons.")
 			UI:WaitShowDialogue("Alors continuons notre bon travail,[pause=10]" .. hero:GetDisplayName() .. " !")
 		end
 	elseif ground == 'metano_fire_home' then
 		if not SV.Chapter3.DefeatedBoss then
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue("Je suis tellement heureuse que nous ayons pu sauver " .. CharacterEssentials.GetCharacterName("Numel") .. ".[pause=0]. Sa mère était tellement soulagée de le retrouver sain et sauf !")
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Bien que le problème avec Luminous Spring me laisse toujours perplexe...")
 		else
 			UI:WaitShowDialogue("Aujourd'hui,[pause=10]" .. CharacterEssentials.GetCharacterName("Noctowl") .. " souhaite que nous effectuions des travaux affichés sur le Job Bulletin Board et le Outlaw Notice Board.")
-			UI:SetSpeakerEmotion("Sad")
+			GeneralFunctions.SetEmotion("Sad")
 			UI:WaitShowDialogue("Je me sens toujours déprimé à cause de toute cette épreuve avec " .. CharacterEssentials.GetCharacterName("Sandile") .. "...")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Espérons que ce genre de situation ne se reproduira plus avec d'autres emplois que nous accepterons.")
 			UI:WaitShowDialogue("Alors continuons notre bon travail,[pause=10]" .. hero:GetDisplayName() .. " !")
 		end
@@ -869,42 +869,42 @@ function PartnerEssentials.Chapter_3_Dialogue(partner)
 			local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("relic_forest")
 			UI:WaitShowDialogue(CharacterEssentials.GetCharacterName("Relicanth") .. ",[pause=10]étant aussi vieux que lui,[pause=10]connaît beaucoup d'histoires et de mythes du monde.")
 			UI:WaitShowDialogue("Il m'en raconte parfois une, s'il ne m'a pas surprise à me faufiler dans " .. zone:GetColoredName() .. " ces derniers temps.")
-			UI:SetSpeakerEmotion("Inspired")
+			GeneralFunctions.SetEmotion("Inspired")
 			UI:WaitShowDialogue("J'adore entendre parler de toutes les différentes légendes qu'il connaît ![pause=0]Elles sont tellement fascinantes !")
 			UI:WaitShowDialogue("Il faudra venir voir s'il nous racontera une histoire à tous les deux quand nous ne serons pas occupés !")
 			if SV.Chapter3.EncounteredBoss then
-				UI:SetSpeakerEmotion("Sad")
+				GeneralFunctions.SetEmotion("Sad")
 				UI:WaitShowDialogue("...Une histoire m'aidera aussi à me remonter le moral.[pause=0]Nos problèmes avec l'équipe[color=#FFA5FF]Style[color]m'ont bouleversé,[pause=10]à vrai dire...")
 			end
 		else
-			UI:SetSpeakerEmotion("Inspired")
+			GeneralFunctions.SetEmotion("Inspired")
 			UI:WaitShowDialogue("Je veux entendre " .. CharacterEssentials.GetCharacterName("Relicanth") .. " raconter à nouveau la légende des Anima Cores très bientôt !")
 			UI:WaitShowDialogue("Il le raconte bien mieux que moi !")
 			UI:WaitShowDialogue("Je suis sûr qu'il pourrait même nous en dire plus sur la légende que moi l'autre soir !")
 
 		end
 	elseif ground == 'post_office' then
-		UI:SetSpeakerEmotion("Worried")
+		GeneralFunctions.SetEmotion("Worried")
 		UI:WaitShowDialogue("On dirait que notre rang n'est pas encore assez élevé pour utiliser la poste...")
-		UI:SetSpeakerEmotion("Normal")
+		GeneralFunctions.SetEmotion("Normal")
 		UI:WaitShowDialogue("Je suppose que nous devrons revenir lorsque notre rang sera plus élevé.")
 	elseif ground == 'metano_cafe' then
 		if not SV.Chapter3.EncounteredBoss then
-			UI:SetSpeakerEmotion("Inspired")
+			GeneralFunctions.SetEmotion("Inspired")
 			UI:WaitShowDialogue("Que devrions-nous obtenir ?[pause=0]Il y a tellement d'options !")
 			UI:WaitShowDialogue("Les boissons peuvent prendre un certain temps à préparer,[pause=10], mais elles valent la peine d'attendre !")
 			UI:WaitShowDialogue("Le plat du jour de " .. CharacterEssentials.GetCharacterName("Shuckle") .. " pourrait également valoir la peine d'être acheté ![pause=0]Nous devons voir ce qu'il a !")
 		elseif not SV.Chapter3.DefeatedBoss then
 			local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("crooked_cavern")
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Même si j'aimerais bien prendre un verre en ce moment, autant[pause=10], nous avons quelque chose de plus important à faire !")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Nous devons retourner à " .. zone:GetColoredName() .. " dès que possible pour battre l'équipe[color=#FFA5FF]Style[color]et aider " .. CharacterEssentials.GetCharacterName("Sandile") .. " !")
 		else
 			UI:WaitShowDialogue("Aujourd'hui,[pause=10]" .. CharacterEssentials.GetCharacterName("Noctowl") .. " souhaite que nous effectuions des travaux affichés sur le Job Bulletin Board et le Outlaw Notice Board.")
-			UI:SetSpeakerEmotion("Sad")
+			GeneralFunctions.SetEmotion("Sad")
 			UI:WaitShowDialogue("Je me sens toujours déprimé à cause de toute cette épreuve avec " .. CharacterEssentials.GetCharacterName("Sandile") .. "...")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Espérons que ce genre de situation ne se reproduira plus avec d'autres emplois que nous accepterons.")
 			UI:WaitShowDialogue("Alors continuons notre bon travail,[pause=10]" .. hero:GetDisplayName() .. " !")
 		end
@@ -926,7 +926,7 @@ function PartnerEssentials.Chapter_3_Dialogue(partner)
 		if not SV.Chapter3.EncounteredBoss then
 			if location == 'North Houses' or location == 'South Houses' then
 				UI:WaitShowDialogue("On dirait que la plupart des habitants sont soulagés maintenant que " .. CharacterEssentials.GetCharacterName("Numel") .. " est de retour chez lui sain et sauf.")
-				UI:SetSpeakerEmotion("Happy")
+				GeneralFunctions.SetEmotion("Happy")
 				UI:WaitShowDialogue("C'est tellement génial que nous ayons pu le sauver !")
 				UI:WaitShowDialogue("Après tout, aider les autres était l’une des raisons pour lesquelles je voulais devenir aventurier !")
 			elseif in_array(location, {'Guild', 'Cave', 'Well', 'Post', 'Dojo'}) then
@@ -935,14 +935,14 @@ function PartnerEssentials.Chapter_3_Dialogue(partner)
 				UI:WaitShowDialogue("Nous devons aller à " .. zone:GetColoredName() .. " et capturer ce hors-la-loi " .. CharacterEssentials.GetCharacterName("Sandile") .. " !")
 				UI:WaitShowDialogue("Nous devrions nous préparer ici en ville, puis partir vers l'est lorsque nous serons prêts.[pause=0]C'est parti !")
 			elseif location == 'Cafe' then
-				UI:SetSpeakerEmotion("Inspired")
+				GeneralFunctions.SetEmotion("Inspired")
 				UI:WaitShowDialogue("Nous devrions faire un arrêt à l'intérieur du café avant de partir en mission !")
 				UI:WaitShowDialogue("Maintenant qu'il est à nouveau ouvert,[pause=10]nous devrions le visiter et nous faire plaisir avant le travail de la journée !")
 			elseif location == 'Exploration' then
 				local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("crooked_cavern")
 				UI:WaitShowDialogue("Si vous pensez que nous sommes prêts,[pause=10], nous pouvons quitter la ville en direction de " .. zone:GetColoredName() .. " en empruntant ce chemin vers l'est.")
 			elseif location == 'Merchants' then
-				UI:SetSpeakerEmotion("Worried")
+				GeneralFunctions.SetEmotion("Worried")
 				UI:WaitShowDialogue("Cette équipe[color=#FFA5FF]Style[color]me laisse toujours confus...")
 				UI:WaitShowDialogue("Je me demande ce qui les a poussés à agir ainsi envers nous ?")
 			elseif location == 'Market' then
@@ -954,18 +954,18 @@ function PartnerEssentials.Chapter_3_Dialogue(partner)
 
 		elseif not SV.Chapter3.DefeatedBoss then
 			if in_array(location, {'Guild', 'Cave', 'Well', 'Post', 'Dojo', 'North Houses', 'South Houses', 'Exploration', 'Cafe'}) then
-				UI:SetSpeakerEmotion("Determined")
+				GeneralFunctions.SetEmotion("Determined")
 				local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("crooked_cavern")
 				UI:WaitShowDialogue("Je n'arrive toujours pas à croire que l'équipe[color=#FFA5FF]Style[color]![pause=0]pense qu'ils iraient aussi loin qu'ils l'ont fait...")
 				UI:WaitShowDialogue("Préparons-nous ici en ville,[pause=10]puis retournons à " .. zone:GetColoredName() .. " pour sauver " .. CharacterEssentials.GetCharacterName("Sandile") .. " de l'équipe[color=#FFA5FF]Style[color]!")
 			elseif location == 'Merchants' then
-				UI:SetSpeakerEmotion("Determined")
+				GeneralFunctions.SetEmotion("Determined")
 				local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("crooked_cavern")
 				UI:WaitShowDialogue("Faire un acte comme celui-là...[pause=0]Nous savons maintenant pourquoi l'équipe[color=#FFA5FF]Style[color]a changé d'avis ici plus tôt !")
 				UI:WaitShowDialogue(hero:GetDisplayName() .. "![pause=0]Revenons à " .. zone:GetColoredName() .. " et battons l'équipe[color=#FFA5FF]Style[color]afin que nous puissions aider " .. CharacterEssentials.GetCharacterName("Sandile") .. " !")
 			elseif location == 'Market' then
 				UI:WaitShowDialogue("Nous devrions acheter des articles sur le marché pour nous aider à faire face à l'équipe[color=#FFA5FF]Style[color].")
-				UI:SetSpeakerEmotion("Worried")
+				GeneralFunctions.SetEmotion("Worried")
 				UI:WaitShowDialogue("Même si je ne sais pas quels éléments pourraient être les meilleurs pour cela...")
 			else
 				UI:WaitShowDialogue("Aucun dialogue assigné pour cette partie de la ville. Faites savoir à Palika où vous avez reçu ce message.")
@@ -973,29 +973,29 @@ function PartnerEssentials.Chapter_3_Dialogue(partner)
 		else--Mission days
 			if in_array(location, {'Guild', 'Cave', 'Well', 'Post', 'Dojo', 'Exploration', 'Cafe', 'Market'}) then
 				if location == 'Market' and SV.Chapter3.PostBossSpokeToCranidos then
-					UI:SetSpeakerEmotion("Worried")
+					GeneralFunctions.SetEmotion("Worried")
 					UI:WaitShowDialogue("Je suppose que nous ne pouvons pas impressionner " .. CharacterEssentials.GetCharacterName("Cranidos") .. ", peu importe ce que nous faisons,[pause=10], hein " .. CH('PLAYER'):GetDisplayName() .. " ?")
-					UI:SetSpeakerEmotion("Normal")
+					GeneralFunctions.SetEmotion("Normal")
 					UI:WaitShowDialogue("Eh bien,[pause=10]ne sert à rien de s'énerver à cause de son attitude.")
 					UI:WaitShowDialogue("Nous devrons juste travailler dur pour nous impressionner au lieu de Pokémon comme lui !")
 				else
 					UI:WaitShowDialogue("Aujourd'hui,[pause=10]" .. CharacterEssentials.GetCharacterName("Noctowl") .. " souhaite que nous effectuions des travaux affichés sur le Job Bulletin Board et le Outlaw Notice Board.")
-					UI:SetSpeakerEmotion("Sad")
+					GeneralFunctions.SetEmotion("Sad")
 					UI:WaitShowDialogue("Je me sens toujours déprimé à cause de toute cette épreuve avec " .. CharacterEssentials.GetCharacterName("Sandile") .. "...")
-					UI:SetSpeakerEmotion("Normal")
+					GeneralFunctions.SetEmotion("Normal")
 					UI:WaitShowDialogue("Espérons que ce genre de situation ne se reproduira plus avec d'autres emplois que nous accepterons.")
 					UI:WaitShowDialogue("Alors continuons notre bon travail,[pause=10]" .. hero:GetDisplayName() .. " !")
 				end
 			elseif in_array(location, {'North Houses', 'South Houses'}) then
-				UI:SetSpeakerEmotion("Worried")
+				GeneralFunctions.SetEmotion("Worried")
 				UI:WaitShowDialogue("On dirait que la plupart des citadins s'inquiètent de tous les hors-la-loi qui circulent ces derniers temps...")
-				UI:SetSpeakerEmotion("Normal")
+				GeneralFunctions.SetEmotion("Normal")
 				UI:WaitShowDialogue("Nous devrons alors faire de notre mieux pour arrêter autant de mauvais hors-la-loi que possible !")
 				UI:WaitShowDialogue("Prenons autant de tâches que possible au sein du tableau d'affichage des hors-la-loi pour assurer la sécurité de tous !")
 			elseif location == 'Merchants' then
-				UI:SetSpeakerEmotion("Worried")
+				GeneralFunctions.SetEmotion("Worried")
 				UI:WaitShowDialogue("Ces deux-là sont définitivement deux personnages...[pause=0]Je ne les comprends toujours pas vraiment...")
-				UI:SetSpeakerEmotion("Normal")
+				GeneralFunctions.SetEmotion("Normal")
 				UI:WaitShowDialogue("Mais les articles qu'ils vendent pourraient nous être utiles ![pause=0]Rendons leur visite tous les jours pour voir ce qu'ils vendent !")
 				UI:WaitShowDialogue("Nous devrons choisir soigneusement à qui nous achetons chaque jour, cependant,[pause=10].")
 			else
@@ -1025,13 +1025,13 @@ function PartnerEssentials.Chapter_4_Dialogue(partner)
 	GROUND:CharSetAnim(hero, 'None', true)
 	GROUND:CharTurnToCharAnimated(partner, hero, 4)
 	GROUND:CharTurnToCharAnimated(hero, partner, 4)
-	UI:SetSpeakerEmotion('Normal')
+	GeneralFunctions.SetEmotion('Normal')
 
 	--yes i know this is yandere dev shit i dont know how better to structure this. a lua table doesn't really make sense here without having to do a bunch of extra bullshit that i feel makes it less categorized/ordered.
 	--can redo this with a better approach if a good one can be figured out.
 	if ground == 'guild_heros_room' then
 		if SV.TemporaryFlags.JustWokeUp then
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue("Bonjour,[pause=10]" .. hero:GetDisplayName() .. " !")
 
 		else
@@ -1053,19 +1053,19 @@ function PartnerEssentials.Chapter_4_Dialogue(partner)
 			else
 				UI:WaitShowDialogue("L'expédition explique l'absence de " .. CharacterEssentials.GetCharacterName("Breloom") .. " et " .. CharacterEssentials.GetCharacterName("Girafarig") .. " ces derniers jours.[pause=0]Je n'avais aucune idée d'où ils se trouvaient !")
 			end
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue("J'espère qu'ils seront bientôt de retour ![pause=0]L'expédition s'annonce très amusante !")
 		else
 			UI:WaitShowDialogue(CharacterEssentials.GetCharacterName("Breloom") .. " et " .. CharacterEssentials.GetCharacterName("Girafarig") .. " devraient être de retour d’un jour à l’autre !")
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Honnêtement,[pause=10], je m'attends à moitié à ce qu'ils reviennent tout de suite,[pause=10]juste à temps pour nous attraper dans leur chambre...")
 		end
 	elseif ground == 'guild_bottom_right_bedroom' then
 		if not SV.Chapter4.FinishedGrove then
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("apricorn_grove")
 			UI:WaitShowDialogue("Étant donné que " .. zone:GetColoredName() .. " est inexploré,[pause=10], je ne sais pas si les almanachs de " .. CharacterEssentials.GetCharacterName("Zigzagoon") .. " vont être d'une grande aide...")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Pourtant,[pause=10], cela ne peut pas faire de mal de les examiner.[pause=0]Peut-être qu'il y a des informations dans l'un d'entre eux qui peuvent encore nous aider !")
 		else
 			PartnerEssentials.Default_Partner_Chapter_4_Dialogue()
@@ -1073,7 +1073,7 @@ function PartnerEssentials.Chapter_4_Dialogue(partner)
 	elseif ground == 'guild_second_floor' then
 		if not SV.Chapter4.FinishedGrove then
 			local audino_species = _DATA:GetMonster('audino'):GetColoredName()
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue("C'est vraiment génial de la part de " .. CharacterEssentials.GetCharacterName("Audino") .. " d'ouvrir son assemblage " .. audino_species .. " !")
 			UI:WaitShowDialogue("Il va falloir recruter un maximum de nouveaux coéquipiers pour en profiter !")
 		else
@@ -1084,7 +1084,7 @@ function PartnerEssentials.Chapter_4_Dialogue(partner)
 			if (SV.Chapter2.TropiusGaveReviver or SV.Chapter3.TropiusGaveWand) and not SV.Chapter4.TropiusGaveAdvice and not SV.Chapter4.ReachedGlade then
 				UI:WaitShowDialogue("Le maître de guilde a pu nous aider dans nos missions passées...[pause=0]Je suis sûr qu'il pourrait nous aider à nouveau !")
 			elseif not SV.Chapter4.TropiusGaveAdvice and not SV.Chapter4.ReachedGlade then
-				--UI:SetSpeakerEmotion("Worried")
+				--GeneralFunctions.SetEmotion("Worried")
 				UI:WaitShowDialogue("J'espère que le maître de guilde pourra nous aider d'une manière ou d'une autre dans notre première véritable aventure !")
 				UI:WaitShowDialogue("C'est un expert dans ce genre de choses,[pause=10], il devrait donc pouvoir nous aider d'une manière ou d'une autre !")
 			elseif SV.Chapter4.TropiusGaveAdvice and not SV.Chapter4.ReachedGlade then
@@ -1093,13 +1093,13 @@ function PartnerEssentials.Chapter_4_Dialogue(partner)
 				UI:WaitShowDialogue("Avec tous les Apricornes qu'il y a dans " .. zone:GetColoredName() .. ",[pause=10]ça ne devrait pas être trop dur !")
 			else
 				UI:WaitShowDialogue("Ne parlons pas au maître de guilde de l'énorme abricorne que nous avons trouvé tant que nous n'avons pas réussi à le retirer de l'arbre.")
-				UI:SetSpeakerEmotion("Joyous")
+				GeneralFunctions.SetEmotion("Joyous")
 				UI:WaitShowDialogue("Je veux le surprendre lorsque nous le lui apporterons ![pause=0]Il sera certainement impressionné !")
 			end
 		else
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue("C'était si gentil de la part du maître de guilde de nous laisser garder l'Apricorn que nous avons trouvé ![pause=0]C'est notre premier trésor !")
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("Je me demande quel genre de trésors il a réussi à trouver au cours de sa carrière d'aventurier ?")
 		end
 	elseif ground == 'ledian_dojo' then
@@ -1128,21 +1128,21 @@ function PartnerEssentials.Chapter_4_Dialogue(partner)
 				UI:WaitShowDialogue("Nous devrions lui rendre visite avant de partir pour " .. zone:GetColoredName() .. " aujourd'hui.")
 				UI:WaitShowDialogue("Il a l'air grincheux,[pause=10]mais je pense qu'il aime quand des Pokémon viennent lui rendre visite.")
 			else
-				UI:SetSpeakerEmotion("Inspired")
+				GeneralFunctions.SetEmotion("Inspired")
 				UI:WaitShowDialogue("Cela fait un moment que je n'ai pas entendu une des histoires de " .. CharacterEssentials.GetCharacterName("Relicanth") .. ".[pause=0]Nous avons été trop occupés pour venir en entendre une !")
 				UI:WaitShowDialogue("Il faudra revenir écouter son histoire une fois que nous aurons fini d'explorer " .. zone:GetColoredName() .. " !")
 			end
 		else
 			if not SV.Chapter4.HeardRelicanthStory and SV.Chapter4.SpokeToRelicanthDayOne then
-				UI:SetSpeakerEmotion("Inspired")
+				GeneralFunctions.SetEmotion("Inspired")
 				UI:WaitShowDialogue("J'ai tellement hâte d'entendre l'histoire de " .. CharacterEssentials.GetCharacterName("Relicanth") .. " ![pause=0]Cela fait trop longtemps depuis la dernière !")
-				UI:SetSpeakerEmotion("Normal")
+				GeneralFunctions.SetEmotion("Normal")
 				UI:WaitShowDialogue("J'espère juste que c'est une de ses histoires que je n'ai jamais entendue auparavant !")
 				UI:WaitShowDialogue("Il a tendance à oublier les histoires qu'il m'a déjà racontées.")
 			elseif not SV.Chapter4.HeardRelicanthStory then
 				UI:WaitShowDialogue("Nous avons un peu de temps libre avant le début de l'expédition.")
 				UI:WaitShowDialogue("C'est une excellente occasion d'écouter une des histoires de " .. CharacterEssentials.GetCharacterName("Relicanth") .. " !")
-				UI:SetSpeakerEmotion("Inspired")
+				GeneralFunctions.SetEmotion("Inspired")
 				UI:WaitShowDialogue("Parlons-lui et voyons s'il nous en dira une ![pause=0]Je suis sûr que vous l'apprécierez autant que moi !")
 			else
 				--todo
@@ -1151,22 +1151,22 @@ function PartnerEssentials.Chapter_4_Dialogue(partner)
 	elseif ground == 'post_office' then
 		local current_rank = _DATA.Save.ActiveTeam.Rank
 		UI:WaitShowDialogue("Maintenant que nous sommes[color=#FFA5FF]" .. current_rank:gsub("^%l", string.upper) .. "[color]Rank,[pause=10], nous sommes autorisés à utiliser les services de la poste.")
-		UI:SetSpeakerEmotion("Happy")
+		GeneralFunctions.SetEmotion("Happy")
 		UI:WaitShowDialogue("Cela signifie que nous pouvons échanger et sauver nos amis quand nous le voulons maintenant !")
 		UI:WaitShowDialogue("Utilisons cet endroit chaque fois que nous le pouvons,[pause=10]" .. hero:GetDisplayName() .. " !")
 	elseif ground == 'metano_cafe' then
 		if not SV.Chapter4.FinishedGrove then
 			local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("apricorn_grove")
 			UI:WaitShowDialogue("On dirait qu'il y a une nouvelle boisson au menu !")
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Je me demande si cela pourrait nous aider dans notre exploration de " .. zone:GetColoredName() .. " ?")
 		else
 			if SV.Chapter4.CranidosBlush then
-				UI:SetSpeakerEmotion("Happy")
+				GeneralFunctions.SetEmotion("Happy")
 				UI:WaitShowDialogue("On dirait que quelqu’un est un peu plus doux qu’il n’aime le dire !")
 				UI:WaitShowDialogue("Nous pourrions dire à " .. CharacterEssentials.GetCharacterName("Mareep") .. " ce que " .. CharacterEssentials.GetCharacterName("Cranidos") .. " a dit...[pause=0]Mais je ne veux pas m'abaisser à son niveau.")
 				GROUND:CharSetEmote(partner, "glowing", 0)
-				UI:SetSpeakerEmotion("Joyous")
+				GeneralFunctions.SetEmotion("Joyous")
 				UI:WaitShowDialogue("C'est assez drôle d'y penser,[pause=10]heeheehee !")
 				GROUND:CharSetEmote(partner, "", 0)
 			else
@@ -1202,18 +1202,18 @@ function PartnerEssentials.Chapter_4_Dialogue(partner)
 				end
 			elseif location == 'Exploration' then
 				if SV.TemporaryFlags.AudinoSummonCount < 10 then
-					UI:SetSpeakerEmotion("Happy")
+					GeneralFunctions.SetEmotion("Happy")
 					UI:WaitShowDialogue("C'est tellement gentil de la part de " .. CharacterEssentials.GetCharacterName("Audino") .. " d'installer ce panneau pour que nous puissions l'appeler jusqu'ici !")
 					--UI:WaitShowDialogue("It's in such a convenient spot,[pause=10] here at the road out of town!")
-					UI:SetSpeakerEmotion("Normal")
+					GeneralFunctions.SetEmotion("Normal")
 					UI:WaitShowDialogue("Faisons quand même attention à ne pas en abuser.[pause=0]Elle court assez comme ça !")
 				else
-					UI:SetSpeakerEmotion("Pain")
+					GeneralFunctions.SetEmotion("Pain")
 					UI:WaitShowDialogue("C'était plutôt méchant de notre part,[pause=10], n'est-ce pas... ?[pause=0]Nous ne devrions plus faire ça au pauvre " .. CharacterEssentials.GetCharacterName("Audino") .. ".")
 				end
 			else--failsafe
 				if location == 'Exploration' and SV.TemporaryFlags.AudinoSummonCount >= 10 then
-					UI:SetSpeakerEmotion("Pain")
+					GeneralFunctions.SetEmotion("Pain")
 					UI:WaitShowDialogue("C'était plutôt méchant de notre part,[pause=10], n'est-ce pas... ?[pause=0]Nous ne devrions plus faire ça au pauvre " .. CharacterEssentials.GetCharacterName("Audino") .. ".")
 				else
 					PartnerEssentials.Default_Partner_Chapter_4_Dialogue()
@@ -1237,7 +1237,7 @@ function PartnerEssentials.Default_Partner_Chapter_4_Dialogue()
 	local partner = CH('Teammate1')
 	if not SV.Chapter4.ReachedGlade then
 		local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("apricorn_grove")
-		UI:SetSpeakerEmotion("Inspired")
+		GeneralFunctions.SetEmotion("Inspired")
 		UI:WaitShowDialogue("Je n'arrive toujours pas à y croire,[pause=10]" .. hero:GetDisplayName() .. "![pause=0]Une véritable aventure dans un donjon inexploré !")
 		UI:WaitShowDialogue("Allons maintenant sur " .. zone:GetColoredName() .. " et voyons ce que nous pouvons trouver ![pause=0]Je ne peux pas attendre plus longtemps !")
 	elseif not SV.Chapter4.FinishedGrove then
@@ -1246,11 +1246,11 @@ function PartnerEssentials.Default_Partner_Chapter_4_Dialogue()
 		UI:WaitShowDialogue("Revenons à " .. zone:GetColoredName() .. " et ramenons-le à la maison !")
 	else
 		local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("apricorn_grove")
-		UI:SetSpeakerEmotion("Inspired")
+		GeneralFunctions.SetEmotion("Inspired")
 		UI:WaitShowDialogue("Je suis tellement heureux que notre première vraie aventure se soit si bien déroulée ![pause=0]Nous avons également vraiment impressionné le maître de guilde !")
 		UI:WaitShowDialogue("Entre ça et l'expédition qui approche,[pause=10]je déborde d'enthousiasme !")
 		UI:WaitShowDialogue("J'espère que " .. CharacterEssentials.GetCharacterName("Breloom") .. " et " .. CharacterEssentials.GetCharacterName("Girafarig") .. " reviendront rapidement pour que nous puissions déjà partir en expédition !")
-		UI:SetSpeakerEmotion("Normal")
+		GeneralFunctions.SetEmotion("Normal")
 		UI:WaitShowDialogue("Pendant que nous attendons,[pause=10], nous devrions effectuer les tâches affichées sur le Job Bulletin Board et le Outlaw Notice Board.")
 		UI:WaitShowDialogue("Let's work hard as always,[pause=10] " .. hero:GetDisplayName() .. "!")
 	end

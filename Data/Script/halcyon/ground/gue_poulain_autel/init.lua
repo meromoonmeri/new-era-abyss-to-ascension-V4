@@ -70,7 +70,7 @@ function gue_poulain_autel.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format("L'eau tient tête au courant...[pause=20] et lui, il tient tête à l'OCÉAN entier !", hero:GetDisplayName()))
   UI:SetSpeaker(keldeo)
   UI:WaitShowDialogue("Mes maîtres m'ont appris à ne jamais fuir ![pause=20] Montrez-moi vos résolutions — je vous montrerai ma corne !")

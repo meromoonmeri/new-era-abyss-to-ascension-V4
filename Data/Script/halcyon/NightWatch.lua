@@ -66,7 +66,7 @@ NightWatch = {}
 local function say(partner, emo, txt)
   if partner == nil then return end
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion(emo or 'Normal')
+  GeneralFunctions.SetEmotion(emo or 'Normal')
   UI:WaitShowDialogue(txt)
   GAME:WaitFrames(8)
 end

@@ -75,7 +75,7 @@ function fleche_reliques_courroux.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("Le ciel est devenu ROUGE d'un coup ![pause=20] Et nos pas...[pause=10] l'écho arrive AVANT le pas, {0} !", hero:GetDisplayName()))
   UI:SetSpeaker(dialga)
   UI:WaitShowDialogue("Le temps saigne ici depuis trop longtemps.[pause=20] Soignez-le, ou devenez une seconde de plus dans ma collection.")

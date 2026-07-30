@@ -79,7 +79,7 @@ function fosse_ardente.Enter(map)
 
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Inspired")
+    GeneralFunctions.SetEmotion("Inspired")
     UI:WaitShowDialogue("Ses ailes... elles éclairent toute la fosse.[pause=20] C'est presque beau.")
   end
   GeneralFunctions.HeroDialogue(hero, "C'est une lampe. Pas un bûcher.", "Determined")

@@ -47,9 +47,9 @@ function metano_cafe_ch_4.Gulpin_Action(chara, activator)
 	else
 		local item = RogueEssence.Dungeon.InvItem('food_apple_perfect')
 		GeneralFunctions.StartConversation(chara, "Une fois,[pause=10]" .. CharacterEssentials.GetCharacterName("Shuckle") .. " avait un " .. item:GetDisplayName() .. " comme spécial du jour !", "Normal")
-		UI:SetSpeakerEmotion("Inspired")
+		GeneralFunctions.SetEmotion("Inspired")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MCF4_003']))
-		UI:SetSpeakerEmotion("Sad")
+		GeneralFunctions.SetEmotion("Sad")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MCF4_004']))
 	end
 	GeneralFunctions.EndConversation(chara)
@@ -81,10 +81,10 @@ function metano_cafe_ch_4.Cranidos_Action(chara, activator)
 			GAME:WaitFrames(40)
 			GeneralFunctions.EmoteAndPause(chara, "Exclaim", true)
 			--GROUND:CharSetEmote(chara, "sweating", 1)
-			UI:SetSpeakerEmotion("Surprised")
+			GeneralFunctions.SetEmotion("Surprised")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MCF4_011']))
 			GeneralFunctions.EmoteAndPause(chara, "Sweating", true)
-			UI:SetSpeakerEmotion("Special0")
+			GeneralFunctions.SetEmotion("Special0")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MCF4_012']))
 			SV.Chapter4.CranidosBlush = true
 		else
@@ -100,7 +100,7 @@ function metano_cafe_ch_4.Mareep_Action(chara, activator)
 		--N/A
 	else
 		GeneralFunctions.StartConversation(chara, "Salut vous deux ![pause=0]Moi et " .. CharacterEssentials.GetCharacterName("Cranidos") .. " nous détendons ici jusqu'à ce que l'expédition sta-a-a-arts !", "Happy")
-		UI:SetSpeakerEmotion("Normal")
+		GeneralFunctions.SetEmotion("Normal")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MCF4_013']))
 	end
 	GeneralFunctions.EndConversation(chara)

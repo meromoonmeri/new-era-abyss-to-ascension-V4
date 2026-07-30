@@ -56,7 +56,7 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_001']))
   -- "Le cœur des ruines... Il bat encore."
 
@@ -65,7 +65,7 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
   GROUND:CharAnimateTurnTo(hero, Direction.Down, 4)
 
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_002']))
   -- "Regarde ces veines dorées... Elles palpitent."
 
@@ -90,7 +90,7 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
 
   GAME:WaitFrames(10)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
+  GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_004']))
   -- "Toi... Tu nous as suivis jusqu'ici ?"
 
@@ -137,7 +137,7 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
 
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Surprised")
+    GeneralFunctions.SetEmotion("Surprised")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_029']))
   end
   GAME:WaitFrames(12)
@@ -149,7 +149,7 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
 
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_031']))
   end
   GAME:WaitFrames(12)
@@ -157,7 +157,7 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Determined")
+    GeneralFunctions.SetEmotion("Determined")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_033']))
   end
   GAME:WaitFrames(15)
@@ -238,7 +238,7 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
   BossFX.Rumble({hero, partner}, 2)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Surprised")
+    GeneralFunctions.SetEmotion("Surprised")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_039']))
   end
   GAME:WaitFrames(12)
@@ -288,7 +288,7 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
+  GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_007']))
   -- "REGIGIGAS ! Le Titan des Ruines !"
 
@@ -350,7 +350,7 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
   GAME:WaitFrames(20)
 
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_010'], hero:GetDisplayName()))
   -- "Alors on ne peut pas perdre. [hero], à nous !"
 
@@ -397,7 +397,7 @@ function cloven_ruins_boss_ch_7.SecondPreBossScene()
 
   GAME:WaitFrames(30)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_011']))
   -- "Cette fois, on le terrasse !"
 
@@ -453,12 +453,12 @@ local function DefeatedBossBody()
   GAME:WaitFrames(60)
 
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Inspired")
+  GeneralFunctions.SetEmotion("Inspired")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_012']))
   -- "On a vaincu le Titan !"
 
   GAME:WaitFrames(20)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_013']))
   -- "Le Cœur... il bat plus fort maintenant."
 
@@ -509,7 +509,7 @@ local function DefeatedBossBody()
   -- Le duo encaisse. Le partenaire n'a pas de reponse : c'est voulu.
   GAME:MoveCamera(136, 200, 40, false)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_059']))
   -- "Face a lui...[pause=25] Mais alors ce n'etait pas une salle du tresor."
   GAME:WaitFrames(25)
@@ -640,7 +640,7 @@ function cloven_ruins_boss_ch_7.DiedToBoss()
   GeneralFunctions.DoAnimation(partner, 'Wake')
   GAME:WaitFrames(12)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Pain")
+  GeneralFunctions.SetEmotion("Pain")
   UI:WaitShowDialogue("Il est... trop fort...[pause=20] On ne peut rien faire de plus aujourd'hui...")
   GAME:WaitFrames(20)
 

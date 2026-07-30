@@ -71,7 +71,7 @@ function ile_australe.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("Il fait nuit d'un coup...[pause=10] mais quelle nuit ![pause=20] Chaque étoile est à sa place — comme un ciel RANGÉ exprès.", hero:GetDisplayName()))
   UI:SetSpeaker(lunala)
   UI:WaitShowDialogue("Mon frère vous a jugés au soleil.[pause=20] Moi, je regarde ce que vous êtes dans le noir.")

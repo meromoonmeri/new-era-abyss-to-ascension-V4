@@ -70,7 +70,7 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_001']))
   -- "Cette brume est de plus en plus épaisse... On n'y voit presque rien."
 
@@ -79,7 +79,7 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   GROUND:CharAnimateTurnTo(hero, Direction.Down, 4)
 
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_002'], hero:GetDisplayName()))
   -- "Hé, [hero]... Tu as l'impression qu'on est observés ?"
 
@@ -103,7 +103,7 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
     GAME:WaitFrames(10)
     GeneralFunctions.EmoteAndPause(partner, "Shock", true)
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Surprised")
+    GeneralFunctions.SetEmotion("Surprised")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_004']))
     -- "Qu'est-ce que...?!
     continueShake = false
@@ -137,7 +137,7 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(10)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
+  GeneralFunctions.SetEmotion("Surprised")
   GROUND:CharSetEmote(partner, "shock", 1)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_008']))
   -- "Qui... qui a dit ça ?!"
@@ -171,7 +171,7 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
 
   GeneralFunctions.EmoteAndPause(partner, "Shock", true)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
+  GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_005']))
   -- "Un Pokémon a surgi du sol !"
 
@@ -213,7 +213,7 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   GAME:WaitFrames(20)
   GROUND:CharSetEmote(partner, "sweating", 1)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_006']))
   -- "Et celui-là... il nous attendait."
 
@@ -223,7 +223,7 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   -- Camera : petit panoramique sur les boss pendant qu'on les decrit.
   GAME:MoveCamera(184, 226, 40, false)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_032']))
   -- "Leurs yeux... ils n'ont rien de sauvage. Ils sont organises."
   GAME:WaitFrames(15)
@@ -240,7 +240,7 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   -- Camera : on redescend sur le duo qui repond.
   GAME:MoveCamera(184, 258, 40, false)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_035']))
   -- "Alors on demandera le passage. Poliment, si on peut."
   GAME:WaitFrames(15)
@@ -248,7 +248,7 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   -- "La politesse ne marchera pas ici. Regarde-les."
   GAME:WaitFrames(15)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Sad")
+  GeneralFunctions.SetEmotion("Sad")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_037']))
   -- "...Je sais. Reste derriere moi."
   GAME:WaitFrames(15)
@@ -264,7 +264,7 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   UI:SetCenter(false)
   GAME:WaitFrames(15)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Pain")
+  GeneralFunctions.SetEmotion("Pain")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_040']))
   -- "J'ai les pattes qui tremblent. Je ne vais pas faire semblant."
   GAME:WaitFrames(15)
@@ -330,7 +330,7 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_011'], hero:GetDisplayName()))
   -- "Pas le choix ! [hero], on se bat !"
 
@@ -381,7 +381,7 @@ function vast_steppe_miniboss_ch_5.SecondPreBossScene()
 
   GAME:WaitFrames(30)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_012']))
   -- "Ils sont encore là... Cette fois, on ne perd pas !"
 
@@ -442,12 +442,12 @@ local function DefeatedBossBody()
   GAME:WaitFrames(30)
   UI:SetSpeaker(partner)
   GeneralFunctions.Hop(partner)
-  UI:SetSpeakerEmotion("Inspired")
+  GeneralFunctions.SetEmotion("Inspired")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_013']))
   -- "On a réussi ! Ces deux-là étaient coriaces..."
 
   GAME:WaitFrames(20)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_014']))
   -- "Mais cette voix... Qui était-ce ?"
 
@@ -460,7 +460,7 @@ local function DefeatedBossBody()
   GAME:WaitFrames(15)
   GAME:MoveCamera(184, 228, 40, false)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
+  GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_042']))
   -- "Ils reculent... pas en fuyant. En se retirant."
   GAME:WaitFrames(15)
@@ -499,7 +499,7 @@ local function DefeatedBossBody()
   -- Camera : retour sur le duo pour l'echange final.
   GAME:MoveCamera(184, 258, 40, false)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_044']))
   -- "Il y a une difference ?"
   GAME:WaitFrames(15)
@@ -510,7 +510,7 @@ local function DefeatedBossBody()
   -- LOT 4 — le duo formule l'idee d'une mise a l'epreuve, puis fixe le cap.
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_030']))
   -- "Cette voix... elle nous observait. Elle nous TESTAIT."
 
@@ -537,7 +537,7 @@ local function DefeatedBossBody()
   GAME:WaitFrames(40)
 
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_016']))
   -- "Ils ont disparu... Allez, on continue la mission."
 
@@ -632,7 +632,7 @@ function vast_steppe_miniboss_ch_5.DiedToBoss()
   GeneralFunctions.DoAnimation(partner, 'Wake')
   GAME:WaitFrames(12)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Pain")
+  GeneralFunctions.SetEmotion("Pain")
   UI:WaitShowDialogue("On... on ne peut plus continuer...[pause=20] Replions-nous...")
   GAME:WaitFrames(20)
 

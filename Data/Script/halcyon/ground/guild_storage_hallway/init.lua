@@ -122,7 +122,7 @@ function guild_storage_hallway.Left_Exit_Touch(obj, activator)
   local partner = CH('Teammate1')
   local hero = CH('PLAYER')
   GeneralFunctions.StartPartnerConversation("H-Hé,[pause=10], c'est le chemin vers la chambre du maître de guilde !", "Surprised")
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue("Nous ne sommes pas autorisés à entrer là-bas.[pause=0]Faisons demi-tour avant d'avoir des ennuis.")
   GeneralFunctions.EndConversation(partner)
 end

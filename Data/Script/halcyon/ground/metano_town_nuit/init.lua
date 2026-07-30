@@ -235,7 +235,7 @@ local function trop_tard(txt)
   end
   pcall(function()
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion('Normal')
+    GeneralFunctions.SetEmotion('Normal')
     UI:WaitShowDialogue(txt)
     UI:ResetSpeaker()
   end)

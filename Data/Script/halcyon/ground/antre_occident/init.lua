@@ -71,7 +71,7 @@ function antre_occident.Enter(map)
 
     if partner ~= nil then
       UI:SetSpeaker(partner)
-      UI:SetSpeakerEmotion("Worried")
+      GeneralFunctions.SetEmotion("Worried")
       UI:WaitShowDialogue("« Ce qui dort plus bas »...[pause=20] Il y a autre chose sous cette caverne ?")
     end
     GeneralFunctions.HeroDialogue(hero, "Une porte à la fois.", "Determined")
@@ -135,7 +135,7 @@ function antre_occident.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("Cet Ancrage est... artificiel ?[pause=20] Quelqu'un a CONSTRUIT une faille... et l'a abandonnée ?!", hero:GetDisplayName()))
   UI:SetSpeaker(mewtwo)
   UI:WaitShowDialogue("Je ne garde pas ce lieu.[pause=20] C'est ce lieu qui me garde.[pause=20] Viens.[pause=10] Aide-moi à vérifier lequel de nous deux a raison.")

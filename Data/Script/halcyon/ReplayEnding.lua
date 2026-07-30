@@ -261,7 +261,7 @@ function ReplayEnding.PlayEmptyScene(cfg)
       else
         if partner ~= nil then
           UI:SetSpeaker(partner)
-          UI:SetSpeakerEmotion(line.emo or 'Normal')
+          GeneralFunctions.SetEmotion(line.emo or 'Normal')
           UI:WaitShowDialogue(txt)
         end
       end

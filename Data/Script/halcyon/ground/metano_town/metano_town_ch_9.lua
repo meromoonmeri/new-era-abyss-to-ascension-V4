@@ -44,20 +44,20 @@ function metano_town_ch_9.Noctowl_Action(chara, activator)
     if s == "early" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT9_Noctowl_001']))
-        UI:SetSpeakerEmotion("Worried"); UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT9_Noctowl_002']))
-        UI:SetSpeakerEmotion("Normal"); UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT9_Noctowl_003']))
+        GeneralFunctions.SetEmotion("Worried"); UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT9_Noctowl_002']))
+        GeneralFunctions.SetEmotion("Normal"); UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT9_Noctowl_003']))
         GeneralFunctions.EndConversation(chara)
     elseif s == "pre" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT9_Noctowl_004']))
-        UI:SetSpeakerEmotion("Worried")
+        GeneralFunctions.SetEmotion("Worried")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT9_Noctowl_005']))
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT9_Noctowl_006']))
         GeneralFunctions.EndConversation(chara)
     elseif s == "post_suaire" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT9_Noctowl_007']))
-        UI:SetSpeakerEmotion("Determined")
+        GeneralFunctions.SetEmotion("Determined")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT9_Noctowl_008']))
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT9_Noctowl_009']))
         GeneralFunctions.EndConversation(chara)
@@ -69,7 +69,7 @@ function metano_town_ch_9.Noctowl_Action(chara, activator)
     elseif s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT9_Noctowl_012']))
-        UI:SetSpeakerEmotion("Inspired")
+        GeneralFunctions.SetEmotion("Inspired")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT9_Noctowl_013']))
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT9_Noctowl_014']))
         GeneralFunctions.EndConversation(chara)

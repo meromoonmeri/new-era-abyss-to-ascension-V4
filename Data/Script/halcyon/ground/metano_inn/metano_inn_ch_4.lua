@@ -37,7 +37,7 @@ end
 function metano_inn_ch_4.Passerby_1_Action(chara, activator)
 	if not SV.Chapter4.FinishedGrove then
 		GeneralFunctions.StartConversation(chara, "J'espère que je n'ai pas laissé de tache de peinture sur le lit pendant que je dormais.")
-		UI:SetSpeakerEmotion("Worried")
+		GeneralFunctions.SetEmotion("Worried")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MI4_001']))
 	else
 		GeneralFunctions.StartConversation(chara, "La nourriture de l'auberge est tellement bonne ![pause=0]Tellement meilleure que la merde de chez nous !", "Inspired")

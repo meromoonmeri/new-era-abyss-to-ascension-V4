@@ -35,7 +35,7 @@ function grotte_lazuli_fond.Enter(map)
 
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Inspired")
+    GeneralFunctions.SetEmotion("Inspired")
     UI:WaitShowDialogue("Tout est bleu...[pause=20] La roche elle-même a la couleur du ciel.")
   end
   GAME:WaitFrames(12)
@@ -46,7 +46,7 @@ function grotte_lazuli_fond.Enter(map)
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Elle ne s'arrête jamais.[pause=20] Elle continue derrière la pierre.")
   end
   GAME:WaitFrames(12)
@@ -62,13 +62,13 @@ function grotte_lazuli_fond.Enter(map)
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Surprised")
+    GeneralFunctions.SetEmotion("Surprised")
     UI:WaitShowDialogue("Ce n'est pas un minerai ![pause=20] C'est une ligne du Réseau, prise dans la roche !")
   end
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("On marchait dessus sans le savoir depuis le début...")
   end
   GAME:WaitFrames(12)
@@ -76,7 +76,7 @@ function grotte_lazuli_fond.Enter(map)
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Inspired")
+    GeneralFunctions.SetEmotion("Inspired")
     UI:WaitShowDialogue("Et il brille de nouveau.[pause=20] Rentrons.")
   end
   GAME:WaitFrames(12)

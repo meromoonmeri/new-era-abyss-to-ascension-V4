@@ -400,19 +400,19 @@ function NPCRoutines.TriggerFloatzelQuagsireDispute()
 
 	-- La dispute
 	UI:SetSpeaker(floatzel)
-	UI:SetSpeakerEmotion("Angry")
+	GeneralFunctions.SetEmotion("Angry")
 	UI:WaitShowDialogue("Tu ne comprends pas ![pause=10] Je dois pêcher ![pause=15] C'est ce que je sais faire !")
 
 	UI:SetSpeaker(quagsire)
-	UI:SetSpeakerEmotion("Sad")
+	GeneralFunctions.SetEmotion("Sad")
 	UI:WaitShowDialogue("...[pause=30] Tu n'es jamais là.[pause=25] L'étang est vide sans toi.")
 
 	UI:SetSpeaker(floatzel)
-	UI:SetSpeakerEmotion("Surprised")
+	GeneralFunctions.SetEmotion("Surprised")
 	UI:WaitShowDialogue("Maris...[pause=25] Je... je ne savais pas.")
 
 	UI:SetSpeaker(quagsire)
-	UI:SetSpeakerEmotion("Normal")
+	GeneralFunctions.SetEmotion("Normal")
 	UI:WaitShowDialogue("...[pause=30] Maintenant tu sais.[pause=25] Pêche.[pause=30] Mais reviens.")
 
 	GROUND:CharSetEmote(floatzel, "sweatdrop", 1)

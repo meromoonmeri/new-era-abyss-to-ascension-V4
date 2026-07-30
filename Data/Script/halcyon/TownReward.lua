@@ -235,21 +235,21 @@ function TownReward.Congratulations()
     if partner ~= nil then
       UI:SetSpeaker(partner)
       if wave >= 3 then
-        UI:SetSpeakerEmotion('Surprised')
+        GeneralFunctions.SetEmotion('Surprised')
         UI:WaitShowDialogue("Ils sont tous sortis.[pause=30] Tous. Regarde.")
-        UI:SetSpeakerEmotion('Sad')
+        GeneralFunctions.SetEmotion('Sad')
         UI:WaitShowDialogue("Personne ne dit rien.[pause=25] Je crois qu'ils ne savent pas quoi dire.")
-        UI:SetSpeakerEmotion('Happy')
+        GeneralFunctions.SetEmotion('Happy')
         UI:WaitShowDialogue("Moi non plus, d'ailleurs.[pause=25] Alors on va juste marcher.")
       elseif wave == 2 then
-        UI:SetSpeakerEmotion('Happy')
+        GeneralFunctions.SetEmotion('Happy')
         UI:WaitShowDialogue("Tu as vu ?[pause=25] Le vieux du coin nous a salués.")
-        UI:SetSpeakerEmotion('Normal')
+        GeneralFunctions.SetEmotion('Normal')
         UI:WaitShowDialogue("Il ne salue personne, lui.[pause=30] Jamais.")
       else
-        UI:SetSpeakerEmotion('Happy')
+        GeneralFunctions.SetEmotion('Happy')
         UI:WaitShowDialogue("Ils ne savent pas que c'était nous.[pause=30] Enfin... presque personne.")
-        UI:SetSpeakerEmotion('Normal')
+        GeneralFunctions.SetEmotion('Normal')
         UI:WaitShowDialogue("C'est mieux comme ça, non ?")
       end
       UI:ResetSpeaker()

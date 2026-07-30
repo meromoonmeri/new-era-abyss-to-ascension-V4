@@ -28,9 +28,9 @@ end
 
 function metano_cafe_ch_5.Gulpin_Action(chara, activator)
 	GeneralFunctions.StartConversation(chara, "Une boisson offerte par " .. CharacterEssentials.GetCharacterName("Shuckle") .. "...[pause=0] C'est un rêve qui devient réalité !", "Inspired")
-	UI:SetSpeakerEmotion("Sad")
+	GeneralFunctions.SetEmotion("Sad")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MCF5_002']))
-	UI:SetSpeakerEmotion("Pain")
+	GeneralFunctions.SetEmotion("Pain")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MCF5_003']))
 	GeneralFunctions.EndConversation(chara)
 end 
@@ -39,14 +39,14 @@ function metano_cafe_ch_5.Cleffa_Action(chara, activator)
 	if SV.Chapter5.FinishedExpedition then
 		GeneralFunctions.StartConversation(chara, "Vous êtes rentrés ![pause=0] Toute la ville ne parle que de votre expédition !", "Happy")
 		UI:WaitShowDialogue("Une lumière au sommet de la montagne...[pause=0] C'est vrai ?[pause=0] Vous l'avez VUE ?[pause=0] De près ?")
-		UI:SetSpeakerEmotion("Inspired")
+		GeneralFunctions.SetEmotion("Inspired")
 		UI:WaitShowDialogue("Quand je serai grande,[pause=10] moi aussi je verrai des choses que personne ne croit.[pause=0] C'est décidé depuis aujourd'hui.")
 	elseif SV.Chapter5.ReadyForExpedition or SV.Chapter5.FinishedExpeditionAddress then
 		GeneralFunctions.StartConversation(chara, "C'est vrai que la guilde part TOUTE ENTIÈRE ?[pause=0] Même le grand Tropius ?", "Surprised")
 		UI:WaitShowDialogue("Maman dit que c'est du jamais-vu depuis avant ma naissance.[pause=0] Et maman est née il y a TRÈS longtemps.[pause=0] Genre,[pause=10] trente ans.")
 	else
 		GeneralFunctions.StartConversation(chara, "Chuuut...[pause=0] J'écoute les grands parler de l'expédition.[pause=0] Si je fais semblant de boire mon jus,[pause=10] personne ne me remarque.", "Normal")
-		UI:SetSpeakerEmotion("Worried")
+		GeneralFunctions.SetEmotion("Worried")
 		UI:WaitShowDialogue("...Vous n'allez pas me dénoncer,[pause=10] hein ?")
 	end
 	GeneralFunctions.EndConversation(chara)
@@ -56,11 +56,11 @@ function metano_cafe_ch_5.Aggron_Action(chara, activator)
 	if SV.Chapter5.FinishedExpedition then
 		GeneralFunctions.StartConversation(chara, "Alors c'est vous,[pause=10] les héros du moment.[pause=0] Hmph.[pause=0] Asseyez-vous,[pause=10] je vous offre une tournée.", "Normal")
 		UI:WaitShowDialogue("À votre âge,[pause=10] j'ai tenté la traversée de la steppe.[pause=0] Seul.[pause=0] Je me suis perdu deux jours et j'ai fini raccompagné par un troupeau d'Écrémeuh.")
-		UI:SetSpeakerEmotion("Happy")
+		GeneralFunctions.SetEmotion("Happy")
 		UI:WaitShowDialogue("Alors trois donjons et un sommet ?[pause=0] Oui.[pause=0] Vous avez mérité votre tournée.")
 		if not SV.Chapter5.LegendTitansHeard then
 			GAME:WaitFrames(20)
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue("...Des ruines dans les montagnes,[pause=10] dites-vous ?[pause=0] Hmph.[pause=0] Ça me rappelle une vieille histoire de mineur.")
 			UI:ResetSpeaker()
 			UI:ChoiceMenuYesNo("Écouter la légende de Rubble ?", false)
@@ -71,7 +71,7 @@ function metano_cafe_ch_5.Aggron_Action(chara, activator)
 		end
 	elseif SV.Chapter5.ReadyForExpedition or SV.Chapter5.FinishedExpeditionAddress then
 		GeneralFunctions.StartConversation(chara, "Une expédition complète vers le nord...[pause=0] Ça ne s'était pas vu depuis l'ancien Maître de Guilde.", "Normal")
-		UI:SetSpeakerEmotion("Worried")
+		GeneralFunctions.SetEmotion("Worried")
 		UI:WaitShowDialogue("Et la dernière fois,[pause=10] tous ne sont pas revenus.[pause=0] ...Bah.[pause=0] Oubliez ce que je viens de dire.[pause=0] Les vieux radotent,[pause=10] c'est connu.")
 	else
 		GeneralFunctions.StartConversation(chara, "Ce café est le seul endroit de la ville où le tabouret supporte mon poids.[pause=0] Je le sais.[pause=0] Je les ai tous testés.", "Normal")
@@ -94,7 +94,7 @@ function metano_cafe_ch_5.LegendOfTheTitans(chara)
 	GAME:WaitFrames(30)
 
 	UI:SetSpeaker(chara)
-	UI:SetSpeakerEmotion("Normal")
+	GeneralFunctions.SetEmotion("Normal")
 	UI:WaitShowDialogue("Quand je travaillais à la mine,[pause=10] les anciens nous interdisaient de creuser passé la septième galerie.[pause=0] Vous savez pourquoi ?")
 	GAME:WaitFrames(20)
 	UI:WaitShowDialogue("On raconte...[pause=20] qu'aux premiers jours du monde,[pause=10] trois serviteurs furent taillés dans la matière brute.")
@@ -103,7 +103,7 @@ function metano_cafe_ch_5.LegendOfTheTitans(chara)
 	GROUND:CharSetEmote(chara, "glowing", 1)
 	UI:WaitShowDialogue("Trois serviteurs.[pause=0] Pas trois maîtres.[pause=0] Car on raconte aussi qu'ils furent bâtis pour SERVIR quelque chose de plus grand.")
 	GAME:WaitFrames(20)
-	UI:SetSpeakerEmotion("Worried")
+	GeneralFunctions.SetEmotion("Worried")
 	UI:WaitShowDialogue("Un Colosse.[pause=0] Si vaste qu'il aurait remorqué les continents à la force des bras.[pause=0] Si vieux que la mousse a poussé sur ses épaules pendant son sommeil.")
 	UI:WaitShowDialogue("Et on raconte...[pause=20] qu'il dort encore.[pause=0] Sous des ruines,[pause=10] quelque part au nord.[pause=0][br]Avec,[pause=10] dans la poitrine,[pause=10] un cœur qui bat trop lentement pour qu'on l'entende.")
 
@@ -111,10 +111,10 @@ function metano_cafe_ch_5.LegendOfTheTitans(chara)
 	GeneralFunctions.HeroDialogue(hero, "(Un cœur qui bat sous des ruines...[pause=0] Pourquoi est-ce que ça me donne des frissons ?)", "Worried")
 
 	UI:SetSpeaker(chara)
-	UI:SetSpeakerEmotion("Normal")
+	GeneralFunctions.SetEmotion("Normal")
 	UI:WaitShowDialogue("La septième galerie rendait un son creux quand on frappait la paroi.[pause=0] CREUX.[pause=0] Vous comprenez ?")
 	GAME:WaitFrames(15)
-	UI:SetSpeakerEmotion("Happy")
+	GeneralFunctions.SetEmotion("Happy")
 	UI:WaitShowDialogue("...Bah.[pause=0] C'est une histoire de mineurs.[pause=0] On en racontait des dizaines pour passer le temps sous terre.[pause=0] Buvez,[pause=10] ça refroidit.")
 
 	SV.Chapter5.LegendTitansHeard = true
@@ -129,7 +129,7 @@ end
 	GeneralFunctions.EndConversation(chara)
 	
 	GeneralFunctions.StartConversation(chara, "Emportez autant de boissons de " .. CharacterEssentials.GetCharacterName("Shuckle") .. " que possible pendant votre expédition...")
-	UI:SetSpeakerEmotion("Inspired")
+	GeneralFunctions.SetEmotion("Inspired")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MCF5_005']))
 	GeneralFunctions.EndConversation(chara)
 ]]--

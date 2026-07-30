@@ -51,7 +51,7 @@ function apricorn_grove_entrance_ch_4.FirstAttemptCutscene()
 	GROUND:CharTurnToCharAnimated(hero, partner, 4)
 	
 	GeneralFunctions.Hop(partner)
-	UI:SetSpeakerEmotion("Inspired")
+	GeneralFunctions.SetEmotion("Inspired")
 	GROUND:CharSetAnim(partner, "Idle", true)
 	GROUND:CharSetEmote(partner, "happy", 0)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['AGE4_003'], hero:GetDisplayName()))
@@ -137,7 +137,7 @@ function apricorn_grove_entrance_ch_4.FirstComeOutFront()
 	
 	GAME:WaitFrames(20)
 	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Worried")
+	GeneralFunctions.SetEmotion("Worried")
 	GROUND:CharSetEmote(partner, "question", 1)
 	SOUND:PlayBattleSE('EVT_Emote_Confused')
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['AGE4_008']))
@@ -175,18 +175,18 @@ function apricorn_grove_entrance_ch_4.FirstComeOutFront()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['AGE4_009']))
 	GAME:WaitFrames(20)
 	GeneralFunctions.EmoteAndPause(partner, "Shock", true)
-	UI:SetSpeakerEmotion("Surprised")
+	GeneralFunctions.SetEmotion("Surprised")
 	SOUND:PlayBGM('Star Cave.ogg', false)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['AGE4_010']))
 	GAME:WaitFrames(10)
 
 	GeneralFunctions.EmoteAndPause(partner, "Sweating", true)
-	UI:SetSpeakerEmotion("Pain")
+	GeneralFunctions.SetEmotion("Pain")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['AGE4_011']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['AGE4_012']))
 
 	GAME:WaitFrames(20)
-	UI:SetSpeakerEmotion("Normal")
+	GeneralFunctions.SetEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['AGE4_013']), {function() return GeneralFunctions.Hop(partner) end})
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['AGE4_014'], hero:GetDisplayName()))
 	
@@ -259,7 +259,7 @@ function apricorn_grove_entrance_ch_4.SubsequentAttemptCutscene()
 	GROUND:CharTurnToCharAnimated(partner, hero, 4)
 	GROUND:CharTurnToCharAnimated(hero, partner, 4)
 	
-	UI:SetSpeakerEmotion("Worried")
+	GeneralFunctions.SetEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['AGE4_016']))
 
 	--should player comment on being excited about a new exploration opportunity? They already expressed this kind of sentiment with the expedition, which is probably more fitting anyway.
@@ -267,7 +267,7 @@ function apricorn_grove_entrance_ch_4.SubsequentAttemptCutscene()
 	
 	GAME:WaitFrames(20)
 	GeneralFunctions.DoubleHop(partner)
-	UI:SetSpeakerEmotion("Inspired")
+	GeneralFunctions.SetEmotion("Inspired")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['AGE4_017']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['AGE4_018'], hero:GetDisplayName()))
 	
@@ -335,7 +335,7 @@ function apricorn_grove_entrance_ch_4.FailedNoFullTeamReattempt()
 	GROUND:CharTurnToCharAnimated(partner, hero, 4)
 	GROUND:CharTurnToCharAnimated(hero, partner, 4)
 	
-	UI:SetSpeakerEmotion("Worried")
+	GeneralFunctions.SetEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['AGE4_020']))
 
 	--should player comment on being excited about a new exploration opportunity? They already expressed this kind of sentiment with the expedition, which is probably more fitting anyway.
@@ -343,7 +343,7 @@ function apricorn_grove_entrance_ch_4.FailedNoFullTeamReattempt()
 	
 	GAME:WaitFrames(20)
 	GeneralFunctions.DoubleHop(partner)
-	UI:SetSpeakerEmotion("Inspired")
+	GeneralFunctions.SetEmotion("Inspired")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['AGE4_021']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['AGE4_022'], hero:GetDisplayName()))
 	

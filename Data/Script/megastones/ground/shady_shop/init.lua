@@ -120,7 +120,7 @@ function shady_shop.Exposition()
   --pult mumbling to herself
 
   UI:SetSpeaker(pult)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Exposition_001']))
   GROUND:EntTurn(pult,Dir8.Up)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Exposition_002']))
@@ -136,11 +136,11 @@ function shady_shop.Exposition()
   GAME:WaitFrames(40)
 
   UI:SetSpeaker(pult)
-  UI:SetSpeakerEmotion("Surprised")
+  GeneralFunctions.SetEmotion("Surprised")
   UI:SetSpeakerReverse(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Exposition_004']))
   GROUND:CharSetEmote(pult, 'angry', 3)
-  UI:SetSpeakerEmotion("Angry")
+  GeneralFunctions.SetEmotion("Angry")
   UI:SetSpeakerReverse(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Exposition_005']))
 
@@ -149,14 +149,14 @@ function shady_shop.Exposition()
   GROUND:CharSetEmote(pult, 'notice', 1)
   SOUND:PlayBattleSE('EVT_Emote_Exclaim')
   UI:SetSpeaker(dreepy)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:SetSpeakerReverse(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Exposition_006']))
 
   GAME:WaitFrames(10)
 
   UI:SetSpeaker(pult)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:SetSpeakerReverse(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Exposition_007']))
 
@@ -165,7 +165,7 @@ function shady_shop.Exposition()
   GAME:WaitFrames(60)
 
   UI:SetSpeaker(pult)
-  UI:SetSpeakerEmotion("Sad")
+  GeneralFunctions.SetEmotion("Sad")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Exposition_008']))
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Exposition_009']))
 
@@ -176,23 +176,23 @@ function shady_shop.Exposition()
   GAME:WaitFrames(20)
 
   UI:SetSpeaker(pult)
-  UI:SetSpeakerEmotion("Pain")
+  GeneralFunctions.SetEmotion("Pain")
   UI:SetSpeakerReverse(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Exposition_010']))
 
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:SetSpeakerReverse(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Exposition_011'], CH('NPC_Shady'):GetDisplayName())) --ty flowersnekkkkkkk
 
-  UI:SetSpeakerEmotion("Happy")
+  GeneralFunctions.SetEmotion("Happy")
   UI:SetSpeakerReverse(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Exposition_012']))
 
-  UI:SetSpeakerEmotion("Inspired")
+  GeneralFunctions.SetEmotion("Inspired")
   UI:SetSpeakerReverse(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Exposition_013']))
 
-  UI:SetSpeakerEmotion("Inspired")
+  GeneralFunctions.SetEmotion("Inspired")
   UI:SetSpeakerReverse(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Exposition_014']))
 
@@ -212,19 +212,19 @@ function shady_shop.Exposition()
     )
   end
 
-  UI:SetSpeakerEmotion("Stunned")
+  GeneralFunctions.SetEmotion("Stunned")
   UI:SetSpeakerReverse(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Exposition_015']), {absweat})
 
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:SetSpeakerReverse(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Exposition_016']))
 
-  UI:SetSpeakerEmotion("Joyous")
+  GeneralFunctions.SetEmotion("Joyous")
   UI:SetSpeakerReverse(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Exposition_017']))
 
-  UI:SetSpeakerEmotion("Inspired")
+  GeneralFunctions.SetEmotion("Inspired")
   UI:SetSpeakerReverse(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Exposition_018']))
 
@@ -236,7 +236,7 @@ function shady_shop.Exposition()
     end
   )
 
-  UI:SetSpeakerEmotion("Inspired")
+  GeneralFunctions.SetEmotion("Inspired")
   UI:SetSpeakerReverse(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Exposition_019']))
 
@@ -357,7 +357,7 @@ function shady_shop.NPC_Shady_Action(obj, activator)
 			local shop_choices = {STRINGS:Format(STRINGS.MapStrings['Shop_Option_Buy']), STRINGS:Format(STRINGS.MapStrings['Shop_Option_Sell']),
 			STRINGS:FormatKey("MENU_INFO"),
 			STRINGS:FormatKey("MENU_EXIT")}
-      UI:SetSpeakerEmotion("Normal")
+      GeneralFunctions.SetEmotion("Normal")
 			UI:BeginChoiceMenu(msg, shop_choices, 1, 4)
 			UI:WaitForChoice()
 			local result = UI:ChoiceResult()
@@ -365,31 +365,31 @@ function shady_shop.NPC_Shady_Action(obj, activator)
 			if result == 1 then
 				if #catalog > 0 then
 					--TODO: use the enum instead of a hardcoded number
-          UI:SetSpeakerEmotion("Happy")
+          GeneralFunctions.SetEmotion("Happy")
 					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Buy'], STRINGS:LocalKeyString(26)))
-          UI:SetSpeakerEmotion("Normal")
+          GeneralFunctions.SetEmotion("Normal")
 					state = 1
 				else
-          UI:SetSpeakerEmotion("Sigh")
+          GeneralFunctions.SetEmotion("Sigh")
 					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Buy_Empty']))
-          UI:SetSpeakerEmotion("Normal")
+          GeneralFunctions.SetEmotion("Normal")
 				end
 			elseif result == 2 then
-        UI:SetSpeakerEmotion("Pain")
+        GeneralFunctions.SetEmotion("Pain")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Sell'], _DATA:GetMonster("kecleon"):GetColoredName()))
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
 			elseif result == 3 then
-        UI:SetSpeakerEmotion("Joyous")
+        GeneralFunctions.SetEmotion("Joyous")
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Info_001']))
-        UI:SetSpeakerEmotion("Pain")
+        GeneralFunctions.SetEmotion("Pain")
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Info_002']))
-        UI:SetSpeakerEmotion("Worried")
+        GeneralFunctions.SetEmotion("Worried")
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Info_003']))
-        UI:SetSpeakerEmotion("Determined")
+        GeneralFunctions.SetEmotion("Determined")
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Info_004']))
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
 			else
-        UI:SetSpeakerEmotion("Happy")
+        GeneralFunctions.SetEmotion("Happy")
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Goodbye']))
 				state = -1
 			end
@@ -401,9 +401,9 @@ function shady_shop.NPC_Shady_Action(obj, activator)
 				local bag_count = GAME:GetPlayerBagCount() + GAME:GetPlayerEquippedCount()
 				local bag_cap = GAME:GetPlayerBagLimit()
 				if bag_count == bag_cap then
-					UI:SetSpeakerEmotion("Worried")
+					GeneralFunctions.SetEmotion("Worried")
 					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Bag_Full']))
-					UI:SetSpeakerEmotion("Normal")
+					GeneralFunctions.SetEmotion("Normal")
 				else
 					cart = result
 					state = 2
@@ -418,9 +418,9 @@ function shady_shop.NPC_Shady_Action(obj, activator)
 			end
 			local msg
 			if total > GAME:GetPlayerMoney() then
-				UI:SetSpeakerEmotion("Angry")
+				GeneralFunctions.SetEmotion("Angry")
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Buy_No_Money']))
-				UI:SetSpeakerEmotion("Normal")
+				GeneralFunctions.SetEmotion("Normal")
 				state = 1
 			else
 				if #cart == 1 then

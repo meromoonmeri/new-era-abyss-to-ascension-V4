@@ -159,7 +159,7 @@ function apricorn_grove_entrance.ComeOutFront()
 
 
 	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Worried")
+	GeneralFunctions.SetEmotion("Worried")
 	UI:WaitShowDialogue("Hmm...[pause=0]On dirait que nous sommes de retour à l'entrée.")
 	GAME:WaitFrames(20)
 	UI:WaitShowDialogue(hero:GetDisplayName() .. ",[pause=10]que devons-nous faire ?")
@@ -167,7 +167,7 @@ function apricorn_grove_entrance.ComeOutFront()
 	UI:WaitForChoice()
 	local result = UI:ChoiceResult()
 	GAME:WaitFrames(20)
-	UI:SetSpeakerEmotion("Normal")
+	GeneralFunctions.SetEmotion("Normal")
 	if result == 1 then
 		UI:WaitShowDialogue("OK,[pause=10], nous retournerons alors dans le donjon.")
 		UI:WaitShowDialogue("C'est parti,[pause=10]" .. hero:GetDisplayName() .. " !")

@@ -68,7 +68,7 @@ function crystal_sanctuary_boss.Enter(map)
 
   UI:SetSpeaker(diancie)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CSB_002']))
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CSB_003']))
 
   COMMON.BossTransition()

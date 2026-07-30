@@ -78,7 +78,7 @@ function plaines_brulees.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("Un volcan qui marche...[pause=20] et une étincelle qui DANSE autour de lui ?!", hero:GetDisplayName()))
   UI:SetSpeaker(entei)
   UI:WaitShowDialogue("Il dit que vous allez perdre.[pause=10] Moi je dis que non ![pause=20] Départagez-nous !")

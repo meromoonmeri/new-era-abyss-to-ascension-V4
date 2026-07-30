@@ -260,7 +260,7 @@ function VoiceVisions.Speak(cfg)
     --Le temoin n'a RIEN entendu. Il a vu son ami blemir, c'est tout.
     if cfg.witness ~= nil and cfg.witnessLines ~= nil then
       UI:SetSpeaker(cfg.witness)
-      UI:SetSpeakerEmotion("Worried")
+      GeneralFunctions.SetEmotion("Worried")
       for _, key in ipairs(cfg.witnessLines) do
         UI:WaitShowDialogue(resolve(cfg, key))
       end
@@ -378,7 +378,7 @@ function VoiceVisions.Play(cfg)
     end
     if cfg.witness ~= nil and cfg.witnessLines ~= nil then
       UI:SetSpeaker(cfg.witness)
-      UI:SetSpeakerEmotion("Worried")
+      GeneralFunctions.SetEmotion("Worried")
       for _, key in ipairs(cfg.witnessLines) do
         UI:WaitShowDialogue(resolve(cfg, key))
       end

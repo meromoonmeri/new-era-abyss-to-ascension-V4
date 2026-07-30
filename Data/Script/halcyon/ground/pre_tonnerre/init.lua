@@ -71,7 +71,7 @@ function pre_tonnerre.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format("Cette trace d'herbe brûlée...[pause=10] UN SEUL trait, du pied de la piste jusqu'ici ![pause=20] Il nous a devancés en s'AMUSANT.", hero:GetDisplayName()))
   UI:SetSpeaker(zeraora)
   UI:WaitShowDialogue("Enfin des concurrents ![pause=20] Règle unique :[pause=10] le premier à terre a perdu !")

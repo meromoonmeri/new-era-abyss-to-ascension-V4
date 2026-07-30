@@ -74,7 +74,7 @@ guild_guildmasters_room_ch_6 = {}
 local function say(chara, emo, txt)
   if chara == nil then return end
   UI:SetSpeaker(chara)
-  UI:SetSpeakerEmotion(emo or 'Normal')
+  GeneralFunctions.SetEmotion(emo or 'Normal')
   UI:WaitShowDialogue(txt)
   GAME:WaitFrames(8)
 end

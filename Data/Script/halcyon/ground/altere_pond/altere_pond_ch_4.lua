@@ -27,9 +27,9 @@ function altere_pond_ch_4.Relicanth_Action(chara, activator)
 
 			GAME:WaitFrames(20)
 			UI:SetSpeaker(partner)
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['AP4_005'], relicanth:GetDisplayName(), hero:GetDisplayName()))
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['AP4_006']))
 
 			GAME:WaitFrames(20)

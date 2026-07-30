@@ -79,7 +79,7 @@ function pic_ferreux_pied.Enter(map)
 
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("Il est... encastré dans le pylône.[pause=20] Il fait partie de la structure !")
   end
   GeneralFunctions.HeroDialogue(hero, "Alors on lui demandera de s'écarter.", "Determined")

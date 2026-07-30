@@ -78,7 +78,7 @@ function foret_givree_oree.Enter(map)
 
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("Le givre monte le long des arbres...[pause=20] et il parle si lentement.")
   end
   GeneralFunctions.HeroDialogue(hero, "Il a le temps. Nous, non.", "Determined")

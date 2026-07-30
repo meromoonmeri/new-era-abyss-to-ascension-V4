@@ -71,7 +71,7 @@ function porte_plaines_foudre.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("Mes poils se dressent...[pause=10] l'air entier est CHARGÉ ![pause=20] Il ne descend pas — il EST la foudre !", hero:GetDisplayName()))
   UI:SetSpeaker(electhor)
   UI:WaitShowDialogue("L'Antenne chante quand je passe.[pause=20] Écoutez-la une dernière fois.")

@@ -376,7 +376,7 @@ function TownNight.Talk(inst)
 
   local ok = pcall(function()
     UI:SetSpeaker(chara)
-    UI:SetSpeakerEmotion(fiche.emo or 'Normal')
+    GeneralFunctions.SetEmotion(fiche.emo or 'Normal')
     for _, t in ipairs(bloc) do
       UI:WaitShowDialogue(t)
       GAME:WaitFrames(8)
@@ -404,7 +404,7 @@ function TownNight.PartnerTalk()
   end
   return pcall(function()
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion('Normal')
+    GeneralFunctions.SetEmotion('Normal')
     UI:WaitShowDialogue(txt)
     UI:ResetSpeaker()
   end)

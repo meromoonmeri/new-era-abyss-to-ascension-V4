@@ -474,7 +474,7 @@ function LegendArc.Victory(key)
     GAME:MoveCamera(wide[1], wide[2], 40, false)
     if partner ~= nil and f.ask ~= nil then
       UI:SetSpeaker(partner)
-      UI:SetSpeakerEmotion("Worried")
+      GeneralFunctions.SetEmotion("Worried")
       UI:WaitShowDialogue(f.ask)
       GAME:WaitFrames(12)
     end

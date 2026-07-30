@@ -18,14 +18,14 @@ function guild_third_floor_lobby_ch_7.RuinsExpeditionAddress()
 
   -- Penticus annonce, puis passe a Phileas
   UI:SetSpeaker(tropius)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G3F7_001']))
   -- "Mes amis, merci de vous etre rassembles. J'ai des nouvelles... preoccupantes."
   
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G3F7_002']))
   -- "Les rapports affluent de toute la region. Quelque chose ne va pas."
   
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G3F7_003']))
   -- "Les Pokemon sauvages sont plus agressifs. Les donjons semblent... s'etendre."
   
@@ -36,12 +36,12 @@ function guild_third_floor_lobby_ch_7.RuinsExpeditionAddress()
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(noctowl)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G3F7_005']))
   -- "Merci, Penticus. Les ruines abritent un Coeur des Anima."
 
   GAME:WaitFrames(10)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G3F7_006']))
   -- "Et d'apres mes lectures, ce Coeur... faiblit."
 
@@ -50,7 +50,7 @@ function guild_third_floor_lobby_ch_7.RuinsExpeditionAddress()
   -- "Si un Coeur s'eteint, la region qu'il soutient... meurt avec lui."
 
   GAME:WaitFrames(20)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G3F7_008']))
   -- "Nous DEVONS enqueter. C'est notre responsabilite."
 
@@ -58,17 +58,17 @@ function guild_third_floor_lobby_ch_7.RuinsExpeditionAddress()
 
   -- Penticus s'adresse au heros
   UI:SetSpeaker(tropius)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   GROUND:CharTurnToChar(tropius, hero)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G3F7_009']))
   -- "Je sais que vous revenez a peine de l'expedition..."
   
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G3F7_010']))
   -- "Mais vous etes la seule equipe en qui j'ai assez confiance pour cette mission."
 
   GAME:WaitFrames(20)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G3F7_011']))
   -- "Allez voir Phileas au troisieme etage. Il vous expliquera tout."
 
@@ -106,11 +106,11 @@ function guild_third_floor_lobby_ch_7.Noctowl_Action(chara, activator)
   if SV.Chapter7.RuinsAddressGiven and not SV.Chapter7.EnteredRuins then
     GeneralFunctions.StartConversation(chara, 
       STRINGS:Format(STRINGS.MapStrings['MT7_Noctowl_006']))
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Les Ruines Tordues se trouvent au nord de Metano.[pause=20] Ce sont les vestiges d'une civilisation ancienne.")
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("C'est la que se trouve le Coeur des Anima de notre region.[pause=25] Et il est en train de mourir.")
-    UI:SetSpeakerEmotion("Determined")
+    GeneralFunctions.SetEmotion("Determined")
     UI:WaitShowDialogue("Allez-y.[pause=30] Et rapportez-moi ce que vous trouverez.")
     SV.Chapter7.MissionAccepted = true
     GeneralFunctions.EndConversation(chara)
@@ -122,7 +122,7 @@ function guild_third_floor_lobby_ch_7.Noctowl_Action(chara, activator)
   elseif SV.Chapter7.HeardGenesisTale then
     GeneralFunctions.StartConversation(chara,
       "La Genese...[pause=20] Je n'aurais jamais cru la raconter un jour.[pause=30] Et pourtant.")
-    UI:SetSpeakerEmotion("Sad")
+    GeneralFunctions.SetEmotion("Sad")
     UI:WaitShowDialogue("Ce qui est arrive a ce Coeur...[pause=25] ne doit plus jamais arriver.")
     GeneralFunctions.EndConversation(chara)
   else

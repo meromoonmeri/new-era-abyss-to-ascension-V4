@@ -73,7 +73,7 @@ function arene_trone_magma.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("Le sol...[pause=10] le sol RESPIRE, {0} ![pause=20] Tout l'Ancrage s'est réveillé d'un coup !", hero:GetDisplayName()))
   UI:SetSpeaker(groudon)
   UI:WaitShowDialogue("La terre ne ment jamais.[pause=20] Montre-moi ce que pèsent tes pas.")

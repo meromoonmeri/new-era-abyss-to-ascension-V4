@@ -70,7 +70,7 @@ function champ_sacre.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Happy")
+  GeneralFunctions.SetEmotion("Happy")
   UI:WaitShowDialogue(STRINGS:Format("Des fleurs s'ouvrent PARTOUT où on marche ![pause=20] C'est... c'est le plus joli Ancrage qu'on ait vu !", hero:GetDisplayName()))
   UI:SetSpeaker(shaymin)
   UI:WaitShowDialogue("La gratitude, ça s'arrose.[pause=20] Voyons si la vôtre a des racines !")

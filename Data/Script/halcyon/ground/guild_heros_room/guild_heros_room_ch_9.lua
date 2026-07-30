@@ -51,7 +51,7 @@ function guild_heros_room_ch_9.PostMarshBedtalk()
   GAME:WaitFrames(40)
 
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR9_001']))
 
   GAME:WaitFrames(20)
@@ -62,11 +62,11 @@ function guild_heros_room_ch_9.PostMarshBedtalk()
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Sad")
+  GeneralFunctions.SetEmotion("Sad")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR9_004']))
 
   GAME:WaitFrames(30)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR9_005']))
 
   GAME:WaitFrames(20)
@@ -74,7 +74,7 @@ function guild_heros_room_ch_9.PostMarshBedtalk()
 
   GAME:WaitFrames(30)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR9_007']))
 
   GAME:WaitFrames(40)

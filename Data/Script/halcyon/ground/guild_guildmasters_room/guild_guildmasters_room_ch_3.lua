@@ -12,7 +12,7 @@ function guild_guildmasters_room_ch_3.Tropius_Action(chara, activator)
 		if not SV.Chapter3.TropiusGaveWand then
 			GeneralFunctions.StartConversation(chara, "Salut, équipe[pause=10]" .. GAME:GetTeamName() .. "![pause=0]Félicitations pour votre première mission réussie !", "Happy")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GMR3_001'], CharacterEssentials.GetCharacterName("Camerupt"), CharacterEssentials.GetCharacterName("Numel")))
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GMR3_002']))
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GMR3_003']))
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GMR3_004']))
@@ -25,14 +25,14 @@ function guild_guildmasters_room_ch_3.Tropius_Action(chara, activator)
 
 			GAME:WaitFrames(20)
 			UI:SetSpeaker(CH('Teammate1'))
-			UI:SetSpeakerEmotion("Inspired")
+			GeneralFunctions.SetEmotion("Inspired")
 			GROUND:CharSetEmote(CH('Teammate1'), "happy", 0)
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GMR3_007']))
 
 			GAME:WaitFrames(20)
 			GROUND:CharSetEmote(CH('Teammate1'), "", 0)
 			UI:SetSpeaker(chara)
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GMR3_008']))
 			SV.Chapter3.TropiusGaveWand = true
 		elseif not SV.Chapter3.EnteredCavern then
@@ -40,7 +40,7 @@ function guild_guildmasters_room_ch_3.Tropius_Action(chara, activator)
 		else--failed the dungeon at least once
 			GeneralFunctions.StartConversation(chara, "Vous avez du mal à capturer ce hors-la-loi ?[pause=0]Ils peuvent être des adversaires assez coriaces !")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GMR3_009']))
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GMR3_010']))
 		end
 	else

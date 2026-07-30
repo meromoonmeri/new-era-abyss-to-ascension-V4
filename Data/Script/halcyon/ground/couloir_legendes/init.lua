@@ -72,7 +72,7 @@ function couloir_legendes.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("Le couloir entier PULSE en pourpre...[pause=20] {0}, c'est ÇA que les Cœurs retenaient.[pause=10] Depuis toujours.", hero:GetDisplayName()))
   UI:SetSpeaker(eternatus)
   UI:WaitShowDialogue("Les gardiens m'ont compté en siècles.[pause=20] Je vous compterai en secondes.")

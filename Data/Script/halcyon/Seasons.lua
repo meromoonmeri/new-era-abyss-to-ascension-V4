@@ -247,7 +247,7 @@ function Seasons.Remark()
 
   return pcall(function()
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion('Normal')
+    GeneralFunctions.SetEmotion('Normal')
     for _, t in ipairs(lignes) do
       UI:WaitShowDialogue(t)
       GAME:WaitFrames(8)

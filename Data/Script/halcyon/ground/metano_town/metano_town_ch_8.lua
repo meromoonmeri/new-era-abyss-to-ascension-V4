@@ -42,27 +42,27 @@ function metano_town_ch_8.Noctowl_Action(chara, activator)
     if s == "early" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT8_Noctowl_001']))
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT8_Noctowl_002']))
         GeneralFunctions.EndConversation(chara)
     elseif s == "pre" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT8_Noctowl_003']))
-        UI:SetSpeakerEmotion("Worried")
+        GeneralFunctions.SetEmotion("Worried")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT8_Noctowl_004']))
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT8_Noctowl_005']))
         GeneralFunctions.EndConversation(chara)
     elseif s == "post_boss" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT8_Noctowl_006']))
-        UI:SetSpeakerEmotion("Happy")
+        GeneralFunctions.SetEmotion("Happy")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT8_Noctowl_007']))
         GeneralFunctions.EndConversation(chara)
     elseif s == "post_crystal" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT8_Noctowl_008']))
-        UI:SetSpeakerEmotion("Inspired")
+        GeneralFunctions.SetEmotion("Inspired")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT8_Noctowl_009']))
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT8_Noctowl_010']))
         GeneralFunctions.EndConversation(chara)
@@ -78,7 +78,7 @@ function metano_town_ch_8.Tropius_Action(chara, activator)
     if s == "early" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT8_Tropius_001']))
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT8_Tropius_002']))
         GeneralFunctions.EndConversation(chara)
     elseif s == "post_crystal" then
@@ -163,7 +163,7 @@ function metano_town_ch_8.Relicanth_Action(chara, activator)
     if s == "post_crystal" then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT8_Relicanth_001']))
-        UI:SetSpeakerEmotion("Normal")
+        GeneralFunctions.SetEmotion("Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT8_Relicanth_002']))
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT8_Relicanth_003']))
         GeneralFunctions.EndConversation(chara)

@@ -145,14 +145,14 @@ function RescueCheck(context, targetName, mission)
 
 		--different responses for special targets
 		if mission.Special == MISSION_GEN.SPECIAL_CLIENT_CHILD then
-			UI:SetSpeakerEmotion("Joyous")
+			GeneralFunctions.SetEmotion("Joyous")
 			UI:WaitShowDialogue("Merci de m'avoir sauvé ! Cet endroit était tellement effrayant ! J'ai hâte de revoir ma famille !")
 		elseif mission.Special == MISSION_GEN.SPECIAL_CLIENT_FRIEND then
 			UI:WaitShowDialogue("Oh, mon ami t'a envoyé pour me sauver ? Dieu merci! Nous vous reverrons à la guilde plus tard pour vous remercier !")
 		elseif mission.Special == MISSION_GEN.SPECIAL_CLIENT_RIVAL then
 			UI:WaitShowDialogue("Tch, mon rival t'a envoyé pour me sauver, hein ? Eh bien, merci. Nous vous récompenserons plus tard à la guilde.")
 		elseif mission.Special == MISSION_GEN.SPECIAL_CLIENT_LOVER then
-			UI:SetSpeakerEmotion("Joyous")
+			GeneralFunctions.SetEmotion("Joyous")
 			UI:WaitShowDialogue("Oh, mon bien-aimé " .. _DATA:GetMonster(mission.Client):GetColoredName() .. " vous a envoyé pour me sauver ? J'ai hâte de les retrouver !")
 		else
 			UI:WaitShowDialogue("Merci pour le sauvetage !\nJe vous verrai à la guilde après avec votre récompense !")
@@ -173,19 +173,19 @@ function RescueCheck(context, targetName, mission)
 		GAME:WaitFrames(20)
 		UI:SetSpeaker(context.Target)
 		if mission.Special == MISSION_GEN.SPECIAL_CLIENT_CHILD then
-			UI:SetSpeakerEmotion("Crying")
+			GeneralFunctions.SetEmotion("Crying")
 			UI:WaitShowDialogue("Waaah ! C'est effrayant ici ! P-s'il vous plaît, aidez-moi !")
 		elseif mission.Special == MISSION_GEN.SPECIAL_CLIENT_FRIEND then
-			UI:SetSpeakerEmotion("Surprised")
+			GeneralFunctions.SetEmotion("Surprised")
 			UI:WaitShowDialogue("S'il vous plaît, ne me laissez pas ici ! Mon ami est probablement malade d'inquiétude !")
 		elseif mission.Special == MISSION_GEN.SPECIAL_CLIENT_RIVAL then
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("Woah, ne me laisse pas traîner ici !")
 		elseif mission.Special == MISSION_GEN.SPECIAL_CLIENT_LOVER then
-			UI:SetSpeakerEmotion("Worried")
+			GeneralFunctions.SetEmotion("Worried")
 			UI:WaitShowDialogue("S'il vous plaît, sortez-moi d'ici ! Je veux juste revoir mon cher " .. _DATA:GetMonster(mission.Client):GetColoredName() .. " !")
 		else
-			UI:SetSpeakerEmotion("Surprised")
+			GeneralFunctions.SetEmotion("Surprised")
 			UI:WaitShowDialogue("H-hé ! Ne me laisse pas ici !")
 		end
 		--change map setting back to what it was
@@ -233,7 +233,7 @@ function DeliveryCheck(context, targetName, mission)
 			_DUNGEON.ShowMap = _DUNGEON.MinimapState.None
 			GAME:WaitFrames(20)
 			UI:SetSpeaker(context.Target)
-			UI:SetSpeakerEmotion("Sad")
+			GeneralFunctions.SetEmotion("Sad")
 			UI:WaitShowDialogue("Oh, s'il te plaît ! J'ai vraiment besoin de ce " .. item_name .. "...")
 			--change map setting back to what it was
 			_DUNGEON.ShowMap = map_setting
@@ -245,7 +245,7 @@ function DeliveryCheck(context, targetName, mission)
 		_DUNGEON.ShowMap = _DUNGEON.MinimapState.None
 		GAME:WaitFrames(20)
 		UI:SetSpeaker(context.Target)
-		UI:SetSpeakerEmotion("Sad")
+		GeneralFunctions.SetEmotion("Sad")
 		UI:WaitShowDialogue("Hein, tu n'as pas le " .. item_name .. " ? C'est dommage...")
 		--change map setting back to what it was
 		_DUNGEON.ShowMap = map_setting
@@ -535,13 +535,13 @@ function BATTLE_SCRIPT.PartnerInteract(owner, ownerChar, context, args)
 			if has_item then
 				personality = 54
 			else
-				UI:SetSpeakerEmotion("Worried")
+				GeneralFunctions.SetEmotion("Worried")
 				personality = 55
 			end
 		end
 	elseif outlaw ~= nil then--comment on outlaw target
 		personality = 59
-		UI:SetSpeakerEmotion("Determined")--this is overriden to worried/pain if hp is low enough
+		GeneralFunctions.SetEmotion("Determined")--this is overriden to worried/pain if hp is low enough
 	elseif objective_item ~= nil and mission.Completion == COMMON.MISSION_INCOMPLETE then --comment on needing to find the item
 		personality = 56
 	elseif escort ~= nil and SV.TakenBoard[escort].Completion == COMMON.MISSION_INCOMPLETE then
@@ -563,7 +563,7 @@ function BATTLE_SCRIPT.PartnerInteract(owner, ownerChar, context, args)
 				personality = 63
 			elseif SV.Chapter3.EncounteredBoss and not SV.Chapter3.DefeatedBoss and not SV.Chapter3.FinishedRootScene and segment == 1 then
 				personality = 64
-				UI:SetSpeakerEmotion("Determined")--this is overriden to worried/pain if hp is low enough
+				GeneralFunctions.SetEmotion("Determined")--this is overriden to worried/pain if hp is low enough
 			end
 		elseif SV.ChapterProgression.Chapter == 4 and dungeon == 'Apricorn Grove' then
 			if not SV.Chapter4.ReachedGlade then
@@ -579,11 +579,11 @@ function BATTLE_SCRIPT.PartnerInteract(owner, ownerChar, context, args)
     local pool = {}
     local key = ""
     if ratio <= 25 then
-      UI:SetSpeakerEmotion("Pain")
+      GeneralFunctions.SetEmotion("Pain")
       pool = personality_group.PINCH
       key = "TALK_PINCH_%04d"
     elseif ratio <= 50 then
-      UI:SetSpeakerEmotion("Worried")
+      GeneralFunctions.SetEmotion("Worried")
       pool = personality_group.HALF
       key = "TALK_HALF_%04d"
     else
@@ -638,11 +638,11 @@ function BATTLE_SCRIPT.HeroInteract(owner, ownerChar, context, args)
     local ratio = target.HP * 100 // target.MaxHP
 
     if ratio <= 25 then
-      UI:SetSpeakerEmotion("Pain")
+      GeneralFunctions.SetEmotion("Pain")
     elseif ratio <= 50 then
-      UI:SetSpeakerEmotion("Worried")
+      GeneralFunctions.SetEmotion("Worried")
     else
-	  UI:SetSpeakerEmotion("Normal")
+	  GeneralFunctions.SetEmotion("Normal")
     end
 
     local chosen_quote = ""
@@ -690,13 +690,13 @@ function BATTLE_SCRIPT.SenseiInteract(owner, ownerChar, context, args)
 	elseif result == 2 then
 		UI:WaitShowDialogue("Wahtah![pause=0]Très bien![pause=0]Permettez-moi de réinitialiser cet étage !")
 		GAME:WaitFrames(20)
-		UI:SetSpeakerEmotion("Determined")
+		GeneralFunctions.SetEmotion("Determined")
 		--charging animation
 		DUNGEON:CharStartAnim(target, "Charge", true)
 		UI:WaitShowDialogue(".........")
 		GAME:WaitFrames(20)
 		DUNGEON:CharEndAnim(target)
-		UI:SetSpeakerEmotion("Shouting")
+		GeneralFunctions.SetEmotion("Shouting")
 		--setup flashes
 		local emitter = RogueEssence.Content.FlashEmitter()
 		emitter.FadeInTime = 2
@@ -798,10 +798,10 @@ function BATTLE_SCRIPT.GuildmateInteract(owner, ownerChar, context, args)
 			local tbl = LTBL(chara)
 			if tbl.Importance == "Mareep" then
 				if shucaHealthRatio <= 25 then
-					UI:SetSpeakerEmotion("Sad")
+					GeneralFunctions.SetEmotion("Sad")
 					personality = 314
 				else
-					UI:SetSpeakerEmotion("Special1")--Blushing
+					GeneralFunctions.SetEmotion("Special1")--Blushing
 					personality = 312
 				end
 			else
@@ -810,19 +810,19 @@ function BATTLE_SCRIPT.GuildmateInteract(owner, ownerChar, context, args)
 				if (shuca.CharLoc - target.CharLoc):Dist8() <= 1 and not shuca.Dead then nextToShuca = true end
 
 				if shucaHealthRatio <= 25 then
-					UI:SetSpeakerEmotion("Angry")
+					GeneralFunctions.SetEmotion("Angry")
 					personality = 313--He's mad at you that Shuca's in danger, irrespective of distance between him and Shuca
 				elseif nextToShuca then
 					personality = 311--timid when next to Shuca
 				else
-					UI:SetSpeakerEmotion("Determined")--Jerk if she isn't next to him
+					GeneralFunctions.SetEmotion("Determined")--Jerk if she isn't next to him
 					personality = 310
 				end
 			end
 		elseif target_importance == "Mareep" then
 			local tbl = LTBL(chara)
 			if tbl.Importance == "Cranidos" then
-				UI:SetSpeakerEmotion("Happy")
+				GeneralFunctions.SetEmotion("Happy")
 				personality = 316
 			else
 				personality = 315
@@ -837,11 +837,11 @@ function BATTLE_SCRIPT.GuildmateInteract(owner, ownerChar, context, args)
     local pool = {}
     local key = ""
     if ratio <= 25 then
-      UI:SetSpeakerEmotion("Pain")
+      GeneralFunctions.SetEmotion("Pain")
       pool = personality_group.PINCH
       key = "TALK_PINCH_%04d"
     elseif ratio <= 50 then
-      UI:SetSpeakerEmotion("Worried")
+      GeneralFunctions.SetEmotion("Worried")
       pool = personality_group.HALF
       key = "TALK_HALF_%04d"
     else
@@ -1001,9 +1001,9 @@ function BATTLE_SCRIPT.TeamDazzlingChenipentRescue(owner, ownerChar, context, ar
   context.TurnCancel.Cancel = true
   DUNGEON:CharTurnToChar(context.Target, context.User)
   UI:SetSpeaker(context.Target)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6_001']))
-  UI:SetSpeakerEmotion("Happy")
+  GeneralFunctions.SetEmotion("Happy")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6_002']))
   SV.Chapter6.ChenipentFound = true
   UI:ResetSpeaker()

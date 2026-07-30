@@ -71,7 +71,7 @@ function carriere_magnetique.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format("Chaque engrenage de la carrière tourne vers ELLE...[pause=20] comme des tournesols vers le soleil.", hero:GetDisplayName()))
   UI:SetSpeaker(magearna)
   UI:WaitShowDialogue("Mon créateur dort depuis longtemps.[pause=20] Je protège son dernier atelier.[pause=10] En garde.")

@@ -8,7 +8,7 @@ function AudinoAssembly.Assembly(owner)
 	local state = 0
 	local repeated = false
 	UI:SetSpeaker(owner)--owner is a parameter as this script can be reused (3rd floor, metano town's bell sign, etc)
-	UI:SetSpeakerEmotion("Normal")
+	GeneralFunctions.SetEmotion("Normal")
 
 
 	while state > -1 do
@@ -105,11 +105,11 @@ function AudinoAssembly.Assembly(owner)
 			UI:WaitShowDialogue(STRINGS:Format(MapStrings['Assembly_Info_007']))
 			UI:WaitShowDialogue(STRINGS:Format(MapStrings['Assembly_Info_008']))
 			UI:WaitShowDialogue(STRINGS:Format(MapStrings['Assembly_Info_009']))
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue(STRINGS:Format(MapStrings['Assembly_Info_010']))
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 		else
-			UI:SetSpeakerEmotion("Happy")
+			GeneralFunctions.SetEmotion("Happy")
 			UI:WaitShowDialogue(STRINGS:Format(MapStrings['Assembly_Goodbye']))
 			state = -1
 		end

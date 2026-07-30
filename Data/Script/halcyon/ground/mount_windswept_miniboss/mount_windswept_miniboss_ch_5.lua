@@ -68,7 +68,7 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_001']))
   -- "Ce vent est impitoyable... On doit être sacrément haut maintenant."
 
@@ -77,7 +77,7 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   GROUND:CharAnimateTurnTo(hero, Direction.Down, 4)
 
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_002']))
   -- "Hé...[pause=10] tu as senti ça ? Le sol a tremblé."
 
@@ -107,7 +107,7 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
     GAME:WaitFrames(20)
     GeneralFunctions.EmoteAndPause(partner, "Shock", true)
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Surprised")
+    GeneralFunctions.SetEmotion("Surprised")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_003']))
     -- "Un éboulement !"
     continueShake = false
@@ -127,7 +127,7 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   -- LOT 8.3 — l'altitude, la tactique des sentinelles, la question sans reponse.
   GAME:MoveCamera(224, 250, 40, false)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Pain")
+  GeneralFunctions.SetEmotion("Pain")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_029']))
   -- "L'air est rare ici."
   GAME:WaitFrames(15)
@@ -143,7 +143,7 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   GAME:WaitFrames(15)
   GAME:MoveCamera(224, 244, 40, false)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_032']))
   -- "Autorises par qui, exactement ?"
   GAME:WaitFrames(20)
@@ -151,7 +151,7 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   -- "...Elle ne repond jamais a celle-la."
   GAME:WaitFrames(15)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_034']))
   -- "Alors on grimpera sans permission."
   GAME:WaitFrames(15)
@@ -196,7 +196,7 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(15)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
+  GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_004']))
   -- "Un Gligar est sorti de la paroi !"
 
@@ -232,7 +232,7 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   GAME:WaitFrames(15)
   GROUND:CharSetEmote(partner, "shock", 1)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
+  GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_005']))
   -- "Un Skarmory en piqué ! Ils sont deux !"
 
@@ -250,7 +250,7 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(15)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Surprised")
+  GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_007']))
   -- "Encore toi ! Qui es-tu ?!"
 
@@ -315,7 +315,7 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_010']))
   -- "On va leur montrer de quel bois on se chauffe ! À l'attaque !"
 
@@ -363,7 +363,7 @@ function mount_windswept_miniboss_ch_5.SecondPreBossScene()
 
   GAME:WaitFrames(30)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_011']))
   -- "On n'abandonne pas. Cette fois, on passe !"
 
@@ -422,12 +422,12 @@ local function DefeatedBossBody()
   GAME:WaitFrames(30)
   UI:SetSpeaker(partner)
   GeneralFunctions.Hop(partner)
-  UI:SetSpeakerEmotion("Inspired")
+  GeneralFunctions.SetEmotion("Inspired")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_012']))
   -- "On a eu le dessus ! Ces deux-là ne nous arrêteront plus."
 
   GAME:WaitFrames(20)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_013']))
   -- "Cette voix...[pause=15] Elle nous a donné un indice, tu crois ?"
 
@@ -472,7 +472,7 @@ local function DefeatedBossBody()
   -- LOT 4 — on nomme l'enjeu du sommet, juste avant le gardien final.
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Determined")
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_028']))
   -- "Le sommet est proche. Ce qu'on a senti depuis le départ... c'est là-haut."
 
@@ -578,7 +578,7 @@ function mount_windswept_miniboss_ch_5.DiedToBoss()
   GeneralFunctions.DoAnimation(partner, 'Wake')
   GAME:WaitFrames(12)
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Pain")
+  GeneralFunctions.SetEmotion("Pain")
   UI:WaitShowDialogue("Le vent... il nous a littéralement balayés...[pause=20] Redescendons...")
   GAME:WaitFrames(20)
 

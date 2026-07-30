@@ -81,7 +81,7 @@ local function Scene()
 
   local function say(emo, txt)
     if partner == nil then return end
-    UI:SetSpeaker(partner); UI:SetSpeakerEmotion(emo)
+    UI:SetSpeaker(partner); GeneralFunctions.SetEmotion(emo)
     UI:WaitShowDialogue(txt); GAME:WaitFrames(10)
   end
   local function narrate(txt)
@@ -112,7 +112,7 @@ local function Scene()
   say("Surprised", "Depuis quand est-ce qu'il...[pause=25] Non. Il n'a pas bougé. C'est nous qui ne l'avions pas vu.")
   GAME:WaitFrames(15)
 
-  UI:SetSpeaker(xatu); UI:SetSpeakerEmotion("Normal")
+  UI:SetSpeaker(xatu); GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue("Le canyon ne mange pas vos voix.[pause=30] C'est moi.")
   GAME:WaitFrames(15)
   UI:WaitShowDialogue("Je les écoute depuis si longtemps que je les garde.[pause=25] Toutes.[pause=20] Y compris celles qu'on ne devrait pas entendre.")
@@ -122,7 +122,7 @@ local function Scene()
   -- 3. Le basculement : un TIERS confirme la Voix.
   --    C'est la premiere fois de tout le jeu.
   ------------------------------------------------------------------
-  UI:SetSpeaker(xatu); UI:SetSpeakerEmotion("Normal")
+  UI:SetSpeaker(xatu); GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue("Toi.[pause=30] Approche.")
   GAME:WaitFrames(15)
   say("Normal", "Moi ?[pause=20] ...Non. Il te regarde, toi.")
@@ -140,7 +140,7 @@ local function Scene()
 
   say("Shock", "Comment vous...[pause=25] Il ne l'a dit à PERSONNE.[pause=20] Même à moi, il ne l'a dit qu'à moitié.")
   GAME:WaitFrames(15)
-  UI:SetSpeaker(xatu); UI:SetSpeakerEmotion("Sad")
+  UI:SetSpeaker(xatu); GeneralFunctions.SetEmotion("Sad")
   UI:WaitShowDialogue("Il ne l'a pas dit.[pause=25] Elle, si.[pause=30] Elle parle fort, pour qui sait écouter le silence.")
   GAME:WaitFrames(20)
 
@@ -152,7 +152,7 @@ local function Scene()
   ------------------------------------------------------------------
   say("Worried", "Alors dites-nous ![pause=20] Qu'est-ce que c'est ?[pause=25] Qu'est-ce qu'elle veut ?")
   GAME:WaitFrames(15)
-  UI:SetSpeaker(xatu); UI:SetSpeakerEmotion("Normal")
+  UI:SetSpeaker(xatu); GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue("Non.")
   GAME:WaitFrames(20)
   UI:WaitShowDialogue("Je vois loin.[pause=25] Assez loin pour savoir que nommer une chose,[pause=20] c'est lui ouvrir la porte.")
@@ -160,7 +160,7 @@ local function Scene()
   say("Angry", "C'est tout ?![pause=20] Vous nous laissez avec ÇA ?")
   GAME:WaitFrames(15)
 
-  UI:SetSpeaker(xatu); UI:SetSpeakerEmotion("Normal")
+  UI:SetSpeaker(xatu); GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue("Je vous laisse avec mieux qu'une réponse.[pause=30] Une bonne question.")
   GAME:WaitFrames(20)
   -- La replique-pivot : elle relance la quete sans rien resoudre.
@@ -175,7 +175,7 @@ local function Scene()
   ------------------------------------------------------------------
   -- 5. Il repart comme il est venu : sans mouvement.
   ------------------------------------------------------------------
-  UI:SetSpeaker(xatu); UI:SetSpeakerEmotion("Sad")
+  UI:SetSpeaker(xatu); GeneralFunctions.SetEmotion("Sad")
   UI:WaitShowDialogue("La voie est ouverte.[pause=25] Passez.[pause=30] Et quand vous reviendrez,[pause=20] rapportez-moi la réponse.")
   GAME:WaitFrames(20)
 

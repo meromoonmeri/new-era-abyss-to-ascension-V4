@@ -35,7 +35,7 @@ function champ_foudre.Enter(map)
 
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("Cent éclairs à la minute...[pause=20] et pas un seul ne tombe sur nous.")
   end
   GAME:WaitFrames(12)
@@ -46,7 +46,7 @@ function champ_foudre.Enter(map)
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Surprised")
+    GeneralFunctions.SetEmotion("Surprised")
     UI:WaitShowDialogue("Ils tombent en cadence ![pause=20] Ce n'est pas un orage, c'est une horloge !")
   end
   GAME:WaitFrames(12)
@@ -62,13 +62,13 @@ function champ_foudre.Enter(map)
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Le mât les attire tous.[pause=20] Il protège le passage depuis des siècles.")
   end
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("S'il tombait un jour, plus personne ne traverserait ce champ.")
   end
   GAME:WaitFrames(12)
@@ -76,7 +76,7 @@ function champ_foudre.Enter(map)
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Inspired")
+    GeneralFunctions.SetEmotion("Inspired")
     UI:WaitShowDialogue("Une voie de plus rouverte.[pause=20] Et celle-là fait du bruit !")
   end
   GAME:WaitFrames(12)

@@ -845,9 +845,9 @@ function metano_town.Shop_Action(obj, activator)
 					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Sell'], STRINGS:LocalKeyString(26)))
 					state = 3
 				else
-					UI:SetSpeakerEmotion("Angry")
+					GeneralFunctions.SetEmotion("Angry")
 					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Bag_Empty']))
-					UI:SetSpeakerEmotion("Normal")
+					GeneralFunctions.SetEmotion("Normal")
 				end
 			elseif result == 3 then
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Info_001']))
@@ -867,9 +867,9 @@ function metano_town.Shop_Action(obj, activator)
 				local bag_count = GAME:GetPlayerBagCount() + GAME:GetPlayerEquippedCount()
 				local bag_cap = GAME:GetPlayerBagLimit()
 				if bag_count == bag_cap then
-					UI:SetSpeakerEmotion("Angry")
+					GeneralFunctions.SetEmotion("Angry")
 					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Bag_Full']))
-					UI:SetSpeakerEmotion("Normal")
+					GeneralFunctions.SetEmotion("Normal")
 				else
 					cart = result
 					state = 2
@@ -884,9 +884,9 @@ function metano_town.Shop_Action(obj, activator)
 			end
 			local msg
 			if total > GAME:GetPlayerMoney() then
-				UI:SetSpeakerEmotion("Angry")
+				GeneralFunctions.SetEmotion("Angry")
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Buy_No_Money']))
-				UI:SetSpeakerEmotion("Normal")
+				GeneralFunctions.SetEmotion("Normal")
 				state = 1
 			else
 				if #cart == 1 then
@@ -1059,9 +1059,9 @@ function metano_town.TM_Action(obj, activator)
 					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Sell'], STRINGS:LocalKeyString(26)))
 					state = 3
 				else
-					UI:SetSpeakerEmotion("Angry")
+					GeneralFunctions.SetEmotion("Angry")
 					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Bag_Empty']))
-					UI:SetSpeakerEmotion("Normal")
+					GeneralFunctions.SetEmotion("Normal")
 				end
 			elseif result == 3 then
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Info_001']))
@@ -1081,9 +1081,9 @@ function metano_town.TM_Action(obj, activator)
 				local bag_count = GAME:GetPlayerBagCount() + GAME:GetPlayerEquippedCount()
 				local bag_cap = GAME:GetPlayerBagLimit()
 				if bag_count == bag_cap then
-					UI:SetSpeakerEmotion("Angry")
+					GeneralFunctions.SetEmotion("Angry")
 					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Bag_Full']))
-					UI:SetSpeakerEmotion("Normal")
+					GeneralFunctions.SetEmotion("Normal")
 				else
 					cart = result
 					state = 2
@@ -1098,9 +1098,9 @@ function metano_town.TM_Action(obj, activator)
 			end
 			local msg
 			if total > GAME:GetPlayerMoney() then
-				UI:SetSpeakerEmotion("Angry")
+				GeneralFunctions.SetEmotion("Angry")
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Buy_No_Money']))
-				UI:SetSpeakerEmotion("Normal")
+				GeneralFunctions.SetEmotion("Normal")
 				state = 1
 			else
 				if #cart == 1 then
@@ -1281,7 +1281,7 @@ function metano_town.Storage_Action(obj, activator)
 
 	GROUND:CharTurnToChar(hero, chara)
 	local coro1 = TASK:BranchCoroutine(function() GROUND:CharTurnToCharAnimated(partner, chara, 4) end)
-	UI:SetSpeakerEmotion('Happy')
+	GeneralFunctions.SetEmotion('Happy')
 
 	local state = 0
 	local repeated = false
@@ -1302,13 +1302,13 @@ function metano_town.Storage_Action(obj, activator)
 		local msg = STRINGS:Format(STRINGS.MapStrings['Storage_Intro'])
 		if repeated then
 			msg = STRINGS:Format(STRINGS.MapStrings['Storage_Intro_Return'])
-			UI:SetSpeakerEmotion('Normal')
+			GeneralFunctions.SetEmotion('Normal')
 		end
 
 		UI:BeginChoiceMenu(msg, storage_choices, 1, 5)
 		UI:WaitForChoice()
 		local result = UI:ChoiceResult()
-		UI:SetSpeakerEmotion('Normal')
+		GeneralFunctions.SetEmotion('Normal')
 
 
 		if result == 1 then
@@ -1317,7 +1317,7 @@ function metano_town.Storage_Action(obj, activator)
 			UI:StorageMenu()
 			UI:WaitForChoice()
 			if item_count ~= GAME:GetPlayerBagCount() then
-				UI:SetSpeakerEmotion('Happy')
+				GeneralFunctions.SetEmotion('Happy')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Storage_Stored_Items']))
 			end
 		elseif result == 2 then
@@ -1326,25 +1326,25 @@ function metano_town.Storage_Action(obj, activator)
 			UI:WithdrawMenu()
 			UI:WaitForChoice()
 			if item_count ~= GAME:GetPlayerBagCount() then
-				UI:SetSpeakerEmotion('Happy')
+				GeneralFunctions.SetEmotion('Happy')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Storage_Withdrew_Items']))
 			end
 		elseif result == 3 then
 			repeated = true
 			GeneralFunctions.SendInvToStorage(true, false, true)
-			UI:SetSpeakerEmotion('Happy')
+			GeneralFunctions.SetEmotion('Happy')
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Storage_Stored_All_Items']))
 		elseif result == 4 then
 			repeated = true
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Storage_Info_1']))
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Storage_Info_2']))
-			UI:SetSpeakerEmotion('Happy')
+			GeneralFunctions.SetEmotion('Happy')
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Storage_Info_3']))
-			UI:SetSpeakerEmotion('Normal')
+			GeneralFunctions.SetEmotion('Normal')
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Storage_Info_4']))
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Storage_Info_5']))
 		else
-			UI:SetSpeakerEmotion('Happy')
+			GeneralFunctions.SetEmotion('Happy')
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Storage_Goodbye']))
 			state = -1
 		end
@@ -1414,15 +1414,15 @@ function metano_town.Bank_Action(obj, activator)
 			UI:WaitForChoice()
 			local difference = math.abs(player_money - GAME:GetPlayerMoney())
 			if player_money > GAME:GetPlayerMoney() then --deposited money
-				UI:SetSpeakerEmotion('Inspired')
+				GeneralFunctions.SetEmotion('Inspired')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Bank_Stored_Money'], difference))
 			elseif player_money < GAME:GetPlayerMoney() then --Withdrew money
-				UI:SetSpeakerEmotion('Sad')
+				GeneralFunctions.SetEmotion('Sad')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Bank_Withdrew_Money'], difference))
 			else
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Bank_Canceled']))
 			end
-			UI:SetSpeakerEmotion('Normal')
+			GeneralFunctions.SetEmotion('Normal')
 		elseif result == 2 then
 			repeated = true
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Bank_Info_1']))
@@ -1502,14 +1502,14 @@ function metano_town.Red_Merchant_Action(obj, activator)
 		--merchant is happy if you've bought from him, he can't sell you anything else though.
 		local happy = SV.DailyFlags.RedMerchantBought
 
-		UI:SetSpeakerEmotion('Normal')
+		GeneralFunctions.SetEmotion('Normal')
 		local msg = STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Intro'], stunky_name)
 
 
 		if repeated then
 			if happy then
 				msg = STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Intro_Return_Happy'])
-				UI:SetSpeakerEmotion('Happy')
+				GeneralFunctions.SetEmotion('Happy')
 			elseif angry then
 				state = -1 --he won't loop back to the menu if he's angry, he's just done with you
 				break
@@ -1517,10 +1517,10 @@ function metano_town.Red_Merchant_Action(obj, activator)
 				msg = STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Intro_Return'])
 			end
 		elseif happy then
-			UI:SetSpeakerEmotion('Happy')
+			GeneralFunctions.SetEmotion('Happy')
 			msg = STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Intro_Happy'], stunky_name)
 		elseif angry then
-			UI:SetSpeakerEmotion('Determined')
+			GeneralFunctions.SetEmotion('Determined')
 			msg = STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Intro_Angry'])
 		end
 
@@ -1530,10 +1530,10 @@ function metano_town.Red_Merchant_Action(obj, activator)
 		repeated = true
 		if result == 1 then
 			if happy then
-				UI:SetSpeakerEmotion('Worried')
+				GeneralFunctions.SetEmotion('Worried')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Red_Merchant_No_Stock']))
 			elseif angry then
-				UI:SetSpeakerEmotion('Angry')
+				GeneralFunctions.SetEmotion('Angry')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Refuse_Service'], farfetchd_name))
 			else
 				--UI:ChoiceMenuYesNo(STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Daily_Item'], itemName, itemPrice, GeneralFunctions.GetItemArticle(item)))	--deprecated
@@ -1543,52 +1543,52 @@ function metano_town.Red_Merchant_Action(obj, activator)
 				UI:WaitForChoice()
 				if menu.result then
 					if itemPrice > GAME:GetPlayerMoney() then --With the new SingleItemDealMenu, this won't get hit anymore, but keep it anyway cause why not.
-						UI:SetSpeakerEmotion('Worried')
+						GeneralFunctions.SetEmotion('Worried')
 						UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Red_Merchant_No_Money']))
 					elseif GAME:GetPlayerBagCount() + GAME:GetPlayerEquippedCount() >= GAME:GetPlayerBagLimit() then
-						UI:SetSpeakerEmotion('Worried')
+						GeneralFunctions.SetEmotion('Worried')
 						UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Bag_Full']))
 					else
 						SV.DailyFlags.RedMerchantBought = true
 						GAME:RemoveFromPlayerMoney(itemPrice)
 						GAME:GivePlayerItem(item.ID, itemEntry.MaxStack)
 						SOUND:PlayBattleSE("DUN_Money")
-						UI:SetSpeakerEmotion("Joyous")
+						GeneralFunctions.SetEmotion("Joyous")
 						UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Purchase_Made'], itemName))
 					end
 				end
 			end
 		elseif result == 2 then
 			if angry then
-				UI:SetSpeakerEmotion('Angry')
+				GeneralFunctions.SetEmotion('Angry')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Info_Angry'], farfetchd_name))
 			elseif happy then
-				UI:SetSpeakerEmotion('Normal')
+				GeneralFunctions.SetEmotion('Normal')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Info_Happy_1']))
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Info_Happy_2']))
-				UI:SetSpeakerEmotion('Sad')
+				GeneralFunctions.SetEmotion('Sad')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Info_Happy_3']))
-				UI:SetSpeakerEmotion('Inspired')
+				GeneralFunctions.SetEmotion('Inspired')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Info_Happy_4'], farfetchd_name))
-				UI:SetSpeakerEmotion('Normal')
+				GeneralFunctions.SetEmotion('Normal')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Info_Happy_5']))
 			else
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Info_1'], stunky_name))
-				UI:SetSpeakerEmotion('Sad')
+				GeneralFunctions.SetEmotion('Sad')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Info_2']))
-				UI:SetSpeakerEmotion('Normal')
+				GeneralFunctions.SetEmotion('Normal')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Info_3']))
-				UI:SetSpeakerEmotion('Determined')
+				GeneralFunctions.SetEmotion('Determined')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Info_4'], farfetchd_name))
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Info_5']))
-				UI:SetSpeakerEmotion('Normal')
+				GeneralFunctions.SetEmotion('Normal')
 			end
 		else
 			if angry then
-				UI:SetSpeakerEmotion('Determined')
+				GeneralFunctions.SetEmotion('Determined')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Goodbye_Angry']))
 			elseif happy then
-				UI:SetSpeakerEmotion('Happy')
+				GeneralFunctions.SetEmotion('Happy')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Goodbye_Happy']))
 			else
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Red_Merchant_Goodbye']))
@@ -1708,14 +1708,14 @@ function metano_town.Green_Merchant_Action(obj, activator)
 		--merchant is happy if you've bought from him, he can't sell you anything else though.
 		local happy = SV.DailyFlags.GreenMerchantBought
 
-		UI:SetSpeakerEmotion('Normal')
+		GeneralFunctions.SetEmotion('Normal')
 		local msg = STRINGS:Format(STRINGS.MapStrings['Green_Merchant_Intro'], farfetchd_name)
 
 
 		if repeated then
 			if happy then
 				msg = STRINGS:Format(STRINGS.MapStrings['Green_Merchant_Intro_Return_Happy'])
-				UI:SetSpeakerEmotion('Happy')
+				GeneralFunctions.SetEmotion('Happy')
 			elseif angry then
 				state = -1 --he won't loop back to the menu if he's angry, he's just done with you
 				break
@@ -1723,10 +1723,10 @@ function metano_town.Green_Merchant_Action(obj, activator)
 				msg = STRINGS:Format(STRINGS.MapStrings['Green_Merchant_Intro_Return'])
 			end
 		elseif happy then
-			UI:SetSpeakerEmotion('Happy')
+			GeneralFunctions.SetEmotion('Happy')
 			msg = STRINGS:Format(STRINGS.MapStrings['Green_Merchant_Intro_Happy'], farfetchd_name)
 		elseif angry then
-			UI:SetSpeakerEmotion('Determined')
+			GeneralFunctions.SetEmotion('Determined')
 			msg = STRINGS:Format(STRINGS.MapStrings['Green_Merchant_Intro_Angry'])
 		end
 
@@ -1736,10 +1736,10 @@ function metano_town.Green_Merchant_Action(obj, activator)
 		repeated = true
 		if result == 1 then
 			if happy then
-				UI:SetSpeakerEmotion('Worried')
+				GeneralFunctions.SetEmotion('Worried')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Green_Merchant_No_Stock']))
 			elseif angry then
-				UI:SetSpeakerEmotion('Angry')
+				GeneralFunctions.SetEmotion('Angry')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Green_Merchant_Refuse_Service']))
 			else
 				--UI:ChoiceMenuYesNo(STRINGS:Format(STRINGS.MapStrings['Green_Merchant_Daily_Item'], itemName, itemPrice, GeneralFunctions.GetItemArticle(item))) -- deprecated
@@ -1749,33 +1749,33 @@ function metano_town.Green_Merchant_Action(obj, activator)
 				UI:WaitForChoice()
 				if menu.result then
 					if itemPrice > GAME:GetPlayerMoney() then --With the new SingleItemDealMenu, this won't get hit anymore, but keep it anyway cause why not.
-						UI:SetSpeakerEmotion('Worried')
+						GeneralFunctions.SetEmotion('Worried')
 						UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Green_Merchant_No_Money']))
 					elseif GAME:GetPlayerBagCount() + GAME:GetPlayerEquippedCount() >= GAME:GetPlayerBagLimit() then
-						UI:SetSpeakerEmotion('Worried')
+						GeneralFunctions.SetEmotion('Worried')
 						UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Green_Merchant_Bag_Full']))
 					else
 						SV.DailyFlags.GreenMerchantBought = true
 						GAME:RemoveFromPlayerMoney(itemPrice)
 						GAME:GivePlayerItem(item.ID, itemEntry.MaxStack)
 						SOUND:PlayBattleSE("DUN_Money")
-						UI:SetSpeakerEmotion("Happy")
+						GeneralFunctions.SetEmotion("Happy")
 						UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Green_Merchant_Purchase_Made'], itemName))
 					end
 				end
 			end
 		elseif result == 2 then
 			if angry then
-				UI:SetSpeakerEmotion('Angry')
+				GeneralFunctions.SetEmotion('Angry')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Green_Merchant_Info_Angry'], stunky_name))
 			elseif happy then
-				UI:SetSpeakerEmotion('Normal')
+				GeneralFunctions.SetEmotion('Normal')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Green_Merchant_Info_Happy_1']))
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Green_Merchant_Info_Happy_2']))
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Green_Merchant_Info_Happy_3']))
-				UI:SetSpeakerEmotion('Happy')
+				GeneralFunctions.SetEmotion('Happy')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Green_Merchant_Info_Happy_4']))
-				UI:SetSpeakerEmotion('Normal')
+				GeneralFunctions.SetEmotion('Normal')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Green_Merchant_Info_Happy_5']))
 			else
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Green_Merchant_Info_1'], farfetchd_name))
@@ -1786,10 +1786,10 @@ function metano_town.Green_Merchant_Action(obj, activator)
 			end
 		else
 			if angry then
-				UI:SetSpeakerEmotion('Determined')
+				GeneralFunctions.SetEmotion('Determined')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Green_Merchant_Goodbye_Angry']))
 			elseif happy then
-				UI:SetSpeakerEmotion('Happy')
+				GeneralFunctions.SetEmotion('Happy')
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Green_Merchant_Goodbye_Happy']))
 			else
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Green_Merchant_Goodbye']))
@@ -1993,11 +1993,11 @@ function metano_town.Swap_Action(obj, activator)
 				SOUND:PlayBattleSE("DUN_Money")
 				GAME:RemoveFromPlayerMoney(total)
 
-				UI:SetSpeakerEmotion("Angry")
+				GeneralFunctions.SetEmotion("Angry")
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Swap_Complete_001']))
-				UI:SetSpeakerEmotion("Stunned")
+				GeneralFunctions.SetEmotion("Stunned")
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Swap_Complete_002']))
-				UI:SetSpeakerEmotion("Normal")
+				GeneralFunctions.SetEmotion("Normal")
 
 				UI:ResetSpeaker()
 				SOUND:PlayFanfare("Fanfare/Treasure")
@@ -2368,9 +2368,9 @@ function metano_town.Appraisal_Action(obj, activator)
 			local total = #cart * price
 
 			if total > GAME:GetPlayerMoney() then
-				UI:SetSpeakerEmotion("Determined")
+				GeneralFunctions.SetEmotion("Determined")
 				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Appraisal_No_Money']))
-				UI:SetSpeakerEmotion("Normal")
+				GeneralFunctions.SetEmotion("Normal")
 				state = 1
 			else
 				local msg
@@ -3090,26 +3090,26 @@ function metano_town.Assembly_Action(obj, activator)
 			if SV.TemporaryFlags.AudinoSummonCount == 3 then
 				UI:WaitShowDialogue("Ouf ![pause=0]Vous avez certainement besoin de beaucoup utiliser l'assemblage aujourd'hui !")
 			elseif SV.TemporaryFlags.AudinoSummonCount == 6 then
-				UI:SetSpeakerEmotion("Pain")
+				GeneralFunctions.SetEmotion("Pain")
 				GROUND:CharSetEmote(audino, "sweating", 1)
 				UI:WaitShowDialogue("Huff...[pause=0]Puff...[pause=0]O-tu m'as certainement fait beaucoup courir aujourd'hui,[pause=10], hein ?")
 				GAME:WaitFrames(20)
 				GeneralFunctions.ShakeHead(audino)
 			elseif SV.TemporaryFlags.AudinoSummonCount == 9 then
-				UI:SetSpeakerEmotion("Dizzy")
+				GeneralFunctions.SetEmotion("Dizzy")
 				GROUND:CharSetEmote(audino, "sweating", 1)
 				UI:WaitShowDialogue("Hurf...[pause=0]A-toutes ces r-courir, c'est trop...[pause=0]Je suis épuisé...")
 				UI:WaitShowDialogue("P-s'il vous plaît...[pause=0]D-n'abusez pas de la clochette...")
 				GAME:WaitFrames(40)
 				GeneralFunctions.ShakeHead(audino)
 			elseif SV.TemporaryFlags.AudinoSummonCount == 10 then
-				UI:SetSpeakerEmotion("Pain")
+				GeneralFunctions.SetEmotion("Pain")
 				GROUND:CharSetEmote(audino, "sweating", 1)
 				UI:WaitShowDialogue("Huff...[pause=0] Puff...")
 				GAME:WaitFrames(20)
 				GeneralFunctions.Hop(audino)
 				GROUND:CharSetAnim(audino, "None", true)
-				UI:SetSpeakerEmotion("Determined")
+				GeneralFunctions.SetEmotion("Determined")
 				UI:WaitShowDialogue("Je commence à croire que vous faites ça exprès !")
 				UI:WaitShowDialogue("Eh bien, je ne craque plus ![pause=0]Si vous souhaitez continuer à utiliser l'assemblage aujourd'hui,[pause=10], venez me voir !")
 				GAME:WaitFrames(10)
@@ -3117,7 +3117,7 @@ function metano_town.Assembly_Action(obj, activator)
 				UI:WaitShowDialogue(hero:GetDisplayName() .. "! " .. partner:GetDisplayName() .. "! Vous avez sonné ?")
 			end
 
-			UI:SetSpeakerEmotion("Normal")
+			GeneralFunctions.SetEmotion("Normal")
 
 			--she won't service you if you make her angry
 			if SV.TemporaryFlags.AudinoSummonCount < 10 then

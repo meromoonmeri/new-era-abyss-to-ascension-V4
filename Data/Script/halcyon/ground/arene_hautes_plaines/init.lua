@@ -71,7 +71,7 @@ function arene_hautes_plaines.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Worried")
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format("Le tonnerre a claqué APRÈS l'éclair...[pause=20] non — APRÈS LUI !", hero:GetDisplayName()))
   UI:SetSpeaker(raikou)
   UI:WaitShowDialogue("Courez si vous voulez.[pause=10] L'orage, c'est moi.")

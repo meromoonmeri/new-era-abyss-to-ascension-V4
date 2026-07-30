@@ -35,7 +35,7 @@ function grotte_statique_seuil.Enter(map)
 
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Worried")
+    GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("Mes poils se dressent...[pause=20] Tout le boyau grésille encore.")
   end
   GAME:WaitFrames(12)
@@ -46,7 +46,7 @@ function grotte_statique_seuil.Enter(map)
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Elles suivent toutes le même trajet.[pause=20] Comme si un fil invisible les guidait.")
   end
   GAME:WaitFrames(12)
@@ -62,13 +62,13 @@ function grotte_statique_seuil.Enter(map)
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Surprised")
+    GeneralFunctions.SetEmotion("Surprised")
     UI:WaitShowDialogue("Il les absorbe ![pause=20] Ce n'était pas de l'électricité perdue... c'était du courant !")
   end
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Normal")
+    GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Le Réseau se réalimente tout seul, maintenant qu'on l'a réveillé.")
   end
   GAME:WaitFrames(12)
@@ -76,7 +76,7 @@ function grotte_statique_seuil.Enter(map)
   GAME:WaitFrames(12)
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Inspired")
+    GeneralFunctions.SetEmotion("Inspired")
     UI:WaitShowDialogue("Une voie de plus qui respire.[pause=20] Allez, on rentre.")
   end
   GAME:WaitFrames(12)

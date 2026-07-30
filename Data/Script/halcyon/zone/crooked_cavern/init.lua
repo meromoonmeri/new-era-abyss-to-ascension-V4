@@ -83,7 +83,7 @@ function crooked_cavern.ExitSegment(zone, result, rescue, segmentID, mapID)
 			TownNight.EndDayWithEpilogue(result, function()
 				if not SV.Chapter3.DefeatedBoss and result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then --team died before making it to the end for the first time.
 					UI:SetSpeaker(GAME:GetPlayerPartyMember(1))--set partner as speaker
-					UI:SetSpeakerEmotion("Pain")
+					GeneralFunctions.SetEmotion("Pain")
 					UI:WaitShowDialogue("Urf...[pause=0]C'est plus difficile que prévu...")
 					GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Nous ne pouvons pas continuer comme ça...[pause=0] Arrêtons-nous pour aujourd'hui.", "Pain")
 					SV.Chapter3.FailedCavern = true--mark that they died before the end so Team Style can taunt them for this.
@@ -134,7 +134,7 @@ function crooked_cavern.ExitSegment(zone, result, rescue, segmentID, mapID)
 			GAME:WaitFrames(20)
 			GAME:EndDungeonRun(result, "master_zone", -1, 60, 0, true, true) --relay (mapID 60); this saves + applies standard loss penalties
 			UI:SetSpeaker(GAME:GetPlayerPartyMember(1))
-			UI:SetSpeakerEmotion("Pain")
+			GeneralFunctions.SetEmotion("Pain")
 			GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Urf...[pause=0] pas cette fois...", "Pain")
 			GAME:WaitFrames(20)
 			GAME:EnterZone("master_zone", -1, 60, 0) --travel to the relay

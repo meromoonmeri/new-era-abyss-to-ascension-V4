@@ -71,7 +71,7 @@ Thinks about when he feels strange besides the times he told the partner, they m
 	GAME:WaitFrames(40)
 	UI:SetSpeaker(partner)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_001'], hero:GetDisplayName()))
-	UI:SetSpeakerEmotion("Inspired")
+	GeneralFunctions.SetEmotion("Inspired")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_002']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_003']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_004']))
@@ -86,7 +86,7 @@ Thinks about when he feels strange besides the times he told the partner, they m
 	GAME:WaitFrames(10)
 
 	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Happy")
+	GeneralFunctions.SetEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_005'], hero:GetDisplayName()))
 
 	GROUND:CharSetEmote(partner, "glowing", 0)
@@ -102,16 +102,16 @@ Thinks about when he feels strange besides the times he told the partner, they m
 	SOUND:FadeOutBGM(120)
 	--SOUND:PlayBattleSE('EVT_Emote_Exclaim_Idea')
 	--GeneralFunctions.EmoteAndPause(
-	UI:SetSpeakerEmotion("Worried")
+	GeneralFunctions.SetEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_006'], hero:GetDisplayName()))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_007']))
-	UI:SetSpeakerEmotion("Sad")
+	GeneralFunctions.SetEmotion("Sad")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_008']))
-	UI:SetSpeakerEmotion("Normal")
+	GeneralFunctions.SetEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_009']), {function() return GeneralFunctions.Hop(partner) end})
 
 	GAME:WaitFrames(20)
-	UI:SetSpeakerEmotion("Worried")
+	GeneralFunctions.SetEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_010']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_011'], hero:GetDisplayName(), zone:GetColoredName()))
 	GAME:WaitFrames(20)
@@ -125,10 +125,10 @@ Thinks about when he feels strange besides the times he told the partner, they m
 	GAME:WaitFrames(10)
 
 	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Sad")
+	GeneralFunctions.SetEmotion("Sad")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_012']))
 	GAME:WaitFrames(20)
-	UI:SetSpeakerEmotion("Worried")
+	GeneralFunctions.SetEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_013']))
 
 	GAME:WaitFrames(20)
@@ -155,14 +155,14 @@ Thinks about when he feels strange besides the times he told the partner, they m
 	GAME:WaitFrames(20)
 
 	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Worried")
+	GeneralFunctions.SetEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_014']))
 	GAME:WaitFrames(20)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_015']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_016']))
 	GAME:WaitFrames(20)
 
-	UI:SetSpeakerEmotion("Sad")
+	GeneralFunctions.SetEmotion("Sad")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_017']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_018']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_019']))
@@ -173,7 +173,7 @@ Thinks about when he feels strange besides the times he told the partner, they m
 
 	SOUND:FadeOutBGM(120)
 	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Normal")
+	GeneralFunctions.SetEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_020']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_021']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR4_022']))

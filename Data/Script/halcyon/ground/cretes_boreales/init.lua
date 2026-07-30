@@ -78,7 +78,7 @@ function cretes_boreales.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Happy")
+  GeneralFunctions.SetEmotion("Happy")
   UI:WaitShowDialogue(STRINGS:Format("Là ![pause=10] Deux traînées de lumière — elles se CROISENT sans jamais se toucher !", hero:GetDisplayName()))
   UI:SetSpeaker(latios)
   UI:WaitShowDialogue("Mon frère fonce, je corrige.[pause=10] Il frappe, je protège.[pause=20] Voyons si votre duo vaut le nôtre !")

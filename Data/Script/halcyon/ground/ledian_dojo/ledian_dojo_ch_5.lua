@@ -33,11 +33,11 @@ function ledian_dojo_ch_5.Gible_Action(chara, activator)
 		UI:WaitShowDialogue("Maître Ledian dit que je dois d'abord battre le labyrinthe des débutants avant de rêver aux gardiens.[pause=0][br]Mais je RÊVE QUAND MÊME.[pause=0] Il ne peut pas contrôler mes rêves.")
 	elseif SV.Chapter5.ReadyForExpedition or SV.Chapter5.FinishedExpeditionAddress then
 		GeneralFunctions.StartConversation(chara, "L'expédition part aujourd'hui,[pause=10] pas vrai ?[pause=0] J'ai demandé à venir.[pause=0] On m'a dit non.[pause=0] TROIS fois.", "Sad")
-		UI:SetSpeakerEmotion("Determined")
+		GeneralFunctions.SetEmotion("Determined")
 		UI:WaitShowDialogue("Alors je m'entraîne ici en attendant.[pause=0] À votre retour,[pause=10] je veux entendre TOUS les détails.[pause=0] Surtout les combats.[pause=0] SURTOUT les combats.")
 	else
 		GeneralFunctions.StartConversation(chara, "Cent pompes de nageoires par jour ![pause=0] C'est mon programme ![pause=0] Enfin,[pause=10] c'était.[pause=0] Je me suis arrêté à douze.", "Normal")
-		UI:SetSpeakerEmotion("Happy")
+		GeneralFunctions.SetEmotion("Happy")
 		UI:WaitShowDialogue("Mais douze,[pause=10] c'est déjà onze de plus qu'hier ![pause=0] La progression,[pause=10] c'est ça le secret.[pause=0] Maître Ledian l'a dit.[pause=0] Enfin,[pause=10] un truc dans le genre.")
 	end
 	GeneralFunctions.EndConversation(chara)
@@ -54,7 +54,7 @@ function ledian_dojo_ch_5.Azumarill_Action(chara, activator)
 		UI:WaitShowDialogue("Il s'entraine tous les matins maintenant.[pause=0] Tous les matins ![pause=10] Je ne sais pas si je dois m'en rejouir ou m'en inquieter.")
 	elseif SV.Chapter5.ReadyForExpedition or SV.Chapter5.FinishedExpeditionAddress then
 		GeneralFunctions.StartConversation(chara, "Vous partez en expedition aujourd'hui ?[pause=0] " .. chara:GetDisplayName() .. " a demande a vous suivre,[pause=10] vous savez.", "Worried", false)
-		UI:SetSpeakerEmotion("Normal")
+		GeneralFunctions.SetEmotion("Normal")
 		UI:WaitShowDialogue("J'ai dit non.[pause=0] Il est encore petit.[pause=15] Mais rentrez-nous entiers,[pause=10] sinon il ne me le pardonnera jamais.")
 	else
 		GeneralFunctions.StartConversation(chara, "Merci encore d'avoir aide " .. chara:GetDisplayName() .. " a s'entrainer.[pause=0] Il a beaucoup moins peur qu'avant.", "Happy", false)

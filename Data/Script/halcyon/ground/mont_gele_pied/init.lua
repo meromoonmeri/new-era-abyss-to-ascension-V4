@@ -84,7 +84,7 @@ function mont_gele_pied.Enter(map)
 
   if partner ~= nil then
     UI:SetSpeaker(partner)
-    UI:SetSpeakerEmotion("Surprised")
+    GeneralFunctions.SetEmotion("Surprised")
     UI:WaitShowDialogue("Ils finissent les phrases l'un de l'autre...[pause=20] C'est glaçant.")
   end
   GeneralFunctions.HeroDialogue(hero, "Alors on répondra aux deux à la fois.", "Determined")

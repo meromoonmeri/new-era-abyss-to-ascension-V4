@@ -72,7 +72,7 @@ function grotte_echos.Enter(map)
 
   -- 7. L'échange — court, à la Explorers.
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format("Cette mélodie...[pause=10] l'écho la TERMINE tout seul ![pause=20] Quelqu'un chante avec la grotte, {0}.", hero:GetDisplayName()))
   UI:SetSpeaker(meloetta)
   UI:WaitShowDialogue("Vous êtes mon premier public depuis mille ans.[pause=30] Le prix du billet, c'est un duel.[pause=10] En mesure !")

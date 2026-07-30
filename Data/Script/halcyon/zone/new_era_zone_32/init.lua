@@ -42,12 +42,12 @@ function new_era_zone_32.ExitSegment(zone, result, rescue, segmentID, mapID)
       SV.Reseau.Veilleurs['new_era_zone_32'] = true
       GAME:WaitFrames(20)
       UI:SetSpeaker(GAME:GetPlayerPartyMember(1))
-      UI:SetSpeakerEmotion("Happy")
+      GeneralFunctions.SetEmotion("Happy")
       UI:WaitShowDialogue("Mâchoire-du-Sud desserre son étreinte.[pause=20] Le Méridien Sud est franchi.")
     else
       GAME:WaitFrames(20)
       UI:SetSpeaker(GAME:GetPlayerPartyMember(1))
-      UI:SetSpeakerEmotion("Sad")
+      GeneralFunctions.SetEmotion("Sad")
       UI:WaitShowDialogue("Ses crocs ont eu raison de nous...[pause=20] Le Sud se mérite.")
     end
     GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
