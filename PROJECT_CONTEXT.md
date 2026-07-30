@@ -525,3 +525,13 @@ Conclusion actee : pas d'asset de tente reutilisable -> le camp reste raconte pa
 ### Lecons (formulation corrigee, remplace les versions du prompt externes)
 - L15 revu : une ground map appelee par EnterGroundMap doit etre dans le GroundMaps de la zone — ET les deux fichiers temoins doivent rester synchrones : `master_zone.json` ET `index.idx` (cb10d10 a fait les deux). Le test discriminant dans un log : "Invalid Ground Map Name" = resume ignorant ; "Cannot find ground map of name X in zone Y" = resume sachant mais zone chargee vieille → synchro d'installation en cause, pas le depot.
 - L16-VISUEL revu : `GAME:FadeOut` est bloquant ; l'ordre outro valide ch1-4 = `FadeOut` (noir complet) -> `CutsceneMode(false)` -> `WaitFrames(30)` -> `EnterGroundMap` en DERNIERE ligne, LA CARTE D'ARRIVEE reposant `FadeOut(1)` + `CutsceneMode(true)` dans son Init AVANT tout FadeIn. Un apercu de la carte sortante malgre ce patron = la build jouee n'est pas celle du depot (verifier [NREPROBE]).
+
+
+## Uniformisation architecture donjons (2026-07-30, build -X) — 3 structures, pas une de plus
+
+- Modele : crooked_cavern (Route procedurale RangeDictSegment + Boss en LayeredSegment LoadGen manuel + Mini-boss absent car injustifie). Reference complete : docs/AUDIT_ARCHITECTURE_DONJONS.md.
+- Hors-cadre systematique trouve : segment `annexe_toupie` (LoadGen post-boss, 0 reference Lua, heritage de gabarit) dans 7 donjons sur 8.
+- APPLIQUE : retrait `annexe_toupie` (dernier segment) de cloven_ruins / crystal_sanctuary / forgotten_marsh / celestial_peak + REGENERATION integrale de leurs entrees index.idx (derive detectee : Maps/Grounds perimes — classe L15) + suppression totale de `backup_master_zone` (json + idx + script, referencee nulle part ailleurs que par son propre init).
+- DIFFERE (retraits prets, attendent un retest en jeu) : vast_steppe (ch4 validee, gelee), searing_tunnel + mount_windswept (ch5 en test), gloomy_forest (annexe seg6 + verdant_oath_arena seg5 — exige renumero TownRaid 7+wave -> 5+wave et gloomy_forest_boss seg 7 -> 5).
+- Regle ajoutee : toute modif de segmentation d'une zone impose la regeneration de son entree index.idx (Maps = IDs d'etages, Max exclu ; Grounds = GroundMaps). Convention verifiee : zones JSON = BOM + indent=1, idx = BOM + indent=2, pas de newline finale.
+- Validations post-migration : 0 bloquant (ground_registration), audits integrite 925 / bugs 12 (baselines), legend 423 OK / 0 echec. NON teste en jeu.
