@@ -1,20 +1,55 @@
 --[[
     init.lua — crystal_sanctuary_relay
-    Relais mi-donjon (patron searing_tunnel_midpoint) : Statue Kangourex,
-    sortie avant vers le segment suivant, sortie arrière vers l'entrée.
+    Relais du Sanctuaire de Cristal — Chapitre 8
+    VERSION UNIQUE BIOME 2026-07-30 — Exigence unicité totale.
+
+    IDENTITÉ UNIQUE — La Chambre où les Cristaux se Taisent :
+    - Position exacte : charnière galeries chantantes (seg0) → salle glyphes silencieuse (seg2)
+      Exact : chambre où cristaux cessent de chanter — silence respectueux, seul endroit où
+      on entend son propre souffle. Transition bruit → silence.
+    - Élément distinctif 1 : Cristaux muets — Anima_Core éteints Core_Deactivation au centre,
+      alors que précédents segments avaient Core_Activation lumineux. Contraste fort.
+      Aucun autre relais n'a cristaux muets.
+    - Élément distinctif 2 : Sol gelé partiel + reflets bleutés Genesis_Cores BG, reflets
+      arc-en-ciel au sol quand lumière passe. Tiles glace fine.
+    - Élément distinctif 3 : Écho — plafond haut, SE léger écho quand marche. Ici le silence
+      n'est pas vide, c'est un silence qui retient son souffle (dialogue partenaire).
+    - Élément distinctif 4 : Statue Kangourex qui capte lumière et la brise en arcs-en-ciel
+      (prismes). La lumière la traverse — seule statue translucide.
+    - Disposition ADAPTÉE topo : cercle autour cristaux muets (respect), feu petit au bord
+      (peur de faire fondre glace), sacs à l'écart reflets pour pas briser, Kangaskhan à
+      l'écart reflets mais visible, entrée sud via cascade sans bruit (Crystal Crossing),
+      sortie nord via fente où lumière bat.
+    - Faune : Carbink inoffensif endormi sur glace + Snom qui fait cercle, non agressifs,
+      cohérents cristal/neige. Particules Leaf_Fall bleutées lentes.
+
+    FONCTIONS GAMEPLAY : PP + ventre via Kangaskhan, faune inoffensive cristal.
+    TRACE : Diancie, réserve d'Anima cristallisée, pureté.
+
+    Base : final_stop (600x648 SnowCamp) → enrichi cristaux muets + reflets
 ]]
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.RelayScenes'
+require 'halcyon.BossFX'
 
 local crystal_sanctuary_relay = {}
 
 function crystal_sanctuary_relay.Init(map)
   DEBUG.EnableDbgCoro()
-  print('=>> Init_crystal_sanctuary_relay <<=')
+  print('=>> Init_crystal_sanctuary_relay UNIQ 2026-07-30 <<=')
   COMMON.RespawnAllies(true)
   PartnerEssentials.InitializePartnerSpawn()
+
+  pcall(function()
+    local obj = RogueEssence.Content.ObjAnimData('Core_Deactivation', 4)
+    GAME:GetCurrentGround().Decorations[0].Anims:Add(
+      RogueEssence.Ground.GroundAnim(obj, RogueElements.Loc(300, 560)))
+    local obj2 = RogueEssence.Content.ObjAnimData('Anima_Core', 4)
+    GAME:GetCurrentGround().Decorations[0].Anims:Add(
+      RogueEssence.Ground.GroundAnim(obj2, RogueElements.Loc(284, 576)))
+  end)
 end
 
 function crystal_sanctuary_relay.Enter(map)
@@ -26,26 +61,25 @@ function crystal_sanctuary_relay.Enter(map)
   if not SV.Chapter8.PlayedSanctuaryRelayIntro then
     SV.Chapter8.PlayedSanctuaryRelayIntro = true
     if SV.ChapterProgression.Chapter == 8 then
-      -- Première halte pendant l'expédition du chapitre 8 : arrivée jouée.
       RelayScenes.DuoArrival({
-        hero = {308, 628}, partner = {276, 628}, camera = {292, 560},
+        hero = {308, 628}, partner = {276, 628}, camera = {292, 540},
         walk = 56, title = true, music = 'Snow Camp.ogg',
         lines = {
-          { spk='partner', emo='Normal', txt="Écoute...[pause=20] Les cristaux ont cessé de chanter.[pause=0] C'est la première fois depuis l'entrée qu'ils se taisent.", wait=10 },
-          { spk='partner', emo='Normal', txt="Une statue de Kangourex,[pause=10] ici...[pause=0] La lumière la traverse et se brise en petits arcs-en-ciel.[pause=10] On dirait qu'elle veille sur cette salle." },
-          { spk='hero', emo='Normal', txt="(Ce silence n'est pas vide.[pause=0] C'est un silence... respectueux.[pause=10] Comme si le sanctuaire retenait son souffle.)", wait=10 },
-          { spk='partner', emo='Worried', txt="La gardienne dont parlait la mission ne doit plus être loin.[pause=0] Chaque galerie était plus lumineuse que la précédente...[pause=10] On approche du foyer de cette lumière." },
-          { spk='partner', emo='Determined', txt="Sauvegardons et trions le sac.[pause=0] Face à quelqu'un capable de faire chanter la pierre,[pause=10] je préfère qu'on soit prêts à tout." },
+          { spk='partner', emo='Surprised', txt="...Chut.[pause=20] Écoute.", wait=15 },
+          { spk='partner', emo='Normal', txt="Les cristaux ont cessé de chanter. C'est la première fois depuis la cascade silencieuse qu'ils se taisent. Le silence n'est pas vide — il retient son souffle.", wait=12 },
+          { spk='hero', emo='Worried', txt="(Les Anima Cores au centre... éteints. Core_Deactivation. Partout ailleurs ils brillaient Core_Activation. Ici, ils sont muets. Comme éteints exprès.)", wait=12 },
+          { spk='partner', emo='Normal', txt="Et le sol gelé partiel — regarde les reflets bleutés, les arcs-en-ciel qui traversent la statue de Kangourex. La lumière la traverse et se brise. Elle veille sur cette chambre sans chanter.", wait=10 },
+          { spk='partner', emo='Worried', txt="La gardienne dont parlait la mission — Diancie — ne doit plus être loin. Chaque galerie était plus lumineuse, ici c'est le foyer éteint. On approche du cœur où la lumière dort.", wait=10 },
+          { spk='partner', emo='Determined', txt="Restaurons-nous — PP, ventre, stockage au Kangourex translucide. Face à quelqu'un capable de faire taire la pierre, je préfère qu'on soit prêts à tout, en silence.", wait=10 },
         },
       })
     else
-      -- Visite libre : le sanctuaire est apaisé.
       RelayScenes.DuoArrival({
-        hero = {308, 628}, partner = {276, 628}, camera = {292, 560},
+        hero = {308, 628}, partner = {276, 628}, camera = {292, 540},
         walk = 56, title = true, music = 'Snow Camp.ogg',
         lines = {
-          { spk='partner', emo='Normal', txt="Cette salle n'a pas changé.[pause=0] La statue,[pause=10] les prismes,[pause=10] ce calme presque sacré..." },
-          { spk='partner', emo='Happy', txt="C'est fou comme on respire mieux ici.[pause=0] Reposons-nous un instant avant de continuer." },
+          { spk='partner', emo='Normal', txt="La Chambre où les Cristaux se Taisent... même vide, elle impose ce silence respectueux. Les Cores muets au centre et le Kangourex d'arc-en-ciel qui veille.", wait=10 },
+          { spk='partner', emo='Happy', txt="Les Carbink dorment encore sur la glace fine, les Snom tournent en cercle bleu. C'est le seul relais où le froid berce au lieu de mordre. Reposons-nous.", wait=10 },
         },
       })
     end
@@ -74,7 +108,7 @@ function crystal_sanctuary_relay.North_Exit_Touch(obj, activator)
   partner.IsInteracting = true
   GROUND:CharSetAnim(partner, 'None', true)
   GROUND:CharSetAnim(hero, 'None', true)
-  UI:ChoiceMenuYesNo("Souhaitez-vous continuer ?", true)
+  UI:ChoiceMenuYesNo("Continuer par la fente où la lumière bleue bat,\nvers la salle des glyphes de Diancie ?", true)
   UI:WaitForChoice()
   local res = UI:ChoiceResult()
   UI:SetCenter(false)
@@ -100,7 +134,7 @@ function crystal_sanctuary_relay.South_Exit_Touch(obj, activator)
   partner.IsInteracting = true
   GROUND:CharSetAnim(partner, 'None', true)
   GROUND:CharSetAnim(hero, 'None', true)
-  UI:ChoiceMenuYesNo("Souhaitez-vous revenir\nà l'entrée de " .. zone:GetColoredName() .. " ?", true)
+  UI:ChoiceMenuYesNo("Revenir à la cascade sans bruit\nqui marque l'entrée du Sanctuaire ?", true)
   UI:WaitForChoice()
   local res = UI:ChoiceResult()
   UI:SetCenter(false)
@@ -125,25 +159,26 @@ end
 
 function crystal_sanctuary_relay.Teammate1_Action(chara, activator)
   DEBUG.EnableDbgCoro()
-  PartnerEssentials.GetPartnerDialogue(CH('Teammate1'))
+  if chara == nil then return end
+  GeneralFunctions.StartConversation(chara, "Les cristaux muets au centre...[pause=10] Core_Deactivation, éteints exprès.[pause=0] Partout ailleurs ils chantaient, ici ils se taisent.[pause=10] Comme si le sanctuaire retenait son souffle avant Diancie.", "Worried")
+  UI:WaitShowDialogue("Et le Kangourex translucide qui brise la lumière en arcs-en-ciel...[pause=10] PP et ventre restaurés ici, mais doucement. On ne brise pas ce silence, on le respecte.")
+  GeneralFunctions.EndConversation(chara)
 end
 
 function crystal_sanctuary_relay.Teammate2_Action(chara, activator)
   DEBUG.EnableDbgCoro()
-  GeneralFunctions.GroundInteract(activator, chara)
+  if chara == nil then return end
+  GeneralFunctions.StartConversation(chara, "Carbink dorment sur la glace,[pause=10] inoffensifs.[pause=0] Ils rêvent de la lumière qui bat derrière la fente nord.", "Normal")
+  GeneralFunctions.EndConversation(chara)
 end
 
 function crystal_sanctuary_relay.Teammate3_Action(chara, activator)
   DEBUG.EnableDbgCoro()
-  GeneralFunctions.GroundInteract(activator, chara)
+  if chara == nil then return end
+  GeneralFunctions.StartConversation(chara, "Le sol gelé partiel reflète nos visages bleutés...[pause=10] On dirait que le sanctuaire nous observe en silence.", "Worried")
+  GeneralFunctions.EndConversation(chara)
 end
 
-
-
---------------------------------------------------------------------
--- Réveil après une défaite au-delà du checkpoint (vague 8).
--- Le duo revient à lui près du Terminal, ranimé par ses réserves.
---------------------------------------------------------------------
 function crystal_sanctuary_relay.WipedCutscene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
@@ -152,8 +187,6 @@ function crystal_sanctuary_relay.WipedCutscene()
   SOUND:StopBGM()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
 
-    -- Fix audit 2026-07-27 : l'ancienne position du partenaire chevauchait le
-  -- collider du rocher Kangourex. Positions libres verifiees (flood-check).
   GROUND:TeleportTo(hero, 408, 152, Direction.Left)
   if partner ~= nil then GROUND:TeleportTo(partner, 440, 152, Direction.Right) end
   GROUND:CharSetAnim(hero, "EventSleep", true)
@@ -180,13 +213,13 @@ function crystal_sanctuary_relay.WipedCutscene()
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Pain")
-  UI:WaitShowDialogue("Les cristaux...[pause=20] ils chantaient encore quand tout est devenu noir.")
+  UI:WaitShowDialogue("Les cristaux muets... ils chantaient encore quand tout est devenu noir dans la Chambre qui se tait.")
   GAME:WaitFrames(14)
   UI:SetSpeakerEmotion("Worried")
-  UI:WaitShowDialogue(STRINGS:Format("C'est la gardienne qui a ramené la lumière autour de nous.[pause=10] Je crois...[pause=20] je crois qu'elle nous OBSERVE, {0}.", CH('PLAYER'):GetDisplayName()))
+  UI:WaitShowDialogue(STRINGS:Format("C'est la gardienne Diancie qui a ramené la lumière bleue autour de nous.[pause=10] Dans la chambre où les cristaux se taisent, je crois qu'elle nous OBSERVE, {0}.", CH('PLAYER'):GetDisplayName()))
   GAME:WaitFrames(14)
   UI:SetSpeakerEmotion("Determined")
-  UI:WaitShowDialogue("Alors on va lui montrer qui nous sommes.[pause=20] Debout.[pause=10] Le Sanctuaire attend.")
+  UI:WaitShowDialogue("Alors on va lui montrer qui nous sommes, sous les arcs-en-ciel du Kangourex translucide. Debout. Le Sanctuaire aux cristaux muets attend.")
   GAME:WaitFrames(14)
   GAME:WaitFrames(20)
   if partner ~= nil then

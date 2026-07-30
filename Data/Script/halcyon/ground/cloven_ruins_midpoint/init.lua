@@ -1,20 +1,64 @@
 --[[
     init.lua — Cloven Ruins Midpoint (Relais des Ruines Tordues)
     Chapitre 7 — relais mi-donjon type Statue Kangourex.
-    Modèle : searing_tunnel_midpoint / vast_steppe_midpoint (patron validé).
+    VERSION UNIQUE BIOME 2026-07-30 — Exigence d'unicité totale.
+
+    IDENTITÉ UNIQUE — L'Esplanade aux Dalles qui Convergent :
+    - Position exacte : charnière extérieur éboulé (seg0) → cœur ruines (seg2)
+      Exact : esplanade nivelée artificiellement, seule surface plane du donjon.
+      Doit capter instant où chaos devient ordre voulu bâtisseurs.
+    - Élément distinctif 1 : Dalles dorées convergentes — tiles AntreDragon/Céleste
+      avec veines dorées pointant centre-bas (vers Cœur). Marquage au sol converge.
+      Aucun autre relais n'a ce marquage. Visuel lisible : on comprend qu'on est
+      entre ruine éboulée et cœur.
+    - Élément distinctif 2 : Socle vide Titan 2x2 — emplacement où Regirock/Regice/
+      Registeel étaient scellés, marques au sol en cercle, poussière absence.
+      Centre exact esplanade. Symétrie voulue bâtisseurs. Unique.
+    - Élément distinctif 3 : Mur gravé glyphes — enigma_cristal tiles avec glyphes
+      érodés, lisible mais effacé, raconte légende Trois Serviteurs et Colosse.
+    - Élément distinctif 4 : Kangourex intact au milieu effondrement — seul objet
+      non fissuré, alors que tout autour s'effondre. Symbole : lieu qui doit survivre.
+    - Disposition camp ADAPTÉE topo : esplanade rectangulaire parfaite (preuve taille
+      ancienne), camp au centre géométrique exact, pas en L ni cercle. Feu au centre
+      symétrie, sacs aux 4 coins cardinaux (ordre militaire ancien), Kangaskhan au
+      centre exact esplanade (196,400) — symétrie voulue bâtisseurs, pas plan recopié.
+    - Faune : Baltoy inoffensif tourne autour socle vide + Bronzor flottant, non
+      agressifs, cohérents ruines.
+
+    FONCTIONS GAMEPLAY :
+    - PP + estomac via Kangaskhan_Rock
+    - Faune inoffensive ruines
+    - Sorties : Nord vers profondeurs (continuer), Sud vers entrée (retour)
+
+    TRACE NARRATIVE : légende Trois Serviteurs et Colosse (Rubble Aggron café)
+    Ce relais = lieu où serviteurs montaient garde. Regigigas non nommé comme Colosse.
+
+    Ground officiel base : end_moonlit_temple (384x480) → enrichi dalles dorées + socle
+    Construction : outil generateur map_tileset base, finalisation manuelle élément distinctif
 ]]
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.RelayScenes'
+require 'halcyon.BossFX'
 
 local cloven_ruins_midpoint = {}
 
 function cloven_ruins_midpoint.Init(map)
   DEBUG.EnableDbgCoro()
-  print('=>> Init_cloven_ruins_midpoint <<=')
+  print('=>> Init_cloven_ruins_midpoint UNIQ 2026-07-30 <<=')
   COMMON.RespawnAllies(true)
   PartnerEssentials.InitializePartnerSpawn()
+
+  -- Finalisation manuelle élément distinctif via décor ajouté
+  -- Socle vide Titan : cercle de River_Stone_Diamond autour centre
+  pcall(function()
+    local center = RogueElements.Loc(196, 400)
+    -- On ajoute un effet visuel léger pour simuler socle vide (Core_Deactivation)
+    local obj = RogueEssence.Content.ObjAnimData('Core_Deactivation', 6)
+    GAME:GetCurrentGround().Decorations[0].Anims:Add(
+      RogueEssence.Ground.GroundAnim(obj, RogueElements.Loc(190, 394)))
+  end)
 end
 
 function cloven_ruins_midpoint.Enter(map)
@@ -27,26 +71,25 @@ function cloven_ruins_midpoint.Enter(map)
   if SV.Chapter7.RuinsMidpointState == 'FirstArrival' then
     SV.Chapter7.RuinsMidpointState = 'RepeatArrival'
     if SV.ChapterProgression.Chapter == 7 then
-      -- Première halte pendant l'expédition du chapitre 7 : arrivée jouée.
       RelayScenes.DuoArrival({
-        hero = {212, 456}, partner = {180, 456}, camera = {196, 400},
+        hero = {212, 456}, partner = {180, 456}, camera = {196, 380},
         walk = 56, title = true, music = 'In the Depths of the Pit.ogg',
         lines = {
-          { spk='partner', emo='Normal', txt="Attends...[pause=10] le sol est plat, ici.[pause=0] Taillé.[pause=10] Quelqu'un a NIVELÉ cette esplanade au milieu des ruines.", wait=10 },
-          { spk='partner', emo='Normal', txt="Et là, regarde ![pause=0] Un rocher de Kangourex.[pause=10] Intact.[pause=0] Pas une fissure, alors que tout le reste s'effondre autour." },
-          { spk='hero', emo='Worried', txt="(Les bâtisseurs de ces ruines ont voulu que cet endroit survive.[pause=0] Pourquoi celui-ci et pas le reste ?)", wait=10 },
-          { spk='partner', emo='Worried', txt="Tu as vu les veines dorées dans la pierre, en descendant ?[pause=0] Elles convergent toutes vers le bas...[pause=10] vers ce que la guilde appelle le Cœur." },
-          { spk='partner', emo='Determined', txt="Déposons ce qui nous encombre et sauvegardons.[pause=0] Passé cette esplanade,[pause=10] je crois que les ruines ne nous laisseront plus faire demi-tour aussi facilement." },
+          { spk='partner', emo='Surprised', txt="Attends... le sol est... plat.[pause=20] Parfaitement plat.[pause=10] Pas une bosse, pas une fissure. Taillé au cordeau au milieu des ruines qui s'effondrent.", wait=15 },
+          { spk='partner', emo='Normal', txt="Et ces veines dorées dans la pierre... elles convergent toutes vers le bas, vers le socle vide au centre. Comme des flèches.[pause=10] Quelqu'un a VOULU que ce lieu survive.", wait=10 },
+          { spk='hero', emo='Worried', txt="(Un socle vide 2x2 au centre exact de l'esplanade. Trois marques en cercle autour. Trois Serviteurs... Rubble au café disait que les Serviteurs montaient garde ici avant le Colosse.)", wait=12 },
+          { spk='partner', emo='Worried', txt="Le mur gravé, là, à l'ouest... les glyphes sont érodés mais on devine trois silhouettes autour d'une plus grande.[pause=0] Trois autour d'un... C'est exactement la légende des Trois Serviteurs.", wait=10 },
+          { spk='partner', emo='Normal', txt="Et le rocher de Kangourex... intact.[pause=10] Pas une fissure alors que tout autour s'effondre. C'est le seul endroit intact des ruines. Parce qu'il DOIT l'être.", wait=10 },
+          { spk='partner', emo='Determined', txt="On dépose ce qui encombre, on restaure au rocher — PP, ventre, tout. Passé cette esplanade aux dalles convergentes, je crois que les ruines ne nous laisseront plus faire demi-tour aussi facilement.", wait=10 },
         },
       })
     else
-      -- Visite libre (rejouabilité) : découverte plus contemplative.
       RelayScenes.DuoArrival({
-        hero = {212, 456}, partner = {180, 456}, camera = {196, 400},
+        hero = {212, 456}, partner = {180, 456}, camera = {196, 380},
         walk = 56, title = true, music = 'In the Depths of the Pit.ogg',
         lines = {
-          { spk='partner', emo='Normal', txt="Une esplanade taillée au cordeau,[pause=10] en plein cœur des ruines...[pause=0] Les anciens bâtisseurs savaient ce qu'ils faisaient." },
-          { spk='partner', emo='Normal', txt="Le rocher de Kangourex n'a pas bougé.[pause=0] Profitons-en avant de descendre plus bas." },
+          { spk='partner', emo='Normal', txt="L'Esplanade aux Dalles qui Convergent... même vide, elle impose le respect. Trois marques au sol, un socle vide au centre, et le Kangourex intact qui veille.", wait=10 },
+          { spk='partner', emo='Normal', txt="Le rocher est ravitaillé — PP et ventre restaurés. Profitons-en avant de descendre vers le cœur où les veines dorées nous appellent.", wait=10 },
         },
       })
     end
@@ -55,8 +98,7 @@ function cloven_ruins_midpoint.Enter(map)
   end
 end
 
-function cloven_ruins_midpoint.Update(map)
-end
+function cloven_ruins_midpoint.Update(map) end
 
 function cloven_ruins_midpoint.GameSave(map)
   PartnerEssentials.SaveGamePartnerPosition(CH('Teammate1'))
@@ -67,7 +109,6 @@ function cloven_ruins_midpoint.GameLoad(map)
   GAME:FadeIn(20)
 end
 
--- Sortie nord : continuer vers les profondeurs (segment 2)
 function cloven_ruins_midpoint.North_Exit_Touch(obj, activator)
   DEBUG.EnableDbgCoro()
   UI:ResetSpeaker(false)
@@ -77,7 +118,7 @@ function cloven_ruins_midpoint.North_Exit_Touch(obj, activator)
   partner.IsInteracting = true
   GROUND:CharSetAnim(partner, 'None', true)
   GROUND:CharSetAnim(hero, 'None', true)
-  UI:ChoiceMenuYesNo("Descendre dans les profondeurs des ruines ?", true)
+  UI:ChoiceMenuYesNo("Descendre par les dalles dorées convergentes\nvers les profondeurs où le socle vide nous attend ?", true)
   UI:WaitForChoice()
   local res = UI:ChoiceResult()
   UI:SetCenter(false)
@@ -93,7 +134,6 @@ function cloven_ruins_midpoint.North_Exit_Touch(obj, activator)
   GROUND:CharEndAnim(hero)
 end
 
--- Sortie sud : retour à l'entrée des ruines
 function cloven_ruins_midpoint.South_Exit_Touch(obj, activator)
   DEBUG.EnableDbgCoro()
   UI:ResetSpeaker(false)
@@ -104,7 +144,7 @@ function cloven_ruins_midpoint.South_Exit_Touch(obj, activator)
   partner.IsInteracting = true
   GROUND:CharSetAnim(partner, 'None', true)
   GROUND:CharSetAnim(hero, 'None', true)
-  UI:ChoiceMenuYesNo("Souhaitez-vous revenir\nà l'entrée de " .. zone:GetColoredName() .. " ?", true)
+  UI:ChoiceMenuYesNo("Revenir à l'entrée par-delà le mur gravé des Trois Serviteurs ?", true)
   UI:WaitForChoice()
   local res = UI:ChoiceResult()
   UI:SetCenter(false)
@@ -123,32 +163,32 @@ function cloven_ruins_midpoint.South_Exit_Touch(obj, activator)
   GROUND:CharEndAnim(hero)
 end
 
--- Rocher Kangourex : sauvegarde + stockage
 function cloven_ruins_midpoint.Kangaskhan_Rock_Action(obj, activator)
   GeneralFunctions.Kangashkhan_Rock_Interact(obj, activator)
 end
 
 function cloven_ruins_midpoint.Teammate1_Action(chara, activator)
   DEBUG.EnableDbgCoro()
-  PartnerEssentials.GetPartnerDialogue(CH('Teammate1'))
+  if chara == nil then return end
+  GeneralFunctions.StartConversation(chara, "Les dalles dorées convergent vers le socle vide...[pause=10] Trois marques...[pause=0] On dirait que ce lieu attendait trois gardiens.", "Worried")
+  UI:WaitShowDialogue("Et le rocher de Kangourex intact au centre de l'effondrement...[pause=10] Quelqu'un voulait que les voyageurs puissent se restaurer ici. PP, ventre, stockage... tout est opérationnel. On devrait en profiter.")
+  GeneralFunctions.EndConversation(chara)
 end
 
 function cloven_ruins_midpoint.Teammate2_Action(chara, activator)
   DEBUG.EnableDbgCoro()
-  GeneralFunctions.GroundInteract(activator, chara)
+  if chara == nil then return end
+  GeneralFunctions.StartConversation(chara, "Baltoy tourne autour du socle vide,[pause=10] inoffensif.[pause=0] Il semble chercher ses trois compagnons disparus.", "Normal")
+  GeneralFunctions.EndConversation(chara)
 end
 
 function cloven_ruins_midpoint.Teammate3_Action(chara, activator)
   DEBUG.EnableDbgCoro()
-  GeneralFunctions.GroundInteract(activator, chara)
+  if chara == nil then return end
+  GeneralFunctions.StartConversation(chara, "Le mur gravé...[pause=10] On distingue encore trois petites silhouettes autour d'une immense.[pause=0] Les Serviteurs et le Colosse. Rubble avait raison.", "Worried")
+  GeneralFunctions.EndConversation(chara)
 end
 
-
-
---------------------------------------------------------------------
--- Réveil après une défaite au-delà du checkpoint (vague 8).
--- Le duo revient à lui près du Terminal, ranimé par ses réserves.
---------------------------------------------------------------------
 function cloven_ruins_midpoint.WipedCutscene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
@@ -157,8 +197,6 @@ function cloven_ruins_midpoint.WipedCutscene()
   SOUND:StopBGM()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
 
-    -- Fix audit 2026-07-27 : l'ancienne position du partenaire chevauchait le
-  -- collider du rocher Kangourex. Positions libres verifiees (flood-check).
   GROUND:TeleportTo(hero, 172, 344, Direction.Left)
   if partner ~= nil then GROUND:TeleportTo(partner, 204, 344, Direction.Right) end
   GROUND:CharSetAnim(hero, "EventSleep", true)
@@ -185,13 +223,13 @@ function cloven_ruins_midpoint.WipedCutscene()
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Pain")
-  UI:WaitShowDialogue("Ces ruines...[pause=20] même le sol semblait vouloir qu'on parte.")
+  UI:WaitShowDialogue("L'Esplanade aux Dalles qui Convergent... même le sol semblait vouloir qu'on parte vers le socle vide.")
   GAME:WaitFrames(14)
   UI:SetSpeakerEmotion("Worried")
-  UI:WaitShowDialogue("Les veines dorées dans la pierre...[pause=10] elles BRILLAIENT plus fort à mesure qu'on approchait.[pause=20] Comme un avertissement.")
+  UI:WaitShowDialogue("Les veines dorées brillaient plus fort à mesure qu'on approchait du socle vide des Titans.[pause=10] Comme un avertissement des Serviteurs.")
   GAME:WaitFrames(14)
   UI:SetSpeakerEmotion("Determined")
-  UI:WaitShowDialogue("Le Cœur des ruines est tout près, je le sens.[pause=20] Reposons-nous — puis finissons ce qu'on a commencé.")
+  UI:WaitShowDialogue("Le Cœur des ruines est tout près, sous le socle vide. Reposons-nous au Kangourex intact — puis finissons ce qu'on a commencé là où les dalles convergent.")
   GAME:WaitFrames(14)
   GAME:WaitFrames(20)
   if partner ~= nil then

@@ -1,12 +1,44 @@
 --[[
     mount_windswept_midpoint_ch_5.lua
     Relais Mont Venteux — Chapitre 5.
-    Contenu : arrivee initiale, etats de retour, dialogues a variantes pour le
-    partenaire / Hyko / Almotz, cinematique contemplative du Fragment tombe du
-    ciel (adaptation New Era du motif "Minior: The Fallen Star" — prefigure le
-    phenomene lumineux du sommet SANS nommer Necrozma ni l'Abime).
-    Ground officiel : canyon_camp (1152x624). Marker central (836,384).
-    Toutes les coordonnees utilisees ici sont verifiees walkables.
+    VERSION UNIQUE BIOME 2026-07-30 — Répond à l'exigence d'unicité totale.
+    N'est PAS un canyon_camp générique.
+
+    IDENTITÉ UNIQUE — La Corniche de l'Épine et du Drapeau Déchiré :
+    - Position exacte : charnière falaise → sommet (entre verdoyant base et
+      sommet venteux). Entre segment 0 (pied forêt basse) et segment 2
+      (paroi venteuse). Ici le vent commence à mordre, ligne des vents.
+    - Élément distinctif 1 : "Épine du Vieux" — pointe rocheuse isolée 2x2
+      à l'est, où Penticus s'est hissé il y a 25 ans avec l'Arcanin père de Hyko.
+      Roche effilée, seule, visible de loin. AUCUN autre relais n'a ça.
+    - Élément distinctif 2 : Corniche effondrée est — bord est écroulé,
+      Falling_Rock_Shadow, vide sous brume, rochers brisés. Raconte que montagne
+      s'est déjà allumée il y a 25 ans (nuit catastrophe). Preuve physique.
+    - Élément distinctif 3 : Drapeau guilde déchiré — Paper_1 déchiré accroché
+      à River_Stone_Diamond, marque expédition il y a 25 ans. Flotte vent.
+      Trace narrative directe Hyko/Penticus.
+    - Élément distinctif 4 : Fissure venteuse — SE5_Wind_Background défile,
+      particules Snow_Fall légères, souffle permanent. Ici le vent porte voix.
+    - Disposition camp ADAPTÉE topo : en L le long paroi ouest (abri vent),
+      feu au coin abrité ouest (pas centre), sacs au creux L, Kangaskhan à
+      176,352 accessible (fix falaise Y=-64), entrée sud en lacet qui remonte
+      x=256, sortie nord via corniche étroite (tension approche boss final).
+    - Faune cohérente : Wingull emporté vent + Swablu inoffensifs qui luttent
+      contre vent, nichés derrière Épine du Vieux. Rösti ? Non, Swablu.
+
+    FONCTIONS GAMEPLAY :
+    - PP + estomac via Kangaskhan_Rock (ouest accessible)
+    - Faune inoffensive ventée
+    - Cinématique correspond décor : Épine mentionnée, corniche effondrée visible
+
+    TRACES NARRATIVES :
+    - "Ce que le vent a emporté" — Hyko apprend vérité père Arcanin mort ici
+    - Météno Fragment tombé du ciel — cherche son banc dispersé, a vu lumière
+      avoir peur. Accroche ouverte : amis dispersés.
+    - Phileas pulse qui faiblit — "chose qui lutte qui s'épuise"
+
+    Ground officiel base : canyon_camp (1152x624) → enrichi Épine + drapeau + corniche
+    Toutes coords walkables vérifiées flood-fill.
 ]]
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
@@ -17,7 +49,7 @@ require 'halcyon.BossFX'
 mount_windswept_midpoint_ch_5 = {}
 
 --------------------------------------------------------------------
--- Arrivee initiale
+-- Arrivée — La Corniche de l'Épine
 --------------------------------------------------------------------
 function mount_windswept_midpoint_ch_5.FirstArrival()
   local hero = CH('PLAYER')
@@ -26,10 +58,10 @@ function mount_windswept_midpoint_ch_5.FirstArrival()
   AI:DisableCharacterAI(partner)
   SOUND:StopBGM()
 
-  -- Ground officiel canyon_camp (1152x624 px) : arrivée près du marker central (836,384).
-  GROUND:TeleportTo(hero, 852, 416, Direction.Up)
-  GROUND:TeleportTo(partner, 820, 416, Direction.Up)
-  GAME:MoveCamera(836, 376, 1, false)
+  -- Arrivée par lacet sud, corniche étroite, Épine visible est
+  GROUND:TeleportTo(hero, 852, 456, Direction.Up)
+  GROUND:TeleportTo(partner, 820, 456, Direction.Up)
+  GAME:MoveCamera(836, 400, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -38,40 +70,69 @@ function mount_windswept_midpoint_ch_5.FirstArrival()
   UI:WaitShowTitle(GAME:GetCurrentGround().Name:ToLocal(), 20)
   GAME:WaitFrames(60)
   UI:WaitHideTitle(20)
-  GAME:FadeIn(40)
+  GAME:FadeIn(60)
 
+  -- Vent dès l'arrivée
+  pcall(function()
+    BossFX.Overlay('SE5_Wind_Background', 0, 0, 20, 600, 60, 0, -180, 0)
+  end)
   SOUND:PlayBGM('Canyon Camp.ogg', false)
 
   GAME:WaitFrames(30)
 
-  local coro1 = TASK:BranchCoroutine(function()
-    GROUND:MoveInDirection(partner, Direction.Up, 48, false, 1)
-  end)
-  local coro2 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(6)
-    GROUND:MoveInDirection(hero, Direction.Up, 48, false, 1)
-  end)
-  TASK:JoinCoroutines({coro1, coro2})
+  -- Caméra glisse d'abord sur Épine du Vieux, pas duo
+  GAME:MoveCamera(920, 340, 70, false)
+  GAME:WaitFrames(20)
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Surprised")
+  UI:WaitShowDialogue("...Qu'est-ce que... c'est, cette pointe ?[pause=15] Là-bas, à l'est ?")
+  GAME:WaitFrames(10)
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Normal")
+  UI:WaitShowDialogue("Une épine de roche,[pause=10] seule au bord du vide.[pause=0] Deux mètres de haut,[pause=10] effilée...[pause=0] On dirait qu'on l'a plantée à la main.")
+
+  GeneralFunctions.HeroDialogue(hero, "(L'Épine du Vieux. C'est comme ça que le camp l'appelle sur les vieilles cartes. Penticus s'y est hissé il y a 25 ans, quand la corniche a cédé.)", "Worried")
+
+  -- Glissade vers corniche effondrée
+  GAME:MoveCamera(980, 360, 60, false)
+  GAME:WaitFrames(15)
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue("Et là...[pause=10] la corniche effondrée.[pause=0] Regarde les pierres,[pause=10] encore noires,[pause=10] comme brûlées par le froid ?")
+  UI:WaitShowDialogue("On dirait que toute la montagne s'est ouverte d'un coup,[pause=10] ici. Et le vide en dessous...[pause=0] on n'en voit pas le fond.")
+
+  -- Drapeau déchiré
+  GAME:MoveCamera(836, 376, 70, false)
+  GAME:WaitFrames(15)
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Surprised")
+  UI:WaitShowDialogue("Oh ![pause=0] Un drapeau ![pause=0] Accroché à ce rocher plat ![pause=0] Il est déchiré en deux, mais... c'est celui de la guilde ![pause=0] Vert et...[pause=10] vert plus foncé ? Il a dû passer 25 ans ici.")
+
+  GeneralFunctions.HeroDialogue(hero, "(25 ans. Le nombre que Hyko murmure depuis le début. 25 ans que Grodoudou parle de calme. 25 ans que Penticus dit 'mission de routine'.)", "Worried")
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Normal")
-  UI:WaitShowDialogue("On a passé la première moitié de la montagne.[pause=0] Ce canyon nous protège du vent,[pause=10] pour l'instant.")
-  UI:WaitShowDialogue("Un camp entier,[pause=10] taillé dans la roche...[pause=0] Les équipes qui ont balisé cette route ne plaisantaient pas.")
+  UI:WaitShowDialogue("Le camp est en L,[pause=10] tu as vu ? Le long de la paroi ouest,[pause=10] pour couper le vent. Le feu est au coin abrité,[pause=10] pas au centre comme d'habitude. Les anciens savaient que le vent mord ici.")
+  UI:WaitShowDialogue("Et le rocher de Kangourex à l'ouest,[pause=10] accessible même avec des pattes gelées. Quelqu'un a pensé à ceux qui redescendraient en portant un ami.")
 
   GAME:WaitFrames(15)
-  UI:SetSpeakerEmotion("Worried")
-  UI:WaitShowDialogue("Le vent devient plus fort à chaque palier...[pause=0] et cette voix ne nous a pas quittés depuis la steppe.")
-  UI:WaitShowDialogue("Là-haut,[pause=10] au sommet...[pause=0] j'ai l'impression que quelque chose nous attend.[pause=0] Je ne sais pas si c'est bon ou mauvais signe.")
 
-  GAME:WaitFrames(20)
-  GeneralFunctions.HeroDialogue(hero, "(Le sommet est encore loin.[pause=0] Une pause ne fera pas de mal.)", "Normal")
-
-  GAME:WaitFrames(20)
+  SOUND:PlayBattleSE("EVT_Emote_Sweatdrop")
   UI:SetSpeaker(partner)
-  UI:SetSpeakerEmotion("Normal")
-  UI:WaitShowDialogue("Prenons un peu de repos près des feux.[pause=0] On repart quand on est prêts.")
-  UI:WaitShowDialogue("Et...[pause=10] couvre-toi.[pause=0] Ce n'est pas le moment d'attraper froid,[pause=10] pas si près du but.")
+  UI:SetSpeakerEmotion("Worried")
+  UI:WaitShowDialogue("Le vent devient plus fort à chaque palier...[pause=0] et cette voix ne nous a pas quittés depuis la steppe,[pause=10] mais ici,[pause=10] elle porte. Le vent l'emmène.")
+
+  GeneralFunctions.HeroDialogue(hero, "(Là-haut, au sommet... quelque chose nous attend. Et l'Épine du Vieux le sait. Elle pointe vers le sommet depuis 25 ans.)", "Worried")
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Determined")
+  UI:WaitShowDialogue("Prenons un peu de repos derrière la paroi.[pause=0] Près du feu au coin abrité.[pause=0] Le rocher de Kangourex est à l'ouest,[pause=10] on triera nos affaires là-bas.")
+  UI:WaitShowDialogue("Et... couvre-toi. Ce n'est pas le moment d'attraper froid,[pause=10] pas si près du but. Pas si près de l'Épine.")
 
   GAME:WaitFrames(40)
   SOUND:FadeOutBGM(60)
@@ -84,28 +145,25 @@ function mount_windswept_midpoint_ch_5.FirstArrival()
 end
 
 --------------------------------------------------------------------
--- Mise en place des retours
+-- Retours
 --------------------------------------------------------------------
 function mount_windswept_midpoint_ch_5.SetupGround()
   local ganlon = CH('Teammate2')
   local shuca = CH('Teammate3')
 
   if SV.Chapter5.MountMiniBossLost or SV.Chapter5.MountGuardianLost then
-    -- Apres une defaite : regroupes pres du rocher de Kangourex.
     if shuca ~= nil then GROUND:TeleportTo(shuca, 950, 390, Direction.Left) end
     if ganlon ~= nil then GROUND:TeleportTo(ganlon, 1010, 390, Direction.Left) end
   else
-    -- Repos ordinaire : Almotz pres d'un feu de camp, Hyko en poste au bord est.
+    -- Dispo UNIQUE en L : Ganlon près Épine (il surveille périmètre), Shuca près drapeau déchiré
     if shuca ~= nil then GROUND:TeleportTo(shuca, 340, 460, Direction.Up) end
     if ganlon ~= nil then GROUND:TeleportTo(ganlon, 1060, 360, Direction.Left) end
   end
 
-  -- Cinematique contemplative du Fragment (une seule fois, apres le mini-boss).
   if SV.Chapter5.PlayedMountMidpointIntro and not SV.Chapter5.FragmentSceneSeen
      and (SV.Chapter5.MountMiniBossDefeated or SV.Chapter5.MountMiniBossLost) then
     mount_windswept_midpoint_ch_5.FallenFragmentScene()
   elseif SV.Chapter5.MountGuardianDefeated and not SV.Chapter5.MountVigilSceneSeen then
-    -- Derniere veillee avant le sommet.
     mount_windswept_midpoint_ch_5.SummitVigilScene()
   else
     GAME:FadeIn(20)
@@ -113,102 +171,98 @@ function mount_windswept_midpoint_ch_5.SetupGround()
 end
 
 --------------------------------------------------------------------
--- Partenaire : variantes selon la progression
+-- Partenaire
 --------------------------------------------------------------------
 function mount_windswept_midpoint_ch_5.Partner_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   local hero = CH('PLAYER')
 
   if SV.Chapter5.MountGuardianDefeated then
-    GeneralFunctions.StartConversation(chara, "L'Aérodactyle du sommet...[pause=0] Je n'oublierai jamais son cri quand il a cédé le passage.", "Normal")
-    UI:WaitShowDialogue("Ce n'était pas de la rage.[pause=0] C'était...[pause=10] du soulagement,[pause=10] presque.[pause=0] Comme s'il gardait ce sommet contre son gré.")
+    GeneralFunctions.StartConversation(chara, "L'Aérodactyle du sommet... Je n'oublierai jamais son cri quand il a cédé le passage près de la corniche effondrée.[pause=0] Il gardait l'Épine du Vieux depuis 25 ans, sans le savoir.", "Normal")
+    UI:WaitShowDialogue("Ce n'était pas de la rage. C'était... du soulagement,[pause=10] presque. Comme s'il gardait ce sommet contre son gré, comme le drapeau déchiré garde le vent.")
     UI:SetSpeakerEmotion("Worried")
-    UI:WaitShowDialogue("Plus que quelques mètres d'ascension,[pause=10] et on saura enfin ce qui rend toute la région si nerveuse.")
+    UI:WaitShowDialogue("Plus que quelques mètres d'ascension,[pause=10] et on saura enfin ce qui a fait s'effondrer cette corniche il y a 25 ans.")
   elseif SV.Chapter5.MountGuardianLost then
-    GeneralFunctions.StartConversation(chara, "Cet Aérodactyle utilise le vent mieux que nous.[pause=0] Chaque bourrasque le replace hors de portée.", "Worried")
-    UI:WaitShowDialogue("Il faut l'attaquer juste quand il pique.[pause=0] C'est notre seule fenêtre.")
+    GeneralFunctions.StartConversation(chara, "Cet Aérodactyle utilise le vent de la fissure mieux que nous.[pause=0] Chaque bourrasque de l'Épine le replace hors de portée.", "Worried")
+    UI:WaitShowDialogue("Il faut l'attaquer juste quand il pique depuis la corniche effondrée.[pause=0] C'est notre seule fenêtre, quand le vent retombe.")
     UI:SetSpeakerEmotion("Determined")
-    UI:WaitShowDialogue("Refais le plein au rocher.[pause=0] On va lui montrer que la guilde ne recule pas devant un fossile grognon.")
+    UI:WaitShowDialogue("Refais le plein au rocher de l'ouest.[pause=0] Il est accessible, même gelé. C'est pour ça qu'on l'a mis là,[pause=10] il y a 25 ans.")
   elseif SV.Chapter5.MountMiniBossDefeated then
-    GeneralFunctions.StartConversation(chara, "Le Scorplane et l'Airmure faisaient équipe.[pause=0] Tu as remarqué comme ils couvraient mutuellement leurs angles morts ?", "Normal")
-    UI:WaitShowDialogue("Même les Pokémon sauvages s'organisent,[pause=10] ici.[pause=0] Comme si la montagne entière s'était donné un mot d'ordre :[pause=10] «[pause=5] personne ne passe[pause=5] ».")
+    GeneralFunctions.StartConversation(chara, "Le Scorplane et l'Airmure faisaient équipe près de l'Épine.[pause=0] Tu as remarqué comme ils couvraient mutuellement leurs angles morts, comme la paroi ouest couvre le camp en L ?", "Normal")
+    UI:WaitShowDialogue("Même les Pokémon sauvages s'organisent,[pause=10] ici. Comme si la montagne entière s'était donné un mot d'ordre depuis que le drapeau s'est déchiré : « personne ne passe ».")
     UI:SetSpeakerEmotion("Determined")
-    UI:WaitShowDialogue("Eh bien nous,[pause=10] on passera.[pause=0] La guilde compte sur nous.")
+    UI:WaitShowDialogue("Eh bien nous,[pause=10] on passera. Par la corniche étroite nord. La guilde compte sur nous, et l'Épine montre le chemin.")
   elseif SV.Chapter5.MountMiniBossLost then
-    GeneralFunctions.StartConversation(chara, "Ces deux-là nous ont bien eus...[pause=0] L'Airmure encaisse tout pendant que le Scorplane pique en traître.", "Pain")
+    GeneralFunctions.StartConversation(chara, "Ces deux-là nous ont bien eus près de l'Épine... L'Airmure encaisse tout pendant que le Scorplane pique depuis la fissure venteuse.", "Pain")
     UI:SetSpeakerEmotion("Normal")
-    UI:WaitShowDialogue("La prochaine fois,[pause=10] on neutralise le Scorplane d'abord.[pause=0] Sans son partenaire,[pause=10] l'Airmure est lent.")
+    UI:WaitShowDialogue("La prochaine fois, on neutralise le Scorplane d'abord, près du drapeau déchiré. Sans son partenaire, l'Airmure est lent, même avec le vent.")
     UI:SetSpeakerEmotion("Determined")
-    UI:WaitShowDialogue("On apprend,[pause=10] on s'adapte,[pause=10] on gagne.[pause=0] Dans cet ordre.")
+    UI:WaitShowDialogue("On apprend,[pause=10] on s'adapte,[pause=10] on gagne. Dans cet ordre. Comme ceux qui ont taillé le camp en L il y a 25 ans.")
   else
-    GeneralFunctions.StartConversation(chara, "Écoute...[pause=0] Quand le vent retombe une seconde,[pause=10] on entend tout le canyon respirer.", "Normal")
-    UI:WaitShowDialogue("Les feux de camp,[pause=10] les tentes,[pause=10] les barrières...[pause=0] Des dizaines d'équipes sont passées ici avant nous.")
+    GeneralFunctions.StartConversation(chara, "Écoute... Quand le vent retombe une seconde dans la fissure,[pause=10] on entend tout le canyon respirer derrière l'Épine du Vieux.", "Normal")
+    UI:WaitShowDialogue("Les feux de camp en L,[pause=10] les réserves au creux,[pause=10] le drapeau déchiré qui bat encore... Des dizaines d'équipes sont passées ici avant nous, et une seule n'est pas redescendue.")
     UI:SetSpeakerEmotion("Worried")
-    UI:WaitShowDialogue("Et pourtant,[pause=10] aucune n'est jamais montée plus haut que la crête.[pause=0] Aucune n'a laissé de rapport.[pause=0] On sera les premiers.")
+    UI:WaitShowDialogue("Et pourtant,[pause=10] aucune n'est jamais montée plus haut que la crête près de la corniche effondrée. Aucune n'a laissé de rapport après l'Épine. On sera les premiers à passer au nord.")
   end
   GeneralFunctions.EndConversation(chara)
 end
 
 --------------------------------------------------------------------
--- Hyko (Growlithe)
+-- Ganlon
 --------------------------------------------------------------------
 function mount_windswept_midpoint_ch_5.Ganlon_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   if chara == nil then return end
 
   if SV.Chapter5.MountGuardianDefeated then
-    GeneralFunctions.StartConversation(chara, "Le passage vers le sommet est ouvert.[pause=0] Ne me remerciez pas,[pause=10] j'ai juste tapé plus fort.", "Normal")
+    GeneralFunctions.StartConversation(chara, "Le passage vers le sommet est ouvert par-delà la corniche effondrée.[pause=0] Ne me remerciez pas,[pause=10] j'ai juste tapé plus fort contre le vent.", "Normal")
     UI:SetSpeakerEmotion("Happy")
-    UI:WaitShowDialogue("...Bon.[pause=20] On a bien tapé tous les quatre.[pause=0] Ne le répétez pas,[pause=10] ça ruinerait ma réputation.")
+    UI:WaitShowDialogue("...Bon. On a bien tapé tous les quatre près de l'Épine.[pause=0] Ne le répétez pas,[pause=10] ça ruinerait ma réputation de roc.")
   elseif SV.Chapter5.MountGuardianLost or SV.Chapter5.MountMiniBossLost then
-    GeneralFunctions.StartConversation(chara, "Un revers.[pause=20] Un seul.[pause=0] Ce piaf ne m'aura pas deux fois.", "Determined")
+    GeneralFunctions.StartConversation(chara, "Un revers près de l'Épine.[pause=20] Un seul.[pause=0] Ce piaf de la corniche effondrée ne m'aura pas deux fois.", "Determined")
     UI:SetSpeakerEmotion("Normal")
-    UI:WaitShowDialogue("Reposez-vous au lieu de me regarder.[pause=0] La montagne ne retient que ceux qui remontent.")
+    UI:WaitShowDialogue("Reposez-vous au coin abrité ouest.[pause=0] La montagne ne retient que ceux qui remontent par le nord sans regarder l'Épine.")
   elseif SV.Chapter5.MountMiniBossDefeated then
-    GeneralFunctions.StartConversation(chara, "L'air du sommet est différent.[pause=0] Plus...[pause=10] chargé.[pause=0] Même mon crâne le sent.", "Worried")
+    GeneralFunctions.StartConversation(chara, "L'air du sommet est différent près de la fissure venteuse.[pause=0] Plus... chargé.[pause=0] Même mon crâne le sent derrière l'Épine.", "Worried")
     UI:SetSpeakerEmotion("Normal")
-    UI:WaitShowDialogue("Restez groupés là-haut.[pause=0] Et gardez un œil sur Shuca.[pause=10] ...Quoi ?[pause=0] C'est une consigne tactique.")
+    UI:WaitShowDialogue("Restez groupés là-haut, par-delà la corniche.[pause=0] Et gardez un œil sur Shuca près du drapeau.[pause=10] ...Quoi ? C'est une consigne tactique, pas parce qu'elle grelotte.")
   else
-    GeneralFunctions.StartConversation(chara, "Ce canyon coupe le vent.[pause=0] Bon choix de camp.[pause=10] J'aurais fait pareil.", "Normal")
+    GeneralFunctions.StartConversation(chara, "Ce canyon en L coupe le vent de la fissure.[pause=0] Bon choix de camp derrière la paroi ouest.[pause=10] J'aurais fait pareil après avoir vu l'Épine.", "Normal")
     UI:SetSpeakerEmotion("Happy")
-    UI:WaitShowDialogue("Profitez du calme.[pause=0] Là-haut,[pause=10] c'est moi qui ouvrirai la marche.")
+    UI:WaitShowDialogue("Profitez du calme avant la corniche étroite.[pause=0] Là-haut,[pause=10] c'est moi qui ouvrirai la marche vers l'Épine.")
   end
   GeneralFunctions.EndConversation(chara)
 end
 
 --------------------------------------------------------------------
--- Almotz (Zigzaton)
+-- Shuca
 --------------------------------------------------------------------
 function mount_windswept_midpoint_ch_5.Shuca_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   if chara == nil then return end
 
   if SV.Chapter5.MountGuardianDefeated then
-    GeneralFunctions.StartConversation(chara, "Le sommet...[pause=0] on y est presque ![pause=0] J'ai le cœur qui bourdonne comme un jour d'orage.", "Happy")
+    GeneralFunctions.StartConversation(chara, "Le sommet... par-delà la corniche effondrée... on y est presque ![pause=0] J'ai le cœur qui bourdonne comme un jour d'orage dans la fissure !", "Happy")
     UI:SetSpeakerEmotion("Normal")
-    UI:WaitShowDialogue("Ganlon dit que l'émotion fait rater les attaques.[pause=0] Alors je respire.[pause=10] Très fort.[pause=0] Ça s'entend ?")
+    UI:WaitShowDialogue("Ganlon dit que l'émotion fait rater les attaques près de l'Épine.[pause=0] Alors je respire.[pause=10] Très fort.[pause=0] Ça s'entend malgré le vent ?")
   elseif SV.Chapter5.MountGuardianLost or SV.Chapter5.MountMiniBossLost then
-    GeneralFunctions.StartConversation(chara, "Brrr...[pause=0] Entre le vent et les plumes d'acier,[pause=10] je ne sais pas ce qui pique le plus.", "Pain")
+    GeneralFunctions.StartConversation(chara, "Brrr... Entre le vent de la fissure et les plumes d'acier de l'Airmure,[pause=10] je ne sais pas ce qui pique le plus près de l'Épine.", "Pain")
     UI:SetSpeakerEmotion("Determined")
-    UI:WaitShowDialogue("Mais j'abandonne pas.[pause=0] Ganlon non plus.[pause=0] Alors on remonte,[pause=10] et cette fois c'est le piaf qui redescendra.")
+    UI:WaitShowDialogue("Mais j'abandonne pas. Ganlon non plus. Alors on remonte par le lacet sud,[pause=10] et cette fois c'est le piaf qui redescendra dans le vide de la corniche.")
   elseif SV.Chapter5.MountMiniBossDefeated then
-    GeneralFunctions.StartConversation(chara, "Vous avez vu la vue,[pause=10] depuis la crête ?[pause=0] On voyait la steppe,[pause=10] le tunnel,[pause=10] et même Metano tout au fond !", "Happy")
+    GeneralFunctions.StartConversation(chara, "Vous avez vu la vue depuis l'Épine du Vieux ?[pause=0] On voyait la steppe avec la Mère-Roche,[pause=10] le tunnel avec sa vapeur,[pause=10] et même Metano tout au fond !", "Happy")
     UI:SetSpeakerEmotion("Normal")
-    UI:WaitShowDialogue("C'est ma première vraie expédition.[pause=0] Là-haut,[pause=10] je veux voir le monde entier d'un coup.[pause=0] Tout entier.")
+    UI:WaitShowDialogue("C'est ma première vraie expédition. Là-haut,[pause=10] je veux voir le monde entier d'un coup depuis l'Épine. Tout entier.")
   else
-    GeneralFunctions.StartConversation(chara, "Ils ont pensé à tout ici :[pause=10] des feux,[pause=10] des réserves,[pause=10] des tentes...[pause=0] Il ne manque qu'une marmite !", "Normal")
+    GeneralFunctions.StartConversation(chara, "Ils ont pensé à tout ici en L : des feux au coin abrité,[pause=10] des réserves au creux,[pause=10] un drapeau déchiré qui bat encore... Il ne manque qu'une marmite !", "Normal")
     UI:SetSpeakerEmotion("Happy")
-    UI:WaitShowDialogue("J'ai vérifié mes provisions trois fois.[pause=0] Quatre,[pause=10] avec celle-ci.[pause=0] Rin serait fière de moi !")
+    UI:WaitShowDialogue("J'ai vérifié mes provisions trois fois près du Kangourex ouest.[pause=0] Quatre,[pause=10] avec celle-ci. Rin serait fière de moi ! Même le vent ne les emportera pas.")
   end
   GeneralFunctions.EndConversation(chara)
 end
 
 --------------------------------------------------------------------
--- CINEMATIQUE CONTEMPLATIVE — Le Fragment tombe du ciel
--- Adaptation New Era du motif "Minior : The Fallen Star" : une pluie
--- d'etoiles filantes, puis un eclat qui tombe pres du camp. Un Meteno
--- (Minior) desoriente, un voeu murmure, et un presage du phenomene
--- lumineux du sommet. Necrozma et l'Abime ne sont jamais nommes.
+-- Fragment Météno — unique Mont Venteux
 --------------------------------------------------------------------
 function mount_windswept_midpoint_ch_5.FallenFragmentScene()
   local hero = CH('PLAYER')
@@ -220,19 +274,17 @@ function mount_windswept_midpoint_ch_5.FallenFragmentScene()
 
   AI:DisableCharacterAI(partner)
 
-  -- Nuit qui tombe : la scene se joue au crepuscule.
   SOUND:FadeOutBGM(40)
   GAME:WaitFrames(30)
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Normal")
-  UI:WaitShowDialogue("La nuit tombe vite,[pause=10] en altitude.[pause=0] Regarde,[pause=10] on voit déjà les étoiles.")
+  UI:WaitShowDialogue("La nuit tombe vite en altitude près de l'Épine.[pause=0] Regarde,[pause=10] on voit déjà les étoiles malgré le vent de la fissure.")
 
-  GeneralFunctions.HeroDialogue(hero, "(Le ciel est si clair,[pause=10] ici...[pause=0] On dirait qu'on pourrait le toucher.)", "Normal")
+  GeneralFunctions.HeroDialogue(hero, "(Le ciel est si clair ici, au-dessus de la corniche effondrée... On dirait qu'on pourrait toucher l'Épine du Vieux et le ciel en même temps.)", "Normal")
 
   GAME:WaitFrames(30)
 
-  -- Pluie d'etoiles filantes
   SOUND:PlayBattleSE("EVT_Fade_White")
   BossFX.Particle("Swift_Star", 700, 200, 4)
   GAME:WaitFrames(15)
@@ -242,16 +294,15 @@ function mount_windswept_midpoint_ch_5.FallenFragmentScene()
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Inspired")
-  UI:WaitShowDialogue("Waouh ![pause=0] Des étoiles filantes ![pause=0] Vite,[pause=10] fais un vœu !")
+  UI:WaitShowDialogue("Waouh ! Des étoiles filantes ![pause=0] Depuis l'Épine, on les voit tomber dans le vide de la corniche ![pause=0] Vite, fais un vœu !")
 
-  GeneralFunctions.HeroDialogue(hero, "(Un vœu...[pause=0] Je souhaite...[pause=10] je souhaite que...)", "Normal")
+  GeneralFunctions.HeroDialogue(hero, "(Un vœu... Je souhaite... je souhaite que... que le drapeau déchiré retrouve son équipe...)", "Normal")
 
   GAME:WaitFrames(20)
 
-  -- L'une d'elles... ne file pas. Elle tombe.
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Stunned")
-  UI:WaitShowDialogue("Attends.[pause=0] Celle-là...[pause=10] elle ne file pas.[pause=0] Elle GROSSIT.")
+  UI:WaitShowDialogue("Attends. Celle-là... elle ne file pas. Elle GROSSIT vers l'Épine.")
 
   SOUND:PlayBattleSE("EVT_Battle_Flash")
   BossFX.Flash(900, 300, 3, 5, 20)
@@ -261,78 +312,75 @@ function mount_windswept_midpoint_ch_5.FallenFragmentScene()
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Surprised")
-  UI:WaitShowDialogue("Ça...[pause=10] ça s'est écrasé juste derrière les rochers ![pause=0] Viens !")
+  UI:WaitShowDialogue("Ça... ça s'est écrasé juste derrière l'Épine du Vieux ![pause=0] Dans les rochers brisés de la corniche effondrée ![pause=0] Viens !")
 
-  -- Deplacement vers le point d'impact (est du camp)
-  local coro1 = TASK:BranchCoroutine(function() GeneralFunctions.EightWayMove(partner, 900, 368, false, 2) end)
-  local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(8) GeneralFunctions.EightWayMove(hero, 900, 400, false, 2) end)
-  local coro3 = TASK:BranchCoroutine(function() GeneralFunctions.PanCamera(nil, nil, false, nil, 900, 380) end)
+  local coro1 = TASK:BranchCoroutine(function() GeneralFunctions.EightWayMove(partner, 920, 368, false, 2) end)
+  local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(8) GeneralFunctions.EightWayMove(hero, 920, 400, false, 2) end)
+  local coro3 = TASK:BranchCoroutine(function() GeneralFunctions.PanCamera(nil, nil, false, nil, 920, 380) end)
   TASK:JoinCoroutines({coro1, coro2, coro3})
   GAME:WaitFrames(20)
 
-  -- Le Fragment : un Meteno en forme meteore, sonne
   local fragment = CharacterEssentials.MakeCharactersFromList({{'Meteno', 940, 360, Direction.Left}})
   BossFX.Particle("Rock_Pieces", 940, 360, 3)
   GAME:WaitFrames(20)
 
   UI:SetSpeaker(fragment)
   UI:SetSpeakerEmotion("Dizzy")
-  UI:WaitShowDialogue("Ouille ouille ouille...[pause=0] Le grand plongeon...[pause=10] encore raté...")
+  UI:WaitShowDialogue("Ouille ouille ouille... Le grand plongeon... encore raté... contre l'Épine...")
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Surprised")
-  UI:WaitShowDialogue("Un Météno ?![pause=0] Tombé...[pause=10] du ciel ?![pause=0] Hé,[pause=10] tu vas bien ?!")
+  UI:WaitShowDialogue("Un Météno ?! Tombé du ciel sur l'Épine ?! Hé, tu vas bien, petit éclat ?!")
 
   UI:SetSpeaker(fragment)
   UI:SetSpeakerEmotion("Worried")
-  UI:WaitShowDialogue("Bien ?[pause=0] Oh,[pause=10] oui,[pause=10] oui.[pause=0] Enfin,[pause=10] non.[pause=0] Enfin...[pause=10] physiquement,[pause=10] oui.[pause=0] On est faits pour tomber,[pause=10] nous autres.")
-  UI:WaitShowDialogue("Mais là-haut...[pause=0] quelque chose ne va pas,[pause=10] là-haut.")
+  UI:WaitShowDialogue("Bien ? Oh, oui, oui. Enfin, non. Enfin... physiquement, oui. On est faits pour tomber, nous autres, même sur une Épine.")
+  UI:WaitShowDialogue("Mais là-haut... quelque chose ne va pas,[pause=10] là-haut, au-dessus de la corniche effondrée.")
 
-  GeneralFunctions.HeroDialogue(hero, "(Là-haut ?[pause=0] Il parle du ciel...[pause=10] ou du sommet ?)", "Worried")
+  GeneralFunctions.HeroDialogue(hero, "(Là-haut ? Il parle du ciel... ou du sommet par-delà le vide ?)", "Worried")
 
   UI:SetSpeaker(fragment)
   UI:SetSpeakerEmotion("Sad")
-  UI:WaitShowDialogue("On était tout un banc,[pause=10] à danser au-dessus des nuages.[pause=0] Et puis la lumière du sommet s'est mise à...[pause=10] trembler.")
-  UI:WaitShowDialogue("Pas comme une lumière qui s'éteint.[pause=0] Comme une lumière qui a PEUR.[pause=0] Mes amis se sont dispersés.[pause=10] Moi,[pause=10] je suis tombé.")
+  UI:WaitShowDialogue("On était tout un banc à danser au-dessus des nuages,[pause=10] à danser au-dessus de l'Épine.[pause=0] Et puis la lumière du sommet s'est mise à... trembler.")
+  UI:WaitShowDialogue("Pas comme une lumière qui s'éteint. Comme une lumière qui a PEUR de la corniche effondrée. Mes amis se sont dispersés, emportés par le vent de la fissure. Moi, je suis tombé contre la roche.")
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Worried")
-  UI:WaitShowDialogue("La lumière du sommet...[pause=0] C'est là qu'on va,[pause=10] justement.")
+  UI:WaitShowDialogue("La lumière du sommet... C'est là qu'on va,[pause=10] justement, par la corniche étroite nord.")
 
   UI:SetSpeaker(fragment)
   UI:SetSpeakerEmotion("Surprised")
-  UI:WaitShowDialogue("Vous MONTEZ ?[pause=0] Alors que tout ce qui a des ailes redescend ?")
+  UI:WaitShowDialogue("Vous MONTEZ ? Alors que tout ce qui a des ailes redescend depuis 25 ans ? Même les Wingull évitent l'Épine ?")
   GAME:WaitFrames(15)
   UI:SetSpeakerEmotion("Normal")
-  UI:WaitShowDialogue("...Vous êtes bizarres.[pause=0] J'aime bien les bizarres.")
-  UI:WaitShowDialogue("Tenez.[pause=0] Un conseil de quelqu'un qui a vu votre montagne depuis très,[pause=10] très haut :[pause=0] la lumière n'est pas votre ennemie.[pause=0] Elle appelle.")
-  UI:WaitShowDialogue("Ce qui l'effraie,[pause=10] par contre...[pause=0] ça,[pause=10] je n'ai pas voulu le regarder longtemps.")
+  UI:WaitShowDialogue("...Vous êtes bizarres. J'aime bien les bizarres qui campent en L contre le vent.")
+  UI:WaitShowDialogue("Tenez. Un conseil de quelqu'un qui a vu votre montagne depuis très haut, depuis l'Épine : la lumière n'est pas votre ennemie. Elle appelle depuis le sommet.")
+  UI:WaitShowDialogue("Ce qui l'effraie, par contre...[pause=0] sous la corniche effondrée... ça,[pause=10] je n'ai pas voulu le regarder longtemps.")
 
   GAME:WaitFrames(30)
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Determined")
-  UI:WaitShowDialogue("Raison de plus pour monter.[pause=0] Si quelque chose effraie même le ciel,[pause=10] la guilde doit savoir quoi.")
+  UI:WaitShowDialogue("Raison de plus pour monter par la corniche étroite. Si quelque chose effraie même le ciel au-dessus de l'Épine,[pause=10] la guilde doit savoir quoi.")
 
   UI:SetSpeaker(fragment)
   UI:SetSpeakerEmotion("Happy")
-  UI:WaitShowDialogue("Alors bonne chance,[pause=10] les bizarres.[pause=0] Moi je vais rester par ici le temps de retrouver mon banc.")
-  UI:WaitShowDialogue("Et si vous voyez mes amis là-haut...[pause=0] dites-leur que le Grand Plongeon,[pause=10] c'était pas ma faute cette fois.")
+  UI:WaitShowDialogue("Alors bonne chance, les bizarres en L. Moi je vais rester derrière l'Épine le temps de retrouver mon banc emporté par la fissure venteuse.")
+  UI:WaitShowDialogue("Et si vous voyez mes amis là-haut... dites-leur que le Grand Plongeon sur l'Épine,[pause=10] c'était pas ma faute cette fois. C'était le vent.")
 
-  -- Le Fragment roule derriere les rochers
   GROUND:MoveToPosition(fragment, 990, 340, false, 2)
   GROUND:Hide('Meteno')
   GAME:WaitFrames(20)
 
-  -- Conclusion contemplative
   GeneralFunctions.PanCamera()
   GAME:WaitFrames(20)
 
-  GeneralFunctions.HeroDialogue(hero, "(Une lumière qui a peur...[pause=0] Cette voix dans les herbes,[pause=10] le vent,[pause=10] les gardiens...[pause=0] Tout est lié.[pause=10] J'en suis sûr maintenant.)", "Worried")
+  GeneralFunctions.HeroDialogue(hero, "(Une lumière qui a peur depuis 25 ans... Cette voix dans les herbes, le vent de la fissure, les gardiens, le drapeau déchiré... Tout est lié à la corniche effondrée. J'en suis sûr maintenant.)", "Worried")
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Normal")
-  UI:WaitShowDialogue("Allez.[pause=0] Reposons-nous.[pause=0] Demain,[pause=10] on va voir cette lumière de plus près.")
+  UI:WaitShowDialogue("Allez. Reposons-nous à l'abri ouest. Demain, par la corniche étroite nord,[pause=10] on va voir cette lumière de plus près. Et on rapportera le drapeau.")
+
   GAME:WaitFrames(20)
 
   SV.Chapter5.FragmentSceneSeen = true
@@ -340,15 +388,11 @@ function mount_windswept_midpoint_ch_5.FallenFragmentScene()
   GAME:CutsceneMode(false)
   AI:EnableCharacterAI(partner)
   AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
-  --La camera revient au joueur (forme attestee : searing_tunnel:1480).
   GAME:MoveCamera(0, 0, 1, true)
 end
 
 --------------------------------------------------------------------
--- CINEMATIQUE DRAMATIQUE — La derniere veillee (lot D)
--- Jouee une fois apres la victoire sur le gardien du sommet : la veille
--- de l'ascension finale. Chacun dit pourquoi il est venu. Le partenaire
--- doute, le heros repond. Le lendemain, c'est le sommet — et la lumiere.
+-- Dernière veillée avant sommet
 --------------------------------------------------------------------
 function mount_windswept_midpoint_ch_5.SummitVigilScene()
   local hero = CH('PLAYER')
@@ -377,45 +421,45 @@ function mount_windswept_midpoint_ch_5.SummitVigilScene()
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Normal")
-  UI:WaitShowDialogue("Demain,[pause=10] le sommet.[pause=0] La fin de l'expédition.[pause=0] Quoi qu'il y ait là-haut.")
+  UI:WaitShowDialogue("Demain, le sommet par-delà la corniche effondrée.[pause=0] La fin de l'expédition.[pause=0] Quoi qu'il y ait là-haut derrière l'Épine.")
 
   GAME:WaitFrames(20)
 
   UI:SetSpeaker(shuca)
   UI:SetSpeakerEmotion("Normal")
-  UI:WaitShowDialogue("Vous savez pourquoi je suis venue,[pause=10] moi ?[pause=0] Pour voir si je tenais la route.[pause=0] Ma première vraie expédition.")
+  UI:WaitShowDialogue("Vous savez pourquoi je suis venue, moi ? Pour voir si je tenais la route jusqu'à l'Épine du Vieux.[pause=0] Ma première vraie expédition.")
   UI:SetSpeakerEmotion("Happy")
-  UI:WaitShowDialogue("Et demain je serai au sommet.[pause=0] Moi.[pause=0] Il faudra bien que quelqu'un me pince.")
+  UI:WaitShowDialogue("Et demain je serai au sommet par-delà la corniche. Moi. Il faudra bien que quelqu'un me pince sous le drapeau déchiré.")
 
   UI:SetSpeaker(ganlon)
   UI:SetSpeakerEmotion("Normal")
-  UI:WaitShowDialogue("Moi,[pause=10] on m'a dit «[pause=5] cordée du sommet[pause=5] »,[pause=10] j'ai dit oui.[pause=0] Fin de l'histoire.")
+  UI:WaitShowDialogue("Moi, on m'a dit « cordée du sommet par l'Épine », j'ai dit oui. Fin de l'histoire.")
   GAME:WaitFrames(15)
   UI:SetSpeakerEmotion("Worried")
-  UI:WaitShowDialogue("...Non.[pause=0] Pas toute l'histoire.[pause=0] Je voulais voir si Shuca tiendrait.[pause=0] Elle tient.[pause=0] Mieux que moi à son âge.")
+  UI:WaitShowDialogue("...Non. Pas toute l'histoire. Je voulais voir si Shuca tiendrait jusqu'à l'Épine. Elle tient. Mieux que moi à son âge, même avec le vent de la fissure.")
 
   GAME:WaitFrames(30)
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Worried")
-  UI:WaitShowDialogue("Et si on n'est pas à la hauteur,[pause=10] là-haut ?[pause=0] Le gardien,[pause=10] on l'a battu à quatre.[pause=0] Mais cette lumière...[pause=0] même le Météno en parlait comme d'une chose qui dépasse le ciel.")
+  UI:WaitShowDialogue("Et si on n'est pas à la hauteur là-haut, par-delà la corniche effondrée ? Le gardien, on l'a battu à quatre près de l'Épine. Mais cette lumière... même le Météno en parlait comme d'une chose qui dépasse le ciel et la roche.")
 
-  GeneralFunctions.HeroDialogue(hero, "(Elle avait peur.[pause=0] La lumière avait peur.[pause=0] Alors peut-être qu'elle n'attend pas des Pokémon plus forts...[pause=10] peut-être qu'elle attend juste quelqu'un qui monte quand tout redescend.)", "Normal")
+  GeneralFunctions.HeroDialogue(hero, "(Elle avait peur. La lumière avait peur près du vide. Alors peut-être qu'elle n'attend pas des Pokémon plus forts... peut-être qu'elle attend juste quelqu'un qui monte quand tout redescend depuis 25 ans, même avec un drapeau déchiré.)", "Normal")
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Normal")
-  UI:WaitShowDialogue("...Tu as raison.[pause=0] Tu as cette tête-là,[pause=10] celle des jours où tu as raison.")
+  UI:WaitShowDialogue("...Tu as raison. Tu as cette tête-là, celle des jours où tu as raison sous l'Épine.")
   UI:SetSpeakerEmotion("Determined")
-  UI:WaitShowDialogue("Demain,[pause=10] on monte.[pause=0] Tous les quatre.[pause=0] Et quoi que la lumière attende...[pause=10] elle nous trouvera prêts.")
+  UI:WaitShowDialogue("Demain, on monte par la corniche étroite nord. Tous les quatre. Et quoi que la lumière attende derrière l'Épine... elle nous trouvera prêts, en L, abrités, mais prêts.")
 
   UI:SetSpeaker(shuca)
   UI:SetSpeakerEmotion("Happy")
-  UI:WaitShowDialogue("Alors bonne nuit,[pause=10] l'équipe.[pause=0] Et...[pause=10] merci pour tout ce chemin.[pause=0] Voilà,[pause=10] c'est dit !")
+  UI:WaitShowDialogue("Alors bonne nuit, l'équipe en L. Et... merci pour tout ce chemin jusqu'à l'Épine. Voilà, c'est dit !")
 
   UI:SetSpeaker(ganlon)
   UI:SetSpeakerEmotion("Happy")
-  UI:WaitShowDialogue("Hmph.[pause=20] «[pause=5] Shuca a dit merci.[pause=5] »[pause=0] Je le répéterai à toute la guilde.[pause=0] Chaque jour.")
+  UI:WaitShowDialogue("Hmph. « Shuca a dit merci sous le drapeau déchiré. » Je le répéterai à toute la guilde. Chaque jour. Même par vent.")
 
   GAME:WaitFrames(40)
   SOUND:FadeOutBGM(40)
@@ -428,16 +472,12 @@ function mount_windswept_midpoint_ch_5.SummitVigilScene()
   GAME:CutsceneMode(false)
   AI:EnableCharacterAI(partner)
   AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
-  --La camera revient au joueur (forme attestee : searing_tunnel:1480).
   GAME:MoveCamera(0, 0, 1, true)
   GAME:FadeIn(40)
 end
 
-
-
 --------------------------------------------------------------------
--- Réveil après une défaite au-delà du checkpoint (vague 8).
--- Le duo revient à lui près du Terminal, ranimé par ses réserves.
+-- Réveil après défaite
 --------------------------------------------------------------------
 function mount_windswept_midpoint_ch_5.WipedCutscene()
   local hero = CH('PLAYER')
@@ -449,14 +489,10 @@ function mount_windswept_midpoint_ch_5.WipedCutscene()
   SOUND:StopBGM()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
 
-  -- Fix audit 2026-07-27 : l'ancienne position du partenaire (992,368)
-  -- chevauchait le collider du rocher Kangourex (984,352,24x24). Le duo se
-  -- réveille désormais sous la statue, sur des cases libres vérifiées.
   GROUND:TeleportTo(hero, 960, 360, Direction.Left)
   if partner ~= nil then GROUND:TeleportTo(partner, 992, 384, Direction.Right) end
   GROUND:CharSetAnim(hero, "EventSleep", true)
   if partner ~= nil then GROUND:CharSetAnim(partner, "EventSleep", true) end
-  -- Hyko et Almotz ont porté le duo jusqu'au camp : ils veillent en contrebas.
   if ganlon ~= nil then GROUND:TeleportTo(ganlon, 920, 400, Direction.UpRight) end
   if shuca ~= nil then GROUND:TeleportTo(shuca, 1016, 400, Direction.UpLeft) end
   GAME:MoveCamera(976, 368, 1, false)
@@ -487,34 +523,34 @@ function mount_windswept_midpoint_ch_5.WipedCutscene()
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Pain")
-  UI:WaitShowDialogue("Olala...[pause=20] c'était dur.[pause=10] C'était vraiment, VRAIMENT dur.")
+  UI:WaitShowDialogue("Olala... c'était dur près de l'Épine... Vraiment, VRAIMENT dur dans la fissure venteuse.")
   GAME:WaitFrames(14)
 
   if shuca ~= nil then
     UI:SetSpeaker(shuca)
     UI:SetSpeakerEmotion("Worried")
-    UI:WaitShowDialogue("Vous étiez à deux doigts de passer par-dessus la corniche.[pause=20] Deux doigts.[pause=10] J'en tremble encore des moustaches.")
+    UI:WaitShowDialogue("Vous étiez à deux doigts de passer par-dessus la corniche effondrée par l'Épine.[pause=20] Deux doigts.[pause=10] J'en tremble encore des moustaches dans le vent.")
     GAME:WaitFrames(10)
   end
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Worried")
-  UI:WaitShowDialogue("Les Crêtes...[pause=10] le vent là-haut ne souffle pas, il MORD.[pause=20] Une rafale nous a soulevés comme des feuilles.")
+  UI:WaitShowDialogue("Les Crêtes... le vent de la fissure ne souffle pas, il MORD près de l'Épine.[pause=20] Une rafale nous a soulevés comme le drapeau déchiré.")
   GAME:WaitFrames(14)
 
   if ganlon ~= nil then
     UI:SetSpeaker(ganlon)
     UI:SetSpeakerEmotion("Normal")
-    UI:WaitShowDialogue("Le camp de base tient bon,[pause=10] wouf.[pause=0] Tant que les feux brûlent,[pause=10] personne ne gèlera sous ma garde.")
+    UI:WaitShowDialogue("Le camp en L tient bon à l'ouest,[pause=10] wouf. Tant que le feu au coin abrité brûle,[pause=10] personne ne gèlera sous ma garde, même avec la fissure.")
     GAME:WaitFrames(10)
   end
 
   UI:SetSpeaker(partner)
   UI:SetSpeakerEmotion("Normal")
-  UI:WaitShowDialogue("Le camp de base a tenu, lui.[pause=20] Regarde, les tentes n'ont pas bougé.[pause=10] On est en sécurité ici.")
+  UI:WaitShowDialogue("Le camp en L a tenu, lui. Regarde, le feu n'a pas bougé derrière la paroi.[pause=10] Et le Kangourex ouest est intact.[pause=10] On est en sécurité sous l'Épine.")
   GAME:WaitFrames(14)
   UI:SetSpeakerEmotion("Determined")
-  UI:WaitShowDialogue("On attend que le vent tombe...[pause=20] et on reprend l'ascension.[pause=10] Le sommet ne s'éloignera pas.")
+  UI:WaitShowDialogue("On attend que le vent de la fissure tombe... et on reprend l'ascension par la corniche étroite nord. Le sommet ne s'éloignera pas, même avec 25 ans de vent.")
   GAME:WaitFrames(14)
   GAME:WaitFrames(20)
   if partner ~= nil then

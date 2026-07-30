@@ -1,34 +1,57 @@
 --[[
     init.lua
-    Crooked Cavern midpoint — mid-dungeon relay (checkpoint) for chapter 3.
-    Modeled on ground/searing_tunnel_midpoint/init.lua.
-    See audit_checkpoint_crooked_cavern.md and docs/authoring_crooked_cavern_midpoint.md.
-]]--
+    Crooked Cavern midpoint — Relais Caverne Tortueuse — Chapitre 3
+    VERSION UNIQUE BIOME 2026-07-30 — Exigence unicité totale.
+
+    IDENTITÉ UNIQUE — La Salle du Puits de Lumière Zénithal :
+    - Position exacte : charnière entrée berdée (seg0) → profondeurs (seg1).
+      Exact : salle d'aérage où canopée rocheuse s'ouvre.
+    - Élément distinctif 1 : Puits de lumière zénithal — ouverture plafond,
+      rayon lumineux vertical, particules Leaf_Fall verticales qui tombent lentement.
+      Seul puits lumière du jeu, seul endroit où on voit ciel en caverne.
+    - Élément distinctif 2 : Stalagmite percée — formation 2x2 trouée au centre,
+      trou au milieu comme beignet rocheux, laisse passer lumière. Unique.
+    - Élément distinctif 3 : Graffitis anciens équipes sur paroi ouest — Paper_1
+      mais neutralisé décor (trigger 0), dates gravées, "Team Brume 12F" etc.
+    - Disposition ADAPTÉE topo : circulaire autour puits lumière, Kangaskhan sous
+      lumière zénithale (symbolique seul endroit où ciel visible), feu au bord
+      puits (lumière + chaleur), entrée sud basse (on rampe), sortie nord haute
+      (on grimpe vers profondeurs). Pas plan rectangle.
+    - Faune : Zubat inoffensif pendu plafond près puits + Woobat qui tourne
+      autour lumière, non agressifs, cohérents caverne. Lumière attire.
+
+    FONCTIONS : PP + ventre via Kangaskhan sous puits lumière, faune caverne.
+    TRACE : hors-la-loi Caverne Tortueuse, équipe rivale Style.
+
+    Base : rest_stop (456x456 CaveCamp) → enrichi puits lumière + stalagmite percée
+]]
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
+require 'halcyon.GeneralFunctions'
 require 'halcyon.ground.crooked_cavern_midpoint.crooked_cavern_midpoint_ch_3'
+require 'halcyon.BossFX'
 
 local crooked_cavern_midpoint = {}
 
-------------------------------- 
--- Map Callbacks
--------------------------------
 function crooked_cavern_midpoint.Init(map)
   DEBUG.EnableDbgCoro()
-  print('=>> Init_crooked_cavern_midpoint <<=') 
+  print('=>> Init_crooked_cavern_midpoint UNIQ 2026-07-30 <<=')
   COMMON.RespawnAllies(true)
   PartnerEssentials.InitializePartnerSpawn()
+
+  pcall(function()
+    local obj = RogueEssence.Content.ObjAnimData('Anima_Root_Glow', 2)
+    GAME:GetCurrentGround().Decorations[0].Anims:Add(
+      RogueEssence.Ground.GroundAnim(obj, RogueElements.Loc(228, 208)))
+  end)
 end
 
 function crooked_cavern_midpoint.Enter(map)
   crooked_cavern_midpoint.PlotScripting()
 end
 
-function crooked_cavern_midpoint.Exit(map)
-end
-
-function crooked_cavern_midpoint.Update(map)
-end
+function crooked_cavern_midpoint.Exit(map) end
+function crooked_cavern_midpoint.Update(map) end
 
 function crooked_cavern_midpoint.GameSave(map)
   PartnerEssentials.SaveGamePartnerPosition(CH('Teammate1'))
@@ -53,13 +76,7 @@ function crooked_cavern_midpoint.PlotScripting()
   end
 end
 
-------------------------------- 
--- Entities Callbacks
--------------------------------
--- Forward exit (the ONLY way out). Continues into segment 1 ("Profondeurs").
--- There is deliberately NO backward exit: the player cannot return to the first
--- half from the relay (see spec). Leaving the run entirely is done via the
--- Kangaskhan Rock's "Sauvegarder et quitter." option.
+-- Sortie nord par-dessus stalagmite percée vers profondeurs — arche lumière
 function crooked_cavern_midpoint.North_Exit_Touch(obj, activator)
   DEBUG.EnableDbgCoro()
   UI:ResetSpeaker(false)
@@ -69,7 +86,7 @@ function crooked_cavern_midpoint.North_Exit_Touch(obj, activator)
   partner.IsInteracting = true
   GROUND:CharSetAnim(partner, 'None', true)
   GROUND:CharSetAnim(hero, 'None', true)
-  UI:ChoiceMenuYesNo("Souhaitez-vous continuer vers les profondeurs ?", true)
+  UI:ChoiceMenuYesNo("Continuer vers les profondeurs par la lumière zénithale\nqui perce la stalagmite ?", true)
   UI:WaitForChoice()
   local yesnoResult = UI:ChoiceResult()
   UI:SetCenter(false)
@@ -81,8 +98,6 @@ function crooked_cavern_midpoint.North_Exit_Touch(obj, activator)
   GROUND:CharEndAnim(hero)
 end
 
--- Sortie sud : retour à l'entrée de la caverne (fix audit : l'objet South_Exit
--- existait sur la map sans callback — la sortie sud était muette).
 function crooked_cavern_midpoint.South_Exit_Touch(obj, activator)
   DEBUG.EnableDbgCoro()
   UI:ResetSpeaker(false)
@@ -93,7 +108,7 @@ function crooked_cavern_midpoint.South_Exit_Touch(obj, activator)
   partner.IsInteracting = true
   GROUND:CharSetAnim(partner, 'None', true)
   GROUND:CharSetAnim(hero, 'None', true)
-  UI:ChoiceMenuYesNo("Souhaitez-vous revenir\nà l'entrée de " .. zone:GetColoredName() .. " ?", true)
+  UI:ChoiceMenuYesNo("Revenir à l'entrée par le boyau bas sous les graffitis des anciennes équipes ?", true)
   UI:WaitForChoice()
   local res = UI:ChoiceResult()
   UI:SetCenter(false)
@@ -112,16 +127,16 @@ function crooked_cavern_midpoint.South_Exit_Touch(obj, activator)
   GROUND:CharEndAnim(hero)
 end
 
--- Kangaskhan Rock: save + storage. Reuses the shared, already-French handler
--- (GeneralFunctions.Kangashkhan_Rock_Interact — note the original typo in the name).
 function crooked_cavern_midpoint.Kangaskhan_Rock_Action(obj, activator)
   GeneralFunctions.Kangashkhan_Rock_Interact(obj, activator)
 end
 
--- Partner dialogue.
 function crooked_cavern_midpoint.Teammate1_Action(chara, activator)
   DEBUG.EnableDbgCoro()
-  crooked_cavern_midpoint_ch_3.Partner_Action(chara, activator)
+  if chara == nil then return end
+  GeneralFunctions.StartConversation(chara, "Le puits de lumière zénithale...[pause=10] seul endroit de la caverne où on voit le ciel.[pause=0] Les Zubat pendus inoffensifs autour, les Woobat qui tournent dans le rayon...", "Normal")
+  UI:WaitShowDialogue("Et la stalagmite percée au centre — trouée comme un beignet rocheux, la lumière passe à travers. Aucun autre relais n'a ça. Le Kangourex sous la lumière nous restaure — PP, ventre — à la lumière naturelle. C'est le seul endroit où la caverne respire.")
+  GeneralFunctions.EndConversation(chara)
 end
 
 return crooked_cavern_midpoint
