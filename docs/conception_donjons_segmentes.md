@@ -120,13 +120,15 @@ cinématique) :
 non demandés) ; c'est la transition vers le mont Venteux et le rêve qui sont
 alignées sur leur rythme :
 
-- **Aperçu du creuset supprimé** (retour utilisateur) : le fondu de sortie du
-  creuset démarre désormais avec la marche (noir complet ~40 frames) au lieu
-  d'arriver après ~90 frames de pleine lumière ; le mode cinématique n'est
-  plus coupé avant la bascule (fenêtre où l'ancienne carte se redessinait).
-- **Arrivée au camp** : la carte se révèle immédiatement (`FadeIn` replacé
-  avant les 2 répliques d'accueil, au lieu de 2 dialogues à valider sur
-  écran noir) — « directement la scène de l'arrivée ».
+- **Transition creuset → camp (déroulé validé par le joueur, -P)** :
+  dialogues → marche de sortie visible → **noir qui s'applique après la
+  marche**, tenu sans trou (mode cinématique non coupé avant la bascule) →
+  répliques d'accueil MWE5_001/002 **sur le noir** → le noir se lève sur le
+  camp. Aucun aperçu de l'ancienne carte ne doit subsister ; si un aperçu
+  persiste en jeu, le build chargé n'est pas celui du dépôt.
+- **Bascules du rêve blindées (-O)** : `EnterGroundMap` vers `hero_dream`
+  sous pcall avec filet (rêve sauté proprement vers le matin si la map est
+  indisponible) et retour au camp protégé de même.
 - **Départ vers le rêve** : `FadeOutBGM` ajouté (la musique du bivouac ne
   joue plus sur le noir) ; noir tenu des deux côtés (déjà garanti).
 - Ouvertures des 10 scènes de mini-boss alignées sur le patron searing

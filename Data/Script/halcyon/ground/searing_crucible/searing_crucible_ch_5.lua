@@ -1274,20 +1274,17 @@ local function DefeatedBossBody()
 											GROUND:MoveInDirection(growlithe, Direction.Up, 110, false, 2) end)			
 	coro4 = TASK:BranchCoroutine(function() GAME:WaitFrames(30)
 											GROUND:MoveInDirection(zigzagoon, Direction.Up, 106, false, 2) end)	
-	--LE NOIR COMMENCE AVEC LA MARCHE, PAS A SA FIN (retour de jeu :
-	--« un apercu de l'ancienne zone du creuset juste apres la fin de
-	--leurs dialogues »). Le fondu demarrait a t=30 et n'etait complet
-	--qu'a t=90 : le creuset restait donc VISIBLE plus d'une seconde
-	--apres le dernier dialogue. Desormais le fondu demarre a t=0, en
-	--meme temps que les marcheurs : ils s'eloignent pendant que le noir
-	--tombe, et l'ecran est noir complet bien avant la fin de la marche
-	--(t=40 vs t~83). Noir TENU sans trou jusqu'a la scene d'arrivee.
-	coro5 = TASK:BranchCoroutine(function()
-							SOUND:FadeOutBGM(40)
-							GAME:FadeOut(false, 40)
-							end)
-	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
-	GAME:WaitFrames(20)
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
+	--LE NOIR S'APPLIQUE APRES LA MARCHE, PAS PENDANT (deroule valide par
+	--le joueur : dialogues -> deplacement visible -> ecran noir -> 2
+	--repliques sur le noir -> le noir se leve sur le camp). Le fondu
+	--branche dans la marche effacait les marcheurs a mi-trajet ; un
+	--fondu trop tardif laissait revoir le creuset apres le noir. Ici :
+	--la marche se termine en pleine lumiere, PUIS le noir tombe, tenu
+	--sans trou jusqu'a la scene d'arrivee.
+	SOUND:FadeOutBGM(40)
+	GAME:FadeOut(false, 40)
+	GAME:WaitFrames(50)
 end
 
 function searing_crucible_ch_5.DefeatedBoss()
