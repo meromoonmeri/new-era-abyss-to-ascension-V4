@@ -779,6 +779,40 @@ end
 -- Corps de la cinematique, appele sous pcall par DefeatedBoss() : toute erreur
 -- Lua ici ne doit JAMAIS laisser le joueur sur un ecran noir definitif.
 local function DefeatedBossBody()
+
+	--LE NOIR ET LE GEL, AVANT TOUTE MISE EN PLACE.
+	--
+	--BUG CORRIGE (signale en jeu, deux fois : « l'ecran noir se rallume un
+	--bref moment encore sur le crucible »). C'est CETTE fonction, pas la
+	--scene d'arrivee au camp corrigee precedemment.
+	--
+	--Chemin reel apres la victoire sur Magcargo :
+	--  EndSegment (GameManager.cs:952) pose FadeOut(false) -> noir
+	--    -> OnExitSegment (l.1017)
+	--    -> zone/searing_tunnel:226  GeneralFunctions.EndDungeonRun(...)
+	--    -> GAME:EndDungeonRun -> Save.EndGame (display=false)
+	--    -> GAME:EnterZone -> searing_crucible.Enter -> PlotScripting
+	--    -> DefeatedBoss -> ICI.
+	--
+	--Or cette fonction executait 63 LIGNES avant son FadeIn(40) :
+	--  8 x AddTempChar (les Slugma), SOUND:StopBGM, 4 x TeleportTo,
+	--  GAME:MoveCamera, puis CutsceneMode(true) pose TARD, puis
+	--  GAME:WaitFrames(60).
+	--Ces 60+ frames sont RENDUES. GAME:FadeOut etant bloquant
+	--(ScriptGame.cs:1590) et FadeInternal rendant la main a chaque frame
+	--(FadeEffect.cs:30-42), rien ne garantissait le noir pendant ce
+	--montage : le joueur voyait le Creuset se recomposer — camera qui
+	--saute, Slugma qui apparaissent — pendant environ une seconde.
+	--Le WaitFrames(60) explique exactement le « bref moment » decrit.
+	--
+	--Ces deux lignes sont donc les toutes premieres, avant meme les CH().
+	--FadeOut(false,1) sur ecran deja noir est un no-op (FadeEffect.cs:63) :
+	--gratuit quand le noir d'EndSegment a tenu, salvateur sinon.
+	--CutsceneMode(true) des maintenant gele ProcessInput
+	--(GroundScene.cs:176) pendant tout le montage, au lieu de 63 lignes
+	--plus bas. Patron identique a hero_dream/init.lua:45-46.
+	pcall(function() GAME:FadeOut(false, 1) end)
+	pcall(function() GAME:CutsceneMode(true) end)
 	--magcargo is actually defeated, and offers his neck metaphorically to the stone, party explains that they didn't even want to fight
 	--magcargo explains he thought the outlanders were causing all the issues the tunnel's been experiencing
 	--after they disappear, partner should mention that he's glad hyko and almotz were there. Just him and the palyer wouldn't have been able to deal with all those enemies at once

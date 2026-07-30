@@ -375,6 +375,19 @@ end
 -- Corps de la cinematique, appele sous pcall par DefeatedBoss() : toute erreur
 -- Lua ici ne doit JAMAIS laisser le joueur sur un ecran noir definitif.
 local function DefeatedBossBody()
+
+	--LE NOIR AVANT TOUTE MISE EN PLACE (correctif de retour de boss,
+	--2026-07-30). Cette scene est jouee juste apres un EndSegment /
+	--EnterZone : le moteur a pose le noir, mais rien ne le REPOSE ici.
+	--Elle enchaine pourtant plusieurs appels moteur (creation de PNJ,
+	--TeleportTo, MoveCamera, StopBGM) avant son FadeIn. GAME:FadeOut
+	--etant bloquant (ScriptGame.cs:1590) et FadeInternal rendant la
+	--main a chaque frame (FadeEffect.cs:30-42), ces appels laissent
+	--passer des frames RENDUES sur une carte en cours de montage —
+	--c'est l'apercu de zone signale en jeu. FadeOut(false,1) sur un
+	--ecran deja noir est un no-op (FadeEffect.cs:63) : gratuit si le
+	--noir a tenu, salvateur sinon.
+	pcall(function() GAME:FadeOut(false, 1) end)
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local gligar = CharacterEssentials.MakeCharactersFromList({
