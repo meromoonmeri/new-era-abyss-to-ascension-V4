@@ -581,4 +581,34 @@
   <data name="MWE5_H09" xml:space="preserve">
     <value>...Fine.[pause=20] Fine, I'm sleeping.</value>
   </data>
+  <data name="MWE5_H10" xml:space="preserve">
+    <value>AND I KNOW A WORSE ONE![pause=20][br]...Sorry.[pause=15] I thought you were all asleep.[pause=0] Anyway.[pause=10] They say there's a song you must never finish up in the mountains.[pause=20] Those who finish it,[pause=10] the wind takes it from them...[pause=15] and sings it in their place, forever.</value>
+  </data>
+  <data name="MWE5_H11" xml:space="preserve">
+    <value>...I'm sleeping.[pause=20] I'm sleeping, promise.[pause=25] ...How do you think the song ends?</value>
+  </data>
+  <data name="MWE5_P08" xml:space="preserve">
+    <value>So.[pause=20] You said "we'll see about tomorrow".[pause=15] It's tomorrow.[pause=25] I'm climbing with you, right?</value>
+  </data>
+  <data name="MWE5_P09" xml:space="preserve">
+    <value>No.[pause=25] You walked for two days with no map,[pause=10] no supplies,[pause=10] and without telling a soul.[pause=20] Up there, that gets you killed.</value>
+  </data>
+  <data name="MWE5_P10" xml:space="preserve">
+    <value>But you're not walking back down alone either.[pause=20] You stay at base camp.[pause=15][br]And not idling:[pause=10] when my teams come down off that mountain,[pause=10] they'll be hungry, cold and low.[pause=25] That's a post. Hold it.</value>
+  </data>
+  <data name="MWE5_P11" xml:space="preserve">
+    <value>...Base camp.[pause=25] So I watch everyone leave on an adventure.[pause=20] Again.</value>
+  </data>
+  <data name="MWE5_P12" xml:space="preserve">
+    <value>Then listen close,[pause=10] because I'm heading up to the relay within the hour.[pause=20][br]The pots,[pause=10] the fire,[pause=10] the berry stores:[pause=10] they're yours. Twelve rations for tonight,[pause=10] not one less.[pause=25] Think you can hold that?</value>
+  </data>
+  <data name="MWE5_P13" xml:space="preserve">
+    <value>Twelve Pokémon coming home starving...[pause=15] all of them sitting down in front of MY soup.[pause=25] Coco.[pause=10] I do believe you've just handed me the finest audience of my career.</value>
+  </data>
+  <data name="MWE5_P14" xml:space="preserve">
+    <value>Plum![pause=0] The big pot is the one on the left.[pause=15] And DON'T SING while you stir,[pause=10] last time somebody fell asleep in the broth.</value>
+  </data>
+  <data name="MWE5_P15" xml:space="preserve">
+    <value>...That happened once.[pause=20][br]Climb safe.[pause=15] Tonight,[pause=10] there'll be a light on and something hot.[pause=20] I'll see to it.</value>
+  </data>
 </root>

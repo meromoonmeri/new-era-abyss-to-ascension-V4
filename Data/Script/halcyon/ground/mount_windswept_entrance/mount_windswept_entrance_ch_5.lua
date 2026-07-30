@@ -890,6 +890,14 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		pcall(function() GROUND:CharAnimateTurnTo(plum, Direction.UpLeft, 4) end)
 		UI:ResetSpeaker()
 		GAME:WaitFrames(20)
+
+		--ELLE FAIT PARTIE DU CAMP A PARTIR D'ICI, ET LE RESTE DE LA SOIREE
+		--DOIT LE SAVOIR.
+		--C'est ce drapeau qui fait exister sa paillasse (DeployBeds), la
+		--recree au retour du reve, la reveille au matin et la fait partir
+		--avec le camp. Sans lui, elle sortait du decor a la seconde ou son
+		--gag etait fini — le defaut de causalite signale par l'utilisateur.
+		SV.Chapter5.PlumAtMountCamp = true
 	end
 
 	-- 5. LE SILENCE — le heros et la montagne
@@ -937,7 +945,11 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GAME:WaitFrames(10)
 
 	--Tout le cercle se tourne vers le maitre de guilde, en decale.
-	local listeners = {partner, hero, t.hyko, t.almotz, t.rin, t.coco, t.shuca, t.ganlon, t.reinier, t.kino}
+	--PLUM EN FAIT PARTIE. Elle vient de s'asseoir au cercle : elle est
+	--dans le champ, elle entend l'ordre du soir comme les autres, et un
+	--personnage present qui ne tourne pas la tete quand le maitre de
+	--guilde parle, c'est precisement le figement directionnel interdit.
+	local listeners = {partner, hero, t.hyko, t.almotz, t.rin, t.coco, t.shuca, t.ganlon, t.reinier, t.kino, plum}
 	Listen(t.penticus, listeners)
 	GAME:WaitFrames(10)
 
@@ -1061,6 +1073,29 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 			GROUND:MoveToPosition(hero, seatX(bedOf[hero]), seatY(bedOf[hero]), false, 1)
 		end)
 	end)
+	--PLUM AUSSI VA SE COUCHER, ET SA COUCHE EXISTE.
+	--Elle part de sa place au cercle (280,252) et rejoint la douzieme
+	--paillasse en bout de rang ouest. Trajet en quatre segments, tous
+	--reechantillonnes contre la grille d'obstacles : (240,272) puis
+	--(200,296) puis (160,304) puis l'assise (129,298). Il contourne les
+	--couchages du flanc ouest au lieu de marcher dessus.
+	--Elle part la DERNIERE et sans se presser : c'est sa maniere, et ca
+	--laisse le champ libre pendant que les autres se couchent.
+	if plum ~= nil then
+		toBeds[#toBeds+1] = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(46)
+			pcall(function()
+				local pb = mount_windswept_entrance_ch_5.PLUM_BED
+				GeneralFunctions.EightWayMove(plum, 240, 272, false, 1)
+				GeneralFunctions.EightWayMove(plum, 200, 296, false, 1)
+				GeneralFunctions.EightWayMove(plum, 160, 304, false, 1)
+				GeneralFunctions.EightWayMove(plum, pb[1] + 13, pb[2] + 10, false, 1)
+				--Elle s'installe face au feu, comme tout le monde : sa
+				--couche est a l'ouest, le foyer est a l'est.
+				GROUND:CharAnimateTurnTo(plum, Direction.Right, 4)
+			end)
+		end)
+	end
 	TASK:JoinCoroutines(toBeds)
 	GAME:WaitFrames(10)
 
@@ -1075,7 +1110,19 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	--
 	-- Ils chuchotent : le camp dort, et c'est justement l'interdit qui
 	-- rend l'echange savoureux. Phileas, de garde, entend tout.
+	--
+	-- PLUM EST DES LEURS, ET C'EST LE POINT DE LA CORRECTION.
+	-- Elle a debarque au repas, elle a sa paillasse en bout de rang ouest
+	-- (61 px de Hyko) : elle ENTEND tout. La laisser muette ici serait
+	-- exactement le defaut signale — un personnage introduit en fanfare qui
+	-- sort du decor au beat suivant.
+	-- Son intervention ne lui invente pas une facette nouvelle : elle
+	-- sursaute (elle est expressive), puis elle en rajoute (elle est
+	-- artiste, elle ne resiste pas a un public), et son histoire parle de
+	-- CHANT — le seul angle par lequel ce personnage-la pouvait entrer dans
+	-- une veillee de peur.
 	local jeunes = {t.shuca, t.almotz, t.hyko}
+	if plum ~= nil then jeunes[#jeunes+1] = plum end
 	pcall(function()
 		--Shuca commence. Elle se redresse sur sa couche : le corps parle
 		--avant la bouche.
@@ -1108,6 +1155,36 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_H04']))
 	GAME:WaitFrames(18)
 
+	--LE SURSAUT DE PLUM. Personne ne l'avait invitee dans la conversation :
+	--c'est justement ce qui la rend drole. Elle etait couchee a l'autre bout
+	--du rang, elle a tout entendu, et elle ne peut PAS se taire.
+	--Le corps parle avant la bouche : elle se redresse d'un coup (CharEndAnim
+	--leve la pose de sommeil), elle sursaute, PUIS la boite s'ouvre.
+	if plum ~= nil then
+		pcall(function()
+			GROUND:CharEndAnim(plum)
+			GeneralFunctions.Shake(plum)
+			GeneralFunctions.EmoteAndPause(plum, "Shock", true)
+		end)
+		--Les trois se retournent vers l'ouest : la voix vient de derriere
+		--eux, du bout du rang. Chacun depuis SA place, en decale.
+		local vers_plum = {}
+		for i, who in ipairs({t.almotz, t.shuca, t.hyko}) do
+			if who ~= nil then
+				vers_plum[#vers_plum+1] = TASK:BranchCoroutine(function()
+					pcall(function()
+						GAME:WaitFrames((i - 1) * 5)
+						GROUND:CharTurnToCharAnimated(who, plum, 4)
+					end)
+				end)
+			end
+		end
+		pcall(function() TASK:JoinCoroutines(vers_plum) end)
+		GeneralFunctions.Speak(plum, "Shouting")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_H10']))
+		GAME:WaitFrames(14)
+	end
+
 	--Hyko, le garde, se veut rationnel — et se trahit sur la fin.
 	pcall(function()
 		if t.hyko ~= nil then
@@ -1130,21 +1207,38 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 
 	-- PHILEAS INTERVIENT. Il est de garde a 96 px au nord : il entend, il
 	-- se tourne, il gronde depuis son poste — il ne traverse pas le camp
-	-- pour trois gamins qui chuchotent.
+	-- pour quatre gamins qui chuchotent.
+	-- IL SE TOURNE VERS PLUM quand elle est la : c'est elle qui a crie le
+	-- plus fort, c'est donc elle la source du bruit qui l'a fait lever la
+	-- tete. Un veilleur regarde d'ou vient le vacarme, pas le dernier a
+	-- avoir parle poliment.
 	pcall(function()
 		if t.phileas ~= nil then
-			GROUND:CharTurnToCharAnimated(t.phileas, t.almotz, 4)
+			GROUND:CharTurnToCharAnimated(t.phileas, plum or t.almotz, 4)
 			GeneralFunctions.EmoteAndPause(t.phileas, "Angry", true)
 		end
 	end)
+	--LES QUATRE PRIS EN FAUTE — memes 4 frames de decalage, EMOTES
+	--DIFFERENTES. Un groupe qui affiche la meme goutte de sueur au meme
+	--instant, c'est un bloc mecanique : Shuca est genee (sweatdrop),
+	--Almotz nie en bloc (question), Hyko se raidit — c'est un garde pris
+	--en flagrant delit de bavardage (sweating), et Plum, elle, sursaute
+	--une deuxieme fois parce qu'elle ne savait meme pas que quelqu'un
+	--veillait (shock). Quatre reactions, quatre caracteres.
+	local reactPhil = {
+		{t.shuca,  "Sweatdrop"},
+		{t.almotz, "Question"},
+		{t.hyko,   "Sweating"},
+		{plum,     "Shock"},
+	}
 	local ecoute = {}
-	for i, who in ipairs(jeunes) do
-		if who ~= nil then
+	for i, r in ipairs(reactPhil) do
+		if r[1] ~= nil then
 			ecoute[#ecoute+1] = TASK:BranchCoroutine(function()
 				pcall(function()
 					GAME:WaitFrames((i - 1) * 5)
-					GROUND:CharTurnToCharAnimated(who, t.phileas, 4)
-					GeneralFunctions.EmoteAndPause(who, "Sweatdrop", i == 1)
+					GROUND:CharTurnToCharAnimated(r[1], t.phileas, 4)
+					GeneralFunctions.EmoteAndPause(r[1], r[2], i == 1)
 				end)
 			end)
 		end
@@ -1204,6 +1298,23 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		if t.shuca ~= nil then GROUND:CharSetAnim(t.shuca, "Sleep", true) end
 	end)
 	GAME:WaitFrames(20)
+
+	--PLUM A LE DERNIER MOT, ET ELLE LE MURMURE.
+	--Elle a fait le plus de bruit, elle se rendort la derniere : c'est la
+	--chute du beat et ca boucle son arc de la soiree (elle est arrivee en
+	--fracas, elle s'endort en chuchotant). Elle se tourne vers le feu
+	--avant de se coucher — sa couche est a l'ouest, le foyer a l'est.
+	if plum ~= nil then
+		pcall(function() GROUND:CharTurnToCharAnimated(plum, t.shuca, 4) end)
+		GeneralFunctions.Speak(plum, "Worried")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_H11']))
+		GAME:WaitFrames(14)
+		pcall(function()
+			GROUND:CharAnimateTurnTo(plum, Direction.Right, 4)
+			GROUND:CharSetAnim(plum, "Sleep", true)
+		end)
+		GAME:WaitFrames(18)
+	end
 
 	GROUND:CharTurnToCharAnimated(t.hyko, t.almotz, 4)
 	GROUND:CharTurnToCharAnimated(t.almotz, t.hyko, 4)
@@ -1471,21 +1582,29 @@ function mount_windswept_entrance_ch_5.ResumeAfterDreamBody()
 		{'Cranidos',  B[4][1]  + 13, B[4][2]  + 10, Direction.Left}
 	})
 
-	--PLUM DORT AUSSI. Elle est arrivee la veille au soir (section 4bis) :
-	--si on ne la recree pas ici, elle disparaitrait du camp entre le
-	--coucher et le reveil, sans un mot — le joueur le remarquerait.
-	--Elle n'a pas de paillasse (elle n'etait pas prevue) : elle dort
-	--roulee en boule pres du foyer, ce qui est exactement son entree en
-	--matiere. (272,238) : sol libre verifie, >=36 px de tous les dormeurs.
+	--PLUM DORT AUSSI, SUR SA PAILLASSE.
+	--Elle est arrivee la veille au soir (section 4bis), elle a veille avec
+	--les jeunes (8bis), elle s'est couchee la derniere : si on ne la recree
+	--pas ici, elle disparaitrait du camp entre le coucher et le reveil,
+	--sans un mot. C'est le defaut de causalite signale par l'utilisateur.
+	--
+	--Elle est recreee EXACTEMENT sur PLUM_BED, la douzieme paillasse, la
+	--meme que DeployBeds vient de derouler quelques lignes plus haut (la
+	--fonction lit le meme drapeau SV.Chapter5.PlumAtMountCamp). Les deux
+	--ne peuvent plus diverger : il n'y a qu'une source pour la position.
+	--Elle dort tournee vers le feu, comme elle s'est endormie.
 	local plumMorning = nil
-	pcall(function()
-		plumMorning = CharacterEssentials.MakeCharactersFromList({
-			{'Jigglypuff', 272, 238, Direction.Left}
-		})
-		if plumMorning ~= nil then
-			GROUND:CharSetAnim(plumMorning, "Sleep", true)
-		end
-	end)
+	if SV.Chapter5.PlumAtMountCamp then
+		pcall(function()
+			local pb = mount_windswept_entrance_ch_5.PLUM_BED
+			plumMorning = CharacterEssentials.MakeCharactersFromList({
+				{'Jigglypuff', pb[1] + 13, pb[2] + 10, Direction.Right}
+			})
+			if plumMorning ~= nil then
+				GROUND:CharSetAnim(plumMorning, "Sleep", true)
+			end
+		end)
+	end
 
 	--Le duo sur ses couches : partenaire 5, heros 6 (voisines de 50 px,
 	--pour que la camera puisse les cadrer ensemble).
@@ -1502,12 +1621,16 @@ function mount_windswept_entrance_ch_5.ResumeAfterDreamBody()
 	pcall(function() GROUND:CharSetAnim(hero, "EventSleep", true) end)
 
 	--Puis le matin, avec la meme table de personnages que la veillee.
+	--PLUM Y FIGURE (nil si elle n'est pas venue) : la scene du matin doit
+	--pouvoir la reveiller, la faire reagir et lui faire ses adieux, sinon
+	--elle disparaitrait entre le lever et le depart.
 	mount_windswept_entrance_ch_5.MorningAfterDream(
 		hero, partner, {penticus = tropius, phileas = noctowl,
 		                rin = audino,      coco = snubbull,
 		                shuca = mareep,    ganlon = cranidos,
 		                hyko = growlithe,  almotz = zigzagoon,
-		                reinier = girafarig, kino = breloom})
+		                reinier = girafarig, kino = breloom,
+		                plum = plumMorning})
 end
 
 function mount_windswept_entrance_ch_5.MorningAfterDream(hero, partner, t)
@@ -1844,7 +1967,30 @@ function mount_windswept_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 		GAME:WaitFrames(20)
 		GROUND:CharTurnToCharAnimated(t.reinier, t.rin, 4)
 	end)
-	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coro6, coro7})
+	--PLUM SE REVEILLE AVEC LES AUTRES, ET EN DERNIER.
+	--Elle s'est endormie la derniere (veillee d'histoires), elle emerge la
+	--derniere : la continuite du personnage se joue jusque dans le tempo
+	--du reveil. Sursaut double comme le heros, mais pour une raison
+	--opposee — elle a juste tres bien dormi et ne sait plus ou elle est.
+	local coro8 = nil
+	if t.plum ~= nil then
+		coro8 = TASK:BranchCoroutine(function()
+			pcall(function()
+				GAME:WaitFrames(34)
+				GeneralFunctions.Shake(t.plum)
+				GAME:WaitFrames(24)
+				GeneralFunctions.DoAnimation(t.plum, 'Wake')
+				GAME:WaitFrames(16)
+				--Elle cherche d'ou vient la voix avant de la trouver :
+				--elle ne sait pas encore ou elle est.
+				GeneralFunctions.LookAround(t.plum, 2, 5, false, false, false, Direction.Right)
+				GROUND:CharTurnToCharAnimated(t.plum, t.rin, 4)
+			end)
+		end)
+	end
+	local reveil = {coro1, coro2, coro3, coro4, coro5, coro6, coro7}
+	if coro8 ~= nil then reveil[#reveil+1] = coro8 end
+	TASK:JoinCoroutines(reveil)
 
 	SOUND:PlayBGM("Do Your Best, As Always!.ogg", true)
 	UI:SetSpeaker(t.rin)
@@ -1948,6 +2094,124 @@ function mount_windswept_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_060']))
 	GAME:WaitFrames(25)
 
+	-- 11bis. ON REGLE LE CAS DE PLUM AVANT DE PARTIR.
+	--
+	-- « Et demain on avise » : c'est la phrase exacte de Penticus la veille
+	-- au soir (MWE5_P05). Une promesse posee dans un beat DOIT etre tenue
+	-- dans le beat suivant, sinon le personnage devient une decoration
+	-- qu'on rallume quand on en a besoin.
+	--
+	-- Ce que la scene resout, dans l'ordre :
+	--   1. Plum s'approche d'elle-meme : c'est elle qui a un sort a regler,
+	--      ce n'est pas au maitre de guilde de venir la chercher ;
+	--   2. Penticus tranche — non, elle ne monte pas ; il ne l'humilie pas,
+	--      il lui donne une raison utile de rester (c'est sa maniere : il
+	--      dirige en donnant des roles, cf. les cordees juste apres) ;
+	--   3. Coco la recupere immediatement, comme la veille au soir — elle
+	--      l'avait deja adoptee (MWE5_P06), la continuite est tenue ;
+	--   4. le heros commente, court.
+	--
+	-- Elle reste donc AU CAMP DE BASE avec Penticus, Phileas et Hyko : les
+	-- trois PNJ que SetupGround laisse sur place. Sa presence ensuite y est
+	-- donc justifiee, et non pas subie.
+	if t.plum ~= nil then
+		--Elle traverse depuis sa paillasse (129,298) jusqu'aupres du
+		--maitre de guilde, poste en (286,216). Quatre segments, tous
+		--reechantillonnes contre la grille d'obstacles : ils remontent par
+		--l'ouest du foyer et evitent les onze couchages.
+		--Arrivee en (244,206) : 43 px de Penticus (distance de
+		--conversation, pas collee), et 40 px du plus proche de TOUS les
+		--autres personnages presents — Phileas a son poste, Almotz sur sa
+		--couche. Aucun chevauchement de sprite.
+		local pl1 = TASK:BranchCoroutine(function()
+			pcall(function()
+				GeneralFunctions.EightWayMove(t.plum, 168, 290, false, 1)
+				GeneralFunctions.EightWayMove(t.plum, 200, 258, false, 1)
+				GeneralFunctions.EightWayMove(t.plum, 224, 232, false, 1)
+				GeneralFunctions.EightWayMove(t.plum, 244, 206, false, 1)
+				GROUND:CharTurnToCharAnimated(t.plum, t.penticus, 4)
+			end)
+		end)
+		--Le maitre de guilde la voit venir et se tourne vers elle AVANT
+		--qu'elle arrive : il l'attendait, c'est lui qui a dit « demain ».
+		local pl2 = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(24)
+			pcall(function() GROUND:CharTurnToCharAnimated(t.penticus, t.plum, 4) end)
+		end)
+		--Le duo suit la scene du regard : ils sont les seuls a savoir
+		--comment elle est arrivee.
+		local pl3 = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(30)
+			pcall(function() GeneralFunctions.FaceMovingCharacter(hero, t.plum, 4, Direction.Up) end)
+		end)
+		local pl4 = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(36)
+			pcall(function() GeneralFunctions.FaceMovingCharacter(partner, t.plum, 4, Direction.Up) end)
+		end)
+		pcall(function() TASK:JoinCoroutines({pl1, pl2, pl3, pl4}) end)
+		GAME:WaitFrames(12)
+
+		--Elle plaide sa cause, sans y croire vraiment.
+		GeneralFunctions.Speak(t.plum, "Determined")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_P08']))
+		GAME:WaitFrames(15)
+
+		--Penticus tranche. Le camp proche ecoute — c'est une decision de
+		--maitre de guilde, pas une conversation privee.
+		Listen(t.penticus, {t.plum, t.rin, t.coco, hero, partner})
+		UI:SetSpeaker(t.penticus)
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_P09']))
+		GAME:WaitFrames(12)
+		UI:SetSpeakerEmotion("Happy")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_P10']))
+		GAME:WaitFrames(15)
+
+		--Elle encaisse : deception d'abord, puis elle rebondit. C'est
+		--exactement son mouvement de la veille (chute, puis tirade).
+		pcall(function() GeneralFunctions.EmoteAndPause(t.plum, "Sweatdrop", true) end)
+		GeneralFunctions.Speak(t.plum, "Sad")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_P11']))
+		GAME:WaitFrames(14)
+
+		--Coco la recupere, comme la veille au soir — mais ATTENTION A LA
+		--CONTINUITE : Coco part avec la cordee de soutien une demi-heure
+		--plus tard (section 14). Elle ne peut donc pas « prendre Plum avec
+		--elle » ; elle lui PASSE LE RELAIS, ce qui est plus juste encore :
+		--Plum herite de la cuisine du camp de base pendant que la guilde
+		--monte. C'est aussi ce qui justifie sa presence au camp apres
+		--l'intro (SetupGround).
+		--Elle s'approche : on ne confie pas ses marmites a douze pas.
+		--Elle CONTOURNE LE FOYER PAR L'EST (304,200) au lieu de le
+		--traverser : le bloqueur de collision occupe 262..286 / 226..250,
+		--une ligne droite depuis (298,250) l'aurait fait buter dedans.
+		--Arrivee en (276,190) : 36 px de Plum, 28 px de Penticus, 43 px de
+		--Phileas — les trois tiennent dans le meme plan sans se recouvrir.
+		local cc1 = TASK:BranchCoroutine(function()
+			pcall(function()
+				GeneralFunctions.EightWayMove(t.coco, 304, 200, false, 1)
+				GeneralFunctions.EightWayMove(t.coco, 276, 190, false, 1)
+				GROUND:CharTurnToCharAnimated(t.coco, t.plum, 4)
+			end)
+		end)
+		local cc2 = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(14)
+			pcall(function() GeneralFunctions.FaceMovingCharacter(t.plum, t.coco, 4) end)
+		end)
+		pcall(function() TASK:JoinCoroutines({cc1, cc2}) end)
+		UI:SetSpeaker(t.coco)
+		UI:SetSpeakerEmotion("Joyous")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_P12']))
+		GAME:WaitFrames(12)
+		pcall(function() GeneralFunctions.EmoteAndPause(t.plum, "Glowing", true) end)
+		GeneralFunctions.Speak(t.plum, "Joyous")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_P13']))
+		GAME:WaitFrames(15)
+
+		GeneralFunctions.HeroDialogue(hero, "(...Elle a marche deux jours pour finir cuisiniere.[pause=20] Et elle a l'air ravie.)", "Sweating")
+		GAME:WaitFrames(18)
+	end
+
 	-- 12. LE RASSEMBLEMENT — rangs par deux, face a Penticus
 	--Penticus appelle au rassemblement. Le camp se range sous un
 	--fondu court (patron du matin du Tunnel : c'est SOUS FadeOut que
@@ -1971,8 +2235,13 @@ function mount_windswept_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 	GAME:WaitFrames(10)
 	--L'appel au rassemblement : tout le camp se retourne vers le maitre
 	--de guilde AVANT qu'il parle. C'est l'ordre qui fait lever les tetes.
+	--PLUM AUSSI : elle vient de recevoir son poste de sa bouche, elle est
+	--a 43 px de lui. Un personnage present qui reste tourne vers l'ancien
+	--foyer d'attention pendant que le chef parle, c'est le figement
+	--directionnel que la directive interdit explicitement.
 	Listen(t.penticus, {t.phileas, t.rin, t.coco, t.shuca, t.ganlon,
-	                    t.kino, t.reinier, t.hyko, t.almotz, partner, hero})
+	                    t.kino, t.reinier, t.hyko, t.almotz, partner, hero,
+	                    t.plum})
 	UI:SetSpeaker(t.penticus)
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_089']))
@@ -2010,6 +2279,22 @@ function mount_windswept_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 	GROUND:TeleportTo(t.reinier, 256, 304, Direction.Up)
 	GROUND:TeleportTo(t.coco,    288, 304, Direction.Up)
 	GROUND:TeleportTo(t.almotz,  320, 304, Direction.Up)
+
+	--PLUM N'EST PAS DANS LES RANGS, ET C'EST TOUT LE PROPOS.
+	--Elle vient de s'entendre dire qu'elle ne monte pas : la mettre en
+	--formation contredirait la scene qu'on vient de jouer. Elle se tient
+	--donc EN DEHORS de la formation, a l'est, tournee vers elle : la
+	--position dit son statut sans qu'une ligne de dialogue ait a le
+	--repeter — elle regarde partir ceux qui partent.
+	--(376,240) : sol libre verifie, 64 px du plus proche des douze, et
+	--dans le cadre du plan unique (camera 256,268 -> x 96..416).
+	--Ce n'est PAS (360,240) : ce point-la tombe a 16 px du trajet de
+	--depart d'Almotz, qui contourne par l'exterieur est (x=344) — elle
+	--se serait fait bousculer au moment des departs. A 376 elle est a
+	--32 px du plus proche des dix trajets de sortie.
+	if t.plum ~= nil then
+		pcall(function() GROUND:TeleportTo(t.plum, 376, 240, Direction.Left) end)
+	end
 
 	--UN SEUL PLAN SUFFIT DESORMAIS. La formation tient dans le cadre :
 	--on cadre entre le chef (y=232) et le rang arriere (y=304), et tout
@@ -2266,12 +2551,45 @@ function mount_windswept_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
 	GAME:WaitFrames(20)
 
+	--PLUM REGARDE LA PREMIERE VAGUE PARTIR.
+	--Elle est a 32 px du trajet d'Almotz : elle les voit passer. Un
+	--personnage present dans le cadre qui ne suit pas des yeux trois
+	--camarades qui remontent le sentier, c'est le figement directionnel
+	--interdit. Elle les suit, puis revient au groupe.
+	if t.plum ~= nil then
+		pcall(function()
+			GROUND:CharAnimateTurnTo(t.plum, Direction.UpLeft, 4)
+			GeneralFunctions.EmoteAndPause(t.plum, "Notice", false)
+		end)
+		GAME:WaitFrames(12)
+	end
+
 	--Coco salue le duo avant de partir : un adieu se fait face a face.
 	pcall(function() GROUND:CharTurnToCharAnimated(t.coco, hero, 4) end)
 	pcall(function() GeneralFunctions.EmoteAndPause(t.coco, "Happy", true) end)
 	UI:SetSpeaker(t.coco)
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_106']))
+	--...puis elle lance un dernier mot a Plum avant de monter : elle lui
+	--a confie sa cuisine il y a dix minutes, elle ne part pas sans le
+	--rappeler. La boucle Coco->Plum ouverte au repas se ferme ici.
+	if t.plum ~= nil then
+		GAME:WaitFrames(10)
+		pcall(function() GROUND:CharTurnToCharAnimated(t.coco, t.plum, 4) end)
+		pcall(function() GROUND:CharTurnToCharAnimated(t.plum, t.coco, 4) end)
+		UI:SetSpeaker(t.coco)
+		UI:SetSpeakerEmotion("Joyous")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_P14']))
+		GAME:WaitFrames(10)
+		--CharSetEmote et non EmoteAndPause : ce helper ne connait pas
+		--"Determined" (GeneralFunctions:547-591), son `else` final l'aurait
+		--rendu en goutte de sueur — contresens exact sur ce beat.
+		--"determined" est en revanche une emote attestee du depot.
+		pcall(function() GROUND:CharSetEmote(t.plum, "determined", 1) end)
+		GeneralFunctions.Speak(t.plum, "Determined")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_P15']))
+		GAME:WaitFrames(12)
+	end
 	coro1 = TASK:BranchCoroutine(function()
 		GeneralFunctions.EightWayMove(t.rin, 288, 240, false, 1)
 		GeneralFunctions.EightWayMove(t.rin, 280, 160, false, 1)
@@ -2554,11 +2872,31 @@ function mount_windswept_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 		GeneralFunctions.EightWayMove(t.hyko, 312, 240, false, 1)
 		GROUND:CharAnimateTurnTo(t.hyko, Direction.UpLeft, 4)
 	end)
+	--PLUM AUSSI S'AVANCE POUR LES VOIR PARTIR.
+	--Elle reste au camp de base, mais elle ne regarde pas ailleurs pendant
+	--que quatre silhouettes se plantent devant la porte du donjon. Elle
+	--s'avance derriere Hyko, en retrait — ce n'est pas SA scene, elle n'a
+	--rien a y dire — et elle regarde vers le nord comme les autres.
+	--(344,208) : sol libre verifie, 45 px de Hyko (le plus proche), et
+	--dans le cadre du plan final (camera 264,190). Elle est donc VISIBLE
+	--et orientee vers le foyer d'attention, sans encombrer le groupe.
+	local coroP = nil
+	if t.plum ~= nil then
+		coroP = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(48)
+			pcall(function()
+				GeneralFunctions.EightWayMove(t.plum, 344, 208, false, 1)
+				GROUND:CharAnimateTurnTo(t.plum, Direction.UpLeft, 4)
+			end)
+		end)
+	end
 	coro5 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(10)
 		GAME:MoveCamera(264, 190, 80, false)
 	end)
-	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coroH})
+	local finale = {coro1, coro2, coro3, coro4, coro5, coroH}
+	if coroP ~= nil then finale[#finale+1] = coroP end
+	TASK:JoinCoroutines(finale)
 	GAME:WaitFrames(20)
 
 	SOUND:FadeOutBGM(60)
@@ -3128,6 +3466,17 @@ function mount_windswept_entrance_ch_5.DeployBeds()
 		ground.Decorations[0].Anims:Add(
 			RogueEssence.Ground.GroundAnim(hay_bed, RogueElements.Loc(b[1], b[2])))
 	end
+	--LA COUCHE DE PLUM — posee UNIQUEMENT si elle est au camp.
+	--Le drapeau est arme par son irruption (section 4bis) et relu par
+	--toutes les recompositions du bivouac (retour du reve, matin). Sans
+	--lui, on poserait une paillasse vide chaque fois que la scene est
+	--rejouee sans elle : un couchage de trop, exactement le defaut qu'on
+	--a corrige pour Phileas.
+	if SV.Chapter5.PlumAtMountCamp then
+		local pb = mount_windswept_entrance_ch_5.PLUM_BED
+		ground.Decorations[0].Anims:Add(
+			RogueEssence.Ground.GroundAnim(hay_bed, RogueElements.Loc(pb[1], pb[2])))
+	end
 	ground.Decorations[0].Anims:Add(
 		RogueEssence.Ground.GroundAnim(campfire, RogueElements.Loc(
 			mount_windswept_entrance_ch_5.CAMP_X, mount_windswept_entrance_ch_5.CAMP_Y)))
@@ -3171,6 +3520,37 @@ mount_windswept_entrance_ch_5.BEDS = {
 	{CX -  46, CY + 90}, {CX - 92, CY +  66}, {CX - 102, CY + 20},
 	{CX - 102, CY - 26}, {CX - 60, CY +   4},
 }
+
+--LA DOUZIEME PAILLASSE — CELLE DE PLUM, ET ELLE N'EXISTE QUE SI PLUM EST LA.
+--
+--RETOUR DE L'UTILISATEUR, et il a raison : « plum […] a pas de paillasse ».
+--Elle debarquait au camp pendant le repas (section 4bis), Penticus lui
+--disait « tu manges, tu dors » — puis le deploiement des couchages posait
+--ONZE paillasses pour DOUZE dormeurs, et elle disparaissait du camp jusqu'au
+--matin. C'est exactement l'erreur de causalite decrite dans la directive :
+--un element introduit en fanfare qui sort du decor au beat suivant.
+--
+--Elle n'est PAS ajoutee a la table BEDS : cette table decrit l'expedition
+--officielle, dont Plum ne fait pas partie (c'est tout le sel du personnage).
+--Sa couche est une piece rapportee, posee en bout de rang ouest, et
+--DeployBeds ne la deroule que si elle est effectivement au camp.
+--
+--(116,288) — coin haut-gauche du sprite Hay_Bed 40x40, assise (129,298).
+--Mesures faites sur la grille d'obstacles de la carte :
+--  * sol libre sur tout le rectangle 40x40, et sur la case d'assise 26x26 ;
+--  * 8 px de la paillasse 8 (le partenaire), la plus proche — l'ecart
+--    minimal entre deux paillasses DEJA posees est de 2 px (couches 9 et
+--    11), on est donc au-dessus de l'existant ;
+--  * 28 px du foyer et de son bloqueur de collision ;
+--  * 61 px de Hyko, 48 px du partenaire : elle dort en bout de rang, a
+--    portee de voix des jeunes pour la veillee d'histoires (section 8bis)
+--    sans se coller a personne ;
+--  * dans le cadre de la camera du camp (256,240) : x=129 contre une
+--    limite gauche a 96, elle reste visible pendant toute la nuit ;
+--  * a plus de 20 px du trajet de Phileas (camp -> chevet du heros ->
+--    poste de garde) et de celui de Rin au matin : personne ne lui marche
+--    dessus.
+mount_windswept_entrance_ch_5.PLUM_BED = {CX - 140, CY + 68}
 --LA COUCHE 11 (Kino) EST A LA PLACE DU SAC, contre le feu.
 --Elle etait reléguee en (362,300), a 136 px du foyer, sur le flanc est
 --— le plus loin de tous. Or c'est la couche qui compte : au matin, Rin
@@ -3238,6 +3618,25 @@ function mount_windswept_entrance_ch_5.SetupGround()
 	--Phileas dort a son poste : il n'est pas alle se coucher, il s'est
 	--assoupi la ou il veillait.
 	pcall(function() GROUND:CharSetAnim(noctowl, "Sleep", true) end)
+
+	-- QUATRIEME POSTE : PLUM, ET ELLE A UNE RAISON D'ETRE LA.
+	-- Penticus lui a donne un poste au matin (section 11bis) et Coco lui a
+	-- passe la cuisine du camp avant de monter au relais. Elle n'est donc
+	-- pas un PNJ de plus pose sur la carte : elle occupe la fonction que
+	-- deux scenes precedentes lui ont explicitement confiee.
+	-- Elle tient les marmites : sa place est PRES DU FOYER, tournee vers
+	-- lui. (278,174) : sol libre verifie sprite compris, 40 px des flammes
+	-- et hors du bloqueur du foyer (elle ne peut pas s'y retrouver
+	-- coincee), 66 px du plus proche des trois autres postes. Le camp
+	-- compte donc quatre silhouettes lisibles, chacune a son ouvrage.
+	local jigglypuff = nil
+	if SV.Chapter5.PlumAtMountCamp then
+		pcall(function()
+			jigglypuff = CharacterEssentials.MakeCharactersFromList({
+				{'Jigglypuff', 278, 174, Direction.Down}
+			})
+		end)
+	end
 	--Rendus nil explicitement : plusieurs branches de ce fichier les
 	--testent encore (if rin ~= nil...), et un nil franc vaut mieux
 	--qu'un PNJ fantome qui n'a rien a faire la.
@@ -4169,6 +4568,30 @@ function mount_windswept_entrance_ch_5.Growlithe_Action(chara, activator)
 	else
 		GeneralFunctions.StartConversation(chara, "Ce feu de camp est réglementaire à quatre-vingt-quinze pour cent,[pause=10] wouf.[pause=0] Les cinq pour cent manquants me tourmentent.", "Normal")
 		UI:WaitShowDialogue("Almotz dit que je devrais «[pause=5] lâcher prise[pause=5] ».[pause=0] J'ai demandé si c'était une procédure officielle.[pause=0] Il a soupiré très fort.")
+	end
+	GeneralFunctions.EndConversation(chara)
+end
+
+--PLUM (Jigglypuff), cuisiniere improvisee du camp de base.
+--Sa voix est celle deja posee : expressive, un peu dramatique, incapable
+--de raconter quoi que ce soit sans en faire un numero. Elle n'a PAS accede
+--au statut d'exploratrice — elle tient les marmites, et elle en a fait une
+--scene. Elle ne sait rien de ce qui se passe la-haut : ses variantes
+--parlent de ce qu'elle voit d'en bas, jamais du donjon lui-meme.
+function mount_windswept_entrance_ch_5.Jigglypuff_Action(chara, activator)
+	DEBUG.EnableDbgCoro()
+	if SV.Chapter5.MountGuardianDefeated then
+		GeneralFunctions.StartConversation(chara, "Vous êtes redescendus ![pause=0] Alors ?[pause=10] ALORS ?[pause=0] Non,[pause=10] ne me racontez rien tout de suite.", "Joyous")
+		UI:WaitShowDialogue("Je veux la version complète,[pause=10] ce soir,[pause=10] autour du feu,[pause=10] avec du monde.[pause=0] Une histoire pareille,[pause=10] ça ne se raconte pas debout entre deux marmites.")
+	elseif SV.Chapter5.LostMountain or SV.Chapter5.DiedToWind or SV.Chapter5.MountGuardianLost then
+		GeneralFunctions.StartConversation(chara, "Asseyez-vous.[pause=0] Non,[pause=10] ce n'est pas une question.[pause=0] Il reste du bouillon et vous avez une tête de vent contraire.", "Worried")
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue("Vous savez ce que j'ai appris en marchant deux jours pour rien ?[pause=20] Que « pour rien » n'existe pas.[pause=0] On arrive juste plus tard que prévu.")
+	else
+		GeneralFunctions.StartConversation(chara, "Regardez-moi ça.[pause=0] Une grande marmite,[pause=10] douze bols,[pause=10] et une montagne entière pour public.", "Happy")
+		UI:WaitShowDialogue("Coco m'a interdit de chanter en remuant.[pause=20] Alors je fredonne.[pause=0] Ce n'est pas la même chose,[pause=10] techniquement.")
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue("...Et puis d'ici,[pause=10] on voit tout le sentier.[pause=0] Je saurai avant tout le monde quand vous redescendrez.[pause=15] Ça aussi,[pause=10] c'est un poste.")
 	end
 	GeneralFunctions.EndConversation(chara)
 end

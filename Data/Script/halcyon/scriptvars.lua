@@ -848,6 +848,16 @@ SV.Chapter5 =
 
 	--Scenes de vie aux relais (Prompt Maitre : respirations comiques/contemplatives)
 	PlumSceneSeen = false,--Plum la Rondoudou a-t-elle chante au relais de la steppe ?
+	--PLUM AU CAMP DU MONT VENTEUX. Arme par son irruption pendant le repas
+	--(mount_windswept_entrance_ch_5.CampNightfall, section 4bis) et relu par
+	--TOUT ce qui recompose le bivouac ensuite : deploiement des couchages
+	--(sa paillasse n'existe que si elle est la), retour du reve, matin,
+	--rassemblement, depart des cordees. C'est le drapeau qui garantit qu'elle
+	--ne disparait pas silencieusement entre deux beats de la meme soiree.
+	PlumAtMountCamp = false,
+	--A-t-elle deja fait ses adieux au matin ? Empeche de rejouer la scene
+	--si le joueur repasse par le camp apres l'intro.
+	PlumLeftMountCamp = false,
 	FragmentSceneSeen = false,--Le Fragment (Meteno) est-il tombe pres du relais du Mont ?
 	SteppeNightSceneSeen = false,--La veillee du camp (Hyko x Almotz) a-t-elle ete jouee ?
 	MountVigilSceneSeen = false,--La derniere veillee avant le sommet a-t-elle ete jouee ?
@@ -1324,4 +1334,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-08-03-F]')
+print('Script variables default values loaded! [build 2026-08-03-G]')

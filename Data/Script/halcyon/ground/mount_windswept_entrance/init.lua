@@ -22,7 +22,7 @@ local mount_windswept_entrance = {}
 --Engine callback function
 function mount_windswept_entrance.Init(map)
   DEBUG.EnableDbgCoro()
-  print('=>> Init_mount_windswept_entrance <<=')
+  print('=>> Init_mount_windswept_entrance <<= [build 2026-08-03-G]')
 
   --LE NOIR ET LE GEL, AVANT TOUT LE RESTE.
   --
@@ -243,6 +243,18 @@ end
 function mount_windswept_entrance.Girafarig_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   mount_windswept_entrance_ch_5.Girafarig_Action(chara, activator)
+end
+
+--PLUM (Jigglypuff). Elle n'est presente que si elle a suivi l'expedition
+--jusqu'ici (SV.Chapter5.PlumAtMountCamp, arme par son irruption au repas).
+--Sans ce callback, un joueur qui lui parlait tombait sur le dialogue
+--generique du moteur : un personnage qu'on vient de faire exister par une
+--scene entiere ne peut pas etre muet des qu'on reprend la main.
+--GroundChar.cs:153 : tout personnage cree par script est TriggerType.Action,
+--donc cliquable — le callback est bel et bien atteignable.
+function mount_windswept_entrance.Jigglypuff_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  mount_windswept_entrance_ch_5.Jigglypuff_Action(chara, activator)
 end
 
 function mount_windswept_entrance.Kangaskhan_Rock_Action(obj, activator)

@@ -581,4 +581,34 @@
   <data name="MWE5_H09" xml:space="preserve">
     <value>...D'accord.[pause=20] D'accord, je dors.</value>
   </data>
+  <data name="MWE5_H10" xml:space="preserve">
+    <value>ET MOI J'EN CONNAIS UNE PIRE ![pause=20][br]...Pardon.[pause=15] Je croyais que vous dormiez tous.[pause=0] Bref.[pause=10] Il paraît qu'il y a une chanson qu'on n'a pas le droit de finir en montagne.[pause=20] Ceux qui la finissent,[pause=10] le vent la leur reprend...[pause=15] et il la chante à leur place, pour toujours.</value>
+  </data>
+  <data name="MWE5_H11" xml:space="preserve">
+    <value>...Je dors.[pause=20] Je dors, promis.[pause=25] ...Vous croyez qu'elle finit comment, la chanson ?</value>
+  </data>
+  <data name="MWE5_P08" xml:space="preserve">
+    <value>Bon.[pause=20] Vous avez dit « demain on avise ».[pause=15] On est demain.[pause=25] Je monte avec vous, hein ?</value>
+  </data>
+  <data name="MWE5_P09" xml:space="preserve">
+    <value>Non.[pause=25] Tu as marché deux jours sans carte,[pause=10] sans vivres,[pause=10] et sans prévenir personne.[pause=20] Là-haut, ça ne pardonne pas.</value>
+  </data>
+  <data name="MWE5_P10" xml:space="preserve">
+    <value>Mais tu ne redescends pas seule non plus.[pause=20] Tu restes au camp de base.[pause=15][br]Et pas les pattes croisées :[pause=10] quand mes équipes redescendront de cette montagne,[pause=10] elles auront faim, froid et le moral bas.[pause=25] Ça, c'est un poste. Tiens-le.</value>
+  </data>
+  <data name="MWE5_P11" xml:space="preserve">
+    <value>...Le camp de base.[pause=25] Donc je regarde tout le monde partir à l'aventure.[pause=20] Encore.</value>
+  </data>
+  <data name="MWE5_P12" xml:space="preserve">
+    <value>Alors écoute-moi bien,[pause=10] parce que je monte au relais dans une heure.[pause=20][br]Les marmites,[pause=10] le feu,[pause=10] la réserve de baies :[pause=10] c'est à toi. Douze rations pour ce soir,[pause=10] et pas une de moins.[pause=25] Tu crois que tu peux tenir ça ?</value>
+  </data>
+  <data name="MWE5_P13" xml:space="preserve">
+    <value>Douze Pokémon qui rentrent affamés...[pause=15] et qui devront tous s'asseoir devant MA soupe.[pause=25] Coco.[pause=10] Je crois que tu viens de m'offrir le plus beau public de ma carrière.</value>
+  </data>
+  <data name="MWE5_P14" xml:space="preserve">
+    <value>Plum ![pause=0] La grande marmite,[pause=10] c'est celle de gauche.[pause=15] Et NE CHANTE PAS en remuant,[pause=10] la dernière fois quelqu'un s'est endormi dans le potage.</value>
+  </data>
+  <data name="MWE5_P15" xml:space="preserve">
+    <value>...C'était une seule fois.[pause=20][br]Montez prudemment.[pause=15] Ce soir,[pause=10] il y aura de la lumière et quelque chose de chaud.[pause=20] Je m'en occupe.</value>
+  </data>
 </root>
