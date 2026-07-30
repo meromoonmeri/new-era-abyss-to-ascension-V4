@@ -138,9 +138,10 @@ function gloomy_forest_boss_ch_6.FirstBossScene()
 
 	SV.Chapter6.GloomyBossEncountered = true
 	-- COMMON.BossTransition : double flash blanc + fondu vers l'arene.
+	-- Segment 4 : l'arene de Zarude (decalee de 2 -> 4 par le mini-boss).
 	COMMON.BossTransition()
 	GAME:CutsceneMode(false)
-	GAME:ContinueDungeon("gloomy_forest", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+	GAME:ContinueDungeon("gloomy_forest", 4, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 return gloomy_forest_boss_ch_6

@@ -36,12 +36,12 @@ function gloomy_forest_boss.PlotScripting()
 	if SV.Chapter6.DazzlingTrialOffered and not SV.Chapter6.DazzlingTrialCleared
 	   and SV.Chapter6.DefeatedGloomyBoss then
 		DazzlingArc.TrialIntro()
-		GAME:ContinueDungeon("gloomy_forest", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+		GAME:ContinueDungeon("gloomy_forest", 7, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 		return
 	end
 
 	-- Rejouabilite : Zarude a ete vaincu, la clairiere est vide. La revanche
-	-- volontaire passe par le segment 3 (zone-amie « Serment Verdoyant » achetee
+	-- volontaire passe par le segment 5 (zone-amie « Serment Verdoyant » achetee
 	-- chez Grodoudou), pas par ce ground.
 	if ReplayEnding.IsReplay('gloomy_forest', 6) then
 		ReplayEnding.EmptyArena({
@@ -67,7 +67,8 @@ function gloomy_forest_boss.PlotScripting()
 		GAME:WaitFrames(20)
 		COMMON.BossTransition()
 		GAME:CutsceneMode(false)
-		GAME:ContinueDungeon("gloomy_forest", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+		-- Segment 4 : l'arene de Zarude (decalee de 2 -> 4 par le mini-boss).
+		GAME:ContinueDungeon("gloomy_forest", 4, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 	else
 		GAME:FadeIn(20)
 	end

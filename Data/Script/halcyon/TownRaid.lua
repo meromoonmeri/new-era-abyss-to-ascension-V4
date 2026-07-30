@@ -19,9 +19,10 @@
     On ne bricole rien : on reprend EXACTEMENT le dispositif du duel
     contre la Team Dazzling, verifie dans le depot :
 
-      ground/gloomy_forest_boss/init.lua:38
+      ground/gloomy_forest_boss/init.lua (fonction PlotScripting)
         DazzlingArc.TrialIntro()
-        GAME:ContinueDungeon("gloomy_forest", 5, 0, 0, ...)
+        GAME:ContinueDungeon("gloomy_forest", 7, 0, 0, ...)
+      (segment 7 depuis l'insertion du mini-boss en segments 2 et 3)
 
     Soit : une cinematique, puis ContinueDungeon vers un segment dedie
     dont le Floor est un LoadGen + MappedRoomStep pointant une .rsmap
@@ -235,12 +236,13 @@ function TownRaid.Begin()
     GAME:CutsceneMode(false)
   end)
 
-  --Le combat. Segments 6, 7 et 8 de gloomy_forest, ajoutes a la zone :
-  --chacun charge une des trois cartes de raid. Meme appel que le duel
-  --Dazzling (gloomy_forest_boss/init.lua:39).
+  --Le combat. Segments 8, 9 et 10 de gloomy_forest (decales de +2 par
+  --l'insertion du mini-boss en segments 2 et 3) : chacun charge une des
+  --trois cartes de raid. Meme appel que le duel Dazzling
+  --(gloomy_forest_boss/init.lua, segment 7).
   pcall(function()
     COMMON.BossTransition()
-    GAME:ContinueDungeon("gloomy_forest", 5 + wave, 0, 0,
+    GAME:ContinueDungeon("gloomy_forest", 7 + wave, 0, 0,
       RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
   end)
 end

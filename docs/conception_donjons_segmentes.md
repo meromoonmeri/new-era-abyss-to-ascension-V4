@@ -82,7 +82,7 @@ Si l'une de ces questions révèle une incohérence, le segment n'est pas termin
 
 ---
 
-## Annexe d'application (état d'avancement, 2026-07-29)
+## Annexe d'application (état d'avancement, 2026-07-30)
 
 **Barème d'étages retenu** (« les donjons gagnent 5 à 10 étages par chapitre ») :
 rampe **+5 par chapitre**, ligne de base ch6 = 21 étages procéduraux (Forêt
@@ -91,15 +91,34 @@ mini-boss → 3F → boss**.
 
 | Ch | Donjon | Étages avant | Étages après | Mini-boss | Statut |
 |---|---|---|---|---|---|
-| 6 | Forêt Lugubre | 18+3 | 18+3 (inchangé) + OST propre (Hidden Highland.ogg, Sky) | à insérer (relais + arène à câbler) | partiel |
-| 7 | Ruines Tordues | 15+5 | **20**+3 | à créer (arène template Chartor/Limagma) | partiel |
-| 8 | Sanctuaire de Cristal | 12+6 | **25**+3 | à créer | partiel |
-| 9 | Marais de l'Oubli | 10+8 | **30**+3 | à créer | partiel |
+| 6 | Forêt Lugubre | 18+3 | 18+3+3 + OST propre (Hidden Highland.ogg, Sky) | Tengalice + Cornèbre (seg 2) | **conforme, non testé en jeu** |
+| 7 | Ruines Tordues | 15+5 | 20+3+3 | Kaorine + Golemastoc (seg 3) | **conforme, non testé en jeu** |
+| 8 | Sanctuaire de Cristal | 12+6 | 25+3+3 | Strassie + Momartik (seg 3) | **conforme, non testé en jeu** |
+| 9 | Marais de l'Oubli | 10+8 | 30+3+3 | Avaltout + Coatox (seg 3) | **conforme, non testé en jeu** |
 | 10 | Pic Céleste | 8+6+4 | **35**+3+3 | Salle Fulgurée (déjà en place) | **CONFORME** |
 
-Reste à faire (ordre) : (1) créer les 4 arènes mini-boss manquantes sur le
-template Chartor & Limagma (casting biome cohérent : espèces déjà dans les
-pools de spawn du donjon) ; (2) splitter le segment post-relais des 4 donjons
-en 3F + 3F autour de l'arène ; (3) pour Lugubre, câbler le relais
-`gloomy_forest_midpoint` (ground existant inutilisé) ; (4) restauration PP/
-faim systématique aux relais ; (5) rencontres inoffensives près des relais.
+**Mini-boss ch6-9 (build 2026-08-02-K)** — arènes créées sur le template
+validé (`searing_tunnel_miniboss` : arène rsmap 15×15 autotile + ground de
+cinématique) :
+
+- `tools/make_miniboss_arenas.py` génère les rsmap (équipe de 2, Unrecruitable,
+  niveaux = boss du chapitre −2) et les rsground (salle 456×456 px, ring de
+  mur + plancher de l'AutoTileset du donjon, entités marker + TEAMMATE_1..3).
+- Scènes **simplifiées** (directive) : arrivée + 2 répliques → Voix → flash
+  blanc → apparition de chaque gardien → répliques → `COMMON.BossTransition()`
+  → arène (défaite = réveil au relais, victoire = 3F vers le boss).
+- Casting choisi (utilisateur a laissé le choix) : espèces vanilla assorties
+  au biome et au boss du donjon, toutes déjà chargées par le moteur (les
+  boss existants prouvent le chargement sans sprite mod).
+- Zones restructurées : insertion du duo de segments (arène + 2e 3F) ;
+  tout l'existant est décalé (verdant_oath 3→5, colossus_quarry 3→5 dans
+  LegendZones, raid Metano 6-8→8-10, annexe 4→6, duel Dazzling 5→7).
+- Grounds enregistrées dans `index.idx` + `master_zone.json` **À LA FIN**
+  (mapIDs 82-85, aucun décalage des 82 premières cartes).
+- 4 donjons ch6+ ont un **pool de spawn sauvage vide** (constat audit) :
+  les rencontres procédurales restent à remplir (chantier séparé).
+
+Reste à faire (ordre) : (1) restauration PP/faim systématique aux relais ;
+(2) rencontres inoffensives près des relais ; (3) remplir les pools de spawn
+des donjons ch7+ ; (4) test en jeu des 4 mini-boss (ni la géométrie des
+salles ni les cinématiques n'ont été vues en jeu à ce stade).

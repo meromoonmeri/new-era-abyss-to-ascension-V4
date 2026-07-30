@@ -1,7 +1,9 @@
 --[[
     init.lua
     Ruines Tordues (Cloven Ruins) — Chapitre 7
-    20 etages en 4 segments : 15 normaux + relais + 5 profondeurs + boss Regigigas
+    conception_donjons_segmentes.md : 20 etages + relais + 3F + mini-boss
+    (Kaorine + Golemastoc, segment 3) + 3F + boss Regigigas (segment 5).
+    Segment 6 : annexe Toupie (etage mystere).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -38,7 +40,7 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
   if exited == true then
       return
   end
-  if segmentID == 4 then
+  if segmentID == 6 then
     -- Annexe de la Toupie (etage mystere) : sortie douce.
     GAME:WaitFrames(10)
     GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
@@ -68,9 +70,10 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
           GAME:EnterGroundMap('cloven_ruins_midpoint', 'Main_Entrance_Marker')
       end
   elseif segmentID == 2 then
-      -- Profondeurs : 5 etages
+      -- Premier 3F des profondeurs : le mini-boss attend au bout.
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('cloven_ruins', 7) then
-          GAME:EnterGroundMap('cloven_ruins_boss', 'Main_Entrance_Marker')
+          PrintInfo("[NREPROBE][transition] cloven seg2 cleared -> miniboss ground")
+          GAME:EnterGroundMap('cloven_ruins_miniboss', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
           SV.Chapter7.LostDepths = true
@@ -85,9 +88,39 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
           end
       end
   elseif segmentID == 3 then
+      -- ARENE MINI-BOSS (Kaorine + Golemastoc) : victoire ou defaite, on
+      -- revient sur la ground de cinematique qui lit les flags (patron
+      -- mount_windswept, segment 1).
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+          SV.Chapter7.RuinsMiniBossDefeated = true
+      else
+          SV.Chapter7.RuinsMiniBossLost = true
+      end
+      PrintInfo("[NREPROBE][transition] cloven seg3 (arene) -> miniboss ground")
+      GAME:EnterGroundMap('cloven_ruins_miniboss', 'Main_Entrance_Marker')
+  elseif segmentID == 4 then
+      -- Second 3F des profondeurs (au-dessus du mini-boss) : le sanctuaire
+      -- des titans s'ouvre au bout.
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('cloven_ruins', 7) then
+          PrintInfo("[NREPROBE][transition] cloven seg4 cleared -> boss ground")
+          GAME:EnterGroundMap('cloven_ruins_boss', 'Main_Entrance_Marker')
+      elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+          GAME:WaitFrames(20)
+          SV.Chapter7.LostDepths = true
+          if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
+              SV.Chapter7.RuinsMidState = 'DeathArrival'
+              GAME:EndDungeonRun(result, "master_zone", -1, 66, 0, true, true)
+              GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Les profondeurs...[pause=0] on n'aurait pas du...", "Pain")
+              GAME:WaitFrames(20)
+              GAME:EnterZone("master_zone", -1, 66, 0)
+          else
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 66, 0, true, true)
+          end
+      end
+  elseif segmentID == 5 then
       -- Boss Regigigas. Ce segment sert A LA FOIS au boss d'histoire du ch7 et
       -- a la revanche vendue par Grodoudou (LegendZones 'colossus_quarry',
-      -- meme zone, meme segment 3). Les deux usages doivent etre traites.
+      -- meme zone, meme segment 5). Les deux usages doivent etre traites.
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
           SV.Chapter7.DefeatedRuinsBoss = true
           -- Marque la zone-amie comme conquise (compteur de fin de jeu et

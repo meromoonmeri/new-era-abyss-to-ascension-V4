@@ -73,7 +73,7 @@ function forgotten_marsh_boss.Enter(map)
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("forgotten_marsh", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("forgotten_marsh", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 function forgotten_marsh_boss.Update(map, time) end
 function forgotten_marsh_boss.GameSave(map) end

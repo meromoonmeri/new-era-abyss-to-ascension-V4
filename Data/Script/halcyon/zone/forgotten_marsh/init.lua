@@ -1,8 +1,9 @@
 --[[
     init.lua
     Marais de l'Oubli (Forgotten Marsh) — Chapitre 9
-    18 etages en 4 segments : 10 berges + relais + 8 abysses + boss Mega-Blastoise
-    Premiere apparition du Cercle du Suaire (Banette, Ectoplasma, Nosferalto)
+    conception_donjons_segmentes.md : berges + relais + 3F + mini-boss
+    (Avaltout + Coatox, segment 3) + 3F + boss Mega-Blastoise (segment 5).
+    Segment 6 : annexe Toupie (etage mystere).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -39,7 +40,7 @@ function forgotten_marsh.ExitSegment(zone, result, rescue, segmentID, mapID)
   if exited == true then
       return
   end
-  if segmentID == 4 then
+  if segmentID == 6 then
     -- Annexe de la Toupie (etage mystere) : sortie douce.
     GAME:WaitFrames(10)
     GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
@@ -70,11 +71,10 @@ function forgotten_marsh.ExitSegment(zone, result, rescue, segmentID, mapID)
           GAME:EnterGroundMap('forgotten_marsh_relay', 'Main_Entrance_Marker')
       end
   elseif segmentID == 2 then
-      -- Abysses Vaseux : 8 etages — le Cercle du Suaire rode
+      -- Premier 3F des Abysses Vaseux : le mini-boss attend au bout.
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('forgotten_marsh', 9) then
-          SV.Chapter9.ReachedMarshDepths = true
-          SV.Chapter9.SawCercleDuSuaire = true
-          GAME:EnterGroundMap('forgotten_marsh_boss', 'Main_Entrance_Marker')
+          PrintInfo("[NREPROBE][transition] marsh seg2 cleared -> miniboss ground")
+          GAME:EnterGroundMap('forgotten_marsh_miniboss', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
           SV.Chapter9.LostMarshDepths = true
@@ -90,6 +90,38 @@ function forgotten_marsh.ExitSegment(zone, result, rescue, segmentID, mapID)
           end
       end
   elseif segmentID == 3 then
+      -- ARENE MINI-BOSS (Avaltout + Coatox) : victoire ou defaite, on
+      -- revient sur la ground de cinematique qui lit les flags.
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+          SV.Chapter9.MarshMiniBossDefeated = true
+      else
+          SV.Chapter9.MarshMiniBossLost = true
+      end
+      PrintInfo("[NREPROBE][transition] marsh seg3 (arene) -> miniboss ground")
+      GAME:EnterGroundMap('forgotten_marsh_miniboss', 'Main_Entrance_Marker')
+  elseif segmentID == 4 then
+      -- Second 3F des Abysses Vaseux — le Cercle du Suaire rode, et la
+      -- cale de Laggron s'ouvre au bout.
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('forgotten_marsh', 9) then
+          SV.Chapter9.ReachedMarshDepths = true
+          SV.Chapter9.SawCercleDuSuaire = true
+          PrintInfo("[NREPROBE][transition] marsh seg4 cleared -> boss ground")
+          GAME:EnterGroundMap('forgotten_marsh_boss', 'Main_Entrance_Marker')
+      elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+          GAME:WaitFrames(20)
+          SV.Chapter9.LostMarshDepths = true
+          if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
+              SV.Chapter9.MarshMidState = 'DeathArrival'
+              GAME:EndDungeonRun(result, "master_zone", -1, 73, 0, true, true)
+              GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
+                  "Une ombre...[pause=0] dans la brume...[pause=30] elle nous regardait...", "Shock")
+              GAME:WaitFrames(20)
+              GAME:EnterZone("master_zone", -1, 73, 0)
+          else
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 73, 0, true, true)
+          end
+      end
+  elseif segmentID == 5 then
       -- Boss Mega-Blastoise
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
           SV.Chapter9.DefeatedMegaBlastoise = true

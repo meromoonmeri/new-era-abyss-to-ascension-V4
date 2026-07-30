@@ -1,11 +1,21 @@
 #!/usr/bin/env python3
-"""Validation complète des 5 salles de boss avant intégration."""
+"""Validation complète des salles de boss avant intégration.
+
+Couvre les 5 salles historiques du chapitre 5 et les 4 salles mini-boss
+chapitres 6-9 (générées par tools/make_miniboss_arenas.py : salle 456x456 px,
+ring de 2 tuiles de murs autotile -> plancher utilitaire (48,48)-(408,408)).
+"""
 import json, os, struct, collections
 import numpy as np
 
 P = os.environ.get('MOD_ROOT', os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 G = os.path.join(P, 'Data/Ground')
 T = os.path.join(P, 'Content/Tile')
+
+# Points cinématiques des salles ch6-9 : spawns équipe (sud), caméras,
+# positions des deux gardiens (nord), marqueur d'entrée.
+MB = [(220, 348), (252, 348), (188, 364), (284, 364),
+      (236, 310), (248, 220), (196, 150), (300, 138), (228, 348)]
 
 ROOMS = {
     'vast_steppe_miniboss':     [(240 - 40, 400), (168, 400), (200, 360), (200, 300),
@@ -18,6 +28,10 @@ ROOMS = {
                                  (180, 240), (268, 192), (224, 180)],
     'mount_windswept_guardian': [(240, 440), (208, 440), (240, 380), (240, 340),
                                  (224, 192), (224, 180)],
+    'gloomy_forest_miniboss':    list(MB),
+    'cloven_ruins_miniboss':     list(MB),
+    'crystal_sanctuary_miniboss': list(MB),
+    'forgotten_marsh_miniboss':  list(MB),
 }
 
 def reachable(mask, start):

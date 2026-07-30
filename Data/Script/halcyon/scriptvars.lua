@@ -894,10 +894,17 @@ SV.Chapter6 =
 	--Apres-boss de Zarude (DazzlingArc.GloomyVictory). Le chapitre 6 etait
 	--le seul chapitre a boss sans scene de consequence.
 	PlayedVictoryScene = false,
-	--Duel amical contre la Team Dazzling (segment 5 de gloomy_forest).
+	--Duel amical contre la Team Dazzling (segment 7 de gloomy_forest).
 	--Jusqu'ici elles narguaient le joueur sans l'avoir jamais affronte.
 	DazzlingTrialOffered = false,
 	DazzlingTrialStarted = false,
+	--Gardiens du coeur (mini-boss segment 2 : Tengalice + Cornèbre). Meme
+	--dispatch que le ch5 : Seen (cinematique vue), Defeated (victoire, un
+	--passage), Lost (defaite, un passage). Lus par ground/gloomy_forest_miniboss,
+	--ecrits par zone/gloomy_forest (segment 2).
+	GloomyMiniBossSeen = false,
+	GloomyMiniBossDefeated = false,
+	GloomyMiniBossLost = false,
 	DazzlingTrialCleared = false,
 	PlayedTrialVictory = false,
 	PlayedTrialDefeat = false,
@@ -1078,7 +1085,12 @@ SV.Chapter7 =
 	HadFirstDream = false,--Premier reve de Necrozma
 	RuinsAddressGiven = false,--Adresse du matin Ch7 donnee
 	MissionAccepted = false,--Mission Ruines Tordues acceptee
-	RuinsMidpointState = 'FirstArrival'
+	RuinsMidpointState = 'FirstArrival',
+	--Gardiens antiques (mini-boss segment 3 : Kaorine + Golemastoc).
+	--Lus par ground/cloven_ruins_miniboss, ecrits par zone/cloven_ruins (seg 3).
+	RuinsMiniBossSeen = false,
+	RuinsMiniBossDefeated = false,
+	RuinsMiniBossLost = false
 }
 
 SV.Chapter8 = 
@@ -1103,7 +1115,12 @@ SV.Chapter8 =
 	--Jalon de fin de donjon, ecrit par zone/crystal_sanctuary:95 et lu par
 	--ReplayEnding + guild_heros_room. Il n'etait declare NULLE PART : une
 	--partie neuve arrivait donc avec nil.
-	CrystalSanctuaryComplete = false
+	CrystalSanctuaryComplete = false,
+	--Heraut et spectre (mini-boss segment 3 : Strassie + Momartik).
+	--Lus par ground/crystal_sanctuary_miniboss, ecrits par zone/crystal_sanctuary.
+	CrystalMiniBossSeen = false,
+	CrystalMiniBossDefeated = false,
+	CrystalMiniBossLost = false
 }
 
 SV.Chapter9 = 
@@ -1128,7 +1145,12 @@ SV.Chapter9 =
 	PlayedArrivalScene = false,--scene d'arrivee devant le donjon (ChapterScenes, ch9)
 	PlayedVictoryScene = false,--scene d'apres-boss (ChapterAftermath, ch9)
 	--Meme cas que ch8 : ecrit par zone/forgotten_marsh:96, jamais declare.
-	ForgottenMarshComplete = false
+	ForgottenMarshComplete = false,
+	--Boue et venin (mini-boss segment 3 : Avaltout + Coatox).
+	--Lus par ground/forgotten_marsh_miniboss, ecrits par zone/forgotten_marsh.
+	MarshMiniBossSeen = false,
+	MarshMiniBossDefeated = false,
+	MarshMiniBossLost = false
 }
 
 SV.Visions =
@@ -1272,4 +1294,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-08-02-J]')
+print('Script variables default values loaded! [build 2026-08-02-K]')

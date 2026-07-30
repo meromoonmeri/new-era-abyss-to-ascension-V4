@@ -346,7 +346,7 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("cloven_ruins", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("cloven_ruins", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function cloven_ruins_boss_ch_7.SecondPreBossScene()
@@ -383,7 +383,7 @@ function cloven_ruins_boss_ch_7.SecondPreBossScene()
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("cloven_ruins", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("cloven_ruins", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 -- Corps de la cinematique, appele sous pcall par DefeatedBoss() : toute erreur

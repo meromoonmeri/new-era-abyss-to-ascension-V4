@@ -405,6 +405,72 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
+		--Chapitres 6 a 9 : gardiens mini-boss (conception_donjons_segmentes.md).
+		--Duos anonymes assortis au biome de leur donjon, pattern Chartor + Magmar.
+		Shiftry = {
+			species = "shiftry",
+			nickname = 'Tengalice',
+			instance = 'Shiftry',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Murkrow = {
+			species = "murkrow",
+			nickname = 'Cornèbre',
+			instance = 'Murkrow',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Claydol = {
+			species = "claydol",
+			nickname = 'Kaorine',
+			instance = 'Claydol',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Golurk = {
+			species = "golurk",
+			nickname = 'Golemastoc',
+			instance = 'Golurk',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Carbink = {
+			species = "carbink",
+			nickname = 'Strassie',
+			instance = 'Carbink',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Froslass = {
+			species = "froslass",
+			nickname = 'Momartik',
+			instance = 'Froslass',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+		Swalot = {
+			species = "swalot",
+			nickname = 'Avaltout',
+			instance = 'Swalot',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Toxicroak = {
+			species = "toxicroak",
+			nickname = 'Coatox',
+			instance = 'Toxicroak',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
 		Butterfree = {
 			species = "butterfree",
 			nickname = 'Papilusion',

@@ -64,9 +64,10 @@ LegendZones.LIST = {
         key = 'verdant_oath', species = 'zarude',
         name = 'LZ_Name_Verdant_Oath', blurb = 'LZ_Blurb_Verdant_Oath',
         sight = 'LZ_Sight_Verdant_Oath', price = 15000,
-        -- Pose par zone/gloomy_forest/init.lua (segment 2, victoire).
+        -- Pose par zone/gloomy_forest/init.lua (segment 4, victoire).
+        -- Segment 5 : decale de 3 -> 5 par l'insertion du mini-boss ch6.
         flag = function() return SV.Chapter6 ~= nil and SV.Chapter6.DefeatedGloomyBoss == true end,
-        zone = 'gloomy_forest', segment = 3, roam = true, ready = true
+        zone = 'gloomy_forest', segment = 5, roam = true, ready = true
     },
 
     ------------------------------------------------------------------
@@ -78,8 +79,9 @@ LegendZones.LIST = {
         key = 'colossus_quarry', species = 'regigigas',
         name = 'LZ_Name_Colossus_Quarry', blurb = 'LZ_Blurb_Colossus_Quarry',
         sight = 'LZ_Sight_Colossus_Quarry', price = 22000,
+        -- Segment 5 : decale de 3 -> 5 par l'insertion du mini-boss ch7.
         flag = function() return SV.Chapter7 ~= nil and SV.Chapter7.SawAnimaCoreCorruption == true end,
-        zone = 'cloven_ruins', segment = 3, roam = false, ready = true
+        zone = 'cloven_ruins', segment = 5, roam = false, ready = true
     },
     {
         key = 'spatial_hill', species = 'palkia',

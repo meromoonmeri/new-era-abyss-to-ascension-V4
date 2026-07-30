@@ -15,8 +15,9 @@ function gloomy_forest.Init(zone)
 end
 
 function gloomy_forest.EnterSegment(zone, rescuing, segmentID, mapID)
-	-- Rescues allowed in segments 0 and 1, disallowed in the boss fight (segment 2).
-	if segmentID == 2 then
+	-- Rescues allowed outside arenas, disallowed in the mini-boss arena
+	-- (segment 2) and the boss fight (segment 4).
+	if segmentID == 2 or segmentID == 4 then
 		GAME:SetRescueAllowed(false)
 	else
 		GeneralFunctions.CheckAllowSetRescue(zone.ID)
@@ -33,13 +34,19 @@ end
 ------------------------------------------------------------------
 -- ExitSegment
 ------------------------------------------------------------------
--- Gloomy Forest has 3 segments:
---   0 = normal floors (procedural, "eighteen floors")
---   1 = depth floors  (procedural, "three floors") + Chenipent rescue objective
---   2 = boss (Zarude, LoadGen gloomy_forest_boss.rsmap)
+-- Gloomy Forest segments (conception_donjons_segmentes.md, ch6+) :
+--   0  = 18F proceduraux
+--   1  = 3F profondeurs (objectif de sauvetage Chenipent)
+--   2  = ARENE MINI-BOSS (gloomy_forest_miniboss.rsmap : Tengalice + Cornèbre)
+--   3  = 3F au-dessus du mini-boss
+--   4  = boss (Zarude, LoadGen gloomy_forest_boss.rsmap)
+--   5  = Serment Verdoyant (revanche Zarude, LegendZones 'verdant_oath')
+--   6  = annexe Toupie
+--   7  = Epreuve des Trois (duel Team Dazzling)
+--   8-10 = pillards de Metano (raid nocturne, 3 vagues)
 --
 -- A mid-dungeon relay "gloomy_forest_midpoint" (master_zone mapID 61) sits between
--- segment 0 and segment 1. Dying in segment 1 or 2 respawns at the relay instead
+-- segment 0 and segment 1. Dying past it respawns at the relay instead
 -- of Metano Town. Faithful mirror of zone/searing_tunnel + zone/crooked_cavern.
 -- See docs/audit_checkpoint_crooked_cavern.md (reusable pattern).
 ------------------------------------------------------------------
@@ -60,7 +67,7 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 	local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
 	SV.adventure.Thief = false
 	if exited == true then return end
-  if segmentID == 4 then
+  if segmentID == 6 then
     -- Annexe de la Toupie (etage mystere) : on ressort simplement de la salle,
     -- l'exploration du donjon reprend au meme titre qu'un etage traverse.
     GAME:WaitFrames(10)
@@ -68,11 +75,11 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
     return
   end
 
-  -- PILLARDS DE METANO (segments 6, 7, 8). Ces trois arenes ne sont pas des
+  -- PILLARDS DE METANO (segments 8, 9, 10). Ces trois arenes ne sont pas des
   -- etages de la Foret : ce sont les vagues de raid nocturne, hebergees ici
   -- parce qu'un segment doit appartenir a une zone existante. On rentre donc
   -- a la VILLE DE NUIT, pas au donjon.
-  if segmentID >= 6 and segmentID <= 8 then
+  if segmentID >= 8 and segmentID <= 10 then
     GAME:WaitFrames(20)
     if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
       -- Victoire : retour a la nuit. TownRaid.Pending est encore vrai, donc
@@ -107,14 +114,50 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 	end
 
 	if segmentID == 1 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-		-- Rejouabilite : l'objectif de sauvetage du ch6 est deja accompli, le coeur
-		-- de la foret n'a plus de raison de rester ferme.
+		-- Les 3F de sauvetage sont derriere nous : le gardien du coeur attend
+		-- (mini-boss, segment 2). La mission Chenipent doit etre remplie avant.
 		if SV.Chapter6.ChenipentFound or ReplayEnding.IsCleared('gloomy_forest') then
-			GAME:EnterGroundMap('gloomy_forest_boss', 'Main_Entrance_Marker')
+			PrintInfo("[NREPROBE][transition] gloomy seg1 cleared -> miniboss ground")
+			GAME:EnterGroundMap('gloomy_forest_miniboss', 'Main_Entrance_Marker')
 		else
 			-- The rescue objective is required before the heart of the forest opens.
 			SV.Chapter6.MissionAccepted = false
 			EndDayReturn(result)
+		end
+		return
+	end
+
+	if segmentID == 2 then
+		-- ARENE MINI-BOSS : victoire ou defaite, on revient sur la ground de
+		-- cinematique qui lit les flags (miroir exact de mount_windswept seg 1).
+		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+			SV.Chapter6.GloomyMiniBossDefeated = true
+		else
+			SV.Chapter6.GloomyMiniBossLost = true
+		end
+		PrintInfo("[NREPROBE][transition] gloomy seg2 (arene) -> miniboss ground")
+		GAME:EnterGroundMap('gloomy_forest_miniboss', 'Main_Entrance_Marker')
+		return
+	end
+
+	if segmentID == 3 then
+		-- 3F au-dessus du mini-boss : le coeur de la foret s'ouvre au bout.
+		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+			PrintInfo("[NREPROBE][transition] gloomy seg3 cleared -> boss ground")
+			GAME:EnterGroundMap('gloomy_forest_boss', 'Main_Entrance_Marker')
+		elseif result == RogueEssence.Data.GameProgress.ResultType.Escaped then
+			-- Escaped: leave to the entrance, NOT the relay (mirrors Searing Tunnel).
+			GAME:WaitFrames(20)
+			SV.Chapter6.MissionAccepted = false
+			EndDayReturn(result)
+		else
+			-- Died: respawn at the relay.
+			SV.GloomyForest.DiedPastCheckpoint = true
+			SV.Chapter6.GloomyMidpointState = 'DeathArrival'
+			GAME:WaitFrames(20)
+			GAME:EndDungeonRun(result, "master_zone", -1, 61, 0, true, true) --relay (mapID 61)
+			GAME:WaitFrames(20)
+			GAME:EnterZone("master_zone", -1, 61, 0)
 		end
 		return
 	end
@@ -139,7 +182,7 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 		return
 	end
 
-	if segmentID == 2 then
+	if segmentID == 4 then
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 			SV.Chapter6.GloomyBossEncountered = true
 			SV.Chapter6.DefeatedGloomyBoss = true
@@ -173,7 +216,7 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 	end
 
 	------------------------------------------------------------------
-	-- Segment 3 : arene de revanche Zarude (zone "Serment Verdoyant").
+	-- Segment 5 : arene de revanche Zarude (zone "Serment Verdoyant").
 	-- Accessible uniquement via le stand de Grodoudou, apres achat de la
 	-- zone, et seulement si l'histoire a deja fait vaincre Zarude
 	-- (SV.Chapter6.DefeatedGloomyBoss). Ce n'est pas une rencontre
@@ -182,14 +225,14 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 	-- faire rejoindre l'equipe selon les regles de recrutement normales.
 	------------------------------------------------------------------
 	------------------------------------------------------------------
-	-- Segment 5 : le duel de la Team Dazzling (« L'Epreuve des Trois »).
+	-- Segment 7 : le duel de la Team Dazzling (« L'Epreuve des Trois »).
 	-- Combat SANS ENJEU : ni Coeur, ni fragment, ni progression de
 	-- chapitre. Victoire comme defaite, on ressort au relais (carte 61)
 	-- et la journee n'avance pas — c'est un match, pas une expedition.
 	-- Les trois rivales sont Unrecruitable : ce sont des personnages
 	-- d'histoire, elles ne rejoignent pas l'equipe.
 	------------------------------------------------------------------
-	if segmentID == 5 then
+	if segmentID == 7 then
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 			SV.Chapter6.DazzlingTrialCleared = true
 			DazzlingArc.TrialVictory()
@@ -203,7 +246,7 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 		return
 	end
 
-	if segmentID == 3 then
+	if segmentID == 5 then
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 			LegendZones.SetDefeated('verdant_oath')
 		end

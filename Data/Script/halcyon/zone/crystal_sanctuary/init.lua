@@ -1,7 +1,9 @@
 --[[
     init.lua
     Sanctuaire de Cristal (Crystal Sanctuary) — Chapitre 8
-    18 etages en 4 segments : 12 cristallins + relais + 6 glyphes + boss Diancie
+    conception_donjons_segmentes.md : etages + relais + 3F + mini-boss
+    (Strassie + Momartik, segment 3) + 3F + boss Diancie (segment 5).
+    Segment 6 : annexe Toupie (etage mystere).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -38,7 +40,7 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
   if exited == true then
       return
   end
-  if segmentID == 4 then
+  if segmentID == 6 then
     -- Annexe de la Toupie (etage mystere) : sortie douce.
     GAME:WaitFrames(10)
     GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
@@ -69,10 +71,10 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
           GAME:EnterGroundMap('crystal_sanctuary_relay', 'Main_Entrance_Marker')
       end
   elseif segmentID == 2 then
-      -- Salles des Glyphes : 6 etages
+      -- Premier 3F des Salles des Glyphes : le mini-boss attend au bout.
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('crystal_sanctuary', 8) then
-          SV.Chapter8.ReachedDiancieChamber = true
-          GAME:EnterGroundMap('crystal_sanctuary_boss', 'Main_Entrance_Marker')
+          PrintInfo("[NREPROBE][transition] crystal seg2 cleared -> miniboss ground")
+          GAME:EnterGroundMap('crystal_sanctuary_miniboss', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
           SV.Chapter8.LostGlyphHalls = true
@@ -88,6 +90,36 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
           end
       end
   elseif segmentID == 3 then
+      -- ARENE MINI-BOSS (Strassie + Momartik) : victoire ou defaite, on
+      -- revient sur la ground de cinematique qui lit les flags.
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+          SV.Chapter8.CrystalMiniBossDefeated = true
+      else
+          SV.Chapter8.CrystalMiniBossLost = true
+      end
+      PrintInfo("[NREPROBE][transition] crystal seg3 (arene) -> miniboss ground")
+      GAME:EnterGroundMap('crystal_sanctuary_miniboss', 'Main_Entrance_Marker')
+  elseif segmentID == 4 then
+      -- Second 3F des Salles des Glyphes : la chambre de Diancie s'ouvre.
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('crystal_sanctuary', 8) then
+          SV.Chapter8.ReachedDiancieChamber = true
+          PrintInfo("[NREPROBE][transition] crystal seg4 cleared -> boss ground")
+          GAME:EnterGroundMap('crystal_sanctuary_boss', 'Main_Entrance_Marker')
+      elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+          GAME:WaitFrames(20)
+          SV.Chapter8.LostGlyphHalls = true
+          if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
+              SV.Chapter8.SanctuaryMidState = 'DeathArrival'
+              GAME:EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
+              GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
+                  "Les runes...[pause=0] elles parlent...[pause=20] mais on ne comprend pas...", "Pain")
+              GAME:WaitFrames(20)
+              GAME:EnterZone("master_zone", -1, 71, 0)
+          else
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
+          end
+      end
+  elseif segmentID == 5 then
       -- Boss Diancie
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
           SV.Chapter8.DefeatedDiancie = true

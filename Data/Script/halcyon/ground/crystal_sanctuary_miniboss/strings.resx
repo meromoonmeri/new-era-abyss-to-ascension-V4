@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="CSM_001" xml:space="preserve"><value>The crystals are humming...[pause=15] As if they were singing for someone.</value></data>
+  <data name="CSM_002" xml:space="preserve"><value>(The light is freezing over the walls.[pause=15] Something is waiting to be seen.)</value></data>
+  <data name="CSM_003" xml:space="preserve"><value>The threshold welcomes only limpid souls.[pause=20] Doubt shatters against the crystal.</value></data>
+  <data name="CSM_004" xml:space="preserve"><value>A Carbink![pause=15] It's glittering among the gems!</value></data>
+  <data name="CSM_005" xml:space="preserve"><value>A Froslass![pause=15] The air is freezing around her!</value></data>
+  <data name="CSM_006" xml:space="preserve"><value>Visitors of the threshold.[pause=15] Measure your light against ours.</value></data>
+  <data name="CSM_007" xml:space="preserve"><value>The cold keeps the sanctuary from lukewarm hearts.</value></data>
+  <data name="CSM_008" xml:space="preserve"><value>We came to save,[pause=10] not to plunder![pause=15] [hero],[pause=10] show them!</value></data>
+  <data name="CSM_009" xml:space="preserve"><value>The herald and the spectre are still on watch.[pause=15] This time we pass!</value></data>
+  <data name="CSM_010" xml:space="preserve"><value>Your light stands tall.[pause=20] The threshold acknowledges you.</value></data>
+  <data name="CSM_011" xml:space="preserve"><value>The cold withdraws.[pause=15] Pass,[pause=10] limpid hearts.</value></data>
+  <data name="CSM_012" xml:space="preserve"><value>The way to the chamber is open...[pause=15] Diancie is close now!</value></data>
+  <data name="CSM_013" xml:space="preserve"><value>(They weren't hostile.[pause=15] They were making sure we were worthy.)</value></data>
+  <data name="CSM_014" xml:space="preserve"><value>Too lukewarm.[pause=20] The threshold has refused you.</value></data>
+  <data name="CSM_015" xml:space="preserve"><value>The crystal judges, it does not hate.[pause=20] Warm your heart,[pause=10] then return.</value></data>
+</root>

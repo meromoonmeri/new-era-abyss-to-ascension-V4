@@ -73,7 +73,7 @@ function crystal_sanctuary_boss.Enter(map)
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("crystal_sanctuary", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("crystal_sanctuary", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 function crystal_sanctuary_boss.Update(map, time) end
 function crystal_sanctuary_boss.GameSave(map) end
