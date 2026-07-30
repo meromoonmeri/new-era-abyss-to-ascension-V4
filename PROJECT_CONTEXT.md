@@ -535,3 +535,10 @@ Conclusion actee : pas d'asset de tente reutilisable -> le camp reste raconte pa
 - DIFFERE (retraits prets, attendent un retest en jeu) : vast_steppe (ch4 validee, gelee), searing_tunnel + mount_windswept (ch5 en test), gloomy_forest (annexe seg6 + verdant_oath_arena seg5 — exige renumero TownRaid 7+wave -> 5+wave et gloomy_forest_boss seg 7 -> 5).
 - Regle ajoutee : toute modif de segmentation d'une zone impose la regeneration de son entree index.idx (Maps = IDs d'etages, Max exclu ; Grounds = GroundMaps). Convention verifiee : zones JSON = BOM + indent=1, idx = BOM + indent=2, pas de newline finale.
 - Validations post-migration : 0 bloquant (ground_registration), audits integrite 925 / bugs 12 (baselines), legend 423 OK / 0 echec. NON teste en jeu.
+
+
+## Fix freeze campement (2026-07-30, build -Y)
+- Cause : MoveToPosition attend l'achevement de l'action (ScriptGround.cs:491-538) ; cible bloquee (entite ou tuile) = coroutine jamais reprise = JoinCoroutines gele CutsceneMode(true). Les destinations de la REUNION (-V) tombaient a 4-14 px de Rin (222,266) / Reinier (292,276) et traversaient le foyer : scene figee, « aucun pokemon ne bouge ».
+- Correctif : arrivees Shuca/Ganlon/Phileas recodees en trajets courts et droits (teleport a ~20 px sud de la destination + marche nord), degagements >=18 px verifies contre les 12 positions debout, le duo (240,300)/(272,300) et le foyer; pcall ajoute autour des marches. Aucune replique ni beat modifie.
+- Regle projet ajoutee : jamais de MoveToPosition longue traversee dans une foule ; destinations a >=18 px de tout occupant ; toujours sous pcall dans une branche joignable.
+- NON teste en jeu : retest requis du campement complet (reunion -> repas -> Plum -> veillee).

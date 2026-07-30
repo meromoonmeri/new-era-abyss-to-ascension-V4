@@ -169,12 +169,21 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		end
 	end)
 	TASK:JoinCoroutines({coro1})
-	GROUND:TeleportTo(t.shuca,  252, 452, Direction.Up)
-	GROUND:TeleportTo(t.ganlon, 282, 452, Direction.Up)
+	--IMPORTANT (freeze constate en jeu, 2026-07-30) : MoveToPosition attend
+	--l'achevement de l'action ; si la cible est bloquee (entite sur place
+	--ou tuile occupee), la coroutine ne reprend JAMAIS
+	--(ScriptGround.cs:491-538) et JoinCoroutines gele la scene entiere.
+	--Les anciennes destinations (226,268)/(296,262) tombaient a 4-14 px de
+	--Rin (222,266) et Reinier (292,276) : SCENE FIGEE. Nouvelle regle :
+	--trajets COURTS et DROITS (pas de traverse du camp), destinations
+	--degagees de >=18 px de toute entite debout et du foyer (274,238).
+	--Shuca : arrivee (258,288)->(258,268) ; le duo occupe (240,300)/(272,300).
+	GROUND:TeleportTo(t.shuca,  258, 288, Direction.Up)
+	GROUND:TeleportTo(t.ganlon, 312, 286, Direction.Up)
 	GROUND:Unhide(t.shuca.EntName)
 	GROUND:Unhide(t.ganlon.EntName)
-	coro1 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(t.shuca,  226, 268, false, 1) end)
-	coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(8) GROUND:MoveToPosition(t.ganlon, 296, 262, false, 1) end)
+	coro1 = TASK:BranchCoroutine(function() pcall(function() GROUND:MoveToPosition(t.shuca,  258, 268, false, 1) end) end)
+	coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(8) pcall(function() GROUND:MoveToPosition(t.ganlon, 312, 262, false, 1) end) end)
 	TASK:JoinCoroutines({coro1, coro2})
 	Says(t.shuca, "Happy", 'MWE5_202', {t.coco, t.rin})
 	GAME:WaitFrames(10)
@@ -182,9 +191,12 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	GAME:WaitFrames(15)
 
 	-- 1c. DEUXIEME ARRIVEE : PHILEAS, dernier, methodique comme toujours.
-	GROUND:TeleportTo(t.phileas, 262, 452, Direction.Up)
+	--     Meme regle anti-freeze : trajet court, colonne x=252 degagee
+	--     (bord ouest du foyer a >=22 px, Penticus a 26 px), camera suivie.
+	GROUND:TeleportTo(t.phileas, 252, 230, Direction.Up)
 	GROUND:Unhide(t.phileas.EntName)
-	GROUND:MoveToPosition(t.phileas, 266, 204, false, 1)
+	GAME:MoveCamera(256, 280, 45, false)
+	pcall(function() GROUND:MoveToPosition(t.phileas, 252, 204, false, 1) end)
 	Says(t.phileas, "Normal", 'MWE5_204', {t.penticus})
 	GAME:WaitFrames(15)
 
