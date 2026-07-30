@@ -978,12 +978,11 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	UI:SetCenter(false)
 	UI:ResetSpeaker()
 
-	--FIX TRANSITION 2026-07-30 : FadeOut avant EnterGroundMap pour éviter
-	--le flash parasite de la map mount_windswept_entrance.
+	--FIX TRANSITION 2026-07-30 : FadeOut(120) comme dans les chapitres 1-4
+	--Structure correcte : FadeOut(120 frames = 2 secondes) + EnterGroundMap immédiat
 	--Le joueur ne doit voir AUCUNE frame de la map actuelle avant hero_dream.
 	SOUND:FadeOutBGM(40)
-	GAME:FadeOut(false, 60)
-	GAME:WaitFrames(60)
+	GAME:FadeOut(false, 120)
 	SV.Chapter5.CampNightWatchDone = true
 	GAME:EnterGroundMap('hero_dream', 'Main_Entrance_Marker', true)
 end
