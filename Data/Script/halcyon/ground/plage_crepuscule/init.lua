@@ -16,4 +16,17 @@ end
 function plage_crepuscule.Update(map, time)
 end
 
+
+
+function plage_crepuscule.Koffing_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  GeneralFunctions.StartConversation(chara, "Héhéhé ![pause=15] Mêlez-vous de ce qui vous regarde !", "Normal")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function plage_crepuscule.Zubat_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  GeneralFunctions.StartConversation(chara, "Héhé ![pause=15] Vous n'avez rien à faire par ici !", "Normal")
+  GeneralFunctions.EndConversation(chara)
+end
 return plage_crepuscule

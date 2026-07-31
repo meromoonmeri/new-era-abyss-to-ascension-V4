@@ -16,4 +16,17 @@ end
 function grotte_plage_fond.Update(map, time)
 end
 
+
+
+function grotte_plage_fond.Koffing_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  GeneralFunctions.StartConversation(chara, "Héhéhé ![pause=15] Mêlez-vous de ce qui vous regarde !", "Normal")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function grotte_plage_fond.Zubat_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  GeneralFunctions.StartConversation(chara, "Héhé ![pause=15] Vous n'avez rien à faire par ici !", "Normal")
+  GeneralFunctions.EndConversation(chara)
+end
 return grotte_plage_fond
