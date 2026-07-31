@@ -181,18 +181,30 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 				SV.TemporaryFlags.MorningWakeup = true 
 				SV.TemporaryFlags.MorningAddress = true 
 			end 	
-			-- PROFONDEURS franchies : le clan de lave barre la route juste avant le
-			-- Crucible. Une seule fois (TunnelMiniBossSeen), ensuite on file au boss.
-			if SV.ChapterProgression.Chapter == 5 and not SV.Chapter5.TunnelMiniBossSeen then
-				PrintInfo("[NREPROBE][transition] searing_tunnel.ExitSegment -> EnterGroundMap('searing_tunnel_miniboss')")
-				GAME:EnterGroundMap('searing_tunnel_miniboss', 'Main_Entrance_Marker')
-				return
-			end
+			-- MINI-BOSS RETIRE (demande utilisateur : « supprime les mini boss,
+			-- le donjon doit avoir qu'un boss final »).
+			--
+			-- Le clan de lave (Torkoal + Magmar) barrait la route juste avant
+			-- le Crucible. Le detour est supprime : les Profondeurs franchies,
+			-- on enchaine DIRECTEMENT sur le Creuset Ardent, qui reste le seul
+			-- et unique boss du Tunnel (Magcargo et ses huit Slugma sont
+			-- conserves tels quels — consigne explicite : « garde les 8 limagma
+			-- et magcargo tel quel »).
+			--
+			-- Les fichiers du mini-boss (Data/Map/searing_tunnel_miniboss.rsmap,
+			-- son ground et ses scripts) sont LAISSES INTACTS sur le disque :
+			-- ils servent de GABARIT DE REFERENCE a quatre autres mini-boss du
+			-- mod (cloven_ruins, crystal_sanctuary, forgotten_marsh,
+			-- gloomy_forest, qui citent tous « patron : searing_tunnel_miniboss »).
+			-- Seul le BRANCHEMENT est coupe, pas le contenu.
 			PrintInfo("[NREPROBE][transition] searing_tunnel.ExitSegment -> EnterGroundMap('searing_crucible')") GAME:EnterGroundMap('searing_crucible', 'Main_Entrance_Marker')
 			
 		end 
 		
 	elseif segmentID == 2 then --Arene du clan de lave (Torkoal + Magmar)
+		-- BRANCHE MORTE depuis le retrait du mini-boss : les Profondeurs
+		-- franchies mènent desormais tout droit au Creuset Ardent. Bloc
+		-- conserve pour les sauvegardes deja engagees dans cette arene.
 		PrintInfo("=>> ExitSegment_searing_tunnel_miniboss result "..tostring(result))
 		SV.adventure.Thief = false
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then

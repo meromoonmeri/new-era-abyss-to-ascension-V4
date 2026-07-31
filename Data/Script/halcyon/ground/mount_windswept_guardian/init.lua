@@ -1,7 +1,7 @@
 --[[
     init.lua
     Mount Windswept Guardian Ground Map
-    Aerodactyl encounter — Chapter 5
+    Tornadus, gardien du sommet — Chapitre 5
 ]]
 require 'origin.common'
 require 'halcyon.PartnerEssentials'

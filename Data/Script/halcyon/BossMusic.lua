@@ -116,6 +116,12 @@ BossMusic.LIST = {
   sommet_aurore      = T.CIEL_2,   -- le Bucher de l'Aurore
   ile_legendaire     = T.CIEL_2,   -- la Premiere Lumiere
   palier_celeste     = T.CIEL_2,   -- le Ciel Fracture (Veilleur aerien)
+  -- TORNADUS, gardien du sommet du Mont Venteux (ch5). Registre CIEL
+  -- par definition : c'est le seul boss du donjon, il regne sur les
+  -- vents de haute montagne. Sky Tower plutot que Rainbow Peak — le
+  -- registre ample et tendu convient a un gardien qui juge, pas a une
+  -- ascension contemplative.
+  mount_windswept_guardian = T.CIEL,
 
   ---------------- OMBRE : ce qui vient d'a cote ----------------
   grotte_cryptique    = T.OMBRE,   -- le Versant Inverse

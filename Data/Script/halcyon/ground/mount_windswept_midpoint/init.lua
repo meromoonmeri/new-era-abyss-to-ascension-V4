@@ -113,25 +113,23 @@ function mount_windswept_midpoint.North_Exit_Touch(obj, activator)
     partner.IsInteracting = false
     GROUND:CharEndAnim(partner)
     GROUND:CharEndAnim(hero)
-    if SV.ChapterProgression.Chapter == 5 and not SV.Chapter5.MountMiniBossCleared then
-      -- Même fix que la Grande Steppe (cause racine IsGameOver NRE) :
-      -- routage selon l'état de session. Index 1 = mount_windswept_miniboss.
-      if _ZONE.CurrentZoneID == 'mount_windswept' then
-        PrintInfo("[BossSeq][windswept] midpoint(zone) -> miniboss ground (session active)")
-        GAME:EnterGroundMap("mount_windswept_miniboss", "Main_Entrance_Marker")
-      else
-        PrintInfo("[BossSeq][windswept] midpoint(master) -> miniboss ground (nouvelle session)")
-        GAME:EnterDungeon("mount_windswept", -1, 1, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
-      end
+    -- MINI-BOSS RETIRE (demande utilisateur : « supprime les mini boss, le
+    -- donjon doit avoir qu'un boss final c'est tornadus »).
+    --
+    -- Le relais envoyait vers l'arene de Gligar + Skarmory (segment 1) tant
+    -- que SV.Chapter5.MountMiniBossCleared etait faux. Ce detour est
+    -- supprime : depuis le relais, l'ascension mene DIRECTEMENT aux Cretes
+    -- (segment 2), puis au sommet et a Tornadus, seul boss du donjon.
+    --
+    -- On garde la distinction session active / nouvelle session : c'etait le
+    -- correctif de la cause racine du NRE IsGameOver (meme fix que la Grande
+    -- Steppe), il n'a rien a voir avec le mini-boss et doit survivre.
+    if _ZONE.CurrentZoneID == 'mount_windswept' then
+      PrintInfo("[BossSeq][windswept] midpoint(zone) -> seg2 (ContinueDungeon)")
+      GAME:ContinueDungeon("mount_windswept", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     else
-      -- Mini-boss déjà vaincu : direction les Crêtes (segment 2).
-      if _ZONE.CurrentZoneID == 'mount_windswept' then
-        PrintInfo("[BossSeq][windswept] midpoint(zone) -> seg2 (ContinueDungeon)")
-        GAME:ContinueDungeon("mount_windswept", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
-      else
-        PrintInfo("[BossSeq][windswept] midpoint(master) -> seg2 (EnterDungeon)")
-        GAME:EnterDungeon("mount_windswept", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
-      end
+      PrintInfo("[BossSeq][windswept] midpoint(master) -> seg2 (EnterDungeon)")
+      GAME:EnterDungeon("mount_windswept", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     end
   end
   partner.IsInteracting = false

@@ -110,6 +110,11 @@ function mount_windswept.ExitSegment(zone, result, rescue, segmentID, mapID)
 			TownNight.EndDay(result, true)
 		end
 	elseif segmentID == 1 and ReplayEnding.FollowsRoute('mount_windswept', 5) then
+		-- BRANCHE MORTE depuis le retrait du mini-boss : le relais
+		-- (mount_windswept_midpoint) n'envoie plus jamais vers le segment 1,
+		-- il enchaine directement sur les Cretes (segment 2). Ce bloc est
+		-- conserve pour ne pas casser une sauvegarde qui serait deja DANS
+		-- l'arene au moment de la mise a jour : elle en ressort proprement.
 		-- Mini-boss arena: win or loss both go back to mini-boss ground map
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 			SV.Chapter5.MountMiniBossDefeated = true

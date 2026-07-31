@@ -1,6 +1,6 @@
 --[[ 
     mount_windswept_guardian_ch_5.lua
-    Mont Venteux — Gardien : Aerodactyl
+    Mont Venteux — Gardien du sommet : Tornadus
     Apparition : Descend des nuages d'orage dans un cri perçant, fait trembler la montagne
 ]]
 
@@ -35,7 +35,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   GROUND:TeleportTo(partner, 208, 328, Direction.Up)
   local t2 = CH('Teammate2')
   local t3 = CH('Teammate3')
-  if t2 ~= nil then GROUND:TeleportTo(t2, 176, 344, Direction.Up) end
+  if t2 ~= nil then GROUND:TeleportTo(t2, 192, 336, Direction.Up) end
   if t3 ~= nil then GROUND:TeleportTo(t3, 272, 344, Direction.Up) end
   GAME:MoveCamera(224, 324, 1, false)
 
@@ -130,6 +130,14 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(30)
 
+  --TORNADUS PARLE LUI-MEME. Le brief l'exige : « par defaut, Tornadus
+  --porte lui-meme l'integralite de la scene [...] la Voix ne doit
+  --intervenir que si elle est indispensable ». Ces trois repliques
+  --enoncent SES conditions d'acces au sommet : elles lui appartiennent,
+  --pas a une instance exterieure. On les lui rend.
+  --Il n'est pas encore visible : le SetSpeaker nomme sans portrait
+  --(forme desincarnee), donc la voix precede le corps — exactement le
+  --patron d'entree recherche.
   UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_007']))
   -- "L'ultime gardien de la montagne..."
@@ -159,13 +167,13 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(10)
 
-  -- === AERODACTYL DESCENDS FROM THE FLASH ===
+  -- === TORNADUS DESCEND DES NUAGES ===
   SOUND:PlayBattleSE('_UNK_EVT_003')
 
-  local aerodactyl = CharacterEssentials.MakeCharactersFromList({
-    {'Aerodactyl', 224, 192, Direction.Down}
+  local tornadus = CharacterEssentials.MakeCharactersFromList({
+    {'Tornadus', 224, 192, Direction.Down}
   })
-  GROUND:Hide('Aerodactyl')
+  GROUND:Hide('Tornadus')
 
   -- LOT 8.3 — l'orage comme presence, le pacte du duo avant l'ultime gardien.
   GAME:MoveCamera(224, 250, 40, false)
@@ -195,9 +203,9 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   SOUND:PlayBGM('Rising Fear.ogg', true)
   BossFX.Flash(224, 192, 3, 5, 20)
   GAME:WaitFrames(8)
-  GROUND:Unhide('Aerodactyl')
+  GROUND:Unhide('Tornadus')
   BossFX.Impact(9)
-  GROUND:CharSetAnim(aerodactyl, "Charge", true)
+  GROUND:CharSetAnim(tornadus, "Charge", true)
 
   -- Impact — ground shakes, dust everywhere
   local impactDust = RogueEssence.Content.FiniteOverlayEmitter()
@@ -206,7 +214,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   impactDust.Movement = RogueElements.Loc(-40, 0)
   impactDust.Layer = DrawLayer.Front
   impactDust.Anim = RogueEssence.Content.BGAnimData("Sandstorm", 1)
-  GROUND:PlayVFX(impactDust, aerodactyl.Position.X - 24, aerodactyl.Position.Y + 16)
+  GROUND:PlayVFX(impactDust, tornadus.Position.X - 24, tornadus.Position.Y + 16)
 
   local impactDust2 = RogueEssence.Content.FiniteOverlayEmitter()
   impactDust2.FadeIn = 5
@@ -214,7 +222,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   impactDust2.Movement = RogueElements.Loc(40, 0)
   impactDust2.Layer = DrawLayer.Front
   impactDust2.Anim = RogueEssence.Content.BGAnimData("Sandstorm", 1)
-  GROUND:PlayVFX(impactDust2, aerodactyl.Position.X + 24, aerodactyl.Position.Y + 16)
+  GROUND:PlayVFX(impactDust2, tornadus.Position.X + 24, tornadus.Position.Y + 16)
 
   GROUND:MoveScreen(RogueEssence.Content.ScreenMover(3, 5, 30))
 
@@ -248,8 +256,8 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- "Un...[pause=10] UN AERODACTYL !"
 
   GAME:WaitFrames(30)
-  -- Aerodactyl spreads its wings and roars
-  GROUND:CharSetAnim(aerodactyl, "Charge", true)
+  -- Tornadus deploie les vents autour de lui
+  GROUND:CharSetAnim(tornadus, "Charge", true)
   local wingWind = RogueEssence.Content.FiniteOverlayEmitter()
   wingWind.FadeIn = 10
   wingWind.TotalTime = 40
@@ -257,7 +265,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   wingWind.Movement = RogueElements.Loc(-180, 0)
   wingWind.Layer = DrawLayer.Front
   wingWind.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 1)
-  GROUND:PlayVFX(wingWind, aerodactyl.Position.X, aerodactyl.Position.Y)
+  GROUND:PlayVFX(wingWind, tornadus.Position.X, tornadus.Position.Y)
 
   local wingWind2 = RogueEssence.Content.FiniteOverlayEmitter()
   wingWind2.FadeIn = 10
@@ -266,7 +274,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   wingWind2.Movement = RogueElements.Loc(180, 0)
   wingWind2.Layer = DrawLayer.Front
   wingWind2.Anim = RogueEssence.Content.BGAnimData("Ominous_Wind", 1)
-  GROUND:PlayVFX(wingWind2, aerodactyl.Position.X, aerodactyl.Position.Y)
+  GROUND:PlayVFX(wingWind2, tornadus.Position.X, tornadus.Position.Y)
 
   SOUND:PlayBattleSE('EVT_Battle_Transition')
   GAME:WaitFrames(20)
@@ -290,7 +298,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- a VU. « Rien de naturel n'a d'angles » plante l'arc des Coeurs sans
   -- rien nommer : le joueur comprendra bien plus tard, le heros jamais ici.
   GAME:MoveCamera(224, 206, 40, false)
-  UI:SetSpeaker(aerodactyl)
+  UI:SetSpeaker(tornadus)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_038']))
   -- "Je vous ai vus depuis la crete. Deux points, qui grimpaient mal."
   GAME:WaitFrames(15)
@@ -337,19 +345,19 @@ function mount_windswept_guardian_ch_5.SecondPreBossScene()
 	pcall(function() GAME:FadeOut(false, 1) end)
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
-  local aerodactyl = CharacterEssentials.MakeCharactersFromList({
-    {'Aerodactyl', 224, 192, Direction.Down}
+  local tornadus = CharacterEssentials.MakeCharactersFromList({
+    {'Tornadus', 224, 192, Direction.Down}
   })
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
-  GROUND:CharSetAnim(aerodactyl, "Charge", true)
+  GROUND:CharSetAnim(tornadus, "Charge", true)
 
   GROUND:TeleportTo(hero, 240, 272, Direction.Up)
   GROUND:TeleportTo(partner, 208, 272, Direction.Up)
   local t2 = CH('Teammate2')
   local t3 = CH('Teammate3')
-  if t2 ~= nil then GROUND:TeleportTo(t2, 176, 288, Direction.Up) end
+  if t2 ~= nil then GROUND:TeleportTo(t2, 200, 288, Direction.Up) end
   if t3 ~= nil then GROUND:TeleportTo(t3, 272, 288, Direction.Up) end
   GAME:MoveCamera(224, 232, 1, false)
 
@@ -394,10 +402,10 @@ local function DefeatedBossBody()
 	pcall(function() GAME:FadeOut(false, 1) end)
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
-  local aerodactyl = CharacterEssentials.MakeCharactersFromList({
-    {'Aerodactyl', 224, 192, Direction.Down}
+  local tornadus = CharacterEssentials.MakeCharactersFromList({
+    {'Tornadus', 224, 192, Direction.Down}
   })
-  GROUND:CharSetAnim(aerodactyl, "Charge", true)
+  GROUND:CharSetAnim(tornadus, "Charge", true)
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
@@ -406,7 +414,7 @@ local function DefeatedBossBody()
   GROUND:TeleportTo(partner, 208, 272, Direction.Up)
   local t2 = CH('Teammate2')
   local t3 = CH('Teammate3')
-  if t2 ~= nil then GROUND:TeleportTo(t2, 176, 288, Direction.Up) end
+  if t2 ~= nil then GROUND:TeleportTo(t2, 200, 288, Direction.Up) end
   if t3 ~= nil then GROUND:TeleportTo(t3, 272, 288, Direction.Up) end
   GAME:MoveCamera(224, 232, 1, false)
 
@@ -416,12 +424,12 @@ local function DefeatedBossBody()
 
   GAME:WaitFrames(40)
 
-  -- Aerodactyl collapses dramatically
+  -- Tornadus ploie, les vents retombent
   SOUND:PlayBattleSE('EVT_CH03_Boss_Collapse')
   GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 4, 20))
   -- LOT 2.3 — pas de PoseGroundAction/"Faint" : le gardien reste visible
   -- pendant les dialogues, puis disparait au flash blanc.
-  GROUND:CharSetAnim(aerodactyl, "Idle", true)
+  GROUND:CharSetAnim(tornadus, "Idle", true)
 
   GAME:WaitFrames(60)
 
@@ -461,7 +469,7 @@ local function DefeatedBossBody()
   -- phrase retourne l'evidence — un mur peut enfermer autant qu'il protege.
   -- C'est la graine que Diancie fera germer au chapitre 8.
   GAME:MoveCamera(224, 206, 40, false)
-  UI:SetSpeaker(aerodactyl)
+  UI:SetSpeaker(tornadus)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_044']))
   -- "Alors c'est a vous, maintenant. J'en suis heureux. C'etait lourd."
   GAME:WaitFrames(18)
@@ -492,7 +500,7 @@ local function DefeatedBossBody()
   GAME:WaitFrames(30)
   SOUND:FadeOutBGM(60)
 
-  -- Aerodactyl disappears in a whirlwind
+  -- Tornadus se dissout dans une bourrasque
   local whirlwind = RogueEssence.Content.FlashEmitter()
   whirlwind.FadeInTime = 2
   whirlwind.HoldTime = 2
@@ -500,10 +508,10 @@ local function DefeatedBossBody()
   whirlwind.StartColor = Color(255, 255, 255, 0)
   whirlwind.Layer = DrawLayer.Top
   whirlwind.Anim = RogueEssence.Content.BGAnimData("White", 0)
-  GROUND:PlayVFX(whirlwind, aerodactyl.Position.X, aerodactyl.Position.Y)
+  GROUND:PlayVFX(whirlwind, tornadus.Position.X, tornadus.Position.Y)
   SOUND:PlayBattleSE("EVT_Battle_Flash")
   GAME:WaitFrames(16)
-  GROUND:Hide('Aerodactyl')
+  GROUND:Hide('Tornadus')
   GAME:WaitFrames(30)
 
   GAME:FadeOut(false, 60)
@@ -556,17 +564,17 @@ function mount_windswept_guardian_ch_5.DiedToBoss()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
-  local aerodactyl = CharacterEssentials.MakeCharactersFromList({
-    {'Aerodactyl', 224, 192, Direction.Down}
+  local tornadus = CharacterEssentials.MakeCharactersFromList({
+    {'Tornadus', 224, 192, Direction.Down}
   })
-  GROUND:CharSetAnim(aerodactyl, "Idle", true)
+  GROUND:CharSetAnim(tornadus, "Idle", true)
 
   -- L'équipe est au sol, vaincue.
   GROUND:TeleportTo(hero, 240, 272, Direction.Up)
   GROUND:TeleportTo(partner, 208, 272, Direction.Up)
   local t2 = CH('Teammate2')
   local t3 = CH('Teammate3')
-  if t2 ~= nil then GROUND:TeleportTo(t2, 176, 288, Direction.Up) end
+  if t2 ~= nil then GROUND:TeleportTo(t2, 200, 288, Direction.Up) end
   if t3 ~= nil then GROUND:TeleportTo(t3, 272, 288, Direction.Up) end
   GROUND:CharSetAnim(hero, "EventSleep", true)
   GROUND:CharSetAnim(partner, "EventSleep", true)
@@ -580,7 +588,7 @@ function mount_windswept_guardian_ch_5.DiedToBoss()
   GAME:WaitFrames(10)
 
   -- Le boss triomphe.
-  GROUND:CharSetAnim(aerodactyl, "Charge", true)
+  GROUND:CharSetAnim(tornadus, "Charge", true)
   UI:ResetSpeaker()
   UI:SetCenter(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_021']))
