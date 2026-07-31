@@ -225,18 +225,57 @@ L'outil **refuse** en plus toute carte plus petite que l'écran
 (320 × 240) : en dessous, le moteur centre la carte et laisse du vide.
 Cloven Ruins fait 1144 × 1360, soit **3,6 × 5,7 écrans**.
 
-### Collisions : ce que l'outil sait faire, et ce qu'il ne sait pas
+### Collisions par logique spatiale
 
-Sur un décor peint, la couleur **ne sépare pas** le marchable de
-l'infranchissable — mesuré : herbe (207,186,97) et falaise (173,148,77)
-sont voisines, chemin et herbe identiques à 1 près. Le classement par
-teinte donnait 28 % de sol et posait **deux spawners d'équipiers dans la
-roche**.
+**Ce qui ne marche pas.** La couleur seule ne sépare pas le marchable de
+l'infranchissable :
 
-Le seul critère fiable est le **vide** : hors de l'île il n'y a que du
-ciel. L'outil bloque donc ciel et nuages, et laisse le reste marchable —
-**79 %** sur Cloven Ruins. Les arbres et rochers restent à bloquer à la
-main dans l'éditeur, et l'outil l'affiche.
+| | RGB |
+|---|---|
+| chemin de terre | (205,187,97) |
+| herbe | (207,186,97) — **identique à 1 près** |
+| falaise | (173,148,77) — voisine de l'herbe |
+
+La rugosité locale ne tranche pas davantage (herbe 8,6 · arbre 14,0 ·
+falaise 15,0 — les plages se recouvrent), ni la distance au vide
+(falaise nord 70 px, herbe 72 px). Premier jet : 28 % de sol praticable
+et **deux spawners d'équipiers dans la roche**.
+
+**Ce qui marche : trois matières, trois signatures.**
+
+| matière | critère | pourquoi |
+|---|---|---|
+| **vide** | `B-R > 25` ou blanc saturé | hors de l'île il n'y a que du ciel |
+| **feuillage** | vert **et** luminance < 110 | l'herbe est verte aussi, mais claire |
+| **roche** | `B > 100` et `R > B` | canal **bleu** haut (118-187) vs sol jaune-vert bas (59-98) |
+
+Le canal bleu est la trouvaille : relevé en échantillonnant les colonnes
+rocheuses une par une, c'est le seul axe qui sépare franchement la roche
+beige du sol jaune.
+
+**Puis on raisonne en cellules, pas en pixels.** Le moteur ne connaît que
+des cellules : on calcule la *fraction* d'obstacle par cellule
+(`--seuil-obs`, défaut 0,45), puis on supprime les amas de moins de
+3 cellules (`--amas`) — un obstacle isolé au milieu d'une esplanade est
+du bruit de texture, pas un rocher. Cela retire ~500 fausses collisions.
+
+**Deux garde-fous automatiques :**
+
+- **Contrôle de jouabilité** : parcours depuis le marqueur d'entrée. Si
+  moins de 80 % du sol est atteignable, l'outil prévient que la carte est
+  morcelée et suggère de baisser `--seuil-obs`.
+- **Dégagement des entités** : les collisions sont calculées *après* le
+  repositionnement, donc une entité peut atterrir sur un arbre que
+  l'ancienne carte ignorait. L'outil cherche la cellule libre la plus
+  proche **entourée de cellules libres** — un personnage occupe ~20 px,
+  une case isolée entre deux rochers ne suffit pas. C'est exactement le
+  cas rencontré : TEAMMATE_2 posé dans un massif d'arbres, recalé une
+  première fois sur une case libre mais enclavée, puis correctement en
+  (512,1088) après durcissement du critère.
+
+Résultat sur Cloven Ruins : **69 % de sol praticable**, **98 %** de ce
+sol connexe depuis l'entrée, entrée du donjon atteignable, **0 entité en
+défaut**.
 
 ### Entités préservées
 
@@ -254,5 +293,7 @@ d'arrivée (17 963 cases connexes).
 | rendu vs PNG source | **0 pixel d'écart** / 1 555 840 |
 | relecture des planches | 20 699 tuiles, **0 écart** |
 | animation | ~130 000 px changent entre deux images |
-| entités hors sol | **0 / 6** |
+| entités hors sol | **0 / 6** (après dégagement auto) |
+| sol praticable | 16 874 / 24 310 cellules (**69 %**) |
+| connexité depuis l'entrée | **98 %** |
 | baselines | **12 / 849**, inchangées |

@@ -227,6 +227,208 @@ def tuile_anim(sheets, x, y, framelen=10):
                         'FrameLength': framelen}]}
 
 
+def collisions(src, nuage, pas, seuil=0.45, amas=3, verbeux=True):
+    """Déduit la grille de collisions par LOGIQUE SPATIALE.
+
+    ----------------------------------------------------------------
+    POURQUOI LA COULEUR SEULE ECHOUE
+    ----------------------------------------------------------------
+    Mesure sur Cloven Ruins, en RGB :
+        chemin de terre (205,187, 97)      herbe (207,186, 97)
+        falaise         (173,148, 77)      arbre (144,106, 47)
+    Le chemin et l'herbe sont IDENTIQUES a 1 pres, et la falaise est
+    voisine de l'herbe. Un classement par teinte donnait 28 % de sol
+    praticable et posait DEUX SPAWNERS D'EQUIPIERS DANS LA ROCHE.
+
+    La rugosite locale ne tranche pas davantage (herbe 8,6 / arbre 14,0
+    / falaise 15,0 — les plages se recouvrent), pas plus que la distance
+    au vide (falaise nord 70 px, herbe 72 px).
+
+    ----------------------------------------------------------------
+    CE QUI MARCHE : TROIS MATIERES, TROIS SIGNATURES
+    ----------------------------------------------------------------
+    1. VIDE       ciel et nuages. Bleu (B-R > 25) ou blanc satureu.
+                  Hors de l'ile il n'y a rien d'autre.
+    2. FEUILLAGE  vert ET sombre : G > R+8, G > B+20, luminance < 110.
+                  L'herbe est verte AUSSI, mais claire (>= 110) : c'est
+                  la luminance qui separe l'arbre de la pelouse.
+    3. ROCHE      beige desature. Critere decisif releve en mesurant les
+                  colonnes rocheuses : leur canal BLEU est haut
+                  (118..187) alors que le sol jaune-vert l'a bas
+                  (59..98). D'ou B > 100 et R > B.
+
+    ----------------------------------------------------------------
+    PUIS ON RAISONNE EN CELLULES, PAS EN PIXELS
+    ----------------------------------------------------------------
+    Le moteur ne connait que des cellules. On calcule donc la FRACTION
+    d'obstacle par cellule et on bloque au-dela de `seuil`. Enfin on
+    supprime les amas de moins de `amas` cellules : un obstacle isole
+    d'une seule case au milieu d'une esplanade est du bruit de texture
+    (herbes hautes, cailloux decoratifs), pas un rocher — cela retirait
+    ~500 fausses collisions sur Cloven Ruins.
+
+    Retourne (bloque, stats) ; `bloque` est indexe [y][x].
+    """
+    a = np.asarray(src.convert('RGB')).astype(int)
+    R, G, B = a[:, :, 0], a[:, :, 1], a[:, :, 2]
+    lum = a.mean(axis=2)
+
+    vide = ((B - R > 25) & (B > 150)) | ((R > 225) & (G > 225) & (B > 225))
+    vide |= nuage
+    vert = (G > R + 8) & (G > B + 20)
+    feuillage = vert & (lum < 110)
+    roche = (~vide) & (~vert) & (B > 100) & (R > B) & (R - B < 130)
+    obstacle = feuillage | roche
+
+    H, W = lum.shape
+    ny, nx = H // pas, W // pas
+    def frac(m):
+        return m[:ny*pas, :nx*pas].reshape(ny, pas, nx, pas).mean(axis=(1, 3))
+    f_obs, f_vide = frac(obstacle), frac(vide)
+
+    bloque = (f_obs >= seuil) | (f_vide > 0.55)
+    brut = int(bloque.sum())
+
+    # nettoyage des amas isoles (le vide n'est jamais nettoye)
+    try:
+        from scipy import ndimage
+        lab, n = ndimage.label(bloque)
+        tailles = ndimage.sum(bloque, lab, range(1, n + 1))
+        garde = np.zeros_like(bloque)
+        for i, t in enumerate(tailles, 1):
+            if t >= amas:
+                garde[lab == i] = True
+        bloque = garde | (f_vide > 0.55)
+    except ImportError:
+        if verbeux:
+            print('  (scipy absent : nettoyage des amas isoles ignore)')
+
+    st = dict(nx=nx, ny=ny, brut=brut, final=int(bloque.sum()),
+              feuillage=int(feuillage.sum()), roche=int(roche.sum()),
+              vide=int(vide.sum()))
+    if verbeux:
+        tot = nx * ny
+        print(f'  feuillage {st["feuillage"]:7d} px | roche {st["roche"]:7d} px'
+              f' | vide {st["vide"]:7d} px')
+        print(f'  cellules bloquees : {brut} -> {st["final"]} apres nettoyage'
+              f' des amas < {amas} ({100*st["final"]//tot}% de la carte)')
+    return bloque, st
+
+
+def degager_entites(obj, bloque, pas, verbeux=True):
+    """Recale les entites tombees sur une cellule bloquee.
+
+    Necessaire parce que les collisions sont calculees APRES le
+    repositionnement : une entite peut atterrir sur un arbre ou un rocher
+    que l'ancienne carte n'avait pas. Constate sur Cloven Ruins, le
+    spawner TEAMMATE_2 se retrouvait dans un massif d'arbres.
+
+    On cherche la cellule libre la plus proche, en spirale. Une entite
+    injoignable, c'est un equipier qui n'apparait pas ou une porte de
+    donjon qu'on ne peut plus franchir : ca ne peut pas rester.
+    """
+    ny, nx = bloque.shape
+    deplacees = 0
+    for e in (obj.get('Entities') or []):
+        for cle in ('MapChars', 'GroundObjects', 'Markers', 'Spawners'):
+            for o in (e.get(cle) or []):
+                c = o.get('Collider')
+                if not c:
+                    continue
+                cx, cy = c['X'] // pas, c['Y'] // pas
+                if not (0 <= cx < nx and 0 <= cy < ny) or not bloque[cy][cx]:
+                    continue
+                # On exige une cellule libre ENTOUREE de cellules libres :
+                # un personnage occupe une boite d'environ 20 px, donc une
+                # case isolee entre deux rochers ne suffit pas. Sans ce
+                # voisinage, TEAMMATE_2 se posait sur une cellule libre
+                # dont les quatre voisines etaient bloquees, et le controle
+                # final le signalait encore comme « dans un mur ».
+                def degage(n):
+                    for ddx in (-1, 0, 1):
+                        for ddy in (-1, 0, 1):
+                            m = (n[0] + ddx, n[1] + ddy)
+                            if not (0 <= m[0] < nx and 0 <= m[1] < ny):
+                                return False
+                            if bloque[m[1]][m[0]]:
+                                return False
+                    return True
+
+                trouve = None
+                for r in range(1, 40):
+                    cands = []
+                    for dx in range(-r, r + 1):
+                        cands += [(cx + dx, cy - r), (cx + dx, cy + r)]
+                    for dy in range(-r + 1, r):
+                        cands += [(cx - r, cy + dy), (cx + r, cy + dy)]
+                    for n in cands:
+                        if (0 <= n[0] < nx and 0 <= n[1] < ny and degage(n)):
+                            trouve = n
+                            break
+                    if trouve:
+                        break
+                if trouve:
+                    ax, ay = c['X'], c['Y']
+                    c['X'], c['Y'] = trouve[0] * pas, trouve[1] * pas
+                    if o.get('serializationLoc'):
+                        o['serializationLoc'] = {'X': c['X'], 'Y': c['Y']}
+                    deplacees += 1
+                    if verbeux:
+                        print(f"    {o.get('EntName','?'):24s} etait dans un "
+                              f"obstacle ({ax},{ay}) -> ({c['X']},{c['Y']})")
+    if verbeux and not deplacees:
+        print('    aucune entite dans un obstacle')
+    return deplacees
+
+
+def _connexite(bloque, depart, cible=None):
+    """Combien de cellules libres sont atteignables depuis `depart` ?"""
+    from collections import deque
+    ny, nx = bloque.shape
+    if bloque[depart[1], depart[0]]:
+        return 0, False, int((~bloque).sum())
+    seen = {depart}
+    q = deque([depart])
+    while q:
+        x, y = q.popleft()
+        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            n = (x + dx, y + dy)
+            if (0 <= n[0] < nx and 0 <= n[1] < ny and n not in seen
+                    and not bloque[n[1], n[0]]):
+                seen.add(n)
+                q.append(n)
+    return len(seen), (cible in seen if cible else True), int((~bloque).sum())
+    """Regroupe les pixels d'un masque en blocs connexes (4-voisinage).
+
+    Sert a distinguer une CASCADE — un bloc compact, haut et etroit,
+    pose sur la falaise — du CIEL, qui est un immense bloc unique
+    couvrant tout le pourtour de l'image. Les deux ont la meme couleur ;
+    seule la FORME les separe.
+    """
+    from collections import deque
+    vu = np.zeros(masque.shape, bool)
+    ys, xs = np.nonzero(masque)
+    blocs = []
+    for y0, x0 in zip(ys, xs):
+        if vu[y0, x0]:
+            continue
+        q = deque([(y0, x0)])
+        vu[y0, x0] = True
+        pts = []
+        while q:
+            y, x = q.popleft()
+            pts.append((y, x))
+            for dy, dx in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                ny, nx = y + dy, x + dx
+                if (0 <= ny < masque.shape[0] and 0 <= nx < masque.shape[1]
+                        and not vu[ny, nx] and masque[ny, nx]):
+                    vu[ny, nx] = True
+                    q.append((ny, nx))
+        if len(pts) >= mini:
+            blocs.append(pts)
+    return blocs
+
+
 def _composantes(masque, mini=200):
     """Regroupe les pixels d'un masque en blocs connexes (4-voisinage).
 
@@ -704,45 +906,38 @@ def cmd_anime(a):
     # ScrollEdge.Blank (0) afficherait le vide ; Clamp (1) est la valeur
     # employee par 232 des 276 grounds du mod.
     obj['EdgeView'] = 1
-    # --- COLLISIONS -----------------------------------------------------
-    # Sur une carte de decor peinte, la couleur ne suffit PAS a separer le
-    # marchable de l'infranchissable : mesure sur Cloven Ruins, l'herbe
-    # (207,186,97) et la falaise (173,148,77) ont des profils voisins,
-    # tandis que le chemin de terre et l'herbe sont IDENTIQUES a 1 pres.
-    # Un classement par teinte donnait 28 % de sol praticable et posait
-    # deux spawners d'equipiers dans la roche.
-    #
-    # Le seul critere fiable ici est le VIDE : hors de l'ile, il n'y a que
-    # du ciel et des nuages. On bloque donc ce qui est ciel/nuage, et on
-    # laisse marchable tout le reste — l'ile entiere. Les obstacles fins
-    # (arbres, rochers) restent a poser a la main dans l'editeur ; c'est
-    # un dégrossissage, pas une verite, et l'outil le dit.
-    ciel_nuage = nuage.copy()
-    aRGB = np.asarray(src.convert('RGB')).astype(int)
-    Rr, Gg, Bb = aRGB[:, :, 0], aRGB[:, :, 1], aRGB[:, :, 2]
-    ciel_nuage |= (Bb - Rr > 25) & (Bb > 150)          # bleu du ciel
-    ciel_nuage |= (Rr > 225) & (Gg > 225) & (Bb > 225)  # blanc des nuages
+    # --- COLLISIONS : par logique spatiale (voir collisions()) --------
+    bloque, cst = collisions(src, nuage, pas, a.seuil_obs, a.amas)
     proto_ob = obj['obstacles'][0][0]
-    tags = []
-    n_libre = 0
-    for x in range(nx):
-        col = []
-        for y in range(ny):
-            bloc = ciel_nuage[y*pas:(y+1)*pas, x*pas:(x+1)*pas]
-            # une cellule majoritairement ciel = hors de l'ile
-            vide = bloc.mean() > 0.55
-            if not vide:
-                n_libre += 1
-            col.append({**copy.deepcopy(proto_ob), 'Tags': 1 if vide else 0})
-        tags.append(col)
-    obj['obstacles'] = tags
-    print(f'  sol praticable : {n_libre}/{nx*ny} cellules '
-          f'({100*n_libre//(nx*ny)}%) — le reste est du vide (ciel/nuages)')
-    print('  NB : arbres et rochers restent a bloquer manuellement.')
+    obj['obstacles'] = [[{**copy.deepcopy(proto_ob),
+                          'Tags': 1 if bloque[y][x] else 0}
+                         for y in range(ny)] for x in range(nx)]
+
+    # CONTROLE DE JOUABILITE : une grille de collisions n'a de valeur que
+    # si la carte reste traversable. On part du marqueur d'entree et on
+    # verifie que le reste du sol est bien atteignable.
+    dep = None
+    for e in (obj.get('Entities') or []):
+        for m in (e.get('Markers') or []):
+            if m.get('EntName') == 'Main_Entrance_Marker' and m.get('Collider'):
+                dep = (m['Collider']['X'] // pas, m['Collider']['Y'] // pas)
+    if dep and 0 <= dep[0] < nx and 0 <= dep[1] < ny:
+        att, _, libre = _connexite(bloque, dep)
+        pct = 100 * att // max(1, libre)
+        print(f'  jouabilite : {att}/{libre} cellules libres atteignables '
+              f'depuis l entree ({pct}%)')
+        if pct < 80:
+            print('    ATTENTION : la carte est morcelee. Baissez --seuil-obs '
+                  'ou augmentez --amas.')
     obj['AssetName'] = os.path.splitext(os.path.basename(a.sortie))[0]
     if a.herite:
         print('  entites heritees, repositionnees :')
         _replacer_entites(obj, nx * pas, ny * pas, anc_w, anc_h)
+        # Les collisions viennent d'etre calculees : une entite peut
+        # desormais tomber sur un arbre ou un rocher que l'ancienne carte
+        # ignorait. On la degage.
+        print('  controle des entites vs obstacles :')
+        degager_entites(obj, bloque, pas)
     dst = a.sortie if os.path.isabs(a.sortie) \
         else os.path.join(ROOT, 'Data', 'Ground', os.path.basename(a.sortie))
     with open(dst, 'w', encoding='utf-8') as f:
@@ -825,6 +1020,11 @@ def main():
                    help='px de derive horizontale des nuages, par frame')
     p.add_argument('--herite', default=None,
                    help='ground existant dont on reprend les entites')
+    p.add_argument('--seuil-obs', dest='seuil_obs', type=float, default=0.45,
+                   help="fraction d'obstacle a partir de laquelle une "
+                        "cellule est bloquee (0 = tout bloquer)")
+    p.add_argument('--amas', type=int, default=3,
+                   help='taille minimale, en cellules, d un amas d obstacles')
     commun(p)
 
     p = sub.add_parser('verifier'); p.add_argument('nom')
