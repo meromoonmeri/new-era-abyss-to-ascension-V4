@@ -23,8 +23,15 @@ function guild_heros_room_ch_6.ShowTitleCard()
     GAME:WaitFrames(180)
     UI:WaitHideTitle(20)
   end)
+  --FOND DEDIE AU CHAPITRE 6.
+  --Il affichait « Chapter_4 » : le ch6 empruntait l'image du Bosquet
+  --Apricorn, alors que la regle impose une image propre a chaque chapitre
+  --(« pas de reutilisation d'un meme visuel generique d'un chapitre a
+  --l'autre »). Chapter_6 est un rendu de la clairiere de la Foret Lugubre,
+  --produit par tools/make_chapter_bg.py depuis les tuiles reelles du jeu
+  --et assombri a la meme luminance que les fonds Chapter_1 a 4.
   local coro2 = TASK:BranchCoroutine(function()
-    UI:WaitShowBG("Chapter_4", 180, 20)
+    UI:WaitShowBG("Chapter_6", 180, 20)
     GAME:WaitFrames(180)
     UI:WaitHideBG(20)
   end)
