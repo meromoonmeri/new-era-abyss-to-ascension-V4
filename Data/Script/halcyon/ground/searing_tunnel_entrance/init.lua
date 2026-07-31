@@ -70,9 +70,10 @@ end
 
 function searing_tunnel_entrance.PlotScripting()
   if SV.ChapterProgression.Chapter == 5 then
-	if not SV.Chapter5.FinishedTunnelIntro then
-		searing_tunnel_entrance_ch_5.ArrivalDinnerNightAndAddressCutscene()
-	elseif SV.Chapter5.PlayTempTunnelScene then
+	if SV.Chapter5.PlayTempTunnelScene then
+		--RETOUR DU DONJON (KO/abandon) : la cinematique de RESPAWN prime
+		--sur la cinematique d'entree (regle commune aux 3 donjons ch5 :
+		--jamais ArrivalDinnerNightAndAddressCutscene rejouee au retour).
 		searing_tunnel_entrance_ch_5.SetupGround()
 		if SV.Chapter5.TunnelLastExitReason == 'Retreated' then
 			searing_tunnel_entrance_ch_5.RetreatedCutscene()
@@ -81,6 +82,8 @@ function searing_tunnel_entrance.PlotScripting()
 		else
 			searing_tunnel_entrance_ch_5.EscapedCutscene()
 		end
+	elseif not SV.Chapter5.FinishedTunnelIntro then
+		searing_tunnel_entrance_ch_5.ArrivalDinnerNightAndAddressCutscene()
 	else
 		searing_tunnel_entrance_ch_5.SetupGround()
 		GAME:FadeIn(20)

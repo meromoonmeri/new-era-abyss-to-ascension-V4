@@ -71,11 +71,14 @@ end
 
 function vast_steppe_entrance.PlotScripting()
   if SV.ChapterProgression.Chapter == 5 then
-	if not SV.Chapter5.FinishedSteppeIntro then
-		vast_steppe_entrance_ch_5.ArrivalCutscene()
-	elseif SV.Chapter5.EscapedSteppe or SV.Chapter5.DiedSteppe then
+	if SV.Chapter5.EscapedSteppe or SV.Chapter5.DiedSteppe then
+		--RETOUR DU DONJON (KO/abandon) : la cinematique de RESPAWN prime
+		--sur la cinematique d'entree (regle commune aux 3 donjons ch5 :
+		--jamais ArrivalCutscene rejouee au retour d'un donjon).
 		vast_steppe_entrance_ch_5.SetupGround()
 		vast_steppe_entrance_ch_5.FailedCutscene()
+	elseif not SV.Chapter5.FinishedSteppeIntro then
+		vast_steppe_entrance_ch_5.ArrivalCutscene()
 	elseif SV.Chapter5.SteppeMiniBossDefeated and not SV.Chapter5.SkyTremorSceneSeen then
 		--Cinematique majeure : le premier pulse du phenomene du sommet,
 		--visible depuis le camp. Joue une seule fois, la nuit suivant le mini-boss.

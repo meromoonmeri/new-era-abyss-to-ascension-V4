@@ -160,19 +160,20 @@ function mount_windswept_entrance.PlotScripting()
       mount_windswept_entrance_ch_5.ResumeAfterDream()
       return
     end
-    if not SV.Chapter5.FinishedMountWindsweptIntro then
-      mount_windswept_entrance_ch_5.ArrivalCutscene()
-    elseif SV.Chapter5.PlayTempMountScene then
-      --Retour de la premiere moitie du donjon en mauvaise posture
-      --(KO/temps ecoule ou repli volontaire). Miroir du routeur du
-      --Tunnel : SetupGround d'abord (les PNJ du camp existent), puis
-      --la cinematique de retour adaptee a la raison de sortie.
-      --SetupGround lit encore PlayTempMountScene pour choisir entre
-      --camp du matin (apres defaite) et camp de jour : on ne consomme
-      --le flag qu'APRES SetupGround, juste avant la scene. Si la scene
-      --plante en cours (xpcall moteur), elle ne rejouera pas au
-      --prochain chargement. Le `= false` de fin de scene reste en
-      --ceinture (idempotent).
+    if SV.Chapter5.PlayTempMountScene then
+      --RETOUR DU DONJON EN MAUVAISE POSTURE (KO/abandon) : la cinematique
+      --de RESPAWN prime sur la cinematique d'entree (demande utilisateur :
+      --« la cinematique d'entree ne doit pas etre rejouee, c'est celle du
+      --respawn qui doit etre rejouee »). Meme si l'intro n'a jamais ete
+      --jouee (partie neuve, debug warp), on ne rejoue JAMAIS ArrivalCutscene
+      --au retour d'un donjon.
+      --SetupGround d'abord (les PNJ du camp existent), puis la scene de
+      --retour adaptee a la raison de sortie. SetupGround lit encore
+      --PlayTempMountScene pour choisir entre camp du matin (apres defaite)
+      --et camp de jour : on ne consomme le flag qu'APRES SetupGround, juste
+      --avant la scene. Si la scene plante en cours (xpcall moteur), elle ne
+      --rejouera pas au prochain chargement. Le `= false` de fin de scene
+      --reste en ceinture (idempotent).
       mount_windswept_entrance_ch_5.SetupGround()
       SV.Chapter5.PlayTempMountScene = false
       if SV.Chapter5.MountLastExitReason == 'Retreated' then
@@ -180,6 +181,8 @@ function mount_windswept_entrance.PlotScripting()
       else
         mount_windswept_entrance_ch_5.KODefeatCutscene()
       end
+    elseif not SV.Chapter5.FinishedMountWindsweptIntro then
+      mount_windswept_entrance_ch_5.ArrivalCutscene()
     elseif SV.Chapter5.MountGuardianDefeated and SV.Chapter5.MountVigilSceneSeen
        and not SV.Chapter5.WindSecretSceneSeen then
       --Cinematique emotionnelle : le secret Hyko x Penticus, surprise de nuit.

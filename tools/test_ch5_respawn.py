@@ -68,7 +68,7 @@ GeneralFunctions = {
 }
 """
 
-# (donjon, segment, resultat, destination attendue, scene attendue, via)
+# (donjon, segment, resultat, destination attendue, scene attendue, via, [intro_done])
 CASES = [
     # --- Mont Venteux ---
     ('mount_windswept', 0, 'KO',      ('entrance', 50), 'KODefeatCutscene',     'entrance'),
@@ -87,6 +87,11 @@ CASES = [
     # 2e moitie ABANDONNEE : reveil au relais comme un KO (demande utilisateur)
     ('searing_tunnel', 1, 'Escaped', ('midpoint', 48), 'WipedCutscene',   'midpoint'),
     ('searing_tunnel', 3, 'KO',      ('midpoint', 48), 'WipedCutscene',   'midpoint'),  # boss Creuset
+    # --- INTRO NON TERMINEE (partie neuve / debug warp, cas du log utilisateur) :
+    # le retour du donjon doit jouer la scene de RESPAWN, jamais l'arrivee.
+    ('mount_windswept', 0, 'KO',      ('entrance', 50), 'KODefeatCutscene', 'entrance', False),
+    ('vast_steppe', 0, 'KO',          ('entrance', 46), 'FailedCutscene',   'entrance', False),
+    ('searing_tunnel', 0, 'KO',       ('entrance', 47), 'DiedCutscene',     'entrance', False),
 ]
 
 ZONES = {
@@ -106,13 +111,13 @@ MIDPOINTS = {
 }
 
 
-def run_case(zone, seg, outcome):
+def run_case(zone, seg, outcome, intro_done=True):
     L, eng = build(lambda l, e: None)
     g = L.globals()
     g.SV.ChapterProgression.Chapter = 5
     g.ReplayEnding = {'FollowsRoute': lambda z, c: True}
     for k in ('FinishedMountWindsweptIntro', 'FinishedSteppeIntro', 'FinishedTunnelIntro'):
-        g.SV.Chapter5[k] = True
+        g.SV.Chapter5[k] = intro_done
     for k in ('PlayedMountMidpointIntro', 'PlayedSteppeMidpointIntro', 'PlayedMidpointIntro'):
         g.SV.Chapter5[k] = True
     L.execute(GENERAL_STUB)
@@ -143,9 +148,11 @@ def run_case(zone, seg, outcome):
 
 
 ok = True
-for zone, seg, outcome, (exp_kind, exp_idx), exp_scene, via in CASES:
+for case in CASES:
+    zone, seg, outcome, (exp_kind, exp_idx), exp_scene, via = case[:6]
+    intro_done = case[6] if len(case) > 6 else True
     try:
-        dest_idx, dest_kind, scenes = run_case(zone, seg, outcome)
+        dest_idx, dest_kind, scenes = run_case(zone, seg, outcome, intro_done)
     except Exception as e:
         print('%-26s | ERREUR simulation: %s' % ('%s seg%d %s' % (zone, seg, outcome), str(e)[:120]))
         ok = False
