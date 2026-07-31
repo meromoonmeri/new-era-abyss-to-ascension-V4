@@ -770,6 +770,1410 @@
       "Released": true,
       "Comment": "The Mega Stone store. No dungeons, just a ground map.",
       "SortOrder": 0
+    },
+    "rt_buried_relic": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Buried Relic",
+        "LocalTexts": {
+          "fr": "Relique Enfouie"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_darknight_relic": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Darknight Relic",
+        "LocalTexts": {
+          "fr": "Relique Tenebreuse"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_desert_region": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Desert Region",
+        "LocalTexts": {
+          "fr": "Region Desertique"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_fantasy_strait": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Fantasy Strait",
+        "LocalTexts": {
+          "fr": "Detroit Fantastique"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_faroff_sea": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Far-off Sea",
+        "LocalTexts": {
+          "fr": "Mer Lointaine"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_fiery_field": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Fiery Field",
+        "LocalTexts": {
+          "fr": "Champ de Braises"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_frosty_forest": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Frosty Forest",
+        "LocalTexts": {
+          "fr": "Foret Glacee"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_frosty_grotto": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Frosty Grotto",
+        "LocalTexts": {
+          "fr": "Grotte Glacee"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_grand_sea": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Grand Sea",
+        "LocalTexts": {
+          "fr": "Grande Mer"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_great_canyon": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Great Canyon",
+        "LocalTexts": {
+          "fr": "Grand Canyon"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_howling_forest": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Howling Forest",
+        "LocalTexts": {
+          "fr": "Foret Hurlante"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_joyous_tower": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Joyous Tower",
+        "LocalTexts": {
+          "fr": "Tour de la Joie"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_lapis_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Lapis Cave",
+        "LocalTexts": {
+          "fr": "Grotte Lapis"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_lightning_field": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Lightning Field",
+        "LocalTexts": {
+          "fr": "Champ de Foudre"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_magma_cavern": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Magma Cavern",
+        "LocalTexts": {
+          "fr": "Caverne Magma"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_magma_cavern_pit": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Magma Cavern Pit",
+        "LocalTexts": {
+          "fr": "Fosse de la Caverne Magma"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_marvelous_sea": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Marvelous Sea",
+        "LocalTexts": {
+          "fr": "Mer Merveilleuse"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_meteor_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Meteor Cave",
+        "LocalTexts": {
+          "fr": "Grotte Meteore"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_mt_blaze": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Mt. Blaze",
+        "LocalTexts": {
+          "fr": "Mont Brasier"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_mt_blaze_peak": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Mt. Blaze Peak",
+        "LocalTexts": {
+          "fr": "Cime du Mont Brasier"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_mt_faraway": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Mt. Faraway",
+        "LocalTexts": {
+          "fr": "Mont Lointain"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_mt_freeze": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Mt. Freeze",
+        "LocalTexts": {
+          "fr": "Mont Gel"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_mt_freeze_peak": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Mt. Freeze Peak",
+        "LocalTexts": {
+          "fr": "Cime du Mont Gel"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_mt_steel": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Mt. Steel",
+        "LocalTexts": {
+          "fr": "Mont Acier"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_mt_thunder": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Mt. Thunder",
+        "LocalTexts": {
+          "fr": "Mont Tonnerre"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_mt_thunder_peak": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Mt. Thunder Peak",
+        "LocalTexts": {
+          "fr": "Cime du Mont Tonnerre"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_murky_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Murky Cave",
+        "LocalTexts": {
+          "fr": "Grotte Trouble"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_northern_range": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Northern Range",
+        "LocalTexts": {
+          "fr": "Chaine du Nord"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_northwind_field": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Northwind Field",
+        "LocalTexts": {
+          "fr": "Champ du Vent du Nord"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_oddity_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Oddity Cave",
+        "LocalTexts": {
+          "fr": "Grotte Etrange"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_pitfall_valley": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Pitfall Valley",
+        "LocalTexts": {
+          "fr": "Vallee des Chausse-trappes"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_purity_forest": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Purity Forest",
+        "LocalTexts": {
+          "fr": "Foret de Purete"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_remains_island": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Remains Island",
+        "LocalTexts": {
+          "fr": "Ile des Vestiges"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_rock_path": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Rock Path",
+        "LocalTexts": {
+          "fr": "Sentier Rocheux"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_silent_chasm": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Silent Chasm",
+        "LocalTexts": {
+          "fr": "Gouffre Silencieux"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_silver_trench": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Silver Trench",
+        "LocalTexts": {
+          "fr": "Fosse Argentee"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_sinister_woods": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Sinister Woods",
+        "LocalTexts": {
+          "fr": "Bois Sinistres"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_sky_tower": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Sky Tower",
+        "LocalTexts": {
+          "fr": "Tour Celeste"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_sky_tower_summit": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Sky Tower Summit",
+        "LocalTexts": {
+          "fr": "Sommet de la Tour Celeste"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_snow_path": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Snow Path",
+        "LocalTexts": {
+          "fr": "Sentier Enneige"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_solar_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Solar Cave",
+        "LocalTexts": {
+          "fr": "Grotte Solaire"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_southern_cavern": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Southern Cavern",
+        "LocalTexts": {
+          "fr": "Caverne du Sud"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_stormy_sea": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Stormy Sea",
+        "LocalTexts": {
+          "fr": "Mer Tempetueuse"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_thunderwave_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Thunderwave Cave",
+        "LocalTexts": {
+          "fr": "Grotte Tonnerre"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_tiny_woods": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Tiny Woods",
+        "LocalTexts": {
+          "fr": "Petit Bois"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_unown_relic": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Unown Relic",
+        "LocalTexts": {
+          "fr": "Relique des Zarbi"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_uproar_forest": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Uproar Forest",
+        "LocalTexts": {
+          "fr": "Foret du Tumulte"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_waterfall_pond": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Waterfall Pond",
+        "LocalTexts": {
+          "fr": "Etang de la Cascade"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_western_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Western Cave",
+        "LocalTexts": {
+          "fr": "Antre d Occident"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_wish_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Wish Cave",
+        "LocalTexts": {
+          "fr": "Grotte des Voeux"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_wondrous_sea": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Wondrous Sea",
+        "LocalTexts": {
+          "fr": "Mer Prodigieuse"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
+    },
+    "rt_wyvern_hill": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": -1,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 23,
+      "Rogue": 0,
+      "Grounds": [],
+      "Maps": [],
+      "Name": {
+        "DefaultText": "Wyvern Hill",
+        "LocalTexts": {
+          "fr": "Colline Wyvern"
+        }
+      },
+      "Released": false,
+      "SortOrder": 0,
+      "Comment": "Converti de Pokemon Mystery Dungeon: Rescue Team (jtjanecek/rogue-rescue-team). Bestiaire et profondeur d'origine ; geometrie generee par RogueElements."
     }
   }
 }

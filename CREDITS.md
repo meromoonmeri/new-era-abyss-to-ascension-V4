@@ -25,6 +25,19 @@
 - **Contenu repris** : scripts Python d'outillage (`tools/dungeon_pack/`)
 - **Note** : certains graphismes proviennent de craftpix.net (vérifier licence avant réutilisation directe)
 
+### rogue-rescue-team (décompilation Rescue Team)
+- **Auteur** : [jtjanecek](https://github.com/jtjanecek/rogue-rescue-team), d'après [pret/pmd-red](https://github.com/pret/pmd-red)
+- **Description** : décompilation de Pokémon Mystery Dungeon: Red Rescue Team
+- **Contenu repris** : données de donjon (nombre d'étages, bestiaire, niveaux, probabilités d'apparition) de 52 donjons, converties au format PMDO par `tools/convert_rescue_team.py`
+- **Non repris** : la géométrie d'étage (`main_data.inc`, octets bruts GBA non documentés) — remplacée par la génération native RogueElements
+- **Autorisation** : accordée par le porteur du projet New Era
+
+### ProjectEoN
+- **Auteur** : [Logical321](https://github.com/Logical321/ProjectEoN)
+- **Description** : fangame PMDO
+- **Contenu repris** : donjons jouables au format PMDO natif et leurs arènes de boss
+- **Autorisation** : accordée par le porteur du projet New Era
+
 ### ExplorersOfSkyOrigins
 - **Auteur** : [Minemaker0430 / ItsMochaTheOtter](https://github.com/Minemaker0430/ExplorersOfSkyOrigins)
 - **Contributeurs cités par le dépôt** : Sloth (ground maps, musique), servantofTestator (cinématiques), Palika (shaders, objets, scripts), MistressNebula (framework du système de missions), BobTheBobCatt (objets)
