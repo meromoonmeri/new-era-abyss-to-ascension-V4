@@ -68,10 +68,10 @@ function mount_windswept.ExitSegment(zone, result, rescue, segmentID, mapID)
 
 	if exited == true then
 		--ExitDungeonMissionCheck already sent the player out (rescue case); do nothing.
-	elseif segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('mount_windswept', 4) then
+	elseif segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('mount_windswept', 5) then
 		-- Segment 0 cleared: go to midpoint rest stop before mini-boss
 		PrintInfo("[NREPROBE][transition] mount_windswept.ExitSegment -> EnterGroundMap('mount_windswept_midpoint')") GAME:EnterGroundMap('mount_windswept_midpoint', 'Main_Entrance_Marker')
-	elseif segmentID == 0 and ReplayEnding.FollowsRoute('mount_windswept', 4) and result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+	elseif segmentID == 0 and ReplayEnding.FollowsRoute('mount_windswept', 5) and result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
 		-- PREMIERE MOITIE PERDUE (KO, fuite, abandon) : retour DEVANT
 		-- l'entree du Mont (carte 50), jamais un retour silencieux au
 		-- bourg. Miroir exact du patron du Tunnel (searing_tunnel
@@ -103,7 +103,7 @@ function mount_windswept.ExitSegment(zone, result, rescue, segmentID, mapID)
 		else
 			TownNight.EndDay(result, true)
 		end
-	elseif segmentID == 1 and ReplayEnding.FollowsRoute('mount_windswept', 4) then
+	elseif segmentID == 1 and ReplayEnding.FollowsRoute('mount_windswept', 5) then
 		-- BRANCHE MORTE depuis le retrait du mini-boss : le relais
 		-- (mount_windswept_midpoint) n'envoie plus jamais vers le segment 1,
 		-- il enchaine directement sur les Cretes (segment 2). Ce bloc est
@@ -116,7 +116,7 @@ function mount_windswept.ExitSegment(zone, result, rescue, segmentID, mapID)
 			SV.Chapter5.MountMiniBossLost = true
 		end
 		PrintInfo("[NREPROBE][transition] mount_windswept.ExitSegment -> EnterGroundMap('mount_windswept_miniboss')") GAME:EnterGroundMap('mount_windswept_miniboss', 'Main_Entrance_Marker')
-	elseif segmentID == 2 and ReplayEnding.FollowsRoute('mount_windswept', 4) and result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+	elseif segmentID == 2 and ReplayEnding.FollowsRoute('mount_windswept', 5) and result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
 		-- vague 8 : checkpoint mount_windswept — la mort dans la 2e moitié ramène au relais,
 		-- où la scène de réveil (WipedCutscene) prend le relai narratif.
 		GAME:WaitFrames(20)
@@ -128,10 +128,10 @@ function mount_windswept.ExitSegment(zone, result, rescue, segmentID, mapID)
 		else
 			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 64, 0, true, true)
 		end
-	elseif segmentID == 2 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('mount_windswept', 4) then
+	elseif segmentID == 2 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('mount_windswept', 5) then
 		-- Segment 2 cleared: go to guardian ground map
 		PrintInfo("[NREPROBE][transition] mount_windswept.ExitSegment -> EnterGroundMap('mount_windswept_guardian')") GAME:EnterGroundMap('mount_windswept_guardian', 'Main_Entrance_Marker')
-	elseif segmentID == 3 and ReplayEnding.FollowsRoute('mount_windswept', 4) then
+	elseif segmentID == 3 and ReplayEnding.FollowsRoute('mount_windswept', 5) then
 		-- Guardian arena: win or loss both go back to guardian ground map
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 			SV.Chapter5.MountGuardianDefeated = true
