@@ -70,14 +70,6 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 	--I think even though it may be weird they just "disappear" upon exiting the segment, this approach is fine and best from a gameplay perspective.
 	--COMMON.ExitDungeonMissionCheck(zone.ID, segmentID)
 
-	if segmentID == 4 then
-		-- Annexe de la Toupie (etage mystere) : sortie douce vers le bourg.
-		-- (Bloc remonte au niveau racine : il etait imbrique par erreur dans la
-		-- branche mort/fuite du segment 0, donc jamais atteint pour le segment 3.)
-		GAME:WaitFrames(10)
-		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
-		return
-	end
 
 	if segmentID == 0 then --Searing Tunnel Exit Segment
 	  PrintInfo("=>> ExitSegment_searing_tunnel (Searing Tunnel) result "..tostring(result).." segment "..tostring(segmentID))
