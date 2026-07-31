@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.NetStandard.ResXResourceReader, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+    <data name="TTH_Guilde_Ambiance" xml:space="preserve">
+    <value>On a du pain sur la planche, aujourd'hui encore ![pause=20] La guilde ne dort jamais vraiment.</value>
+  </data>
+  <data name="TTH_Plage_Ambiance" xml:space="preserve">
+    <value>Écoute les vagues.[pause=20] Elles ramènent toujours quelque chose sur le sable.</value>
+  </data>
+  <data name="TTH_Carrefour_Ambiance" xml:space="preserve">
+    <value>Tout le monde passe par ici.[pause=20] La guilde en haut, le bourg en bas, la mer au sud.</value>
+  </data>
+  <data name="TTH_Dojo_Ambiance" xml:space="preserve">
+    <value>Un coup bien placé vaut mieux que dix coups au hasard.[pause=20] Recommence.</value>
+  </data>
+  <data name="TTH_Falaise_Ambiance" xml:space="preserve">
+    <value>De là-haut, on voit arriver les bateaux longtemps avant qu'ils accostent.</value>
+  </data>
+  <data name="TTH_Cafe_Ambiance" xml:space="preserve">
+    <value>Asseyez-vous donc.[pause=20] Un jus bien frais remet d'aplomb après la route.</value>
+  </data>
+  <data name="TTH_Source_Ambiance" xml:space="preserve">
+    <value>L'eau est chaude toute l'année.[pause=20] Personne ne sait vraiment pourquoi.</value>
+  </data>
+  <data name="TTH_Ambiance" xml:space="preserve">
+    <value>Il y a du monde aujourd'hui.[pause=20] Ça change.</value>
+  </data>
+</root>

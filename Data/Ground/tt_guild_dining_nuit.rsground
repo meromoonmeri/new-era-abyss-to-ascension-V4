@@ -39476,6 +39476,34 @@
        "Width": 16,
        "Height": 16
       }
+     },
+     {
+      "EntName": "Main_Entrance_Marker",
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "Collider": {
+       "X": 280,
+       "Y": 224,
+       "Width": 16,
+       "Height": 16
+      }
+     },
+     {
+      "EntName": "entrance",
+      "Direction": 0,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "Collider": {
+       "X": 280,
+       "Y": 224,
+       "Width": 16,
+       "Height": 16
+      }
      }
     ]
    }
