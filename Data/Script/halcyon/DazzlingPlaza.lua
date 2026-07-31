@@ -251,24 +251,175 @@ function DazzlingPlaza.ActeI()
   GAME:WaitFrames(15)
 
   ------------------------------------------------------------------
-  -- 2. ELLES ARRIVENT PAR LE NORD, ENTRE LES MAGASINS.
+  -- 1bis. PAPILUSION SUPPLIE — AVANT que les rivales n'existent.
   --
-  -- Le defile nord (x = 1152) passe entre le comptoir TM a l'ouest et
-  -- l'Entrepot a l'est, et se resserre a UNE SEULE case de large en
-  -- y = 860 : elles ne peuvent donc descendre qu'EN FILE INDIENNE.
-  -- C'est le decor lui-meme qui impose l'entree en cortege.
+  -- C'est elle qui NOMME la Team Dazzling la premiere. Sans cela,
+  -- l'entree des trois n'est qu'une apparition ; avec cela, elle est
+  -- la REPONSE a une question qu'on vient de poser. Le nom precede le
+  -- corps : c'est ce qui fait exister une reputation.
   --
-  -- Elles descendent d'abord hors champ (y = 688 / 720 / 760), la
-  -- camera remonte vers la bouche du defile, et on les decouvre en
-  -- train d'arriver — on ne les voit pas apparaitre.
+  -- Elle accourt du cote est de la place, en courant (run = true) :
+  -- une mere qui cherche son petit ne marche pas.
   ------------------------------------------------------------------
-  GROUND:TeleportTo(adagio, 1152, 760, Direction.Down)
-  GROUND:TeleportTo(aria,   1152, 720, Direction.Down)
-  GROUND:TeleportTo(sonata, 1152, 688, Direction.Down)
+  SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
+  local p1 = TASK:BranchCoroutine(function()
+    GeneralFunctions.EightWayMove(mere, 1176, 928, true, 2)
+    GROUND:CharTurnToCharAnimated(mere, hero, 4)
+  end)
+  local p2 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(8)
+    GAME:MoveCamera(1152, 928, 34, false)
+  end)
+  TASK:JoinCoroutines({ p1, p2 })
+  duoLook(hero, partner, mere)
+  GAME:WaitFrames(12)
 
-  SOUND:PlayBGM('Team_Dazzling.ogg', true)
-  GAME:MoveCamera(1152, 872, 60, false)
+  pcall(function() GROUND:CharSetEmote(mere, "sweating", 1) end)
+  say(mere, 'Worried', STRINGS:Format(STRINGS.MapStrings['MTP_070']))
+  say(mere, 'Pain',    STRINGS:Format(STRINGS.MapStrings['MTP_071']))
+  GAME:WaitFrames(10)
+  say(partner, 'Worried', STRINGS:Format(STRINGS.MapStrings['MTP_072']))
+  GAME:WaitFrames(8)
+
+  --Elle ne demande pas n'importe qui : elle demande une equipe QUALIFIEE.
+  --La nuance est ce qui blesse le duo, et ce qui installe les rivales.
+  say(mere, 'Worried', STRINGS:Format(STRINGS.MapStrings['MTP_073']))
+  GAME:WaitFrames(12)
+  say(mere, 'Determined', STRINGS:Format(STRINGS.MapStrings['MTP_074']))
+  GAME:WaitFrames(15)
+
+  ------------------------------------------------------------------
+  -- 1ter. LES DEUX KECLEON REAGISSENT DEPUIS LEUR STAND.
+  --
+  -- Ils ne se deplacent pas — ce sont des marchands, ils tiennent
+  -- boutique — mais ils ont un « notice » a l'evocation du nom, puis
+  -- ils expliquent. Ce sont eux qui donnent a la Team Dazzling son
+  -- statut : une equipe REPUTEE. L'information vient de commercants,
+  -- pas du heros : elle est donc publique, et credible.
+  --
+  -- Lars (Shop_Owner, 1056,832) et Zigs (TM_Owner, 1080,832) sont des
+  -- MapChars permanents de la carte, tous deux DANS le cadre de la
+  -- camera posee sur l'aire de duel (verifie : ecran 320x240 centre
+  -- sur 1152,912 -> x 992..1312 / y 792..1032). On les tourne vers la
+  -- scene, on les fait reagir, ils ne bougent pas d'un pouce.
+  ------------------------------------------------------------------
+  local lars = CH('Shop_Owner')
+  local zigs = CH('TM_Owner')
+  local kecleons = {}
+  for _, k in ipairs({ lars, zigs }) do
+    if k ~= nil then
+      table.insert(kecleons, k)
+      pcall(function() AI:DisableCharacterAI(k) end)
+    end
+  end
+
+  if #kecleons > 0 then
+    --LE NOM LES FAIT LEVER LA TETE. Notice en decale : deux marchands
+    --qui tendent l'oreille, pas un choeur.
+    local kn = {}
+    for i, k in ipairs(kecleons) do
+      kn[#kn + 1] = TASK:BranchCoroutine(function()
+        GAME:WaitFrames((i - 1) * 10)
+        pcall(function()
+          GROUND:CharTurnToCharAnimated(k, mere, 4)
+          GeneralFunctions.EmoteAndPause(k, "Notice", true)
+        end)
+      end)
+    end
+    TASK:JoinCoroutines(kn)
+    GAME:WaitFrames(10)
+
+    if lars ~= nil then
+      pcall(function() GROUND:CharTurnToCharAnimated(lars, hero, 4) end)
+      say(lars, 'Normal', STRINGS:Format(STRINGS.MapStrings['MTP_075']))
+      GAME:WaitFrames(8)
+      say(lars, 'Happy',  STRINGS:Format(STRINGS.MapStrings['MTP_076']))
+      GAME:WaitFrames(10)
+    end
+    if zigs ~= nil then
+      pcall(function() GROUND:CharTurnToCharAnimated(zigs, hero, 4) end)
+      say(zigs, 'Normal', STRINGS:Format(STRINGS.MapStrings['MTP_077']))
+      GAME:WaitFrames(10)
+    end
+  end
+
+  --LA QUESTION QUI APPELLE L'ENTREE. Le partenaire prononce le nom :
+  --c'est la derniere replique avant que la voix ne reponde du chemin.
+  duoLook(hero, partner, mere)
+  GAME:WaitFrames(10)
+  pcall(function() GeneralFunctions.EmoteAndPause(partner, "Question", true) end)
+  say(partner, 'Worried', STRINGS:Format(STRINGS.MapStrings['MTP_078']))
   GAME:WaitFrames(20)
+
+  ------------------------------------------------------------------
+  -- 2. ELLES REPONDENT DE LOIN, PUIS ELLES DESCENDENT LE CHEMIN NORD.
+  --
+  -- LE CHEMIN DE TERRE, mesure sur la grille et suivi a la lettre :
+  -- il descend en LIGNE DROITE sur x = 1152, de y = 600 jusqu'a
+  -- l'esplanade, en se resserrant a une seule case vers y = 860. Le
+  -- trajet a ete verifie marchable de bout en bout (40 pas) ; les
+  -- trois le suivent exactement, sans jamais couper par l'herbe.
+  --
+  -- LA VOIX AVANT LE CORPS : elles parlent alors qu'elles sont encore
+  -- hors champ, en haut du chemin. On les entend, on ne les voit pas.
+  -- Les portraits s'affichent, les sprites arrivent apres — c'est ce
+  -- decalage qui fait l'entree.
+  ------------------------------------------------------------------
+  --Haut du chemin de terre. Le couloir n'est large que d'UNE case de
+  --y = 584 a y = 600 (mesure) : on les empile donc a 592, 616 et 640,
+  --toutes sur l'axe x = 1152, dans l'ordre de la marche.
+  GROUND:TeleportTo(adagio, 1152, 592, Direction.Down)
+  GROUND:TeleportTo(aria,   1152, 616, Direction.Down)
+  GROUND:TeleportTo(sonata, 1152, 640, Direction.Down)
+  pcall(function() GROUND:Hide('Adagio') end)
+  pcall(function() GROUND:Hide('Aria') end)
+  pcall(function() GROUND:Hide('Sonata') end)
+
+  --LA VOIX INCONNUE, DE LOIN. Le duo se retourne vers le chemin.
+  SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
+  say(adagio, 'Happy',  STRINGS:Format(STRINGS.MapStrings['MTP_079']))
+  local r1 = TASK:BranchCoroutine(function()
+    GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+    GeneralFunctions.EmoteAndPause(partner, "Exclaim", true)
+  end)
+  local r2 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(7)
+    GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+  end)
+  TASK:JoinCoroutines({ r1, r2 })
+  GAME:WaitFrames(12)
+
+  say(sonata, 'Normal', STRINGS:Format(STRINGS.MapStrings['MTP_080']))
+  GAME:WaitFrames(8)
+  say(aria,   'Happy',  STRINGS:Format(STRINGS.MapStrings['MTP_081']))
+  GAME:WaitFrames(8)
+  say(adagio, 'Angry',  STRINGS:Format(STRINGS.MapStrings['MTP_082']))
+  GAME:WaitFrames(15)
+
+  --LA FOULE SE RASSEMBLE, attiree par l'entree. Elle vient d'abord au
+  --centre — c'est ce qui obligera la place a s'ouvrir juste apres.
+  SOUND:PlayBGM('Team_Dazzling.ogg', true)
+  local ras = {}
+  for i, e in ipairs(CERCLE) do
+    local c = CH(e[1])
+    if c ~= nil then
+      ras[#ras + 1] = TASK:BranchCoroutine(function()
+        GAME:WaitFrames((i - 1) * 9)
+        pcall(function()
+          GROUND:CharSetEmote(c, "notice", 1)
+          GeneralFunctions.EightWayMove(c, e[2], e[3], false, 1)
+          GROUND:CharAnimateTurnTo(c, e[4], 4)
+        end)
+      end)
+    end
+  end
+  local ras2 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(16)
+    GAME:MoveCamera(1152, 872, 60, false)
+  end)
+  table.insert(ras, ras2)
+  TASK:JoinCoroutines(ras)
+  GAME:WaitFrames(14)
 
   --LA FOULE S'ECARTE POUR LES LAISSER PASSER. Elle bouchait le centre
   --et la bouche du defile ; elle reflue sur les cotes, chacun du cote
@@ -291,30 +442,43 @@ function DazzlingPlaza.ActeI()
   TASK:JoinCoroutines(ec)
   GAME:WaitFrames(12)
 
-  --LA DESCENTE EN FILE. Adagio en tete, les deux autres dans son dos.
-  --Elles franchissent le goulet une par une, puis se deploient en
-  --triangle sur l'esplanade : Adagio devant, Aria arriere-gauche,
-  --Sonata arriere-droite. Cette geometrie ne changera plus.
+  --LA DESCENTE DU CHEMIN, EN FILE. Adagio ouvre la marche « en
+  --defilant », les deux Chipies juste derriere elle. Elles suivent le
+  --chemin de terre point par point (x = 1152, de y = 616 jusqu'a
+  --l'esplanade) : aucune ne coupe par le decor.
+  pcall(function() GROUND:Unhide('Adagio') end)
+  pcall(function() GROUND:Unhide('Aria') end)
+  pcall(function() GROUND:Unhide('Sonata') end)
+
   local f1 = TASK:BranchCoroutine(function()
+    GROUND:MoveToPosition(adagio, 1152, 720, false, 1)
+    GROUND:MoveToPosition(adagio, 1152, 800, false, 1)
     GROUND:MoveToPosition(adagio, 1152, 864, false, 1)
     GROUND:MoveToPosition(adagio, 1152, 928, false, 1)
     GROUND:CharAnimateTurnTo(adagio, Direction.Down, 4)
   end)
   local f2 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(26)
+    GAME:WaitFrames(30)
+    GROUND:MoveToPosition(aria, 1152, 720, false, 1)
+    GROUND:MoveToPosition(aria, 1152, 800, false, 1)
     GROUND:MoveToPosition(aria, 1152, 864, false, 1)
     GeneralFunctions.EightWayMove(aria, 1128, 912, false, 1)
     GROUND:CharAnimateTurnTo(aria, Direction.Down, 4)
   end)
   local f3 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(52)
+    GAME:WaitFrames(60)
+    GROUND:MoveToPosition(sonata, 1152, 720, false, 1)
+    GROUND:MoveToPosition(sonata, 1152, 800, false, 1)
     GROUND:MoveToPosition(sonata, 1152, 864, false, 1)
-    GeneralFunctions.EightWayMove(sonata, 1176, 912, false, 1)
+    --Point intermediaire (1160,888) : le bord du goulet mord la
+    --diagonale directe vers son poste, verifie au pas de 4 px.
+    GROUND:MoveToPosition(sonata, 1160, 888, false, 1)
+    GROUND:MoveToPosition(sonata, 1176, 912, false, 1)
     GROUND:CharAnimateTurnTo(sonata, Direction.Down, 4)
   end)
   local f4 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(30)
-    GAME:MoveCamera(1152, 904, 60, false)
+    GAME:WaitFrames(34)
+    GAME:MoveCamera(1152, 904, 70, false)
   end)
   TASK:JoinCoroutines({ f1, f2, f3, f4 })
   GAME:WaitFrames(18)
@@ -329,12 +493,12 @@ function DazzlingPlaza.ActeI()
   GAME:WaitFrames(20)
 
   ------------------------------------------------------------------
-  -- 3. LA MERE PAPILUSION COUPE TOUT. Elle court : run = true.
-  --    Elle deboule du cote est de la place, entre les etals.
+  -- 3. PAPILUSION SE TOURNE VERS ELLES. Elle est deja la : c'est a
+  --    ELLES qu'elle s'adresse maintenant, et c'est ce qui declenche
+  --    la reponse d'Aria.
   ------------------------------------------------------------------
-  SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
   local m1 = TASK:BranchCoroutine(function()
-    GeneralFunctions.EightWayMove(mere, 1232, 920, true, 2)
+    GeneralFunctions.EightWayMove(mere, 1200, 928, false, 1)
     GROUND:CharTurnToCharAnimated(mere, adagio, 4)
   end)
   local m2 = TASK:BranchCoroutine(function()
@@ -629,29 +793,76 @@ function DazzlingPlaza.Defaite()
     GAME:WaitFrames(15)
 
     ----------------------------------------------------------------
-    -- ELLES S'EN VONT A PIED. La camera les accompagne jusqu'au bout.
+    -- LE PRETEXTE : UN RENDEZ-VOUS AVEC PENTICUS.
+    --
+    -- Elles ne partent pas parce que le combat est fini : elles
+    -- partent parce qu'elles ont MIEUX A FAIRE. Adagio l'annonce comme
+    -- une evidence mondaine, et c'est ce qui pique le plus : le duo
+    -- vient de perdre, et cela ne figure meme pas a son agenda.
+    -- Le rendez-vous exige aupres du maitre de guilde installe aussi
+    -- la suite : elles ne quittent pas l'histoire, elles montent d'un
+    -- cran dans la hierarchie.
     ----------------------------------------------------------------
-    local s1 = TASK:BranchCoroutine(function()
-      GeneralFunctions.EightWayMove(adagio, 1112, 1048, false, 1)
-      GROUND:Hide('Adagio')
-    end)
-    local s2 = TASK:BranchCoroutine(function()
-      GAME:WaitFrames(12)
-      GeneralFunctions.EightWayMove(aria, 1128, 1048, false, 1)
-      GROUND:Hide('Aria')
-    end)
-    local s3 = TASK:BranchCoroutine(function()
-      GAME:WaitFrames(24)
-      GeneralFunctions.EightWayMove(sonata, 1096, 1048, false, 1)
-      GROUND:Hide('Sonata')
-    end)
+    pcall(function() GROUND:CharTurnToCharAnimated(adagio, hero, 6) end)
+    GAME:WaitFrames(12)
+    say(adagio, 'Normal', STRINGS:Format(STRINGS.MapStrings['MTP_090']))
+    GAME:WaitFrames(10)
+    say(adagio, 'Normal', STRINGS:Format(STRINGS.MapStrings['MTP_091']))
+    GAME:WaitFrames(12)
+    pcall(function() GeneralFunctions.EmoteAndPause(aria, "Happy", true) end)
+    say(aria, 'Happy', STRINGS:Format(STRINGS.MapStrings['MTP_092']))
+    GAME:WaitFrames(8)
+    say(sonata, 'Normal', STRINGS:Format(STRINGS.MapStrings['MTP_093']))
+    GAME:WaitFrames(15)
+
+    ----------------------------------------------------------------
+    -- ELLES S'EN VONT PAR LE CHEMIN SUD, JUSQU'A ETRE HORS CHAMP.
+    --
+    -- Le chemin de terre sud a ete releve sur la grille : il descend
+    -- de l'esplanade en obliquant vers l'ouest (x 1112 -> 1064), longe
+    -- le bord du village, puis repart vers l'est en bas (1096 -> 1136)
+    -- pour sortir en y = 1344. Trajet verifie marchable point par
+    -- point pour les trois (73, 72 et 78 pas).
+    --
+    -- Le couloir n'accepte QU'UN SEUL tracé (un decalage de 8 px a
+    -- gauche ou a droite bute dans le decor) : elles partent donc en
+    -- file indienne, espacees dans le TEMPS et non dans l'espace.
+    --
+    -- HORS CHAMP POUR DE BON : la camera reste sur la place (bord bas
+    -- a y = 1048 pour un ecran de 240 px centre sur 928). Elles
+    -- marchent jusqu'a y = 1344, soit pres de 300 px sous le bord de
+    -- l'ecran, avant d'etre masquees. Le Hide n'escamote donc rien
+    -- que le joueur pourrait voir.
+    ----------------------------------------------------------------
+    --Waypoints obtenus par recherche de chemin puis SIMPLIFIES : chaque
+    --segment droit entre deux points consecutifs a ete verifie libre au
+    --pas de 4 px. Des points plus espaces faisaient couper le decor.
+    local SUD = { {1128,944}, {1064,1072}, {1072,1256}, {1088,1296}, {1136,1336} }
+    local function partirParLeSud(who, nom, delai)
+      return TASK:BranchCoroutine(function()
+        GAME:WaitFrames(delai)
+        pcall(function()
+          for _, w in ipairs(SUD) do
+            GROUND:MoveToPosition(who, w[1], w[2], false, 1)
+          end
+          GROUND:Hide(nom)
+        end)
+      end)
+    end
+    local s1 = partirParLeSud(adagio, 'Adagio', 0)
+    local s2 = partirParLeSud(aria,   'Aria',   26)
+    local s3 = partirParLeSud(sonata, 'Sonata', 52)
     local s4 = TASK:BranchCoroutine(function()
-      GAME:WaitFrames(15)
-      GAME:MoveCamera(776, 876, 90, false)
+      --La camera les suit un temps, puis les laisse filer : on reste
+      --avec les vaincus, ce sont eux le sujet.
+      GAME:WaitFrames(20)
+      GAME:MoveCamera(1096, 1010, 80, false)
+      GAME:WaitFrames(60)
+      GAME:MoveCamera(1152, 944, 70, false)
     end)
     local s5 = TASK:BranchCoroutine(function()
-      GAME:WaitFrames(30)
-      SOUND:FadeOutBGM(70)
+      GAME:WaitFrames(40)
+      SOUND:FadeOutBGM(90)
     end)
     TASK:JoinCoroutines({ s1, s2, s3, s4, s5 })
     GAME:WaitFrames(25)
@@ -923,28 +1134,48 @@ function DazzlingPlaza.Victoire()
     say(adagio, 'Determined', STRINGS:Format(STRINGS.MapStrings['MTP_067']))
     GAME:WaitFrames(18)
 
-    --Elles repartent calmement, en formation. Camera jusqu'au bout.
-    local s1 = TASK:BranchCoroutine(function()
-      GeneralFunctions.EightWayMove(adagio, 1152, 688, false, 1)
-      GROUND:Hide('Adagio')
-    end)
-    local s2 = TASK:BranchCoroutine(function()
-      GAME:WaitFrames(14)
-      GeneralFunctions.EightWayMove(aria, 1152, 688, false, 1)
-      GROUND:Hide('Aria')
-    end)
-    local s3 = TASK:BranchCoroutine(function()
-      GAME:WaitFrames(28)
-      GeneralFunctions.EightWayMove(sonata, 1152, 688, false, 1)
-      GROUND:Hide('Sonata')
-    end)
+    --LE MEME PRETEXTE, MAIS IL NE SONNE PLUS PAREIL.
+    --Apres une defaite, le rendez-vous chez Penticus etait une pique :
+    --« nous avons mieux a faire ». Apres une victoire, c'est une
+    --retraite en bon ordre — et Sonata, elle, ne s'y trompe pas.
+    say(adagio, 'Normal', STRINGS:Format(STRINGS.MapStrings['MTP_094']))
+    GAME:WaitFrames(12)
+    say(sonata, 'Normal', STRINGS:Format(STRINGS.MapStrings['MTP_095']))
+    GAME:WaitFrames(10)
+    pcall(function() GeneralFunctions.EmoteAndPause(aria, "Question", true) end)
+    say(aria, 'Worried', STRINGS:Format(STRINGS.MapStrings['MTP_096']))
+    GAME:WaitFrames(15)
+
+    --ELLES REPARTENT PAR LE CHEMIN SUD, en formation, jusqu'au bout.
+    --Meme tracé que dans la branche defaite : le couloir n'en admet
+    --qu'un, et il a ete verifie marchable pour les trois.
+    --Waypoints obtenus par recherche de chemin puis SIMPLIFIES : chaque
+    --segment droit entre deux points consecutifs a ete verifie libre au
+    --pas de 4 px. Des points plus espaces faisaient couper le decor.
+    local SUD = { {1128,944}, {1064,1072}, {1072,1256}, {1088,1296}, {1136,1336} }
+    local function partirParLeSud(who, nom, delai)
+      return TASK:BranchCoroutine(function()
+        GAME:WaitFrames(delai)
+        pcall(function()
+          for _, w in ipairs(SUD) do
+            GROUND:MoveToPosition(who, w[1], w[2], false, 1)
+          end
+          GROUND:Hide(nom)
+        end)
+      end)
+    end
+    local s1 = partirParLeSud(adagio, 'Adagio', 0)
+    local s2 = partirParLeSud(aria,   'Aria',   26)
+    local s3 = partirParLeSud(sonata, 'Sonata', 52)
     local s4 = TASK:BranchCoroutine(function()
-      GAME:WaitFrames(18)
-      GAME:MoveCamera(1040, 840, 95, false)
+      GAME:WaitFrames(20)
+      GAME:MoveCamera(1096, 1010, 80, false)
+      GAME:WaitFrames(60)
+      GAME:MoveCamera(1152, 944, 70, false)
     end)
     local s5 = TASK:BranchCoroutine(function()
       GAME:WaitFrames(40)
-      SOUND:FadeOutBGM(70)
+      SOUND:FadeOutBGM(90)
     end)
     TASK:JoinCoroutines({ s1, s2, s3, s4, s5 })
     GAME:WaitFrames(25)

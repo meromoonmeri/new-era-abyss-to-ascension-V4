@@ -3281,4 +3281,64 @@
   <data name="MTP_T14" xml:space="preserve">
     <value>Vous avez gagné pour lui.[pause=30] Je vais le retrouver. Grâce à vous.</value>
   </data>
+  <data name="MTP_070" xml:space="preserve">
+    <value>Excusez-moi ![pause=20] Vous êtes de la guilde, n'est-ce pas ?</value>
+  </data>
+  <data name="MTP_071" xml:space="preserve">
+    <value>Mon petit n'est pas rentré.[pause=25] Il est parti vers les bois ce matin.</value>
+  </data>
+  <data name="MTP_072" xml:space="preserve">
+    <value>On peut y aller tout de suite ![pause=20] Dites-nous seulement où.</value>
+  </data>
+  <data name="MTP_073" xml:space="preserve">
+    <value>C'est que...[pause=25] on m'a conseillé une équipe. Une vraie. Des habitués.</value>
+  </data>
+  <data name="MTP_074" xml:space="preserve">
+    <value>La Team Dazzling.[pause=30] On dit qu'elles ne reviennent jamais bredouilles.</value>
+  </data>
+  <data name="MTP_075" xml:space="preserve">
+    <value>La Team Dazzling ?[pause=25] Ça, madame, c'est du sérieux.</value>
+  </data>
+  <data name="MTP_076" xml:space="preserve">
+    <value>Trois donjons de rang supérieur cette saison.[pause=20] Trois.</value>
+  </data>
+  <data name="MTP_077" xml:space="preserve">
+    <value>Elles passent ici entre deux missions.[pause=25] Jamais plus de deux jours.</value>
+  </data>
+  <data name="MTP_078" xml:space="preserve">
+    <value>La Team Dazzling...[pause=20] ? Qui sont-ils ?</value>
+  </data>
+  <data name="MTP_079" xml:space="preserve">
+    <value>Hello darling...[pause=20] Bonjour, bienvenue, bonsoir !</value>
+  </data>
+  <data name="MTP_080" xml:space="preserve">
+    <value>Qui sommes-nous ?[pause=25] Voyons, boya, tu vis dans une grotte ou quoi ?</value>
+  </data>
+  <data name="MTP_081" xml:space="preserve">
+    <value>Peut-être qu'il est juste bête, vous savez.</value>
+  </data>
+  <data name="MTP_082" xml:space="preserve">
+    <value>ORRH, la ferme ![pause=20] Tu vas gâcher notre entrée !</value>
+  </data>
+  <data name="MTP_090" xml:space="preserve">
+    <value>Bien.[pause=25] Nous avons assez donné de notre temps.</value>
+  </data>
+  <data name="MTP_091" xml:space="preserve">
+    <value>On nous attend à la guilde.[pause=25] J'ai exigé un entretien avec Penticus.</value>
+  </data>
+  <data name="MTP_092" xml:space="preserve">
+    <value>Exigé ![pause=20] C'est comme demander, mais en plus joli !</value>
+  </data>
+  <data name="MTP_093" xml:space="preserve">
+    <value>Ce n'est pas du tout ça.[pause=25] Avance.</value>
+  </data>
+  <data name="MTP_094" xml:space="preserve">
+    <value>Nous sommes attendues.[pause=25] Penticus m'a accordé un entretien.</value>
+  </data>
+  <data name="MTP_095" xml:space="preserve">
+    <value>« Accordé ».[pause=30] Tu l'as réclamé trois fois par courrier.</value>
+  </data>
+  <data name="MTP_096" xml:space="preserve">
+    <value>On part parce qu'on a gagné, hein ?[pause=25] ...On a gagné, non ?</value>
+  </data>
 </root>

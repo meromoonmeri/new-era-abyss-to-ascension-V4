@@ -311,7 +311,82 @@ demi-largeurs), ce qui garantit qu'aucun sprite ne mord sur un etal.
 | rivales atteignables depuis le joueur | oui |
 | rendu vs ville reelle | **0 pixel d'ecart** |
 
-## 8. Ce qui reste ouvert
+## 8. Arrivee par le chemin nord, sortie par le chemin sud
+
+### Ce qui precede l'entree
+
+L'ordre a ete inverse : **Papilusion parle d'abord**, et c'est elle qui
+NOMME la Team Dazzling. Sans cela, l'entree des trois n'etait qu'une
+apparition ; elle devient la reponse a une question qu'on vient de poser.
+
+1. Elle accourt (`run = true`) et supplie : son petit n'est pas rentre.
+2. Le duo propose d'y aller — elle refuse poliment : on lui a conseille
+   **une equipe qualifiee**. C'est la nuance qui blesse.
+3. Elle prononce le nom. **Les deux Kecleon lèvent la tete depuis leur
+   stand** (`Notice` en decale de 10 frames) et expliquent : trois
+   donjons de rang superieur cette saison. L'information vient de
+   commercants, donc elle est publique et credible.
+   Lars (`Shop_Owner`, 1056,832) et Zigs (`TM_Owner`, 1080,832) sont des
+   MapChars permanents, tous deux **dans le cadre** de la camera posee
+   sur l'aire de duel (ecran 320x240 centre sur 1152,912 -> x 992..1312,
+   y 792..1032). Ils ne bougent pas d'un pouce : ils tiennent boutique.
+4. Le partenaire demande : *« La Team Dazzling... ? Qui sont-ils ? »*
+5. **La voix repond du chemin, hors champ.** Les quatre repliques
+   (`MTP_079` a `MTP_082`) sont dites alors que les trois sont encore
+   masquees en haut du chemin : on les entend avant de les voir.
+6. La foule se rassemble au centre, attiree — puis s'ecarte pour les
+   laisser passer.
+
+### Les deux chemins de terre, releves sur la grille
+
+**NORD** — le chemin descend en **ligne droite sur x = 1152**, de
+y = 592 jusqu'a l'esplanade. Il n'est large que d'**une seule case** de
+y = 584 a y = 600, et se resserre a nouveau vers y = 860 : le decor
+impose de lui-meme la file indienne. Les trois y sont posees a 592, 616
+et 640, dans l'ordre de la marche, et le suivent point par point.
+
+**SUD** — le chemin oblique vers l'ouest en descendant
+(`(1128,944) -> (1064,1072) -> (1072,1256) -> (1088,1296) -> (1136,1336)`),
+longe le bord du village et sort en bas. Le couloir n'admet **qu'un seul
+tracé** : un decalage de 8 px a gauche ou a droite bute dans le decor.
+Elles partent donc en file, espacees **dans le temps** (0 / 26 / 52
+frames), pas dans l'espace.
+
+**Hors champ pour de bon** : la camera revient sur la place (y = 944,
+bord bas de l'ecran a y = 1064). Elles marchent jusqu'a **y = 1336**,
+soit 272 px sous le bord visible, avant d'etre masquees. Le `Hide`
+n'escamote rien que le joueur pourrait voir.
+
+### Le pretexte du depart
+
+Elles ne partent pas parce que le combat est fini : elles ont **exige un
+entretien avec Penticus**. Apres une defaite, c'est une pique (le duo
+vient de perdre, cela ne figure meme pas a leur agenda) ; apres une
+victoire, c'est une retraite en bon ordre — et Sonata ne s'y trompe pas
+(*« Tu l'as reclame trois fois par courrier »*).
+
+### Le controle qui a rattrape l'erreur
+
+Le premier jet validait les trajets par **recherche de chemin** — qui
+contourne les obstacles. Or `MoveToPosition` va en **ligne droite**.
+Trois segments coupaient donc le decor sans que rien ne le signale.
+
+Le controle teste desormais **chaque segment droit au pas de 4 px**.
+Trois defauts corriges : Sonata butait au bord du goulet (point
+intermediaire ajoute en 1160,888) ; Aria et Sonata ne pouvaient pas
+rejoindre le chemin sud depuis leur poste (point de ralliement commun
+en 1128,944, verifie atteignable en droite ligne depuis les trois).
+
+| controle | resultat |
+|---|---|
+| descente du chemin nord, 3 personnages | **OK de bout en bout** |
+| sortie par le chemin sud, 3 personnages | **OK jusqu'a y = 1336** |
+| positions du script | **67 verifiees, 0 bloquee** |
+| cles `.resx` | 84 declarees, **0 orpheline, 0 manquante** |
+| compilation Lua | 673 fichiers, **0 erreur** |
+| baselines | **12 / 849**, inchangees |
+
+## 9. Ce qui reste ouvert
 
 - **Rien n'est testé en jeu.** L'équilibrage du combat, en particulier,
   demande une manette.
