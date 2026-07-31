@@ -152,13 +152,19 @@ for zone, seg, outcome, (exp_kind, exp_idx), exp_scene, via in CASES:
         continue
     dest_ok = (dest_kind == exp_kind and dest_idx == exp_idx)
     scene_ok = exp_scene in scenes
-    hit = dest_ok and scene_ok
+    # Regle utilisateur : la cinematique D'ENTREE ne doit jamais etre rejouee
+    # au respawn — seule la cinematique liee au respawn est rejouee.
+    arrival_scenes = ('ArrivalCutscene', 'ArrivalDinnerNightAndAddressCutscene')
+    no_arrival_replay = not any(a in arrival_scenes for a in scenes)
+    hit = dest_ok and scene_ok and no_arrival_replay
     if not hit:
         ok = False
     print('%-26s | -> %s(%s) %s | scene: %s %s'
           % ('%s seg%d %s' % (zone, seg, outcome), dest_kind, dest_idx,
              'OK' if dest_ok else 'ECHEC (attendu %s %d)' % (exp_kind, exp_idx),
              scenes if scenes else 'AUCUNE', 'OK' if scene_ok else 'ECHEC (attendu %s)' % exp_scene))
+    if not no_arrival_replay:
+        print('   !!! CINEMATIQUE D\'ENTREE REJOUEE AU RESPAWN (interdit)')
 
 print()
 print('RESULTAT GLOBAL:', 'TOUS OK' if ok else 'AU MOINS UN ECHEC / DIVERGENCE SIGNALEE')
