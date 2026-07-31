@@ -145,25 +145,57 @@ end
 -- physique : il faudra que la place s'ouvre pour les laisser passer.
 -- Toutes les positions sont validees par tools/plan_place_marchande.py
 -- (marchable 20x20, hors riviere, >= 40 px de tout collider de boutique).
+-- COMPOSITION DE LA SCENE — trois niveaux de profondeur.
+--
+-- Elle suit le schema fourni par l'utilisateur (cercles bleus / rouges /
+-- jaunes), transpose sur la grille reelle de la place. L'axe vertical du
+-- schema tombe exactement sur x = 1152, c'est-a-dire le defile nord :
+-- la composition et le decor sont donc alignes sans rien forcer.
+--
+--   ARRIERE-PLAN  spectateurs (jaune)  y 904..928, en arc symetrique
+--   CENTRE        Team Dazzling (rouge) y 912..936, en triangle
+--   PREMIER PLAN  heros (bleu)          y 984, sous le leader
+--
+-- REGLES TENUES, toutes verifiees par tools/plan_place_marchande.py :
+--   * une case (24 px) d'ecart MINIMUM entre deux personnages ;
+--   * >= 40 px de tout collider de commerce (aucun effleurement) ;
+--   * aucune entite sur la riviere ;
+--   * spectateurs strictement AU NORD du leader : ils n'entrent jamais
+--     dans l'axe de vision heros -> Dazzling ;
+--   * repartition symetrique, 4 a gauche / 4 a droite ;
+--   * apres ecartement, la colonne du defile (|x-1152| < 28) est vide.
+
+-- PREMIER TEMPS : la foule occupe le centre ET la bouche du defile.
+-- C'est ce qui rend l'entree des rivales physique : il faudra que la
+-- place s'ouvre pour les laisser passer.
+-- PREMIER TEMPS : la foule occupe le centre ET la bouche du defile.
+-- C'est ce qui rend l'entree des rivales physique : il faudra que la
+-- place s'ouvre pour les laisser passer.
 local CERCLE = {
   --{ instance, x, y, direction }
-  { 'Mawile',    1120, 920, Direction.Up    },
-  { 'Floatzel',  1184, 920, Direction.Up    },
-  { 'Quagsire',  1104, 944, Direction.UpRight },
-  { 'Marill',    1192, 912, Direction.UpLeft  },
-  { 'Azumarill', 1128, 960, Direction.Up      },
+  { 'Mawile',    1128, 904, Direction.Down },
+  { 'Floatzel',  1176, 904, Direction.Down },
+  { 'Quagsire',  1104, 912, Direction.Right },
+  { 'Marill',    1200, 920, Direction.Left  },
+  { 'Azumarill', 1152, 888, Direction.Down },   -- en plein dans le defile
+  { 'Venipede',  1224, 920, Direction.Left  },
+  { 'Nidorina',  1080, 920, Direction.Right },
+  { 'Electrike', 1248, 920, Direction.Left  },
 }
 
--- SECOND TEMPS : ils s'ecartent sur les COTES pour ouvrir le passage.
--- Chacun part du cote dont il est le plus proche — personne ne traverse
--- la place devant les rivales. Le couloir central (x = 1152) est alors
--- entierement degage de y = 864 a y = 952 (verifie).
+-- SECOND TEMPS : ils refluent sur les COTES en ARC symetrique.
+-- 4 a gauche, 4 a droite, tous au NORD du leader : le centre reste
+-- entierement degage et la vue heros -> Dazzling n'est jamais coupee.
+-- La colonne du defile (|x-1152| < 28) redevient vide.
 local CERCLE_ECARTE = {
-  { 'Mawile',    1064, 912, Direction.Right },
-  { 'Floatzel',  1240, 920, Direction.Left  },
-  { 'Quagsire',  1032, 912, Direction.Right },
-  { 'Marill',    1264, 944, Direction.Left  },
-  { 'Azumarill', 1096, 976, Direction.UpRight },
+  { 'Mawile',    1104, 920, Direction.Right },
+  { 'Floatzel',  1200, 920, Direction.Left  },
+  { 'Quagsire',  1080, 920, Direction.Right },
+  { 'Marill',    1224, 920, Direction.Left  },
+  { 'Azumarill', 1056, 912, Direction.Right },
+  { 'Venipede',  1248, 920, Direction.Left  },
+  { 'Nidorina',  1032, 912, Direction.Right },
+  { 'Electrike', 1272, 920, Direction.Left  },
 }
 
 --------------------------------------------------------------------
@@ -207,12 +239,12 @@ function DazzlingPlaza.ActeI()
   GAME:WaitFrames(30)
 
   local e1 = TASK:BranchCoroutine(function()
-    GeneralFunctions.EightWayMove(hero, 1136, 936, false, 1)
+    GeneralFunctions.EightWayMove(hero, 1128, 944, false, 1)
     GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
   end)
   local e2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(12)
-    GeneralFunctions.EightWayMove(partner, 1168, 936, false, 1)
+    GeneralFunctions.EightWayMove(partner, 1104, 944, false, 1)
     GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
   end)
   TASK:JoinCoroutines({ e1, e2 })
@@ -265,19 +297,19 @@ function DazzlingPlaza.ActeI()
   --Sonata arriere-droite. Cette geometrie ne changera plus.
   local f1 = TASK:BranchCoroutine(function()
     GROUND:MoveToPosition(adagio, 1152, 864, false, 1)
-    GROUND:MoveToPosition(adagio, 1152, 912, false, 1)
+    GROUND:MoveToPosition(adagio, 1152, 928, false, 1)
     GROUND:CharAnimateTurnTo(adagio, Direction.Down, 4)
   end)
   local f2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(26)
     GROUND:MoveToPosition(aria, 1152, 864, false, 1)
-    GeneralFunctions.EightWayMove(aria, 1120, 896, false, 1)
+    GeneralFunctions.EightWayMove(aria, 1128, 912, false, 1)
     GROUND:CharAnimateTurnTo(aria, Direction.Down, 4)
   end)
   local f3 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(52)
     GROUND:MoveToPosition(sonata, 1152, 864, false, 1)
-    GeneralFunctions.EightWayMove(sonata, 1184, 920, false, 1)
+    GeneralFunctions.EightWayMove(sonata, 1176, 912, false, 1)
     GROUND:CharAnimateTurnTo(sonata, Direction.Down, 4)
   end)
   local f4 = TASK:BranchCoroutine(function()
@@ -445,7 +477,7 @@ function DazzlingPlaza.ActeI()
 
   --Le partenaire se place DEVANT le heros. Deplacement reel.
   local g1 = TASK:BranchCoroutine(function()
-    GeneralFunctions.EightWayMove(partner, 1152, 928, false, 1)
+    GeneralFunctions.EightWayMove(partner, 1128, 968, false, 1)
     GROUND:CharTurnToCharAnimated(partner, adagio, 4)
   end)
   local g2 = TASK:BranchCoroutine(function()

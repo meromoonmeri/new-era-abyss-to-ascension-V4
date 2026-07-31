@@ -259,7 +259,59 @@ ont ete recales. Distance minimale finale aux commerces : **41 px**.
 | rivales atteignables depuis le joueur | oui |
 | trajets d'ecartement | **8/8 franchissables** |
 
-## 7. Ce qui reste ouvert
+## 7. Composition d'apres le schema fourni
+
+Le schema a ete **decode automatiquement** plutot que lu a l'oeil :
+detection des anneaux par couleur et par forme (boite quasi carree, taux
+de remplissage 0,20-0,25 = un anneau, pas un aplat). Resultat : **8
+cercles jaunes, 3 rouges, 7 bleus**, tous parfaitement symetriques.
+
+Controle de coherence : l'axe vert du schema tombe sur `x = 1152` une
+fois converti — c'est-a-dire **exactement le defile nord** deja retenu.
+Le schema et le decor s'alignent sans rien forcer.
+
+### Ce que la transposition a impose
+
+Les coordonnees brutes du schema ne sont pas reprises telles quelles :
+7 des 18 tombaient dans un mur ou sur un etal, la ou l'esplanade se
+resserre au sud. La **structure** est conservee, les **positions** sont
+recalculees sur la grille reelle.
+
+Un second point a corrige une erreur de ma part : le combat se joue sur
+une **grille de 24 px**, pas au pixel. Une composition validee en pixels
+voyait ses trois niveaux s'ecraser sur une seule ligne de cases une fois
+convertie. La composition de la carte est donc construite **directement
+en cases**.
+
+Enfin, mon seuil de 40 px aux commerces etait arbitraire. La vraie
+contrainte est le non-chevauchement : un sprite fait ~32 px, soit 16 px
+de rayon. Le seuil retenu pour la grille est **32 px** (deux
+demi-largeurs), ce qui garantit qu'aucun sprite ne mord sur un etal.
+
+### Composition finale (en cases, axe x = 7)
+
+| niveau | qui | cases |
+|---|---|---|
+| arriere-plan | 8 spectateurs | `(4,8) (2,8) (1,8) (5,9)` · `(9,9) (10,9) (11,9) (12,8)` |
+| centre | Team Dazzling | Aria `(6,8)` · **Adagio `(7,9)`** · Sonata `(8,8)` |
+| premier plan | heros | `(6,10) (5,10) (4,10) (4,11)` |
+
+| regle du schema | verifie |
+|---|---|
+| leader sur l'axe | oui (`x = 7`) |
+| leader un demi-pas en avant | oui (`y = 9` contre `8`) |
+| ailieres symetriques | oui (`-1` / `+1`) |
+| heros au premier plan, au sud du leader | oui |
+| spectateurs jamais au sud du leader | oui |
+| spectateurs symetriques | **4 gauche / 4 droite** |
+| centre degage (colonne x = 7 libre) | oui |
+| une case d'ecart minimum | oui (ecart min = **1,0 case**) |
+| aucun chevauchement de commerce | oui (min **36 px**) |
+| aucune entite sur la riviere | oui |
+| rivales atteignables depuis le joueur | oui |
+| rendu vs ville reelle | **0 pixel d'ecart** |
+
+## 8. Ce qui reste ouvert
 
 - **Rien n'est testé en jeu.** L'équilibrage du combat, en particulier,
   demande une manette.

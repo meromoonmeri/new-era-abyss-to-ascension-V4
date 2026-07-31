@@ -64,28 +64,24 @@ MAP = os.path.join(ROOT, 'Data', 'Map', 'metano_town_duel.rsmap')
 #   Direction : 0 Down, 1 DownLeft, 2 Left, 3 UpLeft,
 #               4 Up, 5 UpRight, 6 Right, 7 DownRight
 SPECTATEURS = [
-    # Fenetre = tuiles ground x41..54 / y29..46 (px x984..1320 y696..1128).
-    # Coordonnees LOCALES ; px_ground = (X0 + x) * 24 + 12.
-    #
-    # Les habitants forment un ARC autour de l'aire de duel, ecartes sur
-    # les deux flancs : ils ont laisse passer les rivales et regardent
-    # depuis le bord. Chaque case satisfait TROIS conditions verifiees :
-    #   - marchable pour un corps 20x20 cote ground (pas seulement au
-    #     centre : le contrôle par le centre seul laissait passer des
-    #     positions posees sur des caisses) ;
-    #   - hors de la riviere ;
-    #   - a >= 40 px du collider de tout commerce (aucun effleurement).
-    # Aucune n'est sur le couloir central (colonne locale x = 7).
-    # (x, y, direction, espece, surnom)
-    #   0 Down, 2 Left, 4 Up, 6 Right
-    ( 4,  9, 6, 'mawile',    'Mawile'),      # px 1092, 924 - flanc ouest
-    ( 5,  9, 6, 'quagsire',  'Quagsire'),    # px 1116, 924
-    ( 9,  9, 2, 'floatzel',  'Floatzel'),    # px 1212, 924 - flanc est
-    (10,  9, 2, 'marill',    'Marill'),      # px 1236, 924
-    ( 4, 11, 4, 'azumarill', 'Azumarill'),   # px 1092, 972 - sud-ouest
-    (11, 10, 2, 'bellsprout','Bellsprout'),  # px 1260, 948 - est, recul
-    ( 4, 12, 4, 'shuckle',   'Shuckle'),     # px 1092, 996 - sud-ouest
-    (12,  9, 2, 'starly',    'Starly'),      # px 1284, 924 - est, recul
+    # Composition du schema fourni par l'utilisateur, transposee en CASES
+    # (le combat se joue sur une grille de 24 px, pas au pixel).
+    # ARC symetrique en ARRIERE-PLAN : 4 a gauche, 4 a droite, tous a
+    # hauteur du leader ou au nord de lui, aucun sur la colonne centrale
+    # x = 7 (l'axe du defile et de la ligne de vue).
+    # Verifie : case marchable, boite 20x20 libre cote ville, hors
+    # riviere, >= 32 px de tout collider de commerce (deux demi-largeurs
+    # de sprite : aucun chevauchement possible), >= 1 case de tout autre
+    # personnage.
+    # (x, y, direction, espece, surnom)   0 Down, 2 Left, 4 Up, 6 Right
+    ( 4,  8, 0, 'mawile',    'Mawile'),      # aile gauche, face au centre
+    ( 2,  8, 6, 'quagsire',  'Quagsire'),
+    ( 1,  8, 6, 'nidorina',  'Nidorina'),
+    ( 5,  9, 6, 'azumarill', 'Azumarill'),
+    ( 9,  9, 2, 'floatzel',  'Floatzel'),    # aile droite
+    (10,  9, 2, 'marill',    'Marill'),
+    (11,  9, 2, 'venipede',  'Venipede'),
+    (12,  8, 2, 'electrike', 'Electrike'),
 ]
 
 
