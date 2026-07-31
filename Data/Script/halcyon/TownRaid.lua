@@ -261,7 +261,14 @@ function TownRaid.Victory()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
-  return pcall(function()
+  --FIX GEL (audit_cutscene_exit, outil recupere de l'ancien agent) :
+  --la fonction armait CutsceneMode(true) sans jamais le desarmer. La
+  --victoire de raid est un retour vers metano_town_nuit.Enter, qui rend
+  --la main juste apres l'appel : le joueur restait fige sur la place,
+  --menu compris (Save.CutsceneMode persistant, GroundScene.cs:176).
+  --Patron identique a TownRaid.Begin (l.236) et RaidScenes.Bedside :
+  --on garde le resultat du pcall, on desarme, puis on renvoie.
+  local ok, err = pcall(function()
     GAME:CutsceneMode(true)
     if partner ~= nil then AI:DisableCharacterAI(partner) end
     SOUND:FadeOutBGM(30)
@@ -301,6 +308,19 @@ function TownRaid.Victory()
     GAME:WaitFrames(15)
     pcall(function() TownReward.Grant(wave) end)
   end)
+  if not ok then PrintInfo('[TownRaid.Victory] scene ecourtee : '..tostring(err)) end
+
+  --Sortie garantie : le joueur reprend TOUJOURS la main apres un raid
+  --gagne (meme patron que RaidScenes.Bedside et TownRaid.Begin).
+  pcall(function()
+    UI:ResetSpeaker()
+    if partner ~= nil then
+      AI:EnableCharacterAI(partner)
+      AI:SetCharacterAI(partner, 'origin.ai.ground_partner', CH('PLAYER'), partner.Position)
+    end
+    GAME:CutsceneMode(false)
+  end)
+  return true
 end
 
 function TownRaid.Defeat()

@@ -91,8 +91,11 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- "Le sommet...[pause=15] On y est presque."
 
   GAME:WaitFrames(30)
-  GROUND:CharAnimateTurnTo(partner, Direction.Down, 4)
-  GROUND:CharAnimateTurnTo(hero, Direction.Down, 4)
+  -- Ils levent les yeux vers ces nuages anormaux : face au ciel (Up),
+  -- pas face a la camera. Regarder le ciel en tournant le dos au ciel
+  -- etait l'orientation fausse signalee en jeu.
+  GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+  GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
 
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Worried")
@@ -256,25 +259,29 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- groupe exigee par les regles de mise en scene ; personne ne reagit
   -- « a la meme vitesse ni de la meme facon ».
   GAME:WaitFrames(20)
+  -- Poussee : deplacement PUR, aucune action qui remplace l'action en
+  -- cours dans ces coroutines (c'etait la cause du gel — voir plus bas).
+  -- animDir = Up : chacun regarde la source du souffle (Tornadus, au nord)
+  -- pendant qu'il est pousse vers le sud. Une fois retombe, toute l'equipe
+  -- est donc deja tournee vers le boss, au lieu des orientations fausses
+  -- (UpLeft/UpRight/Up) signalees en jeu au moment de la reconnaissance.
   local coro_push1 = TASK:BranchCoroutine(function()
     -- Le partenaire est le plus expose : il recule et encaisse.
-    GROUND:AnimateInDirection(partner, "None", partner.Direction, Direction.Down, 8, 1, 1)
-    GROUND:AnimateInDirection(partner, "Hurt", Direction.Down, Direction.Down, 8, 1, 2)
-    BossFX.Impact(12)
+    GROUND:AnimateInDirection(partner, "None", Direction.Up, Direction.Down, 8, 1, 1)
+    GROUND:AnimateInDirection(partner, "Hurt", Direction.Up, Direction.Down, 8, 1, 2)
   end)
   local coro_push2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(6)
-    GROUND:AnimateInDirection(hero, "None", hero.Direction, Direction.Down, 8, 1, 1)
-    GROUND:AnimateInDirection(hero, "Hurt", Direction.Down, Direction.Down, 8, 1, 2)
+    GROUND:AnimateInDirection(hero, "None", Direction.Up, Direction.Down, 8, 1, 1)
+    GROUND:AnimateInDirection(hero, "Hurt", Direction.Up, Direction.Down, 8, 1, 2)
   end)
   local coro_push3 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(13)
     if t2 ~= nil then
       -- t2 est de cote : il est deporte, pas plaque au sol.
-      GROUND:AnimateInDirection(t2, "None", t2.Direction, Direction.Down, 6, 1, 1)
+      GROUND:AnimateInDirection(t2, "None", Direction.Up, Direction.Down, 6, 1, 1)
       GAME:WaitFrames(4)
       GROUND:CharSetEmote(t2, "shock", 1)
-      GROUND:CharAnimateTurnTo(t2, Direction.Up, 4)
     end
   end)
   local coro_push4 = TASK:BranchCoroutine(function()
@@ -283,36 +290,37 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
       -- t3 ferme la marche : il recule d'un pas, se fige, puis leve
       -- les yeux. Reaction plus tardive et plus discrete : c'est lui
       -- qui a vu la scene de plus loin.
-      GROUND:AnimateInDirection(t3, "None", t3.Direction, Direction.Down, 6, 1, 1)
+      GROUND:AnimateInDirection(t3, "None", Direction.Up, Direction.Down, 6, 1, 1)
       GAME:WaitFrames(10)
       GROUND:CharSetEmote(t3, "sweatdrop", 1)
-      GROUND:CharAnimateTurnTo(t3, Direction.Up, 6)
     end
   end)
   TASK:JoinCoroutines({coro_push1, coro_push2, coro_push3, coro_push4})
 
+  -- FIX GEL DE LA SCENE : l'Impact est HORS des coroutines de poussee.
+  -- Quand il etait lance depuis coro_push1 (12 frames apres le depart du
+  -- partenaire, donc pendant que le heros encaissait ENCORE sa poussee),
+  -- BossFX.Knockback -> GROUND:CharSetAction remplacait l'action de
+  -- deplacement en cours du heros. Or _AnimateToPosition (ScriptGround.cs)
+  -- attend `newAction.Complete` SANS la garde `ch.GetCurrentAction() ~=
+  -- newAction` que _MoveToPosition possede : l'action remplacee n'etant
+  -- plus mise a jour, Complete ne devient jamais vrai, la coroutine ne
+  -- reprend jamais, et JoinCoroutines ci-dessus gelait la scene en
+  -- CutsceneMode(true) — le joueur voyait l'equipe figee, de travers.
+  BossFX.Impact(12)
+  GAME:WaitFrames(10)
+
   GAME:WaitFrames(30)
   GROUND:CharSetEmote(partner, "shock", 1)
-  UI:SetSpeaker(partner)
-  GeneralFunctions.SetEmotion("Surprised")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_004']))
-  -- "C'est...[pause=15] Tornadus.[pause=20] L'esprit des vents."
 
-  GAME:WaitFrames(30)
-  -- Tornadus se redresse. Les deux overlays Ominous_Wind qui balayaient
-  -- l'ecran de part et d'autre sont retires : le MapStatus blowing_wind
-  -- pose plus haut porte deja le vent en continu, et le brief demande
-  -- explicitement de ne pas surcharger. Reste l'animation du personnage
-  -- lui-meme, qui suffit a dire la menace.
-  GROUND:CharSetAnim(tornadus, "Charge", true)
-
-  SOUND:PlayBattleSE('EVT_Battle_Transition')
-  GAME:WaitFrames(20)
-
-  -- TOUS SE TOURNENT VERS LUI, en decale. Auparavant seuls le heros et
-  -- le partenaire pivotaient : t2 et t3 restaient plantes de dos face a
-  -- un legendaire. CharTurnToChar vise l'entite plutot qu'une direction
-  -- fixe : l'orientation reste juste meme si une position change.
+  -- TOUS SE TOURNENT VERS LUI, en decale — AVANT la replique de
+  -- reconnaissance : c'est ce mouvement (lever les yeux vers la silhouette
+  -- qui se detache) qui porte le « C'est... Tornadus ». Auparavant la
+  -- replique tombait pendant que hero/partenaire/t2 regardaient ailleurs
+  -- (le partenaire finissait sa recherche de la voix face UpLeft, le heros
+  -- UpRight, t2 Up — trois orientations fausses pour un boss plein nord de
+  -- l'equipe). CharTurnToChar vise l'entite : l'orientation reste juste
+  -- meme si une position change.
   coro1 = TASK:BranchCoroutine(function()
     GROUND:CharTurnToChar(partner, tornadus)
   end)
@@ -331,6 +339,39 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   TASK:JoinCoroutines({coro1, coro2, coro2d, coro2e})
 
   GAME:WaitFrames(10)
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Surprised")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_004']))
+  -- "C'est...[pause=15] Tornadus.[pause=20] L'esprit des vents."
+
+  GAME:WaitFrames(25)
+  -- LA CORDEE DU SOMMET REAGIT. t2 = Ganlon, t3 = Shuca (SetParty de
+  -- mount_windswept_entrance_ch_5) : chacun avec sa voix etablie —
+  -- Ganlon surveillait le perimetre, Shuca voit l'orage en personne.
+  -- Sorties garanties : aucun des deux n'est indispensable a la scene.
+  if t2 ~= nil then
+    UI:SetSpeaker(t2)
+    GeneralFunctions.SetEmotion("Worried")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_047']))
+    GAME:WaitFrames(15)
+  end
+  if t3 ~= nil then
+    UI:SetSpeaker(t3)
+    GeneralFunctions.SetEmotion("Surprised")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_048']))
+    GAME:WaitFrames(20)
+  end
+
+  GAME:WaitFrames(10)
+  -- Tornadus se redresse. Les deux overlays Ominous_Wind qui balayaient
+  -- l'ecran de part et d'autre sont retires : le MapStatus blowing_wind
+  -- pose plus haut porte deja le vent en continu, et le brief demande
+  -- explicitement de ne pas surcharger. Reste l'animation du personnage
+  -- lui-meme, qui suffit a dire la menace.
+  GROUND:CharSetAnim(tornadus, "Charge", true)
+
+  SOUND:PlayBattleSE('EVT_Battle_Transition')
+  GAME:WaitFrames(20)
 
   -- ================= LE GARDIEN DU CIEL PARLE =================
   -- C'est le boss de CLOTURE du chapitre 5, et il etait muet. Or il est le
@@ -357,6 +398,11 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   GAME:WaitFrames(25)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_042']))
   -- "Rien de naturel n'a d'angles."
+  GAME:WaitFrames(25)
+  -- La phrase du gardien rejoint la sensation du heros (HeroDialogue =
+  -- pensee). Sans nommer, sans expliquer : la graine est posee, le joueur
+  -- raccrochera bien plus tard (arcs 2-6).
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWG_049']), "Worried")
   GAME:WaitFrames(30)
   GAME:MoveCamera(560, 1120, 40, false)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_043']))
