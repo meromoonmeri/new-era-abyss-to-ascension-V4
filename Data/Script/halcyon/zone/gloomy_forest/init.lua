@@ -233,6 +233,38 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 	-- d'histoire, elles ne rejoignent pas l'equipe.
 	------------------------------------------------------------------
 	if segmentID == 7 then
+		------------------------------------------------------------------
+		-- DEUX USAGES DU MEME SEGMENT, DISTINGUES PAR SV.Chapter6.PlazaMet
+		--
+		-- (a) LA CONFRONTATION DE LA PLACE (chapitre 6, premiere
+		--     rencontre). Pose par DazzlingPlaza.ActeII juste avant le
+		--     combat. La carte chargee est metano_town_duel.rsmap, qui
+		--     EST la place de Metano. On ressort donc EN VILLE (carte 1)
+		--     si l'on gagne, ou A LA GUILDE (carte 2) si l'on perd :
+		--     les habitants ont porte le duo jusqu'a sa chambre.
+		--
+		-- (b) L'EPREUVE DES TROIS (duel amical de la Foret Lugubre),
+		--     comportement d'origine, inchange : retour au relais 61.
+		------------------------------------------------------------------
+		if SV.Chapter6.PlazaMet and SV.Chapter6.PlazaOutcome == nil then
+			if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+				--VICTOIRE : la scene se joue sur la place, donc apres le
+				--retour en ville (carte 1). PlazaOutcome y sera pose.
+				SV.Chapter6.PlazaPending = 'win'
+				GAME:WaitFrames(20)
+				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
+			else
+				--DEFAITE : le passage en force et l'evanouissement se
+				--jouent sur la place ; le chevet se joue a la guilde.
+				--On repasse donc par la ville, qui enchainera sur la
+				--chambre (carte 2) a la fin de DazzlingPlaza.Defaite().
+				SV.Chapter6.PlazaPending = 'loss'
+				GAME:WaitFrames(20)
+				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
+			end
+			return
+		end
+
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 			SV.Chapter6.DazzlingTrialCleared = true
 			DazzlingArc.TrialVictory()

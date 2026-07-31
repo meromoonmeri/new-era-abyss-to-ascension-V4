@@ -68,7 +68,7 @@ SPECTATEURS = [
     (4,  9, 4, 'mawile',    'Mawile'),
     (7,  9, 4, 'quagsire',  'Quagsire'),
     (9,  8, 4, 'floatzel',  'Floatzel'),
-    (12, 8, 4, 'sudowoodo', 'Sudowoodo'),
+    (12, 8, 4, 'nidoqueen', 'Nidoqueen'),
     (14, 8, 3, 'bellsprout', 'Bellsprout'),
     # -- flanc ouest : ils regardent vers l'est
     (3,  6, 6, 'marill',    'Marill'),

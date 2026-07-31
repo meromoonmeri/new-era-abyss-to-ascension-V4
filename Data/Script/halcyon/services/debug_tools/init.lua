@@ -642,6 +642,14 @@ function DebugTools:OnUpgrade()
  if SV.Chapter6.DazzlingTrialOffered == nil then
 	SV.Chapter6.DazzlingTrialOffered = (SV.Chapter6.DefeatedGloomyBoss == true)
  end
+ --LA CONFRONTATION DE LA PLACE (DazzlingPlaza). Rattrapage pour les
+ --sauvegardes anterieures a son ajout : si la presentation des rivales
+ --a deja ete vue, la confrontation est reputee avoir eu lieu, sinon on
+ --la rejouerait alors que le recit l'a deja depassee.
+ if SV.Chapter6.PlazaMet == nil then
+	SV.Chapter6.PlazaMet = (SV.Chapter6.DazzlingIntroPlayed == true)
+ end
+ if SV.Chapter6.PlazaPending == nil then SV.Chapter6.PlazaPending = false end
  
  --LA NUIT A METANO (TownNight / TownNightScenes). Rattrapage pour les
  --sauvegardes anterieures a l'ajout de la nuit : sans ca, une partie en

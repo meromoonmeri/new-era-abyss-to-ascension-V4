@@ -966,6 +966,18 @@ SV.Chapter6 =
 	DazzlingTrialCleared = false,
 	PlayedTrialVictory = false,
 	PlayedTrialDefeat = false,
+	--LA CONFRONTATION DE LA PLACE (DazzlingPlaza.lua). Premiere vraie
+	--rencontre avec la Team Dazzling, jouee au centre de Metano.
+	--  PlazaMet     : la rencontre a eu lieu. Verrou d'unicite : elle
+	--                 ne peut plus jamais etre rejouee.
+	--  PlazaOutcome : 'win' ou 'loss'. Lu par les dialogues des temoins
+	--                 (DazzlingPlaza.Temoin) et par la suite du recit.
+	--  PlazaPending : issue du combat en attente de mise en scene, posee
+	--                 par zone/gloomy_forest (segment 7) et consommee au
+	--                 retour sur metano_town. false = rien en attente.
+	PlazaMet = false,
+	PlazaOutcome = nil,
+	PlazaPending = false,
 	--LA CHAMBRE DU MAITRE. Jusqu'ici sa porte (guild_third_floor_lobby,
 	--Door_Exit_Touch) etait ouverte en permanence des le ch2 : on pouvait
 	--entrer chez Penticus a n'importe quel moment et n'y trouver personne

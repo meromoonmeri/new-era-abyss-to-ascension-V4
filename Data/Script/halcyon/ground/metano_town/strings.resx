@@ -3822,4 +3822,196 @@
   <data name="LZ_Sight_First_Breath" xml:space="preserve">
     <value>A highland above all skies. The grass bends toward a single point.</value>
   </data>
-<data name="Item_Give_Storage" xml:space="preserve"><value>You received the {0}![pause=0] It was placed in your storage.</value></data></root>
+<data name="Item_Give_Storage" xml:space="preserve"><value>You received the {0}![pause=0] It was placed in your storage.</value></data>  <data name="MTP_001" xml:space="preserve">
+    <value>La Team Dazzling...[pause=20] Qu'est-ce qu'elles font en plein centre ?</value>
+  </data>
+  <data name="MTP_002" xml:space="preserve">
+    <value>Vous avez quand même un cœur...[pause=25] n'est-ce pas ?</value>
+  </data>
+  <data name="MTP_003" xml:space="preserve">
+    <value>S'il vous plaît ![pause=15] Sauvez mon enfant ![pause=20] Il a besoin d'aide !</value>
+  </data>
+  <data name="MTP_004" xml:space="preserve">
+    <value>Bah oui ![pause=20] Sans un cœur, on serait déjà décédées !</value>
+  </data>
+  <data name="MTP_005" xml:space="preserve">
+    <value>T'avais vraiment trouvé le meilleur moment pour sortir une bêtise...</value>
+  </data>
+  <data name="MTP_006" xml:space="preserve">
+    <value>Et puis fallait pas perdre votre gamin.[pause=25] On n'y est pour rien, nous.</value>
+  </data>
+  <data name="MTP_007" xml:space="preserve">
+    <value>Vous...[pause=25] vous n'avez pas le droit de lui parler comme ça !</value>
+  </data>
+  <data name="MTP_008" xml:space="preserve">
+    <value>ASSEZ !</value>
+  </data>
+  <data name="MTP_009" xml:space="preserve">
+    <value>Vous ne voyez pas que vous êtes en train de ruiner toute ma prestance ?</value>
+  </data>
+  <data name="MTP_010" xml:space="preserve">
+    <value>Bref...[pause=25] Nous n'avons pas que ça à faire. Nous sommes très occupées.</value>
+  </data>
+  <data name="MTP_011" xml:space="preserve">
+    <value>Alors...[pause=30] écartez-vous.</value>
+  </data>
+  <data name="MTP_012" xml:space="preserve">
+    <value>Personne n'a besoin de se disputer.[pause=25] On peut juste vous laisser passer.</value>
+  </data>
+  <data name="MTP_013" xml:space="preserve">
+    <value>« Juste ».[pause=25] Voilà un mot que je déteste.[pause=20] On ne fait rien « juste ».</value>
+  </data>
+  <data name="MTP_014" xml:space="preserve">
+    <value>Elle vous a demandé de l'aide.[pause=25] Vous auriez pu dire non poliment.</value>
+  </data>
+  <data name="MTP_015" xml:space="preserve">
+    <value>On a dit non poliment, non ?[pause=20] Enfin...[pause=15] on a dit non.</value>
+  </data>
+  <data name="MTP_016" xml:space="preserve">
+    <value>Tais-toi, Aria.[pause=25] Chaque fois que tu parles, on recule d'un pas.</value>
+  </data>
+  <data name="MTP_017" xml:space="preserve">
+    <value>Vous portez un badge d'explorateur.[pause=25] Montrez-moi qu'il vaut quelque chose.</value>
+  </data>
+  <data name="MTP_018" xml:space="preserve">
+    <value>(Elle ne cherche pas à passer.[pause=25] Elle cherche à voir.)</value>
+  </data>
+  <data name="MTP_019" xml:space="preserve">
+    <value>Écartez-vous,[pause=15] ou faites-moi écarter.[pause=25] L'un des deux.</value>
+  </data>
+  <data name="MTP_020" xml:space="preserve">
+    <value>Alors ce sera la deuxième.[pause=25] On ne bouge pas d'ici.</value>
+  </data>
+  <data name="MTP_021" xml:space="preserve">
+    <value>Enfin une réponse claire.[pause=30] Voyons ce qu'elle vaut.</value>
+  </data>
+  <data name="MTP_030" xml:space="preserve">
+    <value>Le sol est froid.[pause=30] Vos jambes ne répondent plus.</value>
+  </data>
+  <data name="MTP_031" xml:space="preserve">
+    <value>Attends...[pause=25] Attends, je me relève...[pause=20] Je me relève !</value>
+  </data>
+  <data name="MTP_032" xml:space="preserve">
+    <value>Vous étiez sur mon chemin.[pause=30] Vous y êtes toujours.</value>
+  </data>
+  <data name="MTP_033" xml:space="preserve">
+    <value>Oh ![pause=15] On fait comme ça, alors ?[pause=20] D'accord !</value>
+  </data>
+  <data name="MTP_034" xml:space="preserve">
+    <value>Relevez-vous avant qu'on revienne.[pause=30] Ça nous fera une surprise.</value>
+  </data>
+  <data name="MTP_035" xml:space="preserve">
+    <value>Des pas.[pause=25] Beaucoup de pas. Toute la place accourt vers vous.</value>
+  </data>
+  <data name="MTP_036" xml:space="preserve">
+    <value>(Leurs voix s'éloignent...[pause=30] non.[pause=20] C'est moi qui pars.)</value>
+  </data>
+  <data name="MTP_037" xml:space="preserve">
+    <value>Quelques heures plus tard...</value>
+  </data>
+  <data name="MTP_040" xml:space="preserve">
+    <value>Des voix.[pause=30] Elles parlaient déjà avant que vous ouvriez les yeux.</value>
+  </data>
+  <data name="MTP_041" xml:space="preserve">
+    <value>(Le plafond de la chambre.[pause=30] Je ne me souviens pas d'être rentré.)</value>
+  </data>
+  <data name="MTP_042" xml:space="preserve">
+    <value>Il est réveillé ![pause=20] Wouf ![pause=15] Je vais prévenir tout le monde !</value>
+  </data>
+  <data name="MTP_043" xml:space="preserve">
+    <value>On a perdu, hein ?[pause=30] On a vraiment perdu.</value>
+  </data>
+  <data name="MTP_044" xml:space="preserve">
+    <value>Rien de cassé.[pause=25] De l'épuisement, surtout. Beaucoup d'épuisement.</value>
+  </data>
+  <data name="MTP_045" xml:space="preserve">
+    <value>Ce sont les habitants qui vous ont ramenés.[pause=25] À plusieurs. En courant.</value>
+  </data>
+  <data name="MTP_046" xml:space="preserve">
+    <value>Trois adversaires, deux défenseurs.[pause=25] Pourquoi ne pas avoir reculé ?</value>
+  </data>
+  <data name="MTP_047" xml:space="preserve">
+    <value>(Parce qu'il y avait quelqu'un derrière nous.[pause=25] Voilà pourquoi.)</value>
+  </data>
+  <data name="MTP_048" xml:space="preserve">
+    <value>Vous avez tenu devant plus fort que vous.[pause=25] Ce n'est pas une faute.</value>
+  </data>
+  <data name="MTP_049" xml:space="preserve">
+    <value>Mais tenir ne suffit pas.[pause=30] La prochaine fois, il faudra gagner.</value>
+  </data>
+  <data name="MTP_050" xml:space="preserve">
+    <value>On s'entraînera.[pause=25] Autant qu'il faudra.</value>
+  </data>
+  <data name="MTP_051" xml:space="preserve">
+    <value>Voilà ce que je voulais entendre.[pause=30] Reposez-vous. C'est un ordre.</value>
+  </data>
+  <data name="MTP_060" xml:space="preserve">
+    <value>Le silence dure.[pause=30] Personne, sur cette place, ne s'attendait à ça.</value>
+  </data>
+  <data name="MTP_061" xml:space="preserve">
+    <value>Le soleil m'a gênée ![pause=20] Enfin...[pause=15] il y avait du soleil, non ?</value>
+  </data>
+  <data name="MTP_062" xml:space="preserve">
+    <value>Il fait gris depuis ce matin, Aria.</value>
+  </data>
+  <data name="MTP_063" xml:space="preserve">
+    <value>Un jour sans.[pause=25] Ça arrive à tout le monde.[pause=20] Même à nous.</value>
+  </data>
+  <data name="MTP_064" xml:space="preserve">
+    <value>Non, Sonata.[pause=30] Ce n'était pas un jour sans.</value>
+  </data>
+  <data name="MTP_065" xml:space="preserve">
+    <value>Vous êtes plus intéressants que prévu.[pause=25] J'avais mal regardé.</value>
+  </data>
+  <data name="MTP_066" xml:space="preserve">
+    <value>(Elle ne s'excuse pas.[pause=25] Elle corrige. C'est pire.)</value>
+  </data>
+  <data name="MTP_067" xml:space="preserve">
+    <value>Ceci ne règle rien.[pause=30] Ça repousse simplement le vrai duel.</value>
+  </data>
+  <data name="MTP_068" xml:space="preserve">
+    <value>Elles sont parties...[pause=25] et j'ai encore les pattes qui tremblent.</value>
+  </data>
+  <data name="MTP_T01" xml:space="preserve">
+    <value>J'étais juste là.[pause=25] J'aurais pu faire quelque chose.[pause=20] Je n'ai rien fait.</value>
+  </data>
+  <data name="MTP_T02" xml:space="preserve">
+    <value>Vous les avez battues ![pause=20] Elles ! [pause=15]Je l'ai vu de mes yeux !</value>
+  </data>
+  <data name="MTP_T03" xml:space="preserve">
+    <value>Elles ne vous ont pas contournés.[pause=30] Elles vous ont marché dessus.</value>
+  </data>
+  <data name="MTP_T04" xml:space="preserve">
+    <value>Je croyais qu'elles étaient invincibles.[pause=25] Elles ne le sont pas.</value>
+  </data>
+  <data name="MTP_T05" xml:space="preserve">
+    <value>...[pause=30] On vous a portés jusqu'à la guilde.[pause=20] C'était la moindre des choses.</value>
+  </data>
+  <data name="MTP_T06" xml:space="preserve">
+    <value>...[pause=30] La place s'en souviendra.[pause=25] Moi aussi.</value>
+  </data>
+  <data name="MTP_T07" xml:space="preserve">
+    <value>Vous vous êtes mis devant une mère en larmes.[pause=25] Je n'oublierai pas ça.</value>
+  </data>
+  <data name="MTP_T08" xml:space="preserve">
+    <value>Vous avez gagné,[pause=15] et vous n'avez pas fanfaronné.[pause=25] C'est rare.</value>
+  </data>
+  <data name="MTP_T09" xml:space="preserve">
+    <value>La grande verte a dit qu'on ruinait sa prestance...[pause=25] Elle l'a ruinée seule.</value>
+  </data>
+  <data name="MTP_T10" xml:space="preserve">
+    <value>La lapine cherchait une excuse ![pause=20] Il n'y avait même pas de soleil !</value>
+  </data>
+  <data name="MTP_T11" xml:space="preserve">
+    <value>Trois contre deux.[pause=30] Personne ne peut vous reprocher ça.</value>
+  </data>
+  <data name="MTP_T12" xml:space="preserve">
+    <value>Trois contre deux,[pause=15] et c'est vous qui êtes debout.[pause=25] Incroyable.</value>
+  </data>
+  <data name="MTP_T13" xml:space="preserve">
+    <value>Vous vous êtes battus pour mon enfant.[pause=30] Des inconnus. Merci.</value>
+  </data>
+  <data name="MTP_T14" xml:space="preserve">
+    <value>Vous avez gagné pour lui.[pause=30] Je vais le retrouver. Grâce à vous.</value>
+  </data>
+</root>

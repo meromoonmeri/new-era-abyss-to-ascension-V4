@@ -6,6 +6,7 @@ require 'halcyon.SideQuests'
 require 'halcyon.TownVoices'
 require 'halcyon.TownVoicesNight'
 require 'halcyon.TownLife'
+require 'halcyon.DazzlingPlaza'
 
 metano_town_ch_6 = {}
 
@@ -122,6 +123,29 @@ function metano_town_ch_6.SetupGround()
 		})
 		AI:DisableCharacterAI(butterfree)
 		AI:DisableCharacterAI(venipede)
+	end
+
+	--------------------------------------------------------------------
+	-- RETOUR DU DUEL DE LA PLACE. Le combat s'est joue sur
+	-- metano_town_duel.rsmap ; on revient ici pour l'acte III.
+	-- PlazaPending est pose par zone/gloomy_forest/init.lua (segment 7).
+	--------------------------------------------------------------------
+	if SV.Chapter6.PlazaPending ~= nil and SV.Chapter6.PlazaPending ~= false then
+		local issue = SV.Chapter6.PlazaPending
+		SV.Chapter6.PlazaPending = false
+		--Le duo est au sol, la ou il est tombe.
+		GROUND:TeleportTo(hero, 840, 888, Direction.UpRight)
+		GROUND:TeleportTo(partner, 872, 896, Direction.UpRight)
+		if issue == 'win' then
+			DazzlingPlaza.Victoire()
+		else
+			DazzlingPlaza.Defaite()
+			--Le chevet se joue dans la chambre : on y transporte le duo.
+			pcall(function()
+				GAME:EnterGroundMap("guild_heros_room", "Main_Entrance_Marker")
+			end)
+		end
+		return
 	end
 
 	if SV.Chapter6.DefeatedByZarude and not SV.Chapter6.PostDefeatScenePlayed then
@@ -492,6 +516,30 @@ function metano_town_ch_6.DazzlingIntroduction()
 	SV.Chapter6.DazzlingIntroPlayed = true
 	SV.Chapter6.MissionAvailable = true
 	GAME:WaitFrames(20)
+
+	--------------------------------------------------------------------
+	-- LA CONFRONTATION DE LA PLACE — enchainee ici, une seule fois.
+	--
+	-- La presentation ci-dessus reste INTACTE : elle installe les trois
+	-- rivales et se termine sur leur pique habituelle. La confrontation
+	-- proprement dite (mere Papilusion, cercle d'habitants, combat)
+	-- prend le relais immediatement, sans rendre la main entre les deux :
+	-- c'est UNE seule sequence pour le joueur.
+	--
+	-- Verrou d'unicite : SV.Chapter6.PlazaMet est pose par ActeII juste
+	-- avant le combat. La scene ne peut donc jamais etre rejouee, meme
+	-- si le joueur repasse sur le declencheur.
+	--------------------------------------------------------------------
+	if not SV.Chapter6.PlazaMet then
+		local ok, err = pcall(function()
+			DazzlingPlaza.ActeI()
+		end)
+		if not ok then PrintInfo('[metano_town_ch_6] ActeI ecourte : '..tostring(err)) end
+		--ActeII bascule sur la carte de duel : on ne rend PAS la main ici.
+		DazzlingPlaza.ActeII()
+		return
+	end
+
 	GAME:CutsceneMode(false)
 	RestorePartnerAI(partner)
 	AI:SetCharacterAI(adagio, "halcyon.ai.ground_talking", false, 240, 60, 0, false, 'Default', {aria, sonata})
@@ -500,6 +548,10 @@ function metano_town_ch_6.DazzlingIntroduction()
 end
 
 function metano_town_ch_6.Butterfree_Action(chara, activator)
+  --LA CONFRONTATION DE LA PLACE. Si le joueur y etait, ce temoin a
+  --SA replique sur ce qu'il a vu, differente selon l'issue du combat.
+  --Elle prime sur tout le reste, puis la cascade habituelle reprend.
+  if DazzlingPlaza.Temoin('Butterfree') then return end
   --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
   --porte encore la trace. Une seule fois par journee, puis on rend la
   --main au dialogue de chapitre : rien n'est perdu.
@@ -534,6 +586,8 @@ function metano_town_ch_6.Venipede_Action(chara, activator)
   --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
   --porte encore la trace. Une seule fois par journee, puis on rend la
   --main au dialogue de chapitre : rien n'est perdu.
+  --LA CONFRONTATION DE LA PLACE : sa replique de temoin prime.
+  if DazzlingPlaza.Temoin('Venipede') then return end
   if TownVoicesNight.Talk('Venipede') then return end
 	GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_035']), "Happy")
 	GeneralFunctions.EndConversation(chara)
@@ -659,6 +713,10 @@ function metano_town_ch_6.PostMissionCutscene()
 end
 
 function metano_town_ch_6.Mawile_Action(chara, activator)
+  --LA CONFRONTATION DE LA PLACE. Si le joueur y etait, ce temoin a
+  --SA replique sur ce qu'il a vu, differente selon l'issue du combat.
+  --Elle prime sur tout le reste, puis la cascade habituelle reprend.
+  if DazzlingPlaza.Temoin('Mawile') then return end
   --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
   --porte encore la trace. Une seule fois par journee, puis on rend la
   --main au dialogue de chapitre : rien n'est perdu.
@@ -669,6 +727,10 @@ function metano_town_ch_6.Mawile_Action(chara, activator)
 end
 
 function metano_town_ch_6.Floatzel_Action(chara, activator)
+  --LA CONFRONTATION DE LA PLACE. Si le joueur y etait, ce temoin a
+  --SA replique sur ce qu'il a vu, differente selon l'issue du combat.
+  --Elle prime sur tout le reste, puis la cascade habituelle reprend.
+  if DazzlingPlaza.Temoin('Floatzel') then return end
   --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
   --porte encore la trace. Une seule fois par journee, puis on rend la
   --main au dialogue de chapitre : rien n'est perdu.
@@ -679,6 +741,10 @@ function metano_town_ch_6.Floatzel_Action(chara, activator)
 end
 
 function metano_town_ch_6.Quagsire_Action(chara, activator)
+  --LA CONFRONTATION DE LA PLACE. Si le joueur y etait, ce temoin a
+  --SA replique sur ce qu'il a vu, differente selon l'issue du combat.
+  --Elle prime sur tout le reste, puis la cascade habituelle reprend.
+  if DazzlingPlaza.Temoin('Quagsire') then return end
   --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
   --porte encore la trace. Une seule fois par journee, puis on rend la
   --main au dialogue de chapitre : rien n'est perdu.
@@ -1140,6 +1206,10 @@ function metano_town_ch_6.Nidoking_Action(chara, activator)
 end
 
 function metano_town_ch_6.Azumarill_Action(chara, activator)
+  --LA CONFRONTATION DE LA PLACE. Si le joueur y etait, ce temoin a
+  --SA replique sur ce qu'il a vu, differente selon l'issue du combat.
+  --Elle prime sur tout le reste, puis la cascade habituelle reprend.
+  if DazzlingPlaza.Temoin('Azumarill') then return end
   --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
   --porte encore la trace. Une seule fois par journee, puis on rend la
   --main au dialogue de chapitre : rien n'est perdu.
@@ -1296,6 +1366,10 @@ function metano_town_ch_6.Jigglypuff_Action(chara, activator)
 end
 
 function metano_town_ch_6.Marill_Action(chara, activator)
+  --LA CONFRONTATION DE LA PLACE. Si le joueur y etait, ce temoin a
+  --SA replique sur ce qu'il a vu, differente selon l'issue du combat.
+  --Elle prime sur tout le reste, puis la cascade habituelle reprend.
+  if DazzlingPlaza.Temoin('Marill') then return end
   --LA VILLE PARLE DE LA NUIT. Reaction au dernier raid, si la ville en
   --porte encore la trace. Une seule fois par journee, puis on rend la
   --main au dialogue de chapitre : rien n'est perdu.

@@ -1295,7 +1295,7 @@
               "Gender": -1
             },
             "CurrentForm": {
-              "Species": "sudowoodo",
+              "Species": "nidoqueen",
               "Form": 0,
               "Skin": "normal",
               "Gender": -1
@@ -1371,11 +1371,11 @@
               "Assembly": false,
               "Index": -1
             },
-            "Nickname": "Sudowoodo",
+            "Nickname": "Nidoqueen",
             "OriginalUUID": "",
             "OriginalTeam": "",
             "BaseForm": {
-              "Species": "sudowoodo",
+              "Species": "nidoqueen",
               "Form": 0,
               "Skin": "normal",
               "Gender": -1
