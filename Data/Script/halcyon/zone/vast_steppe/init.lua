@@ -74,7 +74,13 @@ function vast_steppe.ExitSegment(zone, result, rescue, segmentID, mapID)
 		-- Segment 0 cleared: go to midpoint rest stop before mini-boss
 		PrintInfo("[NREPROBE][transition] vast_steppe.ExitSegment -> EnterGroundMap('vast_steppe_midpoint')") GAME:EnterGroundMap('vast_steppe_midpoint', 'Main_Entrance_Marker')
 	elseif segmentID == 1 and ReplayEnding.FollowsRoute('vast_steppe', 5) then
-		-- Mini-boss arena: win or loss both go back to mini-boss ground map
+		-- BRANCHE MORTE depuis le retrait du mini-boss : le relais
+		-- (vast_steppe_midpoint) n'envoie plus jamais vers le segment 1,
+		-- il enchaine directement sur les Profondeurs (segment 2). Ce bloc
+		-- est conserve pour ne pas casser une sauvegarde qui serait deja
+		-- DANS l'arene au moment de la mise a jour : elle en ressort
+		-- proprement. Arene du mini-boss (Stantler + Mudbray) : victoire
+		-- comme defaite, retour sur le ground de cinematique.
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 			SV.Chapter5.SteppeMiniBossDefeated = true
 		else
