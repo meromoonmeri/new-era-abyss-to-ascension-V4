@@ -43,7 +43,7 @@ local hero_dream = {}
 -- Map Callbacks
 function hero_dream.Init(map)
   DEBUG.EnableDbgCoro()
-  print('=>> Init_hero_dream <<= [build 2026-08-03-M]')
+  print('=>> Init_hero_dream <<= [build 2026-08-03-N]')
 
   --L'ECRAN EST NOIR AVANT LE PREMIER RENDU.
   --Le moteur ne pose aucun fondu entre deux cartes : moveToZoneInit

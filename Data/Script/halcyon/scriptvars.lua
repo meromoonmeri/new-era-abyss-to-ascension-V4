@@ -829,6 +829,11 @@ SV.Chapter5 =
 	--rejouerait en boucle.
 	CampNightWatchDone = false,
 	DreamSceneSeen = false,--Le reve du Mont Venteux a-t-il ete vu ?
+	--Garde anti-boucle du rattrapage de reve. Si on revient au camp avec
+	--la veillee finie mais le reve jamais joue, PlotScripting retente la
+	--bascule UNE fois ; ce drapeau interdit toute tentative ulterieure,
+	--pour qu'un echec repete degrade la nuit au lieu de boucler.
+	DreamRetryDone = false,
 	MountLastExitReason = '',--Why did the player exit Mt. Windswept back to the entrance? Should be Died or Retreated.
 	PlayTempMountScene = false,--Do we need to play a one time scene outside Mt. Windswept for having died/escaped/given up in the first stretch?
 	EnteredMountain = false,--did player enter Mt. Windswept?
@@ -1365,4 +1370,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-08-03-M]')
+print('Script variables default values loaded! [build 2026-08-03-N]')

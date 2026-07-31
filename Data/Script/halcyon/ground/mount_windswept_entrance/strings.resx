@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -599,7 +599,19 @@
   <data name="MWE5_P15" xml:space="preserve">
     <value>...That happened once.[pause=20][br]Climb safe.[pause=15] Tonight,[pause=10] there'll be a light on and something hot.[pause=20] I'll see to it.</value>
   </data>
-  <data name="MWE5_179" xml:space="preserve">
+    <data name="MWE5_P16" xml:space="preserve">
+    <value>THERE![pause=20] It's your fault too![pause=0] You should have taken me along!!!</value>
+  </data>
+  <data name="MWE5_P17" xml:space="preserve">
+    <value>I told you that mountain was too big for four of you...[pause=20][br]...Nothing broken?[pause=0] Nothing at all?[pause=15] Good.[pause=10] Good.</value>
+  </data>
+  <data name="MWE5_P18" xml:space="preserve">
+    <value>Plum.[pause=20] They came back,[pause=10] that's what matters.[pause=0] And they'll set out again.[pause=20] What they'll need until then is your cooking.</value>
+  </data>
+  <data name="MWE5_P19" xml:space="preserve">
+    <value>...Mmph.[pause=20] The fire will be ready, then.[pause=0] But next time,[pause=10] you take me with you.[pause=20] I won't ask twice.</value>
+  </data>
+<data name="MWE5_179" xml:space="preserve">
     <value>You came through the Crucible?![pause=20] Wait,[pause=10] wait — what did the last floor look like?[pause=0] No, don't tell me, let me guess.</value>
   </data>
   <data name="MWE5_180" xml:space="preserve">

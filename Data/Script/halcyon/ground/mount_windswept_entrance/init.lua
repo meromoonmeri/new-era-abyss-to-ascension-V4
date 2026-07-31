@@ -22,7 +22,7 @@ local mount_windswept_entrance = {}
 --Engine callback function
 function mount_windswept_entrance.Init(map)
   DEBUG.EnableDbgCoro()
-  print('=>> Init_mount_windswept_entrance <<= [build 2026-08-03-M]')
+  print('=>> Init_mount_windswept_entrance <<= [build 2026-08-03-N]')
 
   --LE NOIR ET LE GEL, AVANT TOUT LE RESTE.
   --
@@ -125,6 +125,38 @@ function mount_windswept_entrance.PlotScripting()
     -- MorningAfterDream le consomme. Les deux drapeaux encadrent donc
     -- exactement l'aller-retour, et la scene ne peut pas se rejouer.
     if SV.Chapter5.CampNightWatchDone and not SV.Chapter5.FinishedMountWindsweptIntro then
+      -- RATTRAPAGE DU REVE MANQUE (bug signale en jeu : « la scene du
+      -- reve ne s'est pas lancee, il y a uniquement le reveil en sursaut
+      -- au milieu de la nuit et la discussion avec Phileas »).
+      --
+      -- CAUSE RACINE. Deux drapeaux encadrent l'aller-retour vers la
+      -- carte du reve, et ils ne sont pas poses au meme moment :
+      --   * CampNightWatchDone est pose AVANT la bascule
+      --     (mount_windswept_entrance_ch_5.lua:1594) ;
+      --   * DreamSceneSeen n'est pose QU'APRES le reve
+      --     (hero_dream/init.lua:532 en fin de scene, 561 en secours).
+      -- Ce routeur ne lisait que le PREMIER. Or entre les deux se
+      -- trouvent : un preflight qui peut refuser la bascule (il pose
+      -- alors DreamSceneSeen et rentre — cas propre), MAIS AUSSI toute
+      -- interruption qui ne pose rien (fermeture du jeu pendant le noir,
+      -- bascule avortee cote moteur, sauvegarde reprise a cet instant).
+      -- Dans ces cas-la on revient ici avec CampNightWatchDone = true et
+      -- DreamSceneSeen = false : le routeur croyait le reve joue et
+      -- enchainait droit sur ResumeAfterDream, c'est-a-dire sur le
+      -- sursaut du reveil puis Phileas. Exactement le symptome decrit :
+      -- le reveil sans le reve.
+      --
+      -- CORRECTIF. On distingue desormais « on revient du reve » de
+      -- « on devait rever et on ne l'a pas fait ». Dans le second cas on
+      -- renvoie vers la carte du reve au lieu de l'escamoter. Le
+      -- preflight de hero_dream reste seul juge de la faisabilite : s'il
+      -- refuse, il pose DreamSceneSeen et cette branche ne se represente
+      -- pas — donc aucune boucle possible.
+      if not SV.Chapter5.DreamSceneSeen then
+        PrintInfo('[MWE5] reve non joue alors que la veillee est terminee — nouvelle tentative de bascule vers hero_dream')
+        mount_windswept_entrance_ch_5.RetryDream()
+        return
+      end
       mount_windswept_entrance_ch_5.ResumeAfterDream()
       return
     end

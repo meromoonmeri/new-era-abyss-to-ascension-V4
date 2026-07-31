@@ -1677,6 +1677,74 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 	end
 end
 
+--------------------------------------------------------------------
+-- RATTRAPAGE DU REVE MANQUE
+--
+-- Appelee par PlotScripting quand on arrive sur le camp avec la veillee
+-- terminee (CampNightWatchDone) mais le reve JAMAIS joue
+-- (DreamSceneSeen faux). Cet etat est atteignable des que la bascule
+-- vers hero_dream n'aboutit pas : fermeture du jeu pendant l'ecran
+-- noir, sauvegarde reprise a cet instant precis, ou bascule avortee
+-- cote moteur. Sans ce rattrapage, le routeur enchainait sur
+-- ResumeAfterDream et le joueur voyait le REVEIL SANS LE REVE.
+--
+-- GARDE ANTI-BOUCLE, essentielle : on ne retente QU'UNE SEULE FOIS.
+-- Si la seconde tentative echoue elle aussi, on pose DreamSceneSeen et
+-- on laisse la nuit suivre son cours — un reve saute vaut infiniment
+-- mieux qu'un aller-retour infini entre deux cartes, qui rendrait la
+-- partie injouable. Le compteur vit dans SV : il survit donc a une
+-- sauvegarde/rechargement, ce qu'une variable locale ne ferait pas.
+--------------------------------------------------------------------
+function mount_windswept_entrance_ch_5.RetryDream()
+	if SV.Chapter5.DreamRetryDone then
+		PrintInfo('[MWE5] reve deja retente une fois sans succes — on poursuit sans lui (nuit degradee, partie preservee)')
+		SV.Chapter5.DreamSceneSeen = true
+		mount_windswept_entrance_ch_5.ResumeAfterDream()
+		return
+	end
+	SV.Chapter5.DreamRetryDone = true
+
+	--L'ECRAN DOIT ETRE NOIR AVANT LA BASCULE. On arrive ici par Enter,
+	--donc potentiellement sur une carte allumee et montee : sans ce
+	--fondu, le joueur verrait le camp une fraction de seconde avant de
+	--partir vers le reve. Meme raisonnement qu'en tete de chaque scene
+	--du fichier (FadeOut(false,1) = no-op sur ecran deja noir,
+	--FadeEffect.cs:63-64).
+	pcall(function() GAME:CutsceneMode(true) end)
+	pcall(function() GAME:FadeOut(false, 1) end)
+	pcall(function() SOUND:StopBGM() end)
+
+	--MEME PREFLIGHT QUE LA BASCULE D'ORIGINE, pour la meme raison :
+	--EnterGroundMap est un iterateur paresseux, un pcall autour ne peut
+	--rien attraper. Si la carte n'est pas chargeable, armer la bascule
+	--tue la partie (CurrentGround null -> NRE ProcessInput en boucle).
+	local canDream = true
+	local okPre, resPre = pcall(function()
+		local summary = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get('master_zone')
+		if not summary:GroundValid('hero_dream') then return false end
+		local z = _ZONE.CurrentZone
+		if z ~= nil then
+			local vu = false
+			for i = 0, z.GroundMaps.Count - 1 do
+				if tostring(z.GroundMaps[i]) == 'hero_dream' then vu = true break end
+			end
+			if not vu then return false end
+		end
+		return _DATA:GetGround('hero_dream') ~= nil
+	end)
+	if okPre then canDream = (resPre == true) end
+
+	if not canDream then
+		PrintInfo('[MWE5] rattrapage impossible (hero_dream non chargeable) — reve definitivement saute')
+		SV.Chapter5.DreamSceneSeen = true
+		mount_windswept_entrance_ch_5.ResumeAfterDream()
+		return
+	end
+
+	PrintInfo('[MWE5] rattrapage — bascule armee vers hero_dream')
+	GAME:EnterGroundMap('hero_dream', 'Main_Entrance_Marker', true)
+end
+
 -- LE MATIN — apres le reve, de retour au camp
 -- Scindee de CampNightfall : un changement de carte doit etre la
 -- DERNIERE instruction d'une scene (le moteur poursuit la coroutine en
@@ -3460,6 +3528,101 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 		GAME:WaitFrames(15)
 	end
 
+	--------------------------------------------------------------------
+	-- PLUM DEBOULE — elle apprend le KO et elle le prend PERSONNELLEMENT.
+	--
+	-- DEMANDE UTILISATEUR : « Plum doit reagir au respawn des heros au
+	-- Mont Windsep. Elle ne doit a aucun moment entrer en collision ou
+	-- interagir avec le partenaire (Shuca ou Galon) pendant toute la
+	-- scene. »
+	--
+	-- CAUSALITE. Elle s'est invitee a l'expedition la veille au soir
+	-- (section 4bis) et tient les marmites du camp depuis. L'equipe
+	-- qu'elle nourrit rentre a moitie morte : ne pas la faire reagir
+	-- ferait d'elle un decor. Son angle est le sien — pas l'inquietude
+	-- de Penticus (le chef), pas la culpabilite de Hyko (le garde) :
+	-- le REPROCHE AFFECTUEUX de celle qu'on n'a pas emmenee.
+	--
+	-- CONTRAINTE DE NON-COLLISION, tenue par la geometrie et non par
+	-- la chance. Verifie avec tools/nea_map.py sur la carte reelle :
+	--   * elle s'arrete en (196,196), case libre en boite 20x20 ;
+	--   * distances a l'arrivee : Ganlon 58 px, Shuca 116 px,
+	--     partenaire 104 px, heros ~104 px. Le plus proche de tous est
+	--     Hyko a 49 px. Aucun contact possible ;
+	--   * son trajet part des marmites (236,230) et reste a l'OUEST du
+	--     couloir central : il ne croise NI Ganlon (244,164) NI Shuca
+	--     (308,164), qui gisent au nord, contre la porte du donjon ;
+	--   * elle ne s'adresse jamais a eux et ne les prend jamais pour
+	--     cible d'un CharTurnToChar : elle parle au heros et a Penticus.
+	-- Elle reste donc strictement dans son couloir a elle.
+	--
+	-- Tout est sous pcall et sous `if plum ~= nil` : si le joueur n'a
+	-- pas declenche son arrivee au camp la veille (PlumAtMountCamp
+	-- faux), SetupGround ne l'a pas creee et la scene se joue sans elle,
+	-- exactement comme avant.
+	local plum = nil
+	pcall(function() plum = CH('Jigglypuff') end)
+	if plum ~= nil and SV.Chapter5.PlumAtMountCamp then
+		--1. ELLE ENTEND DEPUIS LES MARMITES. Le cri de Phileas a porte :
+		--elle leve la tete avant de bouger (le corps parle en premier).
+		pcall(function()
+			GROUND:CharTurnToCharAnimated(plum, hero, 4)
+			GeneralFunctions.EmoteAndPause(plum, "Exclaim", true)
+		end)
+		GAME:WaitFrames(12)
+
+		--2. ELLE ACCOURT. Deux segments : elle remonte l'ouest du camp
+		--(220,212) puis se plante en (196,196). Trajet verifie
+		--marchable de bout en bout, a l'ecart du groupe des blesses.
+		--La camera s'elargit pour la faire entrer dans le cadre : elle
+		--ne doit pas parler hors champ (regle de mise en scene du
+		--projet, et exigence du prompt d'architecture des donjons).
+		local pl1 = TASK:BranchCoroutine(function()
+			pcall(function()
+				GeneralFunctions.EightWayMove(plum, 220, 212, true, 2)
+				GeneralFunctions.EightWayMove(plum, 196, 196, true, 2)
+				GROUND:CharTurnToCharAnimated(plum, hero, 4)
+			end)
+		end)
+		local pl2 = TASK:BranchCoroutine(function()
+			GAME:WaitFrames(8)
+			pcall(function() GAME:MoveCamera(252, 178, 50, false) end)
+		end)
+		TASK:JoinCoroutines({pl1, pl2})
+		GAME:WaitFrames(14)
+
+		--3. LE REPROCHE. Elle est en colere parce qu'elle a eu peur —
+		--et la deuxieme replique le trahit. Le registre est celui deja
+		--etabli pour elle : elle explose, puis elle se radoucit sans
+		--jamais l'admettre.
+		UI:SetSpeaker(plum)
+		GeneralFunctions.SetEmotion("Angry")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_P16']))
+		GAME:WaitFrames(15)
+		GeneralFunctions.SetEmotion("Worried")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_P17']))
+		GAME:WaitFrames(18)
+
+		--4. PENTICUS LA RECADRE, doucement. Il ne la contredit pas : il
+		--lui donne un role. C'est ce qui la calme et ce qui justifie
+		--qu'elle reste au camp au lieu de suivre.
+		if penticus ~= nil then
+			pcall(function() GROUND:CharTurnToCharAnimated(penticus, plum, 4) end)
+			UI:SetSpeaker(penticus)
+			GeneralFunctions.SetEmotion("Normal")
+			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_P18']))
+			GAME:WaitFrames(15)
+		end
+
+		--5. ELLE CEDE — a sa maniere. Puis elle retourne a ses marmites :
+		--elle ne reste pas plantee dans le plan, et son depart est ce
+		--qui remet le foyer au centre de la scene suivante.
+		UI:SetSpeaker(plum)
+		GeneralFunctions.SetEmotion("Sigh")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_P19']))
+		GAME:WaitFrames(16)
+	end
+
 	--Le partenaire a mal : le corps le dit avant la boite.
 	pcall(function() GeneralFunctions.Shake(partner) end)
 	pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
@@ -3543,7 +3706,22 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 			GROUND:CharSetAnim(phileas, "Sleep", true)
 		end
 	end)
-	TASK:JoinCoroutines({coro1, coro2, coro3})
+	--PLUM RETOURNE A SES MARMITES, en meme temps que les autres.
+	--Elle repart par ou elle est venue — le couloir ouest, a l'ecart de
+	--Ganlon et Shuca — et se replante en (236,230) : le poste EXACT que
+	--SetupGround lui assigne. Camp et cinematique restent donc d'accord,
+	--et le joueur qui reprend la main la retrouve la ou elle doit etre.
+	coro4 = TASK:BranchCoroutine(function()
+		if plum ~= nil and SV.Chapter5.PlumAtMountCamp then
+			GAME:WaitFrames(26)
+			pcall(function()
+				GeneralFunctions.EightWayMove(plum, 220, 212, false, 1)
+				GeneralFunctions.EightWayMove(plum, 236, 230, false, 1)
+				GROUND:CharAnimateTurnTo(plum, Direction.Right, 4)
+			end)
+		end
+	end)
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
 
 	SV.Chapter5.PlayTempMountScene = false
 

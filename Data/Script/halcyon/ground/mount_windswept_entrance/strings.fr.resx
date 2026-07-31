@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -599,7 +599,19 @@
   <data name="MWE5_P15" xml:space="preserve">
     <value>...C'était une seule fois.[pause=20][br]Montez prudemment.[pause=15] Ce soir,[pause=10] il y aura de la lumière et quelque chose de chaud.[pause=20] Je m'en occupe.</value>
   </data>
-  <data name="MWE5_179" xml:space="preserve">
+    <data name="MWE5_P16" xml:space="preserve">
+    <value>VOILÀ ![pause=20] C'est votre faute,[pause=10] aussi ![pause=0] Fallait m'emmener !!!</value>
+  </data>
+  <data name="MWE5_P17" xml:space="preserve">
+    <value>Je vous l'avais dit,[pause=10] que la montagne était trop grande pour quatre...[pause=20][br]...Vous n'avez rien de cassé ?[pause=0] Rien du tout ?[pause=15] Bon.[pause=10] Bon.</value>
+  </data>
+  <data name="MWE5_P18" xml:space="preserve">
+    <value>Plum.[pause=20] Ils sont rentrés,[pause=10] c'est l'essentiel.[pause=0] Et ils repartiront.[pause=20] Ce dont ils auront besoin d'ici là,[pause=10] c'est de tes marmites.</value>
+  </data>
+  <data name="MWE5_P19" xml:space="preserve">
+    <value>...Mmph.[pause=20] Le feu sera prêt,[pause=10] alors.[pause=0] Mais la prochaine fois,[pause=10] vous m'emmenez.[pause=20] Je ne le redemanderai pas.</value>
+  </data>
+<data name="MWE5_179" xml:space="preserve">
     <value>Vous êtes passés par le Creuset ?![pause=20] Attendez,[pause=10] attendez — il ressemblait à quoi, le dernier étage ?[pause=0] Non, ne dites rien, laissez-moi deviner.</value>
   </data>
   <data name="MWE5_180" xml:space="preserve">

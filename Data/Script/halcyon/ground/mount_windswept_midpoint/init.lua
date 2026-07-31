@@ -22,7 +22,7 @@ local mount_windswept_midpoint = {}
 
 function mount_windswept_midpoint.Init(map)
   DEBUG.EnableDbgCoro()
-  print('=>> Init_mount_windswept_midpoint <<= [build 2026-08-03-M]')
+  print('=>> Init_mount_windswept_midpoint <<= [build 2026-08-03-N]')
   COMMON.RespawnAllies(true)
   PartnerEssentials.InitializePartnerSpawn()
 end
