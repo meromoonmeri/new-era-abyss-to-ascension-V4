@@ -12,6 +12,7 @@ require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_2'
 require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_3'
 require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_4'
 require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_5'
+require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_6'
 require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_7'
 require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_helper'
 
@@ -108,6 +109,12 @@ function guild_third_floor_lobby.PlotScripting()
 				guild_third_floor_lobby_ch_5.SecondExpeditionAddress()
 			else
 				GAME:FadeIn(20)
+			end
+		elseif SV.ChapterProgression.Chapter == 6 then
+			if not SV.Chapter6.FinishedFirstAddress then
+				guild_third_floor_lobby_ch_6.FirstMorningAddress()
+			else
+				guild_third_floor_lobby_ch_6.SetupGround()
 			end
 		elseif SV.ChapterProgression.Chapter == 7 then
 			if not SV.Chapter7.RuinsAddressGiven then

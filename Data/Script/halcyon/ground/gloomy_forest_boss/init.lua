@@ -60,15 +60,7 @@ function gloomy_forest_boss.PlotScripting()
 	if SV.ChapterProgression.Chapter == 6 and not SV.Chapter6.GloomyBossEncountered then
 		gloomy_forest_boss_ch_6.FirstBossScene()
 	elseif SV.ChapterProgression.Chapter == 6 and not SV.Chapter6.DefeatedGloomyBoss then
-		--Le joueur revient apres avoir perdu contre Zarude : GloomyBossEncountered est
-		--deja vrai, donc la premiere scene ne rejouera pas. Sans cette branche la carte
-		--n'a aucune sortie et le joueur reste bloque. On relance directement le combat.
-		GAME:FadeIn(20)
-		GAME:WaitFrames(20)
-		COMMON.BossTransition()
-		GAME:CutsceneMode(false)
-		-- Segment 4 : l'arene de Zarude (decalee de 2 -> 4 par le mini-boss).
-		GAME:ContinueDungeon("gloomy_forest", 4, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+		gloomy_forest_boss_ch_6.SecondBossScene()
 	else
 		GAME:FadeIn(20)
 	end

@@ -154,6 +154,10 @@ function guild_heros_room.CheckTriggerEvent()
 	--de retour en ville, sinon une nuit passee suffirait a contourner la
 	--condition (DaysPassed rattrape DaysToReach tout seul).
 	if SV.ChapterProgression.Chapter == 6 and SV.Chapter6.PostMissionScenePlayed
+	   and not SV.Chapter6.FinishedBedtimeCutscene then
+		guild_heros_room_ch_6.PostGloomyBedtalk()
+	end
+	if SV.ChapterProgression.Chapter == 6 and SV.Chapter6.PostMissionScenePlayed
 	   and not SideQuests.AllDone(6) then
 		SV.ChapterProgression.DaysToReach = SV.ChapterProgression.DaysPassed + 1
 	end

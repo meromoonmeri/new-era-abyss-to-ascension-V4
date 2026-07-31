@@ -145,3 +145,51 @@ function gloomy_forest_boss_ch_6.FirstBossScene()
 end
 
 return gloomy_forest_boss_ch_6
+
+function gloomy_forest_boss_ch_6.SecondBossScene()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  local zarude = CH('Zarude')
+  GAME:CutsceneMode(true)
+  AI:DisableCharacterAI(partner)
+  UI:ResetSpeaker()
+
+  GROUND:TeleportTo(hero, 260, 312, Direction.Up)
+  GROUND:TeleportTo(partner, 292, 312, Direction.Up)
+  GAME:MoveCamera(276, 260, 1, false)
+  GAME:FadeIn(40)
+  SOUND:PlayBGM('Boss Battle!.ogg', true)
+  GAME:WaitFrames(30)
+
+  -- Étape 1 : Constat sensoriel (le retour dans l'ombre de la clairière)
+  local coro1 = TASK:BranchCoroutine(function()
+    GeneralFunctions.EightWayMove(hero, 260, 272, false, 1)
+  end)
+  local coro2 = TASK:BranchCoroutine(function()
+    GeneralFunctions.EightWayMove(partner, 292, 272, false, 1)
+  end)
+  TASK:JoinCoroutines({coro1, coro2})
+  GAME:WaitFrames(15)
+
+  -- Étape 2 : Réaction affective
+  UI:SetSpeaker(zarude)
+  GeneralFunctions.SetEmotion("Angry")
+  UI:WaitShowDialogue("Vous revenez...[pause=15] La force de la forêt ne vous a pas suffi ?")
+  GAME:WaitFrames(10)
+
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Determined")
+  UI:WaitShowDialogue("Nous comprenons pourquoi tu défends ces bois, Zarude.[pause=15] Mais nous devons accomplir notre mission !")
+  GAME:WaitFrames(10)
+
+  -- Étape 3 : Décision d'agir
+  UI:SetSpeaker(zarude)
+  GeneralFunctions.SetEmotion("Shouting")
+  UI:WaitShowDialogue("Alors prouvez que votre volonté égale la mienne ![pause=15] En garde !")
+  GAME:WaitFrames(15)
+
+  COMMON.BossTransition()
+  GAME:CutsceneMode(false)
+  GAME:ContinueDungeon("gloomy_forest", 4, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+end
+
