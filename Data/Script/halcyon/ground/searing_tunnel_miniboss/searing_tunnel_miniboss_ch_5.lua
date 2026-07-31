@@ -657,16 +657,16 @@ function searing_tunnel_miniboss_ch_5.DiedToBoss()
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(60)
 
-  SV.TemporaryFlags.Dinnertime = true
-  SV.TemporaryFlags.Bedtime = true
-  SV.TemporaryFlags.MorningWakeup = true
-  SV.TemporaryFlags.MorningAddress = true
-
+  -- Defaite contre le mini-boss : retour au RELAIS (point median,
+  -- master_zone 48 = searing_tunnel_midpoint), la journee continue
+  -- (patron du boss du Tunnel : pas de Dinnertime/Bedtime ici). La
+  -- scene de defaite vient d'etre jouee : le relais accueille le duo
+  -- en etat de camp (SetupGround) et il peut retenter.
   GROUND:CharEndAnim(hero)
   GROUND:CharEndAnim(partner)
   GAME:CutsceneMode(false)
-  PrintInfo("[BossSeq][searing_tunnel_miniboss_ch_5] DiedToBoss -> searing_tunnel_entrance")
-  GAME:EnterGroundMap("searing_tunnel_entrance", "Main_Entrance_Marker")
+  PrintInfo("[BossSeq][searing_tunnel_miniboss_ch_5] DiedToBoss -> searing_tunnel_midpoint")
+  GAME:EnterGroundMap("searing_tunnel_midpoint", "Main_Entrance_Marker")
 end
 
 return searing_tunnel_miniboss_ch_5

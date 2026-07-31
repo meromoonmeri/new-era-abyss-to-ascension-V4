@@ -737,16 +737,16 @@ function mount_windswept_guardian_ch_5.DiedToBoss()
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(60)
 
-  SV.TemporaryFlags.Dinnertime = true
-  SV.TemporaryFlags.Bedtime = true
-  SV.TemporaryFlags.MorningWakeup = true
-  SV.TemporaryFlags.MorningAddress = true
-
+  -- Defaite contre le boss : retour au RELAIS (point median,
+  -- master_zone 64 = mount_windswept_midpoint), la journee continue
+  -- (patron du boss du Tunnel : pas de Dinnertime/Bedtime ici). La
+  -- scene de defaite vient d'etre jouee : le relais accueille le duo
+  -- en etat de camp (SetupGround) et il peut retenter l'ascension.
   GROUND:CharEndAnim(hero)
   GROUND:CharEndAnim(partner)
   GAME:CutsceneMode(false)
-  PrintInfo("[BossSeq][mount_windswept_guardian_ch_5] DiedToBoss -> mount_windswept_entrance")
-  GAME:EnterGroundMap("mount_windswept_entrance", "Main_Entrance_Marker")
+  PrintInfo("[BossSeq][mount_windswept_guardian_ch_5] DiedToBoss -> mount_windswept_midpoint")
+  GAME:EnterGroundMap("mount_windswept_midpoint", "Main_Entrance_Marker")
 end
 
 return mount_windswept_guardian_ch_5
