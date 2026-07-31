@@ -83117,7 +83117,31 @@
       "cloven_ruins_miniboss",
       "crystal_sanctuary_miniboss",
       "forgotten_marsh_miniboss",
-      "treasure_town"
+      "treasure_town",
+      "tt_spinda_cafe",
+      "tt_crossroads",
+      "tt_crossroads_assembly",
+      "tt_crossroads_south",
+      "tt_beach",
+      "tt_beach_dusk",
+      "tt_marowak_dojo",
+      "tt_marowak_dojo_maze",
+      "tt_hot_spring",
+      "tt_sharpedo_bluff",
+      "tt_guild_entrance",
+      "tt_guild_gate",
+      "tt_guild_jobboards",
+      "tt_guild_bedroom",
+      "tt_guild_bedroom_nuit",
+      "tt_guild_dining",
+      "tt_guild_dining_nuit",
+      "tt_guild_master",
+      "tt_guild_master_nuit",
+      "guilde_parvis",
+      "guilde_parvis_soir",
+      "guilde_parvis_nuit",
+      "guilde_sous_sol",
+      "guilde_sous_sol_nuit"
     ]
   }
 }

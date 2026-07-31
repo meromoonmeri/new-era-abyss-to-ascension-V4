@@ -62,7 +62,10 @@
     <value>The sea is calm today.[pause=20] Heading back, or staying a while longer?</value>
   </data>
   <data name="TT_Lapras_002" xml:space="preserve">
-    <value>Return to Metano?</value>
+    <value>Return to the mainland?</value>
+  </data>
+  <data name="TT_Kangaskhan_001" xml:space="preserve">
+    <value>Your things are safe with me.[pause=20] Leave what weighs you down,[pause=10] the road is long.</value>
   </data>
   <data name="TT_Kecleon_001" xml:space="preserve">
     <value>Welcome to the market![pause=15] Everything you need to set out again,[pause=10] and nothing that breaks on the way.</value>
@@ -70,22 +73,52 @@
   <data name="TT_KecleonP_001" xml:space="preserve">
     <value>My brother sells the essentials.[pause=20] I sell what you only find once.[pause=15] Take your time.</value>
   </data>
-  <data name="TT_Chimecho_001" xml:space="preserve">
-    <value>Oh, new faces![pause=20] We see plenty of teams here...[pause=15] but rarely ones from as far as you.</value>
-  </data>
   <data name="TT_Duskull_001" xml:space="preserve">
-    <value>Your belongings are safe.[pause=20] I never sleep,[pause=10] and I never lose a thing.</value>
+    <value>Your savings sleep soundly here.[pause=20] I never sleep,[pause=10] and I never lose a thing.</value>
   </data>
-  <data name="TT_Marowak_001" xml:space="preserve">
-    <value>You look like you've walked a long way.[pause=20] The training ground is open,[pause=10] if your legs still hold.</value>
+  <data name="TT_Electivire_001" xml:space="preserve">
+    <value>Looking to learn a move?[pause=20] I've got what you need.[pause=15] For a price, of course.</value>
   </data>
-  <data name="TT_Croagunk_001" xml:space="preserve">
-    <value>Heh heh...[pause=15] Got something to trade?[pause=20] I've always got something to offer back.</value>
+  <data name="TT_Xatu_001" xml:space="preserve">
+    <value>...[pause=25] You've come from far away.[pause=20] The wind that follows you isn't from here.</value>
+  </data>
+  <data name="TT_Vigoroth_001" xml:space="preserve">
+    <value>Unload, carry, repeat![pause=15] That's port life for you.</value>
+  </data>
+  <data name="TT_Shuppet_001" xml:space="preserve">
+    <value>They say a whole town was built on a beach.[pause=20] Us.[pause=15] We're that town.</value>
+  </data>
+  <data name="TT_Murkrow_001" xml:space="preserve">
+    <value>Explorers arriving by sea...[pause=20] Been a while.</value>
+  </data>
+  <data name="TT_Pidgey_001" xml:space="preserve">
+    <value>You crossed over?[pause=15] On someone's back?[pause=20] I fly. Simpler.</value>
+  </data>
+  <data name="TT_Corphish_001" xml:space="preserve">
+    <value>Hey hey![pause=15] Water's fine today!</value>
+  </data>
+  <data name="TT_Marill_001" xml:space="preserve">
+    <value>We hunt for treasure on the beach, me and my little brother![pause=20] Well...[pause=10] mostly shells.</value>
+  </data>
+  <data name="TT_Azurill_001" xml:space="preserve">
+    <value>Big brother says not to go far from the edge.[pause=20] So I stay here!</value>
   </data>
   <data name="TT_Bidoof_001" xml:space="preserve">
     <value>Yup![pause=15] Finest town on the coast, by golly.[pause=20] Well,[pause=10] it's the only one I know.</value>
   </data>
-  <data name="TT_Wigglytuff_001" xml:space="preserve">
-    <value>Friiiends![pause=25] You've come from the mainland, haven't you?[pause=20] The sea brought you here...[pause=15] So you're home.</value>
+  <data name="TT_Figurant_001" xml:space="preserve">
+    <value>Busy today.[pause=20] Makes a change.</value>
+  </data>
+  <data name="TT_Sign_Kecleon" xml:space="preserve">
+    <value>"Kecleon Market.[pause=15] Exploration goods, honest prices."</value>
+  </data>
+  <data name="TT_Sign_Kangaskhan" xml:space="preserve">
+    <value>"Kangaskhan Storage.[pause=15] Your goods kept safe, whatever happens."</value>
+  </data>
+  <data name="TT_Sign_Electivire" xml:space="preserve">
+    <value>"Move tutoring.[pause=15] Hit hard, hit true."</value>
+  </data>
+  <data name="TT_Sign_CrossRoads" xml:space="preserve">
+    <value>"To the crossroads.[pause=15] Guild atop the cliff."</value>
   </data>
 </root>

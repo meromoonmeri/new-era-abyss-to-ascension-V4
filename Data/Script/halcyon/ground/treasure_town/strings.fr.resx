@@ -62,30 +62,63 @@
     <value>La mer est calme aujourd'hui.[pause=20] Vous rentrez, ou vous restez encore un peu ?</value>
   </data>
   <data name="TT_Lapras_002" xml:space="preserve">
-    <value>Regagner Metano ?</value>
+    <value>Regagner le continent ?</value>
+  </data>
+  <data name="TT_Kangaskhan_001" xml:space="preserve">
+    <value>Vos affaires sont en sécurité chez moi.[pause=20] Déposez ce qui pèse,[pause=10] la route est longue.</value>
   </data>
   <data name="TT_Kecleon_001" xml:space="preserve">
-    <value>Bienvenue au marché ![pause=15] Tout ce qu'il faut pour repartir en exploration,[pause=10] et rien qui casse en chemin.</value>
+    <value>Bienvenue au marché ![pause=15] Tout ce qu'il faut pour repartir,[pause=10] et rien qui casse en chemin.</value>
   </data>
   <data name="TT_KecleonP_001" xml:space="preserve">
     <value>Mon frère vend le nécessaire.[pause=20] Moi, je vends ce qu'on ne trouve qu'une fois.[pause=15] Prenez votre temps.</value>
   </data>
-  <data name="TT_Chimecho_001" xml:space="preserve">
-    <value>Oh, des visages nouveaux ![pause=20] On voit passer beaucoup d'équipes, ici...[pause=15] mais rarement venues d'aussi loin que vous.</value>
-  </data>
   <data name="TT_Duskull_001" xml:space="preserve">
-    <value>Vos affaires sont en sécurité.[pause=20] Je ne dors jamais,[pause=10] et je ne perds rien.</value>
+    <value>Vos économies dorment bien, ici.[pause=20] Je ne dors jamais,[pause=10] et je ne perds rien.</value>
   </data>
-  <data name="TT_Marowak_001" xml:space="preserve">
-    <value>Vous avez l'air d'avoir marché longtemps.[pause=20] Le terrain d'entraînement est ouvert,[pause=10] si vos jambes tiennent encore.</value>
+  <data name="TT_Electivire_001" xml:space="preserve">
+    <value>Vous cherchez à apprendre un mouvement ?[pause=20] J'ai ce qu'il faut.[pause=15] Ça se paie, évidemment.</value>
   </data>
-  <data name="TT_Croagunk_001" xml:space="preserve">
-    <value>Heh heh...[pause=15] Vous avez quelque chose à échanger ?[pause=20] J'ai toujours quelque chose à proposer en face.</value>
+  <data name="TT_Xatu_001" xml:space="preserve">
+    <value>...[pause=25] Vous venez de loin.[pause=20] Le vent qui vous suit n'est pas d'ici.</value>
+  </data>
+  <data name="TT_Vigoroth_001" xml:space="preserve">
+    <value>On décharge, on porte, on recommence ![pause=15] C'est ça, la vie du port.</value>
+  </data>
+  <data name="TT_Shuppet_001" xml:space="preserve">
+    <value>Il paraît qu'un bourg entier a été bâti sur une plage.[pause=20] Nous.[pause=15] C'est nous, ce bourg.</value>
+  </data>
+  <data name="TT_Murkrow_001" xml:space="preserve">
+    <value>Des explorateurs qui débarquent par la mer...[pause=20] Ça faisait longtemps.</value>
+  </data>
+  <data name="TT_Pidgey_001" xml:space="preserve">
+    <value>Vous avez traversé ?[pause=15] Sur le dos de quelqu'un ?[pause=20] Moi je vole, c'est plus simple.</value>
+  </data>
+  <data name="TT_Corphish_001" xml:space="preserve">
+    <value>Hé hé ![pause=15] L'eau est bonne, aujourd'hui !</value>
+  </data>
+  <data name="TT_Marill_001" xml:space="preserve">
+    <value>On cherche des trésors sur la plage avec mon petit frère ![pause=20] Enfin...[pause=10] surtout des coquillages.</value>
+  </data>
+  <data name="TT_Azurill_001" xml:space="preserve">
+    <value>Grand frère dit qu'il faut pas s'éloigner du bord.[pause=20] Alors je reste là !</value>
   </data>
   <data name="TT_Bidoof_001" xml:space="preserve">
     <value>Ouaip ![pause=15] C'est le plus beau bourg de la côte, pour sûr.[pause=20] Enfin,[pause=10] c'est le seul que je connaisse.</value>
   </data>
-  <data name="TT_Wigglytuff_001" xml:space="preserve">
-    <value>Amiiiis ![pause=25] Vous venez du continent, n'est-ce pas ?[pause=20] La mer vous a menés jusqu'ici...[pause=15] Alors vous êtes chez vous.</value>
+  <data name="TT_Figurant_001" xml:space="preserve">
+    <value>Il y a du monde aujourd'hui.[pause=20] Ça change.</value>
+  </data>
+  <data name="TT_Sign_Kecleon" xml:space="preserve">
+    <value>« Marché Kecleon.[pause=15] Objets d'exploration, prix honnêtes. »</value>
+  </data>
+  <data name="TT_Sign_Kangaskhan" xml:space="preserve">
+    <value>« Entrepôt Kangaskhan.[pause=15] Vos biens gardés, quoi qu'il arrive. »</value>
+  </data>
+  <data name="TT_Sign_Electivire" xml:space="preserve">
+    <value>« Apprentissage de capacités.[pause=15] Frappez fort, frappez juste. »</value>
+  </data>
+  <data name="TT_Sign_CrossRoads" xml:space="preserve">
+    <value>« Vers le carrefour.[pause=15] Guilde en haut de la falaise. »</value>
   </data>
 </root>

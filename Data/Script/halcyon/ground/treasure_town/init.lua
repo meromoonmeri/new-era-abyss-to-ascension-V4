@@ -1,29 +1,28 @@
 --[[
     init.lua — Treasure Town / Bourg-Trésor
 
-    Le bourg d'Explorateurs du Ciel, relié à Metano par la mer. On n'y
+    Le bourg d'Explorateurs du Ciel, relié au continent par la mer. On n'y
     accède jamais par un menu de voyage : la traversée se fait sur le dos
-    de Nessie, la Lokhlass passeuse, depuis la plage de Metano
-    (metano_altere_transition) — et le retour se fait de la même façon,
-    depuis la berge sud du bourg.
+    de Nessie, la Lokhlass passeuse, depuis la berge d'altere_pond — et le
+    retour se fait de la même façon.
 
     Origine de la carte
     -------------------
-    `Data/Ground/treasure_town.rsground` provient de PMDO-Explorers-Maps
-    (slothplaysnecro), dépôt qui autorise explicitement la réutilisation
-    (« Feel free to use these in your own projects »). Assets d'origine
-    issus d'ExplorersOfSkyOrigins. Crédité dans CREDITS.md.
+    Reprise d'ExplorersOfSkyOrigins (Minemaker0430), remake d'EoS sous
+    PMDO, qui cible la même GameVersion 0.8.12 que New Era. Cette version
+    est nettement plus complète que celle de PMDO-Explorers-Maps utilisée
+    au premier import : 18 PNJ canoniques déjà placés à leur poste réel,
+    contre un décor nu de six totems. Crédité dans CREDITS.md.
 
-    La carte importée est un DÉCOR NU : elle ne contenait que six totems
-    en GroundObjects, aucun personnage. Les neuf PNJ ci-dessous ont été
-    placés à la main devant leur devanture réelle, puis vérifiés contre
-    la grille d'obstacles (tools/audit_spatial.py : 0 entité murée, 0
-    isolée, 0 hors carte).
+    Conservé de l'import précédent : Nessie et les deux marqueurs
+    d'arrivée. Tout le reste vient d'EOSO.
 
-    Les tenanciers gardent leur RÔLE canonique — marché, banque,
-    entrepôt, dojo, échange — mais portent un nom propre, comme tous les
-    PNJ du projet (convention de CharacterEssentials : Kecleon = Lars,
-    Shuckle = Dion).
+    Personnages hors champ
+    ----------------------
+    Plusieurs PNJ sont posés en (0,0) ou en coordonnées négatives. Ce
+    n'est pas un défaut de placement : c'est le patron d'EOSO pour un
+    acteur de cinématique, caché par GROUND:Hide puis téléporté à sa
+    marque au moment voulu. On ne les déplace pas.
 ]]--
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
@@ -38,6 +37,13 @@ local treasure_town = {}
 function treasure_town.Init(map)
   COMMON.RespawnAllies()
   PartnerEssentials.InitializePartnerSpawn()
+  --Les figurants de cinématique restent invisibles tant qu'aucune scène
+  --ne les convoque. Sans cela ils apparaîtraient empilés au coin
+  --supérieur gauche de la carte.
+  for _, nom in ipairs({'Seedot', 'Corphish', 'Swellow', 'Wurmple',
+                        'Marill', 'Azurill', 'Bidoof', 'Drowzee'}) do
+    pcall(function() GROUND:Hide(nom) end)
+  end
 end
 
 function treasure_town.Enter(map)
@@ -58,10 +64,20 @@ function treasure_town.GameLoad(map)
 end
 
 -------------------------------
--- Le passeur — retour vers Metano
+-- Outil de dialogue
 -------------------------------
--- Nessie fait la liaison dans les deux sens. Elle est le SEUL moyen de
--- quitter le bourg : pas de sortie de carte, pas de menu de voyage.
+-- StartConversation tourne déjà le PNJ vers le héros (npcTurn = true par
+-- défaut, GeneralFunctions.lua:1746) : pas de CharTurnToChar ici.
+local function Parle(chara, cle, emo)
+  DEBUG.EnableDbgCoro()
+  GeneralFunctions.StartConversation(chara,
+    STRINGS:Format(STRINGS.MapStrings[cle]), emo or "Normal")
+  GeneralFunctions.EndConversation(chara)
+end
+
+-------------------------------
+-- Le passeur — retour vers le continent
+-------------------------------
 function treasure_town.Lapras_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   local hero = CH('PLAYER')
@@ -89,68 +105,147 @@ function treasure_town.Lapras_Action(chara, activator)
     SOUND:FadeOutBGM(60)
     GAME:FadeOut(false, 60)
     SV.partner.Spawn = "Default"
-    --Retour a la plage de Metano. metano_altere_transition est la carte
-    --de liaison cote continent : c'est de la qu'on est parti.
-    GAME:EnterGroundMap("metano_altere_transition", "Main_Entrance_Marker")
+    GAME:EnterGroundMap("altere_pond", "Main_Entrance_Marker")
   end
 end
 
 -------------------------------
--- Commerçants
+-- Commerçants et habitants
 -------------------------------
--- Chaque tenancier a une réplique d'accueil et une réplique de service.
--- Aucun n'est un simple panneau : ils commentent le bourg, la mer, les
--- explorateurs de passage.
+-- Chacun commente le bourg, la mer ou les explorateurs de passage.
+-- Aucun n'est un panneau muet.
 
-local function SimpleTalk(chara, cle, emo)
-  DEBUG.EnableDbgCoro()
-  --StartConversation tourne deja le PNJ vers le heros (npcTurn = true
-  --par defaut, GeneralFunctions.lua:1746) : pas de CharTurnToChar ici,
-  --il ferait pivoter deux fois.
-  GeneralFunctions.StartConversation(chara,
-    STRINGS:Format(STRINGS.MapStrings[cle]), emo or "Normal")
-  GeneralFunctions.EndConversation(chara)
+function treasure_town.Kangaskhan_Action(chara, activator)
+  Parle(chara, 'TT_Kangaskhan_001', "Happy")
 end
 
---Le marché Kecleon. Les deux frères tiennent le même étal, l'un les
---objets courants, l'autre les objets rares.
 function treasure_town.Kecleon_Action(chara, activator)
-  SimpleTalk(chara, 'TT_Kecleon_001', "Happy")
+  Parle(chara, 'TT_Kecleon_001', "Happy")
 end
 
-function treasure_town.Kecleon_Purple_Action(chara, activator)
-  SimpleTalk(chara, 'TT_KecleonP_001', "Normal")
+function treasure_town.PurpleKecleon_Action(chara, activator)
+  Parle(chara, 'TT_KecleonP_001', "Normal")
 end
 
---Carilla tient le lieu de rassemblement : elle sait qui est en ville.
-function treasure_town.Chimecho_Action(chara, activator)
-  SimpleTalk(chara, 'TT_Chimecho_001', "Happy")
-end
-
---Osselin garde les dépôts. Il compte, il ne juge pas.
 function treasure_town.Duskull_Action(chara, activator)
-  SimpleTalk(chara, 'TT_Duskull_001', "Normal")
+  Parle(chara, 'TT_Duskull_001', "Normal")
 end
 
---Tibo entraîne. Il regarde les nouveaux venus comme des élèves.
-function treasure_town.Marowak_Action(chara, activator)
-  SimpleTalk(chara, 'TT_Marowak_001', "Determined")
+function treasure_town.Electivire_Action(chara, activator)
+  Parle(chara, 'TT_Electivire_001', "Normal")
 end
 
---Vasco échange. Sourire commercial, œil qui évalue.
-function treasure_town.Croagunk_Action(chara, activator)
-  SimpleTalk(chara, 'TT_Croagunk_001', "Normal")
+function treasure_town.Xatu_Action(chara, activator)
+  Parle(chara, 'TT_Xatu_001', "Normal")
 end
 
---Castorin, apprenti de la guilde locale. Franc, un peu lent.
+function treasure_town.Vigoroth_Action(chara, activator)
+  Parle(chara, 'TT_Vigoroth_001', "Determined")
+end
+
+function treasure_town.Shuppet_Action(chara, activator)
+  Parle(chara, 'TT_Shuppet_001', "Normal")
+end
+
+function treasure_town.Murkrow_Action(chara, activator)
+  Parle(chara, 'TT_Murkrow_001', "Normal")
+end
+
+function treasure_town.Pidgey_Action(chara, activator)
+  Parle(chara, 'TT_Pidgey_001', "Happy")
+end
+
+-- Figurants de cinématique : cachés par défaut. Si une scène les révèle,
+-- ils ont malgré tout une réplique — aucune entité présente ne doit
+-- rester sans traitement.
+function treasure_town.Seedot_Action(chara, activator)
+  Parle(chara, 'TT_Figurant_001', "Normal")
+end
+function treasure_town.Corphish_Action(chara, activator)
+  Parle(chara, 'TT_Corphish_001', "Happy")
+end
+function treasure_town.Swellow_Action(chara, activator)
+  Parle(chara, 'TT_Figurant_001', "Normal")
+end
+function treasure_town.Wurmple_Action(chara, activator)
+  Parle(chara, 'TT_Figurant_001', "Normal")
+end
+function treasure_town.Marill_Action(chara, activator)
+  Parle(chara, 'TT_Marill_001', "Happy")
+end
+function treasure_town.Azurill_Action(chara, activator)
+  Parle(chara, 'TT_Azurill_001', "Happy")
+end
 function treasure_town.Bidoof_Action(chara, activator)
-  SimpleTalk(chara, 'TT_Bidoof_001', "Happy")
+  Parle(chara, 'TT_Bidoof_001', "Happy")
+end
+function treasure_town.Drowzee_Action(chara, activator)
+  Parle(chara, 'TT_Figurant_001', "Normal")
 end
 
---Grodou, le maître de guilde du bourg. Chaleureux, insondable.
-function treasure_town.Wigglytuff_Action(chara, activator)
-  SimpleTalk(chara, 'TT_Wigglytuff_001', "Happy")
+-------------------------------
+-- Enseignes et mobilier
+-------------------------------
+local function Panneau(cle)
+  UI:ResetSpeaker()
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings[cle]))
 end
+
+function treasure_town.SignKecleonShop_Action(obj, activator)
+  DEBUG.EnableDbgCoro(); Panneau('TT_Sign_Kecleon')
+end
+function treasure_town.SignKangaskhan_Action(obj, activator)
+  DEBUG.EnableDbgCoro(); Panneau('TT_Sign_Kangaskhan')
+end
+function treasure_town.SignElectivire_Action(obj, activator)
+  DEBUG.EnableDbgCoro(); Panneau('TT_Sign_Electivire')
+end
+function treasure_town.SignCrossRoads_Action(obj, activator)
+  DEBUG.EnableDbgCoro(); Panneau('TT_Sign_CrossRoads')
+end
+function treasure_town.Shop_Action(obj, activator)
+  DEBUG.EnableDbgCoro(); Panneau('TT_Sign_Kecleon')
+end
+function treasure_town.TM_Action(obj, activator)
+  DEBUG.EnableDbgCoro(); Panneau('TT_Sign_Electivire')
+end
+
+-------------------------------
+-- Sorties vers le reste du hub
+-------------------------------
+-- Les trois liaisons sont celles de la carte d'origine : le carrefour au
+-- nord-est, le dojo au sud-est, la falaise Sharpedo à l'ouest.
+local function Sortir(carte, marqueur)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  SOUND:FadeOutBGM(40)
+  GAME:FadeOut(false, 40)
+  partner.IsInteracting = false
+  GROUND:CharEndAnim(partner)
+  GROUND:CharEndAnim(hero)
+  SV.partner.Spawn = "Default"
+  GAME:EnterGroundMap(carte, marqueur)
+end
+
+function treasure_town.CrossRoadsAssemblyEntrance_Touch(obj, activator)
+  DEBUG.EnableDbgCoro()
+  Sortir("tt_crossroads_assembly", "Main_Entrance_Marker")
+end
+
+function treasure_town.MarowakDojoEntrance_Touch(obj, activator)
+  DEBUG.EnableDbgCoro()
+  Sortir("tt_marowak_dojo", "Main_Entrance_Marker")
+end
+
+function treasure_town.HabitatSharpedoBluffDayEntrance_Touch(obj, activator)
+  DEBUG.EnableDbgCoro()
+  Sortir("tt_sharpedo_bluff", "Main_Entrance_Marker")
+end
+
+-- Marqueur d'une scène du chapitre 3 d'EoS, sans équivalent dans New Era.
+-- Laissé inerte plutôt que supprimé : il ne coûte rien et servira si une
+-- scène de bourg est écrite plus tard à cet endroit.
+function treasure_town.CH3AzrullSceneMarker_Touch(obj, activator) end
 
 function treasure_town.Teammate1_Action(chara, activator)
   PartnerEssentials.GetPartnerDialogue(CH('Teammate1'))

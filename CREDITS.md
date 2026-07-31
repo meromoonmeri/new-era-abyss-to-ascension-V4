@@ -25,6 +25,13 @@
 - **Contenu repris** : scripts Python d'outillage (`tools/dungeon_pack/`)
 - **Note** : certains graphismes proviennent de craftpix.net (vérifier licence avant réutilisation directe)
 
+### ExplorersOfSkyOrigins
+- **Auteur** : [Minemaker0430 / ItsMochaTheOtter](https://github.com/Minemaker0430/ExplorersOfSkyOrigins)
+- **Contributeurs cités par le dépôt** : Sloth (ground maps, musique), servantofTestator (cinématiques), Palika (shaders, objets, scripts), MistressNebula (framework du système de missions), BobTheBobCatt (objets)
+- **Description** : remake d'Explorers of Sky sous PMDO, ciblant la même GameVersion 0.8.12 que New Era
+- **Contenu repris** : hub de Treasure Town — la place du bourg (18 PNJ canoniques placés), le Café Spinda, les trois carrefours, la plage jour/crépuscule, le dojo Ossatueur et son labyrinthe, la source chaude, la falaise Sharpedo, et l'intérieur complet de la guilde Grodoudou (entrée, salle des tableaux de missions, réfectoire, chambres, quartiers du maître, versions jour et nuit) ; les tilesets correspondants
+- **Note** : cartes renommées avec le préfixe `tt_` pour ne pas entrer en collision avec les cartes propres de New Era (`guild_second_floor`, `metano_cafe`, `ledian_dojo` sont des créations du projet, pas des reprises)
+
 ### PMDO-Explorers-Maps
 - **Auteur** : [slothplaysnecro](https://github.com/slothplaysnecro/PMDO-Explorers-Maps)
 - **Description** : cartes d'Explorers of Sky importées et prêtes à l'emploi sous PMDO
