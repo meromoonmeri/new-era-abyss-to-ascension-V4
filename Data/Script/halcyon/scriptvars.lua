@@ -978,6 +978,9 @@ SV.Chapter6 =
 	PlazaMet = false,
 	PlazaOutcome = nil,
 	PlazaPending = false,
+	--Le chevet a la guilde attend d'etre joue (consomme par
+	--guild_heros_room.PlotScripting a l'arrivee dans la chambre).
+	PlazaBedsidePending = false,
 	--LA CHAMBRE DU MAITRE. Jusqu'ici sa porte (guild_third_floor_lobby,
 	--Door_Exit_Touch) etait ouverte en permanence des le ch2 : on pouvait
 	--entrer chez Penticus a n'importe quel moment et n'y trouver personne

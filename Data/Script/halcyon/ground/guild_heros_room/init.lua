@@ -18,6 +18,7 @@ require 'halcyon.ground.guild_heros_room.guild_heros_room_ch_5'
 require 'halcyon.ground.guild_heros_room.guild_heros_room_ch_6'
 require 'halcyon.ground.guild_heros_room.guild_heros_room_helper'
 require 'halcyon.SideQuests'
+require 'halcyon.DazzlingPlaza'
 require 'halcyon.NightWatch'
 require 'halcyon.RaidScenes'
 
@@ -213,6 +214,18 @@ function guild_heros_room.PlotScripting()
 	--Cette scene passe AVANT tout le reste, y compris le tour de guet :
 	--on ne repart pas veiller le soir meme d'un evanouissement, et Phileas
 	--le dit explicitement dans la scene.
+	--LE CHEVET APRES LA CONFRONTATION DE LA PLACE (DazzlingPlaza).
+	--Meme principe que le raid perdu ci-dessous, mais declenche par la
+	--defaite contre la Team Dazzling : les habitants ont porte le duo
+	--jusqu'ici. Passe avant tout le reste pour la meme raison.
+	if SV.Chapter6 ~= nil and SV.Chapter6.PlazaBedsidePending then
+		SV.Chapter6.PlazaBedsidePending = false
+		SV.TemporaryFlags.Bedtime = false
+		SV.TemporaryFlags.MorningWakeup = false
+		pcall(function() DazzlingPlaza.Chevet() end)
+		return
+	end
+
 	local raid = SV.TownRaid or {}
 	if raid.BedsidePending then
 		raid.BedsidePending = false

@@ -140,7 +140,10 @@ function metano_town_ch_6.SetupGround()
 			DazzlingPlaza.Victoire()
 		else
 			DazzlingPlaza.Defaite()
-			--Le chevet se joue dans la chambre : on y transporte le duo.
+			--Le chevet se joue dans la chambre. On pose le drapeau puis on
+			--change de carte : guild_heros_room.PlotScripting le consomme
+			--a l'arrivee (meme patron que RaidScenes.Bedside).
+			SV.Chapter6.PlazaBedsidePending = true
 			pcall(function()
 				GAME:EnterGroundMap("guild_heros_room", "Main_Entrance_Marker")
 			end)
