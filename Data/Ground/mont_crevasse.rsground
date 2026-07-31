@@ -70970,8 +70970,8 @@
        0
       ],
       "Collider": {
-       "X": 200,
-       "Y": 328,
+       "X": 208,
+       "Y": 312,
        "Width": 16,
        "Height": 16
       }
@@ -71180,7 +71180,7 @@
       "InteractOrder": 0,
       "triggerType": 0,
       "Collider": {
-       "X": 216,
+       "X": 200,
        "Y": 200,
        "Width": 16,
        "Height": 16

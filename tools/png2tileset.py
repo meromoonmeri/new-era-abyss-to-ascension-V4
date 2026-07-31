@@ -227,61 +227,121 @@ def tuile_anim(sheets, x, y, framelen=10):
                         'FrameLength': framelen}]}
 
 
-def collisions(src, nuage, pas, seuil=0.45, amas=3, verbeux=True):
-    """Déduit la grille de collisions par LOGIQUE SPATIALE.
+def _otsu(lum):
+    """Seuil de separation automatique entre deux modes de luminance.
+
+    Methode d'Otsu : on cherche le seuil qui maximise la variance ENTRE
+    les deux groupes. Aucun reglage a la main, et le seuil s'adapte a la
+    palette de l'image — c'est ce qui permet de traiter aussi bien un
+    decor vert (Cloven Ruins) qu'une arene grise (Tornadus).
+    """
+    hist, _ = np.histogram(lum, bins=256, range=(0, 256))
+    tot = lum.size
+    sT = (np.arange(256) * hist).sum()
+    sB = 0.0
+    wB = 0
+    best = (0.0, 128)
+    for t in range(256):
+        wB += hist[t]
+        if wB == 0:
+            continue
+        wF = tot - wB
+        if wF == 0:
+            break
+        sB += t * hist[t]
+        mB = sB / wB
+        mF = (sT - sB) / wF
+        v = wB * wF * (mB - mF) ** 2
+        if v > best[0]:
+            best = (v, t)
+    return best[1]
+
+
+def collisions(src, nuage, pas, seuil=0.45, amas=3, verbeux=True,
+               mode='auto'):
+    """Deduit la grille de collisions par LOGIQUE SPATIALE.
 
     ----------------------------------------------------------------
-    POURQUOI LA COULEUR SEULE ECHOUE
+    DEUX PALETTES, DEUX STRATEGIES — et le choix est automatique
     ----------------------------------------------------------------
-    Mesure sur Cloven Ruins, en RGB :
-        chemin de terre (205,187, 97)      herbe (207,186, 97)
-        falaise         (173,148, 77)      arbre (144,106, 47)
-    Le chemin et l'herbe sont IDENTIQUES a 1 pres, et la falaise est
-    voisine de l'herbe. Un classement par teinte donnait 28 % de sol
-    praticable et posait DEUX SPAWNERS D'EQUIPIERS DANS LA ROCHE.
+    Les decors du projet ne se ressemblent pas, et un seul jeu de seuils
+    ne peut pas les couvrir. Mesure comparee :
 
-    La rugosite locale ne tranche pas davantage (herbe 8,6 / arbre 14,0
-    / falaise 15,0 — les plages se recouvrent), pas plus que la distance
-    au vide (falaise nord 70 px, herbe 72 px).
+      Cloven Ruins (ile verte)      Tornadus (cime grise)
+        herbe    (207,186, 97)        plateforme (132,139,142) sat 10
+        falaise  (173,148, 77)        roche      ( 59, 68, 76) sat 17
+        arbre    (144,106, 47)        ciel       (204,223,248) sat 44
+
+    Sur Cloven Ruins la TEINTE porte l'information (vert = vegetation,
+    beige = roche). Sur Tornadus tout est gris : la teinte ne dit plus
+    rien, mais l'histogramme de luminance est franchement BIMODAL —
+    657 127 px de plateforme claire (128-143) contre ~680 000 px de
+    roche sombre (32-111). C'est la LUMINANCE qui porte l'information.
+
+    Le mode 'auto' mesure la saturation moyenne de l'image et choisit :
+      - image coloree  -> mode 'teinte'    (feuillage + roche beige)
+      - image grise    -> mode 'luminance' (seuil d'Otsu)
 
     ----------------------------------------------------------------
-    CE QUI MARCHE : TROIS MATIERES, TROIS SIGNATURES
+    MODE 'teinte' (decors colores)
     ----------------------------------------------------------------
-    1. VIDE       ciel et nuages. Bleu (B-R > 25) ou blanc satureu.
-                  Hors de l'ile il n'y a rien d'autre.
-    2. FEUILLAGE  vert ET sombre : G > R+8, G > B+20, luminance < 110.
-                  L'herbe est verte AUSSI, mais claire (>= 110) : c'est
-                  la luminance qui separe l'arbre de la pelouse.
-    3. ROCHE      beige desature. Critere decisif releve en mesurant les
-                  colonnes rocheuses : leur canal BLEU est haut
-                  (118..187) alors que le sol jaune-vert l'a bas
-                  (59..98). D'ou B > 100 et R > B.
+    1. VIDE       ciel/nuages : B-R > 25, ou blanc sature.
+    2. FEUILLAGE  vert ET sombre (G > R+8, G > B+20, luminance < 110).
+                  L'herbe est verte aussi, mais claire : c'est la
+                  luminance qui separe l'arbre de la pelouse.
+    3. ROCHE      beige desature, canal BLEU haut (118..187) alors que
+                  le sol jaune-vert l'a bas (59..98).
+
+    ----------------------------------------------------------------
+    MODE 'luminance' (decors gris)
+    ----------------------------------------------------------------
+    Seuil d'Otsu sur la luminance : au-dessus = surface praticable,
+    en dessous = roche, ombre, vide. Le ciel est retire a part (il est
+    clair, donc au-dessus du seuil, mais reste infranchissable).
 
     ----------------------------------------------------------------
     PUIS ON RAISONNE EN CELLULES, PAS EN PIXELS
     ----------------------------------------------------------------
-    Le moteur ne connait que des cellules. On calcule donc la FRACTION
-    d'obstacle par cellule et on bloque au-dela de `seuil`. Enfin on
+    Le moteur ne connait que des cellules. On calcule la FRACTION
+    d'obstacle par cellule et on bloque au-dela de `seuil`, puis on
     supprime les amas de moins de `amas` cellules : un obstacle isole
-    d'une seule case au milieu d'une esplanade est du bruit de texture
-    (herbes hautes, cailloux decoratifs), pas un rocher — cela retirait
-    ~500 fausses collisions sur Cloven Ruins.
+    d'une seule case au milieu d'une esplanade est du bruit de texture,
+    pas un rocher (~500 fausses collisions retirees sur Cloven Ruins).
 
     Retourne (bloque, stats) ; `bloque` est indexe [y][x].
     """
     a = np.asarray(src.convert('RGB')).astype(int)
     R, G, B = a[:, :, 0], a[:, :, 1], a[:, :, 2]
     lum = a.mean(axis=2)
+    sat = a.max(axis=2) - a.min(axis=2)
+
+    if mode == 'auto':
+        mode = 'luminance' if sat.mean() < 35 else 'teinte'
+        if verbeux:
+            print(f'  palette : saturation moyenne {sat.mean():.0f} '
+                  f'-> mode {mode.upper()}')
 
     vide = ((B - R > 25) & (B > 150)) | ((R > 225) & (G > 225) & (B > 225))
     vide |= nuage
-    vert = (G > R + 8) & (G > B + 20)
-    feuillage = vert & (lum < 110)
-    roche = (~vide) & (~vert) & (B > 100) & (R > B) & (R - B < 130)
-    obstacle = feuillage | roche
+
+    if mode == 'luminance':
+        t = _otsu(lum)
+        # le ciel est clair : il passerait le seuil, on l'exclut a part
+        praticable = (lum >= t) & (~vide)
+        obstacle = ~praticable & ~vide
+        feuillage = np.zeros_like(vide)
+        roche = obstacle
+        if verbeux:
+            print(f'  seuil Otsu {t} -> {int(praticable.sum())} px praticables')
+    else:
+        vert = (G > R + 8) & (G > B + 20)
+        feuillage = vert & (lum < 110)
+        roche = (~vide) & (~vert) & (B > 100) & (R > B) & (R - B < 130)
+        obstacle = feuillage | roche
 
     H, W = lum.shape
     ny, nx = H // pas, W // pas
+
     def frac(m):
         return m[:ny*pas, :nx*pas].reshape(ny, pas, nx, pas).mean(axis=(1, 3))
     f_obs, f_vide = frac(obstacle), frac(vide)
@@ -289,14 +349,13 @@ def collisions(src, nuage, pas, seuil=0.45, amas=3, verbeux=True):
     bloque = (f_obs >= seuil) | (f_vide > 0.55)
     brut = int(bloque.sum())
 
-    # nettoyage des amas isoles (le vide n'est jamais nettoye)
     try:
         from scipy import ndimage
         lab, n = ndimage.label(bloque)
         tailles = ndimage.sum(bloque, lab, range(1, n + 1))
         garde = np.zeros_like(bloque)
-        for i, t in enumerate(tailles, 1):
-            if t >= amas:
+        for i, t2 in enumerate(tailles, 1):
+            if t2 >= amas:
                 garde[lab == i] = True
         bloque = garde | (f_vide > 0.55)
     except ImportError:
@@ -305,7 +364,7 @@ def collisions(src, nuage, pas, seuil=0.45, amas=3, verbeux=True):
 
     st = dict(nx=nx, ny=ny, brut=brut, final=int(bloque.sum()),
               feuillage=int(feuillage.sum()), roche=int(roche.sum()),
-              vide=int(vide.sum()))
+              vide=int(vide.sum()), mode=mode)
     if verbeux:
         tot = nx * ny
         print(f'  feuillage {st["feuillage"]:7d} px | roche {st["roche"]:7d} px'

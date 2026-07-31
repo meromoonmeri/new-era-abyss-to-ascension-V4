@@ -54,10 +54,17 @@ def render(name, layer_idx=None, out=None):
     obj = load_map(name)
     tex = obj.get('TexSize', 1)
     pitch = 8 * tex
-    W = len(obj['obstacles'])
-    H = len(obj['obstacles'][0])
-    img = Image.new('RGBA', (W * pitch, H * pitch), (0, 0, 0, 255))
     layers = obj['Layers']
+    # ATTENTION : deux grilles differentes coexistent dans un .rsground.
+    #   obstacles[][]      -> grille de collision, maille de 8 px fixe
+    #   Layers[i].Tiles[][] -> grille graphique, maille de pitch = 8*TexSize
+    # GroundMap.Width (GroundMap.cs:49) se lit sur Layers[0].Tiles, PAS sur
+    # obstacles. Dimensionner le rendu sur obstacles produit une image
+    # TexSize fois trop grande, avec le decor tasse dans le coin haut-gauche
+    # et des bandes noires : un faux "probleme de cadrage" purement optique.
+    W = len(layers[0]['Tiles'])
+    H = len(layers[0]['Tiles'][0])
+    img = Image.new('RGBA', (W * pitch, H * pitch), (0, 0, 0, 255))
     for li, layer in enumerate(layers):
         if layer_idx is not None and li != layer_idx:
             continue
