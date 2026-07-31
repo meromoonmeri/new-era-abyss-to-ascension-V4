@@ -104,18 +104,8 @@ BossMusic.LIST = {
   -- Le theme le plus dense du repertoire (2 min 15). Quatre arenes
   -- seulement y ont droit : celles ou l'adversaire est anterieur au
   -- monde lui-meme. La rarete fait l'evenement.
-  escalier_origine         = T.COSMIQUE,    -- le Premier Souffle
-  fleche_reliques_courroux = T.COSMIQUE,    -- l'Heure qui Traine
-  chambre_agee_o           = T.COSMIQUE_2,  -- la Colline Spatiale
-  couloir_legendes         = T.COSMIQUE_2,  -- la Spirale Eternelle
 
   ---------------- CIEL : les gardiens des hauteurs ----------------
-  vigie_stratos      = T.CIEL,     -- le Neuvieme Sommet
-  autel_celeste      = T.CIEL,     -- l'Autel, fin du chapitre 10
-  celestial_peak_boss= T.CIEL,     -- le Sommet Sacre
-  sommet_aurore      = T.CIEL_2,   -- le Bucher de l'Aurore
-  ile_legendaire     = T.CIEL_2,   -- la Premiere Lumiere
-  palier_celeste     = T.CIEL_2,   -- le Ciel Fracture (Veilleur aerien)
   -- TORNADUS, gardien du sommet du Mont Venteux (ch5). Registre CIEL
   -- par definition : c'est le seul boss du donjon, il regne sur les
   -- vents de haute montagne. Sky Tower plutot que Rainbow Peak — le
@@ -124,63 +114,18 @@ BossMusic.LIST = {
   mount_windswept_guardian = T.CIEL,
 
   ---------------- OMBRE : ce qui vient d'a cote ----------------
-  grotte_cryptique    = T.OMBRE,   -- le Versant Inverse
-  vallon_malsain_fond = T.OMBRE,   -- le Cocon de la Ruine
-  creux_ombres_scelle = T.OMBRE,   -- la Seule Ombre
-  ile_australe        = T.OMBRE_2, -- l'Autre Lumiere
-  ile_close           = T.OMBRE_2, -- la Lumiere Empruntee
-  mont_lune_vue       = T.OMBRE_2, -- les Deux Visages du sommeil
-  antre_occident      = T.OMBRE_2, -- le Silence Occidental
-  crystal_sanctuary_boss = T.OMBRE, -- Diancie : le doute, pas le combat
 
   ---------------- NATURE : les gardiens du vivant ----------------
-  lac_savoir       = T.NATURE,
-  lac_espoir       = T.NATURE,
-  lac_courage      = T.NATURE,
-  bois_antan_verger= T.NATURE,
-  bois_des_plaintes= T.NATURE,
-  champ_sacre      = T.NATURE,
-  gue_poulain_autel= T.NATURE,
-  recif_genereux   = T.NATURE,
-  nef_prisme_est   = T.NATURE,
-  grotte_echos     = T.NATURE,
-  sanctuaire_voeu  = T.NATURE,
-  cretes_boreales  = T.NATURE,
-  arene_clairiere_secrete = T.NATURE,  -- le jeu, pas la guerre
-  forgotten_marsh_boss    = T.NATURE,  -- le marais, ch9
 
   ---------------- TELLURIQUE : la roche et le feu ----------------
-  arene_trone_magma = T.TELLURIQUE,
-  champ_braises     = T.TELLUR_2,
-  fosse_volcanique  = T.TELLUR_2,
-  plaines_brulees   = T.TELLUR_2,
-  terres_tues_porte = T.TELLURIQUE,
-  grotte_rocheuse   = T.TELLURIQUE,
-  vallon_perdu      = T.TELLURIQUE,   -- le Visiteur Tombe
-  abime_tempetes    = T.TELLURIQUE,
-  fosse_argentee    = T.TELLURIQUE,
 
   ---------------- MACHINE : les Veilleurs du Reseau ----------------
   -- Ce ne sont pas des dieux : ce sont des postes de garde qu'on a
   -- oublie de relever. Registre froid, repetitif, mecanique.
-  pic_ferreux_pied   = T.MACHINE,
-  mont_grondant_pied = T.MACHINE,
-  mont_cendre_pied   = T.MACHINE,
-  foret_givree_oree  = T.MACHINE_2,
-  mont_gele_pied     = T.MACHINE_2,
-  fosse_ardente      = T.MACHINE_2,
-  carriere_magnetique= T.MACHINE,    -- Magearna : un coeur construit
-  labo_decrepit      = T.MACHINE,    -- Genesect : un vieux reacteur
 
   ---------------- ELECTRIQUE / VIVACITE ----------------
-  arene_hautes_plaines = T.EPREUVE,
-  porte_plaines_foudre = T.EPREUVE,
-  pre_tonnerre         = T.EPREUVE,
-  champ_vent_boreal    = T.CIEL_2,
 
   ---------------- EPREUVE : rivaux et mini-boss ----------------
-  celestial_peak_fulgur = T.EPREUVE,   -- l'Escouade Fulgur : une course
-  gloomy_forest_boss    = T.EPREUVE,   -- Zarude (musique posee ailleurs)
 }
 
 --------------------------------------------------------------------
