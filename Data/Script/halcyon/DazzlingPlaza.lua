@@ -140,13 +140,30 @@ end
 -- Tags == 0. Le cercle se REFERME progressivement : ils commencent
 -- disperses (SetupGround les a places ailleurs), et viennent.
 -- L'ordre de la liste est l'ordre d'arrivee.
+-- PREMIER TEMPS : la foule occupe le CENTRE de la place, y compris la
+-- bouche du defile nord. C'est ce qui rend l'entree des rivales
+-- physique : il faudra que la place s'ouvre pour les laisser passer.
+-- Toutes les positions sont validees par tools/plan_place_marchande.py
+-- (marchable 20x20, hors riviere, >= 40 px de tout collider de boutique).
 local CERCLE = {
-  --{ instance, x d'arrivee, y d'arrivee, direction finale }
-  { 'Mawile',    816, 936, Direction.Up    },
-  { 'Floatzel',  888, 936, Direction.Up    },
-  { 'Quagsire',  744, 912, Direction.UpRight },
-  { 'Marill',    768, 880, Direction.Right   },
-  { 'Azumarill', 720, 872, Direction.Right   },
+  --{ instance, x, y, direction }
+  { 'Mawile',    1120, 920, Direction.Up    },
+  { 'Floatzel',  1184, 920, Direction.Up    },
+  { 'Quagsire',  1104, 944, Direction.UpRight },
+  { 'Marill',    1192, 912, Direction.UpLeft  },
+  { 'Azumarill', 1128, 960, Direction.Up      },
+}
+
+-- SECOND TEMPS : ils s'ecartent sur les COTES pour ouvrir le passage.
+-- Chacun part du cote dont il est le plus proche — personne ne traverse
+-- la place devant les rivales. Le couloir central (x = 1152) est alors
+-- entierement degage de y = 864 a y = 952 (verifie).
+local CERCLE_ECARTE = {
+  { 'Mawile',    1064, 912, Direction.Right },
+  { 'Floatzel',  1240, 920, Direction.Left  },
+  { 'Quagsire',  1032, 912, Direction.Right },
+  { 'Marill',    1264, 944, Direction.Left  },
+  { 'Azumarill', 1096, 976, Direction.UpRight },
 }
 
 --------------------------------------------------------------------
@@ -179,45 +196,93 @@ function DazzlingPlaza.ActeI()
   end
 
   ------------------------------------------------------------------
-  -- 1. LE DUO ARRIVE. La place d'abord, les rivales ensuite.
+  -- 1. LA PLACE MARCHANDE, ANIMEE. Le duo arrive par le sud.
+  --
+  -- Toute la scene se joue sur la GRANDE PLACE, l'esplanade de terre
+  -- battue entourée des commerces : le Kec Shop et le comptoir TM au
+  -- nord-ouest, l'Entrepot au nord-est, la Banque au sud. Le duo
+  -- s'arrete au bord sud de l'esplanade, face au nord.
   ------------------------------------------------------------------
-  GAME:MoveCamera(896, 856, 1, false)
+  GAME:MoveCamera(1152, 936, 1, false)
   GAME:WaitFrames(30)
 
   local e1 = TASK:BranchCoroutine(function()
-    GeneralFunctions.EightWayMove(hero, 840, 888, false, 1)
-    GROUND:CharAnimateTurnTo(hero, Direction.UpRight, 4)
+    GeneralFunctions.EightWayMove(hero, 1136, 936, false, 1)
+    GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
   end)
   local e2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(12)
-    GeneralFunctions.EightWayMove(partner, 872, 896, false, 1)
-    GROUND:CharAnimateTurnTo(partner, Direction.UpRight, 4)
+    GeneralFunctions.EightWayMove(partner, 1168, 936, false, 1)
+    GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
   end)
   TASK:JoinCoroutines({ e1, e2 })
   GAME:WaitFrames(15)
 
   ------------------------------------------------------------------
-  -- 2. LES TROIS EN FORMATION. Adagio devant, Aria arriere-gauche,
-  --    Sonata arriere-droite. Cette geometrie ne changera plus.
+  -- 2. ELLES ARRIVENT PAR LE NORD, ENTRE LES MAGASINS.
+  --
+  -- Le defile nord (x = 1152) passe entre le comptoir TM a l'ouest et
+  -- l'Entrepot a l'est, et se resserre a UNE SEULE case de large en
+  -- y = 860 : elles ne peuvent donc descendre qu'EN FILE INDIENNE.
+  -- C'est le decor lui-meme qui impose l'entree en cortege.
+  --
+  -- Elles descendent d'abord hors champ (y = 688 / 720 / 760), la
+  -- camera remonte vers la bouche du defile, et on les decouvre en
+  -- train d'arriver — on ne les voit pas apparaitre.
   ------------------------------------------------------------------
+  GROUND:TeleportTo(adagio, 1152, 760, Direction.Down)
+  GROUND:TeleportTo(aria,   1152, 720, Direction.Down)
+  GROUND:TeleportTo(sonata, 1152, 688, Direction.Down)
+
   SOUND:PlayBGM('Team_Dazzling.ogg', true)
+  GAME:MoveCamera(1152, 872, 60, false)
+  GAME:WaitFrames(20)
+
+  --LA FOULE S'ECARTE POUR LES LAISSER PASSER. Elle bouchait le centre
+  --et la bouche du defile ; elle reflue sur les cotes, chacun du cote
+  --dont il est le plus proche. Personne ne traverse devant elles.
+  local ec = {}
+  for i, e in ipairs(CERCLE_ECARTE) do
+    local c = CH(e[1])
+    if c ~= nil then
+      ec[#ec + 1] = TASK:BranchCoroutine(function()
+        GAME:WaitFrames((i - 1) * 8)
+        pcall(function()
+          GROUND:CharSetEmote(c, "exclaim", 1)
+          GeneralFunctions.EightWayMove(c, e[2], e[3], false, 1)
+          GROUND:CharAnimateTurnTo(c, e[4], 4)
+        end)
+      end)
+    end
+  end
+  SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
+  TASK:JoinCoroutines(ec)
+  GAME:WaitFrames(12)
+
+  --LA DESCENTE EN FILE. Adagio en tete, les deux autres dans son dos.
+  --Elles franchissent le goulet une par une, puis se deploient en
+  --triangle sur l'esplanade : Adagio devant, Aria arriere-gauche,
+  --Sonata arriere-droite. Cette geometrie ne changera plus.
   local f1 = TASK:BranchCoroutine(function()
-    GeneralFunctions.EightWayMove(adagio, 992, 832, false, 1)
-    GROUND:CharAnimateTurnTo(adagio, Direction.Left, 4)
+    GROUND:MoveToPosition(adagio, 1152, 864, false, 1)
+    GROUND:MoveToPosition(adagio, 1152, 912, false, 1)
+    GROUND:CharAnimateTurnTo(adagio, Direction.Down, 4)
   end)
   local f2 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(9)
-    GeneralFunctions.EightWayMove(aria, 1016, 808, false, 1)
-    GROUND:CharAnimateTurnTo(aria, Direction.Left, 4)
+    GAME:WaitFrames(26)
+    GROUND:MoveToPosition(aria, 1152, 864, false, 1)
+    GeneralFunctions.EightWayMove(aria, 1120, 896, false, 1)
+    GROUND:CharAnimateTurnTo(aria, Direction.Down, 4)
   end)
   local f3 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(18)
-    GeneralFunctions.EightWayMove(sonata, 1024, 856, false, 1)
-    GROUND:CharAnimateTurnTo(sonata, Direction.Left, 4)
+    GAME:WaitFrames(52)
+    GROUND:MoveToPosition(sonata, 1152, 864, false, 1)
+    GeneralFunctions.EightWayMove(sonata, 1184, 920, false, 1)
+    GROUND:CharAnimateTurnTo(sonata, Direction.Down, 4)
   end)
   local f4 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(14)
-    GAME:MoveCamera(936, 848, 50, false)
+    GAME:WaitFrames(30)
+    GAME:MoveCamera(1152, 904, 60, false)
   end)
   TASK:JoinCoroutines({ f1, f2, f3, f4 })
   GAME:WaitFrames(18)
@@ -233,15 +298,16 @@ function DazzlingPlaza.ActeI()
 
   ------------------------------------------------------------------
   -- 3. LA MERE PAPILUSION COUPE TOUT. Elle court : run = true.
+  --    Elle deboule du cote est de la place, entre les etals.
   ------------------------------------------------------------------
   SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
   local m1 = TASK:BranchCoroutine(function()
-    GeneralFunctions.EightWayMove(mere, 936, 832, true, 2)
+    GeneralFunctions.EightWayMove(mere, 1232, 920, true, 2)
     GROUND:CharTurnToCharAnimated(mere, adagio, 4)
   end)
   local m2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(10)
-    GAME:MoveCamera(944, 840, 30, false)
+    GAME:MoveCamera(1184, 912, 30, false)
   end)
   TASK:JoinCoroutines({ m1, m2 })
 
@@ -379,7 +445,7 @@ function DazzlingPlaza.ActeI()
 
   --Le partenaire se place DEVANT le heros. Deplacement reel.
   local g1 = TASK:BranchCoroutine(function()
-    GeneralFunctions.EightWayMove(partner, 888, 872, false, 1)
+    GeneralFunctions.EightWayMove(partner, 1152, 928, false, 1)
     GROUND:CharTurnToCharAnimated(partner, adagio, 4)
   end)
   local g2 = TASK:BranchCoroutine(function()
@@ -485,7 +551,7 @@ function DazzlingPlaza.Defaite()
     -- ADAGIO PASSE. Elle ne contourne pas. Elle ne ralentit pas.
     ----------------------------------------------------------------
     local p1 = TASK:BranchCoroutine(function()
-      GROUND:MoveToPosition(adagio, 904, 872, false, 1)
+      GROUND:MoveToPosition(adagio, 1152, 928, false, 1)
     end)
     local p2 = TASK:BranchCoroutine(function()
       GAME:WaitFrames(20)
@@ -497,7 +563,7 @@ function DazzlingPlaza.Defaite()
     BossFX.ShakeScreen(4, 14)
     pcall(function() GROUND:CharSetAnim(hero, "Hurt", true) end)
     GAME:WaitFrames(22)
-    GROUND:MoveToPosition(adagio, 856, 856, false, 1)
+    GROUND:MoveToPosition(adagio, 1128, 960, false, 1)
     GAME:WaitFrames(10)
     say(adagio, 'Normal', STRINGS:Format(STRINGS.MapStrings['MTP_032']))
     GAME:WaitFrames(14)
@@ -505,26 +571,26 @@ function DazzlingPlaza.Defaite()
     ----------------------------------------------------------------
     -- ARIA IMITE. Sans malice : elle a vu faire, donc elle fait.
     ----------------------------------------------------------------
-    GROUND:MoveToPosition(aria, 912, 888, false, 1)
+    GROUND:MoveToPosition(aria, 1168, 936, false, 1)
     GAME:WaitFrames(8)
     pcall(function() GROUND:CharSetEmote(aria, "happy", 1) end)
     SOUND:PlayBattleSE("EVT_Battle_Flash")
     BossFX.ShakeScreen(3, 12)
     pcall(function() GROUND:CharSetAnim(partner, "Hurt", true) end)
     GAME:WaitFrames(20)
-    GROUND:MoveToPosition(aria, 864, 888, false, 1)
+    GROUND:MoveToPosition(aria, 1120, 968, false, 1)
     say(aria, 'Happy', STRINGS:Format(STRINGS.MapStrings['MTP_033']))
     GAME:WaitFrames(14)
 
     ----------------------------------------------------------------
     -- SONATA EN DERNIER. Elle pousse les deux, et elle commente.
     ----------------------------------------------------------------
-    GROUND:MoveToPosition(sonata, 912, 872, false, 1)
+    GROUND:MoveToPosition(sonata, 1136, 944, false, 1)
     GAME:WaitFrames(8)
     SOUND:PlayBattleSE("EVT_Battle_Flash")
     BossFX.ShakeScreen(4, 14)
     GAME:WaitFrames(18)
-    GROUND:MoveToPosition(sonata, 872, 888, false, 1)
+    GROUND:MoveToPosition(sonata, 1104, 976, false, 1)
     GAME:WaitFrames(8)
     GROUND:CharTurnToCharAnimated(sonata, hero, 8)
     say(sonata, 'Normal', STRINGS:Format(STRINGS.MapStrings['MTP_034']))
@@ -534,17 +600,17 @@ function DazzlingPlaza.Defaite()
     -- ELLES S'EN VONT A PIED. La camera les accompagne jusqu'au bout.
     ----------------------------------------------------------------
     local s1 = TASK:BranchCoroutine(function()
-      GeneralFunctions.EightWayMove(adagio, 704, 872, false, 1)
+      GeneralFunctions.EightWayMove(adagio, 1112, 1048, false, 1)
       GROUND:Hide('Adagio')
     end)
     local s2 = TASK:BranchCoroutine(function()
       GAME:WaitFrames(12)
-      GeneralFunctions.EightWayMove(aria, 704, 888, false, 1)
+      GeneralFunctions.EightWayMove(aria, 1128, 1048, false, 1)
       GROUND:Hide('Aria')
     end)
     local s3 = TASK:BranchCoroutine(function()
       GAME:WaitFrames(24)
-      GeneralFunctions.EightWayMove(sonata, 704, 880, false, 1)
+      GeneralFunctions.EightWayMove(sonata, 1096, 1048, false, 1)
       GROUND:Hide('Sonata')
     end)
     local s4 = TASK:BranchCoroutine(function()
@@ -564,9 +630,12 @@ function DazzlingPlaza.Defaite()
     GAME:MoveCamera(880, 880, 50, false)
     local secours = {}
     --Cases de secours, toutes verifiees en Tags == 0 sur le ground.
+    --Ils accourent autour du duo tombe. Cases validees par
+    --tools/plan_place_marchande.py (marchable, hors riviere,
+    --a distance des etals).
     local dest = {
-      { 848, 904 }, { 912, 904 }, { 824, 880 },
-      { 936, 872 }, { 856, 920 }, { 888, 920 },
+      { 1104, 912 }, { 1192, 928 }, { 1112, 960 },
+      { 1184, 904 }, { 1120, 984 },
     }
     for i, e in ipairs(CERCLE) do
       local c = CH(e[1])
@@ -807,7 +876,7 @@ function DazzlingPlaza.Victoire()
     GAME:WaitFrames(12)
 
     --Adagio s'avance. Elle regarde. Elle reevalue.
-    GROUND:MoveToPosition(adagio, 936, 856, false, 1)
+    GROUND:MoveToPosition(adagio, 1152, 928, false, 1)
     GROUND:CharTurnToCharAnimated(adagio, hero, 6)
     GAME:WaitFrames(20)
     duoLook(hero, partner, adagio)
@@ -824,17 +893,17 @@ function DazzlingPlaza.Victoire()
 
     --Elles repartent calmement, en formation. Camera jusqu'au bout.
     local s1 = TASK:BranchCoroutine(function()
-      GeneralFunctions.EightWayMove(adagio, 1136, 832, false, 1)
+      GeneralFunctions.EightWayMove(adagio, 1152, 688, false, 1)
       GROUND:Hide('Adagio')
     end)
     local s2 = TASK:BranchCoroutine(function()
       GAME:WaitFrames(14)
-      GeneralFunctions.EightWayMove(aria, 1136, 816, false, 1)
+      GeneralFunctions.EightWayMove(aria, 1152, 688, false, 1)
       GROUND:Hide('Aria')
     end)
     local s3 = TASK:BranchCoroutine(function()
       GAME:WaitFrames(28)
-      GeneralFunctions.EightWayMove(sonata, 1136, 856, false, 1)
+      GeneralFunctions.EightWayMove(sonata, 1152, 688, false, 1)
       GROUND:Hide('Sonata')
     end)
     local s4 = TASK:BranchCoroutine(function()
@@ -876,11 +945,11 @@ end
 -- Les temoins ne restent pas plantes en cercle : ils repartent, seuls
 -- ou par deux. Positions verifiees en Tags == 0 sur le ground.
 local DISPERSION = {
-  { 'Mawile',    712, 1000, Direction.Right },
-  { 'Floatzel',  928, 1064, Direction.UpLeft },
-  { 'Quagsire',  640, 1008, Direction.UpRight },
-  { 'Marill',    752,  944, Direction.Up    },
-  { 'Azumarill', 784,  944, Direction.Up    },
+  { 'Mawile',    1032,  896, Direction.Right },
+  { 'Floatzel',  1240, 1048, Direction.Left  },
+  { 'Quagsire',  1032, 1056, Direction.Right },
+  { 'Marill',    1264,  912, Direction.Left  },
+  { 'Azumarill', 1096, 1040, Direction.Up    },
 }
 
 function DazzlingPlaza.Disperser()

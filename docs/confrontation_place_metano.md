@@ -213,7 +213,53 @@ joueur dans un mur, `Bidoof`/`Sudowoodo` inexistants, 2 clés orphelines.
 
 ---
 
-## 6. Ce qui reste ouvert
+## 6. Correction : la GRANDE PLACE MARCHANDE, et l'arrivee par le nord
+
+La premiere version placait la scene sur l'esplanade OUEST (px x720..1176).
+Verification faite, c'etait le mauvais endroit : **la riviere de Metano la
+traverse de part en part**, et les commerces (Kec Shop 1056,848 · TM
+1080,848 · Entrepot 1220,864 · Banque 1016,1008) sont tous a l'EST.
+
+La scene a ete deplacee sur la **vraie place marchande**, fenetre
+`x984..1320 / y696..1128` (tuiles 41..54 / 29..46) :
+
+- **la riviere n'y entre pas** — seules 20 cellules d'eau touchent le coin
+  nord-ouest (x 984..1008, y 696..744), tres loin des acteurs ;
+- **l'arrivee des rivales se fait par le nord, entre les magasins** : le
+  defile `x = 1152` passe entre le comptoir TM a l'ouest et l'Entrepot a
+  l'est, et **se resserre a une seule case** en `y = 860`. Le decor impose
+  donc de lui-meme une entree en file indienne — Adagio, puis Aria, puis
+  Sonata a 26 frames d'intervalle, avant deploiement en triangle ;
+- **les spectateurs occupent d'abord le centre**, y compris la bouche du
+  defile (`CERCLE`), puis **s'ecartent sur les cotes** (`CERCLE_ECARTE`)
+  pour laisser passer les rivales. Chacun reflue du cote dont il est le
+  plus proche : **personne ne traverse la place** devant elles. Controle :
+  apres ecartement, la colonne centrale est libre de `y = 864` a `y = 952`.
+
+### Le controle qui a rattrape l'erreur de fond
+
+Un premier jet validait les positions **par leur centre seul**. Le plan
+rendu a montre des habitants poses sur des caisses. `plan_place_marchande.py`
+teste desormais **trois conditions** par position :
+
+1. marchable pour un corps de **20x20** (pas seulement le centre) ;
+2. **hors riviere** (couche `River` du `.rsground`) ;
+3. **>= 40 px du collider de tout commerce** — aucun effleurement.
+
+Sur cette base : **105 cases irreprochables** recensees, et les acteurs y
+ont ete recales. Distance minimale finale aux commerces : **41 px**.
+
+| controle (nouvelle place) | resultat |
+|---|---|
+| rendu vs ville reelle | **0 pixel d'ecart** / 145 152 |
+| positions carte (joueur + 3 rivales + 8 spectateurs) | **0 anomalie** |
+| positions du script | **55 verifiees, 0 invalide** |
+| distance min aux commerces | **41 px** |
+| entites sur la riviere | **0** |
+| rivales atteignables depuis le joueur | oui |
+| trajets d'ecartement | **8/8 franchissables** |
+
+## 7. Ce qui reste ouvert
 
 - **Rien n'est testé en jeu.** L'équilibrage du combat, en particulier,
   demande une manette.
