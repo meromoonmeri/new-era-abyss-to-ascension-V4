@@ -5,6 +5,7 @@ require 'halcyon.CharacterEssentials'
 require 'halcyon.SideQuests'
 require 'halcyon.TownVoices'
 require 'halcyon.TownVoicesNight'
+require 'halcyon.TownLife'
 
 metano_town_ch_6 = {}
 
@@ -48,9 +49,61 @@ function metano_town_ch_6.SetupGround()
 		{'Floatzel', 928, 1040, Direction.UpLeft},
 		{'Quagsire', 640, 1008, Direction.UpRight}
 	})
-	AI:SetCharacterAI(mawile, "halcyon.ai.ground_default", RogueElements.Loc(720, 944), RogueElements.Loc(32, 32), 1, 16, 32, 40, 180)
 	AI:SetCharacterAI(floatzel, "halcyon.ai.ground_default", RogueElements.Loc(912, 1024), RogueElements.Loc(32, 32), 1, 16, 32, 40, 180)
 	AI:SetCharacterAI(quagsire, "halcyon.ai.ground_default", RogueElements.Loc(624, 992), RogueElements.Loc(32, 32), 1, 16, 32, 40, 180)
+
+	--------------------------------------------------------------------
+	-- LA VILLE EST HABITEE, ET ELLE CHANGE D'UN JOUR A L'AUTRE.
+	--
+	-- Le chapitre 6 ne peuplait Metano que de trois PNJ (Mawile,
+	-- Floatzel, Quagsire), la ou les chapitres 1 a 4 en placaient une
+	-- vingtaine. Le joueur revenait donc d'expedition dans une ville
+	-- pratiquement vide — l'inverse de ce que la narration raconte
+	-- (« toute la ville parle du phenomene du sommet »).
+	--
+	-- On restaure donc la population, et on la fait VIVRE : chaque
+	-- habitant a une tournee de postes (halcyon.TownLife), et le poste
+	-- du jour depend de DaysPassed. Deux visites le meme jour donnent la
+	-- meme ville ; deux jours differents ne se ressemblent pas. La
+	-- rotation ne boucle pas avant quatorze jours.
+	--
+	-- Mawile est incluse dans la tournee : elle avait une position fixe
+	-- ici, elle rejoint la vie commune.
+	--------------------------------------------------------------------
+	--2e argument `true` = rendre une TABLE indexable. Sans lui,
+	--MakeCharactersFromList fait table.unpack (CharacterEssentials:1766)
+	--et ne renverrait que le premier personnage dans `habitants`.
+	local habitants = CharacterEssentials.MakeCharactersFromList({
+		{'Electrike',   232,  872, Direction.Left},
+		{'Sentret',     388,  716, Direction.Right},
+		{'Manectric',  1144,  904, Direction.Down},
+		{'Wooper_Girl', 328, 1000, Direction.Right},
+		{'Wooper_Boy',  360, 1000, Direction.Left},
+		{'Meditite',    416,  416, Direction.Down},
+		{'Machamp',     576,  704, Direction.Down},
+		{'Luxray',      304, 1024, Direction.Down},
+		{'Gloom',       512,  184, Direction.DownRight},
+		{'Oddish',      408,  396, Direction.DownLeft},
+		{'Numel',       400,  432, Direction.Right},
+		{'Bellossom',   472,  608, Direction.UpLeft},
+		{'Nidoking',   1136,  896, Direction.Left},
+		{'Roselia',    1204, 1128, Direction.Down},
+		{'Spinda',     1184, 1160, Direction.UpRight},
+		{'Ludicolo',   1184, 1128, Direction.DownRight}
+	}, true)
+	metano_town_ch_6.HABITANTS = {
+		Electrike   = habitants[1],  Sentret   = habitants[2],
+		Manectric   = habitants[3],  Wooper_Girl = habitants[4],
+		Wooper_Boy  = habitants[5],  Meditite  = habitants[6],
+		Machamp     = habitants[7],  Luxray    = habitants[8],
+		Gloom       = habitants[9],  Oddish    = habitants[10],
+		Numel       = habitants[11], Bellossom = habitants[12],
+		Nidoking    = habitants[13], Roselia   = habitants[14],
+		Spinda      = habitants[15], Ludicolo  = habitants[16],
+		Mawile      = mawile,
+	}
+	pcall(function() TownLife.PlacerTous(metano_town_ch_6.HABITANTS) end)
+
 
 	if SV.Chapter6.DazzlingIntroPlayed then
 		GROUND:TeleportTo(butterfree, 824, 816, Direction.Right)
@@ -547,6 +600,13 @@ function metano_town_ch_6.Luxray_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Luxray', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Luxray'] ~= nil and TownLife.Parler(chara, 'Luxray') then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_077']), "Normal")
@@ -583,6 +643,13 @@ function metano_town_ch_6.Manectric_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Manectric', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Manectric'] ~= nil and TownLife.Parler(chara, 'Manectric') then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_080']), "Normal")
@@ -604,6 +671,13 @@ function metano_town_ch_6.Bellossom_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Bellossom', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Bellossom'] ~= nil and TownLife.Parler(chara, 'Bellossom') then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_081']), "Happy")
@@ -623,6 +697,13 @@ function metano_town_ch_6.Vileplume_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Vileplume', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Vileplume'] ~= nil and TownLife.Parler(chara, 'Vileplume') then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_070']), "Happy")
@@ -640,6 +721,13 @@ function metano_town_ch_6.Gloom_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Gloom', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Gloom'] ~= nil and TownLife.Parler(chara, 'Gloom') then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_078']), "Happy")
@@ -657,6 +745,13 @@ function metano_town_ch_6.Oddish_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Oddish', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Oddish'] ~= nil and TownLife.Parler(chara, 'Oddish') then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, "Chenipent dit que vous etes ses heros ![pause=15] Il le dit a TOUT le monde !", "Happy")
@@ -698,6 +793,13 @@ function metano_town_ch_6.Machamp_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Machamp', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Machamp'] ~= nil and TownLife.Parler(chara, 'Machamp') then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_095']), "Happy")
@@ -729,6 +831,13 @@ function metano_town_ch_6.Medicham_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Medicham', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Medicham'] ~= nil and TownLife.Parler(chara, 'Medicham') then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_097']), "Normal")
   else
@@ -749,6 +858,13 @@ function metano_town_ch_6.Furret_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Furret', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Furret'] ~= nil and TownLife.Parler(chara, 'Furret') then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_094']), "Happy")
@@ -768,6 +884,13 @@ function metano_town_ch_6.Linoone_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Linoone', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Linoone'] ~= nil and TownLife.Parler(chara, 'Linoone') then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, "Mon petit veut etre comme vous plus tard.[pause=25] J'espere que vous serez un bon modele.", "Normal")
@@ -785,6 +908,13 @@ function metano_town_ch_6.Sentret_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Sentret', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Sentret'] ~= nil and TownLife.Parler(chara, 'Sentret') then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, "Vous avez vu Zarude de PRES ?![pause=15] Waaaah ![pause=20] Racontez-moi TOUT !", "Inspired")
@@ -802,6 +932,13 @@ function metano_town_ch_6.Wooper_Girl_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Wooper_Girl', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Wooper_Girl'] ~= nil and TownLife.Parler(chara, 'Wooper_Girl') then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, "Chenipent m'a raconte que vous l'aviez porte sur votre dos ![pause=15] C'est vrai ?", "Happy")
@@ -819,6 +956,13 @@ function metano_town_ch_6.Wooper_Boy_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Wooper_Boy', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Wooper_Boy'] ~= nil and TownLife.Parler(chara, 'Wooper_Boy') then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_075']), "Shock")
   else
@@ -835,6 +979,13 @@ function metano_town_ch_6.Nidorina_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Nidorina', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Nidorina'] ~= nil and TownLife.Parler(chara, 'Nidorina') then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_069']), "Happy")
@@ -865,6 +1016,13 @@ function metano_town_ch_6.Nidoking_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Nidoking', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Nidoking'] ~= nil and TownLife.Parler(chara, 'Nidoking') then return end
   local s = Ch6State()
   if s == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_079']), "Happy")
@@ -896,6 +1054,13 @@ function metano_town_ch_6.Gulpin_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Gulpin', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Gulpin'] ~= nil and TownLife.Parler(chara, 'Gulpin') then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, "Un festin ![pause=15] Il faut celebrer ca avec un festin ![pause=20] Qui paye ?", "Happy")
   else
@@ -912,6 +1077,13 @@ function metano_town_ch_6.Lickitung_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Lickitung', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Lickitung'] ~= nil and TownLife.Parler(chara, 'Lickitung') then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_093']), "Happy")
   else
@@ -932,6 +1104,13 @@ function metano_town_ch_6.Roselia_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Roselia', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Roselia'] ~= nil and TownLife.Parler(chara, 'Roselia') then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_081']), "Happy")
   else
@@ -948,6 +1127,13 @@ function metano_town_ch_6.Spinda_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Spinda', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Spinda'] ~= nil and TownLife.Parler(chara, 'Spinda') then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_093']), "Happy")
   else
@@ -964,6 +1150,13 @@ function metano_town_ch_6.Ludicolo_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Ludicolo', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Ludicolo'] ~= nil and TownLife.Parler(chara, 'Ludicolo') then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, "La musique est plus joyeuse aujourd'hui ![pause=15] Vous voulez danser ?", "Happy")
   else
@@ -980,6 +1173,13 @@ function metano_town_ch_6.Jigglypuff_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Jigglypuff', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Jigglypuff'] ~= nil and TownLife.Parler(chara, 'Jigglypuff') then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, "Je vous chante une berceuse ?[pause=20] Pour feter votre victoire ?", "Happy")
   else
@@ -1000,6 +1200,13 @@ function metano_town_ch_6.Marill_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Marill', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Marill'] ~= nil and TownLife.Parler(chara, 'Marill') then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_070']), "Happy")
   else
@@ -1055,6 +1262,13 @@ function metano_town_ch_6.Metapod_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Metapod', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Metapod'] ~= nil and TownLife.Parler(chara, 'Metapod') then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, "...[pause=30] (Metapod semble plus brillant qu'avant.)", "Normal")
   else
@@ -1071,6 +1285,13 @@ function metano_town_ch_6.Silcoon_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Silcoon', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Silcoon'] ~= nil and TownLife.Parler(chara, 'Silcoon') then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, "Chenipent est passe me voir ![pause=15] Il m'a parle de vous.", "Happy")
   else
@@ -1087,6 +1308,13 @@ function metano_town_ch_6.Mareep_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Mareep', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Mareep'] ~= nil and TownLife.Parler(chara, 'Mareep') then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_098']), "Worried")
   else
@@ -1103,6 +1331,13 @@ function metano_town_ch_6.Cranidos_Action(chara, activator)
   -- Voix de ville reactive a l'avancement (cf. TownVoices.lua).
   -- APRES SideQuests : une requete prime toujours sur l'ambiance.
   if TownVoices.Talk('Cranidos', 6) then return end
+  --LA VIE QUOTIDIENNE. Le propos du jour depend du poste qu'occupe
+  --l'habitant aujourd'hui (halcyon.TownLife) : il parle de la ou il
+  --est, et pas la meme chose d'un jour a l'autre. Place APRES les
+  --voix evenementielles (nuit, avancement) : un evenement prime
+  --toujours sur l'ambiance, et AVANT le dialogue de chapitre, qui
+  --reste le repli.
+  if TownLife.TOURNEES['Cranidos'] ~= nil and TownLife.Parler(chara, 'Cranidos') then return end
   if Ch6State() == "post" then
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT6_095']), "Normal")
   else
