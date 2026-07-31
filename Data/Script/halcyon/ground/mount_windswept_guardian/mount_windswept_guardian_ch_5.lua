@@ -257,15 +257,17 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- « a la meme vitesse ni de la meme facon ».
   GAME:WaitFrames(20)
   local coro_push1 = TASK:BranchCoroutine(function()
-    -- Le partenaire est le plus expose : il recule et encaisse.
-    GROUND:AnimateInDirection(partner, "None", partner.Direction, Direction.Down, 8, 1, 1)
-    GROUND:AnimateInDirection(partner, "Hurt", Direction.Down, Direction.Down, 8, 1, 2)
+    -- Le partenaire est le plus expose : il recule en regardant vers le Nord (Direction.Up).
+    GROUND:AnimateInDirection(partner, "None", Direction.Up, Direction.Down, 8, 1, 1)
+    GROUND:AnimateInDirection(partner, "Hurt", Direction.Up, Direction.Down, 8, 1, 2)
+    GROUND:CharAnimateTurnTo(partner, Direction.Up, 2)
     BossFX.Impact(12)
   end)
   local coro_push2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(6)
-    GROUND:AnimateInDirection(hero, "None", hero.Direction, Direction.Down, 8, 1, 1)
-    GROUND:AnimateInDirection(hero, "Hurt", Direction.Down, Direction.Down, 8, 1, 2)
+    GROUND:AnimateInDirection(hero, "None", Direction.Up, Direction.Down, 8, 1, 1)
+    GROUND:AnimateInDirection(hero, "Hurt", Direction.Up, Direction.Down, 8, 1, 2)
+    GROUND:CharAnimateTurnTo(hero, Direction.Up, 2)
   end)
   local coro_push3 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(13)
@@ -368,9 +370,18 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_010'], hero:GetDisplayName()))
   -- "Alors on va lui montrer que notre voyage ne fait que commencer ! [hero], à nous deux !"
 
-  COMMON.BossTransition()
-  GAME:CutsceneMode(false)
   SV.Chapter5.MountGuardianSeen = true
+
+  -- LIBÉRATION ABSOLUE DU CUTSCENEMODE AVANT LE COMBAT (Anti-Freeze absolu)
+  GAME:CutsceneMode(false)
+  if partner ~= nil then
+    AI:EnableCharacterAI(partner)
+    AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
+  end
+  if t2 ~= nil then AI:EnableCharacterAI(t2) end
+  if t3 ~= nil then AI:EnableCharacterAI(t3) end
+
+  COMMON.BossTransition()
   PrintInfo("[NREPROBE][transition] mount_windswept_guardian_ch_5.lua ContinueDungeon('mount_windswept', 3)") GAME:ContinueDungeon("mount_windswept", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
@@ -420,8 +431,16 @@ function mount_windswept_guardian_ch_5.SecondPreBossScene()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_011'], hero:GetDisplayName()))
   -- "Cette fois, on le terrasse. Promis, [hero]."
 
-  COMMON.BossTransition()
+  -- LIBÉRATION ABSOLUE DU CUTSCENEMODE AVANT LE COMBAT (Anti-Freeze absolu)
   GAME:CutsceneMode(false)
+  if partner ~= nil then
+    AI:EnableCharacterAI(partner)
+    AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
+  end
+  if t2 ~= nil then AI:EnableCharacterAI(t2) end
+  if t3 ~= nil then AI:EnableCharacterAI(t3) end
+
+  COMMON.BossTransition()
   PrintInfo("[NREPROBE][transition] mount_windswept_guardian_ch_5.lua ContinueDungeon('mount_windswept', 3)") GAME:ContinueDungeon("mount_windswept", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
