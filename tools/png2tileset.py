@@ -1020,8 +1020,10 @@ def cmd_ground(a):
         return 1
     print(f'grille {nx}x{ny} cellules de {pas} px | {len(grille)} tuiles')
 
-    doc = gabarit_rsground()
+    doc = gabarit_rsground(getattr(a, 'herite', None))
     obj = doc['Object']
+    ancien_w = len(obj['obstacles'])
+    ancien_h = len(obj['obstacles'][0]) if ancien_w else 0
     obj['TexSize'] = pas // 8
     obj['Layers'] = [{'Name': 'Base', 'Layer': 0, 'Visible': True,
                       'Tiles': [[tuile_ref(a.nom, x, y) if (x, y) in grille
@@ -1034,6 +1036,20 @@ def cmd_ground(a):
                           'Tags': 0 if (x, y) in sol else 1}
                          for y in range(ny)] for x in range(nx)]
     obj['AssetName'] = os.path.splitext(os.path.basename(a.sortie))[0]
+
+    # Quand on herite d'un ground existant, ses entites sont posees dans
+    # l'ANCIEN referentiel. Les laisser telles quelles, c'est produire
+    # exactement le defaut qu'on cherche a corriger : des entites qui
+    # ignorent le relief. On les remet a l'echelle, puis on les degage des
+    # cellules devenues bloquantes.
+    if getattr(a, 'herite', None) and ancien_w:
+        _replacer_entites(obj, nx, ny, ancien_w, ancien_h)
+        bloque = np.zeros((ny, nx), dtype=bool)
+        for x in range(nx):
+            for y in range(ny):
+                bloque[y][x] = obj['obstacles'][x][y]['Tags'] == 1
+        degager_entites(obj, bloque, pas)
+
     if not a.apply:
         print('(essai a blanc ; --apply pour ecrire)')
         return 0
@@ -1067,7 +1083,11 @@ def main():
     p = sub.add_parser('importer'); p.add_argument('image'); p.add_argument('nom'); commun(p)
     p = sub.add_parser('carte'); p.add_argument('image'); p.add_argument('nom'); p.add_argument('sortie'); commun(p)
     p = sub.add_parser('ground'); p.add_argument('image'); p.add_argument('nom'); p.add_argument('sortie')
-    p.add_argument('--grid', type=int, default=8); commun(p)
+    p.add_argument('--grid', type=int, default=8)
+    p.add_argument('--herite', default=None,
+                   help='ground existant dont on reprend les entites '
+                        '(marqueurs, spawners, objets scriptes)')
+    commun(p)
     p = sub.add_parser('anime')
     p.add_argument('image'); p.add_argument('nom'); p.add_argument('sortie')
     p.add_argument('--grid', type=int, default=8)
