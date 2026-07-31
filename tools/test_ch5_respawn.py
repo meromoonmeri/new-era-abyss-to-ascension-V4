@@ -84,8 +84,8 @@ CASES = [
     ('searing_tunnel', 0, 'KO',      ('entrance', 47), 'DiedCutscene',    'entrance'),
     ('searing_tunnel', 0, 'Escaped', ('entrance', 47), 'EscapedCutscene', 'entrance'),
     ('searing_tunnel', 1, 'KO',      ('midpoint', 48), 'WipedCutscene',   'midpoint'),
-    # 2e moitie ABANDONNEE : comportement ACTUEL (divergence possible)
-    ('searing_tunnel', 1, 'Escaped', ('entrance', 47), 'EscapedCutscene', 'entrance'),
+    # 2e moitie ABANDONNEE : reveil au relais comme un KO (demande utilisateur)
+    ('searing_tunnel', 1, 'Escaped', ('midpoint', 48), 'WipedCutscene',   'midpoint'),
     ('searing_tunnel', 3, 'KO',      ('midpoint', 48), 'WipedCutscene',   'midpoint'),  # boss Creuset
 ]
 

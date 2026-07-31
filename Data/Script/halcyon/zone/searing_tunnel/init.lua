@@ -148,18 +148,22 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 48, 0, true, true)
 			end 
 		
-		--Escaped - Do not go back to the checkpoint ground, and instead leave the dungeon altogether.
+		--Escaped - Dans les Profondeurs, abandonner revient a se reveiller au
+		--point median (demande utilisateur : « si tu es dans les profondeurs et
+		--tu abandonnes/ko, tu te reveilles au point median »), exactement comme
+		--la branche KO ci-dessus. Avant : retour a l'entree du Tunnel (carte 47).
 		elseif result == RogueEssence.Data.GameProgress.ResultType.Escaped then
 			GAME:WaitFrames(20)
 			if SV.ChapterProgression.Chapter == 5 then
 				SV.Chapter5.LostTunnel = true
-				SV.Chapter5.PlayTempTunnelScene = true
-				SV.Chapter5.TunnelLastExitReason = 'Escaped'
-				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 47, 0, true, true) --Go to Searing Tunnel Entrance ground map		
+				SV.SearingTunnel.DiedPastCheckpoint = true
+				SV.Chapter5.TunnelMidpointState = 'DeathArrival'
+				SV.Chapter5.TunnelMidState = 'DeathArrival'
+				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 48, 0, true, true) --Go to Searing Tunnel Midpoint (reveil au relais)
 			else
 				--CHOIX DE FIN DE JOURNEE (TownNight.EndDay). Fuite volontaire hors
-				--ch5 : l'equipe abandonne pour aujourd'hui et rentre. Le ch5 part a
-				--l'entree du Tunnel (carte 47) juste au-dessus et n'arrive pas ici.
+				--ch5 : l'equipe abandonne pour aujourd'hui et rentre. Le ch5 part au
+				--relais (carte 48) juste au-dessus et n'arrive pas ici.
 				TownNight.EndDay(result, true)
 			end
 		--Cleared
