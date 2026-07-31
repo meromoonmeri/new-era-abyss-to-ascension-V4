@@ -842,15 +842,57 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 			pcall(function() GAME:MoveCamera(256, 300, 30, false) end)
 		end)
 		pcall(function() GROUND:Unhide(plum.EntName) end)
+		--ELLE FONCE SUR ALMOTZ (Zigzaton), pas dans le vide.
+		--
+		--CORRECTION D'UN DEFAUT DE MISE EN SCENE. Plum s'ecrasait en
+		--(256,300) — soit a 8 px de REINIER (Girafarig), qui occupe
+		--(248,302) apres MEAL_ROUTES. Elle lui tombait litteralement
+		--dessus, et le gag ne se lisait pas : on voyait deux sprites se
+		--superposer, pas une chute.
+		--
+		--Le gag demande : elle fonce sur Almotz, qui S'ECARTE AU DERNIER
+		--MOMENT, et elle s'etale a la place qu'il vient de liberer.
+		--C'est l'esquive qui fait rire, pas la chute seule.
+		--
+		--GEOMETRIE (positions de fin de repas, verifiees) :
+		--  Almotz  (286,302) -> esquive en (302,318), 40 px du voisin
+		--                       le plus proche : aucun chevauchement.
+		--  Plum    s'ecrase en (286,302), la place laissee vide ;
+		--                       voisin le plus proche Reinier a 38 px.
+		--  Trajet de course (256,452) -> (286,380) -> (286,340) et
+		--  glissade finale : tous testes marchables de bout en bout.
 		local run = TASK:BranchCoroutine(function()
-			pcall(function() GROUND:MoveToPosition(plum, 256, 340, true, 5) end)
+			pcall(function()
+				GROUND:MoveToPosition(plum, 286, 380, true, 5)
+				GROUND:MoveToPosition(plum, 286, 340, true, 5)
+			end)
 		end)
 		pcall(function() TASK:JoinCoroutines({cam, run}) end)
+
+		--ALMOTZ LA VOIT ARRIVER. Il se retourne, comprend, et n'a que le
+		--temps de sauter de cote. Trois temps tres courts : voir,
+		--paniquer, esquiver. C'est le decoupage qui rend l'esquive
+		--lisible — sans le temps de panique, on croit a un simple
+		--deplacement.
+		if t.almotz ~= nil then
+			pcall(function() GROUND:CharTurnToCharAnimated(t.almotz, plum, 3) end)
+			GAME:WaitFrames(10)
+			pcall(function() SOUND:PlayBattleSE("EVT_Emote_Sweating") end)
+			pcall(function() GROUND:CharSetEmote(t.almotz, "sweating", 1) end)
+			GAME:WaitFrames(14)
+			--L'esquive : un bond franc sur le cote, pas une marche.
+			pcall(function() SOUND:PlayBattleSE("EVT_Emote_Startled_2") end)
+			pcall(function() GROUND:CharSetEmote(t.almotz, "exclaim", 1) end)
+			pcall(function() GeneralFunctions.Hop(t.almotz) end)
+			pcall(function() GROUND:MoveToPosition(t.almotz, 302, 318, true, 4) end)
+			pcall(function() GROUND:CharTurnToCharAnimated(t.almotz, plum, 3) end)
+		end
 
 		--LA CHUTE. Elle ne s'arrete pas : elle se prend les pieds. Anim
 		--Hurt sur une derniere glissade, SE d'impact, et la musique
 		--comique demarre SUR l'impact — c'est la synchro qui fait le gag.
-		pcall(function() GROUND:AnimateToPosition(plum, "Hurt", Direction.Up, 256, 300, 2, 6, 0) end)
+		--Elle s'etale EXACTEMENT la ou Almotz se tenait une seconde plus tot.
+		pcall(function() GROUND:AnimateToPosition(plum, "Hurt", Direction.Up, 286, 302, 2, 6, 0) end)
 		pcall(function() SOUND:StopSE("Guild's Feet Pitterpatter") end)
 		pcall(function() SOUND:PlayBattleSE('DUN_Rollout') end)
 		pcall(function() SOUND:PlayBGM('Guildmaster Wigglytuff.ogg', false) end)
@@ -878,8 +920,54 @@ function mount_windswept_entrance_ch_5.CampNightfall(hero, partner, t)
 		pcall(function() TASK:JoinCoroutines(turn) end)
 		GAME:WaitFrames(20)
 
-		--Plum se releve et debite sa tirade sans reprendre son souffle.
+		--ELLE SE RELEVE, ET ELLE NE SAIT PAS OU ELLE EST.
+		--
+		--Demande explicite : « elle se releve ensuite, regarde a gauche
+		--puis a droite avant de reprendre ses esprits ». Le desarroi se
+		--joue AVANT la parole : elle cherche d'abord ce qu'elle vient de
+		--percuter (rien — Almotz s'est ecarte), et ne retrouve son
+		--aplomb qu'ensuite. C'est ce temps d'egarement qui paie
+		--l'esquive : sans lui, l'esquive n'a pas de consequence.
 		pcall(function() GROUND:CharEndAnim(plum) end)
+		GAME:WaitFrames(16)
+
+		--Elle se redresse sur ses pattes, encore sonnee.
+		--NB : « dizzy » n'existe PAS comme EmoteData dans ce depot
+		--(Data/Emote ne contient que « eating » ; le reste vient du jeu
+		--de base). DataManager.GetEmote rend null sur un ID inconnu, et
+		--ScriptGround.CharSetEmote deref ensuite emote.Anim -> crash.
+		--On emploie donc « sweatdrop », atteste 23 fois dans le mod.
+		pcall(function() GROUND:CharSetEmote(plum, "sweatdrop", 1) end)
+		GAME:WaitFrames(22)
+
+		--GAUCHE, PUIS DROITE. Explicitement, pas un LookAround aleatoire :
+		--la demande precise l'ordre. Depuis la position couchee elle
+		--regardait vers le haut ; on balaie donc Left puis Right, avec
+		--un temps d'arret sur chaque cote — c'est l'arret qui fait lire
+		--le regard, pas la rotation.
+		pcall(function() SOUND:PlayBattleSE("EVT_Emote_Confused_2") end)
+		pcall(function() GROUND:CharAnimateTurnTo(plum, Direction.Left, 6) end)
+		GAME:WaitFrames(26)
+		pcall(function() GROUND:CharAnimateTurnTo(plum, Direction.Right, 6) end)
+		GAME:WaitFrames(26)
+
+		--Elle avise la place vide a cote d'elle : c'est LA qu'aurait du
+		--se trouver ce qu'elle a percute. Point d'interrogation.
+		pcall(function() GeneralFunctions.EmoteAndPause(plum, "Question", true) end)
+		GAME:WaitFrames(14)
+
+		--ALMOTZ, depuis son nouveau poste, se signale. Elle le trouve
+		--enfin — a un metre de la ou elle le croyait.
+		if t.almotz ~= nil then
+			pcall(function() GROUND:CharTurnToCharAnimated(plum, t.almotz, 5) end)
+			GAME:WaitFrames(18)
+			pcall(function() GeneralFunctions.EmoteAndPause(t.almotz, "Sweating", true) end)
+			GAME:WaitFrames(12)
+		end
+
+		--ELLE REPREND SES ESPRITS. Le bond marque le basculement : la
+		--Plum egaree redevient la Plum increvable, et elle enchaine.
+		pcall(function() GROUND:CharTurnToCharAnimated(plum, hero, 4) end)
 		pcall(function() GeneralFunctions.Hop(plum) end)
 		UI:SetSpeaker(plum)
 		GeneralFunctions.SetEmotion("Pain")
@@ -3621,6 +3709,31 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 		GeneralFunctions.SetEmotion("Sigh")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_P19']))
 		GAME:WaitFrames(16)
+
+		--...ET ELLE Y RETOURNE VRAIMENT.
+		--
+		--BUG SIGNALE : « lorsque le joueur reprend le controle du
+		--personnage, il n'est pas necessaire que Plum vienne se placer
+		--sur la meme case que le partenaire ».
+		--Le commentaire ci-dessus annoncait un retour aux marmites, mais
+		--AUCUN code ne le faisait : elle restait plantee en (196,196),
+		--soit a 23 px de Phileas (212,180) et en plein milieu du camp,
+		--la ou le joueur reprend la main. Elle se retrouvait collee au
+		--groupe.
+		--Elle regagne donc son poste de jour (236,230) — exactement
+		--celui que SetupGround lui attribue, il n'y a qu'une source de
+		--verite pour cette position. Trajet (196,196) -> (220,212) ->
+		--(236,230) verifie marchable de bout en bout ; a l'arrivee elle
+		--est a 52 px de son point de depart, 41 px de Penticus et
+		--64 px de Hyko : aucun contact avec qui que ce soit.
+		--Direction.Right : face au foyer, comme une cuisiniere qui
+		--reprend ses marmites.
+		pcall(function()
+			GeneralFunctions.EightWayMove(plum, 220, 212, false, 1)
+			GeneralFunctions.EightWayMove(plum, 236, 230, false, 1)
+			GROUND:CharAnimateTurnTo(plum, Direction.Right, 4)
+		end)
+		GAME:WaitFrames(10)
 	end
 
 	--Le partenaire a mal : le corps le dit avant la boite.

@@ -289,6 +289,30 @@ function mount_windswept_entrance.Jigglypuff_Action(chara, activator)
   mount_windswept_entrance_ch_5.Jigglypuff_Action(chara, activator)
 end
 
+--HYKO (Growlithe), garde du camp de base.
+--
+--BUG SIGNALE : « Hyko doit etre interactif au meme titre que les autres
+--PNJ sur place, une fois que le joueur recupere le controle. Pour le
+--moment, il est present mais ne dit rien lorsqu'on lui parle. »
+--
+--CAUSE EXACTE. Le camp de jour cree trois PNJ par
+--MakeCharactersFromList : Tropius, Noctowl et GROWLITHE. Les deux
+--premiers avaient leur callback ici, pas le troisieme. Le dialogue
+--mount_windswept_entrance_ch_5.Growlithe_Action EXISTE pourtant (trois
+--variantes selon l'avancement), mais rien ne l'appelait : le seul
+--appelant etait talkToTeammate, qui ne sert QUE les emplacements
+--Teammate2/3. Hyko n'est pas dans l'equipe au camp de jour — il est
+--PNJ — donc ce chemin ne le concernait jamais. Resultat : le moteur
+--retombait sur son interaction par defaut, et Hyko restait muet.
+--
+--Meme correctif que pour Plum quelques lignes plus haut, et meme
+--justification : un personnage present a l'ecran ne peut pas etre le
+--seul du camp a ne rien avoir a dire.
+function mount_windswept_entrance.Growlithe_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  mount_windswept_entrance_ch_5.Growlithe_Action(chara, activator)
+end
+
 function mount_windswept_entrance.Kangaskhan_Rock_Action(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
   GeneralFunctions.Kangashkhan_Rock_Interact(obj, activator)
