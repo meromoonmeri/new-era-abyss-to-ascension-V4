@@ -167,7 +167,14 @@ function mount_windswept_entrance.PlotScripting()
       --(KO/temps ecoule ou repli volontaire). Miroir du routeur du
       --Tunnel : SetupGround d'abord (les PNJ du camp existent), puis
       --la cinematique de retour adaptee a la raison de sortie.
+      --SetupGround lit encore PlayTempMountScene pour choisir entre
+      --camp du matin (apres defaite) et camp de jour : on ne consomme
+      --le flag qu'APRES SetupGround, juste avant la scene. Si la scene
+      --plante en cours (xpcall moteur), elle ne rejouera pas au
+      --prochain chargement. Le `= false` de fin de scene reste en
+      --ceinture (idempotent).
       mount_windswept_entrance_ch_5.SetupGround()
+      SV.Chapter5.PlayTempMountScene = false
       if SV.Chapter5.MountLastExitReason == 'Retreated' then
         mount_windswept_entrance_ch_5.RetreatReturnCutscene()
       else
