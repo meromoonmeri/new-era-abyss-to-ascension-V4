@@ -414,9 +414,23 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_010'], hero:GetDisplayName()))
   -- "Alors on va lui montrer que notre voyage ne fait que commencer ! [hero], à nous deux !"
 
-  COMMON.BossTransition()
-  GAME:CutsceneMode(false)
   SV.Chapter5.MountGuardianSeen = true
+
+  -- LIBÉRATION ABSOLUE DU CUTSCENEMODE AVANT LE COMBAT (Anti-Freeze,
+  -- patron de l'ancien agent, commit 212aaee). BossTransition dure ~260
+  -- frames (FadeOut(true,30) + WaitFrames(120)) : la laisser tourner avec
+  -- CutsceneMode(true) et les IA désactivées laissait le joueur figé au
+  -- moment du combat. On rend la main et on réactive l'équipe AVANT la
+  -- transition, puis on entre dans l'arène.
+  GAME:CutsceneMode(false)
+  if partner ~= nil then
+    AI:EnableCharacterAI(partner)
+    AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
+  end
+  if t2 ~= nil then AI:EnableCharacterAI(t2) end
+  if t3 ~= nil then AI:EnableCharacterAI(t3) end
+
+  COMMON.BossTransition()
   PrintInfo("[NREPROBE][transition] mount_windswept_guardian_ch_5.lua ContinueDungeon('mount_windswept', 3)") GAME:ContinueDungeon("mount_windswept", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
@@ -466,8 +480,19 @@ function mount_windswept_guardian_ch_5.SecondPreBossScene()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_011'], hero:GetDisplayName()))
   -- "Cette fois, on le terrasse. Promis, [hero]."
 
-  COMMON.BossTransition()
+  -- LIBÉRATION ABSOLUE DU CUTSCENEMODE AVANT LE COMBAT (Anti-Freeze,
+  -- patron de l'ancien agent, commit 212aaee) — identique à
+  -- FirstPreBossScene : on désarme ET on réactive l'équipe avant
+  -- BossTransition pour ne jamais figer la reprise du combat.
   GAME:CutsceneMode(false)
+  if partner ~= nil then
+    AI:EnableCharacterAI(partner)
+    AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
+  end
+  if t2 ~= nil then AI:EnableCharacterAI(t2) end
+  if t3 ~= nil then AI:EnableCharacterAI(t3) end
+
+  COMMON.BossTransition()
   PrintInfo("[NREPROBE][transition] mount_windswept_guardian_ch_5.lua ContinueDungeon('mount_windswept', 3)") GAME:ContinueDungeon("mount_windswept", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
