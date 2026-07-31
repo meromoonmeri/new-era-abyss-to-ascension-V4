@@ -2770,10 +2770,15 @@ function mount_windswept_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 	GROUND:CharAnimateTurnTo(t.ganlon, Direction.Up, 4)
 	GAME:WaitFrames(15)
 
-	--HYKO RESTE AU CAMP DE BASE. C'est l'arc noue au Tunnel (l'auteur :
-	--Penticus, apres sa panique, veut garder Hyko pres de lui) et la
-	--condition de la WindSecretScene qui se joue ici meme, de nuit.
-	GROUND:CharTurnToChar(t.penticus, t.hyko)
+	--HYKO RESTE AU CAMP DE BASE : ASSIGNATION EN TÊTE-À-TÊTE AVEC PENTICUS.
+	--(todo.txt : 'Have Hyko stand in the middle, closer to Penticus, and also
+	--move in a way that suggests he is getting a one-on-one sorta assignment talk')
+	GROUND:CharTurnToCharAnimated(t.penticus, t.hyko, 4)
+	GAME:WaitFrames(10)
+	GeneralFunctions.EightWayMove(t.hyko, 280, 248, false, 1)
+	GROUND:CharTurnToCharAnimated(t.hyko, t.penticus, 4)
+	GROUND:CharTurnToCharAnimated(t.penticus, t.hyko, 4)
+	GAME:WaitFrames(15)
 	UI:SetSpeaker(t.penticus)
 	GeneralFunctions.SetEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_116'], t.hyko:GetDisplayName()))
@@ -2782,6 +2787,9 @@ function mount_windswept_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 	UI:SetSpeaker(t.hyko)
 	GeneralFunctions.SetEmotion("Sigh")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWE5_117']))
+	GAME:WaitFrames(10)
+	GeneralFunctions.EightWayMove(t.hyko, 296, 256, false, 1)
+	GROUND:CharAnimateTurnTo(t.hyko, Direction.UpLeft, 4)
 	GROUND:CharAnimateTurnTo(t.penticus, Direction.Down, 4)
 	GAME:WaitFrames(15)
 

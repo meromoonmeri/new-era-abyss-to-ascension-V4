@@ -7,8 +7,8 @@ guild_third_floor_lobby_ch_1 = {}
 
 function guild_third_floor_lobby_ch_1.SetupGround()
 	local door = RogueEssence.Ground.GroundObject(RogueEssence.Content.ObjAnimData("Closed_Guild_Door", 1, 0, 0),
-													RogueElements.Rect(424, 160, 48, 64),
-													RogueElements.Loc(8, -8),
+													RogueElements.Rect(416, 160, 64, 64),
+													RogueElements.Loc(0, -8),
 													false,
 													"Event_Object_1")
 	door:ReloadEvents()

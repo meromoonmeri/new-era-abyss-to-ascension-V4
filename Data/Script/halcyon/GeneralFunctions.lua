@@ -1215,12 +1215,15 @@ function GeneralFunctions.DoubleHop(chara, anim, height, duration, pause, sound)
 	end
 
 	local animId = RogueEssence.Content.GraphicsManager.GetAnimIndex(anim)
-	GROUND:CharSetAction(chara, RogueEssence.Ground.HopGroundAction(chara.Position, chara.Direction, animId, height, duration))
-	GAME:WaitFrames(duration+1)--need to pause no matter what here because only one hop will show otherwise. Need to wait an extra 1 frames, so we can pause for 1 frame between jumps like EoS
-	GROUND:CharSetAction(chara, RogueEssence.Ground.HopGroundAction(chara.Position, chara.Direction, animId, height, duration))
+	local hop1 = RogueEssence.Ground.HopGroundAction(chara.Position, chara.Direction, animId, height, duration)
+	GROUND:CharSetAction(chara, hop1)
+	GROUND:CharWaitAction(chara, hop1)
+	GAME:WaitFrames(1)--pause for 1 frame between jumps like EoS
+	local hop2 = RogueEssence.Ground.HopGroundAction(chara.Position, chara.Direction, animId, height, duration)
+	GROUND:CharSetAction(chara, hop2)
 
 	if pause then --only pause on 2nd hop if pause needed
-		GAME:WaitFrames(duration)
+		GROUND:CharWaitAction(chara, hop2)
 	end
 
 end
