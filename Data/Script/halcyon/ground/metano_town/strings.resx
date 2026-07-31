@@ -154,9 +154,6 @@
   <data name="NPC_Magby_1" xml:space="preserve">
     <value>Haha,[pause=10] you're gonna be it,[pause=10] [oddish]!</value>
   </data>
-  <data name="NPC_Magmortar_1" xml:space="preserve">
-    <value />
-  </data>
   <data name="NPC_Meditite_1" xml:space="preserve">
     <value>..................................</value>
   </data>
@@ -720,57 +717,6 @@
   </data>
   <data name="Bank_Goodbye" xml:space="preserve">
     <value>Until next time...</value>
-  </data>
-  <data name="Cafe_Intro" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Cafe_Intro_Return" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Cafe_Option_Drink" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Cafe_Option_Special" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Cafe_Drink" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Cafe_Setting_Up" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Cafe_Bought_Special" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Cafe_Daily_Special" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Cafe_No_Money" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Cafe_Bag_Full" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Cafe_Special_Complete" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Cafe_Info_1" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Cafe_Info_2" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Cafe_Info_3" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Cafe_Info_4" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Cafe_Info_5" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Cafe_Goodbye" xml:space="preserve">
-    <value />
   </data>
   <data name="TM_Shop_Bag_Empty" xml:space="preserve">
     <value>Oh?[pause=0] You have nothing to sell me!</value>

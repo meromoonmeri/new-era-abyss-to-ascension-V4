@@ -103,9 +103,6 @@
   <data name="Dojo_Training_Info_007" xml:space="preserve">
     <value>Besides all that,[pause=10] all the regular rules of a dungeon apply![pause=0] So do your best!</value>
   </data>
-  <data name="String_18" xml:space="preserve">
-    <value />
-  </data>
   <data name="Dojo_Menu_Back" xml:space="preserve">
     <value>Go Back</value>
   </data>
@@ -147,12 +144,6 @@
   </data>
   <data name="Dojo_Lesson_Info_009" xml:space="preserve">
     <value>Hwacha![pause=0] All this is necessary so you can properly train your mind!</value>
-  </data>
-  <data name="String_30" xml:space="preserve">
-    <value />
-  </data>
-  <data name="String_31" xml:space="preserve">
-    <value />
   </data>
   <data name="Dojo_Trial_Info_001" xml:space="preserve">
     <value>Wahtah![pause=0] Trials are special dungeons designed to put your adventuring skills to the test!</value>
