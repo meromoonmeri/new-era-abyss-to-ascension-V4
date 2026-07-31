@@ -209,6 +209,129 @@ def tuile_vide():
             'NeighborCode': -1}
 
 
+# ------------------------------------------------------- animation
+def tuile_anim(sheets, x, y, framelen=10):
+    """Cellule animee : une planche par frame, memes coordonnees.
+
+    C'est le patron NATIF du moteur, releve tel quel sur la riviere de
+    metano_town.rsground :
+        Frames = [ {Sheet: Metano_Town_River_Animation_1, TexLoc:(45,186)},
+                   {Sheet: ..._2, TexLoc:(45,186)}, ... ]
+        FrameLength = 10
+    Le mod compte deja 8273 cellules construites ainsi. On ne cree donc
+    aucun mecanisme : on remplit le meme moule.
+    """
+    return {'AutoTileset': '', 'Associates': [], 'NeighborCode': -1,
+            'Layers': [{'Frames': [{'Sheet': s, 'TexLoc': {'X': x, 'Y': y}}
+                                   for s in sheets],
+                        'FrameLength': framelen}]}
+
+
+def _composantes(masque, mini=200):
+    """Regroupe les pixels d'un masque en blocs connexes (4-voisinage).
+
+    Sert a distinguer une CASCADE — un bloc compact, haut et etroit,
+    pose sur la falaise — du CIEL, qui est un immense bloc unique
+    couvrant tout le pourtour de l'image. Les deux ont la meme couleur ;
+    seule la FORME les separe.
+    """
+    from collections import deque
+    vu = np.zeros(masque.shape, bool)
+    ys, xs = np.nonzero(masque)
+    blocs = []
+    for y0, x0 in zip(ys, xs):
+        if vu[y0, x0]:
+            continue
+        q = deque([(y0, x0)])
+        vu[y0, x0] = True
+        pts = []
+        while q:
+            y, x = q.popleft()
+            pts.append((y, x))
+            for dy, dx in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                ny, nx = y + dy, x + dx
+                if (0 <= ny < masque.shape[0] and 0 <= nx < masque.shape[1]
+                        and not vu[ny, nx] and masque[ny, nx]):
+                    vu[ny, nx] = True
+                    q.append((ny, nx))
+        if len(pts) >= mini:
+            blocs.append(pts)
+    return blocs
+
+
+def _masques(im, verbeux=False):
+    """Isole les CASCADES et les NUAGES, chacun avec sa methode.
+
+    Le piege, mesure sur l'image de Cloven Ruins : cascade et ciel ont la
+    MEME signature bleue.
+        cascade (43,97,181) (81,160,236)   ciel (191,211,239)
+    Un simple seuil `B - R > 70` marquait donc tout le pourtour du ciel
+    comme « eau qui tombe » — 106 831 px au lieu des quelques milliers
+    attendus (verifie visuellement : le masque debordait sur tout le
+    fond). Deux criteres supplementaires sont necessaires :
+
+      CASCADE  bleu sature ET bloc connexe PLUS HAUT QUE LARGE
+               (une chute d'eau est verticale ; le ciel, lui, forme un
+               unique bloc large de toute l'image).
+      NUAGE    tres clair ET faible saturation, restreint aux blocs
+               qui ne sont pas la voute de ciel elle-meme.
+    """
+    a = np.asarray(im.convert('RGB')).astype(int)
+    R, G, B = a[:, :, 0], a[:, :, 1], a[:, :, 2]
+    H, W = R.shape
+
+    bleu = (B - R > 70) & (B > 150)
+    cascade = np.zeros_like(bleu)
+    for pts in _composantes(bleu, mini=300):
+        ys = [p[0] for p in pts]
+        xs = [p[1] for p in pts]
+        h = max(ys) - min(ys) + 1
+        w = max(xs) - min(xs) + 1
+        # Une chute d'eau : nettement plus haute que large, etroite, ET
+        # DETACHEE DES BORDS. Ce dernier critere elimine les langues de
+        # ciel qui longent le cadre : sur Cloven Ruins, sept blocs
+        # verticaux touchaient x=0 ou x=W-1 et passaient les deux premiers
+        # tests. Une cascade nait d'une falaise, au milieu de l'image ;
+        # elle ne peut pas etre collee au bord.
+        touche_bord = min(xs) <= 1 or max(xs) >= W - 2
+        if h > w * 1.6 and w < W * 0.12 and not touche_bord:
+            for y, x in pts:
+                cascade[y, x] = True
+            if verbeux:
+                print(f'    cascade retenue : x {min(xs)}..{max(xs)} '
+                      f'y {min(ys)}..{max(ys)} ({w}x{h})')
+        elif verbeux and len(pts) > 5000:
+            print(f'    bloc bleu ECARTE (ciel) : {w}x{h}, {len(pts)} px')
+
+    nuage = (R > 200) & (G > 205) & (B > 215) & (B - R < 60)
+    return cascade, nuage
+
+
+def animer_zone(im, masque, frames, dx, dy):
+    """Retourne `frames` images : le contenu du masque DEFILE de (dx,dy)
+    par frame, le reste ne bouge pas.
+
+    Le defilement est CYCLIQUE sur la hauteur (ou la largeur) de la zone
+    masquee : a la derniere frame, le motif est revenu a sa place, donc
+    la boucle est invisible. C'est ce qui rend le mouvement « discret »
+    plutot que saccade.
+    """
+    base = np.asarray(im.convert('RGBA')).copy()
+    out = []
+    for i in range(frames):
+        f = base.copy()
+        if dy:
+            # decalage vertical cyclique, applique colonne par colonne
+            src = np.roll(base, (dy * i) % max(1, base.shape[0]), axis=0)
+        else:
+            src = base
+        if dx:
+            src = np.roll(src, (dx * i) % max(1, base.shape[1]), axis=1)
+        f[masque] = src[masque]
+        out.append(Image.fromarray(f, 'RGBA'))
+    return out
+
+
 def tuile_ref(sheet, x, y, framelen=60):
     return {'AutoTileset': '', 'Associates': [], 'NeighborCode': -1,
             'Layers': [{'Frames': [{'Sheet': sheet,
@@ -223,10 +346,47 @@ def gabarit_rsmap():
         return json.load(f)
 
 
-def gabarit_rsground():
-    src = os.path.join(ROOT, 'Data', 'Ground', 'guild_heros_room.rsground')
+def gabarit_rsground(source=None):
+    """Gabarit de ground.
+
+    `source` permet de repartir d'un ground EXISTANT plutot que du
+    gabarit neutre : on herite alors de ses entites (marqueurs
+    d'entree, spawners d'equipiers, objets scriptes comme la porte de
+    donjon ou le rocher de Kangaskhan). Sans cela, remplacer un decor
+    reviendrait a casser tous les scripts qui le referencent.
+    """
+    src = os.path.join(ROOT, 'Data', 'Ground',
+                       (source or 'guild_heros_room') + '.rsground')
     with open(src, encoding='utf-8-sig') as f:
         return json.load(f)
+
+
+def _replacer_entites(obj, W, H, ancien_w, ancien_h, verbeux=True):
+    """Remet les entites heritees a l'interieur des nouvelles limites.
+
+    Une entite posee hors carte est invisible et injoignable : le joueur
+    ne peut plus entrer dans le donjon, ou l'equipier n'apparait pas.
+    On applique donc une mise a l'echelle proportionnelle, puis on
+    clampe dans la carte avec une marge d'une tuile.
+    """
+    if not obj.get('Entities'):
+        return
+    sx = W / max(1, ancien_w)
+    sy = H / max(1, ancien_h)
+    for e in obj['Entities']:
+        for cle in ('MapChars', 'GroundObjects', 'Markers', 'Spawners'):
+            for o in (e.get(cle) or []):
+                c = o.get('Collider')
+                if not c:
+                    continue
+                ax, ay = c['X'], c['Y']
+                c['X'] = int(min(max(ax * sx, 8), W - c.get('Width', 16) - 8))
+                c['Y'] = int(min(max(ay * sy, 8), H - c.get('Height', 16) - 8))
+                if 'serializationLoc' in o and o['serializationLoc']:
+                    o['serializationLoc'] = {'X': c['X'], 'Y': c['Y']}
+                if verbeux:
+                    print(f"    {o.get('EntName','?'):24s} "
+                          f"({ax},{ay}) -> ({c['X']},{c['Y']})")
 
 
 def _profil(im):
@@ -432,6 +592,167 @@ def cmd_carte(a):
     return 0
 
 
+def cmd_anime(a):
+    """Ground avec nuages et cascades animes.
+
+    STRUCTURE PRODUITE — trois couches, et une seule est animee :
+      'Base'     tout le decor fixe                       (1 frame)
+      'Anim'     uniquement les cellules qui contiennent
+                 du nuage ou de la cascade                (N frames)
+    Les cellules fixes ne sont PAS dupliquees dans les planches d'anim :
+    seules celles qui bougent le sont. Sur Cloven Ruins cela represente
+    une fraction des tuiles, pas les 8000 de la carte.
+
+    VITESSES : les nuages derivent lentement a l'horizontale, l'eau tombe
+    a la verticale plus vite. Deux couches distinctes seraient necessaires
+    pour deux cadences differentes ; on les regroupe ici sur une cadence
+    commune en jouant sur l'AMPLITUDE du decalage (1 px/frame pour les
+    nuages, 3 px/frame pour l'eau), ce qui donne deux vitesses apparentes
+    tout en gardant une seule couche animee.
+    """
+    pas = a.grid
+    if 8 * (pas // 8) != pas:
+        print("  ABANDON : le pas de grille d'un ground vaut 8 * TexSize.")
+        return 1
+    src = Image.open(a.image).convert('RGBA')
+    W, H = src.size
+    nx, ny = (W - 0) // pas, (H - 0) // pas
+    if W % pas or H % pas:
+        print(f'  ATTENTION : image {W}x{H}, residu {W % pas}x{H % pas} px '
+              f'ignore. Recadrez au multiple de {pas}.')
+
+    ecran_w, ecran_h = 320, 240
+    if nx * pas < ecran_w or ny * pas < ecran_h:
+        print(f'  ABANDON : la carte ferait {nx*pas}x{ny*pas} px, plus petite '
+              f'que l ecran ({ecran_w}x{ecran_h}). Le moteur centrerait la '
+              f'carte et laisserait du VIDE sur les cotes.')
+        return 1
+
+    cascade, nuage = _masques(src)
+    print(f'image {W}x{H} -> {nx}x{ny} cellules de {pas} px')
+    print(f'  cascade : {int(cascade.sum()):7d} px')
+    print(f'  nuages  : {int(nuage.sum()):7d} px')
+
+    NF = a.frames
+    # deux vitesses, une seule cadence
+    fr_casc = animer_zone(src, cascade, NF, 0, a.vit_eau)
+    fr_nuag = animer_zone(src, nuage, NF, a.vit_nuage, 0)
+    frames_img = []
+    for i in range(NF):
+        f = np.asarray(fr_casc[i]).copy()
+        f[nuage] = np.asarray(fr_nuag[i])[nuage]
+        frames_img.append(Image.fromarray(f, 'RGBA'))
+
+    # quelles cellules bougent ?
+    bouge = set()
+    m_any = cascade | nuage
+    for gx in range(nx):
+        for gy in range(ny):
+            if m_any[gy*pas:(gy+1)*pas, gx*pas:(gx+1)*pas].any():
+                bouge.add((gx, gy))
+    print(f'  cellules animees : {len(bouge)} / {nx*ny}')
+
+    # --- planches -----------------------------------------------------
+    base_grille = {}
+    for gx in range(nx):
+        for gy in range(ny):
+            if (gx, gy) in bouge:
+                continue
+            base_grille[(gx, gy)] = src.crop((gx*pas, gy*pas,
+                                              (gx+1)*pas, (gy+1)*pas))
+    anim_grilles = []
+    for i in range(NF):
+        g = {}
+        for (gx, gy) in bouge:
+            g[(gx, gy)] = frames_img[i].crop((gx*pas, gy*pas,
+                                              (gx+1)*pas, (gy+1)*pas))
+        anim_grilles.append(g)
+
+    if not a.apply:
+        print('(essai a blanc ; --apply pour ecrire)')
+        return 0
+
+    nom_base = a.nom + '_Base'
+    ecrire_planche(nom_base, pas, base_grille)
+    noms_anim = []
+    for i, g in enumerate(anim_grilles):
+        n = f'{a.nom}_Anim_{i+1}'
+        ecrire_planche(n, pas, g)
+        noms_anim.append(n)
+    reindexer()
+
+    # --- ground -------------------------------------------------------
+    # On repart du ground EXISTANT s'il est indique (--herite) : ses
+    # entites (marqueur d'entree, spawners, porte de donjon...) sont
+    # conservees et repositionnees, sinon tous les scripts qui les
+    # referencent casseraient.
+    doc = gabarit_rsground(a.herite)
+    obj = doc['Object']
+    anc_w = len(obj['obstacles']) * 8 * obj.get('TexSize', 1)
+    anc_h = len(obj['obstacles'][0]) * 8 * obj.get('TexSize', 1)
+    obj['TexSize'] = pas // 8
+    couche_base = [[tuile_ref(nom_base, x, y) if (x, y) in base_grille
+                    else tuile_vide() for y in range(ny)] for x in range(nx)]
+    couche_anim = [[tuile_anim(noms_anim, x, y, a.framelen)
+                    if (x, y) in bouge else tuile_vide()
+                    for y in range(ny)] for x in range(nx)]
+    obj['Layers'] = [
+        {'Name': 'Base', 'Layer': 0, 'Visible': True, 'Tiles': couche_base},
+        {'Name': 'Anim', 'Layer': 0, 'Visible': True, 'Tiles': couche_anim},
+    ]
+    # PAS DE BANDE NOIRE : Clamp bride la camera aux bords de la carte.
+    # ScrollEdge.Blank (0) afficherait le vide ; Clamp (1) est la valeur
+    # employee par 232 des 276 grounds du mod.
+    obj['EdgeView'] = 1
+    # --- COLLISIONS -----------------------------------------------------
+    # Sur une carte de decor peinte, la couleur ne suffit PAS a separer le
+    # marchable de l'infranchissable : mesure sur Cloven Ruins, l'herbe
+    # (207,186,97) et la falaise (173,148,77) ont des profils voisins,
+    # tandis que le chemin de terre et l'herbe sont IDENTIQUES a 1 pres.
+    # Un classement par teinte donnait 28 % de sol praticable et posait
+    # deux spawners d'equipiers dans la roche.
+    #
+    # Le seul critere fiable ici est le VIDE : hors de l'ile, il n'y a que
+    # du ciel et des nuages. On bloque donc ce qui est ciel/nuage, et on
+    # laisse marchable tout le reste — l'ile entiere. Les obstacles fins
+    # (arbres, rochers) restent a poser a la main dans l'editeur ; c'est
+    # un dégrossissage, pas une verite, et l'outil le dit.
+    ciel_nuage = nuage.copy()
+    aRGB = np.asarray(src.convert('RGB')).astype(int)
+    Rr, Gg, Bb = aRGB[:, :, 0], aRGB[:, :, 1], aRGB[:, :, 2]
+    ciel_nuage |= (Bb - Rr > 25) & (Bb > 150)          # bleu du ciel
+    ciel_nuage |= (Rr > 225) & (Gg > 225) & (Bb > 225)  # blanc des nuages
+    proto_ob = obj['obstacles'][0][0]
+    tags = []
+    n_libre = 0
+    for x in range(nx):
+        col = []
+        for y in range(ny):
+            bloc = ciel_nuage[y*pas:(y+1)*pas, x*pas:(x+1)*pas]
+            # une cellule majoritairement ciel = hors de l'ile
+            vide = bloc.mean() > 0.55
+            if not vide:
+                n_libre += 1
+            col.append({**copy.deepcopy(proto_ob), 'Tags': 1 if vide else 0})
+        tags.append(col)
+    obj['obstacles'] = tags
+    print(f'  sol praticable : {n_libre}/{nx*ny} cellules '
+          f'({100*n_libre//(nx*ny)}%) — le reste est du vide (ciel/nuages)')
+    print('  NB : arbres et rochers restent a bloquer manuellement.')
+    obj['AssetName'] = os.path.splitext(os.path.basename(a.sortie))[0]
+    if a.herite:
+        print('  entites heritees, repositionnees :')
+        _replacer_entites(obj, nx * pas, ny * pas, anc_w, anc_h)
+    dst = a.sortie if os.path.isabs(a.sortie) \
+        else os.path.join(ROOT, 'Data', 'Ground', os.path.basename(a.sortie))
+    with open(dst, 'w', encoding='utf-8') as f:
+        json.dump(doc, f, ensure_ascii=False, indent=2)
+    print('ecrit', dst)
+    print(f'  {nx*pas}x{ny*pas} px, EdgeView=Clamp -> aucune bande noire')
+    verifier(nom_base, base_grille, pas)
+    return 0
+
+
 def cmd_ground(a):
     pas = a.grid
     if 8 * (pas // 8) != pas:
@@ -493,11 +814,25 @@ def main():
     p = sub.add_parser('carte'); p.add_argument('image'); p.add_argument('nom'); p.add_argument('sortie'); commun(p)
     p = sub.add_parser('ground'); p.add_argument('image'); p.add_argument('nom'); p.add_argument('sortie')
     p.add_argument('--grid', type=int, default=8); commun(p)
+    p = sub.add_parser('anime')
+    p.add_argument('image'); p.add_argument('nom'); p.add_argument('sortie')
+    p.add_argument('--grid', type=int, default=8)
+    p.add_argument('--frames', type=int, default=4)
+    p.add_argument('--framelen', type=int, default=10)
+    p.add_argument('--vit-eau', dest='vit_eau', type=int, default=3,
+                   help='px de defilement vertical de l eau, par frame')
+    p.add_argument('--vit-nuage', dest='vit_nuage', type=int, default=1,
+                   help='px de derive horizontale des nuages, par frame')
+    p.add_argument('--herite', default=None,
+                   help='ground existant dont on reprend les entites')
+    commun(p)
+
     p = sub.add_parser('verifier'); p.add_argument('nom')
 
     a = ap.parse_args()
     return {'decoupe': cmd_decoupe, 'importer': cmd_importer,
             'carte': cmd_carte, 'ground': cmd_ground,
+            'anime': cmd_anime,
             'verifier': cmd_verifier}[a.cmd](a) or 0
 
 

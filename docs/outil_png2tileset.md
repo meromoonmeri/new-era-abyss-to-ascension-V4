@@ -155,3 +155,104 @@ illustration).
 
 L'index régénéré après nettoyage est **identique à l'original** ; les
 baselines du dépôt sont inchangées (**12 / 849**).
+
+
+---
+
+## Mode `anime` — nuages et cascades qui bougent
+
+```bash
+python3 tools/png2tileset.py anime image.png Nom sortie.rsground \
+        --grid 8 --frames 4 --herite ground_existant --apply
+```
+
+| option | rôle |
+|---|---|
+| `--frames N` | nombre d'images de la boucle (défaut 4) |
+| `--framelen N` | durée d'une image (défaut 10, la cadence de l'eau du mod) |
+| `--vit-eau N` | px de chute par image (défaut 3) |
+| `--vit-nuage N` | px de dérive horizontale par image (défaut 1) |
+| `--herite G` | reprend les entités d'un ground existant |
+
+### Le patron est natif, pas inventé
+
+Relevé tel quel sur la rivière de `metano_town.rsground` :
+
+```
+Frames = [ {Sheet: Metano_Town_River_Animation_1, TexLoc:(45,186)},
+           {Sheet: ..._2, TexLoc:(45,186)}, ... ]   FrameLength = 10
+```
+
+Le mod compte déjà **8 273 cellules** construites ainsi. L'outil remplit
+le même moule : une planche par image, mêmes coordonnées.
+
+**Deux vitesses, une seule cadence** : les nuages dérivent à 1 px/image,
+l'eau tombe à 3 px/image. Le décalage est cyclique, donc la boucle est
+invisible. Seules les cellules qui bougent sont dupliquées — sur Cloven
+Ruins, **3 611 sur 24 310**, pas toute la carte.
+
+### Séparer la cascade du ciel : le vrai piège
+
+Cascade et ciel ont **la même couleur bleue** :
+
+| | RGB |
+|---|---|
+| cascade | (43,97,181) · (81,160,236) |
+| ciel | (191,211,239) |
+
+Un seuil `B - R > 70` marquait donc **tout le pourtour du ciel** comme eau
+qui tombe — 106 831 px au lieu de 10 236. Vérifié visuellement : le
+masque débordait sur tout le fond.
+
+Trois critères de forme sont nécessaires, appliqués sur les blocs
+connexes :
+
+1. **plus haut que large** (`h > w × 1,6`) — une chute est verticale ;
+2. **étroit** (`w < 12 %` de l'image) — le ciel forme un bloc immense ;
+3. **détaché des bords** — sept langues de ciel longeaient le cadre et
+   passaient les deux premiers tests.
+
+Résultat : les **deux vraies cascades** (x 148-185 et x 976-1012) isolées,
+les blocs de ciel de 27 164 et 29 598 px écartés.
+
+### Aucune bande noire
+
+`ScrollEdge.Blank` (0) affiche le vide ; **`Clamp` (1) bride la caméra aux
+bords** (`BaseGroundScene.cs:136-153`). C'est la valeur de 232 des 276
+grounds du mod, et l'outil la force.
+
+L'outil **refuse** en plus toute carte plus petite que l'écran
+(320 × 240) : en dessous, le moteur centre la carte et laisse du vide.
+Cloven Ruins fait 1144 × 1360, soit **3,6 × 5,7 écrans**.
+
+### Collisions : ce que l'outil sait faire, et ce qu'il ne sait pas
+
+Sur un décor peint, la couleur **ne sépare pas** le marchable de
+l'infranchissable — mesuré : herbe (207,186,97) et falaise (173,148,77)
+sont voisines, chemin et herbe identiques à 1 près. Le classement par
+teinte donnait 28 % de sol et posait **deux spawners d'équipiers dans la
+roche**.
+
+Le seul critère fiable est le **vide** : hors de l'île il n'y a que du
+ciel. L'outil bloque donc ciel et nuages, et laisse le reste marchable —
+**79 %** sur Cloven Ruins. Les arbres et rochers restent à bloquer à la
+main dans l'éditeur, et l'outil l'affiche.
+
+### Entités préservées
+
+`--herite` reprend marqueur d'entrée, spawners d'équipiers et objets
+scriptés, puis les **repositionne** à l'échelle de la nouvelle carte.
+Sans cela, remplacer un décor casserait tous les scripts qui le
+référencent. Contrôle après coup sur Cloven Ruins : **6 entités, 0 en
+défaut**, et l'entrée du donjon est atteignable depuis le point
+d'arrivée (17 963 cases connexes).
+
+### Résultat mesuré
+
+| contrôle | résultat |
+|---|---|
+| rendu vs PNG source | **0 pixel d'écart** / 1 555 840 |
+| relecture des planches | 20 699 tuiles, **0 écart** |
+| animation | ~130 000 px changent entre deux images |
+| entités hors sol | **0 / 6** |
+| baselines | **12 / 849**, inchangées |
