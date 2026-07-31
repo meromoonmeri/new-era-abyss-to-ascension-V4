@@ -164,7 +164,7 @@ function metano_town_ch_6.DazzlingIntroduction()
 	end)
 	local coro2 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(10)
-		GROUND:MoveToPosition(hero, 792, 896, false, 1)
+		GROUND:MoveToPosition(hero, 792, 904, false, 1)
 		GROUND:CharAnimateTurnTo(hero, Direction.UpRight, 4)
 	end)
 	local coro3 = TASK:BranchCoroutine(function()
@@ -217,8 +217,33 @@ function metano_town_ch_6.DazzlingIntroduction()
 
 		SOUND:FadeOutBGM(30)
 		GAME:WaitFrames(20)
+
+		--L'ENTREE DES RIVALES — LE MOMENT DOIT SE VOIR ET S'ENTENDRE.
+		--Le theme Team_Dazzling.ogg demarrait pendant que la place etait
+		--encore cadree sur le duo : leur arrivee s'entendait avant de se
+		--voir. La camera glisse desormais vers l'est PENDANT le silence,
+		--et la musique tombe sur l'image une fois le cadre en place —
+		--patron de l'arrivee au Mont Windsep.
+		local reveal = TASK:BranchCoroutine(function()
+			GAME:MoveCamera(960, 816, 50, false)
+		end)
+		TASK:JoinCoroutines({reveal})
 		SOUND:PlayBGM("Team_Dazzling.ogg", true)
-		GAME:WaitFrames(12)
+		GAME:WaitFrames(18)
+
+		--TOUTE LA PLACE SE TOURNE VERS ELLES. Le duo, Butterfree et les
+		--trois badauds : personne ne reste dos a l'evenement. Les delais
+		--sont echelonnes pour que ce soit une vague, pas un pivot
+		--collectif au meme instant.
+		local look = {}
+		for i, who in ipairs({partner, hero, butterfree, mawile, floatzel, quagsire}) do
+			look[#look+1] = TASK:BranchCoroutine(function()
+				GAME:WaitFrames((i - 1) * 5)
+				pcall(function() GROUND:CharAnimateTurnTo(who, Direction.Right, 4) end)
+			end)
+		end
+		TASK:JoinCoroutines(look)
+		GAME:WaitFrames(10)
 
 		coro1 = TASK:BranchCoroutine(function()
 			GROUND:MoveToPosition(adagio, 1008, 784, false, 1)
@@ -226,19 +251,32 @@ function metano_town_ch_6.DazzlingIntroduction()
 	end)
 	coro2 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(8)
-		GROUND:MoveToPosition(aria, 1040, 816, false, 1)
+		GROUND:MoveToPosition(aria, 1048, 816, false, 1)
 		GROUND:CharAnimateTurnTo(aria, Direction.Left, 4)
 	end)
 	coro3 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(16)
-		GROUND:MoveToPosition(sonata, 1072, 848, false, 1)
+		GROUND:MoveToPosition(sonata, 1064, 848, false, 1)
 		GROUND:CharAnimateTurnTo(sonata, Direction.Left, 4)
 	end)
 	TASK:JoinCoroutines({coro1, coro2, coro3})
 
-	GROUND:CharAnimateTurnTo(adagio, Direction.Down, 4)
-	GROUND:CharAnimateTurnTo(aria, Direction.Down, 4)
-	GROUND:CharAnimateTurnTo(sonata, Direction.Down, 4)
+	--ELLES SE TOURNENT VERS LE HEROS, PAS VERS LE VIDE.
+	--Les trois pivotaient vers Direction.Down au meme instant : un pivot
+	--collectif identique, que la directive de mise en scene interdit
+	--explicitement (« chaque position dans l'espace appelle un ajustement
+	--different »). Elles se tournent desormais vers le duo, chacune
+	--depuis sa propre position, et en decale — Aria la premiere, elle est
+	--la plus impatiente ; Adagio en dernier, elle ne se presse jamais.
+	local face = {}
+	for i, who in ipairs({aria, sonata, adagio}) do
+		face[#face+1] = TASK:BranchCoroutine(function()
+			GAME:WaitFrames((i - 1) * 7)
+			pcall(function() GROUND:CharTurnToCharAnimated(who, hero, 4) end)
+		end)
+	end
+	TASK:JoinCoroutines(face)
+	GAME:WaitFrames(10)
 	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
 	UI:SetSpeaker(aria)
 	GeneralFunctions.SetEmotion("Happy")
@@ -252,16 +290,50 @@ function metano_town_ch_6.DazzlingIntroduction()
 		GeneralFunctions.SetEmotion("Normal")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_047']))
 
+		--BUTTERFREE S'INTERPOSE : les rivales se tournent vers lui, et le
+		--duo aussi. Le foyer d'attention se deplace, les orientations
+		--suivent — c'est ce qui manquait a toute cette scene.
+		local b1 = {}
+		for i, who in ipairs({adagio, aria, sonata, hero, partner}) do
+			b1[#b1+1] = TASK:BranchCoroutine(function()
+				GAME:WaitFrames((i - 1) * 4)
+				pcall(function() GROUND:CharTurnToCharAnimated(who, butterfree, 4) end)
+			end)
+		end
+		TASK:JoinCoroutines(b1)
+
 		UI:SetSpeaker(butterfree)
 		GeneralFunctions.SetEmotion("Worried")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_001']))
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_002']))
 		GAME:WaitFrames(12)
 
+		--ADAGIO REPOND. Elle est la meneuse : quand elle parle, tout le
+		--monde se tourne, y compris ses deux coequipieres.
+		local a1 = {}
+		for i, who in ipairs({butterfree, aria, sonata, hero, partner}) do
+			a1[#a1+1] = TASK:BranchCoroutine(function()
+				GAME:WaitFrames((i - 1) * 4)
+				pcall(function() GROUND:CharTurnToCharAnimated(who, adagio, 4) end)
+			end)
+		end
+		TASK:JoinCoroutines(a1)
+
 		UI:SetSpeaker(adagio)
 		GeneralFunctions.SetEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_003']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_004']))
+
+	--Aria coupe la parole : le duo se tourne vers elle, Adagio non —
+	--elle a l'habitude, et ce detail dit leur relation sans un mot.
+	local ar1 = TASK:BranchCoroutine(function()
+		pcall(function() GROUND:CharTurnToCharAnimated(hero, aria, 4) end)
+	end)
+	local ar2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(5)
+		pcall(function() GROUND:CharTurnToCharAnimated(partner, aria, 4) end)
+	end)
+	TASK:JoinCoroutines({ar1, ar2})
 
 	UI:SetSpeaker(aria)
 	GeneralFunctions.SetEmotion("Happy")
@@ -276,7 +348,7 @@ function metano_town_ch_6.DazzlingIntroduction()
 	-- Aria tests the partner physically, but backs off as soon as she has
 	-- obtained the reaction she wanted.
 	local bump1 = TASK:BranchCoroutine(function()
-		GROUND:MoveToPosition(aria, 880, 864, false, 1)
+		GROUND:MoveToPosition(aria, 880, 856, false, 1)
 		GROUND:MoveInDirection(partner, Direction.DownRight, 8, false, 1)
 	end)
 	local bump2 = TASK:BranchCoroutine(function()
@@ -289,7 +361,7 @@ function metano_town_ch_6.DazzlingIntroduction()
 	GeneralFunctions.SetEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_048']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_049']))
-	GROUND:MoveToPosition(aria, 1040, 816, false, 1)
+	GROUND:MoveToPosition(aria, 1048, 816, false, 1)
 	GROUND:CharAnimateTurnTo(aria, Direction.Left, 4)
 
 	UI:SetSpeaker(sonata)
@@ -300,7 +372,7 @@ function metano_town_ch_6.DazzlingIntroduction()
 	GROUND:CharSetEmote(sonata, "", 0)
 
 	local trick = TASK:BranchCoroutine(function()
-		GROUND:MoveToPosition(sonata, 848, 848, false, 1)
+		GROUND:MoveToPosition(sonata, 848, 856, false, 1)
 		GROUND:CharAnimateTurnTo(sonata, Direction.Right, 4)
 	end)
 	local trick2 = TASK:BranchCoroutine(function()
@@ -312,21 +384,56 @@ function metano_town_ch_6.DazzlingIntroduction()
 	UI:SetSpeaker(sonata)
 	GeneralFunctions.SetEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_050']))
-	GROUND:MoveToPosition(sonata, 1072, 848, false, 1)
+	GROUND:MoveToPosition(sonata, 1064, 848, false, 1)
 	GROUND:CharAnimateTurnTo(sonata, Direction.Left, 4)
+
+	--LE PARTENAIRE TIENT TETE. C'est le pivot de la scene : il faut que
+	--les trois rivales le regardent pour que sa replique porte.
+	local st = {}
+	for i, who in ipairs({aria, sonata, adagio, butterfree}) do
+		st[#st+1] = TASK:BranchCoroutine(function()
+			GAME:WaitFrames((i - 1) * 5)
+			pcall(function() GROUND:CharTurnToCharAnimated(who, partner, 4) end)
+		end)
+	end
+	--Le heros se tourne vers son partenaire : il le soutient du corps
+	--avant de parler.
+	st[#st+1] = TASK:BranchCoroutine(function()
+		pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
+	end)
+	TASK:JoinCoroutines(st)
+	GAME:WaitFrames(8)
 
 	UI:SetSpeaker(partner)
 	GeneralFunctions.SetEmotion("Determined")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_010']))
+	GAME:WaitFrames(10)
+
+	--Le heros prend le relais : tout le monde se tourne vers lui.
+	local hr = {}
+	for i, who in ipairs({partner, aria, adagio, butterfree}) do
+		hr[#hr+1] = TASK:BranchCoroutine(function()
+			GAME:WaitFrames((i - 1) * 4)
+			pcall(function() GROUND:CharTurnToCharAnimated(who, hero, 4) end)
+		end)
+	end
+	TASK:JoinCoroutines(hr)
 
 	UI:SetSpeaker(hero)
 	GeneralFunctions.SetEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_011']))
+	GAME:WaitFrames(10)
 
+	pcall(function() GROUND:CharTurnToCharAnimated(hero, butterfree, 4) end)
+	pcall(function() GROUND:CharTurnToCharAnimated(partner, butterfree, 4) end)
 	UI:SetSpeaker(butterfree)
 	GeneralFunctions.SetEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_012']))
+	GAME:WaitFrames(10)
 
+	--Aria est prise de court : le corps le dit avant la boite.
+	pcall(function() GROUND:CharTurnToCharAnimated(aria, hero, 4) end)
+	pcall(function() GeneralFunctions.EmoteAndPause(aria, "Shock", true) end)
 	UI:SetSpeaker(aria)
 	GeneralFunctions.SetEmotion("Surprised")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_013']))
