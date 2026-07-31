@@ -109,7 +109,7 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 		-- into the depth floors. The relay's North exit starts segment 1.
 		-- (Original was: GAME:ContinueDungeon("gloomy_forest", 1, 0, 0, ...).)
 		SV.Chapter6.GloomyMidpointState = 'FirstArrival'
-		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 61, 0, false, false) --gloomy_forest_midpoint (mapID 61)
+		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 62, 0, false, false) --gloomy_forest_midpoint (mapID 61)
 		return
 	end
 
@@ -155,9 +155,9 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 			SV.GloomyForest.DiedPastCheckpoint = true
 			SV.Chapter6.GloomyMidpointState = 'DeathArrival'
 			GAME:WaitFrames(20)
-			GAME:EndDungeonRun(result, "master_zone", -1, 61, 0, true, true) --relay (mapID 61)
+			GAME:EndDungeonRun(result, "master_zone", -1, 62, 0, true, true) --relay (mapID 61)
 			GAME:WaitFrames(20)
-			GAME:EnterZone("master_zone", -1, 61, 0)
+			GAME:EnterZone("master_zone", -1, 62, 0)
 		end
 		return
 	end
@@ -175,9 +175,9 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 			SV.GloomyForest.DiedPastCheckpoint = true
 			SV.Chapter6.GloomyMidpointState = 'DeathArrival'
 			GAME:WaitFrames(20)
-			GAME:EndDungeonRun(result, "master_zone", -1, 61, 0, true, true) --relay (mapID 61)
+			GAME:EndDungeonRun(result, "master_zone", -1, 62, 0, true, true) --relay (mapID 61)
 			GAME:WaitFrames(20)
-			GAME:EnterZone("master_zone", -1, 61, 0)
+			GAME:EnterZone("master_zone", -1, 62, 0)
 		end
 		return
 	end
@@ -208,9 +208,9 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 			SV.Chapter6.DefeatedByZarude = true
 			SV.Chapter6.DiedToGloomyBoss = true
 			SV.Chapter6.MissionAccepted = false
-			GAME:EndDungeonRun(result, "master_zone", -1, 61, 0, true, true) --relay (mapID 61)
+			GAME:EndDungeonRun(result, "master_zone", -1, 62, 0, true, true) --relay (mapID 61)
 			GAME:WaitFrames(20)
-			GAME:EnterZone("master_zone", -1, 61, 0)
+			GAME:EnterZone("master_zone", -1, 62, 0)
 		end
 		return
 	end
@@ -274,7 +274,7 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 		--Le duel ne se represente pas : gagne ou perdu, il a eu lieu.
 		SV.Chapter6.DazzlingTrialOffered = false
 		GAME:WaitFrames(20)
-		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 61, 0, false, false)
+		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 62, 0, false, false)
 		return
 	end
 

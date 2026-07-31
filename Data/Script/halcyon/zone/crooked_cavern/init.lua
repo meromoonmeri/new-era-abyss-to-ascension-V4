@@ -109,7 +109,7 @@ function crooked_cavern.ExitSegment(zone, result, rescue, segmentID, mapID)
 				-- crooked_den's FirstPreBossScene (handled in segment 1 below).
 				-- (Original line was: GAME:EnterZone("master_zone", -1, 42, 0).)
 				SV.Chapter3.CrookedMidpointState = 'FirstArrival'
-				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 60, 0, false, false) --crooked_cavern_midpoint (mapID 60)
+				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 61, 0, false, false) --crooked_cavern_midpoint (mapID 60)
 			end
 		end
 
@@ -132,12 +132,12 @@ function crooked_cavern.ExitSegment(zone, result, rescue, segmentID, mapID)
 			SV.CrookedCavern.DiedPastCheckpoint = true
 			SV.Chapter3.CrookedMidpointState = 'DeathArrival'
 			GAME:WaitFrames(20)
-			GAME:EndDungeonRun(result, "master_zone", -1, 60, 0, true, true) --relay (mapID 60); this saves + applies standard loss penalties
+			GAME:EndDungeonRun(result, "master_zone", -1, 61, 0, true, true) --relay (mapID 60); this saves + applies standard loss penalties
 			UI:SetSpeaker(GAME:GetPlayerPartyMember(1))
 			GeneralFunctions.SetEmotion("Pain")
 			GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Urf...[pause=0] pas cette fois...", "Pain")
 			GAME:WaitFrames(20)
-			GAME:EnterZone("master_zone", -1, 60, 0) --travel to the relay
+			GAME:EnterZone("master_zone", -1, 61, 0) --travel to the relay
 
 		--Cleared the second half: proceed to crooked_den pre-boss scene (UNCHANGED target;
 		--this path was previously reached directly from segment 0).
@@ -164,9 +164,9 @@ function crooked_cavern.ExitSegment(zone, result, rescue, segmentID, mapID)
 			-- (crooked_den's DiedToBoss scene is thereby superseded but left in place).
 			SV.CrookedCavern.DiedPastCheckpoint = true
 			SV.Chapter3.CrookedMidpointState = 'DeathArrival'
-			GAME:EndDungeonRun(result, "master_zone", -1, 60, 0, true, true) --relay (mapID 60)
+			GAME:EndDungeonRun(result, "master_zone", -1, 61, 0, true, true) --relay (mapID 60)
 			GAME:WaitFrames(20)
-			GAME:EnterZone("master_zone", -1, 60, 0)
+			GAME:EnterZone("master_zone", -1, 61, 0)
 		else
 			--Beat the boss: continue to crooked_den for the post-boss/root scene (UNCHANGED).
 			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 42, 0, false, false) --crooked_den (mapID 42)
