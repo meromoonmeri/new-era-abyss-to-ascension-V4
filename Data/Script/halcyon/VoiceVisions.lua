@@ -135,7 +135,17 @@ end
 -- FlashEmitter ponctuel — sur une grande carte, il ne couvrait qu'une partie.
 function VoiceVisions.DizzyVeil()
   pcall(function()
-    local anim = RogueEssence.Content.BGAnimData("Black", 1, -1, -1, 128, Dir8.None)
+    --Patron corrige (bug signale en jeu : « l'effet nausee charge avec
+    --des carreaux noirs & violets »). L'ancienne version posait
+    --BGAnimData("Black", 1, -1, -1, 128, Dir8.None) — alpha 128 DANS
+    --l'animation — PUIS em.Color = Color.White. Le double mélange
+    --(anim noire semi-transparente repetee en tuiles + teinte blanche
+    --appliquee par le Color sur chaque tuile) produisait des carreaux
+    --teintes noirs/violets au lieu d'un voile uniforme.
+    --Patron correct du depot (first_core_location_ch_3.lua:59,
+    --testmap/init.lua:1154) : l'alpha se regle UNIQUEMENT sur le Color
+    --(Color(0,0,0, a/255)), l'animation reste opaque.
+    local anim = RogueEssence.Content.BGAnimData("Black", 1)
     local em = RogueEssence.Content.FiniteOverlayEmitter()
     em.Anim = anim
     em.Layer = DrawLayer.Top
@@ -144,7 +154,7 @@ function VoiceVisions.DizzyVeil()
     em.FadeOut = 10
     em.RepeatX = true
     em.RepeatY = true
-    em.Color = Color.White
+    em.Color = Color(0, 0, 0, 128/255)
     local c = GAME:GetCameraCenter()
     GROUND:PlayVFX(em, c.X, c.Y)
     GAME:WaitFrames(30)
@@ -207,7 +217,13 @@ function VoiceVisions.Recover(chara)
   pcall(function()
     if chara ~= nil then
       GROUND:CharSetEmote(chara, "", 0)
-      GROUND:CharSetAnim(chara, "Idle", true)
+      --CharEndAnim, pas CharSetAnim(...,"Idle",true) : l'idle boucle
+      --restait actif apres le malaise et figeait le heros en idle
+      --pendant tout le rassemblement qui suivait (bug signale en jeu :
+      --« l'idle sur le hero est active inutilement pendant tout le
+      --rassemblement et legerement avant »). CharEndAnim rend le sprite
+      --a l'idle NATUREL du moteur, libre de reprendre une marche.
+      GROUND:CharEndAnim(chara)
     end
   end)
 end
