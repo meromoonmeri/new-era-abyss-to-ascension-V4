@@ -25,6 +25,13 @@
 - **Contenu repris** : scripts Python d'outillage (`tools/dungeon_pack/`)
 - **Note** : certains graphismes proviennent de craftpix.net (vérifier licence avant réutilisation directe)
 
+### PMDO-Explorers-Maps
+- **Auteur** : [slothplaysnecro](https://github.com/slothplaysnecro/PMDO-Explorers-Maps)
+- **Description** : cartes d'Explorers of Sky importées et prêtes à l'emploi sous PMDO
+- **Licence** : le dépôt autorise explicitement la réutilisation — « Feel free to use these in your own projects »
+- **Contenu repris** : ground `treasure_town.rsground`, tilesets `TreasureTownEast` / `TreasureTownWest`
+- **Crédits amont** : assets initialement issus d'[ExplorersOfSkyOrigins](https://github.com/Minemaker0430/ExplorersOfSkyOrigins)
+
 ### Project EoN
 - **Auteur** : [Logical321](https://github.com/Logical321/ProjectEoN)
 - **Description** : Fangame PMDO (non terminé)

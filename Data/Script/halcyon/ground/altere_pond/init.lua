@@ -165,6 +165,60 @@ end
 
 
 
+--------------------------------------------------------------------
+-- NESSIE — la traversee vers Treasure Town
+--------------------------------------------------------------------
+-- Le bourg de Treasure Town n'est pas accessible par un menu de voyage :
+-- on y va sur le dos de Nessie, depuis cette berge, et on en revient de
+-- la meme facon (ground/treasure_town, Lapras_Action).
+--
+-- Verrou d'histoire : la traversee ne s'ouvre qu'une fois l'expedition
+-- du chapitre 5 terminee. Avant cela Nessie decline — le duo n'a encore
+-- aucune raison de traverser la mer, et l'ouvrir plus tot laisserait le
+-- joueur atteindre un bourg dont l'histoire ne parle pas encore.
+function altere_pond.Lapras_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+
+  local ouvert = false
+  pcall(function()
+    ouvert = SV.Chapter5 ~= nil and SV.Chapter5.FinishedExpedition == true
+  end)
+
+  if not ouvert then
+    GeneralFunctions.StartConversation(chara,
+      STRINGS:Format(STRINGS.MapStrings['AP_Lapras_Locked']), "Normal")
+    GeneralFunctions.EndConversation(chara)
+    return
+  end
+
+  UI:ResetSpeaker(false)
+  UI:SetCenter(true)
+  partner.IsInteracting = true
+  GROUND:CharSetAnim(partner, 'None', true)
+  GROUND:CharSetAnim(hero, 'None', true)
+
+  GeneralFunctions.StartConversation(chara,
+    STRINGS:Format(STRINGS.MapStrings['AP_Lapras_001']), "Normal")
+  GeneralFunctions.EndConversation(chara)
+
+  UI:ChoiceMenuYesNo(STRINGS:Format(STRINGS.MapStrings['AP_Lapras_002']), true)
+  UI:WaitForChoice()
+  local partir = UI:ChoiceResult()
+
+  partner.IsInteracting = false
+  GROUND:CharEndAnim(partner)
+  GROUND:CharEndAnim(hero)
+
+  if partir then
+    SOUND:FadeOutBGM(60)
+    GAME:FadeOut(false, 60)
+    SV.partner.Spawn = "Default"
+    GAME:EnterGroundMap("treasure_town", "Main_Entrance_Marker")
+  end
+end
+
 function altere_pond.Teammate1_Action(chara, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
   PartnerEssentials.GetPartnerDialogue(CH('Teammate1'))

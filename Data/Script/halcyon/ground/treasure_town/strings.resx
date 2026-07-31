@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.NetStandard.ResXResourceReader, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+    <data name="TT_Lapras_001" xml:space="preserve">
+    <value>The sea is calm today.[pause=20] Heading back, or staying a while longer?</value>
+  </data>
+  <data name="TT_Lapras_002" xml:space="preserve">
+    <value>Return to Metano?</value>
+  </data>
+  <data name="TT_Kecleon_001" xml:space="preserve">
+    <value>Welcome to the market![pause=15] Everything you need to set out again,[pause=10] and nothing that breaks on the way.</value>
+  </data>
+  <data name="TT_KecleonP_001" xml:space="preserve">
+    <value>My brother sells the essentials.[pause=20] I sell what you only find once.[pause=15] Take your time.</value>
+  </data>
+  <data name="TT_Chimecho_001" xml:space="preserve">
+    <value>Oh, new faces![pause=20] We see plenty of teams here...[pause=15] but rarely ones from as far as you.</value>
+  </data>
+  <data name="TT_Duskull_001" xml:space="preserve">
+    <value>Your belongings are safe.[pause=20] I never sleep,[pause=10] and I never lose a thing.</value>
+  </data>
+  <data name="TT_Marowak_001" xml:space="preserve">
+    <value>You look like you've walked a long way.[pause=20] The training ground is open,[pause=10] if your legs still hold.</value>
+  </data>
+  <data name="TT_Croagunk_001" xml:space="preserve">
+    <value>Heh heh...[pause=15] Got something to trade?[pause=20] I've always got something to offer back.</value>
+  </data>
+  <data name="TT_Bidoof_001" xml:space="preserve">
+    <value>Yup![pause=15] Finest town on the coast, by golly.[pause=20] Well,[pause=10] it's the only one I know.</value>
+  </data>
+  <data name="TT_Wigglytuff_001" xml:space="preserve">
+    <value>Friiiends![pause=25] You've come from the mainland, haven't you?[pause=20] The sea brought you here...[pause=15] So you're home.</value>
+  </data>
+</root>

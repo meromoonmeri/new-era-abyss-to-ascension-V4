@@ -1282,6 +1282,92 @@ local characters = {
 			form = 1,
 			skin = "normal"
 		},
+
+		------------------------------------------------------------------
+		-- TREASURE TOWN — commercants et passeur
+		------------------------------------------------------------------
+		-- Habitants du bourg d'Explorateurs du Ciel, accessible par la mer
+		-- depuis Metano (voir ground/treasure_town). Ce sont les tenanciers
+		-- canoniques de la place : on garde leur ROLE (banque, entrepot,
+		-- dojo, echange) mais on leur donne un nom propre, comme pour tous
+		-- les PNJ du projet.
+		--
+		-- Aucun de ces Pokemon n'a de fiche dans Data/Monster : comme 168
+		-- des 172 especes deja utilisees par ce registre, ils viennent du
+		-- jeu de base. Rien a importer.
+		Duskull = {
+			species = "duskull",
+			nickname = 'Osselin',
+			instance = 'Duskull',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+
+		Chimecho = {
+			species = "chimecho",
+			nickname = 'Carilla',
+			instance = 'Chimecho',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+
+		Marowak = {
+			species = "marowak",
+			nickname = 'Tibo',
+			instance = 'Marowak',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+
+		Croagunk = {
+			species = "croagunk",
+			nickname = 'Vasco',
+			instance = 'Croagunk',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+
+		Wigglytuff = {
+			species = "wigglytuff",
+			nickname = 'Grodou',
+			instance = 'Wigglytuff',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+
+		Loudred = {
+			species = "loudred",
+			nickname = 'Brayan',
+			instance = 'Loudred',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+
+		Bidoof = {
+			species = "bidoof",
+			nickname = 'Castorin',
+			instance = 'Bidoof',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+
+		--Le passeur. C'est lui qui relie Metano a Treasure Town : la
+		--traversee se fait sur son dos, jamais par un menu de voyage.
+		Lapras = {
+			species = "lapras",
+			nickname = 'Nessie',
+			instance = 'Lapras',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
 		
 		Chatot = {
 			species = "chatot",

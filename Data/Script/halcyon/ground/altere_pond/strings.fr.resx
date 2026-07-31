@@ -229,4 +229,13 @@
   <data name="AP5_004" xml:space="preserve">
     <value>Nous n'avons pas le temps de partir à l'aventure dans {0} ![pause=0] Nous devons nous préparer pour l'expédition !</value>
   </data>
+  <data name="AP_Lapras_Locked" xml:space="preserve">
+    <value>La mer est grande, vous savez.[pause=25] Revenez me voir quand vous aurez une vraie raison de la traverser.</value>
+  </data>
+  <data name="AP_Lapras_001" xml:space="preserve">
+    <value>Vous avez le regard de ceux qui ont marché loin.[pause=25] Il y a un bourg, de l'autre côté de l'eau.[pause=20] Des explorateurs, comme vous.</value>
+  </data>
+  <data name="AP_Lapras_002" xml:space="preserve">
+    <value>Traverser jusqu'au Bourg-Trésor ?</value>
+  </data>
 </root>

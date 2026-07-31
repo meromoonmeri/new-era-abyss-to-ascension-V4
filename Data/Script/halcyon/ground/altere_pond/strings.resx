@@ -229,4 +229,13 @@
   <data name="AP5_004" xml:space="preserve">
     <value>There's no time for any adventures in {0}![pause=0] We have to prepare for the expedition!</value>
   </data>
+  <data name="AP_Lapras_Locked" xml:space="preserve">
+    <value>The sea is wide, you know.[pause=25] Come back when you have a real reason to cross it.</value>
+  </data>
+  <data name="AP_Lapras_001" xml:space="preserve">
+    <value>You have the look of those who've walked far.[pause=25] There's a town on the other side of the water.[pause=20] Explorers, like you.</value>
+  </data>
+  <data name="AP_Lapras_002" xml:space="preserve">
+    <value>Cross to Treasure Town?</value>
+  </data>
 </root>
