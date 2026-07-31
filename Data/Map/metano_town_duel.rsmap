@@ -751,7 +751,1911 @@
         ]
       }
     ],
-    "AllyTeams": [],
+    "AllyTeams": [
+      {
+        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
+        "Players": [
+          {
+            "Element1": "normal",
+            "Element2": "none",
+            "TurnWait": 0,
+            "TiersUsed": 0,
+            "TurnUsed": false,
+            "movementSpeed": 0,
+            "dead": false,
+            "serializationLoc": {
+              "X": 4,
+              "Y": 9
+            },
+            "serializationDir": 4,
+            "ProxyName": "",
+            "ProxySprite": {
+              "Species": "",
+              "Form": -1,
+              "Skin": "",
+              "Gender": -1
+            },
+            "CurrentForm": {
+              "Species": "mawile",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "ProxyAtk": -1,
+            "ProxyDef": -1,
+            "ProxyMAtk": -1,
+            "ProxyMDef": -1,
+            "ProxySpeed": -1,
+            "Skills": [],
+            "Intrinsics": [],
+            "EquippedItem": {
+              "ID": "",
+              "Cursed": false,
+              "HiddenValue": "",
+              "Amount": 0,
+              "Price": 0
+            },
+            "Absentee": false,
+            "ChargeBoost": 0,
+            "HP": 30,
+            "HPRemainder": 0,
+            "Fullness": 100,
+            "FullnessRemainder": 0,
+            "MaxFullness": 100,
+            "StatusEffects": {},
+            "MissChain": 0,
+            "EXPMarked": false,
+            "Tactic": {
+              "Name": {
+                "DefaultText": "Wait Only",
+                "LocalTexts": {}
+              },
+              "Released": false,
+              "Comment": "",
+              "ID": "wait_only",
+              "Assignable": false,
+              "Plans": [
+                {
+                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
+                  "IQ": 400,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": true
+                }
+              ]
+            },
+            "Mobility": 0,
+            "CantWalk": true,
+            "ItemDisabled": false,
+            "IntrinsicDisabled": false,
+            "CanRemoveStuck": false,
+            "StopItemAtHit": false,
+            "MovesScrambled": false,
+            "ChargeSaver": false,
+            "WaitToAttack": true,
+            "CantInteract": true,
+            "EnemyOfFriend": false,
+            "AttackFriend": false,
+            "TileSight": -1,
+            "CharSight": -1,
+            "Unidentifiable": false,
+            "Unlocatable": false,
+            "SeeAllChars": false,
+            "SeeItems": false,
+            "SeeWallItems": false,
+            "SeeTraps": false,
+            "CharStates": [],
+            "BackRef": {
+              "Assembly": false,
+              "Index": -1
+            },
+            "Nickname": "Mawile",
+            "OriginalUUID": "",
+            "OriginalTeam": "",
+            "BaseForm": {
+              "Species": "mawile",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "Level": 5,
+            "EXP": 0,
+            "MaxHPBonus": 0,
+            "AtkBonus": 0,
+            "DefBonus": 0,
+            "MAtkBonus": 0,
+            "MDefBonus": 0,
+            "SpeedBonus": 0,
+            "BaseSkills": [
+              {
+                "SkillNum": "stomp",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "magical_leaf",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "charm",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "rapid_spin",
+                "Charges": 25,
+                "CanForget": false
+              }
+            ],
+            "BaseIntrinsics": [
+              "leaf_guard"
+            ],
+            "FormIntrinsicSlot": -1,
+            "Relearnables": {},
+            "Discriminator": 0,
+            "MetAt": "",
+            "MetLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "DefeatAt": "",
+            "DefeatLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "IsFounder": false,
+            "IsPartner": false,
+            "NameLocked": false,
+            "IsFavorite": false,
+            "Unrecruitable": true,
+            "ActionEvents": [],
+            "ScriptVars": null
+          }
+        ]
+      },
+      {
+        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
+        "Players": [
+          {
+            "Element1": "normal",
+            "Element2": "none",
+            "TurnWait": 0,
+            "TiersUsed": 0,
+            "TurnUsed": false,
+            "movementSpeed": 0,
+            "dead": false,
+            "serializationLoc": {
+              "X": 7,
+              "Y": 9
+            },
+            "serializationDir": 4,
+            "ProxyName": "",
+            "ProxySprite": {
+              "Species": "",
+              "Form": -1,
+              "Skin": "",
+              "Gender": -1
+            },
+            "CurrentForm": {
+              "Species": "quagsire",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "ProxyAtk": -1,
+            "ProxyDef": -1,
+            "ProxyMAtk": -1,
+            "ProxyMDef": -1,
+            "ProxySpeed": -1,
+            "Skills": [],
+            "Intrinsics": [],
+            "EquippedItem": {
+              "ID": "",
+              "Cursed": false,
+              "HiddenValue": "",
+              "Amount": 0,
+              "Price": 0
+            },
+            "Absentee": false,
+            "ChargeBoost": 0,
+            "HP": 30,
+            "HPRemainder": 0,
+            "Fullness": 100,
+            "FullnessRemainder": 0,
+            "MaxFullness": 100,
+            "StatusEffects": {},
+            "MissChain": 0,
+            "EXPMarked": false,
+            "Tactic": {
+              "Name": {
+                "DefaultText": "Wait Only",
+                "LocalTexts": {}
+              },
+              "Released": false,
+              "Comment": "",
+              "ID": "wait_only",
+              "Assignable": false,
+              "Plans": [
+                {
+                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
+                  "IQ": 400,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": true
+                }
+              ]
+            },
+            "Mobility": 0,
+            "CantWalk": true,
+            "ItemDisabled": false,
+            "IntrinsicDisabled": false,
+            "CanRemoveStuck": false,
+            "StopItemAtHit": false,
+            "MovesScrambled": false,
+            "ChargeSaver": false,
+            "WaitToAttack": true,
+            "CantInteract": true,
+            "EnemyOfFriend": false,
+            "AttackFriend": false,
+            "TileSight": -1,
+            "CharSight": -1,
+            "Unidentifiable": false,
+            "Unlocatable": false,
+            "SeeAllChars": false,
+            "SeeItems": false,
+            "SeeWallItems": false,
+            "SeeTraps": false,
+            "CharStates": [],
+            "BackRef": {
+              "Assembly": false,
+              "Index": -1
+            },
+            "Nickname": "Quagsire",
+            "OriginalUUID": "",
+            "OriginalTeam": "",
+            "BaseForm": {
+              "Species": "quagsire",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "Level": 5,
+            "EXP": 0,
+            "MaxHPBonus": 0,
+            "AtkBonus": 0,
+            "DefBonus": 0,
+            "MAtkBonus": 0,
+            "MDefBonus": 0,
+            "SpeedBonus": 0,
+            "BaseSkills": [
+              {
+                "SkillNum": "stomp",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "magical_leaf",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "charm",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "rapid_spin",
+                "Charges": 25,
+                "CanForget": false
+              }
+            ],
+            "BaseIntrinsics": [
+              "leaf_guard"
+            ],
+            "FormIntrinsicSlot": -1,
+            "Relearnables": {},
+            "Discriminator": 0,
+            "MetAt": "",
+            "MetLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "DefeatAt": "",
+            "DefeatLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "IsFounder": false,
+            "IsPartner": false,
+            "NameLocked": false,
+            "IsFavorite": false,
+            "Unrecruitable": true,
+            "ActionEvents": [],
+            "ScriptVars": null
+          }
+        ]
+      },
+      {
+        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
+        "Players": [
+          {
+            "Element1": "normal",
+            "Element2": "none",
+            "TurnWait": 0,
+            "TiersUsed": 0,
+            "TurnUsed": false,
+            "movementSpeed": 0,
+            "dead": false,
+            "serializationLoc": {
+              "X": 9,
+              "Y": 8
+            },
+            "serializationDir": 4,
+            "ProxyName": "",
+            "ProxySprite": {
+              "Species": "",
+              "Form": -1,
+              "Skin": "",
+              "Gender": -1
+            },
+            "CurrentForm": {
+              "Species": "floatzel",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "ProxyAtk": -1,
+            "ProxyDef": -1,
+            "ProxyMAtk": -1,
+            "ProxyMDef": -1,
+            "ProxySpeed": -1,
+            "Skills": [],
+            "Intrinsics": [],
+            "EquippedItem": {
+              "ID": "",
+              "Cursed": false,
+              "HiddenValue": "",
+              "Amount": 0,
+              "Price": 0
+            },
+            "Absentee": false,
+            "ChargeBoost": 0,
+            "HP": 30,
+            "HPRemainder": 0,
+            "Fullness": 100,
+            "FullnessRemainder": 0,
+            "MaxFullness": 100,
+            "StatusEffects": {},
+            "MissChain": 0,
+            "EXPMarked": false,
+            "Tactic": {
+              "Name": {
+                "DefaultText": "Wait Only",
+                "LocalTexts": {}
+              },
+              "Released": false,
+              "Comment": "",
+              "ID": "wait_only",
+              "Assignable": false,
+              "Plans": [
+                {
+                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
+                  "IQ": 400,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": true
+                }
+              ]
+            },
+            "Mobility": 0,
+            "CantWalk": true,
+            "ItemDisabled": false,
+            "IntrinsicDisabled": false,
+            "CanRemoveStuck": false,
+            "StopItemAtHit": false,
+            "MovesScrambled": false,
+            "ChargeSaver": false,
+            "WaitToAttack": true,
+            "CantInteract": true,
+            "EnemyOfFriend": false,
+            "AttackFriend": false,
+            "TileSight": -1,
+            "CharSight": -1,
+            "Unidentifiable": false,
+            "Unlocatable": false,
+            "SeeAllChars": false,
+            "SeeItems": false,
+            "SeeWallItems": false,
+            "SeeTraps": false,
+            "CharStates": [],
+            "BackRef": {
+              "Assembly": false,
+              "Index": -1
+            },
+            "Nickname": "Floatzel",
+            "OriginalUUID": "",
+            "OriginalTeam": "",
+            "BaseForm": {
+              "Species": "floatzel",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "Level": 5,
+            "EXP": 0,
+            "MaxHPBonus": 0,
+            "AtkBonus": 0,
+            "DefBonus": 0,
+            "MAtkBonus": 0,
+            "MDefBonus": 0,
+            "SpeedBonus": 0,
+            "BaseSkills": [
+              {
+                "SkillNum": "stomp",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "magical_leaf",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "charm",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "rapid_spin",
+                "Charges": 25,
+                "CanForget": false
+              }
+            ],
+            "BaseIntrinsics": [
+              "leaf_guard"
+            ],
+            "FormIntrinsicSlot": -1,
+            "Relearnables": {},
+            "Discriminator": 0,
+            "MetAt": "",
+            "MetLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "DefeatAt": "",
+            "DefeatLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "IsFounder": false,
+            "IsPartner": false,
+            "NameLocked": false,
+            "IsFavorite": false,
+            "Unrecruitable": true,
+            "ActionEvents": [],
+            "ScriptVars": null
+          }
+        ]
+      },
+      {
+        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
+        "Players": [
+          {
+            "Element1": "normal",
+            "Element2": "none",
+            "TurnWait": 0,
+            "TiersUsed": 0,
+            "TurnUsed": false,
+            "movementSpeed": 0,
+            "dead": false,
+            "serializationLoc": {
+              "X": 12,
+              "Y": 8
+            },
+            "serializationDir": 4,
+            "ProxyName": "",
+            "ProxySprite": {
+              "Species": "",
+              "Form": -1,
+              "Skin": "",
+              "Gender": -1
+            },
+            "CurrentForm": {
+              "Species": "sudowoodo",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "ProxyAtk": -1,
+            "ProxyDef": -1,
+            "ProxyMAtk": -1,
+            "ProxyMDef": -1,
+            "ProxySpeed": -1,
+            "Skills": [],
+            "Intrinsics": [],
+            "EquippedItem": {
+              "ID": "",
+              "Cursed": false,
+              "HiddenValue": "",
+              "Amount": 0,
+              "Price": 0
+            },
+            "Absentee": false,
+            "ChargeBoost": 0,
+            "HP": 30,
+            "HPRemainder": 0,
+            "Fullness": 100,
+            "FullnessRemainder": 0,
+            "MaxFullness": 100,
+            "StatusEffects": {},
+            "MissChain": 0,
+            "EXPMarked": false,
+            "Tactic": {
+              "Name": {
+                "DefaultText": "Wait Only",
+                "LocalTexts": {}
+              },
+              "Released": false,
+              "Comment": "",
+              "ID": "wait_only",
+              "Assignable": false,
+              "Plans": [
+                {
+                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
+                  "IQ": 400,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": true
+                }
+              ]
+            },
+            "Mobility": 0,
+            "CantWalk": true,
+            "ItemDisabled": false,
+            "IntrinsicDisabled": false,
+            "CanRemoveStuck": false,
+            "StopItemAtHit": false,
+            "MovesScrambled": false,
+            "ChargeSaver": false,
+            "WaitToAttack": true,
+            "CantInteract": true,
+            "EnemyOfFriend": false,
+            "AttackFriend": false,
+            "TileSight": -1,
+            "CharSight": -1,
+            "Unidentifiable": false,
+            "Unlocatable": false,
+            "SeeAllChars": false,
+            "SeeItems": false,
+            "SeeWallItems": false,
+            "SeeTraps": false,
+            "CharStates": [],
+            "BackRef": {
+              "Assembly": false,
+              "Index": -1
+            },
+            "Nickname": "Sudowoodo",
+            "OriginalUUID": "",
+            "OriginalTeam": "",
+            "BaseForm": {
+              "Species": "sudowoodo",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "Level": 5,
+            "EXP": 0,
+            "MaxHPBonus": 0,
+            "AtkBonus": 0,
+            "DefBonus": 0,
+            "MAtkBonus": 0,
+            "MDefBonus": 0,
+            "SpeedBonus": 0,
+            "BaseSkills": [
+              {
+                "SkillNum": "stomp",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "magical_leaf",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "charm",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "rapid_spin",
+                "Charges": 25,
+                "CanForget": false
+              }
+            ],
+            "BaseIntrinsics": [
+              "leaf_guard"
+            ],
+            "FormIntrinsicSlot": -1,
+            "Relearnables": {},
+            "Discriminator": 0,
+            "MetAt": "",
+            "MetLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "DefeatAt": "",
+            "DefeatLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "IsFounder": false,
+            "IsPartner": false,
+            "NameLocked": false,
+            "IsFavorite": false,
+            "Unrecruitable": true,
+            "ActionEvents": [],
+            "ScriptVars": null
+          }
+        ]
+      },
+      {
+        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
+        "Players": [
+          {
+            "Element1": "normal",
+            "Element2": "none",
+            "TurnWait": 0,
+            "TiersUsed": 0,
+            "TurnUsed": false,
+            "movementSpeed": 0,
+            "dead": false,
+            "serializationLoc": {
+              "X": 14,
+              "Y": 8
+            },
+            "serializationDir": 3,
+            "ProxyName": "",
+            "ProxySprite": {
+              "Species": "",
+              "Form": -1,
+              "Skin": "",
+              "Gender": -1
+            },
+            "CurrentForm": {
+              "Species": "bellsprout",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "ProxyAtk": -1,
+            "ProxyDef": -1,
+            "ProxyMAtk": -1,
+            "ProxyMDef": -1,
+            "ProxySpeed": -1,
+            "Skills": [],
+            "Intrinsics": [],
+            "EquippedItem": {
+              "ID": "",
+              "Cursed": false,
+              "HiddenValue": "",
+              "Amount": 0,
+              "Price": 0
+            },
+            "Absentee": false,
+            "ChargeBoost": 0,
+            "HP": 30,
+            "HPRemainder": 0,
+            "Fullness": 100,
+            "FullnessRemainder": 0,
+            "MaxFullness": 100,
+            "StatusEffects": {},
+            "MissChain": 0,
+            "EXPMarked": false,
+            "Tactic": {
+              "Name": {
+                "DefaultText": "Wait Only",
+                "LocalTexts": {}
+              },
+              "Released": false,
+              "Comment": "",
+              "ID": "wait_only",
+              "Assignable": false,
+              "Plans": [
+                {
+                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
+                  "IQ": 400,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": true
+                }
+              ]
+            },
+            "Mobility": 0,
+            "CantWalk": true,
+            "ItemDisabled": false,
+            "IntrinsicDisabled": false,
+            "CanRemoveStuck": false,
+            "StopItemAtHit": false,
+            "MovesScrambled": false,
+            "ChargeSaver": false,
+            "WaitToAttack": true,
+            "CantInteract": true,
+            "EnemyOfFriend": false,
+            "AttackFriend": false,
+            "TileSight": -1,
+            "CharSight": -1,
+            "Unidentifiable": false,
+            "Unlocatable": false,
+            "SeeAllChars": false,
+            "SeeItems": false,
+            "SeeWallItems": false,
+            "SeeTraps": false,
+            "CharStates": [],
+            "BackRef": {
+              "Assembly": false,
+              "Index": -1
+            },
+            "Nickname": "Bellsprout",
+            "OriginalUUID": "",
+            "OriginalTeam": "",
+            "BaseForm": {
+              "Species": "bellsprout",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "Level": 5,
+            "EXP": 0,
+            "MaxHPBonus": 0,
+            "AtkBonus": 0,
+            "DefBonus": 0,
+            "MAtkBonus": 0,
+            "MDefBonus": 0,
+            "SpeedBonus": 0,
+            "BaseSkills": [
+              {
+                "SkillNum": "stomp",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "magical_leaf",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "charm",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "rapid_spin",
+                "Charges": 25,
+                "CanForget": false
+              }
+            ],
+            "BaseIntrinsics": [
+              "leaf_guard"
+            ],
+            "FormIntrinsicSlot": -1,
+            "Relearnables": {},
+            "Discriminator": 0,
+            "MetAt": "",
+            "MetLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "DefeatAt": "",
+            "DefeatLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "IsFounder": false,
+            "IsPartner": false,
+            "NameLocked": false,
+            "IsFavorite": false,
+            "Unrecruitable": true,
+            "ActionEvents": [],
+            "ScriptVars": null
+          }
+        ]
+      },
+      {
+        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
+        "Players": [
+          {
+            "Element1": "normal",
+            "Element2": "none",
+            "TurnWait": 0,
+            "TiersUsed": 0,
+            "TurnUsed": false,
+            "movementSpeed": 0,
+            "dead": false,
+            "serializationLoc": {
+              "X": 3,
+              "Y": 6
+            },
+            "serializationDir": 6,
+            "ProxyName": "",
+            "ProxySprite": {
+              "Species": "",
+              "Form": -1,
+              "Skin": "",
+              "Gender": -1
+            },
+            "CurrentForm": {
+              "Species": "marill",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "ProxyAtk": -1,
+            "ProxyDef": -1,
+            "ProxyMAtk": -1,
+            "ProxyMDef": -1,
+            "ProxySpeed": -1,
+            "Skills": [],
+            "Intrinsics": [],
+            "EquippedItem": {
+              "ID": "",
+              "Cursed": false,
+              "HiddenValue": "",
+              "Amount": 0,
+              "Price": 0
+            },
+            "Absentee": false,
+            "ChargeBoost": 0,
+            "HP": 30,
+            "HPRemainder": 0,
+            "Fullness": 100,
+            "FullnessRemainder": 0,
+            "MaxFullness": 100,
+            "StatusEffects": {},
+            "MissChain": 0,
+            "EXPMarked": false,
+            "Tactic": {
+              "Name": {
+                "DefaultText": "Wait Only",
+                "LocalTexts": {}
+              },
+              "Released": false,
+              "Comment": "",
+              "ID": "wait_only",
+              "Assignable": false,
+              "Plans": [
+                {
+                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
+                  "IQ": 400,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": true
+                }
+              ]
+            },
+            "Mobility": 0,
+            "CantWalk": true,
+            "ItemDisabled": false,
+            "IntrinsicDisabled": false,
+            "CanRemoveStuck": false,
+            "StopItemAtHit": false,
+            "MovesScrambled": false,
+            "ChargeSaver": false,
+            "WaitToAttack": true,
+            "CantInteract": true,
+            "EnemyOfFriend": false,
+            "AttackFriend": false,
+            "TileSight": -1,
+            "CharSight": -1,
+            "Unidentifiable": false,
+            "Unlocatable": false,
+            "SeeAllChars": false,
+            "SeeItems": false,
+            "SeeWallItems": false,
+            "SeeTraps": false,
+            "CharStates": [],
+            "BackRef": {
+              "Assembly": false,
+              "Index": -1
+            },
+            "Nickname": "Marill",
+            "OriginalUUID": "",
+            "OriginalTeam": "",
+            "BaseForm": {
+              "Species": "marill",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "Level": 5,
+            "EXP": 0,
+            "MaxHPBonus": 0,
+            "AtkBonus": 0,
+            "DefBonus": 0,
+            "MAtkBonus": 0,
+            "MDefBonus": 0,
+            "SpeedBonus": 0,
+            "BaseSkills": [
+              {
+                "SkillNum": "stomp",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "magical_leaf",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "charm",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "rapid_spin",
+                "Charges": 25,
+                "CanForget": false
+              }
+            ],
+            "BaseIntrinsics": [
+              "leaf_guard"
+            ],
+            "FormIntrinsicSlot": -1,
+            "Relearnables": {},
+            "Discriminator": 0,
+            "MetAt": "",
+            "MetLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "DefeatAt": "",
+            "DefeatLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "IsFounder": false,
+            "IsPartner": false,
+            "NameLocked": false,
+            "IsFavorite": false,
+            "Unrecruitable": true,
+            "ActionEvents": [],
+            "ScriptVars": null
+          }
+        ]
+      },
+      {
+        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
+        "Players": [
+          {
+            "Element1": "normal",
+            "Element2": "none",
+            "TurnWait": 0,
+            "TiersUsed": 0,
+            "TurnUsed": false,
+            "movementSpeed": 0,
+            "dead": false,
+            "serializationLoc": {
+              "X": 6,
+              "Y": 5
+            },
+            "serializationDir": 6,
+            "ProxyName": "",
+            "ProxySprite": {
+              "Species": "",
+              "Form": -1,
+              "Skin": "",
+              "Gender": -1
+            },
+            "CurrentForm": {
+              "Species": "azumarill",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "ProxyAtk": -1,
+            "ProxyDef": -1,
+            "ProxyMAtk": -1,
+            "ProxyMDef": -1,
+            "ProxySpeed": -1,
+            "Skills": [],
+            "Intrinsics": [],
+            "EquippedItem": {
+              "ID": "",
+              "Cursed": false,
+              "HiddenValue": "",
+              "Amount": 0,
+              "Price": 0
+            },
+            "Absentee": false,
+            "ChargeBoost": 0,
+            "HP": 30,
+            "HPRemainder": 0,
+            "Fullness": 100,
+            "FullnessRemainder": 0,
+            "MaxFullness": 100,
+            "StatusEffects": {},
+            "MissChain": 0,
+            "EXPMarked": false,
+            "Tactic": {
+              "Name": {
+                "DefaultText": "Wait Only",
+                "LocalTexts": {}
+              },
+              "Released": false,
+              "Comment": "",
+              "ID": "wait_only",
+              "Assignable": false,
+              "Plans": [
+                {
+                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
+                  "IQ": 400,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": true
+                }
+              ]
+            },
+            "Mobility": 0,
+            "CantWalk": true,
+            "ItemDisabled": false,
+            "IntrinsicDisabled": false,
+            "CanRemoveStuck": false,
+            "StopItemAtHit": false,
+            "MovesScrambled": false,
+            "ChargeSaver": false,
+            "WaitToAttack": true,
+            "CantInteract": true,
+            "EnemyOfFriend": false,
+            "AttackFriend": false,
+            "TileSight": -1,
+            "CharSight": -1,
+            "Unidentifiable": false,
+            "Unlocatable": false,
+            "SeeAllChars": false,
+            "SeeItems": false,
+            "SeeWallItems": false,
+            "SeeTraps": false,
+            "CharStates": [],
+            "BackRef": {
+              "Assembly": false,
+              "Index": -1
+            },
+            "Nickname": "Azumarill",
+            "OriginalUUID": "",
+            "OriginalTeam": "",
+            "BaseForm": {
+              "Species": "azumarill",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "Level": 5,
+            "EXP": 0,
+            "MaxHPBonus": 0,
+            "AtkBonus": 0,
+            "DefBonus": 0,
+            "MAtkBonus": 0,
+            "MDefBonus": 0,
+            "SpeedBonus": 0,
+            "BaseSkills": [
+              {
+                "SkillNum": "stomp",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "magical_leaf",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "charm",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "rapid_spin",
+                "Charges": 25,
+                "CanForget": false
+              }
+            ],
+            "BaseIntrinsics": [
+              "leaf_guard"
+            ],
+            "FormIntrinsicSlot": -1,
+            "Relearnables": {},
+            "Discriminator": 0,
+            "MetAt": "",
+            "MetLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "DefeatAt": "",
+            "DefeatLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "IsFounder": false,
+            "IsPartner": false,
+            "NameLocked": false,
+            "IsFavorite": false,
+            "Unrecruitable": true,
+            "ActionEvents": [],
+            "ScriptVars": null
+          }
+        ]
+      },
+      {
+        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
+        "Players": [
+          {
+            "Element1": "normal",
+            "Element2": "none",
+            "TurnWait": 0,
+            "TiersUsed": 0,
+            "TurnUsed": false,
+            "movementSpeed": 0,
+            "dead": false,
+            "serializationLoc": {
+              "X": 17,
+              "Y": 4
+            },
+            "serializationDir": 2,
+            "ProxyName": "",
+            "ProxySprite": {
+              "Species": "",
+              "Form": -1,
+              "Skin": "",
+              "Gender": -1
+            },
+            "CurrentForm": {
+              "Species": "kecleon",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "ProxyAtk": -1,
+            "ProxyDef": -1,
+            "ProxyMAtk": -1,
+            "ProxyMDef": -1,
+            "ProxySpeed": -1,
+            "Skills": [],
+            "Intrinsics": [],
+            "EquippedItem": {
+              "ID": "",
+              "Cursed": false,
+              "HiddenValue": "",
+              "Amount": 0,
+              "Price": 0
+            },
+            "Absentee": false,
+            "ChargeBoost": 0,
+            "HP": 30,
+            "HPRemainder": 0,
+            "Fullness": 100,
+            "FullnessRemainder": 0,
+            "MaxFullness": 100,
+            "StatusEffects": {},
+            "MissChain": 0,
+            "EXPMarked": false,
+            "Tactic": {
+              "Name": {
+                "DefaultText": "Wait Only",
+                "LocalTexts": {}
+              },
+              "Released": false,
+              "Comment": "",
+              "ID": "wait_only",
+              "Assignable": false,
+              "Plans": [
+                {
+                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
+                  "IQ": 400,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": true
+                }
+              ]
+            },
+            "Mobility": 0,
+            "CantWalk": true,
+            "ItemDisabled": false,
+            "IntrinsicDisabled": false,
+            "CanRemoveStuck": false,
+            "StopItemAtHit": false,
+            "MovesScrambled": false,
+            "ChargeSaver": false,
+            "WaitToAttack": true,
+            "CantInteract": true,
+            "EnemyOfFriend": false,
+            "AttackFriend": false,
+            "TileSight": -1,
+            "CharSight": -1,
+            "Unidentifiable": false,
+            "Unlocatable": false,
+            "SeeAllChars": false,
+            "SeeItems": false,
+            "SeeWallItems": false,
+            "SeeTraps": false,
+            "CharStates": [],
+            "BackRef": {
+              "Assembly": false,
+              "Index": -1
+            },
+            "Nickname": "Kecleon",
+            "OriginalUUID": "",
+            "OriginalTeam": "",
+            "BaseForm": {
+              "Species": "kecleon",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "Level": 5,
+            "EXP": 0,
+            "MaxHPBonus": 0,
+            "AtkBonus": 0,
+            "DefBonus": 0,
+            "MAtkBonus": 0,
+            "MDefBonus": 0,
+            "SpeedBonus": 0,
+            "BaseSkills": [
+              {
+                "SkillNum": "stomp",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "magical_leaf",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "charm",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "rapid_spin",
+                "Charges": 25,
+                "CanForget": false
+              }
+            ],
+            "BaseIntrinsics": [
+              "leaf_guard"
+            ],
+            "FormIntrinsicSlot": -1,
+            "Relearnables": {},
+            "Discriminator": 0,
+            "MetAt": "",
+            "MetLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "DefeatAt": "",
+            "DefeatLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "IsFounder": false,
+            "IsPartner": false,
+            "NameLocked": false,
+            "IsFavorite": false,
+            "Unrecruitable": true,
+            "ActionEvents": [],
+            "ScriptVars": null
+          }
+        ]
+      },
+      {
+        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
+        "Players": [
+          {
+            "Element1": "normal",
+            "Element2": "none",
+            "TurnWait": 0,
+            "TiersUsed": 0,
+            "TurnUsed": false,
+            "movementSpeed": 0,
+            "dead": false,
+            "serializationLoc": {
+              "X": 16,
+              "Y": 6
+            },
+            "serializationDir": 2,
+            "ProxyName": "",
+            "ProxySprite": {
+              "Species": "",
+              "Form": -1,
+              "Skin": "",
+              "Gender": -1
+            },
+            "CurrentForm": {
+              "Species": "shuckle",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "ProxyAtk": -1,
+            "ProxyDef": -1,
+            "ProxyMAtk": -1,
+            "ProxyMDef": -1,
+            "ProxySpeed": -1,
+            "Skills": [],
+            "Intrinsics": [],
+            "EquippedItem": {
+              "ID": "",
+              "Cursed": false,
+              "HiddenValue": "",
+              "Amount": 0,
+              "Price": 0
+            },
+            "Absentee": false,
+            "ChargeBoost": 0,
+            "HP": 30,
+            "HPRemainder": 0,
+            "Fullness": 100,
+            "FullnessRemainder": 0,
+            "MaxFullness": 100,
+            "StatusEffects": {},
+            "MissChain": 0,
+            "EXPMarked": false,
+            "Tactic": {
+              "Name": {
+                "DefaultText": "Wait Only",
+                "LocalTexts": {}
+              },
+              "Released": false,
+              "Comment": "",
+              "ID": "wait_only",
+              "Assignable": false,
+              "Plans": [
+                {
+                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
+                  "IQ": 400,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": true
+                }
+              ]
+            },
+            "Mobility": 0,
+            "CantWalk": true,
+            "ItemDisabled": false,
+            "IntrinsicDisabled": false,
+            "CanRemoveStuck": false,
+            "StopItemAtHit": false,
+            "MovesScrambled": false,
+            "ChargeSaver": false,
+            "WaitToAttack": true,
+            "CantInteract": true,
+            "EnemyOfFriend": false,
+            "AttackFriend": false,
+            "TileSight": -1,
+            "CharSight": -1,
+            "Unidentifiable": false,
+            "Unlocatable": false,
+            "SeeAllChars": false,
+            "SeeItems": false,
+            "SeeWallItems": false,
+            "SeeTraps": false,
+            "CharStates": [],
+            "BackRef": {
+              "Assembly": false,
+              "Index": -1
+            },
+            "Nickname": "Shuckle",
+            "OriginalUUID": "",
+            "OriginalTeam": "",
+            "BaseForm": {
+              "Species": "shuckle",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "Level": 5,
+            "EXP": 0,
+            "MaxHPBonus": 0,
+            "AtkBonus": 0,
+            "DefBonus": 0,
+            "MAtkBonus": 0,
+            "MDefBonus": 0,
+            "SpeedBonus": 0,
+            "BaseSkills": [
+              {
+                "SkillNum": "stomp",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "magical_leaf",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "charm",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "rapid_spin",
+                "Charges": 25,
+                "CanForget": false
+              }
+            ],
+            "BaseIntrinsics": [
+              "leaf_guard"
+            ],
+            "FormIntrinsicSlot": -1,
+            "Relearnables": {},
+            "Discriminator": 0,
+            "MetAt": "",
+            "MetLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "DefeatAt": "",
+            "DefeatLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "IsFounder": false,
+            "IsPartner": false,
+            "NameLocked": false,
+            "IsFavorite": false,
+            "Unrecruitable": true,
+            "ActionEvents": [],
+            "ScriptVars": null
+          }
+        ]
+      },
+      {
+        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
+        "Players": [
+          {
+            "Element1": "normal",
+            "Element2": "none",
+            "TurnWait": 0,
+            "TiersUsed": 0,
+            "TurnUsed": false,
+            "movementSpeed": 0,
+            "dead": false,
+            "serializationLoc": {
+              "X": 9,
+              "Y": 1
+            },
+            "serializationDir": 0,
+            "ProxyName": "",
+            "ProxySprite": {
+              "Species": "",
+              "Form": -1,
+              "Skin": "",
+              "Gender": -1
+            },
+            "CurrentForm": {
+              "Species": "swablu",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "ProxyAtk": -1,
+            "ProxyDef": -1,
+            "ProxyMAtk": -1,
+            "ProxyMDef": -1,
+            "ProxySpeed": -1,
+            "Skills": [],
+            "Intrinsics": [],
+            "EquippedItem": {
+              "ID": "",
+              "Cursed": false,
+              "HiddenValue": "",
+              "Amount": 0,
+              "Price": 0
+            },
+            "Absentee": false,
+            "ChargeBoost": 0,
+            "HP": 30,
+            "HPRemainder": 0,
+            "Fullness": 100,
+            "FullnessRemainder": 0,
+            "MaxFullness": 100,
+            "StatusEffects": {},
+            "MissChain": 0,
+            "EXPMarked": false,
+            "Tactic": {
+              "Name": {
+                "DefaultText": "Wait Only",
+                "LocalTexts": {}
+              },
+              "Released": false,
+              "Comment": "",
+              "ID": "wait_only",
+              "Assignable": false,
+              "Plans": [
+                {
+                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
+                  "IQ": 400,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": true
+                }
+              ]
+            },
+            "Mobility": 0,
+            "CantWalk": true,
+            "ItemDisabled": false,
+            "IntrinsicDisabled": false,
+            "CanRemoveStuck": false,
+            "StopItemAtHit": false,
+            "MovesScrambled": false,
+            "ChargeSaver": false,
+            "WaitToAttack": true,
+            "CantInteract": true,
+            "EnemyOfFriend": false,
+            "AttackFriend": false,
+            "TileSight": -1,
+            "CharSight": -1,
+            "Unidentifiable": false,
+            "Unlocatable": false,
+            "SeeAllChars": false,
+            "SeeItems": false,
+            "SeeWallItems": false,
+            "SeeTraps": false,
+            "CharStates": [],
+            "BackRef": {
+              "Assembly": false,
+              "Index": -1
+            },
+            "Nickname": "Swablu",
+            "OriginalUUID": "",
+            "OriginalTeam": "",
+            "BaseForm": {
+              "Species": "swablu",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "Level": 5,
+            "EXP": 0,
+            "MaxHPBonus": 0,
+            "AtkBonus": 0,
+            "DefBonus": 0,
+            "MAtkBonus": 0,
+            "MDefBonus": 0,
+            "SpeedBonus": 0,
+            "BaseSkills": [
+              {
+                "SkillNum": "stomp",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "magical_leaf",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "charm",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "rapid_spin",
+                "Charges": 25,
+                "CanForget": false
+              }
+            ],
+            "BaseIntrinsics": [
+              "leaf_guard"
+            ],
+            "FormIntrinsicSlot": -1,
+            "Relearnables": {},
+            "Discriminator": 0,
+            "MetAt": "",
+            "MetLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "DefeatAt": "",
+            "DefeatLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "IsFounder": false,
+            "IsPartner": false,
+            "NameLocked": false,
+            "IsFavorite": false,
+            "Unrecruitable": true,
+            "ActionEvents": [],
+            "ScriptVars": null
+          }
+        ]
+      },
+      {
+        "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
+        "Players": [
+          {
+            "Element1": "normal",
+            "Element2": "none",
+            "TurnWait": 0,
+            "TiersUsed": 0,
+            "TurnUsed": false,
+            "movementSpeed": 0,
+            "dead": false,
+            "serializationLoc": {
+              "X": 13,
+              "Y": 1
+            },
+            "serializationDir": 0,
+            "ProxyName": "",
+            "ProxySprite": {
+              "Species": "",
+              "Form": -1,
+              "Skin": "",
+              "Gender": -1
+            },
+            "CurrentForm": {
+              "Species": "starly",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "ProxyAtk": -1,
+            "ProxyDef": -1,
+            "ProxyMAtk": -1,
+            "ProxyMDef": -1,
+            "ProxySpeed": -1,
+            "Skills": [],
+            "Intrinsics": [],
+            "EquippedItem": {
+              "ID": "",
+              "Cursed": false,
+              "HiddenValue": "",
+              "Amount": 0,
+              "Price": 0
+            },
+            "Absentee": false,
+            "ChargeBoost": 0,
+            "HP": 30,
+            "HPRemainder": 0,
+            "Fullness": 100,
+            "FullnessRemainder": 0,
+            "MaxFullness": 100,
+            "StatusEffects": {},
+            "MissChain": 0,
+            "EXPMarked": false,
+            "Tactic": {
+              "Name": {
+                "DefaultText": "Wait Only",
+                "LocalTexts": {}
+              },
+              "Released": false,
+              "Comment": "",
+              "ID": "wait_only",
+              "Assignable": false,
+              "Plans": [
+                {
+                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
+                  "IQ": 400,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": true
+                }
+              ]
+            },
+            "Mobility": 0,
+            "CantWalk": true,
+            "ItemDisabled": false,
+            "IntrinsicDisabled": false,
+            "CanRemoveStuck": false,
+            "StopItemAtHit": false,
+            "MovesScrambled": false,
+            "ChargeSaver": false,
+            "WaitToAttack": true,
+            "CantInteract": true,
+            "EnemyOfFriend": false,
+            "AttackFriend": false,
+            "TileSight": -1,
+            "CharSight": -1,
+            "Unidentifiable": false,
+            "Unlocatable": false,
+            "SeeAllChars": false,
+            "SeeItems": false,
+            "SeeWallItems": false,
+            "SeeTraps": false,
+            "CharStates": [],
+            "BackRef": {
+              "Assembly": false,
+              "Index": -1
+            },
+            "Nickname": "Starly",
+            "OriginalUUID": "",
+            "OriginalTeam": "",
+            "BaseForm": {
+              "Species": "starly",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": -1
+            },
+            "Level": 5,
+            "EXP": 0,
+            "MaxHPBonus": 0,
+            "AtkBonus": 0,
+            "DefBonus": 0,
+            "MAtkBonus": 0,
+            "MDefBonus": 0,
+            "SpeedBonus": 0,
+            "BaseSkills": [
+              {
+                "SkillNum": "stomp",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "magical_leaf",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "charm",
+                "Charges": 20,
+                "CanForget": false
+              },
+              {
+                "SkillNum": "rapid_spin",
+                "Charges": 25,
+                "CanForget": false
+              }
+            ],
+            "BaseIntrinsics": [
+              "leaf_guard"
+            ],
+            "FormIntrinsicSlot": -1,
+            "Relearnables": {},
+            "Discriminator": 0,
+            "MetAt": "",
+            "MetLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "DefeatAt": "",
+            "DefeatLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "IsFounder": false,
+            "IsPartner": false,
+            "NameLocked": false,
+            "IsFavorite": false,
+            "Unrecruitable": true,
+            "ActionEvents": [],
+            "ScriptVars": null
+          }
+        ]
+      }
+    ],
     "rand": {
       "$type": "RogueElements.ReRandom, RogueElements",
       "FirstSeed": 0,
@@ -822,8 +2726,8 @@
               },
               {
                 "Loc": {
-                  "X": 2,
-                  "Y": 7
+                  "X": 4,
+                  "Y": 8
                 },
                 "Dir": 2
               },
@@ -845,8 +2749,8 @@
                 "Y": 8
               },
               {
-                "X": 2,
-                "Y": 7
+                "X": 4,
+                "Y": 8
               },
               {
                 "X": 2,

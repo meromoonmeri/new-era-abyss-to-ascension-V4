@@ -3184,7 +3184,7 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-         "MapID": "serment_dazzling_arene"
+         "MapID": "metano_town_duel"
         }
        }
       ],
@@ -3209,9 +3209,9 @@
        ]
       },
       "Name": {
-       "DefaultText": "Dazzling Trial",
+       "DefaultText": "Metano Town Plaza",
        "LocalTexts": {
-        "fr": "L'Épreuve des Trois"
+        "fr": "Place de Metano"
        }
       },
       "Priority": {
@@ -3222,7 +3222,7 @@
      }
     ],
     "IsRelevant": false,
-    "Comment": "Duel de la Team Dazzling (chapitre 6, apres la Foret Lugubre)."
+    "Comment": "Duel de la Team Dazzling (chapitre 6) : se joue SUR LA PLACE DE METANO, carte metano_town_duel transplantee au pixel pres depuis metano_town.rsground."
    },
    {
     "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
