@@ -1,5 +1,5 @@
 --[[
-    cloven_ruins_miniboss_ch_7.lua
+    cloven_ruins_miniboss_ch_5.lua
     Ruines Tordues — Mini-Boss : Kaorine + Golemastoc (gardiens antiques)
     Simple : flash blanc + dialogues (directive utilisateur).
     Salle 456x456 px, ring de 2 tuiles de murs : plancher de (48,48) à (408,408).
@@ -11,7 +11,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 
-cloven_ruins_miniboss_ch_7 = {}
+cloven_ruins_miniboss_ch_5 = {}
 
 local HERO_SPAWN = {220, 348}
 local PARTNER_SPAWN = {252, 348}
@@ -31,7 +31,7 @@ local function PlaceTeam(hero, partner)
   if t3 ~= nil then GROUND:TeleportTo(t3, T3_SPAWN[1], T3_SPAWN[2], Direction.Up) end
 end
 
-function cloven_ruins_miniboss_ch_7.FirstPreBossScene()
+function cloven_ruins_miniboss_ch_5.FirstPreBossScene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
@@ -132,13 +132,13 @@ function cloven_ruins_miniboss_ch_7.FirstPreBossScene()
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  SV.Chapter7.RuinsMiniBossSeen = true
+  SV.Chapter5.RuinsMiniBossSeen = true
   -- Segment 3 : l'arène de combat proprement dite.
   PrintInfo("[BossSeq][cloven_miniboss] ContinueDungeon('cloven_ruins', 3)")
   GAME:ContinueDungeon("cloven_ruins", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function cloven_ruins_miniboss_ch_7.SecondPreBossScene()
+function cloven_ruins_miniboss_ch_5.SecondPreBossScene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local claydol = CharacterEssentials.MakeCharactersFromList({
@@ -242,8 +242,8 @@ local function DefeatedBossBody()
   GAME:WaitFrames(90)
 end
 
-function cloven_ruins_miniboss_ch_7.DefeatedBoss()
-  PrintInfo("[BossSeq][cloven_ruins_miniboss_ch_7] DefeatedBoss start")
+function cloven_ruins_miniboss_ch_5.DefeatedBoss()
+  PrintInfo("[BossSeq][cloven_ruins_miniboss_ch_5] DefeatedBoss start")
 
   local ok, err = pcall(DefeatedBossBody)
   if not ok then
@@ -253,12 +253,12 @@ function cloven_ruins_miniboss_ch_7.DefeatedBoss()
 
   GAME:CutsceneMode(false)
   -- Segment 4 : les 3F au-dessus du mini-boss, vers le sanctuaire des titans.
-  PrintInfo("[BossSeq][cloven_ruins_miniboss_ch_7] -> ContinueDungeon(seg 4)")
+  PrintInfo("[BossSeq][cloven_ruins_miniboss_ch_5] -> ContinueDungeon(seg 4)")
   GAME:ContinueDungeon("cloven_ruins", 4, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function cloven_ruins_miniboss_ch_7.DiedToBoss()
-  PrintInfo("[BossSeq][cloven_ruins_miniboss_ch_7] DiedToBoss start")
+function cloven_ruins_miniboss_ch_5.DiedToBoss()
+  PrintInfo("[BossSeq][cloven_ruins_miniboss_ch_5] DiedToBoss start")
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
@@ -297,9 +297,9 @@ function cloven_ruins_miniboss_ch_7.DiedToBoss()
   GAME:CutsceneMode(false)
 
   -- Checkpoint : réveil au relais (WipedCutscene du midpoint).
-  SV.Chapter7.RuinsMidState = 'DeathArrival'
-  PrintInfo("[BossSeq][cloven_ruins_miniboss_ch_7] DiedToBoss -> cloven_ruins_midpoint")
+  SV.Chapter5.RuinsMidState = 'DeathArrival'
+  PrintInfo("[BossSeq][cloven_ruins_miniboss_ch_5] DiedToBoss -> cloven_ruins_midpoint")
   GAME:EnterGroundMap("cloven_ruins_midpoint", "Main_Entrance_Marker")
 end
 
-return cloven_ruins_miniboss_ch_7
+return cloven_ruins_miniboss_ch_5

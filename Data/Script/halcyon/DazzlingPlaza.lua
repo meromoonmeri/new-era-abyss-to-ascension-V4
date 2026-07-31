@@ -695,6 +695,11 @@ end
 -- Segment 7 de gloomy_forest -> Data/Map/metano_town_duel.rsmap, qui
 -- EST la place (0 pixel d'ecart mesure). Aucun autre segment n'est
 -- touche. Le fondu de BossTransition couvre la bascule.
+--ATTENTION (purge ch6-32) : la zone gloomy_forest a ete supprimee en
+--vue de sa reconstruction. Les ContinueDungeon ci-dessous visent donc
+--une zone absente. Ils sont deja sous pcall — ils echouent en silence
+--au lieu de planter — mais la scene ne se jouera pas tant que le
+--donjon du chapitre 6 n'aura pas ete rebati.
 function DazzlingPlaza.ActeII()
   SV.Chapter6.PlazaMet = true
   pcall(function()

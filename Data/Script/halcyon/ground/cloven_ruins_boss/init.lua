@@ -5,7 +5,7 @@
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.ReplayEnding'
-require 'halcyon.ground.cloven_ruins_boss.cloven_ruins_boss_ch_7'
+require 'halcyon.ground.cloven_ruins_boss.cloven_ruins_boss_ch_5'
 
 -- [NREPROBE] sonde locale : état complet de la scène à un point donné.
 local function nre_snap(tag)
@@ -33,8 +33,8 @@ function cloven_ruins_boss.Enter(map)
   -- volontaire passe par le segment 3 achete chez Grodoudou ('colossus_quarry'),
   -- et zone/cloven_ruins/init.lua l'intercepte AVANT d'arriver ici.
   if ReplayEnding.IsReplay('cloven_ruins', 7) then
-    SV.Chapter7.DefeatedRuinsBoss = false
-    SV.Chapter7.DiedToRuinsBoss = false
+    SV.Chapter5.DefeatedRuinsBoss = false
+    SV.Chapter5.DiedToRuinsBoss = false
     ReplayEnding.EmptyArena({
       -- Carte de 320x240 px : la scene ch7 spawne le duo pile sur le bord bas
       -- (y=240) et ne place aucun equipier. Ici les equipiers sont poses a
@@ -52,14 +52,14 @@ function cloven_ruins_boss.Enter(map)
     return
   end
 
-  if SV.Chapter7.DefeatedRuinsBoss then
-    SV.Chapter7.DefeatedRuinsBoss = false
-    cloven_ruins_boss_ch_7.DefeatedBoss()
-  elseif SV.Chapter7.DiedToRuinsBoss then
-    SV.Chapter7.DiedToRuinsBoss = false
-    cloven_ruins_boss_ch_7.DiedToBoss()
+  if SV.Chapter5.DefeatedRuinsBoss then
+    SV.Chapter5.DefeatedRuinsBoss = false
+    cloven_ruins_boss_ch_5.DefeatedBoss()
+  elseif SV.Chapter5.DiedToRuinsBoss then
+    SV.Chapter5.DiedToRuinsBoss = false
+    cloven_ruins_boss_ch_5.DiedToBoss()
   else
-    cloven_ruins_boss_ch_7.FirstPreBossScene()
+    cloven_ruins_boss_ch_5.FirstPreBossScene()
   end
 end
 function cloven_ruins_boss.Update(map) end

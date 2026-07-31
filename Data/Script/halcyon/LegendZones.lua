@@ -71,7 +71,7 @@ LegendZones.LIST = {
         name = 'LZ_Name_Colossus_Quarry', blurb = 'LZ_Blurb_Colossus_Quarry',
         sight = 'LZ_Sight_Colossus_Quarry', price = 22000,
         -- Segment 5 : decale de 3 -> 5 par l'insertion du mini-boss ch7.
-        flag = function() return SV.Chapter7 ~= nil and SV.Chapter7.SawAnimaCoreCorruption == true end,
+        flag = function() return SV.Chapter5 ~= nil and SV.Chapter5.SawAnimaCoreCorruption == true end,
         zone = 'cloven_ruins', segment = 5, roam = false, ready = true
     },
     {

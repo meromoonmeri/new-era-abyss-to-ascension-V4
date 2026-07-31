@@ -51,16 +51,16 @@ function cloven_ruins_midpoint.Init(map)
 end
 
 function cloven_ruins_midpoint.Enter(map)
-  if SV.Chapter7.RuinsMidState == 'DeathArrival' then
-    SV.Chapter7.RuinsMidState = nil
+  if SV.Chapter5.RuinsMidState == 'DeathArrival' then
+    SV.Chapter5.RuinsMidState = nil
     cloven_ruins_midpoint.WipedCutscene()
     return
   end
-  if SV.Chapter7.RuinsMidpointState == nil then SV.Chapter7.RuinsMidpointState = 'FirstArrival' end
-  if SV.Chapter7.RuinsMidpointState == 'FirstArrival' then
-    SV.Chapter7.RuinsMidpointState = 'RepeatArrival'
-    if SV.ChapterProgression.Chapter == 7 then
-      -- Première halte pendant l'expédition du chapitre 7 : arrivée jouée.
+  if SV.Chapter5.RuinsMidpointState == nil then SV.Chapter5.RuinsMidpointState = 'FirstArrival' end
+  if SV.Chapter5.RuinsMidpointState == 'FirstArrival' then
+    SV.Chapter5.RuinsMidpointState = 'RepeatArrival'
+    if SV.ChapterProgression.Chapter == 5 then
+      -- Première halte dans les Ruines Tordues, dernier acte du chapitre 5.
       RelayScenes.DuoArrival({
         hero = {212, 456}, partner = {180, 456}, camera = {196, 400},
         walk = 56, title = true, music = 'In the Depths of the Pit.ogg',
@@ -83,12 +83,12 @@ function cloven_ruins_midpoint.Enter(map)
         },
       })
     end
-  elseif SV.Chapter7.RuinsMidReturn then
+  elseif SV.Chapter5.RuinsMidReturn then
     --ETAT « RepeatArrival » DU TEMPLATE — retour a l'amiable
     --(repli volontaire par la sortie sud, ou reprise d'une sauvegarde
     --faite ici). Le relais ne connaissait que FirstArrival et le reveil
     --apres KO : revenir sur ses pas ne donnait qu'un fondu muet.
-    SV.Chapter7.RuinsMidReturn = false
+    SV.Chapter5.RuinsMidReturn = false
     local partner = CH('Teammate1')
     MidpointTemplate.RepeatArrival({
       skin = RUINS_SKIN,
@@ -115,9 +115,9 @@ end
 -- arme le retour sobre du template plutot qu'un fondu muet.
 function cloven_ruins_midpoint.GameLoad(map)
   PartnerEssentials.LoadGamePartnerPosition(CH('Teammate1'))
-  if SV.Chapter7.RuinsMidpointState ~= 'FirstArrival'
-     and SV.Chapter7.RuinsMidState ~= 'DeathArrival' then
-    SV.Chapter7.RuinsMidReturn = true
+  if SV.Chapter5.RuinsMidpointState ~= 'FirstArrival'
+     and SV.Chapter5.RuinsMidState ~= 'DeathArrival' then
+    SV.Chapter5.RuinsMidReturn = true
   end
   cloven_ruins_midpoint.Enter(map)
 end
@@ -166,7 +166,7 @@ function cloven_ruins_midpoint.South_Exit_Touch(obj, activator)
   if res then
     SV.adventure.Thief = false
     --Repli VOLONTAIRE : sortie a l'amiable, on arme le retour sobre.
-    SV.Chapter7.RuinsMidReturn = true
+    SV.Chapter5.RuinsMidReturn = true
     SOUND:FadeOutBGM(60)
     GAME:FadeOut(false, 60)
     partner.IsInteracting = false

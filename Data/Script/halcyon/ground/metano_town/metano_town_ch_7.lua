@@ -16,11 +16,11 @@ metano_town_ch_7 = {}
 -- Helper : 6 paliers de progression Chapitre 7
 -- ============================================================
 local function Ch7State()
-    if SV.Chapter7.HadFirstDream then return "post_dream"
-    elseif SV.Chapter7.HeardGenesisTale then return "post_genesis"
-    elseif SV.Chapter7.DefeatedRuinsBoss then return "post_boss"
-    elseif SV.Chapter7.EnteredRuins then return "during"
-    elseif SV.Chapter7.RuinsAddressGiven then return "pre"
+    if SV.Chapter5.HadRuinsDream then return "post_dream"
+    elseif SV.Chapter5.HeardGenesisTale then return "post_genesis"
+    elseif SV.Chapter5.DefeatedRuinsBoss then return "post_boss"
+    elseif SV.Chapter5.EnteredRuins then return "during"
+    elseif SV.Chapter5.RuinsAddressGiven then return "pre"
     else return "early"
     end
 end
@@ -31,7 +31,7 @@ end
 
 -- Phileas (Noctowl) : raconte la Genese si le joueur a vu le Coeur corrompu
 function metano_town_ch_7.Noctowl_Action(chara, activator)
-    if SV.Chapter7.SawAnimaCoreCorruption and not SV.Chapter7.HeardGenesisTale then
+    if SV.Chapter5.SawAnimaCoreCorruption and not SV.Chapter5.HeardGenesisTale then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Noctowl_001']))
         GeneralFunctions.SetEmotion("Worried")
@@ -40,13 +40,13 @@ function metano_town_ch_7.Noctowl_Action(chara, activator)
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Noctowl_003']))
         GeneralFunctions.EndConversation(chara)
         GAME:EnterGroundMap('genesis_vision', 'Main_Entrance_Marker')
-    elseif SV.Chapter7.HeardGenesisTale and not SV.Chapter7.HadFirstDream then
+    elseif SV.Chapter5.HeardGenesisTale and not SV.Chapter5.HadRuinsDream then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Noctowl_004']))
         GeneralFunctions.SetEmotion("Sad")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT7_Noctowl_005']))
         GeneralFunctions.EndConversation(chara)
-    elseif SV.Chapter7.DefeatedRuinsBoss then
+    elseif SV.Chapter5.DefeatedRuinsBoss then
         GeneralFunctions.StartConversation(chara,
             STRINGS:Format(STRINGS.MapStrings['MT7_Noctowl_006']))
         GeneralFunctions.SetEmotion("Normal")

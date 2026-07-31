@@ -27,7 +27,7 @@ function guild_heros_room_ch_7.ShowTitleCard()
     UI:WaitHideBG(20) end)
   TASK:JoinCoroutines({coro1, coro2})
   GAME:WaitFrames(120)
-  SV.Chapter7.ShowedTitleCard = true
+  SV.Chapter5.ShowedRuinsTitleCard = true
   guild_heros_room_helper.Morning(true)
 end
 
@@ -155,7 +155,7 @@ function guild_heros_room_ch_7.DreamCutscene()
   HeroVisions.TryTrigger('rouage', partner)
   GAME:WaitFrames(30)
 
-  SV.Chapter7.HadFirstDream = true
+  SV.Chapter5.HadRuinsDream = true
   --Delai avant l'ouverture du chapitre 8, comme aux paliers precedents.
   --Sans cette ligne, DaysToReach garderait la valeur du palier ch6->ch7 (deja
   --depassee) et le chapitre 8 s'ouvrirait des la nuit suivante.

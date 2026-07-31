@@ -571,14 +571,25 @@ function mount_windswept_guardian_ch_5.DefeatedBoss()
 
   GAME:CutsceneMode(false)
 
-  --Le sommet est vaincu : l'expedition du chapitre 5 est terminee.
-  --On renvoyait vers "cloven_ruins", carte qui n'existe pas (la zone est
-  --Released=false, 0 segment) -> ecran noir apres la victoire finale.
-  --On cloture proprement : bascule chapitre 6, fin de journee a la guilde.
+  --Le sommet est vaincu : l'EXPEDITION est terminee, mais PAS le
+  --chapitre 5. Les Ruines Tordues en sont le dernier acte.
+  --
+  --Ce que Tornadus vient de dire enchaine directement dessus :
+  --  MWG_041 « il y a une forme sous votre monde. Elle a des angles. »
+  --  MWG_042 « Rien de naturel n'a d'angles. »
+  --  MWG_046 « quand vous trouverez les angles, ne supposez pas qu'ils
+  --           ont ete batis pour vous garder DEHORS. »
+  --Une forme anguleuse et batie, sous le monde : ce sont les Ruines.
+  --Le gardien du ciel les a vues d'en haut sans pouvoir y descendre ;
+  --il passe le relais. Basculer au chapitre 6 ici coupait le raccord
+  --que ce dialogue construit lui-meme.
+  --
+  --On rentre donc a la guilde en fin de journee, chapitre 5 toujours en
+  --cours. Le briefing de Phileas (guild_third_floor_lobby) ouvrira les
+  --Ruines au matin suivant.
   --Cette cloture est HORS du pcall : meme si la mise en scene casse, la
-  --progression de chapitre et le retour a la guilde ont TOUJOURS lieu.
+  --progression et le retour a la guilde ont TOUJOURS lieu.
   SV.Chapter5.FinishedExpedition = true
-  SV.ChapterProgression.Chapter = 6
   SV.TemporaryFlags.Dinnertime = true
   SV.TemporaryFlags.Bedtime = true
   SV.TemporaryFlags.MorningWakeup = true

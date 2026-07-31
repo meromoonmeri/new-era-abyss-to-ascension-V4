@@ -9,7 +9,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
-require 'halcyon.ground.cloven_ruins_miniboss.cloven_ruins_miniboss_ch_7'
+require 'halcyon.ground.cloven_ruins_miniboss.cloven_ruins_miniboss_ch_5'
 
 local cloven_ruins_miniboss = {}
 
@@ -21,22 +21,22 @@ function cloven_ruins_miniboss.Init(map)
 end
 
 function cloven_ruins_miniboss.Enter(map)
-  if SV.Chapter7.RuinsMiniBossSeen == nil then SV.Chapter7.RuinsMiniBossSeen = false end
-  if SV.Chapter7.RuinsMiniBossDefeated == nil then SV.Chapter7.RuinsMiniBossDefeated = false end
-  if SV.Chapter7.RuinsMiniBossLost == nil then SV.Chapter7.RuinsMiniBossLost = false end
+  if SV.Chapter5.RuinsMiniBossSeen == nil then SV.Chapter5.RuinsMiniBossSeen = false end
+  if SV.Chapter5.RuinsMiniBossDefeated == nil then SV.Chapter5.RuinsMiniBossDefeated = false end
+  if SV.Chapter5.RuinsMiniBossLost == nil then SV.Chapter5.RuinsMiniBossLost = false end
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Enter_cloven_ruins_miniboss")
 
-  if SV.Chapter7.RuinsMiniBossDefeated then
-    SV.Chapter7.RuinsMiniBossDefeated = false
-    cloven_ruins_miniboss_ch_7.DefeatedBoss()
-  elseif SV.Chapter7.RuinsMiniBossLost then
-    SV.Chapter7.RuinsMiniBossLost = false
-    cloven_ruins_miniboss_ch_7.DiedToBoss()
-  elseif SV.Chapter7.RuinsMiniBossSeen then
-    cloven_ruins_miniboss_ch_7.SecondPreBossScene()
+  if SV.Chapter5.RuinsMiniBossDefeated then
+    SV.Chapter5.RuinsMiniBossDefeated = false
+    cloven_ruins_miniboss_ch_5.DefeatedBoss()
+  elseif SV.Chapter5.RuinsMiniBossLost then
+    SV.Chapter5.RuinsMiniBossLost = false
+    cloven_ruins_miniboss_ch_5.DiedToBoss()
+  elseif SV.Chapter5.RuinsMiniBossSeen then
+    cloven_ruins_miniboss_ch_5.SecondPreBossScene()
   else
-    cloven_ruins_miniboss_ch_7.FirstPreBossScene()
+    cloven_ruins_miniboss_ch_5.FirstPreBossScene()
   end
 end
 

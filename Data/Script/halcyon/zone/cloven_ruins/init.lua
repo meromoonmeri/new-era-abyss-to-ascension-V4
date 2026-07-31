@@ -54,14 +54,14 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
           GAME:EnterGroundMap('cloven_ruins_midpoint', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
-          SV.Chapter7.LostRuins = true
+          SV.Chapter5.LostRuins = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
-              GAME:EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, 65, 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Les ruines...[pause=0] c'est trop pour nous...", "Pain")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, 46, 0)
+              GAME:EnterZone("master_zone", -1, 65, 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 65, 0, true, true)
           end
       end
   elseif segmentID == 1 then
@@ -76,15 +76,15 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
           GAME:EnterGroundMap('cloven_ruins_miniboss', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
-          SV.Chapter7.LostDepths = true
+          SV.Chapter5.LostDepths = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
-              SV.Chapter7.RuinsMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, 66, 0, true, true)
+              SV.Chapter5.RuinsMidState = 'DeathArrival'
+              GAME:EndDungeonRun(result, "master_zone", -1, 67, 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Les profondeurs...[pause=0] on n'aurait pas du...", "Pain")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, 66, 0)
+              GAME:EnterZone("master_zone", -1, 67, 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 66, 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 67, 0, true, true)
           end
       end
   elseif segmentID == 3 then
@@ -92,9 +92,9 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
       -- revient sur la ground de cinematique qui lit les flags (patron
       -- mount_windswept, segment 1).
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-          SV.Chapter7.RuinsMiniBossDefeated = true
+          SV.Chapter5.RuinsMiniBossDefeated = true
       else
-          SV.Chapter7.RuinsMiniBossLost = true
+          SV.Chapter5.RuinsMiniBossLost = true
       end
       PrintInfo("[NREPROBE][transition] cloven seg3 (arene) -> miniboss ground")
       GAME:EnterGroundMap('cloven_ruins_miniboss', 'Main_Entrance_Marker')
@@ -106,15 +106,15 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
           GAME:EnterGroundMap('cloven_ruins_boss', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
-          SV.Chapter7.LostDepths = true
+          SV.Chapter5.LostDepths = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
-              SV.Chapter7.RuinsMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, 66, 0, true, true)
+              SV.Chapter5.RuinsMidState = 'DeathArrival'
+              GAME:EndDungeonRun(result, "master_zone", -1, 67, 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Les profondeurs...[pause=0] on n'aurait pas du...", "Pain")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, 66, 0)
+              GAME:EnterZone("master_zone", -1, 67, 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 66, 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 67, 0, true, true)
           end
       end
   elseif segmentID == 5 then
@@ -122,17 +122,17 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
       -- a la revanche vendue par Grodoudou (LegendZones 'colossus_quarry',
       -- meme zone, meme segment 5). Les deux usages doivent etre traites.
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-          SV.Chapter7.DefeatedRuinsBoss = true
+          SV.Chapter5.DefeatedRuinsBoss = true
           -- Marque la zone-amie comme conquise (compteur de fin de jeu et
           -- dialogue de Grodoudou). Sans effet si elle n'a jamais ete achetee.
           LegendZones.SetDefeated('colossus_quarry')
       else
-          SV.Chapter7.DiedToRuinsBoss = true
+          SV.Chapter5.DiedToRuinsBoss = true
       end
 
       -- Revanche achetee chez Grodoudou : l'histoire du ch7 est deja faite, on
       -- ne rejoue pas la cinematique de boss, on ressort simplement en ville.
-      if SV.Chapter7 ~= nil and SV.Chapter7.SawAnimaCoreCorruption == true
+      if SV.Chapter5 ~= nil and SV.Chapter5.SawAnimaCoreCorruption == true
          and SV.ChapterProgression.Chapter ~= 7 then
           GAME:WaitFrames(20)
           GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)

@@ -4,7 +4,7 @@
     Carte purement narrative (pas de gameplay).
 ]]
 require 'origin.common'
-require 'halcyon.ground.genesis_vision.genesis_vision_ch_7'
+require 'halcyon.ground.genesis_vision.genesis_vision_ch_5'
 
 local genesis_vision = {}
 
@@ -14,7 +14,7 @@ function genesis_vision.Init(map)
 end
 
 function genesis_vision.Enter(map)
-  genesis_vision_ch_7.PlayGenesis()
+  genesis_vision_ch_5.PlayGenesis()
 end
 
 function genesis_vision.Update(map)

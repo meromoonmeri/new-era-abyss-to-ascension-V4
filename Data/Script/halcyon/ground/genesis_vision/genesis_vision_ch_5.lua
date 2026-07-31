@@ -1,5 +1,5 @@
 --[[
-    genesis_vision_ch_7.lua
+    genesis_vision_ch_5.lua
     LA GENESE — recit de Phileas, chapitre 7.
 
     ================================================================
@@ -67,7 +67,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 
-genesis_vision_ch_7 = {}
+genesis_vision_ch_5 = {}
 
 --------------------------------------------------------------------
 -- Briques de recit
@@ -107,7 +107,7 @@ end
 --------------------------------------------------------------------
 -- LA GENESE
 --------------------------------------------------------------------
-function genesis_vision_ch_7.PlayGenesis()
+function genesis_vision_ch_5.PlayGenesis()
   local partner = CH('Teammate1')
 
   local ok, err = pcall(function()
@@ -232,10 +232,10 @@ function genesis_vision_ch_7.PlayGenesis()
     UI:ResetSpeaker()
     GAME:FadeOut(false, 120)
     GAME:WaitFrames(120)
-    SV.Chapter7.HeardGenesisTale = true
+    SV.Chapter5.HeardGenesisTale = true
     GAME:CutsceneMode(false)
   end)
   GAME:EnterGroundMap('guild_third_floor_lobby', 'Main_Entrance_Marker')
 end
 
-return genesis_vision_ch_7
+return genesis_vision_ch_5

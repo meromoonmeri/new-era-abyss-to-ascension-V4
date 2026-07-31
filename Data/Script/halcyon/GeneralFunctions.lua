@@ -121,16 +121,59 @@ function GeneralFunctions.Speak(chara, emotion)
 end
 
 
-function GeneralFunctions.ChapterDispatch(prefix, handler, chara, activator, fallback)
+--Resout le SUFFIXE de module a utiliser pour le chapitre courant.
+--
+--Normalement c'est le numero de chapitre, tout simplement. Une seule
+--exception, et elle est structurelle : les Ruines Tordues ont ete
+--rattachees au chapitre 5 alors que leurs modules s'appellent encore
+--« _ch_7 ». On ne pouvait pas les fusionner dans les modules « _ch_5 » :
+--metano_town_ch_5 et metano_town_ch_7 definissent 24 fonctions
+--HOMONYMES (Audino_Action, Tropius_Action, Noctowl_Action...) avec des
+--dialogues differents — ceux du depart en expedition d'un cote, ceux de
+--l'acte des Ruines de l'autre. Les fusionner aurait fait disparaitre
+--une des deux versions.
+--
+--On garde donc les deux modules, et on bascule de l'un a l'autre au
+--moment ou l'acte change : des que l'expedition est finie, la ville
+--parle des Ruines.
+function GeneralFunctions.ChapterActSuffix()
 	local chapter = 0
 	pcall(function() chapter = SV.ChapterProgression.Chapter end)
 
+	if chapter == 5 then
+		local acte_ruines = false
+		pcall(function()
+			acte_ruines = SV.Chapter5.FinishedExpedition == true
+		end)
+		if acte_ruines then return '7' end
+	end
+
+	return tostring(chapter)
+end
+
+function GeneralFunctions.ChapterDispatch(prefix, handler, chara, activator, fallback)
+	local suffix = GeneralFunctions.ChapterActSuffix()
+
 	local mod = nil
-	pcall(function() mod = _G[prefix .. tostring(chapter)] end)
+	pcall(function() mod = _G[prefix .. suffix] end)
 
 	if mod ~= nil and type(mod[handler]) == 'function' then
 		mod[handler](chara, activator)
 		return true
+	end
+
+	--Repli sur le module du chapitre lui-meme : pendant l'acte des Ruines,
+	--un PNJ qui n'a pas de replique dediee doit garder celle du chapitre 5
+	--plutot que de devenir muet.
+	local chapter = 0
+	pcall(function() chapter = SV.ChapterProgression.Chapter end)
+	if suffix ~= tostring(chapter) then
+		local base = nil
+		pcall(function() base = _G[prefix .. tostring(chapter)] end)
+		if base ~= nil and type(base[handler]) == 'function' then
+			base[handler](chara, activator)
+			return true
+		end
 	end
 
 	if type(fallback) == 'function' then fallback(chara, activator) end

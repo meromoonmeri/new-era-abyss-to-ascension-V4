@@ -236,6 +236,11 @@ function TownRaid.Begin()
     GAME:CutsceneMode(false)
   end)
 
+--ATTENTION (purge ch6-32) : la zone gloomy_forest a ete supprimee en
+--vue de sa reconstruction. Les ContinueDungeon ci-dessous visent donc
+--une zone absente. Ils sont deja sous pcall — ils echouent en silence
+--au lieu de planter — mais la scene ne se jouera pas tant que le
+--donjon du chapitre 6 n'aura pas ete rebati.
   --Le combat. Segments 8, 9 et 10 de gloomy_forest (decales de +2 par
   --l'insertion du mini-boss en segments 2 et 3) : chacun charge une des
   --trois cartes de raid. Meme appel que le duel Dazzling

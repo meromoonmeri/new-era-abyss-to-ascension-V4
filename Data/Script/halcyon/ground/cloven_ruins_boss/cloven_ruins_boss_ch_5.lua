@@ -1,5 +1,5 @@
 --[[
-    cloven_ruins_boss_ch_7.lua
+    cloven_ruins_boss_ch_5.lua
     Ruines Tordues — Boss : Regigigas
     Apparition : les veines dorees de l'arene s'animent, le colosse s'eveille
 ]]
@@ -9,9 +9,9 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 
-cloven_ruins_boss_ch_7 = {}
+cloven_ruins_boss_ch_5 = {}
 
-function cloven_ruins_boss_ch_7.FirstPreBossScene()
+function cloven_ruins_boss_ch_5.FirstPreBossScene()
 
 	--LE NOIR AVANT TOUT APPEL MOTEUR (correctif d'arrivee, 2026-07-30).
 	--Cette scene se joue sous le noir laisse par la carte precedente et ne
@@ -359,7 +359,7 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
   GAME:ContinueDungeon("cloven_ruins", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function cloven_ruins_boss_ch_7.SecondPreBossScene()
+function cloven_ruins_boss_ch_5.SecondPreBossScene()
 
 	--LE NOIR AVANT TOUT APPEL MOTEUR (correctif d'arrivee, 2026-07-30).
 	--Cette scene se joue sous le noir laisse par la carte precedente et ne
@@ -549,8 +549,8 @@ local function DefeatedBossBody()
   GAME:WaitFrames(90)
 end
 
-function cloven_ruins_boss_ch_7.DefeatedBoss()
-  PrintInfo("[BossSeq][cloven_ruins_boss_ch_7] DefeatedBoss cutscene start")
+function cloven_ruins_boss_ch_5.DefeatedBoss()
+  PrintInfo("[BossSeq][cloven_ruins_boss_ch_5] DefeatedBoss cutscene start")
 
   local ok, err = pcall(DefeatedBossBody)
   if not ok then
@@ -559,9 +559,9 @@ function cloven_ruins_boss_ch_7.DefeatedBoss()
   end
 
   -- Flag de progression + sortie garantis, quoi qu'il arrive.
-  SV.Chapter7.SawAnimaCoreCorruption = true
+  SV.Chapter5.SawAnimaCoreCorruption = true
   GAME:CutsceneMode(false)
-  PrintInfo("[BossSeq][cloven_ruins_boss_ch_7] DefeatedBoss -> guild_third_floor_lobby")
+  PrintInfo("[BossSeq][cloven_ruins_boss_ch_5] DefeatedBoss -> guild_third_floor_lobby")
   GAME:EnterGroundMap("guild_third_floor_lobby", "Main_Entrance_Marker")
 end
 
@@ -571,7 +571,7 @@ end
 -- mélangées dans la défaite, héros/partenaire cachés en pleine scène.
 -- Storyboard : fondu -> le Titan domine -> la Voix -> le duo à terre ->
 -- le Titan retourne à son sommeil -> fondu -> retour à l'entrée.
-function cloven_ruins_boss_ch_7.DiedToBoss()
+function cloven_ruins_boss_ch_5.DiedToBoss()
   PrintInfo("[BossSeq][cloven_ruins_boss] DiedToBoss cutscene start")
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
@@ -681,4 +681,4 @@ function cloven_ruins_boss_ch_7.DiedToBoss()
   GAME:EnterGroundMap("cloven_ruins_entrance", "Main_Entrance_Marker")
 end
 
-return cloven_ruins_boss_ch_7
+return cloven_ruins_boss_ch_5

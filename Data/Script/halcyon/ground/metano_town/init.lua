@@ -134,8 +134,6 @@ function metano_town.PlotScripting()
 		elseif SV.Chapter6.DefeatedByZarude and not SV.Chapter6.PostDefeatScenePlayed then
 			metano_town_ch_6.PostDefeatCutscene()
 		end
-	elseif SV.ChapterProgression.Chapter == 7 then
-		GAME:FadeIn(20)
 	elseif SV.ChapterProgression.Chapter == 8 then
 		require 'halcyon.ground.metano_town.metano_town_ch_8'
 		metano_town_ch_8.SetupGround()
@@ -218,7 +216,7 @@ function metano_town.East_Exit_Touch(obj, activator)
   ReplayEnding.SyncUnlocks()
   GeneralFunctions.StartPartnerConversation("Où devrions-nous aller,[pause=10]" .. CH('PLAYER'):GetDisplayName() .. " ?", "Normal", false)
   GAME:WaitFrames(20)
-  local dungeons = {"relic_forest", "illuminant_riverbed", "crooked_cavern", "apricorn_grove", "vast_steppe", "searing_tunnel", "mount_windswept", "gloomy_forest", "cloven_ruins", "crystal_sanctuary", "forgotten_marsh", "celestial_peak", "petit_tunnel", "bosquet_voile", "grotte_mystere", "vallee_fertile", "antre_enigme", "carriere_cuivre", "grotte_echoue"}--this needs to be updated when more dungeons come out.
+  local dungeons = {"relic_forest", "illuminant_riverbed", "crooked_cavern", "apricorn_grove", "vast_steppe", "searing_tunnel", "mount_windswept", "cloven_ruins"}--liste synchronisee avec Data/Zone apres la purge ch6-32.--this needs to be updated when more dungeons come out.
   local grounds = {}
   metano_town.ShowDestinationMenu(dungeons, grounds)
 end
@@ -2480,47 +2478,47 @@ end
 ---------------------------------
 function metano_town.Event_Trigger_1_Touch(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
- assert(pcall(load("metano_town_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Event_Trigger_1_Touch(...,...)"), obj, activator))
+ assert(pcall(load("metano_town_ch_" .. GeneralFunctions.ChapterActSuffix() .. ".Event_Trigger_1_Touch(...,...)"), obj, activator))
 end
 
 function metano_town.Event_Trigger_2_Touch(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
- assert(pcall(load("metano_town_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Event_Trigger_2_Touch(...,...)"), obj, activator))
+ assert(pcall(load("metano_town_ch_" .. GeneralFunctions.ChapterActSuffix() .. ".Event_Trigger_2_Touch(...,...)"), obj, activator))
 end
 
 function metano_town.Event_Trigger_3_Touch(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
- assert(pcall(load("metano_town_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Event_Trigger_3_Touch(...,...)"), obj, activator))
+ assert(pcall(load("metano_town_ch_" .. GeneralFunctions.ChapterActSuffix() .. ".Event_Trigger_3_Touch(...,...)"), obj, activator))
 end
 
 function metano_town.Event_Trigger_4_Touch(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
- assert(pcall(load("metano_town_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Event_Trigger_4_Touch(...,...)"), obj, activator))
+ assert(pcall(load("metano_town_ch_" .. GeneralFunctions.ChapterActSuffix() .. ".Event_Trigger_4_Touch(...,...)"), obj, activator))
 end
 
 function metano_town.Event_Trigger_5_Touch(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
- assert(pcall(load("metano_town_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Event_Trigger_5_Touch(...,...)"), obj, activator))
+ assert(pcall(load("metano_town_ch_" .. GeneralFunctions.ChapterActSuffix() .. ".Event_Trigger_5_Touch(...,...)"), obj, activator))
 end
 
 function metano_town.Event_Trigger_6_Touch(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
- assert(pcall(load("metano_town_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Event_Trigger_6_Touch(...,...)"), obj, activator))
+ assert(pcall(load("metano_town_ch_" .. GeneralFunctions.ChapterActSuffix() .. ".Event_Trigger_6_Touch(...,...)"), obj, activator))
 end
 
 function metano_town.Event_Trigger_7_Touch(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
- assert(pcall(load("metano_town_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Event_Trigger_7_Touch(...,...)"), obj, activator))
+ assert(pcall(load("metano_town_ch_" .. GeneralFunctions.ChapterActSuffix() .. ".Event_Trigger_7_Touch(...,...)"), obj, activator))
 end
 
 function metano_town.Event_Trigger_8_Touch(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
- assert(pcall(load("metano_town_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Event_Trigger_8_Touch(...,...)"), obj, activator))
+ assert(pcall(load("metano_town_ch_" .. GeneralFunctions.ChapterActSuffix() .. ".Event_Trigger_8_Touch(...,...)"), obj, activator))
 end
 
 function metano_town.Event_Trigger_9_Touch(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
- assert(pcall(load("metano_town_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Event_Trigger_9_Touch(...,...)"), obj, activator))
+ assert(pcall(load("metano_town_ch_" .. GeneralFunctions.ChapterActSuffix() .. ".Event_Trigger_9_Touch(...,...)"), obj, activator))
 end
 
 --------------------

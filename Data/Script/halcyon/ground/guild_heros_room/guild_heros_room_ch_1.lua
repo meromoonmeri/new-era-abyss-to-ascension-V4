@@ -134,12 +134,12 @@ function guild_heros_room_ch_1.Bedtalk()
 	GAME:WaitFrames(180)
 	GAME:UnlockDungeon("illuminant_riverbed")--unlock riverbed for when it's ready in chapter 2.
 	--Vague 1 multi-sources : secondaires ch1-2 disponibles des l'entree a la guilde
-	GAME:UnlockDungeon("petit_tunnel")
-	GAME:UnlockDungeon("bosquet_voile")
-	GAME:UnlockDungeon("grotte_mystere")
-	GAME:UnlockDungeon("vallee_fertile")
+	--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("petit_tunnel")
+	--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("bosquet_voile")
+	--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("grotte_mystere")
+	--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("vallee_fertile")
 	--Vague 2 multi-sources : secondaire ch2
-	GAME:UnlockDungeon("grotte_repos")
+	--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("grotte_repos")
 	GAME:FadeOut(false, 120)
 	SV.ChapterProgression.Chapter = 2
 	GeneralFunctions.EndOfDay()--reset daily flags and increment day counter by 1

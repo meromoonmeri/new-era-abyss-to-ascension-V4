@@ -79,7 +79,7 @@ function TownVoices.State(ch)
   --  'post'   = le donjon est fait, la ville respire
   --  'quests' = le dernier jalon du chapitre est franchi
   if ch == 7 then
-    local c = SV.Chapter7 or {}
+    local c = SV.Chapter5 or {}
     if c.HadFirstDream or c.HeardGenesisTale then return 'quests' end
     if c.DefeatedRuinsBoss then return 'post' end
     if c.EnteredRuins then return 'during' end

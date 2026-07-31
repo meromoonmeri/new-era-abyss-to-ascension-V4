@@ -33,7 +33,7 @@
 
       ch6  SV.Chapter6.ChenipentFound / DefeatedGloomyBoss
            -> la ville a eu peur pour un enfant perdu en foret.
-      ch7  SV.Chapter7.HeardGenesisTale / HadFirstDream
+      ch7  SV.Chapter5.HeardGenesisTale / HadFirstDream
            -> le heros a entendu le recit des origines. Il ne dort plus.
       ch8  SV.Chapter8.ObtainedCrystalFragment
            -> il rapporte un objet qui n'aurait pas du sortir de la.
@@ -141,7 +141,7 @@ end
 
 --CH7 — LE HEROS NE DORT PLUS. Le recit des origines lui reste en travers.
 ARRIVALS[7] = function(hero, partner)
-  local c7 = SV.Chapter7 or {}
+  local c7 = SV.Chapter5 or {}
   narrate("La ville dort.[pause=25] Vous, non. Pas depuis les ruines.")
   GAME:WaitFrames(20)
   if c7.HeardGenesisTale then

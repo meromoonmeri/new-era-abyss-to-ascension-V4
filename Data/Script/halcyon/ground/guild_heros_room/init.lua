@@ -90,12 +90,12 @@ function guild_heros_room.CheckTriggerEvent()
 		SV.metano_cafe.NewDrinkUnlocked = true
 		GAME:UnlockDungeon("apricorn_grove")
 		--Vague 1 multi-sources : secondaire ch4
-		GAME:UnlockDungeon("grotte_echoue")
+		--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("grotte_echoue")
 		--Vague 2 multi-sources : secondaires ch4
-		GAME:UnlockDungeon("halles_royales")
-		GAME:UnlockDungeon("jardin_secret")
-		GAME:UnlockDungeon("flying_maze")--unlock new mazes at ledian dojo
-		GAME:UnlockDungeon("rock_maze")--unlock new mazes at ledian dojo
+		--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("halles_royales")
+		--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("jardin_secret")
+		--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("flying_maze")--unlock new mazes at ledian dojo
+		--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("rock_maze")--unlock new mazes at ledian dojo
 		GAME:WaitFrames(60)
 		GeneralFunctions.PromptChapterSaveAndQuit("guild_heros_room", "Main_Entrance_Marker", 2)
 	end
@@ -109,27 +109,35 @@ function guild_heros_room.CheckTriggerEvent()
 		SV.Dojo.NewMazeUnlocked = true
 		--SV.metano_cafe.NewDrinkUnlocked = true
 		--GAME:UnlockDungeon("apricorn_grove")
-		GAME:UnlockDungeon("electric_maze")--unlock new mazes at ledian dojo
-		GAME:UnlockDungeon("bug_maze")--unlock new mazes at ledian dojo
+		--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("electric_maze")--unlock new mazes at ledian dojo
+		--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("bug_maze")--unlock new mazes at ledian dojo
 		--Vague 2 multi-sources : secondaires ch5 (route de l'expedition)
-		GAME:UnlockDungeon("foret_embuscade")
-		GAME:UnlockDungeon("bois_filou")
+		--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("foret_embuscade")
+		--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("bois_filou")
 		GAME:WaitFrames(60)
 		GeneralFunctions.PromptChapterSaveAndQuit("guild_heros_room", "Main_Entrance_Marker", 2)
 	end
 
-	--Start Chapter 6 a few in game days after finishing the expedition.
-	if SV.ChapterProgression.Chapter == 5 and SV.Chapter5.FinishedExpedition and SV.ChapterProgression.DaysPassed >= SV.ChapterProgression.DaysToReach then
-		SV.ChapterProgression.Chapter = 6
+	--RUINES TORDUES — dernier acte du chapitre 5, PAS un nouveau chapitre.
+	--
+	--Ce bloc basculait autrefois au chapitre 6 des que l'expedition etait
+	--finie. Depuis que les Ruines sont rattachees au chapitre 5, cette
+	--bascule sautait par-dessus tout l'acte : le joueur passait du sommet
+	--du Mont Venteux au chapitre suivant sans jamais voir les Ruines,
+	--alors que Tornadus vient de les lui annoncer (MWG_041/046).
+	--
+	--On ouvre donc les Ruines au voyage, on pose l'adresse du matin, et
+	--le chapitre 5 continue. La cloture du chapitre se fait plus bas, sur
+	--HadRuinsDream (le second reve, apres le recit de la Genese).
+	if SV.ChapterProgression.Chapter == 5 and SV.Chapter5.FinishedExpedition
+			and not SV.Chapter5.RuinsAddressGiven
+			and SV.ChapterProgression.DaysPassed >= SV.ChapterProgression.DaysToReach then
 		SV.TemporaryFlags.MorningAddress = false
 		SV.TemporaryFlags.MorningWakeup = false
-		SV.ChapterProgression.CurrentStoryDungeon = "gloomy_forest"
+		SV.ChapterProgression.CurrentStoryDungeon = "cloven_ruins"
 		SV.Dojo.NewMazeUnlocked = true
-		GAME:UnlockDungeon("gloomy_forest")
-		GAME:UnlockDungeon("grass_maze")
-		--Vague 2 multi-sources : secondaires ch6
-		GAME:UnlockDungeon("desert_oublies")
-		GAME:UnlockDungeon("crevasse_geode")
+		GAME:UnlockDungeon("cloven_ruins")
+		--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("grass_maze")
 		GAME:WaitFrames(60)
 		GeneralFunctions.PromptChapterSaveAndQuit("guild_heros_room", "Main_Entrance_Marker", 2)
 	end
@@ -166,8 +174,8 @@ function guild_heros_room.CheckTriggerEvent()
 		GAME:UnlockDungeon("cloven_ruins")
 		--Secondaires ouverts avec le chapitre 7. (water_maze est deja ouvert au
 		--chapitre 2 par guild_guildmasters_room_ch_2 : ne pas le redeclarer.)
-		GAME:UnlockDungeon("jardin_energie")
-		GAME:UnlockDungeon("toundra_desolee")
+		--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("jardin_energie")
+		--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("toundra_desolee")
 		GAME:WaitFrames(60)
 		GeneralFunctions.PromptChapterSaveAndQuit("guild_heros_room", "Main_Entrance_Marker", 2)
 	end
@@ -183,20 +191,33 @@ function guild_heros_room.CheckTriggerEvent()
 	--du matin dedies (pas de guild_heros_room_ch_8 ni de
 	--guild_third_floor_lobby_ch_8) : le reveil generique s'applique, et la
 	--decouverte passe par les dialogues de ville et le donjon lui-meme.
+	--Paliers de fin de chapitre : { drapeau de cloture, chapitre suivant,
+	--donjon d'histoire ouvert, donjons secondaires }.
+	--
+	--Le palier [5] cloture le chapitre sur HadRuinsDream — le second reve,
+	--joue apres le recit de la Genese, donc APRES les Ruines. Il portait
+	--l'indice [7] tant que les Ruines etaient au chapitre 7.
+	--
+	--Les paliers 7/8/9 ont ete retires : Sanctuaire de Cristal, Marais
+	--Oublie et Pic Celeste ont ete purges en vue de leur reconstruction.
+	--Les laisser aurait appele UnlockDungeon sur des zones absentes.
+	--Le chapitre 6 reste le prochain palier a rebrancher quand son donjon
+	--sera reconstruit.
 	local chapter_gates = {
-		--[chapitre courant] = { drapeau de cloture, chapitre suivant, donjon, secondaires }
-		[7]  = { function() return SV.Chapter7.HadFirstDream end,            8,  "crystal_sanctuary", {"bassin_tari"} },
-		[8]  = { function() return SV.Chapter8.CrystalSanctuaryComplete end, 9,  "forgotten_marsh",   {"marais_errants"} },
-		[9]  = { function() return SV.Chapter9.ForgottenMarshComplete end,   10, "celestial_peak",    {"falaises_envol", "sentier_enneige"} },
+		[5]  = { function() return SV.Chapter5.HadRuinsDream end,            6,  nil, {} },
 	}
 	local gate = chapter_gates[SV.ChapterProgression.Chapter]
 	if gate ~= nil and gate[1]() and SV.ChapterProgression.DaysPassed >= SV.ChapterProgression.DaysToReach then
 		SV.ChapterProgression.Chapter = gate[2]
 		SV.TemporaryFlags.MorningAddress = false
 		SV.TemporaryFlags.MorningWakeup = false
-		SV.ChapterProgression.CurrentStoryDungeon = gate[3]
+		--gate[3] peut valoir nil : le chapitre suivant n'a pas (encore) de
+		--donjon d'histoire, ses donjons ayant ete purges en attendant leur
+		--reconstruction. UnlockDungeon(nil) planterait le passage de
+		--chapitre, donc on ne l'appelle que si la cible existe.
+		SV.ChapterProgression.CurrentStoryDungeon = gate[3] or ""
 		SV.Dojo.NewMazeUnlocked = true
-		GAME:UnlockDungeon(gate[3])
+		if gate[3] ~= nil then GAME:UnlockDungeon(gate[3]) end
 		for ii = 1, #gate[4], 1 do
 			GAME:UnlockDungeon(gate[4][ii])
 		end
@@ -305,7 +326,22 @@ function guild_heros_room.PlotScripting()
 				GAME:FadeIn(20)
 			end
 		elseif SV.ChapterProgression.Chapter == 5 then
-			if not SV.Chapter5.ShowedTitleCard then
+			--Le chapitre 5 enchaine DEUX nuits a la guilde :
+			--  1. au retour de l'expedition (PostExpeditionBedtalk, reve
+			--     'meteore' porte par HadFirstDream) ;
+			--  2. au retour des Ruines Tordues, dernier acte du chapitre
+			--     (reve 'rouage' porte par HadRuinsDream).
+			--Les scenes des Ruines etaient gardees par « Chapter == 7 » :
+			--depuis leur rattachement au chapitre 5 ce test n'etait plus
+			--jamais vrai, et ni le carton-titre ni le second reve ne se
+			--jouaient. On teste du PLUS SPECIFIQUE au plus general, sans
+			--quoi la nuit de l'expedition masquerait celle des Ruines.
+			if SV.Chapter5.HeardGenesisTale and not SV.Chapter5.HadRuinsDream then
+				guild_heros_room_ch_7.DreamCutscene()
+			elseif SV.Chapter5.FinishedExpedition and not SV.Chapter5.ShowedRuinsTitleCard
+					and SV.Chapter5.FinishedBedtimeCutscene then
+				guild_heros_room_ch_7.ShowTitleCard()
+			elseif not SV.Chapter5.ShowedTitleCard then
 				guild_heros_room_ch_5.ShowTitleCard()
 			elseif SV.Chapter5.FinishedExpedition and not SV.Chapter5.FinishedBedtimeCutscene then
 				guild_heros_room_ch_5.PostExpeditionBedtalk()
@@ -315,14 +351,6 @@ function guild_heros_room.PlotScripting()
 		elseif SV.ChapterProgression.Chapter == 6 then
 			if not SV.Chapter6.ShowedTitleCard then
 				guild_heros_room_ch_6.ShowTitleCard()
-			else
-				GAME:FadeIn(20)
-			end
-		elseif SV.ChapterProgression.Chapter == 7 then
-			if not SV.Chapter7.ShowedTitleCard then
-				guild_heros_room_ch_7.ShowTitleCard()
-			elseif SV.Chapter7.HeardGenesisTale and not SV.Chapter7.HadFirstDream then
-				guild_heros_room_ch_7.DreamCutscene()
 			else
 				GAME:FadeIn(20)
 			end

@@ -102,16 +102,21 @@ function guild_third_floor_lobby.PlotScripting()
 				guild_third_floor_lobby_ch_4.SetupGround()
 			end
 		elseif SV.ChapterProgression.Chapter == 5 then
-			if not SV.Chapter5.FinishedExpeditionAddress then
+			--Le chapitre 5 se joue en TROIS temps, dans cet ordre :
+			--  1. l'adresse d'expedition (Steppe, Tunnel, Mont Venteux)
+			--  2. le depart effectif de l'expedition
+			--  3. AU RETOUR, l'adresse des Ruines Tordues — dernier acte
+			--     du chapitre, annonce par Tornadus au sommet (MWG_041/046).
+			--Le test le plus specifique passe en PREMIER : une fois
+			--FinishedExpedition pose, les deux premieres branches ne
+			--doivent plus se declencher, sinon on rejouerait l'adresse de
+			--depart alors que l'expedition est finie.
+			if SV.Chapter5.FinishedExpedition and not SV.Chapter5.RuinsAddressGiven then
+				guild_third_floor_lobby_ch_5.RuinsExpeditionAddress()
+			elseif not SV.Chapter5.FinishedExpeditionAddress then
 				guild_third_floor_lobby_ch_5.ExpeditionAddress()
-			elseif SV.Chapter5.ReadyForExpedition then
+			elseif SV.Chapter5.ReadyForExpedition and not SV.Chapter5.FinishedExpedition then
 				guild_third_floor_lobby_ch_5.SecondExpeditionAddress()
-			else
-				GAME:FadeIn(20)
-			end
-		elseif SV.ChapterProgression.Chapter == 7 then
-			if not SV.Chapter7.RuinsAddressGiven then
-				guild_third_floor_lobby_ch_7.RuinsExpeditionAddress()
 			else
 				GAME:FadeIn(20)
 			end
@@ -141,10 +146,13 @@ function guild_third_floor_lobby.PostAddressScripting()
 		else
 			guild_third_floor_lobby_ch_3.FailedCavernBeforeBoss()--Your last dungeon was the cavern but you've not made it to Team Style yet.
 		end
-	elseif SV.ChapterProgression.Chapter == 7 then
-		if SV.Chapter7.DefeatedRuinsBoss then
+	elseif SV.ChapterProgression.Chapter == 5 then
+		--Suites de l'acte des Ruines (dernier acte du chapitre 5).
+		--Ce dispatch n'avait PAS de branche chapitre 5 : le garde
+		--« Chapter == 7 » pouvait donc etre bascule sans rien ecraser.
+		if SV.Chapter5.DefeatedRuinsBoss then
 			guild_third_floor_lobby.GenericMissions()
-		elseif SV.Chapter7.LostRuins then
+		elseif SV.Chapter5.LostRuins then
 			-- Failed in the ruins, encourage retry
 			local partner = CH('Teammate1')
 			GeneralFunctions.StartConversation(CH('Noctowl'),

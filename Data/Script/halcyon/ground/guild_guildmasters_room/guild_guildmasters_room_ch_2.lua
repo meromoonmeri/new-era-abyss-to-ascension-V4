@@ -187,15 +187,15 @@ function guild_guildmasters_room_ch_2.NoctowlTropiusScene()
 	SV.ChapterProgression.Chapter = 3
 	SV.ChapterProgression.CurrentStoryDungeon = "crooked_cavern" -- Crooked Cavern
 	SV.Dojo.NewMazeUnlocked = true
-	GAME:UnlockDungeon("grass_maze")--unlock new mazes at ledian dojo
-	GAME:UnlockDungeon("fire_maze")--unlock new mazes at ledian dojo
-	GAME:UnlockDungeon("water_maze")--unlock new mazes at ledian dojo
+	--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("grass_maze")--unlock new mazes at ledian dojo
+	--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("fire_maze")--unlock new mazes at ledian dojo
+	--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("water_maze")--unlock new mazes at ledian dojo
 	GAME:UnlockDungeon("crooked_cavern")--unlock chapter 3 dungeon
 	--Vague 1 multi-sources : secondaires ch3
-	GAME:UnlockDungeon("antre_enigme")
+	--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("antre_enigme")
 	--Vague 2 multi-sources : secondaire ch3
-	GAME:UnlockDungeon("bois_ronces")
-	GAME:UnlockDungeon("carriere_cuivre")
+	--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("bois_ronces")
+	--[[purge ch6-32 : zone absente]] --GAME:UnlockDungeon("carriere_cuivre")
 	GeneralFunctions.EndOfDay()--reset daily flags and increment day counter by 1
 	GeneralFunctions.PromptChapterSaveAndQuit("guild_heros_room", "Main_Entrance_Marker", 2)
 

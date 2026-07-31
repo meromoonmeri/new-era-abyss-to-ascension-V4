@@ -916,7 +916,47 @@ SV.Chapter5 =
 	--rejouer la rencontre du mini-boss ou passer directement au segment suivant.
 	SteppeMiniBossCleared = false,
 	TunnelMiniBossCleared = false,
-	MountMiniBossCleared = false
+	MountMiniBossCleared = false,
+
+	------------------------------------------------------------------
+	-- RUINES TORDUES — rapatriees du chapitre 7 vers le chapitre 5.
+	------------------------------------------------------------------
+	-- Les Ruines Tordues SONT l'intrigue du chapitre 5 : Tornadus, au
+	-- sommet du Mont Venteux, decrit deja « une forme sous votre monde »
+	-- qui « a des angles » (MWG_041/042) et conclut « quand vous
+	-- trouverez les angles, ne supposez pas qu'ils ont ete batis pour
+	-- vous garder DEHORS » (MWG_046). Cette replique n'annonce rien
+	-- d'autre que les Ruines : les separer de deux chapitres cassait le
+	-- raccord que le dialogue construit lui-meme.
+	--
+	-- Les champs gardent leur nom d'origine (Ruins*) pour que les scenes
+	-- deja ecrites restent lisibles ; seul le conteneur change.
+	-- SV.Chapter7 subsiste plus bas comme ALIAS de compatibilite : une
+	-- sauvegarde d'avant ce deplacement continue de fonctionner.
+	ShowedRuinsTitleCard = false,
+	EnteredRuins = false,
+	LostRuins = false,
+	LostDepths = false,
+	DefeatedRuinsBoss = false,
+	DiedToRuinsBoss = false,
+	SawAnimaCoreCorruption = false,
+	HeardGenesisTale = false,
+	RuinsAddressGiven = false,--Adresse du matin donnee (briefing Phileas)
+	RuinsMissionAccepted = false,
+	RuinsMidpointState = 'FirstArrival',
+	RuinsMidReturn = false,
+	RuinsMidState = nil,
+	--Gardiens antiques (mini-boss segment 3 : Kaorine + Golemastoc).
+	RuinsMiniBossSeen = false,
+	RuinsMiniBossDefeated = false,
+	RuinsMiniBossLost = false,
+	RuinsMiniBossCleared = false,
+	--Second reve de la meme nuit (vision 'rouage', le temps arrete).
+	--NOM DISTINCT de HadFirstDream, qui existe deja plus haut dans
+	--SV.Chapter5 et porte la vision 'meteore' du soir d'expedition.
+	--Fusionner les deux sous le meme nom aurait fait sauter l'un des
+	--deux reves selon l'ordre d'ecriture.
+	HadRuinsDream = false
 }
 
 
@@ -1144,32 +1184,19 @@ SV.SearingTunnel =
 	DiedPastCheckpoint = false--Used to flag whether you died in depths/crucible. Needed for cutscenes on wiping and waking up back in the checkpoint.
 }
 
-SV.Chapter7 = 
-{
-	-- Chapter 7: Ruines Tordues + Cinematique de la Genese
-	ShowedTitleCard = false,
-	EnteredRuins = false,
-	LostRuins = false,
-	LostDepths = false,
-	DefeatedRuinsBoss = false,
-	DiedToRuinsBoss = false,
-	SawAnimaCoreCorruption = false,
-	HeardGenesisTale = false,
-	HadFirstDream = false,--Premier reve de Necrozma
-	RuinsAddressGiven = false,--Adresse du matin Ch7 donnee
-	MissionAccepted = false,--Mission Ruines Tordues acceptee
-	RuinsMidpointState = 'FirstArrival',
-	--Retour A L'AMIABLE au relais des Ruines (repli volontaire par la
-	--sortie sud, ou reprise d'une sauvegarde faite sur place). Declenche
-	--l'etat RepeatArrival du template de point median ; distinct de
-	--RuinsMidState, qui porte le reveil apres un KO.
-	RuinsMidReturn = false,
-	--Gardiens antiques (mini-boss segment 3 : Kaorine + Golemastoc).
-	--Lus par ground/cloven_ruins_miniboss, ecrits par zone/cloven_ruins (seg 3).
-	RuinsMiniBossSeen = false,
-	RuinsMiniBossDefeated = false,
-	RuinsMiniBossLost = false
-}
+--[[ SV.Chapter7 — SUPPRIME.
+     Les Ruines Tordues sont passees au chapitre 5 : leurs champs vivent
+     desormais dans SV.Chapter5 (bloc « RUINES TORDUES » plus haut).
+     Trois champs ont ete renommes a cette occasion, parce que
+     SV.Chapter5 portait deja un champ du meme nom avec un autre sens :
+        ShowedTitleCard -> ShowedRuinsTitleCard
+        MissionAccepted -> RuinsMissionAccepted
+        HadFirstDream   -> HadRuinsDream   (reve 'rouage', a ne pas
+                           confondre avec le reve 'meteore' du soir
+                           d'expedition, deja porte par HadFirstDream)
+     Une sauvegarde anterieure verra ces champs revenir a leur valeur par
+     defaut : la progression des Ruines est a refaire, le reste du
+     chapitre 5 est intact. ]]
 
 SV.Chapter8 = 
 {
