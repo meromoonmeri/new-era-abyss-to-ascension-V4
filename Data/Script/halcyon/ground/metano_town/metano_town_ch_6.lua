@@ -169,106 +169,103 @@ end
 function metano_town_ch_6.DazzlingIntroduction()
 	local hero = CH('PLAYER')
 	local partner = CH('Teammate1')
+	GAME:CutsceneMode(true)
+	AI:DisableCharacterAI(partner)
+	UI:ResetSpeaker()
+
+	-- RÈGLE 1 & 2 : Cadrage absolu et positionnement esthétique sur la Place Marchande
+	GROUND:TeleportTo(hero, 792, 896, Direction.Up)
+	GROUND:TeleportTo(partner, 824, 896, Direction.Up)
+	GAME:MoveCamera(808, 840, 1, false)
+	GAME:FadeIn(40)
+	SOUND:PlayBGM("Treasure Town.ogg", true)
+	GAME:WaitFrames(40)
+
+	-- Étape 1 (Grammaire) : Constat sensoriel — La foule s'écarte soudain
+	local kecleon = CH('Kecleon_Left')
 	local butterfree = CH('Butterfree')
+	
+	-- RÈGLE 3 : Réactivité en cascade des badauds en coroutines
+	local coro_npc1 = TASK:BranchCoroutine(function()
+		if kecleon then
+			GROUND:CharSetEmote(kecleon, "exclaim", 1)
+			GeneralFunctions.Hop(kecleon, "Idle", 8, 20, 0, false)
+		end
+	end)
+	local coro_npc2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		if butterfree then
+			GROUND:CharAnimateTurnTo(butterfree, Direction.Down, 4)
+			GROUND:CharSetEmote(butterfree, "notice", 1)
+		end
+	end)
+	TASK:JoinCoroutines({coro_npc1, coro_npc2})
+	GAME:WaitFrames(15)
+
+	-- Entrée par le défilé Nord : Adagio au centre, Aria à gauche, Sonata à droite
 	local adagio = CH('Adagio')
 	local aria = CH('Aria')
 	local sonata = CH('Sonata')
-	local mawile = CH('Mawile')
-	local floatzel = CH('Floatzel')
-	local quagsire = CH('Quagsire')
 
-	GAME:CutsceneMode(true)
-	AI:DisableCharacterAI(partner)
-	AI:DisableCharacterAI(butterfree)
-	AI:DisableCharacterAI(adagio)
-	AI:DisableCharacterAI(aria)
-	AI:DisableCharacterAI(sonata)
-	GAME:MoveCamera(896, 816, 1, false)
+	local enter_adagio = TASK:BranchCoroutine(function()
+		GeneralFunctions.EightWayMove(adagio, 808, 832, false, 1)
+	end)
+	local enter_aria = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(6)
+		GeneralFunctions.EightWayMove(aria, 776, 840, false, 1)
+	end)
+	local enter_sonata = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(12)
+		GeneralFunctions.EightWayMove(sonata, 840, 840, false, 1)
+	end)
+	TASK:JoinCoroutines({enter_adagio, enter_aria, enter_sonata})
+	GAME:WaitFrames(20)
 
-	local coro1 = TASK:BranchCoroutine(function()
-		GROUND:MoveToPosition(butterfree, 872, 816, false, 1)
-		GROUND:CharAnimateTurnTo(butterfree, Direction.Down, 4)
-	end)
-	local coro2 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(10)
-		GROUND:MoveToPosition(hero, 792, 896, false, 1)
-		GROUND:CharAnimateTurnTo(hero, Direction.UpRight, 4)
-	end)
-	local coro3 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(14)
-		GROUND:MoveToPosition(partner, 824, 896, false, 1)
-		GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
-	end)
-		TASK:JoinCoroutines({coro1, coro2, coro3})
+	-- RÈGLE 3 & 4 : Réactions du groupe et dialogue fidèle au caractère hautain d'Adagio
+	GROUND:CharTurnToCharAnimated(hero, adagio, 4)
+	GROUND:CharTurnToCharAnimated(partner, adagio, 4)
+	GAME:WaitFrames(10)
 
-		UI:SetSpeaker(partner)
-		GeneralFunctions.SetEmotion("Happy")
-		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_118']))
-		UI:SetSpeaker(mawile)
-		GeneralFunctions.SetEmotion("Inspired")
-		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_119']))
-		UI:SetSpeaker(floatzel)
-		GeneralFunctions.SetEmotion("Happy")
-		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_120']))
-		UI:SetSpeaker(quagsire)
-		GeneralFunctions.SetEmotion("Normal")
-		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_121']))
-
-		-- The square notices the commotion before the rivals speak.  This gives
-		-- the entrance the same lived-in rhythm as the guild scenes.
-	local crowd1 = TASK:BranchCoroutine(function()
-		GROUND:CharAnimateTurnTo(mawile, Direction.UpRight, 4)
-		GROUND:CharSetEmote(mawile, "notice", 1)
-	end)
-	local crowd2 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(8)
-		GROUND:CharAnimateTurnTo(floatzel, Direction.UpLeft, 4)
-		GROUND:CharSetEmote(floatzel, "notice", 1)
-	end)
-	local crowd3 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(14)
-		GROUND:CharAnimateTurnTo(quagsire, Direction.Up, 4)
-		GROUND:CharSetEmote(quagsire, "question", 1)
-	end)
-	TASK:JoinCoroutines({crowd1, crowd2, crowd3})
-	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
-	UI:SetSpeaker(mawile)
-	GeneralFunctions.SetEmotion("Surprised")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_042']))
-	UI:SetSpeaker(floatzel)
+	SOUND:PlayBGM("Team_Dazzling.ogg", true)
+	UI:SetSpeaker(adagio)
 	GeneralFunctions.SetEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_043']))
-	UI:SetSpeaker(quagsire)
-	GeneralFunctions.SetEmotion("Worried")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_044']))
+	UI:WaitShowDialogue("Tiens donc...[pause=15] Si ce ne sont pas les petits protégés de Penticus.")
+	
+	-- Étape 2 (Grammaire) : Réaction affective — Le partenaire est piqué au vif
+	GROUND:CharSetEmote(partner, "angry", 1)
+	UI:SetSpeaker(partner)
+	GeneralFunctions.SetEmotion("Angry")
+	UI:WaitShowDialogue("Nous avons un nom ![pause=15] Et nous ne jouons pas aux explorateurs !")
 
-		SOUND:FadeOutBGM(30)
-		GAME:WaitFrames(20)
+	UI:SetSpeaker(aria)
+	GeneralFunctions.SetEmotion("Happy")
+	UI:WaitShowDialogue("Hihi ![pause=15] Ils ont du caractère, Adagio.[pause=10] C'est adorable.")
 
-		--L'ENTREE DES RIVALES — LE MOMENT DOIT SE VOIR ET S'ENTENDRE.
-		--Le theme Team_Dazzling.ogg demarrait pendant que la place etait
-		--encore cadree sur le duo : leur arrivee s'entendait avant de se
-		--voir. La camera glisse desormais vers l'est PENDANT le silence,
-		--et la musique tombe sur l'image une fois le cadre en place —
-		--patron de l'arrivee au Mont Windsep.
-		local reveal = TASK:BranchCoroutine(function()
-			GAME:MoveCamera(960, 816, 50, false)
-		end)
-		TASK:JoinCoroutines({reveal})
-		SOUND:PlayBGM("Team_Dazzling.ogg", true)
-		GAME:WaitFrames(18)
+	-- Étape 3 (Grammaire) : Décision d'agir — Le défi dans la Forêt Lugubre
+	UI:SetSpeaker(adagio)
+	GeneralFunctions.SetEmotion("Determined")
+	UI:WaitShowDialogue("Dans ce cas,[pause=10] prouvez-le sur le terrain.[pause=15] Nous allons inspecter la Forêt Lugubre.")
+	UI:WaitShowDialogue("Si vous avez le courage de vous mesurer à nous,[pause=10] rejoignez-nous à la clairière du milieu.")
+	GAME:WaitFrames(15)
 
-		--TOUTE LA PLACE SE TOURNE VERS ELLES. Le duo, Butterfree et les
-		--trois badauds : personne ne reste dos a l'evenement. Les delais
-		--sont echelonnes pour que ce soit une vague, pas un pivot
-		--collectif au meme instant.
-		local look = {}
-		for i, who in ipairs({partner, hero, butterfree, mawile, floatzel, quagsire}) do
-			look[#look+1] = TASK:BranchCoroutine(function()
-				GAME:WaitFrames((i - 1) * 5)
-				pcall(function() GROUND:CharAnimateTurnTo(who, Direction.Right, 4) end)
-			end)
-		end
+	local exit_adagio = TASK:BranchCoroutine(function()
+		GeneralFunctions.EightWayMove(adagio, 808, 960, false, 1)
+	end)
+	local exit_aria = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(6)
+		GeneralFunctions.EightWayMove(aria, 776, 968, false, 1)
+	end)
+	local exit_sonata = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(12)
+		GeneralFunctions.EightWayMove(sonata, 840, 968, false, 1)
+	end)
+	TASK:JoinCoroutines({exit_adagio, exit_aria, exit_sonata})
+
+	SV.Chapter6.SawDazzlingIntro = true
+	GAME:CutsceneMode(false)
+	AI:EnableCharacterAI(partner)
+	AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
+end
 		TASK:JoinCoroutines(look)
 		GAME:WaitFrames(10)
 

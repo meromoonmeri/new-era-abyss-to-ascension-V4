@@ -8680,6 +8680,63 @@
       },
       "Released": true,
       "SortOrder": 0
+    },
+    "rt_great_canyon": {
+      "Name": {
+        "DefaultText": "Great Canyon",
+        "LocalTexts": {
+          "fr": "Le Grand Canyon"
+        }
+      },
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0
+        ]
+      ],
+      "Grounds": [
+        "rt_great_canyon_entrance",
+        "rt_great_canyon_relay",
+        "rt_great_canyon_boss"
+      ]
+    },
+    "rt_magma_cavern_pit": {
+      "Name": {
+        "DefaultText": "Magma Cavern Pit",
+        "LocalTexts": {
+          "fr": "La Fosse Magma"
+        }
+      },
+      "Maps": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "Grounds": [
+        "rt_magma_cavern_pit_boss"
+      ]
     }
   }
 }
