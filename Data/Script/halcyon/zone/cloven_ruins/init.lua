@@ -53,15 +53,18 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
           -- Go to relay checkpoint
           GAME:EnterGroundMap('cloven_ruins_midpoint', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+          -- PREMIERE MOITIE PERDUE (KO, fuite, abandon) : retour DEVANT
+          -- l'entree des Ruines (master_zone 65 = cloven_ruins_entrance).
+          -- Miroir du patron du Mont (mount_windswept, segment 0).
           GAME:WaitFrames(20)
           SV.Chapter7.LostRuins = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
-              GAME:EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, 65, 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Les ruines...[pause=0] c'est trop pour nous...", "Pain")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, 46, 0)
+              GAME:EnterZone("master_zone", -1, 65, 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 65, 0, true, true)
           end
       end
   elseif segmentID == 1 then
@@ -79,12 +82,15 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter7.LostDepths = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
               SV.Chapter7.RuinsMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, 66, 0, true, true)
+              -- DEUXIEME MOITIE PERDUE : retour au relais
+              -- (master_zone 67 = cloven_ruins_midpoint), qui lit
+              -- RuinsMidState == 'DeathArrival' pour la scene de reveil.
+              GAME:EndDungeonRun(result, "master_zone", -1, 67, 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Les profondeurs...[pause=0] on n'aurait pas du...", "Pain")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, 66, 0)
+              GAME:EnterZone("master_zone", -1, 67, 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 66, 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 67, 0, true, true)
           end
       end
   elseif segmentID == 3 then
@@ -109,12 +115,15 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter7.LostDepths = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
               SV.Chapter7.RuinsMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, 66, 0, true, true)
+              -- DEUXIEME MOITIE PERDUE : retour au relais
+              -- (master_zone 67 = cloven_ruins_midpoint), qui lit
+              -- RuinsMidState == 'DeathArrival' pour la scene de reveil.
+              GAME:EndDungeonRun(result, "master_zone", -1, 67, 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Les profondeurs...[pause=0] on n'aurait pas du...", "Pain")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, 66, 0)
+              GAME:EnterZone("master_zone", -1, 67, 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 66, 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 67, 0, true, true)
           end
       end
   elseif segmentID == 5 then
