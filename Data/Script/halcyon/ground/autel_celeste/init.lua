@@ -150,7 +150,7 @@ function autel_celeste.PlayPostVictoryScene(hero, partner)
   GAME:FadeIn(5)
   
   UI:SetSpeaker(partner)
-  GeneralFunctions.SetEmotion("Shock")
+  GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CPB_010']))
   
   -- Rayquaza s'élève avec détermination
