@@ -1,4 +1,4 @@
-﻿{
+{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
@@ -126,7 +126,8 @@
         "cloven_ruins_entrance",
         "cloven_ruins_midpoint",
         "cloven_ruins_boss",
-        "cloven_ruins_miniboss"
+        "cloven_ruins_miniboss",
+        "hero_dream"
       ],
       "Maps": [
         [
@@ -545,7 +546,8 @@
         "mount_windswept_entrance",
         "mount_windswept_miniboss",
         "mount_windswept_guardian",
-        "mount_windswept_midpoint"
+        "mount_windswept_midpoint",
+        "hero_dream"
       ],
       "Maps": [
         [
@@ -819,7 +821,8 @@
         "searing_tunnel_entrance",
         "searing_tunnel_midpoint",
         "searing_crucible",
-        "searing_tunnel_miniboss"
+        "searing_tunnel_miniboss",
+        "hero_dream"
       ],
       "Maps": [
         [

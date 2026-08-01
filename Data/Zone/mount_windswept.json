@@ -1,4 +1,4 @@
-﻿{
+{
 "Version": "0.8.9.0",
 "Object": {
 "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -9763,7 +9763,8 @@
 "mount_windswept_entrance",
 "mount_windswept_miniboss",
 "mount_windswept_guardian",
-"mount_windswept_midpoint"
+"mount_windswept_midpoint",
+"hero_dream"
 ]
 }
 }

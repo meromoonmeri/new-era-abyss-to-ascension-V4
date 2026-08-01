@@ -1,4 +1,4 @@
-﻿{
+{
 "Version": "0.8.9.0",
 "Object": {
 "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -12186,7 +12186,8 @@
 "searing_tunnel_entrance",
 "searing_tunnel_midpoint",
 "searing_crucible",
-"searing_tunnel_miniboss"
+"searing_tunnel_miniboss",
+"hero_dream"
 ]
 }
 }
