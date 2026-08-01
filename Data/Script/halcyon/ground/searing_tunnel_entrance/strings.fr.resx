@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -59,7 +59,7 @@
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
   <data name="STE5_001" xml:space="preserve">
-    <value>On a réussi ![pause=0] Nous avons traversé {0} !</value>
+    <value>On a réussi ![pause=0] Nous avons traversé la Grande Steppe !</value>
   </data>
   <data name="STE5_002" xml:space="preserve">
     <value>Regarde devant ![pause=0] Ce doit être le camp, là-bas.</value>

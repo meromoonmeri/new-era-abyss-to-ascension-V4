@@ -70,11 +70,11 @@ function vast_steppe.ExitSegment(zone, result, rescue, segmentID, mapID)
 
 	if exited == true then
 		--do nothing
-	elseif segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('vast_steppe', 4) then
+	elseif segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('vast_steppe', 5) then
 		-- Segment 0 cleared: go to midpoint rest stop before mini-boss
 		PrintInfo("[NREPROBE][transition] vast_steppe.ExitSegment -> EnterGroundMap('vast_steppe_midpoint')") GAME:EnterGroundMap('vast_steppe_midpoint', 'Main_Entrance_Marker')
 
-	elseif segmentID == 1 and ReplayEnding.FollowsRoute('vast_steppe', 4) and result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+	elseif segmentID == 1 and ReplayEnding.FollowsRoute('vast_steppe', 5) and result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
 		-- vague 8 : checkpoint vast_steppe — la mort dans la 2e moitié ramène au relais,
 		-- où la scène de réveil (WipedCutscene) prend le relai narratif.
 		GAME:WaitFrames(20)
@@ -86,10 +86,10 @@ function vast_steppe.ExitSegment(zone, result, rescue, segmentID, mapID)
 		else
 			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 62, 0, true, true)
 		end
-	elseif segmentID == 1 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('vast_steppe', 4) then
+	elseif segmentID == 1 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('vast_steppe', 5) then
 		-- Segment 2 cleared: go to guardian ground map
 		PrintInfo("[NREPROBE][transition] vast_steppe.ExitSegment -> EnterGroundMap('vast_steppe_guardian')") GAME:EnterGroundMap('vast_steppe_guardian', 'Main_Entrance_Marker')
-	elseif segmentID == 2 and ReplayEnding.FollowsRoute('vast_steppe', 4) then
+	elseif segmentID == 2 and ReplayEnding.FollowsRoute('vast_steppe', 5) then
 		-- Guardian arena: win or loss both go back to guardian ground map
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 			SV.Chapter5.SteppeGuardianDefeated = true

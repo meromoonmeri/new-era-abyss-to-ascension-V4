@@ -59,7 +59,7 @@
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
   <data name="MWE5_001" xml:space="preserve">
-    <value>Enfin ![pause=0] Nous sommes sortis de {0} !</value>
+    <value>Enfin ![pause=0] Nous sommes sortis du Tunnel Ardent !</value>
   </data>
   <data name="MWE5_002" xml:space="preserve">
     <value>Oh,[pause=10] le soleil se couche déjà ![pause=0] J'espère que nous ne sommes pas trop en retard...</value>
@@ -141,7 +141,7 @@
     <value>Tu écris ENCORE ?[pause=0] Wouf ![pause=0] Pose tes notes et lève la tête ![pause=10] D'ici, on voit chaque étoile du ciel !</value>
   </data>
   <data name="MWE5_031" xml:space="preserve">
-    <value>... D'accord, ça aussi, ça va dans l'almanach.[pause=10] « Le ciel au-dessus de {0} :[pause=10] il vaut l'ascension à lui tout seul. »</value>
+    <value>... D'accord, ça aussi, ça va dans l'almanach.[pause=10] « Le ciel au-dessus du Mont Venteux :[pause=10] il vaut l'ascension à lui tout seul. »</value>
   </data>
   <data name="MWE5_032" xml:space="preserve">
     <value>Hrm.[pause=10] Crum n'arrête pas de happer les étincelles.[pause=0] Même ma queue trouve ce feu plus vivant que l'âtre de la guilde.</value>
@@ -180,7 +180,7 @@
     <value>Oui.[pause=10] En équipe.</value>
   </data>
   <data name="MWE5_044" xml:space="preserve">
-    <value>Très bien, tout le monde ![pause=10] Demain, nous entamons l'ascension finale,[pause=10] et {0} nous mettra tous à l'épreuve.</value>
+    <value>Très bien, tout le monde ![pause=10] Demain, nous entamons l'ascension finale,[pause=10] et le Mont Venteux nous mettra tous à l'épreuve.</value>
   </data>
   <data name="MWE5_045" xml:space="preserve">
     <value>Alors cette nuit, votre seule mission est de DORMIR ![pause=0] C'est un ordre du Maître de Guilde...[pause=10] et le plus facile que je donnerai jamais !</value>
@@ -234,7 +234,7 @@
     <value>Bonjour, Pokémon ![pause=0] J'espère que tout le monde est bien reposé,[pause=10] grâce à l'aide...[pause=10] énergique de {0} !</value>
   </data>
   <data name="MWE5_062" xml:space="preserve">
-    <value>Aujourd'hui, nous gravissons {0}.[pause=10] Au-delà se trouvent {1} :[pause=10] notre objectif,[pause=10] et le terme de cette expédition.</value>
+    <value>Aujourd'hui, nous gravissons le Mont Venteux.[pause=10] Au-delà se trouvent les Ruines Fendues :[pause=10] notre objectif,[pause=10] et le terme de cette expédition.</value>
   </data>
   <data name="MWE5_063" xml:space="preserve">
     <value>{0} ![pause=10] Maintenant que tu es enfin RÉVEILLÉ,[pause=10] peux-tu nous dire ce que la montagne nous réserve ?</value>
