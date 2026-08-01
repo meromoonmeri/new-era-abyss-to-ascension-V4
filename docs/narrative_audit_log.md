@@ -236,3 +236,32 @@ fantôme, boss ch8-10 aux intros interchangeables).
 - Rematch : dialogue dédié court — pas de re-cérémonie (respect du joueur).
 - Verdict patchwork : NON — chaque gardien a une raison d'être là, une voix
   propre, et un lien au moins avec un élément posé aux ch1-10.
+
+---
+
+## Audit §10 — 2026-08-01 : fin du chapitre 5 (Tornadus → camp des Ruines) + corrections
+
+- Périmètre : séquence Tornadus → camp des Ruines Fendues (commit 137035c puis
+  lot positions du camp), audit « rigueur totale » 14 axes (voir
+  AUDIT_RIGUEUR_TOTALE_TORNADUS_CAMP_2026-08-01.md).
+- Corrigé dans ce lot :
+  1. Gardes de la Guilde (Growlithe/Zigzagoon) spawnaient sur cases bloquées
+     dans l'arène Tornadus → rangée libre y=1220.
+  2. Config de rejouabilité du Mont entièrement dans les murs (héritage
+     208x176 → carte 1128x1344) → positions DiedToBoss recalées.
+  3. DiedToBoss sans noir d'arrivée (parité 4/4 rétablie).
+  4. Cercle de sièges du briefing du camp : cercle irrégulier (paires à
+     16-24,8 px, chevauchement) → cercle régulier rayon 52 (26,9 px).
+  5. Cercle de veille KO : paires à 15,6-20 px → rayon 52-56 (>= 24 px).
+  6. Retreat : paire breloom/girafarig à 20,9 px → 26,7 px.
+  7. PLUM_BED (48,160) à 22,6 px du lit de Penticus → (36,160) : 47,3 px.
+  8. 11 répliques > 150 car. (hors [pause]) découpées par [br] (2 boîtes
+     chacune < 150).
+  9. Registre des donjons resynchronisé (cloven_ruins 6 segments réels,
+     mount_windswept : mini-boss retiré, branche morte documentée).
+- Restants ouverts (décisions) : carte du camp 100 % walkable (tagage simulé
+  validé, en attente de validation) ; fil « perturbations » absent du ch6 ;
+  Voix (uE040) 3× chez Regigigas (retirer/assumer) ; 3 écritures concurrentes
+  de Chapter=6 (unlock gloomy_forest inatteignable — test en jeu requis).
+- Verdict patchwork : NON pour la séquence corrigée (positions vérifiées
+  cellule par cellule, 0 paire < 24 px, 0 chemin impossible).

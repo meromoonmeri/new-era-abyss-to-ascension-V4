@@ -59,22 +59,25 @@ cloven_ruins_entrance_ch_5.CAMP_Y = 215
 local CX = cloven_ruins_entrance_ch_5.CAMP_X
 local CY = cloven_ruins_entrance_ch_5.CAMP_Y
 
--- Les 12 places assises du briefing (cercle autour du feu, rayon ~48),
--- posees sur le sable. Ordre : Penticus au sud (face au sentier
--- d'arrivee), puis horaire. Chaque siege est "l'assiette" du convive.
+-- Les 12 places assises du briefing (cercle autour du feu, rayon 52),
+-- posees sur le sable. Cercle REGULIER : 30° entre chaque siege, distance
+-- entre voisins 26,9 px (>= 26 px, convention Tunnel — l'ancien cercle
+-- irregulier laissait des paires a 16-24 px, chevauchement de sprites).
+-- Ordre : Penticus au sud (face au sentier d'arrivee), puis horaire.
+-- Chaque siege est "l'assiette" du convive.
 cloven_ruins_entrance_ch_5.SEATS = {
-  {CX +  0, CY + 48},  -- 1  Penticus (sud, face au sentier)
-  {CX - 31, CY + 42},  -- 2  Phileas
-  {CX - 48, CY + 24},  -- 3  Coco
-  {CX - 48, CY +  0},  -- 4  Rin
-  {CX - 43, CY - 28},  -- 5  Almotz
-  {CX - 27, CY - 44},  -- 6  Hyko
-  {CX +  0, CY - 48},  -- 7  Kino (nord, face au feu)
-  {CX + 27, CY - 44},  -- 8  Reinier
-  {CX + 43, CY - 28},  -- 9  Shuca
-  {CX + 48, CY +  0},  -- 10 Ganlon
-  {CX + 48, CY + 16},  -- 11 partner
-  {CX + 31, CY + 42},  -- 12 hero
+  {CX +  0, CY + 52},  -- 1  Penticus (sud, face au feu)
+  {CX - 26, CY + 45},  -- 2  Phileas
+  {CX - 45, CY + 26},  -- 3  Coco
+  {CX - 52, CY +  0},  -- 4  Rin
+  {CX - 45, CY - 26},  -- 5  Almotz
+  {CX - 26, CY - 45},  -- 6  Hyko
+  {CX +  0, CY - 52},  -- 7  Kino (nord, face au feu)
+  {CX + 26, CY - 45},  -- 8  Reinier
+  {CX + 45, CY - 26},  -- 9  Shuca
+  {CX + 52, CY +  0},  -- 10 Ganlon
+  {CX + 45, CY + 26},  -- 11 partner
+  {CX + 26, CY + 45},  -- 12 hero
 }
 
 -- Les 12 paillasses (deployees la nuit seulement), posees en 2 rangees
@@ -89,7 +92,7 @@ cloven_ruins_entrance_ch_5.BEDS = {
 --s'est incrustee au Mont Venteux et a suivi l'expedition). Elle dort
 --en bout de rang nord-ouest, pres de sa cuisine (48,245), a l'ecart
 --du cercle. Posee sur le sable (48,160).
-cloven_ruins_entrance_ch_5.PLUM_BED = {48, 160}
+cloven_ruins_entrance_ch_5.PLUM_BED = {36, 160}
 
 -- Positions d'ouverture des PNJ (camp de jour) : chacun a cote de son
 -- siege (son assiette), sur le sable, juste derriere sa place assise.
@@ -1820,24 +1823,26 @@ function cloven_ruins_entrance_ch_5.KODefeatCutsceneBody()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
 
   -- Le duo est couche pres du feu : on les a ramenes du donjon.
-  GROUND:TeleportTo(hero, CX + 0, CY + 40, Direction.Left)
-  GROUND:TeleportTo(partner, CX - 20, CY + 40, Direction.Right)
+  GROUND:TeleportTo(hero, CX + 8, CY + 32, Direction.Left)
+  GROUND:TeleportTo(partner, CX - 24, CY + 32, Direction.Right)
   GROUND:CharSetAnim(hero, "EventSleep", true)
   GROUND:CharSetAnim(partner, "EventSleep", true)
   GAME:MoveCamera(CX, CY + 30, 1, false)
 
   -- Les membres veillent autour : Rin proche (soins), les autres en
-  -- cercle serre. Personne ne s'agite — on a porte les blesses.
+  -- cercle elargi (rayon 52-56, espacement >= 24 px entre chaque paire —
+  -- l'ancien cercle serre laissait des paires a 15-20 px, chevauchement
+  -- de sprites). Personne ne s'agite — on a porte les blesses.
   -- Plum, elle, prepare deja de quoi remonter les troupes (cuisine).
   pcall(function()
-    if audino ~= nil then GROUND:TeleportTo(audino, CX - 40, CY + 12, Direction.Right) end
-    if tropius ~= nil then GROUND:TeleportTo(tropius, CX + 40, CY + 16, Direction.Left) end
-    if noctowl ~= nil then GROUND:TeleportTo(noctowl, CX - 44, CY - 12, Direction.Right) end
-    if snubbull ~= nil then GROUND:TeleportTo(snubbull, CX + 44, CY - 8, Direction.Left) end
-    if growlithe ~= nil then GROUND:TeleportTo(growlithe, CX + 30, CY - 20, Direction.Down) end
-    if zigzagoon ~= nil then GROUND:TeleportTo(zigzagoon, CX - 30, CY - 20, Direction.Down) end
-    if breloom ~= nil then GROUND:TeleportTo(breloom, CX + 20, CY - 32, Direction.Down) end
-    if girafarig ~= nil then GROUND:TeleportTo(girafarig, CX - 20, CY - 32, Direction.Down) end
+    if audino ~= nil then GROUND:TeleportTo(audino, CX - 52, CY + 32, Direction.Right) end
+    if tropius ~= nil then GROUND:TeleportTo(tropius, CX + 0, CY + 56, Direction.Up) end
+    if noctowl ~= nil then GROUND:TeleportTo(noctowl, CX - 56, CY + 0, Direction.Right) end
+    if snubbull ~= nil then GROUND:TeleportTo(snubbull, CX + 56, CY + 0, Direction.Left) end
+    if growlithe ~= nil then GROUND:TeleportTo(growlithe, CX + 36, CY - 41, Direction.Down) end
+    if zigzagoon ~= nil then GROUND:TeleportTo(zigzagoon, CX - 36, CY - 41, Direction.Down) end
+    if breloom ~= nil then GROUND:TeleportTo(breloom, CX + 0, CY - 56, Direction.Down) end
+    if girafarig ~= nil then GROUND:TeleportTo(girafarig, CX + 36, CY + 41, Direction.Up) end
     if jigglypuff ~= nil then GROUND:TeleportTo(jigglypuff, 48, 245, Direction.Right) end
   end)
 
@@ -2004,7 +2009,7 @@ function cloven_ruins_entrance_ch_5.RetreatReturnCutsceneBody()
     if audino ~= nil then GROUND:TeleportTo(audino, CX + 40, CY + 20, Direction.Down) end
     if snubbull ~= nil then GROUND:TeleportTo(snubbull, CX - 30, CY - 10, Direction.Down) end
     if breloom ~= nil then GROUND:TeleportTo(breloom, CX + 30, CY - 10, Direction.Down) end
-    if girafarig ~= nil then GROUND:TeleportTo(girafarig, CX + 50, CY - 16, Direction.Down) end
+    if girafarig ~= nil then GROUND:TeleportTo(girafarig, CX + 56, CY - 16, Direction.Down) end
   end)
 
   GAME:FadeIn(40)

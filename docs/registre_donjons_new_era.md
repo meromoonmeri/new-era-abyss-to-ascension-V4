@@ -73,9 +73,9 @@ Boucle boss : étages → ExitSegment → ground cinématique → ContinueDungeo
 | apricorn_grove | Forêt des Noigrumes | -1 | 0:Layered |
 | vast_steppe | Grande Steppe | -1 | 0:RangeDict · 1:Layered→vast_steppe_miniboss · 2:RangeDict · 3:Layered→vast_steppe_guardian |
 | searing_tunnel | Tunnel Incandescent | -1 | 0:RangeDict · 1:RangeDict · 2:Layered→searing_crucible |
-| mount_windswept | Mont Venteux | -1 | 0:RangeDict · 1:Layered→mount_windswept_miniboss · 2:RangeDict · 3:Layered→mount_windswept_guardian |
+| mount_windswept | Mont Venteux | -1 | 0:RangeDict · 1:Layered→relais (branche morte: ex-miniboss) · 2:RangeDict · 3:Layered→mount_windswept_guardian |
 | gloomy_forest | Forêt Lugubre | -1 | 0:RangeDict · 1:RangeDict · 2:Layered→gloomy_forest_boss · 3:Layered→verdant_oath_arena |
-| cloven_ruins | Ruines Tordues | -1 | 0:RangeDict · 1:Layered→cloven_ruins_relay · 2:RangeDict · 3:Layered→sanctuaire_titans |
+| cloven_ruins | Ruines Tordues | -1 | 0:RangeDict · 1:Layered→cloven_ruins_midpoint · 2:RangeDict · 3:Layered→cloven_ruins_miniboss · 4:RangeDict · 5:Layered→cloven_ruins_boss |
 | crystal_sanctuary | Sanctuaire de Cristal | -1 | 0:RangeDict · 1:Layered→crystal_sanctuary_relay · 2:RangeDict · 3:Layered→crystal_sanctuary_boss |
 | forgotten_marsh | Marais de l'Oubli | -1 | 0:RangeDict · 1:Layered→forgotten_marsh_relay · 2:RangeDict · 3:Layered→forgotten_marsh_boss |
 | celestial_peak | Pic Celeste | -1 | 0:RangeDict · 1:Layered→celestial_peak_relay · 2:RangeDict · 3:Layered→celestial_peak_fulgur · 4:RangeDict · 5:Layered→celestial_peak_boss |
