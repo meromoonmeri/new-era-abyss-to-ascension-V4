@@ -71,25 +71,33 @@ function cloven_ruins_entrance.PlotScripting()
   -- cinematique de reveil (KODefeatCutscene) ou de repli
   -- (RetreatReturnCutscene). Passe AVANT l'arrivee : on ne rejoue pas
   -- le briefing, on se releve au camp.
+  --  - KO : SetupGround(true) — Kino/Reinier sont la, ce sont EUX qui
+  --    ont ramene l'equipe vaincue depuis les Ruines.
+  --  - Abandon : SetupGround(false) — Kino/Reinier sont restes dans
+  --    les Ruines (reconnaissance), seuls ceux du camp accueillent.
   if c5.PlayTempRuinsScene then
-    cloven_ruins_entrance_ch_5.SetupGround()
     if c5.RuinsLastExitReason == 'Retreated' then
+      cloven_ruins_entrance_ch_5.SetupGround(false)
       cloven_ruins_entrance_ch_5.RetreatReturnCutscene()
     else
+      cloven_ruins_entrance_ch_5.SetupGround(true)
       cloven_ruins_entrance_ch_5.KODefeatCutscene()
     end
     return
   end
 
   -- ARRIVEE AU CAMP — la cinematique d'entree (briefing + nuit + reve).
+  -- Kino/Reinier sont presents (ils sont arrives la veille).
   if c5.RuinsCampPending and not c5.RuinsCampDone then
-    cloven_ruins_entrance_ch_5.SetupGround()
+    cloven_ruins_entrance_ch_5.SetupGround(true)
     cloven_ruins_entrance_ch_5.ArrivalCutscene()
     return
   end
 
   -- ETAT DE CAMP — le joueur est libre (apres la cinematique).
-  cloven_ruins_entrance_ch_5.SetupGround()
+  -- Kino/Reinier sont partis en reconnaissance : seule la base
+  -- logistique reste (Penticus, Phileas, Rin, Coco, Hyko, Almotz).
+  cloven_ruins_entrance_ch_5.SetupGround(false)
   GAME:FadeIn(20)
 end
 
@@ -140,6 +148,8 @@ function cloven_ruins_entrance.Teammate1_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, "Cette nuit,[pause=10] autour du feu...[pause=15] Je crois que c'est la première fois que toute l'expédition s'est vraiment parlé.[pause=0] Pas juste des ordres,[pause=10] des craintes,[pause=10] des espoirs.[pause=10] Tout ça.[pause=15] Ça compte,[pause=10] tu sais.", "Normal")
     GeneralFunctions.SetEmotion("Determined")
     UI:WaitShowDialogue("Et ce rêve...[pause=15] Peu importe ce qu'il voulait dire.[pause=10] On est là,[pause=10] maintenant.[pause=0] Et on entre dans les Ruines Fendues.[pause=10] Ensemble.[pause=10] Comme toujours.")
+    GeneralFunctions.SetEmotion("Happy")
+    UI:WaitShowDialogue("Regarde le camp.[pause=10] Chacun fait sa part :[pause=0] Hyko veille,[pause=10] Rin prépare,[pause=10] Coco nourrit tout le monde,[pause=10] et Kino et Reinier balisent déjà la route.[pause=15] On n'est pas seuls,[pause=10] {0}.[pause=0] On ne l'a jamais été.", chara:GetDisplayName())
     GeneralFunctions.EndConversation(chara)
     return
   end
@@ -154,6 +164,8 @@ function cloven_ruins_entrance.Tropius_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, "La nuit a porté conseil,[pause=10] comme toujours.[pause=15] Ce que nous avons dit autour du feu,[pause=10] chaque membre l'emporte avec lui.[pause=0] C'est ça,[pause=10] une expédition :[pause=10] on part avec tout le monde,[pause=10] ou on ne part pas.", "Normal")
     GeneralFunctions.SetEmotion("Determined")
     UI:WaitShowDialogue("Entrez quand vous serez prêts.[pause=10] Nous serons là,[pause=10] devant les Ruines,[pause=10] à vous attendre.")
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue("Kino et Reinier sont déjà à l'intérieur.[pause=15] Si quelque chose tourne mal,[pause=10] ce sont eux qui le verront les premiers.[pause=0] Et ils reviendront nous le dire avant d'y toucher.")
   else
     GeneralFunctions.StartConversation(chara, "Le camp est prêt.[pause=10] Et nous aussi.[pause=0] Les Ruines Fendues nous attendent depuis trop longtemps.", "Normal")
   end
@@ -167,6 +179,8 @@ function cloven_ruins_entrance.Noctowl_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, "Vous avez bien fait de relier les veines de Tornadus à la chaleur du Creuset.[pause=15] C'est la première fois que toutes les pièces s'alignent ainsi.[pause=0] Les anciens appelaient ça «[pause=5] entendre la terre[pause=5] ».[pause=10] Vous l'avez entendue,[pause=10] cette nuit.", "Normal")
     GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("Et la remarque de Ganlon sur les pierres chaudes...[pause=15] elle ne me quitte pas.[pause=0] J'aimerais avoir tort,[pause=10] mais je ne crois pas.")
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue("J'ai confié une copie de mes notes à Reinier avant son départ.[pause=15] S'il trouve quelque chose d'anormal,[pause=10] il saura où regarder.[pause=0] Un érudit se doit de préparer ses successeurs.")
   else
     GeneralFunctions.StartConversation(chara, "J'ai passé la nuit à relire mes notes.[pause=10] Les veines,[pause=10] la chaleur,[pause=10] l'orage...[pause=0] Tout converge ici.[pause=10] Ce n'est pas un hasard.", "Worried")
   end
@@ -206,6 +220,8 @@ function cloven_ruins_entrance.Snubbull_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, "J'ai pas fermé l'œil,[pause=10] moi non plus.[pause=15] Entre le briefing de Phileas et Ganlon qui ronflait,[pause=10] c'était une sacrée soirée.[pause=0] Mais je vais vous dire :[pause=10] je crois qu'on tient quelque chose,[pause=10] cette fois.[pause=10] Je le sens.", "Normal")
     GeneralFunctions.SetEmotion("Determined")
     UI:WaitShowDialogue("Alors allez-y.[pause=10] Et ramenez-nous une bonne raison de fêter ça,[pause=10] au retour.")
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue("Moi je tiens le ravitaillement.[pause=10] Personne ne part en expédition sans avoir mangé,[pause=10] c'est la règle.[pause=0] Hyko garde,[pause=10] Rin soigne,[pause=10] et moi je remplis les gamelles.[pause=10] Chacun son poste.")
   else
     GeneralFunctions.StartConversation(chara, "Des ruines de plus.[pause=10] Celle-ci a intérêt à valoir le déplacement,[pause=0] après tout ce chemin.", "Normal")
   end
@@ -219,6 +235,8 @@ function cloven_ruins_entrance.Audino_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, "J'ai refait les sacs de tout le monde ce matin.[pause=15] Baies,[pause=10] bandages,[pause=10] un peu d'herbe amère pour le mal des ruines.[pause=0] On ne sait jamais ce qu'on trouvera au fond.[pause=10] Mais on y ira prêts.", "Normal")
     GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("Revenez-moi entiers,[pause=10] tous les deux.[pause=0] C'est tout ce que je demande.[pause=10] Et si la pierre vous blesse,[pause=10] je serai là,[pause=10] au camp,[pause=10] avec de quoi soigner.")
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue("Kino a insisté pour emporter des bandages de secours.[pause=15] Il connaît les ruines :[pause=10] il sait qu'on y saigne.[pause=0] J'espère ne pas en avoir besoin pour lui.[pause=10] Ni pour vous.")
   else
     GeneralFunctions.StartConversation(chara, "J'ai préparé des baies pour tout le monde.[pause=10] On ne sait jamais,[pause=0] là-dedans.[pause=10] Revenez-moi entiers,[pause=10] c'est tout ce que je demande.", "Worried")
   end
@@ -232,6 +250,8 @@ function cloven_ruins_entrance.Growlithe_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, "Ronde du matin effectuée,[pause=10] wouf.[pause=15] Les ruines n'ont pas bougé d'un pouce depuis hier soir.[pause=0] Mais je vous jure que je les ai entendues respirer,[pause=10] une fois.[pause=10] Peut-être,[pause=10] le vent.[pause=0] Peut-être pas.", "Normal")
     GeneralFunctions.SetEmotion("Determined")
     UI:WaitShowDialogue("Je garde le camp.[pause=10] Comptez sur moi.[pause=0] Et revenez-nous entiers,[pause=10] wouf.")
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue("J'ai relevé le périmètre trois fois depuis l'aube.[pause=15] Rien à signaler,[pause=10] à part les ruines qui... respirent.[pause=0] Je le mets sur le compte du vent.[pause=10] Pour l'instant.")
   else
     GeneralFunctions.StartConversation(chara, "J'ai relevé les gardes trois fois cette nuit,[pause=10] wouf.[pause=0] Les ruines n'ont pas bougé.[pause=10] Elles attendent,[pause=10] comme nous.", "Normal")
   end
@@ -245,6 +265,8 @@ function cloven_ruins_entrance.Zigzagoon_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, "J'ai écrit à ma mère,[pause=10] cette nuit,[pause=15] avec un bout de charbon du feu.[pause=0] «[pause=5] Les ruines bougent,[pause=10] mais on est ensemble.[pause=5] »[pause=15] Elle va se demander ce que ça veut dire.[pause=10] Moi aussi,[pause=10] un peu.", "Happy")
     GeneralFunctions.SetEmotion("Determined")
     UI:WaitShowDialogue("Mais on le saura bientôt,[pause=10] pas vrai ?[pause=0] Allez.[pause=10] Et rapportez-moi une histoire qui vaut le détour.")
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue("Si Reinier et Kino reviennent avant vous,[pause=10] je leur ferai du thé.[pause=15] Et si vous revenez avant eux,[pause=10] je vous ferai du thé aussi.[pause=0] Tout le monde gagne.[pause=10] C'est ma philosophie.")
   else
     GeneralFunctions.StartConversation(chara, "Ma mère m'a dit : «[pause=5] Ne reviens pas sans une bonne histoire.[pause=5] »[pause=10] Les Ruines Fendues,[pause=10] ça fera largement l'affaire.", "Happy")
   end

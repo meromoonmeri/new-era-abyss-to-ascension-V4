@@ -291,10 +291,10 @@
     <value>Ce que vous avez vu là-dedans,[pause=10] retenez-le.[pause=15] Chaque tentative vous rapproche de ce qui pulse au fond.</value>
   </data>
   <data name="CR5_R06" xml:space="preserve">
-    <value>Vous avez eu raison.[pause=10] Moi,[pause=10] la première fois,[pause=10] j'ai failli rester coincé dans un couloir qui n'arrêtait pas de bouger.[pause=0] Revenir,[pause=10] c'est pas renoncer.</value>
+    <value>Vous avez eu raison de revenir.[pause=10] Moi,[pause=10] je me serais perdu dans le premier couloir,[pause=10] je vous le dis pas.[pause=0] Revenir,[pause=10] c'est pas renoncer.</value>
   </data>
   <data name="CR5_R07" xml:space="preserve">
-    <value>Et puis,[pause=10] on a tout ce qu'il faut ici :[pause=0] un feu,[pause=10] de la nourriture,[pause=10] et la meilleure équipe de la région.[pause=10] Demain sera un meilleur jour.</value>
+    <value>Et puis on a tout ce qu'il faut ici :[pause=0] un feu,[pause=10] de la nourriture,[pause=10] et la meilleure équipe de la région.[pause=10] Demain sera un meilleur jour.</value>
   </data>
   <data name="CR5_R08" xml:space="preserve">
     <value>Alors voilà le plan :[pause=10] on se repose,[pause=10] on refait les sacs,[pause=15] et on retente quand vous serez remis.[pause=0] Les Ruines Fendues ne nous feront pas reculer.</value>
@@ -334,4 +334,37 @@
   </data>
   <data name="CR5_G05" xml:space="preserve">
     <value>Chaudes...[pause=15] le matin,[pause=10] avant le soleil ?[pause=20] ...Ça,[pause=10] c'est important.[pause=0] Ça ne devrait pas être chaud,[pause=10] à cette heure.[pause=0] Rien ne l'explique.[pause=15] Rien de naturel,[pause=10] du moins.</value>
+  </data>
+  <data name="CR5_K10" xml:space="preserve">
+    <value>C'est Kino et Reinier qui vous ont trouvés.[pause=15] Ils étaient à deux étages quand le sol a tremblé.[pause=0] Ils ont tout laissé pour vous ramener.</value>
+  </data>
+  <data name="CR5_K11" xml:space="preserve">
+    <value>On vous a ramenés sur le dos,[pause=10] pour ainsi dire.[pause=15] La prochaine fois,[pause=10] on descendra ensemble —[pause=10] comme une vraie équipe.</value>
+  </data>
+  <data name="CR5_E01" xml:space="preserve">
+    <value>Kino,[pause=10] Reinier —[pause=15] vous connaissez ces ruines mieux que personne.[pause=0] Partez en éclaireurs.[pause=10] Balisez les premiers étages.</value>
+  </data>
+  <data name="CR5_E02" xml:space="preserve">
+    <value>Si vous trouvez un passage,[pause=10] marquez-le.[pause=15] Si vous trouvez un danger,[pause=10] revenez nous le dire.[pause=0] Personne ne descend seul.</value>
+  </data>
+  <data name="CR5_E03" xml:space="preserve">
+    <value>Comptez sur nous.[pause=10] On laissera des marques là où ça tourne mal.[pause=0] Et on reviendra vous les montrer.</value>
+  </data>
+  <data name="CR5_E04" xml:space="preserve">
+    <value>Et si quelque chose bouge au fond,[pause=10] on reviendra vous le dire avant d'y toucher.[pause=15] Mon arrière-tête insiste là-dessus.</value>
+  </data>
+  <data name="CR5_E05" xml:space="preserve">
+    <value>Hyko,[pause=10] tu gardes le camp.[pause=15] Personne n'entre ni ne sort sans mon accord.[pause=0] Tu es nos yeux,[pause=10] ici.</value>
+  </data>
+  <data name="CR5_E06" xml:space="preserve">
+    <value>Rin,[pause=10] Coco —[pause=15] vous tenez la base.[pause=0] Soins,[pause=10] intendance,[pause=10] et un feu qui ne s'éteint pas.[pause=15] C'est ici que tout le monde revient.</value>
+  </data>
+  <data name="CR5_E07" xml:space="preserve">
+    <value>Et nous,[pause=10] alors ?[pause=15] On reste là,[pause=10] à regarder les autres partir ?</value>
+  </data>
+  <data name="CR5_E08" xml:space="preserve">
+    <value>Vous êtes l'équipe principale.[pause=15] Vous entrez quand vous êtes prêts.[pause=0] Pas quand une horloge le dit.[pause=15] Et nous,[pause=10] on vous couvre d'ici.[pause=0] C'est comme ça qu'une expédition tient debout.</value>
+  </data>
+  <data name="CR5_E09" xml:space="preserve">
+    <value>(Kino et Reinier déjà à l'intérieur...[pause=10] On ne sera pas seuls,[pause=10] là-dedans.)</value>
   </data></root>

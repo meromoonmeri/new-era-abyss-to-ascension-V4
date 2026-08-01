@@ -291,7 +291,7 @@
     <value>What you saw in there, hold onto it. Each attempt brings you closer to what pulses at the bottom.</value>
   </data>
   <data name="CR5_R06" xml:space="preserve">
-    <value>You did right. Me, first time, I nearly got stuck in a corridor that wouldn't stop moving. Coming back isn't giving up.</value>
+    <value>You did right to come back. Me, I'd have gotten lost in the first corridor, no joke. Coming back isn't giving up.</value>
   </data>
   <data name="CR5_R07" xml:space="preserve">
     <value>Besides, we have everything we need here: a fire, food, and the best team in the region. Tomorrow will be a better day.</value>
@@ -334,4 +334,37 @@
   </data>
   <data name="CR5_G05" xml:space="preserve">
     <value>Warm... in the morning, before the sun? ...That's important. They shouldn't be warm at that hour. Nothing explains it. Nothing natural, at least.</value>
+  </data>
+  <data name="CR5_K10" xml:space="preserve">
+    <value>It was Kino and Reinier who found you. They were two floors down when the ground shook. They dropped everything to bring you back.</value>
+  </data>
+  <data name="CR5_K11" xml:space="preserve">
+    <value>We carried you back, more or less. Next time, we'll go down together—like a real team.</value>
+  </data>
+  <data name="CR5_E01" xml:space="preserve">
+    <value>Kino, Reinier—you know these ruins better than anyone. Go ahead as scouts. Mark the first floors.</value>
+  </data>
+  <data name="CR5_E02" xml:space="preserve">
+    <value>If you find a passage, mark it. If you find danger, come back and tell us. No one goes down alone.</value>
+  </data>
+  <data name="CR5_E03" xml:space="preserve">
+    <value>Count on us. We'll leave marks where things go wrong. And we'll come back to show you.</value>
+  </data>
+  <data name="CR5_E04" xml:space="preserve">
+    <value>And if something stirs at the bottom, we'll come tell you before touching it. My rear mind insists on that.</value>
+  </data>
+  <data name="CR5_E05" xml:space="preserve">
+    <value>Hyko, you guard the camp. No one enters or leaves without my say-so. You're our eyes out here.</value>
+  </data>
+  <data name="CR5_E06" xml:space="preserve">
+    <value>Rin, Coco—you hold the base. Care, supplies, and a fire that never dies. This is where everyone comes back.</value>
+  </data>
+  <data name="CR5_E07" xml:space="preserve">
+    <value>And us, then? Do we just stay here, watching everyone else leave?</value>
+  </data>
+  <data name="CR5_E08" xml:space="preserve">
+    <value>You're the main team. You enter when you're ready. Not when a clock says so. And we cover you from here. That's how an expedition holds together.</value>
+  </data>
+  <data name="CR5_E09" xml:space="preserve">
+    <value>(Kino and Reinier already inside... We won't be alone in there.)</value>
   </data></root>

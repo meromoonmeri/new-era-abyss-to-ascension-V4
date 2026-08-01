@@ -162,25 +162,43 @@ end
 -- ================================================================
 -- SETUP — etat du camp a l'arrivee (avant la cinematique d'entree)
 -- ================================================================
-function cloven_ruins_entrance_ch_5.SetupGround()
-  -- LE CAMP DEVANT LES RUINES — l'expedition au complet.
-  -- Casting : Penticus (Tropius), Phileas (Noctowl), Coco (Snubbull),
-  -- Rin (Audino), Hyko (Growlithe), Almotz (Zigzagoon) en PNJ ;
-  -- Kino (Breloom) et Reinier (Girafarig) en escorte d'honneur (ce
-  -- sont eux qui ont explore les ruines et les ont nommees) ;
-  -- Ganlon (Cranidos) et Shuca (Mareep) sont dans l'equipe
-  -- (Teammate2/3, spawners TEAMMATE_2/3 du ground).
+function cloven_ruins_entrance_ch_5.SetupGround(includeRecon)
+  -- LE CAMP DEVANT LES RUINES — repartition des equipes (logique PMD).
+  -- Au repos (apres le briefing du matin), PENTICUS a reparti les
+  -- equipes : seule la BASE LOGISTIQUE reste au camp. Kino et Reinier
+  -- (les explorateurs qui connaissent les ruines) sont partis en
+  -- RECONNAISSANCE dans les premiers etages — ils ne sont pas au camp.
+  --
+  --  BASE LOGISTIQUE (toujours presente) :
+  --    Penticus (Tropius)   -> commandement / coordination
+  --    Phileas  (Noctowl)   -> renseignement / analyse des notes
+  --    Rin      (Audino)    -> poste medical (soigne les retours)
+  --    Coco     (Snubbull)  -> intendance / le camp
+  --    Hyko     (Growlithe) -> garde du perimetre
+  --    Almotz   (Zigzagoon) -> auxiliaire / coursier
+  --  RECONNAISSANCE (absente au repos, incluse si includeRecon) :
+  --    Kino (Breloom), Reinier (Girafarig) -> deja dans les Ruines
+  --    (presentes a l'arrivee, et presentes lors d'un KO car ce sont
+  --    EUX qui ramenent l'equipe vaincue au camp).
+  --
+  --  includeRecon = true  -> arrivee au camp / retour apres KO (ils
+  --                          sont la : ils ont explore / ils ont sauve)
+  --  includeRecon = false -> etat de camp libre apres le matin (ils
+  --                          sont partis en eclaircage dans les ruines)
+  local spawnList = {
+    {'Tropius',    OPEN_POS.Penticus[1], OPEN_POS.Penticus[2], Direction.Up},
+    {'Noctowl',    OPEN_POS.Phileas[1],  OPEN_POS.Phileas[2],  Direction.UpRight},
+    {'Snubbull',   OPEN_POS.Coco[1],     OPEN_POS.Coco[2],     Direction.Up},
+    {'Audino',     OPEN_POS.Rin[1],      OPEN_POS.Rin[2],      Direction.Left},
+    {'Growlithe',  OPEN_POS.Hyko[1],     OPEN_POS.Hyko[2],     Direction.Left},
+    {'Zigzagoon',  OPEN_POS.Almotz[1],   OPEN_POS.Almotz[2],   Direction.Right},
+  }
+  if includeRecon then
+    spawnList[#spawnList+1] = {'Breloom',   OPEN_POS.Kino[1],    OPEN_POS.Kino[2],    Direction.UpLeft}
+    spawnList[#spawnList+1] = {'Girafarig', OPEN_POS.Reinier[1], OPEN_POS.Reinier[2], Direction.UpRight}
+  end
   local tropius, noctowl, snubbull, audino, growlithe, zigzagoon, breloom, girafarig =
-    CharacterEssentials.MakeCharactersFromList({
-      {'Tropius',    OPEN_POS.Penticus[1], OPEN_POS.Penticus[2], Direction.Up},
-      {'Noctowl',    OPEN_POS.Phileas[1],  OPEN_POS.Phileas[2],  Direction.UpRight},
-      {'Snubbull',   OPEN_POS.Coco[1],     OPEN_POS.Coco[2],     Direction.Up},
-      {'Audino',     OPEN_POS.Rin[1],      OPEN_POS.Rin[2],      Direction.Left},
-      {'Growlithe',  OPEN_POS.Hyko[1],     OPEN_POS.Hyko[2],     Direction.Left},
-      {'Zigzagoon',  OPEN_POS.Almotz[1],   OPEN_POS.Almotz[2],   Direction.Right},
-      {'Breloom',    OPEN_POS.Kino[1],     OPEN_POS.Kino[2],     Direction.UpLeft},
-      {'Girafarig',  OPEN_POS.Reinier[1],  OPEN_POS.Reinier[2],  Direction.UpRight},
-    })
+    CharacterEssentials.MakeCharactersFromList(spawnList)
 
   -- Ganlon/Shuca : spawners d'equipe si presents (post-intro).
   if GAME:GetPlayerPartyCount() > 3 then
@@ -195,18 +213,24 @@ function cloven_ruins_entrance_ch_5.SetupGround()
 
   -- Vie de fond : IA "ground_talking" pour que le camp respire en
   -- exploration (pas un diorama). Delais initiaux differencies.
+  -- (Les appels sont proteges : breloom/girafarig peuvent etre nil
+  -- quand la reconnaissance est absente.)
   pcall(function()
     AI:SetCharacterAI(tropius, "halcyon.ai.ground_talking", false, 90, 60, 0, false, 'Default', {growlithe})
   end)
   pcall(function()
     AI:SetCharacterAI(growlithe, "halcyon.ai.ground_talking", false, 90, 60, 90, false, 'Default', {tropius})
   end)
-  pcall(function()
-    AI:SetCharacterAI(breloom, "halcyon.ai.ground_talking", false, 90, 60, 150, false, 'Default', {girafarig})
-  end)
-  pcall(function()
-    AI:SetCharacterAI(girafarig, "halcyon.ai.ground_talking", false, 90, 60, 210, false, 'Default', {breloom})
-  end)
+  if breloom ~= nil then
+    pcall(function()
+      AI:SetCharacterAI(breloom, "halcyon.ai.ground_talking", false, 90, 60, 150, false, 'Default', {girafarig})
+    end)
+  end
+  if girafarig ~= nil then
+    pcall(function()
+      AI:SetCharacterAI(girafarig, "halcyon.ai.ground_talking", false, 90, 60, 210, false, 'Default', {breloom})
+    end)
+  end
 end
 
 -- ================================================================
@@ -1396,13 +1420,98 @@ function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
     Silence(15)
   end
 
+  -- ============================================================
+  -- 4.4bis PENTICUS REPARTIT LES EQUIPES (logique PMD : tout le
+  -- monde ne reste pas groupe devant l'entree).
+  --   - Kino + Reinier (les explorateurs des ruines) -> RECONNAISSANCE,
+  --     partent les premiers baliser les etages. Depart VISIBLE.
+  --   - Hyko -> garde du camp.
+  --   - Rin + Coco -> base logistique (soins / intendance).
+  --   - Le duo + Ganlon/Shuca -> equipe principale, partent quand le
+  --     joueur est pret.
+  -- ============================================================
+  if t.penticus ~= nil then
+    Listen(t.penticus, {t.kino, t.reinier, t.hyko, t.rin, t.coco, partner, hero})
+    UI:SetSpeaker(t.penticus)
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_E01']))
+    Silence(12)
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_E02']))
+    Silence(12)
+  end
+  -- Kino accepte, Reinier acquiesce.
+  if t.kino ~= nil then
+    pcall(function() GeneralFunctions.DoAnimation(t.kino, 'Nod') end)
+    UI:SetSpeaker(t.kino)
+    GeneralFunctions.SetEmotion("Determined")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_E03']))
+    Silence(12)
+  end
+  if t.reinier ~= nil then
+    pcall(function() GeneralFunctions.DoAnimation(t.reinier, 'Nod') end)
+    UI:SetSpeaker(t.reinier)
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_E04']))
+    Silence(12)
+  end
+  -- Penticus repartit le reste.
+  if t.penticus ~= nil then
+    UI:SetSpeaker(t.penticus)
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_E05']))
+    Silence(12)
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_E06']))
+    Silence(12)
+  end
+  -- Le partenaire demande pour le duo.
+  if partner ~= nil then
+    UI:SetSpeaker(partner)
+    GeneralFunctions.SetEmotion("Worried")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_E07']))
+    Silence(12)
+  end
+  -- Penticus repond : le duo est l'equipe principale.
+  if t.penticus ~= nil then
+    UI:SetSpeaker(t.penticus)
+    GeneralFunctions.SetEmotion("Inspired")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_E08']))
+    Silence(15)
+  end
+
+  -- DEPART DE LA RECONNAISSANCE : Kino et Reinier marchent vers
+  -- l'entree des Ruines et disparaissent dans l'ombre de la porte.
+  -- C'est un depart VU, pas une disparition silencieuse.
+  local depart = {}
+  if t.kino ~= nil then
+    depart[#depart+1] = TASK:BranchCoroutine(function()
+      pcall(function()
+        GeneralFunctions.EightWayMove(t.kino, 620, 700, false, 1)
+        GROUND:CharAnimateTurnTo(t.kino, Direction.UpRight, 4)
+      end)
+      GAME:WaitFrames(30)
+      pcall(function() GAME:GetCurrentGround():RemoveTempChar(t.kino) end)
+    end)
+  end
+  if t.reinier ~= nil then
+    depart[#depart+1] = TASK:BranchCoroutine(function()
+      GAME:WaitFrames(12)
+      pcall(function()
+        GeneralFunctions.EightWayMove(t.reinier, 650, 690, false, 1)
+        GROUND:CharAnimateTurnTo(t.reinier, Direction.UpRight, 4)
+      end)
+      GAME:WaitFrames(30)
+      pcall(function() GAME:GetCurrentGround():RemoveTempChar(t.reinier) end)
+    end)
+  end
+  if #depart > 0 then TASK:JoinCoroutines(depart) end
+  GAME:WaitFrames(15)
+
+  -- Le duo les regarde disparaitre dans l'entree. Pensee du heros.
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_E09']), "Determined")
+  Silence(15)
+
   -- Le duo se prepare, face a l'entree. Les ruines s'embrasent au
-  -- soleil levant. Kino et Reinier, qui les ont deja explorees,
-  -- les regardent une derniere fois.
-  pcall(function()
-    if t.kino ~= nil then GROUND:CharAnimateTurnTo(t.kino, Direction.Up, 4) end
-    if t.reinier ~= nil then GROUND:CharAnimateTurnTo(t.reinier, Direction.Up, 4) end
-  end)
+  -- soleil levant.
   GAME:MoveCamera(620, 700, 40, false)
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Determined")
@@ -1521,6 +1630,21 @@ function cloven_ruins_entrance_ch_5.KODefeatCutsceneBody()
   GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_K04']))
   GAME:WaitFrames(14)
+  -- PENTICUS EXPLIQUE LE SAUVETAGE : ce sont Kino et Reinier, partis
+  -- en reconnaissance, qui ont trouve et ramene l'equipe vaincue.
+  if tropius ~= nil then
+    UI:SetSpeaker(tropius)
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_K10']))
+    GAME:WaitFrames(14)
+  end
+  if breloom ~= nil then
+    GROUND:CharTurnToCharAnimated(breloom, hero, 4)
+  end
+  UI:SetSpeaker(breloom)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_K11']))
+  GAME:WaitFrames(14)
 
   -- Le partenaire : la lecon du jour, sans dramatiser.
   if partner ~= nil then
@@ -1589,8 +1713,10 @@ function cloven_ruins_entrance_ch_5.RetreatReturnCutsceneBody()
   local noctowl = CH('Noctowl')
   local audino = CH('Audino')
   local snubbull = CH('Snubbull')
-  local breloom = CH('Breloom')
-  local girafarig = CH('Girafarig')
+  local zigzagoon = CH('Zigzagoon')
+  --Kino/Reinier sont dans les Ruines (reconnaissance) : absents du camp.
+  local breloom = nil
+  local girafarig = nil
 
   GAME:CutsceneMode(true)
   SOUND:StopBGM()
@@ -1664,12 +1790,14 @@ function cloven_ruins_entrance_ch_5.RetreatReturnCutsceneBody()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_R05']))
   GAME:WaitFrames(14)
 
-  -- KINO : l'expert, pragmatique et chaleureux.
-  if breloom ~= nil then
-    GROUND:CharTurnToCharAnimated(breloom, hero, 4)
-    GeneralFunctions.EmoteAndPause(breloom, "Sweatdrop", false)
+  -- ALMOTZ : l'auxiliaire du camp, pragmatique et chaleureux.
+  -- (Kino et Reinier sont restes dans les Ruines en reconnaissance :
+  -- c'est Almotz, resté au camp, qui accueille le repli.)
+  if zigzagoon ~= nil then
+    GROUND:CharTurnToCharAnimated(zigzagoon, hero, 4)
+    GeneralFunctions.EmoteAndPause(zigzagoon, "Sweatdrop", false)
   end
-  UI:SetSpeaker(breloom)
+  UI:SetSpeaker(zigzagoon)
   GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_R06']))
   GAME:WaitFrames(14)
