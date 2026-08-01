@@ -822,6 +822,11 @@ SV.Chapter5 =
 	GrowlitheTropiusBossInterrupt = false,--did Hyko stop you from telling Penticus about the boss?
 	
 	FinishedMountWindsweptIntro = false,--Did the player see the intro cutscene for Mt. Windswept?
+	--LE CAMPEMENT DES RUINES FENDUES (finale de l'expedition ch5 / entree
+	--des Ruines Tordues ch7). Pose par ArrivalCutscene de
+	--cloven_ruins_entrance : le campement s'est joue une seule fois, le
+	--routeur ne le rejoue jamais.
+	ReachedClovenRuins = false,
 	--LE REVE DU HEROS se joue sur sa propre carte (hero_dream). Ce drapeau
 	--encadre l'aller-retour : pose par CampNightfall juste avant le
 	--depart, consomme par MorningAfterDream au retour. Sans lui,

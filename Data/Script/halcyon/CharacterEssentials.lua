@@ -1724,6 +1724,67 @@ local characters = {
 			gender = Gender.Male,
 			form = 0,
 			skin = "normal"
+		},
+		--Renforts de l'expedition des Ruines Fendues (ch5, finale).
+		--Flygon et Altaria sont les renforts aeriens arrives au relais du
+		--Mont ; les cinq jeunes (Shinx, Phanpy, Vulpix, Zorua, Natu) sont
+		--les recrues de l'expedition. Casting cree pour le campement des
+		--Ruines, sur le modele des 12 membres du camp du Mont Venteux.
+		Flygon = {
+			species = "flygon",
+			nickname = 'Bram',
+			instance = 'Flygon',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Altaria = {
+			species = "altaria",
+			nickname = 'Cyrène',
+			instance = 'Altaria',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+		Shinx = {
+			species = "shinx",
+			nickname = 'Volt',
+			instance = 'Shinx',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Phanpy = {
+			species = "phanpy",
+			nickname = 'Pachy',
+			instance = 'Phanpy',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Vulpix = {
+			species = "vulpix",
+			nickname = 'Roussy',
+			instance = 'Vulpix',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+		Zorua = {
+			species = "zorua",
+			nickname = 'Ombre',
+			instance = 'Zorua',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Natu = {
+			species = "natu",
+			nickname = 'Zircon',
+			instance = 'Natu',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
 		}
 			
 	}

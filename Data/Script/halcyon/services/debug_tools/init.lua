@@ -295,6 +295,7 @@ function DebugTools:OnUpgrade()
  if SV.Chapter5.EscapedMountain == nil then SV.Chapter5.EscapedMountain = false end
  if SV.Chapter5.DiedMountain == nil then SV.Chapter5.DiedMountain = false end
  if SV.Chapter5.NeedGiveSupplies == nil then SV.Chapter5.NeedGiveSupplies = false end
+ if SV.Chapter5.ReachedClovenRuins == nil then SV.Chapter5.ReachedClovenRuins = false end
  
  
 
