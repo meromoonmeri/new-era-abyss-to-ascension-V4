@@ -159,6 +159,318 @@ SideQuests.LIST = {
     },
     undertow = "la releve regarde, et decide",
   },
+
+  ---------------------------------------------------------------
+  -- CHAPITRE 7 — premières secousses et inquiétude
+  ---------------------------------------------------------------
+  {
+    id = 'q7_seisme', ch = 7, giver = 'Quagsire', target = 'Cranidos',
+    titre = "Les vibrations du sous-sol",
+    ask = {
+      {'Quagsire', 'Worried', "L'eau de mon bassin bouge tout le temps depuis hier."},
+      {'Quagsire', 'Sad',     "Comme de petites vagues sauvages, mais sans aucun vent."},
+      {'Quagsire', 'Normal',  "Le jeune Cranidos là-bas passe son temps le nez collé contre la roche. Demandez-lui s'il sent quelque chose."},
+    },
+    accept = {'Quagsire', 'Normal', "Faites attention à vos pieds en marchant."},
+    refuse = {'Quagsire', 'Normal', "Pas de souci, ça doit être mon imagination."},
+    pending= {'Quagsire', 'Worried', "Vous avez trouvé d'où viennent ces rides sur l'eau ?"},
+    solve = {
+      {'Cranidos', 'Shock', "Moi ? Oui, ma tête résonne !"},
+      {'Cranidos', 'Worried', "Quand je pose mes cornes sur la falaise au nord, ça fait 'bzzz' tout le temps."},
+      {'Cranidos', 'Sad',     "Le sol ne dort pas. Quelque chose pousse très fort très loin d'ici."},
+      {'Cranidos', 'Determined', "C'est comme un grand tambour géant sous la terre. J'espère qu'elle ne va pas se fendre !"},
+    },
+    done = {
+      {'Quagsire', 'Sad', "Un tambour sous la terre..."},
+      {'Quagsire', 'Normal', "Ce gamin a le crâne solide, s'il le dit, c'est vrai."},
+      {'Quagsire', 'Worried', "Les anciens racontent que lorsque la terre grogne, les étoiles finissent par tomber..."},
+    },
+    undertow = "la terre transmet des tensions lointaines",
+  },
+
+  {
+    id = 'q7_peur', ch = 7, giver = 'Oddish', target = 'Noctowl',
+    titre = "L'ombre des arbres",
+    ask = {
+      {'Oddish', 'Sad', "Je n'ose plus aller jouer près du bosquet nord."},
+      {'Oddish', 'Worried', "Il y a des ombres bizarres qui s'agitent, froides comme de la glace."},
+      {'Oddish', 'Pain', "Elles n'ont pas de visage, juste de grands yeux flous."},
+    },
+    accept = {'Oddish', 'Happy', "Demandez au vieux Noarfang, il sait tout sur la nuit !"},
+    refuse = {'Oddish', 'Sad', "D'accord... Restez bien à la lumière."},
+    pending= {'Oddish', 'Worried', "Vous avez parlé à Noarfang ?"},
+    solve = {
+      {'Noctowl', 'Normal', "Des ombres glacées près du bosquet ?"},
+      {'Noctowl', 'Worried', "Ce ne sont pas des spectres ordinaires. L'air se trouble à cause des anomalies atmosphériques."},
+      {'Noctowl', 'Sad', "Quand les courants thermiques s'effondrent, les illusions se matérialisent sous forme de brume froide."},
+      {'Noctowl', 'Determined', "Dites au petit que ce n'est que de la vapeur condensée... Même si cela cache un mal bien réel."},
+    },
+    done = {
+      {'Oddish', 'Surprised', "De la vapeur froide ?"},
+      {'Oddish', 'Happy', "Ouf, j'ai cru que c'étaient des monstres mangeurs de feuilles !"},
+      {'Oddish', 'Normal', "Mais pourquoi l'air devient-il si bizarre ?"},
+    },
+    undertow = "les perturbations thermiques créent des anomalies locales",
+  },
+
+  {
+    id = 'q7_eau', ch = 7, giver = 'Spheal', target = 'Relicanth',
+    titre = "La source tarie",
+    ask = {
+      {'Spheal', 'Sad', "La petite fontaine de la place ne coule presque plus."},
+      {'Spheal', 'Normal', "Elle était si fraîche d'habitude !"},
+      {'Spheal', 'Worried', "Le doyen Relicanth doit savoir d'où vient l'eau de la colline."},
+    },
+    accept = {'Spheal', 'Happy', "Allez le voir près de son bassin !"},
+    refuse = {'Spheal', 'Normal', "Tant pis, je boirai de l'eau tiède."},
+    pending= {'Spheal', 'Worried', "L'eau va revenir ?"},
+    solve = {
+      {'Relicanth', 'Normal', "La fontaine faiblit, dites-vous ?"},
+      {'Relicanth', 'Worried', "C'est logique. Les galeries souterraines se réchauffent."},
+      {'Relicanth', 'Sad', "L'eau s'évapore dans les abysses avant de pouvoir remonter jusqu'à notre surface."},
+      {'Relicanth', 'Determined', "Un grand feu couve sous nos pieds, mes enfants. L'équilibre se brise lentement."},
+    },
+    done = {
+      {'Spheal', 'Surprised', "L'eau s'évapore en dessous ?"},
+      {'Spheal', 'Sad', "Mais alors, la ville va finir par avoir très soif ?"},
+      {'Spheal', 'Normal', "Je vais économiser mes réserves d'eau douce !"},
+    },
+    undertow = "les eaux souterraines s'assèchent sous l'effet de la chaleur",
+  },
+
+  ---------------------------------------------------------------
+  -- CHAPITRE 8 — la tension grimpe d'un cran
+  ---------------------------------------------------------------
+  {
+    id = 'q8_cristaux', ch = 8, giver = 'Mawile', target = 'Bisharp',
+    titre = "Les éclats perdus",
+    ask = {
+      {'Mawile', 'Worried', "Je cherche des morceaux de pierre de lune pour mes sculptures."},
+      {'Mawile', 'Sad', "Le garde Scalproie m'interdit d'aller aux falaises."},
+      {'Mawile', 'Normal', "Allez lui demander pourquoi il est si sévère !"},
+    },
+    accept = {'Mawile', 'Happy', "S'il vous plaît, faites-le changer d'avis !"},
+    refuse = {'Mawile', 'Sad', "Oh... Mes sculptures resteront ternes."},
+    pending= {'Mawile', 'Worried', "Scalproie a dit oui ?"},
+    solve = {
+      {'Bisharp', 'Determined', "Pourquoi j'interdis l'accès ?"},
+      {'Bisharp', 'Angry', "Parce que la roche s'effrite sans raison !"},
+      {'Bisharp', 'Worried', "De grandes failles apparaissent sur les parois cristallines, comme si la montagne ployait sous un poids invisible."},
+      {'Bisharp', 'Sad', "C'est trop dangereux d'approcher des corniches. Dites-lui de sculpter du bois."},
+    },
+    done = {
+      {'Mawile', 'Surprised', "La montagne s'effrite ?"},
+      {'Mawile', 'Sad', "Pourtant, le cristal est si solide d'habitude..."},
+      {'Mawile', 'Normal', "Je vais utiliser du vieux chêne. C'est plus sûr."},
+    },
+    undertow = "la structure géologique de la région se fragilise",
+  },
+
+  {
+    id = 'q8_reves', ch = 8, giver = 'Jigglypuff', target = 'Sonata',
+    titre = "Le chant des insomnies",
+    ask = {
+      {'Jigglypuff', 'Sad', "Je...[pause=15] Je ne peux plus chanter mes berceuses."},
+      {'Jigglypuff', 'Pain', "Ma gorge est toute serrée de peur, et personne ne dort bien."},
+      {'Jigglypuff', 'Worried', "Magirêve passe ses nuits à écouter le vent. Elle doit savoir ce qui cloche."},
+    },
+    accept = {'Jigglypuff', 'Happy', "Merci...[pause=10] Retrouvez-la sur la colline."},
+    refuse = {'Jigglypuff', 'Sad', "Je vais essayer de boire du miel chaud..."},
+    pending= {'Jigglypuff', 'Worried', "Magirêve a entendu mes soupirs ?"},
+    solve = {
+      {'Sonata', 'Normal', "Le petit Rondoudou s'inquiète pour son chant ?"},
+      {'Sonata', 'Worried', "Ce n'est pas le vent qui l'empêche de chanter, c'est l'angoisse ambiante."},
+      {'Sonata', 'Sad', "Une onde d'inquiétude muette traverse la vallée chaque nuit, comme un écho de l'Abîme."},
+      {'Sonata', 'Determined', "Ses mélodies douces n'arrivent plus à percer cette lourde chape. Il lui faut du courage, pas du miel."},
+    },
+    done = {
+      {'Jigglypuff', 'Surprised', "De l'angoisse dans le vent ?"},
+      {'Jigglypuff', 'Determined', "Alors je chanterai plus fort !"},
+      {'Jigglypuff', 'Happy', "La musique doit chasser la peur, pas l'inverse !"},
+    },
+    undertow = "l'anxiété collective perturbe le sommeil de la ville",
+  },
+
+  {
+    id = 'q8_climat', ch = 8, giver = 'Vileplume', target = 'Tropius',
+    titre = "La fanaison précoce",
+    ask = {
+      {'Vileplume', 'Sad', "Regardez mes pétales... Ils perdent leur éclat et flétrissent."},
+      {'Vileplume', 'Worried', "La terre est humide, mais mes racines se sentent malades."},
+      {'Vileplume', 'Normal', "Tropius a beaucoup voyagé, il sait si l'air est empoisonné."},
+    },
+    accept = {'Vileplume', 'Normal', "Il est près de l'entrée de la guilde."},
+    refuse = {'Vileplume', 'Sad', "Je vais essayer de rester à l'ombre..."},
+    pending= {'Vileplume', 'Worried', "Tropius a une idée ?"},
+    solve = {
+      {'Tropius', 'Normal', "Les plantes perdent leur éclat ?"},
+      {'Tropius', 'Worried', "Le vent du nord n'apporte plus d'humidité depuis la mer."},
+      {'Tropius', 'Sad', "Il transporte une fine poussière grise, invisible à l'œil nu, qui étouffe les feuilles."},
+      {'Tropius', 'Determined', "Le ciel se charge de cendres froides. Quelque chose brûle ou s'éteint là-haut."},
+    },
+    done = {
+      {'Vileplume', 'Surprised', "De la poussière grise dans l'air ?"},
+      {'Vileplume', 'Sad', "C'est pour ça que le soleil semble si pâle depuis des semaines..."},
+      {'Vileplume', 'Normal', "Je vais laver mes feuilles tous les matins avec de l'eau claire."},
+    },
+    undertow = "les courants aériens charrient des résidus atmosphériques anormaux",
+  },
+
+  ---------------------------------------------------------------
+  -- CHAPITRE 9 — l'étau se resserre
+  ---------------------------------------------------------------
+  {
+    id = 'q9_rumeurs', ch = 9, giver = 'Nidoqueen', target = 'Luxray',
+    titre = "Les chuchotements de la place",
+    ask = {
+      {'Nidoqueen', 'Worried', "Tout le monde s'observe de travers ce matin."},
+      {'Nidoqueen', 'Sad', "Les marchands chuchotent dès qu'un étranger approche."},
+      {'Nidoqueen', 'Normal', "Luxray fait ses rondes pour la Fédération. Allez lui parler de cette ambiance."},
+    },
+    accept = {'Nidoqueen', 'Normal', "Faites cela discrètement."},
+    refuse = {'Nidoqueen', 'Sigh', "Mieux vaut ne pas s'en mêler, vous avez raison."},
+    pending= {'Nidoqueen', 'Worried', "La Fédération est nerveuse aussi ?"},
+    solve = {
+      {'Luxray', 'Normal', "L'ambiance de la place ?"},
+      {'Luxray', 'Determined', "La Fédération est sur les dents. Les ordres viennent d'en haut."},
+      {'Luxray', 'Worried', "On nous demande de surveiller les allées et venues de tous les explorateurs."},
+      {'Luxray', 'Sad', "Ils cherchent un coupable pour les dérèglements climatiques. La méfiance s'installe partout."},
+    },
+    done = {
+      {'Nidoqueen', 'Surprised', "La Fédération cherche un coupable ?"},
+      {'Nidoqueen', 'Sad', "Mais nous n'y sommes pour rien..."},
+      {'Nidoqueen', 'Determined', "Il faut rester soudés. Ne les laissons pas nous diviser."},
+    },
+    undertow = "les autorités cherchent activement des boucs émissaires",
+  },
+
+  {
+    id = 'q9_fugitifs', ch = 9, giver = 'Camerupt', target = 'Medicham',
+    titre = "Le ravitaillement secret",
+    ask = {
+      {'Camerupt', 'Worried', "Je prépare de grands sacs de baies séchées et de graines."},
+      {'Camerupt', 'Sad', "Ce n'est pas pour la boutique. Je veux les cacher en cas d'urgence."},
+      {'Camerupt', 'Normal', "Charmina m'aide à faire l'inventaire, mais elle a l'air si pensive."},
+    },
+    accept = {'Camerupt', 'Normal', "Allez la voir, elle est près du stand d'entraînement."},
+    refuse = {'Camerupt', 'Normal', "D'accord, je finirai mes paquets tout seul."},
+    pending= {'Camerupt', 'Worried', "Elle vous a dit pourquoi elle soupire ?"},
+    solve = {
+      {'Medicham', 'Normal', "Pourquoi je soupire ?"},
+      {'Medicham', 'Worried', "Je médite sur l'avenir, et mes visions sont sombres."},
+      {'Medicham', 'Sad', "Le vent tourne. Bientôt, la ville ne sera plus un refuge sûr pour personne."},
+      {'Medicham', 'Determined', "Conseillez à Camerupt de garder un sac de voyage bien rempli sous la paille. Juste au cas où..."},
+    },
+    done = {
+      {'Camerupt', 'Surprised', "Un sac de voyage sous la paille ?"},
+      {'Camerupt', 'Sad', "Elle craint que nous devions fuir la ville ?"},
+      {'Camerupt', 'Determined', "C'est impensable... Mais je vais quand même doubler les rations."},
+    },
+    undertow = "les pressentiments d'une fuite imminente se propagent",
+  },
+
+  {
+    id = 'q9_cloche', ch = 9, giver = 'Ledian', target = 'Audino',
+    titre = "L'alarme silencieuse",
+    ask = {
+      {'Ledian', 'Worried', "La cloche d'alarme de la guilde est fêlée."},
+      {'Ledian', 'Sad', "Si un danger arrive du ciel, personne n'entendra le signal."},
+      {'Ledian', 'Normal', "L'infirmière Nanméouïe a de précieux onguents pour ressouder les métaux légers."},
+    },
+    accept = {'Ledian', 'Happy', "Demandez-lui un flacon de sève réparatrice !"},
+    refuse = {'Ledian', 'Sad', "Si la cloche reste muette... Espérons qu'on n'en ait pas besoin."},
+    pending= {'Ledian', 'Worried', "Elle a pu vous donner la sève ?"},
+    solve = {
+      {'Audino', 'Normal', "De la sève pour la cloche d'alarme ?"},
+      {'Audino', 'Worried', "Bien sûr, tenez. Mais j'ai bien peur qu'une simple cloche ne suffise plus."},
+      {'Audino', 'Sad', "Les blessures de la terre ne s'effacent pas avec du métal soudé."},
+      {'Audino', 'Determined', "Quand le ciel se mettra en colère, il faudra courir, pas seulement sonner l'alarme."},
+    },
+    done = {
+      {'Ledian', 'Surprised', "Courir au lieu de sonner ?"},
+      {'Ledian', 'Sad', "Ses paroles font froid dans le dos..."},
+      {'Ledian', 'Normal', "La cloche est réparée. Espérons que son timbre reste clair."},
+    },
+    undertow = "les infrastructures de sécurité de la ville deviennent dérisoires",
+  },
+
+  ---------------------------------------------------------------
+  -- CHAPITRE 10 — au bord du gouffre
+  ---------------------------------------------------------------
+  {
+    id = 'q10_derniervoeu', ch = 10, giver = 'Bagon', target = 'Adagio',
+    titre = "L'envol impossible",
+    ask = {
+      {'Bagon', 'Inspired', "Je veux voler ! Je veux monter tout en haut des nuages, au-delà de la brume !"},
+      {'Bagon', 'Sad', "Mais mes petites ailes ne poussent pas, et le ciel est si noir."},
+      {'Bagon', 'Normal', "La grande Sucreine dit que seuls ceux qui ont du style méritent de s'élever. Demandez-lui son secret !"},
+    },
+    accept = {'Bagon', 'Happy', "Allez la voir, elle est près du grand étal de luxe !"},
+    refuse = {'Bagon', 'Sad', "Je... Je vais continuer à sauter depuis mon rocher alors."},
+    pending= {'Bagon', 'Worried', "Elle vous a donné son secret pour voler ?"},
+    solve = {
+      {'Adagio', 'Surprised', "Ce petit Draby veut s'élever au-dessus de la brume ?"},
+      {'Adagio', 'Normal', "Quelle idée saugrenue par un temps pareil."},
+      {'Adagio', 'Sad', "Mais au moins, il a l'ambition de fuir cette médiocrité ambiante."},
+      {'Adagio', 'Determined', "Dites-lui de ne pas attendre que ses ailes poussent. S'il veut partir, qu'il coure de toutes ses forces avant que les portes ne se ferment définitivement."},
+    },
+    done = {
+      {'Bagon', 'Surprised', "Courir avant que ça ne ferme ?"},
+      {'Bagon', 'Inspired', "Elle a raison ! Je vais m'entraîner à courir super vite !"},
+      {'Bagon', 'Happy', "Comme ça, je prendrai tellement d'élan que je finirai par toucher les nuages !"},
+    },
+    undertow = "l'urgence de l'évacuation commence à toucher les plus jeunes",
+  },
+
+  {
+    id = 'q10_lettre', ch = 10, giver = 'Wooper_Girl', target = 'Growlithe_Desk',
+    titre = "La lettre sans réponse",
+    ask = {
+      {'Wooper_Girl', 'Sad', "J'ai écrit une jolie lettre pour ma cousine qui habite au Bourg Comptoir."},
+      {'Wooper_Girl', 'Worried', "Mais le facteur n'est pas passé depuis des jours."},
+      {'Wooper_Girl', 'Normal', "Caninos au guichet refuse de prendre mon enveloppe. Pourquoi ?"},
+    },
+    accept = {'Wooper_Girl', 'Normal', "Demandez-lui s'il a perdu son sac postal !"},
+    refuse = {'Wooper_Girl', 'Sad', "Ma lettre va rester toute mouillée sous la pluie..."},
+    pending= {'Wooper_Girl', 'Worried', "Le guichet postal est toujours fermé ?"},
+    solve = {
+      {'Growlithe_Desk', 'Normal', "Pourquoi je refuse la lettre ?"},
+      {'Growlithe_Desk', 'Sad', "Ce n'est pas de ma faute, les petits."},
+      {'Growlithe_Desk', 'Worried', "Les routes vers le sud et Bourg Comptoir sont totalement bloquées par un dôme d'électricité statique et de brume."},
+      {'Growlithe_Desk', 'Determined', "Aucun messager ne peut traverser sans risquer sa vie. La ville est coupée du reste du monde."},
+    },
+    done = {
+      {'Wooper_Girl', 'Sad', "La ville est coupée du monde ?"},
+      {'Wooper_Girl', 'Pain', "Alors ma cousine ne saura jamais que j'ai appris à nager..."},
+      {'Wooper_Girl', 'Normal', "Je vais garder la lettre dans ma poche, bien au chaud, pour lui donner plus tard."},
+    },
+    undertow = "l'isolement complet de Metano Town se matérialise",
+  },
+
+  {
+    id = 'q10_espoir', ch = 10, giver = 'Sentret', target = 'Relicanth',
+    titre = "La dernière lueur",
+    ask = {
+      {'Sentret', 'Sad', "La nuit est devenue si noire, et les lampadaires de la ville s'éteignent les uns après les autres."},
+      {'Sentret', 'Worried', "J'ai peur du noir complet. Je cherche une lueur qui ne s'éteint jamais."},
+      {'Sentret', 'Normal', "Le vieux Relicanth dit qu'il a des pierres brillantes tout au fond de son étang."},
+    },
+    accept = {'Sentret', 'Normal', "S'il vous plaît, demandez-lui si je peux en avoir une."},
+    refuse = {'Sentret', 'Sad', "D'accord, je fermerai les yeux très fort sous ma couverture."},
+    pending= {'Sentret', 'Worried', "Il a accepté de partager sa lumière ?"},
+    solve = {
+      {'Relicanth', 'Normal', "Une lueur qui ne s'éteint jamais pour Fouinette ?"},
+      {'Relicanth', 'Happy', "Ah, l'enfance... Tenez, prenez cette pierre luminescente des grands fonds."},
+      {'Relicanth', 'Sad', "Elle a brillé dans les abysses pendant des siècles sans jamais faiblir."},
+      {'Relicanth', 'Determined', "Dites-lui que tant que nous gardons cette lumière avec nous, l'obscurité du ciel ne pourra pas nous atteindre."},
+    },
+    done = {
+      {'Sentret', 'Inspired', "Wouah ! Elle brille comme une petite étoile verte !"},
+      {'Sentret', 'Happy', "Elle est si douce et si chaude dans mes pattes !"},
+      {'Sentret', 'Normal', "Je n'aurai plus jamais peur de la nuit. Je veillerai sur elle, promis !"},
+    },
+    undertow = "la recherche d'espoir et de réconfort face aux ténèbres imminentes",
+  },
 }
 
 --------------------------------------------------------------------
