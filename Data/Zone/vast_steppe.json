@@ -11808,60 +11808,6 @@
 },
 "Value": {
 "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-"MapID": "vast_steppe_miniboss"
-}
-}
-],
-"Comment": ""
-}
-],
-"ZoneSteps": [
-{
-"$type": "PMDC.LevelGen.SaveVarsZoneStep, PMDC",
-"Priority": {
-"str": [
-1,
-1
-]
-}
-},
-{
-"$type": "PMDC.LevelGen.FloorNameDropZoneStep, PMDC",
-"DropPriority": {
-"str": [
--15
-]
-},
-"Name": {
-"DefaultText": "Vast Steppe Depths",
-"LocalTexts": {
-"fr": "Profondeurs de la Grande Steppe"
-}
-},
-"Priority": {
-"str": [
--6
-]
-}
-}
-],
-"IsRelevant": true,
-"Comment": ""
-},
-{
-"$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-"Floors": [
-{
-"$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
-"GenSteps": [
-{
-"Key": {
-"str": [
--1
-]
-},
-"Value": {
-"$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
 "MapID": "vast_steppe_guardian"
 }
 }

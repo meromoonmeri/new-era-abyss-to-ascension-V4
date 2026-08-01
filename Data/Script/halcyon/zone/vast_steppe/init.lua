@@ -73,14 +73,7 @@ function vast_steppe.ExitSegment(zone, result, rescue, segmentID, mapID)
 	elseif segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('vast_steppe', 4) then
 		-- Segment 0 cleared: go to midpoint rest stop before mini-boss
 		PrintInfo("[NREPROBE][transition] vast_steppe.ExitSegment -> EnterGroundMap('vast_steppe_midpoint')") GAME:EnterGroundMap('vast_steppe_midpoint', 'Main_Entrance_Marker')
-	elseif segmentID == 2 and ReplayEnding.FollowsRoute('vast_steppe', 4) then
-		-- Mini-boss arena: win or loss both go back to mini-boss ground map
-		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-			SV.Chapter5.SteppeMiniBossDefeated = true
-		else
-			SV.Chapter5.SteppeMiniBossLost = true
-		end
-		PrintInfo("[NREPROBE][transition] vast_steppe.ExitSegment -> EnterGroundMap('vast_steppe_miniboss')") GAME:EnterGroundMap('vast_steppe_miniboss', 'Main_Entrance_Marker')
+
 	elseif segmentID == 1 and ReplayEnding.FollowsRoute('vast_steppe', 4) and result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
 		-- vague 8 : checkpoint vast_steppe — la mort dans la 2e moitié ramène au relais,
 		-- où la scène de réveil (WipedCutscene) prend le relai narratif.
@@ -96,7 +89,7 @@ function vast_steppe.ExitSegment(zone, result, rescue, segmentID, mapID)
 	elseif segmentID == 1 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('vast_steppe', 4) then
 		-- Segment 2 cleared: go to guardian ground map
 		PrintInfo("[NREPROBE][transition] vast_steppe.ExitSegment -> EnterGroundMap('vast_steppe_guardian')") GAME:EnterGroundMap('vast_steppe_guardian', 'Main_Entrance_Marker')
-	elseif segmentID == 3 and ReplayEnding.FollowsRoute('vast_steppe', 4) then
+	elseif segmentID == 2 and ReplayEnding.FollowsRoute('vast_steppe', 4) then
 		-- Guardian arena: win or loss both go back to guardian ground map
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 			SV.Chapter5.SteppeGuardianDefeated = true

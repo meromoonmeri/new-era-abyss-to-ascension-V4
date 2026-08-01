@@ -103,19 +103,7 @@ function mount_windswept.ExitSegment(zone, result, rescue, segmentID, mapID)
 		else
 			TownNight.EndDay(result, true)
 		end
-	elseif segmentID == 2 and ReplayEnding.FollowsRoute('mount_windswept', 5) then
-		-- BRANCHE MORTE depuis le retrait du mini-boss : le relais
-		-- (mount_windswept_midpoint) n'envoie plus jamais vers le segment 2,
-		-- il enchaine directement sur les Cretes (segment 1). Ce bloc est
-		-- conserve pour ne pas casser une sauvegarde qui serait deja DANS
-		-- l'arene au moment de la mise a jour : elle en ressort proprement.
-		-- Mini-boss arena: win or loss both go back to mini-boss ground map
-		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-			SV.Chapter5.MountMiniBossDefeated = true
-		else
-			SV.Chapter5.MountMiniBossLost = true
-		end
-		PrintInfo("[NREPROBE][transition] mount_windswept.ExitSegment -> EnterGroundMap('mount_windswept_miniboss')") GAME:EnterGroundMap('mount_windswept_miniboss', 'Main_Entrance_Marker')
+
 	elseif segmentID == 1 and ReplayEnding.FollowsRoute('mount_windswept', 5) and result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
 		-- vague 8 : checkpoint mount_windswept — la mort dans la 2e moitié ramène au relais,
 		-- où la scène de réveil (WipedCutscene) prend le relai narratif.
@@ -131,7 +119,7 @@ function mount_windswept.ExitSegment(zone, result, rescue, segmentID, mapID)
 	elseif segmentID == 1 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('mount_windswept', 5) then
 		-- Segment 2 cleared: go to guardian ground map
 		PrintInfo("[NREPROBE][transition] mount_windswept.ExitSegment -> EnterGroundMap('mount_windswept_guardian')") GAME:EnterGroundMap('mount_windswept_guardian', 'Main_Entrance_Marker')
-	elseif segmentID == 3 and ReplayEnding.FollowsRoute('mount_windswept', 5) then
+	elseif segmentID == 2 and ReplayEnding.FollowsRoute('mount_windswept', 5) then
 		-- Guardian arena: win or loss both go back to guardian ground map
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 			SV.Chapter5.MountGuardianDefeated = true

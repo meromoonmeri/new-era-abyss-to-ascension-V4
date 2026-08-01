@@ -193,21 +193,7 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 			
 		end 
 		
-	elseif segmentID == 2 then --Arene du clan de lave (Torkoal + Magmar)
-		-- BRANCHE MORTE depuis le retrait du mini-boss : les Profondeurs
-		-- franchies mènent desormais tout droit au Creuset Ardent. Bloc
-		-- conserve pour les sauvegardes deja engagees dans cette arene.
-		PrintInfo("=>> ExitSegment_searing_tunnel_miniboss result "..tostring(result))
-		SV.adventure.Thief = false
-		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-			SV.Chapter5.TunnelMiniBossDefeated = true
-		else
-			SV.Chapter5.TunnelMiniBossLost = true
-		end
-		-- Victoire comme defaite : on repasse par le ground, qui joue la scene
-		-- correspondante puis enchaine (Crucible ou repli).
-		PrintInfo("[NREPROBE][transition] searing_tunnel.ExitSegment -> EnterGroundMap('searing_tunnel_miniboss')")
-		GAME:EnterGroundMap('searing_tunnel_miniboss', 'Main_Entrance_Marker')
+
 
 	else--Searing Crucible Exit Segment
 	  PrintInfo("=>> ExitSegment_searing_crucible (Searing Crucible) result "..tostring(result).." segment "..tostring(segmentID))

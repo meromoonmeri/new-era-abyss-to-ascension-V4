@@ -9718,60 +9718,6 @@
 },
 "Value": {
 "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-"MapID": "mount_windswept_miniboss"
-}
-}
-],
-"Comment": ""
-}
-],
-"ZoneSteps": [
-{
-"$type": "PMDC.LevelGen.SaveVarsZoneStep, PMDC",
-"Priority": {
-"str": [
-1,
-1
-]
-}
-},
-{
-"$type": "PMDC.LevelGen.FloorNameDropZoneStep, PMDC",
-"DropPriority": {
-"str": [
--15
-]
-},
-"Name": {
-"DefaultText": "Windswept Gap",
-"LocalTexts": {
-"fr": "Défilé Venteux"
-}
-},
-"Priority": {
-"str": [
--6
-]
-}
-}
-],
-"IsRelevant": true,
-"Comment": ""
-},
-{
-"$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-"Floors": [
-{
-"$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
-"GenSteps": [
-{
-"Key": {
-"str": [
--1
-]
-},
-"Value": {
-"$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
 "MapID": "mount_windswept_guardian"
 }
 }
