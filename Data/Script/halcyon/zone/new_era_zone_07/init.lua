@@ -35,7 +35,7 @@ function new_era_zone_07.ExitSegment(zone, result, rescue, segmentID, mapID)
     if SV.Reseau.VoiesOuvertes == nil then SV.Reseau.VoiesOuvertes = {} end
     if not SV.Reseau.VoiesOuvertes['new_era_zone_07'] then
       SV.Reseau.VoiesOuvertes['new_era_zone_07'] = true
-      GAME:EnterGroundMap('grand_canyon_porte', 'Main_Entrance_Marker')
+      GAME:EnterGroundMap('colline_anciens', 'Main_Entrance_Marker')
       return
     end
   end

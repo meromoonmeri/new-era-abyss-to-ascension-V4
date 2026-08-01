@@ -5055,7 +5055,8 @@
       "CountedFloors": 13,
       "Rogue": 0,
       "Grounds": [
-        "grand_canyon_porte"
+        "grand_canyon_porte",
+        "colline_anciens"
       ],
       "Maps": [
         [
