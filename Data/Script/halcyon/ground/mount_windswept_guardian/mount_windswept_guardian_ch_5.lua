@@ -470,13 +470,23 @@ local function DefeatedBossBody()
 	pcall(function() GAME:FadeOut(false, 1) end)
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
-  local tornadus = CharacterEssentials.MakeCharactersFromList({
-    {'Tornadus', 560, 1064, Direction.Down}
-  })
-  GROUND:CharSetAnim(tornadus, "Charge", true)
+
+  -- POST-COMBAT : LA VICTOIRE SUR TORNADUS (plan en 7 actes).
+  -- Tornadus est un GARDIEN qui se revele : il ne testait pas par
+  -- malveillance, il cherchait a comprendre les perturbations. Un
+  -- vrai echange s'engage, la Guilde arrive, on repart vers les
+  -- Ruines Fendues. Foreshadowing Ch6 (Zarude) / Ch7 (Groudon).
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
+
+  -- ============================================================
+  -- ACTE 1 : LE CALME APRES LA TEMPETE — Tornadus parle
+  -- ============================================================
+  local tornadus = CharacterEssentials.MakeCharactersFromList({
+    {'Tornadus', 560, 1064, Direction.Down}
+  })
+  GROUND:CharSetAnim(tornadus, "Idle", true)
 
   GROUND:TeleportTo(hero, 560, 1160, Direction.Up)
   GROUND:TeleportTo(partner, 496, 1168, Direction.Up)
@@ -489,165 +499,331 @@ local function DefeatedBossBody()
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
   GAME:FadeIn(40)
-
   GAME:WaitFrames(40)
 
-  -- Tornadus ploie, les vents retombent
-  SOUND:PlayBattleSE('EVT_CH03_Boss_Collapse')
-  GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 4, 20))
-  -- LOT 2.3 — pas de PoseGroundAction/"Faint" : le gardien reste visible
-  -- pendant les dialogues, puis disparait au flash blanc.
-  GROUND:CharSetAnim(tornadus, "Idle", true)
-
+  -- Le vent retombe, la camera se stabilise.
+  GAME:MoveCamera(560, 1104, 60, false)
   GAME:WaitFrames(60)
 
-  -- The storm clears
-  SOUND:PlayBGM('In the Depths of the Pit.ogg', false)
+  -- Tornadus fait face au duo.
+  GROUND:CharAnimateTurnTo(tornadus, Direction.Down, 4)
+  UI:SetSpeaker(tornadus)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A01']))
+  GAME:WaitFrames(20)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A02']))
+  GAME:WaitFrames(15)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A03']))
+  GAME:WaitFrames(15)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A04']))
+  GAME:WaitFrames(15)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A05']))
+  GAME:WaitFrames(20)
 
-  UI:SetSpeaker(partner)
-  GeneralFunctions.SetEmotion("Inspired")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_012']))
-  -- "On...[pause=10] On l'a vaincu !"
+  GeneralFunctions.SetEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A06']))
+  GAME:WaitFrames(15)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A07']))
+  GAME:WaitFrames(15)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A08']))
+  GAME:WaitFrames(25)
+
+  -- ============================================================
+  -- ACTE 2 : L'ARRIVEE DE LA GUILDE
+  -- ============================================================
+  -- La Guilde, qui avait attendu en contrebas, a grimpe pendant le
+  -- combat. Elle arrive par le sud (positions libres y 1220-1236).
+  local tropius, noctowl, girafarig, breloom, audino, snubbull, growlithe, zigzagoon =
+    CharacterEssentials.MakeCharactersFromList({
+      {'Tropius',    424, 1220, Direction.Up},
+      {'Noctowl',    512, 1220, Direction.Up},
+      {'Girafarig',  552, 1236, Direction.Up},
+      {'Breloom',    592, 1220, Direction.Up},
+      {'Audino',     640, 1236, Direction.Up},
+      {'Snubbull',   680, 1220, Direction.Up},
+      {'Growlithe',  440, 1240, Direction.Up},
+      {'Zigzagoon',  720, 1240, Direction.Up},
+    })
+
+  -- Arrivee en groupe, camera qui suit le mouvement.
+  local arr = {}
+  local group = {tropius, noctowl, girafarig, breloom, audino, snubbull, growlithe, zigzagoon}
+  for i, c in ipairs(group) do
+    if c ~= nil then
+      arr[#arr+1] = TASK:BranchCoroutine(function()
+        GAME:WaitFrames(i * 5)
+        pcall(function()
+          GROUND:MoveToPosition(c, c.Position.X, 1140, false, 0.9)
+          GROUND:CharAnimateTurnTo(c, Direction.Up, 4)
+        end)
+      end)
+    end
+  end
+  TASK:JoinCoroutines(arr)
+  GAME:WaitFrames(20)
+
+  -- Tous decouvrent Tornadus : silence, camera elargie.
+  GAME:MoveCamera(560, 1180, 80, false)
+  GAME:WaitFrames(80)
+
+  if tropius ~= nil then
+    UI:SetSpeaker(tropius)
+    GeneralFunctions.SetEmotion("Stunned")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A09']))
+  end
+  GAME:WaitFrames(20)
+  if noctowl ~= nil then
+    GROUND:CharSetEmote(noctowl, "shock", 1)
+    UI:SetSpeaker(noctowl)
+    GeneralFunctions.SetEmotion("Surprised")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A10']))
+  end
+
+  -- ============================================================
+  -- ACTE 3 : LES EXCUSES DE LA GUILDE
+  -- ============================================================
+  GAME:WaitFrames(30)
+  if noctowl ~= nil then
+    local walk1 = TASK:BranchCoroutine(function()
+      pcall(function() GROUND:MoveToPosition(noctowl, 520, 1140, false, 0.8) end)
+    end)
+    TASK:JoinCoroutines({walk1})
+    GROUND:CharAnimateTurnTo(noctowl, Direction.Down, 4)
+    UI:SetSpeaker(noctowl)
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A11']))
+    GAME:WaitFrames(15)
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A12']))
+    GAME:WaitFrames(15)
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A13']))
+  end
 
   GAME:WaitFrames(30)
+  GROUND:CharAnimateTurnTo(tornadus, Direction.Down, 4)
+  UI:SetSpeaker(tornadus)
   GeneralFunctions.SetEmotion("Normal")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_013']))
-  -- "Regarde ! L'orage se dissipe..."
-
-  GAME:WaitFrames(20)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A14']))
+  GAME:WaitFrames(15)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A15']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A16']))
+  GAME:WaitFrames(15)
   GeneralFunctions.SetEmotion("Worried")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_014']))
-  -- "Cette voix...[pause=15] Elle a dit quelque chose à propos de ruines ancestrales."
-
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A17']))
   GAME:WaitFrames(20)
-  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWG_015']), "Determined")
-  -- "C'est là qu'on va. Vers les ruines fendues."
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A18']))
 
-  -- ================= UN VRAI ECHANGE APRES LA VICTOIRE =================
-  -- La victoire ne clot pas : elle OUVRE. Tornadus, enfin debout sans
-  -- combattre, parle de ce qu'il gardait et de ce qu'il a vu d'en haut.
-  -- Le duo ne fete pas : il questionne. C'est ici que se pose le fil
-  -- rouge vers les Ruines Fendues (le donjon suivant, architecture
-  -- d'Aegis Cave dans New Era).
-  GAME:WaitFrames(20)
-  GAME:MoveCamera(560, 1104, 40, false)
-  UI:SetSpeaker(tornadus)
-  GeneralFunctions.SetEmotion("Normal")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_047']))
-  -- "Vous entendez ce silence ? C'est la première fois que la cime se tait."
-  GAME:WaitFrames(18)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_048']))
-  -- "Je vous ai vus tomber. Je vous ai vus remonter. Ce n'est pas la
-  --  force qui ouvre mon ciel — c'est de ne jamais vous arrêter."
+  -- ============================================================
+  -- ACTE 4 : TOUR DE PAROLE (variation de portrait par personnage)
+  -- ============================================================
   GAME:WaitFrames(20)
 
-  GAME:MoveCamera(560, 1136, 40, false)
-  UI:SetSpeaker(partner)
-  GeneralFunctions.SetEmotion("Surprised")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_049']))
-  -- "Vous... vous nous attendiez, pas vrai ? Depuis le début."
+  if tropius ~= nil then
+    UI:SetSpeaker(tropius)
+    GeneralFunctions.SetEmotion("Determined")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A19']))
+  end
+  if noctowl ~= nil then
+    UI:SetSpeaker(noctowl)
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A20']))
+  end
+  if girafarig ~= nil then
+    UI:SetSpeaker(girafarig)
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A21']))
+  end
+  if breloom ~= nil then
+    UI:SetSpeaker(breloom)
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A22']))
+  end
+  if audino ~= nil then
+    UI:SetSpeaker(audino)
+    GeneralFunctions.SetEmotion("Worried")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A23']))
+  end
+  if snubbull ~= nil then
+    UI:SetSpeaker(snubbull)
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A24']))
+  end
+  if t2 ~= nil then
+    UI:SetSpeaker(t2)
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A25']))
+  end
+  if t3 ~= nil then
+    UI:SetSpeaker(t3)
+    GeneralFunctions.SetEmotion("Joyous")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A26']))
+  end
+  if growlithe ~= nil then
+    UI:SetSpeaker(growlithe)
+    GeneralFunctions.SetEmotion("Determined")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A27']))
+  end
+
   GAME:WaitFrames(15)
-  UI:SetSpeaker(tornadus)
-  GeneralFunctions.SetEmotion("Normal")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_050']))
-  -- "J'attendais quelqu'un qui porte. Vous portez. C'est tout."
-  GAME:WaitFrames(18)
-  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWG_051']), "Worried")
-  -- "(Une forme sous le monde... Il a dit que rien de naturel n'a d'angles.)"
-  GAME:WaitFrames(20)
+  if zigzagoon ~= nil then
+    GROUND:CharSetEmote(zigzagoon, "happy", 1)
+    UI:SetSpeaker(zigzagoon)
+    GeneralFunctions.SetEmotion("Happy")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A28']))
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A29']))
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A30']))
+    -- Almotz ecrit frenetiquement (pas d'anim "Write" : Idle + emote).
+    GROUND:CharSetAnim(zigzagoon, "Idle", true)
+    GROUND:CharSetEmote(zigzagoon, "notice", 1)
+  end
 
-  UI:SetSpeaker(partner)
-  GeneralFunctions.SetEmotion("Worried")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_052']))
-  -- "Cette forme... vous avez dit qu'elle avait des angles. Où est-elle ?"
-  GAME:WaitFrames(15)
-  GAME:MoveCamera(560, 1104, 40, false)
-  UI:SetSpeaker(tornadus)
-  GeneralFunctions.SetEmotion("Worried")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_053']))
-  -- "Des veines courent sous la terre, comme des racines malades.
-  --  Elles convergent toutes vers le nord."
-  GAME:WaitFrames(20)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_054']))
-  -- "Là-bas, des ruines fendues par quelque chose de plus vieux que le
-  --  vent. C'est là que la forme affleure."
-  GAME:WaitFrames(22)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_055']))
-  -- "Ce n'est pas un monstre que vous devez craindre, petits. C'est un
-  --  lieu. Et les lieux, eux, n'ont jamais pressé."
-  GAME:WaitFrames(24)
-
-  GAME:MoveCamera(560, 1136, 40, false)
-  UI:SetSpeaker(partner)
-  GeneralFunctions.SetEmotion("Determined")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_056']))
-  -- "Alors on descendra. On racontera tout à la guilde. Et on reviendra."
-  GAME:WaitFrames(15)
-  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWG_057']), "Determined")
-  -- "(Les ruines fendues. C'est là qu'on ira. Quand on sera prêts.)"
-  GAME:WaitFrames(20)
-
-  -- LOT 8.3 — bilan de l'expedition : ce qui a change en chemin.
-  GAME:WaitFrames(15)
-  GAME:MoveCamera(560, 1108, 40, false)
-  UI:ResetSpeaker()
-  UI:SetCenter(true)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_035']))
-  UI:SetCenter(false)
-  GAME:WaitFrames(15)
-  -- ================= IL POSE SON FARDEAU =================
-  -- Cloture de l'expedition : il ne felicite pas, il TRANSMET. Le detail
-  -- « dormez, mangez » le rend humain apres la revelation. Sa derniere
-  -- phrase retourne l'evidence — un mur peut enfermer autant qu'il protege.
-  -- C'est la graine que Diancie fera germer au chapitre 8.
-  GAME:MoveCamera(560, 1104, 40, false)
-  UI:SetSpeaker(tornadus)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_044']))
-  -- "Alors c'est a vous, maintenant. J'en suis heureux. C'etait lourd."
-  GAME:WaitFrames(18)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_045']))
-  -- "Descendez. Dormez. Mangez. Personne ne resout une forme le ventre vide."
-  GAME:WaitFrames(20)
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_046']))
-  -- "Et quand vous trouverez les angles — ne supposez pas qu'ils ont ete
-  --  batis pour vous garder DEHORS."
-  GAME:WaitFrames(28)
-
-  GAME:MoveCamera(560, 1136, 40, false)
-  UI:SetSpeaker(partner)
-  GeneralFunctions.SetEmotion("Normal")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_036']))
-  -- "On est montes ici pour l'expedition. Je l'avais oublie."
-  GAME:WaitFrames(15)
-  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWG_037']), "Normal")
-  -- "Moi aussi. Quelque part en route, c'est devenu autre chose."
-  GAME:WaitFrames(20)
-
-  GAME:WaitFrames(20)
-  UI:SetSpeaker(partner)
-  GeneralFunctions.SetEmotion("Determined")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_016']))
-  -- "Alors allons-y ! La fin de l'expédition nous attend !"
-
+  -- ============================================================
+  -- ACTE 5 : LE DEPART DE TORNADUS
+  -- ============================================================
   GAME:WaitFrames(30)
-  SOUND:FadeOutBGM(60)
+  GAME:MoveCamera(560, 1104, 60, false)
+  GROUND:CharTurnToCharAnimated(tornadus, hero, 4)
 
-  -- Tornadus se dissout dans une bourrasque
-  local whirlwind = RogueEssence.Content.FlashEmitter()
-  whirlwind.FadeInTime = 2
-  whirlwind.HoldTime = 2
-  whirlwind.FadeOutTime = 20
-  whirlwind.StartColor = Color(255, 255, 255, 0)
-  whirlwind.Layer = DrawLayer.Top
-  whirlwind.Anim = RogueEssence.Content.BGAnimData("White", 0)
-  GROUND:PlayVFX(whirlwind, tornadus.Position.X, tornadus.Position.Y)
+  UI:SetSpeaker(tornadus)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A31']))
+  GAME:WaitFrames(15)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A32']))
+  GAME:WaitFrames(20)
+
+  if tropius ~= nil then
+    GROUND:CharTurnToCharAnimated(tornadus, tropius, 4)
+  end
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A33']))
+
+  GAME:WaitFrames(15)
+  GeneralFunctions.SetEmotion("Happy")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A34']))
+
+  -- Flash blanc, envol, disparition.
   SOUND:PlayBattleSE("EVT_Battle_Flash")
-  GAME:WaitFrames(16)
+  GAME:FadeOut(false, 30)
+  SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
+  GAME:WaitFrames(30)
+  GAME:FadeIn(20)
   GROUND:Hide('Tornadus')
   GAME:WaitFrames(30)
 
+  -- ============================================================
+  -- ACTE 6 : LA SCENE COMIQUE
+  -- ============================================================
+  GAME:MoveCamera(560, 1180, 40, false)
+  GAME:WaitFrames(40)
+
+  if noctowl ~= nil then
+    UI:SetSpeaker(noctowl)
+    GeneralFunctions.SetEmotion("Stunned")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A35']))
+  end
+  if tropius ~= nil then
+    UI:SetSpeaker(tropius)
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A36']))
+  end
+  GAME:WaitFrames(20)
+  if snubbull ~= nil then
+    UI:SetSpeaker(snubbull)
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A37']))
+  end
+  if growlithe ~= nil then
+    GROUND:CharSetEmote(growlithe, "question", 1)
+    UI:SetSpeaker(growlithe)
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A38']))
+  end
+  if t3 ~= nil then
+    UI:SetSpeaker(t3)
+    GeneralFunctions.SetEmotion("Happy")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A39']))
+  end
+  if zigzagoon ~= nil then
+    UI:SetSpeaker(zigzagoon)
+    GeneralFunctions.SetEmotion("Happy")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A40']))
+  end
+
+  GAME:WaitFrames(20)
+  if noctowl ~= nil then
+    UI:SetSpeaker(noctowl)
+    GeneralFunctions.SetEmotion("Determined")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A41']))
+  end
+
+  GAME:WaitFrames(20)
+  UI:ResetSpeaker(false)
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A42']))
+  UI:SetCenter(false)
+  UI:ResetSpeaker()
+
+  -- ============================================================
+  -- ACTE 7 : REPRENDRE LA ROUTE
+  -- ============================================================
+  GAME:WaitFrames(20)
+  if tropius ~= nil then
+    UI:SetSpeaker(tropius)
+    GeneralFunctions.SetEmotion("Determined")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A43']))
+  end
+  if girafarig ~= nil then
+    GROUND:CharAnimateTurnTo(girafarig, Direction.Up, 4)
+    UI:SetSpeaker(girafarig)
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A44']))
+  end
+  if noctowl ~= nil then
+    UI:SetSpeaker(noctowl)
+    GeneralFunctions.SetEmotion("Determined")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A45']))
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A46']))
+  end
+
+  -- Mise en formation et depart collectif vers le nord.
+  GAME:WaitFrames(15)
+  local depart = {}
+  depart[1] = TASK:BranchCoroutine(function()
+    GROUND:MoveInDirection(hero, Direction.Up, 120, false, 1)
+  end)
+  depart[2] = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(4)
+    GROUND:MoveInDirection(partner, Direction.Up, 120, false, 1)
+  end)
+  for i, c in ipairs(group) do
+    if c ~= nil then
+      depart[#depart+1] = TASK:BranchCoroutine(function()
+        GAME:WaitFrames(8 + i * 3)
+        pcall(function()
+          GROUND:MoveInDirection(c, Direction.Up, 110, false, 1)
+          GAME:GetCurrentGround():RemoveTempChar(c)
+        end)
+      end)
+    end
+  end
+  local coro_cam_final = TASK:BranchCoroutine(function()
+    GAME:MoveCamera(560, 1000, 140, false)
+  end)
+  depart[#depart+1] = coro_cam_final
+  TASK:JoinCoroutines(depart)
+  GAME:WaitFrames(40)
+  GAME:WaitFrames(60)
+
+  SOUND:FadeOutBGM(40)
   GAME:FadeOut(false, 60)
-  GAME:WaitFrames(90)
+  GAME:WaitFrames(60)
+
+  -- Nettoyage : retirer les PNJ de la guilde restants.
+  for _, c in ipairs(group) do
+    if c ~= nil then
+      pcall(function() GAME:GetCurrentGround():RemoveTempChar(c) end)
+    end
+  end
+  SV.Chapter5.MountGuardianDefeated = true
 end
 
 function mount_windswept_guardian_ch_5.DefeatedBoss()
@@ -671,8 +847,10 @@ function mount_windswept_guardian_ch_5.DefeatedBoss()
 
   --LE SOMMET EST VAINCU — MAIS L'EXPEDITION N'EST PAS TERMINEE.
   --(Restructuration validee : option 2 — les Ruines Fendues sont le
-  --climax du ch5.) Tornadus a revele les veines qui convergent vers le
-  --nord : la suite logique est le CAMPEMENT DEVANT LES RUINES FENDUES
+  --climax du ch5.) La scene post-combat (7 actes) a ete jouee dans
+  --DefeatedBossBody : Tornadus a revele les perturbations de la
+  --region et indique que les reponses se trouvent plus loin. La suite
+  --logique est le CAMPEMENT DEVANT LES RUINES FENDUES
   --(cloven_ruins_entrance), pas un retour a Metano. Le briefing, la
   --nuit et le reve s'y jouent (cloven_ruins_entrance_ch_5.lua), puis
   --le donjon final. FinishedExpedition ne sera pose qu'apres les
