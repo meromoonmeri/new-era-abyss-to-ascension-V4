@@ -60,6 +60,19 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- Dramatic silence — wind howling
   SOUND:PlayBGM('Mt. Travail.ogg', false)
 
+  -- TORNADUS EST CREE DES LE DEBUT (CACHE), POUR PARLER AVEC SON PORTRAIT
+  -- AVANT MEME D'APPARAITRE. Meme patron que le Creuset (magcargo cree
+  -- puis Hide en tete de scene, searing_crucible_ch_5.lua:68-72) : le
+  -- locuteur a besoin du GroundChar pour afficher son portrait. Sans
+  -- cette creation precoce, les repliques de Tornadus passaient par le
+  -- locuteur anonyme uE040 SANS portrait — la « Voix » qui commente a
+  -- la place du boss, exactement ce que l'utilisateur demande de
+  -- supprimer.
+  local tornadus = CharacterEssentials.MakeCharactersFromList({
+    {'Tornadus', 560, 1064, Direction.Down}
+  })
+  GROUND:Hide('Tornadus')
+
   GAME:WaitFrames(40)
   local coro1 = TASK:BranchCoroutine(function()
     GROUND:MoveInDirection(partner, Direction.Up, 56, false, 1)
@@ -117,11 +130,12 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(60)
 
-  -- THE VOICE — before anything appears
+  -- TORNADUS S'ANNONCE — il parle avant d'apparaitre, avec son portrait.
+  -- (Avant : locuteur anonyme uE040 sans portrait = la « Voix ».)
   SOUND:PlayBattleSE('EVT_Emote_Shock_2')
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, tornadus.CurrentForm.Species, tornadus.CurrentForm.Form, tornadus.CurrentForm.Skin, tornadus.CurrentForm.Gender)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_005']))
-  -- "Le Prédateur Ancestral du Ciel..."
+  -- "Le Souffle qui garde la cime..."
 
   GAME:WaitFrames(20)
   -- RESPIRATION DU GROUPE : les quatre cherchent d'ou vient la voix, mais
@@ -159,15 +173,15 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(30)
 
-  --TORNADUS PARLE LUI-MEME. Le brief l'exige : « par defaut, Tornadus
-  --porte lui-meme l'integralite de la scene [...] la Voix ne doit
-  --intervenir que si elle est indispensable ». Ces trois repliques
-  --enoncent SES conditions d'acces au sommet : elles lui appartiennent,
-  --pas a une instance exterieure. On les lui rend.
-  --Il n'est pas encore visible : le SetSpeaker nomme sans portrait
-  --(forme desincarnee), donc la voix precede le corps — exactement le
-  --patron d'entree recherche.
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  -- TORNADUS PARLE (AVANT D'APPARAITRE). Le brief l'exige : « par defaut,
+  -- Tornadus porte lui-meme l'integralite de la scene [...] la Voix ne
+  -- doit intervenir que si elle est indispensable ». Ces repliques sont
+  -- LES SIENNES : conditions d'acces au sommet, adresse directe au duo.
+  -- Il n'est pas encore visible : on lui donne la parole avec SON
+  -- PORTRAIT (pattern du Creuset, searing_crucible_ch_5.lua:626) — la
+  -- voix precede le corps, mais c'est bien LUI qui parle, pas une
+  -- instance exterieure anonyme.
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, tornadus.CurrentForm.Species, tornadus.CurrentForm.Form, tornadus.CurrentForm.Skin, tornadus.CurrentForm.Gender)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_007']))
   -- "L'ultime gardien de la montagne..."
 
@@ -204,10 +218,9 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
 
   -- (560,1064) : 4 cases au nord du heros, sur la plateforme, dans le
   -- meme ecran que toute l'equipe. Verifie libre et connexe.
-  local tornadus = CharacterEssentials.MakeCharactersFromList({
-    {'Tornadus', 560, 1064, Direction.Down}
-  })
-  GROUND:Hide('Tornadus')
+  -- Tornadus a deja ete cree (et cache) en tete de scene pour pouvoir
+  -- parler avec son portrait avant d'apparaitre ; il est toujours cache
+  -- ici, on ne le recree pas.
 
   -- LOT 8.3 — l'orage comme presence, le pacte du duo avant l'ultime gardien.
   GAME:MoveCamera(560, 1140, 40, false)
@@ -224,7 +237,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_032']))
   -- "D'accord. Meme si mes pattes demandent a etre convaincues."
   GAME:WaitFrames(20)
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, tornadus.CurrentForm.Species, tornadus.CurrentForm.Form, tornadus.CurrentForm.Skin, tornadus.CurrentForm.Gender)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_033']))
   -- "Celui-ci se souvient d'un ciel sans grimpeurs."
   GAME:WaitFrames(15)
@@ -637,12 +650,18 @@ function mount_windswept_guardian_ch_5.DiedToBoss()
   UI:SetCenter(false)
   GAME:WaitFrames(20)
 
-  -- La Voix de l'Abysse commente la défaite.
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  -- TORNADUS PARLE LUI-MEME APRES LA DEFAIRE — comme Magcargo au Creuset
+  -- (searing_crucible_ch_5.lua:1000+ : apres la defaite, c'est le boss
+  -- qui s'adresse au duo). Pas de locuteur anonyme : le vainqueur
+  -- commente SA victoire.
+  UI:SetSpeaker(tornadus)
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_017']))
   GAME:WaitFrames(30)
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_018']))
   GAME:WaitFrames(20)
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_019']))
   GAME:WaitFrames(30)
 
