@@ -135,10 +135,10 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(60)
 
-  -- TORNADUS S'ANNONCE — il parle avant d'apparaitre, avec son portrait.
-  -- (Avant : locuteur anonyme uE040 sans portrait = la « Voix ».)
+  -- TORNADUS S'ANNONCE — il parle avant d'apparaitre, sans son portrait
+  -- car il est encore cache dans la brume.
   SOUND:PlayBattleSE('EVT_Emote_Shock_2')
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, tornadus.CurrentForm.Species, tornadus.CurrentForm.Form, tornadus.CurrentForm.Skin, tornadus.CurrentForm.Gender)
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", 0)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_005']))
   -- "Le Souffle qui garde la cime..."
 
@@ -190,11 +190,9 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- Tornadus porte lui-meme l'integralite de la scene [...] la Voix ne
   -- doit intervenir que si elle est indispensable ». Ces repliques sont
   -- LES SIENNES : conditions d'acces au sommet, adresse directe au duo.
-  -- Il n'est pas encore visible : on lui donne la parole avec SON
-  -- PORTRAIT (pattern du Creuset, searing_crucible_ch_5.lua:626) — la
-  -- voix precede le corps, mais c'est bien LUI qui parle, pas une
-  -- instance exterieure anonyme.
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, tornadus.CurrentForm.Species, tornadus.CurrentForm.Form, tornadus.CurrentForm.Skin, tornadus.CurrentForm.Gender)
+  -- Il n'est pas encore visible : on lui donne la parole sans portrait
+  -- car il est encore cache dans la brume.
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", 0)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_007']))
   -- "L'ultime gardien de la montagne..."
 

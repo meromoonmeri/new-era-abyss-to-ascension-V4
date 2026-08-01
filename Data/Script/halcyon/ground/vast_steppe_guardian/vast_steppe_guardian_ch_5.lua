@@ -107,24 +107,24 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_028']))
-  -- "Un Absol... On dit qu'il surgit quand un desastre approche."
+  -- "Cette brume... J'ai l'impression que la steppe nous observe de tres pres..."
   GAME:WaitFrames(15)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSG_029']), "Normal")
-  -- "Sa corne en croissant est plus vieille que l'herbe..."
+  -- "(Une presence... Quelque chose de grand approche...)"
   GAME:WaitFrames(20)
-  -- L'ABSOL PARLE (AVANT D'APPARAITRE) — son avertissement, pas une voix
-  -- exterieure : l'Absol presage, c'est exactement son role de le dire.
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, absol.CurrentForm.Species, absol.CurrentForm.Form, absol.CurrentForm.Skin, absol.CurrentForm.Gender)
+  -- L'ABSOL PARLE (AVANT D'APPARAITRE) — son avertissement, sans son portrait
+  -- car il est encore cache dans la brume.
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", 0)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_030']))
   -- "Tu peux encore faire demi-tour."
   GAME:WaitFrames(15)
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_031']))
-  -- "Nous, on s'en voudrait. Ca suffit."
+  -- "Quoi ?! Qui est la ?! Montrez-vous !"
   GAME:WaitFrames(15)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSG_032']), "Determined")
-  -- "Alors arrete de parler et tiens-toi droit. Il arrive."
+  -- "Detends-toi. Regarde vers le nord, la brume s'ecarte !"
   GAME:WaitFrames(20)
 
   -- PANORAMIQUE : cadre commun equipe (y=288) + gardien (y=200).
@@ -158,6 +158,18 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   end)
   TASK:JoinCoroutines({coro1, coro2})
 
+  GAME:WaitFrames(20)
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Surprised")
+  if _DATA.Save.Settings.Language == "fr" then
+    UI:WaitShowDialogue("Un...[pause=10] un Absol ?![pause=15] On dit qu'il surgit quand un désastre approche...")
+    GAME:WaitFrames(15)
+    GeneralFunctions.HeroDialogue(hero, "(Sa corne en croissant...[pause=10] elle est plus vieille que le sentier qu'on a pris...)", "Normal")
+  else
+    UI:WaitShowDialogue("An...[pause=10] an Absol?![pause=15] They say it appears when a disaster draws near...")
+    GAME:WaitFrames(15)
+    GeneralFunctions.HeroDialogue(hero, "(Its crescent horn...[pause=10] it's older than the path we took...)", "Normal")
+  end
   GAME:WaitFrames(20)
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Surprised")
