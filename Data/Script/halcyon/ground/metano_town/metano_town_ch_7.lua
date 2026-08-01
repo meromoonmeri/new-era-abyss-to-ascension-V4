@@ -1522,4 +1522,5323 @@ function metano_town_ch_7.GreatReunion()
   GAME:EnterGroundMap("colline_sans_lumiere", "Main_Entrance_Marker")
 end
 
+
+
+
+
+
+
+function metano_town_ch_7.Mawile_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Mawile_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Mawile_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Mawile_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Mawile_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Mawile_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Mawile_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Mawile_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Mawile_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Mawile_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Electrike_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Electrike_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Electrike_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Electrike_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Electrike_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Electrike_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Electrike_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Electrike_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Electrike_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Electrike_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Sentret_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Sentret_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Sentret_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Sentret_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Sentret_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Sentret_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Sentret_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Sentret_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Sentret_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Sentret_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Manectric_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Manectric_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Manectric_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Manectric_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Manectric_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Manectric_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Manectric_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Manectric_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Manectric_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Manectric_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Wooper_Girl_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Wooper_Girl_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Wooper_Girl_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Wooper_Girl_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Wooper_Girl_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Wooper_Girl_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Wooper_Girl_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Wooper_Girl_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Wooper_Girl_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Wooper_Girl_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Wooper_Boy_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Wooper_Boy_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Wooper_Boy_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Wooper_Boy_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Wooper_Boy_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Wooper_Boy_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Wooper_Boy_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Wooper_Boy_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Wooper_Boy_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Wooper_Boy_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Meditite_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Meditite_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Meditite_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Meditite_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Meditite_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Meditite_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Meditite_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Meditite_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Meditite_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Meditite_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Machamp_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Machamp_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Machamp_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Machamp_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Machamp_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Machamp_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Machamp_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Machamp_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Machamp_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Machamp_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Luxray_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Luxray_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Luxray_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Luxray_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Luxray_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Luxray_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Luxray_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Luxray_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Luxray_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Luxray_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Gloom_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Gloom_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Gloom_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Gloom_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Gloom_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Gloom_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Gloom_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Gloom_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Gloom_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Gloom_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Oddish_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Oddish_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Oddish_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Oddish_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Oddish_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Oddish_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Oddish_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Oddish_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Oddish_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Oddish_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Numel_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Numel_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Numel_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Numel_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Numel_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Numel_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Numel_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Numel_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Numel_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Numel_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Bellossom_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Bellossom_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Bellossom_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Bellossom_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Bellossom_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Bellossom_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Bellossom_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Bellossom_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Bellossom_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Bellossom_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Zigzagoon_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Zigzagoon_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Zigzagoon_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Zigzagoon_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Zigzagoon_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Zigzagoon_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Zigzagoon_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Zigzagoon_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Zigzagoon_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Zigzagoon_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Nidoking_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Nidoking_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Nidoking_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Nidoking_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Nidoking_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Nidoking_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Nidoking_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Nidoking_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Nidoking_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Nidoking_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Roselia_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Roselia_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Roselia_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Roselia_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Roselia_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Roselia_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Roselia_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Roselia_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Roselia_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Roselia_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Spinda_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Spinda_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Spinda_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Spinda_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Spinda_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Spinda_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Spinda_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Spinda_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Spinda_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Spinda_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Ludicolo_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Ludicolo_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Ludicolo_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Ludicolo_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Ludicolo_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Ludicolo_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Ludicolo_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Ludicolo_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Ludicolo_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Ludicolo_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Jigglypuff_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Jigglypuff_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Jigglypuff_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Jigglypuff_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Jigglypuff_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Jigglypuff_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Jigglypuff_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Jigglypuff_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Jigglypuff_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Jigglypuff_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Marill_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Marill_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Marill_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Marill_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Marill_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Marill_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Marill_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Marill_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Marill_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Marill_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Spheal_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Spheal_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Spheal_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Spheal_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Spheal_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Spheal_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Spheal_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Spheal_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Spheal_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Spheal_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Bagon_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Bagon_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Bagon_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Bagon_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Bagon_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Bagon_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Bagon_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Bagon_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Bagon_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Bagon_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Doduo_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Doduo_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Doduo_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Doduo_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Doduo_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Doduo_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Doduo_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Doduo_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Doduo_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Doduo_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Metapod_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Metapod_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Metapod_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Metapod_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Metapod_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Metapod_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Metapod_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Metapod_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Metapod_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Metapod_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Silcoon_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Silcoon_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Silcoon_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Silcoon_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Silcoon_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Silcoon_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Silcoon_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Silcoon_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Silcoon_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Silcoon_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Mareep_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Mareep_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Mareep_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Mareep_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Mareep_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Mareep_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Mareep_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Mareep_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Mareep_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Mareep_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Cranidos_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Cranidos_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Cranidos_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Cranidos_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Cranidos_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Cranidos_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Cranidos_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Cranidos_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Cranidos_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Cranidos_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Growlithe_Desk_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Growlithe_Desk_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Growlithe_Desk_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Growlithe_Desk_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Growlithe_Desk_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Growlithe_Desk_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Growlithe_Desk_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Growlithe_Desk_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Growlithe_Desk_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Growlithe_Desk_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Butterfree_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Butterfree_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Butterfree_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Butterfree_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Butterfree_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Butterfree_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Butterfree_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Butterfree_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Butterfree_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Butterfree_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Venipede_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Venipede_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Venipede_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Venipede_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Venipede_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Venipede_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Venipede_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Venipede_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Venipede_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Venipede_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Adagio_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Adagio_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Adagio_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Adagio_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Adagio_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Adagio_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Adagio_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Adagio_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Adagio_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Adagio_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Aria_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Aria_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Aria_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Aria_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Aria_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Aria_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Aria_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Aria_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Aria_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Aria_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Sonata_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est un plaisir de vous voir en cette belle journée du Chapitre 7.", "Normal")
+  UI:WaitShowDialogue("Le monde est en train de vivre un grand tournant. Avez-vous entendu les rumeurs ?")
+  UI:WaitShowDialogue("La Team Alakazam mène une enquête approfondie sur les secousses telluriques.")
+  UI:WaitShowDialogue("On dit que tout converge vers le nord... là où la terre brûle d'un feu ancien.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Team Alakazam", "Le Grand Tournoi", "Les visions de Xatu", "La légende humaine"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Team Alakazam... Alakazam, Tyranocif et Dracaufeu sont incroyablement imposants.")
+    UI:WaitShowDialogue("Ils sont venus de la lointaine Place Pokémon pour analyser les perturbations sismiques.")
+    UI:WaitShowDialogue("Alakazam a une sagesse infinie, il ressent les auras et comprend les flux de la terre.")
+    UI:WaitShowDialogue("Tyranocif et Dracaufeu sont prêts à déchaîner toute leur puissance si le volcan s'éveille.")
+    UI:WaitShowDialogue("Leur présence montre à quel point la situation est critique pour notre continent.")
+    UI:WaitShowDialogue("Coopérez avec eux, mes amis. Ils sont la voix de la sagesse et de l'expérience.")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("Le Grand Tournoi d'Explorateurs de la Fédération... Quelle idée fantastique !")
+    UI:WaitShowDialogue("Toutes les équipes s'entraînent jour et nuit sur la place pour se préparer.")
+    UI:WaitShowDialogue("Le but est de désigner les plus dignes pour assister les gardiens face aux dérèglements.")
+    UI:WaitShowDialogue("La Team Dazzling et même les équipes de secours y participeront.")
+    UI:WaitShowDialogue("Ne relâchez pas votre entraînement. Nous comptons tous sur vous pour briller !")
+    UI:WaitShowDialogue("Ce tournoi sera un événement inoubliable pour toute la ville de Metano !")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("Xatu... le devin qui vit au sommet du Grand Canyon.")
+    UI:WaitShowDialogue("Ses yeux fixent le soleil couchant, lisant le passé, le présent et l'avenir d'un seul regard.")
+    UI:WaitShowDialogue("Lors de votre rencontre, il est entré en transe et a eu des visions terrifiantes.")
+    UI:WaitShowDialogue("Il a vu Groudon, le Titan de la Terre, s'agiter au cœur de sa fosse ardente !")
+    UI:WaitShowDialogue("Mais Xatu insiste : Groudon n'agit pas par malveillance. Une force obscure le pousse.")
+    UI:WaitShowDialogue("Cette révélation change tout... Nous devons découvrir de quoi il s'agit.")
+  elseif choice == 4 then
+    UI:WaitShowDialogue("La légende de l'humain transformé en Pokémon... C'est la révélation d'Alakazam.")
+    UI:WaitShowDialogue("Il y a trente ans, un humain maudit a été transformé en Pokémon pour sauver le monde d'un météore.")
+    UI:WaitShowDialogue("Traqué comme fugitif, il a dû fuir à travers la Lapis Cave pour prouver son innocence.")
+    UI:WaitShowDialogue("Et s'il y avait un autre humain parmi nous aujourd'hui ? Serait-il traqué de la même façon ?")
+    UI:WaitShowDialogue("C'est lourd d'y penser. Si quelqu'un cachait sa véritable nature, il aurait bien raison...")
+    UI:WaitShowDialogue("Gardons ce secret pour nous. L'essentiel est de protéger nos amis et notre monde.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Sonata_TournamentTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous commencé à vous préparer pour le Grand Tournoi ?", "Normal")
+  UI:WaitShowDialogue("Toute l'arène est en effervescence, les plus grandes équipes de secours s'y rassemblent.")
+  UI:WaitShowDialogue("Les duels seront d'une intensité phénoménale. Il faudra montrer toute votre tactique.")
+  UI:WaitShowDialogue("Pensez à bien choisir vos capacités, vos écharpes et vos objets de soutien.")
+  UI:WaitShowDialogue("Et n'oubliez pas : l'esprit d'équipe est ce qui fait la différence face aux plus forts !")
+  UI:WaitShowDialogue("Je serai au premier rang pour vous encourager, mes petits héros !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Sonata_SeismicTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Je sens la terre qui gronde... de plus en plus souvent...", "Worried")
+  UI:WaitShowDialogue("Ces secousses ne sont pas ordinaires. Elles font vibrer la surface du lac d'Altere.")
+  UI:WaitShowDialogue("Alakazam dit que le noyau terrestre s'agite sous l'effet de la faille du nord.")
+  UI:WaitShowDialogue("Même les Pokémon sauvages des donjons deviennent nerveux à cause de cela.")
+  UI:WaitShowDialogue("S'il vous plaît, découvrez la cause de ce dérèglement avant qu'il ne soit trop tard.")
+  UI:WaitShowDialogue("Nous mettons toutes nos espérances entre les mains de votre équipe !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Sonata_LegendTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les anciennes légendes recèlent toujours une part de vérité...", "Normal")
+  UI:WaitShowDialogue("On dit que l'humain de la légende avait une Gardevoir protectrice à ses côtés.")
+  UI:WaitShowDialogue("Le lien d'amitié a transcendé la malédiction de Feunard.")
+  UI:WaitShowDialogue("Si l'histoire se répète, les liens que vous tissez aujourd'hui seront vos plus grandes armes.")
+  UI:WaitShowDialogue("Prenez soin les uns des autres. C'est l'essentiel d'une équipe de secours.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Sonata_ReunionTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La grande réunion sur la place m'a glacé le sang...", "Worried")
+  UI:WaitShowDialogue("Voir la guilde, la Team Alakazam et la Team Dazzling débattre ainsi...")
+  UI:WaitShowDialogue("On sent que le destin de toute la région se joue dans les prochains jours.")
+  UI:WaitShowDialogue("Chaque habitant du village retient son souffle en attendant l'expédition.")
+  UI:WaitShowDialogue("S'il vous plaît, restez forts. Nous croyons tous en vous de tout notre cœur.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Sonata_AlakazamChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'aura d'Alakazam is d'une puissance incroyable...", "Normal")
+  UI:WaitShowDialogue("On sent toute la sagesse et les combats de sa vie dans son simple regard.")
+  UI:WaitShowDialogue("Et parmi les membres de son équipe, qui trouvez-vous le plus impressionnant ?")
+  UI:BeginChoiceMenu("Le plus imposant :", {"Alakazam", "Tyranocif", "Dracaufeu", "Tous"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Alakazam possède une force mentale et une intelligence sans égales dans le monde.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Tyranocif est un titan absolu de puissance brute. Il peut briser des montagnes !")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Dracaufeu fend les cieux avec une majesté et un feu légendaires !")
+  else
+    UI:WaitShowDialogue("Ils forment sans doute l'équipe de secours la plus équilibrée et glorieuse d'Origins !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Sonata_XatuChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Croyez-vous aux prédictions du devin Xatu ?", "Normal")
+  UI:WaitShowDialogue("Ses yeux ne clignent jamais, fixés éternellement sur la lumière céleste.")
+  UI:WaitShowDialogue("Certains craignent ses paroles, d'autres y cherchent un réconfort.")
+  UI:BeginChoiceMenu("Votre opinion :", {"Je crois ses visions", "Il est trop mystérieux", "Je doute"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Vous avez raison. Xatu voit ce que nous ne pouvons pas encore concevoir.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Ses paroles ont toujours des doubles sens qu'il faut décrypter pas à pas.")
+  else
+    UI:WaitShowDialogue("Le doute est permis, mais la terre gronde bien comme il l'a annoncé...")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Sonata_XatuProphecyDetail(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La transe de Xatu à la Colline des Anciens était terrifiante...", "Worried")
+  UI:WaitShowDialogue("Ces visions de lave, de séismes et de la caldeira de Groudon...")
+  UI:WaitShowDialogue("On sent que le destin de tout le continent s'accélère d'un coup.")
+  UI:WaitShowDialogue("Mais Xatu dit vrai : ce n'est pas la volonté de Groudon, une autre force l'agite.")
+  UI:WaitShowDialogue("Quelle est cette force obscure cachée au fond de l'Abîme ?")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Sonata_GreatReunionDebate(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La révélation d'Alakazam sur l'humain de la légende fait trembler la ville...", "Worried")
+  UI:WaitShowDialogue("Un humain maudit par un Feunard, transformé en Pokémon pour sauver le monde...")
+  UI:WaitShowDialogue("Chacun se demande s'il n'y a pas un autre humain caché parmi nous aujourd'hui.")
+  UI:WaitShowDialogue("Certains s'inquiètent, d'autres y voient un signe d'espoir.")
+  UI:WaitShowDialogue("Quoi qu'il en soit, nous devons rester soudés face au danger de l'Abîme.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_7.Sonata_LugiaTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les souvenirs de Lugia au sommet du Pic Céleste me hantent...", "Normal")
+  UI:WaitShowDialogue("C'était un affrontement d'une majesté et d'une force absolues.")
+  UI:WaitShowDialogue("Savoir que des entités d'un tel calibre veillent sur nos cieux est rassurant.")
+  UI:WaitShowDialogue("Et pourtant, le déséquilibre de la terre continue de les perturber.")
+  UI:WaitShowDialogue("Nous devons à tout prix les aider à préserver l'harmonie de notre monde.")
+  GeneralFunctions.EndConversation(chara)
+end
+
 return metano_town_ch_7

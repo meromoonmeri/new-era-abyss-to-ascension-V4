@@ -1725,4 +1725,5257 @@ function metano_town_ch_6.PostDefeatCutscene()
 	SOUND:PlayBGM('Treasure Town.ogg', true)
 end
 
+
+
+
+
+
+
+function metano_town_ch_6.Mawile_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Mawile_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Mawile_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Mawile_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Mawile_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Mawile_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Mawile_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Mawile_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Mawile_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Electrike_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Electrike_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Electrike_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Electrike_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Electrike_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Electrike_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Electrike_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Electrike_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Electrike_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Sentret_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Sentret_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Sentret_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Sentret_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Sentret_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Sentret_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Sentret_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Sentret_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Sentret_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Manectric_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Manectric_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Manectric_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Manectric_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Manectric_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Manectric_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Manectric_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Manectric_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Manectric_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Wooper_Girl_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Wooper_Girl_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Wooper_Girl_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Wooper_Girl_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Wooper_Girl_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Wooper_Girl_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Wooper_Girl_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Wooper_Girl_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Wooper_Girl_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Wooper_Boy_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Wooper_Boy_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Wooper_Boy_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Wooper_Boy_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Wooper_Boy_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Wooper_Boy_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Wooper_Boy_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Wooper_Boy_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Wooper_Boy_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Meditite_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Meditite_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Meditite_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Meditite_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Meditite_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Meditite_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Meditite_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Meditite_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Meditite_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Machamp_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Machamp_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Machamp_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Machamp_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Machamp_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Machamp_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Machamp_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Machamp_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Machamp_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Luxray_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Luxray_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Luxray_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Luxray_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Luxray_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Luxray_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Luxray_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Luxray_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Luxray_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Gloom_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Gloom_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Gloom_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Gloom_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Gloom_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Gloom_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Gloom_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Gloom_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Gloom_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Oddish_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Oddish_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Oddish_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Oddish_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Oddish_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Oddish_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Oddish_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Oddish_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Oddish_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Numel_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Numel_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Numel_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Numel_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Numel_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Numel_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Numel_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Numel_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Numel_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Bellossom_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Bellossom_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Bellossom_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Bellossom_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Bellossom_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Bellossom_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Bellossom_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Bellossom_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Bellossom_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Zigzagoon_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Zigzagoon_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Zigzagoon_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Zigzagoon_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Zigzagoon_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Zigzagoon_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Zigzagoon_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Zigzagoon_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Zigzagoon_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Nidoking_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Nidoking_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Nidoking_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Nidoking_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Nidoking_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Nidoking_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Nidoking_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Nidoking_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Nidoking_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Roselia_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Roselia_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Roselia_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Roselia_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Roselia_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Roselia_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Roselia_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Roselia_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Roselia_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Spinda_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Spinda_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Spinda_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Spinda_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Spinda_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Spinda_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Spinda_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Spinda_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Spinda_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Ludicolo_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Ludicolo_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Ludicolo_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Ludicolo_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Ludicolo_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Ludicolo_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Ludicolo_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Ludicolo_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Ludicolo_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Jigglypuff_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Jigglypuff_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Jigglypuff_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Jigglypuff_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Jigglypuff_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Jigglypuff_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Jigglypuff_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Jigglypuff_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Jigglypuff_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Marill_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Marill_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Marill_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Marill_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Marill_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Marill_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Marill_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Marill_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Marill_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Spheal_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Spheal_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Spheal_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Spheal_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Spheal_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Spheal_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Spheal_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Spheal_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Spheal_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Bagon_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Bagon_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Bagon_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Bagon_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Bagon_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Bagon_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Bagon_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Bagon_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Bagon_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Doduo_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Doduo_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Doduo_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Doduo_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Doduo_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Doduo_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Doduo_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Doduo_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Doduo_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Metapod_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Metapod_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Metapod_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Metapod_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Metapod_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Metapod_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Metapod_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Metapod_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Metapod_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Silcoon_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Silcoon_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Silcoon_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Silcoon_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Silcoon_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Silcoon_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Silcoon_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Silcoon_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Silcoon_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Mareep_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Mareep_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Mareep_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Mareep_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Mareep_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Mareep_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Mareep_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Mareep_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Mareep_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Cranidos_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Cranidos_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Cranidos_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Cranidos_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Cranidos_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Cranidos_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Cranidos_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Cranidos_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Cranidos_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Growlithe_Desk_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Growlithe_Desk_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Growlithe_Desk_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Growlithe_Desk_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Growlithe_Desk_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Growlithe_Desk_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Growlithe_Desk_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Growlithe_Desk_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Growlithe_Desk_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Butterfree_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Butterfree_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Butterfree_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Butterfree_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Butterfree_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Butterfree_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Butterfree_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Butterfree_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Butterfree_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Venipede_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Venipede_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Venipede_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Venipede_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Venipede_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Venipede_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Venipede_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Venipede_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Venipede_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Adagio_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Adagio_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Adagio_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Adagio_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Adagio_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Adagio_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Adagio_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Adagio_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Adagio_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Aria_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Aria_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Aria_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Aria_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Aria_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Aria_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Aria_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Aria_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Aria_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Sonata_AdventureTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Bonjour ! C'est une magnifique journée d'histoire.", "Normal")
+  UI:WaitShowDialogue("Le Chapitre 6 est plein d'aventures et de rumeurs mystérieuses dans la Forêt Lugubre.")
+  UI:WaitShowDialogue("Certains disent avoir vu une ombre gigantesque courir à travers les lianes...")
+  UI:WaitShowDialogue("...Serait-ce le terrible Zarude ? Personne n'ose s'en approcher de trop près.")
+  UI:BeginChoiceMenu("Que souhaitez-vous lui demander ?", {"La Forêt Lugubre", "La Team Dazzling", "L'expédition", "Rien"}, 1, 4)
+  UI:WaitForChoice()
+  local choice = UI:ChoiceResult()
+  if choice == 1 then
+    UI:WaitShowDialogue("La Forêt Lugubre est située juste au nord du village. L'air y est très lourd.")
+    UI:WaitShowDialogue("On raconte que les arbres bougent tout seuls et que les lianes emprisonnent les intrus.")
+    UI:WaitShowDialogue("Si vous y entrez, restez sur vos gardes. Ne laissez jamais votre partenaire seul.")
+    UI:WaitShowDialogue("Et surtout... méfiez-vous du cri de la jungle. Il annonce la colère de son roi.")
+    UI:WaitShowDialogue("Je crois que même la guilde n'a pas encore cartographié tout le donjon.")
+    UI:WaitShowDialogue("Mais avec votre courage, je sais que vous pourrez y arriver et sauver le petit !")
+  elseif choice == 2 then
+    UI:WaitShowDialogue("La Team Dazzling... Elles sont arrivées de la côte il y a quelques jours seulement.")
+    UI:WaitShowDialogue("Adagio est si polie mais on sent toute sa supériorité dans ses paroles.")
+    UI:WaitShowDialogue("Aria est très provocatrice, elle passe son temps à sauter de joie et à se moquer.")
+    UI:WaitShowDialogue("Et Sonata... elle est tellement théâtrale avec ses mimiques et ses colères !")
+    UI:WaitShowDialogue("Elles se croient déjà au sommet, prétendant que ce sauvetage n'est qu'un jeu pour elles.")
+    UI:WaitShowDialogue("Ne les laissez pas vous intimider. Montrez-leur de quel bois vous vous chauffez !")
+    UI:WaitShowDialogue("Toute la ville attend de voir qui ramènera le Chenipent en premier.")
+  elseif choice == 3 then
+    UI:WaitShowDialogue("L'expédition du Mont Venteux... C'était une aventure extraordinaire.")
+    UI:WaitShowDialogue("Vous avez gravi les sommets, traversé les tempêtes et affronté le Seigneur des Vents.")
+    UI:WaitShowDialogue("Le doyen Penticus m'a dit que votre exploit résonnera longtemps à la guilde.")
+    UI:WaitShowDialogue("Mais ce n'était que le début de l'histoire, je le ressens au fond de mes os.")
+    UI:WaitShowDialogue("Les flux d'énergie continuent de s'agiter sous la terre, de plus en plus chauds.")
+    UI:WaitShowDialogue("Restez forts, mes amis. Le monde a plus que jamais besoin de héros.")
+  else
+    UI:WaitShowDialogue("D'accord. Prenez soin de vous sur les sentiers et dans les donjons.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Sonata_GossipTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Oh, vous revoilà ! J'ai encore entendu d'étranges rumeurs...", "Normal")
+  UI:WaitShowDialogue("On dit que la Team Dazzling n'est pas là pour faire du secours, mais pour un secret...")
+  UI:WaitShowDialogue("Elles fouillent les recoins du village et de la guilde, murmurant entre elles.")
+  UI:WaitShowDialogue("Même les marchands du marché les trouvent suspectes, malgré leur éclat.")
+  UI:WaitShowDialogue("Qu'en pensez-vous ? Pensez-vous qu'elles complotent quelque chose de louche ?")
+  UI:BeginChoiceMenu("Que lui dites-vous ?", {"Elles complotent", "Elles sont juste fières", "Je ne sais pas"}, 1, 3)
+  UI:WaitForChoice()
+  local result = UI:ChoiceResult()
+  if result == 1 then
+    UI:WaitShowDialogue("Je le savais ! Leurs mines mystérieuses et leurs messes basses ne trompent personne.")
+    UI:WaitShowDialogue("Même le Doyen Penticus les surveille du coin de l'œil, je l'ai vu hier.")
+    UI:WaitShowDialogue("Faites bien attention si vous les croisez dans la Forêt Lugubre.")
+  elseif result == 2 then
+    UI:WaitShowDialogue("C'est possible. Les équipes de la côte ont toujours cette fierté un peu agaçante.")
+    UI:WaitShowDialogue("Après tout, elles ont une grande réputation à tenir, mais quand même...")
+    UI:WaitShowDialogue("Ne relâchez pas votre attention pour autant. On ne sait jamais.")
+  else
+    UI:WaitShowDialogue("La prudence est mère de sûreté, comme on dit toujours à la guilde.")
+    UI:WaitShowDialogue("Nous verrons bien ce que l'avenir nous réserve. Restons concentrés.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Sonata_RaidTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avez-vous entendu les rumeurs sur les pilleurs nocturnes ?", "Worried")
+  UI:WaitShowDialogue("On dit que des spectres rodent dans les ombres de la ville dès que la nuit tombe...")
+  UI:WaitShowDialogue("Ils forcent les coffres, pillent les stands et s'enfuient sans laisser de traces.")
+  UI:WaitShowDialogue("La place entière retient son souffle dès que le soleil se couche.")
+  UI:WaitShowDialogue("Si vous veillez de nuit, soyez extrêmement prudents. Ils sont redoutables.")
+  UI:WaitShowDialogue("Mais je sais que votre équipe a le courage de défendre notre ville de Metano !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Sonata_PrepTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Avant de repartir en mission, assurez-vous d'être bien préparés !", "Normal")
+  UI:WaitShowDialogue("La Forêt Lugubre ne pardonne pas le manque d'organisation.")
+  UI:WaitShowDialogue("Prenez toujours des Baies Oran, des Baies Ceriz et des Échapporbes en cas de besoin.")
+  UI:WaitShowDialogue("L'entrepôt de la guilde est là pour stocker vos trésors précieux.")
+  UI:WaitShowDialogue("Même l'équipe la plus forte peut faillir sans un bon équipement.")
+  UI:WaitShowDialogue("Faites-moi confiance, la préparation est la clé de toute grande aventure !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Sonata_RelaxTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, l'ambiance au café est si relaxante en ce moment...", "Normal")
+  UI:WaitShowDialogue("C'est l'endroit idéal pour faire une pause et discuter avec les autres.")
+  UI:WaitShowDialogue("Après une longue journée dans les donjons, rien ne vaut une bonne boisson chaude.")
+  UI:WaitShowDialogue("Même les rumeurs les plus folles se partagent ici autour d'une table.")
+  UI:WaitShowDialogue("Prenez le temps de souffler un peu avant de retourner affronter la jungle.")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Sonata_DazzlingChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Mmm, que pensez-vous de chaque membre des Dazzling ?", "Normal")
+  UI:BeginChoiceMenu("Qui souhaitez-vous évaluer ?", {"Adagio", "Aria", "Sonata", "Toutes"}, 1, 4)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Adagio est d'une élégance rare, mais ses yeux brillent d'une ambition froide.")
+  elseif res == 2 then
+    UI:WaitShowDialogue("Aria ne fait que s'exciter et provoquer tout le monde. C'est insupportable.")
+  elseif res == 3 then
+    UI:WaitShowDialogue("Sonata est tellement théâtrale ! Ses grands gestes amusent la galerie.")
+  else
+    UI:WaitShowDialogue("Elles forment un groupe redoutable. Ne sous-estimez jamais leur union.")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Sonata_ExpeditionChoiceTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "L'expédition reste le plus grand événement de l'année !", "Normal")
+  UI:WaitShowDialogue("Chacun de nous en garde un souvenir marquant et impérissable.")
+  UI:WaitShowDialogue("Pour certains, c'était la première fois qu'ils voyaient de si grandes montagnes.")
+  UI:WaitShowDialogue("Et pour vous, quel reste le plus beau souvenir de cette ascension ?")
+  UI:BeginChoiceMenu("Votre moment favori :", {"Le feu de camp", "La tempête", "Le sommet"}, 1, 3)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  if res == 1 then
+    UI:WaitShowDialogue("Le feu de camp était si convivial, à partager des rumeurs au milieu de la nuit !")
+  elseif res == 2 then
+    UI:WaitShowDialogue("La tempête était terrifiante, mais elle a montré toute la force de notre guilde !")
+  else
+    UI:WaitShowDialogue("Le sommet Venteux était d'une majesté absolue. On y touchait le ciel !")
+  end
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Sonata_StoryDazzlingTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "La Team Dazzling fait sensation à Metano Town...", "Normal")
+  UI:WaitShowDialogue("Leurs voix magiques s'entendent jusqu'aux confins de la forêt.")
+  UI:WaitShowDialogue("On dit qu'elles préparent un grand spectacle pour fêter leur prochaine victoire.")
+  UI:WaitShowDialogue("Mais certains érudits pensent qu'il y a une magie ancienne derrière leur chant.")
+  UI:WaitShowDialogue("Nous verrons bien si elles parviennent à apaiser le roi de la jungle !")
+  GeneralFunctions.EndConversation(chara)
+end
+
+function metano_town_ch_6.Sonata_ExpeditionBivouacTalk(chara, activator)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GeneralFunctions.StartConversation(chara, "Les récits de votre bivouac au Mont Venteux sont incroyables...", "Normal")
+  UI:WaitShowDialogue("Dormir sous les étoiles, à l'écoute du chant mystique de la montagne...")
+  UI:WaitShowDialogue("C'est le genre d'expérience qui forge l'âme d'un véritable aventurier.")
+  UI:WaitShowDialogue("Toute la ville est fière de voir votre équipe progresser si vite !")
+  GeneralFunctions.EndConversation(chara)
+end
+
 return metano_town_ch_6
