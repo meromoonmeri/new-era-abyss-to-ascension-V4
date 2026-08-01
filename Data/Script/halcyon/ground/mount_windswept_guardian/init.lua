@@ -49,13 +49,19 @@ function mount_windswept_guardian.Enter(map)
   PrintInfo("=>> Enter_mount_windswept_guardian")
 
   -- Rejouabilite : l'expedition est bouclee, le sommet est vide.
-  -- Attention : cette arene fait 208x176 px, le duo doit rester dans la carte.
+  -- Attention : cette arene fait 1128x1344 px, le duo doit rester dans la carte.
   if ReplayEnding.IsReplay('mount_windswept', 5) then
     SV.Chapter5.MountGuardianDefeated = false
     SV.Chapter5.MountGuardianLost = false
     ReplayEnding.EmptyArena({
-      hero = {120, 144}, partner = {88, 144},
-      camera = {104, 120}, look = {104, 96},
+      -- Positions verifiees cellule par cellule contre obstacles[] :
+      -- hero/partner en y=1200 (zone libre, y<=1228), les equipiers
+      -- derives par EmptyArena (min-32 / max+32, +16 en Y) tombent en
+      -- (464,1216)/(592,1216), tous libres, et la marche de 40 px vers
+      -- le nord reste dans la plateforme (ex-208x176 : tout etait dans
+      -- les murs apres l'agrandissement de la carte).
+      hero = {560, 1200}, partner = {496, 1200},
+      camera = {560, 1200}, look = {560, 1160},
       walk = 40, title = true, music = 'Mt. Travail.ogg',
       lines = {
         { spk='partner', emo='Normal', key='MWG_R01', wait=10 },

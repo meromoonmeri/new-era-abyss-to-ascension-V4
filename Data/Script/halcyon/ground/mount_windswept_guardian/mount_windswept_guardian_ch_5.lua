@@ -542,8 +542,8 @@ local function DefeatedBossBody()
       {'Breloom',    592, 1220, Direction.Up},
       {'Audino',     640, 1236, Direction.Up},
       {'Snubbull',   680, 1220, Direction.Up},
-      {'Growlithe',  440, 1240, Direction.Up},
-      {'Zigzagoon',  720, 1240, Direction.Up},
+      {'Growlithe',  452, 1220, Direction.Up},
+      {'Zigzagoon',  720, 1220, Direction.Up},
     })
 
   -- Arrivee en groupe, camera qui suit le mouvement.
@@ -870,6 +870,15 @@ end
 -- du boss -> fondu noir -> retour à l'entrée.
 function mount_windswept_guardian_ch_5.DiedToBoss()
   PrintInfo("[BossSeq][mount_windswept_guardian_ch_5] DiedToBoss cutscene start")
+
+  --LE NOIR AVANT TOUT APPEL MOTEUR (correctif d'arrivee, 2026-07-30).
+  --Cette scene se joue sous le noir laisse par la carte precedente et ne
+  --rallume qu'a son FadeIn final. Sans ce no-op sur ecran deja noir
+  --(FadeEffect.cs:63), les TeleportTo/MakeCharactersFromList places avant
+  --le FadeIn laissent passer des frames RENDUES sur une carte en cours de
+  --montage — l'eclair de zone nue. Parite avec FirstPreBossScene,
+  --SecondPreBossScene et DefeatedBossBody (meme correctif).
+  pcall(function() GAME:FadeOut(false, 1) end)
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 

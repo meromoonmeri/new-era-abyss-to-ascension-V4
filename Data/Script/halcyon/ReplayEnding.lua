@@ -190,9 +190,10 @@ function ReplayEnding.PlayEmptyScene(cfg)
     -- Les equipiers se placent en retrait, ECARTES sur les cotes : +16 px en Y
     -- et 32 px vers l'exterieur. C'est le placement des scenes de boss
     -- d'origine (vast_steppe_guardian_ch_5:28-29, mount_windswept:28).
-    -- Un decalage de +32 en Y ferait sortir les equipiers de trois arenes
-    -- (Steppe 528x368, Ruines 320x240, Mont 208x176), ou TeleportTo hors
-    -- bornes laisse un allie invisible ou fige la scene.
+    -- Tailles reelles des arenes (a jour) : Steppe 368x528, Ruines 240x320,
+    -- Mont 1128x1344 — les configs hero/partner de chaque arene sont
+    -- verifiees pour que les derives (min-32/max+32, +16 en Y) restent
+    -- dans la carte et sur cases libres.
     local ax = math.min(cfg.hero[1], cfg.partner[1]) - 32
     local bx = math.max(cfg.hero[1], cfg.partner[1]) + 32
     local ay = math.max(cfg.hero[2], cfg.partner[2]) + 16

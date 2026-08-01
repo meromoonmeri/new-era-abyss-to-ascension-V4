@@ -348,11 +348,11 @@ function cloven_ruins_entrance_ch_5.ArrivalCutscene()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
-  -- L'equipe arrive du SUD (spawn 288,392) et remonte vers le camp.
-  -- La colonne x=270-306 est praticable en continu jusqu'au foyer.
   -- L'equipe arrive par la GAUCHE (bord ouest de la carte, sur le
-  -- sable) et avance vers la droite : le camp d'abord, la grotte au
-  -- fond. La ligne y=210-240 est du sable praticable en continu.
+  -- sable, depuis le sentier du Mont) et avance vers la droite : le
+  -- camp d'abord, la grotte au fond. La ligne y=210-240 est du sable
+  -- praticable en continu. Spawn reel : (24,210)/(24,240) — aligne sur
+  -- le Main_Entrance_Marker (24,216).
   GROUND:TeleportTo(hero, 24, 210, Direction.Right)
   GROUND:TeleportTo(partner, 24, 240, Direction.Right)
   local t2 = CH('Teammate2')
