@@ -572,7 +572,7 @@ function cloven_ruins_boss_ch_7.DefeatedBoss()
   --progression et le retour a Metano ont TOUJOURS lieu.
   SV.Chapter5.FinishedExpedition = true
   SV.Chapter5.RuinsExpeditionDone = true
-  SV.ChapterProgression.Chapter = 6
+  SV.ChapterProgression.Chapter = 7
   SV.TemporaryFlags.Dinnertime = true
   SV.TemporaryFlags.Bedtime = true
   SV.TemporaryFlags.MorningWakeup = true

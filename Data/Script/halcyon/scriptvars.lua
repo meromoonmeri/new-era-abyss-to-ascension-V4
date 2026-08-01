@@ -1195,7 +1195,11 @@ SV.Chapter7 =
 	--Lus par ground/cloven_ruins_miniboss, ecrits par zone/cloven_ruins (seg 3).
 	RuinsMiniBossSeen = false,
 	RuinsMiniBossDefeated = false,
-	RuinsMiniBossLost = false
+	RuinsMiniBossLost = false,
+	AlakazamScenePlayed = false,
+	VisitedXatu = false,
+	GreatReunionPlayed = false,
+	FinishedIntimateTalk = false
 }
 
 SV.Chapter8 = 

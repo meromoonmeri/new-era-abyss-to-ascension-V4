@@ -1364,4 +1364,162 @@ function metano_town_ch_7.AlakazamScene()
   GAME:FadeIn(20)
 end
 
+-- ============================================================
+-- SCENE : La Grande Réunion de la place (Chapitre 7)
+-- ============================================================
+function metano_town_ch_7.GreatReunion()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+
+  GAME:CutsceneMode(true)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
+  SOUND:StopBGM()
+
+  -- Positionner l'équipe
+  GROUND:TeleportTo(hero, 570, 1010, Direction.Right)
+  if partner ~= nil then GROUND:TeleportTo(partner, 530, 1010, Direction.Right) end
+  GAME:MoveCamera(640, 980, 1, false)
+
+  -- Spawner la Guilde, Team Alakazam et Team Dazzling
+  local tropius, noctowl, audino, snubbull, zigzagoon = CharacterEssentials.MakeCharactersFromList({
+    {'Tropius', 660, 930, Direction.Down},
+    {'Noctowl', 610, 930, Direction.Down},
+    {'Audino', 610, 1040, Direction.Up},
+    {'Snubbull', 640, 1040, Direction.Up},
+    {'Zigzagoon', 670, 1040, Direction.Up}
+  })
+
+  local alakazam, tyranitar, charizard = CharacterEssentials.MakeCharactersFromList({
+    {'Alakazam', 640, 970, Direction.Down},
+    {'Tyranitar', 600, 1000, Direction.Right},
+    {'Charizard', 680, 1000, Direction.Left}
+  })
+
+  local adagio, aria, sonata = CharacterEssentials.MakeCharactersFromList({
+    {'Adagio', 700, 980, Direction.Left},
+    {'Aria', 730, 980, Direction.Left},
+    {'Sonata', 700, 1010, Direction.Left}
+  })
+
+  GROUND:CharSetAnim(alakazam, "Idle", true)
+  GROUND:CharSetAnim(tyranitar, "Idle", true)
+  GROUND:CharSetAnim(charizard, "Idle", true)
+  GROUND:CharSetAnim(adagio, "Idle", true)
+  GROUND:CharSetAnim(aria, "Idle", true)
+  GROUND:CharSetAnim(sonata, "Idle", true)
+
+  GAME:FadeIn(40)
+  SOUND:PlayBGM('Mt. Travail.ogg', true)
+  GAME:WaitFrames(40)
+
+  -- Le partenaire fait son rapport
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue("Nous revenons de la Colline des Anciens ! Nous avons rencontré Xatu.")
+  GeneralFunctions.SetEmotion("Surprised")
+  UI:WaitShowDialogue("Il est entré en transe... et il a eu des visions d'un géant de magma s'éveillant sous la terre.[pause=15] Il a désigné Groudon comme étant au cœur des perturbations !")
+  GAME:WaitFrames(20)
+
+  -- Murmures dans la foule
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
+  UI:WaitShowDialogue("Des murmures d'inquiétude et de stupeur se propagent parmi les membres de la Guilde...")
+  UI:SetCenter(false)
+  GAME:WaitFrames(15)
+
+  UI:SetSpeaker(adagio)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue("Groudon...[pause=10] Le légendaire créateur des terres. Cela dépasse de loin nos forces d'apprentis.")
+  GAME:WaitFrames(15)
+
+  UI:SetSpeaker(alakazam)
+  UI:WaitShowDialogue("Mmm...[pause=15] Groudon. Cela confirme mes pires craintes. L'énergie tellurique résonne exactement comme il y a trente ans...")
+  GAME:WaitFrames(15)
+
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Surprised")
+  UI:WaitShowDialogue("Il y a trente ans ? Que s'est-il passé à cette époque ?")
+  GAME:WaitFrames(15)
+
+  -- ALAKAZAM RACONTE L'HISTOIRE DE RESCUE TEAM (Lore légendaire)
+  UI:SetSpeaker(alakazam)
+  UI:WaitShowDialogue("Il y a trente ans, notre monde a traversé une crise climatique sans précédent. Des catastrophes naturelles éclataient partout... à cause d'une météorite géante approchant de notre planète.")
+  UI:WaitShowDialogue("Les équipes de secours se sont mobilisées, mais la rumeur courait qu'un humain, transformé en Pokémon, était à l'origine de ce dérèglement selon la légende de Feunard...")
+  GAME:WaitFrames(15)
+
+  pcall(function()
+    GROUND:CharSetEmote(partner, "shock", 1)
+  end)
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Surprised")
+  UI:WaitShowDialogue("Un humain... transformé en Pokémon ?!")
+  GAME:WaitFrames(15)
+
+  UI:SetSpeaker(alakazam)
+  UI:WaitShowDialogue("Oui. Ce héros a été injustement traqué comme un fugitif, fuyant à travers la Lapis Cave et le Mont Gelé pour sauver sa vie...")
+  UI:WaitShowDialogue("Mais il a prouvé son innocence, a apaisé Groudon, et s'est élevé jusqu'à la Tour Céleste pour demander l'aide de Rayquaza et détruire la météorite, sauvant ainsi notre monde.")
+  GAME:WaitFrames(20)
+
+  -- Choc de la foule
+  pcall(function()
+    GROUND:CharSetEmote(noctowl, "shock", 1)
+    GROUND:CharSetEmote(sonata, "shock", 1)
+  end)
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
+  UI:WaitShowDialogue("Un silence pesant s'installe sur la place. Le partenaire regarde le héros avec une profonde inquiétude...")
+  UI:SetCenter(false)
+  GAME:WaitFrames(20)
+
+  UI:SetSpeaker(tropius)
+  GeneralFunctions.SetEmotion("Determined")
+  UI:WaitShowDialogue("Cette légende...[pause=10] elle est donc réelle. Si les mêmes perturbations reviennent aujourd'hui, nous devons agir.")
+  GAME:WaitFrames(15)
+
+  UI:SetSpeaker(alakazam)
+  UI:WaitShowDialogue("Exactement. Nous partons vers le nord pour sécuriser le périmètre de la Mine Magma.[pause=15] Préparez-vous pour le Grand Tournoi. Nous devons désigner les équipes les plus dignes pour faire face à ce cataclysme.")
+  UI:WaitShowDialogue("D'ici là, restez unis.")
+  GAME:WaitFrames(25)
+
+  -- Fin de la réunion, disparition progressive
+  SOUND:FadeOutBGM(60)
+  GAME:FadeOut(false, 60)
+  GAME:WaitFrames(60)
+
+  pcall(function()
+    GAME:GetCurrentGround():RemoveTempChar(tropius)
+    GAME:GetCurrentGround():RemoveTempChar(noctowl)
+    GAME:GetCurrentGround():RemoveTempChar(audino)
+    GAME:GetCurrentGround():RemoveTempChar(snubbull)
+    GAME:GetCurrentGround():RemoveTempChar(zigzagoon)
+    GAME:GetCurrentGround():RemoveTempChar(alakazam)
+    GAME:GetCurrentGround():RemoveTempChar(tyranitar)
+    GAME:GetCurrentGround():RemoveTempChar(charizard)
+    GAME:GetCurrentGround():RemoveTempChar(adagio)
+    GAME:GetCurrentGround():RemoveTempChar(aria)
+    GAME:GetCurrentGround():RemoveTempChar(sonata)
+  end)
+
+  -- Le partenaire emmène le héros à l'écart
+  GROUND:TeleportTo(hero, 570, 1010, Direction.Left)
+  GROUND:TeleportTo(partner, 530, 1010, Direction.Right)
+  GAME:MoveCamera(550, 1010, 1, false)
+  GAME:FadeIn(30)
+  GAME:WaitFrames(30)
+
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Worried")
+  UI:WaitShowDialogue("{0}...[pause=15] Ce qu'a dit Alakazam...[pause=10] à propos de l'humain transformé en Pokémon...", hero:GetDisplayName())
+  UI:WaitShowDialogue("Viens avec moi. On doit se parler discrètement, à l'écart du village...[pause=15] Allons sur la Colline sans Lumière.")
+  GAME:WaitFrames(20)
+
+  SV.Chapter7.GreatReunionPlayed = true
+
+  GAME:FadeOut(false, 40)
+  GAME:WaitFrames(40)
+
+  -- Transition immédiate vers le coucher de soleil intime sur la Colline sans Lumière
+  GAME:EnterGroundMap("colline_sans_lumiere", "Main_Entrance_Marker")
+end
+
 return metano_town_ch_7
