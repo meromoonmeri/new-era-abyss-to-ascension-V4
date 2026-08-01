@@ -202,4 +202,49 @@
   <data name="CR5_046" xml:space="preserve">
     <value>(Let's go. And whatever is in there, we'll face it.)</value>
   </data>
-</root>
+
+  <data name="CR5_H01" xml:space="preserve">
+    <value>Hey... did you see the veins on the stone? They look like roots. Roots that go down, straight into the dark.</value>
+  </data>
+  <data name="CR5_H02" xml:space="preserve">
+    <value>My grandmother used to say ruins swallow travelers who don't listen. I thought it was a joke.</value>
+  </data>
+  <data name="CR5_H03" xml:space="preserve">
+    <value>I heard worse. They say under these ruins, something stirs. Something old, waiting for us to leave.</value>
+  </data>
+  <data name="CR5_H04" xml:space="preserve">
+    <value>But nobody knows what. That's the worst part. We don't even know if it's a monster, or just... the earth.</value>
+  </data>
+  <data name="CR5_H05" xml:space="preserve">
+    <value>BOTH OF YOU! I can hear that from my bed. We sleep, we don't tell ghost stories!</value>
+  </data>
+  <data name="CR5_H06" xml:space="preserve">
+    <value>Take after {0}. He's already asleep. As always.</value>
+  </data>
+  <data name="CR5_H07" xml:space="preserve">
+    <value>(...And of course, the only one truly asleep is the one being held up as an example.)</value>
+  </data>
+  <data name="CR5_H08" xml:space="preserve">
+    <value>...Yeah, alright. We're sleeping. Promise.</value>
+  </data>
+  <data name="CR5_D03" xml:space="preserve">
+    <value>(The ruins watch over us. Tomorrow, we'll pay them a visit.)</value>
+  </data>
+  <data name="CR5_B01" xml:space="preserve">
+    <value>Hmph... Grey trees, pulsing veins... Do you hear yourselves? Sounds like a bad dream.</value>
+  </data>
+  <data name="CR5_B02" xml:space="preserve">
+    <value>A bad dream doesn't leave marks on bark, Ganlon. Trees do. I saw the grooves.</value>
+  </data>
+  <data name="CR5_B03" xml:space="preserve">
+    <value>Right. Simple question: what do we do tomorrow if all this is true? We go in, and then?</value>
+  </data>
+  <data name="CR5_B04" xml:space="preserve">
+    <value>We go in, and we see what waits at the bottom. My rear mind says we won't be the only ones heading down. Better to know that now.</value>
+  </data>
+  <data name="CR5_B05" xml:space="preserve">
+    <value>Small correction, Kino: we called them 'Twisted' because nothing in them is straight. But 'Shattered'—that was your find, in front of the rift. Don't forget your own discovery.</value>
+  </data>
+  <data name="CR5_B06" xml:space="preserve">
+    <value>And you forget it was you holding the torch that day. Without you, I'd have fallen into the first crevice.</value>
+  </data></root>

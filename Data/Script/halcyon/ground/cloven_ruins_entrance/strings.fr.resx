@@ -202,4 +202,49 @@
   <data name="CR5_046" xml:space="preserve">
     <value>(On y va.[pause=10] Et quoi qu'il y ait là-dedans,[pause=15] on le verra en face.)</value>
   </data>
-</root>
+
+  <data name="CR5_H01" xml:space="preserve">
+    <value>Dis donc... tu as vu les veines sur la pierre ?[pause=10] On dirait des racines.[pause=15] Des racines qui descendent,[pause=10] droit dans le noir.</value>
+  </data>
+  <data name="CR5_H02" xml:space="preserve">
+    <value>Ma grand-mère disait que les ruines,[pause=10] ça avale les voyageurs qui n'écoutent pas.[pause=15] Je croyais que c'était une blague.</value>
+  </data>
+  <data name="CR5_H03" xml:space="preserve">
+    <value>Moi j'ai entendu pire.[pause=10] On raconte que sous ces ruines,[pause=10] quelque chose remue.[pause=15] Quelque chose de vieux,[pause=10] qui attend qu'on parte.</value>
+  </data>
+  <data name="CR5_H04" xml:space="preserve">
+    <value>Mais personne sait quoi.[pause=15] C'est ça le pire.[pause=0] On ne sait même pas si c'est un monstre,[pause=10] ou juste... la terre.</value>
+  </data>
+  <data name="CR5_H05" xml:space="preserve">
+    <value>À VOUS DEUX ![pause=0] J'entends ça depuis ma paillasse.[pause=10] On dort,[pause=10] pas on se raconte des histoires de fantômes !</value>
+  </data>
+  <data name="CR5_H06" xml:space="preserve">
+    <value>Prenez exemple sur {0}.[pause=10] Lui,[pause=10] il dort déjà.[pause=0] Comme toujours.</value>
+  </data>
+  <data name="CR5_H07" xml:space="preserve">
+    <value>(...Et bien sûr,[pause=10] le seul qui dort vraiment,[pause=10] c'est celui qu'on cite en exemple.)</value>
+  </data>
+  <data name="CR5_H08" xml:space="preserve">
+    <value>...Oui,[pause=10] bon.[pause=15] On dort.[pause=0] Promis.</value>
+  </data>
+  <data name="CR5_D03" xml:space="preserve">
+    <value>(Les ruines veillent sur nous.[pause=10] Demain,[pause=10] on leur rendra visite.)</value>
+  </data>
+  <data name="CR5_B01" xml:space="preserve">
+    <value>Mouais...[pause=10] Des arbres gris,[pause=10] des veines qui pulsent...[pause=0] Vous rendez-vous compte de ce que vous racontez ?[pause=10] On dirait un mauvais rêve.</value>
+  </data>
+  <data name="CR5_B02" xml:space="preserve">
+    <value>Un mauvais rêve ne laisse pas de traces sur l'écorce,[pause=10] Ganlon.[pause=15] Les arbres,[pause=10] eux,[pause=10] en gardent.[pause=0] J'ai vu les stries.</value>
+  </data>
+  <data name="CR5_B03" xml:space="preserve">
+    <value>Bon.[pause=10] Question simple :[pause=15] qu'est-ce qu'on fait,[pause=10] demain,[pause=10] si tout ça est vrai ?[pause=0] On entre,[pause=10] et puis ?</value>
+  </data>
+  <data name="CR5_B04" xml:space="preserve">
+    <value>On entre,[pause=10] et on regarde ce qui attend au fond.[pause=15] Mon arrière-tête dit qu'on ne sera pas seuls à descendre.[pause=10] Et qu'il vaut mieux le savoir maintenant.</value>
+  </data>
+  <data name="CR5_B05" xml:space="preserve">
+    <value>Petite correction,[pause=10] Kino :[pause=15] on les a appelées «[pause=5] Tordues[pause=5] »[pause=10] parce que rien n'y est droit.[pause=0] Mais «[pause=5] Fendues[pause=5] »,[pause=10] c'est toi qui l'as trouvé,[pause=10] devant la faille.[pause=0] N'oublie pas ta propre trouvaille.</value>
+  </data>
+  <data name="CR5_B06" xml:space="preserve">
+    <value>Et toi,[pause=10] tu oublies que c'est toi qui as tenu la torche,[pause=10] ce jour-là.[pause=0] Sans toi,[pause=10] je serais tombé dans la première crevasse.</value>
+  </data></root>

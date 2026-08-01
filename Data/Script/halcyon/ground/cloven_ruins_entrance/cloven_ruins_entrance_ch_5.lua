@@ -13,9 +13,15 @@
       Acte 2 — Repas + BRIEFING STRATEGIQUE autour du feu (le cœur :
                chacun partage ce qu'il sait, hypotheses sur les Ruines,
                doutes vs moral, le mystere qui s'assemble)
-      Acte 3 — Coucher + reve de Gardevoir (bascule hero_dream)
+      Acte 3 — Coucher + histoires + reve de Gardevoir (hero_dream)
       Acte 4 — Lendemain matin : lever du soleil, preparations,
                entree dans les Ruines Fendues (climax du ch5)
+
+    Niveau de finition : aligne sur la veillee du Mont Venteux
+    (mount_windswept_entrance_ch_5.lua) — rotations de tete
+    systematiques vers le locuteur, reactions collectives en cascade
+    (emotes variees par personnage), gestes marques, silences,
+    mouvements de camera a chaque beat, deplacements reels.
 
     Regles appliquees (non negociables) :
       - fondus a chaque changement de configuration majeure ;
@@ -23,7 +29,7 @@
       - le silence est un outil de mise en scene ;
       - budget de personnages respecte (l'expedition au complet) ;
       - deplacements reels, pas de teleportation ;
-      - pensées du heros courtes, jamais de narration omnisciente ;
+      - pensees du heros courtes, jamais de narration omnisciente ;
       - la Voix (uE040) ABSENTE de cette scene — echange entre
         personnages uniquement (directive "boss/personnages parlent").
 ]]--
@@ -204,6 +210,67 @@ function cloven_ruins_entrance_ch_5.SetupGround()
 end
 
 -- ================================================================
+-- HELPERS DE MISE EN SCENE — alignes sur la veillee du Mont Venteux
+--   Listen(speaker, listeners, emote) : les auditeurs se tournent
+--     vers le locuteur, EN DECALE (4 frames) — un groupe qui pivote
+--     d'un bloc a l'air mecanique.
+--   Says(speaker, emotion, key, listeners, emote) : le corps parle
+--     avant la bouche.
+--   ReactAll(table personnage->emote) : cascade de reactions avec
+--     EMOTES DIFFERENTES par personnage (jamais le meme bloc).
+--   Silence(frames) : boite fermee, rien a l'ecran — un vrai temps.
+-- ================================================================
+local function Listen(speaker, listeners, emote)
+  if speaker == nil or listeners == nil then return end
+  local turns = {}
+  for i, who in ipairs(listeners) do
+    if who ~= nil and who ~= speaker then
+      turns[#turns+1] = TASK:BranchCoroutine(function()
+        pcall(function()
+          GAME:WaitFrames((i - 1) * 4)
+          GROUND:CharTurnToCharAnimated(who, speaker, 4)
+          if emote ~= nil then GROUND:CharSetEmote(who, emote, 1) end
+        end)
+      end)
+    end
+  end
+  if #turns > 0 then pcall(function() TASK:JoinCoroutines(turns) end) end
+end
+
+local function Says(speaker, emotion, key, listeners, emote)
+  Listen(speaker, listeners, emote)
+  UI:SetSpeaker(speaker)
+  GeneralFunctions.SetEmotion(emotion or "Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings[key]))
+end
+
+-- Cascade de reactions : table {personnage = emote}. Chacun reagit a
+-- son rythme (decalage 5 frames) avec SON emote — jamais un bloc.
+local function ReactAll(reactions)
+  if reactions == nil then return end
+  local turns = {}
+  local i = 0
+  for who, emote in pairs(reactions) do
+    i = i + 1
+    if who ~= nil then
+      turns[#turns+1] = TASK:BranchCoroutine(function()
+        pcall(function()
+          GAME:WaitFrames((i - 1) * 5)
+          GeneralFunctions.EmoteAndPause(who, emote, true)
+        end)
+      end)
+    end
+  end
+  if #turns > 0 then pcall(function() TASK:JoinCoroutines(turns) end) end
+end
+
+local function Silence(frames)
+  UI:SetCenter(false)
+  UI:ResetSpeaker()
+  GAME:WaitFrames(frames or 40)
+end
+
+-- ================================================================
 -- ACTE 1 — ARRIVEE DEVANT LES RUINES
 -- L'expedition debouche au camp deja installe. Kino et Reinier, qui
 -- ont deja explore les ruines, sont a l'ecart en pleine discussion.
@@ -275,14 +342,13 @@ function cloven_ruins_entrance_ch_5.ArrivalCutscene()
   -- 1.1 PREMIERE VUE DES RUINES — la pensee du heros, breve.
   GAME:MoveCamera(560, 780, 40, false)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_001']), "Normal")
-  GAME:WaitFrames(20)
+  Silence(20)
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_002']))
-  GAME:WaitFrames(15)
+  Silence(15)
 
   -- 1.2 KINO ET REINIER REMARQUENT L'ARRIVEE — en decale (pas en bloc).
-  -- Ils etaient a l'ecart, en pleine discussion sur leur exploration.
   local kino = CH('Breloom')
   local reinier = CH('Girafarig')
   local coroK = TASK:BranchCoroutine(function()
@@ -298,28 +364,29 @@ function cloven_ruins_entrance_ch_5.ArrivalCutscene()
 
   -- 1.3 KINO OUVRE — le lien personnel avec les ruines.
   if kino ~= nil then
+    Listen(kino, {reinier, hero, partner})
     UI:SetSpeaker(kino)
     GeneralFunctions.SetEmotion("Happy")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_003']))
-    GAME:WaitFrames(12)
+    Silence(12)
     GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_004']))
-    GAME:WaitFrames(15)
+    Silence(15)
   end
 
   -- 1.4 REINIER ENCHAINE — l'expert qui a deja fouille.
   if reinier ~= nil then
+    Listen(reinier, {kino, hero, partner})
     UI:SetSpeaker(reinier)
     GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_005']))
-    GAME:WaitFrames(12)
+    Silence(12)
     GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_006']))
-    GAME:WaitFrames(15)
+    Silence(15)
   end
 
   -- 1.5 LE CAMP CONVERGE — tout le monde se dirige vers le duo.
-  -- Penticus ouvre la voie, les autres suivent en decale.
   local tropius = CH('Tropius')
   local noctowl = CH('Noctowl')
   local snubbull = CH('Snubbull')
@@ -350,25 +417,27 @@ function cloven_ruins_entrance_ch_5.ArrivalCutscene()
 
   -- 1.6 PENTICUS ACCUEILLE — ton d'autorite tranquille.
   if tropius ~= nil then
+    Listen(tropius, {noctowl, snubbull, audino, growlithe, zigzagoon, hero, partner})
     UI:SetSpeaker(tropius)
     GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_007']))
-    GAME:WaitFrames(12)
+    Silence(12)
     GeneralFunctions.SetEmotion("Happy")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_008']))
-    GAME:WaitFrames(15)
+    Silence(15)
   end
 
   -- 1.7 REINIER MONTRE LES RUINES — le point d'interet.
   if reinier ~= nil then
     GAME:MoveCamera(620, 700, 40, false)
+    Listen(reinier, {hero, partner, kino})
     UI:SetSpeaker(reinier)
     GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_009']))
-    GAME:WaitFrames(12)
+    Silence(12)
   end
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_010']), "Worried")
-  GAME:WaitFrames(15)
+  Silence(15)
 
   -- Transition 1 -> 2 : fondu (configuration debout -> repas assis).
   GAME:FadeOut(false, 40)
@@ -386,9 +455,13 @@ end
 -- Autour du feu, chacun partage ce qu'il a appris depuis le debut de
 -- l'expedition. Hypotheses sur les Ruines, doutes vs moral, et le
 -- mystere qui commence a s'assembler (sans tout reveler).
+-- Tour de parole COMPLET : chaque membre a sa voix, ses doutes, sa
+-- maniere — avec interruptions, un gag, des reactions en cascade.
 -- ================================================================
 function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
   local B = cloven_ruins_entrance_ch_5.SEATS
+  local ganlon = CH('Teammate2')
+  local shuca = CH('Teammate3')
 
   -- Attribution des places autour du feu (fer a cheval ouvert au sud).
   local seats = {
@@ -400,48 +473,41 @@ function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
     {t.hyko,     6,  Direction.Up},
     {t.kino,     7,  Direction.Down},
     {t.reinier,  8,  Direction.Down},
-    {CH('Teammate3'), 9,  Direction.Down},  -- Shuca
-    {CH('Teammate2'), 10, Direction.Down},  -- Ganlon
+    {shuca,      9,  Direction.Down},
+    {ganlon,     10, Direction.Down},
     {partner,    11, Direction.Down},
     {hero,       12, Direction.Down},
   }
   local function seatX(i) return B[i][1] end
   local function seatY(i) return B[i][2] end
 
-  -- Helpers d'ecoute (pattern Mont Venteux) : le corps parle avant la
-  -- bouche, decalage de 4 frames pour la respiration du groupe.
-  local function Listen(speaker, listeners, emote)
-    if speaker == nil or listeners == nil then return end
-    local turns = {}
-    for i, who in ipairs(listeners) do
-      if who ~= nil and who ~= speaker then
-        turns[#turns+1] = TASK:BranchCoroutine(function()
-          pcall(function()
-            GAME:WaitFrames((i - 1) * 4)
-            GROUND:CharTurnToCharAnimated(who, speaker, 4)
-            if emote ~= nil then GROUND:CharSetEmote(who, emote, 1) end
-          end)
-        end)
-      end
-    end
-    if #turns > 0 then pcall(function() TASK:JoinCoroutines(turns) end) end
-  end
-  local function Says(speaker, emotion, key, listeners, emote)
-    Listen(speaker, listeners, emote)
-    UI:SetSpeaker(speaker)
-    GeneralFunctions.SetEmotion(emotion or "Normal")
-    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings[key]))
-  end
-
-  -- LES CONVIVES S'INSTALLENT. Chacun rejoint sa place, en decale.
+  -- ROUTES D'INSTALLATION — chacun rejoint sa place par un trajet
+  -- coherent depuis sa position d'ouverture (pas de teleportation).
+  local MEAL_ROUTES = {
+    {t.penticus, {{CX - 40, CY + 8}, {CX, CY + 64}}},
+    {t.phileas,  {{CX - 60, CY + 30}, {CX - 42, CY + 56}}},
+    {t.coco,     {{CX - 70, CY + 8}, {CX - 66, CY + 32}}},
+    {t.rin,      {{CX - 40, CY - 20}, {CX - 74, CY + 0}}},
+    {t.almotz,   {{CX - 20, CY - 30}, {CX - 66, CY - 40}}},
+    {t.hyko,     {{CX + 10, CY - 30}, {CX - 42, CY - 64}}},
+    {t.kino,     {{CX + 0,  CY - 40}, {CX + 0,  CY - 72}}},
+    {t.reinier,  {{CX + 20, CY - 30}, {CX + 30, CY - 64}}},
+    {shuca,      {{CX + 30, CY - 20}, {CX + 54, CY - 40}}},
+    {ganlon,     {{CX + 40, CY + 8},  {CX + 70, CY + 0}}},
+    {partner,    {{CX + 30, CY + 30}, {CX + 54, CY + 16}}},
+    {hero,       {{CX + 10, CY + 40}, {CX + 30, CY + 56}}},
+  }
   local settle = {}
-  for i, s in ipairs(seats) do
-    if s[1] ~= nil then
+  for i, r in ipairs(MEAL_ROUTES) do
+    local chara, route = r[1], r[2]
+    if chara ~= nil then
       settle[#settle+1] = TASK:BranchCoroutine(function()
         GAME:WaitFrames(i * 8)
         pcall(function()
-          GROUND:MoveToPosition(s[1], seatX(s[2]), seatY(s[2]), false, 1)
-          GROUND:CharAnimateTurnTo(s[1], s[3], 4)
+          for _, w in ipairs(route) do
+            GROUND:MoveToPosition(chara, w[1], w[2], false, 1)
+          end
+          GROUND:CharAnimateTurnTo(chara, Direction.Up, 4)
         end)
       end)
     end
@@ -474,81 +540,175 @@ function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
   GAME:WaitFrames(10)
 
   -- 2.1 OUVERTURE DU REPAS — OST Cave Camp.ogg (camp en grotte/ruines).
+  -- Silence musical d'abord : on n'entend que le feu (ambiance).
   SOUND:PlayBGM('Cave Camp.ogg', true)
-  UI:SetSpeaker(t.penticus)
+  Says(t.penticus, "Normal", 'CR5_011', {t.phileas, t.rin, t.coco, t.hyko, t.kino, t.reinier})
+  Silence(10)
+
+  -- ===== 2.2 LE BRIEFING — tour de table complet =====
+  -- Penticus cadre. TOUT LE CERCLE se tourne vers lui.
+  Says(t.penticus, "Normal", 'CR5_012',
+       {t.phileas, t.rin, t.coco, t.hyko, t.almotz, t.kino, t.reinier, shuca, ganlon, partner, hero})
+  Silence(12)
+
+  -- Phileas : la synthese des anomalies. Le cercle ecoute.
+  Says(t.phileas, "Normal", 'CR5_013', {t.penticus, t.rin, t.coco, t.hyko, partner})
+  Silence(10)
+  -- Rin a une micro-reaction (elle a vu les arbres, elle sait).
+  pcall(function()
+    if t.rin ~= nil then GROUND:CharSetEmote(t.rin, "worried", 1) end
+  end)
+  Says(t.phileas, "Worried", 'CR5_014', {t.penticus, partner, t.rin})
+  -- LE CAMP ECOUTE : micro-reactions de fond pendant la replique.
+  local ecoute1 = {}
+  ecoute1[#ecoute1+1] = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(18)
+    pcall(function() if t.rin ~= nil then GROUND:CharSetEmote(t.rin, "notice", 0) end end)
+    GAME:WaitFrames(10)
+    pcall(function() if t.rin ~= nil then GROUND:CharSetEmote(t.rin, "", 0) end end)
+  end)
+  ecoute1[#ecoute1+1] = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(30)
+    pcall(function() if t.hyko ~= nil then GROUND:CharSetEmote(t.hyko, "sweatdrop", 0) end end)
+    GAME:WaitFrames(8)
+    pcall(function() if t.hyko ~= nil then GROUND:CharSetEmote(t.hyko, "", 0) end end)
+  end)
+  pcall(function() TASK:JoinCoroutines(ecoute1) end)
+  Silence(12)
+
+  -- Rin : la soigneuse, le constat humain. Elle se leve un peu.
+  Says(t.rin, "Worried", 'CR5_015', {t.coco, partner, t.phileas})
+  Silence(10)
+  -- Coco reagit, pragmatique.
+  ReactAll({ [t.coco] = "Sweatdrop", [t.hyko] = "Question" })
+  GAME:WaitFrames(10)
+
+  -- ===== INTERRUPTION : Ganlon coupe la parole, agace =====
+  if ganlon ~= nil then
+    pcall(function()
+      GROUND:CharTurnToCharAnimated(ganlon, t.rin, 4)
+      GeneralFunctions.EmoteAndPause(ganlon, "Sweatdrop", false)
+    end)
+    UI:SetSpeaker(ganlon)
+    GeneralFunctions.SetEmotion("Sigh")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_B01']))
+    Silence(10)
+  end
+  -- Phileas repond sans se derouter.
+  Says(t.phileas, "Normal", 'CR5_B02', {ganlon, t.rin, t.penticus})
+  Silence(10)
+
+  -- ===== COCO POSE LA VRAIE QUESTION =====
+  Says(t.coco, "Normal", 'CR5_B03', {t.penticus, t.phileas, t.kino, t.reinier})
+  Silence(10)
+  -- Reinier repond, son arriere-tete en alerte.
+  Says(t.reinier, "Worried", 'CR5_B04', {t.coco, t.kino, partner})
+  Silence(12)
+
+  -- Kino : l'exploration des ruines (il les a nommees). Il se penche
+  -- vers le feu, comme pour montrer.
+  Says(t.kino, "Normal", 'CR5_016', {t.reinier, hero, partner, t.coco, t.rin})
+  local ecoute2 = {}
+  ecoute2[#ecoute2+1] = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(14)
+    pcall(function() if t.coco ~= nil then GeneralFunctions.DoAnimation(t.coco, 'Nod') end end)
+  end)
+  ecoute2[#ecoute2+1] = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(28)
+    pcall(function() if t.almotz ~= nil then GROUND:CharSetEmote(t.almotz, "happy", 0) end end)
+    GAME:WaitFrames(8)
+    pcall(function() if t.almotz ~= nil then GROUND:CharSetEmote(t.almotz, "", 0) end end)
+  end)
+  pcall(function() TASK:JoinCoroutines(ecoute2) end)
+  Silence(12)
+  Says(t.kino, "Worried", 'CR5_017', {t.reinier, t.hyko, t.almotz})
+  Silence(12)
+
+  -- ===== REINIER CORRIGE KINO — un echange a deux, vivant =====
+  if t.reinier ~= nil then
+    GROUND:CharTurnToCharAnimated(t.reinier, t.kino, 4)
+    GeneralFunctions.EmoteAndPause(t.reinier, "Notice", false)
+  end
+  UI:SetSpeaker(t.reinier)
   GeneralFunctions.SetEmotion("Normal")
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_011']))
-  GAME:WaitFrames(10)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_B05']))
+  Silence(10)
+  -- Kino se defend, un peu vexe mais amical.
+  if t.kino ~= nil then
+    GROUND:CharTurnToCharAnimated(t.kino, t.reinier, 4)
+    GeneralFunctions.EmoteAndPause(t.kino, "Sweatdrop", false)
+  end
+  UI:SetSpeaker(t.kino)
+  GeneralFunctions.SetEmotion("Happy")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_B06']))
+  Silence(10)
 
-  -- 2.2 LE BRIEFING — tour de table. Penticus cadre, Phileas
-  -- synthetise, Kino/Reinier racontent leur exploration, le duo relie
-  -- les evenements. Chaque membre a un beat (regle de mise en valeur).
-  Says(t.penticus, "Normal", 'CR5_012', {t.phileas, t.rin, t.coco, t.hyko})
-  GAME:WaitFrames(12)
+  -- Reinier : hypotheses sur l'origine. Son arriere-tete parle.
+  Says(t.reinier, "Normal", 'CR5_018', {t.kino, partner, t.phileas})
+  Silence(12)
+  Says(t.reinier, "Worried", 'CR5_019', {t.kino, hero, t.penticus})
+  Silence(12)
 
-  -- Phileas : la synthese des anomalies (Creuset, veines, orage).
-  Says(t.phileas, "Normal", 'CR5_013', {t.penticus, t.rin})
-  GAME:WaitFrames(10)
-  Says(t.phileas, "Worried", 'CR5_014', {t.penticus, partner})
-  GAME:WaitFrames(12)
-
-  -- Rin : la soigneuse, le constat humain.
-  Says(t.rin, "Worried", 'CR5_015', {t.coco, partner})
-  GAME:WaitFrames(12)
-
-  -- Kino : l'exploration des ruines (il les a nommees).
-  Says(t.kino, "Normal", 'CR5_016', {t.reinier, hero, partner})
-  GAME:WaitFrames(12)
-  Says(t.kino, "Worried", 'CR5_017', {t.reinier})
-  GAME:WaitFrames(12)
-
-  -- Reinier : hypotheses sur l'origine.
-  Says(t.reinier, "Normal", 'CR5_018', {t.kino, partner})
-  GAME:WaitFrames(12)
-  Says(t.reinier, "Worried", 'CR5_019', {t.kino, hero})
-  GAME:WaitFrames(12)
-
-  -- Le duo relie : les veines dont a parle Tornadus.
+  -- ===== 2.3 LE DUO RELIE — les veines de Tornadus =====
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_020']), "Worried")
-  GAME:WaitFrames(10)
+  Silence(10)
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_021']))
+  Silence(10)
+  -- REACTION DU CERCLE : chacun reagit a sa maniere, en cascade.
+  local ecoute3 = {}
+  local r3 = {
+    {t.phileas, "Glowing"}, {t.kino, "Exclaim"}, {t.rin, "Worried"},
+    {t.coco, "Sweatdrop"}, {t.reinier, "Notice"}, {t.hyko, "Question"},
+  }
+  for i, e in ipairs(r3) do
+    if e[1] ~= nil then
+      ecoute3[#ecoute3+1] = TASK:BranchCoroutine(function()
+        pcall(function()
+          GAME:WaitFrames((i - 1) * 5)
+          GROUND:CharTurnToCharAnimated(e[1], partner, 4)
+          GeneralFunctions.EmoteAndPause(e[1], e[2], true)
+        end)
+      end)
+    end
+  end
+  pcall(function() TASK:JoinCoroutines(ecoute3) end)
   GAME:WaitFrames(12)
 
-  -- 2.3 DOUTES VS MORAL — Coco pragmatique, Ganlon rale, Shuca
-  -- remonte le moral. Le camp vit, ne debite pas des infos.
-  Says(t.coco, "Normal", 'CR5_022', {t.rin, t.almotz})
-  GAME:WaitFrames(10)
-  local ganlon = CH('Teammate2')
-  local shuca = CH('Teammate3')
+  -- ===== 2.4 DOUTES VS MORAL — le camp vit =====
+  Says(t.coco, "Normal", 'CR5_022', {t.rin, t.almotz, t.kino})
+  Silence(10)
+  -- Ganlon rale (gag : le cercle se tourne vers lui en decale).
   if ganlon ~= nil then
-    Says(ganlon, "Sigh", 'CR5_023', {t.coco, t.kino})
-    GAME:WaitFrames(10)
+    Says(ganlon, "Sigh", 'CR5_023', {t.coco, t.kino, shuca})
+    Silence(10)
   end
+  -- Shuca remonte le moral, pleine d'energie.
   if shuca ~= nil then
-    Says(shuca, "Happy", 'CR5_024', {ganlon, t.hyko})
-    GAME:WaitFrames(10)
+    Says(shuca, "Happy", 'CR5_024', {ganlon, t.hyko, partner})
+    Silence(10)
   end
-  Says(t.hyko, "Determined", 'CR5_025', {t.almotz, partner})
-  GAME:WaitFrames(10)
-  Says(t.almotz, "Happy", 'CR5_026', {t.hyko})
-  GAME:WaitFrames(12)
+  -- Hyko, protocole. Almotz, famille.
+  Says(t.hyko, "Determined", 'CR5_025', {t.almotz, partner, t.coco})
+  Silence(10)
+  Says(t.almotz, "Happy", 'CR5_026', {t.hyko, t.coco, t.rin})
+  Silence(12)
 
-  -- 2.4 LE MYSTERE QUI S'ASSEMBLE — sans tout reveler. Les "angles"
-  -- de Tornadus, les veines, la chaleur anormale : les pieces se
-  -- rapprochent, mais aucune reponse n'est donnee.
+  -- ===== 2.5 LE MYSTERE QUI S'ASSEMBLE =====
+  -- Camera qui se resserre sur le duo pendant que Phileas parle.
   GAME:MoveCamera(CX, CY - 40, 40, false)
-  Says(t.phileas, "Worried", 'CR5_027', {t.penticus, partner, hero})
-  GAME:WaitFrames(12)
-  Says(t.penticus, "Normal", 'CR5_028', {t.phileas, t.kino, t.reinier})
-  GAME:WaitFrames(12)
+  Says(t.phileas, "Worried", 'CR5_027', {t.penticus, partner, hero, t.kino, t.reinier})
+  Silence(12)
+  Says(t.penticus, "Normal", 'CR5_028', {t.phileas, t.kino, t.reinier, t.coco})
+  Silence(12)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_029']), "Determined")
-  GAME:WaitFrames(15)
+  Silence(15)
 
-  -- 2.5 PENTICUS CLOT LE BRIEFING — la decision.
-  Says(t.penticus, "Inspired", 'CR5_030', {t.phileas, t.kino, t.reinier, partner, hero})
-  GAME:WaitFrames(15)
+  -- ===== 2.6 PENTICUS CLOT LE BRIEFING =====
+  Says(t.penticus, "Inspired", 'CR5_030',
+       {t.phileas, t.kino, t.reinier, partner, hero, t.coco, t.rin, t.hyko, t.almotz, shuca, ganlon})
+  Silence(15)
 
   -- Dessert sous fondu, fin du repas.
   GAME:FadeOut(false, 30)
@@ -560,16 +720,21 @@ function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
   SOUND:FadeOutBGM(40)
   GAME:WaitFrames(20)
 
-  -- 2.6 LA SOIREE SE CALME — contemplation des ruines au loin.
+  -- ===== 2.7 LA SOIREE SE CALME — contemplation des ruines =====
   -- Silence musical : la nuit approche, on ne parle plus beaucoup.
   GAME:MoveCamera(620, 700, 60, false)
   GAME:WaitFrames(30)
+  -- Le duo s'ecarte legerement du cercle pour un dernier regard.
+  pcall(function()
+    GROUND:MoveToPosition(partner, CX + 90, CY + 40, false, 1)
+    GROUND:MoveToPosition(hero, CX + 70, CY + 50, false, 1)
+  end)
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_031']))
-  GAME:WaitFrames(12)
+  Silence(12)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_032']), "Normal")
-  GAME:WaitFrames(15)
+  Silence(15)
 
   -- Transition 2 -> 3 : fondu (repas -> coucher), nuit qui tombe.
   GAME:FadeOut(false, 40)
@@ -578,17 +743,20 @@ function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
 end
 
 -- ================================================================
--- ACTE 3 — LE COUCHER + LE REVE
+-- ACTE 3 — LE COUCHER + LES HISTOIRES + LE REVE
 -- Paillasses deployees sous le fondu, nuit ("darkness"), chacun se
--- couche. Discussion intime du duo, puis bascule vers le reve de
--- Gardevoir (hero_dream, retour parametre vers ce camp).
+-- couche. Discussion intime du duo, puis les jeunes se racontent des
+-- histoires (variation : sur les ruines), Phileas gronde, et bascule
+-- vers le reve de Gardevoir (hero_dream, retour parametre).
 -- ================================================================
 function cloven_ruins_entrance_ch_5.CampNightfall(hero, partner, t)
   local B = cloven_ruins_entrance_ch_5.BEDS
+  local ganlon = CH('Teammate2')
+  local shuca = CH('Teammate3')
   local bedOf = {
     [t.penticus] = 1, [t.phileas] = 2, [t.coco] = 3, [t.rin] = 4,
     [t.almotz] = 5, [t.hyko] = 6, [t.kino] = 7, [t.reinier] = 8,
-    [CH('Teammate3')] = 9, [CH('Teammate2')] = 10,
+    [shuca] = 9, [ganlon] = 10,
     [partner] = 11, [hero] = 12,
   }
   local function seatX(i) return B[i][1] + 13 end
@@ -610,10 +778,10 @@ function cloven_ruins_entrance_ch_5.CampNightfall(hero, partner, t)
   GAME:FadeIn(40)
   GAME:WaitFrames(20)
 
-  -- 3.1 CHACUN GAGNE SA PAILLASSE, en decale.
+  -- 3.1 CHACUN GAGNE SA PAILLASSE, en decale (resp. desynchronisee).
   local sleepOrder = {
     {t.penticus, 0}, {t.coco, 12}, {t.rin, 22}, {t.almotz, 32},
-    {t.kino, 42}, {t.reinier, 52},
+    {t.kino, 42}, {t.reinier, 52}, {ganlon, 62}, {shuca, 72},
   }
   local vers = {}
   for _, s in ipairs(sleepOrder) do
@@ -660,20 +828,20 @@ function cloven_ruins_entrance_ch_5.CampNightfall(hero, partner, t)
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_034']))
-  GAME:WaitFrames(12)
+  Silence(12)
   GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_035']))
-  GAME:WaitFrames(12)
+  Silence(12)
   GeneralFunctions.DoAnimation(hero, 'Nod')
   GAME:WaitFrames(15)
 
   -- Le partenaire s'endort en pleine phrase (dodeline, EventSleep).
   GeneralFunctions.SetEmotion("Happy")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_036'], hero:GetDisplayName()))
-  GAME:WaitFrames(15)
+  Silence(15)
   GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_D01']))
-  GAME:WaitFrames(10)
+  Silence(10)
   pcall(function()
     GeneralFunctions.LookAround(partner, 2, 10, false, false, true, Direction.Up)
   end)
@@ -688,24 +856,94 @@ function cloven_ruins_entrance_ch_5.CampNightfall(hero, partner, t)
   pcall(function() GeneralFunctions.EmoteAndPause(hero, "Sweatdrop", true) end)
   GAME:WaitFrames(12)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_D02']), "Sigh")
-  GAME:WaitFrames(20)
+  Silence(20)
 
-  -- 3.3 LE CAMP S'ENDORT — chacun EventSleep, le heros en dernier.
-  local finalSleep = {
-    {t.hyko, 0}, {t.almotz, 6}, {t.phileas, 12}, {t.coco, 18},
-    {t.rin, 24}, {t.kino, 30}, {t.reinier, 36},
-  }
-  local fs = {}
-  for _, s in ipairs(finalSleep) do
-    if s[1] ~= nil then
-      fs[#fs+1] = TASK:BranchCoroutine(function()
-        GAME:WaitFrames(s[2])
-        pcall(function() GROUND:CharSetAnim(s[1], "Sleep", true) end)
-      end)
+  -- 3.3 LES HISTOIRES DU SOIR — les jeunes chuchotent (variation :
+  -- des histoires sur les ruines, comme les histoires de peur du Mont).
+  -- Hyko et Almotz sont voisins et ne dorment pas encore.
+  pcall(function()
+    if t.hyko ~= nil then
+      GROUND:CharEndAnim(t.hyko)
+      GROUND:CharTurnToCharAnimated(t.hyko, t.almotz, 4)
     end
-  end
-  TASK:JoinCoroutines(fs)
+  end)
+  UI:SetSpeaker(t.hyko)
+  GeneralFunctions.SetEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_H01']))
+  Silence(14)
+  GeneralFunctions.SetEmotion("Sad")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_H02']))
+  Silence(18)
+
+  -- Almotz surenchérit.
+  pcall(function()
+    if t.almotz ~= nil then
+      GROUND:CharEndAnim(t.almotz)
+      GROUND:CharTurnToCharAnimated(t.almotz, t.hyko, 4)
+      GeneralFunctions.EmoteAndPause(t.almotz, "Exclaim", true)
+    end
+  end)
+  UI:SetSpeaker(t.almotz)
+  GeneralFunctions.SetEmotion("Determined")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_H03']))
+  Silence(12)
+  GeneralFunctions.SetEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_H04']))
+  Silence(18)
+
+  -- PHILEAS GRONDE depuis son poste.
+  pcall(function()
+    if t.phileas ~= nil then
+      GROUND:CharEndAnim(t.phileas)
+      GROUND:CharTurnToCharAnimated(t.phileas, t.almotz, 4)
+      GeneralFunctions.EmoteAndPause(t.phileas, "Angry", true)
+    end
+  end)
+  -- Les deux pris en faute, en decale.
+  ReactAll({ [t.hyko] = "Sweatdrop", [t.almotz] = "Shock" })
   GAME:WaitFrames(10)
+  UI:SetSpeaker(t.phileas)
+  GeneralFunctions.SetEmotion("Angry")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_H05']))
+  Silence(12)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_H06'], t.kino:GetDisplayName()))
+  Silence(10)
+
+  -- LE GAG : la camera va chercher Kino... qui dort deja.
+  pcall(function() GAME:MoveCamera(seatX(bedOf[t.kino]), seatY(bedOf[t.kino]), 32, false) end)
+  GAME:WaitFrames(25)
+  -- Kino dort a poings fermes (il s'est endormi avant tout le monde).
+  pcall(function()
+    if t.kino ~= nil then GROUND:CharSetAnim(t.kino, "Sleep", true) end
+  end)
+  GAME:WaitFrames(45)
+
+  -- Le heros commente, court.
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_H07']), "Worried")
+  Silence(15)
+
+  -- Retour au cadre du camp, et les jeunes se recouchent.
+  pcall(function() GAME:MoveCamera(CX, CY, 36, false) end)
+  UI:SetSpeaker(t.hyko)
+  GeneralFunctions.SetEmotion("Sigh")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_H08']))
+  Silence(12)
+  pcall(function()
+    if t.hyko ~= nil then GROUND:CharSetAnim(t.hyko, "Sleep", true) end
+  end)
+  GAME:WaitFrames(20)
+  pcall(function()
+    if t.almotz ~= nil then GROUND:CharSetAnim(t.almotz, "EventSleep", true) end
+  end)
+  GAME:WaitFrames(25)
+
+  -- 3.4 LE CAMP S'ENDORT — le heros en dernier.
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_D03']), "Normal")
+  Silence(20)
+  GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+  GROUND:CharSetAnim(hero, "EventSleep", true)
+  GAME:WaitFrames(30)
 
   -- La camera derive au-dessus du camp endormi, puis sur les ruines.
   local coro1 = TASK:BranchCoroutine(function()
@@ -852,7 +1090,6 @@ end
 
 function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
   local B = cloven_ruins_entrance_ch_5.BEDS
-  local coro1, coro2
 
   GAME:CutsceneMode(true)
   if partner ~= nil then AI:DisableCharacterAI(partner) end
@@ -872,12 +1109,12 @@ function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 
   -- L'oubli immediat — le reve de Gardevoir s'efface.
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_038']), "Pain")
-  GAME:WaitFrames(30)
+  Silence(30)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_039']), "Worried")
-  GAME:WaitFrames(25)
+  Silence(25)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_040']), "Sad")
   UI:ResetSpeaker()
-  GAME:WaitFrames(35)
+  Silence(35)
 
   -- Le partenaire se reveille a son tour.
   pcall(function() GROUND:CharEndAnim(partner) end)
@@ -886,10 +1123,9 @@ function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_041']))
-  GAME:WaitFrames(15)
+  Silence(15)
 
   -- 4.2 LE LEVER DU SOLEIL — la nuit cede la place au jour.
-  -- Retrait de "darkness" = l'aube se leve sur le camp.
   pcall(function() GROUND:RemoveMapStatus("darkness") end)
   SOUND:PlayBGM('Aegis Cave.ogg', false)
   GAME:MoveCamera(CX, CY - 20, 40, false)
@@ -897,9 +1133,9 @@ function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_042']))
-  GAME:WaitFrames(12)
+  Silence(12)
 
-  -- 4.3 LES AUTRES SE REVEILLENT, en cascade.
+  -- 4.3 LES AUTRES SE REVEILLENT, en cascade — chacun a son rythme.
   local wakeOrder = {
     {t.penticus, 0}, {t.rin, 10}, {t.coco, 20}, {t.hyko, 30},
     {t.almotz, 40}, {t.kino, 50}, {t.reinier, 60}, {t.phileas, 70},
@@ -919,9 +1155,24 @@ function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
   TASK:JoinCoroutines(wks)
   GAME:WaitFrames(20)
 
-  -- 4.4 LE RASSEMBLEMENT DU MATIN — Penticus donne le signal.
-  -- Le feu est eteint (camp du matin), l'axe est degage.
+  -- 4.4 LE RASSEMBLEMENT DU MATIN — chacun s'affaire, puis converge.
   cloven_ruins_entrance_ch_5.BuildCampMorning()
+  -- Petits echanges matinaux pendant que le camp s'eveille :
+  -- Rin tend une baie a Coco, Hyko fait sa ronde, Kino et Reinier
+  -- regardent les ruines une derniere fois avant de rejoindre.
+  pcall(function()
+    if t.rin ~= nil and t.coco ~= nil then
+      GROUND:CharTurnToCharAnimated(t.rin, t.coco, 4)
+      GeneralFunctions.EmoteAndPause(t.rin, "Happy", false)
+    end
+  end)
+  GAME:WaitFrames(18)
+  pcall(function()
+    if t.hyko ~= nil then GROUND:CharAnimateTurnTo(t.hyko, Direction.Up, 4) end
+  end)
+  GAME:WaitFrames(12)
+
+  -- CONVERGENCE vers le point de rassemblement.
   local rally = {}
   local rv = {
     {t.penticus, {CX, CY + 40}},
@@ -947,24 +1198,32 @@ function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
   GAME:WaitFrames(15)
 
   -- Penticus s'adresse a l'expedition : la decision du jour.
+  -- TOUT LE CERCLE se tourne vers lui.
   if t.penticus ~= nil then
+    Listen(t.penticus, {t.phileas, t.kino, t.reinier, t.coco, t.rin, t.hyko, t.almotz})
     UI:SetSpeaker(t.penticus)
     GeneralFunctions.SetEmotion("Inspired")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_043']))
-    GAME:WaitFrames(12)
+    Silence(12)
     GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_044']))
-    GAME:WaitFrames(15)
+    Silence(15)
   end
 
-  -- Le duo se prepare, face a l'entree.
+  -- Le duo se prepare, face a l'entree. Les ruines s'embrasent au
+  -- soleil levant. Kino et Reinier, qui les ont deja explorees,
+  -- les regardent une derniere fois.
+  pcall(function()
+    if t.kino ~= nil then GROUND:CharAnimateTurnTo(t.kino, Direction.Up, 4) end
+    if t.reinier ~= nil then GROUND:CharAnimateTurnTo(t.reinier, Direction.Up, 4) end
+  end)
   GAME:MoveCamera(620, 700, 40, false)
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_045']))
-  GAME:WaitFrames(12)
+  Silence(12)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_046']), "Determined")
-  GAME:WaitFrames(20)
+  Silence(20)
 
   -- 4.5 FIN DE CINEMATIQUE — le camp se disperse, le joueur reprend
   -- la main. C'est lui qui choisit le moment d'entrer dans les ruines.
@@ -978,5 +1237,3 @@ function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 end
 
 return cloven_ruins_entrance_ch_5
-
-
