@@ -463,7 +463,7 @@ local function DefeatedBossBody()
   GAME:WaitFrames(20)
   GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_013']))
-  -- "Le Cœur... il bat plus fort maintenant."
+  -- "La pierre palpite encore... mais moins fort. Comme si elle reprenait son souffle."
 
   GAME:WaitFrames(20)
 
@@ -505,8 +505,8 @@ local function DefeatedBossBody()
   -- "Si nous devions le proteger... pourquoi m'a-t-on poste FACE a lui ?"
   GAME:WaitFrames(30)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_057']))
-  -- "Un garde fait face a ce qu'il tient dehors. J'ai fait face a ce Coeur
-  --  pendant mille ans."
+  -- "Un garde fait face a ce qu'il tient dehors. J'ai fait face a ce qui dort
+  --  sous la pierre pendant mille ans."
   GAME:WaitFrames(35)
 
   -- Le duo encaisse. Le partenaire n'a pas de reponse : c'est voulu.
@@ -532,8 +532,8 @@ local function DefeatedBossBody()
   UI:ResetSpeaker(false)
   UI:SetCenter(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_060']))
-  -- "Le colosse se rassoit dans la poussiere,[pause=20] tourne vers le Coeur.
-  --  [pause=25] Comme il l'a toujours ete."
+  -- "Le colosse se rassoit dans la poussiere,[pause=20] tourne vers ce qu'il
+  --  gardait.[pause=25] Comme il l'a toujours ete."
   UI:SetCenter(false)
   GAME:WaitFrames(25)
 
@@ -561,11 +561,29 @@ function cloven_ruins_boss_ch_7.DefeatedBoss()
     pcall(function() GAME:FadeOut(false, 20) end)
   end
 
-  -- Flag de progression + sortie garantis, quoi qu'il arrive.
-  SV.Chapter7.SawAnimaCoreCorruption = true
+  -- LE TITAN EST VAINCU — L'EXPEDITION DU CH5 EST TERMINEE.
+  --(Restructuration validee : les Ruines Fendues sont le climax du ch5.
+  --Regigigas est un GARDIEN QUI TESTE — bienveillant-eprouvant. Le duo
+  --l'a releve de sa consigne millenaire. Révélation TARDIVE : le Cœur
+  --corrompu n'est PAS revele ici — seule reste l'anomalie inquietante
+  --(les veines, la pulsation sous la pierre) posee en foreshadowing.
+  --Le fil Cœur/Genese/reve Necrozma vit apres le ch10.)
+  --La cloture est HORS du pcall : meme si la mise en scene casse, la
+  --progression et le retour a Metano ont TOUJOURS lieu.
+  SV.Chapter5.FinishedExpedition = true
+  SV.Chapter5.RuinsExpeditionDone = true
+  SV.ChapterProgression.Chapter = 6
+  SV.TemporaryFlags.Dinnertime = true
+  SV.TemporaryFlags.Bedtime = true
+  SV.TemporaryFlags.MorningWakeup = true
+  SV.TemporaryFlags.MorningAddress = true
+
+  local exit_ground = 6
+  if SV.TemporaryFlags.MissionCompleted then exit_ground = 22 end
   GAME:CutsceneMode(false)
-  PrintInfo("[BossSeq][cloven_ruins_boss_ch_7] DefeatedBoss -> guild_third_floor_lobby")
-  GAME:EnterGroundMap("guild_third_floor_lobby", "Main_Entrance_Marker")
+  PrintInfo("[BossSeq][cloven_ruins_boss_ch_7] DefeatedBoss -> master_zone (fin expedition ch5, Chapter=6)")
+  GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared,
+    "master_zone", -1, exit_ground, 0, true, true)
 end
 
 -- Player died to the boss

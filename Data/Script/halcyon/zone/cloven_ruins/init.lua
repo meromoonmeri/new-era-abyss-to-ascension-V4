@@ -55,13 +55,29 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
           SV.Chapter7.LostRuins = true
-          if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
-              GAME:EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
-              GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Les ruines...[pause=0] c'est trop pour nous...", "Pain")
-              GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, 46, 0)
+          --Au CH5 (restructuration) : un KO dans la premiere moitie des
+          --Ruines ramene au CAMPEMENT devant l'entree (cloven_ruins_entrance,
+          --ground 65) — l'expedition se refait a partir du bivouac, pas a la
+          --steppe (l'ancien ciblage 46 = vast_steppe_entrance etait un
+          --vestige du ch7). Hors ch5, comportement historique conserve.
+          if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5 then
+              if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
+                  GAME:EndDungeonRun(result, "master_zone", -1, 65, 0, true, true)
+                  GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Les ruines...[pause=0] c'est trop pour nous...[pause=10] On se refait au camp.", "Pain")
+                  GAME:WaitFrames(20)
+                  GAME:EnterZone("master_zone", -1, 65, 0)
+              else
+                  GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 65, 0, true, true)
+              end
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+              if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
+                  GAME:EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+                  GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Les ruines...[pause=0] c'est trop pour nous...", "Pain")
+                  GAME:WaitFrames(20)
+                  GAME:EnterZone("master_zone", -1, 46, 0)
+              else
+                  GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+              end
           end
       end
   elseif segmentID == 1 then

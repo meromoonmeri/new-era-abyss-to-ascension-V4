@@ -99,6 +99,9 @@ function cloven_ruins_entrance.Dungeon_Entrance_Touch(obj, activator)
     GROUND:CharEndAnim(hero)
     if SV.ChapterProgression.Chapter == 5 and SV.Chapter5 ~= nil then
       SV.Chapter5.RuinsEntered = true
+      --Le donjon final du ch5 doit etre debloque des l'entree depuis le
+      --camp (l'Unlock historique se fait en ch6->ch7, trop tard ici).
+      pcall(function() GAME:UnlockDungeon("cloven_ruins") end)
     end
     SV.partner.Spawn = "Default"
     GAME:EnterDungeon("cloven_ruins", 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
