@@ -66,7 +66,7 @@ local CY = cloven_ruins_entrance_ch_5.CAMP_Y
 -- Ordre : Penticus au sud (face au sentier d'arrivee), puis horaire.
 -- Chaque siege est "l'assiette" du convive.
 cloven_ruins_entrance_ch_5.SEATS = {
-  {CX +  0, CY + 52},  -- 1  Penticus (sud, face au feu)
+  {CX +  0, CY + 48},  -- 1  Penticus (sud, face au feu) — tuile propre (9,10), hors graviers (9,11)
   {CX - 26, CY + 45},  -- 2  Phileas
   {CX - 45, CY + 26},  -- 3  Coco
   {CX - 52, CY +  0},  -- 4  Rin
@@ -84,7 +84,7 @@ cloven_ruins_entrance_ch_5.SEATS = {
 -- N/S sur le sable (y 155 / y 275, x 70-330), hors du cercle de siege
 -- et loin des rochers (x>=360) et de la rive (y>=296).
 cloven_ruins_entrance_ch_5.BEDS = {
-  {CX - 150, CY - 60}, {CX - 98, CY - 60}, {CX - 46, CY - 60}, {CX + 6, CY - 60}, {CX + 58, CY - 60}, {CX + 110, CY - 60},
+  {CX - 150, CY - 60}, {CX - 98, CY - 60}, {CX - 46, CY - 60}, {CX + 6, CY - 60}, {CX + 58, CY - 60}, {CX + 92, CY - 60},
   {CX - 150, CY + 60}, {CX - 98, CY + 60}, {CX - 46, CY + 60}, {CX + 6, CY + 60}, {CX + 58, CY + 60}, {CX + 110, CY + 60},
 }
 
@@ -97,7 +97,7 @@ cloven_ruins_entrance_ch_5.PLUM_BED = {36, 160}
 -- Positions d'ouverture des PNJ (camp de jour) : chacun a cote de son
 -- siege (son assiette), sur le sable, juste derriere sa place assise.
 local OPEN_POS = {
-  Penticus = {220, 282},
+  Penticus = {220, 255},
   Phileas  = {168, 264},
   Coco     = {150, 244},
   Rin      = {150, 215},
