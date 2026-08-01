@@ -44,8 +44,12 @@ cloven_ruins_entrance_ch_5 = {}
 -- ================================================================
 -- GEOMETRIE DU CAMP — tout derive du foyer (pattern Mont Venteux)
 -- ================================================================
-cloven_ruins_entrance_ch_5.CAMP_X = 570
-cloven_ruins_entrance_ch_5.CAMP_Y = 800
+-- Ground réutilisé : aegis_cave_entrance (ExplorersOfSkyOrigins), carte
+-- 576x408 px (TexSize 3, 24px, orientation paysage), collision ouverte.
+-- Foyer recentre (288,320), offsets des sièges/paillasses conservés
+-- (footprint X 168-408, Y 200-400, vérifié dans les bornes de la carte).
+cloven_ruins_entrance_ch_5.CAMP_X = 288
+cloven_ruins_entrance_ch_5.CAMP_Y = 320
 
 local CX = cloven_ruins_entrance_ch_5.CAMP_X
 local CY = cloven_ruins_entrance_ch_5.CAMP_Y
@@ -78,20 +82,20 @@ cloven_ruins_entrance_ch_5.BEDS = {
 --LA PAILLASSE DE PLUM — posee SEULEMENT si elle est au camp (elle
 --s'est incrustee au Mont Venteux et a suivi l'expedition). Miroir de
 --PLUM_BED du Mont : elle dort en bout de rang ouest, pres de sa
---cuisine, a l'ecart du cercle. Verifiee libre (400,780, 40x40).
-cloven_ruins_entrance_ch_5.PLUM_BED = {400, 780}
+--cuisine (120,360), a l'ecart du cercle. Verifiee libre (110,300, 40x40).
+cloven_ruins_entrance_ch_5.PLUM_BED = {110, 300}
 
 -- Positions d'ouverture des PNJ (camp de jour, avant le rassemblement),
 -- verifiees libres et a l'ecart des places assises.
 local OPEN_POS = {
-  Penticus = {464, 800},
-  Phileas  = {480, 744},
-  Coco     = {544, 704},
-  Rin      = {632, 688},
-  Hyko     = {664, 840},
-  Almotz   = {656, 768},
-  Kino     = {608, 904},
-  Reinier  = {512, 904},
+  Penticus = {182, 320},
+  Phileas  = {190, 260},
+  Coco     = {250, 230},
+  Rin      = {330, 230},
+  Hyko     = {390, 350},
+  Almotz   = {380, 290},
+  Kino     = {330, 390},
+  Reinier  = {240, 390},
 }
 
 -- ================================================================
@@ -217,7 +221,7 @@ function cloven_ruins_entrance_ch_5.SetupGround(includeRecon)
   local jigglypuff = nil
   if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
      and SV.Chapter5 ~= nil and SV.Chapter5.PlumAtMountCamp then
-    spawnList[#spawnList+1] = {'Jigglypuff', 410, 840, Direction.Right}
+    spawnList[#spawnList+1] = {'Jigglypuff', 120, 360, Direction.Right}
   end
   local tropius, noctowl, snubbull, audino, growlithe, zigzagoon, breloom, girafarig, jigglypuff2 =
     CharacterEssentials.MakeCharactersFromList(spawnList)
@@ -338,15 +342,15 @@ function cloven_ruins_entrance_ch_5.ArrivalCutscene()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
-  -- L'equipe arrive du SUD (spawn 482,1112) et remonte vers le camp.
-  -- La colonne x=568 est verifiee praticable en continu jusqu'au foyer.
-  GROUND:TeleportTo(hero, 480, 1112, Direction.Up)
-  GROUND:TeleportTo(partner, 520, 1112, Direction.Up)
+  -- L'equipe arrive du SUD (spawn 288,392) et remonte vers le camp.
+  -- La colonne x=270-306 est praticable en continu jusqu'au foyer.
+  GROUND:TeleportTo(hero, 270, 392, Direction.Up)
+  GROUND:TeleportTo(partner, 294, 392, Direction.Up)
   local t2 = CH('Teammate2')
   local t3 = CH('Teammate3')
-  if t2 ~= nil then GROUND:TeleportTo(t2, 512, 1136, Direction.Up) end
-  if t3 ~= nil then GROUND:TeleportTo(t3, 552, 1136, Direction.Up) end
-  GAME:MoveCamera(560, 1080, 1, false)
+  if t2 ~= nil then GROUND:TeleportTo(t2, 282, 400, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 306, 400, Direction.Up) end
+  GAME:MoveCamera(288, 384, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -364,26 +368,26 @@ function cloven_ruins_entrance_ch_5.ArrivalCutscene()
 
   -- La montee vers le camp. Camera qui glisse avec la colonne.
   local coro1 = TASK:BranchCoroutine(function()
-    GROUND:MoveToPosition(hero, 480, 1000, false, 1)
-    GROUND:MoveToPosition(hero, 512, 900, false, 1)
+    GROUND:MoveToPosition(hero, 270, 366, false, 1)
+    GROUND:MoveToPosition(hero, 272, 380, false, 1)
   end)
   local coro2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(12)
-    GROUND:MoveToPosition(partner, 520, 1012, false, 1)
-    GROUND:MoveToPosition(partner, 520, 916, false, 1)
+    GROUND:MoveToPosition(partner, 294, 368, false, 1)
+    GROUND:MoveToPosition(partner, 292, 380, false, 1)
   end)
   local coro3 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(24)
-    if t2 ~= nil then GROUND:MoveToPosition(t2, 512, 1032, false, 1) end
+    if t2 ~= nil then GROUND:MoveToPosition(t2, 282, 376, false, 1) end
   end)
   local coro4 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(36)
-    if t3 ~= nil then GROUND:MoveToPosition(t3, 552, 1032, false, 1) end
+    if t3 ~= nil then GROUND:MoveToPosition(t3, 306, 376, false, 1) end
   end)
   local coro5 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(20)
-    GAME:MoveCamera(560, 1000, 130, false)
-    GAME:MoveCamera(560, 860, 110, false)
+    GAME:MoveCamera(288, 360, 130, false)
+    GAME:MoveCamera(288, 340, 110, false)
   end)
   TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
   GAME:WaitFrames(20)
@@ -393,7 +397,7 @@ function cloven_ruins_entrance_ch_5.ArrivalCutscene()
   GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
 
   -- 1.1 PREMIERE VUE DES RUINES — la pensee du heros, breve.
-  GAME:MoveCamera(560, 780, 40, false)
+  GAME:MoveCamera(288, 320, 40, false)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_001']), "Normal")
   Silence(20)
   UI:SetSpeaker(partner)
@@ -490,7 +494,7 @@ function cloven_ruins_entrance_ch_5.ArrivalCutscene()
 
   -- 1.7 REINIER MONTRE LES RUINES — le point d'interet.
   if reinier ~= nil then
-    GAME:MoveCamera(620, 700, 40, false)
+    GAME:MoveCamera(288, 100, 40, false)
     Listen(reinier, {hero, partner, kino})
     UI:SetSpeaker(reinier)
     GeneralFunctions.SetEmotion("Normal")
@@ -754,10 +758,10 @@ function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
     local plum = CH('Jigglypuff')
     if plum ~= nil then
       --Elle avance avec un plat, le pose, et s'incruste.
-      --Fix audit : (510,770) etait a 16 px du siege d'Almotz. (470,780)
-      --verifie libre, a 46 px du siege le plus proche.
+      --Nouvelle carte (576x408) : spot a l'ouest du cercle (188,300),
+      --a ~39 px du siege le plus proche.
       pcall(function()
-        GeneralFunctions.EightWayMove(plum, 470, 780, false, 1)
+        GeneralFunctions.EightWayMove(plum, 188, 300, false, 1)
         GROUND:CharAnimateTurnTo(plum, Direction.Down, 4)
       end)
       GAME:WaitFrames(20)
@@ -1076,13 +1080,14 @@ function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
   -- ============================================================
   -- 2.13 LA SOIREE SE CALME — contemplation des ruines au loin.
   -- ============================================================
-  GAME:MoveCamera(620, 700, 60, false)
+  GAME:MoveCamera(288, 100, 60, false)
   GAME:WaitFrames(30)
   pcall(function()
-    --Fix audit : (CX+70,CY+50)=(640,850) tombait sur un mur. Points
-    --verifies libres : partenaire (660,840), heros (650,850).
-    GROUND:MoveToPosition(partner, 660, 840, false, 1)
-    GROUND:MoveToPosition(hero, 650, 850, false, 1)
+    --Nouvelle carte : contemplation au nord-est du foyer, face aux
+    --ruines (nord). Points libres (collision ouverte) : partenaire
+    --(380,260), heros (370,270).
+    GROUND:MoveToPosition(partner, 380, 260, false, 1)
+    GROUND:MoveToPosition(hero, 370, 270, false, 1)
   end)
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Normal")
@@ -1315,7 +1320,7 @@ function cloven_ruins_entrance_ch_5.CampNightfall(hero, partner, t)
   -- La camera derive au-dessus du camp endormi, puis sur les ruines.
   local coro1 = TASK:BranchCoroutine(function()
     GAME:MoveCamera(CX, CY + 20, 90, false)
-    GAME:MoveCamera(620, 700, 110, false)
+    GAME:MoveCamera(288, 100, 110, false)
   end)
   local coro2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(120)
@@ -1674,15 +1679,15 @@ function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
   -- DEPART DE LA RECONNAISSANCE : Kino et Reinier marchent vers
   -- l'entree des Ruines et disparaissent dans l'ombre de la porte.
   -- C'est un depart VU, pas une disparition silencieuse.
-  -- Fix audit : ils marchaient vers le rocher Kangaskhan (620,700).
-  -- Chemins verifies praticables jusqu'a la porte (670,618,96,32) :
-  --   Kino (568,728) -> (704,704) -> porte ; Reinier (600,736) -> (720,696) -> porte.
+  -- Nouvelle carte : porte au nord (288,48,96x32), collision ouverte.
+  --   Kino (330,390) -> (310,300) -> (300,140) ; Reinier (240,390) ->
+  --   (268,300) -> (278,140) -> porte.
   local depart = {}
   if t.kino ~= nil then
     depart[#depart+1] = TASK:BranchCoroutine(function()
       pcall(function()
-        GeneralFunctions.EightWayMove(t.kino, 704, 704, false, 1)
-        GeneralFunctions.EightWayMove(t.kino, 720, 660, false, 1)
+        GeneralFunctions.EightWayMove(t.kino, 310, 300, false, 1)
+        GeneralFunctions.EightWayMove(t.kino, 300, 140, false, 1)
         GROUND:CharAnimateTurnTo(t.kino, Direction.UpRight, 4)
       end)
       GAME:WaitFrames(30)
@@ -1693,8 +1698,8 @@ function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
     depart[#depart+1] = TASK:BranchCoroutine(function()
       GAME:WaitFrames(12)
       pcall(function()
-        GeneralFunctions.EightWayMove(t.reinier, 720, 696, false, 1)
-        GeneralFunctions.EightWayMove(t.reinier, 730, 660, false, 1)
+        GeneralFunctions.EightWayMove(t.reinier, 268, 300, false, 1)
+        GeneralFunctions.EightWayMove(t.reinier, 278, 140, false, 1)
         GROUND:CharAnimateTurnTo(t.reinier, Direction.UpRight, 4)
       end)
       GAME:WaitFrames(30)
@@ -1710,7 +1715,7 @@ function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 
   -- Le duo se prepare, face a l'entree. Les ruines s'embrasent au
   -- soleil levant.
-  GAME:MoveCamera(620, 700, 40, false)
+  GAME:MoveCamera(288, 100, 40, false)
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_045']))
@@ -1723,17 +1728,17 @@ function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
   -- agglutines au point de rassemblement, effet « paquet »).
   -- Chacun regagne son poste (OPEN_POS) : Penticus au commandement,
   -- Hyko a la garde du perimetre, Rin/Coco a la base, Almotz
-  -- auxiliaire, Plum retourne a sa cuisine (410,840). Le camp vit.
+  -- auxiliaire, Plum retourne a sa cuisine (120,360). Le camp vit.
   -- ============================================================
   local disperse = {}
   local disp = {
-    {t.penticus, {464, 800}},
-    {t.phileas,  {480, 744}},
-    {t.coco,     {544, 704}},
-    {t.rin,      {632, 688}},
-    {t.hyko,     {664, 840}},
-    {t.almotz,   {656, 768}},
-    {t.plum,     {410, 840}},
+    {t.penticus, {182, 320}},
+    {t.phileas,  {190, 260}},
+    {t.coco,     {250, 230}},
+    {t.rin,      {330, 230}},
+    {t.hyko,     {390, 350}},
+    {t.almotz,   {380, 290}},
+    {t.plum,     {120, 360}},
   }
   for i, e in ipairs(disp) do
     if e[1] ~= nil then
@@ -1818,7 +1823,7 @@ function cloven_ruins_entrance_ch_5.KODefeatCutsceneBody()
     if zigzagoon ~= nil then GROUND:TeleportTo(zigzagoon, CX - 30, CY - 20, Direction.Down) end
     if breloom ~= nil then GROUND:TeleportTo(breloom, CX + 20, CY - 32, Direction.Down) end
     if girafarig ~= nil then GROUND:TeleportTo(girafarig, CX - 20, CY - 32, Direction.Down) end
-    if jigglypuff ~= nil then GROUND:TeleportTo(jigglypuff, 410, 840, Direction.Right) end
+    if jigglypuff ~= nil then GROUND:TeleportTo(jigglypuff, 120, 360, Direction.Right) end
   end)
 
   GAME:FadeIn(60)
@@ -1973,9 +1978,9 @@ function cloven_ruins_entrance_ch_5.RetreatReturnCutsceneBody()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
 
   -- L'equipe revient par le sud, la tete baissee mais pas vaincue.
-  GROUND:TeleportTo(hero, 480, 900, Direction.Up)
-  GROUND:TeleportTo(partner, 520, 900, Direction.Up)
-  GAME:MoveCamera(560, 860, 1, false)
+  GROUND:TeleportTo(hero, 270, 380, Direction.Up)
+  GROUND:TeleportTo(partner, 294, 380, Direction.Up)
+  GAME:MoveCamera(288, 330, 1, false)
 
   -- Les membres attendent au camp, disposes autour du feu.
   pcall(function()
@@ -1993,13 +1998,13 @@ function cloven_ruins_entrance_ch_5.RetreatReturnCutsceneBody()
 
   -- La montee vers le camp.
   local coro1 = TASK:BranchCoroutine(function()
-    GROUND:MoveToPosition(hero, 480, 860, false, 1)
-    GROUND:MoveToPosition(hero, 512, 830, false, 1)
+    GROUND:MoveToPosition(hero, 270, 360, false, 1)
+    GROUND:MoveToPosition(hero, 272, 344, false, 1)
   end)
   local coro2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(12)
-    GROUND:MoveToPosition(partner, 520, 872, false, 1)
-    GROUND:MoveToPosition(partner, 540, 838, false, 1)
+    GROUND:MoveToPosition(partner, 294, 362, false, 1)
+    GROUND:MoveToPosition(partner, 292, 346, false, 1)
   end)
   TASK:JoinCoroutines({coro1, coro2})
   GAME:WaitFrames(20)
