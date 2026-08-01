@@ -104,8 +104,13 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- "Le sommet...[pause=15] On y est presque."
 
   GAME:WaitFrames(30)
-  GROUND:CharAnimateTurnTo(partner, Direction.Down, 4)
-  GROUND:CharAnimateTurnTo(hero, Direction.Down, 4)
+  -- LE DUO REGARDE LE CIEL. Le sommet, les nuages et la menace sont au
+  -- nord (haut de l'ecran) ; ils se tournaient vers Down (sud, bas de
+  -- l'ecran), a l'oppose du point d'interet. Correction d'orientation :
+  -- « Regarde le ciel » (MWG_002) doit etre accompagne d'un regard vers
+  -- le haut.
+  GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+  GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
 
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Worried")
@@ -164,6 +169,14 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
     end
   end)
   TASK:JoinCoroutines({coro_voice1, coro_voice2, coro_voice3, coro_voice4})
+
+  --Apres avoir cherche d'ou vient la voix, le duo se fixe vers le haut :
+  --la source est dans le ciel, au nord. Sans cela, le LookAround les
+  --laissait orientes au hasard quand Tornadus prend la parole.
+  pcall(function()
+    GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+    GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+  end)
 
   GAME:WaitFrames(15)
   UI:SetSpeaker(partner)
@@ -508,7 +521,71 @@ local function DefeatedBossBody()
 
   GAME:WaitFrames(20)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWG_015']), "Determined")
-  -- "C'est là qu'on va. Vers les Ruines du Cloven."
+  -- "C'est là qu'on va. Vers les ruines fendues."
+
+  -- ================= UN VRAI ECHANGE APRES LA VICTOIRE =================
+  -- La victoire ne clot pas : elle OUVRE. Tornadus, enfin debout sans
+  -- combattre, parle de ce qu'il gardait et de ce qu'il a vu d'en haut.
+  -- Le duo ne fete pas : il questionne. C'est ici que se pose le fil
+  -- rouge vers les Ruines Fendues (le donjon suivant, architecture
+  -- d'Aegis Cave dans New Era).
+  GAME:WaitFrames(20)
+  GAME:MoveCamera(560, 1104, 40, false)
+  UI:SetSpeaker(tornadus)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_047']))
+  -- "Vous entendez ce silence ? C'est la première fois que la cime se tait."
+  GAME:WaitFrames(18)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_048']))
+  -- "Je vous ai vus tomber. Je vous ai vus remonter. Ce n'est pas la
+  --  force qui ouvre mon ciel — c'est de ne jamais vous arrêter."
+  GAME:WaitFrames(20)
+
+  GAME:MoveCamera(560, 1136, 40, false)
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Surprised")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_049']))
+  -- "Vous... vous nous attendiez, pas vrai ? Depuis le début."
+  GAME:WaitFrames(15)
+  UI:SetSpeaker(tornadus)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_050']))
+  -- "J'attendais quelqu'un qui porte. Vous portez. C'est tout."
+  GAME:WaitFrames(18)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWG_051']), "Worried")
+  -- "(Une forme sous le monde... Il a dit que rien de naturel n'a d'angles.)"
+  GAME:WaitFrames(20)
+
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_052']))
+  -- "Cette forme... vous avez dit qu'elle avait des angles. Où est-elle ?"
+  GAME:WaitFrames(15)
+  GAME:MoveCamera(560, 1104, 40, false)
+  UI:SetSpeaker(tornadus)
+  GeneralFunctions.SetEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_053']))
+  -- "Des veines courent sous la terre, comme des racines malades.
+  --  Elles convergent toutes vers le nord."
+  GAME:WaitFrames(20)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_054']))
+  -- "Là-bas, des ruines fendues par quelque chose de plus vieux que le
+  --  vent. C'est là que la forme affleure."
+  GAME:WaitFrames(22)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_055']))
+  -- "Ce n'est pas un monstre que vous devez craindre, petits. C'est un
+  --  lieu. Et les lieux, eux, n'ont jamais pressé."
+  GAME:WaitFrames(24)
+
+  GAME:MoveCamera(560, 1136, 40, false)
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Determined")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_056']))
+  -- "Alors on descendra. On racontera tout à la guilde. Et on reviendra."
+  GAME:WaitFrames(15)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWG_057']), "Determined")
+  -- "(Les ruines fendues. C'est là qu'on ira. Quand on sera prêts.)"
+  GAME:WaitFrames(20)
 
   -- LOT 8.3 — bilan de l'expedition : ce qui a change en chemin.
   GAME:WaitFrames(15)
@@ -582,7 +659,15 @@ function mount_windswept_guardian_ch_5.DefeatedBoss()
     pcall(function() GAME:FadeOut(false, 20) end)
   end
 
-  GAME:CutsceneMode(false)
+  --LE MODE CINEMATIQUE RESTE ACTIF PENDANT LA BASCULE (patron du Creuset,
+  --searing_crucible_ch_5.lua:DefeatedBoss) : le couper ici laissait au
+  --moteur des frames de gameplay sur la carte sortante pendant
+  --l'armement du changement — fenetre ou un input du joueur (menu,
+  --deplacement) pouvait se chevaucher avec l'ecran de resultats et
+  --figer la partie. C'est le freeze signale apres la victoire sur
+  --Tornadus. La carte d'arrivee relache le mode : le refectoire via
+  --guild_dining_room.Dinnertime (init.lua:102), le 2e etage via son
+  --PlotScripting.
 
   --Le sommet est vaincu : l'expedition du chapitre 5 est terminee.
   --On renvoyait vers "cloven_ruins", carte qui n'existe pas (la zone est
