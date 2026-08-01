@@ -82,34 +82,27 @@ function vast_steppe_midpoint.North_Exit_Touch(obj, activator)
     partner.IsInteracting = false
     GROUND:CharEndAnim(partner)
     GROUND:CharEndAnim(hero)
-    if SV.ChapterProgression.Chapter == 5 and not SV.Chapter5.SteppeMiniBossCleared then
-      -- CAUSE RACINE du crash IsGameOver (NRE) : la cinématique du mini-boss
-      -- appelait ContinueDungeon SANS session d'aventure active quand on
-      -- venait du relais master_zone (respawn après mort). BeginSegment charge
-      -- alors la carte de combat sans y attacher l'équipe -> CurrentMap.
-      -- ActiveTeam = null -> premier tick d'input -> IsGameOver() -> NRE.
-      -- Fix : router selon l'état de session.
-      if _ZONE.CurrentZoneID == 'vast_steppe' then
-        -- Session ouverte (on vient du segment 0) : transition de ground interne.
-        PrintInfo("[BossSeq][steppe] midpoint(zone) -> miniboss ground (session active)")
-        GAME:EnterGroundMap("vast_steppe_miniboss", "Main_Entrance_Marker")
-      else
-        -- Copie master_zone (respawn/checkpoint) : session fermée -> on en
-        -- OUVRE une neuve directement sur le ground de cinématique
-        -- (structure -1 = grounds de la zone ; index 1 = vast_steppe_miniboss).
-        PrintInfo("[BossSeq][steppe] midpoint(master) -> miniboss ground (nouvelle session)")
-        GAME:EnterDungeon("vast_steppe", -1, 1, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
-      end
+    -- MINI-BOSS RETIRE (demande utilisateur : « il faut retirer les mini
+    -- boss des chapitre 5 »). Le relais envoyait vers l'arene de Stantler +
+    -- Mudbray (segment 1, vast_steppe_miniboss) tant que
+    -- SV.Chapter5.SteppeMiniBossCleared etait faux. Ce detour est
+    -- supprime : depuis le relais, la route mene DIRECTEMENT aux
+    -- Profondeurs (segment 2), puis au Gardien de la Steppe (l'Absol),
+    -- seul boss du donjon. Miroir exact du patron du Mont Venteux
+    -- (mount_windswept_midpoint/init.lua).
+    --
+    -- On garde la distinction session active / nouvelle session : c'etait
+    -- le correctif de la cause racine du NRE IsGameOver (meme fix que le
+    -- Mont), il n'a rien a voir avec le mini-boss et doit survivre.
+    if _ZONE.CurrentZoneID == 'vast_steppe' then
+      -- Session ouverte (on vient du segment 0) : transition de ground interne.
+      PrintInfo("[BossSeq][steppe] midpoint(zone) -> seg2 (ContinueDungeon)")
+      GAME:ContinueDungeon("vast_steppe", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     else
-      -- Mini-boss déjà vaincu : direction les Profondeurs (segment 2).
-      -- Session active -> ContinueDungeon ; session fermée -> EnterDungeon.
-      if _ZONE.CurrentZoneID == 'vast_steppe' then
-        PrintInfo("[BossSeq][steppe] midpoint(zone) -> seg2 (ContinueDungeon)")
-        GAME:ContinueDungeon("vast_steppe", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
-      else
-        PrintInfo("[BossSeq][steppe] midpoint(master) -> seg2 (EnterDungeon)")
-        GAME:EnterDungeon("vast_steppe", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
-      end
+      -- Copie master_zone (respawn/checkpoint) : session fermee -> on en
+      -- OUVRE une neuve directement sur les Profondeurs (segment 2).
+      PrintInfo("[BossSeq][steppe] midpoint(master) -> seg2 (EnterDungeon)")
+      GAME:EnterDungeon("vast_steppe", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     end
   end
   partner.IsInteracting = false

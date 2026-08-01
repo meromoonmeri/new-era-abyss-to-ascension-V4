@@ -527,37 +527,10 @@ local function QueueChapter5Encounter(queue, members)
   queue:Enqueue(RogueElements.Priority(5, 2, 3), mob_placement)
 end
 
-function ZONE_GEN_SCRIPT.SpawnChapter5SteppeMiniBoss(zoneContext, context, queue, seed, args)
-  if zoneContext.CurrentID == 6 then
-    QueueChapter5Encounter(queue, {
-      { Species = "stantler", Level = 20, HPBonus = 24 },
-      { Species = "mudbray", Level = 19, HPBonus = 16 }
-    })
-  end
-end
-
 function ZONE_GEN_SCRIPT.SpawnChapter5SteppeGuardian(zoneContext, context, queue, seed, args)
   if zoneContext.CurrentID == 13 then
     QueueChapter5Encounter(queue, {
       { Species = "absol", Level = 23, HPBonus = 36 }
-    })
-  end
-end
-
-function ZONE_GEN_SCRIPT.SpawnChapter5TunnelMiniBoss(zoneContext, context, queue, seed, args)
-  if zoneContext.CurrentID == 4 then
-    QueueChapter5Encounter(queue, {
-      { Species = "torkoal", Level = 21, HPBonus = 30 },
-      { Species = "magmar", Level = 20, HPBonus = 20 }
-    })
-  end
-end
-
-function ZONE_GEN_SCRIPT.SpawnChapter5MountMiniBoss(zoneContext, context, queue, seed, args)
-  if zoneContext.CurrentID == 6 then
-    QueueChapter5Encounter(queue, {
-      { Species = "gligar", Level = 22, HPBonus = 24 },
-      { Species = "skarmory", Level = 21, HPBonus = 20 }
     })
   end
 end
