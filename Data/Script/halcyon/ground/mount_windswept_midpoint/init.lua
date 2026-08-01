@@ -125,11 +125,11 @@ function mount_windswept_midpoint.North_Exit_Touch(obj, activator)
     -- correctif de la cause racine du NRE IsGameOver (meme fix que la Grande
     -- Steppe), il n'a rien a voir avec le mini-boss et doit survivre.
     if _ZONE.CurrentZoneID == 'mount_windswept' then
-      PrintInfo("[BossSeq][windswept] midpoint(zone) -> seg2 (ContinueDungeon)")
-      GAME:ContinueDungeon("mount_windswept", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+      PrintInfo("[BossSeq][windswept] midpoint(zone) -> seg1 (ContinueDungeon)")
+      GAME:ContinueDungeon("mount_windswept", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     else
-      PrintInfo("[BossSeq][windswept] midpoint(master) -> seg2 (EnterDungeon)")
-      GAME:EnterDungeon("mount_windswept", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+      PrintInfo("[BossSeq][windswept] midpoint(master) -> seg1 (EnterDungeon)")
+      GAME:EnterDungeon("mount_windswept", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     end
   end
   partner.IsInteracting = false

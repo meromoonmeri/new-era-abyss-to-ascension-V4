@@ -96,13 +96,13 @@ function vast_steppe_midpoint.North_Exit_Touch(obj, activator)
     -- Mont), il n'a rien a voir avec le mini-boss et doit survivre.
     if _ZONE.CurrentZoneID == 'vast_steppe' then
       -- Session ouverte (on vient du segment 0) : transition de ground interne.
-      PrintInfo("[BossSeq][steppe] midpoint(zone) -> seg2 (ContinueDungeon)")
-      GAME:ContinueDungeon("vast_steppe", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+      PrintInfo("[BossSeq][steppe] midpoint(zone) -> seg1 (ContinueDungeon)")
+      GAME:ContinueDungeon("vast_steppe", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     else
       -- Copie master_zone (respawn/checkpoint) : session fermee -> on en
-      -- OUVRE une neuve directement sur les Profondeurs (segment 2).
-      PrintInfo("[BossSeq][steppe] midpoint(master) -> seg2 (EnterDungeon)")
-      GAME:EnterDungeon("vast_steppe", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+      -- OUVRE une neuve directement sur les Profondeurs (segment 1).
+      PrintInfo("[BossSeq][steppe] midpoint(master) -> seg1 (EnterDungeon)")
+      GAME:EnterDungeon("vast_steppe", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     end
   end
   partner.IsInteracting = false
