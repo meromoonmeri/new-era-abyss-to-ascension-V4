@@ -338,4 +338,13 @@
   <data name="CR5_X08" xml:space="preserve">
     <value>A few hours later...</value>
   </data>
+  <data name="CR5_W05" xml:space="preserve">
+    <value>By the way...[pause=10] Has anyone seen Plum since the mountain?</value>
+  </data>
+  <data name="CR5_W06" xml:space="preserve">
+    <value>Plum?[pause=10] ...She was right behind us a moment ago.[pause=15] I think.</value>
+  </data>
+  <data name="CR5_W07" xml:space="preserve">
+    <value>...She beat us here.[pause=15] Again.[pause=0] Let's not ask how.[pause=10] Let's NEVER ask how.</value>
+  </data>
 </root>

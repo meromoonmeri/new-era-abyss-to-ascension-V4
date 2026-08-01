@@ -485,11 +485,27 @@ function cloven_ruins_entrance_ch_5.ArrivalCutsceneBody()
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_W04']))
-  GAME:WaitFrames(20)
+  GAME:WaitFrames(12)
+
+  -- FORESHADOWING PLUM : le partenaire se demande ou elle est passee.
+  -- La question reste sans reponse — le joueur la garde en tete pour
+  -- l'acte 2 (la surprise de Plum).
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_W05']))
+  GAME:WaitFrames(12)
+  if t2 ~= nil then
+    UI:SetSpeaker(t2)
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_W06']))
+    GAME:WaitFrames(15)
+  end
 
   -- OUVERTURE DU FONDU : le camp se revele. La marche se termine.
+  -- ARRIVEE SILENCIEUSE (brief) : pas d'OST — le silence porte la
+  -- decouverte. La musique ne revient qu'a la crise de Plum
+  -- (Wigglytuff's Guild, acte 3) puis au repas (Cave Camp, acte 4).
   GAME:FadeIn(50)
-  SOUND:PlayBGM('Sealed Ruin.ogg', false)
 
   local coro1 = TASK:BranchCoroutine(function()
     GROUND:MoveToPosition(hero, 120, 210, false, 1)
@@ -577,27 +593,53 @@ function cloven_ruins_entrance_ch_5.ArrivalCutsceneBody()
 
   -- ============ ACTE 2 — LA SURPRISE DE PLUM ============
   if plum ~= nil then
-    -- La camera attire le regard du joueur vers la cuisine, a l'ouest.
+    -- La camera glisse vers Plum EN ECHELONS : trois paliers qui
+    -- l'approchent progressivement, dans le silence de l'arrivee.
+    GAME:MoveCamera(150, 240, 40, false)
+    GAME:WaitFrames(18)
+    GAME:MoveCamera(100, 240, 40, false)
+    GAME:WaitFrames(18)
     GAME:MoveCamera(70, 240, 40, false)
-    GAME:WaitFrames(20)
-    -- Plum se revele : elle etait deja la, installee avec ses marmites.
-    SOUND:PlayBattleSE('EVT_Emote_Exclaim_2')
+    GAME:WaitFrames(18)
+
+    -- Plum se revele, SANS bruit : elle etait deja la, installee avec
+    -- ses marmites, a les regarder arriver.
     pcall(function()
       GROUND:Unhide('Jigglypuff')
-      GeneralFunctions.EmoteAndPause(plum, "Exclaim", false)
       GROUND:CharTurnToCharAnimated(plum, hero, 4)
     end)
-    GAME:WaitFrames(20)
+    GAME:WaitFrames(15)
 
-    -- Reactions en cascade, chacun son timing et son emote.
+    -- Elle fait DEUX PAS vers le groupe, sans un mot.
+    pcall(function()
+      GROUND:MoveToPosition(plum, 72, 245, false, 1)
+    end)
+    GAME:WaitFrames(14)
+    pcall(function()
+      GROUND:MoveToPosition(plum, 96, 245, false, 1)
+      GROUND:CharAnimateTurnTo(plum, Direction.Right, 4)
+    end)
+    GAME:WaitFrames(15)
+
+    -- LA GUILDE, EMBARRASSEE : personne ne l'a vue arriver, personne
+    -- n'a de reponse. Sueurs froides et regards qui se detournent.
     ReactAll({
-      [partner] = "Exclaim",
-      [kino] = "Shock",
-      [t.coco] = "Notice",
+      [t.coco] = "Sweatdrop",
       [t.hyko] = "Sweatdrop",
+      [t.almotz] = "Sweatdrop",
+      [t.phileas] = "Notice",
+      [kino] = "Shock",
     })
     GAME:WaitFrames(10)
+    -- Penticus, gene, tente de sauver les apparences.
+    if t.penticus ~= nil then
+      UI:SetSpeaker(t.penticus)
+      GeneralFunctions.SetEmotion("Normal")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_W07']))
+      Silence(12)
+    end
 
+    -- Puis la surprise eclate vraiment.
     UI:SetSpeaker(partner)
     GeneralFunctions.SetEmotion("Surprised")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_P01']))
@@ -621,7 +663,12 @@ function cloven_ruins_entrance_ch_5.ArrivalCutsceneBody()
       GROUND:CharAnimateTurnTo(plum, Direction.Up, 4)
       GeneralFunctions.EmoteAndPause(plum, "Angry", false)
     end)
-    GAME:WaitFrames(20)
+    GAME:WaitFrames(18)
+    -- DRAMA QUEEN : elle tape du pied, une fois, bien visible.
+    pcall(function()
+      GROUND:AnimateInDirection(plum, "Hop", Direction.Up, Direction.Up, 4, 1, 1)
+    end)
+    GAME:WaitFrames(12)
     -- Le groupe echange des regards perplexes.
     ReactAll({
       [t.coco] = "Sweatdrop",
