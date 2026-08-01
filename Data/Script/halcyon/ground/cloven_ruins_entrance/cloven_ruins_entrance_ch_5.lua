@@ -46,56 +46,62 @@ cloven_ruins_entrance_ch_5 = {}
 -- ================================================================
 -- Ground réutilisé : aegis_cave_entrance (ExplorersOfSkyOrigins), carte
 -- 576x408 px (TexSize 3, 24px, orientation paysage), collision ouverte.
--- Foyer recentre (288,320), offsets des sièges/paillasses conservés
--- (footprint X 168-408, Y 200-400, vérifié dans les bornes de la carte).
-cloven_ruins_entrance_ch_5.CAMP_X = 288
-cloven_ruins_entrance_ch_5.CAMP_Y = 320
+-- GEOGRAPHIE (verifiee sur le rendu de la carte) :
+--   - SABLE (zone du camp) : x 0-430, y 136-296
+--   - GROTTE (entree du donjon) : bouche sombre x 400-440, y 120-164,
+--     avec la pente (montee) claire dessous (y 164-196)
+--   - ROCHERS : bord droit x 440+, rive y 296+
+-- Foyer pose sur le sable au centre (220,215) ; tout le footprint du
+-- camp (x 70-330, y 146-282) reste sur le sable, loin des rochers.
+cloven_ruins_entrance_ch_5.CAMP_X = 220
+cloven_ruins_entrance_ch_5.CAMP_Y = 215
 
 local CX = cloven_ruins_entrance_ch_5.CAMP_X
 local CY = cloven_ruins_entrance_ch_5.CAMP_Y
 
--- Les 12 places assises du briefing (cercle autour du feu), verifiees
--- sol libre sur la grille d'obstacles. Ordre : Penticus au sud (face
--- au sentier d'arrivee), puis horaire.
+-- Les 12 places assises du briefing (cercle autour du feu, rayon ~48),
+-- posees sur le sable. Ordre : Penticus au sud (face au sentier
+-- d'arrivee), puis horaire. Chaque siege est "l'assiette" du convive.
 cloven_ruins_entrance_ch_5.SEATS = {
-  {CX +  0, CY + 64},  -- 1  Penticus (sud, face au sentier)
-  {CX - 42, CY + 56},  -- 2  Phileas
-  {CX - 66, CY + 32},  -- 3  Coco
-  {CX - 74, CY +  0},  -- 4  Rin
-  {CX - 66, CY - 40},  -- 5  Almotz
-  {CX - 42, CY - 64},  -- 6  Hyko
-  {CX +  0, CY - 72},  -- 7  Kino (nord, face au feu)
-  {CX + 30, CY - 64},  -- 8  Reinier
-  {CX + 54, CY - 40},  -- 9  Shuca
-  {CX + 70, CY +  0},  -- 10 Ganlon
-  {CX + 54, CY + 16},  -- 11 partner
-  {CX + 30, CY + 56},  -- 12 hero
+  {CX +  0, CY + 48},  -- 1  Penticus (sud, face au sentier)
+  {CX - 31, CY + 42},  -- 2  Phileas
+  {CX - 48, CY + 24},  -- 3  Coco
+  {CX - 48, CY +  0},  -- 4  Rin
+  {CX - 43, CY - 28},  -- 5  Almotz
+  {CX - 27, CY - 44},  -- 6  Hyko
+  {CX +  0, CY - 48},  -- 7  Kino (nord, face au feu)
+  {CX + 27, CY - 44},  -- 8  Reinier
+  {CX + 43, CY - 28},  -- 9  Shuca
+  {CX + 48, CY +  0},  -- 10 Ganlon
+  {CX + 48, CY + 16},  -- 11 partner
+  {CX + 31, CY + 42},  -- 12 hero
 }
 
--- Les 12 paillasses (deployees la nuit seulement), verifiees libres.
+-- Les 12 paillasses (deployees la nuit seulement), posees en 2 rangees
+-- N/S sur le sable (y 155 / y 275, x 70-330), hors du cercle de siege
+-- et loin des rochers (x>=360) et de la rive (y>=296).
 cloven_ruins_entrance_ch_5.BEDS = {
-  {CX - 90, CY - 110}, {CX - 30, CY - 120}, {CX + 30, CY - 120}, {CX + 90, CY - 110},
-  {CX + 120, CY - 50}, {CX + 120, CY + 10}, {CX + 86, CY + 56}, {CX + 30, CY + 80},
-  {CX - 30, CY + 80}, {CX - 90, CY + 60}, {CX - 120, CY + 10}, {CX - 120, CY - 50},
+  {CX - 150, CY - 60}, {CX - 98, CY - 60}, {CX - 46, CY - 60}, {CX + 6, CY - 60}, {CX + 58, CY - 60}, {CX + 110, CY - 60},
+  {CX - 150, CY + 60}, {CX - 98, CY + 60}, {CX - 46, CY + 60}, {CX + 6, CY + 60}, {CX + 58, CY + 60}, {CX + 110, CY + 60},
 }
 
 --LA PAILLASSE DE PLUM — posee SEULEMENT si elle est au camp (elle
---s'est incrustee au Mont Venteux et a suivi l'expedition). Miroir de
---PLUM_BED du Mont : elle dort en bout de rang ouest, pres de sa
---cuisine (120,360), a l'ecart du cercle. Verifiee libre (110,300, 40x40).
-cloven_ruins_entrance_ch_5.PLUM_BED = {110, 300}
+--s'est incrustee au Mont Venteux et a suivi l'expedition). Elle dort
+--en bout de rang nord-ouest, pres de sa cuisine (48,245), a l'ecart
+--du cercle. Posee sur le sable (48,160).
+cloven_ruins_entrance_ch_5.PLUM_BED = {48, 160}
 
--- Positions d'ouverture des PNJ (camp de jour, avant le rassemblement),
--- verifiees libres et a l'ecart des places assises.
+-- Positions d'ouverture des PNJ (camp de jour) : chacun a cote de son
+-- siege (son assiette), sur le sable, juste derriere sa place assise.
 local OPEN_POS = {
-  Penticus = {182, 320},
-  Phileas  = {190, 260},
-  Coco     = {250, 230},
-  Rin      = {330, 230},
-  Hyko     = {390, 350},
-  Almotz   = {380, 290},
-  Kino     = {330, 390},
-  Reinier  = {240, 390},
+  Penticus = {220, 282},
+  Phileas  = {168, 264},
+  Coco     = {150, 244},
+  Rin      = {150, 215},
+  Hyko     = {176, 166},
+  Almotz   = {155, 186},
+  Kino     = {220, 146},
+  Reinier  = {266, 168},
 }
 
 -- ================================================================
@@ -221,7 +227,7 @@ function cloven_ruins_entrance_ch_5.SetupGround(includeRecon)
   local jigglypuff = nil
   if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
      and SV.Chapter5 ~= nil and SV.Chapter5.PlumAtMountCamp then
-    spawnList[#spawnList+1] = {'Jigglypuff', 120, 360, Direction.Right}
+    spawnList[#spawnList+1] = {'Jigglypuff', 48, 245, Direction.Right}
   end
   local tropius, noctowl, snubbull, audino, growlithe, zigzagoon, breloom, girafarig, jigglypuff2 =
     CharacterEssentials.MakeCharactersFromList(spawnList)
@@ -344,13 +350,16 @@ function cloven_ruins_entrance_ch_5.ArrivalCutscene()
 
   -- L'equipe arrive du SUD (spawn 288,392) et remonte vers le camp.
   -- La colonne x=270-306 est praticable en continu jusqu'au foyer.
-  GROUND:TeleportTo(hero, 270, 392, Direction.Up)
-  GROUND:TeleportTo(partner, 294, 392, Direction.Up)
+  -- L'equipe arrive par la GAUCHE (bord ouest de la carte, sur le
+  -- sable) et avance vers la droite : le camp d'abord, la grotte au
+  -- fond. La ligne y=210-240 est du sable praticable en continu.
+  GROUND:TeleportTo(hero, 24, 210, Direction.Right)
+  GROUND:TeleportTo(partner, 24, 240, Direction.Right)
   local t2 = CH('Teammate2')
   local t3 = CH('Teammate3')
-  if t2 ~= nil then GROUND:TeleportTo(t2, 282, 400, Direction.Up) end
-  if t3 ~= nil then GROUND:TeleportTo(t3, 306, 400, Direction.Up) end
-  GAME:MoveCamera(288, 384, 1, false)
+  if t2 ~= nil then GROUND:TeleportTo(t2, 52, 200, Direction.Right) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 52, 232, Direction.Right) end
+  GAME:MoveCamera(60, 225, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -366,28 +375,28 @@ function cloven_ruins_entrance_ch_5.ArrivalCutscene()
   SOUND:PlayBGM('Sealed Ruin.ogg', false)
   GAME:WaitFrames(30)
 
-  -- La montee vers le camp. Camera qui glisse avec la colonne.
+  -- La traverse du sable vers le camp. Camera qui glisse avec le duo.
   local coro1 = TASK:BranchCoroutine(function()
-    GROUND:MoveToPosition(hero, 270, 366, false, 1)
-    GROUND:MoveToPosition(hero, 272, 380, false, 1)
+    GROUND:MoveToPosition(hero, 120, 210, false, 1)
+    GROUND:MoveToPosition(hero, 168, 274, false, 1)
   end)
   local coro2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(12)
-    GROUND:MoveToPosition(partner, 294, 368, false, 1)
-    GROUND:MoveToPosition(partner, 292, 380, false, 1)
+    GROUND:MoveToPosition(partner, 120, 240, false, 1)
+    GROUND:MoveToPosition(partner, 256, 274, false, 1)
   end)
   local coro3 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(24)
-    if t2 ~= nil then GROUND:MoveToPosition(t2, 282, 376, false, 1) end
+    if t2 ~= nil then GROUND:MoveToPosition(t2, 100, 205, false, 1) end
   end)
   local coro4 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(36)
-    if t3 ~= nil then GROUND:MoveToPosition(t3, 306, 376, false, 1) end
+    if t3 ~= nil then GROUND:MoveToPosition(t3, 100, 235, false, 1) end
   end)
   local coro5 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(20)
-    GAME:MoveCamera(288, 360, 130, false)
-    GAME:MoveCamera(288, 340, 110, false)
+    GAME:MoveCamera(150, 240, 130, false)
+    GAME:MoveCamera(220, 250, 110, false)
   end)
   TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
   GAME:WaitFrames(20)
@@ -396,8 +405,8 @@ function cloven_ruins_entrance_ch_5.ArrivalCutscene()
   GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
   GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
 
-  -- 1.1 PREMIERE VUE DES RUINES — la pensee du heros, breve.
-  GAME:MoveCamera(288, 320, 40, false)
+  -- 1.1 PREMIERE VUE — le camp installe sur le sable, la grotte au fond.
+  GAME:MoveCamera(220, 215, 40, false)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_001']), "Normal")
   Silence(20)
   UI:SetSpeaker(partner)
@@ -492,9 +501,10 @@ function cloven_ruins_entrance_ch_5.ArrivalCutscene()
     Silence(15)
   end
 
-  -- 1.7 REINIER MONTRE LES RUINES — le point d'interet.
+  -- 1.7 REINIER MONTRE LA GROTTE — le point d'interet (la bouche
+  -- sombre x400-440, y120-164, sous l'arche).
   if reinier ~= nil then
-    GAME:MoveCamera(288, 100, 40, false)
+    GAME:MoveCamera(420, 142, 40, false)
     Listen(reinier, {hero, partner, kino})
     UI:SetSpeaker(reinier)
     GeneralFunctions.SetEmotion("Normal")
@@ -758,10 +768,10 @@ function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
     local plum = CH('Jigglypuff')
     if plum ~= nil then
       --Elle avance avec un plat, le pose, et s'incruste.
-      --Nouvelle carte (576x408) : spot a l'ouest du cercle (188,300),
-      --a ~39 px du siege le plus proche.
+      --Spot a l'ouest du cercle (140,270), sur le sable, a cote des
+      --sieges de Coco/Rin.
       pcall(function()
-        GeneralFunctions.EightWayMove(plum, 188, 300, false, 1)
+        GeneralFunctions.EightWayMove(plum, 140, 270, false, 1)
         GROUND:CharAnimateTurnTo(plum, Direction.Down, 4)
       end)
       GAME:WaitFrames(20)
@@ -1080,14 +1090,13 @@ function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
   -- ============================================================
   -- 2.13 LA SOIREE SE CALME — contemplation des ruines au loin.
   -- ============================================================
-  GAME:MoveCamera(288, 100, 60, false)
+  GAME:MoveCamera(420, 142, 60, false)
   GAME:WaitFrames(30)
   pcall(function()
-    --Nouvelle carte : contemplation au nord-est du foyer, face aux
-    --ruines (nord). Points libres (collision ouverte) : partenaire
-    --(380,260), heros (370,270).
-    GROUND:MoveToPosition(partner, 380, 260, false, 1)
-    GROUND:MoveToPosition(hero, 370, 270, false, 1)
+    --Contemplation vers la grotte (a droite), sur le sable, loin des
+    --rochers : partenaire (340,238), heros (352,248).
+    GROUND:MoveToPosition(partner, 340, 238, false, 1)
+    GROUND:MoveToPosition(hero, 352, 248, false, 1)
   end)
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Normal")
@@ -1317,10 +1326,10 @@ function cloven_ruins_entrance_ch_5.CampNightfall(hero, partner, t)
   GROUND:CharSetAnim(hero, "EventSleep", true)
   GAME:WaitFrames(30)
 
-  -- La camera derive au-dessus du camp endormi, puis sur les ruines.
+  -- La camera derive au-dessus du camp endormi, puis sur la grotte.
   local coro1 = TASK:BranchCoroutine(function()
     GAME:MoveCamera(CX, CY + 20, 90, false)
-    GAME:MoveCamera(288, 100, 110, false)
+    GAME:MoveCamera(420, 142, 110, false)
   end)
   local coro2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(120)
@@ -1677,17 +1686,18 @@ function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
   end
 
   -- DEPART DE LA RECONNAISSANCE : Kino et Reinier marchent vers
-  -- l'entree des Ruines et disparaissent dans l'ombre de la porte.
+  -- l'entree de la grotte et disparaissent dans l'ombre de la porte.
   -- C'est un depart VU, pas une disparition silencieuse.
-  -- Nouvelle carte : porte au nord (288,48,96x32), collision ouverte.
-  --   Kino (330,390) -> (310,300) -> (300,140) ; Reinier (240,390) ->
-  --   (268,300) -> (278,140) -> porte.
+  -- Porte pile sur la bouche de la grotte (398-442,118-166), montee
+  -- (pente) dessous. Chemin sur le sable puis entree dans la bouche :
+  --   Kino (220,146) -> (350,235) -> (420,160) ; Reinier (266,168) ->
+  --   (330,252) -> (415,175) -> porte.
   local depart = {}
   if t.kino ~= nil then
     depart[#depart+1] = TASK:BranchCoroutine(function()
       pcall(function()
-        GeneralFunctions.EightWayMove(t.kino, 310, 300, false, 1)
-        GeneralFunctions.EightWayMove(t.kino, 300, 140, false, 1)
+        GeneralFunctions.EightWayMove(t.kino, 350, 235, false, 1)
+        GeneralFunctions.EightWayMove(t.kino, 420, 160, false, 1)
         GROUND:CharAnimateTurnTo(t.kino, Direction.UpRight, 4)
       end)
       GAME:WaitFrames(30)
@@ -1698,8 +1708,8 @@ function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
     depart[#depart+1] = TASK:BranchCoroutine(function()
       GAME:WaitFrames(12)
       pcall(function()
-        GeneralFunctions.EightWayMove(t.reinier, 268, 300, false, 1)
-        GeneralFunctions.EightWayMove(t.reinier, 278, 140, false, 1)
+        GeneralFunctions.EightWayMove(t.reinier, 330, 252, false, 1)
+        GeneralFunctions.EightWayMove(t.reinier, 415, 175, false, 1)
         GROUND:CharAnimateTurnTo(t.reinier, Direction.UpRight, 4)
       end)
       GAME:WaitFrames(30)
@@ -1713,9 +1723,14 @@ function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_E09']), "Determined")
   Silence(15)
 
-  -- Le duo se prepare, face a l'entree. Les ruines s'embrasent au
+  -- Le duo se prepare, face a l'entree (la grotte). Ils s'avancent
+  -- sur le sable et regardent l'ouverture. Les ruines s'embrasent au
   -- soleil levant.
-  GAME:MoveCamera(288, 100, 40, false)
+  pcall(function()
+    GROUND:MoveToPosition(partner, 360, 240, false, 1)
+    GROUND:MoveToPosition(hero, 372, 248, false, 1)
+  end)
+  GAME:MoveCamera(420, 142, 40, false)
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_045']))
@@ -1728,17 +1743,17 @@ function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
   -- agglutines au point de rassemblement, effet « paquet »).
   -- Chacun regagne son poste (OPEN_POS) : Penticus au commandement,
   -- Hyko a la garde du perimetre, Rin/Coco a la base, Almotz
-  -- auxiliaire, Plum retourne a sa cuisine (120,360). Le camp vit.
+  -- auxiliaire, Plum retourne a sa cuisine (48,245). Le camp vit.
   -- ============================================================
   local disperse = {}
   local disp = {
-    {t.penticus, {182, 320}},
-    {t.phileas,  {190, 260}},
-    {t.coco,     {250, 230}},
-    {t.rin,      {330, 230}},
-    {t.hyko,     {390, 350}},
-    {t.almotz,   {380, 290}},
-    {t.plum,     {120, 360}},
+    {t.penticus, {220, 282}},
+    {t.phileas,  {168, 264}},
+    {t.coco,     {150, 244}},
+    {t.rin,      {150, 215}},
+    {t.hyko,     {176, 166}},
+    {t.almotz,   {155, 186}},
+    {t.plum,     {48, 245}},
   }
   for i, e in ipairs(disp) do
     if e[1] ~= nil then
@@ -1823,7 +1838,7 @@ function cloven_ruins_entrance_ch_5.KODefeatCutsceneBody()
     if zigzagoon ~= nil then GROUND:TeleportTo(zigzagoon, CX - 30, CY - 20, Direction.Down) end
     if breloom ~= nil then GROUND:TeleportTo(breloom, CX + 20, CY - 32, Direction.Down) end
     if girafarig ~= nil then GROUND:TeleportTo(girafarig, CX - 20, CY - 32, Direction.Down) end
-    if jigglypuff ~= nil then GROUND:TeleportTo(jigglypuff, 120, 360, Direction.Right) end
+    if jigglypuff ~= nil then GROUND:TeleportTo(jigglypuff, 48, 245, Direction.Right) end
   end)
 
   GAME:FadeIn(60)
@@ -1977,10 +1992,10 @@ function cloven_ruins_entrance_ch_5.RetreatReturnCutsceneBody()
   SOUND:StopBGM()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
 
-  -- L'equipe revient par le sud, la tete baissee mais pas vaincue.
-  GROUND:TeleportTo(hero, 270, 380, Direction.Up)
-  GROUND:TeleportTo(partner, 294, 380, Direction.Up)
-  GAME:MoveCamera(288, 330, 1, false)
+  -- L'equipe revient par la gauche, la tete baissee mais pas vaincue.
+  GROUND:TeleportTo(hero, 24, 210, Direction.Right)
+  GROUND:TeleportTo(partner, 24, 240, Direction.Right)
+  GAME:MoveCamera(60, 225, 1, false)
 
   -- Les membres attendent au camp, disposes autour du feu.
   pcall(function()
@@ -1996,15 +2011,15 @@ function cloven_ruins_entrance_ch_5.RetreatReturnCutsceneBody()
   SOUND:PlayBGM('Cave Camp.ogg', true)
   GAME:WaitFrames(30)
 
-  -- La montee vers le camp.
+  -- La traverse vers le camp.
   local coro1 = TASK:BranchCoroutine(function()
-    GROUND:MoveToPosition(hero, 270, 360, false, 1)
-    GROUND:MoveToPosition(hero, 272, 344, false, 1)
+    GROUND:MoveToPosition(hero, 120, 215, false, 1)
+    GROUND:MoveToPosition(hero, 168, 260, false, 1)
   end)
   local coro2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(12)
-    GROUND:MoveToPosition(partner, 294, 362, false, 1)
-    GROUND:MoveToPosition(partner, 292, 346, false, 1)
+    GROUND:MoveToPosition(partner, 120, 240, false, 1)
+    GROUND:MoveToPosition(partner, 256, 260, false, 1)
   end)
   TASK:JoinCoroutines({coro1, coro2})
   GAME:WaitFrames(20)
