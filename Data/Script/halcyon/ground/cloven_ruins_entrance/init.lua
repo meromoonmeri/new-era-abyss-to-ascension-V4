@@ -111,7 +111,7 @@ function cloven_ruins_entrance.Dungeon_Entrance_Touch(obj, activator)
   partner.IsInteracting = true
   GROUND:CharSetAnim(partner, 'None', true)
   GROUND:CharSetAnim(hero, 'None', true)
-  UI:ChoiceMenuYesNo("Voulez-vous entrer dans " .. zone:GetColoredName() .. " ?", true)
+  UI:ChoiceMenuYesNo("Voulez-vous entrer dans les Ruines Fendues ?", true)
   UI:WaitForChoice()
   local yesnoResult = UI:ChoiceResult()
   if yesnoResult then

@@ -133,9 +133,6 @@
   <data name="CR5_025" xml:space="preserve">
     <value>Camp protocol respected, woof! Fire, guard, rations: everything's in order for tomorrow.</value>
   </data>
-  <data name="CR5_026" xml:space="preserve">
-    <value>And I saved a piece of pie for everyone. You don't walk into a dungeon on an empty stomach—that's what my mother says.</value>
-  </data>
   <data name="CR5_027" xml:space="preserve">
     <value>Let's put the pieces together. A heat that breathes. Trees drained of their sap. Veins converging beneath the earth. And at the end, these ruins. Everything leads here.</value>
   </data>
@@ -372,10 +369,10 @@
     <value>Wait... Plum? PLUM?! But... what is she doing HERE?</value>
   </data>
   <data name="CR5_P02" xml:space="preserve">
-    <value>She was ahead of us. She got a head start, once again. I don't even know how she does it.</value>
+    <value>She's...[pause=10] already here.[pause=20] Settled in, with her pots.[pause=15] ...How?[pause=15] We just came down the mountain, she was behind us, and yet...</value>
   </data>
   <data name="CR5_P03" xml:space="preserve">
-    <value>And me, what am I doing here? I came to join you, duh! You didn't wait for me, so I went ahead. That's so me.</value>
+    <value>Surprise! You didn't wait for me, so I took a shortcut. A tiny little shortcut. Don't ask me which one—it's a chef's secret.</value>
   </data>
   <data name="CR5_P04" xml:space="preserve">
     <value>...She has a bag. A travel bag. And a frying pan. She had EVERYTHING ready.</value>
@@ -403,4 +400,19 @@
   </data>
   <data name="CR5_R09" xml:space="preserve">
     <value>There we go. A well-handled retreat is already a victory. Want another bowl? There's enough for everyone. I always plan big.</value>
+  </data>
+  <data name="CR5_047" xml:space="preserve">
+    <value>The summit... We defeated the king of the skies, and now he sends us here. Do you realize? Everything we crossed to stand before this door.</value>
+  </data>
+  <data name="CR5_048" xml:space="preserve">
+    <value>(Tornadus said the veins converge toward the north. We're at the end of the thread. Or rather, at the start of something.)</value>
+  </data>
+  <data name="CR5_P11" xml:space="preserve">
+    <value>She has a bag. A frying pan. And now, a battle plan. At this point, I'm not even surprised anymore.</value>
+  </data>
+  <data name="CR5_052" xml:space="preserve">
+    <value>Almotz, are you done eating, yes? Because I think we started the briefing a while ago.</value>
+  </data>
+  <data name="CR5_053" xml:space="preserve">
+    <value>I'm done! I'm done! It was just... really good. So? We were talking about the ruins, right?</value>
   </data></root>

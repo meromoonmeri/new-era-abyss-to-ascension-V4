@@ -133,9 +133,6 @@
   <data name="CR5_025" xml:space="preserve">
     <value>Protocole de campement respecté,[pause=10] wouf ![pause=15] Feu,[pause=10] garde,[pause=10] rations :[pause=0] tout est en ordre pour demain.</value>
   </data>
-  <data name="CR5_026" xml:space="preserve">
-    <value>Et moi j'ai gardé un morceau de tarte pour tout le monde.[pause=10] On entre pas dans un donjon le ventre vide,[pause=10] c'est ma mère qui le dit.</value>
-  </data>
   <data name="CR5_027" xml:space="preserve">
     <value>Rassemblons les pièces.[pause=10] Une chaleur qui respire.[pause=15] Des arbres vidés de leur sève.[pause=15] Des veines qui convergent sous la terre.[pause=15] Et au bout,[pause=10] ces ruines.[pause=0] Tout mène ici.</value>
   </data>
@@ -372,10 +369,10 @@
     <value>Attends...[pause=20] Plum ?[pause=15] PLUM ?![pause=10] Mais... qu'est-ce qu'elle fait LÀ ?</value>
   </data>
   <data name="CR5_P02" xml:space="preserve">
-    <value>Elle était devant nous.[pause=10] Elle a pris de l'avance,[pause=10] une fois de plus.[pause=15] Je ne sais même plus comment elle fait.</value>
+    <value>Elle est...[pause=10] déjà là.[pause=20] Installée,[pause=10] avec ses marmites.[pause=15] ...Comment ?[pause=15] Nous venons de descendre la montagne,[pause=10] elle était derrière nous,[pause=10] et pourtant...</value>
   </data>
   <data name="CR5_P03" xml:space="preserve">
-    <value>Et moi,[pause=10] qu'est-ce que je fais là ?[pause=15] Je suis venue vous rejoindre,[pause=10] tiens ![pause=0] Vous ne m'avez pas attendue,[pause=10] alors je suis passée devant.[pause=10] C'est tout moi,[pause=10] ça.</value>
+    <value>Surprise ![pause=10] Vous ne m'avez pas attendue,[pause=10] alors j'ai pris un raccourci.[pause=15] Un tout petit raccourci.[pause=0] ...Ne me demandez pas lequel,[pause=10] c'est un secret de cuisinière.</value>
   </data>
   <data name="CR5_P04" xml:space="preserve">
     <value>...Elle a un sac.[pause=10] Un sac de voyage.[pause=15] Et une poêle.[pause=0] Elle avait TOUT préparé.</value>
@@ -403,4 +400,19 @@
   </data>
   <data name="CR5_R09" xml:space="preserve">
     <value>Et voilà.[pause=10] Un repli bien géré,[pause=10] c'est déjà une victoire.[pause=15] Je vous ressers un bol ?[pause=0] Y en a pour tout le monde.[pause=10] J'ai toujours prévu large.</value>
+  </data>
+  <data name="CR5_047" xml:space="preserve">
+    <value>Le sommet...[pause=15] On a vaincu le roi des cieux,[pause=10] et le voilà qui nous envoie ici.[pause=15] Tu réalises ?[pause=0] Tout ce qu'on a traversé pour arriver devant cette porte.</value>
+  </data>
+  <data name="CR5_048" xml:space="preserve">
+    <value>(Tornadus a dit que les veines convergent vers le nord.[pause=15] On est au bout du fil.[pause=10] Enfin,[pause=10] au début de quelque chose.)</value>
+  </data>
+  <data name="CR5_P11" xml:space="preserve">
+    <value>Elle a un sac.[pause=10] Une poêle.[pause=15] Et maintenant,[pause=10] un plan de bataille.[pause=0] À ce stade,[pause=10] je ne suis même plus surpris.</value>
+  </data>
+  <data name="CR5_052" xml:space="preserve">
+    <value>Almotz,[pause=10] tu as fini de manger,[pause=10] oui ?[pause=15] Parce que je crois qu'on a commencé le briefing,[pause=10] il y a un moment.</value>
+  </data>
+  <data name="CR5_053" xml:space="preserve">
+    <value>J'ai fini ![pause=10] J'ai fini ![pause=0] C'était juste...[pause=15] vraiment bon.[pause=10] Et alors ?[pause=0] On parlait des ruines,[pause=10] non ?</value>
   </data></root>

@@ -399,6 +399,14 @@ function cloven_ruins_entrance_ch_5.ArrivalCutscene()
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_002']))
+  Silence(12)
+  -- ECHO DE LA VICTOIRE SUR TORNADUS (fix audit : la transition
+  -- emotionnelle Mont->Ruines etait absente).
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_047']))
+  Silence(12)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_048']), "Determined")
   Silence(15)
 
   -- 1.2 KINO ET REINIER REMARQUENT L'ARRIVEE — en decale (pas en bloc).
@@ -746,8 +754,10 @@ function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
     local plum = CH('Jigglypuff')
     if plum ~= nil then
       --Elle avance avec un plat, le pose, et s'incruste.
+      --Fix audit : (510,770) etait a 16 px du siege d'Almotz. (470,780)
+      --verifie libre, a 46 px du siege le plus proche.
       pcall(function()
-        GeneralFunctions.EightWayMove(plum, CX - 60, CY - 30, false, 1)
+        GeneralFunctions.EightWayMove(plum, 470, 780, false, 1)
         GROUND:CharAnimateTurnTo(plum, Direction.Down, 4)
       end)
       GAME:WaitFrames(20)
@@ -755,13 +765,13 @@ function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
       GeneralFunctions.SetEmotion("Joyous")
       UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_P08']))
       Silence(10)
-      --Phileas soupire, Kino pouffe, Penticus ignore.
+      --Phileas soupire — variation du gag (pas la repetition de l'acte 1).
       pcall(function()
         if noctowl ~= nil then GeneralFunctions.EmoteAndPause(noctowl, "Sweatdrop", false) end
       end)
       UI:SetSpeaker(noctowl)
       GeneralFunctions.SetEmotion("Sigh")
-      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_P04']))
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_P11']))
       Silence(10)
       --Plum poursuit, imperturbable — c'est SA soiree maintenant.
       UI:SetSpeaker(plum)
@@ -990,29 +1000,46 @@ function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
   -- ============================================================
   -- 2.10 DOUTES VS MORAL — et ALMOTZ a ENFIN fini de manger
   -- (beat comique : il entre dans le debat en s'essuyant).
+  -- Fix audit : la camera restait sur Ganlon (gag precedent) ;
+  -- on recentre sur chaque locuteur pour eviter le plan fige.
   -- ============================================================
+  GAME:MoveCamera(CX - 50, CY + 20, 40, false)
   Says(t.coco, "Normal", 'CR5_022', {t.rin, t.almotz, t.kino})
   Silence(10)
   -- Ganlon, encore sceptique malgre son reveil, remet en doute.
   if ganlon ~= nil then
+    GAME:MoveCamera(seatX(10), seatY(10), 40, false)
     Says(ganlon, "Sigh", 'CR5_023', {t.coco, t.kino})
     Silence(10)
   end
   if shuca ~= nil then
+    GAME:MoveCamera(seatX(9), seatY(9), 40, false)
     Says(shuca, "Happy", 'CR5_024', {ganlon, t.hyko, partner})
     Silence(10)
   end
+  GAME:MoveCamera(seatX(6), seatY(6), 40, false)
   Says(t.hyko, "Determined", 'CR5_025', {t.almotz, partner, t.coco})
   Silence(10)
   -- Almotz finit son assiette, s'essuie, et entre enfin dans le
-  -- debat. (Il mange depuis le debut du briefing.)
+  -- debat. (Il mange depuis le debut du briefing.) COCO le remarque
+  -- (fix audit : le gag etait invisible, personne ne le regardait).
+  if t.coco ~= nil then
+    GROUND:CharTurnToCharAnimated(t.coco, t.almotz, 4)
+    UI:SetSpeaker(t.coco)
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_052']))
+    Silence(10)
+  end
   pcall(function()
     if t.almotz ~= nil then
       GROUND:CharEndAnim(t.almotz)
       GROUND:CharSetEmote(t.almotz, "", 0)
+      GeneralFunctions.EmoteAndPause(t.almotz, "Sweatdrop", false)
     end
   end)
-  Says(t.almotz, "Happy", 'CR5_026', {t.hyko, t.coco, t.rin})
+  UI:SetSpeaker(t.almotz)
+  GeneralFunctions.SetEmotion("Happy")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_053']))
   Silence(12)
 
   -- ============================================================
@@ -1052,8 +1079,10 @@ function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
   GAME:MoveCamera(620, 700, 60, false)
   GAME:WaitFrames(30)
   pcall(function()
-    GROUND:MoveToPosition(partner, CX + 90, CY + 40, false, 1)
-    GROUND:MoveToPosition(hero, CX + 70, CY + 50, false, 1)
+    --Fix audit : (CX+70,CY+50)=(640,850) tombait sur un mur. Points
+    --verifies libres : partenaire (660,840), heros (650,850).
+    GROUND:MoveToPosition(partner, 660, 840, false, 1)
+    GROUND:MoveToPosition(hero, 650, 850, false, 1)
   end)
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Normal")
@@ -1645,11 +1674,15 @@ function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
   -- DEPART DE LA RECONNAISSANCE : Kino et Reinier marchent vers
   -- l'entree des Ruines et disparaissent dans l'ombre de la porte.
   -- C'est un depart VU, pas une disparition silencieuse.
+  -- Fix audit : ils marchaient vers le rocher Kangaskhan (620,700).
+  -- Chemins verifies praticables jusqu'a la porte (670,618,96,32) :
+  --   Kino (568,728) -> (704,704) -> porte ; Reinier (600,736) -> (720,696) -> porte.
   local depart = {}
   if t.kino ~= nil then
     depart[#depart+1] = TASK:BranchCoroutine(function()
       pcall(function()
-        GeneralFunctions.EightWayMove(t.kino, 620, 700, false, 1)
+        GeneralFunctions.EightWayMove(t.kino, 704, 704, false, 1)
+        GeneralFunctions.EightWayMove(t.kino, 720, 660, false, 1)
         GROUND:CharAnimateTurnTo(t.kino, Direction.UpRight, 4)
       end)
       GAME:WaitFrames(30)
@@ -1660,7 +1693,8 @@ function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
     depart[#depart+1] = TASK:BranchCoroutine(function()
       GAME:WaitFrames(12)
       pcall(function()
-        GeneralFunctions.EightWayMove(t.reinier, 650, 690, false, 1)
+        GeneralFunctions.EightWayMove(t.reinier, 720, 696, false, 1)
+        GeneralFunctions.EightWayMove(t.reinier, 730, 660, false, 1)
         GROUND:CharAnimateTurnTo(t.reinier, Direction.UpRight, 4)
       end)
       GAME:WaitFrames(30)
@@ -1683,6 +1717,37 @@ function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
   Silence(12)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_046']), "Determined")
   Silence(20)
+
+  -- ============================================================
+  -- 4.4ter DISPERSION DU CAMP (fix audit : les PNJ restaient
+  -- agglutines au point de rassemblement, effet « paquet »).
+  -- Chacun regagne son poste (OPEN_POS) : Penticus au commandement,
+  -- Hyko a la garde du perimetre, Rin/Coco a la base, Almotz
+  -- auxiliaire, Plum retourne a sa cuisine (410,840). Le camp vit.
+  -- ============================================================
+  local disperse = {}
+  local disp = {
+    {t.penticus, {464, 800}},
+    {t.phileas,  {480, 744}},
+    {t.coco,     {544, 704}},
+    {t.rin,      {632, 688}},
+    {t.hyko,     {664, 840}},
+    {t.almotz,   {656, 768}},
+    {t.plum,     {410, 840}},
+  }
+  for i, e in ipairs(disp) do
+    if e[1] ~= nil then
+      disperse[#disperse+1] = TASK:BranchCoroutine(function()
+        GAME:WaitFrames((i - 1) * 8)
+        pcall(function()
+          GeneralFunctions.EightWayMove(e[1], e[2][1], e[2][2], false, 1)
+          GROUND:CharAnimateTurnTo(e[1], Direction.Up, 4)
+        end)
+      end)
+    end
+  end
+  TASK:JoinCoroutines(disperse)
+  GAME:WaitFrames(15)
 
   -- 4.5 FIN DE CINEMATIQUE — le camp se disperse, le joueur reprend
   -- la main. C'est lui qui choisit le moment d'entrer dans les ruines.
