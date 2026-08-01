@@ -63,6 +63,16 @@ function metano_town.Init(map)
 		GROUND:Hide('Assembly')
 	end
 
+	-- Grodoudou (Legend_Merchant) et son stand de Zones Légendaires : cachés avant le chapitre 6
+	-- (l'arrivée officielle se joue après le retour d'expédition via ArrivalScene).
+	if SV.ChapterProgression.Chapter < 6 then
+		GROUND:Hide('Legend_Merchant')
+		GROUND:Hide('Legend_Stand')
+	else
+		GROUND:Unhide('Legend_Merchant')
+		GROUND:Unhide('Legend_Stand')
+	end
+
 end
 
 

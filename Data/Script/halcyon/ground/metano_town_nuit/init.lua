@@ -74,6 +74,12 @@ function metano_town_nuit.Init(map)
     pcall(function() GROUND:Hide(n) end)
   end
 
+  if SV.ChapterProgression.Chapter < 6 then
+    pcall(function() GROUND:Hide('Legend_Stand') end)
+  else
+    pcall(function() GROUND:Unhide('Legend_Stand') end)
+  end
+
   --Les habitants de la nuit prennent la place.
   pcall(function() TownNight.Populate() end)
 end
