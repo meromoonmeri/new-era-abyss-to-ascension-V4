@@ -72,7 +72,7 @@ function personality_test.PlotScripting()
   if not SV.Chapter1.PlayedIntroCutscene then
 	personality_test.CharacterSelect()
   else
-	GROUND:EnterGroundMap('metano_town', 'Main_Entrance_Marker') --fail safe. If player somehow gets to the personality test after seeing the first intro cutscene, warp them to metano town.
+	GAME:EnterGroundMap('metano_town', 'Main_Entrance_Marker') --fail safe. If player somehow gets to the personality test after seeing the first intro cutscene, warp them to metano town.
   end
 end
 -------------------------------

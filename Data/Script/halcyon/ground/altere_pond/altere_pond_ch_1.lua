@@ -71,7 +71,7 @@ function altere_pond_ch_1.PrologueGoToRelicForest()
 	GAME:WaitFrames(20)
 
 	--Move camera to show relicanth, then move back
-	coro1 = TASK:BranchCoroutine(GAME:_MoveCamera(544, 328, 112, false))
+	coro1 = TASK:BranchCoroutine(GAME:MoveCamera(544, 328, 112, false))
 	GROUND:CharTurnToCharAnimated(partner, oldman, 4)
 	TASK:JoinCoroutines({coro1})
 	GAME:WaitFrames(120)

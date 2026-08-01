@@ -81,7 +81,7 @@ def accessible(bloque, W, H, depart):
     return vus, n
 
 
-def traiter(nom, appliquer=False, seuil=0.45, amas=3, mini=0.20):
+def traiter(nom, appliquer=False, seuil=0.45, amas=3, mini=0.20, mode='auto', min_couv=0.60):
     chemin = pathlib.Path('Data/Ground') / (nom + '.rsground')
     octets = chemin.read_bytes()
     doc = json.loads(octets.decode('utf-8-sig'))
@@ -103,7 +103,7 @@ def traiter(nom, appliquer=False, seuil=0.45, amas=3, mini=0.20):
     import numpy as np
     vide_nuage = np.zeros((img.size[1], img.size[0]), dtype=bool)
     bloque_yx, stats = P.collisions(img, vide_nuage, TEX, seuil=seuil,
-                                    amas=amas, verbeux=False, mode='auto')
+                                    amas=amas, verbeux=False, mode=mode)
     bloque = [[bool(bloque_yx[y][x]) for y in range(H)] for x in range(W)]
 
     murs = sum(1 for x in range(W) for y in range(H) if bloque[x][y])
@@ -141,7 +141,7 @@ def traiter(nom, appliquer=False, seuil=0.45, amas=3, mini=0.20):
     if depart:
         vus, n = accessible(bloque, W, H, depart)
         couv = n / libre if libre else 0
-        if couv < 0.60:
+        if couv < min_couv:
             return (nom, 'REFUS',
                     f"depuis l'entree, {100*couv:.0f} % du sol seulement")
         # les entites doivent etre atteignables
@@ -184,14 +184,41 @@ def traiter(nom, appliquer=False, seuil=0.45, amas=3, mini=0.20):
 
 def main():
     appliquer = '--appliquer' in sys.argv
-    noms = [a for a in sys.argv[1:] if not a.startswith('-')]
+    
+    # Parse mode
+    mode = 'auto'
+    if '--mode' in sys.argv:
+        idx = sys.argv.index('--mode')
+        if idx + 1 < len(sys.argv):
+            mode = sys.argv[idx + 1]
+            
+    # Parse min_couv
+    min_couv = 0.60
+    if '--min-couv' in sys.argv:
+        idx = sys.argv.index('--min-couv')
+        if idx + 1 < len(sys.argv):
+            min_couv = float(sys.argv[idx + 1])
+
+    noms = []
+    skip = False
+    for a in sys.argv[1:]:
+        if skip:
+            skip = False
+            continue
+        if a in ('--mode', '--min-couv'):
+            skip = True
+            continue
+        if a.startswith('-'):
+            continue
+        noms.append(a)
+
     if not noms:
-        print("usage: gen_collisions.py <ground> [...] [--appliquer]")
+        print("usage: gen_collisions.py <ground> [...] [--appliquer] [--mode luminance|teinte|auto] [--min-couv 0.60]")
         return 1
     ok = ref = 0
     for n in noms:
         try:
-            nom, etat, msg = traiter(n, appliquer)
+            nom, etat, msg = traiter(n, appliquer, mode=mode, min_couv=min_couv)
         except Exception as e:
             print(f"  ERREUR {n:34s} {type(e).__name__}: {str(e)[:70]}")
             ref += 1
