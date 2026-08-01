@@ -188,6 +188,7 @@ function guild_heros_room.CheckTriggerEvent()
 		[7]  = { function() return SV.Chapter7.HadFirstDream end,            8,  "crystal_sanctuary", {"bassin_tari"} },
 		[8]  = { function() return SV.Chapter8.CrystalSanctuaryComplete end, 9,  "forgotten_marsh",   {"marais_errants"} },
 		[9]  = { function() return SV.Chapter9.ForgottenMarshComplete end,   10, "celestial_peak",    {"falaises_envol", "sentier_enneige"} },
+		[10] = { function() return SV.Chapter10.CelestialPeakComplete end,   11, "bourg_comptoir",    {} },
 	}
 	local gate = chapter_gates[SV.ChapterProgression.Chapter]
 	if gate ~= nil and gate[1]() and SV.ChapterProgression.DaysPassed >= SV.ChapterProgression.DaysToReach then
@@ -349,6 +350,13 @@ function guild_heros_room.PlotScripting()
 				guild_heros_room_ch_10.ShowTitleCard()
 			elseif SV.Chapter10.CelestialPeakComplete and not SV.Chapter10.FinishedBedtimeCutscene then
 				guild_heros_room_ch_10.PostPeakBedtalk()
+			else
+				GAME:FadeIn(20)
+			end
+		elseif SV.ChapterProgression.Chapter == 11 then
+			if not SV.Chapter11.ShowedTitleCard then
+				require 'halcyon.ground.guild_heros_room.guild_heros_room_ch_11'
+				guild_heros_room_ch_11.ShowTitleCard()
 			else
 				GAME:FadeIn(20)
 			end

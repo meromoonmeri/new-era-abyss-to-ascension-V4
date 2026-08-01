@@ -1,4 +1,4 @@
-﻿{
+{
  "Version": "0.8.2.0",
  "Object": {
   "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
@@ -122692,7 +122692,22 @@
      }
     ],
     "Spawners": [],
-    "Markers": []
+    "Markers": [
+     {
+      "EntName": "Main_Entrance_Marker",
+      "Direction": 4,
+      "EntEnabled": true,
+      "EntOrder": 0,
+      "InteractOrder": 0,
+      "triggerType": 0,
+      "Collider": {
+       "X": 256,
+       "Y": 300,
+       "Width": 16,
+       "Height": 16
+      }
+     }
+    ]
    }
   ]
  }

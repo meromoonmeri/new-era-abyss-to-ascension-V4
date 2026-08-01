@@ -1331,6 +1331,12 @@ SV.Chapter10 =
 	CelestialPeakComplete = false
 }
 
+SV.Chapter11 = 
+{
+	ShowedTitleCard = false,
+	FinishedTreasureTownIntro = false
+}
+
 
 
 

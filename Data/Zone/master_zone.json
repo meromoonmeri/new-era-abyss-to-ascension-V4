@@ -1,4 +1,4 @@
-﻿{
+{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -83083,6 +83083,7 @@
       "searing_crucible",
       "mount_windswept_entrance",
       "hero_dream",
+      "bourg_comptoir",
       "gloomy_forest_entrance",
       "gloomy_forest_boss",
       "testmap",

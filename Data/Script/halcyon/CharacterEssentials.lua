@@ -1147,6 +1147,14 @@ local characters = {
 		--a avoir compris ce que le heros porte, et il refuse de le nommer.
 		--PNJ nocturnes de Metano (metano_town_nuit). Ils n'existent QUE la
 		--nuit : ce ne sont pas des PNJ de jour deplaces a une autre heure.
+		Lapras = {
+			species = "lapras",
+			nickname = 'Loaklass',
+			instance = 'Lapras',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
 		Nuit_Garde = {
 			species = "granbull",
 			nickname = 'Veilleur de Nuit',
