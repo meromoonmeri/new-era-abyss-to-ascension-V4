@@ -82,7 +82,7 @@ cloven_ruins_entrance_ch_5.SEATS = {
 -- et loin des rochers (x>=360) et de la rive (y>=296).
 cloven_ruins_entrance_ch_5.BEDS = {
   {CX - 150, CY - 60}, {CX - 98, CY - 60}, {CX - 46, CY - 60}, {CX + 6, CY - 60}, {CX + 58, CY - 60}, {CX + 110, CY - 60},
-  {CX - 150, CY + 60}, {CX - 98, CY + 60}, {CX - 46, CY + 60}, {CX + 6, CY + 60}, {CX + 58, CY + 60}, {CX + 110, CY + 60},
+  {CX - 150, CY + 60}, {CX - 98, CY + 60}, {CX - 46, CY + 60}, {CX + 6, CY + 60}, {CX + 58, CY + 60}, {CX + 102, CY + 60},
 }
 
 --LA PAILLASSE DE PLUM — posee SEULEMENT si elle est au camp (elle
