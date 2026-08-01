@@ -176,6 +176,8 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_038']))
   -- "Vous etes revenus. Ils reviennent toujours."
   GAME:WaitFrames(15)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_038_b']))
+  GAME:WaitFrames(15)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_039']))
   -- "Je me tiens dans cette brume depuis plus longtemps que votre ville n'a un nom."
   GAME:WaitFrames(18)
@@ -186,6 +188,8 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   GAME:MoveCamera(184, 210, 40, false)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_041']))
   -- "Quelque chose sous l'herbe a cesse de dormir. Il y a des annees deja."
+  GAME:WaitFrames(22)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_041_b']))
   GAME:WaitFrames(22)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_042']))
   -- "Je ne peux pas le suivre. Cette plaine m'a fait. Elle me garde."
@@ -385,8 +389,12 @@ local function DefeatedBossBody()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_044']))
   -- "Bien. Je suis fatigue, et vous ne l'etes pas."
   GAME:WaitFrames(15)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_044_b']))
+  GAME:WaitFrames(15)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_045']))
   -- "Prenez la plaine. Prenez la fumee derriere."
+  GAME:WaitFrames(20)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_045_b']))
   GAME:WaitFrames(20)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_046']))
   -- "Et toi, petit — la brume ne m'a jamais parle. Demande-toi pourquoi."
