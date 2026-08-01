@@ -431,6 +431,19 @@ end
 function cloven_ruins_entrance_ch_5.ArrivalCutsceneBody()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
+
+  -- GARDE DE SECURITE : si l'equipe n'est pas attachee (chargement de
+  -- sauvegarde en cours), on ne joue pas la scene — on libere le camp.
+  -- Tout appel moteur sur une entite invalide lèverait
+  -- « Entity is not a valid type » et figerait le joueur.
+  if hero == nil or partner == nil then
+    PrintInfo('[CR5] equipe non attachee — scene d\'arrivee sautee, camp libre')
+    pcall(function() SV.Chapter5.RuinsCampDone = true end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    pcall(function() GAME:FadeIn(20) end)
+    return
+  end
+
   local t = {
     penticus = CH('Tropius'), phileas = CH('Noctowl'), coco = CH('Snubbull'),
     rin = CH('Audino'), hyko = CH('Growlithe'), almotz = CH('Zigzagoon'),

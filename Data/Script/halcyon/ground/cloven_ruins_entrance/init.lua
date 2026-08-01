@@ -16,6 +16,11 @@ require 'halcyon.ground.cloven_ruins_entrance.cloven_ruins_entrance_ch_5'
 
 local cloven_ruins_entrance = {}
 
+-- Flag differe de lancement des scenes au chargement d'une sauvegarde :
+-- posé par GameLoad quand l'equipe n'est pas encore attachee, consomme
+-- par le premier Update (variable locale : pas besoin de persistance).
+local deferredRuinsCamp = false
+
 function cloven_ruins_entrance.Init(map)
   pcall(function() GAME:FadeOut(false, 1) end)
   pcall(function() GAME:CutsceneMode(true) end)
@@ -39,7 +44,21 @@ function cloven_ruins_entrance.Enter(map)
   cloven_ruins_entrance.PlotScripting()
 end
 
-function cloven_ruins_entrance.Update(map) end
+function cloven_ruins_entrance.Update(map)
+  -- LANCEMENT DIFFERE (chargement de sauvegarde). Au chargement d'une
+  -- save directe sur ce ground, les entites de l'equipe ne sont pas
+  -- encore valides pendant OnGameLoad (TeleportTo leve « Entity is not a
+  -- valid type ») et OnEnter n'est jamais appele (flux moteur :
+  -- InitGround -> OnInit -> OnGameLoad -> FadeIn, sans BeginGround).
+  -- On differe donc le lancement des scenes au premier Update, quand le
+  -- ground tourne et que l'equipe est attachee.
+  if deferredRuinsCamp then
+    deferredRuinsCamp = false
+    if CH('PLAYER') ~= nil and CH('Teammate1') ~= nil then
+      cloven_ruins_entrance.PlotScripting()
+    end
+  end
+end
 
 function cloven_ruins_entrance.GameSave(map)
   PartnerEssentials.SaveGamePartnerPosition(CH('Teammate1'))
@@ -47,14 +66,25 @@ end
 
 function cloven_ruins_entrance.GameLoad(map)
   PartnerEssentials.LoadGamePartnerPosition(CH('Teammate1'))
-  -- Au chargement d'une sauvegarde, Teammate1 peut ne pas encore etre
-  -- attache (CH = nil) : lancer une cinematique qui le teleporte ou le
-  -- deplace crashe (« Entity is not a valid type »). Si nil, on ne fait
-  -- rien : le moteur appelle Enter juste apres, avec l'equipe attachee,
-  -- et c'est lui qui lance PlotScripting (une seule fois -> pas de
-  -- doublons de PNJ).
-  if CH('Teammate1') ~= nil then
+  -- Au chargement d'une sauvegarde, les entites de l'equipe ne sont pas
+  -- encore valides pour les appels moteur (TeleportTo/MoveToPosition
+  -- levent « Entity is not a valid type », HeroDialogue plante sur nil).
+  -- Si l'equipe est deja valide, on lance normalement ; sinon on pose un
+  -- flag consomme par Update (premier tick du ground, equipe attachee).
+  -- On libere la main si aucune scene n'est imminente (sinon le joueur
+  -- resterait fige par CutsceneMode pose dans Init).
+  if CH('PLAYER') ~= nil and CH('Teammate1') ~= nil then
     cloven_ruins_entrance.PlotScripting()
+  else
+    pcall(function()
+      deferredRuinsCamp = true
+      local c5 = SV.Chapter5
+      if not (c5.RuinsCampPending
+              or (c5.RuinsCampNightDone and not c5.RuinsCampDone)
+              or c5.PlayTempRuinsScene) then
+        GAME:CutsceneMode(false)
+      end
+    end)
   end
 end
 
