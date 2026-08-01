@@ -367,4 +367,40 @@
   </data>
   <data name="CR5_E09" xml:space="preserve">
     <value>(Kino et Reinier déjà à l'intérieur...[pause=10] On ne sera pas seuls,[pause=10] là-dedans.)</value>
+  </data>
+  <data name="CR5_P01" xml:space="preserve">
+    <value>Attends...[pause=20] Plum ?[pause=15] PLUM ?![pause=10] Mais... qu'est-ce qu'elle fait LÀ ?</value>
+  </data>
+  <data name="CR5_P02" xml:space="preserve">
+    <value>Elle était devant nous.[pause=10] Elle a pris de l'avance,[pause=10] une fois de plus.[pause=15] Je ne sais même plus comment elle fait.</value>
+  </data>
+  <data name="CR5_P03" xml:space="preserve">
+    <value>Et moi,[pause=10] qu'est-ce que je fais là ?[pause=15] Je suis venue vous rejoindre,[pause=10] tiens ![pause=0] Vous ne m'avez pas attendue,[pause=10] alors je suis passée devant.[pause=10] C'est tout moi,[pause=10] ça.</value>
+  </data>
+  <data name="CR5_P04" xml:space="preserve">
+    <value>...Elle a un sac.[pause=10] Un sac de voyage.[pause=15] Et une poêle.[pause=0] Elle avait TOUT préparé.</value>
+  </data>
+  <data name="CR5_P05" xml:space="preserve">
+    <value>J'ai le ragoût de la guilde dans un pot.[pause=10] Il a failli se renverser trois fois.[pause=0] Mais il est là.[pause=10] Et il vous attend pour ce soir.</value>
+  </data>
+  <data name="CR5_P06" xml:space="preserve">
+    <value>...Tant qu'elle ne gêne personne.[pause=10] Et qu'elle nourrit tout le monde,[pause=10] elle peut rester.[pause=15] C'est une décision stratégique.</value>
+  </data>
+  <data name="CR5_P07" xml:space="preserve">
+    <value>Stratégique,[pause=10] il dit.[pause=15] Le maître de guilde appelle ça «[pause=5] stratégique[pause=5] ».[pause=0] J'appelle ça :[pause=10] j'ai faim.[pause=10] On mange.</value>
+  </data>
+  <data name="CR5_P08" xml:space="preserve">
+    <value>Je me suis installée à l'ouest.[pause=10] Près du feu,[pause=10] mais hors du cercle,[pause=10] comme il faut.[pause=0] J'ai déjà repéré où je pose mes marmites demain matin.</value>
+  </data>
+  <data name="CR5_P09" xml:space="preserve">
+    <value>Vous,[pause=10] vous entrez dans les Ruines.[pause=15] Moi,[pause=10] je monte le camp de devant.[pause=0] À mon poste.[pause=10] Comme une vraie expéditionnaire.</value>
+  </data>
+  <data name="CR5_P10" xml:space="preserve">
+    <value>(Plum est encore là.[pause=10] Bien sûr que Plum est encore là.[pause=15] Je ne sais pas pourquoi je suis encore surpris.)</value>
+  </data>
+  <data name="CR5_K12" xml:space="preserve">
+    <value>Mangez d'abord.[pause=10] Le ragoût est chaud,[pause=10] il vous attend depuis ce matin.[pause=15] Un ventre plein,[pause=10] ça remonte plus vite qu'un ventre vide.[pause=0] C'est la science de l'intendance.</value>
+  </data>
+  <data name="CR5_R09" xml:space="preserve">
+    <value>Et voilà.[pause=10] Un repli bien géré,[pause=10] c'est déjà une victoire.[pause=15] Je vous ressers un bol ?[pause=0] Y en a pour tout le monde.[pause=10] J'ai toujours prévu large.</value>
   </data></root>

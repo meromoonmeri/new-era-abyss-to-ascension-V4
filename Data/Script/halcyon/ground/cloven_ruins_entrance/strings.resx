@@ -367,4 +367,40 @@
   </data>
   <data name="CR5_E09" xml:space="preserve">
     <value>(Kino and Reinier already inside... We won't be alone in there.)</value>
+  </data>
+  <data name="CR5_P01" xml:space="preserve">
+    <value>Wait... Plum? PLUM?! But... what is she doing HERE?</value>
+  </data>
+  <data name="CR5_P02" xml:space="preserve">
+    <value>She was ahead of us. She got a head start, once again. I don't even know how she does it.</value>
+  </data>
+  <data name="CR5_P03" xml:space="preserve">
+    <value>And me, what am I doing here? I came to join you, duh! You didn't wait for me, so I went ahead. That's so me.</value>
+  </data>
+  <data name="CR5_P04" xml:space="preserve">
+    <value>...She has a bag. A travel bag. And a frying pan. She had EVERYTHING ready.</value>
+  </data>
+  <data name="CR5_P05" xml:space="preserve">
+    <value>I have the guild's stew in a pot. It almost spilled three times. But it's here. And it's waiting for you tonight.</value>
+  </data>
+  <data name="CR5_P06" xml:space="preserve">
+    <value>...As long as she doesn't get in the way. And she feeds everyone, she can stay. It's a strategic decision.</value>
+  </data>
+  <data name="CR5_P07" xml:space="preserve">
+    <value>Strategic, he says. The guildmaster calls it 'strategic'. I call it: I'm hungry. Let's eat.</value>
+  </data>
+  <data name="CR5_P08" xml:space="preserve">
+    <value>I set up to the west. Near the fire, but outside the circle, as it should be. I already scouted where I'll put my pots tomorrow morning.</value>
+  </data>
+  <data name="CR5_P09" xml:space="preserve">
+    <value>You go into the Ruins. Me, I set up the forward camp. At my post. Like a real expeditionary.</value>
+  </data>
+  <data name="CR5_P10" xml:space="preserve">
+    <value>(Plum is still here. Of course Plum is still here. I don't know why I'm still surprised.)</value>
+  </data>
+  <data name="CR5_K12" xml:space="preserve">
+    <value>Eat first. The stew is hot, it's been waiting since this morning. A full belly recovers faster than an empty one. That's the science of logistics.</value>
+  </data>
+  <data name="CR5_R09" xml:space="preserve">
+    <value>There we go. A well-handled retreat is already a victory. Want another bowl? There's enough for everyone. I always plan big.</value>
   </data></root>

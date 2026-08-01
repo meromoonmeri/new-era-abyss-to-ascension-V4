@@ -274,6 +274,23 @@ function cloven_ruins_entrance.Zigzagoon_Action(chara, activator)
 end
 
 -- Ganlon / Shuca : via l'IA d'equipe (talkToTeammate par espece).
+--PLUM (Jigglypuff) — cuisiniere incrustee depuis le Mont Venteux.
+--Elle est interactive des qu'elle est au camp (PlumAtMountCamp).
+--Le running gag continue : elle se croit membre de l'expedition.
+function cloven_ruins_entrance.Jigglypuff_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5 ~= nil and SV.Chapter5.RuinsCampDone then
+    GeneralFunctions.StartConversation(chara, "Alors,[pause=10] prêts à entrer dans les Ruines ?[pause=15] Moi,[pause=10] j'ai déjà repéré mon camp de devant :[pause=0] là où je poserai les marmites quand vous reviendrez.", "Joyous")
+    GeneralFunctions.SetEmotion("Happy")
+    UI:WaitShowDialogue("Et ne vous inquiétez pas pour le ragoût,[pause=10] il se garde très bien.[pause=15] Je l'ai déjà fait voyager de la guilde jusqu'au Mont.[pause=0] Jusqu'ici,[pause=10] zéro dégât.[pause=10] Presque.")
+    GeneralFunctions.EndConversation(chara)
+    return
+  end
+  GeneralFunctions.StartConversation(chara, "Vous êtes tombés sur le bon camp,[pause=10] les amis ![pause=15] Le ragoût de la guilde est arrivé avant vous.[pause=0] Comme quoi,[pause=10] l'intendance,[pause=10] c'est un métier.", "Joyous")
+  GeneralFunctions.EndConversation(chara)
+end
+
 function cloven_ruins_entrance.Teammate2_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   local who = nil

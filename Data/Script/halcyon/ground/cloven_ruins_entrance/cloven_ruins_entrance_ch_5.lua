@@ -75,6 +75,12 @@ cloven_ruins_entrance_ch_5.BEDS = {
   {CX - 30, CY + 80}, {CX - 90, CY + 60}, {CX - 120, CY + 10}, {CX - 120, CY - 50},
 }
 
+--LA PAILLASSE DE PLUM — posee SEULEMENT si elle est au camp (elle
+--s'est incrustee au Mont Venteux et a suivi l'expedition). Miroir de
+--PLUM_BED du Mont : elle dort en bout de rang ouest, pres de sa
+--cuisine, a l'ecart du cercle. Verifiee libre (400,780, 40x40).
+cloven_ruins_entrance_ch_5.PLUM_BED = {400, 780}
+
 -- Positions d'ouverture des PNJ (camp de jour, avant le rassemblement),
 -- verifiees libres et a l'ecart des places assises.
 local OPEN_POS = {
@@ -154,6 +160,13 @@ function cloven_ruins_entrance_ch_5.DeployBeds()
     ground.Decorations[0].Anims:Add(
       RogueEssence.Ground.GroundAnim(hay_bed, RogueElements.Loc(b[1], b[2])))
   end
+  --LA COUCHE DE PLUM — uniquement si elle est au camp (running gag).
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5 ~= nil and SV.Chapter5.PlumAtMountCamp then
+    local pb = cloven_ruins_entrance_ch_5.PLUM_BED
+    ground.Decorations[0].Anims:Add(
+      RogueEssence.Ground.GroundAnim(hay_bed, RogueElements.Loc(pb[1], pb[2])))
+  end
   ground.Decorations[0].Anims:Add(
     RogueEssence.Ground.GroundAnim(campfire, RogueElements.Loc(CX, CY)))
   cloven_ruins_entrance_ch_5.AddFireBlocker()
@@ -197,8 +210,18 @@ function cloven_ruins_entrance_ch_5.SetupGround(includeRecon)
     spawnList[#spawnList+1] = {'Breloom',   OPEN_POS.Kino[1],    OPEN_POS.Kino[2],    Direction.UpLeft}
     spawnList[#spawnList+1] = {'Girafarig', OPEN_POS.Reinier[1], OPEN_POS.Reinier[2], Direction.UpRight}
   end
-  local tropius, noctowl, snubbull, audino, growlithe, zigzagoon, breloom, girafarig =
+  --PLUM (Jigglypuff) — elle s'est incrustee au camp du Mont Venteux
+  --(SV.Chapter5.PlumAtMountCamp) et elle a SUIVI l'expedition jusqu'aux
+  --Ruines. C'est un running gag volontaire : personne ne la renvoie.
+  --Position cuisine, a l'ouest du feu, hors du cercle de briefing.
+  local jigglypuff = nil
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5 ~= nil and SV.Chapter5.PlumAtMountCamp then
+    spawnList[#spawnList+1] = {'Jigglypuff', 410, 840, Direction.Right}
+  end
+  local tropius, noctowl, snubbull, audino, growlithe, zigzagoon, breloom, girafarig, jigglypuff2 =
     CharacterEssentials.MakeCharactersFromList(spawnList)
+  jigglypuff = jigglypuff2
 
   -- Ganlon/Shuca : spawners d'equipe si presents (post-intro).
   if GAME:GetPlayerPartyCount() > 3 then
@@ -229,6 +252,12 @@ function cloven_ruins_entrance_ch_5.SetupGround(includeRecon)
   if girafarig ~= nil then
     pcall(function()
       AI:SetCharacterAI(girafarig, "halcyon.ai.ground_talking", false, 90, 60, 210, false, 'Default', {breloom})
+    end)
+  end
+  if jigglypuff ~= nil then
+    pcall(function()
+      --Plum s'affaire : IdleTime plus court (la plus remuante).
+      AI:SetCharacterAI(jigglypuff, "halcyon.ai.ground_talking", false, 60, 60, 120, false, 'Default', {tropius})
     end)
   end
 end
@@ -463,6 +492,68 @@ function cloven_ruins_entrance_ch_5.ArrivalCutscene()
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_010']), "Worried")
   Silence(15)
 
+  -- ============================================================
+  -- 1.8 PLUM — le running gag continue. Elle s'est encore incrustee
+  -- (elle a suivi l'expedition depuis le Mont Venteux) et elle est
+  -- DEJA devant les Ruines, installee avec ses marmites. Personne ne
+  -- s'y attendait, mais tout le monde finit par l'accepter.
+  -- ============================================================
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5 ~= nil and SV.Chapter5.PlumAtMountCamp then
+    local plum = CH('Jigglypuff')
+    -- Le duo la remarque d'abord (elle est en cuisine, a l'ecart).
+    pcall(function()
+      if plum ~= nil then GROUND:CharTurnToCharAnimated(plum, hero, 4) end
+    end)
+    GAME:WaitFrames(10)
+    UI:SetSpeaker(partner)
+    GeneralFunctions.SetEmotion("Surprised")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_P01']))
+    Silence(12)
+    if tropius ~= nil then
+      GROUND:CharTurnToCharAnimated(tropius, partner, 4)
+    end
+    UI:SetSpeaker(tropius)
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_P02']))
+    Silence(12)
+    -- Plum, ravie, se presente elle-meme.
+    if plum ~= nil then
+      GeneralFunctions.EmoteAndPause(plum, "Joyous", false)
+      UI:SetSpeaker(plum)
+      GeneralFunctions.SetEmotion("Joyous")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_P03']))
+      Silence(12)
+      GeneralFunctions.SetEmotion("Happy")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_P05']))
+      Silence(12)
+    end
+    -- Phileas soupire, Penticus abdique.
+    if noctowl ~= nil then
+      pcall(function()
+        GeneralFunctions.EmoteAndPause(noctowl, "Sweatdrop", false)
+      end)
+      UI:SetSpeaker(noctowl)
+      GeneralFunctions.SetEmotion("Sigh")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_P04']))
+      Silence(12)
+    end
+    if tropius ~= nil then
+      UI:SetSpeaker(tropius)
+      GeneralFunctions.SetEmotion("Normal")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_P06']))
+      Silence(12)
+    end
+    if snubbull ~= nil then
+      UI:SetSpeaker(snubbull)
+      GeneralFunctions.SetEmotion("Normal")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_P07']))
+      Silence(12)
+    end
+    GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_P10']), "Sigh")
+    Silence(15)
+  end
+
   -- Transition 1 -> 2 : fondu (configuration debout -> repas assis).
   GAME:FadeOut(false, 40)
   SOUND:FadeOutBGM(40)
@@ -644,6 +735,41 @@ function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
   end
   TASK:JoinCoroutines(stopEat)
   GAME:WaitFrames(20)
+
+  -- ============================================================
+  -- 2.2bis PLUM S'INCRUSTE DANS LE BRIEFING — elle apporte le
+  -- dessert et donne son avis sur les ruines (running gag : tout le
+  -- monde a fini par l'accepter, elle fait partie du mobilier).
+  -- ============================================================
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5 ~= nil and SV.Chapter5.PlumAtMountCamp then
+    local plum = CH('Jigglypuff')
+    if plum ~= nil then
+      --Elle avance avec un plat, le pose, et s'incruste.
+      pcall(function()
+        GeneralFunctions.EightWayMove(plum, CX - 60, CY - 30, false, 1)
+        GROUND:CharAnimateTurnTo(plum, Direction.Down, 4)
+      end)
+      GAME:WaitFrames(20)
+      UI:SetSpeaker(plum)
+      GeneralFunctions.SetEmotion("Joyous")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_P08']))
+      Silence(10)
+      --Phileas soupire, Kino pouffe, Penticus ignore.
+      pcall(function()
+        if noctowl ~= nil then GeneralFunctions.EmoteAndPause(noctowl, "Sweatdrop", false) end
+      end)
+      UI:SetSpeaker(noctowl)
+      GeneralFunctions.SetEmotion("Sigh")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_P04']))
+      Silence(10)
+      --Plum poursuit, imperturbable — c'est SA soiree maintenant.
+      UI:SetSpeaker(plum)
+      GeneralFunctions.SetEmotion("Happy")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_P09']))
+      Silence(10)
+    end
+  end
 
   -- Penticus cadre. TOUT LE CERCLE se tourne vers lui.
   Says(t.penticus, "Normal", 'CR5_012',
@@ -977,6 +1103,25 @@ function cloven_ruins_entrance_ch_5.CampNightfall(hero, partner, t)
     {t.kino, 42}, {t.reinier, 52}, {ganlon, 62}, {shuca, 72},
   }
   local vers = {}
+  --PLUM rejoint sa paillasse (elle est au camp : running gag). Elle
+  --s'installe en dernier, pres de sa cuisine — comme au Mont.
+  local plumNight = nil
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5 ~= nil and SV.Chapter5.PlumAtMountCamp then
+    plumNight = CH('Jigglypuff')
+  end
+  if plumNight ~= nil then
+    local pb = cloven_ruins_entrance_ch_5.PLUM_BED
+    --Elle se couche face au feu (sa couche est a l'ouest).
+    vers[#vers+1] = TASK:BranchCoroutine(function()
+      GAME:WaitFrames(82)
+      pcall(function()
+        GROUND:MoveToPosition(plumNight, pb[1] + 13, pb[2] + 10, false, 1)
+        GROUND:CharAnimateTurnTo(plumNight, Direction.Right, 4)
+        GROUND:CharSetAnim(plumNight, "Sleep", true)
+      end)
+    end)
+  end
   for _, s in ipairs(sleepOrder) do
     local chara, delay = s[1], s[2]
     if chara ~= nil and bedOf[chara] ~= nil then
@@ -1264,6 +1409,23 @@ function cloven_ruins_entrance_ch_5.ResumeAfterDreamBody()
   pcall(function() GROUND:CharSetAnim(partner, "EventSleep", true) end)
   pcall(function() GROUND:CharSetAnim(hero, "EventSleep", true) end)
 
+  --PLUM DORT AUSSI, SUR SA PAILLASSE — elle est au camp (running gag).
+  --Recreee exactement sur PLUM_BED, comme au Mont. Sans elle, elle
+  --disparaitrait entre le coucher et le reveil (defaut de causalite).
+  local plumMorning = nil
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5 ~= nil and SV.Chapter5.PlumAtMountCamp then
+    pcall(function()
+      local pb = cloven_ruins_entrance_ch_5.PLUM_BED
+      plumMorning = CharacterEssentials.MakeCharactersFromList({
+        {'Jigglypuff', pb[1] + 13, pb[2] + 10, Direction.Right}
+      })
+      if plumMorning ~= nil then
+        GROUND:CharSetAnim(plumMorning, "Sleep", true)
+      end
+    end)
+  end
+
   -- VIE DE FOND — le camp DOIT continuer de vivre apres le reveil.
   -- Sans IA, les PNJ recrees resteraient figes comme des statues
   -- apres la reprise de controle (le defaut « diorama » interdit).
@@ -1285,7 +1447,8 @@ function cloven_ruins_entrance_ch_5.ResumeAfterDreamBody()
     hero, partner, {penticus = tropius, phileas = noctowl,
                     coco = snubbull, rin = audino,
                     hyko = growlithe, almotz = zigzagoon,
-                    kino = breloom, reinier = girafarig})
+                    kino = breloom, reinier = girafarig,
+                    plum = plumMorning})
 end
 
 function cloven_ruins_entrance_ch_5.MorningAfterDream(hero, partner, t)
@@ -1349,6 +1512,7 @@ function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
   local wakeOrder = {
     {t.penticus, 0}, {t.rin, 10}, {t.coco, 20}, {t.hyko, 30},
     {t.almotz, 40}, {t.kino, 50}, {t.reinier, 60}, {t.phileas, 70},
+    {t.plum, 80},
   }
   local wks = {}
   for _, s in ipairs(wakeOrder) do
@@ -1559,6 +1723,12 @@ function cloven_ruins_entrance_ch_5.KODefeatCutsceneBody()
   local zigzagoon = CH('Zigzagoon')
   local breloom = CH('Breloom')
   local girafarig = CH('Girafarig')
+  --PLUM est a la base logistique (elle cuisine) : presente aussi.
+  local jigglypuff = nil
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5 ~= nil and SV.Chapter5.PlumAtMountCamp then
+    jigglypuff = CH('Jigglypuff')
+  end
 
   GAME:CutsceneMode(true)
   SOUND:StopBGM()
@@ -1573,6 +1743,7 @@ function cloven_ruins_entrance_ch_5.KODefeatCutsceneBody()
 
   -- Les membres veillent autour : Rin proche (soins), les autres en
   -- cercle serre. Personne ne s'agite — on a porte les blesses.
+  -- Plum, elle, prepare deja de quoi remonter les troupes (cuisine).
   pcall(function()
     if audino ~= nil then GROUND:TeleportTo(audino, CX - 40, CY + 12, Direction.Right) end
     if tropius ~= nil then GROUND:TeleportTo(tropius, CX + 40, CY + 16, Direction.Left) end
@@ -1582,6 +1753,7 @@ function cloven_ruins_entrance_ch_5.KODefeatCutsceneBody()
     if zigzagoon ~= nil then GROUND:TeleportTo(zigzagoon, CX - 30, CY - 20, Direction.Down) end
     if breloom ~= nil then GROUND:TeleportTo(breloom, CX + 20, CY - 32, Direction.Down) end
     if girafarig ~= nil then GROUND:TeleportTo(girafarig, CX - 20, CY - 32, Direction.Down) end
+    if jigglypuff ~= nil then GROUND:TeleportTo(jigglypuff, 410, 840, Direction.Right) end
   end)
 
   GAME:FadeIn(60)
@@ -1670,6 +1842,19 @@ function cloven_ruins_entrance_ch_5.KODefeatCutsceneBody()
   GeneralFunctions.SetEmotion("Happy")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_K08']))
   GAME:WaitFrames(14)
+
+  --PLUM, depuis sa cuisine : le ragoût attend. Elle remonte le moral
+  --a sa maniere — le running gag continue meme dans les moments durs.
+  if jigglypuff ~= nil then
+    pcall(function()
+      GROUND:CharTurnToCharAnimated(jigglypuff, hero, 4)
+      GeneralFunctions.EmoteAndPause(jigglypuff, "Happy", false)
+    end)
+    UI:SetSpeaker(jigglypuff)
+    GeneralFunctions.SetEmotion("Happy")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_K12']))
+    GAME:WaitFrames(14)
+  end
 
   -- On clot : le camp est pret, on retentera quand on sera remis.
   if tropius ~= nil then
@@ -1810,6 +1995,24 @@ function cloven_ruins_entrance_ch_5.RetreatReturnCutsceneBody()
     UI:SetSpeaker(tropius)
     GeneralFunctions.SetEmotion("Inspired")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_R08']))
+    GAME:WaitFrames(14)
+  end
+
+  --PLUM, depuis sa cuisine : elle accueille le repli sans poser de
+  --question. Le ragoût est pret, c'est tout ce qui compte.
+  local jigglypuffR = nil
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5 ~= nil and SV.Chapter5.PlumAtMountCamp then
+    jigglypuffR = CH('Jigglypuff')
+  end
+  if jigglypuffR ~= nil then
+    pcall(function()
+      GROUND:CharTurnToCharAnimated(jigglypuffR, hero, 4)
+      GeneralFunctions.EmoteAndPause(jigglypuffR, "Happy", false)
+    end)
+    UI:SetSpeaker(jigglypuffR)
+    GeneralFunctions.SetEmotion("Happy")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_R09']))
     GAME:WaitFrames(14)
   end
 
