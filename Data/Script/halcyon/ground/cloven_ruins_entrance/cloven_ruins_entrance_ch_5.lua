@@ -573,31 +573,18 @@ function cloven_ruins_entrance_ch_5.ArrivalCutsceneBody()
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_048']), "Determined")
   Silence(15)
 
-  -- Le camp remarque l'arrivee : Kino et Reinier en premier, en decale.
-  local kino = t.kino
-  local reinier = t.reinier
-  local coroK = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(6)
-    if kino ~= nil then GROUND:CharTurnToCharAnimated(kino, hero, 4) end
-  end)
-  local coroR = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(16)
-    if reinier ~= nil then GROUND:CharTurnToCharAnimated(reinier, hero, 4) end
-  end)
-  TASK:JoinCoroutines({coroK, coroR})
-  GAME:WaitFrames(10)
-
-  -- Reinier montre la grotte : le point d'interet.
-  if reinier ~= nil then
-    GAME:MoveCamera(420, 142, 40, false)
-    Listen(reinier, {hero, partner, kino})
-    UI:SetSpeaker(reinier)
-    GeneralFunctions.SetEmotion("Normal")
-    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_009']))
-    Silence(12)
-  end
+  -- LE CAMP EST DESERT : personne n'attend l'expedition... a part Plum
+  -- (acte 2). Les membres arriveront chacun leur tour avant le repas
+  -- (acte 4). Le duo decouvre la bouche de la grotte, le point
+  -- d'interet.
+  GAME:MoveCamera(420, 142, 40, false)
+  GAME:WaitFrames(15)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_010']), "Worried")
   Silence(15)
+
+  -- Retour camera sur le camp : c'est la que Plum se revele (acte 2).
+  GAME:MoveCamera(220, 250, 40, false)
+  GAME:WaitFrames(10)
 
   -- Penticus accueille : retour camera sur le camp.
   GAME:MoveCamera(220, 250, 40, false)
@@ -644,12 +631,12 @@ function cloven_ruins_entrance_ch_5.ArrivalCutsceneBody()
 
     -- LA GUILDE, EMBARRASSEE : personne ne l'a vue arriver, personne
     -- n'a de reponse. Sueurs froides et regards qui se detournent.
+    -- LA GUILDE EST EMBARRASSEE (les membres arriveront au repas) :
+    -- seuls les presents reagissent — le duo, Ganlon et Shuca.
     ReactAll({
-      [t.coco] = "Sweatdrop",
-      [t.hyko] = "Sweatdrop",
-      [t.almotz] = "Sweatdrop",
-      [t.phileas] = "Notice",
-      [kino] = "Shock",
+      [partner] = "Shock",
+      [t2] = "Sweatdrop",
+      [t3] = "Notice",
     })
     GAME:WaitFrames(10)
     -- Ganlon, gene, tente de sauver les apparences.
@@ -684,12 +671,11 @@ function cloven_ruins_entrance_ch_5.ArrivalCutsceneBody()
       GROUND:AnimateInDirection(plum, "Hop", Direction.Up, Direction.Up, 4, 1, 1)
     end)
     GAME:WaitFrames(12)
-    -- Le groupe echange des regards perplexes.
+    -- Le duo et Ganlon echangent des regards perplexes.
     ReactAll({
-      [t.coco] = "Sweatdrop",
-      [t.phileas] = "Sweatdrop",
-      [t.almotz] = "Shock",
-      [kino] = "Notice",
+      [partner] = "Sweatdrop",
+      [t2] = "Notice",
+      [t3] = "Sweatdrop",
     })
     Silence(25)
     UI:SetSpeaker(plum)
