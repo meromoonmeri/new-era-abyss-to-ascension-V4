@@ -1155,6 +1155,30 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
+		Alakazam = {
+			species = "alakazam",
+			nickname = 'Alakazam',
+			instance = 'Alakazam',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Tyranitar = {
+			species = "tyranitar",
+			nickname = 'Tyranitar',
+			instance = 'Tyranitar',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Charizard = {
+			species = "charizard",
+			nickname = 'Charizard',
+			instance = 'Charizard',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
 		Nuit_Garde = {
 			species = "granbull",
 			nickname = 'Veilleur de Nuit',

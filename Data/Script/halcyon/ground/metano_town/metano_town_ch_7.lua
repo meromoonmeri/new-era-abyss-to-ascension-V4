@@ -1204,4 +1204,164 @@ function metano_town_ch_7.Legend_Merchant_Action(chara, activator)
     metano_town_legend.Legend_Merchant_Action(chara, activator)
 end
 
+-- ============================================================
+-- SCENE : Arrivée et enquête de la légendaire Team Alakazam (Chapitre 7)
+-- ============================================================
+function metano_town_ch_7.AlakazamScene()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+
+  GAME:CutsceneMode(true)
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
+  SOUND:StopBGM()
+
+  -- Positionner l'équipe au sud de la place, face au nord
+  GROUND:TeleportTo(hero, 540, 1040, Direction.UpRight)
+  if partner ~= nil then GROUND:TeleportTo(partner, 500, 1040, Direction.UpRight) end
+  GAME:MoveCamera(640, 980, 1, false)
+
+  -- Spawner le Doyen (Tropius), Phileas (Noctowl) et la foule
+  local tropius, noctowl, sentret, wooper = CharacterEssentials.MakeCharactersFromList({
+    {'Tropius', 660, 930, Direction.Down},
+    {'Noctowl', 610, 930, Direction.Down},
+    {'Sentret', 580, 960, Direction.Right},
+    {'Wooper_Boy', 700, 960, Direction.Left}
+  })
+
+  -- Spawner la légendaire Team Alakazam
+  local alakazam, tyranitar, charizard = CharacterEssentials.MakeCharactersFromList({
+    {'Alakazam', 640, 970, Direction.Down},
+    {'Tyranitar', 600, 1000, Direction.Right},
+    {'Charizard', 680, 1000, Direction.Left}
+  })
+
+  GROUND:CharSetAnim(alakazam, "Idle", true)
+  GROUND:CharSetAnim(tyranitar, "Idle", true)
+  GROUND:CharSetAnim(charizard, "Idle", true)
+
+  -- L'écran s'éclaire sur le grand rassemblement de la place de Metano Town
+  GAME:FadeIn(40)
+  SOUND:PlayBGM('Mt. Travail.ogg', true)
+  GAME:WaitFrames(40)
+
+  -- Le duo avance vers la foule et s'arrête en retrait
+  local coro1 = TASK:BranchCoroutine(function()
+    GROUND:MoveToPosition(hero, 570, 1010, false, 1)
+    GROUND:CharAnimateTurnTo(hero, Direction.Right, 4)
+  end)
+  local coro2 = TASK:BranchCoroutine(function()
+    if partner ~= nil then
+      GROUND:MoveToPosition(partner, 530, 1010, false, 1)
+      GROUND:CharAnimateTurnTo(partner, Direction.Right, 4)
+    end
+  end)
+  TASK:JoinCoroutines({coro1, coro2})
+  GAME:WaitFrames(20)
+
+  -- Dialogue d'introduction par Penticus
+  UI:SetSpeaker(tropius)
+  UI:WaitShowDialogue("...Voici l'état actuel de nos relevés, Doyen d'Alakazam.[pause=15] La fissure du nord s'accentue après chaque séisme.")
+  GAME:WaitFrames(15)
+
+  UI:SetSpeaker(alakazam)
+  UI:WaitShowDialogue("Mmm...[pause=10] Je ressens les vibrations telluriques d'ici. L'énergie du noyau terrestre s'échappe par cette faille.")
+  UI:WaitShowDialogue("Les flux d'énergie convergent tous vers les Ruines Fendues. Quelque chose là-bas cherche à s'éveiller.")
+  GAME:WaitFrames(15)
+
+  -- Tyranocif intervient
+  UI:SetSpeaker(tyranitar)
+  GeneralFunctions.SetEmotion("Determined")
+  UI:WaitShowDialogue("S'il le faut, je briserai la roche de mes propres mains ![pause=15] Groudon n'a pas à faire trembler nos continents.")
+  GAME:WaitFrames(15)
+
+  -- Dracaufeu approuve
+  UI:SetSpeaker(charizard)
+  UI:WaitShowDialogue("Et je réduirai en cendres toute obstruction.[pause=15] L'équilibre volcanique du Tunnel Ardent doit être restauré.")
+  GAME:WaitFrames(15)
+
+  -- Penticus remercie
+  UI:SetSpeaker(tropius)
+  UI:WaitShowDialogue("Votre assistance est inestimable, ô légendaire Team Alakazam. Nous préparons un Grand Tournoi de la Fédération ici-même pour évaluer et entraîner nos équipes locales.")
+  UI:WaitShowDialogue("Nous devons être prêts pour l'expédition ultime.")
+  GAME:WaitFrames(15)
+
+  -- Alakazam se tourne vers le héros et le partenaire
+  GROUND:CharAnimateTurnTo(alakazam, Direction.DownLeft, 4)
+  GAME:WaitFrames(10)
+  
+  UI:SetSpeaker(alakazam)
+  UI:WaitShowDialogue("Vous...[pause=20] Je ressens une double aura en toi, jeune héros.[pause=15] Une harmonie singulière qui n'appartient pas à ce monde.")
+  GAME:WaitFrames(15)
+
+  UI:SetSpeaker(partner)
+  pcall(function()
+    GROUND:CharSetEmote(partner, "shock", 1)
+    GROUND:CharTurnToCharAnimated(partner, hero, 4)
+  end)
+  GeneralFunctions.SetEmotion("Surprised")
+  UI:WaitShowDialogue("(Une double aura ?! Comment est-ce qu'il peut ressentir cela ?!)")
+  GAME:WaitFrames(15)
+
+  GROUND:CharTurnToCharAnimated(partner, alakazam, 4)
+  UI:SetSpeaker(alakazam)
+  UI:WaitShowDialogue("Restez forts.[pause=15] Le chemin qui s'ouvre devant vous sera semé d'embûches, mais votre volonté peut surmonter le désastre.")
+  UI:WaitShowDialogue("Nous partons vers le nord pour sécuriser le périmètre avant le début du tournoi.[pause=20] Bonne chance, petits.")
+  GAME:WaitFrames(20)
+
+  -- Team Alakazam se met en marche et s'en va vers le nord
+  local depart1 = TASK:BranchCoroutine(function()
+    GROUND:MoveInDirection(alakazam, Direction.Up, 150, false, 1)
+    pcall(function() GAME:GetCurrentGround():RemoveTempChar(alakazam) end)
+  end)
+  local depart2 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(8)
+    GROUND:MoveInDirection(tyranitar, Direction.Up, 150, false, 1)
+    pcall(function() GAME:GetCurrentGround():RemoveTempChar(tyranitar) end)
+  end)
+  local depart3 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(14)
+    GROUND:MoveInDirection(charizard, Direction.Up, 150, false, 1)
+    pcall(function() GAME:GetCurrentGround():RemoveTempChar(charizard) end)
+  end)
+  local camera_final = TASK:BranchCoroutine(function()
+    GAME:MoveCamera(640, 920, 130, false)
+  end)
+  TASK:JoinCoroutines({depart1, depart2, depart3, camera_final})
+  GAME:WaitFrames(20)
+
+  -- Nettoyage des PNJ temporaires
+  pcall(function()
+    GAME:GetCurrentGround():RemoveTempChar(tropius)
+    GAME:GetCurrentGround():RemoveTempChar(noctowl)
+    GAME:GetCurrentGround():RemoveTempChar(sentret)
+    GAME:GetCurrentGround():RemoveTempChar(wooper)
+  end)
+
+  -- Dialogue final de l'équipe
+  UI:SetSpeaker(partner)
+  pcall(function()
+    GROUND:CharTurnToCharAnimated(partner, hero, 4)
+    GROUND:CharTurnToCharAnimated(hero, partner, 4)
+  end)
+  GeneralFunctions.SetEmotion("Inspired")
+  UI:WaitShowDialogue("Ouah...[pause=10] C'était la légendaire Team Alakazam en personne ! Ils sont tellement imposants !")
+  UI:WaitShowDialogue("Et ce Grand Tournoi...[pause=15] Nous devons nous entraîner dur pour être dignes de leur faire face. C'est notre moment, {0} !", hero:GetDisplayName())
+  GAME:WaitFrames(20)
+
+  -- Sauvegarder l'état
+  SV.Chapter7.AlakazamScenePlayed = true
+  
+  -- Fin de la cinématique
+  GAME:FadeOut(false, 30)
+  GAME:WaitFrames(30)
+  pcall(function()
+    if partner ~= nil then
+      AI:EnableCharacterAI(partner)
+      AI:SetCharacterAI(partner, 'origin.ai.ground_partner', CH('PLAYER'), partner.Position)
+    end
+    GAME:CutsceneMode(false)
+  end)
+  GAME:FadeIn(20)
+end
+
 return metano_town_ch_7

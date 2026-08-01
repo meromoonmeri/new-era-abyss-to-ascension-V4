@@ -263,6 +263,24 @@ function guild_heros_room_ch_2.PostRiverBedtalk()
 	GROUND:CharSetAnim(partner, "EventSleep", true)
 	GAME:WaitFrames(40)
 	GROUND:CharSetAnim(hero, "EventSleep", true)
+	GAME:WaitFrames(80)
+
+	-- LE DEUXIÈME RÊVE DE GARDEVOIR (Chapitre 2) — Un peu plus long, plus précis.
+	SOUND:PlayBGM('Star Cave.ogg', true)
+	UI:WaitShowBG("Genesis_Void", 40, 20)
+	GAME:WaitFrames(60)
+
+	UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", 0) -- Voix mystérieuse sans portrait
+	UI:WaitShowDialogue("...Tu as réussi à franchir la rivière...")
+	GAME:WaitFrames(15)
+	UI:WaitShowDialogue("...Ton cœur s'éveille à ce monde...")
+	GAME:WaitFrames(15)
+	UI:WaitShowDialogue("...S'il te plaît... le temps presse... protège l'équilibre...")
+	GAME:WaitFrames(30)
+
+	UI:WaitHideBG(20)
+	SOUND:FadeOutBGM(40)
+	GAME:WaitFrames(60)
 
 	GAME:WaitFrames(180)
 	SOUND:FadeOutBGM(120)

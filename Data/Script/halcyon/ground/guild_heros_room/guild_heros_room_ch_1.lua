@@ -131,7 +131,24 @@ function guild_heros_room_ch_1.Bedtalk()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR1_061']))--doesn't really care if he finds out or not since hero can just enjoy life as a pokemon regardless of solving the mystery
 	GAME:WaitFrames(40)
 	GROUND:CharSetAnim(hero, "EventSleep", true)
-	GAME:WaitFrames(180)
+	GAME:WaitFrames(80)
+
+	-- LE TOUT PREMIER RÊVE DE GARDEVOIR (Chapitre 1) — Mystérieux, court, pose le début de l'intrigue.
+	SOUND:PlayBGM('Star Cave.ogg', true)
+	UI:WaitShowBG("Genesis_Void", 40, 20)
+	GAME:WaitFrames(60)
+
+	UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", 0) -- Voix lointaine sans portrait
+	UI:WaitShowDialogue("...Humain...")
+	GAME:WaitFrames(15)
+	UI:WaitShowDialogue("...S'il te plaît... entends mon appel...")
+	GAME:WaitFrames(30)
+
+	UI:WaitHideBG(20)
+	SOUND:FadeOutBGM(40)
+	GAME:WaitFrames(60)
+
+	GAME:UnlockDungeon("illuminant_riverbed")--unlock riverbed for when it's ready in chapter 2.
 	GAME:UnlockDungeon("illuminant_riverbed")--unlock riverbed for when it's ready in chapter 2.
 	--Vague 1 multi-sources : secondaires ch1-2 disponibles des l'entree a la guilde
 	GAME:UnlockDungeon("petit_tunnel")

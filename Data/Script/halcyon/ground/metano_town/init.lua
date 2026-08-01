@@ -145,7 +145,12 @@ function metano_town.PlotScripting()
 			metano_town_ch_6.PostDefeatCutscene()
 		end
 	elseif SV.ChapterProgression.Chapter == 7 then
-		GAME:FadeIn(20)
+		if SV.Chapter7.AlakazamScenePlayed == nil then SV.Chapter7.AlakazamScenePlayed = false end
+		if not SV.Chapter7.AlakazamScenePlayed then
+			metano_town_ch_7.AlakazamScene()
+		else
+			GAME:FadeIn(20)
+		end
 	elseif SV.ChapterProgression.Chapter == 8 then
 		require 'halcyon.ground.metano_town.metano_town_ch_8'
 		metano_town_ch_8.SetupGround()
