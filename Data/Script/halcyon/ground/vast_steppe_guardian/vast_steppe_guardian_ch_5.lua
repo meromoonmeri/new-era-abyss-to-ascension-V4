@@ -453,9 +453,38 @@ local function DefeatedBossBody()
   GROUND:Hide('Absol')
   GAME:WaitFrames(30)
 
-  GAME:WaitFrames(60)
+  -- MISE EN ROUTE : L'equipe se remet en marche vers le NORD, en direction du Tunnel Ardent.
+  -- Cela rend la transition visuellement continue et comprehensible avant de quitter la zone.
+  GAME:WaitFrames(15)
+  local depart = {}
+  depart[1] = TASK:BranchCoroutine(function()
+    GROUND:MoveInDirection(hero, Direction.Up, 120, false, 1)
+  end)
+  depart[2] = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(6)
+    GROUND:MoveInDirection(partner, Direction.Up, 120, false, 1)
+  end)
+  if t2 ~= nil then
+    depart[3] = TASK:BranchCoroutine(function()
+      GAME:WaitFrames(12)
+      GROUND:MoveInDirection(t2, Direction.Up, 120, false, 1)
+    end)
+  end
+  if t3 ~= nil then
+    depart[4] = TASK:BranchCoroutine(function()
+      GAME:WaitFrames(18)
+      GROUND:MoveInDirection(t3, Direction.Up, 120, false, 1)
+    end)
+  end
+  local coro_cam_final = TASK:BranchCoroutine(function()
+    GAME:MoveCamera(184, 140, 140, false)
+  end)
+  depart[#depart+1] = coro_cam_final
+  TASK:JoinCoroutines(depart)
+  GAME:WaitFrames(40)
+
   GAME:FadeOut(false, 60)
-  GAME:WaitFrames(90)
+  GAME:WaitFrames(60)
 end
 
 function vast_steppe_guardian_ch_5.DefeatedBoss()
