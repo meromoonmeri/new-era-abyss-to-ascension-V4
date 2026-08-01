@@ -436,8 +436,8 @@ function cloven_ruins_entrance_ch_5.ArrivalCutsceneBody()
   -- sauvegarde en cours), on ne joue pas la scene — on libere le camp.
   -- Tout appel moteur sur une entite invalide lèverait
   -- « Entity is not a valid type » et figerait le joueur.
-  if hero == nil or partner == nil then
-    PrintInfo('[CR5] equipe non attachee — scene d\'arrivee sautee, camp libre')
+  if hero == nil or partner == nil or hero.Position == nil or partner.Position == nil then
+    PrintInfo('[CR5] equipe non attachee/invalide — scene d\'arrivee sautee, camp libre')
     pcall(function() SV.Chapter5.RuinsCampDone = true end)
     pcall(function() GAME:CutsceneMode(false) end)
     pcall(function() GAME:FadeIn(20) end)

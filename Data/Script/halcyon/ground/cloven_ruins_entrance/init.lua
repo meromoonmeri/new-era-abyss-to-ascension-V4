@@ -16,10 +16,12 @@ require 'halcyon.ground.cloven_ruins_entrance.cloven_ruins_entrance_ch_5'
 
 local cloven_ruins_entrance = {}
 
--- Flag differe de lancement des scenes au chargement d'une sauvegarde :
--- posé par GameLoad quand l'equipe n'est pas encore attachee, consomme
--- par le premier Update (variable locale : pas besoin de persistance).
+-- Lancement differe des scenes au chargement d'une sauvegarde :
+-- pose par GameLoad, consomme par Update quand l'equipe est VALIDE.
+-- Variables locales (pas de persistance) + compteur borne (300 frames
+-- = 5 s) : si l'equipe ne devient jamais valide, on libere la main.
 local deferredRuinsCamp = false
+local deferredRuinsCampTries = 0
 
 function cloven_ruins_entrance.Init(map)
   pcall(function() GAME:FadeOut(false, 1) end)
@@ -46,16 +48,35 @@ end
 
 function cloven_ruins_entrance.Update(map)
   -- LANCEMENT DIFFERE (chargement de sauvegarde). Au chargement d'une
-  -- save directe sur ce ground, les entites de l'equipe ne sont pas
-  -- encore valides pendant OnGameLoad (TeleportTo leve « Entity is not a
-  -- valid type ») et OnEnter n'est jamais appele (flux moteur :
-  -- InitGround -> OnInit -> OnGameLoad -> FadeIn, sans BeginGround).
-  -- On differe donc le lancement des scenes au premier Update, quand le
-  -- ground tourne et que l'equipe est attachee.
+  -- save directe sur ce ground, les entites de l'equipe existent mais ne
+  -- sont pas encore de vrais GroundEntity VALIDES pendant OnGameLoad
+  -- (TeleportTo leve « Entity is not a valid type » — l'objet n'est pas
+  -- nil, il est simplement inutilisable). OnEnter n'est jamais appele
+  -- (flux moteur : InitGround -> OnInit -> OnGameLoad -> FadeIn, sans
+  -- BeginGround). On lance donc depuis le premier Update ou l'equipe est
+  -- reellement utilisable : test de validite par pcall sur Position.
   if deferredRuinsCamp then
-    deferredRuinsCamp = false
-    if CH('PLAYER') ~= nil and CH('Teammate1') ~= nil then
+    -- pcall renvoie (ok, resultat) : le premier retour est le booleen
+    -- d'erreur, le second le vrai test de validite. Ne pas confondre.
+    local ok, valid = pcall(function()
+      local hero = CH('PLAYER')
+      local partner = CH('Teammate1')
+      return hero ~= nil and partner ~= nil
+         and hero.Position ~= nil and partner.Position ~= nil
+    end)
+    if ok and valid then
+      deferredRuinsCamp = false
+      deferredRuinsCampTries = 0
       cloven_ruins_entrance.PlotScripting()
+    else
+      deferredRuinsCampTries = deferredRuinsCampTries + 1
+      if deferredRuinsCampTries > 300 then
+        -- Filet : l'equipe n'est jamais devenue valide, on libere la main.
+        deferredRuinsCamp = false
+        deferredRuinsCampTries = 0
+        pcall(function() GAME:CutsceneMode(false) end)
+        pcall(function() GAME:FadeIn(20) end)
+      end
     end
   end
 end
@@ -66,26 +87,24 @@ end
 
 function cloven_ruins_entrance.GameLoad(map)
   PartnerEssentials.LoadGamePartnerPosition(CH('Teammate1'))
-  -- Au chargement d'une sauvegarde, les entites de l'equipe ne sont pas
-  -- encore valides pour les appels moteur (TeleportTo/MoveToPosition
-  -- levent « Entity is not a valid type », HeroDialogue plante sur nil).
-  -- Si l'equipe est deja valide, on lance normalement ; sinon on pose un
-  -- flag consomme par Update (premier tick du ground, equipe attachee).
-  -- On libere la main si aucune scene n'est imminente (sinon le joueur
-  -- resterait fige par CutsceneMode pose dans Init).
-  if CH('PLAYER') ~= nil and CH('Teammate1') ~= nil then
-    cloven_ruins_entrance.PlotScripting()
-  else
-    pcall(function()
-      deferredRuinsCamp = true
-      local c5 = SV.Chapter5
-      if not (c5.RuinsCampPending
-              or (c5.RuinsCampNightDone and not c5.RuinsCampDone)
-              or c5.PlayTempRuinsScene) then
-        GAME:CutsceneMode(false)
-      end
-    end)
-  end
+  -- Au chargement d'une sauvegarde, les entites de l'equipe existent mais
+  -- ne sont PAS encore valides pour les appels moteur (TeleportTo leve
+  -- « Entity is not a valid type » meme si CH() ne renvoie pas nil). On
+  -- ne lance donc JAMAIS la scene ici : on pose le flag consomme par
+  -- Update, qui attend que l'equipe soit reellement utilisable (Position
+  -- accessible) avant de lancer PlotScripting.
+  deferredRuinsCamp = true
+  deferredRuinsCampTries = 0
+  pcall(function()
+    local c5 = SV.Chapter5
+    -- Si aucune scene n'est imminente, on libere la main des maintenant
+    -- (sinon le joueur resterait fige par CutsceneMode pose dans Init).
+    if not (c5.RuinsCampPending
+            or (c5.RuinsCampNightDone and not c5.RuinsCampDone)
+            or c5.PlayTempRuinsScene) then
+      GAME:CutsceneMode(false)
+    end
+  end)
 end
 
 function cloven_ruins_entrance.PlotScripting()
