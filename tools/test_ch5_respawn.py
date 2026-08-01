@@ -71,8 +71,9 @@ GeneralFunctions = {
 # (donjon, segment, resultat, destination attendue, scene attendue, via, [intro_done])
 CASES = [
     # --- Mont Venteux ---
-    ('mount_windswept', 0, 'KO',      ('entrance', 50), 'KODefeatCutscene',     'entrance'),
-    ('mount_windswept', 0, 'Escaped', ('entrance', 50), 'RetreatReturnCutscene', 'entrance'),
+    ('mount_windswept', 0, 'KO',      ('entrance', 50), 'KODefeatCutscene', 'entrance'),
+    # abandon : la scene Plum (KODefeatCutscene) se joue aussi (demande utilisateur)
+    ('mount_windswept', 0, 'Escaped', ('entrance', 50), 'KODefeatCutscene', 'entrance'),
     ('mount_windswept', 2, 'KO',      ('midpoint', 64), 'WipedCutscene',         'midpoint'),
     ('mount_windswept', 2, 'Escaped', ('midpoint', 64), 'WipedCutscene',         'midpoint'),
     # --- Vast Steppe ---

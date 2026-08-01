@@ -176,11 +176,11 @@ function mount_windswept_entrance.PlotScripting()
       --reste en ceinture (idempotent).
       mount_windswept_entrance_ch_5.SetupGround()
       SV.Chapter5.PlayTempMountScene = false
-      if SV.Chapter5.MountLastExitReason == 'Retreated' then
-        mount_windswept_entrance_ch_5.RetreatReturnCutscene()
-      else
-        mount_windswept_entrance_ch_5.KODefeatCutscene()
-      end
+      --KO comme abandon : la scene Plum (KODefeatCutscene) se joue
+      --(demande utilisateur : « Rondoudou doit intervenir au Mont Windsep
+      --a chaque respawn, KO comme abandon »). RetreatReturnCutscene
+      --(Penticus + Hyko) n'est plus utilisee pour le retour au camp.
+      mount_windswept_entrance_ch_5.KODefeatCutscene()
     elseif not SV.Chapter5.FinishedMountWindsweptIntro then
       mount_windswept_entrance_ch_5.ArrivalCutscene()
     elseif SV.Chapter5.MountGuardianDefeated and SV.Chapter5.MountVigilSceneSeen

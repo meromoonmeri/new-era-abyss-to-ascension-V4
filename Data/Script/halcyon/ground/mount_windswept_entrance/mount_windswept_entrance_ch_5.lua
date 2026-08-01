@@ -3656,9 +3656,25 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	-- pas declenche son arrivee au camp la veille (PlumAtMountCamp
 	-- faux), SetupGround ne l'a pas creee et la scene se joue sans elle,
 	-- exactement comme avant.
+	--Plum (Rondoudou) est UNE CONDITION DE LA SCENE, plus une option.
+	--Demande utilisateur : « je veux recuperer mes cinematiques de respawn
+	--(j'y ai passe des heures) ; Rondoudou doit intervenir au Mont Windsep
+	--a chaque respawn, KO comme abandon ». Elle est donc creee ici, sans
+	--dependre de SV.Chapter5.PlumAtMountCamp : meme en partie neuve ou
+	--si elle n'a pas rejoint le camp, elle surgit devant l'entree.
+	--Poste de jour verifie : (236,230), a 41 px de Penticus, 64 px de
+	--Hyko, et surtout a l'ecart du duo (hero 268,156 / partner 292,156) :
+	--elle ne se place jamais sur le partenaire.
 	local plum = nil
 	pcall(function() plum = CH('Jigglypuff') end)
-	if plum ~= nil and SV.Chapter5.PlumAtMountCamp then
+	if plum == nil then
+		pcall(function()
+			plum = CharacterEssentials.MakeCharactersFromList({
+				{'Jigglypuff', 236, 230, Direction.Right}
+			})
+		end)
+	end
+	if plum ~= nil then
 		--1. ELLE ENTEND DEPUIS LES MARMITES. Le cri de Phileas a porte :
 		--elle leve la tete avant de bouger (le corps parle en premier).
 		pcall(function()
@@ -3833,7 +3849,7 @@ function mount_windswept_entrance_ch_5.KODefeatCutscene()
 	--SetupGround lui assigne. Camp et cinematique restent donc d'accord,
 	--et le joueur qui reprend la main la retrouve la ou elle doit etre.
 	coro4 = TASK:BranchCoroutine(function()
-		if plum ~= nil and SV.Chapter5.PlumAtMountCamp then
+		if plum ~= nil then
 			GAME:WaitFrames(26)
 			pcall(function()
 				GeneralFunctions.EightWayMove(plum, 220, 212, false, 1)
