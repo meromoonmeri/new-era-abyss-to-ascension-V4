@@ -1240,6 +1240,23 @@ function cloven_ruins_entrance_ch_5.ResumeAfterDreamBody()
   pcall(function() GROUND:CharSetAnim(partner, "EventSleep", true) end)
   pcall(function() GROUND:CharSetAnim(hero, "EventSleep", true) end)
 
+  -- VIE DE FOND — le camp DOIT continuer de vivre apres le reveil.
+  -- Sans IA, les PNJ recrees resteraient figes comme des statues
+  -- apres la reprise de controle (le defaut « diorama » interdit).
+  -- Meme IA que SetupGround : ground_talking, delais differencies.
+  pcall(function()
+    AI:SetCharacterAI(tropius, "halcyon.ai.ground_talking", false, 90, 60, 0, false, 'Default', {growlithe})
+  end)
+  pcall(function()
+    AI:SetCharacterAI(growlithe, "halcyon.ai.ground_talking", false, 90, 60, 90, false, 'Default', {tropius})
+  end)
+  pcall(function()
+    AI:SetCharacterAI(breloom, "halcyon.ai.ground_talking", false, 90, 60, 150, false, 'Default', {girafarig})
+  end)
+  pcall(function()
+    AI:SetCharacterAI(girafarig, "halcyon.ai.ground_talking", false, 90, 60, 210, false, 'Default', {breloom})
+  end)
+
   cloven_ruins_entrance_ch_5.MorningAfterDream(
     hero, partner, {penticus = tropius, phileas = noctowl,
                     coco = snubbull, rin = audino,

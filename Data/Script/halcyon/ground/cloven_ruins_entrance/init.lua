@@ -133,54 +133,121 @@ end
 
 -- Actions des membres du camp (interactifs apres la cinematique).
 function cloven_ruins_entrance.Teammate1_Action(chara, activator)
+  --Apres le camp (briefing + nuit + reve), le partenaire a un mot
+  --personnel : il se souvient de la soiree et de ce qui l'attend.
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5 ~= nil and SV.Chapter5.RuinsCampDone then
+    GeneralFunctions.StartConversation(chara, "Cette nuit,[pause=10] autour du feu...[pause=15] Je crois que c'est la première fois que toute l'expédition s'est vraiment parlé.[pause=0] Pas juste des ordres,[pause=10] des craintes,[pause=10] des espoirs.[pause=10] Tout ça.[pause=15] Ça compte,[pause=10] tu sais.", "Normal")
+    GeneralFunctions.SetEmotion("Determined")
+    UI:WaitShowDialogue("Et ce rêve...[pause=15] Peu importe ce qu'il voulait dire.[pause=10] On est là,[pause=10] maintenant.[pause=0] Et on entre dans les Ruines Fendues.[pause=10] Ensemble.[pause=10] Comme toujours.")
+    GeneralFunctions.EndConversation(chara)
+    return
+  end
   PartnerEssentials.GetPartnerDialogue(CH('Teammate1'))
 end
 
 function cloven_ruins_entrance.Tropius_Action(chara, activator)
   DEBUG.EnableDbgCoro()
-  GeneralFunctions.StartConversation(chara, "Le camp est prêt.[pause=10] Et nous aussi.[pause=0] Les Ruines Fendues nous attendent depuis trop longtemps.", "Normal")
+  --Apres la nuit : reference au briefing et a la decision.
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5 ~= nil and SV.Chapter5.RuinsCampDone then
+    GeneralFunctions.StartConversation(chara, "La nuit a porté conseil,[pause=10] comme toujours.[pause=15] Ce que nous avons dit autour du feu,[pause=10] chaque membre l'emporte avec lui.[pause=0] C'est ça,[pause=10] une expédition :[pause=10] on part avec tout le monde,[pause=10] ou on ne part pas.", "Normal")
+    GeneralFunctions.SetEmotion("Determined")
+    UI:WaitShowDialogue("Entrez quand vous serez prêts.[pause=10] Nous serons là,[pause=10] devant les Ruines,[pause=10] à vous attendre.")
+  else
+    GeneralFunctions.StartConversation(chara, "Le camp est prêt.[pause=10] Et nous aussi.[pause=0] Les Ruines Fendues nous attendent depuis trop longtemps.", "Normal")
+  end
   GeneralFunctions.EndConversation(chara)
 end
 
 function cloven_ruins_entrance.Noctowl_Action(chara, activator)
   DEBUG.EnableDbgCoro()
-  GeneralFunctions.StartConversation(chara, "J'ai passé la nuit à relire mes notes.[pause=10] Les veines,[pause=10] la chaleur,[pause=10] l'orage...[pause=0] Tout converge ici.[pause=10] Ce n'est pas un hasard.", "Worried")
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5 ~= nil and SV.Chapter5.RuinsCampDone then
+    GeneralFunctions.StartConversation(chara, "Vous avez bien fait de relier les veines de Tornadus à la chaleur du Creuset.[pause=15] C'est la première fois que toutes les pièces s'alignent ainsi.[pause=0] Les anciens appelaient ça «[pause=5] entendre la terre[pause=5] ».[pause=10] Vous l'avez entendue,[pause=10] cette nuit.", "Normal")
+    GeneralFunctions.SetEmotion("Worried")
+    UI:WaitShowDialogue("Et la remarque de Ganlon sur les pierres chaudes...[pause=15] elle ne me quitte pas.[pause=0] J'aimerais avoir tort,[pause=10] mais je ne crois pas.")
+  else
+    GeneralFunctions.StartConversation(chara, "J'ai passé la nuit à relire mes notes.[pause=10] Les veines,[pause=10] la chaleur,[pause=10] l'orage...[pause=0] Tout converge ici.[pause=10] Ce n'est pas un hasard.", "Worried")
+  end
   GeneralFunctions.EndConversation(chara)
 end
 
 function cloven_ruins_entrance.Breloom_Action(chara, activator)
   DEBUG.EnableDbgCoro()
-  GeneralFunctions.StartConversation(chara, "Ces ruines,[pause=10] je les connais par cœur.[pause=0] Et je n'y comprends toujours rien.[pause=10] Peut-être que vous,[pause=10] vous verrez ce que nous,[pause=10] on a manqué.", "Normal")
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5 ~= nil and SV.Chapter5.RuinsCampDone then
+    GeneralFunctions.StartConversation(chara, "Je n'ai pas beaucoup dormi,[pause=10] entre nous.[pause=15] Repenser à ce qu'on a dit autour du feu,[pause=10] à ce qui pulse sous la pierre...[pause=0] La dernière fois que j'ai senti ça,[pause=10] c'était la première fois que j'entrais.[pause=10] Et je n'en suis ressorti qu'au matin.", "Worried")
+    GeneralFunctions.SetEmotion("Determined")
+    UI:WaitShowDialogue("Mais cette fois,[pause=10] vous êtes avec moi.[pause=0] Et c'est tout ce qui change.")
+  else
+    GeneralFunctions.StartConversation(chara, "Ces ruines,[pause=10] je les connais par cœur.[pause=0] Et je n'y comprends toujours rien.[pause=10] Peut-être que vous,[pause=10] vous verrez ce que nous,[pause=10] on a manqué.", "Normal")
+  end
   GeneralFunctions.EndConversation(chara)
 end
 
 function cloven_ruins_entrance.Girafarig_Action(chara, activator)
   DEBUG.EnableDbgCoro()
-  GeneralFunctions.StartConversation(chara, "Mon arrière-tête n'aime pas ces ruines.[pause=10] Il dit qu'elles ont été creusées autour de quelque chose.[pause=0] Et que ça,[pause=10] ça n'a jamais été ouvert.[pause=10] Jusqu'à maintenant.", "Worried")
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5 ~= nil and SV.Chapter5.RuinsCampDone then
+    GeneralFunctions.StartConversation(chara, "Mon arrière-tête n'a pas dormi de la nuit.[pause=15] Il n'arrête pas de tourner autour de ce que vous avez dit :[pause=0] «[pause=5] une forme sous le monde[pause=5] ».[pause=15] Il pense que vous avez visé juste.[pause=0] Et ça,[pause=10] ça ne lui arrive presque jamais.", "Worried")
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue("Gardez les yeux ouverts,[pause=10] là-dedans.[pause=0] Et si quelque chose bouge dans les murs...[pause=10] ne supposez pas que c'est un écho.")
+  else
+    GeneralFunctions.StartConversation(chara, "Mon arrière-tête n'aime pas ces ruines.[pause=10] Il dit qu'elles ont été creusées autour de quelque chose.[pause=0] Et que ça,[pause=10] ça n'a jamais été ouvert.[pause=10] Jusqu'à maintenant.", "Worried")
+  end
   GeneralFunctions.EndConversation(chara)
 end
 
 function cloven_ruins_entrance.Snubbull_Action(chara, activator)
   DEBUG.EnableDbgCoro()
-  GeneralFunctions.StartConversation(chara, "Des ruines de plus.[pause=10] Celle-ci a intérêt à valoir le déplacement,[pause=0] après tout ce chemin.", "Normal")
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5 ~= nil and SV.Chapter5.RuinsCampDone then
+    GeneralFunctions.StartConversation(chara, "J'ai pas fermé l'œil,[pause=10] moi non plus.[pause=15] Entre le briefing de Phileas et Ganlon qui ronflait,[pause=10] c'était une sacrée soirée.[pause=0] Mais je vais vous dire :[pause=10] je crois qu'on tient quelque chose,[pause=10] cette fois.[pause=10] Je le sens.", "Normal")
+    GeneralFunctions.SetEmotion("Determined")
+    UI:WaitShowDialogue("Alors allez-y.[pause=10] Et ramenez-nous une bonne raison de fêter ça,[pause=10] au retour.")
+  else
+    GeneralFunctions.StartConversation(chara, "Des ruines de plus.[pause=10] Celle-ci a intérêt à valoir le déplacement,[pause=0] après tout ce chemin.", "Normal")
+  end
   GeneralFunctions.EndConversation(chara)
 end
 
 function cloven_ruins_entrance.Audino_Action(chara, activator)
   DEBUG.EnableDbgCoro()
-  GeneralFunctions.StartConversation(chara, "J'ai préparé des baies pour tout le monde.[pause=10] On ne sait jamais,[pause=0] là-dedans.[pause=10] Revenez-moi entiers,[pause=10] c'est tout ce que je demande.", "Worried")
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5 ~= nil and SV.Chapter5.RuinsCampDone then
+    GeneralFunctions.StartConversation(chara, "J'ai refait les sacs de tout le monde ce matin.[pause=15] Baies,[pause=10] bandages,[pause=10] un peu d'herbe amère pour le mal des ruines.[pause=0] On ne sait jamais ce qu'on trouvera au fond.[pause=10] Mais on y ira prêts.", "Normal")
+    GeneralFunctions.SetEmotion("Worried")
+    UI:WaitShowDialogue("Revenez-moi entiers,[pause=10] tous les deux.[pause=0] C'est tout ce que je demande.[pause=10] Et si la pierre vous blesse,[pause=10] je serai là,[pause=10] au camp,[pause=10] avec de quoi soigner.")
+  else
+    GeneralFunctions.StartConversation(chara, "J'ai préparé des baies pour tout le monde.[pause=10] On ne sait jamais,[pause=0] là-dedans.[pause=10] Revenez-moi entiers,[pause=10] c'est tout ce que je demande.", "Worried")
+  end
   GeneralFunctions.EndConversation(chara)
 end
 
 function cloven_ruins_entrance.Growlithe_Action(chara, activator)
   DEBUG.EnableDbgCoro()
-  GeneralFunctions.StartConversation(chara, "J'ai relevé les gardes trois fois cette nuit,[pause=10] wouf.[pause=0] Les ruines n'ont pas bougé.[pause=10] Elles attendent,[pause=10] comme nous.", "Normal")
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5 ~= nil and SV.Chapter5.RuinsCampDone then
+    GeneralFunctions.StartConversation(chara, "Ronde du matin effectuée,[pause=10] wouf.[pause=15] Les ruines n'ont pas bougé d'un pouce depuis hier soir.[pause=0] Mais je vous jure que je les ai entendues respirer,[pause=10] une fois.[pause=10] Peut-être,[pause=10] le vent.[pause=0] Peut-être pas.", "Normal")
+    GeneralFunctions.SetEmotion("Determined")
+    UI:WaitShowDialogue("Je garde le camp.[pause=10] Comptez sur moi.[pause=0] Et revenez-nous entiers,[pause=10] wouf.")
+  else
+    GeneralFunctions.StartConversation(chara, "J'ai relevé les gardes trois fois cette nuit,[pause=10] wouf.[pause=0] Les ruines n'ont pas bougé.[pause=10] Elles attendent,[pause=10] comme nous.", "Normal")
+  end
   GeneralFunctions.EndConversation(chara)
 end
 
 function cloven_ruins_entrance.Zigzagoon_Action(chara, activator)
   DEBUG.EnableDbgCoro()
-  GeneralFunctions.StartConversation(chara, "Ma mère m'a dit : «[pause=5] Ne reviens pas sans une bonne histoire.[pause=5] »[pause=10] Les Ruines Fendues,[pause=10] ça fera largement l'affaire.", "Happy")
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5 ~= nil and SV.Chapter5.RuinsCampDone then
+    GeneralFunctions.StartConversation(chara, "J'ai écrit à ma mère,[pause=10] cette nuit,[pause=15] avec un bout de charbon du feu.[pause=0] «[pause=5] Les ruines bougent,[pause=10] mais on est ensemble.[pause=5] »[pause=15] Elle va se demander ce que ça veut dire.[pause=10] Moi aussi,[pause=10] un peu.", "Happy")
+    GeneralFunctions.SetEmotion("Determined")
+    UI:WaitShowDialogue("Mais on le saura bientôt,[pause=10] pas vrai ?[pause=0] Allez.[pause=10] Et rapportez-moi une histoire qui vaut le détour.")
+  else
+    GeneralFunctions.StartConversation(chara, "Ma mère m'a dit : «[pause=5] Ne reviens pas sans une bonne histoire.[pause=5] »[pause=10] Les Ruines Fendues,[pause=10] ça fera largement l'affaire.", "Happy")
+  end
   GeneralFunctions.EndConversation(chara)
 end
 
