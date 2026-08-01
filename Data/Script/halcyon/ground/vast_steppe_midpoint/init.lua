@@ -170,4 +170,24 @@ function vast_steppe_midpoint.Teammate3_Action(chara, activator)
   end
 end
 
+function vast_steppe_midpoint.Sentret_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  local partner = CH('Teammate1')
+  
+  GeneralFunctions.StartConversation(chara, "Aïe, aïe, aïe...[pause=10] Je me suis fait bousculer par un Rondoudou en colère un peu plus tôt !", "Surprised")
+  UI:WaitShowDialogue("Elle chantait faux et fonçait dans le tas...[pause=10] Je me demande bien ce qui a pu lui piquer la queue !")
+  
+  if partner ~= nil then
+    pcall(function()
+      GROUND:CharSetEmote(partner, "sweatdrop", 1)
+      GROUND:CharTurnToCharAnimated(partner, CH('PLAYER'), 4)
+    end)
+    UI:SetSpeaker(partner)
+    GeneralFunctions.SetEmotion("Sigh")
+    UI:WaitShowDialogue("(Euh...[pause=15] Une chanson fausse et de la colère...[pause=10] Je crois que je sais TRÈS bien de qui il parle...)")
+  end
+  
+  GeneralFunctions.EndConversation(chara)
+end
+
 return vast_steppe_midpoint

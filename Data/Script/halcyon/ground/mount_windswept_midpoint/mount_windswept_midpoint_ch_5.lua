@@ -233,6 +233,12 @@ function mount_windswept_midpoint_ch_5.SetupGround()
     if ganlon ~= nil then GROUND:TeleportTo(ganlon, 1060, 360, Direction.Left) end
   end
 
+  -- Spawner le PNJ Wooper_Boy (Axoloto inoffensif du relais de montagne)
+  local wooper = CharacterEssentials.MakeCharactersFromList({
+    {'Wooper_Boy', 450, 430, Direction.DownLeft}
+  })
+  GROUND:CharSetAnim(wooper, "Idle", true)
+
   -- Cinematique contemplative du Fragment (une seule fois, apres le mini-boss).
   if SV.Chapter5.PlayedMountMidpointIntro and not SV.Chapter5.FragmentSceneSeen
      and (SV.Chapter5.MountMiniBossDefeated or SV.Chapter5.MountMiniBossLost) then

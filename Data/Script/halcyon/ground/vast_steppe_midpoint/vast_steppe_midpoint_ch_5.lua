@@ -110,6 +110,12 @@ function vast_steppe_midpoint_ch_5.SetupGround()
     if hyko ~= nil then GROUND:TeleportTo(hyko, 470, 250, Direction.Down) end
   end
 
+  -- Spawner le PNJ Sentret (Insolourdo/Fouinette inoffensif du relais)
+  local sentret = CharacterEssentials.MakeCharactersFromList({
+    {'Sentret', 350, 250, Direction.DownRight}
+  })
+  GROUND:CharSetAnim(sentret, "Idle", true)
+
   if SV.Chapter5.SteppeGuardianDefeated and not SV.Chapter5.SteppeNightSceneSeen then
     -- Veillee dramatique apres la victoire sur le gardien.
     vast_steppe_midpoint_ch_5.NightWatchScene()

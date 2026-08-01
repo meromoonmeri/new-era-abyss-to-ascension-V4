@@ -201,4 +201,24 @@ function mount_windswept_midpoint.Teammate3_Action(chara, activator)
   end
 end
 
+function mount_windswept_midpoint.Wooper_Boy_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  local partner = CH('Teammate1')
+  
+  GeneralFunctions.StartConversation(chara, "Ah, la montagne...[pause=10] C'est chouette, mais j'ai croisé un drôle de Rondoudou tout en colère un peu plus tôt !", "Worried")
+  UI:WaitShowDialogue("Elle hurlait des chansons et m'a bousculé...[pause=10] Qu'est-ce qui a bien pu lui piquer son ballon ?")
+  
+  if partner ~= nil then
+    pcall(function()
+      GROUND:CharSetEmote(partner, "sweatdrop", 1)
+      GROUND:CharTurnToCharAnimated(partner, CH('PLAYER'), 4)
+    end)
+    UI:SetSpeaker(partner)
+    GeneralFunctions.SetEmotion("Sigh")
+    UI:WaitShowDialogue("(Houla...[pause=15] Un Rondoudou colérique qui hurle des chansons...[pause=10] Je crois qu'il s'agit bien de Plum...)")
+  end
+  
+  GeneralFunctions.EndConversation(chara)
+end
+
 return mount_windswept_midpoint
