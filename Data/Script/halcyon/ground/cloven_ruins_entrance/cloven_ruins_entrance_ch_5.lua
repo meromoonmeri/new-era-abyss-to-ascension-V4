@@ -542,6 +542,7 @@ function cloven_ruins_entrance_ch_5.ArrivalCutscene()
     -- Plum, ravie, se presente elle-meme.
     if plum ~= nil then
       GeneralFunctions.EmoteAndPause(plum, "Joyous", false)
+      pcall(function() GeneralFunctions.Hop(plum) end)
       UI:SetSpeaker(plum)
       GeneralFunctions.SetEmotion("Joyous")
       UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_P03']))
