@@ -3363,8 +3363,8 @@ function mount_windswept_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 				--lui a donne au matin et que Coco lui a transmis. Elle
 				--contourne le foyer par le nord.
 				GeneralFunctions.EightWayMove(t.plum, 310, 190, false, 1)
-				GeneralFunctions.EightWayMove(t.plum, 278, 174, false, 1)
-				GROUND:CharAnimateTurnTo(t.plum, Direction.Down, 4)
+				GeneralFunctions.EightWayMove(t.plum, 236, 230, false, 1)
+				GROUND:CharAnimateTurnTo(t.plum, Direction.Right, 4)
 			end)
 		end)
 	end

@@ -135,7 +135,7 @@ end
 -- FlashEmitter ponctuel — sur une grande carte, il ne couvrait qu'une partie.
 function VoiceVisions.DizzyVeil()
   pcall(function()
-    local anim = RogueEssence.Content.BGAnimData("Black", 1, -1, -1, 128, Dir8.None)
+    local anim = RogueEssence.Content.BGAnimData("White", 1, -1, -1, 128, Dir8.None)
     local em = RogueEssence.Content.FiniteOverlayEmitter()
     em.Anim = anim
     em.Layer = DrawLayer.Top
@@ -144,7 +144,7 @@ function VoiceVisions.DizzyVeil()
     em.FadeOut = 10
     em.RepeatX = true
     em.RepeatY = true
-    em.Color = Color.White
+    em.Color = Color(0, 0, 0, 255)
     local c = GAME:GetCameraCenter()
     GROUND:PlayVFX(em, c.X, c.Y)
     GAME:WaitFrames(30)
