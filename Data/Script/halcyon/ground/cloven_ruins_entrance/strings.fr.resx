@@ -298,4 +298,40 @@
   </data>
   <data name="CR5_R08" xml:space="preserve">
     <value>Alors voilà le plan :[pause=10] on se repose,[pause=10] on refait les sacs,[pause=15] et on retente quand vous serez remis.[pause=0] Les Ruines Fendues ne nous feront pas reculer.</value>
+  </data>
+  <data name="CR5_M00" xml:space="preserve">
+    <value>Scrontch...</value>
+  </data>
+  <data name="CR5_M01" xml:space="preserve">
+    <value>Pas mal,[pause=10] pour un camp de fortune.[pause=15] Qui a fait cuire ça ?</value>
+  </data>
+  <data name="CR5_M02" xml:space="preserve">
+    <value>C'était moi.[pause=10] Un peu de baies,[pause=10] un peu de racines,[pause=10] beaucoup d'essais.[pause=0] La recette est encore à améliorer.</value>
+  </data>
+  <data name="CR5_M03" xml:space="preserve">
+    <value>Ça me rappelle le ragoût de ma mère.[pause=15] En moins bien.[pause=10] Mais pas de beaucoup.[pause=0] Et c'est un compliment,[pause=10] croyez-moi.</value>
+  </data>
+  <data name="CR5_M04" xml:space="preserve">
+    <value>Miam ![pause=10] J'adore les soirs d'expédition ![pause=15] On mange,[pause=10] on parle,[pause=10] et demain on affronte des ruines ![pause=0] C'est ça,[pause=10] la vie de guilde !</value>
+  </data>
+  <data name="CR5_B07" xml:space="preserve">
+    <value>Oui oui,[pause=10] le Creuset,[pause=10] la lave,[pause=10] on sait.[pause=15] On y était,[pause=10] souviens-toi.[pause=0] On en est ressortis avec les sourcils grillés.</value>
+  </data>
+  <data name="CR5_B08" xml:space="preserve">
+    <value>Je te demande pardon ?[pause=10] Mes notes sont EXHAUSTIVES,[pause=10] Coco.[pause=15] C'est précisément parce que nous y étions que leur témoignage compte.</value>
+  </data>
+  <data name="CR5_G01" xml:space="preserve">
+    <value>Ganlon.[pause=20] GANLON.[pause=15] On t'écoute respirer depuis trois minutes,[pause=10] là.</value>
+  </data>
+  <data name="CR5_G02" xml:space="preserve">
+    <value>J'écoutais ![pause=10] Parfaitement ![pause=0] Les veines,[pause=10] les trucs qui convergent...[pause=15] Très,[pause=10] très intéressant.</value>
+  </data>
+  <data name="CR5_G03" xml:space="preserve">
+    <value>Tu ronflais,[pause=10] Ganlon.[pause=15] Tu ronflais en plein briefing.[pause=0] C'est la fatigue,[pause=10] ou les ruines t'endorment déjà ?</value>
+  </data>
+  <data name="CR5_G04" xml:space="preserve">
+    <value>Bon.[pause=10] Puisque vous y tenez,[pause=10] j'ai remarqué un truc,[pause=10] moi.[pause=15] Les pierres,[pause=10] à l'entrée des ruines :[pause=0] elles sont CHAUDES.[pause=15] Le matin,[pause=10] avant même que le soleil se lève.</value>
+  </data>
+  <data name="CR5_G05" xml:space="preserve">
+    <value>Chaudes...[pause=15] le matin,[pause=10] avant le soleil ?[pause=20] ...Ça,[pause=10] c'est important.[pause=0] Ça ne devrait pas être chaud,[pause=10] à cette heure.[pause=0] Rien ne l'explique.[pause=15] Rien de naturel,[pause=10] du moins.</value>
   </data></root>

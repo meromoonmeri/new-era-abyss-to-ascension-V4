@@ -539,51 +539,148 @@ function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
   GAME:FadeIn(30)
   GAME:WaitFrames(10)
 
-  -- 2.1 OUVERTURE DU REPAS — OST Cave Camp.ogg (camp en grotte/ruines).
-  -- Silence musical d'abord : on n'entend que le feu (ambiance).
-  SOUND:PlayBGM('Cave Camp.ogg', true)
-  Says(t.penticus, "Normal", 'CR5_011', {t.phileas, t.rin, t.coco, t.hyko, t.kino, t.reinier})
-  Silence(10)
+  -- Penticus annonce le repas : on mange d'abord, on parle apres.
+  if t.penticus ~= nil then
+    UI:SetSpeaker(t.penticus)
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_011']))
+    Silence(10)
+  end
 
-  -- ===== 2.2 LE BRIEFING — tour de table complet =====
+  -- ============================================================
+  -- 2.1 LE REPAS — une vraie scene de vie (pattern Mont)
+  -- Tout le monde mange (anim "Eat"), bruit de repas en boucle,
+  -- camera qui se promene doucement dans le camp, et petits
+  -- echanges informels pendant qu'ils mangent.
+  -- ============================================================
+  SOUND:PlayBGM('Cave Camp.ogg', true)
+  for _, s in ipairs(seats) do
+    if s[1] ~= nil then
+      GROUND:CharSetAnim(s[1], "Eat", true)
+      GROUND:CharSetEmote(s[1], "eating", 0)
+    end
+  end
+  SOUND:LoopSE('Dinner Eating')
+  -- Camera panoramique : le camp tient dans un ecran, ce sont des
+  -- micro-mouvements (ouest -> est -> feu), progressifs et doux.
+  local stopEating = false
+  local cam1 = TASK:BranchCoroutine(function()
+    GAME:MoveCamera(CX - 40, CY + 10, 110, false)
+    GAME:MoveCamera(CX + 40, CY - 10, 130, false)
+    GAME:MoveCamera(CX, CY, 80, false)
+    GAME:WaitFrames(40)
+    stopEating = true
+  end)
+  local cam2 = TASK:BranchCoroutine(function()
+    while not stopEating do
+      UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_M00']), 6)
+    end
+    SOUND:FadeOutSE('Dinner Eating', 90)
+  end)
+  TASK:JoinCoroutines({cam1, cam2})
+  GAME:WaitFrames(15)
+
+  -- Petits echanges informels PENDANT le repas (le camp vit).
+  Says(t.coco, "Normal", 'CR5_M01', {t.rin, t.almotz})
+  GAME:WaitFrames(10)
+  Says(t.rin, "Happy", 'CR5_M02', {t.coco, t.almotz})
+  GAME:WaitFrames(10)
+  Says(t.almotz, "Happy", 'CR5_M03', {t.rin, t.coco})
+  GAME:WaitFrames(10)
+  if shuca ~= nil then
+    Says(shuca, "Joyous", 'CR5_M04', {t.rin, t.almotz, ganlon})
+    GAME:WaitFrames(10)
+  end
+
+  -- ============================================================
+  -- 2.2 PENTICUS OUVRE LE BRIEFING — on arrete de manger EN
+  -- CASCADE (chacun a son rythme). ALMOTZ, LUI, CONTINUE A MANGER :
+  -- c'est son personnage, on le remarquera plus loin.
+  -- ============================================================
+  if t.penticus ~= nil then
+    GROUND:CharEndAnim(t.penticus)
+    GeneralFunctions.EmoteAndPause(t.penticus, "Notice", false)
+  end
+  local stopEat = {}
+  local stoppers = {
+    {t.penticus, 0}, {t.phileas, 8}, {t.coco, 16}, {t.rin, 24},
+    {t.hyko, 32}, {t.kino, 40}, {t.reinier, 48}, {shuca, 56}, {ganlon, 64},
+    {partner, 72}, {hero, 80},
+  }
+  for _, s in ipairs(stoppers) do
+    if s[1] ~= nil then
+      stopEat[#stopEat+1] = TASK:BranchCoroutine(function()
+        GAME:WaitFrames(s[2])
+        pcall(function()
+          GROUND:CharEndAnim(s[1])
+          GROUND:CharSetEmote(s[1], "", 0)
+        end)
+      end)
+    end
+  end
+  TASK:JoinCoroutines(stopEat)
+  GAME:WaitFrames(20)
+
   -- Penticus cadre. TOUT LE CERCLE se tourne vers lui.
   Says(t.penticus, "Normal", 'CR5_012',
-       {t.phileas, t.rin, t.coco, t.hyko, t.almotz, t.kino, t.reinier, shuca, ganlon, partner, hero})
+       {t.phileas, t.rin, t.coco, t.hyko, t.kino, t.reinier, shuca, ganlon, partner, hero})
   Silence(12)
 
-  -- Phileas : la synthese des anomalies. Le cercle ecoute.
+  -- ============================================================
+  -- 2.3 PHILEAS SYNTHETISE — avec des OCCUPATIONS SECONDAIRES :
+  -- Reinier prend des notes, Hyko (le garde) jette un œil au
+  -- perimetre. Puis COCO COUPE Phileas (organique, pas un tour).
+  -- ============================================================
   Says(t.phileas, "Normal", 'CR5_013', {t.penticus, t.rin, t.coco, t.hyko, partner})
-  Silence(10)
-  -- Rin a une micro-reaction (elle a vu les arbres, elle sait).
-  pcall(function()
-    if t.rin ~= nil then GROUND:CharSetEmote(t.rin, "worried", 1) end
-  end)
   Says(t.phileas, "Worried", 'CR5_014', {t.penticus, partner, t.rin})
-  -- LE CAMP ECOUTE : micro-reactions de fond pendant la replique.
-  local ecoute1 = {}
-  ecoute1[#ecoute1+1] = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(18)
-    pcall(function() if t.rin ~= nil then GROUND:CharSetEmote(t.rin, "notice", 0) end end)
+  local occ1 = {}
+  occ1[#occ1+1] = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(20)
+    pcall(function()
+      if t.reinier ~= nil then GROUND:CharSetEmote(t.reinier, "notice", 0) end
+    end)
+    GAME:WaitFrames(14)
+    pcall(function()
+      if t.reinier ~= nil then GROUND:CharSetEmote(t.reinier, "", 0) end
+    end)
+  end)
+  occ1[#occ1+1] = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(34)
+    pcall(function()
+      if t.hyko ~= nil then GROUND:CharAnimateTurnTo(t.hyko, Direction.UpRight, 4) end
+    end)
     GAME:WaitFrames(10)
-    pcall(function() if t.rin ~= nil then GROUND:CharSetEmote(t.rin, "", 0) end end)
+    pcall(function()
+      if t.hyko ~= nil then GROUND:CharTurnToCharAnimated(t.hyko, t.phileas, 4) end
+    end)
   end)
-  ecoute1[#ecoute1+1] = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(30)
-    pcall(function() if t.hyko ~= nil then GROUND:CharSetEmote(t.hyko, "sweatdrop", 0) end end)
-    GAME:WaitFrames(8)
-    pcall(function() if t.hyko ~= nil then GROUND:CharSetEmote(t.hyko, "", 0) end end)
-  end)
-  pcall(function() TASK:JoinCoroutines(ecoute1) end)
+  pcall(function() TASK:JoinCoroutines(occ1) end)
+  Silence(10)
+
+  -- COCO COUPE PHILEAS — elle y etait, elle ne veut pas d'un expose.
+  if t.coco ~= nil then
+    GROUND:CharTurnToCharAnimated(t.coco, t.phileas, 4)
+    GeneralFunctions.EmoteAndPause(t.coco, "Sweatdrop", false)
+  end
+  UI:SetSpeaker(t.coco)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_B07']))
+  Silence(10)
+  -- Phileas, pique au vif, reprend avec un brin de hauteur.
+  Says(t.phileas, "Normal", 'CR5_B08', {t.coco, t.penticus})
   Silence(12)
 
-  -- Rin : la soigneuse, le constat humain. Elle se leve un peu.
+  -- Rin : la soigneuse, le constat humain.
   Says(t.rin, "Worried", 'CR5_015', {t.coco, partner, t.phileas})
   Silence(10)
-  -- Coco reagit, pragmatique.
-  ReactAll({ [t.coco] = "Sweatdrop", [t.hyko] = "Question" })
-  GAME:WaitFrames(10)
+  pcall(function()
+    if t.hyko ~= nil then GROUND:CharSetEmote(t.hyko, "sweatdrop", 1) end
+  end)
+  GAME:WaitFrames(8)
 
-  -- ===== INTERRUPTION : Ganlon coupe la parole, agace =====
+  -- ============================================================
+  -- 2.4 GANLON COUPE RIN — interruption (conservee).
+  -- ============================================================
   if ganlon ~= nil then
     pcall(function()
       GROUND:CharTurnToCharAnimated(ganlon, t.rin, 4)
@@ -594,37 +691,28 @@ function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_B01']))
     Silence(10)
   end
-  -- Phileas repond sans se derouter.
   Says(t.phileas, "Normal", 'CR5_B02', {ganlon, t.rin, t.penticus})
   Silence(10)
 
-  -- ===== COCO POSE LA VRAIE QUESTION =====
+  -- ============================================================
+  -- 2.5 COCO POSE LA VRAIE QUESTION + REINIER REPOND.
+  -- ============================================================
   Says(t.coco, "Normal", 'CR5_B03', {t.penticus, t.phileas, t.kino, t.reinier})
   Silence(10)
-  -- Reinier repond, son arriere-tete en alerte.
   Says(t.reinier, "Worried", 'CR5_B04', {t.coco, t.kino, partner})
   Silence(12)
 
-  -- Kino : l'exploration des ruines (il les a nommees). Il se penche
-  -- vers le feu, comme pour montrer.
+  -- ============================================================
+  -- 2.6 KINO RACONTE LES RUINES (il les a nommees).
+  -- ============================================================
   Says(t.kino, "Normal", 'CR5_016', {t.reinier, hero, partner, t.coco, t.rin})
-  local ecoute2 = {}
-  ecoute2[#ecoute2+1] = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(14)
-    pcall(function() if t.coco ~= nil then GeneralFunctions.DoAnimation(t.coco, 'Nod') end end)
-  end)
-  ecoute2[#ecoute2+1] = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(28)
-    pcall(function() if t.almotz ~= nil then GROUND:CharSetEmote(t.almotz, "happy", 0) end end)
-    GAME:WaitFrames(8)
-    pcall(function() if t.almotz ~= nil then GROUND:CharSetEmote(t.almotz, "", 0) end end)
-  end)
-  pcall(function() TASK:JoinCoroutines(ecoute2) end)
   Silence(12)
   Says(t.kino, "Worried", 'CR5_017', {t.reinier, t.hyko, t.almotz})
   Silence(12)
 
-  -- ===== REINIER CORRIGE KINO — un echange a deux, vivant =====
+  -- ============================================================
+  -- 2.7 ECHANGE KINO/REINIER — Reinier corrige Kino, Kino se defend.
+  -- ============================================================
   if t.reinier ~= nil then
     GROUND:CharTurnToCharAnimated(t.reinier, t.kino, 4)
     GeneralFunctions.EmoteAndPause(t.reinier, "Notice", false)
@@ -633,7 +721,6 @@ function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
   GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_B05']))
   Silence(10)
-  -- Kino se defend, un peu vexe mais amical.
   if t.kino ~= nil then
     GROUND:CharTurnToCharAnimated(t.kino, t.reinier, 4)
     GeneralFunctions.EmoteAndPause(t.kino, "Sweatdrop", false)
@@ -649,14 +736,15 @@ function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
   Says(t.reinier, "Worried", 'CR5_019', {t.kino, hero, t.penticus})
   Silence(12)
 
-  -- ===== 2.3 LE DUO RELIE — les veines de Tornadus =====
+  -- ============================================================
+  -- 2.8 LE DUO RELIE LES VEINES + reaction du cercle en cascade.
+  -- ============================================================
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_020']), "Worried")
   Silence(10)
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_021']))
   Silence(10)
-  -- REACTION DU CERCLE : chacun reagit a sa maniere, en cascade.
   local ecoute3 = {}
   local r3 = {
     {t.phileas, "Glowing"}, {t.kino, "Exclaim"}, {t.rin, "Worried"},
@@ -676,36 +764,124 @@ function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
   pcall(function() TASK:JoinCoroutines(ecoute3) end)
   GAME:WaitFrames(12)
 
-  -- ===== 2.4 DOUTES VS MORAL — le camp vit =====
+  -- ============================================================
+  -- 2.9 SET-PIECE COMIQUE : GANLON S'ENDORT EN PLEIN BRIEFING.
+  -- Structure : MONTE (il lutte contre le sommeil) -> SILENCE ->
+  -- CASCADE de regards -> CHUTE (sursaut, taquinerie) -> REBOND qui
+  -- SERT L'INTRIGUE (les pierres chaudes = foreshadowing Groudon).
+  -- ============================================================
+  if ganlon ~= nil then
+    -- MONTE : la tete de Ganlon dodeline pendant que Phileas
+    -- parle des veines. Il a porte la charge toute la journee.
+    GAME:MoveCamera(seatX(10), seatY(10), 50, false)
+    pcall(function()
+      GeneralFunctions.LookAround(ganlon, 2, 12, false, false, true, Direction.Down)
+    end)
+    GAME:WaitFrames(30)
+    pcall(function() GROUND:CharSetAnim(ganlon, "Sleep", true) end)
+    GAME:WaitFrames(20)
+
+    -- SILENCE : personne ne parle. La camera s'elargit sur le
+    -- cercle qui, un a un, se tourne vers Ganlon.
+    Silence(40)
+    local cascade = {}
+    local lookers = {t.coco, t.rin, t.kino, t.reinier, shuca, partner, hero}
+    for i, who in ipairs(lookers) do
+      if who ~= nil then
+        cascade[#cascade+1] = TASK:BranchCoroutine(function()
+          pcall(function()
+            GAME:WaitFrames((i - 1) * 7)
+            GROUND:CharTurnToCharAnimated(who, ganlon, 4)
+          end)
+        end)
+      end
+    end
+    pcall(function() TASK:JoinCoroutines(cascade) end)
+    GAME:WaitFrames(15)
+
+    -- CHUTE : Coco le rappelle a l'ordre.
+    if t.coco ~= nil then
+      UI:SetSpeaker(t.coco)
+      GeneralFunctions.SetEmotion("Normal")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_G01'], ganlon:GetDisplayName()))
+      Silence(10)
+    end
+    -- Ganlon sursaute.
+    pcall(function()
+      GROUND:CharEndAnim(ganlon)
+      GeneralFunctions.EmoteAndPause(ganlon, "Shock", true)
+    end)
+    UI:SetSpeaker(ganlon)
+    GeneralFunctions.SetEmotion("Sigh")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_G02']))
+    Silence(10)
+    -- Shuca le taquine.
+    if shuca ~= nil then
+      UI:SetSpeaker(shuca)
+      GeneralFunctions.SetEmotion("Joyous")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_G03']))
+      Silence(10)
+    end
+    -- REBOND : pour se rattraper, Ganlon lache une observation
+    -- utile — les pierres de l'entree sont chaudes le matin.
+    pcall(function()
+      GROUND:CharTurnToCharAnimated(ganlon, hero, 4)
+      GeneralFunctions.EmoteAndPause(ganlon, "Determined", false)
+    end)
+    UI:SetSpeaker(ganlon)
+    GeneralFunctions.SetEmotion("Determined")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_G04']))
+    Silence(12)
+    -- Phileas releve la remarque : elle compte.
+    Says(t.phileas, "Worried", 'CR5_G05', {ganlon, t.penticus, partner})
+    Silence(12)
+  end
+
+  -- ============================================================
+  -- 2.10 DOUTES VS MORAL — et ALMOTZ a ENFIN fini de manger
+  -- (beat comique : il entre dans le debat en s'essuyant).
+  -- ============================================================
   Says(t.coco, "Normal", 'CR5_022', {t.rin, t.almotz, t.kino})
   Silence(10)
-  -- Ganlon rale (gag : le cercle se tourne vers lui en decale).
+  -- Ganlon, encore sceptique malgre son reveil, remet en doute.
   if ganlon ~= nil then
-    Says(ganlon, "Sigh", 'CR5_023', {t.coco, t.kino, shuca})
+    Says(ganlon, "Sigh", 'CR5_023', {t.coco, t.kino})
     Silence(10)
   end
-  -- Shuca remonte le moral, pleine d'energie.
   if shuca ~= nil then
     Says(shuca, "Happy", 'CR5_024', {ganlon, t.hyko, partner})
     Silence(10)
   end
-  -- Hyko, protocole. Almotz, famille.
   Says(t.hyko, "Determined", 'CR5_025', {t.almotz, partner, t.coco})
   Silence(10)
+  -- Almotz finit son assiette, s'essuie, et entre enfin dans le
+  -- debat. (Il mange depuis le debut du briefing.)
+  pcall(function()
+    if t.almotz ~= nil then
+      GROUND:CharEndAnim(t.almotz)
+      GROUND:CharSetEmote(t.almotz, "", 0)
+    end
+  end)
   Says(t.almotz, "Happy", 'CR5_026', {t.hyko, t.coco, t.rin})
   Silence(12)
 
-  -- ===== 2.5 LE MYSTERE QUI S'ASSEMBLE =====
-  -- Camera qui se resserre sur le duo pendant que Phileas parle.
-  GAME:MoveCamera(CX, CY - 40, 40, false)
+  -- ============================================================
+  -- 2.11 LE MYSTERE QUI S'ASSEMBLE — camera qui se resserre
+  -- progressivement sur le duo, puis plan large pour la decision.
+  -- ============================================================
+  GAME:MoveCamera(CX, CY - 40, 50, false)
   Says(t.phileas, "Worried", 'CR5_027', {t.penticus, partner, hero, t.kino, t.reinier})
   Silence(12)
+  GAME:MoveCamera(CX + 30, CY + 30, 50, false)
   Says(t.penticus, "Normal", 'CR5_028', {t.phileas, t.kino, t.reinier, t.coco})
   Silence(12)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CR5_029']), "Determined")
   Silence(15)
 
-  -- ===== 2.6 PENTICUS CLOT LE BRIEFING =====
+  -- ============================================================
+  -- 2.12 PENTICUS CLOT LE BRIEFING (retour au plan large).
+  -- ============================================================
+  GAME:MoveCamera(CX, CY, 50, false)
   Says(t.penticus, "Inspired", 'CR5_030',
        {t.phileas, t.kino, t.reinier, partner, hero, t.coco, t.rin, t.hyko, t.almotz, shuca, ganlon})
   Silence(15)
@@ -720,11 +896,11 @@ function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
   SOUND:FadeOutBGM(40)
   GAME:WaitFrames(20)
 
-  -- ===== 2.7 LA SOIREE SE CALME — contemplation des ruines =====
-  -- Silence musical : la nuit approche, on ne parle plus beaucoup.
+  -- ============================================================
+  -- 2.13 LA SOIREE SE CALME — contemplation des ruines au loin.
+  -- ============================================================
   GAME:MoveCamera(620, 700, 60, false)
   GAME:WaitFrames(30)
-  -- Le duo s'ecarte legerement du cercle pour un dernier regard.
   pcall(function()
     GROUND:MoveToPosition(partner, CX + 90, CY + 40, false, 1)
     GROUND:MoveToPosition(hero, CX + 70, CY + 50, false, 1)
@@ -742,13 +918,6 @@ function cloven_ruins_entrance_ch_5.CampBriefing(hero, partner, t)
   cloven_ruins_entrance_ch_5.CampNightfall(hero, partner, t)
 end
 
--- ================================================================
--- ACTE 3 — LE COUCHER + LES HISTOIRES + LE REVE
--- Paillasses deployees sous le fondu, nuit ("darkness"), chacun se
--- couche. Discussion intime du duo, puis les jeunes se racontent des
--- histoires (variation : sur les ruines), Phileas gronde, et bascule
--- vers le reve de Gardevoir (hero_dream, retour parametre).
--- ================================================================
 function cloven_ruins_entrance_ch_5.CampNightfall(hero, partner, t)
   local B = cloven_ruins_entrance_ch_5.BEDS
   local ganlon = CH('Teammate2')

@@ -298,4 +298,40 @@
   </data>
   <data name="CR5_R08" xml:space="preserve">
     <value>So here's the plan: we rest, we restock, and we try again when you're recovered. The Shattered Ruins won't make us back down.</value>
+  </data>
+  <data name="CR5_M00" xml:space="preserve">
+    <value>Nom nom...</value>
+  </data>
+  <data name="CR5_M01" xml:space="preserve">
+    <value>Not bad, for a makeshift camp. Who cooked this?</value>
+  </data>
+  <data name="CR5_M02" xml:space="preserve">
+    <value>That was me. Some berries, some roots, lots of trial and error. The recipe still needs work.</value>
+  </data>
+  <data name="CR5_M03" xml:space="preserve">
+    <value>Reminds me of my mother's stew. Not as good. But not far off. And that's a compliment, believe me.</value>
+  </data>
+  <data name="CR5_M04" xml:space="preserve">
+    <value>Yum! I love expedition nights! We eat, we talk, and tomorrow we face ruins! Now THAT's guild life!</value>
+  </data>
+  <data name="CR5_B07" xml:space="preserve">
+    <value>Yeah yeah, the Crucible, the lava, we know. We were there, remember. We came out with singed eyebrows.</value>
+  </data>
+  <data name="CR5_B08" xml:space="preserve">
+    <value>I beg your pardon? My notes are EXHAUSTIVE, Coco. Precisely because we were there does their testimony matter.</value>
+  </data>
+  <data name="CR5_G01" xml:space="preserve">
+    <value>Ganlon. GANLON. We've been listening to you breathe for three minutes now.</value>
+  </data>
+  <data name="CR5_G02" xml:space="preserve">
+    <value>I was listening! Perfectly! The veins, the converging stuff... Very, very interesting.</value>
+  </data>
+  <data name="CR5_G03" xml:space="preserve">
+    <value>You were snoring, Ganlon. Snoring during the briefing. Is it the exhaustion, or are the ruins already putting you to sleep?</value>
+  </data>
+  <data name="CR5_G04" xml:space="preserve">
+    <value>Fine. Since you insist, I noticed something myself. The stones, at the ruin entrance: they're WARM. In the morning, before the sun even rises.</value>
+  </data>
+  <data name="CR5_G05" xml:space="preserve">
+    <value>Warm... in the morning, before the sun? ...That's important. They shouldn't be warm at that hour. Nothing explains it. Nothing natural, at least.</value>
   </data></root>
