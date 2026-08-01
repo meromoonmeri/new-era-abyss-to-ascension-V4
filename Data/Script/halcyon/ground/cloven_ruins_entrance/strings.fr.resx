@@ -64,18 +64,6 @@
   <data name="CR5_002" xml:space="preserve">
     <value>On y est...[pause=15] Le dernier objectif de l'expédition.</value>
   </data>
-  <data name="CR5_003" xml:space="preserve">
-    <value>Vous voilà ![pause=10] On commençait à se demander si le vent ne vous avait pas avalés.</value>
-  </data>
-  <data name="CR5_004" xml:space="preserve">
-    <value>Reinier et moi,[pause=10] on est arrivés hier.[pause=15] Les ruines,[pause=10] on les connaît déjà.[pause=0] On les a arpentées en long,[pause=10] en large,[pause=10] et en travers.</value>
-  </data>
-  <data name="CR5_005" xml:space="preserve">
-    <value>Nous les avons fouillées de fond en comble...[pause=15] et nous n'y avons rien compris.</value>
-  </data>
-  <data name="CR5_006" xml:space="preserve">
-    <value>C'est un mystère total.[pause=10] Chaque couloir ressemble au précédent,[pause=10] et pourtant ils ne le sont pas.</value>
-  </data>
   <data name="CR5_007" xml:space="preserve">
     <value>Bienvenue au camp des Ruines Fendues.[pause=10] Tout le monde est là,[pause=10] comme prévu.</value>
   </data>
@@ -88,68 +76,8 @@
   <data name="CR5_010" xml:space="preserve">
     <value>(Les veines...[pause=10] Comme celles dont a parlé Tornadus.[pause=15] Une forme sous le monde.)</value>
   </data>
-  <data name="CR5_011" xml:space="preserve">
-    <value>Le repas est prêt.[pause=10] Mangez d'abord.[pause=15] On parle après.</value>
-  </data>
   <data name="CR5_012" xml:space="preserve">
     <value>Avant d'entrer dans ces ruines,[pause=10] je veux entendre chacun d'entre vous.[pause=15] Tout ce que vous avez vu depuis le début de l'expédition.</value>
-  </data>
-  <data name="CR5_013" xml:space="preserve">
-    <value>Je commence.[pause=10] Le Creuset,[pause=10] d'abord :[pause=0] la lave n'y suivait aucun rythme naturel.[pause=15] Elle montait,[pause=10] baissait,[pause=10] comme si elle respirait.</value>
-  </data>
-  <data name="CR5_014" xml:space="preserve">
-    <value>Puis l'orage du sommet.[pause=10] Un ciel qui ne tournait pas au hasard.[pause=15] Et sous tout cela,[pause=10] ces veines...[pause=10] qui convergent.</value>
-  </data>
-  <data name="CR5_015" xml:space="preserve">
-    <value>J'ai vu des arbres dépérir au bord de la route,[pause=10] en pleine saison.[pause=15] Les racines,[pause=10] grises.[pause=0] Comme vidées de l'intérieur.</value>
-  </data>
-  <data name="CR5_016" xml:space="preserve">
-    <value>Pour les ruines,[pause=10] c'est moi qui en parle.[pause=15] On les a appelées «[pause=5] Tordues[pause=5] »,[pause=10] parce que rien n'y est droit.[pause=0] Les murs,[pause=10] les couloirs,[pause=10] même les pierres.[pause=10][br] Tout penche.</value>
-  </data>
-  <data name="CR5_017" xml:space="preserve">
-    <value>Et pourtant,[pause=10] sous la pierre...[pause=15] quelque chose pulse.[pause=10] On le sent quand on pose la patte au sol.</value>
-  </data>
-  <data name="CR5_018" xml:space="preserve">
-    <value>Mon arrière-tête dit que ces ruines n'ont pas été bâties par des Pokémon.[pause=15] Elles ont été CREUSÉES.[pause=0] Autour de quelque chose.[pause=10] Quelque chose[br] qu'on voulait garder.</value>
-  </data>
-  <data name="CR5_019" xml:space="preserve">
-    <value>Et si c'est un gardien qui attend au fond...[pause=15] il veille depuis très,[pause=10] très longtemps.</value>
-  </data>
-  <data name="CR5_020" xml:space="preserve">
-    <value>(Tornadus a dit qu'une forme vit sous le monde.[pause=10] Et que les veines convergent vers le nord.[pause=15] Ici.)</value>
-  </data>
-  <data name="CR5_021" xml:space="preserve">
-    <value>Attends...[pause=10] Tu veux dire que ces ruines seraient le point de rencontre ?[pause=15] De TOUTES les veines ?</value>
-  </data>
-  <data name="CR5_022" xml:space="preserve">
-    <value>Moi je dis qu'on est venus jusqu'ici,[pause=10] alors on ne va pas faire demi-tour devant une porte.[pause=15] C'est pas mon genre.</value>
-  </data>
-  <data name="CR5_023" xml:space="preserve">
-    <value>Mouais.[pause=10] Facile à dire quand on n'a pas vu ce qui pulse sous la pierre.</value>
-  </data>
-  <data name="CR5_024" xml:space="preserve">
-    <value>Allons,[pause=10] Ganlon ![pause=0] On est l'équipe qui a traversé la steppe,[pause=10] le tunnel,[pause=10] et une montagne entière ![pause=15] Des ruines,[pause=10] on en a vu d'autres.</value>
-  </data>
-  <data name="CR5_025" xml:space="preserve">
-    <value>Protocole de campement respecté,[pause=10] wouf ![pause=15] Feu,[pause=10] garde,[pause=10] rations :[pause=0] tout est en ordre pour demain.</value>
-  </data>
-  <data name="CR5_027" xml:space="preserve">
-    <value>Rassemblons les pièces.[pause=10] Une chaleur qui respire.[pause=15] Des arbres vidés de leur sève.[pause=15] Des veines qui convergent sous la terre.[pause=15] Et au bout,[pause=10] ces ruines.[pause=0][br] Tout mène ici.</value>
-  </data>
-  <data name="CR5_028" xml:space="preserve">
-    <value>Alors nous saurons demain ce que ces ruines gardent.[pause=15] Et si elles gardent quelque chose de vivant...[pause=10] nous saurons pourquoi le monde entier[br] semble s'y être donné rendez-vous.</value>
-  </data>
-  <data name="CR5_029" xml:space="preserve">
-    <value>(Les pièces s'assemblent.[pause=10] Et je sens qu'elles forment quelque chose de grand.[pause=15] De très grand.)</value>
-  </data>
-  <data name="CR5_030" xml:space="preserve">
-    <value>Décision prise.[pause=10] Demain,[pause=10] à l'aube,[pause=10] nous entrons dans les Ruines Fendues.[pause=15] Cette nuit,[pause=10] nous dormons tous ici.[pause=0] Reposez-vous :[pause=10] c'est le dernier[br] camp avant l'inconnu.</value>
-  </data>
-  <data name="CR5_031" xml:space="preserve">
-    <value>Regarde les ruines,[pause=10] là-bas.[pause=15] On dirait qu'elles attendent depuis toujours.[pause=0] Et ce soir,[pause=10] c'est nous qu'elles attendaient.</value>
-  </data>
-  <data name="CR5_032" xml:space="preserve">
-    <value>(Demain,[pause=10] on saura.[pause=15] Quoi qu'il y ait au fond,[pause=10] on le verra en face.)</value>
   </data>
   <data name="CR5_033" xml:space="preserve">
     <value>Le feu s'éteint doucement.[pause=0] Le camp s'endort au pied des Ruines Fendues.</value>
@@ -157,14 +85,8 @@
   <data name="CR5_034" xml:space="preserve">
     <value>Demain,[pause=10] on entre.[pause=15] Tu sens ce poids,[pause=10] toi aussi ?[pause=0] Comme si tout l'expédition avait mené ici.</value>
   </data>
-  <data name="CR5_035" xml:space="preserve">
-    <value>On a traversé la moitié de la région pour ça.[pause=10] On ne va pas reculer maintenant.</value>
-  </data>
   <data name="CR5_036" xml:space="preserve">
     <value>Et quoi qu'il y ait au fond,[pause=10] {0},[pause=10] on le trouvera.[pause=15] Ensemble.[pause=0] Comme toujours...</value>
-  </data>
-  <data name="CR5_D01" xml:space="preserve">
-    <value>...Comme toujours,[pause=10] on...[pause=20] on...</value>
   </data>
   <data name="CR5_D02" xml:space="preserve">
     <value>(...Et il s'est endormi en pleine phrase.[pause=10] Faut croire que la journée l'a épuisé.)</value>
@@ -200,50 +122,8 @@
     <value>(On y va.[pause=10] Et quoi qu'il y ait là-dedans,[pause=15] on le verra en face.)</value>
   </data>
 
-  <data name="CR5_H01" xml:space="preserve">
-    <value>Dis donc... tu as vu les veines sur la pierre ?[pause=10] On dirait des racines.[pause=15] Des racines qui descendent,[pause=10] droit dans le noir.</value>
-  </data>
-  <data name="CR5_H02" xml:space="preserve">
-    <value>Ma grand-mère disait que les ruines,[pause=10] ça avale les voyageurs qui n'écoutent pas.[pause=15] Je croyais que c'était une blague.</value>
-  </data>
-  <data name="CR5_H03" xml:space="preserve">
-    <value>Moi j'ai entendu pire.[pause=10] On raconte que sous ces ruines,[pause=10] quelque chose remue.[pause=15] Quelque chose de vieux,[pause=10] qui attend qu'on parte.</value>
-  </data>
-  <data name="CR5_H04" xml:space="preserve">
-    <value>Mais personne sait quoi.[pause=15] C'est ça le pire.[pause=0] On ne sait même pas si c'est un monstre,[pause=10] ou juste... la terre.</value>
-  </data>
-  <data name="CR5_H05" xml:space="preserve">
-    <value>À VOUS DEUX ![pause=0] J'entends ça depuis ma paillasse.[pause=10] On dort,[pause=10] pas on se raconte des histoires de fantômes !</value>
-  </data>
-  <data name="CR5_H06" xml:space="preserve">
-    <value>Prenez exemple sur {0}.[pause=10] Lui,[pause=10] il dort déjà.[pause=0] Comme toujours.</value>
-  </data>
-  <data name="CR5_H07" xml:space="preserve">
-    <value>(...Et bien sûr,[pause=10] le seul qui dort vraiment,[pause=10] c'est celui qu'on cite en exemple.)</value>
-  </data>
-  <data name="CR5_H08" xml:space="preserve">
-    <value>...Oui,[pause=10] bon.[pause=15] On dort.[pause=0] Promis.</value>
-  </data>
   <data name="CR5_D03" xml:space="preserve">
     <value>(Les ruines veillent sur nous.[pause=10] Demain,[pause=10] on leur rendra visite.)</value>
-  </data>
-  <data name="CR5_B01" xml:space="preserve">
-    <value>Mouais...[pause=10] Des arbres gris,[pause=10] des veines qui pulsent...[pause=0] Vous rendez-vous compte de ce que vous racontez ?[pause=10] On dirait un mauvais rêve.</value>
-  </data>
-  <data name="CR5_B02" xml:space="preserve">
-    <value>Un mauvais rêve ne laisse pas de traces sur l'écorce,[pause=10] Ganlon.[pause=15] Les arbres,[pause=10] eux,[pause=10] en gardent.[pause=0] J'ai vu les stries.</value>
-  </data>
-  <data name="CR5_B03" xml:space="preserve">
-    <value>Bon.[pause=10] Question simple :[pause=15] qu'est-ce qu'on fait,[pause=10] demain,[pause=10] si tout ça est vrai ?[pause=0] On entre,[pause=10] et puis ?</value>
-  </data>
-  <data name="CR5_B04" xml:space="preserve">
-    <value>On entre,[pause=10] et on regarde ce qui attend au fond.[pause=15] Mon arrière-tête dit qu'on ne sera pas seuls à descendre.[pause=10] Et qu'il vaut mieux le savoir maintenant.</value>
-  </data>
-  <data name="CR5_B05" xml:space="preserve">
-    <value>Petite correction,[pause=10] Kino :[pause=15] on les a appelées «[pause=5] Tordues[pause=5] »[pause=10] parce que rien n'y est droit.[pause=0] Mais «[pause=5] Fendues[pause=5] »,[pause=10] c'est toi qui l'as trouvé,[pause=10] devant la faille.[pause=0][br] N'oublie pas ta propre trouvaille.</value>
-  </data>
-  <data name="CR5_B06" xml:space="preserve">
-    <value>Et toi,[pause=10] tu oublies que c'est toi qui as tenu la torche,[pause=10] ce jour-là.[pause=0] Sans toi,[pause=10] je serais tombé dans la première crevasse.</value>
   </data>
   <data name="CR5_K01" xml:space="preserve">
     <value>Doucement,[pause=10] doucement...[pause=15] Ne vous levez pas d'un bloc.[pause=0] Vous avez pris un sacré coup,[pause=10] là-dedans.</value>
@@ -296,41 +176,14 @@
   <data name="CR5_R08" xml:space="preserve">
     <value>Alors voilà le plan :[pause=10] on se repose,[pause=10] on refait les sacs,[pause=15] et on retente quand vous serez remis.[pause=0] Les Ruines Fendues ne nous feront pas reculer.</value>
   </data>
-  <data name="CR5_M00" xml:space="preserve">
-    <value>Scrontch...</value>
-  </data>
   <data name="CR5_M01" xml:space="preserve">
     <value>Pas mal,[pause=10] pour un camp de fortune.[pause=15] Qui a fait cuire ça ?</value>
   </data>
   <data name="CR5_M02" xml:space="preserve">
     <value>C'était moi.[pause=10] Un peu de baies,[pause=10] un peu de racines,[pause=10] beaucoup d'essais.[pause=0] La recette est encore à améliorer.</value>
   </data>
-  <data name="CR5_M03" xml:space="preserve">
-    <value>Ça me rappelle le ragoût de ma mère.[pause=15] En moins bien.[pause=10] Mais pas de beaucoup.[pause=0] Et c'est un compliment,[pause=10] croyez-moi.</value>
-  </data>
   <data name="CR5_M04" xml:space="preserve">
     <value>Miam ![pause=10] J'adore les soirs d'expédition ![pause=15] On mange,[pause=10] on parle,[pause=10] et demain on affronte des ruines ![pause=0] C'est ça,[pause=10] la vie de guilde !</value>
-  </data>
-  <data name="CR5_B07" xml:space="preserve">
-    <value>Oui oui,[pause=10] le Creuset,[pause=10] la lave,[pause=10] on sait.[pause=15] On y était,[pause=10] souviens-toi.[pause=0] On en est ressortis avec les sourcils grillés.</value>
-  </data>
-  <data name="CR5_B08" xml:space="preserve">
-    <value>Je te demande pardon ?[pause=10] Mes notes sont EXHAUSTIVES,[pause=10] Coco.[pause=15] C'est précisément parce que nous y étions que leur témoignage compte.</value>
-  </data>
-  <data name="CR5_G01" xml:space="preserve">
-    <value>Ganlon.[pause=20] GANLON.[pause=15] On t'écoute respirer depuis trois minutes,[pause=10] là.</value>
-  </data>
-  <data name="CR5_G02" xml:space="preserve">
-    <value>J'écoutais ![pause=10] Parfaitement ![pause=0] Les veines,[pause=10] les trucs qui convergent...[pause=15] Très,[pause=10] très intéressant.</value>
-  </data>
-  <data name="CR5_G03" xml:space="preserve">
-    <value>Tu ronflais,[pause=10] Ganlon.[pause=15] Tu ronflais en plein briefing.[pause=0] C'est la fatigue,[pause=10] ou les ruines t'endorment déjà ?</value>
-  </data>
-  <data name="CR5_G04" xml:space="preserve">
-    <value>Bon.[pause=10] Puisque vous y tenez,[pause=10] j'ai remarqué un truc,[pause=10] moi.[pause=15] Les pierres,[pause=10] à l'entrée des ruines :[pause=0] elles sont CHAUDES.[pause=15] Le matin,[pause=10] avant même que[br] le soleil se lève.</value>
-  </data>
-  <data name="CR5_G05" xml:space="preserve">
-    <value>Chaudes...[pause=15] le matin,[pause=10] avant le soleil ?[pause=20] ...Ça,[pause=10] c'est important.[pause=0] Ça ne devrait pas être chaud,[pause=10] à cette heure.[pause=0] Rien ne l'explique.[pause=15] Rien de naturel,[pause=10][br] du moins.</value>
   </data>
   <data name="CR5_K10" xml:space="preserve">
     <value>C'est Kino et Reinier qui vous ont trouvés.[pause=15] Ils étaient à deux étages quand le sol a tremblé.[pause=0] Ils ont tout laissé pour vous ramener.</value>
@@ -374,23 +227,8 @@
   <data name="CR5_P03" xml:space="preserve">
     <value>Surprise ![pause=10] Vous ne m'avez pas attendue,[pause=10] alors j'ai pris un raccourci.[pause=15] Un tout petit raccourci.[pause=0] ...Ne me demandez pas lequel,[pause=10] c'est un[br] secret de cuisinière.</value>
   </data>
-  <data name="CR5_P04" xml:space="preserve">
-    <value>...Elle a un sac.[pause=10] Un sac de voyage.[pause=15] Et une poêle.[pause=0] Elle avait TOUT préparé.</value>
-  </data>
   <data name="CR5_P05" xml:space="preserve">
     <value>J'ai le ragoût de la guilde dans un pot.[pause=10] Il a failli se renverser trois fois.[pause=0] Mais il est là.[pause=10] Et il vous attend pour ce soir.</value>
-  </data>
-  <data name="CR5_P06" xml:space="preserve">
-    <value>...Tant qu'elle ne gêne personne.[pause=10] Et qu'elle nourrit tout le monde,[pause=10] elle peut rester.[pause=15] C'est une décision stratégique.</value>
-  </data>
-  <data name="CR5_P07" xml:space="preserve">
-    <value>Stratégique,[pause=10] il dit.[pause=15] Le maître de guilde appelle ça «[pause=5] stratégique[pause=5] ».[pause=0] J'appelle ça :[pause=10] j'ai faim.[pause=10] On mange.</value>
-  </data>
-  <data name="CR5_P08" xml:space="preserve">
-    <value>Je me suis installée à l'ouest.[pause=10] Près du feu,[pause=10] mais hors du cercle,[pause=10] comme il faut.[pause=0] J'ai déjà repéré où je pose mes marmites demain matin.</value>
-  </data>
-  <data name="CR5_P09" xml:space="preserve">
-    <value>Vous,[pause=10] vous entrez dans les Ruines.[pause=15] Moi,[pause=10] je monte le camp de devant.[pause=0] À mon poste.[pause=10] Comme une vraie expéditionnaire.</value>
   </data>
   <data name="CR5_P10" xml:space="preserve">
     <value>(Plum est encore là.[pause=10] Bien sûr que Plum est encore là.[pause=15] Je ne sais pas pourquoi je suis encore surpris.)</value>
@@ -407,12 +245,97 @@
   <data name="CR5_048" xml:space="preserve">
     <value>(Tornadus a dit que les veines convergent vers le nord.[pause=15] On est au bout du fil.[pause=10] Enfin,[pause=10] au début de quelque chose.)</value>
   </data>
-  <data name="CR5_P11" xml:space="preserve">
-    <value>Elle a un sac.[pause=10] Une poêle.[pause=15] Et maintenant,[pause=10] un plan de bataille.[pause=0] À ce stade,[pause=10] je ne suis même plus surpris.</value>
+  <data name="CR5_T01" xml:space="preserve">
+    <value>Franchement,[pause=10] Plum...[pause=15] on dirait une vraie tsundere,[pause=0] là.</value>
   </data>
-  <data name="CR5_052" xml:space="preserve">
-    <value>Almotz,[pause=10] tu as fini de manger,[pause=10] oui ?[pause=15] Parce que je crois qu'on a commencé le briefing,[pause=10] il y a un moment.</value>
+  <data name="CR5_T02" xml:space="preserve">
+    <value>QUOI ?!</value>
   </data>
-  <data name="CR5_053" xml:space="preserve">
-    <value>J'ai fini ![pause=10] J'ai fini ![pause=0] C'était juste...[pause=15] vraiment bon.[pause=10] Et alors ?[pause=0] On parlait des ruines,[pause=10] non ?</value>
-  </data></root>
+  <data name="CR5_T03" xml:space="preserve">
+    <value>N-NON !! C-C-COMMENT OSES-TU DIRE ÇA ?!</value>
+  </data>
+  <data name="CR5_T04" xml:space="preserve">
+    <value>Hahaha ![pause=10] Elle a rougi ![pause=0] Elle a VRAIMENT rougi !</value>
+  </data>
+  <data name="CR5_T05" xml:space="preserve">
+    <value>Je...[pause=10] je ne rougis pas ![pause=0] C'est le feu ![pause=10] LE FEU,[pause=0] vous m'entendez ?!</value>
+  </data>
+  <data name="CR5_T06" xml:space="preserve">
+    <value>Allez,[pause=10] tout le monde au lit.[pause=15] Demain,[pause=0] on entre dans les ruines.</value>
+  </data>
+  <data name="CR5_T07" xml:space="preserve">
+    <value>...MAJESTIK Plum ne boude jamais.[pause=10] Elle se retire,[pause=0] stratégiquement.</value>
+  </data>
+  <data name="CR5_V01" xml:space="preserve">
+    <value>Moi,[pause=10] après l'expédition...[pause=15] je veux voir ce qu'il y a au-delà de ces ruines.[pause=0] Toute la région.</value>
+  </data>
+  <data name="CR5_V02" xml:space="preserve">
+    <value>Moi,[pause=10] je veux cartographier ce qu'on découvre.[pause=15] Pour que personne ne l'oublie.</value>
+  </data>
+  <data name="CR5_V03" xml:space="preserve">
+    <value>Moi...[pause=10] une vraie cuisine,[pause=0] à la guilde.[pause=15] Pas juste des ragoûts de camp.</value>
+  </data>
+  <data name="CR5_V04" xml:space="preserve">
+    <value>Une infirmerie digne de ce nom.[pause=15] Où on ne choisit plus entre soigner et dormir.</value>
+  </data>
+  <data name="CR5_V05" xml:space="preserve">
+    <value>Consigner tout.[pause=10] Les ruines,[pause=0] le vent,[pause=0] les veines...[pause=15] Un jour,[pause=0] quelqu'un lira nos notes.</value>
+  </data>
+  <data name="CR5_V06" xml:space="preserve">
+    <value>Protéger Metano.[pause=15] C'est simple.[pause=0] Et c'est déjà une montagne.</value>
+  </data>
+  <data name="CR5_V07" xml:space="preserve">
+    <value>Devenir un explorateur qu'on écoute.[pause=15] Comme vous.</value>
+  </data>
+  <data name="CR5_V08" xml:space="preserve">
+    <value>Moi ?[pause=10] ...Dormir.[pause=10] Manger.[pause=10] Recommencer.[pause=0] C'est déjà pas mal,[pause=0] non ?</value>
+  </data>
+  <data name="CR5_V09" xml:space="preserve">
+    <value>Voir la mer.[pause=15] On dit qu'elle n'a pas de fin.[pause=0] J'ai envie de vérifier.</value>
+  </data>
+  <data name="CR5_V10" xml:space="preserve">
+    <value>La guilde.[pause=10] La faire grandir avec vous tous.[pause=15] C'est mon rêve,[pause=0] et il est déjà en marche.</value>
+  </data>
+  <data name="CR5_V11" xml:space="preserve">
+    <value>Devenir une équipe dont on se souvient.[pause=15] Comme celles des histoires.</value>
+  </data>
+  <data name="CR5_V12" xml:space="preserve">
+    <value>(Moi...[pause=10] je ne connais toujours pas mon propre rêve.[pause=15] Pas de souvenirs d'avant...[pause=0] alors pas de rêve d'avant,[pause=0] non plus.)</value>
+  </data>
+  <data name="CR5_W01" xml:space="preserve">
+    <value>On a enfin dépassé la montagne ![pause=10] Le vent nous pousse encore.</value>
+  </data>
+  <data name="CR5_W02" xml:space="preserve">
+    <value>Les ruines ne doivent plus être très loin.[pause=10] Je les sens,[pause=0] comme une présence.</value>
+  </data>
+  <data name="CR5_W03" xml:space="preserve">
+    <value>Par là.[pause=10] Regardez,[pause=0] les pierres qui dépassent.[pause=0] C'est forcément là.</value>
+  </data>
+  <data name="CR5_W04" xml:space="preserve">
+    <value>On y est presque.[pause=10] Encore un effort,[pause=0] et on verra ce que Tornadus protégeait.</value>
+  </data>
+  <data name="CR5_X01" xml:space="preserve">
+    <value>...Je ne parle à personne.[pause=10] Surtout pas à vous.</value>
+  </data>
+  <data name="CR5_X02" xml:space="preserve">
+    <value>C'est votre faute ![pause=10] VOUS M'AVEZ PERDUE !</value>
+  </data>
+  <data name="CR5_X03" xml:space="preserve">
+    <value>Enfin...[pause=10] je vous ai pas perdus...[pause=0] Nuance.</value>
+  </data>
+  <data name="CR5_X04" xml:space="preserve">
+    <value>Heureusement que MOI...[pause=10] la grande,[pause=0] l'unique...[pause=15] MAJESTIK Plum...[pause=0] était là !</value>
+  </data>
+  <data name="CR5_X05" xml:space="preserve">
+    <value>Je vous ai préparé un excellent dîner ![pause=10] Tout le monde à table ![pause=0] ...Sur ordre de MAJESTIK Plum !</value>
+  </data>
+  <data name="CR5_X06" xml:space="preserve">
+    <value>Merci,[pause=10] Plum.[pause=15] Vraiment.[pause=0] ...On n'a rien vu venir,[pause=10] comme d'habitude.</value>
+  </data>
+  <data name="CR5_X07" xml:space="preserve">
+    <value>J'étais sûr qu'elle allait péter un câble.[pause=10] Je l'avais dit.</value>
+  </data>
+  <data name="CR5_X08" xml:space="preserve">
+    <value>Plusieurs heures plus tard...</value>
+  </data>
+</root>
