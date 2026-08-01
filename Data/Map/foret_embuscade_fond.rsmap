@@ -1,4 +1,4 @@
-﻿{
+{
   "Version": "0.8.12.0",
   "Object": {
     "$type": "RogueEssence.Dungeon.Map, RogueEssence",
@@ -2074,8 +2074,9 @@
             ]
           },
           "Value": {
-            "$type": "PMDC.Dungeon.BeginBattleEvent, PMDC",
-            "CheckClearStatus": "map_clear_check"
+            "$type": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
+            "Script": "LuaBeginBattleEvent",
+            "ArgTable": "{}"
           }
         }
       ],
