@@ -121,9 +121,14 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   SOUND:FadeOutSE("Heavy Earthquake", 40)
   GAME:WaitFrames(20)
 
-  -- === LA VOIX DE L'ABYSSE PARLE EN PREMIER ===
-  -- Ordre impose : Voix -> Flash -> Emergence thematique. Avant, les deux
-  -- boss apparaissaient puis la Voix commentait apres coup.
+  -- SKARMORY EST CREE DES LE DEBUT (CACHE) POUR PARLER AVEC SON PORTRAIT
+  -- AVANT D'APPARAITRE — meme patron que Magcargo, Tornadus et Absol :
+  -- le locuteur a besoin du GroundChar pour afficher son portrait.
+  local skarmory = CharacterEssentials.MakeCharactersFromList({
+    {'Skarmory', 268, 192, Direction.DownLeft}
+  })
+  GROUND:Hide('Skarmory')
+
   -- LOT 8.3 — l'altitude, la tactique des sentinelles, la question sans reponse.
   GAME:MoveCamera(224, 250, 40, false)
   UI:SetSpeaker(partner)
@@ -158,11 +163,9 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWM_035']), "Determined")
   -- "Surveille celui du ciel, pas celui du sol."
   GAME:WaitFrames(20)
-  -- LOT 4 — la Voix pose l'enjeu : meriter le sommet.
-  --Portee par le haut-parleur anonyme, comme toutes ses autres lignes de
-  --cette scene (MWM_008, MWM_015...) : sans SetSpeaker, la replique
-  --s'affichait en boite narration au lieu de la Voix.
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  -- SKARMORY POSE L'ENJEU — la sentinelle du ciel s'adresse au duo, pas un
+  -- commentaire exterieur. Il est encore cache : portrait seul.
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, skarmory.CurrentForm.Species, skarmory.CurrentForm.Form, skarmory.CurrentForm.Skin, skarmory.CurrentForm.Gender)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_027']))
   -- "Le ciel a ses gardiens. Prouvez que vous méritez le sommet."
   GAME:WaitFrames(20)
@@ -203,10 +206,8 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   GAME:WaitFrames(20)
 
   -- === SKARMORY DIVE-BOMBS FROM THE SKY ===
-  local skarmory = CharacterEssentials.MakeCharactersFromList({
-    {'Skarmory', 268, 192, Direction.DownLeft}
-  })
-  GROUND:Hide('Skarmory')
+  -- Deja cree (et cache) en tete de scene pour parler avec son portrait
+  -- avant d'apparaitre ; on ne le recree pas.
 
   -- === SKARMORY APPARAIT SOUS UN FLASH BLANC (LOT 2) ===
   GAME:WaitFrames(10)
@@ -291,11 +292,16 @@ function mount_windswept_miniboss_ch_5.FirstPreBossScene()
   -- "Ceux qui paient le prix ici survivent a ce qu'il y a plus haut."
   GAME:WaitFrames(22)
 
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  -- LE PARTENAIRE ANALYSE — c'est au duo de lire le combat, pas a un
+  -- narrateur exterieur. Mise en scene du Creuset : les protagonistes
+  -- commentent la tactique ennemie.
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_008']))
   -- "L'un maîtrise la terre, l'autre les cieux. Ensemble, ils sont presque invincibles."
 
   GAME:WaitFrames(20)
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_009']))
   -- "Mais chaque sentinelle a sa faiblesse... Trouve-la."
 
@@ -563,8 +569,9 @@ function mount_windswept_miniboss_ch_5.DiedToBoss()
   UI:SetCenter(false)
   GAME:WaitFrames(20)
 
-  -- La Voix de l'Abysse commente la défaite.
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  -- GLIGAR PARLE APRES LA DEFAIRE — le vainqueur commente SA victoire,
+  -- comme Magcargo au Creuset. (Il vient de triompher : MWM_018.)
+  UI:SetSpeaker(gligar)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_015']))
   GAME:WaitFrames(30)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWM_016']))

@@ -628,8 +628,9 @@ function searing_tunnel_miniboss_ch_5.DiedToBoss()
   UI:SetCenter(false)
   GAME:WaitFrames(20)
 
-  -- La Voix de l'Abysse commente la défaite.
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  -- TORKOAL PARLE APRES LA DEFAIRE — le vainqueur commente SA victoire,
+  -- comme Magcargo au Creuset. (Il vient de triompher : STM_018.)
+  UI:SetSpeaker(torkoal)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_015']))
   GAME:WaitFrames(30)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['STM_016']))

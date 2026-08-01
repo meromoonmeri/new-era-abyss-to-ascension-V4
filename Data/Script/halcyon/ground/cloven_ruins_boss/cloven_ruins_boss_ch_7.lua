@@ -334,9 +334,12 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
   GAME:WaitFrames(25)
   pcall(function() GROUND:CharSetEmote(regigigas, "", 0) end)
 
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  -- REGIGIGAS ENONCE LUI-MEME LA REGLE — pas un commentaire exterieur.
+  -- Le Titan a parle juste avant (CRB_049/050) : ces deux repliques
+  -- poursuivent SON discours. La Voix ne commente pas le boss.
+  UI:SetSpeaker(regigigas)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_008']))
-  -- "Il protège ce qui reste du Cœur. Si tu le vaines, le Cœur est à toi."
+  -- "Je protège ce qui reste du Cœur. Si tu me vaines, le Cœur est à toi."
 
   GAME:WaitFrames(20)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_009']))
@@ -622,8 +625,10 @@ function cloven_ruins_boss_ch_7.DiedToBoss()
   UI:SetCenter(false)
   GAME:WaitFrames(20)
 
-  -- La Voix de l'Abysse commente la défaite.
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  -- LE TITAN PARLE LUI-MEME APRES LA DEFAIRE — meme patron que Magcargo
+  -- au Creuset : le vainqueur commente SA victoire, pas un locuteur
+  -- anonyme.
+  UI:SetSpeaker(regigigas)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_016']))
   -- "Le Titan ne pardonne pas..."
   GAME:WaitFrames(30)
@@ -665,7 +670,8 @@ function cloven_ruins_boss_ch_7.DiedToBoss()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_042']))
   UI:SetCenter(false)
   GAME:WaitFrames(12)
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  -- REGIGIGAS CLOT LA DEFAIRE — ses propres mots, pas une voix exterieure.
+  UI:SetSpeaker(regigigas)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_043']))
   GAME:WaitFrames(12)
   UI:ResetSpeaker(false)

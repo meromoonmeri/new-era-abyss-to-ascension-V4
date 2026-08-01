@@ -232,10 +232,11 @@ function vast_steppe_miniboss_ch_5.FirstPreBossScene()
   -- "Le grand n'a pas bouge. Il laisse l'autre nous jauger."
   GAME:WaitFrames(20)
 
-  -- === VOICE SPEAKS AGAIN ===
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  -- STANTLER PARLE — le gardien de la harde s'adresse au duo, pas un
+  -- commentaire exterieur.
+  UI:SetSpeaker(stantler)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_034']))
-  -- "Vous etes sur leur terre. Ils ne vous doivent rien."
+  -- "Vous etes sur notre terre. Nous ne vous devons rien."
   GAME:WaitFrames(20)
   -- Camera : on redescend sur le duo qui repond.
   GAME:MoveCamera(184, 258, 40, false)
@@ -617,8 +618,9 @@ function vast_steppe_miniboss_ch_5.DiedToBoss()
   UI:SetCenter(false)
   GAME:WaitFrames(20)
 
-  -- La Voix de l'Abysse commente la défaite.
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  -- MUDRAY PARLE APRES LA DEFAIRE — le vainqueur commente SA victoire,
+  -- comme Magcargo au Creuset. (Il vient de triompher : VSM_020.)
+  UI:SetSpeaker(mudbray)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSM_017']))
   -- "Pas encore assez fort..."
   GAME:WaitFrames(30)

@@ -89,6 +89,16 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   SOUND:FadeOutBGM(60)
   GAME:WaitFrames(30)
 
+  -- L'ABSOL EST CREE DES LE DEBUT (CACHE) POUR PARLER AVEC SON PORTRAIT
+  -- AVANT D'APPARAITRE — meme patron que Magcargo (Creuset) et Tornadus
+  -- (Mont Venteux) : le locuteur a besoin du GroundChar pour afficher
+  -- son portrait. Sans cette creation precoce, ses avertissements
+  -- passaient par le locuteur anonyme uE040 SANS portrait (la « Voix »).
+  local absol = CharacterEssentials.MakeCharactersFromList({
+    {'Absol', 184, 200, Direction.Down}
+  })
+  GROUND:Hide('Absol')
+
   -- Brume montante
   BossFX.Overlay("Fog", 0, 0, 20, 70, 25, DrawLayer.Bottom, -1, 0)
 
@@ -102,7 +112,9 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSG_029']), "Normal")
   -- "Sa corne en croissant est plus vieille que l'herbe..."
   GAME:WaitFrames(20)
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  -- L'ABSOL PARLE (AVANT D'APPARAITRE) — son avertissement, pas une voix
+  -- exterieure : l'Absol presage, c'est exactement son role de le dire.
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, absol.CurrentForm.Species, absol.CurrentForm.Form, absol.CurrentForm.Skin, absol.CurrentForm.Gender)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_030']))
   -- "Tu peux encore faire demi-tour."
   GAME:WaitFrames(15)
@@ -119,7 +131,7 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   GAME:MoveCamera(184, 244, 60, false)
   GAME:WaitFrames(10)
 
-  -- Voix de l'Abysse
+  -- L'Absol se revele (BossFX.Voice devient un grondement, plus la Voix)
   BossFX.Voice('VSG_004')
 
   -- Flash blanc
@@ -127,10 +139,6 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   BossFX.Flash(center.X, center.Y, 3, 5, 15)
 
   -- LOT 2 — apparition standardisee : flash blanc simple
-  local absol = CharacterEssentials.MakeCharactersFromList({
-    {'Absol', 184, 200, Direction.Down}
-  })
-  GROUND:Hide('Absol')
   BossFX.Rumble({hero, partner}, 2)
   SOUND:PlayBGM('Rising Fear.ogg', true)
   BossFX.Flash(184, 200, 3, 5, 20)
@@ -188,10 +196,11 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   -- "Alors je m'ecarterai — une fois que vous aurez prouve que la route vous vaut."
   GAME:WaitFrames(22)
 
-  -- Voix a nouveau
+  -- L'ABSOL LANCE LE DUEL — ses mots, pas une voix exterieure.
+  -- (BossFX.Voice devient un grondement du gardien.)
   BossFX.Voice('VSG_006')
   GAME:WaitFrames(20)
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  UI:SetSpeaker(absol)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_007']))
   -- "Prouve ta valeur, voyageur..."
 
@@ -495,8 +504,9 @@ function vast_steppe_guardian_ch_5.DiedToBoss()
   UI:SetCenter(false)
   GAME:WaitFrames(20)
 
-  -- La Voix de l'Abysse commente la défaite.
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
+  -- L'ABSOL PARLE LUI-MEME APRES LA DEFAIRE — comme Magcargo au Creuset
+  -- et Tornadus au Mont : le vainqueur commente SA victoire.
+  UI:SetSpeaker(absol)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_014']))
   GAME:WaitFrames(30)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_015']))
