@@ -30,17 +30,6 @@ end
 function autel_celeste.Enter(map)
   DEBUG.EnableDbgCoro()
 
-  -- Priorité absolue à l'histoire principale (Chapitre 11 : Loaklass)
-  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 11 then
-    require 'halcyon.ground.autel_celeste.autel_celeste_ch_11'
-    if not SV.Chapter11.FinishedTreasureTownIntro then
-      autel_celeste_ch_11.LoaklassTransitionCutscene()
-    else
-      autel_celeste_ch_11.SetupGround()
-    end
-    return
-  end
-
   -- Rejouabilite : l'histoire est bouclee, l'Autel est desert. Positions
   -- d'origine gs209 conservees (heros 296,296 / partenaire 256,296).
   if ReplayEnding.IsReplay('celestial_peak', 10) then
@@ -107,53 +96,5 @@ end
 function autel_celeste.Update(map, time) end
 function autel_celeste.GameSave(map) end
 function autel_celeste.GameLoad(map) end
-
--- Callback d'interaction avec Loaklass pour aller à Treasure Town (Bourg du Comptoir)
-function autel_celeste.Lapras_Action(chara, activator)
-  DEBUG.EnableDbgCoro()
-  local hero = CH('PLAYER')
-  local partner = CH('Teammate1')
-
-  partner.IsInteracting = true
-  GROUND:CharSetAnim(partner, 'None', true)
-  GROUND:CharSetAnim(hero, 'None', true)
-
-  UI:SetSpeaker(chara)
-  UI:ChoiceMenuYesNo("Voulez-vous retourner au Bourg du Comptoir ?", true)
-  UI:WaitForChoice()
-
-  if UI:ChoiceResult() then
-    SOUND:FadeOutBGM(60)
-    GAME:FadeOut(false, 60)
-    
-    partner.IsInteracting = false
-    GROUND:CharEndAnim(partner)
-    GROUND:CharEndAnim(hero)
-    
-    -- Courte transition de voyage
-    UI:ResetSpeaker()
-    UI:SetCenter(true)
-    UI:WaitShowDialogue("Loaklass fend à nouveau les nuages vers de nouveaux horizons, nous ramenant au Bourg du Comptoir...")
-    UI:SetCenter(false)
-    GAME:WaitFrames(40)
-    
-    -- Retour à Treasure Town
-    GAME:EnterGroundMap("bourg_comptoir", "Main_Entrance_Marker")
-  else
-    UI:SetSpeaker(chara)
-    UI:WaitShowDialogue("Je reste ici si vous devez explorer d'autres cieux.")
-  end
-
-  partner.IsInteracting = false
-  GROUND:CharEndAnim(partner)
-  GROUND:CharEndAnim(hero)
-end
-
--- Callback d'interaction avec le doyen Penticus
-function autel_celeste.Tropius_Action(chara, activator)
-  DEBUG.EnableDbgCoro()
-  GeneralFunctions.StartConversation(chara, "Allez-y, mes petits. Le Bourg du Comptoir regorge de secrets et d'aventures extraordinaires.[pause=15] Et n'hésitez pas à revenir me voir !", "Normal")
-  GeneralFunctions.EndConversation(chara)
-end
 
 return autel_celeste

@@ -84,8 +84,8 @@ function bourg_comptoir.Lapras_Action(chara, activator)
     UI:SetCenter(false)
     GAME:WaitFrames(40)
     
-    -- Retour à l'Autel Céleste
-    GAME:EnterGroundMap("autel_celeste", "Main_Entrance_Marker")
+    -- Retour à Metano Town (Mare Altérée)
+    GAME:EnterGroundMap("altere_pond", "Main_Entrance_Marker")
   else
     UI:SetSpeaker(chara)
     UI:WaitShowDialogue("Prenez votre temps. La mer de nuages ne bougera pas d'ici.")
