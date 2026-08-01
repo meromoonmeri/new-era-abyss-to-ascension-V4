@@ -110,11 +110,7 @@ function vast_steppe_midpoint_ch_5.SetupGround()
     if hyko ~= nil then GROUND:TeleportTo(hyko, 470, 250, Direction.Down) end
   end
 
-  -- Respiration comique : Plum passe au camp lors d'un retour (une seule fois).
-  if SV.Chapter5.PlayedSteppeMidpointIntro and not SV.Chapter5.PlumSceneSeen
-     and (SV.Chapter5.SteppeMiniBossDefeated or SV.Chapter5.SteppeMiniBossLost) then
-    vast_steppe_midpoint_ch_5.PlumSongScene()
-  elseif SV.Chapter5.SteppeGuardianDefeated and not SV.Chapter5.SteppeNightSceneSeen then
+  if SV.Chapter5.SteppeGuardianDefeated and not SV.Chapter5.SteppeNightSceneSeen then
     -- Veillee dramatique apres la victoire sur le gardien.
     vast_steppe_midpoint_ch_5.NightWatchScene()
   else
