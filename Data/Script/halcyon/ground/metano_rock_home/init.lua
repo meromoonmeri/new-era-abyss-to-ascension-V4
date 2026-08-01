@@ -9,6 +9,7 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.ground.metano_rock_home.metano_rock_home_ch_2'
 require 'halcyon.ground.metano_rock_home.metano_rock_home_ch_3'
 require 'halcyon.ground.metano_rock_home.metano_rock_home_ch_4'
+require 'halcyon.ground.metano_rock_home.metano_rock_home_ch_6'
 
 -- Package name
 local metano_rock_home = {}
@@ -76,6 +77,8 @@ function metano_rock_home.PlotScripting()
 		metano_rock_home_ch_3.SetupGround()
 	elseif SV.ChapterProgression.Chapter == 4 then 
 		metano_rock_home_ch_4.SetupGround()
+	elseif SV.ChapterProgression.Chapter == 6 then
+		metano_rock_home_ch_6.SetupGround()
 	else
 		GAME:FadeIn(20)
 	end

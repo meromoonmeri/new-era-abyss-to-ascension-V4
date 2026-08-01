@@ -88,4 +88,16 @@
   <data name="MC4_006" xml:space="preserve">
     <value>There's all kinds of pretty flowers that would make you feel happy there!</value>
   </data>
+  <data name="MC6_001" xml:space="preserve">
+    <value>...Someone mentioned three famous names, earlier.[pause=0] I didn't ask more. I don't go where the noise is.</value>
+  </data>
+  <data name="MC6_002" xml:space="preserve">
+    <value>...I hope whatever they're doing doesn't reach this far down.[pause=0] It's quiet here. I like it quiet.</value>
+  </data>
+  <data name="MC6_003" xml:space="preserve">
+    <value>...It's dark here,[pause=10] but you get used to it.[pause=0] And it's quiet.</value>
+  </data>
+  <data name="MC6_004" xml:space="preserve">
+    <value>...A child, found safe.[pause=0] Someone passing through told me.[pause=0] ...Good. That's good.</value>
+  </data>
 </root>

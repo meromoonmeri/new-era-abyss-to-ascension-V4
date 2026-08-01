@@ -10,6 +10,7 @@ require 'halcyon.ground.metano_water_home.metano_water_home_ch_2'
 require 'halcyon.ground.metano_water_home.metano_water_home_ch_3'
 require 'halcyon.ground.metano_water_home.metano_water_home_ch_4'
 require 'halcyon.ground.metano_water_home.metano_water_home_ch_5'
+require 'halcyon.ground.metano_water_home.metano_water_home_ch_6'
 
 -- Package name
 local metano_water_home = {}
@@ -79,6 +80,8 @@ function metano_water_home.PlotScripting()
 		metano_water_home_ch_4.SetupGround()
 	elseif SV.ChapterProgression.Chapter == 5 then 
 		metano_water_home_ch_5.SetupGround()
+	elseif SV.ChapterProgression.Chapter == 6 then
+		metano_water_home_ch_6.SetupGround()
 	else
 		GAME:FadeIn(20)
 	end

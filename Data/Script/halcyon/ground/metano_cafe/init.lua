@@ -11,6 +11,7 @@ require 'halcyon.CharacterEssentials'
 require 'halcyon.ground.metano_cafe.metano_cafe_ch_3'
 require 'halcyon.ground.metano_cafe.metano_cafe_ch_4'
 require 'halcyon.ground.metano_cafe.metano_cafe_ch_5'
+require 'halcyon.ground.metano_cafe.metano_cafe_ch_6'
 require 'halcyon.menu.ferment_menu'
 require 'halcyon.menu.single_deal_menu'
 -- Package name
@@ -71,6 +72,8 @@ function metano_cafe.PlotScripting()
 		metano_cafe_ch_4.SetupGround()	
 	elseif SV.ChapterProgression.Chapter == 5 then
 		metano_cafe_ch_5.SetupGround()
+	elseif SV.ChapterProgression.Chapter == 6 then
+		metano_cafe_ch_6.SetupGround()
 	else 
 		GAME:FadeIn(20)
 	end 

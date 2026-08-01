@@ -265,4 +265,40 @@
   <data name="MNH5_062" xml:space="preserve">
     <value>As his mother,[pause=10] I worry for his safety.[pause=0] Make sure he stays safe,[pause=10] would you please?</value>
   </data>
+  <data name="MNH6_001" xml:space="preserve">
+    <value>Three famous rivals, and they turned down a child in trouble?[pause=0] My Almotz would never have hesitated.</value>
+  </data>
+  <data name="MNH6_002" xml:space="preserve">
+    <value>He came back from that mountain a little steadier.[pause=0] Fame doesn't seem to teach anyone that.</value>
+  </data>
+  <data name="MNH6_003" xml:space="preserve">
+    <value>Timmi keeps asking if the "famous ladies" are as good as his brother.[pause=0] I told him nobody's as good as his brother.</value>
+  </data>
+  <data name="MNH6_004" xml:space="preserve">
+    <value>I do wonder what {0} would say, seeing them turn away a lost little one.[pause=0] Probably something very blunt.</value>
+  </data>
+  <data name="MNH6_005" xml:space="preserve">
+    <value>Eight little ones under one roof, and the eldest still finds new ways to keep us on our toes.</value>
+  </data>
+  <data name="MNH6_006" xml:space="preserve">
+    <value>He's been home from the mountain a little while now.[pause=0] Still tells the story differently every time he's asked.</value>
+  </data>
+  <data name="MNH6_007" xml:space="preserve">
+    <value>A missing child, safe and found![pause=0] Almotz already told us the whole story before you'd even left the square.</value>
+  </data>
+  <data name="MNH6_008" xml:space="preserve">
+    <value>You've got good hearts, the lot of you.[pause=0] Almotz chose fine company to travel with, and he never stops saying so.</value>
+  </data>
+  <data name="MNH6_009" xml:space="preserve">
+    <value>The famous ladies wouldn't even TRY to save the little bug![pause=0] My brother would've gone in without a second thought!</value>
+  </data>
+  <data name="MNH6_010" xml:space="preserve">
+    <value>{0}'s gonna be SO mad he wasn't there for this one![pause=0] I can't wait to tell him tonight!</value>
+  </data>
+  <data name="MNH6_011" xml:space="preserve">
+    <value>Practicing my brave face, just like my brother taught me before HIS big expedition![pause=0] How's it look?</value>
+  </data>
+  <data name="MNH6_012" xml:space="preserve">
+    <value>You found the bug and everything, just like {0} would have![pause=0] He already came home and told us all about your rescue!</value>
+  </data>
 </root>

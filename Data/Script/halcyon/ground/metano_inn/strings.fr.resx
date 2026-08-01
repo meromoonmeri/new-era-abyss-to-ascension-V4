@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -147,5 +147,32 @@
   </data>
   <data name="MI5_005" xml:space="preserve">
     <value>J'imagine qu'il y a moins de Pokémon sur les routes avec tous ces donjons mystères et ces hors-la-loi...</value>
+  </data>
+  <data name="MI6_001" xml:space="preserve">
+    <value>Trois noms célèbres en ville et d'un coup toutes les chambres sont réservées.[pause=0] Comme c'est étrange.</value>
+  </data>
+  <data name="MI6_002" xml:space="preserve">
+    <value>Je ne m'en plains pas.[pause=0] Les affaires sont les affaires.</value>
+  </data>
+  <data name="MI6_003" xml:space="preserve">
+    <value>Dottir n'arrête pas de s'éclipser pour regarder la rue quand ces trois-là passent.[pause=0] Je l'ai rappelée deux fois aujourd'hui.</value>
+  </data>
+  <data name="MI6_004" xml:space="preserve">
+    <value>L'admiration, ça ne me dérange pas.[pause=0] Les lits pas faits, si.</value>
+  </data>
+  <data name="MI6_005" xml:space="preserve">
+    <value>Un enfant disparu retrouvé sain et sauf ![pause=0] Voilà le genre d'affaire que j'aime entendre, plus que le genre qui rapporte.</value>
+  </data>
+  <data name="MI6_006" xml:space="preserve">
+    <value>Vous avez ramené ce petit à la maison.[pause=0] Dottir n'arrête pas d'en parler. Moi non plus, à vrai dire.</value>
+  </data>
+  <data name="MI6_007" xml:space="preserve">
+    <value>Je les ai vues depuis la fenêtre ![pause=0] Elles sont passées juste devant notre porte !</value>
+  </data>
+  <data name="MI6_008" xml:space="preserve">
+    <value>Papa m'a rappelée pour balayer le couloir en plein milieu.[pause=0] Le pire moment possible.</value>
+  </data>
+  <data name="MI6_009" xml:space="preserve">
+    <value>Vous avez retrouvé ce petit insecte et vous l'avez ramené ![pause=0] C'est bien plus impressionnant que trois dames qui passent dans la rue.</value>
   </data>
 </root>

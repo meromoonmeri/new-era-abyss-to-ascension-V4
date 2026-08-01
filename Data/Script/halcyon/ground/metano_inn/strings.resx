@@ -148,4 +148,31 @@
   <data name="MI5_005" xml:space="preserve">
     <value>I reckon less Pokémon are on the roads what with the mystery dungeons and outlaws 'n all...</value>
   </data>
+  <data name="MI6_001" xml:space="preserve">
+    <value>Three famous names in town and suddenly every room's booked solid.[pause=0] Funny how that works.</value>
+  </data>
+  <data name="MI6_002" xml:space="preserve">
+    <value>Not that I'm complaining.[pause=0] Business is business.</value>
+  </data>
+  <data name="MI6_003" xml:space="preserve">
+    <value>Dottir keeps sneaking off to watch the street whenever those three walk by.[pause=0] I've had to call her back twice today.</value>
+  </data>
+  <data name="MI6_004" xml:space="preserve">
+    <value>I don't mind admiration.[pause=0] I mind unmade beds.</value>
+  </data>
+  <data name="MI6_005" xml:space="preserve">
+    <value>A missing child found safe![pause=0] That's the kind of business I like hearing about, over the paying kind.</value>
+  </data>
+  <data name="MI6_006" xml:space="preserve">
+    <value>You brought that little one home.[pause=0] Dottir hasn't stopped talking about it. Neither have I, honestly.</value>
+  </data>
+  <data name="MI6_007" xml:space="preserve">
+    <value>I saw them from the window![pause=0] They walked right past our door!</value>
+  </data>
+  <data name="MI6_008" xml:space="preserve">
+    <value>Dad called me back to sweep the hallway right in the middle of it.[pause=0] Worst timing ever.</value>
+  </data>
+  <data name="MI6_009" xml:space="preserve">
+    <value>You found that little bug and brought it home![pause=0] That's way more impressive than three ladies just walking by.</value>
+  </data>
 </root>

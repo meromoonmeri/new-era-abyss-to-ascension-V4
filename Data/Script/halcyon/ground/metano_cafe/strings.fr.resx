@@ -313,4 +313,37 @@
   <data name="MCF5_005" xml:space="preserve">
     <value>Elles sont si bonnes...[pause=0] C'est important de garder le moral pendant un long voyage,[pause=10] après tout !</value>
   </data>
+  <data name="MCF6_001" xml:space="preserve">
+    <value>Trois exploratrices célèbres, ici même à Metano ![pause=0] Vous croyez qu'elles aiment les boissons de Shuckle, elles aussi ?</value>
+  </data>
+  <data name="MCF6_002" xml:space="preserve">
+    <value>J'échangerais toute ma table contre une chance de leur servir un smoothie, franchement.</value>
+  </data>
+  <data name="MCF6_003" xml:space="preserve">
+    <value>Tout le monde s'agite pour les dames célèbres.[pause=0] J'ai déjà vu ça. Ça passe. Ma boisson, elle, ne passe pas.</value>
+  </data>
+  <data name="MCF6_004" xml:space="preserve">
+    <value>Elles sont TELLEMENT belles ![pause=0] Je veux une cape comme la leur un jour. Une très brillante.</value>
+  </data>
+  <data name="MCF6_005" xml:space="preserve">
+    <value>Vous avez sauvé ce pauvre insecte ![pause=0] C'est une bien meilleure histoire que tout ce que ces trois-là ont fait cette semaine, si vous voulez mon avis.</value>
+  </data>
+  <data name="MCF6_006" xml:space="preserve">
+    <value>Du bon travail.[pause=0] Discret, sans éclat, mais du bon travail.[pause=0] Mon genre préféré.</value>
+  </data>
+  <data name="MCF6_007" xml:space="preserve">
+    <value>Vous l'avez retrouvé ![pause=0] Cette fois je n'ai même pas eu besoin de me cacher pour applaudir !</value>
+  </data>
+  <data name="MCF6_008" xml:space="preserve">
+    <value>...Bien.[pause=0] La mine m'a appris une chose : les sauvetages discrets comptent plus que les victoires bruyantes.</value>
+  </data>
+  <data name="MCF6_009" xml:space="preserve">
+    <value>J'ai entendu dire que le café aurait peut-être des visiteuses célèbres aujourd'hui ![pause=0] Je reste ici, au cas où.</value>
+  </data>
+  <data name="MCF6_010" xml:space="preserve">
+    <value>Quoi que ce soit qui fasse parler la ville aujourd'hui, j'espère que ça n'empêchera pas le plat du jour d'arriver à l'heure.</value>
+  </data>
+  <data name="MCF6_011" xml:space="preserve">
+    <value>Trois "célébrités" qui se pavanent en ville.[pause=0] Hmph.[pause=0] J'ai vu passer de meilleurs explorateurs sortir de cette mine, en mon temps.</value>
+  </data>
 </root>

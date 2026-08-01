@@ -9,6 +9,7 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.ground.metano_grass_home.metano_grass_home_ch_2'
 require 'halcyon.ground.metano_grass_home.metano_grass_home_ch_3'
 require 'halcyon.ground.metano_grass_home.metano_grass_home_ch_4'
+require 'halcyon.ground.metano_grass_home.metano_grass_home_ch_6'
 
 -- Package name
 local metano_grass_home = {}
@@ -76,6 +77,8 @@ function metano_grass_home.PlotScripting()
 		metano_grass_home_ch_3.SetupGround()	
 	elseif SV.ChapterProgression.Chapter == 4 then 
 		metano_grass_home_ch_4.SetupGround()
+	elseif SV.ChapterProgression.Chapter == 6 then
+		metano_grass_home_ch_6.SetupGround()
 	else
 		GAME:FadeIn(20)
 	end

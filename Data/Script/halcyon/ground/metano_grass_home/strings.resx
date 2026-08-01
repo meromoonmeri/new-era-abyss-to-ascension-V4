@@ -109,4 +109,43 @@
   <data name="MGH4_011" xml:space="preserve">
     <value>Of course dear![pause=0] We're always here for you,[pause=10] don't ever forget that!</value>
   </data>
+  <data name="MGH6_001" xml:space="preserve">
+    <value>Three famous rivals in town, and the whole guild off in the mountains...[pause=10] I haven't slept right in days.</value>
+  </data>
+  <data name="MGH6_002" xml:space="preserve">
+    <value>What if something happens while our heroes are away?[pause=0] Who's supposed to protect us then?</value>
+  </data>
+  <data name="MGH6_003" xml:space="preserve">
+    <value>Now they want us to trust a lost bug's rescue to those three?[pause=10] They didn't even blink.</value>
+  </data>
+  <data name="MGH6_004" xml:space="preserve">
+    <value>A child is missing in that forest and they call it beneath them.[pause=0] I can't stop thinking about it.</value>
+  </data>
+  <data name="MGH6_005" xml:space="preserve">
+    <value>You're really going in there yourselves?[pause=0] That forest doesn't feel right lately.</value>
+  </data>
+  <data name="MGH6_006" xml:space="preserve">
+    <value>Bring that little one home.[pause=0] I won't rest easy until you do.</value>
+  </data>
+  <data name="MGH6_007" xml:space="preserve">
+    <value>You actually did it![pause=0] I heard the whole street cheering.</value>
+  </data>
+  <data name="MGH6_008" xml:space="preserve">
+    <value>Chrysi keeps saying "I told you it would be fine."[pause=0] ...She's insufferable when she's right.</value>
+  </data>
+  <data name="MGH6_009" xml:space="preserve">
+    <value>Bogen's been pacing since this morning.[pause=0] Three famous explorers show up and he panics about everything else.</value>
+  </data>
+  <data name="MGH6_010" xml:space="preserve">
+    <value>Meanwhile the kids just want to know if they have cool capes.[pause=0] Kids have their priorities straight.</value>
+  </data>
+  <data name="MGH6_011" xml:space="preserve">
+    <value>He's worried about that missing Venipede now.[pause=0] I told him worrying won't find the bug faster.</value>
+  </data>
+  <data name="MGH6_012" xml:space="preserve">
+    <value>But he keeps setting an extra plate at dinner, just in case someone brings good news.[pause=0] That's my Bogen.</value>
+  </data>
+  <data name="MGH6_013" xml:space="preserve">
+    <value>Extra plate wasn't needed after all![pause=0] You brought the news home yourselves. Thank you.</value>
+  </data>
 </root>

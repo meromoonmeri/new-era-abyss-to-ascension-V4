@@ -10,6 +10,7 @@ require 'halcyon.GeneralFunctions'--ChapterDispatch (repli des PNJ hors chapitre
 require 'halcyon.ground.metano_normal_home.metano_normal_home_ch_2'
 require 'halcyon.ground.metano_normal_home.metano_normal_home_ch_4'
 require 'halcyon.ground.metano_normal_home.metano_normal_home_ch_5'
+require 'halcyon.ground.metano_normal_home.metano_normal_home_ch_6'
 
 -- Package name
 local metano_normal_home = {}
@@ -82,6 +83,8 @@ function metano_normal_home.PlotScripting()
 		else
 			GAME:FadeIn(20)
 		end
+	elseif SV.ChapterProgression.Chapter == 6 then
+		metano_normal_home_ch_6.SetupGround()
 	else
 		GAME:FadeIn(20)
 	end

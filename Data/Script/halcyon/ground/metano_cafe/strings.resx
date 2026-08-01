@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -312,5 +312,38 @@
   </data>
   <data name="MCF5_005" xml:space="preserve">
     <value>They're so tasty...[pause=0] It's important to keep your spirits up on a long journey,[pause=10] after all!</value>
+  </data>
+  <data name="MCF6_001" xml:space="preserve">
+    <value>Three famous explorers, right in Metano![pause=0] Do you think they like Shuckle's drinks too?</value>
+  </data>
+  <data name="MCF6_002" xml:space="preserve">
+    <value>I'd trade my whole table for a chance to serve them a smoothie, honestly.</value>
+  </data>
+  <data name="MCF6_003" xml:space="preserve">
+    <value>Everyone's buzzing about the famous ladies.[pause=0] I've seen buzz before. It fades. My drink doesn't.</value>
+  </data>
+  <data name="MCF6_004" xml:space="preserve">
+    <value>They're SO pretty![pause=0] I want a cape like theirs someday. A really shiny one.</value>
+  </data>
+  <data name="MCF6_005" xml:space="preserve">
+    <value>You saved that poor bug![pause=0] That's a better story than anything those three have done all week, if you ask me.</value>
+  </data>
+  <data name="MCF6_006" xml:space="preserve">
+    <value>Good work.[pause=0] Quiet, unglamorous, good work.[pause=0] My favorite kind.</value>
+  </data>
+  <data name="MCF6_007" xml:space="preserve">
+    <value>You found him![pause=0] I wasn't even hiding when I cheered, this time!</value>
+  </data>
+  <data name="MCF6_008" xml:space="preserve">
+    <value>...Good.[pause=0] The mine taught me one thing: the quiet rescues matter more than the loud victories.</value>
+  </data>
+  <data name="MCF6_009" xml:space="preserve">
+    <value>I heard the café might get some famous visitors today![pause=0] I'm staying right here, just in case.</value>
+  </data>
+  <data name="MCF6_010" xml:space="preserve">
+    <value>Whatever's got the town talking today, I hope it doesn't stop the daily special from arriving on time.</value>
+  </data>
+  <data name="MCF6_011" xml:space="preserve">
+    <value>Three "celebrities" strutting through town.[pause=0] Hmph.[pause=0] I've seen better explorers come and go from that mine, in my day.</value>
   </data>
 </root>

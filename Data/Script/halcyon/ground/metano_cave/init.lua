@@ -10,6 +10,7 @@ require 'halcyon.GeneralFunctions'--ChapterDispatch (repli des PNJ permanents ho
 require 'halcyon.ground.metano_cave.metano_cave_ch_2'
 require 'halcyon.ground.metano_cave.metano_cave_ch_3'
 require 'halcyon.ground.metano_cave.metano_cave_ch_4'
+require 'halcyon.ground.metano_cave.metano_cave_ch_6'
 
 -- Package name
 local metano_cave = {}
@@ -87,6 +88,8 @@ end
 function metano_cave.PlotScripting()
 	if SV.ChapterProgression.Chapter == 4 then
 		metano_cave_ch_4.SetupGround()
+	elseif SV.ChapterProgression.Chapter == 6 then
+		metano_cave_ch_6.SetupGround()
 	else 
 		GAME:FadeIn(20)
 	end

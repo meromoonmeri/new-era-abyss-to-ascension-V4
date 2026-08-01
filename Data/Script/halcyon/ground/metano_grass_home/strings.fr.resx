@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -108,5 +108,44 @@
   </data>
   <data name="MGH4_011" xml:space="preserve">
     <value>Je t'en prie mon chéri ![pause=0] Nous sommes toujours là pour toi,[pause=10] ne l'oublie jamais !</value>
+  </data>
+  <data name="MGH6_001" xml:space="preserve">
+    <value>Trois rivales célèbres en ville, et toute la guilde partie dans les montagnes...[pause=10] Je ne dors plus bien depuis des jours.</value>
+  </data>
+  <data name="MGH6_002" xml:space="preserve">
+    <value>Et s'il arrive quelque chose pendant que nos héros sont absents ?[pause=0] Qui nous protège, alors ?</value>
+  </data>
+  <data name="MGH6_003" xml:space="preserve">
+    <value>Maintenant elles veulent qu'on confie le sauvetage d'un pauvre insecte perdu à ces trois-là ?[pause=10] Elles n'ont même pas cillé.</value>
+  </data>
+  <data name="MGH6_004" xml:space="preserve">
+    <value>Un enfant a disparu dans cette forêt et elles trouvent ça indigne d'elles.[pause=0] Je n'arrête pas d'y penser.</value>
+  </data>
+  <data name="MGH6_005" xml:space="preserve">
+    <value>Vous y allez vraiment vous-mêmes ?[pause=0] Cette forêt ne me dit rien qui vaille, ces temps-ci.</value>
+  </data>
+  <data name="MGH6_006" xml:space="preserve">
+    <value>Ramenez ce petit à la maison.[pause=0] Je ne serai tranquille qu'une fois que ce sera fait.</value>
+  </data>
+  <data name="MGH6_007" xml:space="preserve">
+    <value>Vous l'avez vraiment fait ![pause=0] J'ai entendu toute la rue crier de joie.</value>
+  </data>
+  <data name="MGH6_008" xml:space="preserve">
+    <value>Chrysi n'arrête pas de dire "je t'avais dit que tout irait bien".[pause=0] ...Elle est insupportable quand elle a raison.</value>
+  </data>
+  <data name="MGH6_009" xml:space="preserve">
+    <value>Bogen fait les cent pas depuis ce matin.[pause=0] Trois exploratrices célèbres débarquent et il paniquerait pour tout et n'importe quoi.</value>
+  </data>
+  <data name="MGH6_010" xml:space="preserve">
+    <value>Pendant ce temps les enfants veulent juste savoir si elles ont des capes stylées.[pause=0] Les enfants ont les bonnes priorités.</value>
+  </data>
+  <data name="MGH6_011" xml:space="preserve">
+    <value>Il s'inquiète pour ce Chenipent disparu, maintenant.[pause=0] Je lui ai dit que s'inquiéter ne fera pas retrouver l'insecte plus vite.</value>
+  </data>
+  <data name="MGH6_012" xml:space="preserve">
+    <value>Mais il met quand même une assiette de plus au dîner, au cas où quelqu'un apporterait de bonnes nouvelles.[pause=0] C'est mon Bogen.</value>
+  </data>
+  <data name="MGH6_013" xml:space="preserve">
+    <value>Finalement l'assiette de plus n'était pas nécessaire ![pause=0] Vous avez rapporté la nouvelle vous-mêmes. Merci.</value>
   </data>
 </root>

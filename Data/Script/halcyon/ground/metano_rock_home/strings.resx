@@ -67,4 +67,22 @@
   <data name="MRH4_001" xml:space="preserve">
     <value>But I cannae give up,[pause=10] 'er I winnae ever friends make![pause=0] Hafta it must I keep at!</value>
   </data>
+  <data name="MRH6_000" xml:space="preserve">
+    <value>I've been trying to teach my daughter that.[pause=0] She still runs to the window whenever there's noise outside.</value>
+  </data>
+  <data name="MRH6_001" xml:space="preserve">
+    <value>Three famous rivals in town.[pause=0] Applause fades. What remains is what you did quietly, unseen.</value>
+  </data>
+  <data name="MRH6_002" xml:space="preserve">
+    <value>I told Stei that.[pause=0] She wasn't very impressed with my wisdom, admittedly.</value>
+  </data>
+  <data name="MRH6_003" xml:space="preserve">
+    <value>A lost child in that forest...[pause=0] Stei asked if she could go help. I said no. She sulked all morning.</value>
+  </data>
+  <data name="MRH6_004" xml:space="preserve">
+    <value>She struggles to make friends her own age.[pause=0] Maybe that's why a lost little one moved her so much.</value>
+  </data>
+  <data name="MRH6_005" xml:space="preserve">
+    <value>You brought that child home.[pause=0] Stei hasn't stopped talking about it. Perhaps that's a friendship starting.</value>
+  </data>
 </root>

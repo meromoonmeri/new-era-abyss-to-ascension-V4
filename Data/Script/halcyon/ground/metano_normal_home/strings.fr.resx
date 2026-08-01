@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -264,5 +264,41 @@
   </data>
   <data name="MNH5_062" xml:space="preserve">
     <value>En tant que mère,[pause=10] je m'inquiète pour lui.[pause=0] Faites en sorte qu'il reste en sécurité,[pause=10] voulez-vous ?</value>
+  </data>
+  <data name="MNH6_001" xml:space="preserve">
+    <value>Trois rivales célèbres, et elles ont refusé d'aider un enfant en détresse ?[pause=0] Mon Almotz n'aurait jamais hésité, lui.</value>
+  </data>
+  <data name="MNH6_002" xml:space="preserve">
+    <value>Il est revenu de cette montagne un peu plus posé.[pause=0] La gloire, elle, n'apprend ça à personne.</value>
+  </data>
+  <data name="MNH6_003" xml:space="preserve">
+    <value>Timmi n'arrête pas de demander si les "dames célèbres" valent son frère.[pause=0] Je lui ai dit que personne ne vaut son frère.</value>
+  </data>
+  <data name="MNH6_004" xml:space="preserve">
+    <value>Je me demande ce que {0} dirait, en les voyant repousser un petit perdu.[pause=0] Sûrement quelque chose de très cru.</value>
+  </data>
+  <data name="MNH6_005" xml:space="preserve">
+    <value>Huit petits sous le même toit, et l'aîné trouve encore le moyen de nous surprendre.</value>
+  </data>
+  <data name="MNH6_006" xml:space="preserve">
+    <value>Il est rentré de la montagne depuis un moment déjà.[pause=0] Il ne raconte jamais l'histoire deux fois pareil.</value>
+  </data>
+  <data name="MNH6_007" xml:space="preserve">
+    <value>Un enfant disparu, sain et sauf ![pause=0] Almotz nous a déjà tout raconté avant même que vous ayez quitté la place.</value>
+  </data>
+  <data name="MNH6_008" xml:space="preserve">
+    <value>Vous avez bon cœur, tous autant que vous êtes.[pause=0] Almotz a choisi de belle compagnie pour voyager, et il n'arrête pas de le dire.</value>
+  </data>
+  <data name="MNH6_009" xml:space="preserve">
+    <value>Les dames célèbres n'ont même pas ESSAYÉ de sauver le petit insecte ![pause=0] Mon frère y serait allé sans hésiter !</value>
+  </data>
+  <data name="MNH6_010" xml:space="preserve">
+    <value>{0} va être TELLEMENT furieux de ne pas avoir été là pour ça ![pause=0] J'ai hâte de tout lui raconter ce soir !</value>
+  </data>
+  <data name="MNH6_011" xml:space="preserve">
+    <value>Je m'entraîne à faire une tête courageuse, comme mon frère me l'a appris avant SA grande expédition ![pause=0] Alors, ça rend bien ?</value>
+  </data>
+  <data name="MNH6_012" xml:space="preserve">
+    <value>Vous avez retrouvé l'insecte et tout, exactement comme {0} l'aurait fait ![pause=0] Il est déjà rentré nous raconter votre sauvetage !</value>
   </data>
 </root>

@@ -82,4 +82,28 @@
   <data name="MEH5_003" xml:space="preserve">
     <value>And yet an entire guild of adventurers needs all hands on deck for such an effort?[pause=0] How pitiful.</value>
   </data>
+  <data name="MEH6_001" xml:space="preserve">
+    <value>Three famous explorers, right here in Metano![pause=0] I do hope they stop by our street.</value>
+  </data>
+  <data name="MEH6_002" xml:space="preserve">
+    <value>Rulux says real explorers don't pose for the crowd.[pause=0] I think he's just a little jealous, honestly.</value>
+  </data>
+  <data name="MEH6_003" xml:space="preserve">
+    <value>Three "celebrities" and not one of them could handle a proper mountain pass, I'd wager.</value>
+  </data>
+  <data name="MEH6_004" xml:space="preserve">
+    <value>Camentra thinks they're wonderful.[pause=0] Camentra thinks everyone's wonderful. That's rather the problem.</value>
+  </data>
+  <data name="MEH6_005" xml:space="preserve">
+    <value>You saved that poor little one![pause=0] Rulux won't admit it, but he was worried the whole time too.</value>
+  </data>
+  <data name="MEH6_006" xml:space="preserve">
+    <value>...Fine.[pause=0] That was decent work.[pause=0] Don't let it go to your heads.</value>
+  </data>
+  <data name="MEH6_007" xml:space="preserve">
+    <value>It's been a strange morning.[pause=0] Everyone in the street is talking about something happening at the guild.</value>
+  </data>
+  <data name="MEH6_008" xml:space="preserve">
+    <value>Whatever it is, it had better not interrupt my training schedule.</value>
+  </data>
 </root>

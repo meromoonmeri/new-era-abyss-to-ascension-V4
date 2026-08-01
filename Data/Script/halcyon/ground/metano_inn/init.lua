@@ -11,6 +11,7 @@ require 'halcyon.ground.metano_inn.metano_inn_ch_2'
 require 'halcyon.ground.metano_inn.metano_inn_ch_3'
 require 'halcyon.ground.metano_inn.metano_inn_ch_4'
 require 'halcyon.ground.metano_inn.metano_inn_ch_5'
+require 'halcyon.ground.metano_inn.metano_inn_ch_6'
 require 'halcyon.TownVoicesNight'
 
 -- Package name
@@ -79,6 +80,8 @@ function metano_inn.PlotScripting()
 		metano_inn_ch_4.SetupGround()	
 	elseif SV.ChapterProgression.Chapter == 5 then
 		metano_inn_ch_5.SetupGround()
+	elseif SV.ChapterProgression.Chapter == 6 then
+		metano_inn_ch_6.SetupGround()
 	else
 		GAME:FadeIn(20)
 	end

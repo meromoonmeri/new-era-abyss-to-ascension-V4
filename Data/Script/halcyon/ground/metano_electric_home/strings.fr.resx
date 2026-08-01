@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -81,5 +81,29 @@
   </data>
   <data name="MEH5_003" xml:space="preserve">
     <value>Et une guilde entière d'aventuriers a besoin de toutes ses forces pour un tel effort ?[pause=0] Pitoyable.</value>
+  </data>
+  <data name="MEH6_001" xml:space="preserve">
+    <value>Trois exploratrices célèbres, ici même à Metano ![pause=0] J'espère qu'elles passeront dans notre rue.</value>
+  </data>
+  <data name="MEH6_002" xml:space="preserve">
+    <value>Rulux dit que les vraies exploratrices ne posent pas pour la foule.[pause=0] Je crois qu'il est un peu jaloux, à vrai dire.</value>
+  </data>
+  <data name="MEH6_003" xml:space="preserve">
+    <value>Trois "célébrités", et aucune ne tiendrait un vrai col de montagne, je parie.</value>
+  </data>
+  <data name="MEH6_004" xml:space="preserve">
+    <value>Camentra les trouve merveilleuses.[pause=0] Camentra trouve tout le monde merveilleux. C'est bien ça le problème.</value>
+  </data>
+  <data name="MEH6_005" xml:space="preserve">
+    <value>Vous avez sauvé ce pauvre petit ![pause=0] Rulux ne l'admettra pas, mais lui aussi s'inquiétait tout ce temps.</value>
+  </data>
+  <data name="MEH6_006" xml:space="preserve">
+    <value>...Bon.[pause=0] C'était du bon travail.[pause=0] Ne vous laissez pas monter à la tête.</value>
+  </data>
+  <data name="MEH6_007" xml:space="preserve">
+    <value>Matinée étrange.[pause=0] Tout le monde dans la rue parle de quelque chose qui se passe à la guilde.</value>
+  </data>
+  <data name="MEH6_008" xml:space="preserve">
+    <value>Quoi que ce soit, il vaudrait mieux que ça n'interrompe pas mon programme d'entraînement.</value>
   </data>
 </root>

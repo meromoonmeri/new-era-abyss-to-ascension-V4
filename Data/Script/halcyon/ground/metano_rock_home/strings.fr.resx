@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -66,5 +66,23 @@
   </data>
   <data name="MRH4_001" xml:space="preserve">
     <value>Mais abandonner je ne peux,[pause=10] sinon d'amis jamais je ne me ferai ![pause=0] Persévérer il me faut !</value>
+  </data>
+  <data name="MRH6_000" xml:space="preserve">
+    <value>J'essaie d'enseigner cela à ma fille.[pause=0] Elle court encore à la fenêtre au moindre bruit dehors.</value>
+  </data>
+  <data name="MRH6_001" xml:space="preserve">
+    <value>Trois rivales célèbres en ville.[pause=0] Les applaudissements s'éteignent. Ce qui reste, c'est ce qu'on a fait dans le silence, sans témoin.</value>
+  </data>
+  <data name="MRH6_002" xml:space="preserve">
+    <value>J'ai dit cela à Stei.[pause=0] Elle n'a pas été très impressionnée par ma sagesse, je l'admets.</value>
+  </data>
+  <data name="MRH6_003" xml:space="preserve">
+    <value>Un enfant perdu dans cette forêt...[pause=0] Stei a demandé si elle pouvait aider. J'ai dit non. Elle a boudé toute la matinée.</value>
+  </data>
+  <data name="MRH6_004" xml:space="preserve">
+    <value>Elle a du mal à se faire des amis de son âge.[pause=0] C'est peut-être pour ça qu'un petit perdu l'a autant touchée.</value>
+  </data>
+  <data name="MRH6_005" xml:space="preserve">
+    <value>Vous avez ramené cet enfant.[pause=0] Stei n'arrête pas d'en parler. Une amitié commence peut-être ainsi.</value>
   </data>
 </root>
