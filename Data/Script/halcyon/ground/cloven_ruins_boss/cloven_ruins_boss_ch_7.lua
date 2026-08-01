@@ -677,10 +677,14 @@ function cloven_ruins_boss_ch_7.DiedToBoss()
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(60)
 
-  SV.TemporaryFlags.Dinnertime = true
-  SV.TemporaryFlags.Bedtime = true
-  SV.TemporaryFlags.MorningWakeup = true
-  SV.TemporaryFlags.MorningAddress = true
+  --APRES UN KO CONTRE REGIGIGAS, l'expedition se refait au CAMP devant
+  --l'entree (et non a la guilde) : le camp joue la cinematique de reveil
+  --(KODefeatCutscene). Le flag PlayTempRuinsScene est lu par
+  --cloven_ruins_entrance.PlotScripting des l'arrivee.
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5 then
+    SV.Chapter5.PlayTempRuinsScene = true
+    SV.Chapter5.RuinsLastExitReason = 'Died'
+  end
 
   -- Les trois regagnent leurs niches : la veille reprend, la porte se referme.
   UI:ResetSpeaker(false)

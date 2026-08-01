@@ -29,6 +29,18 @@ function cloven_ruins.Rescued(zone, name, mail)
     COMMON.Rescued(zone, name, mail)
 end
 
+--LES RUINES FENDUES se jouent au ch5 (climax de l'expedition,
+--restructuration validee) et, pour les sauvegardes existantes, encore
+--au ch7 (tant que l'arc Groudon n'a pas remplace le donjon d'histoire
+--du ch7). En rejouabilite, la zone terminee reste jouable.
+local function ruinsActive()
+  if SV.ChapterProgression ~= nil then
+    local ch = SV.ChapterProgression.Chapter
+    if ch == 5 or ch == 7 then return true end
+  end
+  return ReplayEnding.IsCleared('cloven_ruins')
+end
+
 function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.RestoreIdleAnim()
   DEBUG.EnableDbgCoro()
@@ -49,24 +61,28 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
 
   if segmentID == 0 then
       -- Ruines Tordues : 15 etages
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('cloven_ruins', 7) then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ruinsActive() then
           -- Go to relay checkpoint
           GAME:EnterGroundMap('cloven_ruins_midpoint', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
           SV.Chapter7.LostRuins = true
-          --Au CH5 (restructuration) : un KO dans la premiere moitie des
-          --Ruines ramene au CAMPEMENT devant l'entree (cloven_ruins_entrance,
-          --ground 65) — l'expedition se refait a partir du bivouac, pas a la
-          --steppe (l'ancien ciblage 46 = vast_steppe_entrance etait un
-          --vestige du ch7). Hors ch5, comportement historique conserve.
+          --Au CH5 (restructuration) : un KO ou un abandon dans la premiere
+          --moitie des Ruines ramene au CAMPEMENT devant l'entree
+          --(cloven_ruins_entrance, ground 65) — l'expedition se refait a
+          --partir du bivouac, pas a la steppe (l'ancien ciblage 46 etait un
+          --vestige du ch7). Le camp joue la cinematique de retour : reveil
+          --(KO, 'Died') ou repli (abandon, 'Retreated'), patron du Mont.
+          --Hors ch5, comportement historique conserve.
           if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5 then
+              SV.Chapter5.PlayTempRuinsScene = true
               if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
+                  SV.Chapter5.RuinsLastExitReason = 'Died'
                   GAME:EndDungeonRun(result, "master_zone", -1, 65, 0, true, true)
-                  GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Les ruines...[pause=0] c'est trop pour nous...[pause=10] On se refait au camp.", "Pain")
                   GAME:WaitFrames(20)
                   GAME:EnterZone("master_zone", -1, 65, 0)
               else
+                  SV.Chapter5.RuinsLastExitReason = 'Retreated'
                   GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 65, 0, true, true)
               end
           else
@@ -87,7 +103,7 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
       end
   elseif segmentID == 2 then
       -- Premier 3F des profondeurs : le mini-boss attend au bout.
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('cloven_ruins', 7) then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ruinsActive() then
           PrintInfo("[NREPROBE][transition] cloven seg2 cleared -> miniboss ground")
           GAME:EnterGroundMap('cloven_ruins_miniboss', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
@@ -117,7 +133,7 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
   elseif segmentID == 4 then
       -- Second 3F des profondeurs (au-dessus du mini-boss) : le sanctuaire
       -- des titans s'ouvre au bout.
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('cloven_ruins', 7) then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ruinsActive() then
           PrintInfo("[NREPROBE][transition] cloven seg4 cleared -> boss ground")
           GAME:EnterGroundMap('cloven_ruins_boss', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then

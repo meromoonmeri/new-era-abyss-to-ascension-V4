@@ -1236,4 +1236,277 @@ function cloven_ruins_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
   GeneralFunctions.RendreLaMain(true)
 end
 
+-- ================================================================
+-- RETOUR APRES UN KO DANS LES RUINES — reveil au camp
+-- Le duo a ete vaincu dans le donjon. Les membres de l'expedition
+-- les ont ramenes au camp (ils attendaient devant l'entree). Rin
+-- soigne, on discute brievement, on decide de retenter. Patron du
+-- Mont Venteux (KODefeatCutscene).
+-- ================================================================
+function cloven_ruins_entrance_ch_5.KODefeatCutscene()
+  local okK, errK = pcall(cloven_ruins_entrance_ch_5.KODefeatCutsceneBody)
+  if not okK then
+    PrintInfo('[CR5] reveil apres KO ecourte : '..tostring(errK))
+    pcall(function() SV.Chapter5.PlayTempRuinsScene = false end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    pcall(function() GAME:FadeIn(20) end)
+  end
+end
+
+function cloven_ruins_entrance_ch_5.KODefeatCutsceneBody()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  local tropius = CH('Tropius')
+  local noctowl = CH('Noctowl')
+  local audino = CH('Audino')
+  local snubbull = CH('Snubbull')
+  local growlithe = CH('Growlithe')
+  local zigzagoon = CH('Zigzagoon')
+  local breloom = CH('Breloom')
+  local girafarig = CH('Girafarig')
+
+  GAME:CutsceneMode(true)
+  SOUND:StopBGM()
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
+
+  -- Le duo est couche pres du feu : on les a ramenes du donjon.
+  GROUND:TeleportTo(hero, CX + 0, CY + 40, Direction.Left)
+  GROUND:TeleportTo(partner, CX - 20, CY + 40, Direction.Right)
+  GROUND:CharSetAnim(hero, "EventSleep", true)
+  GROUND:CharSetAnim(partner, "EventSleep", true)
+  GAME:MoveCamera(CX, CY + 30, 1, false)
+
+  -- Les membres veillent autour : Rin proche (soins), les autres en
+  -- cercle serre. Personne ne s'agite — on a porte les blesses.
+  pcall(function()
+    if audino ~= nil then GROUND:TeleportTo(audino, CX - 40, CY + 12, Direction.Right) end
+    if tropius ~= nil then GROUND:TeleportTo(tropius, CX + 40, CY + 16, Direction.Left) end
+    if noctowl ~= nil then GROUND:TeleportTo(noctowl, CX - 44, CY - 12, Direction.Right) end
+    if snubbull ~= nil then GROUND:TeleportTo(snubbull, CX + 44, CY - 8, Direction.Left) end
+    if growlithe ~= nil then GROUND:TeleportTo(growlithe, CX + 30, CY - 20, Direction.Down) end
+    if zigzagoon ~= nil then GROUND:TeleportTo(zigzagoon, CX - 30, CY - 20, Direction.Down) end
+    if breloom ~= nil then GROUND:TeleportTo(breloom, CX + 20, CY - 32, Direction.Down) end
+    if girafarig ~= nil then GROUND:TeleportTo(girafarig, CX - 20, CY - 32, Direction.Down) end
+  end)
+
+  GAME:FadeIn(60)
+  SOUND:PlayBGM('Heartwarming.ogg', true)
+  GAME:WaitFrames(110)
+
+  -- Le heros se reveille en sursaut.
+  local coro1 = TASK:BranchCoroutine(function()
+    GeneralFunctions.DoAnimation(hero, 'Wake')
+    GAME:WaitFrames(12)
+    GROUND:CharAnimateTurnTo(hero, Direction.Down, 4)
+  end)
+  local coro2 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(14)
+    if partner ~= nil then
+      GeneralFunctions.DoAnimation(partner, 'Wake')
+      GAME:WaitFrames(12)
+      GROUND:CharAnimateTurnTo(partner, Direction.Down, 4)
+    end
+  end)
+  TASK:JoinCoroutines({coro1, coro2})
+  GAME:WaitFrames(30)
+
+  -- RIN : la soigneuse, aux petits soins. Elle ecarte le duo d'un
+  -- geste avant qu'il ne se redresse trop vite.
+  if audino ~= nil then
+    GROUND:CharTurnToCharAnimated(audino, hero, 4)
+    GeneralFunctions.EmoteAndPause(audino, "Sweatdrop", false)
+  end
+  UI:SetSpeaker(audino)
+  GeneralFunctions.SetEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_K01']))
+  GAME:WaitFrames(14)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_K02']))
+  GAME:WaitFrames(14)
+
+  -- PENTICUS : il cadre, sans reproche — un chef rassemble.
+  if tropius ~= nil then
+    GROUND:CharTurnToCharAnimated(tropius, hero, 4)
+  end
+  UI:SetSpeaker(tropius)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_K03']))
+  GAME:WaitFrames(14)
+  GeneralFunctions.SetEmotion("Determined")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_K04']))
+  GAME:WaitFrames(14)
+
+  -- Le partenaire : la lecon du jour, sans dramatiser.
+  if partner ~= nil then
+    GROUND:CharTurnToCharAnimated(partner, hero, 4)
+  end
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Pain")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_K05']))
+  GAME:WaitFrames(14)
+  GeneralFunctions.SetEmotion("Determined")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_K06'], hero:GetDisplayName()))
+  GAME:WaitFrames(14)
+
+  -- KINO : le mot de l'expert — les ruines ne font pas de cadeaux.
+  if breloom ~= nil then
+    GROUND:CharTurnToCharAnimated(breloom, hero, 4)
+    GeneralFunctions.EmoteAndPause(breloom, "Determined", false)
+  end
+  UI:SetSpeaker(breloom)
+  GeneralFunctions.SetEmotion("Determined")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_K07']))
+  GAME:WaitFrames(14)
+  GeneralFunctions.SetEmotion("Happy")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_K08']))
+  GAME:WaitFrames(14)
+
+  -- On clot : le camp est pret, on retentera quand on sera remis.
+  if tropius ~= nil then
+    UI:SetSpeaker(tropius)
+    GeneralFunctions.SetEmotion("Inspired")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_K09']))
+    GAME:WaitFrames(14)
+  end
+
+  -- Fin : le flag est consomme, le joueur reprend la main au camp.
+  SV.Chapter5.PlayTempRuinsScene = false
+  SV.Chapter5.RuinsLastExitReason = ''
+  if partner ~= nil then
+    AI:EnableCharacterAI(partner)
+    AI:SetCharacterAI(partner, 'origin.ai.ground_partner', hero, partner.Position)
+    PartnerEssentials.SaveGamePartnerPosition(partner)
+  end
+  GeneralFunctions.RendreLaMain(true)
+end
+
+-- ================================================================
+-- RETOUR APRES UN ABANDON VOLONTAIRE — repli digne
+-- L'expedition a fait demi-tour d'elle-meme. Pas de KO : Penticus
+-- salue la sagesse du repli, on se repose, on retentera. Patron du
+-- Mont Venteux (RetreatReturnCutscene).
+-- ================================================================
+function cloven_ruins_entrance_ch_5.RetreatReturnCutscene()
+  local okR, errR = pcall(cloven_ruins_entrance_ch_5.RetreatReturnCutsceneBody)
+  if not okR then
+    PrintInfo('[CR5] repli ecourte : '..tostring(errR))
+    pcall(function() SV.Chapter5.PlayTempRuinsScene = false end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    pcall(function() GAME:FadeIn(20) end)
+  end
+end
+
+function cloven_ruins_entrance_ch_5.RetreatReturnCutsceneBody()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  local tropius = CH('Tropius')
+  local noctowl = CH('Noctowl')
+  local audino = CH('Audino')
+  local snubbull = CH('Snubbull')
+  local breloom = CH('Breloom')
+  local girafarig = CH('Girafarig')
+
+  GAME:CutsceneMode(true)
+  SOUND:StopBGM()
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
+
+  -- L'equipe revient par le sud, la tete baissee mais pas vaincue.
+  GROUND:TeleportTo(hero, 480, 900, Direction.Up)
+  GROUND:TeleportTo(partner, 520, 900, Direction.Up)
+  GAME:MoveCamera(560, 860, 1, false)
+
+  -- Les membres attendent au camp, disposes autour du feu.
+  pcall(function()
+    if tropius ~= nil then GROUND:TeleportTo(tropius, CX, CY + 40, Direction.Down) end
+    if noctowl ~= nil then GROUND:TeleportTo(noctowl, CX - 40, CY + 20, Direction.Down) end
+    if audino ~= nil then GROUND:TeleportTo(audino, CX + 40, CY + 20, Direction.Down) end
+    if snubbull ~= nil then GROUND:TeleportTo(snubbull, CX - 30, CY - 10, Direction.Down) end
+    if breloom ~= nil then GROUND:TeleportTo(breloom, CX + 30, CY - 10, Direction.Down) end
+    if girafarig ~= nil then GROUND:TeleportTo(girafarig, CX + 50, CY - 16, Direction.Down) end
+  end)
+
+  GAME:FadeIn(40)
+  SOUND:PlayBGM('Cave Camp.ogg', true)
+  GAME:WaitFrames(30)
+
+  -- La montee vers le camp.
+  local coro1 = TASK:BranchCoroutine(function()
+    GROUND:MoveToPosition(hero, 480, 860, false, 1)
+    GROUND:MoveToPosition(hero, 512, 830, false, 1)
+  end)
+  local coro2 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(12)
+    GROUND:MoveToPosition(partner, 520, 872, false, 1)
+    GROUND:MoveToPosition(partner, 540, 838, false, 1)
+  end)
+  TASK:JoinCoroutines({coro1, coro2})
+  GAME:WaitFrames(20)
+
+  -- PENTICUS ACCUEILLE — pas de reproche : un chef sait quand on
+  -- revient plus prudent.
+  if tropius ~= nil then
+    GROUND:CharTurnToCharAnimated(tropius, hero, 4)
+    GeneralFunctions.EmoteAndPause(tropius, "Nod", false)
+  end
+  UI:SetSpeaker(tropius)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_R01']))
+  GAME:WaitFrames(14)
+  GeneralFunctions.SetEmotion("Happy")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_R02']))
+  GAME:WaitFrames(14)
+
+  -- Le partenaire, honnete.
+  if partner ~= nil then
+    GROUND:CharTurnToCharAnimated(partner, tropius, 4)
+  end
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_R03']))
+  GAME:WaitFrames(14)
+
+  -- PHILEAS : la lecon, sans jugement.
+  if noctowl ~= nil then
+    GROUND:CharTurnToCharAnimated(noctowl, partner, 4)
+    GeneralFunctions.EmoteAndPause(noctowl, "Glowing", false)
+  end
+  UI:SetSpeaker(noctowl)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_R04']))
+  GAME:WaitFrames(14)
+  GeneralFunctions.SetEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_R05']))
+  GAME:WaitFrames(14)
+
+  -- KINO : l'expert, pragmatique et chaleureux.
+  if breloom ~= nil then
+    GROUND:CharTurnToCharAnimated(breloom, hero, 4)
+    GeneralFunctions.EmoteAndPause(breloom, "Sweatdrop", false)
+  end
+  UI:SetSpeaker(breloom)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_R06']))
+  GAME:WaitFrames(14)
+  GeneralFunctions.SetEmotion("Happy")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_R07']))
+  GAME:WaitFrames(14)
+
+  -- Penticus clot : repos, puis on retente.
+  if tropius ~= nil then
+    UI:SetSpeaker(tropius)
+    GeneralFunctions.SetEmotion("Inspired")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_R08']))
+    GAME:WaitFrames(14)
+  end
+
+  SV.Chapter5.PlayTempRuinsScene = false
+  SV.Chapter5.RuinsLastExitReason = ''
+  if partner ~= nil then
+    AI:EnableCharacterAI(partner)
+    AI:SetCharacterAI(partner, 'origin.ai.ground_partner', hero, partner.Position)
+    PartnerEssentials.SaveGamePartnerPosition(partner)
+  end
+  GeneralFunctions.RendreLaMain(true)
+end
+
 return cloven_ruins_entrance_ch_5

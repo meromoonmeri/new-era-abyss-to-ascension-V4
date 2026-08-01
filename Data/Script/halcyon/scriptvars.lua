@@ -937,6 +937,12 @@ SV.Chapter5 =
 	RuinsCampNightDone = false,
 	RuinsDreamSeen = false,
 	RuinsEntered = false,
+	--Routage de retour au camp apres une sortie de donjon (KO/abandon).
+	--  PlayTempRuinsScene  : le camp doit jouer la cinematique de retour
+	--                        (pose par zone ExitSegment / ground boss).
+	--  RuinsLastExitReason : 'Died' (KO) ou 'Retreated' (abandon volontaire).
+	PlayTempRuinsScene = false,
+	RuinsLastExitReason = '',
 	RuinsExpeditionDone = false
 }
 

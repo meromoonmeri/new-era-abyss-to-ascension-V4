@@ -29,6 +29,7 @@ function cloven_ruins_entrance.Init(map)
       local c5 = SV.Chapter5
       sceneAVenir = c5.RuinsCampPending
                  or (c5.RuinsCampNightDone and not c5.RuinsCampDone)
+                 or c5.PlayTempRuinsScene
     end
     if not sceneAVenir then GAME:CutsceneMode(false) end
   end)
@@ -63,6 +64,20 @@ function cloven_ruins_entrance.PlotScripting()
   -- vers hero_dream qui renvoie ici (DreamReturn). On rejoue le matin.
   if c5.RuinsCampNightDone and not c5.RuinsCampDone then
     cloven_ruins_entrance_ch_5.ResumeAfterDream()
+    return
+  end
+
+  -- RETOUR APRES KO / ABANDON DANS LES RUINES — le camp joue la
+  -- cinematique de reveil (KODefeatCutscene) ou de repli
+  -- (RetreatReturnCutscene). Passe AVANT l'arrivee : on ne rejoue pas
+  -- le briefing, on se releve au camp.
+  if c5.PlayTempRuinsScene then
+    cloven_ruins_entrance_ch_5.SetupGround()
+    if c5.RuinsLastExitReason == 'Retreated' then
+      cloven_ruins_entrance_ch_5.RetreatReturnCutscene()
+    else
+      cloven_ruins_entrance_ch_5.KODefeatCutscene()
+    end
     return
   end
 

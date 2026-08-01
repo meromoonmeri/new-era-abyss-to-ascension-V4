@@ -247,4 +247,55 @@
   </data>
   <data name="CR5_B06" xml:space="preserve">
     <value>Et toi,[pause=10] tu oublies que c'est toi qui as tenu la torche,[pause=10] ce jour-là.[pause=0] Sans toi,[pause=10] je serais tombé dans la première crevasse.</value>
+  </data>
+  <data name="CR5_K01" xml:space="preserve">
+    <value>Doucement,[pause=10] doucement...[pause=15] Ne vous levez pas d'un bloc.[pause=0] Vous avez pris un sacré coup,[pause=10] là-dedans.</value>
+  </data>
+  <data name="CR5_K02" xml:space="preserve">
+    <value>J'ai posé des baies et des cataplasmes.[pause=15] Vous bougerez quand je vous le dirai,[pause=10] pas avant.</value>
+  </data>
+  <data name="CR5_K03" xml:space="preserve">
+    <value>Les ruines vous ont renvoyés.[pause=10] Ça arrive aux meilleures équipes.[pause=15] Ce qui compte,[pause=10] c'est que vous soyez revenus entiers.</value>
+  </data>
+  <data name="CR5_K04" xml:space="preserve">
+    <value>On ne rentre pas à la guilde.[pause=10] On se refait ici,[pause=10] au camp.[pause=15] Et on retente quand vous serez prêts.</value>
+  </data>
+  <data name="CR5_K05" xml:space="preserve">
+    <value>Aïe...[pause=15] La première salle était déjà un mur.[pause=0] On n'était pas assez préparés,[pause=10] voilà tout.</value>
+  </data>
+  <data name="CR5_K06" xml:space="preserve">
+    <value>Mais on l'est maintenant,[pause=10] {0}.[pause=15] On sait ce qui nous attend.[pause=0] Et on reviendra plus malins.</value>
+  </data>
+  <data name="CR5_K07" xml:space="preserve">
+    <value>Les ruines ne font pas de cadeaux.[pause=10] Moi-même,[pause=10] j'ai mis trois tentatives avant d'atteindre le fond.[pause=15] C'est normal,[pause=10] de tomber.</value>
+  </data>
+  <data name="CR5_K08" xml:space="preserve">
+    <value>C'est pas tomber qui compte.[pause=0] C'est ce qu'on fait après.[pause=10] Et vous,[pause=10] vous avez l'air du genre à vous relever.</value>
+  </data>
+  <data name="CR5_K09" xml:space="preserve">
+    <value>Reposez-vous.[pause=10] Mangez.[pause=15] On attaquera la prochaine fois avec ce qu'on a appris.[pause=0] Le camp est prêt,[pause=10] et nous aussi.</value>
+  </data>
+  <data name="CR5_R01" xml:space="preserve">
+    <value>Vous voilà.[pause=10] En un seul morceau,[pause=10] c'est l'essentiel.[pause=15] Un repli,[pause=10] ce n'est pas une défaite :[pause=0] c'est une décision.</value>
+  </data>
+  <data name="CR5_R02" xml:space="preserve">
+    <value>Bienvenue au camp.[pause=10] Asseyez-vous près du feu.[pause=15] On parlera de la suite quand vous aurez repris votre souffle.</value>
+  </data>
+  <data name="CR5_R03" xml:space="preserve">
+    <value>On est allés aussi loin qu'on pouvait,[pause=10] aujourd'hui.[pause=15] Les couloirs devenaient... mauvais.[pause=0] On a préféré revenir.</value>
+  </data>
+  <data name="CR5_R04" xml:space="preserve">
+    <value>Sage décision.[pause=10] Les ruines ne vont nulle part.[pause=15] Elles attendent depuis mille ans :[pause=0] elles peuvent attendre une nuit de plus.</value>
+  </data>
+  <data name="CR5_R05" xml:space="preserve">
+    <value>Ce que vous avez vu là-dedans,[pause=10] retenez-le.[pause=15] Chaque tentative vous rapproche de ce qui pulse au fond.</value>
+  </data>
+  <data name="CR5_R06" xml:space="preserve">
+    <value>Vous avez eu raison.[pause=10] Moi,[pause=10] la première fois,[pause=10] j'ai failli rester coincé dans un couloir qui n'arrêtait pas de bouger.[pause=0] Revenir,[pause=10] c'est pas renoncer.</value>
+  </data>
+  <data name="CR5_R07" xml:space="preserve">
+    <value>Et puis,[pause=10] on a tout ce qu'il faut ici :[pause=0] un feu,[pause=10] de la nourriture,[pause=10] et la meilleure équipe de la région.[pause=10] Demain sera un meilleur jour.</value>
+  </data>
+  <data name="CR5_R08" xml:space="preserve">
+    <value>Alors voilà le plan :[pause=10] on se repose,[pause=10] on refait les sacs,[pause=15] et on retente quand vous serez remis.[pause=0] Les Ruines Fendues ne nous feront pas reculer.</value>
   </data></root>

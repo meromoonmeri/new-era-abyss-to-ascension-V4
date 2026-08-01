@@ -247,4 +247,55 @@
   </data>
   <data name="CR5_B06" xml:space="preserve">
     <value>And you forget it was you holding the torch that day. Without you, I'd have fallen into the first crevice.</value>
+  </data>
+  <data name="CR5_K01" xml:space="preserve">
+    <value>Easy, easy... Don't get up all at once. You took quite a hit in there.</value>
+  </data>
+  <data name="CR5_K02" xml:space="preserve">
+    <value>I've laid out berries and poultices. You'll move when I say so, not before.</value>
+  </data>
+  <data name="CR5_K03" xml:space="preserve">
+    <value>The ruins turned you back. It happens to the best teams. What matters is you came back whole.</value>
+  </data>
+  <data name="CR5_K04" xml:space="preserve">
+    <value>We're not going back to the guild. We rebuild here, at camp. And we try again when you're ready.</value>
+  </data>
+  <data name="CR5_K05" xml:space="preserve">
+    <value>Ouch... The first room was already a wall. We weren't prepared enough, that's all.</value>
+  </data>
+  <data name="CR5_K06" xml:space="preserve">
+    <value>But we are now, {0}. We know what awaits. And we'll come back smarter.</value>
+  </data>
+  <data name="CR5_K07" xml:space="preserve">
+    <value>The ruins don't cut anyone slack. I needed three tries to reach the bottom. Falling is normal.</value>
+  </data>
+  <data name="CR5_K08" xml:space="preserve">
+    <value>Falling isn't what matters. It's what you do after. And you two look like the kind who get back up.</value>
+  </data>
+  <data name="CR5_K09" xml:space="preserve">
+    <value>Rest. Eat. Next time we go in with what we learned. The camp is ready, and so are we.</value>
+  </data>
+  <data name="CR5_R01" xml:space="preserve">
+    <value>There you are. In one piece—that's what matters. A retreat isn't a defeat: it's a decision.</value>
+  </data>
+  <data name="CR5_R02" xml:space="preserve">
+    <value>Welcome back to camp. Sit by the fire. We'll talk about what's next once you catch your breath.</value>
+  </data>
+  <data name="CR5_R03" xml:space="preserve">
+    <value>We went as far as we could today. The corridors were turning... bad. We chose to come back.</value>
+  </data>
+  <data name="CR5_R04" xml:space="preserve">
+    <value>Wise call. The ruins aren't going anywhere. They've waited a thousand years: they can wait one more night.</value>
+  </data>
+  <data name="CR5_R05" xml:space="preserve">
+    <value>What you saw in there, hold onto it. Each attempt brings you closer to what pulses at the bottom.</value>
+  </data>
+  <data name="CR5_R06" xml:space="preserve">
+    <value>You did right. Me, first time, I nearly got stuck in a corridor that wouldn't stop moving. Coming back isn't giving up.</value>
+  </data>
+  <data name="CR5_R07" xml:space="preserve">
+    <value>Besides, we have everything we need here: a fire, food, and the best team in the region. Tomorrow will be a better day.</value>
+  </data>
+  <data name="CR5_R08" xml:space="preserve">
+    <value>So here's the plan: we rest, we restock, and we try again when you're recovered. The Shattered Ruins won't make us back down.</value>
   </data></root>

@@ -304,6 +304,8 @@ function DebugTools:OnUpgrade()
  if SV.Chapter5.RuinsCampNightDone == nil then SV.Chapter5.RuinsCampNightDone = false end
  if SV.Chapter5.RuinsDreamSeen == nil then SV.Chapter5.RuinsDreamSeen = false end
  if SV.Chapter5.RuinsEntered == nil then SV.Chapter5.RuinsEntered = false end
+ if SV.Chapter5.PlayTempRuinsScene == nil then SV.Chapter5.PlayTempRuinsScene = false end
+ if SV.Chapter5.RuinsLastExitReason == nil then SV.Chapter5.RuinsLastExitReason = '' end
  if SV.Chapter5.RuinsExpeditionDone == nil then SV.Chapter5.RuinsExpeditionDone = false end
  
  
