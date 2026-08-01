@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:schema id="root">
     <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -3552,7 +3552,7 @@
 <data name="MT5_Azumarill_003" xml:space="preserve"><value>You're back![pause=15] The tent is open, come in and rest!</value></data>
 <data name="MT5_Azumarill_004" xml:space="preserve"><value>My tent is always open![pause=15] For travellers.</value></data>
 <data name="MT5_Doduo_001" xml:space="preserve"><value>We ran all the way to the edge of the Steppe![pause=15] ...Well, nearly.</value></data>
-<data name="MT5_Doduo_002" xml:space="preserve"><value>We heard you tamed an ALPHA Stantler?![pause=20] We want to hear everything!</value></data>
+<data name="MT5_Doduo_002" xml:space="preserve"><value>We heard you tamed an ALPHA Absol?![pause=20] We want to hear everything!</value></data>
 <data name="MT5_Doduo_003" xml:space="preserve"><value>Running, always running.[pause=20] That's how you train for an expedition!</value></data>
 <data name="MT5_Bagon_001" xml:space="preserve"><value>You climbed Mount Windswept?![pause=15] I want to learn to fly! Like you!</value></data>
 <data name="MT5_Bagon_002" xml:space="preserve"><value>One day I'll fly over the steppe![pause=15] You'll see!</value></data>

@@ -37,7 +37,7 @@
               "Gender": -1
             },
             "CurrentForm": {
-              "Species": "stantler",
+              "Species": "absol",
               "Form": 0,
               "Skin": "normal",
               "Gender": 1
@@ -189,11 +189,11 @@
               "Assembly": false,
               "Index": -1
             },
-            "Nickname": "Stantler",
+            "Nickname": "Absol",
             "OriginalUUID": "",
             "OriginalTeam": "",
             "BaseForm": {
-              "Species": "stantler",
+              "Species": "absol",
               "Form": 0,
               "Skin": "normal",
               "Gender": 1

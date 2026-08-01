@@ -357,6 +357,16 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
+		--Gardien de la Grande Steppe (chapitre 5) : presage de desastre,
+		--solitaire, ne surgit que quand quelque chose se prepare.
+		Absol = {
+			species = "absol",
+			nickname = 'Absol',
+			instance = 'Absol',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
 		Torkoal = {
 			species = "torkoal",
 			nickname = 'Chartor',

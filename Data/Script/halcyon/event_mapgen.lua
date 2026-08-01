@@ -539,7 +539,7 @@ end
 function ZONE_GEN_SCRIPT.SpawnChapter5SteppeGuardian(zoneContext, context, queue, seed, args)
   if zoneContext.CurrentID == 13 then
     QueueChapter5Encounter(queue, {
-      { Species = "stantler", Level = 23, HPBonus = 36 }
+      { Species = "absol", Level = 23, HPBonus = 36 }
     })
   end
 end

@@ -1,7 +1,7 @@
 --[[
     init.lua
     Vast Steppe Guardian Ground Map
-    Alpha Stantler encounter — Chapter 5
+    Absol — Gardien Alpha de la Grande Steppe — Chapter 5
 ]]
 require 'origin.common'
 require 'halcyon.PartnerEssentials'

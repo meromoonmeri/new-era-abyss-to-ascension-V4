@@ -1,7 +1,7 @@
 --[[ 
     vast_steppe_guardian_ch_5.lua
-    Grande Steppe — Gardien : Stantler Alpha
-    Apparition silencieuse depuis la brume, bois luminescents
+    Grande Steppe — Gardien : Absol
+    Apparition silencieuse depuis la brume, corne en croissant luisante
 ]]
 
 require 'origin.common'
@@ -92,15 +92,15 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   -- Brume montante
   BossFX.Overlay("Fog", 0, 0, 20, 70, 25, DrawLayer.Bottom, -1, 0)
 
-  -- LOT 8.3 — la harde assiste ; le duo se prepare. Camera mobile entre eux.
+  -- LOT 8.3 — la plaine se tait ; le duo se prepare. Camera mobile entre eux.
   GAME:MoveCamera(184, 262, 40, false)
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_028']))
-  -- "Toute la harde regarde depuis la brume. Ils sont venus voir ca."
+  -- "Un Absol... On dit qu'il surgit quand un desastre approche."
   GAME:WaitFrames(15)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['VSG_029']), "Normal")
-  -- "Ses bois sont plus vieux que l'herbe..."
+  -- "Sa corne en croissant est plus vieille que l'herbe..."
   GAME:WaitFrames(20)
   UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_030']))
@@ -127,17 +127,17 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   BossFX.Flash(center.X, center.Y, 3, 5, 15)
 
   -- LOT 2 — apparition standardisee : flash blanc simple
-  local stantler = CharacterEssentials.MakeCharactersFromList({
-    {'Stantler', 184, 200, Direction.Down}
+  local absol = CharacterEssentials.MakeCharactersFromList({
+    {'Absol', 184, 200, Direction.Down}
   })
-  GROUND:Hide('Stantler')
+  GROUND:Hide('Absol')
   BossFX.Rumble({hero, partner}, 2)
   SOUND:PlayBGM('Rising Fear.ogg', true)
   BossFX.Flash(184, 200, 3, 5, 20)
   GAME:WaitFrames(8)
-  GROUND:Unhide('Stantler')
+  GROUND:Unhide('Absol')
   BossFX.Impact(9)
-  GROUND:CharSetAnim(stantler, "Charge", true)
+  GROUND:CharSetAnim(absol, "Charge", true)
 
   coro1 = TASK:BranchCoroutine(function()
     GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
@@ -154,7 +154,7 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_003']))
-  -- "Ses bois...[pause=10] ils brillent !"
+  -- "Sa corne en croissant...[pause=10] elle luit !"
 
   GAME:WaitFrames(30)
 
@@ -162,9 +162,9 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   -- Avant ce lot il etait MUET : le duo commentait une silhouette. Or c'est
   -- le personnage le plus ancien du chapitre 5, et le seul en position de
   -- dire au joueur que le monde a change AVANT que l'histoire ne le montre.
-  -- Il ne teste pas comme la harde : il AVERTIT, puis s'ecarte.
+  -- Il ne frappe pas d'abord : il AVERTIT, puis s'ecarte.
   GAME:MoveCamera(184, 218, 40, false)
-  UI:SetSpeaker(stantler)
+  UI:SetSpeaker(absol)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_038']))
   -- "Vous etes revenus. Ils reviennent toujours."
   GAME:WaitFrames(15)
@@ -180,7 +180,7 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   -- "Quelque chose sous l'herbe a cesse de dormir. Il y a des annees deja."
   GAME:WaitFrames(22)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_042']))
-  -- "Je ne peux pas le suivre. Mes sabots appartiennent a cette plaine."
+  -- "Je ne peux pas le suivre. Cette plaine m'a fait. Elle me garde."
   GAME:WaitFrames(18)
   -- Cadre commun : il s'adresse enfin directement au duo.
   GAME:MoveCamera(184, 244, 40, false)
@@ -197,7 +197,7 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
 
   GAME:WaitFrames(30)
 
-  -- Le Stantler frappe du sabot, le sol tremble
+  -- L'Absol frappe le sol, la terre tremble
   BossFX.ShakeScreen(4, 20)
   GAME:WaitFrames(20)
 
@@ -235,13 +235,13 @@ function vast_steppe_guardian_ch_5.SecondPreBossScene()
 	pcall(function() GAME:FadeOut(false, 1) end)
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
-  local stantler = CharacterEssentials.MakeCharactersFromList({
-    {'Stantler', 184, 200, Direction.Down}
+  local absol = CharacterEssentials.MakeCharactersFromList({
+    {'Absol', 184, 200, Direction.Down}
   })
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
-  GROUND:CharSetAnim(stantler, "Charge", true)
+  GROUND:CharSetAnim(absol, "Charge", true)
 
   GROUND:TeleportTo(hero, 200, 288, Direction.Up)
   GROUND:TeleportTo(partner, 168, 288, Direction.Up)
@@ -291,10 +291,10 @@ local function DefeatedBossBody()
 	pcall(function() GAME:FadeOut(false, 1) end)
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
-  local stantler = CharacterEssentials.MakeCharactersFromList({
-    {'Stantler', 184, 200, Direction.Down}
+  local absol = CharacterEssentials.MakeCharactersFromList({
+    {'Absol', 184, 200, Direction.Down}
   })
-  GROUND:CharSetAnim(stantler, "Charge", true)
+  GROUND:CharSetAnim(absol, "Charge", true)
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
@@ -321,7 +321,7 @@ local function DefeatedBossBody()
 
   GAME:WaitFrames(20)
 
-  -- The Stantler collapses, its antlers stop glowing
+  -- L'Absol s'effondre, sa corne cesse de luire
   local flash = RogueEssence.Content.FlashEmitter()
   flash.FadeInTime = 2
   flash.HoldTime = 2
@@ -329,11 +329,11 @@ local function DefeatedBossBody()
   flash.StartColor = Color(180, 220, 255, 0)
   flash.Layer = DrawLayer.Top
   flash.Anim = RogueEssence.Content.BGAnimData("White", 0)
-  GROUND:PlayVFX(flash, stantler.Position.X, stantler.Position.Y)
+  GROUND:PlayVFX(flash, absol.Position.X, absol.Position.Y)
   SOUND:PlayBattleSE("EVT_Battle_Flash")
   -- LOT 2.3 — pas de PoseGroundAction/"Faint" : le gardien reste visible
   -- pendant les dialogues, puis disparait au flash blanc.
-  GROUND:CharSetAnim(stantler, "Idle", true)
+  GROUND:CharSetAnim(absol, "Idle", true)
 
   GAME:WaitFrames(60)
 
@@ -369,10 +369,10 @@ local function DefeatedBossBody()
   -- ================= IL PASSE LE RELAIS, ET AVERTIT =================
   -- Le salut muet (VSG_033) ne suffisait pas : le vieux avait annonce qu'il
   -- s'ecarterait, il doit le DIRE. Sa derniere phrase est la contrepartie
-  -- de celle de Stantler a la steppe : la brume ne lui a jamais parle.
+  -- de celle de l'Absol a la steppe : la brume ne lui a jamais parle.
   -- Deux temoins independants, aucun des deux n'entend la Voix.
   GAME:MoveCamera(184, 214, 40, false)
-  UI:SetSpeaker(stantler)
+  UI:SetSpeaker(absol)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_044']))
   -- "Bien. Je suis fatigue, et vous ne l'etes pas."
   GAME:WaitFrames(15)
@@ -418,10 +418,10 @@ local function DefeatedBossBody()
   flash.StartColor = Color(255, 255, 255, 0)
   flash.Layer = DrawLayer.Top
   flash.Anim = RogueEssence.Content.BGAnimData("White", 0)
-  GROUND:PlayVFX(flash, stantler.Position.X, stantler.Position.Y)
+  GROUND:PlayVFX(flash, absol.Position.X, absol.Position.Y)
   SOUND:PlayBattleSE("EVT_Battle_Flash")
   GAME:WaitFrames(16)
-  GROUND:Hide('Stantler')
+  GROUND:Hide('Absol')
   GAME:WaitFrames(30)
 
   GAME:WaitFrames(60)
@@ -464,10 +464,10 @@ function vast_steppe_guardian_ch_5.DiedToBoss()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
-  local stantler = CharacterEssentials.MakeCharactersFromList({
-    {'Stantler', 184, 200, Direction.Down}
+  local absol = CharacterEssentials.MakeCharactersFromList({
+    {'Absol', 184, 200, Direction.Down}
   })
-  GROUND:CharSetAnim(stantler, "Idle", true)
+  GROUND:CharSetAnim(absol, "Idle", true)
 
   -- L'équipe est au sol, vaincue.
   GROUND:TeleportTo(hero, 200, 288, Direction.Up)
@@ -488,7 +488,7 @@ function vast_steppe_guardian_ch_5.DiedToBoss()
   GAME:WaitFrames(10)
 
   -- Le boss triomphe.
-  GROUND:CharSetAnim(stantler, "Charge", true)
+  GROUND:CharSetAnim(absol, "Charge", true)
   UI:ResetSpeaker()
   UI:SetCenter(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_016']))
@@ -511,7 +511,7 @@ function vast_steppe_guardian_ch_5.DiedToBoss()
   GAME:WaitFrames(12)
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Pain")
-  UI:WaitShowDialogue("Ses bois... cette lumière...[pause=20] On n'était pas prêts...")
+  UI:WaitShowDialogue("Sa corne... cette lumière...[pause=20] On n'était pas prêts...")
   GAME:WaitFrames(20)
 
   -- Le boss se retire, victorieux.
