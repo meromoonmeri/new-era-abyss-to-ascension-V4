@@ -669,24 +669,19 @@ function mount_windswept_guardian_ch_5.DefeatedBoss()
   --guild_dining_room.Dinnertime (init.lua:102), le 2e etage via son
   --PlotScripting.
 
-  --Le sommet est vaincu : l'expedition du chapitre 5 est terminee.
-  --On renvoyait vers "cloven_ruins", carte qui n'existe pas (la zone est
-  --Released=false, 0 segment) -> ecran noir apres la victoire finale.
-  --On cloture proprement : bascule chapitre 6, fin de journee a la guilde.
-  --Cette cloture est HORS du pcall : meme si la mise en scene casse, la
-  --progression de chapitre et le retour a la guilde ont TOUJOURS lieu.
-  SV.Chapter5.FinishedExpedition = true
-  SV.ChapterProgression.Chapter = 6
-  SV.TemporaryFlags.Dinnertime = true
-  SV.TemporaryFlags.Bedtime = true
-  SV.TemporaryFlags.MorningWakeup = true
-  SV.TemporaryFlags.MorningAddress = true
-
-  local exit_ground = 6
-  if SV.TemporaryFlags.MissionCompleted then exit_ground = 22 end
-  PrintInfo("[BossSeq][mount_windswept_guardian_ch_5] DefeatedBoss -> master_zone (fin expedition ch5, Chapter=6)")
-  GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared,
-    "master_zone", -1, exit_ground, 0, true, true)
+  --LE SOMMET EST VAINCU — MAIS L'EXPEDITION N'EST PAS TERMINEE.
+  --(Restructuration validee : option 2 — les Ruines Fendues sont le
+  --climax du ch5.) Tornadus a revele les veines qui convergent vers le
+  --nord : la suite logique est le CAMPEMENT DEVANT LES RUINES FENDUES
+  --(cloven_ruins_entrance), pas un retour a Metano. Le briefing, la
+  --nuit et le reve s'y jouent (cloven_ruins_entrance_ch_5.lua), puis
+  --le donjon final. FinishedExpedition ne sera pose qu'apres les
+  --Ruines (et la cloture de l'expedition -> ch6).
+  --Cette bascule est HORS du pcall : meme si la mise en scene casse,
+  --l'expedition doit TOUJOURS pouvoir continuer vers les Ruines.
+  SV.Chapter5.RuinsCampPending = true
+  PrintInfo("[BossSeq][mount_windswept_guardian_ch_5] DefeatedBoss -> cloven_ruins_entrance (campement des Ruines Fendues)")
+  GAME:EnterGroundMap("cloven_ruins_entrance", "Main_Entrance_Marker")
 end
 
 -- Player died to the boss

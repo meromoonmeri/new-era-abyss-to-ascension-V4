@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.NetStandard.ResXResourceReader, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <data name="CR5_001" xml:space="preserve">
+    <value>(So this is it. The Shattered Ruins.)</value>
+  </data>
+  <data name="CR5_002" xml:space="preserve">
+    <value>We're here... The expedition's final objective.</value>
+  </data>
+  <data name="CR5_003" xml:space="preserve">
+    <value>There you are! We were starting to wonder if the wind had swallowed you.</value>
+  </data>
+  <data name="CR5_004" xml:space="preserve">
+    <value>Reinier and I arrived yesterday. We already know these ruins—we've walked them end to end, every way there is.</value>
+  </data>
+  <data name="CR5_005" xml:space="preserve">
+    <value>We searched them top to bottom... and understood nothing.</value>
+  </data>
+  <data name="CR5_006" xml:space="preserve">
+    <value>It's a total mystery. Every corridor looks like the last one, and yet it isn't.</value>
+  </data>
+  <data name="CR5_007" xml:space="preserve">
+    <value>Welcome to the Shattered Ruins camp. Everyone's here, as planned.</value>
+  </data>
+  <data name="CR5_008" xml:space="preserve">
+    <value>Settle in. We have a lot to say to each other before we go in.</value>
+  </data>
+  <data name="CR5_009" xml:space="preserve">
+    <value>Look. The main entrance, over there. The dark veins running across the stone... they all lead downward, inside.</value>
+  </data>
+  <data name="CR5_010" xml:space="preserve">
+    <value>(The veins... Like the ones Tornadus spoke of. A shape beneath the world.)</value>
+  </data>
+  <data name="CR5_011" xml:space="preserve">
+    <value>Dinner's ready. Eat first. We'll talk after.</value>
+  </data>
+  <data name="CR5_012" xml:space="preserve">
+    <value>Before we enter these ruins, I want to hear from each of you. Everything you've seen since the expedition began.</value>
+  </data>
+  <data name="CR5_013" xml:space="preserve">
+    <value>I'll start. The Crucible, first: the lava followed no natural rhythm. It rose and fell, as if it were breathing.</value>
+  </data>
+  <data name="CR5_014" xml:space="preserve">
+    <value>Then the storm at the summit. A sky that didn't turn by chance. And beneath it all, these veins... converging.</value>
+  </data>
+  <data name="CR5_015" xml:space="preserve">
+    <value>I saw trees withering by the roadside, in full season. Their roots, grey. As if drained from within.</value>
+  </data>
+  <data name="CR5_016" xml:space="preserve">
+    <value>As for the ruins, I'll speak for them. We called them 'Twisted', because nothing in them is straight. The walls, the corridors, even the stones. Everything leans.</value>
+  </data>
+  <data name="CR5_017" xml:space="preserve">
+    <value>And yet, beneath the stone... something pulses. You feel it when you press your paw to the ground.</value>
+  </data>
+  <data name="CR5_018" xml:space="preserve">
+    <value>My rear mind says these ruins weren't built by Pokémon. They were CARVED. Around something. Something meant to be kept.</value>
+  </data>
+  <data name="CR5_019" xml:space="preserve">
+    <value>And if a guardian waits at the bottom... it has been watching for a very, very long time.</value>
+  </data>
+  <data name="CR5_020" xml:space="preserve">
+    <value>(Tornadus said a shape lives beneath the world. And that the veins converge toward the north. Here.)</value>
+  </data>
+  <data name="CR5_021" xml:space="preserve">
+    <value>Wait... You mean these ruins would be the meeting point? Of ALL the veins?</value>
+  </data>
+  <data name="CR5_022" xml:space="preserve">
+    <value>I say we came all this way, so we're not turning back at a doorway. That's not my style.</value>
+  </data>
+  <data name="CR5_023" xml:space="preserve">
+    <value>Easy to say when you haven't seen what pulses beneath the stone.</value>
+  </data>
+  <data name="CR5_024" xml:space="preserve">
+    <value>Come on, Ganlon! We're the team that crossed the steppe, the tunnel, and a whole mountain! We've seen worse than ruins.</value>
+  </data>
+  <data name="CR5_025" xml:space="preserve">
+    <value>Camp protocol respected, woof! Fire, guard, rations: everything's in order for tomorrow.</value>
+  </data>
+  <data name="CR5_026" xml:space="preserve">
+    <value>And I saved a piece of pie for everyone. You don't walk into a dungeon on an empty stomach—that's what my mother says.</value>
+  </data>
+  <data name="CR5_027" xml:space="preserve">
+    <value>Let's put the pieces together. A heat that breathes. Trees drained of their sap. Veins converging beneath the earth. And at the end, these ruins. Everything leads here.</value>
+  </data>
+  <data name="CR5_028" xml:space="preserve">
+    <value>Then tomorrow we'll learn what these ruins guard. And if they guard something living... we'll know why the whole world seems to have gathered here.</value>
+  </data>
+  <data name="CR5_029" xml:space="preserve">
+    <value>(The pieces are coming together. And I feel they form something great. Something very great.)</value>
+  </data>
+  <data name="CR5_030" xml:space="preserve">
+    <value>Decision made. Tomorrow, at dawn, we enter the Shattered Ruins. Tonight, we all sleep here. Rest: this is the last camp before the unknown.</value>
+  </data>
+  <data name="CR5_031" xml:space="preserve">
+    <value>Look at the ruins, over there. They look like they've been waiting forever. And tonight, it's us they were waiting for.</value>
+  </data>
+  <data name="CR5_032" xml:space="preserve">
+    <value>(Tomorrow, we'll know. Whatever is at the bottom, we'll face it.)</value>
+  </data>
+  <data name="CR5_033" xml:space="preserve">
+    <value>The fire dies down gently. The camp falls asleep at the foot of the Shattered Ruins.</value>
+  </data>
+  <data name="CR5_034" xml:space="preserve">
+    <value>Tomorrow, we go in. Do you feel that weight too? As if the whole expedition led here.</value>
+  </data>
+  <data name="CR5_035" xml:space="preserve">
+    <value>We crossed half the region for this. We're not backing down now.</value>
+  </data>
+  <data name="CR5_036" xml:space="preserve">
+    <value>And whatever is at the bottom, {0}, we'll find it. Together. As always...</value>
+  </data>
+  <data name="CR5_D01" xml:space="preserve">
+    <value>...As always, we...[pause=20] we...</value>
+  </data>
+  <data name="CR5_D02" xml:space="preserve">
+    <value>(...And he fell asleep mid-sentence. I guess the day wore him out.)</value>
+  </data>
+  <data name="CR5_037" xml:space="preserve">
+    <value>The ruins watch over the sleeping camp. The night wraps around them.</value>
+  </data>
+  <data name="CR5_038" xml:space="preserve">
+    <value>(...A silhouette. A light. Who...[pause=15] who was that?)</value>
+  </data>
+  <data name="CR5_039" xml:space="preserve">
+    <value>(I keep seeing that shape... but I can't catch it.)</value>
+  </data>
+  <data name="CR5_040" xml:space="preserve">
+    <value>(She said something...[pause=10] about me. About what I've become.)</value>
+  </data>
+  <data name="CR5_041" xml:space="preserve">
+    <value>You're awake? You looked... elsewhere. Seems sleep didn't give everything back.</value>
+  </data>
+  <data name="CR5_042" xml:space="preserve">
+    <value>The sun rises over the ruins. The stone catches fire. It feels like they're watching us.</value>
+  </data>
+  <data name="CR5_043" xml:space="preserve">
+    <value>Day has broken, and with it, the last leg of our expedition. The Shattered Ruins await.</value>
+  </data>
+  <data name="CR5_044" xml:space="preserve">
+    <value>We go in together. We come out together. Whatever is at the bottom, we'll face it head-on.</value>
+  </data>
+  <data name="CR5_045" xml:space="preserve">
+    <value>So... here we go. The Shattered Ruins, here we come.</value>
+  </data>
+  <data name="CR5_046" xml:space="preserve">
+    <value>(Let's go. And whatever is in there, we'll face it.)</value>
+  </data>
+</root>

@@ -530,6 +530,16 @@ local function DreamSceneBody()
   --camp, qui joue le sursaut et l'oubli. Le drapeau dit au camp que le
   --reve a eu lieu.
   SV.Chapter5.DreamSceneSeen = true
+  --Le reve est partage entre plusieurs camps du ch5 (Mont Venteux et
+  --Ruines Fendues) : on pose aussi le drapeau propre au camp qui a
+  --appele, identifie par la carte de retour qu'il a posee. Le routeur
+  --des Ruines (cloven_ruins_entrance) lit RuinsDreamSeen pour ne pas
+  --rejouer la veillee en boucle.
+  pcall(function()
+    if SV.TemporaryFlags ~= nil and SV.TemporaryFlags.DreamReturn == 'cloven_ruins_entrance' then
+      SV.Chapter5.RuinsDreamSeen = true
+    end
+  end)
 
   --Le heros ne doit pas rester couche sur la carte suivante.
   pcall(function() GROUND:CharEndAnim(hero) end)
@@ -559,6 +569,16 @@ function hero_dream.DreamScene()
   --Le drapeau est pose meme en cas d'echec : sans lui, PlotScripting du
   --camp rejouerait la veillee en boucle et on repartirait vers le reve.
   SV.Chapter5.DreamSceneSeen = true
+  --Le reve est partage entre plusieurs camps du ch5 (Mont Venteux et
+  --Ruines Fendues) : on pose aussi le drapeau propre au camp qui a
+  --appele, identifie par la carte de retour qu'il a posee. Le routeur
+  --des Ruines (cloven_ruins_entrance) lit RuinsDreamSeen pour ne pas
+  --rejouer la veillee en boucle.
+  pcall(function()
+    if SV.TemporaryFlags ~= nil and SV.TemporaryFlags.DreamReturn == 'cloven_ruins_entrance' then
+      SV.Chapter5.RuinsDreamSeen = true
+    end
+  end)
 
   --Ecran noir avant la bascule, et mode cinematique conserve : la carte
   --d'arrivee (ResumeAfterDream) les reprend a son compte.
@@ -616,8 +636,30 @@ function hero_dream.DreamScene()
     return resT == true
   end
 
-  if groundLoadable('mount_windswept_entrance') then
-    PrintInfo('[hero_dream] preflight retour OK — bascule vers le camp')
+  --CARTE DE RETOUR PARAMETRABLE. hero_dream est partage entre plusieurs
+  --camps (Mont Venteux au ch5, Ruines Fendues au ch5, ...) : la carte
+  --vers laquelle renvoyer le joueur apres le reve est posee par
+  --l'appelant (SV.TemporaryFlags.DreamReturn = nom de ground) juste
+  --avant la bascule. Defaut : mount_windswept_entrance (comportement
+  --historique du ch5 Mont Venteux).
+  local function dreamReturnGround()
+    local nom = nil
+    pcall(function()
+      if SV.TemporaryFlags ~= nil and SV.TemporaryFlags.DreamReturn ~= nil
+         and SV.TemporaryFlags.DreamReturn ~= '' then
+        nom = SV.TemporaryFlags.DreamReturn
+      end
+    end)
+    if nom == nil then nom = 'mount_windswept_entrance' end
+    return nom
+  end
+  local retour = dreamReturnGround()
+
+  if groundLoadable(retour) then
+    PrintInfo('[hero_dream] preflight retour OK — bascule vers le camp ('..retour..')')
+    pcall(function() GAME:EnterGroundMap(retour, 'Main_Entrance_Marker', true) end)
+  elseif groundLoadable('mount_windswept_entrance') then
+    PrintInfo('[hero_dream] carte de retour non chargeable — repli mount_windswept_entrance')
     pcall(function() GAME:EnterGroundMap('mount_windswept_entrance', 'Main_Entrance_Marker', true) end)
   elseif groundLoadable('vast_steppe_midpoint') then
     PrintInfo('[hero_dream] camp non chargeable — repli vast_steppe_midpoint (scene du matin sautee)')

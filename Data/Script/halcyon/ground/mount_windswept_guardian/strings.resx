@@ -86,9 +86,9 @@
     <value>It is not a monster you must fear, little ones.[pause=20] It is a place.[pause=15] And places,[pause=10] well,[pause=10] they are never in a hurry.</value>
   </data>
   <data name="MWG_056" xml:space="preserve">
-    <value>Then we will head down.[pause=15] We'll tell the guild everything.[pause=20] And we will come back.</value>
+    <value>Then we head down.[pause=15] The Shattered Ruins,[pause=10] that way.[pause=20] And we go.</value>
   </data>
   <data name="MWG_057" xml:space="preserve">
-    <value>(The shattered ruins...[pause=15] That's where we'll go.[pause=20] When we're ready.)</value>
+    <value>(The veins...[pause=15] They converge toward the north.[pause=20] Toward the Shattered Ruins.[pause=10] That's where we're going.)</value>
   </data>
 </root>

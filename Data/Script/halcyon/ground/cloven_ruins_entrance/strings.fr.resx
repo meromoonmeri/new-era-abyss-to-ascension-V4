@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.NetStandard.ResXResourceReader, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <data name="CR5_001" xml:space="preserve">
+    <value>(Alors c'est ici.[pause=15] Les Ruines Fendues.)</value>
+  </data>
+  <data name="CR5_002" xml:space="preserve">
+    <value>On y est...[pause=15] Le dernier objectif de l'expédition.</value>
+  </data>
+  <data name="CR5_003" xml:space="preserve">
+    <value>Vous voilà ![pause=10] On commençait à se demander si le vent ne vous avait pas avalés.</value>
+  </data>
+  <data name="CR5_004" xml:space="preserve">
+    <value>Reinier et moi,[pause=10] on est arrivés hier.[pause=15] Les ruines,[pause=10] on les connaît déjà.[pause=0] On les a arpentées en long,[pause=10] en large,[pause=10] et en travers.</value>
+  </data>
+  <data name="CR5_005" xml:space="preserve">
+    <value>Nous les avons fouillées de fond en comble...[pause=15] et nous n'y avons rien compris.</value>
+  </data>
+  <data name="CR5_006" xml:space="preserve">
+    <value>C'est un mystère total.[pause=10] Chaque couloir ressemble au précédent,[pause=10] et pourtant ils ne le sont pas.</value>
+  </data>
+  <data name="CR5_007" xml:space="preserve">
+    <value>Bienvenue au camp des Ruines Fendues.[pause=10] Tout le monde est là,[pause=10] comme prévu.</value>
+  </data>
+  <data name="CR5_008" xml:space="preserve">
+    <value>Installez-vous.[pause=10] Nous avons beaucoup à nous dire avant d'entrer.</value>
+  </data>
+  <data name="CR5_009" xml:space="preserve">
+    <value>Regardez.[pause=15] L'entrée principale,[pause=10] là-bas.[pause=0] Les veines sombres qui courent sur la pierre...[pause=15] elles descendent toutes vers l'intérieur.</value>
+  </data>
+  <data name="CR5_010" xml:space="preserve">
+    <value>(Les veines...[pause=10] Comme celles dont a parlé Tornadus.[pause=15] Une forme sous le monde.)</value>
+  </data>
+  <data name="CR5_011" xml:space="preserve">
+    <value>Le repas est prêt.[pause=10] Mangez d'abord.[pause=15] On parle après.</value>
+  </data>
+  <data name="CR5_012" xml:space="preserve">
+    <value>Avant d'entrer dans ces ruines,[pause=10] je veux entendre chacun d'entre vous.[pause=15] Tout ce que vous avez vu depuis le début de l'expédition.</value>
+  </data>
+  <data name="CR5_013" xml:space="preserve">
+    <value>Je commence.[pause=10] Le Creuset,[pause=10] d'abord :[pause=0] la lave n'y suivait aucun rythme naturel.[pause=15] Elle montait,[pause=10] baissait,[pause=10] comme si elle respirait.</value>
+  </data>
+  <data name="CR5_014" xml:space="preserve">
+    <value>Puis l'orage du sommet.[pause=10] Un ciel qui ne tournait pas au hasard.[pause=15] Et sous tout cela,[pause=10] ces veines...[pause=10] qui convergent.</value>
+  </data>
+  <data name="CR5_015" xml:space="preserve">
+    <value>J'ai vu des arbres dépérir au bord de la route,[pause=10] en pleine saison.[pause=15] Les racines,[pause=10] grises.[pause=0] Comme vidées de l'intérieur.</value>
+  </data>
+  <data name="CR5_016" xml:space="preserve">
+    <value>Pour les ruines,[pause=10] c'est moi qui en parle.[pause=15] On les a appelées «[pause=5] Tordues[pause=5] »,[pause=10] parce que rien n'y est droit.[pause=0] Les murs,[pause=10] les couloirs,[pause=10] même les pierres.[pause=10] Tout penche.</value>
+  </data>
+  <data name="CR5_017" xml:space="preserve">
+    <value>Et pourtant,[pause=10] sous la pierre...[pause=15] quelque chose pulse.[pause=10] On le sent quand on pose la patte au sol.</value>
+  </data>
+  <data name="CR5_018" xml:space="preserve">
+    <value>Mon arrière-tête dit que ces ruines n'ont pas été bâties par des Pokémon.[pause=15] Elles ont été CREUSÉES.[pause=0] Autour de quelque chose.[pause=10] Quelque chose qu'on voulait garder.</value>
+  </data>
+  <data name="CR5_019" xml:space="preserve">
+    <value>Et si c'est un gardien qui attend au fond...[pause=15] il veille depuis très,[pause=10] très longtemps.</value>
+  </data>
+  <data name="CR5_020" xml:space="preserve">
+    <value>(Tornadus a dit qu'une forme vit sous le monde.[pause=10] Et que les veines convergent vers le nord.[pause=15] Ici.)</value>
+  </data>
+  <data name="CR5_021" xml:space="preserve">
+    <value>Attends...[pause=10] Tu veux dire que ces ruines seraient le point de rencontre ?[pause=15] De TOUTES les veines ?</value>
+  </data>
+  <data name="CR5_022" xml:space="preserve">
+    <value>Moi je dis qu'on est venus jusqu'ici,[pause=10] alors on ne va pas faire demi-tour devant une porte.[pause=15] C'est pas mon genre.</value>
+  </data>
+  <data name="CR5_023" xml:space="preserve">
+    <value>Mouais.[pause=10] Facile à dire quand on n'a pas vu ce qui pulse sous la pierre.</value>
+  </data>
+  <data name="CR5_024" xml:space="preserve">
+    <value>Allons,[pause=10] Ganlon ![pause=0] On est l'équipe qui a traversé la steppe,[pause=10] le tunnel,[pause=10] et une montagne entière ![pause=15] Des ruines,[pause=10] on en a vu d'autres.</value>
+  </data>
+  <data name="CR5_025" xml:space="preserve">
+    <value>Protocole de campement respecté,[pause=10] wouf ![pause=15] Feu,[pause=10] garde,[pause=10] rations :[pause=0] tout est en ordre pour demain.</value>
+  </data>
+  <data name="CR5_026" xml:space="preserve">
+    <value>Et moi j'ai gardé un morceau de tarte pour tout le monde.[pause=10] On entre pas dans un donjon le ventre vide,[pause=10] c'est ma mère qui le dit.</value>
+  </data>
+  <data name="CR5_027" xml:space="preserve">
+    <value>Rassemblons les pièces.[pause=10] Une chaleur qui respire.[pause=15] Des arbres vidés de leur sève.[pause=15] Des veines qui convergent sous la terre.[pause=15] Et au bout,[pause=10] ces ruines.[pause=0] Tout mène ici.</value>
+  </data>
+  <data name="CR5_028" xml:space="preserve">
+    <value>Alors nous saurons demain ce que ces ruines gardent.[pause=15] Et si elles gardent quelque chose de vivant...[pause=10] nous saurons pourquoi le monde entier semble s'y être donné rendez-vous.</value>
+  </data>
+  <data name="CR5_029" xml:space="preserve">
+    <value>(Les pièces s'assemblent.[pause=10] Et je sens qu'elles forment quelque chose de grand.[pause=15] De très grand.)</value>
+  </data>
+  <data name="CR5_030" xml:space="preserve">
+    <value>Décision prise.[pause=10] Demain,[pause=10] à l'aube,[pause=10] nous entrons dans les Ruines Fendues.[pause=15] Cette nuit,[pause=10] nous dormons tous ici.[pause=0] Reposez-vous :[pause=10] c'est le dernier camp avant l'inconnu.</value>
+  </data>
+  <data name="CR5_031" xml:space="preserve">
+    <value>Regarde les ruines,[pause=10] là-bas.[pause=15] On dirait qu'elles attendent depuis toujours.[pause=0] Et ce soir,[pause=10] c'est nous qu'elles attendaient.</value>
+  </data>
+  <data name="CR5_032" xml:space="preserve">
+    <value>(Demain,[pause=10] on saura.[pause=15] Quoi qu'il y ait au fond,[pause=10] on le verra en face.)</value>
+  </data>
+  <data name="CR5_033" xml:space="preserve">
+    <value>Le feu s'éteint doucement.[pause=0] Le camp s'endort au pied des Ruines Fendues.</value>
+  </data>
+  <data name="CR5_034" xml:space="preserve">
+    <value>Demain,[pause=10] on entre.[pause=15] Tu sens ce poids,[pause=10] toi aussi ?[pause=0] Comme si tout l'expédition avait mené ici.</value>
+  </data>
+  <data name="CR5_035" xml:space="preserve">
+    <value>On a traversé la moitié de la région pour ça.[pause=10] On ne va pas reculer maintenant.</value>
+  </data>
+  <data name="CR5_036" xml:space="preserve">
+    <value>Et quoi qu'il y ait au fond,[pause=10] {0},[pause=10] on le trouvera.[pause=15] Ensemble.[pause=0] Comme toujours...</value>
+  </data>
+  <data name="CR5_D01" xml:space="preserve">
+    <value>...Comme toujours,[pause=10] on...[pause=20] on...</value>
+  </data>
+  <data name="CR5_D02" xml:space="preserve">
+    <value>(...Et il s'est endormi en pleine phrase.[pause=10] Faut croire que la journée l'a épuisé.)</value>
+  </data>
+  <data name="CR5_037" xml:space="preserve">
+    <value>Les ruines veillent sur le camp endormi.[pause=0] La nuit les enveloppe.</value>
+  </data>
+  <data name="CR5_038" xml:space="preserve">
+    <value>(...Une silhouette.[pause=10] Une lumière.[pause=10] Qui...[pause=15] qui était-ce ?)</value>
+  </data>
+  <data name="CR5_039" xml:space="preserve">
+    <value>(Je revois encore cette forme...[pause=10] mais je n'arrive pas à la rattraper.)</value>
+  </data>
+  <data name="CR5_040" xml:space="preserve">
+    <value>(Elle a dit quelque chose...[pause=10] sur moi.[pause=15] Sur ce que je suis devenu.)</value>
+  </data>
+  <data name="CR5_041" xml:space="preserve">
+    <value>Tu es réveillé ?[pause=10] Tu avais l'air...[pause=10] ailleurs.[pause=15] On dirait que le sommeil ne t'a pas tout rendu.</value>
+  </data>
+  <data name="CR5_042" xml:space="preserve">
+    <value>Le soleil se lève sur les Ruines.[pause=10] La pierre s'embrase.[pause=15] On dirait qu'elles nous regardent.</value>
+  </data>
+  <data name="CR5_043" xml:space="preserve">
+    <value>Le jour est levé,[pause=10] et avec lui,[pause=10] la dernière étape de notre expédition.[pause=15] Les Ruines Fendues nous attendent.</value>
+  </data>
+  <data name="CR5_044" xml:space="preserve">
+    <value>Nous entrons ensemble.[pause=10] Nous en ressortons ensemble.[pause=15] Quoi qu'il y ait au fond,[pause=10] nous le prendrons de front.</value>
+  </data>
+  <data name="CR5_045" xml:space="preserve">
+    <value>Alors...[pause=10] c'est parti.[pause=15] Les Ruines Fendues,[pause=10] on arrive.</value>
+  </data>
+  <data name="CR5_046" xml:space="preserve">
+    <value>(On y va.[pause=10] Et quoi qu'il y ait là-dedans,[pause=15] on le verra en face.)</value>
+  </data>
+</root>

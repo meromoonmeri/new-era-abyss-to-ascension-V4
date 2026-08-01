@@ -86,9 +86,9 @@
     <value>Ce n'est pas un monstre que vous devez craindre, petits.[pause=20] C'est un lieu.[pause=15] Et les lieux,[pause=10] eux,[pause=10] n'ont jamais pressé.</value>
   </data>
   <data name="MWG_056" xml:space="preserve">
-    <value>Alors on descendra.[pause=15] On racontera tout à la guilde.[pause=20] Et on reviendra.</value>
+    <value>Alors on descend.[pause=15] Les Ruines Fendues,[pause=10] c'est par là.[pause=20] Et on y va.</value>
   </data>
   <data name="MWG_057" xml:space="preserve">
-    <value>(Les ruines fendues...[pause=15] C'est là qu'on ira.[pause=20] Quand on sera prêts.)</value>
+    <value>(Les veines...[pause=15] Elles convergent vers le nord.[pause=20] Vers les Ruines Fendues.[pause=10] C'est là qu'on va.)</value>
   </data>
 </root>

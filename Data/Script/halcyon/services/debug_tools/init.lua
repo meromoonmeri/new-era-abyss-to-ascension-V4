@@ -296,6 +296,16 @@ function DebugTools:OnUpgrade()
  if SV.Chapter5.DiedMountain == nil then SV.Chapter5.DiedMountain = false end
  if SV.Chapter5.NeedGiveSupplies == nil then SV.Chapter5.NeedGiveSupplies = false end
  
+ --Ruines Fendues (climax du ch5) : flags du campement devant l'entree.
+ --Les memes valeurs que dans scriptvars.lua — indispensables pour les
+ --sauvegardes existantes qui n'ont pas le bloc Ruins* dans SV.Chapter5.
+ if SV.Chapter5.RuinsCampPending == nil then SV.Chapter5.RuinsCampPending = false end
+ if SV.Chapter5.RuinsCampDone == nil then SV.Chapter5.RuinsCampDone = false end
+ if SV.Chapter5.RuinsCampNightDone == nil then SV.Chapter5.RuinsCampNightDone = false end
+ if SV.Chapter5.RuinsDreamSeen == nil then SV.Chapter5.RuinsDreamSeen = false end
+ if SV.Chapter5.RuinsEntered == nil then SV.Chapter5.RuinsEntered = false end
+ if SV.Chapter5.RuinsExpeditionDone == nil then SV.Chapter5.RuinsExpeditionDone = false end
+ 
  
 
  --for terrakion's dungeon boulder variable timer

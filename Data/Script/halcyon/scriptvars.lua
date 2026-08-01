@@ -916,7 +916,28 @@ SV.Chapter5 =
 	--rejouer la rencontre du mini-boss ou passer directement au segment suivant.
 	SteppeMiniBossCleared = false,
 	TunnelMiniBossCleared = false,
-	MountMiniBossCleared = false
+	MountMiniBossCleared = false,
+
+	-- ============ RUINES FENDUES (climax du ch5, option 2 validee) ============
+	--Apres la victoire sur Tornadus, l'expedition etablit un campement
+	--devant l'entree des Ruines Fendues (cloven_ruins_entrance) au lieu
+	--de rentrer a Metano : respiration narrative avant le donjon final.
+	--  RuinsCampPending    : on arrive au camp et la cinematique d'arrivee
+	--                        (briefing autour du feu) doit se jouer.
+	--  RuinsCampDone       : l'arrivee + le briefing du soir sont joues.
+	--  RuinsCampNightDone  : la veillee est terminee, le reve a ete
+	--                        bascule (encadre l'aller-retour hero_dream).
+	--  RuinsDreamSeen      : le reve (Gardevoir) a ete vu (pose par
+	--                        hero_dream/init.lua quand DreamReturn==Ruines).
+	--  RuinsEntered        : le joueur a franchi l'entree des Ruines.
+	--  RuinsExpeditionDone : les Ruines Fendues sont terminees — le ch5
+	--                        se clot et le retour a Metano peut avoir lieu.
+	RuinsCampPending = false,
+	RuinsCampDone = false,
+	RuinsCampNightDone = false,
+	RuinsDreamSeen = false,
+	RuinsEntered = false,
+	RuinsExpeditionDone = false
 }
 
 
