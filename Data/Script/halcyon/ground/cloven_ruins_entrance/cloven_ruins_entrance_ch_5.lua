@@ -447,6 +447,17 @@ function cloven_ruins_entrance_ch_5.ArrivalCutsceneBody()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
+  -- SEULE PLUM EST SUR PLACE a l'arrivee (brief : la surprise de Plum).
+  -- Les membres du camp existent (crees par SetupGround) mais sont CACHES
+  -- pendant les actes 1-3 : l'expedition decouvre un camp desert. Ils
+  -- ARRIVENT CHACUN LEUR TOUR avant le repas (acte 4, marches reelles).
+  pcall(function()
+    for _, entName in ipairs({'Tropius', 'Noctowl', 'Snubbull', 'Audino',
+                              'Growlithe', 'Zigzagoon', 'Breloom', 'Girafarig'}) do
+      GROUND:Hide(entName)
+    end
+  end)
+
   -- ============ ACTE 1 — ARRIVEE VERS LES RUINES ============
   -- Le groupe arrive par l'ouest (patron Spring Tunnel : dialogues sous
   -- le noir — le joueur imagine la marche — puis ouverture du fondu sur
@@ -458,9 +469,6 @@ function cloven_ruins_entrance_ch_5.ArrivalCutsceneBody()
   if t2 ~= nil then GROUND:TeleportTo(t2, 52, 200, Direction.Right) end
   if t3 ~= nil then GROUND:TeleportTo(t3, 52, 232, Direction.Right) end
   GAME:MoveCamera(60, 225, 1, false)
-
-  --Plum n'est pas encore visible : elle sera decouverte a l'acte 2.
-  if plum ~= nil then pcall(function() GROUND:Hide('Jigglypuff') end) end
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -631,9 +639,9 @@ function cloven_ruins_entrance_ch_5.ArrivalCutsceneBody()
       [kino] = "Shock",
     })
     GAME:WaitFrames(10)
-    -- Penticus, gene, tente de sauver les apparences.
-    if t.penticus ~= nil then
-      UI:SetSpeaker(t.penticus)
+    -- Ganlon, gene, tente de sauver les apparences.
+    if t2 ~= nil then
+      UI:SetSpeaker(t2)
       GeneralFunctions.SetEmotion("Normal")
       UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_W07']))
       Silence(12)
@@ -644,12 +652,6 @@ function cloven_ruins_entrance_ch_5.ArrivalCutsceneBody()
     GeneralFunctions.SetEmotion("Surprised")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_P01']))
     Silence(12)
-    if kino ~= nil then
-      UI:SetSpeaker(kino)
-      GeneralFunctions.SetEmotion("Normal")
-      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_P02']))
-      Silence(12)
-    end
     UI:SetSpeaker(plum)
     GeneralFunctions.SetEmotion("Joyous")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_P03']))
@@ -707,12 +709,6 @@ function cloven_ruins_entrance_ch_5.ArrivalCutsceneBody()
       [t.coco] = "Happy",
       [t.hyko] = "Sweatdrop",
     })
-    if t.penticus ~= nil then
-      UI:SetSpeaker(t.penticus)
-      GeneralFunctions.SetEmotion("Sigh")
-      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_X06']))
-      GAME:WaitFrames(12)
-    end
     if t2 ~= nil then
       UI:SetSpeaker(t2)
       GeneralFunctions.SetEmotion("Happy")
@@ -735,8 +731,82 @@ function cloven_ruins_entrance_ch_5.ArrivalCutsceneBody()
   GAME:WaitFrames(15)
 
   -- ============ ACTE 4 — LE REPAS ============
-  -- Sous le fondu : tout le monde s'installe aux sieges, les plats
-  -- apparaissent. Le fondu s'ouvre sur le repas deja commence.
+  -- CHACUN ARRIVE A SON TOUR avant le repas. Kino et Reinier sortent
+  -- des ruines (ils etaient en reconnaissance) ; les autres arrivent par
+  -- le sentier ouest. Marches reelles, decalees, orientations vers le
+  -- feu. Puis le fondu installe tout le monde aux sieges et le repas
+  -- commence.
+  GAME:FadeIn(30)
+  GAME:WaitFrames(15)
+
+  -- 4.1 Kino et Reinier sortent de la grotte (premiers).
+  local arrivals = {}
+  if t.kino ~= nil then
+    arrivals[#arrivals+1] = TASK:BranchCoroutine(function()
+      pcall(function()
+        GROUND:Unhide('Breloom')
+        GROUND:TeleportTo(t.kino, 420, 160, Direction.Down)
+        GROUND:MoveToPosition(t.kino, cloven_ruins_entrance_ch_5.SEATS[7][1],
+                                     cloven_ruins_entrance_ch_5.SEATS[7][2], false, 1)
+        GROUND:CharAnimateTurnTo(t.kino, Direction.Down, 4)
+      end)
+    end)
+  end
+  if t.reinier ~= nil then
+    arrivals[#arrivals+1] = TASK:BranchCoroutine(function()
+      GAME:WaitFrames(14)
+      pcall(function()
+        GROUND:Unhide('Girafarig')
+        GROUND:TeleportTo(t.reinier, 420, 175, Direction.Down)
+        GROUND:MoveToPosition(t.reinier, cloven_ruins_entrance_ch_5.SEATS[8][1],
+                                     cloven_ruins_entrance_ch_5.SEATS[8][2], false, 1)
+        GROUND:CharAnimateTurnTo(t.reinier, Direction.Down, 4)
+      end)
+    end)
+  end
+  TASK:JoinCoroutines(arrivals)
+  GAME:WaitFrames(10)
+
+  -- 4.2 Les autres arrivent par le sentier ouest, chacun son tour.
+  local west = {
+    {t.coco, 'Snubbull',  3, 24, 240},
+    {t.rin,  'Audino',    4, 24, 255},
+    {t.hyko, 'Growlithe', 6, 24, 270},
+    {t.almotz,'Zigzagoon',5, 40, 240},
+    {t.phileas,'Noctowl', 2, 40, 255},
+    {t.penticus,'Tropius',1, 40, 270},
+  }
+  local westCoros = {}
+  for i, w in ipairs(west) do
+    local chara, entName, seatN, sx, sy = w[1], w[2], w[3], w[4], w[5]
+    if chara ~= nil then
+      westCoros[#westCoros+1] = TASK:BranchCoroutine(function()
+        GAME:WaitFrames((i - 1) * 20)
+        pcall(function()
+          GROUND:Unhide(entName)
+          GROUND:TeleportTo(chara, sx, sy, Direction.Right)
+          GROUND:MoveToPosition(chara, cloven_ruins_entrance_ch_5.SEATS[seatN][1],
+                                       cloven_ruins_entrance_ch_5.SEATS[seatN][2], false, 1)
+          GROUND:CharAnimateTurnTo(chara, Direction.Up, 4)
+        end)
+      end)
+    end
+  end
+  TASK:JoinCoroutines(westCoros)
+  GAME:WaitFrames(15)
+
+  -- 4.3 Penticus, le dernier, clot le rassemblement : on mange.
+  if t.penticus ~= nil then
+    Listen(t.penticus, {t.phileas, t.coco, t.rin, t.hyko, t.almotz, partner, hero})
+    UI:SetSpeaker(t.penticus)
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_012']))
+    Silence(12)
+  end
+
+  -- 4.4 Fondu : installation aux sieges + plats. Le repas commence.
+  GAME:FadeOut(false, 30)
+  GAME:WaitFrames(15)
   SeatEveryone(t, t2, t3, partner, hero)
   local foods = SpawnFoods()
   GAME:FadeIn(30)

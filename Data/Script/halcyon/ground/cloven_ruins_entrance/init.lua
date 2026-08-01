@@ -47,7 +47,15 @@ end
 
 function cloven_ruins_entrance.GameLoad(map)
   PartnerEssentials.LoadGamePartnerPosition(CH('Teammate1'))
-  cloven_ruins_entrance.PlotScripting()
+  -- Au chargement d'une sauvegarde, Teammate1 peut ne pas encore etre
+  -- attache (CH = nil) : lancer une cinematique qui le teleporte ou le
+  -- deplace crashe (« Entity is not a valid type »). Si nil, on ne fait
+  -- rien : le moteur appelle Enter juste apres, avec l'equipe attachee,
+  -- et c'est lui qui lance PlotScripting (une seule fois -> pas de
+  -- doublons de PNJ).
+  if CH('Teammate1') ~= nil then
+    cloven_ruins_entrance.PlotScripting()
+  end
 end
 
 function cloven_ruins_entrance.PlotScripting()

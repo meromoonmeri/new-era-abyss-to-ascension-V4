@@ -221,9 +221,6 @@
   <data name="CR5_P01" xml:space="preserve">
     <value>Wait... Plum? PLUM?! But... what is she doing HERE?</value>
   </data>
-  <data name="CR5_P02" xml:space="preserve">
-    <value>She's...[pause=10] already here.[pause=20] Settled in, with her pots.[pause=15] ...How?[pause=15] We just came down the mountain, she was behind us, and yet...</value>
-  </data>
   <data name="CR5_P03" xml:space="preserve">
     <value>Surprise! You didn't wait for me, so I took a shortcut. A tiny little shortcut. Don't ask me which one—it's a chef's secret.</value>
   </data>
@@ -328,9 +325,6 @@
   </data>
   <data name="CR5_X05" xml:space="preserve">
     <value>I made you an excellent dinner![pause=10] Everyone to the table![pause=0] ...By order of MAJESTIC Plum!</value>
-  </data>
-  <data name="CR5_X06" xml:space="preserve">
-    <value>Thank you, Plum.[pause=15] Really.[pause=0] ...We never see it coming, as usual.</value>
   </data>
   <data name="CR5_X07" xml:space="preserve">
     <value>I knew she'd blow a fuse.[pause=10] Called it.</value>

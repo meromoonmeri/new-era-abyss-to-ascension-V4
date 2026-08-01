@@ -221,9 +221,6 @@
   <data name="CR5_P01" xml:space="preserve">
     <value>Attends...[pause=20] Plum ?[pause=15] PLUM ?![pause=10] Mais... qu'est-ce qu'elle fait LÀ ?</value>
   </data>
-  <data name="CR5_P02" xml:space="preserve">
-    <value>Elle est...[pause=10] déjà là.[pause=20] Installée,[pause=10] avec ses marmites.[pause=15] ...Comment ?[pause=15] Nous venons de descendre la montagne,[pause=10] elle était derrière nous,[pause=10] et pourtant...</value>
-  </data>
   <data name="CR5_P03" xml:space="preserve">
     <value>Surprise ![pause=10] Vous ne m'avez pas attendue,[pause=10] alors j'ai pris un raccourci.[pause=15] Un tout petit raccourci.[pause=0] ...Ne me demandez pas lequel,[pause=10] c'est un[br] secret de cuisinière.</value>
   </data>
@@ -328,9 +325,6 @@
   </data>
   <data name="CR5_X05" xml:space="preserve">
     <value>Je vous ai préparé un excellent dîner ![pause=10] Tout le monde à table ![pause=0] ...Sur ordre de MAJESTIK Plum !</value>
-  </data>
-  <data name="CR5_X06" xml:space="preserve">
-    <value>Merci,[pause=10] Plum.[pause=15] Vraiment.[pause=0] ...On n'a rien vu venir,[pause=10] comme d'habitude.</value>
   </data>
   <data name="CR5_X07" xml:space="preserve">
     <value>J'étais sûr qu'elle allait péter un câble.[pause=10] Je l'avais dit.</value>
