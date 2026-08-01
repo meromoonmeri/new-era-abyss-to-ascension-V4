@@ -4,11 +4,25 @@
   <resheader name="version"><value>2.0</value></resheader>
   <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
   <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
-  <data name="CPB_001" xml:space="preserve"><value>You have climbed the Celestial Peak...[pause=20] Few mortals ever do.</value></data>
-  <data name="CPB_002" xml:space="preserve"><value>I am Lugia, Warden of the Skies.[pause=15] Your courage honours me, but your quest ends here.</value></data>
-  <data name="CPB_003" xml:space="preserve"><value>May the wind carry your spirit into eternity!</value></data>
+  <data name="CPB_001" xml:space="preserve"><value>You have climbed the Celestial Altar...[pause=20] Few mortals ever reach my heights.</value></data>
+  <data name="CPB_002" xml:space="preserve"><value>I am Rayquaza, the Eternal Warden of the Skies.[pause=15] Your intrusion disturbs the celestial dome!</value></data>
+  <data name="CPB_003" xml:space="preserve"><value>The sky burns and the earth trembles due to the disturbances of the Abyss.[pause=20] En garde, foolish ones!</value></data>
+  <data name="CPB_004" xml:space="preserve"><value>Argh...[pause=25] How... How could mere mortals withstand my wrath?</value></data>
+  <data name="CPB_005" xml:space="preserve"><value>That gleam...[pause=15] That light of indomitable determination in your eyes...[pause=20] I have seen it before.</value></data>
+  <data name="CPB_006" xml:space="preserve"><value>Thirty years ago...[pause=20] Another human turned into a Pokémon, accompanied by a partner of peerless courage, stood exactly where you stand now.</value></data>
+  <data name="CPB_007" xml:space="preserve"><value>They challenged me and defeated me to prove their worth,[pause=15] then begged me to destroy the star of destruction that was hurtling towards this world.</value></data>
+  <data name="CPB_008" xml:space="preserve"><value>Are you speaking of the legendary Rescue Team from the great cataclysm thirty years ago?!</value></data>
+  <data name="CPB_009" xml:space="preserve"><value>Yes...[pause=20] You possess the same indomitable spark. The legacy of those legendary saviors flows in your veins.</value></data>
+  <data name="CPB_010" xml:space="preserve"><value>But look up! It cannot be...[pause=20] A SECOND METEORITE!! It's hurtling towards us!</value></data>
+  <data name="CPB_011" xml:space="preserve"><value>The threat of old is reborn, awakened by the disturbances of the Abyss![pause=20] The remnant of the star is back!</value></data>
+  <data name="CPB_012" xml:space="preserve"><value>But as long as I am the Warden of the Skies,[pause=15] the earth shall not be consumed a second time!</value></data>
+  <data name="CPB_013" xml:space="preserve"><value>RAYQUAZA SOARS TOWARDS THE CELESTIAL BODIES, CARRIED BY THE POWER OF THE ATMOSPHERE!</value></data>
+  <data name="CPB_014" xml:space="preserve"><value>With a devastating breath of Hyper Beam, Rayquaza obliterates the giant meteorite in a blinding flash!</value></data>
+  <data name="CPB_015" xml:space="preserve"><value>The meteorite is destroyed![pause=15] Millions of harmless meteors light up the night sky... It is beautiful!</value></data>
+  <data name="CPB_016" xml:space="preserve"><value>But the shockwave over Metano Town...[pause=20] They will believe we triggered the divine wrath!</value></data>
+  <data name="CPB_017" xml:space="preserve"><value>Flee, young heroes...[pause=20] The geomagnetic storm is coming. The humans and Pokémon of the valley will not understand your triumph. They will hunt you as fugitives.</value></data>
   <data name="CPB_R01" xml:space="preserve"><value>The altar is bare.[pause=20] The wind crosses it without meeting anything.</value></data>
   <data name="CPB_R02" xml:space="preserve"><value>(He filled the whole sky.[pause=15] Now the sky is just... sky.)</value></data>
-  <data name="CPB_R03" xml:space="preserve"><value>He went back to the sea, I think.[pause=20] Wardens don't stay where they've been understood.</value></data>
+  <data name="CPB_R03" xml:space="preserve"><value>He went back to the upper atmosphere, I think.[pause=20] Wardens don't stay where they've been understood.</value></data>
   <data name="CPB_R04" xml:space="preserve"><value>Nothing more to find here.[pause=0] Time to head home.</value></data>
 </root>

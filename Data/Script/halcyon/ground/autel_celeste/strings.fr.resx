@@ -4,11 +4,25 @@
   <resheader name="version"><value>2.0</value></resheader>
   <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
   <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
-  <data name="CPB_001" xml:space="preserve"><value>Tu as gravi le Pic Céleste...[pause=20] Peu de mortels y parviennent.</value></data>
-  <data name="CPB_002" xml:space="preserve"><value>Je suis Lugia, Gardien des Cieux.[pause=15] Ton courage m'honore, mais ta quête s'arrête ici.</value></data>
-  <data name="CPB_003" xml:space="preserve"><value>Que le vent porte ton esprit vers l'éternité !</value></data>
+  <data name="CPB_001" xml:space="preserve"><value>Tu as gravi l'Autel des Cieux...[pause=20] Peu de mortels parviennent jusqu'à mes hauteurs.</value></data>
+  <data name="CPB_002" xml:space="preserve"><value>Je suis Rayquaza, le Gardien Éternel des Cieux.[pause=15] Votre intrusion perturbe le dôme céleste !</value></data>
+  <data name="CPB_003" xml:space="preserve"><value>Le ciel brûle et la terre tremble à cause des perturbations de l'Abîme.[pause=20] En garde, pauvres fous !</value></data>
+  <data name="CPB_004" xml:space="preserve"><value>Argh...[pause=25] Comment... Comment des mortels ont-ils pu surmonter ma colère ?</value></data>
+  <data name="CPB_005" xml:space="preserve"><value>Cet éclat...[pause=15] Cette lueur de détermination indomptable dans tes yeux...[pause=20] Je l'ai déjà vue.</value></data>
+  <data name="CPB_006" xml:space="preserve"><value>Il y a trente ans...[pause=20] Un autre humain transformé en Pokémon, accompagné d'un partenaire d'un courage sans pareil, s'est tenu exactement là où vous vous tenez.</value></data>
+  <data name="CPB_007" xml:space="preserve"><value>Ils m'ont défié et m'ont vaincu pour prouver leur valeur,[pause=15] puis m'ont supplié de détruire l'étoile de la destruction qui fonçait sur ce monde.</value></data>
+  <data name="CPB_008" xml:space="preserve"><value>Vous parlez de l'Équipe de Secours légendaire du grand cataclysme d'il y a trente ans ?!</value></data>
+  <data name="CPB_009" xml:space="preserve"><value>Oui...[pause=20] Vous possédez la même étincelle indomptable. L'héritage de ces sauveurs légendaires coule dans vos veines.</value></data>
+  <data name="CPB_010" xml:space="preserve"><value>Mais regardez là-haut ! Ce n'est pas possible...[pause=20] UNE SECONDE MÉTÉORITE !! Elle fonce sur nous !</value></data>
+  <data name="CPB_011" xml:space="preserve"><value>La menace de jadis renaît, réveillée par les perturbations de l'Abîme ![pause=20] Le résidu de l'étoile est de retour !</value></data>
+  <data name="CPB_012" xml:space="preserve"><value>Mais tant que je serai le Gardien des Cieux,[pause=15] la terre ne sera pas consumée une seconde fois !</value></data>
+  <data name="CPB_013" xml:space="preserve"><value>RAYQUAZA S'ÉLÈVE VERS LES CORPS CÉLESTES, PORTÉ PAR TOUTE LA PUISSANCE DE L'ATMOSPHÈRE !</value></data>
+  <data name="CPB_014" xml:space="preserve"><value>D'un souffle d'Ultralaser dévastateur, Rayquaza pulvérise la météorite géante dans un flash aveuglant !</value></data>
+  <data name="CPB_015" xml:space="preserve"><value>La météorite est détruite ![pause=15] Des millions de météores inoffensifs illuminent le ciel nocturne... C'est magnifique !</value></data>
+  <data name="CPB_016" xml:space="preserve"><value>Mais l'onde de choc sur Metano Town...[pause=20] Ils vont croire que nous avons provoqué la colère divine !</value></data>
+  <data name="CPB_017" xml:space="preserve"><value>Fuyez, jeunes héros...[pause=20] La tempête géomagnétique arrive. Les humains et les Pokémon de la vallée ne comprendront pas votre triomphe. Ils vous traqueront comme des fugitifs.</value></data>
   <data name="CPB_R01" xml:space="preserve"><value>L'autel est nu.[pause=20] Le vent le traverse sans rien rencontrer.</value></data>
   <data name="CPB_R02" xml:space="preserve"><value>(Il occupait tout le ciel.[pause=15] Maintenant le ciel est juste... du ciel.)</value></data>
-  <data name="CPB_R03" xml:space="preserve"><value>Il est reparti vers la mer, je crois.[pause=20] Les gardiens ne restent pas là où on les a compris.</value></data>
+  <data name="CPB_R03" xml:space="preserve"><value>Il est reparti vers la haute atmosphère, je crois.[pause=20] Les gardiens ne restent pas là où on les a compris.</value></data>
   <data name="CPB_R04" xml:space="preserve"><value>Il n'y a plus rien à trouver ici.[pause=0] Il est temps de rentrer.</value></data>
 </root>
