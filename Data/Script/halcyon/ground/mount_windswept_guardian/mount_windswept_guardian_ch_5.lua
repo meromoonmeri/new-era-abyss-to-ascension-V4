@@ -12,7 +12,11 @@ require 'halcyon.BossFX'
 
 mount_windswept_guardian_ch_5 = {}
 
-function mount_windswept_guardian_ch_5.FirstPreBossScene()
+-- Corps de la cinematique pre-combat. Appele sous pcall par le wrapper
+-- public ci-dessous (regle projet : tout sous pcall, sortie garantie —
+-- une erreur en coroutine laisserait CutsceneMode(true) et figerait le
+-- joueur sur l'arene sans aucune sortie).
+local function FirstPreBossSceneBody()
 
 	--LE NOIR AVANT TOUT APPEL MOTEUR (correctif d'arrivee, 2026-07-30).
 	--Cette scene se joue sous le noir laisse par la carte precedente et ne
@@ -182,7 +186,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Surprised")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_006']))
-  -- "Toi...[pause=10] Tu savais qu'il était là !"
+  -- "Qui êtes-vous ?... Montrez-vous ! Nous ne fuyons pas."
 
   GAME:WaitFrames(30)
 
@@ -395,12 +399,30 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- "Alors on va lui montrer que notre voyage ne fait que commencer ! [hero], à nous deux !"
 
   COMMON.BossTransition()
-  GAME:CutsceneMode(false)
-  SV.Chapter5.MountGuardianSeen = true
-  PrintInfo("[NREPROBE][transition] mount_windswept_guardian_ch_5.lua ContinueDungeon('mount_windswept', 3)") GAME:ContinueDungeon("mount_windswept", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function mount_windswept_guardian_ch_5.SecondPreBossScene()
+-- Wrapper public : la scene ne doit JAMAIS figer le joueur. En cas
+-- d'erreur (mise en scene, appel moteur, asset), on desarme CutsceneMode
+-- et on lance quand meme le combat : c'est le seul chemin possible depuis
+-- cette arene. MountGuardianSeen est pose ici, HORS du pcall, pour que la
+-- scene ne soit pas rejouee au retour d'un echec.
+function mount_windswept_guardian_ch_5.FirstPreBossScene()
+  PrintInfo("[BossSeq][mount_windswept_guardian_ch_5] FirstPreBossScene start")
+  local ok, err = pcall(FirstPreBossSceneBody)
+  if not ok then
+    PrintInfo("[BossSeq] FirstPreBossScene ERREUR: "..tostring(err))
+    pcall(function() GAME:FadeOut(false, 20) end)
+  end
+  pcall(function() GAME:CutsceneMode(false) end)
+  SV.Chapter5.MountGuardianSeen = true
+  PrintInfo("[NREPROBE][transition] mount_windswept_guardian_ch_5.lua ContinueDungeon('mount_windswept', 3)")
+  pcall(function()
+    GAME:ContinueDungeon("mount_windswept", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  end)
+end
+
+-- Corps de la cinematique de rematch (vue deja). Meme filet de securite.
+local function SecondPreBossSceneBody()
 
 	--LE NOIR AVANT TOUT APPEL MOTEUR (correctif d'arrivee, 2026-07-30).
 	--Cette scene se joue sous le noir laisse par la carte precedente et ne
@@ -447,8 +469,22 @@ function mount_windswept_guardian_ch_5.SecondPreBossScene()
   -- "Cette fois, on le terrasse. Promis, [hero]."
 
   COMMON.BossTransition()
-  GAME:CutsceneMode(false)
-  PrintInfo("[NREPROBE][transition] mount_windswept_guardian_ch_5.lua ContinueDungeon('mount_windswept', 3)") GAME:ContinueDungeon("mount_windswept", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+end
+
+-- Wrapper public : meme filet que FirstPreBossScene — desarme du mode
+-- cinematique et lancement du combat quoi qu'il arrive.
+function mount_windswept_guardian_ch_5.SecondPreBossScene()
+  PrintInfo("[BossSeq][mount_windswept_guardian_ch_5] SecondPreBossScene start")
+  local ok, err = pcall(SecondPreBossSceneBody)
+  if not ok then
+    PrintInfo("[BossSeq] SecondPreBossScene ERREUR: "..tostring(err))
+    pcall(function() GAME:FadeOut(false, 20) end)
+  end
+  pcall(function() GAME:CutsceneMode(false) end)
+  PrintInfo("[NREPROBE][transition] mount_windswept_guardian_ch_5.lua ContinueDungeon('mount_windswept', 3)")
+  pcall(function()
+    GAME:ContinueDungeon("mount_windswept", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  end)
 end
 
 -- Corps de la cinematique, appele sous pcall par DefeatedBoss() : toute erreur

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+﻿<?xml version='1.0' encoding='utf-8'?>
 <root>
   <data name="MWG_001" xml:space="preserve">
     <value>The summit...[pause=15] We're almost there.</value>
@@ -13,7 +13,7 @@
     <value>I am the Breath that guards the summit...</value>
   </data>
   <data name="MWG_006" xml:space="preserve">
-    <value>You...[pause=10] You knew it was here!</value>
+    <value>Who are you?[pause=15] Show yourself![pause=10] We do not run.</value>
   </data>
   <data name="MWG_007" xml:space="preserve">
     <value>I am this mountain's ultimate guardian.[pause=20] I have ruled these skies since long before anyone set foot on this land.</value>

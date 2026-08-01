@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+﻿<?xml version='1.0' encoding='utf-8'?>
 <root>
   <data name="MWG_001" xml:space="preserve">
     <value>Le sommet...[pause=15] On y est presque.</value>
@@ -13,7 +13,7 @@
     <value>Je suis le Souffle qui garde la cime...</value>
   </data>
   <data name="MWG_006" xml:space="preserve">
-    <value>Toi...[pause=10] Tu savais qu'il était là !</value>
+    <value>Qui êtes-vous ?[pause=15] Montrez-vous ![pause=10] Nous ne fuyons pas.</value>
   </data>
   <data name="MWG_007" xml:space="preserve">
     <value>Je suis l'ultime gardien de cette montagne.[pause=20] Je règne sur ces cieux depuis bien avant que quiconque ne foule ces terres.</value>
