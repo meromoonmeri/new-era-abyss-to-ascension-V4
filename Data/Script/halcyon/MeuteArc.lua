@@ -125,6 +125,27 @@ local function think(hero, emo, txt)
   GAME:WaitFrames(8)
 end
 
+--Regard : chaque personnage pivote selon SA position par rapport a la
+--cible (section 5.2 du guide des cutscenes). On ne fait jamais tourner
+--un groupe d'un bloc.
+local function regarder(qui, cible, frames)
+  local a, b = CH(qui), CH(cible)
+  if a == nil or b == nil then return end
+  pcall(function() GROUND:CharTurnToCharAnimated(a, b, frames or 4) end)
+end
+
+--Emote ponctuelle. Reservee aux moments qui la meritent (section 5.6).
+local function emote(qui, nom)
+  local c = CH(qui)
+  if c == nil then return end
+  pcall(function() GROUND:CharSetEmote(c, nom, 1) end)
+end
+
+--Cadrage. `dur` a 1 = coupe franche, sinon travelling.
+local function cadre(x, y, dur)
+  pcall(function() GAME:MoveCamera(x, y, dur or 40, false) end)
+end
+
 --Fait apparaitre la meute sous un flash, patron BossFX du mod.
 local function surgir(liste)
   local sortis = {}
@@ -164,36 +185,94 @@ end
 function MeuteArc.Act1(hero, partner)
   local s = sv()
 
-  narrate("Vous remontez le boyau de la carrière.[pause=25] Une odeur de plume mouillée flotte près de la sortie.")
+  --Le lieu d'abord, en plan large : la sortie de la carriere.
+  cadre(240, 232, 1)
+  GAME:WaitFrames(25)
+
+  --Le duo remonte vers la sortie. On les voit AVANT de voir la Meute.
+  local m1 = TASK:BranchCoroutine(function()
+    pcall(function() GeneralFunctions.EightWayMove(hero, 240, 232, false, 1) end)
+  end)
+  local m2 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(10)
+    pcall(function() GeneralFunctions.EightWayMove(partner, 216, 240, false, 1) end)
+  end)
+  pcall(function() TASK:JoinCoroutines({m1, m2}) end)
   GAME:WaitFrames(12)
 
-  surgir({
-    {'Corboss',        240, 200, Direction.Down},
-    {'Cornebre_Boss',  208, 216, Direction.Down},
-  })
-  GAME:WaitFrames(15)
+  --Un bruit d'ailes : le partenaire l'entend le premier et se retourne.
+  SOUND:PlayBattleSE('EVT_Emote_Startled_2')
+  emote('Teammate1', 'notice')
+  GAME:WaitFrames(14)
 
-  say('partner', 'Surprised', "Ils étaient là ?[pause=25] Depuis combien de temps ?")
-  say('Cornebre_Boss', 'Normal', "Deux. Une équipe de deux.[pause=20] Chef, je note deux.")
+  --Ils SE POSENT. Des charognards ne se teleportent pas.
+  surgir({
+    {'Corboss',        240, 176, Direction.Down},
+    {'Cornebre_Boss',  208, 192, Direction.Down},
+  })
+  pcall(function() BossFX.ShakeScreen(2, 12) end)
+  cadre(228, 196, 45)
+  GAME:WaitFrames(16)
+
+  --Chacun se tourne selon SA position : le duo est en dessous, la Meute
+  --au-dessus et decalee a gauche.
+  regarder('PLAYER', 'Corboss', 5)
+  GAME:WaitFrames(4)
+  regarder('Teammate1', 'Corboss', 4)
   GAME:WaitFrames(10)
+
+  say('partner', 'Surprised', "Ils etaient la ?[pause=25] Depuis combien de temps ?")
+
+  --Cornebre ne regarde meme pas le duo : il compte. C'est ce detail qui
+  --inquiete, pas la menace.
+  regarder('Cornebre_Boss', 'Corboss', 4)
+  say('Cornebre_Boss', 'Normal', "Deux. Une equipe de deux.[pause=20] Chef, je note deux.")
+  GAME:WaitFrames(8)
+
+  cadre(240, 184, 35)
   say('Corboss', 'Normal', "Note aussi qu'ils ressortent debout.[pause=25] C'est rare, cette semaine.")
   GAME:WaitFrames(12)
 
   think(hero, 'Worried', "(Ils ne nous barrent pas la route.[pause=25] Ils nous COMPTENT.)")
+
+  --Le partenaire avance d'un pas : il se met entre le heros et la Meute.
+  pcall(function() GeneralFunctions.EightWayMove(partner, 224, 224, false, 1) end)
+  regarder('Teammate1', 'Corboss', 4)
+  emote('Teammate1', 'angry')
   say('partner', 'Angry', "Qu'est-ce que vous faites ?![pause=20] Vous nous espionnez ?")
   GAME:WaitFrames(10)
-  say('Corboss', 'Normal', "Nous tenons des comptes.[pause=25] Qui descend. Qui remonte. Combien il en manque.")
-  say('Corboss', 'Happy', "Vous seriez surpris du nombre de gens qui ne remontent pas, ces temps-ci.")
-  GAME:WaitFrames(15)
 
+  --Corboss descend d'un cran. Il ne menace pas : il se rapproche pour
+  --etre entendu, ce qui est plus derangeant.
+  pcall(function() GeneralFunctions.EightWayMove(CH('Corboss'), 240, 200, false, 1) end)
+  regarder('Corboss', 'PLAYER', 5)
+  cadre(234, 204, 30)
+  say('Corboss', 'Normal', "Nous tenons des comptes.[pause=25] Qui descend. Qui remonte. Combien il en manque.")
+  GAME:WaitFrames(8)
+  say('Corboss', 'Happy', "Vous seriez surpris du nombre de gens qui ne remontent pas, ces temps-ci.")
+  GAME:WaitFrames(14)
+
+  emote('Teammate1', 'sweatdrop')
   say('partner', 'Worried', "Et vous en faites quoi, de vos comptes ?")
+  GAME:WaitFrames(8)
+
+  --Il se detourne pour repondre : il regarde le fond de la carriere.
+  pcall(function() GROUND:CharAnimateTurnTo(CH('Corboss'), Direction.Up, 6) end)
   say('Corboss', 'Normal', "Rien, pour l'instant.[pause=30] On regarde. On attend.")
-  GAME:WaitFrames(12)
-  say('Corboss', 'Normal', "Un jour, ce qui traîne au fond n'appartiendra plus à personne.[pause=25] Ce jour-là, nous saurons où chercher.")
+  GAME:WaitFrames(10)
+  say('Corboss', 'Normal', "Un jour, ce qui traine au fond n'appartiendra plus a personne.[pause=25] Ce jour-la, nous saurons ou chercher.")
   GAME:WaitFrames(18)
 
+  --Depart : ils reprennent l'air sans hate. Plan large pour les suivre.
+  cadre(228, 180, 50)
   disparaitre({'Corboss', 'Cornebre_Boss'})
-  narrate("Ils s'envolent sans hâte,[pause=20] comme des gens qui ont tout leur temps.")
+  GAME:WaitFrames(10)
+
+  --Le duo se retrouve seul. Il se tourne l'un vers l'autre : la scene se
+  --referme sur eux, pas sur la menace.
+  regarder('Teammate1', 'PLAYER', 5)
+  regarder('PLAYER', 'Teammate1', 5)
+  cadre(228, 228, 40)
   GAME:WaitFrames(12)
 
   say('partner', 'Angry', "Des charognards.[pause=25] Ils attendent que les autres tombent.")
@@ -215,47 +294,110 @@ end
 function MeuteArc.Act2(hero, partner)
   local s = sv()
 
-  narrate("Au bord du marais, un sac éventré.[pause=25] Des vivres piétinés dans la vase. Personne.")
-  GAME:WaitFrames(15)
-  say('partner', 'Shock', "Ce sac...[pause=20] c'est celui d'une équipe de la Guilde !")
+  --Ouverture sur le sac, pas sur les personnages : l'objet est le sujet.
+  cadre(248, 200, 1)
+  GAME:WaitFrames(30)
+
+  --Le duo entre dans le cadre et s'arrete net devant.
+  local a1 = TASK:BranchCoroutine(function()
+    pcall(function() GeneralFunctions.EightWayMove(hero, 240, 216, false, 1) end)
+  end)
+  local a2 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(8)
+    pcall(function() GeneralFunctions.EightWayMove(partner, 264, 216, false, 1) end)
+  end)
+  pcall(function() TASK:JoinCoroutines({a1, a2}) end)
   GAME:WaitFrames(10)
-  think(hero, 'Worried', "(Les provisions sont là.[pause=25] Seules les Orbes ont disparu.)")
+
+  pcall(function() GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.Up, 4) end)
+  pcall(function() GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.Up, 4) end)
   GAME:WaitFrames(12)
 
+  emote('Teammate1', 'shock')
+  SOUND:PlayBattleSE('EVT_Emote_Shock_2')
+  say('partner', 'Shock', "Ce sac...[pause=20] c'est celui d'une equipe de la Guilde !")
+  GAME:WaitFrames(10)
+
+  --Le heros s'accroupit vers le sac : la camera resserre sur le detail.
+  cadre(248, 204, 30)
+  think(hero, 'Worried', "(Les provisions sont la.[pause=25] Seules les Orbes ont disparu.)")
+  GAME:WaitFrames(14)
+
+  --La voix de Cornebre arrive du hors-champ : on entend avant de voir.
+  SOUND:PlayBattleSE('EVT_Emote_Exclaim_2')
+  GAME:WaitFrames(10)
   surgir({
-    {'Corboss',        272, 184, Direction.Left},
-    {'Cornebre_Boss',  304, 200, Direction.Left},
+    {'Corboss',        296, 192, Direction.Left},
+    {'Cornebre_Boss',  320, 208, Direction.Left},
   })
+  cadre(280, 204, 40)
+  GAME:WaitFrames(12)
+
+  --Le duo pivote vers la droite, chacun depuis sa position.
+  regarder('Teammate1', 'Corboss', 5)
+  GAME:WaitFrames(3)
+  regarder('PLAYER', 'Corboss', 5)
+  GAME:WaitFrames(8)
+
+  emote('Cornebre_Boss', 'happy')
   say('Cornebre_Boss', 'Happy', "Trois Orbes de Voyage, chef ![pause=20] Presque neuves !")
   GAME:WaitFrames(10)
-  say('partner', 'Angry', "VOUS ![pause=20] Où sont-ils ?! Qu'est-ce que vous leur avez fait ?!")
+
+  --Le partenaire fait un pas EN AVANT, seul. Le heros reste au sac.
+  pcall(function() GeneralFunctions.EightWayMove(partner, 280, 216, false, 2) end)
+  regarder('Teammate1', 'Corboss', 4)
+  emote('Teammate1', 'angry')
+  say('partner', 'Angry', "VOUS ![pause=20] Ou sont-ils ?! Qu'est-ce que vous leur avez fait ?!")
   GAME:WaitFrames(12)
 
+  --Corboss ne bouge pas d'un pouce. C'est le contraste qui compte.
+  cadre(296, 196, 30)
   say('Corboss', 'Normal', "Rien.[pause=30] Strictement rien.")
-  say('Corboss', 'Normal', "Ils étaient déjà partis quand nous sommes arrivés.[pause=25] Partis en courant, à en juger par le sac.")
-  GAME:WaitFrames(15)
+  GAME:WaitFrames(8)
+  say('Corboss', 'Normal', "Ils etaient deja partis quand nous sommes arrives.[pause=25] Partis en courant, a en juger par le sac.")
+  GAME:WaitFrames(14)
 
   say('partner', 'Angry', "Et vous avez pris ce qui restait.")
-  say('Corboss', 'Happy', "Nous avons ramassé ce qui pourrissait dans la boue.[pause=25] Nuance.")
+  emote('Corboss', 'happy')
+  say('Corboss', 'Happy', "Nous avons ramasse ce qui pourrissait dans la boue.[pause=25] Nuance.")
   GAME:WaitFrames(12)
 
   think(hero, 'Sad', "(Il ment mal.[pause=25] Ou alors il ne ment pas du tout, et c'est pire.)")
   GAME:WaitFrames(10)
 
+  --La question. Il descend d'un cran et s'adresse au heros, pas au
+  --partenaire : il sait lequel des deux ecoute vraiment.
+  pcall(function() GeneralFunctions.EightWayMove(CH('Corboss'), 280, 200, false, 1) end)
+  regarder('Corboss', 'PLAYER', 6)
+  cadre(268, 208, 35)
+  GAME:WaitFrames(10)
   say('Corboss', 'Normal', "Posez-vous la vraie question, petits.[pause=25] Pas « qui a pris les Orbes ».")
-  say('Corboss', 'Worried', "« Qu'est-ce qui fait fuir une équipe entière[pause=15] en abandonnant ses vivres ? »")
-  GAME:WaitFrames(20)
+  GAME:WaitFrames(10)
+  emote('Corboss', 'question')
+  say('Corboss', 'Worried', "« Qu'est-ce qui fait fuir une equipe entiere[pause=15] en abandonnant ses vivres ? »")
+  GAME:WaitFrames(22)
 
+  --Le partenaire n'a pas de reponse. Son silence est joue, pas ecrit.
+  regarder('Teammate1', 'PLAYER', 5)
+  emote('Teammate1', 'sweatdrop')
+  GAME:WaitFrames(16)
   say('partner', 'Worried', "...")
-  say('Corboss', 'Normal', "Nous, nous partons avant que ça n'arrive.[pause=25] C'est notre métier de savoir quand.")
-  GAME:WaitFrames(15)
+  GAME:WaitFrames(10)
 
+  say('Corboss', 'Normal', "Nous, nous partons avant que ca n'arrive.[pause=25] C'est notre metier de savoir quand.")
+  GAME:WaitFrames(14)
+
+  cadre(288, 190, 45)
   disparaitre({'Corboss', 'Cornebre_Boss'})
-  narrate("Le marais se referme sur leur envol.[pause=25] Le sac reste là, ouvert.")
   GAME:WaitFrames(12)
 
-  say('partner', 'Sad', "Je déteste l'admettre.[pause=25] Mais sa question est meilleure que la mienne.")
-  think(hero, 'Determined', "(Une équipe entière a fui.[pause=25] Il faut savoir devant quoi.)")
+  --Retour sur le sac, reste ouvert. L'objet ferme la scene comme il
+  --l'avait ouverte.
+  cadre(248, 206, 45)
+  GAME:WaitFrames(16)
+  regarder('Teammate1', 'PLAYER', 5)
+  say('partner', 'Sad', "Je deteste l'admettre.[pause=25] Mais sa question est meilleure que la mienne.")
+  think(hero, 'Determined', "(Une equipe entiere a fui.[pause=25] Il faut savoir devant quoi.)")
 
   s.Act2Done = true
   s.CurrentAct = 3
@@ -273,57 +415,124 @@ end
 function MeuteArc.Act3(hero, partner)
   local s = sv()
 
-  narrate("Les falaises sont vides.[pause=25] Pas un cri, pas une plume dans le vent.")
+  --Plan large et long sur des falaises vides. Le silence EST la scene :
+  --on laisse le vide s'installer avant la moindre replique.
+  cadre(248, 208, 1)
+  SOUND:StopBGM()
+  GAME:WaitFrames(45)
+
+  local b1 = TASK:BranchCoroutine(function()
+    pcall(function() GeneralFunctions.EightWayMove(hero, 240, 216, false, 1) end)
+  end)
+  local b2 = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(10)
+    pcall(function() GeneralFunctions.EightWayMove(partner, 264, 216, false, 1) end)
+  end)
+  pcall(function() TASK:JoinCoroutines({b1, b2}) end)
   GAME:WaitFrames(15)
 
-  surgir({
-    {'Corboss',        248, 176, Direction.Down},
-  })
+  --Ils cherchent des yeux : deux orientations differentes, personne ne
+  --regarde au meme endroit.
+  pcall(function() GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.Up, 6) end)
+  GAME:WaitFrames(8)
+  pcall(function() GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.Right, 6) end)
+  GAME:WaitFrames(20)
+  emote('Teammate1', 'question')
+  GAME:WaitFrames(18)
+
+  --Corboss est deja la, seul, immobile. Pas de flash : la camera le
+  --DECOUVRE en remontant. Il n'est pas arrive, il attendait.
+  surgir({ {'Corboss', 248, 168, Direction.Down} })
+  cadre(248, 180, 60)
+  GAME:WaitFrames(25)
+
+  regarder('Teammate1', 'Corboss', 5)
+  GAME:WaitFrames(3)
+  regarder('PLAYER', 'Corboss', 5)
+  emote('Teammate1', 'notice')
   GAME:WaitFrames(12)
 
-  say('partner', 'Surprised', "Vous ?[pause=20] Tout seul ?[pause=25] Où est votre bande ?")
+  say('partner', 'Surprised', "Vous ?[pause=20] Tout seul ?[pause=25] Ou est votre bande ?")
   GAME:WaitFrames(10)
-  say('Corboss', 'Worried', "Partis.[pause=30] Je les ai envoyés au sud il y a deux jours.")
-  GAME:WaitFrames(15)
 
-  think(hero, 'Shock', "(Il a renvoyé sa propre meute.[pause=25] Un charognard n'abandonne jamais un territoire.)")
+  --Il regarde le sud avant de repondre. Le geste dit la reponse.
+  pcall(function() GROUND:CharAnimateTurnTo(CH('Corboss'), Direction.DownRight, 8) end)
+  GAME:WaitFrames(14)
+  say('Corboss', 'Worried', "Partis.[pause=30] Je les ai envoyes au sud il y a deux jours.")
+  GAME:WaitFrames(16)
+
+  think(hero, 'Shock', "(Il a renvoye sa propre meute.[pause=25] Un charognard n'abandonne jamais un territoire.)")
   GAME:WaitFrames(12)
 
+  regarder('Corboss', 'PLAYER', 6)
   say('partner', 'Worried', "Vous ne pillez plus ?")
-  say('Corboss', 'Sad', "Il n'y a plus rien à piller.[pause=25] C'est exactement le problème.")
-  GAME:WaitFrames(15)
+  GAME:WaitFrames(8)
+  say('Corboss', 'Sad', "Il n'y a plus rien a piller.[pause=25] C'est exactement le probleme.")
+  GAME:WaitFrames(16)
 
-  say('Corboss', 'Normal', "J'ai compté pendant des mois.[pause=25] Qui descend, qui remonte. Vous vous souvenez ?")
+  cadre(248, 174, 35)
+  say('Corboss', 'Normal', "J'ai compte pendant des mois.[pause=25] Qui descend, qui remonte. Vous vous souvenez ?")
+  GAME:WaitFrames(10)
   say('Corboss', 'Worried', "Depuis six jours, plus personne ne descend.[pause=25] Et ceux d'en haut sont partis les premiers.")
   GAME:WaitFrames(18)
 
-  say('partner', 'Shock', "Les Pokémon volants...[pause=25] Ils ont tous quitté les falaises.")
-  say('Corboss', 'Normal', "Nous sentons le vent avant vous.[pause=25] C'est le seul avantage d'être ce que nous sommes.")
+  --Le partenaire leve les yeux vers les corniches vides.
+  pcall(function() GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.Up, 6) end)
+  emote('Teammate1', 'shock')
+  GAME:WaitFrames(14)
+  say('partner', 'Shock', "Les Pokemon volants...[pause=25] Ils ont tous quitte les falaises.")
+  GAME:WaitFrames(12)
+  regarder('Teammate1', 'Corboss', 5)
+  say('Corboss', 'Normal', "Nous sentons le vent avant vous.[pause=25] C'est le seul avantage d'etre ce que nous sommes.")
   GAME:WaitFrames(15)
 
-  --Le don d'information : sec, sans chaleur, et d'autant plus credible.
+  --LE DON D'INFORMATION. Resserrement maximal, puis secousse : le vent
+  --qui monte se voit avant d'etre nomme.
   say('Corboss', 'Normal', "Alors je vais vous dire une chose,[pause=15] et nous serons quittes.")
-  GAME:WaitFrames(10)
+  GAME:WaitFrames(12)
+  cadre(248, 170, 25)
+  SOUND:PlayBattleSE('DUN_Wind')
+  pcall(function() BossFX.ShakeScreen(3, 30) end)
+  GAME:WaitFrames(20)
   say('Corboss', 'Worried', "Le vent ne descend plus de la montagne.[pause=30] Il y MONTE.")
-  GAME:WaitFrames(20)
-  say('Corboss', 'Sad', "Quelque chose là-haut respire à l'envers.[pause=25] Et ça aspire tout le reste avec.")
-  GAME:WaitFrames(20)
+  GAME:WaitFrames(24)
+  say('Corboss', 'Sad', "Quelque chose la-haut respire a l'envers.[pause=25] Et ca aspire tout le reste avec.")
+  GAME:WaitFrames(22)
 
   think(hero, 'Determined', "(Le vent qui monte.[pause=25] Le Veilleur l'avait dit autrement, mais il l'avait dit.)")
+  GAME:WaitFrames(14)
+
+  cadre(248, 196, 40)
+  say('partner', 'Worried', "Pourquoi nous dire ca ?[pause=25] Vous ne nous devez rien.")
   GAME:WaitFrames(12)
 
-  say('partner', 'Worried', "Pourquoi nous dire ça ?[pause=25] Vous ne nous devez rien.")
+  regarder('Corboss', 'PLAYER', 6)
+  say('Corboss', 'Normal', "Parce que vous montez quand meme.[pause=30] Et que je n'ai jamais compris les gens comme vous.")
   GAME:WaitFrames(10)
-  say('Corboss', 'Normal', "Parce que vous montez quand même.[pause=30] Et que je n'ai jamais compris les gens comme vous.")
-  say('Corboss', 'Happy', "Si vous redescendez,[pause=20] j'aimerais assez être là pour le noter.")
+  emote('Corboss', 'happy')
+  say('Corboss', 'Happy', "Si vous redescendez,[pause=20] j'aimerais assez etre la pour le noter.")
   GAME:WaitFrames(18)
 
+  --Il part vers le sud, comme tous les autres. On le suit du regard.
+  pcall(function() GROUND:CharAnimateTurnTo(CH('Corboss'), Direction.DownRight, 6) end)
+  GAME:WaitFrames(10)
+  cadre(272, 184, 55)
   disparaitre({'Corboss'})
-  narrate("Il part vers le sud,[pause=20] dans la direction où sont partis tous les autres.")
-  GAME:WaitFrames(15)
+  GAME:WaitFrames(18)
 
-  say('partner', 'Determined', "Même les charognards fuient.[pause=25] Nous, on monte.")
+  --Le duo reste face au sud, puis se retourne vers la montagne : le
+  --dernier geste de la scene est un choix, pas une replique.
+  regarder('Teammate1', 'PLAYER', 5)
+  say('partner', 'Determined', "Meme les charognards fuient.[pause=25] Nous, on monte.")
+  GAME:WaitFrames(12)
+
+  pcall(function() GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.Up, 8) end)
+  GAME:WaitFrames(6)
+  pcall(function() GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.Up, 8) end)
+  cadre(248, 176, 60)
+  GAME:WaitFrames(20)
   think(hero, 'Determined', "(Le vent monte.[pause=25] Alors on montera plus vite que lui.)")
+  GAME:WaitFrames(15)
 
   s.Act3Done = true
   s.CurrentAct = 4
