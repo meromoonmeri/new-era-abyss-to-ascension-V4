@@ -183,15 +183,42 @@ function guild_heros_room.CheckTriggerEvent()
 	--du matin dedies (pas de guild_heros_room_ch_8 ni de
 	--guild_third_floor_lobby_ch_8) : le reveil generique s'applique, et la
 	--decouverte passe par les dialogues de ville et le donjon lui-meme.
+	--------------------------------------------------------------
+	-- RESPIRATION ENTRE CHAPITRES (correctif 2026-08-02)
+	--
+	-- Avant : le palier n'imposait que DaysPassed + 2, et les portes
+	-- ch7 a ch10 ne verifiaient AUCUNE quete secondaire — contrairement
+	-- a la porte du ch6, seule a exiger SideQuests.AllDone(6). On
+	-- enchainait donc donjon -> boss -> veillee -> donjon suivant en
+	-- deux nuits, sans jamais rendre une requete.
+	--
+	-- Desormais, pour passer au chapitre suivant il faut TOUT :
+	--   1. le drapeau de cloture du chapitre (le boss est tombe) ;
+	--   2. les 3 requetes du chapitre rendues (SideQuests.AllDone) ;
+	--   3. le delai de repos ecoule (3 a 5 nuits selon le chapitre).
+	--
+	-- Le delai n'est pas uniforme : il suit le poids de ce qui vient
+	-- de se passer. Apres le Suaire (ch9) et apres le climax (ch10),
+	-- la ville a besoin de plus de temps qu'apres un donjon ordinaire.
+	--------------------------------------------------------------
 	local chapter_gates = {
-		--[chapitre courant] = { drapeau de cloture, chapitre suivant, donjon, secondaires }
-		[7]  = { function() return SV.Chapter7.HadFirstDream end,            8,  "crystal_sanctuary", {"bassin_tari"} },
-		[8]  = { function() return SV.Chapter8.CrystalSanctuaryComplete end, 9,  "forgotten_marsh",   {"marais_errants"} },
-		[9]  = { function() return SV.Chapter9.ForgottenMarshComplete end,   10, "celestial_peak",    {"falaises_envol", "sentier_enneige"} },
-		[10] = { function() return SV.Chapter10.CelestialPeakComplete end,   11, "bourg_comptoir",    {} },
+		--[ch] = { drapeau de cloture, ch suivant, donjon, secondaires, nuits de repos }
+		[7]  = { function() return SV.Chapter7.HadFirstDream end,            8,  "crystal_sanctuary", {"bassin_tari"}, 3 },
+		[8]  = { function() return SV.Chapter8.CrystalSanctuaryComplete end, 9,  "forgotten_marsh",   {"marais_errants"}, 4 },
+		[9]  = { function() return SV.Chapter9.ForgottenMarshComplete end,   10, "celestial_peak",    {"falaises_envol", "sentier_enneige"}, 5 },
+		[10] = { function() return SV.Chapter10.CelestialPeakComplete end,   11, "bourg_comptoir",    {}, 5 },
 	}
 	local gate = chapter_gates[SV.ChapterProgression.Chapter]
-	if gate ~= nil and gate[1]() and SV.ChapterProgression.DaysPassed >= SV.ChapterProgression.DaysToReach then
+	--Les trois conditions, dans l'ordre du moins couteux au plus couteux
+	--a evaluer. AllDone est sous pcall : si le module n'est pas charge,
+	--on ne bloque pas le joueur indefiniment.
+	local questsDone = true
+	if gate ~= nil then
+		local ok, res = pcall(function() return SideQuests.AllDone(SV.ChapterProgression.Chapter) end)
+		if ok then questsDone = res end
+	end
+	if gate ~= nil and gate[1]() and questsDone
+	   and SV.ChapterProgression.DaysPassed >= SV.ChapterProgression.DaysToReach then
 		SV.ChapterProgression.Chapter = gate[2]
 		SV.TemporaryFlags.MorningAddress = false
 		SV.TemporaryFlags.MorningWakeup = false
@@ -201,8 +228,9 @@ function guild_heros_room.CheckTriggerEvent()
 		for ii = 1, #gate[4], 1 do
 			GAME:UnlockDungeon(gate[4][ii])
 		end
-		--Delai avant le palier suivant, comme aux chapitres precedents.
-		SV.ChapterProgression.DaysToReach = SV.ChapterProgression.DaysPassed + 2
+		--Repos impose avant le palier suivant : 3 a 5 nuits selon le poids
+		--du chapitre qui vient de s'achever (5e champ de la porte).
+		SV.ChapterProgression.DaysToReach = SV.ChapterProgression.DaysPassed + (gate[5] or 3)
 		GAME:WaitFrames(60)
 		GeneralFunctions.PromptChapterSaveAndQuit("guild_heros_room", "Main_Entrance_Marker", 2)
 	end
