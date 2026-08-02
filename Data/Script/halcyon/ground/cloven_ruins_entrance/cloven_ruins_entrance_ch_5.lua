@@ -48,27 +48,27 @@ cloven_ruins_entrance_ch_5 = {}
 -- ==================================================================
 -- POSITIONS — toutes validees contre obstacles[]
 -- ==================================================================
-cloven_ruins_entrance_ch_5.CAMP_X = 216
-cloven_ruins_entrance_ch_5.CAMP_Y = 232
+cloven_ruins_entrance_ch_5.CAMP_X = 256
+cloven_ruins_entrance_ch_5.CAMP_Y = 208
 local CX = cloven_ruins_entrance_ch_5.CAMP_X
 local CY = cloven_ruins_entrance_ch_5.CAMP_Y
 
 -- Cercle du diner : ellipse autour du foyer (la carte est plus large
 -- que haute), 13 places, au moins 24 px entre voisins.
 local PLACES = {
-  Penticus  = {216, 184},
-  Phileas   = {248, 192},
-  Coco      = {272, 208},
-  Rin       = {280, 224},
-  Almotz    = {272, 248},
-  Hyko      = {256, 264},
-  Kino      = {232, 280},
-  Reinier   = {200, 280},
-  Shuca     = {176, 264},
-  Ganlon    = {160, 248},
-  Plum      = {152, 224},
-  partner   = {160, 208},
-  hero      = {184, 192},
+  Penticus  = {256, 160},
+  Phileas   = {288, 168},
+  Coco      = {336, 168},
+  Rin       = {320, 200},
+  Almotz    = {312, 224},
+  Hyko      = {296, 240},
+  Kino      = {272, 256},
+  Reinier   = {240, 256},
+  Shuca     = {216, 240},
+  Ganlon    = {200, 224},
+  Plum      = {192, 200},
+  partner   = {200, 184},
+  hero      = {224, 168},
 }
 cloven_ruins_entrance_ch_5.PLACES = PLACES
 
@@ -76,35 +76,35 @@ cloven_ruins_entrance_ch_5.PLACES = PLACES
 -- voisines (circulation), au moins 56 du foyer et 48 des objets
 -- scriptes. Deployees SEULEMENT a l'acte 7.
 local LITS = {
-  Penticus  = {88, 128},
-  Phileas   = {128, 128},
-  Rin       = {168, 128},
-  Coco      = {208, 128},
-  Hyko      = {248, 336},
-  Almotz    = {272, 320},
-  Kino      = {312, 320},
-  Reinier   = {120, 96},
-  Ganlon    = {160, 96},
-  Shuca     = {216, 368},
-  Plum      = {432, 248},
-  hero      = {168, 336},
-  partner   = {208, 336},
+  Penticus  = {168, 112},
+  Phileas   = {208, 112},
+  Rin       = {248, 112},
+  Coco      = {288, 112},
+  Hyko      = {224, 296},
+  Almotz    = {264, 296},
+  Kino      = {304, 296},
+  Reinier   = {344, 296},
+  Ganlon    = {384, 296},
+  Shuca     = {184, 312},
+  Plum      = {144, 128},
+  hero      = {120, 296},
+  partner   = {160, 296},
 }
 cloven_ruins_entrance_ch_5.LITS = LITS
 
 -- Arrivees echelonnees : depart au bord ouest, position d'attente.
 -- Aucune collision entre les positions d'attente (verifie).
 local ARR = {
-  Phileas   = { depart = {88, 208}, attente = {80, 232} },
-  Penticus  = { depart = {88, 208}, attente = {112, 232} },
-  Coco      = { depart = {88, 208}, attente = {176, 232} },
-  Rin       = { depart = {88, 208}, attente = {200, 232} },
-  Ganlon    = { depart = {88, 208}, attente = {96, 224} },
-  Shuca     = { depart = {88, 208}, attente = {128, 224} },
-  Hyko      = { depart = {88, 208}, attente = {144, 216} },
-  Almotz    = { depart = {88, 208}, attente = {160, 248} },
-  Kino      = { depart = {88, 208}, attente = {168, 216} },
-  Reinier   = { depart = {88, 208}, attente = {184, 248} },
+  Phileas   = { depart = {96, 216}, attente = {104, 208} },
+  Penticus  = { depart = {96, 216}, attente = {128, 208} },
+  Coco      = { depart = {96, 216}, attente = {152, 208} },
+  Rin       = { depart = {96, 216}, attente = {200, 208} },
+  Ganlon    = { depart = {96, 216}, attente = {224, 208} },
+  Shuca     = { depart = {96, 216}, attente = {88, 216} },
+  Hyko      = { depart = {96, 216}, attente = {240, 200} },
+  Almotz    = { depart = {96, 216}, attente = {112, 224} },
+  Kino      = { depart = {96, 216}, attente = {112, 192} },
+  Reinier   = { depart = {96, 216}, attente = {136, 192} },
 }
 cloven_ruins_entrance_ch_5.ARR = ARR
 
@@ -258,15 +258,59 @@ function cloven_ruins_entrance_ch_5.SetupGround(includeRecon)
   end
   -- Plum s'est incrustee au Mont Venteux et a suivi. Running gag.
   spawn[#spawn + 1] = {'Jigglypuff', PLACES.Plum[1], PLACES.Plum[2], Direction.Down}
-  pcall(function() CharacterEssentials.MakeCharactersFromList(spawn) end)
 
-  if GAME:GetPlayerPartyCount() > 3 then
+  -- ================================================================
+  -- ANTI-DUPLICATION — bug constate en jeu sur l'ancienne carte
+  -- ================================================================
+  -- CharacterEssentials.MakeCharactersFromList appelle AddTempChar
+  -- (CharacterEssentials.lua:2023 et 2034) SANS jamais verifier si
+  -- l'entite existe deja. Chaque appel AJOUTE donc un sprite.
+  --
+  -- Or SetupGround etait appele DEUX FOIS pour une seule arrivee :
+  --     init.lua:168        SetupGround(true)
+  --     ch_5.lua ArrivalBody SetupGround(false)
+  -- D'ou les sprites dupliques signales : deux Penticus, deux Rin,
+  -- superposes au pixel pres et impossibles a distinguer a l'arret,
+  -- mais visibles des qu'un des deux bouge.
+  --
+  -- On filtre donc la liste : on ne cree que ce qui n'existe pas.
+  -- FindEntity est la methode qu'emploie ScriptGround.Hide lui-meme
+  -- (Lua/ScriptGround.cs:31) ; signature verifiee dans
+  -- Ground/Maps/GroundMap.cs:1004. Aucune API inventee.
+  local aCreer = {}
+  for _, e in ipairs(spawn) do
+    local nom = e[1]
+    local deja = false
     pcall(function()
-      GROUND:SpawnerSetSpawn("TEAMMATE_2", GAME:GetPlayerPartyMember(2))
-      GROUND:SpawnerDoSpawn("TEAMMATE_2")
-      GROUND:SpawnerSetSpawn("TEAMMATE_3", GAME:GetPlayerPartyMember(3))
-      GROUND:SpawnerDoSpawn("TEAMMATE_3")
+      deja = (GAME:GetCurrentGround():FindEntity(nom) ~= nil)
     end)
+    if deja then
+      PrintInfo('[CR5] ' .. tostring(nom) .. ' existe deja — non recree.')
+    else
+      aCreer[#aCreer + 1] = e
+    end
+  end
+  if #aCreer > 0 then
+    pcall(function() CharacterEssentials.MakeCharactersFromList(aCreer) end)
+  end
+
+  -- Meme precaution pour les equipiers : SpawnerDoSpawn appele deux
+  -- fois poserait deux fois Ganlon et Shuca. On ne declenche le
+  -- spawner que si l'entite n'est pas deja sur la carte.
+  if GAME:GetPlayerPartyCount() > 3 then
+    for i, nom in ipairs({'Teammate2', 'Teammate3'}) do
+      local deja = false
+      pcall(function()
+        deja = (GAME:GetCurrentGround():FindEntity(nom) ~= nil)
+      end)
+      if not deja then
+        pcall(function()
+          local cle = 'TEAMMATE_' .. tostring(i + 1)
+          GROUND:SpawnerSetSpawn(cle, GAME:GetPlayerPartyMember(i + 1))
+          GROUND:SpawnerDoSpawn(cle)
+        end)
+      end
+    end
   end
 end
 
@@ -304,6 +348,10 @@ end
 -- LE FEU : allume seulement au diner (acte 6). A l'arrivee, le camp
 -- doit etre VIDE — c'est une exigence de la scene.
 function cloven_ruins_entrance_ch_5.BuildCampDay()
+  -- JOUR : aucun filtre. On retire ceux d'une nuit precedente, sinon
+  -- le camp reste sombre au reveil (defaut constate au Mont Venteux).
+  pcall(function() GROUND:RemoveMapStatus("darkness") end)
+  pcall(function() GROUND:RemoveMapStatus("dusk") end)
   cloven_ruins_entrance_ch_5.PurgeDecor()
   pcall(function()
     local g = GAME:GetCurrentGround()
@@ -315,6 +363,13 @@ end
 
 -- LES PAILLASSES : posees SEULEMENT a l'acte 7, jamais avant.
 function cloven_ruins_entrance_ch_5.DeployBeds()
+  -- NUIT NOIRE — patron exact du Mont Venteux
+  -- (mount_windswept_entrance_ch_5.lua:4452 pose 'dusk' a l'arrivee au
+  -- couchant, puis :5449 pose 'darkness' au deploiement des couchages).
+  -- Ici les paillasses sortent au coeur de la nuit : on passe donc
+  -- directement de dusk a darkness.
+  pcall(function() GROUND:RemoveMapStatus("dusk") end)
+  pcall(function() GROUND:AddMapStatus("darkness") end)
   cloven_ruins_entrance_ch_5.PurgeDecor()
   pcall(function()
     local g = GAME:GetCurrentGround()
@@ -357,6 +412,11 @@ function cloven_ruins_entrance_ch_5.ArrivalBody()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
 
   cloven_ruins_entrance_ch_5.SetupGround(false)
+  -- PLEIN JOUR a l'arrivee : on retire tout filtre herite d'une
+  -- session precedente. Sans cela, un joueur qui recharge apres la
+  -- nuit arriverait dans un camp reste noir.
+  pcall(function() GROUND:RemoveMapStatus("darkness") end)
+  pcall(function() GROUND:RemoveMapStatus("dusk") end)
   -- Camp VIDE : ni feu, ni paillasse. On purge tout decor herite.
   cloven_ruins_entrance_ch_5.PurgeDecor()
 
@@ -367,18 +427,18 @@ function cloven_ruins_entrance_ch_5.ArrivalBody()
 
   -- Le duo entre par l'ouest, sous le noir. Ils MARCHENT vraiment :
   -- c'est leur animation de pas que le joueur percoit.
-  GROUND:TeleportTo(hero, 88, 208, Direction.Right)
-  if partner ~= nil then GROUND:TeleportTo(partner, 88, 224, Direction.Right) end
+  GROUND:TeleportTo(hero, 96, 216, Direction.Right)
+  if partner ~= nil then GROUND:TeleportTo(partner, 96, 232, Direction.Right) end
   GAME:MoveCamera(128, 208, 1, false)
 
   local marche1 = {}
   marche1[1] = TASK:BranchCoroutine(function()
-    pcall(function() GROUND:MoveToPosition(hero, 104, 208, false, 1) end)
+    pcall(function() GROUND:MoveToPosition(hero, 112, 216, false, 1) end)
   end)
   marche1[2] = TASK:BranchCoroutine(function()
     GAME:WaitFrames(9)
     if partner ~= nil then
-      pcall(function() GROUND:MoveToPosition(partner, 104, 224, false, 1) end)
+      pcall(function() GROUND:MoveToPosition(partner, 112, 232, false, 1) end)
     end
   end)
   pcall(function() TASK:JoinCoroutines(marche1) end)
@@ -390,12 +450,12 @@ function cloven_ruins_entrance_ch_5.ArrivalBody()
   -- Quelques secondes de marche de plus.
   local marche2 = {}
   marche2[1] = TASK:BranchCoroutine(function()
-    pcall(function() GROUND:MoveToPosition(hero, 128, 208, false, 1) end)
+    pcall(function() GROUND:MoveToPosition(hero, 136, 216, false, 1) end)
   end)
   marche2[2] = TASK:BranchCoroutine(function()
     GAME:WaitFrames(9)
     if partner ~= nil then
-      pcall(function() GROUND:MoveToPosition(partner, 136, 248, false, 1) end)
+      pcall(function() GROUND:MoveToPosition(partner, 136, 232, false, 1) end)
     end
   end)
   pcall(function() TASK:JoinCoroutines(marche2) end)
@@ -424,12 +484,12 @@ function cloven_ruins_entrance_ch_5.Acte2(hero, partner)
   -- Ils avancent encore un peu, puis s'arretent net.
   local av = {}
   av[1] = TASK:BranchCoroutine(function()
-    pcall(function() GROUND:MoveToPosition(hero, 152, 232, false, 1) end)
+    pcall(function() GROUND:MoveToPosition(hero, 176, 208, false, 1) end)
   end)
   av[2] = TASK:BranchCoroutine(function()
     GAME:WaitFrames(7)
     if partner ~= nil then
-      pcall(function() GROUND:MoveToPosition(partner, 80, 224, false, 1) end)
+      pcall(function() GROUND:MoveToPosition(partner, 160, 224, false, 1) end)
     end
   end)
   pcall(function() TASK:JoinCoroutines(av) end)
@@ -808,6 +868,13 @@ end
 -- ACTE 7 — LA NUIT, LES PAILLASSES, LE REVE
 -- ==================================================================
 function cloven_ruins_entrance_ch_5.Acte7(hero, partner, plum, t)
+  -- LE SOIR TOMBE. 'dusk' d'abord, sous les yeux du joueur : la
+  -- lumiere baisse pendant que le camp discute encore. La nuit noire
+  -- ('darkness') ne viendra qu'avec les paillasses, dans DeployBeds.
+  -- Patron du Mont Venteux, ou la meme progression est jouee.
+  pcall(function() GROUND:AddMapStatus("dusk") end)
+  Silence(30)
+
   Narre('CR5_A53')
   GAME:FadeOut(false, 50)
   GAME:WaitFrames(35)
@@ -946,6 +1013,8 @@ function cloven_ruins_entrance_ch_5.MorningBody()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
 
   cloven_ruins_entrance_ch_5.SetupGround(true)
+  -- On se reveille encore dans la nuit : DeployBeds repose 'darkness'.
+  -- Le jour se levera avec BuildCampDay, plus bas, qui le retire.
   cloven_ruins_entrance_ch_5.DeployBeds()
 
   local t = {phileas=E('Phileas'), penticus=E('Penticus'), rin=E('Rin'),
