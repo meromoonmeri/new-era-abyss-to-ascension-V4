@@ -3283,9 +3283,4 @@ function metano_town.Growlithe_Action(chara, activator)
   metano_town.Growlithe_Desk_Action(chara, activator)
 end
 
-function metano_town.Kirlia_Action(obj, activator)
-  DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-  assert(pcall(load("metano_town_ch_" .. tostring(SV.ChapterProgression.Chapter) .. ".Kirlia_Action(...,...)"), obj, activator))
-end
-
 return metano_town

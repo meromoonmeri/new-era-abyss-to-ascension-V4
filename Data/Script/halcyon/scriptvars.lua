@@ -1234,7 +1234,12 @@ SV.Chapter8 =
 	--Lus par ground/crystal_sanctuary_miniboss, ecrits par zone/crystal_sanctuary.
 	CrystalMiniBossSeen = false,
 	CrystalMiniBossDefeated = false,
-	CrystalMiniBossLost = false
+	CrystalMiniBossLost = false,
+	--Epreuve II du Grand Tournoi : Quizz de Kirlia (ground/metano_cafe).
+	--nil = jamais passe ; sinon 'Perfect' | 'Pass' | 'Fail'.
+	--nil est un etat valide et signifiant ici : il declenche la proposition
+	--du quizz. Ne pas initialiser a false.
+	QuizScore = nil
 }
 
 SV.Chapter9 = 
@@ -1422,4 +1427,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-08-03-O]')
+print('Script variables default values loaded! [build 2026-08-03-P]')

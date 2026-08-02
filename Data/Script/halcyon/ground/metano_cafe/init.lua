@@ -688,7 +688,10 @@ function metano_cafe.PlayDailyCutscene()
   if SV.metano_cafe.LastDailyCutsceneDay == day then
     return
   end
-  SV.metano_cafe.LastDailyCutsceneDay = day
+  -- Le jour n'est marque comme consomme qu'A LA FIN de la scene (voir plus bas).
+  -- Il l'etait ici, AVANT le corps de la scene : si celle-ci echouait, le pcall
+  -- appelant avalait l'erreur mais le jour restait brule, et le joueur perdait
+  -- definitivement la cinematique de ce jour-la, sans aucun message.
 
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
@@ -853,6 +856,160 @@ function metano_cafe.PlayDailyCutscene()
   GAME:MoveCamera(160, 240, 1, false)
   GAME:FadeIn(20)
   GAME:CutsceneMode(false)
+
+  -- Scene jouee jusqu'au bout : on peut consommer le jour.
+  SV.metano_cafe.LastDailyCutsceneDay = day
+end
+
+
+-- ============================================================
+-- KIRLIA, L'ERUDITE DE LA GUILDE — Cafe Spinda
+--
+-- Placement : le Quizz Theorique est l'Epreuve II du Grand Tournoi
+-- Inter-Guilde (ch8, cf. docs/CHAPITRE8_GRAND_TOURNOI_INTER_GUILDE.md).
+-- Kirlia tient sa table de revision au Cafe, pas sur la place : c'est
+-- l'endroit ou l'on s'assoit pour reviser, et cela evite d'encombrer
+-- metano_town deja tres charge.
+--
+-- Le handler est unique et interroge le chapitre lui-meme (pas de
+-- dispatch metano_cafe_ch_N) : Kirlia n'existe pas avant le ch8 et
+-- garde un mot d'accueil apres, ce qui tient en une fonction.
+-- ============================================================
+
+function metano_cafe.Kirlia_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  local ok, err = pcall(function() metano_cafe.KirliaQuiz(chara, activator) end)
+  if not ok then
+    PrintInfo('[metano_cafe] Kirlia_Action ecourtee : ' .. tostring(err))
+    pcall(function()
+      UI:ResetSpeaker()
+      GeneralFunctions.EndConversation(chara)
+    end)
+  end
+end
+
+function metano_cafe.KirliaQuiz(chara, activator)
+  local chapter = SV.ChapterProgression.Chapter
+
+  -- Avant le ch8 : Kirlia revise, le tournoi n'est pas annonce.
+  if chapter < 8 then
+    GeneralFunctions.StartConversation(chara,
+      "Chut...[pause=20] Je revise.", "Normal")
+    GeneralFunctions.SetEmotion("Worried")
+    UI:WaitShowDialogue("Un jour, la Guilde organisera de nouveau un grand tournoi.[pause=20] Ce jour-la, je serai prete.")
+    GeneralFunctions.EndConversation(chara)
+    return
+  end
+
+  -- Apres le ch8 : elle commente le score obtenu.
+  if SV.Chapter8.QuizScore ~= nil then
+    if SV.Chapter8.QuizScore == "Perfect" then
+      GeneralFunctions.StartConversation(chara,
+        "Trois sur trois.[pause=20] Je n'avais pas vu ca depuis des annees.", "Happy")
+      UI:WaitShowDialogue("Gardez cette rigueur sous terre.[pause=15] Les donjons corrigent plus severement que moi.")
+    elseif SV.Chapter8.QuizScore == "Pass" then
+      GeneralFunctions.StartConversation(chara,
+        "Votre score est enregistre.[pause=20] Vous passez l'Epreuve II.", "Normal")
+      UI:WaitShowDialogue("De justesse, sur certaines reponses.[pause=15] Relisez vos manuels avant l'epreuve de combat.")
+    else
+      GeneralFunctions.StartConversation(chara,
+        "Votre score est enregistre.[pause=20] Nous n'en reparlerons pas.", "Sad")
+      UI:WaitShowDialogue("La theorie n'a jamais sauve personne seule.[pause=20] Prouvez-moi que la pratique vous reussit mieux.")
+    end
+    GeneralFunctions.EndConversation(chara)
+    return
+  end
+
+  GeneralFunctions.StartConversation(chara,
+    "Vous voila.[pause=20] Je suis Kirlia, erudite de la Guilde.", "Normal")
+  GeneralFunctions.SetEmotion("Determined")
+  UI:WaitShowDialogue("Epreuve II du Grand Tournoi :[pause=15] le Quizz Theorique d'Exploration.")
+  UI:WaitShowDialogue("Trois questions.[pause=20] Prenez le temps qu'il vous faut : je ne suis pas pressee.")
+
+  UI:ChoiceMenuYesNo("Passer l'Epreuve II maintenant ?", true)
+  UI:WaitForChoice()
+
+  if not UI:ChoiceResult() then
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue("Sage.[pause=20] Revenez quand vous serez prets.")
+    GeneralFunctions.EndConversation(chara)
+    return
+  end
+
+  local score = 0
+
+  -- QUESTION 1 : affinites de types
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue("Premiere question.[pause=15] Quel type est super efficace contre un Pokemon Acier et Spectre ?")
+  UI:BeginChoiceMenu("Votre reponse :", {"Type Combat", "Type Feu", "Type Normal", "Type Psy"}, 1, 4)
+  UI:WaitForChoice()
+  if UI:ChoiceResult() == 2 then
+    score = score + 1
+    SOUND:PlaySE("DUN_Hit_Weak")
+    GeneralFunctions.SetEmotion("Happy")
+    UI:WaitShowDialogue("Le Feu fait fondre l'Acier.[pause=15] Exact.")
+  else
+    SOUND:PlaySE("DUN_Worry_Seed")
+    GeneralFunctions.SetEmotion("Sad")
+    UI:WaitShowDialogue("Non.[pause=15] L'Acier encaisse le Psy, et le Spectre ignore le Combat comme le Normal.")
+  end
+  GAME:WaitFrames(20)
+
+  -- QUESTION 2 : lore etabli au ch5 (mount_windswept_entrance) et rappele au ch7
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue("Deuxieme question.[pause=15] Qui veille au sommet de la Tour Celeste ?")
+  UI:BeginChoiceMenu("Votre reponse :", {"Lugia", "Rayquaza", "Dialga", "Ho-Oh"}, 1, 4)
+  UI:WaitForChoice()
+  if UI:ChoiceResult() == 2 then
+    score = score + 1
+    SOUND:PlaySE("DUN_Hit_Weak")
+    GeneralFunctions.SetEmotion("Happy")
+    UI:WaitShowDialogue("Rayquaza.[pause=20] Celui que les caravaniers appellent l'Arbitre du Ciel.")
+  else
+    SOUND:PlaySE("DUN_Worry_Seed")
+    GeneralFunctions.SetEmotion("Sad")
+    UI:WaitShowDialogue("Non.[pause=15] C'est Rayquaza qui regne sur cette tour.")
+  end
+  GAME:WaitFrames(20)
+
+  -- QUESTION 3 : survie en donjon
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue("Troisieme question.[pause=15] Quel objet dissipe d'un coup les alterations de toute l'equipe ?")
+  UI:BeginChoiceMenu("Votre reponse :", {"La Graine Guerison", "L'Orbe Echappee", "L'Orbe Purge", "Le Ruban Statut"}, 1, 4)
+  UI:WaitForChoice()
+  if UI:ChoiceResult() == 3 then
+    score = score + 1
+    SOUND:PlaySE("DUN_Hit_Weak")
+    GeneralFunctions.SetEmotion("Happy")
+    UI:WaitShowDialogue("L'Orbe Purge.[pause=20] Toute l'equipe, en une fois.")
+  else
+    SOUND:PlaySE("DUN_Worry_Seed")
+    GeneralFunctions.SetEmotion("Sad")
+    UI:WaitShowDialogue("Non.[pause=15] La Graine ne soigne qu'un seul d'entre vous.")
+  end
+  GAME:WaitFrames(30)
+
+  -- VERDICT — l'ecriture de SV n'intervient qu'ici, apres les 3 reponses.
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue("L'epreuve est close.[pause=20] Voici mon verdict.")
+  GAME:WaitFrames(15)
+
+  if score == 3 then
+    SOUND:PlayFanfare("Fanfare/Note")
+    GeneralFunctions.SetEmotion("Joyous")
+    UI:WaitShowDialogue("Trois sur trois.[pause=25] Je n'avais pas vu ca depuis des annees.")
+    SV.Chapter8.QuizScore = "Perfect"
+  elseif score >= 1 then
+    GeneralFunctions.SetEmotion("Normal")
+    UI:WaitShowDialogue(score .. " sur 3.[pause=20] Vous etes qualifies.[pause=15] Ne vous en contentez pas.")
+    SV.Chapter8.QuizScore = "Pass"
+  else
+    GeneralFunctions.SetEmotion("Sad")
+    UI:WaitShowDialogue("Zero.[pause=25] Relisez vos manuels avant de redescendre sous terre.")
+    SV.Chapter8.QuizScore = "Fail"
+  end
+
+  GeneralFunctions.EndConversation(chara)
 end
 
 

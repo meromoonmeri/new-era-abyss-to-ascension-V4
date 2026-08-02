@@ -264,6 +264,20 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
+
+		--Goinfrex, l'estomac sur pattes du Cafe Spinda.
+		--Utilise par les scenes quotidiennes du Cafe (metano_cafe.PlayDailyCutscene,
+		--indices 0 et 6). Il etait appele SANS etre declare ici : chaque appel
+		--plantait dans MakeCharactersFromList (index d'un nil), et le pcall
+		--enveloppant avalait l'erreur — la scene du jour ne se jouait jamais.
+		Goinfrex = {
+			species = "munchlax",
+			nickname = 'Goinfrex',
+			instance = 'Goinfrex',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
 		
 		Roselia = {
 			species = "roselia",

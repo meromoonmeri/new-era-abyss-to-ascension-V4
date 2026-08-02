@@ -12,6 +12,46 @@ require 'halcyon.LegendZones'
 
 local cloven_ruins = {}
 
+--------------------------------------------------------------------
+-- INDEX DES GROUNDS DE master_zone — resolus PAR NOM
+--
+-- Correctif du 2026-08-02. Les sorties de ce fichier ciblaient des
+-- index ecrits en dur qui ne correspondaient pas aux cartes voulues :
+--
+--   ecrit 65 (« cloven_ruins_entrance » selon le commentaire d'origine)
+--     -> master_zone.GroundMaps[65] = vast_steppe_midpoint
+--   ecrit 66 (relais des Ruines attendu)
+--     -> master_zone.GroundMaps[66] = mount_windswept_midpoint
+--
+-- Consequence en jeu : apres un KO ou un abandon dans les Ruines, le
+-- joueur etait depose au relais de la Grande Steppe. La cinematique du
+-- Camp des Ruines ne se lancait donc jamais — non parce que ses flags
+-- etaient faux (SV.Chapter5.PlayTempRuinsScene etait bien pose), mais
+-- parce que le joueur n'arrivait pas sur la carte qui les lit.
+--
+-- Les vrais index sont 67 (entrance) et 69 (midpoint). Plutot que de
+-- corriger deux nombres qui rederiveront au prochain ajout de ground,
+-- on les resout par NOM a l'execution. GROUND_IDX rend l'index reel ou
+-- une valeur de repli sure (la ville) si le nom disparait.
+--------------------------------------------------------------------
+local MASTER_FALLBACK = 1  -- metano_town
+
+local function GROUND_IDX(name)
+  local ok, idx = pcall(function()
+    local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("master_zone")
+    for ii = 0, zone.Grounds.Count - 1, 1 do
+      if zone.Grounds[ii] == name then return ii end
+    end
+    return -1
+  end)
+  if not ok or idx == nil or idx < 0 then
+    PrintInfo("[cloven_ruins] ground introuvable dans master_zone : " .. tostring(name)
+              .. " — repli sur " .. tostring(MASTER_FALLBACK))
+    return MASTER_FALLBACK
+  end
+  return idx
+end
+
 function cloven_ruins.Init(zone)
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Init_cloven_ruins")
@@ -69,7 +109,7 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter7.LostRuins = true
           --Au CH5 (restructuration) : un KO ou un abandon dans la premiere
           --moitie des Ruines ramene au CAMPEMENT devant l'entree
-          --(cloven_ruins_entrance, ground 65) — l'expedition se refait a
+          --(cloven_ruins_entrance, resolu par nom) — l'expedition se refait a
           --partir du bivouac, pas a la steppe (l'ancien ciblage 46 etait un
           --vestige du ch7). Le camp joue la cinematique de retour : reveil
           --(KO, 'Died') ou repli (abandon, 'Retreated'), patron du Mont.
@@ -78,12 +118,12 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
               SV.Chapter5.PlayTempRuinsScene = true
               if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
                   SV.Chapter5.RuinsLastExitReason = 'Died'
-                  GAME:EndDungeonRun(result, "master_zone", -1, 65, 0, true, true)
+                  GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_entrance'), 0, true, true)
                   GAME:WaitFrames(20)
-                  GAME:EnterZone("master_zone", -1, 65, 0)
+                  GAME:EnterZone("master_zone", -1, GROUND_IDX('cloven_ruins_entrance'), 0)
               else
                   SV.Chapter5.RuinsLastExitReason = 'Retreated'
-                  GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 65, 0, true, true)
+                  GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_entrance'), 0, true, true)
               end
           else
               if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
@@ -111,12 +151,12 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter7.LostDepths = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
               SV.Chapter7.RuinsMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, 66, 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_midpoint'), 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Les profondeurs...[pause=0] on n'aurait pas du...", "Pain")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, 66, 0)
+              GAME:EnterZone("master_zone", -1, GROUND_IDX('cloven_ruins_midpoint'), 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 66, 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_midpoint'), 0, true, true)
           end
       end
   elseif segmentID == 3 then
@@ -141,12 +181,12 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter7.LostDepths = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
               SV.Chapter7.RuinsMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, 66, 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_midpoint'), 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Les profondeurs...[pause=0] on n'aurait pas du...", "Pain")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, 66, 0)
+              GAME:EnterZone("master_zone", -1, GROUND_IDX('cloven_ruins_midpoint'), 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 66, 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_midpoint'), 0, true, true)
           end
       end
   elseif segmentID == 5 then

@@ -21,6 +21,35 @@ local function nre_snap(tag)
 end
 
 local vast_steppe = {}
+
+--------------------------------------------------------------------
+-- INDEX DES GROUNDS DE master_zone — resolus PAR NOM
+--
+-- Correctif du 2026-08-02, meme defaut que zone/cloven_ruins : la mort
+-- dans la 2e moitie de la Steppe visait master_zone ground 62, en
+-- croyant renvoyer au relais. Or 62 = mount_windswept_guardian ; le
+-- relais de la Steppe est 65. Le flag SV.Chapter5.SteppeMidState =
+-- 'DeathArrival' etait donc pose pour une carte que le joueur
+-- n'atteignait jamais : la scene de reveil ne se jouait pas, et le
+-- joueur etait depose devant l'arene du Mont.
+--------------------------------------------------------------------
+local MASTER_FALLBACK = 1  -- metano_town
+
+local function GROUND_IDX(name)
+  local ok, idx = pcall(function()
+    local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("master_zone")
+    for ii = 0, zone.Grounds.Count - 1, 1 do
+      if zone.Grounds[ii] == name then return ii end
+    end
+    return -1
+  end)
+  if not ok or idx == nil or idx < 0 then
+    PrintInfo("[vast_steppe] ground introuvable dans master_zone : " .. tostring(name))
+    return MASTER_FALLBACK
+  end
+  return idx
+end
+
 --------------------------------------------------
 -- Map Callbacks
 --------------------------------------------------
@@ -80,11 +109,11 @@ function vast_steppe.ExitSegment(zone, result, rescue, segmentID, mapID)
 		GAME:WaitFrames(20)
 		SV.Chapter5.SteppeMidState = 'DeathArrival'
 		if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
-			GAME:EndDungeonRun(result, "master_zone", -1, 62, 0, true, true)
+			GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('vast_steppe_midpoint'), 0, true, true)
 			GAME:WaitFrames(20)
-			GAME:EnterZone("master_zone", -1, 62, 0)
+			GAME:EnterZone("master_zone", -1, GROUND_IDX('vast_steppe_midpoint'), 0)
 		else
-			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 62, 0, true, true)
+			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('vast_steppe_midpoint'), 0, true, true)
 		end
 	elseif segmentID == 1 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('vast_steppe', 5) then
 		-- Segment 2 cleared: go to guardian ground map

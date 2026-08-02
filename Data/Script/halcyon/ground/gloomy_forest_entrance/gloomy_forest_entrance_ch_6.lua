@@ -29,18 +29,25 @@ function gloomy_forest_entrance_ch_6.ArrivalCutscene()
 	AI:DisableCharacterAI(partner)
 
 	-- Spawners de la Team Dazzling (créées masquées pour l'introduction)
+	-- Depart du trio : bord gauche du plateau, hors du champ de la camera
+	-- d'ouverture (centree en 280,220 puis 296,360). Les positions d'origine
+	-- (40,280 / 20,300 / 40,320) tombaient dans une poche libre mais ISOLEE
+	-- du plateau : la marche vers le duo etait impossible, les trois PNJ
+	-- restaient plantes sur place.
 	local adagio, aria, sonata = CharacterEssentials.MakeCharactersFromList({
-		{'Adagio', 40, 280, Direction.Right},
-		{'Aria', 20, 300, Direction.Right},
-		{'Sonata', 40, 320, Direction.Right}
+		{'Adagio', 136, 336, Direction.Right},
+		{'Aria', 144, 296, Direction.Right},
+		{'Sonata', 144, 320, Direction.Right}
 	})
 	GROUND:Hide('Adagio')
 	GROUND:Hide('Aria')
 	GROUND:Hide('Sonata')
 
 	-- Positionnement d'ouverture du duo
+	-- (328,480) mettait le partenaire a cheval sur un mur (2 des 4 cases de
+	-- 8 px a Tags=1) : sprite encastre et depart de marche incertain.
 	GROUND:TeleportTo(hero, 312, 480, Direction.Up)
-	GROUND:TeleportTo(partner, 328, 480, Direction.Up)
+	GROUND:TeleportTo(partner, 296, 480, Direction.Up)
 
 	-- Caméra focalisée sur l'entrée sombre de la forêt pour poser l'ambiance
 	GAME:MoveCamera(280, 220, 1, false)
@@ -130,7 +137,7 @@ function gloomy_forest_entrance_ch_6.ArrivalCutscene()
 	end)
 	local walkD3 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(16)
-		GeneralFunctions.EightWayMove(adagio, 130, 270, false, 1.0)
+		GeneralFunctions.EightWayMove(adagio, 152, 272, false, 1.0)
 		GROUND:CharAnimateTurnTo(adagio, Direction.Right, 4)
 	end)
 	local cam2 = TASK:BranchCoroutine(function()

@@ -731,6 +731,12 @@ function DebugTools:OnUpgrade()
 	SV.Chapter10.CelestialPeakComplete = (SV.Chapter10.DefeatedLugia == true)
  end
 
+ --Quizz de Kirlia (Epreuve II, ch8). Contrairement aux jalons ci-dessus,
+ --nil est ici l'etat INITIAL VALIDE : il signifie "quizz jamais passe" et
+ --declenche la proposition. On ne le force donc pas a false ; on se contente
+ --de garantir que la table Chapter8 existe sur une vieille sauvegarde.
+ if SV.Chapter8 == nil then SV.Chapter8 = {} end
+
  --LA CHAMBRE DU MAITRE (ch6). Pour une sauvegarde deja lancee, on deduit
  --l'etat de la porte plutot que de la refermer au nez du joueur : celui
  --qui a deja depasse le ch6 l'a forcement meritee.

@@ -23,6 +23,33 @@ end
 -- Package name
 local mount_windswept = {}
 
+--------------------------------------------------------------------
+-- INDEX DES GROUNDS DE master_zone — resolus PAR NOM
+--
+-- Correctif du 2026-08-02 (meme defaut que cloven_ruins et vast_steppe).
+-- La mort dans la 2e moitie visait master_zone ground 63, en croyant
+-- renvoyer au relais du Mont. Or 63 = crooked_cavern_midpoint ; le
+-- relais du Mont est 66. Le flag WindsweptMidState = 'DeathArrival'
+-- etait donc pose pour une carte jamais atteinte.
+--------------------------------------------------------------------
+local MASTER_FALLBACK = 1  -- metano_town
+
+local function GROUND_IDX(name)
+  local ok, idx = pcall(function()
+    local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("master_zone")
+    for ii = 0, zone.Grounds.Count - 1, 1 do
+      if zone.Grounds[ii] == name then return ii end
+    end
+    return -1
+  end)
+  if not ok or idx == nil or idx < 0 then
+    PrintInfo("[mount_windswept] ground introuvable dans master_zone : " .. tostring(name))
+    return MASTER_FALLBACK
+  end
+  return idx
+end
+
+
 -------------------------------
 -- Zone Callbacks
 -------------------------------
@@ -110,11 +137,11 @@ function mount_windswept.ExitSegment(zone, result, rescue, segmentID, mapID)
 		GAME:WaitFrames(20)
 		SV.Chapter5.WindsweptMidState = 'DeathArrival'
 		if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
-			GAME:EndDungeonRun(result, "master_zone", -1, 63, 0, true, true)
+			GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('mount_windswept_midpoint'), 0, true, true)
 			GAME:WaitFrames(20)
-			GAME:EnterZone("master_zone", -1, 63, 0)
+			GAME:EnterZone("master_zone", -1, GROUND_IDX('mount_windswept_midpoint'), 0)
 		else
-			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 63, 0, true, true)
+			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('mount_windswept_midpoint'), 0, true, true)
 		end
 	elseif segmentID == 1 and result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('mount_windswept', 5) then
 		-- Segment 2 cleared: go to guardian ground map

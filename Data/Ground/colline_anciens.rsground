@@ -1,10 +1,10 @@
-{
+﻿{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
     "TexSize": 1,
     "Name": {
-      "DefaultText": "Your Room",
+      "DefaultText": "Hill of the Ancients",
       "LocalTexts": {}
     },
     "Released": false,
@@ -16981,7 +16981,7 @@
       }
     ],
     "AssetName": "colline_anciens",
-    "Music": "Wigglytuff's Guild.ogg",
+    "Music": "Sky Peak Prairie.ogg",
     "EdgeView": 1,
     "NoSwitching": true,
     "ViewCenter": null,
@@ -17003,137 +17003,7 @@
         "Name": "New EntLayer",
         "Visible": true,
         "MapChars": [],
-        "GroundObjects": [
-          {
-            "EntName": "Bedroom_Exit",
-            "Direction": 0,
-            "EntEnabled": true,
-            "EntOrder": 0,
-            "InteractOrder": 0,
-            "triggerType": 2,
-            "ObjectAnim": {
-              "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
-              "AnimIndex": "",
-              "FrameTime": 1,
-              "StartFrame": -1,
-              "EndFrame": -1,
-              "AnimDir": -1,
-              "Alpha": 255,
-              "AnimFlip": 0
-            },
-            "Passable": false,
-            "CurrentAnim": {
-              "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
-              "AnimIndex": "",
-              "FrameTime": 1,
-              "StartFrame": -1,
-              "EndFrame": -1,
-              "AnimDir": 0,
-              "Alpha": 255,
-              "AnimFlip": 0
-            },
-            "AnimTime": {
-              "Ticks": 0
-            },
-            "Cycles": 0,
-            "DrawOffset": {
-              "X": 0,
-              "Y": 0
-            },
-            "Collider": {
-              "X": 0,
-              "Y": 184,
-              "Width": 8,
-              "Height": 48
-            }
-          },
-          {
-            "EntName": "Save_Point",
-            "Direction": 0,
-            "EntEnabled": true,
-            "EntOrder": 0,
-            "InteractOrder": 0,
-            "triggerType": 3,
-            "ObjectAnim": {
-              "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
-              "AnimIndex": "",
-              "FrameTime": 1,
-              "StartFrame": -1,
-              "EndFrame": -1,
-              "AnimDir": -1,
-              "Alpha": 255,
-              "AnimFlip": 0
-            },
-            "Passable": true,
-            "CurrentAnim": {
-              "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
-              "AnimIndex": "",
-              "FrameTime": 1,
-              "StartFrame": -1,
-              "EndFrame": -1,
-              "AnimDir": 0,
-              "Alpha": 255,
-              "AnimFlip": 0
-            },
-            "AnimTime": {
-              "Ticks": 0
-            },
-            "Cycles": 0,
-            "DrawOffset": {
-              "X": 0,
-              "Y": 0
-            },
-            "Collider": {
-              "X": 172,
-              "Y": 148,
-              "Width": 16,
-              "Height": 16
-            }
-          },
-          {
-            "EntName": "Book",
-            "Direction": 2,
-            "EntEnabled": true,
-            "EntOrder": 0,
-            "InteractOrder": 0,
-            "triggerType": 1,
-            "ObjectAnim": {
-              "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
-              "AnimIndex": "Diary_Red_Opening",
-              "FrameTime": 6,
-              "StartFrame": 0,
-              "EndFrame": 0,
-              "AnimDir": -1,
-              "Alpha": 255,
-              "AnimFlip": 0
-            },
-            "Passable": false,
-            "CurrentAnim": {
-              "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
-              "AnimIndex": "",
-              "FrameTime": 1,
-              "StartFrame": -1,
-              "EndFrame": -1,
-              "AnimDir": -1,
-              "Alpha": 255,
-              "AnimFlip": 0
-            },
-            "AnimTime": {
-              "Ticks": 0
-            },
-            "Cycles": 0,
-            "DrawOffset": {
-              "X": -1,
-              "Y": 7
-            },
-            "Collider": {
-              "X": 288,
-              "Y": 208,
-              "Width": 24,
-              "Height": 24
-            }
-          }
-        ],
+        "GroundObjects": [],
         "Spawners": [
           {
             "NPCName": "Teammate1",
@@ -17210,7 +17080,7 @@
               "ScriptVars": null
             },
             "EntName": "TEAMMATE_1",
-            "Direction": 6,
+            "Direction": 4,
             "EntEnabled": true,
             "EntOrder": 0,
             "InteractOrder": 0,
@@ -17219,8 +17089,8 @@
               0
             ],
             "Collider": {
-              "X": 8,
-              "Y": 200,
+              "X": 96,
+              "Y": 144,
               "Width": 16,
               "Height": 16
             }
@@ -17229,56 +17099,28 @@
         "Markers": [
           {
             "EntName": "Main_Entrance_Marker",
-            "Direction": 6,
+            "Direction": 4,
             "EntEnabled": true,
             "EntOrder": 0,
             "InteractOrder": 0,
             "triggerType": 0,
             "Collider": {
-              "X": 40,
-              "Y": 200,
+              "X": 112,
+              "Y": 144,
               "Width": 16,
               "Height": 16
             }
           },
           {
             "EntName": "entrance_1",
-            "Direction": 0,
+            "Direction": 4,
             "EntEnabled": true,
             "EntOrder": 0,
             "InteractOrder": 0,
             "triggerType": 0,
             "Collider": {
-              "X": 0,
-              "Y": 216,
-              "Width": 16,
-              "Height": 16
-            }
-          },
-          {
-            "EntName": "Hero_Bed",
-            "Direction": 0,
-            "EntEnabled": true,
-            "EntOrder": 0,
-            "InteractOrder": 0,
-            "triggerType": 0,
-            "Collider": {
-              "X": 172,
-              "Y": 148,
-              "Width": 16,
-              "Height": 16
-            }
-          },
-          {
-            "EntName": "Partner_Bed",
-            "Direction": 0,
-            "EntEnabled": true,
-            "EntOrder": 0,
-            "InteractOrder": 0,
-            "triggerType": 0,
-            "Collider": {
-              "X": 228,
-              "Y": 148,
+              "X": 112,
+              "Y": 144,
               "Width": 16,
               "Height": 16
             }
