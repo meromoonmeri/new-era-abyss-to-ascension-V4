@@ -281,7 +281,9 @@ function ChapterAftermath.MarshVictory()
       GAME:WaitFrames(18)
 
       -- Le partenaire fait un pas EN AVANT : il proteste, il ne recule pas.
-      pcall(function() GROUND:MoveToPosition(partner, 140, 168, false, 1) end)
+      -- x=144 et non 140 : la colonne x=140 est un mur de y=144 a y=176
+      -- (verifie sur la grille). Le pas partait dans le decor.
+      pcall(function() GROUND:MoveToPosition(partner, 144, 168, false, 1) end)
       say(partner, 'Surprised', "—Qui...[pause=20] Depuis quand vous êtes là ?!")
 
       say(suaire, 'Normal', "Depuis le début.[pause=25] Nous ne sommes pas venus vous arrêter.")
@@ -318,7 +320,7 @@ function ChapterAftermath.MarshVictory()
       GAME:WaitFrames(25)
 
       -- La question du partenaire. Cette fois il RECULE d'un pas.
-      pcall(function() GROUND:MoveToPosition(partner, 140, 168, false, 1) end)
+      pcall(function() GROUND:MoveToPosition(partner, 144, 168, false, 1) end)
       say(partner, 'Worried', "Une paroi ?[pause=25] Une paroi de QUOI ?")
 
       -- LE SILENCE QUI REFUSE. Le Suaire ne repond pas, et ce refus est

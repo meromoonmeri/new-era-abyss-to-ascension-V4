@@ -126,7 +126,9 @@ AccusationArc.POS = {
   PNJ_1    = {632, 984},
   PNJ_2    = {664, 1000},
   PNJ_3    = {728, 992},
-  PNJ_4    = {736, 984},
+  -- (736,984) mettait PNJ_4 a 11 px de PNJ_3 : deux sprites de 16 px
+  -- superposes. Recale a 25 px, l'arc reste resserre sans chevauchement.
+  PNJ_4    = {752, 1000},
   PNJ_5    = {688, 1016},
   PNJ_6    = {720, 1016},
   PLUM     = {616, 952},
