@@ -1024,6 +1024,9 @@ def cmd_ground(a):
     obj = doc['Object']
     ancien_w = len(obj['obstacles'])
     ancien_h = len(obj['obstacles'][0]) if ancien_w else 0
+    # Pas de grille de l'ANCIEN ground : les colliders herites sont
+    # exprimes dans son referentiel, pas dans le nouveau.
+    pas_ancien = max(1, int(obj.get('TexSize') or 1)) * 8
     obj['TexSize'] = pas // 8
     obj['Layers'] = [{'Name': 'Base', 'Layer': 0, 'Visible': True,
                       'Tiles': [[tuile_ref(a.nom, x, y) if (x, y) in grille
@@ -1043,7 +1046,17 @@ def cmd_ground(a):
     # ignorent le relief. On les remet a l'echelle, puis on les degage des
     # cellules devenues bloquantes.
     if getattr(a, 'herite', None) and ancien_w:
-        _replacer_entites(obj, nx, ny, ancien_w, ancien_h)
+        # CORRECTIF 2026-08-02. _replacer_entites travaille en PIXELS :
+        # elle compare des Collider (px) et clampe sur W - largeur - 8.
+        # On lui passait ici des NOMBRES DE CELLULES (nx, ny), soit des
+        # bornes 8 fois trop petites : toutes les entites se retrouvaient
+        # ecrasees sur le meme coin de carte. Mesure avant correctif sur
+        # celestial_peak_entrance : Main_Entrance_Marker, TEAMMATE_1,
+        # TEAMMATE_2 et TEAMMATE_3 tous ramenes en (45,21) — quatre
+        # sprites empiles, partenaires invisibles.
+        # cmd_carte, elle, passait deja des pixels (ligne ~994).
+        _replacer_entites(obj, nx * pas, ny * pas,
+                          ancien_w * pas_ancien, ancien_h * pas_ancien)
         bloque = np.zeros((ny, nx), dtype=bool)
         for x in range(nx):
             for y in range(ny):

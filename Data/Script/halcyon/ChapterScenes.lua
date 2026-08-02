@@ -235,7 +235,12 @@ function ChapterScenes.PeakArrival()
   return Arrival({
     sv = SV.Chapter10, flag = 'PlayedArrivalScene',
     music = 'Sky Peak Prairie.ogg',
-    camera = {160, 80}, focus = {160, 160},
+    --Recadrage 2026-08-02 : le ground a ete refait a partir de
+    --l'illustration fournie (552x360 au lieu de 240x320). L'ancien
+    --cadrage (160,80) tombait dans la falaise, hors de la bande de
+    --sable praticable (y 112..240 px). On ouvre desormais sur la
+    --gorge et sa grotte, puis on redescend sur le duo.
+    camera = {344, 136}, focus = {272, 184},
     scene = function(hero, partner)
       --SE5_Wind_Background : bandeau de 5120x256 (frames 256x256, 20 images),
       --concu pour defiler horizontalement. Il dormait inexploite dans
