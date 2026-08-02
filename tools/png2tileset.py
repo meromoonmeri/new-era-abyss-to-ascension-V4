@@ -1007,6 +1007,37 @@ def cmd_anime(a):
     return 0
 
 
+def composante_du_sol(sol, ancre_px, pas):
+    """Ne garde que la poche de sol qui CONTIENT le pixel echantillon.
+
+    Pourquoi : `couleurs_sol` classe par couleur, sans notion de
+    voisinage. Sur un decor de ciel (Sky Tower), les nuages blancs du
+    fond ont exactement la teinte du plateau praticable — mesure sur
+    Sky_Tower_entrance : plateau (215,255,255), nuage du ciel
+    (255,255,255). Aucun seuil de luminance ne les separe.
+
+    Mais ils ne se TOUCHENT pas. Un simple remplissage par diffusion
+    depuis le pixel donne a --sol elimine les 111 cellules de ciel
+    faussement marchables, sans toucher au plateau.
+
+    A n'utiliser que sur un decor dont le sol est d'un seul tenant.
+    """
+    from collections import deque
+    depart = (ancre_px[0] // pas, ancre_px[1] // pas)
+    if depart not in sol:
+        return sol
+    vus = {depart}
+    q = deque([depart])
+    while q:
+        x, y = q.popleft()
+        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            n = (x + dx, y + dy)
+            if n in sol and n not in vus:
+                vus.add(n)
+                q.append(n)
+    return vus
+
+
 def cmd_ground(a):
     pas = a.grid
     if 8 * (pas // 8) != pas:
@@ -1034,6 +1065,12 @@ def cmd_ground(a):
                                 for x in range(nx)]}]
     ech = _echantillon_sol(a, grille, pas, a.align)
     sol = couleurs_sol(grille, a.solpct, ech)
+    if getattr(a, 'solconnexe', False) and a.sol:
+        ax, ay = map(int, a.sol.split(','))
+        avant = len(sol)
+        sol = composante_du_sol(set(sol), (ax, ay), pas)
+        print(f'  sol connexe : {avant} -> {len(sol)} cellules '
+              f'({avant - len(sol)} poches isolees ecartees)')
     proto_ob = obj['obstacles'][0][0]
     obj['obstacles'] = [[{**copy.deepcopy(proto_ob),
                           'Tags': 0 if (x, y) in sol else 1}
@@ -1087,6 +1124,10 @@ def main():
         p.add_argument('--align', default='0,0')
         p.add_argument('--seuil', type=float, default=1.0)
         p.add_argument('--solpct', type=float, default=55.0)
+        p.add_argument('--solconnexe', action='store_true',
+                       help='ne garder que la poche de sol contenant le '
+                            'pixel --sol (decors de ciel : les nuages du '
+                            'fond ont la teinte du plateau)')
         p.add_argument('--sol', default=None,
                        help='X,Y : pixel echantillon du terrain marchable')
         p.add_argument('--apply', action='store_true')

@@ -12,6 +12,28 @@ require 'halcyon.BossMusic'
 
 local pre_tonnerre = {}
 
+-- ORAGE DE FOND — les nuees qui bordent l'arene s'illuminent.
+-- MapStatus 'thunderclouds' (voile bleu-blanc, Layer 4, FadeIn 2 /
+-- FadeOut 8). L'eclair n'est pas une animation en boucle : on AJOUTE
+-- puis on RETIRE le statut, et ce sont ses fondus qui font le flash.
+-- Deux coups rapproches puis un silence : c'est le rythme d'un vrai
+-- orage, pas un clignotant regulier.
+local function Eclair(court)
+  pcall(function() GROUND:AddMapStatus("thunderclouds") end)
+  GAME:WaitFrames(court and 4 or 7)
+  pcall(function() GROUND:RemoveMapStatus("thunderclouds") end)
+end
+
+function pre_tonnerre.CoupDeTonnerre(avecSon)
+  local ok = pcall(function()
+    Eclair(true)
+    GAME:WaitFrames(5)
+    Eclair(false)
+    if avecSon then SOUND:PlayBattleSE("DUN_Shock_Wave") end
+  end)
+  if not ok then PrintInfo("[pre_tonnerre] eclair ignore") end
+end
+
 function pre_tonnerre.Init(map)
   DEBUG.EnableDbgCoro()
   COMMON.RespawnAllies(true)
@@ -34,6 +56,7 @@ function pre_tonnerre.Enter(map)
   if LegendZones.IsDefeated('wild_current') then
     -- REMATCH : le gardien connaît déjà l'équipe, pas de cérémonie.
     GROUND:Unhide('Zeraora')
+    pre_tonnerre.CoupDeTonnerre(true)
     UI:SetSpeaker(zeraora)
     UI:WaitShowDialogue("Enfin des concurrents ![pause=20] Règle unique :[pause=10] le premier à terre a perdu !")
     COMMON.BossTransition()
@@ -47,6 +70,9 @@ function pre_tonnerre.Enter(map)
   UI:SetCenter(true)
   UI:WaitShowDialogue("IL A DISTANCÉ L'ORAGE QUI L'A CRÉÉ.[pause=20] DEPUIS, IL CHERCHE UNE COURSE DIGNE.")
   UI:SetCenter(false)
+  -- L'orage repond a la phrase : un eclair lointain, sans tonnerre —
+  -- le son viendra avec l'irruption. Le decalage se voit.
+  pre_tonnerre.CoupDeTonnerre(false)
   GAME:WaitFrames(30)
 
   -- 2. L'irruption — ELECTRIQUE : vitesse pure, la decharge precede le corps.
@@ -60,6 +86,8 @@ function pre_tonnerre.Enter(map)
 
   -- 4/5. Reveal : pose figée puis garde.
   GROUND:Unhide('Zeraora')
+  -- Le ciel repond a l'apparition : cette fois avec le tonnerre.
+  pre_tonnerre.CoupDeTonnerre(true)
   GROUND:CharSetAnim(zeraora, "Attack", false)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(zeraora, "Idle", true)
