@@ -145,9 +145,42 @@ function metano_town.PlotScripting()
 			metano_town_ch_6.PostDefeatCutscene()
 		end
 	elseif SV.ChapterProgression.Chapter == 7 then
+		--------------------------------------------------------------
+		-- ARC GROUDON — chaine de declenchement (correctif 2026-08-02)
+		--
+		-- metano_town_ch_7.GreatReunion etait DEFINIE (153 lignes, 17
+		-- boites) mais appelee NULLE PART : la seule occurrence du nom
+		-- dans tout le depot etait sa propre declaration. Toute la
+		-- chaine aval etait donc morte :
+		--   * la grande reunion (Alakazam raconte les evenements d'il y
+		--     a trente ans) ne se jouait jamais ;
+		--   * colline_sans_lumiere, ou le partenaire fait promettre au
+		--     heros de taire son identite, n'etait jamais atteinte —
+		--     son unique appelant est la fin de GreatReunion ;
+		--   * SV.Chapter7.GreatReunionPlayed et FinishedIntimateTalk
+		--     restaient a false pour toujours.
+		--
+		-- Ordre narratif retabli :
+		--   1. AlakazamScene     — la Team Alakazam suggere d'aller voir
+		--                          le Veilleur du Grand Canyon
+		--   2. (donjon)          — new_era_zone_07, puis colline_anciens
+		--                          ou Xatu entre en transe et designe le
+		--                          titan de magma. Pose VisitedXatu.
+		--   3. GreatReunion      — retour en ville : la grande reunion.
+		--                          C'est VisitedXatu qui l'ouvre.
+		--   4. colline_sans_lumiere — la scene intime, enchainee par la
+		--                          fin de GreatReunion elle-meme.
+		--------------------------------------------------------------
 		if SV.Chapter7.AlakazamScenePlayed == nil then SV.Chapter7.AlakazamScenePlayed = false end
+		if SV.Chapter7.VisitedXatu == nil then SV.Chapter7.VisitedXatu = false end
+		if SV.Chapter7.GreatReunionPlayed == nil then SV.Chapter7.GreatReunionPlayed = false end
 		if not SV.Chapter7.AlakazamScenePlayed then
 			metano_town_ch_7.AlakazamScene()
+		elseif SV.Chapter7.VisitedXatu and not SV.Chapter7.GreatReunionPlayed then
+			--Le duo redescend du Canyon avec ce que le Veilleur a vu.
+			--C'est ce qui declenche la reunion, pas le simple fait
+			--d'entrer en ville.
+			metano_town_ch_7.GreatReunion()
 		else
 			GAME:FadeIn(20)
 		end

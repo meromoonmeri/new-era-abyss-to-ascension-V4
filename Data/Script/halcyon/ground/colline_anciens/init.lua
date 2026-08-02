@@ -123,7 +123,7 @@ local function Scene()
   GAME:WaitFrames(20)
   say("Worried", "Tu entends ?[pause=25] Non — justement. On n'entend rien revenir.")
   say("Worried", "Un canyon pareil devrait renvoyer chaque mot.")
-  think("Worried", "(J'ai crie, en grimpant.[pause=25] Je ne me suis meme pas entendu.)")
+  think("Worried", "(J'ai crié, en grimpant.[pause=25] Je ne me suis même pas entendu.)")
   GAME:WaitFrames(15)
 
   -- ACTE II — la camera revele l'eperon. Xatu apparait par le cadrage,
@@ -135,7 +135,7 @@ local function Scene()
     pcall(function() GROUND:CharSetEmote(partner, "notice", 1) end)
   end
   GAME:WaitFrames(18)
-  say("Surprised", "La-haut.[pause=25] Sur l'eperon, en face.[pause=20] Quelque chose ne bouge pas.")
+  say("Surprised", "Là-haut.[pause=25] Sur l'éperon, en face.[pause=20] Quelque chose ne bouge pas.")
 
   GAME:MoveCamera(112, 56, 60, false)
   local xatu = CharacterEssentials.MakeCharactersFromList({{'Canyon_Xatu', XATU_X, XATU_Y, Direction.Down}})
@@ -145,31 +145,31 @@ local function Scene()
   -- Le heros suit le regard du partenaire, avec un temps de retard.
   pcall(function() GROUND:CharAnimateTurnTo(hero, Direction.Up, 6) end)
   GAME:WaitFrames(22)
-  say("Surprised", "Un Xatu...[pause=20] le bec leve vers le soleil couchant.")
+  say("Surprised", "Un Xatu...[pause=20] le bec levé vers le soleil couchant.")
   GAME:WaitFrames(12)
-  think("Worried", "(Il n'a pas bouge d'un pouce.[pause=25] On ne l'avait pas vu.)")
+  think("Worried", "(Il n'a pas bougé d'un pouce.[pause=25] On ne l'avait pas vu.)")
   GAME:WaitFrames(15)
 
   -- ACTE III — il parle sans se retourner.
   UI:SetSpeaker(xatu); GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue("Le canyon ne mange pas vos voix.[pause=30] C'est moi.")
   GAME:WaitFrames(15)
-  UI:WaitShowDialogue("Je les ecoute depuis si longtemps que je les garde toutes.[pause=20] Y compris celles qu'on ne devrait pas entendre.")
+  UI:WaitShowDialogue("Je les écoute depuis si longtemps que je les garde toutes.[pause=20] Y compris celles qu'on ne devrait pas entendre.")
   GAME:WaitFrames(20)
   think("Worried", "(Celles qu'on ne devrait pas entendre.[pause=25] Il parle de la mienne ?)")
   GAME:WaitFrames(15)
 
   UI:SetSpeaker(xatu); GeneralFunctions.SetEmotion("Normal")
-  UI:WaitShowDialogue("Vous cherchez d'ou viennent les secousses.[pause=25] Approchez.[pause=15] Non — restez ou vous etes.")
+  UI:WaitShowDialogue("Vous cherchez d'où viennent les secousses.[pause=25] Approchez.[pause=15] Non — restez où vous êtes.")
   GAME:WaitFrames(12)
   UI:WaitShowDialogue("Personne ne monte ici.[pause=20] On y regarde, c'est tout.")
   GAME:WaitFrames(15)
-  say("Normal", "La Team Alakazam nous a parle de vous.[pause=20] Ils disent que vous voyez ce qui a ete et ce qui vient.")
+  say("Normal", "La Team Alakazam nous a parlé de vous.[pause=20] Ils disent que vous voyez ce qui a été et ce qui vient.")
   GAME:WaitFrames(15)
 
   -- ACTE IV — la transe.
   UI:SetSpeaker(xatu)
-  UI:WaitShowDialogue("Ce qui a ete.[pause=15] Ce qui vient.[pause=25] En ce moment, les deux se melangent.[br]Laissez-moi regarder.")
+  UI:WaitShowDialogue("Ce qui a été.[pause=15] Ce qui vient.[pause=25] En ce moment, les deux se mélangent.[br]Laissez-moi regarder.")
   GAME:WaitFrames(20)
 
   SOUND:PlayBattleSE("EVT_Title_Intro")
@@ -194,7 +194,7 @@ local function Scene()
   GAME:FadeIn(5)
   GAME:WaitFrames(30)
 
-  UI:WaitShowDialogue("La lave monte.[pause=20] Quelque chose de tres vieux se leve dans sa caldeira.")
+  UI:WaitShowDialogue("La lave monte.[pause=20] Quelque chose de très vieux se lève dans sa caldeira.")
   GAME:WaitFrames(15)
 
   SOUND:PlayBattleSE("EVT_Battle_Flash")
@@ -204,7 +204,7 @@ local function Scene()
   GAME:WaitFrames(30)
 
   GeneralFunctions.SetEmotion("Shouting")
-  UI:WaitShowDialogue("Un titan de magma ![pause=25] Il gronde —[pause=15] et il n'est pas en colere contre vous.")
+  UI:WaitShowDialogue("Un titan de magma ![pause=25] Il gronde —[pause=15] et il n'est pas en colère contre vous.")
   GAME:WaitFrames(20)
   GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue("Quelque chose le pousse.[pause=25] Quelque chose que je ne vois pas.[br]Et je vois tout, d'habitude.")
@@ -216,14 +216,14 @@ local function Scene()
   pcall(function() GROUND:CharSetAnim(xatu, "Idle", true) end)
   GAME:WaitFrames(40)
 
-  say("Shock", "Pas en colere contre nous...[pause=25] Alors contre quoi ?")
+  say("Surprised", "Pas en colère contre nous...[pause=25] Alors contre quoi ?")
   GAME:WaitFrames(15)
 
   -- ACTE V — ce qu'il refuse de dire. Le coeur de la scene.
   UI:SetSpeaker(xatu); GeneralFunctions.SetEmotion("Normal")
-  UI:WaitShowDialogue("Je l'ignore.[pause=25] C'est la premiere fois depuis longtemps que je dis cela.")
+  UI:WaitShowDialogue("Je l'ignore.[pause=25] C'est la première fois depuis longtemps que je dis cela.")
   GAME:WaitFrames(18)
-  UI:WaitShowDialogue("Il y a une ombre derriere ce que je regarde.[pause=25] Quand j'essaie de la fixer,[pause=15] elle recule.")
+  UI:WaitShowDialogue("Il y a une ombre derrière ce que je regarde.[pause=25] Quand j'essaie de la fixer,[pause=15] elle recule.")
   GAME:WaitFrames(20)
 
   -- Il percoit la Voix du heros sans la nommer : premier temoin exterieur.
@@ -235,7 +235,7 @@ local function Scene()
   say("Surprised", "Qu'est-ce que...[pause=20] De quoi parlez-vous ?")
   GAME:WaitFrames(12)
   UI:SetSpeaker(xatu); GeneralFunctions.SetEmotion("Normal")
-  UI:WaitShowDialogue("Ce n'est pas a moi de le dire.[pause=30] Et il est trop tot.")
+  UI:WaitShowDialogue("Ce n'est pas à moi de le dire.[pause=30] Et il est trop tôt.")
   GAME:WaitFrames(18)
   UI:WaitShowDialogue("Ne demandez pas ce que c'est.[pause=25] Demandez depuis quand.")
   GAME:WaitFrames(25)
@@ -253,7 +253,7 @@ local function Scene()
   -- commente, du hors-champ : il n'est pas parti, donc il peut encore
   -- parler. La replique fait ce que la narration faisait, en mieux.
   UI:SetSpeaker(xatu)
-  UI:WaitShowDialogue("Je ne suis pas parti.[pause=25] J'ai seulement cesse d'etre visible.")
+  UI:WaitShowDialogue("Je ne suis pas parti.[pause=25] J'ai seulement cessé d'être visible.")
   GAME:WaitFrames(12)
   if partner ~= nil then
     pcall(function() GROUND:CharSetEmote(partner, "sweatdrop", 1) end)
@@ -268,9 +268,9 @@ local function Scene()
 
   think("Normal", "(Depuis quand.[pause=25] Pas ce que c'est.[pause=20] Depuis quand.)")
   GAME:WaitFrames(15)
-  say("Determined", "Un titan de magma, et quelque chose derriere lui.[pause=25] C'est plus que ce qu'on avait en montant.")
+  say("Determined", "Un titan de magma, et quelque chose derrière lui.[pause=25] C'est plus que ce qu'on avait en montant.")
   GAME:WaitFrames(12)
-  say("Normal", "Rentrons.[pause=20] Le Maitre de Guilde doit entendre ca de notre bouche.")
+  say("Normal", "Rentrons.[pause=20] Le Maître de Guilde doit entendre ça de notre bouche.")
   GAME:WaitFrames(20)
 end
 
