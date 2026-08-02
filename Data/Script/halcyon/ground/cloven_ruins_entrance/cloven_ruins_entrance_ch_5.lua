@@ -76,19 +76,19 @@ cloven_ruins_entrance_ch_5.PLACES = PLACES
 -- voisines (circulation), au moins 56 du foyer et 48 des objets
 -- scriptes. Deployees SEULEMENT a l'acte 7.
 local LITS = {
-  Penticus  = {80, 80},
-  Phileas   = {120, 80},
-  Rin       = {160, 80},
-  Coco      = {200, 80},
-  Hyko      = {240, 80},
-  Almotz    = {80, 220},
-  Kino      = {120, 220},
-  Reinier   = {160, 220},
-  Ganlon    = {200, 220},
-  Shuca     = {240, 220},
-  Plum      = {200, 152},
-  hero      = {120, 152},
-  partner   = {160, 152},
+  Penticus  = {160, 88},
+  Phileas   = {205, 101},
+  Rin       = {224, 152},
+  Coco      = {205, 203},
+  Hyko      = {160, 216},
+  Almotz    = {115, 203},
+  Kino      = {96, 152},
+  Reinier   = {115, 101},
+  Ganlon    = {180, 92},
+  Shuca     = {220, 125},
+  Plum      = {180, 212},
+  hero      = {110, 125},
+  partner   = {110, 180},
 }
 cloven_ruins_entrance_ch_5.LITS = LITS
 
