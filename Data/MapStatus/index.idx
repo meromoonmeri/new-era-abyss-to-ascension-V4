@@ -101,6 +101,83 @@
       "Released": true,
       "Comment": "Pic Celeste — cendre soulevee par la tempete (ScreenRainEmitter).",
       "SortOrder": 0
+    },
+    "falling_rain": {
+      "Name": {
+        "DefaultText": "Falling Rain",
+        "LocalTexts": {
+          "fr": "Pluie battante"
+        }
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "light_rain": {
+      "Name": {
+        "DefaultText": "Pluie fine",
+        "LocalTexts": {
+          "fr": "Pluie fine"
+        }
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "heavy_rain": {
+      "Name": {
+        "DefaultText": "Pluie torrentielle",
+        "LocalTexts": {
+          "fr": "Pluie torrentielle"
+        }
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "blizzard": {
+      "Name": {
+        "DefaultText": "Blizzard",
+        "LocalTexts": {
+          "fr": "Blizzard"
+        }
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "sandstorm": {
+      "Name": {
+        "DefaultText": "Tempete de sable",
+        "LocalTexts": {
+          "fr": "Tempete de sable"
+        }
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "fog": {
+      "Name": {
+        "DefaultText": "Brouillard",
+        "LocalTexts": {
+          "fr": "Brouillard"
+        }
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 0
+    },
+    "gloom": {
+      "Name": {
+        "DefaultText": "Ciel d'orage",
+        "LocalTexts": {
+          "fr": "Ciel d'orage"
+        }
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 0
     }
   }
 }
