@@ -8,6 +8,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.mission_gen'
+require 'halcyon.SceneDebug'
 
 
 
@@ -1201,6 +1202,29 @@ function testmap.Test_Core_Deactivation_Action(chara, activator)
 end
 
 
+
+
+--------------------------------------------------------------------
+-- ARMEMENT DES SCENES (SceneDebug)
+--
+-- L'objet `Chapter1_1` existait dans testmap.rsground sans handler :
+-- il etait donc muet en jeu, et signale comme tel par audit_bugs.py
+-- (section E). On lui donne une fonction utile plutot que d'ajouter
+-- une entite de plus a la carte.
+--
+-- Il ouvre le menu d'armement : choisir une scene arme les drapeaux SV
+-- correspondants ET teleporte sur la bonne carte. Indispensable pour
+-- les cinematiques a condition POSITIVE (Camp des Ruines), qui ne
+-- peuvent pas se declencher par une simple arrivee en mode dev.
+--------------------------------------------------------------------
+function testmap.Chapter1_1_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  local ok, err = pcall(function() SceneDebug.Menu() end)
+  if not ok then
+    PrintInfo('[testmap] SceneDebug.Menu a echoue : ' .. tostring(err))
+    pcall(function() UI:ResetSpeaker() end)
+  end
+end
 
 
 return testmap
