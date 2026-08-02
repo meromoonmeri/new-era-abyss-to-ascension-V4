@@ -1113,7 +1113,7 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
-		--Chapitre 7 : les trois gardiens scelles des Ruines Fendues
+		--Chapitre 7 : les trois gardiens scelles des Ruines Tordues
 		Regirock = {
 			species = "regirock",
 			nickname = 'Regirock',
@@ -1138,7 +1138,7 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
-		--Zarbi de l'enigme des Ruines Fendues (formes R E G I S)
+		--Zarbi de l'enigme des Ruines Tordues (formes R E G I S)
 		Zarbi_R = {
 			species = "unown",
 			nickname = 'Zarbi',

@@ -1265,7 +1265,7 @@ function metano_town_ch_7.AlakazamScene()
 
   UI:SetSpeaker(alakazam)
   UI:WaitShowDialogue("Mmm...[pause=10] Je ressens les vibrations telluriques d'ici. L'énergie du noyau terrestre s'échappe par cette faille.")
-  UI:WaitShowDialogue("Les flux d'énergie convergent tous vers les Ruines Fendues. Quelque chose là-bas cherche à s'éveiller.")
+  UI:WaitShowDialogue("Les flux d'énergie convergent tous vers les Ruines Tordues. Quelque chose là-bas cherche à s'éveiller.")
   GAME:WaitFrames(15)
 
   -- Tyranocif intervient

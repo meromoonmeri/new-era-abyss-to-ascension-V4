@@ -562,7 +562,7 @@ function cloven_ruins_boss_ch_7.DefeatedBoss()
   end
 
   -- LE TITAN EST VAINCU — L'EXPEDITION DU CH5 EST TERMINEE.
-  --(Restructuration validee : les Ruines Fendues sont le climax du ch5.
+  --(Restructuration validee : les Ruines Tordues sont le climax du ch5.
   --Regigigas est un GARDIEN QUI TESTE — bienveillant-eprouvant. Le duo
   --l'a releve de sa consigne millenaire. Révélation TARDIVE : le Cœur
   --corrompu n'est PAS revele ici — seule reste l'anomalie inquietante

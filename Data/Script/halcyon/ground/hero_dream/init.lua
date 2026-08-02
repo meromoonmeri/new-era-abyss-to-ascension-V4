@@ -560,7 +560,7 @@ local function DreamSceneBody()
   --reve a eu lieu.
   SV.Chapter5.DreamSceneSeen = true
   --Le reve est partage entre plusieurs camps du ch5 (Mont Venteux et
-  --Ruines Fendues) : on pose aussi le drapeau propre au camp qui a
+  --Ruines Tordues) : on pose aussi le drapeau propre au camp qui a
   --appele, identifie par la carte de retour qu'il a posee. Le routeur
   --des Ruines (cloven_ruins_entrance) lit RuinsDreamSeen pour ne pas
   --rejouer la veillee en boucle.
@@ -599,7 +599,7 @@ function hero_dream.DreamScene()
   --camp rejouerait la veillee en boucle et on repartirait vers le reve.
   SV.Chapter5.DreamSceneSeen = true
   --Le reve est partage entre plusieurs camps du ch5 (Mont Venteux et
-  --Ruines Fendues) : on pose aussi le drapeau propre au camp qui a
+  --Ruines Tordues) : on pose aussi le drapeau propre au camp qui a
   --appele, identifie par la carte de retour qu'il a posee. Le routeur
   --des Ruines (cloven_ruins_entrance) lit RuinsDreamSeen pour ne pas
   --rejouer la veillee en boucle.
@@ -666,7 +666,7 @@ function hero_dream.DreamScene()
   end
 
   --CARTE DE RETOUR PARAMETRABLE. hero_dream est partage entre plusieurs
-  --camps (Mont Venteux au ch5, Ruines Fendues au ch5, ...) : la carte
+  --camps (Mont Venteux au ch5, Ruines Tordues au ch5, ...) : la carte
   --vers laquelle renvoyer le joueur apres le reve est posee par
   --l'appelant (SV.TemporaryFlags.DreamReturn = nom de ground) juste
   --avant la bascule. Defaut : mount_windswept_entrance (comportement
