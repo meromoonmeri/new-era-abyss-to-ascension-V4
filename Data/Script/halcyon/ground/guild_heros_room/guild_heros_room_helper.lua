@@ -36,9 +36,72 @@ function guild_heros_room_helper.Bedtime(generic, continueSong)
 		GAME:FadeIn(40)
 		SOUND:PlayBGM('Goodnight.ogg', true)
 		GAME:WaitFrames(40)
+		
+		-- Discussion intime au coucher dynamique selon la progression du chapitre
+		local chapter = (SV.ChapterProgression and SV.ChapterProgression.Chapter) or 1
 		UI:SetSpeaker(partner)
-		UI:WaitShowDialogue("Aujourd'hui, c'était fatiguant.[pause=0]Il faudrait se reposer un peu pour pouvoir tout donner demain !")
-		UI:WaitShowDialogue("OK,[pause=10]bonne nuit,[pause=10]" .. hero:GetDisplayName() .. ".")
+		
+		if chapter == 1 or chapter == 2 then
+			GeneralFunctions.SetEmotion("Normal")
+			UI:WaitShowDialogue("Dis, " .. hero:GetDisplayName() .. "...[pause=20] C'est toujours bizarre de me dire que tu étais un humain.")
+			GeneralFunctions.SetEmotion("Happy")
+			UI:WaitShowDialogue("Mais je suis tellement heureux de t'avoir rencontré. Je sais qu'on fera une super équipe !")
+			UI:WaitShowDialogue("Allez, bonne nuit, dors bien.")
+		elseif chapter == 3 or chapter == 4 then
+			GeneralFunctions.SetEmotion("Inspired")
+			UI:WaitShowDialogue("On est de vrais explorateurs de la guilde maintenant ![pause=15] C'est incroyable.")
+			GeneralFunctions.SetEmotion("Worried")
+			UI:WaitShowDialogue("Parfois, j'ai un peu peur des hors-la-loi et des dangers... mais quand tu es là, je me sens courageux.")
+			GeneralFunctions.SetEmotion("Normal")
+			UI:WaitShowDialogue("Merci d'être là pour moi. Bonne nuit, " .. hero:GetDisplayName() .. ".")
+		elseif chapter == 5 then
+			GeneralFunctions.SetEmotion("Worried")
+			UI:WaitShowDialogue("La grande expédition approche...[pause=20] J'ai l'estomac tout noué par le trac.")
+			GeneralFunctions.SetEmotion("Normal")
+			UI:WaitShowDialogue("Mais je sais que tant qu'on marche côte à côte, rien ne pourra nous arrêter.")
+			GeneralFunctions.SetEmotion("Happy")
+			UI:WaitShowDialogue("Je suis fier d'être ton partenaire. À demain pour de nouvelles aventures !")
+		elseif chapter == 6 then
+			GeneralFunctions.SetEmotion("Normal")
+			UI:WaitShowDialogue("Cette forêt lugubre est terrifiante...[pause=15] et l'ambiance au village devient bizarre.")
+			GeneralFunctions.SetEmotion("Inspired")
+			UI:WaitShowDialogue("Mais quand je te regarde, ma peur s'en va d'un coup. Tu es ma plus belle rencontre, tu sais ?")
+			GeneralFunctions.SetEmotion("Normal")
+			UI:WaitShowDialogue("Repose-toi bien. Bonne nuit.")
+		elseif chapter == 7 then
+			GeneralFunctions.SetEmotion("Worried")
+			UI:WaitShowDialogue("Les prédictions de Xatu... et ces secousses sous la terre...[pause=20] Ça m'inquiète beaucoup.")
+			GeneralFunctions.SetEmotion("Normal")
+			UI:WaitShowDialogue("S'il te plaît, promets-moi...[pause=15] Promets-moi que quoi qu'il arrive, on surmontera ça ensemble.")
+			GeneralFunctions.SetEmotion("Happy")
+			UI:WaitShowDialogue("On restera soudés, d'accord ? Bonne nuit, mon ami.")
+		elseif chapter == 8 then
+			GeneralFunctions.SetEmotion("Sad")
+			UI:WaitShowDialogue("Le sanctuaire de cristal et toutes ces forces anciennes...[pause=15] J'ai l'impression que le monde change.")
+			GeneralFunctions.SetEmotion("Normal")
+			UI:WaitShowDialogue("Mais ma confiance en toi est plus solide que tous les cristaux du monde.")
+			GeneralFunctions.SetEmotion("Happy")
+			UI:WaitShowDialogue("Dors bien, " .. hero:GetDisplayName() .. ". Demain est un autre jour.")
+		elseif chapter == 9 then
+			GeneralFunctions.SetEmotion("Worried")
+			UI:WaitShowDialogue("Les gens chuchotent sur la place publique... la Fédération devient nerveuse...")
+			GeneralFunctions.SetEmotion("Determined")
+			UI:WaitShowDialogue("Mais sache une chose :[pause=10] même si le monde entier se retournait contre toi... moi, je serai toujours de ton côté.")
+			GeneralFunctions.SetEmotion("Normal")
+			UI:WaitShowDialogue("Je te ferai toujours confiance. Bonne nuit.")
+		elseif chapter == 10 then
+			GeneralFunctions.SetEmotion("Normal")
+			UI:WaitShowDialogue("Regarde les étoiles par la fenêtre...[pause=20] Le ciel semble si lourd de secrets ce soir.")
+			GeneralFunctions.SetEmotion("Inspired")
+			UI:WaitShowDialogue("Demain, nous montons à la Tour Céleste. J'ai un étrange pressentiment... mais je n'ai pas peur.")
+			GeneralFunctions.SetEmotion("Happy")
+			UI:WaitShowDialogue("Tant que je suis avec toi, mon cœur est en paix. Bonne nuit, mon irremplaçable ami.")
+		else
+			GeneralFunctions.SetEmotion("Normal")
+			UI:WaitShowDialogue("Aujourd'hui, c'était fatiguant.[pause=0]Il faudrait se reposer un peu pour pouvoir tout donner demain !")
+			UI:WaitShowDialogue("OK,[pause=10]bonne nuit,[pause=10]" .. hero:GetDisplayName() .. ".")
+		end
+		
 		SOUND:FadeOutBGM(60)
 		GAME:FadeOut(false, 60)
 		SV.TemporaryFlags.Bedtime = false
