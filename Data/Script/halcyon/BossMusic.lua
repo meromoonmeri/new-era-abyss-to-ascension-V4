@@ -112,6 +112,9 @@ BossMusic.LIST = {
   ---------------- CIEL : les gardiens des hauteurs ----------------
   vigie_stratos      = T.CIEL,     -- le Neuvieme Sommet
   autel_celeste      = T.CIEL,     -- l'Autel, fin du chapitre 10
+  --Rayquaza deplace au sommet de la Tour Celeste le 2026-08-04.
+  --Meme theme : c'est le meme boss, la meme fin de chapitre.
+  tour_ciel_sommet   = T.CIEL,     -- Sky Tower Summit, climax Rayquaza
   celestial_peak_boss= T.CIEL,     -- le Sommet Sacre
   sommet_aurore      = T.CIEL_2,   -- le Bucher de l'Aurore
   ile_legendaire     = T.CIEL_2,   -- la Premiere Lumiere

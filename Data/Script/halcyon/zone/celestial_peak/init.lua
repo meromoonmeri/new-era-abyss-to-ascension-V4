@@ -113,9 +113,17 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
       -- Sommet Sacre : 4 etages
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('celestial_peak', 10) then
           SV.Chapter10.ReachedLugiaAltar = true
-          -- Autel des Cieux : arene officielle importee 1:1 de pmd-red (D13P03,
-          -- Sky Tower Summit) — remplace l'ancienne carte composee celestial_peak_boss.
-          GAME:EnterGroundMap('autel_celeste', 'Main_Entrance_Marker')
+          -- CORRECTIF 2026-08-04 — les DEUX actes se jouent desormais sur
+          -- tour_ciel_sommet. Le commentaire d'origine disait deja que
+          -- l'Autel etait Sky Tower Summit importe de pmd-red, mais la
+          -- carte porte le tileset Autel_Celeste_Base et la musique
+          -- Rainbow Peak.ogg. tour_ciel_sommet est converti directement
+          -- depuis Sky_Tower_summit_RTRB.png et porte Sky Tower.ogg.
+          -- Rebrancher ICI aussi est indispensable : sinon l'acte 1 se
+          -- jouerait a l'Autel et l'acte 2 a la Tour — deux decors
+          -- differents dans la meme sequence, exactement le defaut
+          -- corrige le 02/08 entre Lugia et Rayquaza.
+          GAME:EnterGroundMap('tour_ciel_sommet', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
           SV.Chapter10.LostSummit = true
@@ -164,9 +172,19 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
           -- l'Autel, ou l'acte 2 attend. C'est PlayPostVictoryScene qui
           -- clot le chapitre et enchaine sur la chambre.
           --------------------------------------------------------------
+          -- CORRECTIF 2026-08-04 — Rayquaza passe au SOMMET DE LA TOUR.
+          -- Canoniquement (Rescue Team) Rayquaza se combat au sommet de
+          -- Sky Tower, pas sur un pic. autel_celeste est bati sur les
+          -- tilesets Mount_Windswept_* : c'est un pic. tour_ciel_sommet
+          -- est converti depuis Sky_Tower_summit_RTRB.png.
+          -- La scene n'est PAS reecrite : elle est transposee telle
+          -- quelle (memes cles CPB_001..CPB_017, memes effets), seules
+          -- les coordonnees changent. L'acte 2 y attend, arme par la
+          -- meme condition qu'a l'Autel (CelestialPeakComplete +
+          -- PlayedLugiaTalk + not PlayedVictoryScene).
           ChapterAftermath.PeakVictory()
           GAME:WaitFrames(30)
-          GAME:EnterGroundMap('autel_celeste', 'Main_Entrance_Marker')
+          GAME:EnterGroundMap('tour_ciel_sommet', 'Main_Entrance_Marker')
       else
           SV.Chapter10.DiedToLugia = true
           SV.Chapter10.PeakMidState = 'DeathArrival'

@@ -166,7 +166,27 @@ function cloven_ruins_entrance.PlotScripting()
                 .. "(entree hors victoire Tornadus : warp dev / chargement).")
     end
     cloven_ruins_entrance_ch_5.SetupGround(true)
-    cloven_ruins_entrance_ch_5.ArrivalCutscene()
+    -- SORTIE GARANTIE (regle projet). ArrivalCutscene etait appelee A NU.
+    -- C'est exactement le defaut qui a produit l'ecran noir de la Foret
+    -- Lugubre : la fonction ne contient qu'UN SEUL GAME:FadeIn et pose
+    -- CutsceneMode(true) sans jamais le relacher elle-meme. Si elle leve
+    -- avant son FadeIn, le joueur reste sur un ecran noir, manette
+    -- inerte, sans aucun moyen de s'en sortir.
+    -- 30 appels moteur y sont non proteges (TeleportTo, MoveToPosition,
+    -- MakeCharactersFromList, 95 lectures de MapStrings). Les 95 cles
+    -- existent bien dans les deux .resx (verifie), donc le risque est
+    -- faible — mais « faible » ne suffit pas pour un ecran noir.
+    local ok, err = pcall(cloven_ruins_entrance_ch_5.ArrivalCutscene)
+    if not ok then
+      PrintInfo('[cloven_ruins_entrance] ArrivalCutscene interrompue : ' .. tostring(err))
+      -- On ne rejoue pas une scene a moitie jouee : on la marque faite,
+      -- on repose le camp au repos, et on rend la main au joueur.
+      pcall(function() SV.Chapter5.RuinsCampDone = true end)
+      pcall(function() SV.Chapter5.RuinsCampPending = false end)
+      pcall(function() cloven_ruins_entrance_ch_5.SetupGround(false) end)
+      pcall(function() GAME:CutsceneMode(false) end)
+      pcall(function() GAME:FadeIn(20) end)
+    end
     return
   end
 
