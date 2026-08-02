@@ -736,6 +736,7 @@ function cloven_ruins_entrance_ch_5.Acte5(hero, partner, plum, t)
 
   -- LE CRI.
   pcall(function() BossFX.ShakeScreen(6, 30) end)
+  pcall(function() SOUND:PlayBGM("Guildmaster Wigglytuff.ogg", true) end) -- Start funny guild theme!
   Says(plum, "Shouting", 'CR5_A26')
   pcall(function() GeneralFunctions.EmoteAndPause(plum, "Angry", true) end)
   Silence(20)
@@ -801,8 +802,10 @@ function cloven_ruins_entrance_ch_5.Acte6(hero, partner, plum, t)
 
   -- Le feu s'allume : c'est le repas. Le camp prend enfin vie.
   Narre('CR5_A42')
+  pcall(function() SOUND:FadeOutBGM(30) end) -- Fade out funny BGM
   GAME:FadeOut(false, 45)
   GAME:WaitFrames(30)
+  pcall(function() SOUND:PlayBGM("At the End of the Day.ogg", true) end) -- Start cozy camp BGM!
   cloven_ruins_entrance_ch_5.BuildCampDay()
 
   -- Chacun a sa place autour du foyer.
@@ -873,6 +876,7 @@ function cloven_ruins_entrance_ch_5.Acte7(hero, partner, plum, t)
   -- ('darkness') ne viendra qu'avec les paillasses, dans DeployBeds.
   -- Patron du Mont Venteux, ou la meme progression est jouee.
   pcall(function() GROUND:AddMapStatus("dusk") end)
+  pcall(function() SOUND:FadeOutBGM(120) end) -- Fade out camp BGM slowly over 2 seconds for bedtime
   Silence(30)
 
   Narre('CR5_A53')
