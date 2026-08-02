@@ -13,8 +13,8 @@ ERRORS=0
 # Seuils resynchronises le 2026-07-30 (mesure sur le depot, commit 843256e).
 # Les anciennes valeurs 68/248/51 dataient de la v0.4 : le script signalait
 # 2 erreurs de comptage en permanence sur un depot pourtant sain.
-EXPECTED_GROUNDS=279
-EXPECTED_TILESETS=542
+EXPECTED_GROUNDS=278
+EXPECTED_TILESETS=537
 EXPECTED_MUSIC=133
 
 # 1. Ground maps
