@@ -12,11 +12,39 @@ gloomy_forest_entrance_ch_6 = {}
 
 function gloomy_forest_entrance_ch_6.SetupGround()
 	-- Lors d'un retour ordinaire (gameplay), pas de PNJ gênant l'entrée.
-	pcall(function()
-		GROUND:Hide('Adagio')
-		GROUND:Hide('Aria')
-		GROUND:Hide('Sonata')
-	end)
+	--
+	-- CORRECTIF 2026-08-04 — trois ArgumentException dans le log de jeu :
+	--     ScriptGround.Hide(Adagio): Couldn't find entity to hide!
+	--     ScriptGround.Hide(Aria)  : ...
+	--     ScriptGround.Hide(Sonata): ...
+	--
+	-- CAUSE : Adagio, Aria et Sonata n'existent PAS sur la carte au repos.
+	-- Le .rsground ne déclare que TEAMMATE_1/2/3 (Spawners), trois
+	-- marqueurs et Dungeon_Entrance. Le trio est créé À L'EXÉCUTION par
+	-- CharacterEssentials.MakeCharactersFromList, uniquement dans
+	-- ArrivalCutscene. Hors cinématique il n'y a donc rien à masquer.
+	--
+	-- Le pcall englobant ne supprimait pas le bruit : ScriptGround.Hide
+	-- (Lua/ScriptGround.cs:29-40) attrape lui-même son exception et la
+	-- passe à DiagManager.LogError. Elle est journalisée AVANT que Lua
+	-- puisse la voir — pcall n'a jamais rien à rattraper.
+	--
+	-- Second effet du pcall unique : il masquait un vrai défaut. Les trois
+	-- appels étaient dans le MÊME pcall, donc l'échec du premier sautait
+	-- les deux autres. Si un jour le trio existe vraiment, seul Adagio
+	-- aurait été masqué, Aria et Sonata seraient restés visibles.
+	--
+	-- On ne masque donc que ce qui existe. FindEntity est la méthode que
+	-- Hide utilise lui-même (l.31) ; GROUND:CharSetEmote et GROUND:Hide
+	-- sont déjà employés partout dans le mod, mais aucun test d'existence
+	-- ne l'était : on passe par le ground courant, sans inventer d'API.
+	for _, nom in ipairs({'Adagio', 'Aria', 'Sonata'}) do
+		local present = false
+		pcall(function()
+			present = (GAME:GetCurrentGround():FindEntity(nom) ~= nil)
+		end)
+		if present then pcall(function() GROUND:Hide(nom) end) end
+	end
 end
 
 function gloomy_forest_entrance_ch_6.ArrivalCutscene()
