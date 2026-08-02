@@ -49,7 +49,7 @@ cloven_ruins_entrance_ch_5 = {}
 -- POSITIONS — toutes validees contre obstacles[]
 -- ==================================================================
 cloven_ruins_entrance_ch_5.CAMP_X = 160
-cloven_ruins_entrance_ch_5.CAMP_Y = 200
+cloven_ruins_entrance_ch_5.CAMP_Y = 144
 local CX = cloven_ruins_entrance_ch_5.CAMP_X
 local CY = cloven_ruins_entrance_ch_5.CAMP_Y
 
@@ -76,19 +76,19 @@ cloven_ruins_entrance_ch_5.PLACES = PLACES
 -- voisines (circulation), au moins 56 du foyer et 48 des objets
 -- scriptes. Deployees SEULEMENT a l'acte 7.
 local LITS = {
-  Penticus  = {80, 120},
-  Phileas   = {120, 120},
-  Rin       = {160, 120},
-  Coco      = {200, 120},
-  Hyko      = {240, 120},
-  Almotz    = {80, 260},
-  Kino      = {120, 260},
-  Reinier   = {160, 260},
-  Ganlon    = {200, 260},
-  Shuca     = {240, 260},
-  Plum      = {200, 200},
-  hero      = {120, 200},
-  partner   = {160, 200},
+  Penticus  = {80, 80},
+  Phileas   = {120, 80},
+  Rin       = {160, 80},
+  Coco      = {200, 80},
+  Hyko      = {240, 80},
+  Almotz    = {80, 220},
+  Kino      = {120, 220},
+  Reinier   = {160, 220},
+  Ganlon    = {200, 220},
+  Shuca     = {240, 220},
+  Plum      = {200, 150},
+  hero      = {120, 150},
+  partner   = {160, 150},
 }
 cloven_ruins_entrance_ch_5.LITS = LITS
 
