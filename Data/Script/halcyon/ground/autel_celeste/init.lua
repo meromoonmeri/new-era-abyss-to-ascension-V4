@@ -53,7 +53,11 @@ function autel_celeste.Enter(map)
   GAME:CutsceneMode(true)
 
   -- Si la scène post-victoire n'a pas encore été jouée et que Lugia (ou Rayquaza) a été battu
-  if SV.Chapter10.CelestialPeakComplete and not SV.Chapter10.PlayedVictoryScene then
+  -- ACTE 2 du climax : la meteorite et Rayquaza. On y entre une fois le
+  -- combat gagne ET la discussion de Lugia jouee (acte 1, flag
+  -- PlayedLugiaTalk pose par ChapterAftermath.PeakVictory).
+  if SV.Chapter10.CelestialPeakComplete and SV.Chapter10.PlayedLugiaTalk
+     and not SV.Chapter10.PlayedVictoryScene then
     autel_celeste.PlayPostVictoryScene(hero, partner)
     return
   end

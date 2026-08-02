@@ -135,20 +135,38 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
           SV.Chapter10.DefeatedLugia = true
           SV.Chapter10.CelestialPeakComplete = true
-          --Scene d'apres-boss : la consequence se joue AVANT le retour a la
-          --guilde. Sans elle, le combat le plus important du chapitre se
-          --terminait par un simple fondu vers la fin de journee.
+          --------------------------------------------------------------
+          -- CORRECTIF 2026-08-02 — le climax n'etait jamais joue.
+          --
+          -- Le commit a8f2362 (01/08) a ecrit la scene Rayquaza dans
+          -- autel_celeste (meteorite, lueur pourpre, bascule ch11) mais
+          -- n'a touche QUE ce fichier et ses deux .resx. Il n'a jamais
+          -- debranche l'ancienne sortie ci-dessous.
+          --
+          -- Resultat en jeu : on voyait APPARAITRE Rayquaza, on le
+          -- combattait, puis LUGIA repliait ses ailes — deux boss
+          -- differents dans la meme sequence. Et comme
+          -- SV.ChapterProgression.Chapter = 11 n'existe QUE dans la scene
+          -- morte, le chapitre 11 etait inatteignable.
+          --
+          -- Enchainement retabli, en deux actes sur la meme carte :
+          --   ACTE 1  PeakVictory() — la longue discussion. Lugia reste
+          --           apres sa defaite et renseigne le heros
+          --           (« Cherchez sous l'ecaille »). Il finit epuise,
+          --           incapable de se relever.
+          --   ACTE 2  autel_celeste.PlayPostVictoryScene — la meteorite
+          --           tombe, Lugia ne PEUT plus rien, Rayquaza fend les
+          --           nuages. Le climax comble une incapacite etablie
+          --           trente secondes plus tot : ce n'est pas un deus ex
+          --           machina. Cette scene pose Chapter = 11.
+          --
+          -- On ne retourne donc PAS a la guilde ici : on revient a
+          -- l'Autel, ou l'acte 2 attend. C'est PlayPostVictoryScene qui
+          -- clot le chapitre et enchaine sur la chambre.
+          --------------------------------------------------------------
           ChapterAftermath.PeakVictory()
-          -- Fin de l'histoire actuelle : debloque le contenu end-game (Mega-Pierres, etc.).
-          -- Quand les chapitres 11+ existeront, deplacer cette ligne vers la vraie fin.
-          SV.ChapterProgression.StoryCompleted = true
-          --Fin de chapitre : on rentre dormir a la guilde pour la veillee finale
-          --(guild_heros_room_ch_10). Carte 2 = guild_heros_room, la chambre.
-          SV.TemporaryFlags.Dinnertime = true
-          SV.TemporaryFlags.Bedtime = true
-          SV.TemporaryFlags.MorningWakeup = true
-          SV.TemporaryFlags.MorningAddress = true
-          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 2, 0, true, true)
+          GAME:WaitFrames(30)
+          GAME:EnterGroundMap('autel_celeste', 'Main_Entrance_Marker')
       else
           SV.Chapter10.DiedToLugia = true
           SV.Chapter10.PeakMidState = 'DeathArrival'

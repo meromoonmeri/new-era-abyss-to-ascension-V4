@@ -1337,7 +1337,12 @@ SV.Chapter10 =
 	--dans l'ascension. Remis a false a chaque entree dans le donjon.
 	ReplayPastFulgur = false,
 	--Meme cas que ch8/ch9 : ecrit par zone/celestial_peak:137, jamais declare.
-	CelestialPeakComplete = false
+	CelestialPeakComplete = false,
+	--Acte 1 du climax : la longue discussion de Lugia apres sa defaite
+	--(ChapterAftermath.PeakVictory). Distinct de PlayedVictoryScene, qui
+	--marque l'acte 2 (meteorite + Rayquaza, autel_celeste). Les deux
+	--partageaient le meme drapeau : l'acte 2 ne se jouait jamais.
+	PlayedLugiaTalk = false
 }
 
 SV.Chapter11 = 
@@ -1445,4 +1450,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-08-03-S]')
+print('Script variables default values loaded! [build 2026-08-03-T]')

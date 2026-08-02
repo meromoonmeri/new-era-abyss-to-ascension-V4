@@ -454,6 +454,13 @@ function DebugTools:OnUpgrade()
 
  --Chapitre 11 « Ceux que l'on accuse » : rattrapage pour les parties en
  --cours, sinon les scenes de l'arc lisent des champs nil.
+ --Climax ch10 scinde en deux actes (correctif 2026-08-02) : sans ce
+ --rattrapage, une partie en cours arrive sur autel_celeste avec
+ --PlayedLugiaTalk a nil et l'acte 2 ne se declenche jamais.
+ if SV.Chapter10 ~= nil and SV.Chapter10.PlayedLugiaTalk == nil then
+   SV.Chapter10.PlayedLugiaTalk = (SV.Chapter10.PlayedVictoryScene == true)
+ end
+
  if SV.AccusationArc == nil then SV.AccusationArc = {} end
  if SV.AccusationArc.Scene == nil then SV.AccusationArc.Scene = 0 end
  if SV.AccusationArc.HeardAccusation == nil then SV.AccusationArc.HeardAccusation = false end

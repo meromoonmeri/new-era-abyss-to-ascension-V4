@@ -195,55 +195,162 @@ end
 --------------------------------------------------------------------
 -- Ils n'attaquent pas, ne menacent pas. Ils commentent. C'est bien pire.
 -- Leur phrase relie enfin les deux fils : les Coeurs et le sceau.
+-- MISE EN SCENE (2026-08-02).
+-- Emotion visee : L'EFFROI FROID. Pas la peur d'une menace — la peur de
+-- comprendre qu'on avait tort. Le Suaire ne bouge pas, ne crie pas, ne se
+-- bat pas : c'est SON IMMOBILITE qui fait peur, opposee a l'agitation du
+-- partenaire. Zero mouvement gratuit — le Suaire ne se deplace JAMAIS.
+--
+-- Trois leviers seulement :
+--   1. la camera qui RECULE (on decouvre qu'il etait la depuis le debut)
+--   2. l'orientation de chacun depuis SA position reelle
+--   3. le silence pose la ou la question reste sans reponse
+--
+-- Test « sans le texte » : camera qui recule sur trois silhouettes
+-- immobiles -> le duo se retourne en sursaut -> le partenaire avance,
+-- gesticule, recule -> le heros ne bouge pas -> ils s'effacent sans un
+-- geste. La gravite se lit sans une seule replique.
+--
+-- Positions verifiees sur la grille (30x40 cellules de 8 px) :
+--   hero (172,180) libre | partner (140,184) libre — (140,180) etait BLOQUE
+--   boss (156,120) | Suaire (156,96) | Linceul (124,104) | Litanie (188,104)
 function ChapterAftermath.MarshVictory()
   return Aftermath({
     sv = SV.Chapter9, flag = 'PlayedVictoryScene',
     music = 'Dark Hill.ogg',
-    hero = {172, 180}, partner = {140, 180}, camera = {156, 150},
+    -- (140,180) tombait sur une case bloquee : le partenaire etait
+    -- encastre dans le decor depuis l'ecriture de la scene.
+    hero = {172, 180}, partner = {140, 184}, camera = {156, 150},
     scene = function(hero, partner)
       local boss = CharacterEssentials.MakeCharactersFromList({{'Swampert', 156, 120, Direction.Down}})
-      collapse(boss)
+
+      -- Chute et recul de camera ENSEMBLE (principe 1 du module) : le corps
+      -- s'affaisse pendant que le cadre s'ouvre.
+      local c1 = TASK:BranchCoroutine(function() collapse(boss) end)
+      local c2 = TASK:BranchCoroutine(function() GAME:MoveCamera(156, 156, 90, false) end)
+      TASK:JoinCoroutines({c1, c2})
 
       narrate("La bête s'affaisse dans la vase.[pause=25] L'eau se referme sur elle sans un bruit.")
       GAME:WaitFrames(20)
+
+      -- Le partenaire se tourne vers le heros : il est le seul a bouger,
+      -- c'est lui qui porte la joie.
+      pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
       say(partner, 'Happy', "On l'a fait ![pause=20] Le Cœur va pouvoir respirer—")
-      GAME:WaitFrames(10)
-      -- Interruption : on coupe la joie en plein milieu. Effet de rupture.
+
+      -- RUPTURE : la phrase est coupee net, le son s'arrete avant l'image.
+      pcall(function() SOUND:FadeOutBGM(20) end)
       pcall(function() BossFX.ShakeScreen(3, 16) end)
       narrate("La brume, derrière eux, cesse de bouger.")
       GAME:WaitFrames(25)
 
-      local suaire = CharacterEssentials.MakeCharactersFromList({{'Suaire_Banette', 156, 96, Direction.Down}})
+      -- Les trois apparaissent : le meneur au centre, les deux autres en
+      -- retrait. Une silhouette isolee ferait moins peur que trois.
+      local suaire  = CharacterEssentials.MakeCharactersFromList({{'Suaire_Banette', 156, 96, Direction.Down}})
+      local linceul = CharacterEssentials.MakeCharactersFromList({{'Suaire_Gengar', 124, 104, Direction.DownRight}})
+      local litanie = CharacterEssentials.MakeCharactersFromList({{'Suaire_Noivern', 188, 104, Direction.DownLeft}})
       pcall(function()
-        GROUND:Hide('Suaire_Banette')
-        BossFX.Flash(156, 96, 2, 4, 18)
-        GROUND:Unhide('Suaire_Banette')
+        GROUND:Hide('Suaire_Banette'); GROUND:Hide('Suaire_Gengar'); GROUND:Hide('Suaire_Noivern')
       end)
-      GAME:WaitFrames(20)
+
+      -- La camera RECULE pour les faire entrer dans le cadre : le joueur
+      -- decouvre qu'ils etaient dans son dos. Seul mouvement ample de la
+      -- scene, et il porte toute la revelation.
+      local cam = TASK:BranchCoroutine(function() GAME:MoveCamera(156, 132, 70, false) end)
+      local rev = TASK:BranchCoroutine(function()
+        GAME:WaitFrames(18)
+        pcall(function() BossFX.Flash(156, 96, 2, 4, 18); GROUND:Unhide('Suaire_Banette') end)
+        GAME:WaitFrames(10)
+        pcall(function() GROUND:Unhide('Suaire_Gengar') end)
+        GAME:WaitFrames(7)
+        pcall(function() GROUND:Unhide('Suaire_Noivern') end)
+      end)
+      TASK:JoinCoroutines({cam, rev})
+
+      -- Le duo se retourne, chacun depuis SA position : le heros est a
+      -- droite, le partenaire a gauche — ils ne pivotent pas pareil.
+      pcall(function()
+        GROUND:CharTurnToCharAnimated(hero, suaire, 6)
+        GAME:WaitFrames(5)
+        GROUND:CharTurnToCharAnimated(partner, suaire, 3)
+        GROUND:CharSetEmote(partner, "exclaim", 1)
+      end)
+      GAME:WaitFrames(22)
 
       say(suaire, 'Normal', "Trois.")
+      GAME:WaitFrames(18)
+
+      -- Le partenaire fait un pas EN AVANT : il proteste, il ne recule pas.
+      pcall(function() GROUND:MoveToPosition(partner, 140, 168, false, 1) end)
       say(partner, 'Surprised', "—Qui...[pause=20] Depuis quand vous êtes là ?!")
+
       say(suaire, 'Normal', "Depuis le début.[pause=25] Nous ne sommes pas venus vous arrêter.")
       GAME:WaitFrames(15)
       say(suaire, 'Normal', "Nous sommes venus COMPTER.")
-      GAME:WaitFrames(20)
+
+      -- SILENCE : le mot reste seul a l'ecran avant que le heros comprenne.
+      -- C'est le temps de la scene, pas un flottement.
+      GAME:WaitFrames(45)
       think(hero, 'Worried', "(Compter quoi ?[pause=25] ...Les Cœurs. Il compte les Cœurs.)")
       GAME:WaitFrames(15)
+
+      -- Il explose : deuxieme pas en avant, emote de colere.
+      pcall(function()
+        GROUND:MoveToPosition(partner, 144, 152, false, 1)
+        GROUND:CharSetEmote(partner, "angry", 1)
+      end)
       say(partner, 'Angry', "On les SAUVE ![pause=20] On les répare ![pause=25] Vous devriez nous remercier !")
       GAME:WaitFrames(20)
+
+      -- Le Suaire n'a pas bouge d'un pixel depuis son apparition. C'est le
+      -- coeur de l'effet.
       say(suaire, 'Sad', "Oui.[pause=30] C'est bien le problème.")
-      GAME:WaitFrames(20)
-      -- La phrase-pivot de tout l'arc. Elle nomme le mecanisme sans nommer
-      -- ce qu'il retient : le twist reste intact.
-      say(suaire, 'Normal', "Chaque Cœur que vous ranimez brille un peu plus fort.[pause=30] Et chaque fois qu'un Cœur brille,[pause=20] une paroi s'amincit.")
+      GAME:WaitFrames(28)
+
+      -- LA phrase-pivot : resserrement lent de la camera sur lui seul, le
+      -- monde retrecit a ce qu'il est en train de dire.
+      local zoom = TASK:BranchCoroutine(function() GAME:MoveCamera(156, 112, 100, false) end)
+      local dire = TASK:BranchCoroutine(function()
+        GAME:WaitFrames(12)
+        say(suaire, 'Normal', "Chaque Cœur que vous ranimez brille un peu plus fort.[pause=30] Et chaque fois qu'un Cœur brille,[pause=20] une paroi s'amincit.")
+      end)
+      TASK:JoinCoroutines({zoom, dire})
       GAME:WaitFrames(25)
+
+      -- La question du partenaire. Cette fois il RECULE d'un pas.
+      pcall(function() GROUND:MoveToPosition(partner, 140, 168, false, 1) end)
       say(partner, 'Worried', "Une paroi ?[pause=25] Une paroi de QUOI ?")
-      GAME:WaitFrames(20)
+
+      -- LE SILENCE QUI REFUSE. Le Suaire ne repond pas, et ce refus est
+      -- JOUE : les deux autres se tournent vers lui, il ne bronche pas.
+      -- Sans ce temps, la question passait inapercue.
+      pcall(function()
+        GROUND:CharTurnToCharAnimated(linceul, suaire, 5)
+        GAME:WaitFrames(6)
+        GROUND:CharTurnToCharAnimated(litanie, suaire, 5)
+      end)
+      GAME:WaitFrames(50)
+
       say(suaire, 'Sad', "Continuez.[pause=30] Vous comprendrez au dernier.")
-      GAME:WaitFrames(15)
-      narrate("Il ne s'en va pas.[pause=25] Il cesse simplement d'être là,[pause=20] comme une buée qu'on essuie.")
       GAME:WaitFrames(20)
+
+      -- Ils s'effacent dans l'ordre inverse de leur apparition. Aucun ne
+      -- fait un geste de depart : ils cessent d'etre la.
+      pcall(function()
+        GROUND:Hide('Suaire_Noivern'); GAME:WaitFrames(8)
+        GROUND:Hide('Suaire_Gengar');  GAME:WaitFrames(8)
+        BossFX.Flash(156, 96, 6, 2, 26)
+        GROUND:Hide('Suaire_Banette')
+      end)
+      narrate("Il ne s'en va pas.[pause=25] Il cesse simplement d'être là,[pause=20] comme une buée qu'on essuie.")
+      GAME:WaitFrames(25)
+
+      -- Le partenaire cherche le regard du heros. Le heros, lui, fixe
+      -- toujours l'endroit vide : il n'a pas quitte le Suaire des yeux.
+      pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
+      GAME:WaitFrames(30)
       think(hero, 'Sad', "(Il n'a pas menti une seule fois.[pause=30] C'est ça qui me terrifie.)")
+      GAME:WaitFrames(20)
     end,
   })
 end
@@ -254,52 +361,140 @@ end
 -- Le renversement : le plus ancien gardien du monde demande pardon a deux
 -- gamins. S'il s'excuse, c'est qu'il a fait quelque chose. Fin de l'arc
 -- sur une question, pas sur une victoire.
+-- MISE EN SCENE (2026-08-02).
+-- Emotion visee : LE VERTIGE. Le plus ancien gardien du monde demande
+-- pardon a deux gamins — le joueur perd son dernier repere d'autorite.
+--
+-- CE QUE CETTE SCENE EST, NARRATIVEMENT
+-- Lugia vient d'etre vaincu et RESTE : c'est ici qu'il renseigne le heros
+-- sur la marche a suivre. La scene est longue et parlee, c'est voulu.
+-- Elle s'acheve sur son epuisement — ce qui rend possible, juste apres,
+-- l'arrivee de Rayquaza face a la meteorite (autel_celeste). Lugia ne
+-- PEUT plus rien : le climax qui suit n'est donc pas un deus ex machina,
+-- il comble une incapacite etablie trente secondes plus tot.
+--
+-- Zero mouvement gratuit. Lugia est a terre : il ne se deplace pas, il
+-- se REDRESSE par paliers, puis retombe. Trois etats de corps :
+--   effondre -> assis (il parle) -> tente de se lever (il echoue)
+--
+-- Test « sans le texte » : un colosse a terre, deux enfants minuscules
+-- face a lui, la camera qui descend a leur hauteur, le colosse qui baisse
+-- la tete, puis qui essaie de se relever et n'y arrive pas.
+--
+-- Positions verifiees sur la grille (69x75 cellules de 8 px) :
+--   hero (296,296) | partner (256,296) | Lugia (272,232) | tous libres
 function ChapterAftermath.PeakVictory()
   return Aftermath({
-    sv = SV.Chapter10, flag = 'PlayedVictoryScene',
+    -- Flag PROPRE a l'acte 1. Les deux actes du climax partageaient
+    -- 'PlayedVictoryScene' : PeakVictory le posait, ce qui rendait la
+    -- condition d'entree de l'acte 2 (autel_celeste) definitivement
+    -- fausse. C'est le coeur du blocage corrige le 2026-08-02.
+    sv = SV.Chapter10, flag = 'PlayedLugiaTalk',
     music = 'Rainbow Peak.ogg',
     hero = {296, 296}, partner = {256, 296}, camera = {276, 264},
     scene = function(hero, partner)
       local lugia = CharacterEssentials.MakeCharactersFromList({{'Lugia', 272, 232, Direction.Down}})
-      collapse(lugia)
+
+      -- Il tombe pendant que le vent s'arrete : le silence arrive AVANT
+      -- l'immobilite, on l'entend cesser.
+      local c1 = TASK:BranchCoroutine(function() collapse(lugia) end)
+      local c2 = TASK:BranchCoroutine(function()
+        GAME:WaitFrames(20)
+        pcall(function() GROUND:RemoveMapStatus("blowing_wind_fast") end)
+        pcall(function() SOUND:FadeOutBGM(50) end)
+      end)
+      TASK:JoinCoroutines({c1, c2})
 
       narrate("Il replie ses ailes.[pause=30] Le vent tombe d'un coup,[pause=20] et le silence du sommet est total.")
+      GAME:WaitFrames(30)
+
+      -- Premier palier : il redresse la tete. Le duo se tourne vers lui,
+      -- chacun depuis sa place (le heros a droite, le partenaire a gauche).
+      pcall(function()
+        GROUND:CharSetAnim(lugia, "Idle", true)
+        GROUND:CharTurnToCharAnimated(hero, lugia, 5)
+        GAME:WaitFrames(6)
+        GROUND:CharTurnToCharAnimated(partner, lugia, 5)
+      end)
       GAME:WaitFrames(20)
+
       say(lugia, 'Normal', "Assez.[pause=25] Vous avez montré ce que je voulais voir.")
       say(partner, 'Surprised', "C'était...[pause=20] un test ?[pause=25] Tout ça, un TEST ?")
       say(lugia, 'Normal', "Non.[pause=30] Un adieu.")
-      GAME:WaitFrames(25)
+
+      -- Le mot tombe dans le vide. On laisse le joueur l'encaisser.
+      GAME:WaitFrames(40)
       think(hero, 'Worried', "(Un adieu ?[pause=25] On vient à peine de le rencontrer.)")
       GAME:WaitFrames(20)
-      pcall(function() GROUND:CharSetAnim(lugia, "Idle", true) end)
+
       say(lugia, 'Sad', "Quatre Cœurs ranimés.[pause=25] Je l'ai senti d'ici, chaque fois.[pause=20] Comme un fil qui casse.")
       GAME:WaitFrames(20)
+
+      -- Le partenaire fait le lien avec le marais : il avance d'un pas.
+      pcall(function() GROUND:MoveToPosition(partner, 260, 280, false, 1) end)
       say(partner, 'Worried', "Vous aussi vous parlez comme eux...[pause=25] Comme les spectres du marais.")
       say(lugia, 'Sad', "Alors ils vous ont trouvés.[pause=30] Ils ont plus de courage que moi.")
       GAME:WaitFrames(25)
+
+      -- Il detourne le regard vers le vide : l'aveu qui vient lui coute.
+      pcall(function() GROUND:CharAnimateTurnTo(lugia, Direction.DownLeft, 6) end)
+      GAME:WaitFrames(18)
       say(lugia, 'Normal', "Moi, j'ai passé mille ans à me taire.[pause=30] À veiller sur un sommet vide en espérant que personne ne monte.")
       GAME:WaitFrames(20)
       think(hero, 'Surprised', "(Il ne gardait pas le sommet.[pause=30] Il gardait le CHEMIN. Pour que personne n'arrive jusqu'ici.)")
-      GAME:WaitFrames(20)
+      GAME:WaitFrames(25)
+
+      -- Il revient sur eux pour la partie utile : ce qu'il PEUT donner.
+      pcall(function() GROUND:CharTurnToCharAnimated(lugia, hero, 5) end)
+      GAME:WaitFrames(15)
       say(lugia, 'Sad', "Je ne peux pas vous dire ce qui est en jeu.[pause=30] Pas parce que c'est interdit —[pause=20] parce que je n'en ai plus le droit.")
       GAME:WaitFrames(15)
       say(lugia, 'Normal', "Alors je vous donne ce que je peux.[pause=30] Trois mots.")
-      GAME:WaitFrames(20)
-      say(lugia, 'Determined', "Cherchez sous l'écaille.")
-      GAME:WaitFrames(25)
-      -- La Voix intervient ICI, pour la premiere fois devant temoin.
-      -- Elle ne s'adresse toujours qu'au heros : Lugia ne reagit pas.
+
+      -- LA consigne. Resserrement lent, et silence avant de la dire :
+      -- c'est l'information que le joueur doit retenir du chapitre.
+      local zoom = TASK:BranchCoroutine(function() GAME:MoveCamera(276, 248, 90, false) end)
+      local dire = TASK:BranchCoroutine(function()
+        GAME:WaitFrames(35)
+        say(lugia, 'Determined', "Cherchez sous l'écaille.")
+      end)
+      TASK:JoinCoroutines({zoom, dire})
+      GAME:WaitFrames(30)
+
+      -- La Voix intervient devant temoin pour la premiere fois. Lugia ne
+      -- reagit pas : elle ne s'adresse qu'au heros.
       voice("...Il en a trop dit.")
       GAME:WaitFrames(20)
+
+      -- Le partenaire voit le heros palir, et se tourne vers LUI, pas vers
+      -- Lugia : il a compris ou est le vrai probleme.
+      pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
       say(partner, 'Worried', "Tu as encore pâli.[pause=25] C'était elle, hein ?")
       GAME:WaitFrames(15)
       think(hero, 'Sad', "(Elle avait peur.[pause=30] Pour la première fois depuis le début,[pause=20] elle avait PEUR.)")
-      GAME:WaitFrames(20)
+      GAME:WaitFrames(25)
+
       say(lugia, 'Sad', "Une dernière chose,[pause=20] et ensuite je me tais pour de bon.")
+      GAME:WaitFrames(20)
+
+      -- Le pardon. Il baisse la tete — le colosse s'incline devant deux
+      -- enfants. C'est l'image que la scene doit laisser.
+      pcall(function() GROUND:CharSetAnim(lugia, "Hurt", true) end)
       GAME:WaitFrames(15)
       say(lugia, 'Sad', "Pardon.[pause=40] Pour ce que nous avons fait,[pause=25] et pour ce que vous allez devoir défaire.")
+      GAME:WaitFrames(40)
+
+      -- Il ESSAIE de se relever, et n'y arrive pas. C'est ce plan qui rend
+      -- necessaire l'arrivee de Rayquaza dans la scene suivante.
+      pcall(function()
+        GROUND:CharSetAnim(lugia, "Idle", true)
+        GAME:WaitFrames(20)
+        BossFX.ShakeScreen(2, 14)
+        GROUND:CharSetAnim(lugia, "Hurt", true)
+      end)
       GAME:WaitFrames(30)
-      narrate("Il s'élève sans un battement d'aile,[pause=25] et disparaît dans la lumière.[pause=30] Le sommet redevient un simple caillou dans le ciel.")
+      narrate("Il tente de se redresser.[pause=30] Ses ailes ne le portent plus.")
+      GAME:WaitFrames(25)
     end,
   })
 end
