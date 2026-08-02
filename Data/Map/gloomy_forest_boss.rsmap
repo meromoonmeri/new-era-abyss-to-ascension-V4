@@ -9,7 +9,7 @@
       }
     },
     "Released": true,
-    "Comment": "Chapter 6 boss arena: Zarude.",
+    "Comment": "Chapter 6 boss arena: Zeraora.",
     "Begun": false,
     "ID": 0,
     "MapTeams": [
@@ -37,7 +37,7 @@
               "Gender": -1
             },
             "CurrentForm": {
-              "Species": "zarude",
+              "Species": "zeraora",
               "Form": 0,
               "Skin": "normal",
               "Gender": 1
@@ -189,11 +189,11 @@
               "Assembly": false,
               "Index": -1
             },
-            "Nickname": "Zarude",
+            "Nickname": "",
             "OriginalUUID": "",
             "OriginalTeam": "",
             "BaseForm": {
-              "Species": "zarude",
+              "Species": "zeraora",
               "Form": 0,
               "Skin": "normal",
               "Gender": 1

@@ -31,7 +31,7 @@ end
 function gloomy_forest_boss.PlotScripting()
 	-- L'Epreuve des Trois : on arrive ici depuis le relais, apres avoir
 	-- accepte le defi d'Adagio. Ce test passe AVANT la rejouabilite et
-	-- avant Zarude — la clairiere sert alors de terrain de duel, pas
+	-- avant Zeraora — la clairiere sert alors de terrain de duel, pas
 	-- d'arene de boss.
 	if SV.Chapter6.DazzlingTrialOffered and not SV.Chapter6.DazzlingTrialCleared
 	   and SV.Chapter6.DefeatedGloomyBoss then
@@ -40,14 +40,16 @@ function gloomy_forest_boss.PlotScripting()
 		return
 	end
 
-	-- Rejouabilite : Zarude a ete vaincu, la clairiere est vide. La revanche
+	-- Rejouabilite : Zeraora a ete vaincu, la clairiere est vide. La revanche
 	-- volontaire passe par le segment 5 (zone-amie « Serment Verdoyant » achetee
 	-- chez Grodoudou), pas par ce ground.
 	if ReplayEnding.IsReplay('gloomy_forest', 6) then
 		ReplayEnding.EmptyArena({
-			hero = {276, 340}, partner = {308, 340},
-			camera = {292, 300}, look = {292, 240},
-			walk = 56, title = true, music = 'Mystifying Forest.ogg',
+			--Coordonnees recalees sur la carte repeinte (360x312). Les
+			--anciennes (y=340) etaient HORS CARTE depuis la conversion.
+			hero = {184, 272}, partner = {160, 272},
+			camera = {176, 250}, look = {176, 176},
+			walk = 40, title = true, music = 'Mystifying Forest.ogg',
 			lines = {
 				{ spk='partner', emo='Normal', key='GF6B_R01', wait=10 },
 				{ spk='hero',    emo='Normal', key='GF6B_R02', wait=10 },
@@ -60,14 +62,14 @@ function gloomy_forest_boss.PlotScripting()
 	if SV.ChapterProgression.Chapter == 6 and not SV.Chapter6.GloomyBossEncountered then
 		gloomy_forest_boss_ch_6.FirstBossScene()
 	elseif SV.ChapterProgression.Chapter == 6 and not SV.Chapter6.DefeatedGloomyBoss then
-		--Le joueur revient apres avoir perdu contre Zarude : GloomyBossEncountered est
+		--Le joueur revient apres avoir perdu contre Zeraora : GloomyBossEncountered est
 		--deja vrai, donc la premiere scene ne rejouera pas. Sans cette branche la carte
 		--n'a aucune sortie et le joueur reste bloque. On relance directement le combat.
 		GAME:FadeIn(20)
 		GAME:WaitFrames(20)
 		COMMON.BossTransition()
 		GAME:CutsceneMode(false)
-		-- Segment 4 : l'arene de Zarude (decalee de 2 -> 4 par le mini-boss).
+		-- Segment 4 : l'arene de Zeraora (decalee de 2 -> 4 par le mini-boss).
 		GAME:ContinueDungeon("gloomy_forest", 4, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 	else
 		GAME:FadeIn(20)
@@ -78,7 +80,9 @@ function gloomy_forest_boss.Teammate1_Action(chara, activator)
 	PartnerEssentials.GetPartnerDialogue(CH('Teammate1'))
 end
 
-function gloomy_forest_boss.Zarude_Action(chara, activator)
+--Renomme avec l'espece : le handler doit porter le nom de l'entite
+--posee par MakeCharactersFromList, sinon l'interaction est muette.
+function gloomy_forest_boss.Zeraora_Action(chara, activator)
 	COMMON.GroundInteract(activator, chara, true)
 end
 

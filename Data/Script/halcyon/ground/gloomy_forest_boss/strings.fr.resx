@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <data name="GF6B_001" xml:space="preserve"><value>Les ruines s’arrêtent ici. Quelque chose bloque le passage.</value></data>
-  <data name="GF6B_002" xml:space="preserve"><value>On dirait que la forêt retient son souffle.</value></data>
-  <data name="GF6B_003" xml:space="preserve"><value>Nous sommes proches. Chenipent a dû passer par ici.</value></data>
-  <data name="GF6B_004" xml:space="preserve"><value>Attends... Ce n’était pas une ombre.</value></data>
-  <data name="GF6B_005" xml:space="preserve"><value>Quelque chose se tient entre nous et le cœur de la forêt.</value></data>
-  <data name="GF6B_006" xml:space="preserve"><value>Vous n’avez rien à faire ici.</value></data>
-  <data name="GF6B_007" xml:space="preserve"><value>Nous ne partirons pas en laissant quelqu’un derrière nous !</value></data>
-  <data name="GF6B_008" xml:space="preserve"><value>Nous sommes arrivés jusque-là ensemble. Nous irons jusqu’au bout ensemble.</value></data>
-  <data name="GF6B_009" xml:space="preserve"><value>Faites demi-tour.</value></data>
-  <data name="GF6B_010" xml:space="preserve"><value>La forêt ne pardonne pas aux intrus.</value></data>
-  <data name="GF6B_011" xml:space="preserve">
-    <value>La forêt s'est tue...[pause=20] Même le vent s'est arrêté.</value>
+  <data name="GF6B_001" xml:space="preserve"><value>Le sentier s'arrête ici.[pause=15] Ce plateau n'était pas sur la carte.</value></data>
+  <data name="GF6B_002" xml:space="preserve"><value>Regarde l'herbe.[pause=10] Elle est brûlée,[pause=10] en une seule ligne droite.</value></data>
+  <data name="GF6B_003" xml:space="preserve"><value>(Quelque chose est passé ici.[pause=15] Vite.[pause=10] Très vite.)</value></data>
+  <data name="GF6B_004" xml:space="preserve"><value>Hé.[pause=20] Halte-là,[pause=10] vous deux.</value></data>
+  <data name="GF6B_005" xml:space="preserve"><value>Qui a dit ça ?[pause=20] Il n'y a personne...</value></data>
+  <data name="GF6B_006" xml:space="preserve"><value>Trois jours que je vous entends monter.[pause=20] Vous êtes lents.</value></data>
+  <data name="GF6B_007" xml:space="preserve"><value>On cherche un Chenipan perdu ![pause=15] Tu l'as vu,[pause=10] oui ou non ?</value></data>
+  <data name="GF6B_008" xml:space="preserve"><value>(Il nous observait depuis le début.[pause=15] Et on n'a rien senti.)</value></data>
+  <data name="GF6B_009" xml:space="preserve"><value>Le petit va bien.[pause=15] Il dort,[pause=10] plus haut,[pause=10] à l'abri.</value></data>
+  <data name="GF6B_010" xml:space="preserve"><value>Mais personne ne passe ce plateau sans courir contre moi.[pause=20] Règle unique :[pause=10] le premier à terre a perdu !</value></data>
+  <data name="GF6B_011" xml:space="preserve"><value>L'air change.[pause=15] Ça sent l'orage,[pause=10] alors qu'il n'y a pas un nuage.</value>
   </data>
-  <data name="GF6B_012" xml:space="preserve">
-    <value>Ainsi les petits sont venus jusqu'ici...</value>
+  <data name="GF6B_012" xml:space="preserve"><value>IL A DISTANCÉ L'ORAGE QUI L'A CRÉÉ.</value>
   </data>
-  <data name="GF6B_013" xml:space="preserve">
-    <value>Le Gardien des racines ne vous laissera pas passer.</value>
+  <data name="GF6B_013" xml:space="preserve"><value>DEPUIS,[pause=10] IL CHERCHE UNE COURSE DIGNE DE LUI.</value>
   </data>
 <data name="GF6B_R01" xml:space="preserve"><value>L'enchevêtrement de racines s'est desserré.[pause=20] La lumière passe, jusqu'au sol.</value></data><data name="GF6B_R02" xml:space="preserve"><value>(Il nous a laissés entrer.[pause=15] Ou alors il ne surveille plus.)</value></data><data name="GF6B_R03" xml:space="preserve"><value>La forêt respire mieux depuis qu'il a cessé de monter la garde.</value></data><data name="GF6B_R04" xml:space="preserve"><value>Il n'y a plus rien à trouver ici.[pause=0] Il est temps de rentrer.</value></data></root>
