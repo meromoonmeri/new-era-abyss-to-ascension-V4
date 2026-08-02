@@ -77,6 +77,7 @@ function metano_cafe.PlotScripting()
 	else 
 		GAME:FadeIn(20)
 	end 
+	pcall(function() metano_cafe.PlayDailyCutscene() end)
 end
 
 -------------------------------
@@ -682,6 +683,177 @@ function metano_cafe.Teammate3_Action(chara, activator)
   GeneralFunctions.GroundInteract(activator, chara)
 end
 
+function metano_cafe.PlayDailyCutscene()
+  local day = (SV.ChapterProgression and SV.ChapterProgression.DaysPassed) or 0
+  if SV.metano_cafe.LastDailyCutsceneDay == day then
+    return
+  end
+  SV.metano_cafe.LastDailyCutsceneDay = day
+
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GAME:CutsceneMode(true)
+  GAME:FadeOut(false, 1)
+
+  local scene_index = day % 7
+  
+  if scene_index == 0 then
+    -- Scène 0 : Goinfrex mendie à manger
+    local goinfrex = CharacterEssentials.MakeCharactersFromList({{'Goinfrex', 140, 160, Direction.Right}})
+    local ludicolo = CharacterEssentials.MakeCharactersFromList({{'Ludicolo', 180, 160, Direction.Left}})
+    GROUND:CharSetAnim(goinfrex, 'Idle', true)
+    GROUND:CharSetAnim(ludicolo, 'Idle', true)
+    GAME:MoveCamera(160, 160, 1, false)
+    GAME:FadeIn(20)
+    
+    UI:SetSpeaker(goinfrex)
+    UI:WaitShowDialogue("S'il te plaît, Ludicolo...[pause=15] Donne-moi un smoothie gratuit !")
+    UI:WaitShowDialogue("Je n'ai pas mangé depuis au moins dix minutes...[pause=20] Je vais m'évanouir !")
+    
+    UI:SetSpeaker(ludicolo)
+    UI:WaitShowDialogue("Haha ! Non, non, mon garçon ![pause=15] Au café, on danse et on s'active d'abord !")
+    UI:WaitShowDialogue("Fais une petite danse de l'estomac, et on verra !")
+    
+    GAME:FadeOut(false, 20)
+    GAME:GetCurrentGround():RemoveTempChar(goinfrex)
+    GAME:GetCurrentGround():RemoveTempChar(ludicolo)
+
+  elseif scene_index == 1 then
+    -- Scène 1 : Foreshadowing Cresselia
+    local girafarig = CharacterEssentials.MakeCharactersFromList({{'Girafarig', 140, 160, Direction.Right}})
+    local cleffa = CharacterEssentials.MakeCharactersFromList({{'Cleffa', 180, 160, Direction.Left}})
+    GROUND:CharSetAnim(girafarig, 'Idle', true)
+    GROUND:CharSetAnim(cleffa, 'Idle', true)
+    GAME:MoveCamera(160, 160, 1, false)
+    GAME:FadeIn(20)
+    
+    UI:SetSpeaker(girafarig)
+    UI:WaitShowDialogue("J'ai fait un rêve si étrange la nuit dernière, Mélo...")
+    UI:WaitShowDialogue("Un vide noir immense essayait d'avaler la lune...[pause=15] et un Pokémon en croissant doré se battait contre lui.")
+    
+    UI:SetSpeaker(cleffa)
+    UI:WaitShowDialogue("Oh ! C'est la légende de Cresselia, la gardienne de la Cour Clair-Lune !")
+    UI:WaitShowDialogue("On dit qu'elle protège les rêves des gens contre l'obscurité totale...")
+    
+    GAME:FadeOut(false, 20)
+    GAME:GetCurrentGround():RemoveTempChar(girafarig)
+    GAME:GetCurrentGround():RemoveTempChar(cleffa)
+
+  elseif scene_index == 2 then
+    -- Scène 2 : Dispute d'Almotz (Gloom) et Excelangue (Lickitung)
+    local gloom = CharacterEssentials.MakeCharactersFromList({{'Gloom', 140, 160, Direction.Right}})
+    local lickitung = CharacterEssentials.MakeCharactersFromList({{'Lickitung', 180, 160, Direction.Left}})
+    GROUND:CharSetAnim(gloom, 'Idle', true)
+    GROUND:CharSetAnim(lickitung, 'Idle', true)
+    GAME:MoveCamera(160, 160, 1, false)
+    GAME:FadeIn(20)
+    
+    UI:SetSpeaker(gloom)
+    GeneralFunctions.SetEmotion("Angry")
+    UI:WaitShowDialogue("Ne lèche pas ça !![pause=15] C'est mon miel de rechange, et il est hautement toxique !")
+    
+    UI:SetSpeaker(lickitung)
+    GeneralFunctions.SetEmotion("Surprised")
+    UI:WaitShowDialogue("Léchouille... ?[pause=10] Oh, pardon, Almotz !")
+    UI:WaitShowDialogue("Il avait l'air si sucré...[pause=15] J'ai la langue toute bleue maintenant !")
+    
+    UI:SetSpeaker(gloom)
+    UI:WaitShowDialogue("Tu as failli y laisser ta langue ![pause=15] Va boire de l'eau, vite !")
+    
+    GAME:FadeOut(false, 20)
+    GAME:GetCurrentGround():RemoveTempChar(gloom)
+    GAME:GetCurrentGround():RemoveTempChar(lickitung)
+
+  elseif scene_index == 3 then
+    -- Scène 3 : Foreshadowing Regigigas
+    local aggron = CharacterEssentials.MakeCharactersFromList({{'Aggron', 140, 160, Direction.Right}})
+    local cranidos = CharacterEssentials.MakeCharactersFromList({{'Cranidos', 180, 160, Direction.Left}})
+    GROUND:CharSetAnim(aggron, 'Idle', true)
+    GROUND:CharSetAnim(cranidos, 'Idle', true)
+    GAME:MoveCamera(160, 160, 1, false)
+    GAME:FadeIn(20)
+    
+    UI:SetSpeaker(aggron)
+    UI:WaitShowDialogue("Tu t'intéresses aux ruines antiques, gamin ?")
+    UI:WaitShowDialogue("On raconte que sous le Sanctuaire Millénaire sommeille un golem colossal...[pause=20] Regigigas.")
+    
+    UI:SetSpeaker(cranidos)
+    UI:WaitShowDialogue("Regigigas ?! Le colosse qui déplace les montagnes ?")
+    UI:WaitShowDialogue("Je me demande s'il est aussi solide que ma tête !")
+    
+    GAME:FadeOut(false, 20)
+    GAME:GetCurrentGround():RemoveTempChar(aggron)
+    GAME:GetCurrentGround():RemoveTempChar(cranidos)
+
+  elseif scene_index == 4 then
+    -- Scène 4 : Grodoudou (Wigglytuff) sleep-walk
+    local breloom = CharacterEssentials.MakeCharactersFromList({{'Breloom', 140, 160, Direction.Right}})
+    local mareep = CharacterEssentials.MakeCharactersFromList({{'Mareep', 180, 160, Direction.Left}})
+    GROUND:CharSetAnim(breloom, 'Idle', true)
+    GROUND:CharSetAnim(mareep, 'Idle', true)
+    GAME:MoveCamera(160, 160, 1, false)
+    GAME:FadeIn(20)
+    
+    UI:SetSpeaker(mareep)
+    UI:WaitShowDialogue("J'ai vu le Maître de la Guilde traverser le mur en pleine nuit...")
+    UI:WaitShowDialogue("Il a avalé une Pomme Parfaite entière sans ouvrir les yeux !")
+    
+    UI:SetSpeaker(breloom)
+    UI:WaitShowDialogue("Haha ! Ne t'inquiète pas, c'est tout à fait normal pour Grodoudou.")
+    UI:WaitShowDialogue("Évite juste de le regarder quand il cherche ses pommes !")
+    
+    GAME:FadeOut(false, 20)
+    GAME:GetCurrentGround():RemoveTempChar(breloom)
+    GAME:GetCurrentGround():RemoveTempChar(mareep)
+
+  elseif scene_index == 5 then
+    -- Scène 5 : Foreshadowing Latias/Latios
+    local linoone = CharacterEssentials.MakeCharactersFromList({{'Linoone', 140, 160, Direction.Right}})
+    local gulpin = CharacterEssentials.MakeCharactersFromList({{'Gulpin', 180, 160, Direction.Left}})
+    GROUND:CharSetAnim(linoone, 'Idle', true)
+    GROUND:CharSetAnim(gulpin, 'Idle', true)
+    GAME:MoveCamera(160, 160, 1, false)
+    GAME:FadeIn(20)
+    
+    UI:SetSpeaker(linoone)
+    UI:WaitShowDialogue("Je jure avoir vu deux ombres colorées voler à toute vitesse au-dessus de la mer.")
+    UI:WaitShowDialogue("Une rouge et une bleue... Elles filaient comme des étoiles filantes !")
+    
+    UI:SetSpeaker(gulpin)
+    UI:WaitShowDialogue("Des ombres... ?[pause=15] Gloups... C'était peut-être la Cité Suspendue.")
+    UI:WaitShowDialogue("Moi, je préfère garder mes pieds sur terre et mon verre bien rempli.")
+    
+    GAME:FadeOut(false, 20)
+    GAME:GetCurrentGround():RemoveTempChar(linoone)
+    GAME:GetCurrentGround():RemoveTempChar(gulpin)
+
+  elseif scene_index == 6 then
+    -- Scène 6 : Goinfrex qui vole de la sève
+    local goinfrex = CharacterEssentials.MakeCharactersFromList({{'Goinfrex', 140, 160, Direction.Right}})
+    local shuckle = CH('Cafe_Owner')
+    GROUND:CharSetAnim(goinfrex, 'Idle', true)
+    GAME:MoveCamera(160, 160, 1, false)
+    GAME:FadeIn(20)
+    
+    UI:SetSpeaker(shuckle)
+    GeneralFunctions.SetEmotion("Angry")
+    UI:WaitShowDialogue("Arrête toi tout de suite ![pause=15] Ne mange pas ma jarre de fermentation !")
+    
+    UI:SetSpeaker(goinfrex)
+    GeneralFunctions.SetEmotion("Surprised")
+    UI:WaitShowDialogue("Mais... mais elle sentait si bon...[pause=15] C'est juste de la sève !")
+    
+    UI:SetSpeaker(shuckle)
+    UI:WaitShowDialogue("C'est notre réserve spéciale pour les smoothies de demain ! Hors de ma vue, petit glouton !")
+    
+    GAME:FadeOut(false, 20)
+    GAME:GetCurrentGround():RemoveTempChar(goinfrex)
+  end
+
+  GAME:MoveCamera(160, 240, 1, false)
+  GAME:FadeIn(20)
+  GAME:CutsceneMode(false)
+end
 
 
 return metano_cafe

@@ -616,8 +616,8 @@ SV.metano_cafe =
   BoughtSpecial = false,
   FermentedItem = "", 
   ItemFinishedFermenting = false,
-  
-  NewDrinkUnlocked = false--set to true when a new drink is unlocked so Dion knows to let the player know
+  NewDrinkUnlocked = false, --set to true when a new drink is unlocked so Dion knows to let the player know
+  LastDailyCutsceneDay = -1
 }
 
 

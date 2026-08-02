@@ -1679,9 +1679,13 @@ function MISSION_GEN.GenerateBoard(board_type)
 	if board_type == COMMON.MISSION_BOARD_OUTLAW then mission_type = COMMON.MISSION_BOARD_OUTLAW end
 	
 	--get list of potential dungeons for missions, remove any that haven't been completed yet.
+	--Les donjons classiques d'autres jeux (new_era_zone_ et new_era_sky_) sont TOUJOURS disponibles
+	--pour proposer de superbes missions de secours d'autres jeux sur le tableau Bekipan !
 	local dungeon_candidates = MISSION_GEN.ShallowCopy(MISSION_GEN.DUNGEON_LIST)
 	for i = #dungeon_candidates, 1, -1 do
-		if _DATA.Save:GetDungeonUnlock(dungeon_candidates[i]) ~= RogueEssence.Data.GameProgress.UnlockState.Completed then
+		local d = dungeon_candidates[i]
+		local is_classic = d:find("^new_era_zone_") or d:find("^new_era_sky_")
+		if not is_classic and _DATA.Save:GetDungeonUnlock(d) ~= RogueEssence.Data.GameProgress.UnlockState.Completed then
 			table.remove(dungeon_candidates, i)
 		end
 	end
