@@ -13,32 +13,32 @@ NPCRoutines = {}
 -- Points de la carte Metano Town (coordonnées approximatives, tileset 8px)
 local ROUTE_POINTS = {
     -- Zone Guilde
-    GUILD_BRIDGE    = { x = 760, y = 640 },
+    GUILD_BRIDGE    = { x = 568, y = 1160 },
     GUILD_ENTRANCE  = { x = 728, y = 576 },
     -- Zone Marché
-    MARKET_CENTER   = { x = 640, y = 880 },
+    MARKET_CENTER   = { x = 952, y = 864 },
     MARKET_STALL    = { x = 704, y = 928 },
     -- Zone Fontaine/Puits
-    WELL            = { x = 520, y = 800 },
-    FOUNTAIN        = { x = 480, y = 768 },
+    WELL            = { x = 672, y = 200 },
+    FOUNTAIN        = { x = 744, y = 432 },
     -- Zone Café
-    CAFE_ENTRANCE   = { x = 440, y = 720 },
-    CAFE_TERRASSE   = { x = 460, y = 760 },
+    CAFE_ENTRANCE   = { x = 1144, y = 592 },
+    CAFE_TERRASSE   = { x = 1112, y = 616 },
     -- Zone Rivière
-    RIVER_NORTH     = { x = 320, y = 560 },
+    RIVER_NORTH     = { x = 312, y = 560 },
     RIVER_SOUTH     = { x = 360, y = 640 },
-    RIVER_BANK      = { x = 280, y = 600 },
+    RIVER_BANK      = { x = 288, y = 600 },
     -- Zone Étang
-    POND_EDGE       = { x = 600, y = 1000 },
+    POND_EDGE       = { x = 992, y = 392 },
     POND_SHORE      = { x = 640, y = 1040 },
     -- Zone Dojo
     DOJO_ENTRANCE   = { x = 920, y = 1160 },
     DOJO_LADDER     = { x = 940, y = 1120 },
     -- Zone Habitations
-    HOUSES_NORTH    = { x = 560, y = 1120 },
+    HOUSES_NORTH    = { x = 680, y = 584 },
     HOUSES_SOUTH    = { x = 480, y = 1200 },
     -- Zone Tentes
-    TENT_AREA       = { x = 720, y = 1080 },
+    TENT_AREA       = { x = 784, y = 1120 },
     TENT_MAWILE     = { x = 752, y = 1000 },
     -- Zone Entrée Donjons
     DUNGEON_PATH    = { x = 160, y = 880 },

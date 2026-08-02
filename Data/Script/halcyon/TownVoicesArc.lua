@@ -58,6 +58,7 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.TownVoices'
+require 'halcyon.TownPlace'
 
 TownVoicesArc = {}
 
@@ -421,8 +422,17 @@ function TownVoicesArc.Talk(inst, ch)
   end
   if txt == nil then return false end
 
+  --RACCORD POSITION <-> PAROLE (TownPlace).
+  --Dix de ces PNJ ont AUSSI une routine quotidienne (npc_routines.lua)
+  --qui les deplace dans la ville. Sans ce raccord, Roselia tient le meme
+  --propos a son etal du marche et au bord de la riviere — le defaut que
+  --systeme_raid_ville_vivante.md interdit au point 5. On prononce donc
+  --d'abord une phrase d'ancrage liee au lieu REEL, puis la replique de
+  --chapitre. Si le PNJ n'a pas d'ancrage pour l'endroit ou il se trouve,
+  --Say renvoie false et rien ne change.
   local ok = pcall(function()
     GeneralFunctions.StartConversation(chara, txt, fiche.emo or 'Normal')
+    pcall(function() TownPlace.Say(inst, fiche.emo) end)
     GeneralFunctions.EndConversation(chara)
   end)
   return ok
