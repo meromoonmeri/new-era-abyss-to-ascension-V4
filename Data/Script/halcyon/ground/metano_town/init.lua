@@ -32,7 +32,13 @@ function metano_town.Init(map)
 
 	COMMON.RespawnAllies()
 	PartnerEssentials.InitializePartnerSpawn()
-	GROUND:AddMapStatus("clouds_overhead")
+	--Protege : GetMapStatus (DataManager.cs:1302) AVALE l'exception et
+	--renvoie null, puis MapStatus.LoadFromData (Maps/MapStatus.cs:44)
+	--dereference entry.StatusStates -> NullReferenceException qui tue la
+	--fonction appelante AVANT son FadeIn. C'est la cause de l'ecran noir
+	--constate en jeu. Le MapStatus existe desormais, le pcall reste en
+	--garde-fou : un ID absent ne doit jamais pouvoir noircir l'ecran.
+	pcall(function() GROUND:AddMapStatus("clouds_overhead") end)
 
 	--SAISON DU BOURG (Seasons.lua). Le decor suit l'avancement du recit :
 	--petales au printemps, feuilles en automne, neige en hiver, rien en ete.

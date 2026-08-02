@@ -178,6 +178,17 @@
       "Released": true,
       "Comment": "",
       "SortOrder": 0
+    },
+    "clouds_overhead": {
+      "Name": {
+        "DefaultText": "Clouds Overhead",
+        "LocalTexts": {
+          "fr": "Nuages en altitude"
+        }
+      },
+      "Released": true,
+      "Comment": "",
+      "SortOrder": 0
     }
   }
 }

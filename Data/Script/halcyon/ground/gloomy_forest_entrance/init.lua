@@ -27,8 +27,25 @@ function gloomy_forest_entrance.GameSave(map)
 end
 
 function gloomy_forest_entrance.PlotScripting()
+	--SORTIE GARANTIE (regle projet : toute scene sous pcall).
+	--ArrivalCutscene etait appelee A NU. Son GAME:FadeIn est a la ligne 56
+	--de gloomy_forest_entrance_ch_6.lua, APRES un AddMapStatus qui levait
+	--une NullReferenceException (MapStatus inexistant). L'erreur remontait
+	--donc sans que l'ecran soit jamais rallume : ecran noir definitif,
+	--exactement le symptome constate en jeu.
+	--Le MapStatus a ete cree, mais la protection reste : aucune scene ne
+	--doit pouvoir laisser le joueur devant un ecran noir.
 	if SV.ChapterProgression.Chapter == 6 and not SV.Chapter6.FinishedGloomyForestIntro then
-		gloomy_forest_entrance_ch_6.ArrivalCutscene()
+		local ok, err = pcall(gloomy_forest_entrance_ch_6.ArrivalCutscene)
+		if not ok then
+			PrintInfo('[gloomy_forest_entrance] ArrivalCutscene interrompue : '..tostring(err))
+			--On ne rejoue pas une scene a moitie jouee : on la marque faite,
+			--on rend la main, et le joueur peut continuer.
+			pcall(function() SV.Chapter6.FinishedGloomyForestIntro = true end)
+			pcall(function() gloomy_forest_entrance_ch_6.SetupGround() end)
+			pcall(function() GAME:CutsceneMode(false) end)
+			pcall(function() GAME:FadeIn(20) end)
+		end
 	else
 		gloomy_forest_entrance_ch_6.SetupGround()
 		GAME:FadeIn(20)
