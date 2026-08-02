@@ -99,10 +99,10 @@ local ARR = {
   Penticus  = { depart = {0, 192}, attente = {120, 168} },
   Coco      = { depart = {0, 192}, attente = {120, 216} },
   Rin       = { depart = {0, 192}, attente = {136, 184} },
-  Ganlon    = { depart = {0, 192}, attente = {136, 208} },
+  Ganlon    = { depart = {0, 192}, attente = {160, 208} },
   Shuca     = { depart = {0, 192}, attente = {144, 168} },
-  Hyko      = { depart = {0, 192}, attente = {152, 192} },
-  Almotz    = { depart = {0, 192}, attente = {160, 208} },
+  Hyko      = { depart = {0, 192}, attente = {176, 192} },
+  Almotz    = { depart = {0, 192}, attente = {176, 208} },
   Kino      = { depart = {0, 192}, attente = {160, 176} },
   Reinier   = { depart = {0, 192}, attente = {168, 136} },
 }
