@@ -108,14 +108,14 @@ function gloomy_forest_miniboss_ch_6.FirstPreBossScene()
 
   -- Cornèbre apparaît sous un flash blanc.
   local murkrow = CharacterEssentials.MakeCharactersFromList({
-    {'Murkrow', BOSS_2[1], BOSS_2[2], Direction.DownLeft}
+    {'Cornebre_Boss', BOSS_2[1], BOSS_2[2], Direction.DownLeft}
   })
-  GROUND:Hide('Murkrow')
+  GROUND:Hide('Cornebre_Boss')
   SOUND:PlayBattleSE('_UNK_EVT_102')
   GAME:WaitFrames(10)
   BossFX.Flash(BOSS_2[1], BOSS_2[2], 3, 5, 20)
   GAME:WaitFrames(8)
-  GROUND:Unhide('Murkrow')
+  GROUND:Unhide('Cornebre_Boss')
   BossFX.Impact(7)
 
   GAME:WaitFrames(20)
@@ -153,7 +153,7 @@ function gloomy_forest_miniboss_ch_6.SecondPreBossScene()
     {'Shiftry', BOSS_1[1], BOSS_1[2], Direction.Down}
   })
   local murkrow = CharacterEssentials.MakeCharactersFromList({
-    {'Murkrow', BOSS_2[1], BOSS_2[2], Direction.Down}
+    {'Cornebre_Boss', BOSS_2[1], BOSS_2[2], Direction.Down}
   })
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
@@ -209,7 +209,7 @@ local function DefeatedBossBody()
     {'Shiftry', BOSS_1[1], BOSS_1[2], Direction.Down}
   })
   local murkrow = CharacterEssentials.MakeCharactersFromList({
-    {'Murkrow', BOSS_2[1], BOSS_2[2], Direction.Down}
+    {'Cornebre_Boss', BOSS_2[1], BOSS_2[2], Direction.Down}
   })
   GROUND:CharSetAnim(shiftry, "Idle", true)
   GROUND:CharSetAnim(murkrow, "Idle", true)
@@ -245,7 +245,7 @@ local function DefeatedBossBody()
   BossFX.Flash(248, 150, 2, 2, 20)
   GAME:WaitFrames(16)
   pcall(function() GROUND:Hide('Shiftry') end)
-  pcall(function() GROUND:Hide('Murkrow') end)
+  pcall(function() GROUND:Hide('Cornebre_Boss') end)
   GAME:WaitFrames(30)
 
   GAME:FadeOut(false, 60)
@@ -281,7 +281,7 @@ function gloomy_forest_miniboss_ch_6.DiedToBoss()
   })
   GROUND:CharSetAnim(shiftry, "Idle", true)
   local murkrow = CharacterEssentials.MakeCharactersFromList({
-    {'Murkrow', BOSS_2[1], BOSS_2[2], Direction.Down}
+    {'Cornebre_Boss', BOSS_2[1], BOSS_2[2], Direction.Down}
   })
   GROUND:CharSetAnim(murkrow, "Idle", true)
 

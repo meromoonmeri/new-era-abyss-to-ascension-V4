@@ -32,6 +32,7 @@ GLOBAL_CH = {
     'TownVoicesLate.lua': None,     # ch7 a ch10, ventile par bloc FICHES[N]
     'TownVoicesArc.lua': None,      # ch8/9/10, ventile par table CH8/CH9/CH10
     'SideExpeditions.lua': None,    # ch8/9/10, ventile par champ ch = N
+    'MeuteArc.lua': None,           # ch8/9/10, un acte par chapitre
 }
 
 # Modules couvrant PLUSIEURS chapitres : on lit le bloc de chacun pour
@@ -47,6 +48,14 @@ def split_by_chapter(path):
     # SideExpeditions : chaque entree porte son chapitre (ch = N) et ses
     # repliques sont des tuples {'PNJ','emo',"texte"}. Sans ce bloc, ses
     # 60 boites tombaient dans « multi-chapitres ».
+    # MeuteArc : trois actes, un par chapitre (Act1=ch8, Act2=ch9, Act3=ch10).
+    if 'MeuteArc.ACTS' in t:
+        for n, ch in ((1, 8), (2, 9), (3, 10)):
+            m = re.search(r'function MeuteArc\.Act%d\((.*?)\nend\n' % n, t, re.S)
+            if m:
+                out[ch] = out.get(ch, 0) + len(
+                    re.findall(r'^\s*(?:say|narrate|think)\(', m.group(1), re.M))
+        return out
     if 'SideExpeditions.LIST' in t:
         for bloc in re.findall(r"id = 'x\d+_\w+', ch = (\d+),(.*?)undertow", t, re.S):
             n = len(re.findall(r"\{'\w+',\s*'[\w-]+',", bloc[1]))
@@ -80,7 +89,7 @@ for f in glob.glob('Data/Script/halcyon/**/*.lua', recursive=True):
         # TownVoicesArc ventile aussi par chapitre (tables CH8/CH9/CH10).
         parts = (split_by_chapter(f)
                  if base in ('TownVoicesLate.lua', 'TownVoicesArc.lua',
-                             'SideExpeditions.lua') else {})
+                             'SideExpeditions.lua', 'MeuteArc.lua') else {})
         if parts:
             for c, cn in parts.items():
                 per_ch[c] += cn

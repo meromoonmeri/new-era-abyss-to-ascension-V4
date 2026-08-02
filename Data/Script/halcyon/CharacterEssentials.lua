@@ -455,10 +455,34 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
-		Murkrow = {
+		--Cornebre, sbire de la Meute de Corboss.
+		--Renomme en Cornebre_Boss : une SECONDE fiche `Murkrow` existait
+		--plus bas (Varko, PNJ nocturne) et ecrasait silencieusement
+		--celle-ci, Lua ne gardant que la derniere definition d'une meme
+		--cle. Le mini-boss de la Foret Lugubre invoquait donc Varko en
+		--croyant invoquer Cornebre.
+		--Corboss, chef de la Meute (PLAN_DIRECTEUR_EXPANSION_CH8_10, section 2).
+		--Pilleur opportuniste des ch8 a ch10. Il n'etait declare nulle part :
+		--le fil recurrent demande par le plan n'avait donc aucun chef.
+		--ESPECE : le plan ecrit « Honchkrow », mais honchkrow n'apparait NULLE
+		--PART dans le projet — ni dans Data/Monster, ni dans la liste de spawns
+		--de mission_gen.lua (461 especes, alphabetique : rien entre honedge et
+		--hoppip). L'utiliser reviendrait a inventer un asset. On prend mandibuzz,
+		--atteste dans cette liste : grand rapace charognard, ce qui colle mieux
+		--au role de chef de bande que l'evolution d'un Cornebre.
+		Corboss = {
+			species = "mandibuzz",
+			nickname = 'Corboss',
+			instance = 'Corboss',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+
+		Cornebre_Boss = {
 			species = "murkrow",
 			nickname = 'Cornèbre',
-			instance = 'Murkrow',
+			instance = 'Cornebre_Boss',
 			gender = Gender.Male,
 			form = 0,
 			skin = "normal"
