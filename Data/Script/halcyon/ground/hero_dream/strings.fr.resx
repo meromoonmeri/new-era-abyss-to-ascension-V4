@@ -139,4 +139,28 @@
   <data name="DRM_000" xml:space="preserve">
     <value>Cela faisait longtemps,[pause=40] si longtemps...</value>
   </data>
+  <data name="DRM_011_RUINS" xml:space="preserve">
+    <value>Nous nous retrouvons.[pause=20] C'est la deuxième fois que tu m'entends.</value>
+  </data>
+  <data name="DRM_012_RUINS" xml:space="preserve">
+    <value>Cette fois,[pause=15] je me souviens de toi...[pause=20] Tu es apparue dans mon premier rêve.</value>
+  </data>
+  <data name="DRM_013_RUINS" xml:space="preserve">
+    <value>Oui.[pause=20] Mais ton esprit cherche encore à oublier.[pause=15] Ne lutte pas contre tes souvenirs.</value>
+  </data>
+  <data name="DRM_014_RUINS" xml:space="preserve">
+    <value>Mes souvenirs...?[pause=20] Qui suis-je réellement... ?</value>
+  </data>
+  <data name="DRM_015_RUINS" xml:space="preserve">
+    <value>Tu le sauras bien assez tôt.[pause=40] Chaque chose en son temps.</value>
+  </data>
+  <data name="DRM_019_RUINS" xml:space="preserve">
+    <value>Demain,[pause=15] tu descendras dans les profondeurs.</value>
+  </data>
+  <data name="DRM_020_RUINS" xml:space="preserve">
+    <value>Tu as déjà exploré des abîmes comme celui-là.[pause=40] Mais pas avec ce corps.</value>
+  </data>
+  <data name="DRM_022_RUINS" xml:space="preserve">
+    <value>Sous la terre,[pause=15] le silence te reconnaîtra.[pause=40] N'aie pas peur de l'obscurité.</value>
+  </data>
 </root>

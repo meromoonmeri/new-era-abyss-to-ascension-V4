@@ -139,4 +139,28 @@
   <data name="DRM_000" xml:space="preserve">
     <value>It had been a long time,[pause=40] such a long time...</value>
   </data>
+  <data name="DRM_011_RUINS" xml:space="preserve">
+    <value>We meet again.[pause=20] This is the second time you hear me.</value>
+  </data>
+  <data name="DRM_012_RUINS" xml:space="preserve">
+    <value>This time,[pause=15] I remember you...[pause=20] You appeared in my first dream.</value>
+  </data>
+  <data name="DRM_013_RUINS" xml:space="preserve">
+    <value>Yes.[pause=20] But your mind still seeks to forget.[pause=15] Do not fight your memories.</value>
+  </data>
+  <data name="DRM_014_RUINS" xml:space="preserve">
+    <value>My memories...?[pause=20] Who am I really... ?</value>
+  </data>
+  <data name="DRM_015_RUINS" xml:space="preserve">
+    <value>You will find out soon enough.[pause=40] All in due time.</value>
+  </data>
+  <data name="DRM_019_RUINS" xml:space="preserve">
+    <value>Tomorrow,[pause=15] you will descend into the depths.</value>
+  </data>
+  <data name="DRM_020_RUINS" xml:space="preserve">
+    <value>You have already explored an abyss like that one.[pause=40] But not with this body.</value>
+  </data>
+  <data name="DRM_022_RUINS" xml:space="preserve">
+    <value>Under the earth,[pause=15] the silence will recognize you.[pause=40] Do not fear the darkness.</value>
+  </data>
 </root>

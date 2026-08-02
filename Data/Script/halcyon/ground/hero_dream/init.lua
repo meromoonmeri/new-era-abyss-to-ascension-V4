@@ -157,6 +157,35 @@ local function silence(frames)
   GAME:WaitFrames(frames or 40)
 end
 
+-- Helper locals for ruins-specific dialogues to preserve narrative logic
+local function ruins_voice(key)
+  local return_map = "mount_windswept_entrance"
+  pcall(function()
+    if SV.TemporaryFlags ~= nil and SV.TemporaryFlags.DreamReturn ~= nil then
+      return_map = SV.TemporaryFlags.DreamReturn
+    end
+  end)
+  local k = key
+  if return_map == 'cloven_ruins_entrance' then
+    k = key .. '_RUINS'
+  end
+  voice(k)
+end
+
+local function ruins_dreamer(key)
+  local return_map = "mount_windswept_entrance"
+  pcall(function()
+    if SV.TemporaryFlags ~= nil and SV.TemporaryFlags.DreamReturn ~= nil then
+      return_map = SV.TemporaryFlags.DreamReturn
+    end
+  end)
+  local k = key
+  if return_map == 'cloven_ruins_entrance' then
+    k = key .. '_RUINS'
+  end
+  dreamer(k)
+end
+
 --Corps du reve. Scinde de DreamScene pour que la SORTIE soit garantie :
 --une erreur au milieu de la scene laissait auparavant le joueur sur un
 --ecran noir sans issue, exactement le symptome signale (« le moment du
@@ -413,16 +442,16 @@ local function DreamSceneBody()
   --Elle flotte doucement en disant « tu as fait tout ce chemin » : le
   --seul mouvement du plan, donc on le remarque.
   local h1 = TASK:BranchCoroutine(function() hoverEntity() end)
-  local h2 = TASK:BranchCoroutine(function() voice('DRM_011') end)
+  local h2 = TASK:BranchCoroutine(function() ruins_voice('DRM_011') end)
   TASK:JoinCoroutines({h1, h2})
   silence(40)
 
-  dreamer('DRM_012')
+  ruins_dreamer('DRM_012')
   GAME:WaitFrames(30)
-  voice('DRM_013')
+  ruins_voice('DRM_013')
   silence(45)
 
-  dreamer('DRM_014')
+  ruins_dreamer('DRM_014')
   --LE BATTEMENT LE PLUS LONG DE LA SCENE. « Pas encore. Et pourtant
   --si. » est la phrase qui doit rester au joueur : on la laisse
   --arriver dans le vide, et on la laisse resonner apres.
@@ -439,7 +468,7 @@ local function DreamSceneBody()
     pcall(function() GROUND:CharTurnToCharAnimated(entity, hero, 8) end)
     GAME:WaitFrames(15)
   end
-  voice('DRM_015')
+  ruins_voice('DRM_015')
   silence(70)
 
   -- 5. LA QUESTION PIVOT
@@ -461,9 +490,9 @@ local function DreamSceneBody()
   silence(55)
 
   -- 6. L'AVERTISSEMENT — demain, la montagne
-  voice('DRM_019')
+  ruins_voice('DRM_019')
   GAME:WaitFrames(35)
-  voice('DRM_020')
+  ruins_voice('DRM_020')
 
   --« Pas avec ce corps. » L'image vacille au moment ou le heros touche
   --ce qu'il ne doit pas encore comprendre. Tangage court et doux : on
@@ -476,7 +505,7 @@ local function DreamSceneBody()
 
   dreamer('DRM_021')
   silence(45)
-  voice('DRM_022')
+  ruins_voice('DRM_022')
   silence(40)
   --La derniere consigne, celle qui arme le sommet du chapitre.
   voice('DRM_023')
