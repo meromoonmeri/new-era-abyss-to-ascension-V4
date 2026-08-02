@@ -1,23 +1,38 @@
---[[ 
-     Bourg du Comptoir — ground importe (format RogueEssence natif, vague 4).
-     Assignation : RÉSERVE de Treasure Town (expansion ch11+)
+--[[
+     Bourg du Comptoir — carte de ville (chapitre 11 et au-dela).
+
+     Provenance : ground converti depuis le lot Explorers (treasure_town).
+     La geometrie et les collisions sont celles de la source, au bit pres.
+     Les entites (18 habitants, panneaux, echoppes, sorties) ont ete
+     restaurees depuis la source le 2026-08-02 par
+     tools/restore_eoso_entities.py, avec application de la table
+     d'evolution : le Bourg est visite une dizaine d'annees plus tard,
+     ses habitants ont grandi.
+
+     Reseau canonique restaure (identique a la source) :
+       ouest  -> cap_dents_mer       (falaise du bord de mer)
+       est    -> carrefour_assemblee (carrefour de l'Assemblee)
+       centre -> dojo_ossatueur      (dojo de Maitre Ossovan)
 ]]
 
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.ComptoirVoices'
 require 'halcyon.ground.bourg_comptoir.bourg_comptoir_ch_11'
 
 local bourg_comptoir = {}
 
 function bourg_comptoir.Init(map)
+  DEBUG.EnableDbgCoro()
+  PrintInfo("=>> Init_bourg_comptoir")
   pcall(function() GAME:FadeOut(false, 1) end)
   pcall(function() GAME:CutsceneMode(true) end)
   COMMON.RespawnAllies()
   pcall(function() PartnerEssentials.InitializePartnerSpawn() end)
-  
-  -- Si aucune cinematique n'est a venir, on libere la main des maintenant
+
+  -- Si aucune cinematique n'est a venir, on rend la main tout de suite.
   pcall(function()
     local sceneAVenir = false
     if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 11 then
@@ -31,8 +46,7 @@ function bourg_comptoir.Enter(map)
   bourg_comptoir.PlotScripting()
 end
 
-function bourg_comptoir.Update(map, time)
-end
+function bourg_comptoir.Update(map, time) end
 
 function bourg_comptoir.GameSave(map)
   PartnerEssentials.SaveGamePartnerPosition(CH('Teammate1'))
@@ -44,7 +58,7 @@ function bourg_comptoir.GameLoad(map)
 end
 
 function bourg_comptoir.PlotScripting()
-  if SV.ChapterProgression.Chapter == 11 then
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 11 then
     if not SV.Chapter11.FinishedTreasureTownIntro then
       bourg_comptoir_ch_11.ArrivalCutscene()
     else
@@ -55,44 +69,139 @@ function bourg_comptoir.PlotScripting()
   end
 end
 
--- Callback d'interaction avec Loaklass pour rentrer à Metano Town
+--------------------------------------------------------------------
+-- HABITANTS
+-- Un handler par entite de la carte. Le propos est tenu par
+-- ComptoirVoices, qui gere les variantes et le repli.
+--------------------------------------------------------------------
+local HABITANTS = {
+  'Bibarel', 'Azumarill', 'Marill_Jeune', 'Hypno', 'Dusclops',
+  'Banette', 'Beautifly', 'Nuzleaf', 'Pidgeot', 'Crawdaunt',
+  'Slaking', 'Swellow', 'Electivire', 'Xatu', 'Kangaskhan',
+  'Kecleon', 'PurpleKecleon', 'Murkrow',
+}
+
+for _, nom in ipairs(HABITANTS) do
+  bourg_comptoir[nom .. '_Action'] = function(chara, activator)
+    DEBUG.EnableDbgCoro()
+    ComptoirVoices.Talk(chara, nom)
+  end
+end
+
+--------------------------------------------------------------------
+-- PANNEAUX ET ECHOPPES
+--------------------------------------------------------------------
+local function Panneau(texte)
+  return function(obj, activator)
+    DEBUG.EnableDbgCoro()
+    pcall(function()
+      UI:ResetSpeaker()
+      UI:WaitShowDialogue(texte)
+    end)
+  end
+end
+
+bourg_comptoir.SignKangaskhan_Action =
+  Panneau("« Depot de la Mere Kanga.[pause=15] Confiez, retirez, l'entrepot ne dort jamais. »")
+bourg_comptoir.SignKecleonShop_Action =
+  Panneau("« Etals jumeaux.[pause=15] Un frere, une soeur, deux inventaires. »")
+bourg_comptoir.SignElectivire_Action =
+  Panneau("« Reparations et rachats.[pause=15] Frappez fort, l'enseigne est mal fixee. »")
+bourg_comptoir.SignCrossRoads_Action =
+  Panneau("« Vers le carrefour de l'Assemblee.[pause=15] De la, toutes les routes. »")
+
+function bourg_comptoir.Shop_Action(obj, activator)
+  DEBUG.EnableDbgCoro()
+  local chara = CH('Kecleon')
+  if chara ~= nil then
+    ComptoirVoices.Talk(chara, 'Kecleon')
+  else
+    pcall(function()
+      UI:ResetSpeaker()
+      UI:WaitShowDialogue("L'etal est ferme pour le moment.")
+    end)
+  end
+end
+
+function bourg_comptoir.TM_Action(obj, activator)
+  DEBUG.EnableDbgCoro()
+  local chara = CH('PurpleKecleon')
+  if chara ~= nil then
+    ComptoirVoices.Talk(chara, 'PurpleKecleon')
+  else
+    pcall(function()
+      UI:ResetSpeaker()
+      UI:WaitShowDialogue("L'etal est ferme pour le moment.")
+    end)
+  end
+end
+
+--------------------------------------------------------------------
+-- SORTIES — reseau canonique restaure.
+--------------------------------------------------------------------
+function bourg_comptoir.HabitatSharpedoBluffDayEntrance_Touch(obj, activator)
+  DEBUG.EnableDbgCoro()
+  GAME:EnterGroundMap("cap_dents_mer", "TreasureTownEntranceMarker")
+end
+
+function bourg_comptoir.MarowakDojoEntrance_Touch(obj, activator)
+  DEBUG.EnableDbgCoro()
+  GAME:EnterGroundMap("dojo_ossatueur", "MarowakDojoExitMarker")
+end
+
+function bourg_comptoir.CrossRoadsAssemblyEntrance_Touch(obj, activator)
+  DEBUG.EnableDbgCoro()
+  GAME:EnterGroundMap("carrefour_assemblee", "TreasureTownEntranceMarker")
+end
+
+-- Declencheur herite de la scene du chapitre 3 de la source : sans objet
+-- dans New Era. Neutralise explicitement plutot que laisse orphelin.
+function bourg_comptoir.CH3AzrullSceneMarker_Touch(obj, activator) end
+
+--------------------------------------------------------------------
+-- Retour vers Metano Town par Loaklass.
+--------------------------------------------------------------------
 function bourg_comptoir.Lapras_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
-  partner.IsInteracting = true
-  GROUND:CharSetAnim(partner, 'None', true)
+  if partner ~= nil then
+    partner.IsInteracting = true
+    GROUND:CharSetAnim(partner, 'None', true)
+  end
   GROUND:CharSetAnim(hero, 'None', true)
 
   UI:SetSpeaker(chara)
-  UI:ChoiceMenuYesNo("Voulez-vous retourner à l'Autel Céleste de Metano ?", true)
+  UI:ChoiceMenuYesNo("Souhaitez-vous regagner Metano Town ?", true)
   UI:WaitForChoice()
 
   if UI:ChoiceResult() then
     SOUND:FadeOutBGM(60)
     GAME:FadeOut(false, 60)
-    
-    partner.IsInteracting = false
-    GROUND:CharEndAnim(partner)
+
+    if partner ~= nil then
+      partner.IsInteracting = false
+      GROUND:CharEndAnim(partner)
+    end
     GROUND:CharEndAnim(hero)
-    
-    -- Courte transition de voyage
+
     UI:ResetSpeaker()
     UI:SetCenter(true)
-    UI:WaitShowDialogue("Loaklass fend à nouveau les nuages à contre-courant, nous ramenant en sécurité vers le continent de Metano...")
+    UI:WaitShowDialogue("Le Bourg s'efface derriere la houle, et le continent revient lentement a l'horizon.")
     UI:SetCenter(false)
     GAME:WaitFrames(40)
-    
-    -- Retour à Metano Town (Mare Altérée)
+
     GAME:EnterGroundMap("altere_pond", "Main_Entrance_Marker")
   else
     UI:SetSpeaker(chara)
-    UI:WaitShowDialogue("Prenez votre temps. La mer de nuages ne bougera pas d'ici.")
+    UI:WaitShowDialogue("Prenez votre temps.[pause=15] La mer ne bougera pas d'ici.")
   end
 
-  partner.IsInteracting = false
-  GROUND:CharEndAnim(partner)
+  if partner ~= nil then
+    partner.IsInteracting = false
+    GROUND:CharEndAnim(partner)
+  end
   GROUND:CharEndAnim(hero)
 end
 

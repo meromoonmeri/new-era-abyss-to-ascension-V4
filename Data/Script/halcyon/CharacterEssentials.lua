@@ -1308,6 +1308,162 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
+
+	--------------------------------------------------------------
+	-- BOURG DU COMPTOIR (Treasure Town) — habitants
+	--
+	-- Le heros et le partenaire decouvrent le Bourg au chapitre 11,
+	-- soit une dizaine d'annees apres l'epoque ou la ville a connu
+	-- son heure de gloire. Les habitants ont vieilli et, pour la
+	-- plupart, evolue. Les noms des jeux d'origine ne sont jamais
+	-- employes : chaque habitant recoit un nom propre a New Era.
+	--
+	-- Les especes sont celles d'apres evolution. Les entites des
+	-- .rsground portent le meme nom que la cle ci-dessous.
+	--------------------------------------------------------------
+		Bibarel = {
+			species = "bibarel",
+			nickname = 'Barnabe',
+			instance = 'Bibarel',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+
+		Azumarill = {
+			species = "azumarill",
+			nickname = 'Ondine',
+			instance = 'Azumarill',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+
+		Marill_Jeune = {
+			species = "marill",
+			nickname = 'Goutelette',
+			instance = 'Marill_Jeune',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+
+		Hypno = {
+			species = "hypno",
+			nickname = 'Morphee',
+			instance = 'Hypno',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+
+		Dusclops = {
+			species = "dusclops",
+			nickname = 'Sombreveille',
+			instance = 'Dusclops',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+
+		Banette = {
+			species = "banette",
+			nickname = 'Guenille',
+			instance = 'Banette',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+
+		Beautifly = {
+			species = "beautifly",
+			nickname = 'Elytre',
+			instance = 'Beautifly',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+
+		Nuzleaf = {
+			species = "nuzleaf",
+			nickname = 'Brindille',
+			instance = 'Nuzleaf',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+
+		Pidgeot = {
+			species = "pidgeot",
+			nickname = 'Bourrasque',
+			instance = 'Pidgeot',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+
+		Crawdaunt = {
+			species = "crawdaunt",
+			nickname = 'Pinceur',
+			instance = 'Crawdaunt',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+
+		Slaking = {
+			species = "slaking",
+			nickname = 'Bourrelet',
+			instance = 'Slaking',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+
+		Swellow = {
+			species = "swellow",
+			nickname = 'Fileclair',
+			instance = 'Swellow',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+
+		Electivire = {
+			species = "electivire",
+			nickname = 'Dynamo',
+			instance = 'Electivire',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+
+		Xatu = {
+			species = "xatu",
+			nickname = 'Oracle',
+			instance = 'Xatu',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+
+		PurpleKecleon = {
+			species = "kecleon",
+			nickname = 'Violette',
+			instance = 'PurpleKecleon',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+
+		Marowak = {
+			species = "marowak",
+			nickname = 'Maitre Ossovan',
+			instance = 'Marowak',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
 		
 		Murkrow = {
 			species = "murkrow",
