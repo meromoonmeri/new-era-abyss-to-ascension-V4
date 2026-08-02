@@ -8,6 +8,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.npc_routines'
 require 'halcyon.TownVoicesLate'
+require 'halcyon.TownVoicesArc'
 
 metano_town_ch_10 = {}
 
@@ -217,6 +218,7 @@ function metano_town_ch_10.Electrike_Action(chara, activator)
 end
 
 function metano_town_ch_10.Manectric_Action(chara, activator)
+  if TownVoicesArc.Talk('Manectric', 10) then return end
   --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
   --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
   --n'a pas de fiche : aucun dialogue existant n'est perdu.
@@ -327,6 +329,7 @@ function metano_town_ch_10.Nidorina_Action(chara, activator)
 end
 
 function metano_town_ch_10.Nidoran_Male_Action(chara, activator)
+  if TownVoicesArc.Talk('Nidoran_Male', 10) then return end
     if Ch10State() == "post_vision" then
         GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_NidoranM_001']), "Normal")
     else
@@ -397,6 +400,7 @@ end
 
 -- Remaining NPCs with compact enrichened dialogues
 function metano_town_ch_10.Vileplume_Action(chara, activator)
+  if TownVoicesArc.Talk('Vileplume', 10) then return end
   --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
   --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
   --n'a pas de fiche : aucun dialogue existant n'est perdu.
@@ -405,6 +409,7 @@ function metano_town_ch_10.Vileplume_Action(chara, activator)
     GeneralFunctions.EndConversation(chara)
 end
 function metano_town_ch_10.Bellossom_Action(chara, activator)
+  if TownVoicesArc.Talk('Bellossom', 10) then return end
   --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
   --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
   --n'a pas de fiche : aucun dialogue existant n'est perdu.
@@ -413,6 +418,7 @@ function metano_town_ch_10.Bellossom_Action(chara, activator)
     GeneralFunctions.EndConversation(chara)
 end
 function metano_town_ch_10.Gloom_Action(chara, activator)
+  if TownVoicesArc.Talk('Gloom', 10) then return end
   --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
   --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
   --n'a pas de fiche : aucun dialogue existant n'est perdu.
@@ -421,6 +427,7 @@ function metano_town_ch_10.Gloom_Action(chara, activator)
     GeneralFunctions.EndConversation(chara)
 end
 function metano_town_ch_10.Oddish_Action(chara, activator)
+  if TownVoicesArc.Talk('Oddish', 10) then return end
   --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
   --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
   --n'a pas de fiche : aucun dialogue existant n'est perdu.
@@ -429,6 +436,7 @@ function metano_town_ch_10.Oddish_Action(chara, activator)
     GeneralFunctions.EndConversation(chara)
 end
 function metano_town_ch_10.Furret_Action(chara, activator)
+  if TownVoicesArc.Talk('Furret', 10) then return end
   --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
   --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
   --n'a pas de fiche : aucun dialogue existant n'est perdu.
@@ -437,6 +445,7 @@ function metano_town_ch_10.Furret_Action(chara, activator)
     GeneralFunctions.EndConversation(chara)
 end
 function metano_town_ch_10.Linoone_Action(chara, activator)
+  if TownVoicesArc.Talk('Linoone', 10) then return end
   --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
   --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
   --n'a pas de fiche : aucun dialogue existant n'est perdu.
@@ -445,6 +454,7 @@ function metano_town_ch_10.Linoone_Action(chara, activator)
     GeneralFunctions.EndConversation(chara)
 end
 function metano_town_ch_10.Sentret_Action(chara, activator)
+  if TownVoicesArc.Talk('Sentret', 10) then return end
   --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
   --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
   --n'a pas de fiche : aucun dialogue existant n'est perdu.
@@ -453,6 +463,7 @@ function metano_town_ch_10.Sentret_Action(chara, activator)
     GeneralFunctions.EndConversation(chara)
 end
 function metano_town_ch_10.Wooper_Girl_Action(chara, activator)
+  if TownVoicesArc.Talk('Wooper_Girl', 10) then return end
   --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
   --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
   --n'a pas de fiche : aucun dialogue existant n'est perdu.
@@ -461,6 +472,7 @@ function metano_town_ch_10.Wooper_Girl_Action(chara, activator)
     GeneralFunctions.EndConversation(chara)
 end
 function metano_town_ch_10.Wooper_Boy_Action(chara, activator)
+  if TownVoicesArc.Talk('Wooper_Boy', 10) then return end
   --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
   --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
   --n'a pas de fiche : aucun dialogue existant n'est perdu.
@@ -469,6 +481,7 @@ function metano_town_ch_10.Wooper_Boy_Action(chara, activator)
     GeneralFunctions.EndConversation(chara)
 end
 function metano_town_ch_10.Gulpin_Action(chara, activator)
+  if TownVoicesArc.Talk('Gulpin', 10) then return end
   --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
   --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
   --n'a pas de fiche : aucun dialogue existant n'est perdu.
@@ -529,6 +542,7 @@ function metano_town_ch_10.Marill_Action(chara, activator)
     GeneralFunctions.EndConversation(chara)
 end
 function metano_town_ch_10.Spheal_Action(chara, activator)
+  if TownVoicesArc.Talk('Spheal', 10) then return end
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Spheal_001']), "Normal")
     GeneralFunctions.EndConversation(chara)
 end
@@ -537,10 +551,12 @@ function metano_town_ch_10.Bagon_Action(chara, activator)
     GeneralFunctions.EndConversation(chara)
 end
 function metano_town_ch_10.Doduo_Action(chara, activator)
+  if TownVoicesArc.Talk('Doduo', 10) then return end
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Doduo_001']), "Normal")
     GeneralFunctions.EndConversation(chara)
 end
 function metano_town_ch_10.Metapod_Action(chara, activator)
+  if TownVoicesArc.Talk('Metapod', 10) then return end
   --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
   --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
   --n'a pas de fiche : aucun dialogue existant n'est perdu.
@@ -549,6 +565,7 @@ function metano_town_ch_10.Metapod_Action(chara, activator)
     GeneralFunctions.EndConversation(chara)
 end
 function metano_town_ch_10.Silcoon_Action(chara, activator)
+  if TownVoicesArc.Talk('Silcoon', 10) then return end
   --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
   --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
   --n'a pas de fiche : aucun dialogue existant n'est perdu.
@@ -557,6 +574,7 @@ function metano_town_ch_10.Silcoon_Action(chara, activator)
     GeneralFunctions.EndConversation(chara)
 end
 function metano_town_ch_10.Mareep_Action(chara, activator)
+  if TownVoicesArc.Talk('Mareep', 10) then return end
   --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
   --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
   --n'a pas de fiche : aucun dialogue existant n'est perdu.

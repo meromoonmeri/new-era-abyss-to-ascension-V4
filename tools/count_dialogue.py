@@ -30,6 +30,7 @@ GLOBAL_CH = {
     'ChapterAftermath.lua': None,   # scenes ch8+ch9+ch10, ventilees a la main
     'TownVoicesNight.lua': None,    # reactions aux raids, tous chapitres 6+
     'TownVoicesLate.lua': None,     # ch7 a ch10, ventile par bloc FICHES[N]
+    'TownVoicesArc.lua': None,      # ch8/9/10, ventile par table CH8/CH9/CH10
 }
 
 # Modules couvrant PLUSIEURS chapitres : on lit le bloc de chacun pour
@@ -40,6 +41,13 @@ def split_by_chapter(path):
     out = {}
     for m in re.finditer(r'FICHES\[(\d+)\] = \{(.*?)\n\}', t, re.S):
         out[int(m.group(1))] = len(FICHE_PAT.findall(m.group(2)))
+    # TownVoicesArc : une table par chapitre, cinq etats par fiche.
+    # Sans ce bloc, ses 190 boites tombaient dans « multi-chapitres ».
+    for m in re.finditer(r'TownVoicesArc\.CH(\d+) = \{(.*?)\n\}\n', t, re.S):
+        n = len(re.findall(r'^    (?:early|pre|during|post|quests)\s*=',
+                           m.group(2), re.M))
+        if n:
+            out[int(m.group(1))] = out.get(int(m.group(1)), 0) + n
     return out
 
 def count_file(path):
@@ -60,7 +68,9 @@ for f in glob.glob('Data/Script/halcyon/**/*.lua', recursive=True):
     base = f.split('/')[-1]
     forced = GLOBAL_CH.get(base)
     if base in GLOBAL_CH and forced is None:
-        parts = split_by_chapter(f) if base == 'TownVoicesLate.lua' else {}
+        # TownVoicesArc ventile aussi par chapitre (tables CH8/CH9/CH10).
+        parts = (split_by_chapter(f)
+                 if base in ('TownVoicesLate.lua', 'TownVoicesArc.lua') else {})
         if parts:
             for c, cn in parts.items():
                 per_ch[c] += cn
