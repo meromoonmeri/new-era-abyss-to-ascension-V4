@@ -89,8 +89,12 @@ function vast_steppe_midpoint_ch_5.FirstArrival()
 
   SV.Chapter5.PlayedSteppeMidpointIntro = true
 
+  -- Ne pas relancer la même GroundMap depuis son callback Enter : la
+  -- transition imbriquée pouvait laisser le relais sous le fondu noir.
+  -- La mise en place finale est effectuée sur la carte déjà chargée.
   GAME:CutsceneMode(false)
-  GAME:EnterGroundMap("vast_steppe_midpoint", "Main_Entrance_Marker")
+  vast_steppe_midpoint_ch_5.SetupGround()
+  GAME:MoveCamera(0, 0, 1, true)
 end
 
 --------------------------------------------------------------------

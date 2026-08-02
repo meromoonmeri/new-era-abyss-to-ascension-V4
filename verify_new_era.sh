@@ -119,13 +119,27 @@ for f in Data/Script/halcyon/ground/metano_town/metano_town_ch_6.lua \
     fi
 done
 
-# 5. Zones JSON
+# 5. Cohérence des résumés de zones
+# Le moteur valide les SegLoc contre Data/Zone/index.idx avant de charger le
+# JSON complet. Ce contrôle cible les zones d'histoire dont la segmentation a
+# changé récemment ; il évite de réintroduire un écran noir après un patch de
+# segments ou de GroundMaps.
+echo ""
+echo "--- INDEX DES ZONES ---"
+if python3 tools/verify_zone_index.py .; then
+    echo "  ✓ résumés des zones d'histoire synchronisés"
+else
+    echo "  ✗ index.idx désynchronisé"
+    ERRORS=$((ERRORS+1))
+fi
+
+# 6. Zones JSON
 echo ""
 echo "--- ZONES ---"
 ZONES=$(ls Data/Zone/*.json 2>/dev/null | wc -l)
 echo "  $ZONES zones JSON"
 
-# 6. RÉSULTAT
+# 7. RÉSULTAT
 echo ""
 echo "============================================================"
 if [ "$ERRORS" -eq 0 ]; then

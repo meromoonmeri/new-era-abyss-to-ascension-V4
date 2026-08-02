@@ -27,11 +27,27 @@ function mount_windswept_midpoint.Init(map)
   PartnerEssentials.InitializePartnerSpawn()
 end
 
+-- Un callback de GroundMap qui échoue après avoir armé CutsceneMode laisse le
+-- moteur sous le fondu noir et le joueur sans reprise de contrôle. Le moteur
+-- journalise l'erreur du ScriptEvent, mais ne peut pas restaurer l'état Lua de
+-- la scène. On conserve donc la cause dans le log et on garantit ici la sortie.
+local function PlotScriptingSafely()
+  local ok, err = pcall(function()
+    mount_windswept_midpoint.PlotScripting()
+  end)
+  if not ok then
+    PrintInfo('[MOUNTAIN_MIDPOINT][ERROR] PlotScripting interrompu : '..tostring(err))
+    pcall(function() GAME:CutsceneMode(false) end)
+    pcall(function() GAME:MoveCamera(0, 0, 1, true) end)
+    pcall(function() GAME:FadeIn(1) end)
+  end
+end
+
 function mount_windswept_midpoint.Enter(map)
   nre_snap('mount_windswept_midpoint.Enter')
-	if SV.Chapter5.PlayedMountMidpointIntro == nil then SV.Chapter5.PlayedMountMidpointIntro = false end
-	if SV.Chapter5.WindsweptMidReturn == nil then SV.Chapter5.WindsweptMidReturn = false end
-  mount_windswept_midpoint.PlotScripting()
+  if SV.Chapter5.PlayedMountMidpointIntro == nil then SV.Chapter5.PlayedMountMidpointIntro = false end
+  if SV.Chapter5.WindsweptMidReturn == nil then SV.Chapter5.WindsweptMidReturn = false end
+  PlotScriptingSafely()
 end
 
 function mount_windswept_midpoint.Update(map)
@@ -54,7 +70,7 @@ function mount_windswept_midpoint.GameLoad(map)
      and SV.Chapter5.WindsweptMidState ~= 'DeathArrival' then
     SV.Chapter5.WindsweptMidReturn = true
   end
-  mount_windswept_midpoint.PlotScripting()
+  PlotScriptingSafely()
 end
 
 -- ROUTEUR DU POINT MEDIAN — meme ordre de branches que le Tunnel

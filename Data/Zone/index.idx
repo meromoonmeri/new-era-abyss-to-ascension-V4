@@ -542,7 +542,7 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 13,
+      "CountedFloors": 16,
       "Rogue": 0,
       "Grounds": [
         "mount_windswept_entrance",
@@ -559,18 +559,17 @@
           3,
           4,
           5,
-          6
-        ],
-        [
-          0
+          6,
+          7,
+          8,
+          9
         ],
         [
           0,
           1,
           2,
           3,
-          4,
-          5
+          4
         ],
         [
           0
@@ -706,12 +705,13 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 0,
-      "CountedFloors": 22,
+      "CountedFloors": 26,
       "Rogue": 0,
       "Grounds": [
         "gloomy_forest_entrance",
         "gloomy_forest_midpoint",
-        "gloomy_forest_boss"
+        "gloomy_forest_boss",
+        "gloomy_forest_miniboss"
       ],
       "Maps": [
         [
@@ -733,6 +733,14 @@
           15,
           16,
           17
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0
         ],
         [
           0,
@@ -817,7 +825,7 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 17,
+      "CountedFloors": 16,
       "Rogue": 0,
       "Grounds": [
         "searing_tunnel_entrance",
@@ -848,9 +856,6 @@
         ],
         [
           0
-        ],
-        [
-          0
         ]
       ],
       "Name": {
@@ -874,7 +879,7 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 14,
+      "CountedFloors": 15,
       "Rogue": 0,
       "Grounds": [
         "vast_steppe_entrance",
@@ -891,9 +896,6 @@
           4,
           5,
           6
-        ],
-        [
-          0
         ],
         [
           0,

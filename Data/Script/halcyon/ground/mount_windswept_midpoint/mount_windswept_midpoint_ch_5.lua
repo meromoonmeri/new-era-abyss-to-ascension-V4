@@ -146,8 +146,14 @@ function mount_windswept_midpoint_ch_5.FirstArrival()
 
   SV.Chapter5.PlayedMountMidpointIntro = true
 
+  -- Ne pas lancer une seconde transition vers cette même GroundMap depuis
+  -- son callback Enter : le moteur est encore dans BeginGround/OnEnter.
+  -- La mise en place finale est locale et laisse le contrôle sans repasser
+  -- par une nouvelle chaîne SceneOutcome, ce qui évite de rester sous le
+  -- fondu noir si la transition imbriquée est interrompue.
   GAME:CutsceneMode(false)
-  GAME:EnterGroundMap("mount_windswept_midpoint", "Main_Entrance_Marker")
+  mount_windswept_midpoint_ch_5.SetupGround()
+  GAME:MoveCamera(0, 0, 1, true)
 end
 
 --------------------------------------------------------------------
