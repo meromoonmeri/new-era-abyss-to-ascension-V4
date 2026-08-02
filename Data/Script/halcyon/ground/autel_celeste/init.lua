@@ -68,32 +68,73 @@ function autel_celeste.Enter(map)
   GAME:FadeIn(60)
   GAME:WaitFrames(30)
 
-  -- Voix solennelle de Rayquaza qui résonne dans l'atmosphère
-  BossFX.Voice('CPB_001', STRINGS.MapStrings)
+  -- ------------------------------------------------------------
+  -- APPARITION EN TROIS COUCHES
+  --
+  -- Couche 1 — la voix seule. Rayquaza parle avant d'etre visible :
+  -- aucun portrait, aucun corps a l'ecran. On n'emploie pas
+  -- BossFX.Voice ici : cette fonction est reservee a la Voix anonyme
+  -- (\uE040), qui n'a rien a voir avec le Gardien et fait souffrir le
+  -- heros. Le locuteur est simplement laisse vide.
+  -- ------------------------------------------------------------
+  SOUND:StopBGM()
+  GAME:WaitFrames(30)
 
-  -- Arrivée divine de Rayquaza (remplace Lugia)
+  -- Le duo cherche d'ou vient la voix : chacun leve la tete depuis sa
+  -- propre place, personne ne reste fige.
+  pcall(function()
+    GROUND:CharSetEmote(hero, "question", 1)
+    if partner ~= nil then GROUND:CharSetEmote(partner, "question", 1) end
+  end)
+  SOUND:PlayBattleSE("DUN_Wind")
+  GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 3, 30))
+  GAME:WaitFrames(30)
+
+  UI:ResetSpeaker(false)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CPB_001']))
+  GAME:WaitFrames(20)
+
+  -- ------------------------------------------------------------
+  -- Couche 2 — il fend les nuages. Descente verticale reelle,
+  -- puis souffle qui repousse le groupe.
+  -- ------------------------------------------------------------
   local rayquaza = CharacterEssentials.MakeCharactersFromList({{'Rayquaza', 272, 272, Direction.Down}})
   GROUND:Hide('Rayquaza')
   BossFX.DescendSky(rayquaza, 272, 272, 160)
 
-  -- Souffle d'apparition repoussant le groupe
   BossFX.PushBack({hero, partner}, Direction.Down)
+  pcall(function()
+    GROUND:CharSetEmote(hero, "shock", 1)
+    if partner ~= nil then GROUND:CharSetEmote(partner, "shock", 1) end
+  end)
 
-  -- Animation d'introduction de Rayquaza
+  -- ------------------------------------------------------------
+  -- Couche 3 — deploiement, lumiere, theme celeste. C'est seulement
+  -- ici qu'il devient un interlocuteur avec un portrait.
+  -- ------------------------------------------------------------
   GROUND:CharSetAnim(rayquaza, "Attack", false)
-  SOUND:PlaySE("DUN_Thundurus_Spawn") -- Cri de tempête céleste
+  SOUND:PlaySE("DUN_Thundurus_Spawn")
+  pcall(function() BossFX.Flash(272, 272, 4, 6, 30) end)
   GAME:WaitFrames(25)
   GROUND:CharSetAnim(rayquaza, "Idle", true)
 
-  -- Démarrage de la musique de combat légendaire
   BossMusic.Play('autel_celeste')
 
   UI:WaitShowTitle(rayquaza:GetDisplayName(), 20)
   GAME:WaitFrames(40)
   UI:WaitHideTitle(20)
 
+  -- Le duo se retourne vers lui, chacun selon sa position.
+  pcall(function()
+    GROUND:CharTurnToCharAnimated(hero, rayquaza, 4)
+    if partner ~= nil then GROUND:CharTurnToCharAnimated(partner, rayquaza, 4) end
+  end)
+  GAME:WaitFrames(15)
+
   UI:SetSpeaker(rayquaza)
+  GeneralFunctions.SetEmotion("Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CPB_002']))
+  GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CPB_003']))
 
   COMMON.BossTransition()

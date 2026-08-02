@@ -1343,7 +1343,25 @@ SV.Chapter10 =
 SV.Chapter11 = 
 {
 	ShowedTitleCard = false,
-	FinishedTreasureTownIntro = false
+	FinishedTreasureTownIntro = false,
+	--Arc de l'accusation : le duo quitte Metano avant de gagner l'autre
+	--continent. Pose par AccusationArc.Scene9/10.
+	FledGuild = false
+}
+
+--Chapitre 11 — « Ceux que l'on accuse ».
+--Le Cercle du Suaire retourne la ville contre le heros en deformant la
+--legende des voyageurs venus d'ailleurs. Etat de progression des dix
+--scenes de l'arc (voir AccusationArc.lua).
+SV.AccusationArc =
+{
+	Scene = 0,                --derniere scene jouee
+	HeardAccusation = false,  --scene 3 : le discours sur la place
+	PlumDefended = false,     --scene 4 : Plum refuse d'y croire
+	ShopsClosed = false,      --scene 6 : les echoppes ferment
+	SawProtest = false,       --scene 7 : la manifestation nocturne
+	GuildCouncil = false,     --scene 8 : Penticus n'a plus les moyens
+	PartnerChose = false      --scene 9 : le partenaire decide seul
 }
 
 
@@ -1427,4 +1445,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-08-03-Q]')
+print('Script variables default values loaded! [build 2026-08-03-R]')

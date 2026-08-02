@@ -451,6 +451,18 @@ function DebugTools:OnUpgrade()
  if SV.SuaireArc.CurrentAct == nil then SV.SuaireArc.CurrentAct = 0 end
  if SV.SuaireArc.ShardsRecovered == nil then SV.SuaireArc.ShardsRecovered = 0 end
  if SV.SuaireArc.DreamFragments == nil then SV.SuaireArc.DreamFragments = 0 end
+
+ --Chapitre 11 « Ceux que l'on accuse » : rattrapage pour les parties en
+ --cours, sinon les scenes de l'arc lisent des champs nil.
+ if SV.AccusationArc == nil then SV.AccusationArc = {} end
+ if SV.AccusationArc.Scene == nil then SV.AccusationArc.Scene = 0 end
+ if SV.AccusationArc.HeardAccusation == nil then SV.AccusationArc.HeardAccusation = false end
+ if SV.AccusationArc.PlumDefended == nil then SV.AccusationArc.PlumDefended = false end
+ if SV.AccusationArc.ShopsClosed == nil then SV.AccusationArc.ShopsClosed = false end
+ if SV.AccusationArc.SawProtest == nil then SV.AccusationArc.SawProtest = false end
+ if SV.AccusationArc.GuildCouncil == nil then SV.AccusationArc.GuildCouncil = false end
+ if SV.AccusationArc.PartnerChose == nil then SV.AccusationArc.PartnerChose = false end
+ if SV.Chapter11 ~= nil and SV.Chapter11.FledGuild == nil then SV.Chapter11.FledGuild = false end
  if (SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 6)
     or SV.ChapterProgression.StoryCompleted == true then
 	if not SV.SuaireArc.Unlocked then
