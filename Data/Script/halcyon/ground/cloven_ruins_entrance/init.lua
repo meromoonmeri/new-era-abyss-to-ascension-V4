@@ -24,16 +24,19 @@ function cloven_ruins_entrance.Init(map)
   -- Si aucune cinematique n'est a venir, on libere la main des
   -- maintenant (sinon le joueur resterait fige sur une carte montee).
   pcall(function()
-    -- Meme correctif que PlotScripting : la condition d'arrivee est
-    -- « pas encore joue » (not RuinsCampDone), pas « arme par Tornadus ».
-    -- Sinon Init relachait CutsceneMode juste avant qu'ArrivalCutscene
-    -- ne le repose, ce qui rendait la main au joueur une fraction de
-    -- seconde au milieu de la mise en place.
+    -- Le test doit etre le MIROIR EXACT de PlotScripting, sinon Init
+    -- relache CutsceneMode juste avant qu'ArrivalCutscene ne le repose
+    -- (main rendue une fraction de seconde en pleine mise en place).
+    -- Il ne peut donc pas exiger Chapter == 5 : depuis un warp du mode
+    -- dev le chapitre vaut 1 (DebugWarp -> startCleanSave -> defauts de
+    -- scriptvars.lua). Voir le commentaire long dans PlotScripting.
     local sceneAVenir = false
-    if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5 then
-      local c5 = SV.Chapter5
-      sceneAVenir = (not c5.RuinsCampDone)
-                 or c5.PlayTempRuinsScene
+    local c5 = SV.Chapter5
+    if c5 ~= nil then
+      local ch = SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter or nil
+      local apresRuines = (ch ~= nil and ch >= 6)
+      sceneAVenir = c5.PlayTempRuinsScene
+                 or ((not c5.RuinsCampDone) and not apresRuines)
     end
     if not sceneAVenir then GAME:CutsceneMode(false) end
   end)
@@ -55,14 +58,62 @@ function cloven_ruins_entrance.GameLoad(map)
 end
 
 function cloven_ruins_entrance.PlotScripting()
-  if SV.ChapterProgression.Chapter ~= 5 then
-    --Hors ch5 : entree simple (rejouabilite / autres usages).
-    cloven_ruins_entrance_ch_5.SetupGround()
+  local c5 = SV.Chapter5
+
+  -- ================================================================
+  -- WARP DU MODE DEV — LE CHAPITRE N'EST PAS CELUI QU'ON CROIT
+  -- ================================================================
+  -- Le bouton « Enter Ground » de l'onglet Travel appelle
+  -- GameManager.DebugWarp (Scene/GameManager.cs:1072), qui commence par
+  -- startCleanSave (l.1061). Si aucune sauvegarde n'est chargee, ce
+  -- dernier appelle NewGamePlus -> LuaEngine.OnNewGame -> rechargement
+  -- des valeurs par defaut de scriptvars.lua. Or le defaut est
+  -- SV.ChapterProgression.Chapter = 1 (scriptvars.lua:697).
+  --
+  -- Le garde `Chapter ~= 5` renvoyait donc TOUJOURS vrai depuis un warp
+  -- a froid, et la fonction sortait ligne 60 sur SetupGround() — appele
+  -- SANS ARGUMENT, donc includeRecon = nil (falsy) : les six membres de
+  -- la base logistique sont spawnes, Kino et Reinier non, et FadeIn(20)
+  -- rend la main. C'est EXACTEMENT le symptome : des membres de la
+  -- Guilde deja en place, et aucune arrivee du heros.
+  --
+  -- Mon correctif precedent (condition RuinsCampDone) portait sur la
+  -- branche l.117, qui n'etait jamais atteinte depuis un warp : le
+  -- garde de chapitre sortait 57 lignes plus tot. Il etait juste, mais
+  -- inoperant sur ce chemin.
+  --
+  -- Regle retenue : le chapitre ne sert plus de garde d'ENTREE, mais de
+  -- garde de SORTIE. Tant que la scene du camp n'a pas ete jouee
+  -- (RuinsCampDone faux) et qu'on n'est pas explicitement APRES le ch5,
+  -- l'arrivee est la bonne reponse. Un chapitre >= 6 signifie que
+  -- l'histoire a depasse les Ruines : on retombe alors sur l'entree
+  -- simple de rejouabilite.
+  local ch = SV.ChapterProgression.Chapter
+  local apresRuines = (ch ~= nil and ch >= 6)
+
+  if apresRuines then
+    --Rejouabilite assumee : l'histoire est passee, camp au repos.
+    --SetupGround(false) EXPLICITE — l'ancien appel sans argument
+    --laissait includeRecon a nil, ce qui marchait par accident.
+    cloven_ruins_entrance_ch_5.SetupGround(false)
     GAME:FadeIn(20)
     return
   end
 
-  local c5 = SV.Chapter5
+  if c5 == nil then
+    --Table absente (sauvegarde tres ancienne) : on ne peut rien lire,
+    --on ouvre la carte sans scene plutot que de planter.
+    PrintInfo("[cloven_ruins_entrance] SV.Chapter5 absente — entree simple.")
+    cloven_ruins_entrance_ch_5.SetupGround(false)
+    GAME:FadeIn(20)
+    return
+  end
+
+  if ch ~= 5 then
+    PrintInfo("[cloven_ruins_entrance] chapitre courant = " .. tostring(ch)
+              .. " (attendu 5). Scene du camp jouee quand meme : warp du mode "
+              .. "dev ou sauvegarde hors-sequence.")
+  end
 
   -- RETOUR DU REVE — la veillee est terminee, le reve a ete bascule
   -- vers hero_dream qui renvoie ici (DreamReturn). On rejoue le matin.
