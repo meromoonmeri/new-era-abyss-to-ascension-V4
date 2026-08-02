@@ -987,6 +987,44 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
+
+		--------------------------------------------------------------
+		-- LE VILLAGE DES SHAYMIN (quete q8_shaymin, organisee par Ceili)
+		--
+		-- Trois habitants nommes, distincts de l'Ancrage `Shaymin`
+		-- ci-dessus (« La ou Fleurit le Merci », ch15). Meme espece,
+		-- identites differentes : ce sont des villageois, pas le
+		-- gardien legendaire. Cles et instances distinctes pour que
+		-- CH() et les handlers ne puissent jamais viser l'un pour
+		-- l'autre — meme precaution que Canyon_Xatu / Bourg_Xatu.
+		--------------------------------------------------------------
+		Shaymin_Doyenne = {
+			species = "shaymin",
+			nickname = 'Gratiane',
+			instance = 'Shaymin_Doyenne',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+
+		Shaymin_Eclaireur = {
+			species = "shaymin",
+			nickname = 'Brindille',
+			instance = 'Shaymin_Eclaireur',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+
+		Shaymin_Cadet = {
+			species = "shaymin",
+			nickname = 'Pissenlit',
+			instance = 'Shaymin_Cadet',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+
 		Manaphy = {
 			species = "manaphy",
 			nickname = 'Manaphy',

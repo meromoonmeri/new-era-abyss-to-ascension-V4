@@ -471,6 +471,64 @@ SideQuests.LIST = {
     },
     undertow = "la recherche d'espoir et de réconfort face aux ténèbres imminentes",
   },
+
+  ---------------------------------------------------------------
+  -- CHAPITRE 8 — la requête de Ceili : le Village des Shaymin
+  ---------------------------------------------------------------
+  -- Quatrième requête du ch8, à part des trois autres : c'est Ceili
+  -- (Spinda) qui l'affiche au comptoir, pas un habitant de la place.
+  --
+  -- ANTERIORITE ASSUMEE. Raikou est deja un Ancrage du Livre II
+  -- (storm_bell / crete_voilee / arene_hautes_plaines, ch16). Il
+  -- n'est PAS vaincu ici : le duo le deloge, il repart de lui-meme.
+  -- La vraie confrontation reste celle du ch16, et cette rencontre
+  -- lui donne du poids au lieu de la vider — meme traitement que
+  -- Zeraora au ch6.
+  --
+  -- TEST DU DIALOGUE DE BOSS applique aux repliques de Raikou :
+  --   « Ce sommet porte l'orage. Je m'y arrete quand il gronde. »
+  --     -> information concrete sur SA motivation, verifiable
+  --        (il suit les orages), et propre a lui seul.
+  --   « Je ne les avais pas vus. Ils sont petits, et je suis vaste. »
+  --     -> pas de malveillance : l'indifference d'un colosse. Fonde
+  --        sur un fait de la scene (les Shaymin sont sous ses pattes).
+  --   « Vous auriez pu m'attaquer. Vous avez parle. Je m'en
+  --     souviendrai. »
+  --     -> fait avancer la relation, et pose explicitement le
+  --        rappel du ch16. Ne peut appartenir qu'a ce moment-la.
+  {
+    id = 'q8_shaymin', ch = 8, giver = 'Spinda', target = 'Shaymin_Doyenne',
+    titre = "Le village sous l'orage",
+    ask = {
+      {'Spinda', 'Worried',  "Une lettre du Val Fleuri.[pause=20] L'écriture tremble tellement que j'ai mis une heure à la lire."},
+      {'Spinda', 'Sad',      "Quelque chose s'est installé au sommet du Pic Céleste.[pause=25] Depuis, la foudre tombe sans arrêt sur le val."},
+      {'Spinda', 'Normal',   "Les Shaymin ne peuvent plus sortir de chez eux.[pause=20] Ils ne demandent pas qu'on se batte."},
+      {'Spinda', 'Determined',"Ils demandent qu'on aille voir.[pause=25] C'est tout."},
+    },
+    accept = {'Spinda', 'Happy',  "Merci.[pause=20] Montez doucement : là-haut, l'air est mince."},
+    refuse = {'Spinda', 'Sad',    "Je comprends.[pause=25] Je garde la lettre au comptoir, au cas où."},
+    pending= {'Spinda', 'Worried',"Toujours pas monté ?[pause=20] La foudre n'attend pas, elle."},
+    solve = {
+      {'Shaymin_Doyenne', 'Worried',  "Vous êtes montés jusqu'ici ?[pause=25] Personne ne monte jamais jusqu'ici."},
+      {'Shaymin_Doyenne', 'Sad',      "Il est arrivé il y a six jours.[pause=20] Il ne nous a rien fait."},
+      {'Shaymin_Doyenne', 'Sad',      "C'est bien ça, le problème.[pause=25] Il ne nous a même pas remarqués."},
+      {'Shaymin_Cadet',   'Crying',   "La foudre a brûlé le pré du haut ![pause=20] Il ne reste plus rien !"},
+      {'Shaymin_Eclaireur','Determined',"J'ai essayé de monter lui parler.[pause=25] Je n'ai pas dépassé la troisième corniche."},
+      {'Shaymin_Doyenne', 'Normal',   "Alors montez, vous.[pause=25] Et ne l'attaquez pas.[pause=20] Parlez-lui."},
+      {'Raikou', 'Normal',     "Ce sommet porte l'orage.[pause=25] Je m'y arrête quand il gronde."},
+      {'Raikou', 'Surprised',  "En dessous ?[pause=30] Je ne les avais pas vus.[pause=20] Ils sont petits, et je suis vaste."},
+      {'Raikou', 'Normal',     "Six jours de foudre sur un pré.[pause=25] Ce n'était pas contre eux."},
+      {'Raikou', 'Determined', "Vous auriez pu m'attaquer.[pause=30] Vous avez parlé.[pause=20] Je m'en souviendrai."},
+    },
+    done = {
+      {'Shaymin_Doyenne', 'Surprised', "Le ciel s'est dégagé d'un coup.[pause=25] On a cru que c'était une accalmie."},
+      {'Shaymin_Doyenne', 'Happy',     "Puis on a vu la lumière partir vers le nord.[pause=20] Il est parti."},
+      {'Shaymin_Cadet',   'Joyous',    "Le pré va repousser ![pause=20] Gratiane dit qu'il repousse toujours !"},
+      {'Shaymin_Doyenne', 'Normal',    "Il reviendra, un jour.[pause=25] Les orages reviennent toujours."},
+      {'Shaymin_Doyenne', 'Determined',"Mais maintenant il sait qu'on est là.[pause=25] Ça change tout."},
+    },
+    undertow = "un colosse qui ne voyait pas ce qu'il ecrasait — et qui, une fois qu'on le lui dit, s'en va",
+  },
 }
 
 --------------------------------------------------------------------
