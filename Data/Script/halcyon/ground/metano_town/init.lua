@@ -193,6 +193,49 @@ function metano_town.PlotScripting()
 	elseif SV.ChapterProgression.Chapter == 10 then
 		require 'halcyon.ground.metano_town.metano_town_ch_10'
 		metano_town_ch_10.SetupGround()
+	elseif SV.ChapterProgression.Chapter == 11 then
+		--------------------------------------------------------------
+		-- CHAPITRE 11 — « Ceux que l'on accuse » (correctif 2026-08-02)
+		--
+		-- La ville n'avait AUCUN etat pour le ch11 : le `else` final
+		-- attrapait le chapitre et se contentait d'un FadeIn. Or c'est
+		-- precisement le chapitre ou Metano se retourne contre le
+		-- heros — six des dix scenes de l'arc s'y jouent.
+		--
+		-- AccusationArc n'etait par ailleurs require'd nulle part : le
+		-- module n'existait pas a l'execution. Il est charge ici et
+		-- dans guild_heros_room_ch_11.
+		--
+		-- Ordre des scenes exterieures, pilote par SV.AccusationArc :
+		--   2 la rumeur        apres le retour au sol (scene 1, chambre)
+		--   3 le discours      le Cercle du Suaire sur la place
+		--   4 Plum             la seule voix qui refuse
+		--   6 le boycott       les echoppes ferment
+		--   7 la manifestation de nuit, devant la guilde
+		-- Les scenes 5 (la guilde ferme ses portes) et 8 (le conseil)
+		-- se jouent a l'interieur de la guilde ; 1, 9 et 10 dans la
+		-- chambre puis sur la route.
+		--------------------------------------------------------------
+		require 'halcyon.AccusationArc'
+		local s = SV.AccusationArc
+		if s == nil then SV.AccusationArc = { Scene = 0 }; s = SV.AccusationArc end
+
+		if s.Scene == 1 then
+			AccusationArc.Play(AccusationArc.Scene2_Rumeur, 'Scene2_Rumeur')
+		elseif s.Scene == 2 then
+			AccusationArc.Play(AccusationArc.Scene3_Discours, 'Scene3_Discours')
+		elseif s.HeardAccusation and not s.PlumDefended then
+			AccusationArc.Play(AccusationArc.Scene4_Plum, 'Scene4_Plum')
+		elseif s.PlumDefended and not s.ShopsClosed then
+			AccusationArc.Play(AccusationArc.Scene6_Boycott, 'Scene6_Boycott')
+		elseif s.Scene == 5 and not s.SawProtest then
+			--La manifestation vient APRES que la guilde a ferme ses portes
+			--(scene 5), pas apres le conseil : c'est justement parce que
+			--les portes sont closes que la foule attend dehors.
+			AccusationArc.Play(AccusationArc.Scene7_Manifestation, 'Scene7_Manifestation')
+		else
+			GAME:FadeIn(20)
+		end
 	else
 		GAME:FadeIn(20)
 	end

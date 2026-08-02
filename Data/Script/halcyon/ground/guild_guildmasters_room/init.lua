@@ -102,6 +102,31 @@ function guild_guildmasters_room.PlotScripting()
 		else
 			guild_guildmasters_room_ch_6.SetupGround()
 		end
+	elseif SV.ChapterProgression.Chapter == 11 then
+		--------------------------------------------------------------
+		-- CHAPITRE 11 — les deux scenes d'interieur de l'arc
+		-- (correctif 2026-08-02)
+		--
+		-- Les scenes 5 et 8 d'AccusationArc se jouent dans la salle du
+		-- maitre : c'est Penticus qui ferme les portes, puis qui avoue
+		-- ne plus pouvoir proteger le duo. Elles n'etaient branchees
+		-- nulle part — le chapitre sautait de la place publique a la
+		-- manifestation sans jamais montrer la position de la guilde.
+		--
+		--   scene 5  la guilde ferme ses portes  (apres le boycott)
+		--   scene 8  le conseil : plus les moyens (apres la manif)
+		--------------------------------------------------------------
+		require 'halcyon.AccusationArc'
+		local a = SV.AccusationArc
+		if a == nil then SV.AccusationArc = { Scene = 0 }; a = SV.AccusationArc end
+
+		if a.ShopsClosed and not a.GuildCouncil and a.Scene == 6 then
+			AccusationArc.Play(AccusationArc.Scene5_GuildeProtege, 'Scene5_GuildeProtege')
+		elseif a.SawProtest and not a.GuildCouncil then
+			AccusationArc.Play(AccusationArc.Scene8_Conseil, 'Scene8_Conseil')
+		else
+			GAME:FadeIn(20)
+		end
 	else
 		GAME:FadeIn(20)
 	end
