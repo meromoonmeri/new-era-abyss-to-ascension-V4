@@ -298,11 +298,25 @@ function gloomy_forest_entrance_ch_6.ArrivalCutscene()
 	-- le duo en tire la consequence : ils sont devant, on court derriere.
 	-- Ce beat sert de charniere vers le gameplay : il amene physiquement
 	-- le duo au seuil, la ou le joueur reprendra la main.
+	-- La camera suit le trio jusqu'a la bouche de la grotte : ce que la
+	-- boite de narration decrivait, le cadrage le MONTRE. Le guide des
+	-- cutscenes proscrit la narration en cours de scene (section 4) ;
+	-- GF6E_A22 devient donc la replique du partenaire, qui constate.
 	GAME:MoveCamera(480, 160, 70, false)
 	GAME:WaitFrames(25)
-	UI:ResetSpeaker(false); UI:SetCenter(true)
+	SOUND:PlayBattleSE("EVT_Emote_Startled_2")
+	pcall(function() GROUND:CharAnimateTurnTo(hero, Direction.Right, 5) end)
+	GAME:WaitFrames(6)
+	pcall(function() GROUND:CharAnimateTurnTo(partner, Direction.Right, 5) end)
+	pcall(function() GeneralFunctions.EmoteAndPause(partner, "Shock", false) end)
+	GAME:WaitFrames(18)
+	UI:SetSpeaker(partner)
+	-- "Shock" est une EMOTE DE BULLE (EmoteAndPause, ligne au-dessus),
+	-- pas une emotion de portrait : SetEmotion l'aurait fait planter en
+	-- boucle a chaque frame (meme classe de bug que le correctif 7715486,
+	-- Shock -> Surprised sur autel_celeste).
+	GeneralFunctions.SetEmotion("Surprised")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6E_A22']))
-	UI:SetCenter(false)
 	GAME:WaitFrames(15)
 
 	-- Le duo remonte la clairiere vers la grotte, en deux temps.

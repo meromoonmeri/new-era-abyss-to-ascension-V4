@@ -112,21 +112,42 @@ local function Scene()
 
   -- ACTE I — le silence du canyon, deja pose par la scene d'entree.
   say("Normal", "On voit tout le canyon d'ici.[pause=20] Tout le chemin qu'on a fait.")
-  narrate("Le vent s'engouffre entre les parois sans produire le moindre echo.")
-  say("Worried", "C'est ca qui me derange depuis tout a l'heure.[pause=25] Un canyon pareil devrait renvoyer chaque mot.")
+  -- Le vent sans echo etait raconte par une boite de narration. Le guide
+  -- des cutscenes l'interdit en cours de scene (section 4) : on le FAIT
+  -- ENTENDRE, et c'est le partenaire qui met un mot dessus.
+  SOUND:PlayBattleSE("DUN_Wind")
+  GAME:WaitFrames(30)
+  if partner ~= nil then
+    pcall(function() GROUND:CharSetEmote(partner, "question", 1) end)
+  end
+  GAME:WaitFrames(20)
+  say("Worried", "Tu entends ?[pause=25] Non — justement. On n'entend rien revenir.")
+  say("Worried", "Un canyon pareil devrait renvoyer chaque mot.")
   think("Worried", "(J'ai crie, en grimpant.[pause=25] Je ne me suis meme pas entendu.)")
   GAME:WaitFrames(15)
 
   -- ACTE II — la camera revele l'eperon. Xatu apparait par le cadrage,
   -- pas par un effet : il etait la depuis le debut.
-  narrate("Sur l'eperon rocheux, en face,[pause=20] quelque chose ne bouge pas.")
+  -- Le partenaire repere le premier : il se tourne vers l'eperon AVANT
+  -- que la camera n'y monte. On regarde ou il regarde.
+  if partner ~= nil then
+    pcall(function() GROUND:CharAnimateTurnTo(partner, Direction.Up, 6) end)
+    pcall(function() GROUND:CharSetEmote(partner, "notice", 1) end)
+  end
+  GAME:WaitFrames(18)
+  say("Surprised", "La-haut.[pause=25] Sur l'eperon, en face.[pause=20] Quelque chose ne bouge pas.")
+
   GAME:MoveCamera(112, 56, 60, false)
   local xatu = CharacterEssentials.MakeCharactersFromList({{'Canyon_Xatu', XATU_X, XATU_Y, Direction.Down}})
   pcall(function() GROUND:CharSetAnim(xatu, "Idle", true) end)
   GAME:WaitFrames(40)
-  narrate("Un Xatu, immobile,[pause=15] le bec leve vers le soleil couchant.")
-  GAME:WaitFrames(20)
-  say("Surprised", "Il n'a pas bouge d'un pouce...[pause=25] On ne l'avait pas vu.")
+
+  -- Le heros suit le regard du partenaire, avec un temps de retard.
+  pcall(function() GROUND:CharAnimateTurnTo(hero, Direction.Up, 6) end)
+  GAME:WaitFrames(22)
+  say("Surprised", "Un Xatu...[pause=20] le bec leve vers le soleil couchant.")
+  GAME:WaitFrames(12)
+  think("Worried", "(Il n'a pas bouge d'un pouce.[pause=25] On ne l'avait pas vu.)")
   GAME:WaitFrames(15)
 
   -- ACTE III — il parle sans se retourner.
@@ -228,8 +249,16 @@ local function Scene()
   BossFX.Flash(XATU_X, XATU_Y, 3, 5, 20)
   pcall(function() GROUND:Hide('Canyon_Xatu') end)
   GAME:WaitFrames(25)
-  narrate("Il n'est pas parti.[pause=25] Il a seulement cesse d'etre visible,[pause=15] comme le reste des voix d'ici.")
-  GAME:WaitFrames(15)
+  -- La disparition etait expliquee par une narration. C'est Xatu qui la
+  -- commente, du hors-champ : il n'est pas parti, donc il peut encore
+  -- parler. La replique fait ce que la narration faisait, en mieux.
+  UI:SetSpeaker(xatu)
+  UI:WaitShowDialogue("Je ne suis pas parti.[pause=25] J'ai seulement cesse d'etre visible.")
+  GAME:WaitFrames(12)
+  if partner ~= nil then
+    pcall(function() GROUND:CharSetEmote(partner, "sweatdrop", 1) end)
+  end
+  GAME:WaitFrames(18)
 
   -- Retour de camera sur les heros : on redescend du mystere vers eux.
   GAME:MoveCamera(112, 96, 45, false)

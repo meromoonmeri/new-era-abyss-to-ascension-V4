@@ -683,6 +683,22 @@ function metano_cafe.Teammate3_Action(chara, activator)
   GeneralFunctions.GroundInteract(activator, chara)
 end
 
+--------------------------------------------------------------------
+-- Petits outils de mise en scene des saynetes du Cafe.
+-- Les personnages etaient orientes au spawn puis figes : ils parlaient
+-- face au vide. On leur rend un regard et une reaction, sans surjouer
+-- (guide des cutscenes, sections 5.1, 5.2 et 5.6).
+--------------------------------------------------------------------
+local function cafe_regard(a, b, frames)
+  if a == nil or b == nil then return end
+  pcall(function() GROUND:CharTurnToCharAnimated(a, b, frames or 4) end)
+end
+
+local function cafe_emote(c, nom)
+  if c == nil then return end
+  pcall(function() GROUND:CharSetEmote(c, nom, 1) end)
+end
+
 function metano_cafe.PlayDailyCutscene()
   local day = (SV.ChapterProgression and SV.ChapterProgression.DaysPassed) or 0
   if SV.metano_cafe.LastDailyCutsceneDay == day then
@@ -709,10 +725,15 @@ function metano_cafe.PlayDailyCutscene()
     GAME:MoveCamera(160, 160, 1, false)
     GAME:FadeIn(20)
     
+    cafe_regard(goinfrex, ludicolo, 4)
+    cafe_emote(goinfrex, 'question')
     UI:SetSpeaker(goinfrex)
     UI:WaitShowDialogue("S'il te plaît, Ludicolo...[pause=15] Donne-moi un smoothie gratuit !")
     UI:WaitShowDialogue("Je n'ai pas mangé depuis au moins dix minutes...[pause=20] Je vais m'évanouir !")
     
+    GAME:WaitFrames(10)
+    cafe_regard(ludicolo, goinfrex, 4)
+    cafe_emote(ludicolo, 'happy')
     UI:SetSpeaker(ludicolo)
     UI:WaitShowDialogue("Haha ! Non, non, mon garçon ![pause=15] Au café, on danse et on s'active d'abord !")
     UI:WaitShowDialogue("Fais une petite danse de l'estomac, et on verra !")
@@ -838,10 +859,16 @@ function metano_cafe.PlayDailyCutscene()
     GAME:MoveCamera(160, 160, 1, false)
     GAME:FadeIn(20)
     
+    cafe_regard(shuckle, goinfrex, 3)
+    cafe_emote(shuckle, 'exclaim')
+    SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
+    GAME:WaitFrames(10)
     UI:SetSpeaker(shuckle)
     GeneralFunctions.SetEmotion("Angry")
     UI:WaitShowDialogue("Arrête toi tout de suite ![pause=15] Ne mange pas ma jarre de fermentation !")
     
+    cafe_regard(goinfrex, shuckle, 3)
+    cafe_emote(goinfrex, 'shock')
     UI:SetSpeaker(goinfrex)
     GeneralFunctions.SetEmotion("Surprised")
     UI:WaitShowDialogue("Mais... mais elle sentait si bon...[pause=15] C'est juste de la sève !")
