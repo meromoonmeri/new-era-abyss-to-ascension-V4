@@ -1206,6 +1206,9 @@ SV.Chapter8 =
 {
 	-- Chapter 8: Sanctuaire de Cristal — Diancie, Fragment de Cristal
 	ShowedTitleCard = false,
+	PlayedTournamentIntro = false,
+	TournamentStage = 0,
+	DaysSinceLastTrial = 0,
 	CrystalAddressGiven = false,
 	MissionAccepted = false,
 	EnteredSanctuary = false,

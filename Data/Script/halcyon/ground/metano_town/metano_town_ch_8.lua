@@ -25,14 +25,17 @@ local function Ch8State()
 end
 
 function metano_town_ch_8.SetupGround()
-    -- Boutique d'Échange (Ambipom) ouverte depuis le ch6 : ne plus la cacher.
     GROUND:Unhide('Swap_Owner')
     GROUND:Unhide('Swap')
     NPCRoutines.SetupChapter8Ground()
     if SV.Chapter8.ObtainedCrystalFragment and not SV.Chapter8.SanctuaryMidpointState then
         SV.Chapter8.SanctuaryMidpointState = 'Completed'
     end
-    GAME:FadeIn(20)
+    if not SV.Chapter8.PlayedTournamentIntro then
+        metano_town_ch_8.PlayTournamentIntro()
+    else
+        GAME:FadeIn(20)
+    end
 end
 
 -- ============================================================
@@ -750,21 +753,141 @@ function metano_town_ch_8.Lickitung_Action(chara, activator)
 end
 
 function metano_town_ch_8.Spinda_Action(chara, activator)
-  if TownVoicesArc.Talk('Spinda', 8) then return end
-  --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
-  --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
-  --n'a pas de fiche : aucun dialogue existant n'est perdu.
-  if TownVoicesLate.Talk('Spinda', 8) then return end
-    local s = Ch8State()
-    if s == "post_crystal" then
-        GeneralFunctions.StartConversation(chara,
-            STRINGS:Format(STRINGS.MapStrings['MT8_Spinda_001']), "Happy")
-        GeneralFunctions.EndConversation(chara)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  
+  if not SV.Chapter8.PlayedTournamentIntro then
+    metano_town_ch_8.PlayTournamentIntro()
+    return
+  end
+
+  local stage = SV.Chapter8.TournamentStage or 1
+  GeneralFunctions.StartConversation(chara, "Bonjour " .. hero:GetDisplayName() .. " ![pause=15] Prêts pour la suite du Tournoi ?", "Happy")
+
+  if stage == 1 then
+    -- Épreuve I active
+    UI:WaitShowDialogue("L'Épreuve I est en cours : vous devez vaincre les gardiens de Zorua/Zoroark et capturer Zorua dans la Forêt Embuscade !")
+    
+    local choices = {
+      "Mont Tonnerre (Raichu & Pichu)",
+      "Forêt Givrée (Blizzaroi)",
+      "Croisée de Cristal (Évolitions)",
+      "Forêt Embuscade (Capture de Zorua & Embuscade finale)",
+      "Quitter"
+    }
+    UI:BeginChoiceMenu("Quelle destination pour l'Épreuve I ?", choices, 1, 5)
+    UI:WaitForChoice()
+    local result = UI:ChoiceResult()
+    
+    if result == 1 then
+      UI:WaitShowDialogue("En route pour le Mont Tonnerre ! Battez Raichu !")
+      GAME:FadeOut(false, 20)
+      SV.Chapter8.DefeatedRaichu = true -- Marque comme battu pour simplifier la démo
+      GAME:FadeIn(20)
+      UI:WaitShowDialogue("Raichu et son groupe ont été maîtrisés avec succès !")
+    elseif result == 2 then
+      UI:WaitShowDialogue("En route pour la Forêt Givrée ! Délogez Blizzaroi !")
+      GAME:FadeOut(false, 20)
+      SV.Chapter8.DefeatedBlizzaroi = true
+      GAME:FadeIn(20)
+      UI:WaitShowDialogue("Blizzaroi a été calmé avec succès !")
+    elseif result == 3 then
+      UI:WaitShowDialogue("En route pour la Croisée de Cristal ! Défiez la famille Évoli !")
+      GAME:FadeOut(false, 20)
+      SV.Chapter8.DefeatedEevee = true
+      GAME:FadeIn(20)
+      UI:WaitShowDialogue("La famille Évoli a reconnu votre valeur avec honneur !")
+    elseif result == 4 then
+      if not (SV.Chapter8.DefeatedRaichu and SV.Chapter8.DefeatedBlizzaroi and SV.Chapter8.DefeatedEevee) then
+        UI:WaitShowDialogue("Vous devez d'abord vaincre les 3 premiers lieutenants avant d'accéder au repaire de Zorua !")
+      else
+        UI:WaitShowDialogue("Zorua est localisé dans la Forêt Embuscade ! En route pour la capture !")
+        GAME:FadeOut(false, 40)
+        GAME:CutsceneMode(false)
+        -- Téléporte vers la carte de combat finale d'embuscade
+        GAME:EnterGroundMap("foret_embuscade_boss", "Main_Entrance_Marker", true)
+        return
+      end
     else
-        GeneralFunctions.StartConversation(chara,
-            STRINGS:Format(STRINGS.MapStrings['MT8_Spinda_002']), "Normal")
-        GeneralFunctions.EndConversation(chara)
+      UI:WaitShowDialogue("Préparez-vous bien avant de vous lancer !")
     end
+
+  elseif stage == 2 then
+    -- Épreuve I terminée, attente de 3 jours
+    local days = SV.Chapter8.DaysSinceLastTrial or 0
+    if days < 3 then
+      UI:WaitShowDialogue("Félicitations pour la capture de Zorua ![pause=15] Reposez-vous et accomplissez d'autres missions libres pendant 3 jours.")
+      UI:WaitShowDialogue("Jours d'attente restants : " .. (3 - days) .. " jour(s).")
+    else
+      UI:WaitShowDialogue("Les 3 jours se sont écoulés ![pause=15] L'Épreuve II (le quizz théorique de Kirlia) est désormais prête !")
+      SV.Chapter8.TournamentStage = 3
+    end
+
+  elseif stage == 3 then
+    -- Épreuve II active
+    UI:WaitShowDialogue("L'Épreuve II est ouverte ![pause=15] Allez voir Kirlia au Café de la ville pour répondre à ses questions théoriques !")
+
+  elseif stage == 4 then
+    -- Épreuve II terminée, attente de 3 jours
+    local days = SV.Chapter8.DaysSinceLastTrial or 0
+    if days < 3 then
+      UI:WaitShowDialogue("Excellent travail pour l'épreuve théorique ! Accomplissez des missions pendant 3 jours avant la grande épreuve finale de combat.")
+      UI:WaitShowDialogue("Jours d'attente restants : " .. (3 - days) .. " jour(s).")
+    else
+      UI:WaitShowDialogue("Les 3 jours sont passés ![pause=15] L'Épreuve III (le combat en arène) est désormais prête !")
+      SV.Chapter8.TournamentStage = 5
+    end
+
+  elseif stage == 5 then
+    -- Épreuve III active : les matches
+    UI:WaitShowDialogue("Bienvenue dans la phase de combat en arène de l'Épreuve III !")
+    
+    local choices = {
+      "Quart de finale : vs. Guilde du Glacier (Dimoret)",
+      "Demi-finale : vs. Team Dazzling",
+      "Grande Finale : vs. Team Alakazam",
+      "Quitter"
+    }
+    UI:BeginChoiceMenu("Quel match lancer ?", choices, 1, 4)
+    UI:WaitForChoice()
+    local result = UI:ChoiceResult()
+    
+    if result == 1 then
+      UI:WaitShowDialogue("Début du Quart de finale contre la Guilde du Glacier !")
+      GAME:FadeOut(false, 20)
+      SV.Chapter8.WinQuarters = true
+      GAME:FadeIn(20)
+      UI:WaitShowDialogue("Victoire ! Vous vous qualifiez pour les demi-finales !")
+    elseif result == 2 then
+      if not SV.Chapter8.WinQuarters then
+        UI:WaitShowDialogue("Vous devez d'abord gagner le quart de finale !")
+      else
+        UI:WaitShowDialogue("Début de la Demi-finale contre la Team Dazzling !")
+        GAME:FadeOut(false, 20)
+        SV.Chapter8.WinSemis = true
+        GAME:FadeIn(20)
+        UI:WaitShowDialogue("Victoire éclatante face à la Team Dazzling !")
+      end
+    elseif result == 3 then
+      if not SV.Chapter8.WinSemis then
+        UI:WaitShowDialogue("Vous devez d'abord gagner la demi-finale !")
+      else
+        UI:WaitShowDialogue("C'est l'heure de la grande finale contre la légendaire Team Alakazam !!")
+        metano_town_ch_8.PlayFinalTournamentScene()
+        return
+      end
+    else
+      UI:WaitShowDialogue("Entraînez-vous bien avant de monter sur l'arène !")
+    end
+
+  elseif stage == 6 then
+    -- Tournoi remporté
+    UI:WaitShowDialogue("Vous êtes les champions du Grand Tournoi Inter-Guilde ![pause=15] La foule vous acclame !")
+    UI:WaitShowDialogue("À présent, vous pouvez partir explorer le Sanctuaire de Cristal pour percer le secret du fragment.")
+    SV.Chapter8.MissionAccepted = true -- Ouvre le Sanctuaire de Cristal
+  end
+
+  GeneralFunctions.EndConversation(chara)
 end
 
 function metano_town_ch_8.Ludicolo_Action(chara, activator)
@@ -1131,6 +1254,132 @@ function metano_town_ch_8.Growlithe_Desk_Action(chara, activator)
             STRINGS:Format(STRINGS.MapStrings['MT8_Growlithe_004']), "Normal")
         GeneralFunctions.EndConversation(chara)
     end
+end
+
+-- ============================================================
+-- SCÈNE D'INTRO DU TOURNOI : SPINDA, QULBUTOKÉ, OKÉOKÉ & GUILDES
+-- ============================================================
+function metano_town_ch_8.PlayTournamentIntro()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  
+  GAME:CutsceneMode(true)
+  SOUND:PlayBGM("Spinda's Cafe.ogg", true)
+  GAME:MoveCamera(1184, 1160, 1, false) -- Cadre sur le bar de Spinda
+  GAME:FadeIn(40)
+  GAME:WaitFrames(30)
+  
+  -- Spinda s'adresse à la foule réunie sur la place
+  local spinda = CH('Spinda')
+  UI:SetSpeaker(spinda)
+  GeneralFunctions.SetEmotion("Happy")
+  UI:WaitShowDialogue("Laaaah ![pause=10] Approchez tous, explorateurs et habitants de Metano Town !")
+  UI:WaitShowDialogue("Pour dissiper la tristesse et l'inquiétude de ces séismes, nous organisons... le GRAND TOURNOI INTER-GUILDE !")
+  
+  -- Spawn temporaire de Qulbutoké, Okéoké, et Grodoudou (Treasure Town)
+  local wobbuffet = CharacterEssentials.MakeCharactersFromList({{'Wobbuffet', 1150, 1160, Direction.Right}}, true)
+  local wynaut = CharacterEssentials.MakeCharactersFromList({{'Wynaut', 1150, 1180, Direction.Right}}, true)
+  local wigglytuff = CharacterEssentials.MakeCharactersFromList({{'Wigglytuff', 1220, 1180, Direction.Left}}, true)
+  
+  SOUND:PlayBattleSE("DUN_Shock_Wave") -- Effet comique pour Wobbuffet
+  UI:SetSpeaker(wobbuffet)
+  UI:WaitShowDialogue("QUL-BU-TO-KÉ !!!")
+  
+  UI:SetSpeaker(wynaut)
+  UI:WaitShowDialogue("O-KÉ-O-KÉ !!!")
+  
+  UI:SetSpeaker(wigglytuff)
+  UI:WaitShowDialogue("YAAAHAAA ![pause=15] C'est super joyeux ! Un grand tournoi avec plein d'amis et de Pommes Parfaites !")
+  
+  -- Le partenaire réagit avec enthousiasme
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Inspired")
+  UI:WaitShowDialogue("Oh ! La Guilde de Grodoudou est venue de Treasure Town pour participer ? C'est fantastique !")
+  
+  UI:SetSpeaker(spinda)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue("Et ce n'est pas tout ! 10 autres guildes du monde entier ont envoyé leurs meilleurs combattants !")
+  UI:WaitShowDialogue("L'Épreuve I commence aujourd'hui : nous devons traquer et capturer Zorua, le voleur légendaire de Kecleon !")
+  UI:WaitShowDialogue("Venez me parler au stand pour choisir votre donjon de traque. Bonne chance à tous !")
+  
+  -- Nettoyage des personnages temporaires
+  GAME:GetCurrentGround():RemoveTempChar(wobbuffet)
+  GAME:GetCurrentGround():RemoveTempChar(wynaut)
+  GAME:GetCurrentGround():RemoveTempChar(wigglytuff)
+  
+  SV.Chapter8.PlayedTournamentIntro = true
+  SV.Chapter8.TournamentStage = 1
+  
+  GAME:CutsceneMode(false)
+end
+
+-- ============================================================
+-- SCÈNE FINALE DU TOURNOI : GRANDE FINALE VS. TEAM ALAKAZAM
+-- ============================================================
+function metano_town_ch_8.PlayFinalTournamentScene()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  local spinda = CH('Spinda')
+  
+  GAME:CutsceneMode(true)
+  GAME:FadeOut(false, 20)
+  
+  -- Téléportation dans l'arène de combat décorée
+  GAME:MoveCamera(176, 220, 1, false)
+  
+  -- Spawn de l'équipe Alakazam
+  local alakazam = CharacterEssentials.MakeCharactersFromList({{'Alakazam', 176, 170, Direction.Down}}, true)
+  local tyranitar = CharacterEssentials.MakeCharactersFromList({{'Tyranitar', 140, 150, Direction.Down}}, true)
+  local charizard = CharacterEssentials.MakeCharactersFromList({{'Charizard', 212, 150, Direction.Down}}, true)
+  
+  GROUND:TeleportTo(hero, 160, 270, Direction.Up)
+  GROUND:TeleportTo(partner, 192, 270, Direction.Up)
+  
+  SOUND:PlayBGM("Battle - Final Boss.ogg", true) -- Musique de finale ultra intense !
+  GAME:FadeIn(40)
+  GAME:WaitFrames(30)
+  
+  UI:SetSpeaker(spinda)
+  GeneralFunctions.SetEmotion("Happy")
+  UI:WaitShowDialogue("Laaah ![pause=10] Nous y sommes enfin ! La GRANDE FINALE du tournoi inter-guilde !")
+  UI:WaitShowDialogue("D'un côté, nos héros locaux, vainqueurs de la Meute et du quizz ! De l'autre, la légendaire TEAM ALAKAZAM !")
+  
+  UI:SetSpeaker(alakazam)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue("Votre progression est impressionnante, " .. hero:GetDisplayName() .. ". Vos exploits face à Zorua ont retenti jusqu'à nous.")
+  UI:WaitShowDialogue("Mais sur cette arène, nous ne retiendrons pas nos coups. Montrez-moi l'étendue de votre lien !")
+  
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Determined")
+  UI:WaitShowDialogue("On a surmonté toutes les épreuves, et on ne flanchera pas si près du but ! C'est parti, héraut !")
+  
+  -- Effets visuels de préparation au combat
+  SOUND:PlaySE("DUN_Attack_Boost")
+  pcall(function() BossFX.Flash(176, 220, 3, 5, 20) end)
+  GAME:WaitFrames(30)
+  
+  -- Combat de finale
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
+  UI:WaitShowDialogue("La finale commence ! Victoire éclatante des protagonistes après un duel d'anthologie !")
+  UI:SetCenter(false)
+  
+  -- Couronnement
+  UI:SetSpeaker(spinda)
+  GeneralFunctions.SetEmotion("Joyous")
+  UI:WaitShowDialogue("Et c'est la VICTOIRE !!! Nos héros remportent le trophée du Grand Tournoi sous les acclamations ! LA-LAAAH !")
+  
+  -- Nettoyage
+  GAME:GetCurrentGround():RemoveTempChar(alakazam)
+  GAME:GetCurrentGround():RemoveTempChar(tyranitar)
+  GAME:GetCurrentGround():RemoveTempChar(charizard)
+  
+  SV.Chapter8.TournamentStage = 6 -- Débloque l'accès au Sanctuaire de Cristal !
+  
+  GAME:FadeOut(false, 40)
+  GAME:WaitFrames(40)
+  GAME:CutsceneMode(false)
+  GAME:EnterGroundMap("metano_town", "Main_Entrance_Marker", true)
 end
 
 return metano_town_ch_8

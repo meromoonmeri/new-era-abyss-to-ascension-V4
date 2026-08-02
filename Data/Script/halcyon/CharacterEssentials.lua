@@ -288,6 +288,15 @@ local characters = {
 			skin = "normal"
 		},
 		
+		Kirlia = {
+			species = "kirlia",
+			nickname = 'Kirlia',
+			instance = 'Kirlia',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+		
 	--Team Flight
 		Doduo = {
 			species = "doduo",
