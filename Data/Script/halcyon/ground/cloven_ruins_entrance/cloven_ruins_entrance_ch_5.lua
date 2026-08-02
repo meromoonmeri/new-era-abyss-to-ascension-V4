@@ -81,8 +81,8 @@ cloven_ruins_entrance_ch_5.SEATS = {
 -- N/S sur le sable (y 155 / y 275, x 70-330), hors du cercle de siege
 -- et loin des rochers (x>=360) et de la rive (y>=296).
 cloven_ruins_entrance_ch_5.BEDS = {
-  {CX - 150, CY - 60}, {CX - 98, CY - 60}, {CX - 46, CY - 60}, {CX + 6, CY - 60}, {CX + 58, CY - 60}, {CX + 110, CY - 60},
-  {CX - 150, CY + 60}, {CX - 98, CY + 60}, {CX - 46, CY + 60}, {CX + 6, CY + 60}, {CX + 58, CY + 60}, {CX + 102, CY + 60},
+  {CX - 150, CY - 60}, {CX - 98, CY - 60}, {CX - 46, CY - 60}, {CX + 6, CY - 60}, {CX + 58, CY - 60}, {CX + 102, CY - 60},
+  {CX - 150, CY + 60}, {CX - 98, CY + 60}, {CX - 46, CY + 60}, {CX + 6, CY + 60}, {CX + 58, CY + 60}, {CX + 102, CY + 44},
 }
 
 --LA PAILLASSE DE PLUM — posee SEULEMENT si elle est au camp (elle
@@ -94,7 +94,7 @@ cloven_ruins_entrance_ch_5.PLUM_BED = {48, 160}
 -- Positions d'ouverture des PNJ (camp de jour) : chacun a cote de son
 -- siege (son assiette), sur le sable, juste derriere sa place assise.
 local OPEN_POS = {
-  Penticus = {220, 282},
+  Penticus = {220, 274},
   Phileas  = {168, 264},
   Coco     = {150, 244},
   Rin      = {150, 215},
@@ -383,7 +383,7 @@ function cloven_ruins_entrance_ch_5.ArrivalCutscene()
   local coro2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(12)
     GROUND:MoveToPosition(partner, 120, 240, false, 1)
-    GROUND:MoveToPosition(partner, 256, 274, false, 1)
+    GROUND:MoveToPosition(partner, 240, 274, false, 1)
   end)
   local coro3 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(24)

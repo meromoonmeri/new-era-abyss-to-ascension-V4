@@ -24,11 +24,15 @@ function cloven_ruins_entrance.Init(map)
   -- Si aucune cinematique n'est a venir, on libere la main des
   -- maintenant (sinon le joueur resterait fige sur une carte montee).
   pcall(function()
+    -- Meme correctif que PlotScripting : la condition d'arrivee est
+    -- « pas encore joue » (not RuinsCampDone), pas « arme par Tornadus ».
+    -- Sinon Init relachait CutsceneMode juste avant qu'ArrivalCutscene
+    -- ne le repose, ce qui rendait la main au joueur une fraction de
+    -- seconde au milieu de la mise en place.
     local sceneAVenir = false
     if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5 then
       local c5 = SV.Chapter5
-      sceneAVenir = c5.RuinsCampPending
-                 or (c5.RuinsCampNightDone and not c5.RuinsCampDone)
+      sceneAVenir = (not c5.RuinsCampDone)
                  or c5.PlayTempRuinsScene
     end
     if not sceneAVenir then GAME:CutsceneMode(false) end
@@ -88,7 +92,28 @@ function cloven_ruins_entrance.PlotScripting()
 
   -- ARRIVEE AU CAMP — la cinematique d'entree (briefing + nuit + reve).
   -- Kino/Reinier sont presents (ils sont arrives la veille).
-  if c5.RuinsCampPending and not c5.RuinsCampDone then
+  --
+  -- CORRECTIF (bug constate manette en main) : la condition exigeait
+  -- RuinsCampPending, drapeau pose a UN SEUL endroit du mod
+  -- (mount_windswept_guardian_ch_5.lua:858, apres Tornadus). Toute
+  -- arrivee qui ne passe pas par cette victoire — warp du mode dev,
+  -- sauvegarde chargee sur la carte, EnterGroundMap de secours —
+  -- tombait dans la branche « camp deja visite » : la carte s'ouvrait
+  -- avec les membres de la Guilde deja en place et AUCUNE cinematique.
+  -- C'est exactement le symptome signale.
+  --
+  -- Le drapeau d'etat qui fait foi est RuinsCampDone : il n'est pose
+  -- qu'a la toute fin de la scene du matin (ch_5.lua:1775). Tant qu'il
+  -- est faux au chapitre 5, l'arrivee N'A PAS ete jouee, donc elle doit
+  -- se jouer. RuinsCampPending est conserve en trace de progression
+  -- (il reste ecrit apres Tornadus) mais n'est plus une condition
+  -- bloquante. La rejouabilite est intacte : une fois RuinsCampDone
+  -- pose, la scene ne repart jamais.
+  if not c5.RuinsCampDone then
+    if not c5.RuinsCampPending then
+      PrintInfo("[cloven_ruins_entrance] arrivee au camp jouee sans RuinsCampPending "
+                .. "(entree hors victoire Tornadus : warp dev / chargement).")
+    end
     cloven_ruins_entrance_ch_5.SetupGround(true)
     cloven_ruins_entrance_ch_5.ArrivalCutscene()
     return

@@ -72,7 +72,7 @@ SceneDebug.scenes = {
     key = 'ruins_camp',
     label = "Ch5 — Camp des Ruines : arrivee",
     chapter = 5, ground = 'cloven_ruins_entrance', entry = 'Main_Entrance_Marker',
-    note = "cloven_ruins_entrance/init.lua:91 — RuinsCampPending and not RuinsCampDone",
+    note = "cloven_ruins_entrance/init.lua — not RuinsCampDone (condition assouplie le 2026-08-02)",
     set = { Chapter5 = {
       RuinsCampPending = true,
       RuinsCampDone = false,
