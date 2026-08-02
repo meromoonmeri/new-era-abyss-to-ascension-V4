@@ -878,10 +878,15 @@ function cloven_ruins_entrance_ch_5.Acte7(hero, partner, plum, t)
   -- lumiere baisse pendant que le camp discute encore. La nuit noire
   -- ('darkness') ne viendra qu'avec les paillasses, dans DeployBeds.
   -- Patron du Mont Venteux, ou la meme progression est jouee.
-  pcall(function() GROUND:RemoveMapStatus("gloom") end) -- Remove evening gloom
-  pcall(function() GROUND:AddMapStatus("dusk") end) -- Apply warm sunset dusk!
-  pcall(function() SOUND:FadeOutBGM(120) end) -- Fade out camp BGM slowly over 2 seconds for bedtime
-  Silence(30)
+  -- TRANSITION DOUCE VERS LE CREPUSCULE : on passe par un fondu doux de 40 frames
+  -- pour eviter tout changement brusque de couleur a l'ecran (respect strict de la DA PMD).
+  pcall(function() GAME:FadeOut(false, 40) end)
+  pcall(function() GAME:WaitFrames(25) end)
+  pcall(function() GROUND:RemoveMapStatus("gloom") end)
+  pcall(function() GROUND:AddMapStatus("dusk") end)
+  pcall(function() SOUND:FadeOutBGM(120) end)
+  pcall(function() GAME:FadeIn(40) end)
+  -- Fin de la transition douce
 
   Narre('CR5_A53')
   GAME:FadeOut(false, 50)
