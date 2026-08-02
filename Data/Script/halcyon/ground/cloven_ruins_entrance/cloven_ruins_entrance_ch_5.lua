@@ -255,6 +255,9 @@ function cloven_ruins_entrance_ch_5.SetupGround(includeRecon)
   if includeRecon then
     spawn[#spawn + 1] = {'Breloom',   ARR.Kino.attente[1],    ARR.Kino.attente[2],    Direction.Down}
     spawn[#spawn + 1] = {'Girafarig', ARR.Reinier.attente[1], ARR.Reinier.attente[2], Direction.Down}
+  else
+    pcall(function() GROUND:Hide('Breloom') end)
+    pcall(function() GROUND:Hide('Girafarig') end)
   end
   -- Plum s'est incrustee au Mont Venteux et a suivi. Running gag.
   spawn[#spawn + 1] = {'Jigglypuff', PLACES.Plum[1], PLACES.Plum[2], Direction.Down}
