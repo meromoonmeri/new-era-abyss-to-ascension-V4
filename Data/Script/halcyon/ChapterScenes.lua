@@ -268,6 +268,60 @@ function ChapterScenes.PeakArrival()
       think(hero, 'Determined', "(...Ce qui veut dire que personne ne nous y attendra.)")
       GAME:WaitFrames(15)
       say(partner, 'Determined', "Exactement.[pause=25] Accroche-toi.[pause=20] On part maintenant.")
+
+      --ENRICHISSEMENT 2026-08-02 — le decor est desormais l'illustration
+      --fournie (552x360). Jusqu'ici la scene etait entierement parlee :
+      --deux personnages plantes sur place pendant onze repliques. On lui
+      --donne son mouvement, cale sur la geometrie reelle du ground.
+      --Positions verifiees libres et accessibles depuis Main_Entrance_Marker.
+      pcall(function()
+        --Le duo quitte le bas de la gorge et remonte vers l'escalier de
+        --pierre qui mene a la grotte. Ils marchent en parlant : la
+        --decision est deja prise, on la voit s'executer.
+        local m1 = TASK:BranchCoroutine(function()
+          GeneralFunctions.EightWayMove(hero, 288, 200, false, 1)
+        end)
+        local m2 = TASK:BranchCoroutine(function()
+          GAME:WaitFrames(10)
+          GeneralFunctions.EightWayMove(partner, 272, 208, false, 1)
+        end)
+        local mc = TASK:BranchCoroutine(function()
+          GAME:MoveCamera(280, 200, 90, false)
+        end)
+        TASK:JoinCoroutines({m1, m2, mc})
+        GAME:WaitFrames(15)
+
+        --Le vent redouble au pied de la paroi : on le fait sentir avant
+        --la derniere replique, plutot que de le dire.
+        SOUND:PlayBattleSE('DUN_Wind')
+        pcall(function() BossFX.ShakeScreen(2, 25) end)
+        GAME:WaitFrames(20)
+
+        say(partner, 'Worried', "Le vent tourne dans la gorge.[pause=20] Il descend, maintenant.")
+        GAME:WaitFrames(12)
+        think(hero, 'Determined', "(Il descend parce que quelque chose, la-haut, le pousse vers nous.)")
+        GAME:WaitFrames(15)
+
+        --Derniers pas jusqu'au pied de l'escalier, face au nord.
+        local s1 = TASK:BranchCoroutine(function()
+          GeneralFunctions.EightWayMove(hero, 344, 176, false, 1)
+          GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+        end)
+        local s2 = TASK:BranchCoroutine(function()
+          GAME:WaitFrames(8)
+          GeneralFunctions.EightWayMove(partner, 344, 192, false, 1)
+          GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+        end)
+        local sc = TASK:BranchCoroutine(function()
+          GAME:MoveCamera(344, 160, 80, false)
+        end)
+        TASK:JoinCoroutines({s1, s2, sc})
+        GAME:WaitFrames(20)
+
+        narrate("L'escalier taille dans la roche monte vers une ouverture noire.[pause=25] Aucun bruit n'en sort.")
+        GAME:WaitFrames(15)
+        say(partner, 'Determined', "C'est par la.[pause=20] Apres toi.")
+      end)
     end,
   })
 end

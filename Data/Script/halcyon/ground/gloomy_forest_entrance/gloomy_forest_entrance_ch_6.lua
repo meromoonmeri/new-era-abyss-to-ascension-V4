@@ -271,7 +271,10 @@ function gloomy_forest_entrance_ch_6.ArrivalCutscene()
 	-- 7. LE PARTENAIRE EXPRIME SA DÉTERMINATION
 	pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
 	pcall(function() GROUND:CharTurnToCharAnimated(hero, partner, 4) end)
-	GAME:MoveCamera(296, 320, 60, false)
+	-- Recadrage 2026-08-02 : (296,320) datait de la carte 600x600 et
+	-- tombait sous le bord inferieur de la nouvelle (600x312). La camera
+	-- revient desormais sur le duo, reste au centre de la clairiere.
+	GAME:MoveCamera(216, 172, 60, false)
 	GAME:WaitFrames(20)
 
 	UI:SetSpeaker(partner)
@@ -287,6 +290,59 @@ function gloomy_forest_entrance_ch_6.ArrivalCutscene()
 	GeneralFunctions.SetEmotion("Determined")
 	pcall(function() GROUND:CharSetEmote(partner, "determined", 1) end)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6E_A21'], hero:GetDisplayName()))
+	GAME:WaitFrames(20)
+
+	-- 8. LA GROTTE LES A AVALES — nouveau beat (2026-08-02).
+	-- La Team Dazzling part desormais VERS l'est, c'est-a-dire DANS le
+	-- donjon. On ne peut pas les laisser disparaitre hors champ sans que
+	-- le duo en tire la consequence : ils sont devant, on court derriere.
+	-- Ce beat sert de charniere vers le gameplay : il amene physiquement
+	-- le duo au seuil, la ou le joueur reprendra la main.
+	GAME:MoveCamera(480, 160, 70, false)
+	GAME:WaitFrames(25)
+	UI:ResetSpeaker(false); UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6E_A22']))
+	UI:SetCenter(false)
+	GAME:WaitFrames(15)
+
+	-- Le duo remonte la clairiere vers la grotte, en deux temps.
+	local avance1 = TASK:BranchCoroutine(function()
+		GeneralFunctions.EightWayMove(hero, 320, 168, false, 1)
+	end)
+	local avance2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		GeneralFunctions.EightWayMove(partner, 320, 184, false, 1)
+	end)
+	local camAvance = TASK:BranchCoroutine(function()
+		GAME:MoveCamera(360, 168, 90, false)
+	end)
+	TASK:JoinCoroutines({avance1, avance2, camAvance})
+	GAME:WaitFrames(15)
+
+	UI:SetSpeaker(partner)
+	GeneralFunctions.SetEmotion("Worried")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6E_A23']))
+	GAME:WaitFrames(12)
+
+	GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['GF6E_A24']), "Worried")
+	GAME:WaitFrames(15)
+
+	UI:SetSpeaker(partner)
+	GeneralFunctions.SetEmotion("Determined")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GF6E_A25']))
+	GAME:WaitFrames(18)
+
+	-- Derniers pas jusqu'au seuil : le joueur reprendra la main ici.
+	local seuil1 = TASK:BranchCoroutine(function()
+		GeneralFunctions.EightWayMove(hero, 440, 160, false, 1)
+		GROUND:CharAnimateTurnTo(hero, Direction.Right, 4)
+	end)
+	local seuil2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(8)
+		GeneralFunctions.EightWayMove(partner, 440, 176, false, 1)
+		GROUND:CharAnimateTurnTo(partner, Direction.Right, 4)
+	end)
+	TASK:JoinCoroutines({seuil1, seuil2})
 	GAME:WaitFrames(20)
 
 	-- Pivot final du duo face à l'entrée du donjon
