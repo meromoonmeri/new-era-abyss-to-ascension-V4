@@ -48,27 +48,27 @@ cloven_ruins_entrance_ch_5 = {}
 -- ==================================================================
 -- POSITIONS — toutes validees contre obstacles[]
 -- ==================================================================
-cloven_ruins_entrance_ch_5.CAMP_X = 256
-cloven_ruins_entrance_ch_5.CAMP_Y = 208
+cloven_ruins_entrance_ch_5.CAMP_X = 304
+cloven_ruins_entrance_ch_5.CAMP_Y = 192
 local CX = cloven_ruins_entrance_ch_5.CAMP_X
 local CY = cloven_ruins_entrance_ch_5.CAMP_Y
 
 -- Cercle du diner : ellipse autour du foyer (la carte est plus large
 -- que haute), 13 places, au moins 24 px entre voisins.
 local PLACES = {
-  Penticus  = {256, 160},
-  Phileas   = {288, 168},
-  Coco      = {336, 168},
-  Rin       = {320, 200},
-  Almotz    = {312, 224},
-  Hyko      = {296, 240},
-  Kino      = {272, 256},
-  Reinier   = {240, 256},
-  Shuca     = {216, 240},
-  Ganlon    = {200, 224},
-  Plum      = {192, 200},
-  partner   = {200, 184},
-  hero      = {224, 168},
+  Penticus  = {304, 152},
+  Phileas   = {328, 160},
+  Coco      = {352, 168},
+  Rin       = {360, 184},
+  Almotz    = {360, 208},
+  Hyko      = {344, 224},
+  Kino      = {320, 232},
+  Reinier   = {288, 232},
+  Shuca     = {264, 224},
+  Ganlon    = {248, 208},
+  Plum      = {248, 184},
+  partner   = {256, 168},
+  hero      = {280, 160},
 }
 cloven_ruins_entrance_ch_5.PLACES = PLACES
 
@@ -76,35 +76,35 @@ cloven_ruins_entrance_ch_5.PLACES = PLACES
 -- voisines (circulation), au moins 56 du foyer et 48 des objets
 -- scriptes. Deployees SEULEMENT a l'acte 7.
 local LITS = {
-  Penticus  = {168, 112},
-  Phileas   = {208, 112},
-  Rin       = {248, 112},
-  Coco      = {288, 112},
-  Hyko      = {224, 296},
-  Almotz    = {264, 296},
-  Kino      = {304, 296},
-  Reinier   = {344, 296},
-  Ganlon    = {384, 296},
-  Shuca     = {184, 312},
-  Plum      = {144, 128},
-  hero      = {120, 296},
-  partner   = {160, 296},
+  Penticus  = {216, 128},
+  Phileas   = {256, 128},
+  Rin       = {296, 128},
+  Coco      = {336, 128},
+  Hyko      = {376, 128},
+  Almotz    = {296, 264},
+  Kino      = {336, 264},
+  Reinier   = {192, 248},
+  Ganlon    = {360, 248},
+  Shuca     = {400, 248},
+  Plum      = {488, 200},
+  hero      = {216, 264},
+  partner   = {256, 264},
 }
 cloven_ruins_entrance_ch_5.LITS = LITS
 
 -- Arrivees echelonnees : depart au bord ouest, position d'attente.
 -- Aucune collision entre les positions d'attente (verifie).
 local ARR = {
-  Phileas   = { depart = {96, 216}, attente = {104, 208} },
-  Penticus  = { depart = {96, 216}, attente = {128, 208} },
-  Coco      = { depart = {96, 216}, attente = {152, 208} },
-  Rin       = { depart = {96, 216}, attente = {200, 208} },
-  Ganlon    = { depart = {96, 216}, attente = {224, 208} },
-  Shuca     = { depart = {96, 216}, attente = {88, 216} },
-  Hyko      = { depart = {96, 216}, attente = {240, 200} },
-  Almotz    = { depart = {96, 216}, attente = {112, 224} },
-  Kino      = { depart = {96, 216}, attente = {112, 192} },
-  Reinier   = { depart = {96, 216}, attente = {136, 192} },
+  Phileas   = { depart = {0, 192}, attente = {120, 192} },
+  Penticus  = { depart = {0, 192}, attente = {120, 168} },
+  Coco      = { depart = {0, 192}, attente = {120, 216} },
+  Rin       = { depart = {0, 192}, attente = {136, 184} },
+  Ganlon    = { depart = {0, 192}, attente = {136, 208} },
+  Shuca     = { depart = {0, 192}, attente = {144, 168} },
+  Hyko      = { depart = {0, 192}, attente = {152, 192} },
+  Almotz    = { depart = {0, 192}, attente = {160, 208} },
+  Kino      = { depart = {0, 192}, attente = {160, 176} },
+  Reinier   = { depart = {0, 192}, attente = {168, 136} },
 }
 cloven_ruins_entrance_ch_5.ARR = ARR
 
@@ -427,18 +427,18 @@ function cloven_ruins_entrance_ch_5.ArrivalBody()
 
   -- Le duo entre par l'ouest, sous le noir. Ils MARCHENT vraiment :
   -- c'est leur animation de pas que le joueur percoit.
-  GROUND:TeleportTo(hero, 96, 216, Direction.Right)
-  if partner ~= nil then GROUND:TeleportTo(partner, 96, 232, Direction.Right) end
+  GROUND:TeleportTo(hero, 0, 192, Direction.Right)
+  if partner ~= nil then GROUND:TeleportTo(partner, 0, 208, Direction.Right) end
   GAME:MoveCamera(128, 208, 1, false)
 
   local marche1 = {}
   marche1[1] = TASK:BranchCoroutine(function()
-    pcall(function() GROUND:MoveToPosition(hero, 112, 216, false, 1) end)
+    pcall(function() GROUND:MoveToPosition(hero, 64, 192, false, 1) end)
   end)
   marche1[2] = TASK:BranchCoroutine(function()
     GAME:WaitFrames(9)
     if partner ~= nil then
-      pcall(function() GROUND:MoveToPosition(partner, 112, 232, false, 1) end)
+      pcall(function() GROUND:MoveToPosition(partner, 64, 208, false, 1) end)
     end
   end)
   pcall(function() TASK:JoinCoroutines(marche1) end)
@@ -450,12 +450,12 @@ function cloven_ruins_entrance_ch_5.ArrivalBody()
   -- Quelques secondes de marche de plus.
   local marche2 = {}
   marche2[1] = TASK:BranchCoroutine(function()
-    pcall(function() GROUND:MoveToPosition(hero, 136, 216, false, 1) end)
+    pcall(function() GROUND:MoveToPosition(hero, 120, 192, false, 1) end)
   end)
   marche2[2] = TASK:BranchCoroutine(function()
     GAME:WaitFrames(9)
     if partner ~= nil then
-      pcall(function() GROUND:MoveToPosition(partner, 136, 232, false, 1) end)
+      pcall(function() GROUND:MoveToPosition(partner, 120, 208, false, 1) end)
     end
   end)
   pcall(function() TASK:JoinCoroutines(marche2) end)
@@ -484,12 +484,12 @@ function cloven_ruins_entrance_ch_5.Acte2(hero, partner)
   -- Ils avancent encore un peu, puis s'arretent net.
   local av = {}
   av[1] = TASK:BranchCoroutine(function()
-    pcall(function() GROUND:MoveToPosition(hero, 176, 208, false, 1) end)
+    pcall(function() GROUND:MoveToPosition(hero, 184, 216, false, 1) end)
   end)
   av[2] = TASK:BranchCoroutine(function()
     GAME:WaitFrames(7)
     if partner ~= nil then
-      pcall(function() GROUND:MoveToPosition(partner, 160, 224, false, 1) end)
+      pcall(function() GROUND:MoveToPosition(partner, 184, 232, false, 1) end)
     end
   end)
   pcall(function() TASK:JoinCoroutines(av) end)
