@@ -49,26 +49,26 @@ cloven_ruins_entrance_ch_5 = {}
 -- POSITIONS — toutes validees contre obstacles[]
 -- ==================================================================
 cloven_ruins_entrance_ch_5.CAMP_X = 160
-cloven_ruins_entrance_ch_5.CAMP_Y = 144
+cloven_ruins_entrance_ch_5.CAMP_Y = 152
 local CX = cloven_ruins_entrance_ch_5.CAMP_X
 local CY = cloven_ruins_entrance_ch_5.CAMP_Y
 
 -- Cercle du diner : ellipse autour du foyer (la carte est plus large
 -- que haute), 13 places, au moins 24 px entre voisins.
 local PLACES = {
-  Penticus  = {304, 152},
-  Phileas   = {328, 160},
-  Coco      = {352, 168},
-  Rin       = {360, 184},
-  Almotz    = {360, 208},
-  Hyko      = {344, 224},
-  Kino      = {320, 232},
-  Reinier   = {288, 232},
-  Shuca     = {264, 224},
-  Ganlon    = {248, 208},
-  Plum      = {248, 184},
-  partner   = {256, 168},
-  hero      = {280, 160},
+  Penticus  = {160, 112},
+  Phileas   = {184, 120},
+  Coco      = {208, 128},
+  Rin       = {216, 152},
+  Almotz    = {216, 176},
+  Hyko      = {192, 192},
+  Kino      = {160, 200},
+  Reinier   = {128, 200},
+  Shuca     = {104, 184},
+  Ganlon    = {104, 160},
+  Plum      = {104, 136},
+  partner   = {120, 120},
+  hero      = {136, 112},
 }
 cloven_ruins_entrance_ch_5.PLACES = PLACES
 
@@ -86,9 +86,9 @@ local LITS = {
   Reinier   = {160, 220},
   Ganlon    = {200, 220},
   Shuca     = {240, 220},
-  Plum      = {200, 150},
-  hero      = {120, 150},
-  partner   = {160, 150},
+  Plum      = {200, 152},
+  hero      = {120, 152},
+  partner   = {160, 152},
 }
 cloven_ruins_entrance_ch_5.LITS = LITS
 
@@ -878,7 +878,8 @@ function cloven_ruins_entrance_ch_5.Acte7(hero, partner, plum, t)
   -- lumiere baisse pendant que le camp discute encore. La nuit noire
   -- ('darkness') ne viendra qu'avec les paillasses, dans DeployBeds.
   -- Patron du Mont Venteux, ou la meme progression est jouee.
-  pcall(function() GROUND:AddMapStatus("dusk") end)
+  pcall(function() GROUND:RemoveMapStatus("gloom") end) -- Remove evening gloom
+  pcall(function() GROUND:AddMapStatus("dusk") end) -- Apply warm sunset dusk!
   pcall(function() SOUND:FadeOutBGM(120) end) -- Fade out camp BGM slowly over 2 seconds for bedtime
   Silence(30)
 
