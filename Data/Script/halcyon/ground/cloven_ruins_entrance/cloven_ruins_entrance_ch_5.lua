@@ -1041,7 +1041,7 @@ function cloven_ruins_entrance_ch_5.MorningBody()
   end
   GAME:MoveCamera(CX, CY, 1, false)
 
-  Narre('CR5_A68')
+  pcall(function() UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CR5_A68']) .. "\n\n", -1) end)
   GAME:FadeIn(60)
   Silence(30)
 
