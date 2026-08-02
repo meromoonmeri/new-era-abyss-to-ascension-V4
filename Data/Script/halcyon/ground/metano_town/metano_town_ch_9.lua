@@ -11,6 +11,7 @@ require 'halcyon.CharacterEssentials'
 require 'halcyon.npc_routines'
 require 'halcyon.TownVoicesLate'
 require 'halcyon.TownVoicesArc'
+require 'halcyon.SideExpeditions'
 
 metano_town_ch_9 = {}
 
@@ -222,6 +223,7 @@ function metano_town_ch_9.Bisharp_Action(chara, activator)
 end
 
 function metano_town_ch_9.Ledian_Action(chara, activator)
+  if SideExpeditions.Talk('Ledian', 9) then return end
     local s = Ch9State()
     if s == "post_purify" then
         GeneralFunctions.StartConversation(chara,
@@ -871,6 +873,7 @@ function metano_town_ch_9.Azumarill_Action(chara, activator)
 end
 
 function metano_town_ch_9.Roselia_Action(chara, activator)
+  if SideExpeditions.Talk('Roselia', 9) then return end
   if TownVoicesArc.Talk('Roselia', 9) then return end
   --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
   --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ

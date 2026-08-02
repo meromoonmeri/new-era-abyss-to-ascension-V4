@@ -31,6 +31,7 @@ GLOBAL_CH = {
     'TownVoicesNight.lua': None,    # reactions aux raids, tous chapitres 6+
     'TownVoicesLate.lua': None,     # ch7 a ch10, ventile par bloc FICHES[N]
     'TownVoicesArc.lua': None,      # ch8/9/10, ventile par table CH8/CH9/CH10
+    'SideExpeditions.lua': None,    # ch8/9/10, ventile par champ ch = N
 }
 
 # Modules couvrant PLUSIEURS chapitres : on lit le bloc de chacun pour
@@ -43,6 +44,14 @@ def split_by_chapter(path):
         out[int(m.group(1))] = len(FICHE_PAT.findall(m.group(2)))
     # TownVoicesArc : une table par chapitre, cinq etats par fiche.
     # Sans ce bloc, ses 190 boites tombaient dans « multi-chapitres ».
+    # SideExpeditions : chaque entree porte son chapitre (ch = N) et ses
+    # repliques sont des tuples {'PNJ','emo',"texte"}. Sans ce bloc, ses
+    # 60 boites tombaient dans « multi-chapitres ».
+    if 'SideExpeditions.LIST' in t:
+        for bloc in re.findall(r"id = 'x\d+_\w+', ch = (\d+),(.*?)undertow", t, re.S):
+            n = len(re.findall(r"\{'\w+',\s*'[\w-]+',", bloc[1]))
+            out[int(bloc[0])] = out.get(int(bloc[0]), 0) + n
+        return out
     for m in re.finditer(r'TownVoicesArc\.CH(\d+) = \{(.*?)\n\}\n', t, re.S):
         n = len(re.findall(r'^    (?:early|pre|during|post|quests)\s*=',
                            m.group(2), re.M))
@@ -70,7 +79,8 @@ for f in glob.glob('Data/Script/halcyon/**/*.lua', recursive=True):
     if base in GLOBAL_CH and forced is None:
         # TownVoicesArc ventile aussi par chapitre (tables CH8/CH9/CH10).
         parts = (split_by_chapter(f)
-                 if base in ('TownVoicesLate.lua', 'TownVoicesArc.lua') else {})
+                 if base in ('TownVoicesLate.lua', 'TownVoicesArc.lua',
+                             'SideExpeditions.lua') else {})
         if parts:
             for c, cn in parts.items():
                 per_ch[c] += cn

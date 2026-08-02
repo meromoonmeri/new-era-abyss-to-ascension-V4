@@ -4,6 +4,7 @@
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.SideExpeditions'
 
 local carriere_cuivre = {}
 
@@ -35,6 +36,10 @@ function carriere_cuivre.ExitSegment(zone, result, rescue, segmentID, mapID)
   if exited == true then
     return
   end
+
+  -- Expedition de requete secondaire : si le joueur en avait
+  -- une en cours sur cette zone, la victoire la valide.
+  pcall(function() SideExpeditions.OnDungeonCleared('carriere_cuivre', result) end)
 
   -- Donjon secondaire : dans tous les cas on rentre a Metano Town (carte 1).
   GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)

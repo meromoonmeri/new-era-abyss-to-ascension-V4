@@ -10,6 +10,7 @@ require 'halcyon.CharacterEssentials'
 require 'halcyon.npc_routines'
 require 'halcyon.TownVoicesLate'
 require 'halcyon.TownVoicesArc'
+require 'halcyon.SideExpeditions'
 
 metano_town_ch_8 = {}
 
@@ -181,6 +182,7 @@ function metano_town_ch_8.Relicanth_Action(chara, activator)
 end
 
 function metano_town_ch_8.Bisharp_Action(chara, activator)
+  if SideExpeditions.Talk('Bisharp', 8) then return end
     local s = Ch8State()
     if s == "post_crystal" then
         GeneralFunctions.StartConversation(chara,
@@ -524,6 +526,7 @@ function metano_town_ch_8.Floatzel_Action(chara, activator)
 end
 
 function metano_town_ch_8.Quagsire_Action(chara, activator)
+  if SideExpeditions.Talk('Quagsire', 8) then return end
     local s = Ch8State()
     if s == "post_crystal" then
         GeneralFunctions.StartConversation(chara,

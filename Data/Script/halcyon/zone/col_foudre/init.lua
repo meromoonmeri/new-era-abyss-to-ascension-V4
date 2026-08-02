@@ -5,6 +5,7 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.SuaireArc'
+require 'halcyon.SideExpeditions'
 
 local col_foudre = {}
 
@@ -36,6 +37,10 @@ function col_foudre.ExitSegment(zone, result, rescue, segmentID, mapID)
   if exited == true then
     return
   end
+
+  -- Expedition de requete secondaire : si le joueur en avait
+  -- une en cours sur cette zone, la victoire la valide.
+  pcall(function() SideExpeditions.OnDungeonCleared('col_foudre', result) end)
 
   -- Donjon secondaire : dans tous les cas on rentre a Metano Town (carte 1).
   -- Arc 2 « Ce que la brume emporte » : l'acte se joue a la sortie du donjon,

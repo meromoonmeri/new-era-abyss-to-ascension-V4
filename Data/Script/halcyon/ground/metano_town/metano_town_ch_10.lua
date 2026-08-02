@@ -9,6 +9,7 @@ require 'halcyon.CharacterEssentials'
 require 'halcyon.npc_routines'
 require 'halcyon.TownVoicesLate'
 require 'halcyon.TownVoicesArc'
+require 'halcyon.SideExpeditions'
 
 metano_town_ch_10 = {}
 
@@ -218,6 +219,7 @@ function metano_town_ch_10.Electrike_Action(chara, activator)
 end
 
 function metano_town_ch_10.Manectric_Action(chara, activator)
+  if SideExpeditions.Talk('Manectric', 10) then return end
   if TownVoicesArc.Talk('Manectric', 10) then return end
   --LA VILLE REAGIT A L'AVANCEMENT (TownVoicesLate). Quatre paliers
   --lus sur l'etat reel du chapitre. Rend la main aussitot si le PNJ
@@ -547,6 +549,7 @@ function metano_town_ch_10.Spheal_Action(chara, activator)
     GeneralFunctions.EndConversation(chara)
 end
 function metano_town_ch_10.Bagon_Action(chara, activator)
+  if SideExpeditions.Talk('Bagon', 10) then return end
     GeneralFunctions.StartConversation(chara, STRINGS:Format(STRINGS.MapStrings['MT10_Bagon_001']), "Inspired")
     GeneralFunctions.EndConversation(chara)
 end
