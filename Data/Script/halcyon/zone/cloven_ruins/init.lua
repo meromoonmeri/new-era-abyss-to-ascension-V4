@@ -92,89 +92,86 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
   if exited == true then
       return
   end
-  if segmentID == 6 then
-    -- Annexe de la Toupie (etage mystere) : sortie douce.
-    GAME:WaitFrames(10)
-    GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
-    return
+  -- ==================================================================
+  -- OSSATURE AEGIS CAVE — 8 secteurs (Lot 1)
+  --   0 GLACE B1-B3      1 Chambre de Regice
+  --   2 ROCHE B1-B3      3 Chambre de Regirock
+  --   4 ACIER B1-B4      5 Chambre de Registeel
+  --   6 LE PUITS B1-B5   7 Chambre de Regigigas
+  --
+  -- MECANIQUE CENTRALE, fidele a Explorers of Sky : un labyrinthe ne
+  -- debouche PAS sur la chambre. Il BOUCLE : arrive au bout, l'equipe se
+  -- retrouve a l'entree. La chambre ne s'ouvre que lorsque le mot du
+  -- secteur est epele avec les pierres de Zarbi (systeme du Lot 2).
+  -- Tant que RuinesMot[n] est faux, on reboucle sur le camp d'entree.
+  -- ==================================================================
+  local MOTS = { [0] = 'Glace', [2] = 'Roche', [4] = 'Acier' }
+
+  -- Le mot du secteur est-il complet ? (pose par le Lot 2 ; par defaut
+  -- faux, donc le secteur boucle — comportement d'origine du donjon.)
+  local function motComplet(seg)
+    local cle = MOTS[seg]
+    if cle == nil then return true end
+    local ok = false
+    pcall(function()
+      ok = (SV.Ruines ~= nil) and (SV.Ruines['Mot' .. cle] == true)
+    end)
+    return ok
   end
 
-  if segmentID == 0 then
-      -- Ruines Tordues : 15 etages
+  -- Retour au camp d'entree : boucle de secteur OU echec.
+  local function retourCamp(result, motif)
+    GAME:WaitFrames(20)
+    if motif ~= nil then SV.Chapter7.LostRuins = true end
+    if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped
+       and motif == 'echec' then
+      GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_entrance'), 0, true, true)
+      GAME:WaitFrames(20)
+      GAME:EnterZone("master_zone", -1, GROUND_IDX('cloven_ruins_entrance'), 0)
+    else
+      GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_entrance'), 0, true, true)
+    end
+  end
+
+  -- --- LABYRINTHES : 0 (Glace), 2 (Roche), 4 (Acier) -----------------
+  if segmentID == 0 or segmentID == 2 or segmentID == 4 then
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ruinsActive() then
-          -- Go to relay checkpoint
-          GAME:EnterGroundMap('cloven_ruins_midpoint', 'Main_Entrance_Marker')
-      elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
-          GAME:WaitFrames(20)
-          SV.Chapter7.LostRuins = true
-          --Au CH5 (restructuration) : un KO ou un abandon dans la premiere
-          --moitie des Ruines ramene au CAMPEMENT devant l'entree
-          --(cloven_ruins_entrance, resolu par nom) — l'expedition se refait a
-          --partir du bivouac, pas a la steppe (l'ancien ciblage 46 etait un
-          --vestige du ch7). Le camp joue la cinematique de retour : reveil
-          --(KO, 'Died') ou repli (abandon, 'Retreated'), patron du Mont.
-          --Hors ch5, comportement historique conserve.
-          if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5 then
-              SV.Chapter5.PlayTempRuinsScene = true
-              if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
-                  SV.Chapter5.RuinsLastExitReason = 'Died'
-                  GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_entrance'), 0, true, true)
-                  GAME:WaitFrames(20)
-                  GAME:EnterZone("master_zone", -1, GROUND_IDX('cloven_ruins_entrance'), 0)
-              else
-                  SV.Chapter5.RuinsLastExitReason = 'Retreated'
-                  GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_entrance'), 0, true, true)
-              end
+          if motComplet(segmentID) then
+              -- Le mot est epele : l'escalier vers la chambre s'ouvre.
+              PrintInfo("[Ruines] secteur "..tostring(segmentID).." : mot complet -> chambre")
+              GAME:ContinueDungeon("cloven_ruins", segmentID + 1, 0, 0,
+                  RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
           else
-              if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
-                  GAME:EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
-                  GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Les ruines...[pause=0] c'est trop pour nous...", "Pain")
-                  GAME:WaitFrames(20)
-                  GAME:EnterZone("master_zone", -1, 46, 0)
-              else
-                  GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
-              end
+              -- Mot incomplet : le donjon boucle, comme dans EoS.
+              PrintInfo("[Ruines] secteur "..tostring(segmentID).." : mot incomplet -> retour au camp")
+              SV.Ruines = SV.Ruines or {}
+              SV.Ruines.BoucleSecteur = segmentID
+              retourCamp(result, nil)
           end
-      end
-  elseif segmentID == 1 then
-      -- Relais
-      if result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
-          GAME:EnterGroundMap('cloven_ruins_midpoint', 'Main_Entrance_Marker')
-      end
-  elseif segmentID == 2 then
-      -- Premier 3F des profondeurs : le mini-boss attend au bout.
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ruinsActive() then
-          PrintInfo("[NREPROBE][transition] cloven seg2 cleared -> miniboss ground")
-          GAME:EnterGroundMap('cloven_ruins_miniboss', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
-          GAME:WaitFrames(20)
-          SV.Chapter7.LostDepths = true
-          if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
-              SV.Chapter7.RuinsMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_midpoint'), 0, true, true)
-              GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Les profondeurs...[pause=0] on n'aurait pas du...", "Pain")
-              GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, GROUND_IDX('cloven_ruins_midpoint'), 0)
-          else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_midpoint'), 0, true, true)
-          end
+          retourCamp(result, 'echec')
       end
-  elseif segmentID == 3 then
-      -- ARENE MINI-BOSS (Kaorine + Golemastoc) : victoire ou defaite, on
-      -- revient sur la ground de cinematique qui lit les flags (patron
-      -- mount_windswept, segment 1).
+
+  -- --- CHAMBRES DES REGI : 1, 3, 5 -----------------------------------
+  elseif segmentID == 1 or segmentID == 3 or segmentID == 5 then
+      local NOM = { [1] = 'Regice', [3] = 'Regirock', [5] = 'Registeel' }
+      local qui = NOM[segmentID]
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-          SV.Chapter7.RuinsMiniBossDefeated = true
+          SV.Ruines = SV.Ruines or {}
+          SV.Ruines['Vaincu' .. qui] = true
+          PrintInfo("[Ruines] " .. qui .. " vaincu")
       else
-          SV.Chapter7.RuinsMiniBossLost = true
+          SV.Ruines = SV.Ruines or {}
+          SV.Ruines['Perdu' .. qui] = true
       end
-      PrintInfo("[NREPROBE][transition] cloven seg3 (arene) -> miniboss ground")
-      GAME:EnterGroundMap('cloven_ruins_miniboss', 'Main_Entrance_Marker')
-  elseif segmentID == 4 then
-      -- Second 3F des profondeurs (au-dessus du mini-boss) : le sanctuaire
-      -- des titans s'ouvre au bout.
+      -- Victoire comme defaite : on repasse par le camp, qui lit les flags
+      -- et joue la scene correspondante (patron mount_windswept).
+      GAME:EnterGroundMap('cloven_ruins_entrance', 'Main_Entrance_Marker')
+
+  -- --- LE PUITS : 6 (5 etages, aucun puzzle) -------------------------
+  elseif segmentID == 6 then
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ruinsActive() then
-          PrintInfo("[NREPROBE][transition] cloven seg4 cleared -> boss ground")
+          PrintInfo("[Ruines] Puits franchi -> chambre de Regigigas")
           GAME:EnterGroundMap('cloven_ruins_boss', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
@@ -182,28 +179,25 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
               SV.Chapter7.RuinsMidState = 'DeathArrival'
               GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_midpoint'), 0, true, true)
-              GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Les profondeurs...[pause=0] on n'aurait pas du...", "Pain")
+              GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Le puits...[pause=0] il n'en finissait pas...", "Pain")
               GAME:WaitFrames(20)
               GAME:EnterZone("master_zone", -1, GROUND_IDX('cloven_ruins_midpoint'), 0)
           else
               GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_midpoint'), 0, true, true)
           end
       end
-  elseif segmentID == 5 then
-      -- Boss Regigigas. Ce segment sert A LA FOIS au boss d'histoire du ch7 et
-      -- a la revanche vendue par Grodoudou (LegendZones 'colossus_quarry',
-      -- meme zone, meme segment 5). Les deux usages doivent etre traites.
+
+  -- --- REGIGIGAS : 7 (boss final) ------------------------------------
+  elseif segmentID == 7 then
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
           SV.Chapter7.DefeatedRuinsBoss = true
-          -- Marque la zone-amie comme conquise (compteur de fin de jeu et
-          -- dialogue de Grodoudou). Sans effet si elle n'a jamais ete achetee.
           LegendZones.SetDefeated('colossus_quarry')
       else
           SV.Chapter7.DiedToRuinsBoss = true
       end
 
-      -- Revanche achetee chez Grodoudou : l'histoire du ch7 est deja faite, on
-      -- ne rejoue pas la cinematique de boss, on ressort simplement en ville.
+      -- Revanche achetee chez Grodoudou : l'histoire du ch7 est deja faite,
+      -- on ne rejoue pas la cinematique, on ressort en ville.
       if SV.Chapter7 ~= nil and SV.Chapter7.SawAnimaCoreCorruption == true
          and SV.ChapterProgression.Chapter ~= 7 then
           GAME:WaitFrames(20)

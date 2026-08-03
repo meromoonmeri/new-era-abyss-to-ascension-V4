@@ -1448,6 +1448,42 @@ SV.guildmaster_summit =
   BattleComplete = false
 }
 
+----------------------------------------------
+-- RUINES TORDUES — portage d'Aegis Cave (Explorers of Sky)
+----------------------------------------------
+-- Structure fidele : 3 labyrinthes qui BOUCLENT tant que le mot du
+-- secteur n'est pas epele avec les pierres de Zarbi, chacun suivi de la
+-- chambre de son gardien, puis le Puits (5 etages, sans enigme) et
+-- Regigigas.
+--
+-- MotGlace / MotRoche / MotAcier : le mot du secteur est-il complet ?
+--   Tant qu'il est faux, zone/cloven_ruins renvoie l'equipe au camp
+--   d'entree (comportement d'origine du donjon).
+-- Pierres : inventaire des lettres deja obtenues, par secteur. Une
+--   lettre n'est comptee qu'une fois, meme si plusieurs Zarbi la lachent.
+-- BoucleSecteur : dernier secteur reboucle, lu par le camp pour que le
+--   partenaire commente l'echec plutot que de rester muet.
+SV.Ruines =
+{
+  MotGlace = false,
+  MotRoche = false,
+  MotAcier = false,
+
+  PierresGlace = {},
+  PierresRoche = {},
+  PierresAcier = {},
+
+  BoucleSecteur   = -1,
+  TabletteVue     = false,
+
+  VaincuRegice    = false,
+  VaincuRegirock  = false,
+  VaincuRegisteel = false,
+  PerduRegice     = false,
+  PerduRegirock   = false,
+  PerduRegisteel  = false
+}
+
 
 ----------------------------------------------
 print('Script variables default values loaded! [build 2026-08-04-K]')
