@@ -52,6 +52,31 @@ function crystal_sanctuary_boss.Enter(map)
   -- Couche generique : la Voix de l'Abysse.
   BossFX.Voice('CSB_001')
 
+  -- === LE TON MONTE — le cercle magique s'anime par paliers ===
+  -- La couche 'Cristaux_Cercle' du ground TOURNE en permanence (78
+  -- tuiles a 8 frames) : les cristaux levitent et l'onde radiale du
+  -- cercle change de teinte, pendant la scene ET pendant le combat.
+  -- Ce qui MONTE ici, c'est la densite d'eclats posee par-dessus :
+  -- trois vagues de plus en plus rapprochees, sur le cercle puis sur
+  -- les cristaux. Le decor pulse deja tout seul ; on ajoute la
+  -- pression.
+  -- (Il n'existe aucune API GROUND: pour changer la cadence d'une
+  -- couche a chaud — verifie. La montee passe donc par les particules,
+  -- pas par un reglage de FrameLength.)
+  for i = 1, 3 do
+    pcall(function()
+      BossFX.Particle("Captivate_Sparkles", 120, 205, 3)   -- coeur du cercle
+      BossFX.Particle("Captivate_Sparkles", 120 - 30 * i, 205, 2)
+      BossFX.Particle("Captivate_Sparkles", 120 + 30 * i, 205, 2)
+    end)
+    --DUN_Power_Gem : SE atteste 5 fois dans le mod. DUN_Light_Screen,
+    --employe en premier jet, n'existe NULLE PART ailleurs : c'etait une
+    --invention. Un SE inconnu ne leve pas d'erreur, il ne joue
+    --simplement aucun son — le bug aurait ete silencieux.
+    pcall(function() SOUND:PlayBattleSE("DUN_Power_Gem") end)
+    GAME:WaitFrames(34 - i * 8)
+  end
+
   -- Couche biome (cristal) : activation — les gemmes resonnent et s'illuminent.
   local diancie = CharacterEssentials.MakeCharactersFromList({{'Diancie', 112, 128, Direction.Down}})
   GROUND:Hide('Diancie')
