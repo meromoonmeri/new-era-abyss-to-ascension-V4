@@ -76,9 +76,19 @@ function vast_steppe_entrance.PlotScripting()
 	elseif SV.Chapter5.EscapedSteppe or SV.Chapter5.DiedSteppe then
 		vast_steppe_entrance_ch_5.SetupGround()
 		vast_steppe_entrance_ch_5.FailedCutscene()
-	elseif SV.Chapter5.SteppeMiniBossDefeated and not SV.Chapter5.SkyTremorSceneSeen then
+	elseif SV.Chapter5.PlayedSteppeMidpointIntro and not SV.Chapter5.SkyTremorSceneSeen then
 		--Cinematique majeure : le premier pulse du phenomene du sommet,
-		--visible depuis le camp. Joue une seule fois, la nuit suivant le mini-boss.
+		--visible depuis le camp. Joue une seule fois, apres que l'equipe a
+		--atteint le relais de la steppe.
+		--
+		--MINI-BOSS CH5 RETIRE : le declencheur etait SteppeMiniBossDefeated,
+		--flag que plus personne n'ecrit depuis la suppression des mini-boss du
+		--chapitre 5. La scene etait donc devenue injouable, et avec elle le
+		--foreshadowing Necrozma que Phileas paie en ville
+		--(metano_town_ch_5.lua:30, lecture de SkyTremorSceneSeen).
+		--Rebranche sur PlayedSteppeMidpointIntro : meme moment de progression
+		--(l'equipe est entree dans la steppe et a atteint le relais), flag
+		--vivant ecrit par vast_steppe_midpoint_ch_5.lua:90.
 		vast_steppe_entrance_ch_5.SetupGround()
 		vast_steppe_entrance_ch_5.SkyTremorScene()
 	else

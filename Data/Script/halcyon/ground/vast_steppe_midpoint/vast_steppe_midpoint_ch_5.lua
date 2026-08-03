@@ -104,7 +104,7 @@ function vast_steppe_midpoint_ch_5.SetupGround()
   local hyko = CH('Teammate2')
   local almotz = CH('Teammate3')
 
-  if SV.Chapter5.SteppeMiniBossLost or SV.Chapter5.SteppeGuardianLost then
+  if SV.Chapter5.SteppeGuardianLost then
     -- Apres une defaite : les deux recrues sont pres du rocher, en soins.
     if almotz ~= nil then GROUND:TeleportTo(almotz, 660, 232, Direction.Right) end
     if hyko ~= nil then GROUND:TeleportTo(hyko, 732, 260, Direction.Left) end
@@ -145,16 +145,11 @@ function vast_steppe_midpoint_ch_5.Partner_Action(chara, activator)
     UI:WaitShowDialogue("On refera une tentative.[pause=0] Mais cette fois,[pause=10] garde tes distances quand il baisse la tête.[pause=0] J'ai encore les côtes qui sifflent.")
     GeneralFunctions.SetEmotion("Determined")
     UI:WaitShowDialogue("Prépare-toi au rocher de Kangourex.[pause=0] Des Baies,[pause=10] des Orbes...[pause=0] tout ce qu'on peut porter.")
-  elseif SV.Chapter5.SteppeMiniBossDefeated then
-    GeneralFunctions.StartConversation(chara, "Ces deux-là,[pause=10] le Mudbray et le Cerfrousse...[pause=0] Ils défendaient un point d'eau,[pause=10] tu as remarqué ?", "Normal")
-    UI:WaitShowDialogue("Les Pokémon de la steppe ne sont pas agressifs d'habitude.[pause=0] Quelque chose les pousse à se battre pour chaque ressource.")
-    GeneralFunctions.SetEmotion("Worried")
-    UI:WaitShowDialogue("Plus on monte vers le nord,[pause=10] plus ce sera tendu.[pause=0] Reste près de moi,[pause=10] d'accord ?")
-  elseif SV.Chapter5.SteppeMiniBossLost then
-    GeneralFunctions.StartConversation(chara, "Hé,[pause=10] ne fais pas cette tête.[pause=0] Une défaite,[pause=10] ce n'est qu'une leçon qui pique un peu.", "Normal")
-    UI:WaitShowDialogue("On connaît leurs attaques maintenant.[pause=0] Le Mudbray charge toujours en premier,[pause=10] et le Cerfrousse couvre ses arrières.")
-    GeneralFunctions.SetEmotion("Determined")
-    UI:WaitShowDialogue("Sépare-les,[pause=10] et c'est gagné.[pause=0] Allez.[pause=10] On se refait ça quand tu veux.")
+  --MINI-BOSS CH5 RETIRE : deux branches parlaient ici du Mudbray et du
+  --Cerfrousse (SteppeMiniBossDefeated / SteppeMiniBossLost). Ces gardiens
+  --n'existent plus dans le donjon et les flags ne sont plus jamais ecrits :
+  --code mort citant du contenu supprime. Retire ; la replique generique
+  --ci-dessous prend le relais.
   else
     GeneralFunctions.StartConversation(chara, "Ce camp est bien placé.[pause=0] Adossé à la falaise,[pause=10] le vent passe au-dessus sans nous frapper.", "Normal")
     UI:WaitShowDialogue("Les anciens de la guilde savaient ce qu'ils faisaient en balisant cette route.")
@@ -177,12 +172,12 @@ function vast_steppe_midpoint_ch_5.Hyko_Action(chara, activator)
     UI:WaitShowDialogue("J'ai consigné le combat dans mon carnet de patrouille.[pause=0] Heure,[pause=10] position,[pause=10] comportement de l'adversaire.[pause=0] La procédure,[pause=10] toujours la procédure.")
     GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("...Mais entre nous,[pause=10] un Absol de cette taille,[pause=10] ce n'est pas dans les registres.[pause=0] Rien de tout ça n'est dans les registres.")
-  elseif SV.Chapter5.SteppeGuardianLost or SV.Chapter5.SteppeMiniBossLost then
+  elseif SV.Chapter5.SteppeGuardianLost then
     GeneralFunctions.StartConversation(chara, "Nous ne devons pas perdre espoir,[pause=10] wouf !", "Determined")
     GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("À l'entraînement,[pause=10] Tropius répétait :[pause=10] «[pause=5] Une équipe qui se relève est plus dangereuse qu'une équipe qui n'est jamais tombée.[pause=5] »")
     UI:WaitShowDialogue("Je monte la garde pendant que vous vous préparez.[pause=0] Personne ne nous surprendra deux fois.")
-  elseif SV.Chapter5.SteppeMiniBossDefeated then
+  elseif SV.Chapter5.PlayedSteppeMidpointIntro then
     GeneralFunctions.StartConversation(chara, "La moitié nord est balisée jusqu'à la crête,[pause=10] wouf.[pause=0] Après,[pause=10] c'est terrain inconnu.", "Normal")
     UI:WaitShowDialogue("J'ai vérifié le rocher de Kangourex :[pause=10] intact,[pause=10] fonctionnel.[pause=0] Ces relais sont plus vieux que la guilde elle-même,[pause=10] vous saviez ?")
     GeneralFunctions.SetEmotion("Happy")
@@ -208,13 +203,13 @@ function vast_steppe_midpoint_ch_5.Almotz_Action(chara, activator)
     UI:WaitShowDialogue("Mon frère ne me croira jamais.[pause=0] «[pause=5] Almotz,[pause=10] face à un gardien ?[pause=5] »[pause=0] Il va falloir des témoins.[pause=10] Vous serez mes témoins,[pause=10] hein ?")
     GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("...Bon.[pause=0] D'abord le Tunnel,[pause=10] ensuite les histoires de héros.[pause=0] Maman dit toujours qu'il ne faut pas vendre la Baie avant la récolte.")
-  elseif SV.Chapter5.SteppeGuardianLost or SV.Chapter5.SteppeMiniBossLost then
+  elseif SV.Chapter5.SteppeGuardianLost then
     GeneralFunctions.StartConversation(chara, "Aïe aïe aïe...[pause=0] J'ai cru qu'on y restait,[pause=10] cette fois.", "Pain")
     GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("Avant de partir,[pause=10] j'ai promis à ma famille que je reviendrais entier.[pause=0] Pas «[pause=5] presque entier[pause=5] ».[pause=0] Entier.")
     GeneralFunctions.SetEmotion("Determined")
     UI:WaitShowDialogue("Alors on va se préparer correctement,[pause=10] et on va gagner.[pause=0] Parce que je ne compte pas mentir à ma mère,[pause=10] moi.")
-  elseif SV.Chapter5.SteppeMiniBossDefeated then
+  elseif SV.Chapter5.PlayedSteppeMidpointIntro then
     GeneralFunctions.StartConversation(chara, "Vous avez vu tous ces troupeaux dans la plaine ?[pause=0] Des Écrémeuh,[pause=10] des Ponyta sauvages...", "Happy")
     UI:WaitShowDialogue("Chez moi,[pause=10] on n'a que les champs et la rivière.[pause=0] Les petits adoreraient voir ça.")
     GeneralFunctions.SetEmotion("Normal")

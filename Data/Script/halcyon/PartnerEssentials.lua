@@ -1303,11 +1303,10 @@ function PartnerEssentials.Chapter_5_Dialogue(partner)
 			GeneralFunctions.SetEmotion('Determined')
 			UI:WaitShowDialogue("Le gardien nous a laissé le passage.[pause=0] Le sommet est ouvert,[pause=10] " .. hero:GetDisplayName() .. ".")
 			UI:WaitShowDialogue("Reprends des forces au rocher.[pause=0] Après ça,[pause=10] il n'y aura plus de demi-tour.")
-		elseif c5.MountMiniBossDefeated then
-			UI:WaitShowDialogue("Le Défilé est derrière nous.[pause=0] Les Crêtes,[pause=10] c'est une autre affaire.")
-			GeneralFunctions.SetEmotion('Worried')
-			UI:WaitShowDialogue("Là-haut, le vent ne pardonne rien.[pause=0] Ne partons pas sans être prêts.")
-		elseif c5.MountMiniBossLost or c5.MountGuardianLost then
+		--MINI-BOSS CH5 RETIRE : la branche « Le Defile est derriere nous »
+		--dependait de MountMiniBossDefeated, flag plus jamais ecrit. Le texte
+		--evoque une etape du donjon qui n'existe plus : retire.
+		elseif c5.MountGuardianLost then
 			GeneralFunctions.SetEmotion('Worried')
 			UI:WaitShowDialogue("On s'est fait sortir...[pause=0] mais on est vivants,[pause=10] et le camp tient.")
 			GeneralFunctions.SetEmotion('Determined')

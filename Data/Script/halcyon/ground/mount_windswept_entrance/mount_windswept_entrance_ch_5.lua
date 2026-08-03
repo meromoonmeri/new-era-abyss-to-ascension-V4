@@ -5134,11 +5134,11 @@ function mount_windswept_entrance_ch_5.Tropius_Action(chara, activator)
 		UI:WaitShowDialogue("Les anciens l'appelaient «[pause=5] la Serre du Ciel[pause=5] ».[pause=0] On disait qu'il ne laissait passer que ceux dont le cœur ne tremble pas.")
 		GeneralFunctions.SetEmotion("Determined")
 		UI:WaitShowDialogue("Votre cœur ne tremble pas.[pause=0] Il apprend.[pause=0] Retournez-y quand vous serez prêts.")
-	elseif SV.Chapter5.MountMiniBossDefeated then
-		GeneralFunctions.StartConversation(chara, "La crête est franchie...[pause=0] Nous approchons du but,[pause=10] et je sens la montagne changer d'humeur.", "Worried")
-		UI:WaitShowDialogue("Le vent ne souffle plus au hasard.[pause=0] Il tourne autour du sommet.[pause=10] Comme une sentinelle.")
-		GeneralFunctions.SetEmotion("Normal")
-		UI:WaitShowDialogue("Reposez-vous.[pause=0] Ce que nous cherchons est tout près maintenant,[pause=10] et il nous faudra toutes nos forces.")
+	--MINI-BOSS CH5 RETIRE : Penticus avait ici une replique « La crete est
+	--franchie » derriere MountMiniBossDefeated. La premiere branche de cette
+	--chaine (MountGuardianDefeated, ci-dessus) couvre deja l'apres-sommet :
+	--rebrancher ce texte sur le meme flag l'aurait rendu inatteignable.
+	--Branche retiree ; aucune replique perdue a l'ecran.
 	elseif SV.Chapter5.LostMountain or SV.Chapter5.DiedToWind then
 		GeneralFunctions.StartConversation(chara, "Vous voilà.[pause=0] La montagne vous a renvoyés...[pause=10] C'est qu'elle vous a jugés trop pressés.", "Normal")
 		UI:WaitShowDialogue("Ne vous battez pas contre le vent.[pause=0] Avancez quand il respire,[pause=10] abritez-vous quand il crie.[pause=0] C'est ainsi qu'on gravit le Mont Venteux.")
@@ -5176,11 +5176,8 @@ function mount_windswept_entrance_ch_5.Noctowl_Action(chara, activator)
 		UI:WaitShowDialogue("Un Aérodactyle territorial attaque au premier contact.[pause=0] Celui-ci vous a laissés approcher AVANT de frapper.[pause=0] Il évalue.[pause=10] Il choisit.")
 		GeneralFunctions.SetEmotion("Happy")
 		UI:WaitShowDialogue("Montrez-lui une escouade digne de ce nom,[pause=10] et je pense qu'il vous ouvrira le ciel lui-même.")
-	elseif SV.Chapter5.MountMiniBossDefeated then
-		GeneralFunctions.StartConversation(chara, "Hou hou...[pause=0] Un Scorplane et une Airmure en binôme défensif.[pause=0] Vous rendez-vous compte ?", "Normal")
-		UI:WaitShowDialogue("Deux espèces qui ne coopèrent JAMAIS à l'état sauvage.[pause=0] Sauf ici.[pause=0] Sauf maintenant.")
-		GeneralFunctions.SetEmotion("Worried")
-		UI:WaitShowDialogue("Quelque chose au sommet réorganise les comportements de toute la faune locale.[pause=0] J'ai des hypothèses.[pause=0] Aucune ne me plaît.")
+	--MINI-BOSS CH5 RETIRE : Phileas commentait ici le binome Scorplane/Airmure,
+	--gardiens supprimes du donjon. Branche morte citant du contenu inexistant.
 	elseif SV.Chapter5.LostMountain or SV.Chapter5.DiedToWind then
 		GeneralFunctions.StartConversation(chara, "Le vent vous a eus,[pause=10] n'est-ce pas ?[pause=0] Ne vous en veuillez pas.[pause=0] Il a eu tout le monde,[pause=10] un jour ou l'autre.", "Normal")
 		UI:WaitShowDialogue("Petit conseil d'un vieux voilier :[pause=10] les rafales suivent un cycle.[pause=0] Trois fortes,[pause=10] une faible.[pause=0] Comptez-les,[pause=10] et avancez sur la quatrième.")

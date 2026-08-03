@@ -175,8 +175,11 @@ end
 --SetupGround (ci-dessous) pour que les deux ne puissent pas diverger.
 function mount_windswept_midpoint_ch_5.HasPendingScene()
   local c5 = SV.Chapter5
-  if c5.PlayedMountMidpointIntro and not c5.FragmentSceneSeen
-     and (c5.MountMiniBossDefeated or c5.MountMiniBossLost) then
+  --MINI-BOSS CH5 RETIRE : le garde exigeait MountMiniBossDefeated/Lost,
+  --flags que plus personne n'ecrit. La scene du Fragment (Meteno) etait
+  --devenue injouable. Elle ne depend plus que d'avoir vu l'intro du relais.
+  --Condition tenue STRICTEMENT identique a celle de SetupGround.
+  if c5.PlayedMountMidpointIntro and not c5.FragmentSceneSeen then
     return true
   end
   if c5.MountGuardianDefeated and not c5.MountVigilSceneSeen then
@@ -186,7 +189,7 @@ function mount_windswept_midpoint_ch_5.HasPendingScene()
 end
 
 function mount_windswept_midpoint_ch_5.RepeatArrival()
-  local defeated = SV.Chapter5.MountMiniBossLost or SV.Chapter5.MountGuardianLost
+  local defeated = SV.Chapter5.MountGuardianLost
   local partner = CH('Teammate1')
   local lines = {}
 
@@ -229,7 +232,7 @@ function mount_windswept_midpoint_ch_5.SetupGround()
   local ganlon = CH('Teammate2')
   local shuca = CH('Teammate3')
 
-  if SV.Chapter5.MountMiniBossLost or SV.Chapter5.MountGuardianLost then
+  if SV.Chapter5.MountGuardianLost then
     -- Apres une defaite : regroupes pres du rocher de Kangourex.
     if shuca ~= nil then GROUND:TeleportTo(shuca, 950, 390, Direction.Left) end
     if ganlon ~= nil then GROUND:TeleportTo(ganlon, 1010, 390, Direction.Left) end
@@ -245,9 +248,9 @@ function mount_windswept_midpoint_ch_5.SetupGround()
   })
   GROUND:CharSetAnim(wooper, "Idle", true)
 
-  -- Cinematique contemplative du Fragment (une seule fois, apres le mini-boss).
-  if SV.Chapter5.PlayedMountMidpointIntro and not SV.Chapter5.FragmentSceneSeen
-     and (SV.Chapter5.MountMiniBossDefeated or SV.Chapter5.MountMiniBossLost) then
+  -- Cinematique contemplative du Fragment, une seule fois, des que l'equipe
+  -- a vu l'intro du relais (voir HasPendingScene : conditions jumelles).
+  if SV.Chapter5.PlayedMountMidpointIntro and not SV.Chapter5.FragmentSceneSeen then
     mount_windswept_midpoint_ch_5.FallenFragmentScene()
   elseif SV.Chapter5.MountGuardianDefeated and not SV.Chapter5.MountVigilSceneSeen then
     -- Derniere veillee avant le sommet.
@@ -274,17 +277,11 @@ function mount_windswept_midpoint_ch_5.Partner_Action(chara, activator)
     UI:WaitShowDialogue("Il faut l'attaquer juste quand il pique.[pause=0] C'est notre seule fenêtre.")
     GeneralFunctions.SetEmotion("Determined")
     UI:WaitShowDialogue("Refais le plein au rocher.[pause=0] On va lui montrer que la guilde ne recule pas devant un fossile grognon.")
-  elseif SV.Chapter5.MountMiniBossDefeated then
-    GeneralFunctions.StartConversation(chara, "Le Scorplane et l'Airmure faisaient équipe.[pause=0] Tu as remarqué comme ils couvraient mutuellement leurs angles morts ?", "Normal")
-    UI:WaitShowDialogue("Même les Pokémon sauvages s'organisent,[pause=10] ici.[pause=0] Comme si la montagne entière s'était donné un mot d'ordre :[pause=10] «[pause=5] personne ne passe[pause=5] ».")
-    GeneralFunctions.SetEmotion("Determined")
-    UI:WaitShowDialogue("Eh bien nous,[pause=10] on passera.[pause=0] La guilde compte sur nous.")
-  elseif SV.Chapter5.MountMiniBossLost then
-    GeneralFunctions.StartConversation(chara, "Ces deux-là nous ont bien eus...[pause=0] L'Airmure encaisse tout pendant que le Scorplane pique en traître.", "Pain")
-    GeneralFunctions.SetEmotion("Normal")
-    UI:WaitShowDialogue("La prochaine fois,[pause=10] on neutralise le Scorplane d'abord.[pause=0] Sans son partenaire,[pause=10] l'Airmure est lent.")
-    GeneralFunctions.SetEmotion("Determined")
-    UI:WaitShowDialogue("On apprend,[pause=10] on s'adapte,[pause=10] on gagne.[pause=0] Dans cet ordre.")
+  --MINI-BOSS CH5 RETIRE : deux branches parlaient ici du Scorplane et de
+  --l'Airmure (MountMiniBossDefeated / MountMiniBossLost). Ces gardiens
+  --n'existent plus dans le donjon — Tornadus est le seul boss — et les flags
+  --ne sont plus jamais ecrits : le code etait mort et citait du contenu
+  --supprime. Retire ; la replique generique ci-dessous prend le relais.
   else
     GeneralFunctions.StartConversation(chara, "Écoute...[pause=0] Quand le vent retombe une seconde,[pause=10] on entend tout le canyon respirer.", "Normal")
     UI:WaitShowDialogue("Les feux de camp,[pause=10] les tentes,[pause=10] les barrières...[pause=0] Des dizaines d'équipes sont passées ici avant nous.")
@@ -305,11 +302,14 @@ function mount_windswept_midpoint_ch_5.Ganlon_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, "Le passage vers le sommet est ouvert.[pause=0] Ne me remerciez pas,[pause=10] j'ai juste tapé plus fort.", "Normal")
     GeneralFunctions.SetEmotion("Happy")
     UI:WaitShowDialogue("...Bon.[pause=20] On a bien tapé tous les quatre.[pause=0] Ne le répétez pas,[pause=10] ça ruinerait ma réputation.")
-  elseif SV.Chapter5.MountGuardianLost or SV.Chapter5.MountMiniBossLost then
+  elseif SV.Chapter5.MountGuardianLost then
     GeneralFunctions.StartConversation(chara, "Un revers.[pause=20] Un seul.[pause=0] Ce piaf ne m'aura pas deux fois.", "Determined")
     GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Reposez-vous au lieu de me regarder.[pause=0] La montagne ne retient que ceux qui remontent.")
-  elseif SV.Chapter5.MountMiniBossDefeated then
+  --MINI-BOSS CH5 RETIRE : cette replique etait derriere MountMiniBossDefeated,
+  --devenu inatteignable. Son texte ne cite aucun mini-boss : il est conserve et
+  --rebranche sur la progression vivante (l'equipe est montee jusqu'au relais).
+  elseif SV.Chapter5.PlayedMountMidpointIntro then
     GeneralFunctions.StartConversation(chara, "L'air du sommet est différent.[pause=0] Plus...[pause=10] chargé.[pause=0] Même mon crâne le sent.", "Worried")
     GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Restez groupés là-haut.[pause=0] Et gardez un œil sur Shuca.[pause=10] ...Quoi ?[pause=0] C'est une consigne tactique.")
@@ -332,11 +332,13 @@ function mount_windswept_midpoint_ch_5.Shuca_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, "Le sommet...[pause=0] on y est presque ![pause=0] J'ai le cœur qui bourdonne comme un jour d'orage.", "Happy")
     GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Ganlon dit que l'émotion fait rater les attaques.[pause=0] Alors je respire.[pause=10] Très fort.[pause=0] Ça s'entend ?")
-  elseif SV.Chapter5.MountGuardianLost or SV.Chapter5.MountMiniBossLost then
+  elseif SV.Chapter5.MountGuardianLost then
     GeneralFunctions.StartConversation(chara, "Brrr...[pause=0] Entre le vent et les plumes d'acier,[pause=10] je ne sais pas ce qui pique le plus.", "Pain")
     GeneralFunctions.SetEmotion("Determined")
     UI:WaitShowDialogue("Mais j'abandonne pas.[pause=0] Ganlon non plus.[pause=0] Alors on remonte,[pause=10] et cette fois c'est le piaf qui redescendra.")
-  elseif SV.Chapter5.MountMiniBossDefeated then
+  --MINI-BOSS CH5 RETIRE : meme cas que Ganlon ci-dessus. Texte generique
+  --(la vue depuis la crete), conserve et rebranche sur PlayedMountMidpointIntro.
+  elseif SV.Chapter5.PlayedMountMidpointIntro then
     GeneralFunctions.StartConversation(chara, "Vous avez vu la vue,[pause=10] depuis la crête ?[pause=0] On voyait la steppe,[pause=10] le tunnel,[pause=10] et même Metano tout au fond !", "Happy")
     GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("C'est ma première vraie expédition.[pause=0] Là-haut,[pause=10] je veux voir le monde entier d'un coup.[pause=0] Tout entier.")
