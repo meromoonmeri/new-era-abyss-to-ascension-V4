@@ -291,9 +291,14 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- Deux eclairs d'avertissement DERRIERE le pic, avant qu'il ne
   -- paraisse. Weather.Thunder separe la lumiere du son : le flash part,
   -- puis le tonnerre arrive quelques frames plus tard.
-  Weather.Thunder(14)
+  --Les eclairs sont protegés : Weather.Thunder protege deja son propre
+  --corps (Weather.lua:146), mais GAME:WaitFrames et PlayBattleSE restent
+  --nus a l'interieur. Une erreur ici interromprait la scene AVANT le
+  --Weather.Clear final, et les quatre MapStatus suivraient le joueur
+  --dans le donjon.
+  pcall(function() Weather.Thunder(14) end)
   GAME:WaitFrames(46)
-  Weather.Thunder(10)
+  pcall(function() Weather.Thunder(10) end)
   GAME:WaitFrames(28)
 
   BossFX.Flash(568, 440, 3, 5, 20)
@@ -310,7 +315,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
 
   -- Trois eclairs derriere lui, espaces IRREGULIEREMENT : un orage
   -- cadence au metronome sonne mecanique (Weather.lua:166).
-  Weather.StormLoop(3, 70)
+  pcall(function() Weather.StormLoop(3, 70) end)
 
   -- LE SOUFFLE TOUCHE TOUT LE MONDE — EN CASCADE.
   -- C'est le defaut signale : « pas tous les pokemon presents reagissent,
@@ -434,11 +439,10 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
 
   --Le climat est RENDU a la carte avant de basculer sur le combat :
   --un MapStatus non retire suit le joueur dans le donjon.
-  Weather.Clear()
-  pcall(function() GROUND:RemoveMapStatus('gloom') end)
-  pcall(function() GROUND:RemoveMapStatus('heavy_rain') end)
-  pcall(function() GROUND:RemoveMapStatus('blowing_wind') end)
-  pcall(function() GROUND:RemoveMapStatus('blowing_wind_fast') end)
+  --ClearAll balaie les 19 MapStatus connus, pas seulement ceux que
+  --Weather.active a memorises : les quatre poses ici l'ont ete par
+  --GROUND:AddMapStatus direct, donc Weather.Clear() seul les ignorait.
+  Weather.ClearAll()
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)

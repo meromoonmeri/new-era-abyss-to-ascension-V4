@@ -8,6 +8,7 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.ReplayEnding'
+require 'halcyon.Weather'
 require 'halcyon.ground.mount_windswept_guardian.mount_windswept_guardian_ch_5'
 
 -- [NREPROBE] sonde locale : état complet de la scène à un point donné.
@@ -48,14 +49,25 @@ function mount_windswept_guardian.Enter(map)
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Enter_mount_windswept_guardian")
 
+  --FILET CLIMATIQUE. La scene d'arrivee pose quatre MapStatus (vent,
+  --nuee, vent fort, pluie). Si elle s'interrompt avant son nettoyage,
+  --ils restent colles a la partie et suivent le joueur. On repart donc
+  --TOUJOURS d'une carte propre : RemoveMapStatus sur un statut absent
+  --est sans effet, l'appel est donc gratuit dans le cas normal.
+  pcall(function() Weather.ClearAll() end)
+
   -- Rejouabilite : l'expedition est bouclee, le sommet est vide.
-  -- Attention : cette arene fait 208x176 px, le duo doit rester dans la carte.
+  -- CORRECTIF 2026-08-04 : les positions ci-dessous visaient une arene
+  -- de 208x176 px. Le sommet fait desormais 1152x1344 : les quatre
+  -- coordonnees tombaient HORS CARTE, le duo etait invisible et la
+  -- camera cadrait le vide. Realignees sur celles des scenes
+  -- principales (arrivee par l'escalier au sud, regard vers le nord).
   if ReplayEnding.IsReplay('mount_windswept', 5) then
     SV.Chapter5.MountGuardianDefeated = false
     SV.Chapter5.MountGuardianLost = false
     ReplayEnding.EmptyArena({
-      hero = {120, 144}, partner = {88, 144},
-      camera = {104, 120}, look = {104, 96},
+      hero = {536, 951}, partner = {600, 951},
+      camera = {568, 951}, look = {568, 470},
       walk = 40, title = true, music = 'Mt. Travail.ogg',
       lines = {
         { spk='partner', emo='Normal', key='MWG_R01', wait=10 },

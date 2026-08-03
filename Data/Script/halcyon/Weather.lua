@@ -93,6 +93,24 @@ Weather.active = {}
 -- Retire toutes les couches posées par ce module.
 -- On ne touche pas aux MapStatus posés ailleurs (héritage de carte).
 --------------------------------------------------------------------
+--------------------------------------------------------------------
+-- Retire TOUTES les meteos connues, qu'elles aient ete posees par ce
+-- module ou a la main.
+--
+-- Weather.Clear() ne retire que ce que Weather.active a memorise. Une
+-- scene qui pose ses MapStatus directement par GROUND:AddMapStatus
+-- (c'est le cas de l'arrivee de Tornadus) n'alimente PAS cette table :
+-- Clear() n'y touche donc pas. Sans ce filet, un MapStatus oublie suit
+-- le joueur dans le donjon suivant.
+-- RemoveMapStatus sur un statut absent est sans effet.
+--------------------------------------------------------------------
+function Weather.ClearAll()
+  for name, _ in pairs(Weather.STATUS) do
+    pcall(function() GROUND:RemoveMapStatus(name) end)
+  end
+  Weather.active = {}
+end
+
 function Weather.Clear()
   for name, _ in pairs(Weather.active) do
     pcall(function() GROUND:RemoveMapStatus(name) end)
