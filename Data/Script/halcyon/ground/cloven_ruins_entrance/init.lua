@@ -14,6 +14,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.ground.cloven_ruins_entrance.cloven_ruins_entrance_ch_5'
 require 'halcyon.RuinesZarbi'
+require 'halcyon.RuinesRenforts'
 
 local cloven_ruins_entrance = {}
 
@@ -91,6 +92,17 @@ function cloven_ruins_entrance.PlotScripting()
   -- simple de rejouabilite.
   local ch = SV.ChapterProgression.Chapter
   local apresRuines = (ch ~= nil and ch >= 6)
+
+  -- SORTIE D'AEGIS CAVE — la revelation, une seule fois.
+  -- Le sanctuaire vient de se refermer (RuinesRenforts.Effondrement a
+  -- laisse l'ecran au noir). C'est ici que le noir se leve : l'equipe
+  -- est dehors, et la pierre a decouvert autre chose en se refermant.
+  -- Equivalent du monument qui ouvre les Ruines Cachees dans EoS.
+  if SV.Ruines ~= nil and SV.Ruines.VaincuRegigigas and not SV.Ruines.TourRevelee then
+    cloven_ruins_entrance_ch_5.SetupGround(true)
+    pcall(function() RuinesRenforts.Revelation() end)
+    return
+  end
 
   if apresRuines then
     --Rejouabilite assumee : l'histoire est passee, camp au repos.

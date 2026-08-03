@@ -26,4 +26,9 @@
   <data name="CRB_RENFORT_04" xml:space="preserve"><value>The four with legs strike fast and from range.[pause=20] The four bells soak it up.[pause=25] Split them,[pause=15] or they'll wear you down in turns.</value></data>
   <data name="CRB_RENFORT_05" xml:space="preserve"><value>Then I'll take the bells.[pause=20] Stone and metal,[pause=15] they don't care for my fists.[pause=25] You handle the big one.</value></data>
   <data name="CRB_RENFORT_06" xml:space="preserve"><value>We're not two anymore.[pause=25] We're six.[pause=20] And he only has eight statues and centuries of solitude.</value></data>
+  <data name="CRB_FUITE_01" xml:space="preserve"><value>Somewhere above,[pause=20] a stone gives way.[pause=25] Then another.[pause=20] The sanctum's ceiling begins to come down.</value></data>
+  <data name="CRB_FUITE_02" xml:space="preserve"><value>He stood down from his post...[pause=20] and the chamber is closing.[pause=25] It was only waiting for that.[pause=20] We have to get OUT!</value></data>
+  <data name="CRB_FUITE_03" xml:space="preserve"><value>Everyone out![pause=15] You can talk about it outside![pause=20] RUN!</value></data>
+  <data name="CRB_FUITE_04" xml:space="preserve"><value>The colossus does not move.[pause=25] Seated in the dust,[pause=20] facing what he guarded for a thousand years,[pause=25] he watches the stone close over him.[pause=30] He asks for no help.</value></data>
+  <data name="CRB_FUITE_05" xml:space="preserve"><value>I've counted everyone![pause=20] Nobody behind us![pause=15] I'll bring up the rear,[pause=10] MOVE!</value></data>
 </root>

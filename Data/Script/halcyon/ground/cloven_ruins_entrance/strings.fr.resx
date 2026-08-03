@@ -90,4 +90,8 @@
   <data name="RUINES_TAB_FINI" xml:space="preserve"><value>Les trois dalles sont muettes à présent.[pause=20] Seul reste le puits,[pause=15] et ce qui dort tout au fond.</value></data>
   <data name="RUINES_TAB_PARTENAIRE" xml:space="preserve"><value>L'escalier est là...[pause=20] On descend ?[pause=15] Je passe devant,[pause=10] cette fois.</value></data>
   <data name="RUINES_PIERRE_TROUVEE" xml:space="preserve"><value>Le Zarbi se dissipe...[pause=20] et une pierre gravée tombe à sa place.[pause=25] Elle porte la forme {0}.</value></data>
+  <data name="CRB_REVEL_01" xml:space="preserve"><value>L'air libre,[pause=20] d'un coup.[pause=25] Derrière vous, l'entrée des ruines n'est plus qu'un pan de roche lisse,[pause=20] comme si rien n'avait jamais été creusé là.</value></data>
+  <data name="CRB_REVEL_02" xml:space="preserve"><value>Regarde...[pause=20] La falaise s'est fendue en se refermant.[pause=25] Il y a un passage,[pause=15] là-haut.[pause=20] Il n'y était pas ce matin.</value></data>
+  <data name="CRB_REVEL_03" xml:space="preserve"><value>(Le sanctuaire s'est refermé...[pause=20] et en se refermant,[pause=15] il a ouvert autre chose.)</value></data>
+  <data name="CRB_REVEL_04" xml:space="preserve"><value>Une tour de pierre monte au-dessus des ruines,[pause=25] découverte par l'effondrement.[pause=30] La Tour des Reliques est désormais accessible.</value></data>
 </root>

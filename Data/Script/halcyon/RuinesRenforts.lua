@@ -246,4 +246,148 @@ function RuinesRenforts.DialogueRenforts(crees, hero, partner)
   GAME:WaitFrames(18)
 end
 
+--------------------------------------------------------------------
+-- LA FUITE — sortie d'Aegis Cave (Explorers of Sky)
+--------------------------------------------------------------------
+-- Dans l'original, la victoire ne se cloture pas sur un ecran : le
+-- sanctuaire se referme, tout le monde court vers la sortie, et on
+-- decouvre dehors qu'un nouveau lieu s'est ouvert.
+--
+-- Ici la cause est narrative, pas decorative : Regigigas vient de
+-- reveler qu'il etait poste FACE a ce qu'il gardait. Le gardien ayant
+-- quitte sa faction, la pierre se referme sur ce qui dormait dessous.
+--
+-- Regle du projet respectee : la sortie et les flags de progression
+-- restent HORS de tout pcall — une fuite qui casse ne doit jamais
+-- laisser le joueur enferme.
+
+-- Retrouve les allies deja sur la carte (ils ont combattu avec le duo).
+function RuinesRenforts.RecupererAllies()
+  local out = {}
+  for _, a in ipairs(RuinesRenforts.ALLIES) do
+    local ok, c = pcall(function() return CH(a[2]) end)
+    if ok and c ~= nil then out[a[2]] = c end
+  end
+  return out
+end
+
+function RuinesRenforts.Effondrement(hero, partner, renforts, regigigas)
+  -- 1. LE PREMIER SIGNE. Rien ne bouge encore : c'est le SON qui
+  --    previent. La musique meurt d'un coup, il ne reste qu'un
+  --    craquement quelque part au-dessus.
+  pcall(function() SOUND:FadeOutBGM(40) end)
+  GAME:WaitFrames(45)
+  pcall(function() SOUND:PlayBattleSE('_UNK_EVT_102') end)
+  BossFX.ShakeScreen(3, 25)
+  GAME:WaitFrames(30)
+
+  centre('CRB_FUITE_01')
+  GAME:WaitFrames(18)
+
+  -- 2. Shuca comprend la premiere — c'est elle qui compte et qui mesure.
+  dit(renforts['Shuca'], 'CRB_FUITE_02', "Surprised")
+  GAME:WaitFrames(14)
+
+  -- 3. La secousse s'installe. Le duo et les renforts se tournent vers
+  --    la sortie, chacun a son tempo : personne ne pivote d'un bloc.
+  BossFX.ShakeScreen(7, 40)
+  pcall(function() SOUND:PlayBattleSE('EVT_Battle_Flash') end)
+  local coros = {}
+  local ordre = { hero, partner, renforts['Ganlon'], renforts['Shuca'],
+                  renforts['Kino'], renforts['Reinier'] }
+  for i, c in ipairs(ordre) do
+    if c ~= nil then
+      coros[#coros + 1] = TASK:BranchCoroutine(function()
+        GAME:WaitFrames((i - 1) * 5)
+        pcall(function() GROUND:CharAnimateTurnTo(c, Direction.Down, 4) end)
+      end)
+    end
+  end
+  if #coros > 0 then TASK:JoinCoroutines(coros) end
+  GAME:WaitFrames(12)
+
+  -- 4. Ganlon donne l'ordre de courir. C'est lui, pas le chef : il est
+  --    celui qui agit avant de reflechir, c'est deja son registre.
+  dit(renforts['Ganlon'], 'CRB_FUITE_03', "Determined")
+  GAME:WaitFrames(10)
+
+  -- 5. LE REGARD EN ARRIERE. Un seul beat, mais c'est le coeur de la
+  --    scene : le colosse ne fuit pas. Il reste assis, tourne vers ce
+  --    qu'il gardait, pendant que la pierre se referme sur lui.
+  if regigigas ~= nil then
+    GAME:MoveCamera(144, 150, 30, false)
+    GAME:WaitFrames(35)
+    centre('CRB_FUITE_04')
+    GAME:WaitFrames(20)
+  end
+
+  -- 6. Kino ferme la marche : l'eclaireur verifie que personne ne reste.
+  GAME:MoveCamera(136, 220, 30, false)
+  dit(renforts['Kino'], 'CRB_FUITE_05', "Worried")
+  GAME:WaitFrames(12)
+
+  -- 7. La course. Tout le monde descend vers la sortie, echelonne.
+  local fuite = {}
+  for i, c in ipairs(ordre) do
+    if c ~= nil then
+      fuite[#fuite + 1] = TASK:BranchCoroutine(function()
+        GAME:WaitFrames((i - 1) * 7)
+        pcall(function() GROUND:MoveInDirection(c, Direction.Down, 72, false, 2) end)
+      end)
+    end
+  end
+  BossFX.ShakeScreen(9, 60)
+  if #fuite > 0 then TASK:JoinCoroutines(fuite) end
+  GAME:WaitFrames(10)
+
+  pcall(function() SOUND:PlayBattleSE('EVT_Battle_Transition') end)
+  GAME:FadeOut(false, 50)
+  GAME:WaitFrames(70)
+end
+
+--------------------------------------------------------------------
+-- DEHORS — ce que la pierre a laisse derriere elle.
+--------------------------------------------------------------------
+-- Equivalent du monument d'EoS qui ouvre les Ruines Cachees. Joue au
+-- camp, apres le retour : la scene de fuite s'arrete sur un noir, et
+-- c'est ici que le noir se leve.
+function RuinesRenforts.Revelation()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+
+  local ok = pcall(function()
+    GAME:CutsceneMode(true)
+    GAME:FadeIn(60)
+    GAME:WaitFrames(40)
+    centre('CRB_REVEL_01')
+    GAME:WaitFrames(22)
+    if partner ~= nil then
+      GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+      dit(partner, 'CRB_REVEL_02', "Surprised")
+    end
+    GAME:WaitFrames(18)
+    if hero ~= nil then
+      GeneralFunctions.HeroDialogue(hero,
+        STRINGS:Format(STRINGS.MapStrings['CRB_REVEL_03']), "Worried")
+    end
+    GAME:WaitFrames(20)
+    centre('CRB_REVEL_04')
+    GAME:WaitFrames(25)
+  end)
+  if not ok then
+    PrintInfo('[Ruines] Revelation : echec, la progression continue.')
+  end
+
+  -- HORS du pcall : le deverrouillage a lieu quoi qu'il arrive.
+  GAME:CutsceneMode(false)
+  SV.Ruines = SV.Ruines or {}
+  SV.Ruines.TourRevelee = true
+  pcall(function()
+    if not GAME:DungeonUnlocked("tour_reliques") then
+      GAME:UnlockDungeon("tour_reliques")
+    end
+  end)
+  PrintInfo('[Ruines] Tour des Reliques deverrouillee')
+end
+
 return RuinesRenforts

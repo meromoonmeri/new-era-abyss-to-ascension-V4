@@ -568,9 +568,25 @@ local function DefeatedBossBody()
   -- "On doit parler à Phileas. Il en sait plus qu'il ne le dit."
 
   GAME:WaitFrames(30)
-  SOUND:FadeOutBGM(60)
-  GAME:FadeOut(false, 60)
-  GAME:WaitFrames(90)
+
+  -- ==================================================================
+  -- LA FUITE — reprise de la sortie d'Aegis Cave (Explorers of Sky)
+  -- ==================================================================
+  -- Dans EoS, la victoire sur Regigigas ne se termine pas sur un ecran
+  -- de resultats : le sanctuaire se referme, tout le monde court, et
+  -- l'equipe est recrachee dehors. En sortant, un monument revele
+  -- l'existence des Ruines Cachees.
+  --
+  -- Adaptation New Era : ce n'est pas un effondrement gratuit. Regigigas
+  -- vient de dire qu'il etait poste FACE a ce qu'il gardait (CRB_057).
+  -- Le sanctuaire se referme parce que le gardien a quitte son poste :
+  -- la pierre reprend ce qui lui appartient. La fuite est la CONSEQUENCE
+  -- directe de ce qu'on vient d'apprendre, pas un effet spectaculaire.
+  local renforts = {}
+  pcall(function() renforts = RuinesRenforts.RecupererAllies() end)
+  pcall(function()
+    RuinesRenforts.Effondrement(hero, partner, renforts, regigigas)
+  end)
 end
 
 function cloven_ruins_boss_ch_7.DefeatedBoss()

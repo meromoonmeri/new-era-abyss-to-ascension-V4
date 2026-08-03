@@ -199,6 +199,10 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
   elseif segmentID == 7 then
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
           SV.Chapter7.DefeatedRuinsBoss = true
+          -- Marque la victoire pour la scene de revelation jouee au camp
+          -- (sortie d'Aegis Cave : la Tour des Reliques s'ouvre).
+          SV.Ruines = SV.Ruines or {}
+          SV.Ruines.VaincuRegigigas = true
           LegendZones.SetDefeated('colossus_quarry')
       else
           SV.Chapter7.DiedToRuinsBoss = true

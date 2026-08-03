@@ -26,4 +26,9 @@
   <data name="CRB_RENFORT_04" xml:space="preserve"><value>Les quatre à jambes frappent vite et de loin.[pause=20] Les quatre cloches encaissent.[pause=25] Séparez-les,[pause=15] ou ils vous useront à tour de rôle.</value></data>
   <data name="CRB_RENFORT_05" xml:space="preserve"><value>Alors je prends les cloches.[pause=20] La pierre et le métal,[pause=15] ça n'aime pas mes poings.[pause=25] Occupez-vous du grand.</value></data>
   <data name="CRB_RENFORT_06" xml:space="preserve"><value>On n'est plus deux.[pause=25] On est six.[pause=20] Et lui,[pause=15] il n'a que huit statues et des siècles de solitude.</value></data>
+  <data name="CRB_FUITE_01" xml:space="preserve"><value>Quelque part au-dessus,[pause=20] une pierre cède.[pause=25] Puis une autre.[pause=20] Le plafond du sanctuaire commence à descendre.</value></data>
+  <data name="CRB_FUITE_02" xml:space="preserve"><value>Il s'est levé de son poste...[pause=20] et la salle se referme.[pause=25] Elle n'attendait que ça.[pause=20] Il faut SORTIR !</value></data>
+  <data name="CRB_FUITE_03" xml:space="preserve"><value>Tout le monde dehors ![pause=15] Devant,[pause=10] vous discuterez ![pause=20] COUREZ !</value></data>
+  <data name="CRB_FUITE_04" xml:space="preserve"><value>Le colosse ne bouge pas.[pause=25] Assis dans la poussière,[pause=20] tourné vers ce qu'il a gardé mille ans,[pause=25] il regarde la pierre se refermer sur lui.[pause=30] Il ne demande pas d'aide.</value></data>
+  <data name="CRB_FUITE_05" xml:space="preserve"><value>J'ai compté tout le monde ![pause=20] Personne derrière ![pause=15] Je ferme la marche,[pause=10] AVANCEZ !</value></data>
 </root>
