@@ -9,6 +9,7 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
+require 'halcyon.Weather'
 
 mount_windswept_guardian_ch_5 = {}
 
@@ -263,14 +264,53 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- d'overlays. Les deux Sandstorm, le RockFall et les Rock_Pieces de la
   -- version precedente ont ete retires (brief, point 4).
   SOUND:PlayBGM('Rising Fear.ogg', true)
+
+  -- === LE CIEL REPOND A SA VENUE (climat progressif) ===
+  -- L'anneau de nuages TOURNE en permanence (couche 'Nuages' du ground,
+  -- 1103 tuiles a 8 frames) : il n'est jamais interrompu. Ce qui change,
+  -- c'est la LUMIERE au-dessus de lui, posee par MapStatus.
+  --
+  -- Pourquoi des MapStatus et pas un echange de planches : il n'existe
+  -- AUCUNE API GROUND: pour basculer la visibilite d'une couche de
+  -- tuiles (verifie : 38 methodes GROUND: employees dans le mod, aucune
+  -- ne touche aux Layers). Une version a trois planches de nuages,
+  -- claire / orage / eclair, a donc ete ecrite puis ABANDONNEE : rien
+  -- n'aurait pu les commuter en jeu. Les MapStatus, eux, sont poses et
+  -- retires a chaud (Weather.lua, prouve).
+  --
+  -- Trois paliers, du plus leger au plus lourd, pour que l'orage MONTE
+  -- au lieu de tomber d'un bloc.
+  pcall(function() GROUND:AddMapStatus('blowing_wind') end)   -- 1. le vent se leve
+  GAME:WaitFrames(30)
+  pcall(function() GROUND:AddMapStatus('gloom') end)          -- 2. le ciel s'assombrit
+  GAME:WaitFrames(25)
+  pcall(function() GROUND:AddMapStatus('blowing_wind_fast') end)
+  pcall(function() GROUND:RemoveMapStatus('blowing_wind') end)
+  GAME:WaitFrames(20)
+
+  -- Deux eclairs d'avertissement DERRIERE le pic, avant qu'il ne
+  -- paraisse. Weather.Thunder separe la lumiere du son : le flash part,
+  -- puis le tonnerre arrive quelques frames plus tard.
+  Weather.Thunder(14)
+  GAME:WaitFrames(46)
+  Weather.Thunder(10)
+  GAME:WaitFrames(28)
+
   BossFX.Flash(568, 440, 3, 5, 20)
   GAME:WaitFrames(8)
   GROUND:Unhide('Tornadus')
   BossFX.Impact(9)
   GROUND:CharSetAnim(tornadus, "Charge", true)
 
+  -- L'orage eclate franchement : la pluie rejoint le vent et la nuee.
+  pcall(function() GROUND:AddMapStatus('heavy_rain') end)
+
   GAME:WaitFrames(15)
   SOUND:PlayBattleSE('EVT_Battle_Flash')
+
+  -- Trois eclairs derriere lui, espaces IRREGULIEREMENT : un orage
+  -- cadence au metronome sonne mecanique (Weather.lua:166).
+  Weather.StormLoop(3, 70)
 
   -- LE SOUFFLE TOUCHE TOUT LE MONDE — EN CASCADE.
   -- C'est le defaut signale : « pas tous les pokemon presents reagissent,
@@ -391,6 +431,14 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_010'], hero:GetDisplayName()))
   -- "Alors on va lui montrer que notre voyage ne fait que commencer ! [hero], à nous deux !"
+
+  --Le climat est RENDU a la carte avant de basculer sur le combat :
+  --un MapStatus non retire suit le joueur dans le donjon.
+  Weather.Clear()
+  pcall(function() GROUND:RemoveMapStatus('gloom') end)
+  pcall(function() GROUND:RemoveMapStatus('heavy_rain') end)
+  pcall(function() GROUND:RemoveMapStatus('blowing_wind') end)
+  pcall(function() GROUND:RemoveMapStatus('blowing_wind_fast') end)
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)

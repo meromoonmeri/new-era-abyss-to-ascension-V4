@@ -233275,13 +233275,39 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Tornadus_Arene",
+                      "TexLoc": {
+                        "X": 20,
+                        "Y": 54
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Tornadus_Arene",
+                      "TexLoc": {
+                        "X": 20,
+                        "Y": 55
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             }
           ],
@@ -234238,7 +234264,20 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Tornadus_Arene",
+                      "TexLoc": {
+                        "X": 22,
+                        "Y": 0
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
@@ -239210,7 +239249,20 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Tornadus_Arene",
+                      "TexLoc": {
+                        "X": 27,
+                        "Y": 1
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
@@ -241101,7 +241153,20 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Tornadus_Arene",
+                      "TexLoc": {
+                        "X": 28,
+                        "Y": 54
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
@@ -242109,7 +242174,20 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Tornadus_Arene",
+                      "TexLoc": {
+                        "X": 30,
+                        "Y": 1
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
@@ -243961,7 +244039,20 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Tornadus_Arene",
+                      "TexLoc": {
+                        "X": 32,
+                        "Y": 2
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
@@ -253031,13 +253122,39 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Tornadus_Arene",
+                      "TexLoc": {
+                        "X": 44,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Tornadus_Arene",
+                      "TexLoc": {
+                        "X": 44,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
@@ -295982,137 +296099,13 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 20,
-                        "Y": 54
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 68,
-                        "Y": 54
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 116,
-                        "Y": 54
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 164,
-                        "Y": 54
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 212,
-                        "Y": 54
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 260,
-                        "Y": 54
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 308,
-                        "Y": 54
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 356,
-                        "Y": 54
-                      }
-                    }
-                  ],
-                  "FrameLength": 8
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 20,
-                        "Y": 55
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 68,
-                        "Y": 55
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 116,
-                        "Y": 55
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 164,
-                        "Y": 55
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 212,
-                        "Y": 55
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 260,
-                        "Y": 55
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 308,
-                        "Y": 55
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 356,
-                        "Y": 55
-                      }
-                    }
-                  ],
-                  "FrameLength": 8
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             }
           ],
@@ -297016,69 +297009,7 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 22,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 70,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 118,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 166,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 214,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 262,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 310,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 358,
-                        "Y": 0
-                      }
-                    }
-                  ],
-                  "FrameLength": 8
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
@@ -300510,69 +300441,7 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 27,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 75,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 123,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 171,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 219,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 267,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 315,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 363,
-                        "Y": 1
-                      }
-                    }
-                  ],
-                  "FrameLength": 8
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
@@ -302034,69 +301903,7 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 28,
-                        "Y": 54
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 76,
-                        "Y": 54
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 124,
-                        "Y": 54
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 172,
-                        "Y": 54
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 220,
-                        "Y": 54
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 268,
-                        "Y": 54
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 316,
-                        "Y": 54
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 364,
-                        "Y": 54
-                      }
-                    }
-                  ],
-                  "FrameLength": 8
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
@@ -302950,69 +302757,7 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 30,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 78,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 126,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 174,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 222,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 270,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 318,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 366,
-                        "Y": 1
-                      }
-                    }
-                  ],
-                  "FrameLength": 8
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
@@ -305058,69 +304803,7 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 32,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 80,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 128,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 176,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 224,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 272,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 320,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 368,
-                        "Y": 2
-                      }
-                    }
-                  ],
-                  "FrameLength": 8
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
@@ -327638,137 +327321,13 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 44,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 92,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 140,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 188,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 236,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 284,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 332,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 380,
-                        "Y": 10
-                      }
-                    }
-                  ],
-                  "FrameLength": 8
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 44,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 92,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 140,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 188,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 236,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 284,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 332,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Tornadus_Arene_Anim",
-                      "TexLoc": {
-                        "X": 380,
-                        "Y": 11
-                      }
-                    }
-                  ],
-                  "FrameLength": 8
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
