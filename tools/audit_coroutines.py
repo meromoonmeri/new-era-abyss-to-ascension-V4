@@ -29,12 +29,30 @@ TROIS FORMES SONT VALIDES, et l'outil ne doit pas les confondre :
 Seule la forme "appel immediat" — un identifiant suivi d'une parenthese
 ouvrante — est fautive.
 
-CAS PARTICULIER DETECTE AUSSI
------------------------------
-    TASK:BranchCoroutine({coro1, coro2, ...})
-Passer une LISTE de coroutines a Branch n'a pas de sens : c'est
-JoinCoroutines qui prend une liste, pour attendre la fin de toutes.
-Ecrit avec Branch, le code n'attend rien et la suite se joue par-dessus.
+DEUX AUTRES CAS DETECTES
+------------------------
+A. TASK:BranchCoroutine({coro1, coro2, ...})
+   Passer une LISTE de coroutines a Branch n'a pas de sens : c'est
+   JoinCoroutines qui prend une liste, pour attendre la fin de toutes.
+   Ecrit avec Branch, le code n'attend rien et la suite se joue par-dessus.
+
+B. APPEL BLOQUANT DANS UNE BOUCLE SUR PLUSIEURS PERSONNAGES
+   Une fonction qui contient TASK:WaitTask(chara:StartAnim(...)) attend la
+   fin de l'animation. L'appeler dans une boucle `for ... ipairs` fait donc
+   jouer les personnages CHACUN LEUR TOUR au lieu d'ensemble : un souffle
+   qui repousse l'equipe devient une file d'attente, huit gardes qui se
+   levent « a la fois » s'etalent sur deux secondes.
+   La forme correcte lance chaque personnage dans sa propre coroutine et
+   place le decalage A L'INTERIEUR de la branche :
+       local co = {}
+       for i, c in ipairs(equipe) do
+         co[#co+1] = TASK:BranchCoroutine(function()
+           GAME:WaitFrames((i-1) * 5)
+           Action(c)
+         end)
+       end
+       TASK:JoinCoroutines(co)
+   Patron atteste en donjon : event_single.lua:1392 (chute des rochers).
 
 USAGE
     python3 tools/audit_coroutines.py          # tout Data/Script
@@ -105,10 +123,46 @@ def main() -> int:
             print("    corriger en : TASK:JoinCoroutines({...})")
         print()
 
+    # --- C. appels bloquants dans une boucle sur plusieurs personnages ---
+    bloquantes = set()
+    for f in fichiers:
+        src = Path(f).read_text(encoding="utf-8", errors="ignore")
+        for m in re.finditer(r"function\s+(\w+\.\w+)\(.*?\n(?=end\b)", src, re.S):
+            if "TASK:WaitTask" in m.group(0):
+                bloquantes.add(m.group(1))
+    seq = []
+    for f in fichiers:
+        lignes = Path(f).read_text(encoding="utf-8", errors="ignore").split("\n")
+        pile = []
+        for i, l in enumerate(lignes, 1):
+            s = l.strip()
+            if not s or s.startswith("--"):
+                continue
+            ind = len(l) - len(l.lstrip())
+            # boucle multi-lignes uniquement (une boucle inline ne seque rien)
+            if re.search(r"\bfor\b.*\bdo\b", s) and not re.search(r"\bend\b", s):
+                pile.append([ind, False])
+            elif re.match(r"^(end|until)\b", s) and pile and ind <= pile[-1][0]:
+                pile.pop()
+            if pile and "BranchCoroutine" in s:
+                pile[-1][1] = True
+            if pile and not pile[-1][1]:
+                for b in bloquantes:
+                    if b + "(" in s:
+                        rel = f.replace(str(ROOT) + "/", "").replace("Data/Script/halcyon/", "")
+                        seq.append((rel, i, b, s))
+    if seq:
+        print(f"### APPEL BLOQUANT DANS UNE BOUCLE : {len(seq)}")
+        print("    (les personnages jouent chacun leur tour au lieu d'ensemble)")
+        for f, i, b, s in seq:
+            print(f"  {f}:{i}  {b}()")
+            print(f"      {s[:100]}")
+        print()
+
     print(f"  formes valides  : {refs} reference(s) de fonction")
     print(f"  en commentaire  : {commentes} (inertes)")
 
-    total = len(appels_immediats) + len(listes)
+    total = len(appels_immediats) + len(listes) + len(seq)
     print("\n" + "=" * 78)
     if total:
         print(f" {total} DEFAUT(S) — cinematique interrompue a l'execution")

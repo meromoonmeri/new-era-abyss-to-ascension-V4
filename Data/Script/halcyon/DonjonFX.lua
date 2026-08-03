@@ -204,10 +204,20 @@ end
 function DonjonFX.RegarderVers(cible, decalage)
     if cible == nil then return end
     decalage = decalage or 6
+    -- CHACUN TOURNE LA TETE A SON RYTHME, EN PARALLELE.
+    -- L'ancienne version bouclait en sequence avec un WaitFrames entre
+    -- deux : le decalage etait juste, mais il fallait attendre la fin du
+    -- precedent avant de lancer le suivant. Avec des coroutines, tout part
+    -- ensemble et le decalage vit A L'INTERIEUR de chaque branche —
+    -- patron atteste en donjon (event_single.lua:1392, chute des rochers).
+    local co = {}
     for i, c in ipairs(DonjonFX.Equipe()) do
-        pcall(function() DUNGEON:CharTurnToChar(c, cible) end)
-        if i < 4 then GAME:WaitFrames(decalage) end
+        co[#co + 1] = TASK:BranchCoroutine(function()
+            GAME:WaitFrames((i - 1) * decalage)
+            pcall(function() DUNGEON:CharTurnToChar(c, cible) end)
+        end)
     end
+    if #co > 0 then pcall(function() TASK:JoinCoroutines(co) end) end
 end
 
 --Souffle d'impact : l'ecran encaisse, puis chaque membre de l'equipe
@@ -217,11 +227,26 @@ function DonjonFX.Impact(puissance)
     DonjonFX.Secousse(math.max(4, puissance), 28)
     SOUND:PlayBattleSE("EVT_Emote_Startled")
     local equipe = DonjonFX.Equipe()
+
+    -- UN SOUFFLE REPOUSSE TOUT LE MONDE EN MEME TEMPS.
+    -- Defaut corrige : la boucle appelait DonjonFX.Sursaut, qui fait un
+    -- TASK:WaitTask(chara:StartAnim(...)) — donc BLOQUANT. Chaque membre
+    -- attendait la fin de l'animation du precedent : au lieu d'un impact,
+    -- on voyait une file d'attente de personnages qui reculent chacun leur
+    -- tour. Avec quatre equipiers, l'effet s'etalait sur pres d'une
+    -- seconde et ne se lisait plus comme un souffle.
+    -- Chaque recul part maintenant dans sa propre coroutine ; le decalage
+    -- de 5 frames est conserve, mais il se joue DANS la branche.
+    local co = {}
     for i, c in ipairs(equipe) do
-        DonjonFX.Emote(c, "shock", 1)
-        DonjonFX.Sursaut(c)
-        if i < #equipe then GAME:WaitFrames(5) end
+        co[#co + 1] = TASK:BranchCoroutine(function()
+            GAME:WaitFrames((i - 1) * 5)
+            DonjonFX.Emote(c, "shock", 1)
+            DonjonFX.Sursaut(c)
+        end)
     end
+    if #co > 0 then pcall(function() TASK:JoinCoroutines(co) end) end
+
     GAME:WaitFrames(16)
     for _, c in ipairs(equipe) do DonjonFX.Emote(c, "", 0) end
 end

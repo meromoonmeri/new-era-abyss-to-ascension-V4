@@ -125,11 +125,25 @@ function RuinesTitan.Eveil()
     dire(partner, 'CRB_GARDES_02', "Surprised")
     GAME:WaitFrames(18)
 
-    -- La poussiere tombe de huit paires d'epaules a la fois.
+    -- La poussiere tombe de huit paires d'epaules A LA FOIS.
+    --
+    -- Le commentaire disait « a la fois », le code faisait l'inverse :
+    -- DonjonFX.Bond fait un TASK:WaitTask(StartAnim) donc BLOQUANT, et la
+    -- boucle y ajoutait 6 frames. Les huit gardes se levaient chacun leur
+    -- tour, la cascade s'etalait sur pres de deux secondes et se lisait
+    -- comme huit evenements separes au lieu d'un seul reveil collectif.
+    -- Chaque bond part maintenant dans sa propre coroutine ; le decalage
+    -- de 6 frames est conserve — c'est lui qui fait la vague — mais il se
+    -- joue DANS la branche. Patron atteste en donjon
+    -- (event_single.lua:1392, chute des rochers du Terrakion).
+    local bonds = {}
     for i, g in ipairs(gardes) do
-      DonjonFX.Bond(g)
-      if i < #gardes then GAME:WaitFrames(6) end
+      bonds[#bonds + 1] = TASK:BranchCoroutine(function()
+        GAME:WaitFrames((i - 1) * 6)
+        DonjonFX.Bond(g)
+      end)
     end
+    if #bonds > 0 then pcall(function() TASK:JoinCoroutines(bonds) end) end
     SOUND:PlayBattleSE("DUN_Rock_Slide")
     DonjonFX.Secousse(6, 30)
     GAME:WaitFrames(30)
