@@ -92,11 +92,31 @@ end
 
 -- Le secteur dont le mot n'est PAS encore complete (celui que la
 -- tablette affiche). Retourne nil si les trois sont faits.
+-- Le secteur en cours : le premier des trois dont le GARDIEN n'est pas
+-- encore tombe.
+--
+-- CORRECTIF DE BLOCAGE DE SAUVEGARDE. Cette fonction ne regardait que le
+-- mot ('Mot'..cle), jamais le gardien. Or le mot est epele AVANT le combat :
+-- des qu'il etait complet, le secteur cessait d'etre actif, que le Regi ait
+-- ete vaincu ou non. Deux consequences, verifiees par simulation :
+--
+--   * le joueur qui PERD contre un gardien ne peut plus jamais revenir a
+--     lui : son arene devient inatteignable, le scelle reste intact ;
+--   * s'il perd contre Registeel (3e mot epele), plus aucun secteur n'est
+--     actif ET le Puits reste ferme, puisqu'il exige VaincuRegisteel.
+--     Le donjon entier se referme : sauvegarde bloquee.
+--
+-- Un secteur est desormais fini quand son gardien est tombe, ce qui est la
+-- vraie condition d'Aegis Cave. Le mot, lui, sert toujours a ouvrir l'arene
+-- (motComplet dans zone/cloven_ruins/init.lua) : une fois epele il le reste,
+-- donc un joueur battu retraverse le labyrinthe et retombe sur le gardien,
+-- sans avoir a re-collecter les pierres. C'est exactement le comportement
+-- du jeu d'origine.
 function RuinesZarbi.SecteurActif()
   RuinesZarbi.Ensure()
   for _, seg in ipairs({0, 2, 4}) do
     local d = RuinesZarbi.MOTS[seg]
-    if SV.Ruines['Mot' .. d.cle] ~= true then return seg, d end
+    if SV.Ruines['Vaincu' .. d.gardien] ~= true then return seg, d end
   end
   return nil, nil
 end
