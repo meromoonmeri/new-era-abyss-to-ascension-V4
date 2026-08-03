@@ -43952,8 +43952,8 @@
       },
       "CollisionDisabled": false,
       "Collider": {
-       "X": 0,
-       "Y": 0,
+       "X": 232,
+       "Y": 200,
        "Width": 16,
        "Height": 16
       }

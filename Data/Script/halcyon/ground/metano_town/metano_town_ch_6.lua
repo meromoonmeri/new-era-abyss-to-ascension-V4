@@ -369,7 +369,7 @@ function metano_town_ch_6.DazzlingIntroduction()
 
 	UI:SetSpeaker(partner)
 	GeneralFunctions.SetEmotion("Angry")
-	GeneralFunctions.EmoteAndPause(partner, "angry", true)
+	GeneralFunctions.EmoteAndPause(partner, "Angry", true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT6_007']))
 
 	-- Aria tests the partner physically, but backs off as soon as she has

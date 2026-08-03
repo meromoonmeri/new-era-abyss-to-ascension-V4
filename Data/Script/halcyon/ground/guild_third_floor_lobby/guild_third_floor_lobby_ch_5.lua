@@ -1061,7 +1061,7 @@ function guild_third_floor_lobby_ch_5.SecondExpeditionAddress()
 	
 	
 		GAME:WaitFrames(10)
-	GeneralFunctions.EmoteAndPause(tropius, "notice", true)
+	GeneralFunctions.EmoteAndPause(tropius, "Notice", true)
 	GROUND:CharAnimateTurnTo(tropius, Direction.DownRight, 4)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G3L5_119'], growlithe:GetDisplayName()))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G3L5_120'], noctowl:GetDisplayName()))
