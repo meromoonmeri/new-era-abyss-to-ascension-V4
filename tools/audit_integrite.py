@@ -172,7 +172,14 @@ for s, n in son_glob.items():
 # 7. cinematiques de boss sans musique
 for p in luas:
     raw = open(p, encoding='utf-8', errors='replace').read()
-    if 'COMMON.BossTransition()' in raw and 'PlayBGM' not in nocom(raw):
+    # BossMusic.Play est l'indirection PROPRE du projet vers PlayBGM
+    # (BossMusic.lua:194). 53 arenes l'emploient sans jamais ecrire
+    # PlayBGM en clair : les signaler serait un faux positif de masse et
+    # pousserait a coder les pistes en dur, ce qu'on veut eviter.
+    # On ne garde donc que les scenes qui n'ont NI l'un NI l'autre.
+    txt = nocom(raw)
+    if 'COMMON.BossTransition()' in raw \
+       and 'PlayBGM' not in txt and 'BossMusic.Play' not in txt:
         pb['7. SCENE DE BOSS SANS MUSIQUE'].append(rel(p))
 
 # --- rapport -----------------------------------------------------------

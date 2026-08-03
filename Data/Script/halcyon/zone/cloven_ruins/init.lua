@@ -138,9 +138,14 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ruinsActive() then
           if motComplet(segmentID) then
               -- Le mot est epele : l'escalier vers la chambre s'ouvre.
-              PrintInfo("[Ruines] secteur "..tostring(segmentID).." : mot complet -> chambre")
-              GAME:ContinueDungeon("cloven_ruins", segmentID + 1, 0, 0,
-                  RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+              -- Le mot est epele : on passe par le ground de cinematique du
+              -- gardien, qui joue l'eveil PUIS lance le combat. Une apparition
+              -- instantanee est interdite par les regles du projet.
+              local GROUND_GARDIEN = { [0] = 'cloven_ruins_regice',
+                                       [2] = 'cloven_ruins_regirock',
+                                       [4] = 'cloven_ruins_registeel' }
+              PrintInfo("[Ruines] secteur "..tostring(segmentID).." : mot complet -> "..GROUND_GARDIEN[segmentID])
+              GAME:EnterGroundMap(GROUND_GARDIEN[segmentID], 'Main_Entrance_Marker')
           else
               -- Mot incomplet : le donjon boucle, comme dans EoS.
               PrintInfo("[Ruines] secteur "..tostring(segmentID).." : mot incomplet -> retour au camp")
@@ -164,9 +169,12 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Ruines = SV.Ruines or {}
           SV.Ruines['Perdu' .. qui] = true
       end
-      -- Victoire comme defaite : on repasse par le camp, qui lit les flags
-      -- et joue la scene correspondante (patron mount_windswept).
-      GAME:EnterGroundMap('cloven_ruins_entrance', 'Main_Entrance_Marker')
+      -- Victoire comme defaite : on repasse par le ground du gardien, qui
+      -- lit les flags et joue la scene d'apres-combat (patron mount_windswept).
+      local RETOUR = { [1] = 'cloven_ruins_regice',
+                       [3] = 'cloven_ruins_regirock',
+                       [5] = 'cloven_ruins_registeel' }
+      GAME:EnterGroundMap(RETOUR[segmentID], 'Main_Entrance_Marker')
 
   -- --- LE PUITS : 6 (5 etages, aucun puzzle) -------------------------
   elseif segmentID == 6 then

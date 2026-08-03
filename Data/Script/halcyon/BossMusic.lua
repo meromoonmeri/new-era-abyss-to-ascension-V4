@@ -100,6 +100,16 @@ local T = {
 --------------------------------------------------------------------
 BossMusic.LIST = {
 
+  ---------------- LES TROIS SCELLES DES RUINES ----------------------
+  -- Portage d'Aegis Cave. Les trois gardiens partagent le theme du
+  -- donjon d'origine (MACHINE) : ce sont des mecanismes, pas des
+  -- creatures, et le meme motif qui les a scelles les anime tous.
+  -- Regigigas, lui, garde EPREUVE : il n'est pas un rouage, il est ce
+  -- que les rouages gardaient.
+  cloven_ruins_regice      = T.MACHINE,
+  cloven_ruins_regirock    = T.MACHINE,
+  cloven_ruins_registeel   = T.MACHINE,
+
   ---------------- COSMIQUE : ce qui precede le monde ----------------
   -- Le theme le plus dense du repertoire (2 min 15). Quatre arenes
   -- seulement y ont droit : celles ou l'adversaire est anterieur au
