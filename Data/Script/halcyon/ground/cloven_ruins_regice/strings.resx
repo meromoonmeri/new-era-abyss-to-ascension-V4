@@ -2,22 +2,18 @@
 <root>
   <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
   <data name="RG_ICE_01" xml:space="preserve"><value>This chamber is colder than the corridor.[pause=25] Far colder.[pause=20] Frost is climbing the walls,[pause=10] and climbing fast.</value></data>
-  <data name="RG_ICE_02" xml:space="preserve"><value>Can you see your breath?[pause=20] I can.[pause=25] A second ago,[pause=10] I couldn't.</value></data>
-  <data name="RG_ICE_03" xml:space="preserve"><value>YOU GATHERED THE SIGNS.[pause=25] NO ONE HAS DONE THAT SINCE...[pause=30] I NO LONGER KNOW.[pause=20] THE COUNT WAS LOST WITH THE REST.</value></data>
-  <data name="RG_ICE_04" xml:space="preserve"><value>(He isn't threatening us.[pause=20] He's stating a fact.[pause=25] That's almost worse.)</value></data>
-  <data name="RG_ICE_05" xml:space="preserve"><value>He won't step aside.[pause=20] And we're not leaving without getting through.[pause=25] Stay close to me.</value></data>
-  <data name="RG_ROCK_01" xml:space="preserve"><value>The floor shudders at steady intervals.[pause=25] That's no rockfall.[pause=20] That's a rhythm.</value></data>
-  <data name="RG_ROCK_02" xml:space="preserve"><value>It's coming from the back...[pause=20] and rising from below,[pause=10] not from the sides.</value></data>
-  <data name="RG_ROCK_03" xml:space="preserve"><value>STONE REMEMBERS EVERY STEP.[pause=25] YOURS ARE NEW.[pause=20] VERY NEW.[pause=30] SHOW ME THEY CARRY WEIGHT.</value></data>
-  <data name="RG_ROCK_04" xml:space="preserve"><value>(He heard us coming from the first floor.[pause=25] He simply waited for us to reach him.)</value></data>
-  <data name="RG_ROCK_05" xml:space="preserve"><value>Fine.[pause=20] Then we'll carry weight.[pause=25] We didn't come all this way to back down from a rock,[pause=10] however big.</value></data>
-  <data name="RG_STEEL_01" xml:space="preserve"><value>Nothing.[pause=30] No cold,[pause=10] no tremor,[pause=10] not a sound.[pause=25] Just an empty chamber.</value></data>
-  <data name="RG_STEEL_02" xml:space="preserve"><value>...That's what bothers me.[pause=25] The other two announced themselves.[pause=20] This one,[pause=15] didn't.</value></data>
-  <data name="RG_STEEL_03" xml:space="preserve"><value>I DID NOT SLEEP.[pause=30] I STOOD WHILE THE OTHER TWO RESTED.[pause=25] SOMEONE HAD TO WATCH THE DOOR.</value></data>
-  <data name="RG_STEEL_04" xml:space="preserve"><value>(He was here all along.[pause=25] We turned our backs on him walking in.)</value></data>
-  <data name="RG_STEEL_05" xml:space="preserve"><value>He let us come this far.[pause=25] That wasn't carelessness.[pause=20] It was a test,[pause=10] and it starts now.</value></data>
-  <data name="RG_VICTOIRE" xml:space="preserve"><value>The guardian goes still,[pause=20] then slowly folds in on itself.[pause=25] Where it stood,[pause=15] the way is open.</value></data>
-  <data name="RG_VICTOIRE_P" xml:space="preserve"><value>It didn't collapse...[pause=20] it stood down.[pause=25] Like its watch had just ended.</value></data>
+  <data name="RG_ICE_02" xml:space="preserve"><value>The frost isn't falling from the ceiling...[pause=25] it's RISING.[pause=20] It's coming from something,[pause=15] at the back.</value></data>
+  <data name="RG_ICE_03" xml:space="preserve"><value>(Every step cracks a film of ice that wasn't there at the entrance.)</value></data>
+  <data name="RG_ICE_04" xml:space="preserve"><value>YOU GATHERED THE SIGNS.[pause=25] NO ONE HAS DONE THAT SINCE...[pause=30] I NO LONGER KNOW.[pause=20] THE COUNT WAS LOST WITH THE REST.</value></data>
+  <data name="RG_ICE_05" xml:space="preserve"><value>He doesn't know how long he's been here...[pause=25] How do you forget a thing like that?</value></data>
+  <data name="RG_ICE_06" xml:space="preserve"><value>COLD PRESERVES EVERYTHING.[pause=25] STONE,[pause=15] BODIES,[pause=15] ORDERS.[pause=30] EVERYTHING,[pause=20] EXCEPT THE REASON THEY WERE GIVEN.</value></data>
+  <data name="RG_ICE_07" xml:space="preserve"><value>I KEPT THE ORDER INTACT.[pause=25] IT IS THE WHY THAT MELTED.[pause=30] SHOW ME YOU ARE WORTH WHAT I FORGOT.</value></data>
+  <data name="RG_ICE_08" xml:space="preserve"><value>We can't give him his memory back.[pause=25] But we can give him an answer.[pause=20] Ready?</value></data>
+  <data name="RG_ICE_09" xml:space="preserve"><value>...YOU WERE WARMER THAN THE ORDER.[pause=30] THAT IS ALREADY AN ANSWER.[pause=25] GO SEE THE OTHER TWO.[pause=20] THEY REMEMBER BETTER THAN I DO.</value></data>
+  <data name="RG_ICE_10" xml:space="preserve"><value>He's sending us to the others...[pause=25] As if he knew we'd come back with questions.</value></data>
+  <data name="RG_ICE_11" xml:space="preserve"><value>THE COLD TOOK YOU BACK.[pause=25] IT TAKES EVERYTHING BACK,[pause=15] IN THE END.[pause=30] RETURN WHEN YOU BURN BRIGHTER.</value></data>
+  <data name="RG_VICTOIRE" xml:space="preserve"><value>The guardian goes still.[pause=25] No crack,[pause=15] no collapse:[pause=20] it simply stands straighter than before,[pause=15] as if relieved of a weight.</value></data>
+  <data name="RG_VICTOIRE_P" xml:space="preserve"><value>Where it kept watch,[pause=20] the stone has split.[pause=25] Steps descend into the dark.</value></data>
   <data name="RG_DEFAITE" xml:space="preserve"><value>The floor gives way.[pause=25] The guardian doesn't pursue:[pause=15] it simply returns to its post,[pause=10] and waits.</value></data>
   <data name="RG_DEFAITE_P" xml:space="preserve"><value>We got thrown out...[pause=20] but it didn't finish us.[pause=25] It's waiting for us to come back ready.[pause=20] So let's go back.</value></data>
 </root>

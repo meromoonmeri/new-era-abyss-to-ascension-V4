@@ -1476,6 +1476,10 @@ SV.Ruines =
   BoucleSecteur   = -1,
   TabletteVue     = false,
 
+  VuRegice        = false,
+  VuRegirock      = false,
+  VuRegisteel     = false,
+
   VaincuRegice    = false,
   VaincuRegirock  = false,
   VaincuRegisteel = false,

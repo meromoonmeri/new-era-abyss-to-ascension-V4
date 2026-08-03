@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
-  <data name="RG_ICE_01" xml:space="preserve"><value>La salle est plus froide que le couloir.[pause=25] Beaucoup plus froide.[pause=20] Le givre monte le long des parois,[pause=10] et il monte vite.</value></data>
-  <data name="RG_ICE_02" xml:space="preserve"><value>Tu vois ton souffle ?[pause=20] Moi oui.[pause=25] Il y a une seconde,[pause=10] non.</value></data>
-  <data name="RG_ICE_03" xml:space="preserve"><value>VOUS AVEZ RASSEMBLE LES SIGNES.[pause=25] PERSONNE NE L'AVAIT FAIT DEPUIS...[pause=30] JE NE SAIS PLUS.[pause=20] LE COMPTE S'EST PERDU AVEC LE RESTE.</value></data>
-  <data name="RG_ICE_04" xml:space="preserve"><value>(Il ne nous menace pas.[pause=20] Il constate.[pause=25] C'est presque pire.)</value></data>
-  <data name="RG_ICE_05" xml:space="preserve"><value>Il ne bougera pas de là.[pause=20] Et nous,[pause=10] on ne repartira pas sans passer.[pause=25] Reste près de moi.</value></data>
-  <data name="RG_ROCK_01" xml:space="preserve"><value>Le sol tremble par à-coups réguliers.[pause=25] Ce n'est pas un éboulement.[pause=20] C'est un rythme.</value></data>
-  <data name="RG_ROCK_02" xml:space="preserve"><value>Ça vient du fond...[pause=20] et ça se rapproche du dessous,[pause=10] pas des côtés.</value></data>
-  <data name="RG_ROCK_03" xml:space="preserve"><value>LA PIERRE SE SOUVIENT DE CHAQUE PAS.[pause=25] LES VOTRES SONT NEUFS.[pause=20] TRES NEUFS.[pause=30] MONTREZ-MOI QU'ILS PESENT QUELQUE CHOSE.</value></data>
-  <data name="RG_ROCK_04" xml:space="preserve"><value>(Il nous a entendus venir depuis le premier étage.[pause=25] Il a juste attendu qu'on arrive jusqu'à lui.)</value></data>
-  <data name="RG_ROCK_05" xml:space="preserve"><value>D'accord.[pause=20] Alors on va peser.[pause=25] On n'a pas traversé tout ça pour reculer devant un caillou,[pause=10] même énorme.</value></data>
   <data name="RG_STEEL_01" xml:space="preserve"><value>Rien.[pause=30] Pas de froid,[pause=10] pas de secousse,[pause=10] pas un bruit.[pause=25] Juste une salle vide.</value></data>
   <data name="RG_STEEL_02" xml:space="preserve"><value>...C'est ça qui me gêne.[pause=25] Les deux autres se sont annoncés.[pause=20] Celui-là,[pause=15] non.</value></data>
-  <data name="RG_STEEL_03" xml:space="preserve"><value>JE N'AI PAS DORMI.[pause=30] JE SUIS RESTE DEBOUT PENDANT QUE LES DEUX AUTRES REPOSAIENT.[pause=25] QUELQU'UN DEVAIT REGARDER LA PORTE.</value></data>
-  <data name="RG_STEEL_04" xml:space="preserve"><value>(Il était là depuis le début.[pause=25] On lui a tourné le dos en entrant.)</value></data>
-  <data name="RG_STEEL_05" xml:space="preserve"><value>Il nous a laissés avancer jusqu'ici.[pause=25] Ce n'était pas de la négligence.[pause=20] C'était un test,[pause=10] et il commence maintenant.</value></data>
-  <data name="RG_VICTOIRE" xml:space="preserve"><value>Le gardien s'immobilise,[pause=20] puis se replie lentement sur lui-même.[pause=25] Là où il se tenait,[pause=15] le passage est libre.</value></data>
-  <data name="RG_VICTOIRE_P" xml:space="preserve"><value>Il ne s'est pas effondré...[pause=20] Il s'est rangé.[pause=25] Comme si son tour de garde venait de finir.</value></data>
+  <data name="RG_STEEL_03" xml:space="preserve"><value>(La poussière au sol n'est pas régulière.[pause=20] Quelque chose se tient debout au même endroit depuis très longtemps.)</value></data>
+  <data name="RG_STEEL_04" xml:space="preserve"><value>JE N'AI PAS DORMI.[pause=30] JE SUIS RESTE DEBOUT PENDANT QUE LES DEUX AUTRES REPOSAIENT.[pause=25] QUELQU'UN DEVAIT REGARDER LA PORTE.</value></data>
+  <data name="RG_STEEL_05" xml:space="preserve"><value>Il était là...[pause=25] Depuis le début.[pause=20] On lui a tourné le dos en entrant.</value></data>
+  <data name="RG_STEEL_06" xml:space="preserve"><value>LE FROID A OUBLIE.[pause=25] LA PIERRE A COMPTE.[pause=25] MOI,[pause=20] J'AI REGARDE.[pause=30] C'EST LA PIRE DES TROIS FACTIONS.</value></data>
+  <data name="RG_STEEL_07" xml:space="preserve"><value>ON NE M'A JAMAIS DIT CE QUE JE SURVEILLAIS.[pause=30] SEULEMENT DE NE PAS DETOURNER LES YEUX.[pause=25] PROUVEZ-MOI QUE JE PEUX,[pause=20] UN INSTANT.</value></data>
+  <data name="RG_STEEL_08" xml:space="preserve"><value>Un instant,[pause=20] alors.[pause=25] Le temps qu'on passe.[pause=20] Après, tu pourras regarder ailleurs.</value></data>
+  <data name="RG_STEEL_09" xml:space="preserve"><value>...J'AI DETOURNE LES YEUX.[pause=30] RIEN N'EST SORTI.[pause=25] MILLE ANS A CRAINDRE UN INSTANT QUI NE VENAIT PAS.[pause=30] DESCENDEZ.[pause=20] DEMANDEZ AU GRAND CE QU'IL GARDAIT VRAIMENT.</value></data>
+  <data name="RG_STEEL_10" xml:space="preserve"><value>« Le grand »...[pause=25] Il y en a un quatrième,[pause=20] plus bas.[pause=25] Et lui,[pause=15] il sait.</value></data>
+  <data name="RG_STEEL_11" xml:space="preserve"><value>JE N'AI PAS DETOURNE LES YEUX.[pause=30] VOUS NON PLUS,[pause=20] LA PROCHAINE FOIS.</value></data>
+  <data name="RG_VICTOIRE" xml:space="preserve"><value>Le gardien s'immobilise.[pause=25] Aucune fissure,[pause=15] aucun effondrement :[pause=20] il se tient simplement plus droit qu'avant,[pause=15] comme relevé d'une charge.</value></data>
+  <data name="RG_VICTOIRE_P" xml:space="preserve"><value>Là où il montait la garde,[pause=20] la pierre s'est fendue.[pause=25] Des marches descendent vers le noir.</value></data>
   <data name="RG_DEFAITE" xml:space="preserve"><value>Le sol se dérobe.[pause=25] Le gardien ne poursuit pas :[pause=15] il reprend simplement sa place,[pause=10] et attend.</value></data>
   <data name="RG_DEFAITE_P" xml:space="preserve"><value>On s'est fait sortir...[pause=20] mais il ne nous a pas achevés.[pause=25] Il attend qu'on revienne mieux préparés.[pause=20] Alors revenons-y.</value></data>
 </root>

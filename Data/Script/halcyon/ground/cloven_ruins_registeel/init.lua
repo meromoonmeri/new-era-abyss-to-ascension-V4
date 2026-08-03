@@ -37,7 +37,11 @@ function cloven_ruins_registeel.Enter(map)
     SV.Ruines.PerduRegisteel = false
     RuinesGardiens.Apres('Registeel', false)
   else
-    RuinesGardiens.Affronter('Registeel')
+    -- Vu = le gardien a deja ete rencontre (defaite precedente) : on joue
+    -- la version courte, patron SecondPreBossScene de la reference.
+    local court = (SV.Ruines.VuRegisteel == true)
+    SV.Ruines.VuRegisteel = true
+    RuinesGardiens.Affronter('Registeel', court)
   end
 end
 
