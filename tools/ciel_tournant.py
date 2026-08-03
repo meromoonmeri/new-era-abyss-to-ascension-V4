@@ -1,87 +1,93 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""ciel_tournant.py — nuages en rotation, composition unique et irreguliere.
+"""ciel_tournant.py — ciel a deux couches : les nuages RESPIRENT en tournant.
 
-TROIS DEFAUTS DE LA VERSION PRECEDENTE, ET LEUR CAUSE
-=====================================================
-1. « on voit la forme des images decoupees »
-   Le masque de compositing etait la FORME des nuages PixelLab
-   (548008 px, 42 % de la zone ciel). Les nuages tournaient donc a
-   l'interieur d'une decoupe immobile : un nuage qui bouge dans un
-   trou en forme de nuage. Corrige : le masque est desormais TOUTE la
-   zone ciel (1302502 px), le plateau seul est preserve.
-2. « on voit trop la construction par secteurs »
-   26 bouffees repliquees a l'identique dans 8 secteurs de 45 deg.
-   Corrige : plus aucune replication, voir ci-dessous.
-3. « couronne de nuages artificielle »
-   Les bouffees etaient des disques parfaits poses sur un anneau.
-   Corrige : champ continu, densite modulee par le rayon.
+CE QUI N'ALLAIT PAS (mesure, pas impression)
+============================================
+Version precedente : d(r,t) = SUM a_i * sin(k_i*(theta - rot) + phi_i)
+Le seul terme variable etait (theta - rot). C'est une ROTATION RIGIDE
+PURE : le motif orbite sans jamais se deformer.
+Preuve : on prend la frame a 180 deg, on la re-tourne de -180 deg
+(rotation exacte au pixel, sans interpolation) et on retombe a 99,2 %
+sur la frame 0. Un nuage qui se dilue donnerait un taux bas.
 
-COMMENT ON BOUCLE SANS SYMETRIE
-===============================
-La densite de nuage est une somme d'harmoniques en ANGLE :
+LE CORRECTIF — UNE VITESSE PAR HARMONIQUE
+=========================================
+    d = SUM_i  a_i * sin(k_i*theta + w_i*u + phi_i) * g_i(r)
 
-    d(r,t) = SUM_i  a_i * sin(k_i * t + phi_i) * g_i(r)
+`u` va de 0 a 2*pi sur un cycle. Comme
+    sin(k*theta + w*u) = sin(k*(theta + (w/k)*u))
+chaque harmonique tourne a SA PROPRE vitesse angulaire w_i/k_i. Les
+rapports etant tous differents, les harmoniques se dephasent les unes
+par rapport aux autres : les creux se comblent, les masses se
+scindent, la silhouette change en permanence. Le nuage ne se contente
+plus d'orbiter — il se dilue et se reforme.
 
-Les k_i sont des ENTIERS. Une fonction de la forme sin(k*t) est
-2*pi-periodique pour tout k entier : apres un tour complet, le champ
-est rigoureusement identique. La boucle est donc exacte sur 360 deg,
-et non sur 45 deg — il n'y a plus aucun secteur repete.
-Les k_i sont volontairement premiers entre eux (1,2,3,5,7,11,13) :
-aucun sous-multiple commun, donc aucune symetrie d'ordre N.
+BOUCLE : les w_i sont ENTIERS, donc chaque terme est 2*pi-periodique
+en u. Apres un cycle complet le champ est rigoureusement identique.
 
-STYLE — mesure sur la carte d'origine, pas suppose
-    2 couleurs : (247,247,255) ciel a 59,9 %, (215,231,247) nuage.
-    grain de 4 px (image native 288x336 agrandie x4).
-On respecte les deux : rendu sur grille au grain 4, deux tons pleins,
-plus une nuance d'ombre tres legere pour eviter l'aplat total.
+DEUX COUCHES (methode citee par l'auteur : lointains + moyens)
+    lointains : k faibles (grosses masses), vitesse lente, teinte pale
+    moyens    : k eleves (formations serrees), vitesse differente
+Deux couches independantes qui se croisent : c'est le croisement qui
+tue la lecture du motif par l'oeil.
+
+STYLE mesure sur la carte d'origine : ciel (247,247,255) a 59,9 %,
+nuage (215,231,247) a 40,1 %, grain de 4 px (natif 288x336 agrandi x4).
 """
 import numpy as np, math
 
 W, H = 1152, 1344
 CX, CY = 580, 668
 GRAIN = 4
-CIEL = np.array([247, 247, 255])
+CIEL  = np.array([247, 247, 255])
 NUAGE = np.array([215, 231, 247])
-OMBRE = np.array([207, 223, 243])      # nuance discrete, palette DS
+OMBRE = np.array([207, 223, 243])
 
-# Harmoniques : (frequence entiere, amplitude, phase, rayon pref, largeur)
-HARM = [
-    ( 1, 1.00, 0.35, 560, 300),
-    ( 2, 0.72, 2.10, 700, 260),
-    ( 3, 0.60, 4.80, 480, 240),
-    ( 5, 0.45, 1.15, 640, 300),
-    ( 7, 0.34, 3.60, 760, 240),
-    (11, 0.24, 0.80, 560, 280),
-    (13, 0.18, 5.25, 680, 260),
+# (k angulaire, w vitesse ENTIERE, amplitude, phase, rayon pref, largeur)
+# w/k = vitesse de rotation propre. Tous les rapports sont distincts.
+LOINTAINS = [
+    ( 1, 1, 1.00, 0.35, 600, 340),   # w/k = 1.00
+    ( 2, 1, 0.78, 2.10, 720, 300),   #       0.50
+    ( 3, 2, 0.62, 4.80, 520, 280),   #       0.67
+    ( 5, 2, 0.40, 1.15, 660, 320),   #       0.40
+]
+MOYENS = [
+    ( 4, 3, 0.66, 5.10, 560, 210),   # w/k = 0.75
+    ( 7, 2, 0.52, 3.60, 700, 200),   #       0.29
+    (11, 4, 0.36, 0.80, 620, 230),   #       0.36
+    (13, 3, 0.28, 5.25, 760, 190),   #       0.23
 ]
 
 gh, gw = H // GRAIN, W // GRAIN
 _Y, _X = np.mgrid[0:gh, 0:gw]
 _px = _X * GRAIN + GRAIN / 2.0
 _py = _Y * GRAIN + GRAIN / 2.0
-_R = np.hypot(_px - CX, _py - CY)
-_T = np.arctan2(_py - CY, _px - CX)
-
-# Enveloppe radiale : pas de nuage sur le plateau, densite qui monte
-# vers l'exterieur puis se maintient. C'est ce qui evite l'anneau net.
-_ENV = 1.0 / (1.0 + np.exp(-(_R - 400) / 90.0))
+_R  = np.hypot(_px - CX, _py - CY)
+_T  = np.arctan2(_py - CY, _px - CX)
+_ENV = 1.0 / (1.0 + np.exp(-(_R - 400) / 90.0))   # rien sur le plateau
 
 
-def champ(rot):
-    """Densite de nuage, tournee de `rot` radians."""
+def champ(harm, u):
     d = np.zeros((gh, gw))
-    t = _T - rot
-    for (k, a, ph, r0, lg) in HARM:
-        d += a * np.sin(k * t + ph) * np.exp(-((_R - r0) / lg) ** 2)
+    for (k, w, a, ph, r0, lg) in harm:
+        d += a * np.sin(k * _T + w * u + ph) * np.exp(-((_R - r0) / lg) ** 2)
     return d * _ENV
 
 
-def frame(rot, seuil=0.16):
-    """Une frame : ciel uniforme, nuages en deux tons."""
-    d = champ(rot)
+def couche(nom, u, seuil):
+    """Masque booleen d'une couche de nuages a l'instant u."""
+    h = LOINTAINS if nom == 'lointains' else MOYENS
+    return champ(h, u) > seuil
+
+
+def frame(u, s_loin=0.20, s_moy=0.30):
+    """Rendu complet : ciel uni + deux couches de nuages superposees."""
     small = np.zeros((gh, gw, 3), int)
     small[:] = CIEL
-    small[d > seuil] = NUAGE
-    small[d > seuil + 0.30] = OMBRE
+    loin = couche('lointains', u, s_loin)
+    moy  = couche('moyens',    u, s_moy)
+    small[loin] = NUAGE          # masses de fond, pales
+    small[moy]  = NUAGE          # formations plus serrees
+    small[loin & moy] = OMBRE    # la ou les deux se superposent
     return np.repeat(np.repeat(small, GRAIN, 0), GRAIN, 1)
