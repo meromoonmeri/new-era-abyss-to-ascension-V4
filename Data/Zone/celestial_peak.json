@@ -9,7 +9,7 @@
    }
   },
   "Released": true,
-  "Comment": "Chapter 10 dungeon. Sacred sky-piercing mountain. First Necrozma vision contact. Escouade Fulgur race. Boss: Lugia L46.",
+  "Comment": "Chapter 10 dungeon. Sacred sky-piercing tower. First Necrozma vision contact. Wyrm Roost dragon trio (seg 3). Boss: Rayquaza L40 (seg 5).",
   "NoEXP": false,
   "ExpPercent": 100,
   "Level": -1,
@@ -1602,7 +1602,7 @@
      }
     ],
     "IsRelevant": true,
-    "Comment": "Affrontement Escouade Fulgur — course tactique"
+    "Comment": "Aire des Dragons — trio Dracolosse / Drattak / Altaria"
    },
    {
     "$type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",

@@ -3,9 +3,9 @@
   "Object": {
     "$type": "RogueEssence.Dungeon.Map, RogueEssence",
     "Name": {
-      "DefaultText": "Fulgur Ridge",
+      "DefaultText": "Wyrm Roost",
       "LocalTexts": {
-        "fr": "Crête de l'Escouade Fulgur"
+        "fr": "Aire des Dragons"
       }
     },
     "Released": true,
@@ -17,252 +17,8 @@
         "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
         "Players": [
           {
-            "Element1": "normal",
-            "Element2": "none",
-            "TurnWait": 0,
-            "TiersUsed": 0,
-            "TurnUsed": false,
-            "movementSpeed": 0,
-            "dead": false,
-            "serializationLoc": {
-              "X": 5,
-              "Y": 5
-            },
-            "serializationDir": 0,
-            "ProxyName": "",
-            "ProxySprite": {
-              "Species": "",
-              "Form": -1,
-              "Skin": "",
-              "Gender": -1
-            },
-            "CurrentForm": {
-              "Species": "luxray",
-              "Form": 0,
-              "Skin": "normal",
-              "Gender": 1
-            },
-            "ProxyAtk": -1,
-            "ProxyDef": -1,
-            "ProxyMAtk": -1,
-            "ProxyMDef": -1,
-            "ProxySpeed": -1,
-            "Skills": [
-              {
-                "Element": {
-                  "SkillNum": "spark",
-                  "Charges": 5,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 0
-              },
-              {
-                "Element": {
-                  "SkillNum": "bite",
-                  "Charges": 15,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 1
-              },
-              {
-                "Element": {
-                  "SkillNum": "thunder_wave",
-                  "Charges": 10,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 2
-              },
-              {
-                "Element": {
-                  "SkillNum": "quick_attack",
-                  "Charges": 20,
-                  "Enabled": true,
-                  "Sealed": false
-                },
-                "BackRef": 3
-              }
-            ],
-            "Intrinsics": [
-              {
-                "Element": {
-                  "ID": "leaf_guard"
-                },
-                "BackRef": 0
-              }
-            ],
-            "EquippedItem": {
-              "ID": "held_power_band",
-              "Cursed": false,
-              "HiddenValue": "",
-              "Amount": 0,
-              "Price": 0
-            },
-            "Absentee": false,
-            "ChargeBoost": 0,
-            "HP": 190,
-            "HPRemainder": 0,
-            "Fullness": 100,
-            "FullnessRemainder": 0,
-            "MaxFullness": 100,
-            "StatusEffects": {},
-            "MissChain": 0,
-            "EXPMarked": false,
-            "Tactic": {
-              "Name": {
-                "DefaultText": "Dumb Wander",
-                "LocalTexts": {}
-              },
-              "Released": false,
-              "Comment": "",
-              "ID": "wander_dumb",
-              "Assignable": false,
-              "Plans": [
-                {
-                  "$type": "PMDC.Dungeon.AttackFoesPlan, PMDC",
-                  "AttackPattern": 1,
-                  "PositionPattern": 0,
-                  "IQ": 36,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 4,
-                  "StatusRange": 4,
-                  "SelfStatusRange": 3,
-                  "AbandonRangeOnHit": true
-                },
-                {
-                  "$type": "PMDC.Dungeon.FollowLeaderPlan, PMDC",
-                  "IQ": 164,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": true
-                },
-                {
-                  "$type": "PMDC.Dungeon.ExplorePlan, PMDC",
-                  "IQ": 164,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": true
-                },
-                {
-                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
-                  "IQ": 164,
-                  "RestrictedMobilityTypes": 0,
-                  "RestrictMobilityPassable": false,
-                  "AttackRange": 0,
-                  "StatusRange": 0,
-                  "SelfStatusRange": 0,
-                  "AbandonRangeOnHit": true
-                }
-              ]
-            },
-            "Mobility": 0,
-            "CantWalk": false,
-            "ItemDisabled": false,
-            "IntrinsicDisabled": false,
-            "CanRemoveStuck": false,
-            "StopItemAtHit": false,
-            "MovesScrambled": false,
-            "ChargeSaver": false,
-            "WaitToAttack": false,
-            "CantInteract": false,
-            "EnemyOfFriend": false,
-            "AttackFriend": false,
-            "TileSight": -1,
-            "CharSight": -1,
-            "Unidentifiable": false,
-            "Unlocatable": false,
-            "SeeAllChars": false,
-            "SeeItems": false,
-            "SeeWallItems": false,
-            "SeeTraps": false,
-            "CharStates": [],
-            "BackRef": {
-              "Assembly": false,
-              "Index": -1
-            },
-            "Nickname": "Voltra",
-            "OriginalUUID": "",
-            "OriginalTeam": "",
-            "BaseForm": {
-              "Species": "luxray",
-              "Form": 0,
-              "Skin": "normal",
-              "Gender": 1
-            },
-            "Level": 33,
-            "EXP": 0,
-            "MaxHPBonus": 40,
-            "AtkBonus": 0,
-            "DefBonus": 0,
-            "MAtkBonus": 0,
-            "MDefBonus": 0,
-            "SpeedBonus": 0,
-            "BaseSkills": [
-              {
-                "SkillNum": "spark",
-                "Charges": 5,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "bite",
-                "Charges": 15,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "thunder_wave",
-                "Charges": 10,
-                "CanForget": false
-              },
-              {
-                "SkillNum": "quick_attack",
-                "Charges": 20,
-                "CanForget": false
-              }
-            ],
-            "BaseIntrinsics": [
-              "slow_start"
-            ],
-            "FormIntrinsicSlot": -1,
-            "Relearnables": {},
-            "Discriminator": 0,
-            "MetAt": "",
-            "MetLoc": {
-              "ID": "",
-              "StructID": {
-                "Segment": -1,
-                "ID": -1
-              },
-              "EntryPoint": -1
-            },
-            "DefeatAt": "",
-            "DefeatLoc": {
-              "ID": "",
-              "StructID": {
-                "Segment": -1,
-                "ID": -1
-              },
-              "EntryPoint": -1
-            },
-            "IsFounder": false,
-            "IsPartner": false,
-            "NameLocked": false,
-            "IsFavorite": false,
-            "Unrecruitable": true,
-            "ActionEvents": [],
-            "ScriptVars": null
-          },
-          {
-            "Element1": "normal",
-            "Element2": "none",
+            "Element1": "dragon",
+            "Element2": "flying",
             "TurnWait": 0,
             "TiersUsed": 0,
             "TurnUsed": false,
@@ -281,7 +37,7 @@
               "Gender": -1
             },
             "CurrentForm": {
-              "Species": "lucario",
+              "Species": "dragonite",
               "Form": 0,
               "Skin": "normal",
               "Gender": 1
@@ -294,8 +50,8 @@
             "Skills": [
               {
                 "Element": {
-                  "SkillNum": "karate_chop",
-                  "Charges": 5,
+                  "SkillNum": "dragon_claw",
+                  "Charges": 10,
                   "Enabled": true,
                   "Sealed": false
                 },
@@ -303,8 +59,8 @@
               },
               {
                 "Element": {
-                  "SkillNum": "double_kick",
-                  "Charges": 15,
+                  "SkillNum": "wing_attack",
+                  "Charges": 10,
                   "Enabled": true,
                   "Sealed": false
                 },
@@ -312,7 +68,7 @@
               },
               {
                 "Element": {
-                  "SkillNum": "iron_defense",
+                  "SkillNum": "dragon_dance",
                   "Charges": 10,
                   "Enabled": true,
                   "Sealed": false
@@ -321,8 +77,8 @@
               },
               {
                 "Element": {
-                  "SkillNum": "quick_attack",
-                  "Charges": 20,
+                  "SkillNum": "extreme_speed",
+                  "Charges": 10,
                   "Enabled": true,
                   "Sealed": false
                 },
@@ -332,7 +88,7 @@
             "Intrinsics": [
               {
                 "Element": {
-                  "ID": "leaf_guard"
+                  "ID": "inner_focus"
                 },
                 "BackRef": 0
               }
@@ -346,7 +102,7 @@
             },
             "Absentee": false,
             "ChargeBoost": 0,
-            "HP": 190,
+            "HP": 200,
             "HPRemainder": 0,
             "Fullness": 100,
             "FullnessRemainder": 0,
@@ -433,11 +189,11 @@
               "Assembly": false,
               "Index": -1
             },
-            "Nickname": "Aegis",
+            "Nickname": "Vertevire",
             "OriginalUUID": "",
             "OriginalTeam": "",
             "BaseForm": {
-              "Species": "lucario",
+              "Species": "luxray",
               "Form": 0,
               "Skin": "normal",
               "Gender": 1
@@ -452,28 +208,24 @@
             "SpeedBonus": 0,
             "BaseSkills": [
               {
-                "SkillNum": "karate_chop",
-                "Charges": 5,
-                "CanForget": false
+                "SkillNum": "dragon_claw",
+                "Charges": 10
               },
               {
-                "SkillNum": "double_kick",
-                "Charges": 15,
-                "CanForget": false
+                "SkillNum": "wing_attack",
+                "Charges": 10
               },
               {
-                "SkillNum": "iron_defense",
-                "Charges": 10,
-                "CanForget": false
+                "SkillNum": "dragon_dance",
+                "Charges": 10
               },
               {
-                "SkillNum": "quick_attack",
-                "Charges": 20,
-                "CanForget": false
+                "SkillNum": "extreme_speed",
+                "Charges": 10
               }
             ],
             "BaseIntrinsics": [
-              "slow_start"
+              "inner_focus"
             ],
             "FormIntrinsicSlot": -1,
             "Relearnables": {},
@@ -505,15 +257,15 @@
             "ScriptVars": null
           },
           {
-            "Element1": "normal",
-            "Element2": "none",
+            "Element1": "dragon",
+            "Element2": "flying",
             "TurnWait": 0,
             "TiersUsed": 0,
             "TurnUsed": false,
             "movementSpeed": 0,
             "dead": false,
             "serializationLoc": {
-              "X": 9,
+              "X": 5,
               "Y": 5
             },
             "serializationDir": 0,
@@ -525,7 +277,7 @@
               "Gender": -1
             },
             "CurrentForm": {
-              "Species": "heliolisk",
+              "Species": "salamence",
               "Form": 0,
               "Skin": "normal",
               "Gender": 1
@@ -538,8 +290,8 @@
             "Skills": [
               {
                 "Element": {
-                  "SkillNum": "spark",
-                  "Charges": 5,
+                  "SkillNum": "dragon_breath",
+                  "Charges": 10,
                   "Enabled": true,
                   "Sealed": false
                 },
@@ -547,8 +299,8 @@
               },
               {
                 "Element": {
-                  "SkillNum": "thunder_wave",
-                  "Charges": 15,
+                  "SkillNum": "aerial_ace",
+                  "Charges": 10,
                   "Enabled": true,
                   "Sealed": false
                 },
@@ -556,7 +308,7 @@
               },
               {
                 "Element": {
-                  "SkillNum": "quick_attack",
+                  "SkillNum": "dragon_claw",
                   "Charges": 10,
                   "Enabled": true,
                   "Sealed": false
@@ -565,8 +317,8 @@
               },
               {
                 "Element": {
-                  "SkillNum": "sand_attack",
-                  "Charges": 20,
+                  "SkillNum": "twister",
+                  "Charges": 10,
                   "Enabled": true,
                   "Sealed": false
                 },
@@ -576,7 +328,7 @@
             "Intrinsics": [
               {
                 "Element": {
-                  "ID": "leaf_guard"
+                  "ID": "intimidate"
                 },
                 "BackRef": 0
               }
@@ -590,7 +342,7 @@
             },
             "Absentee": false,
             "ChargeBoost": 0,
-            "HP": 180,
+            "HP": 185,
             "HPRemainder": 0,
             "Fullness": 100,
             "FullnessRemainder": 0,
@@ -677,18 +429,18 @@
               "Assembly": false,
               "Index": -1
             },
-            "Nickname": "Solaire",
+            "Nickname": "Bregonde",
             "OriginalUUID": "",
             "OriginalTeam": "",
             "BaseForm": {
-              "Species": "heliolisk",
+              "Species": "luxray",
               "Form": 0,
               "Skin": "normal",
               "Gender": 1
             },
             "Level": 33,
             "EXP": 0,
-            "MaxHPBonus": 30,
+            "MaxHPBonus": 40,
             "AtkBonus": 0,
             "DefBonus": 0,
             "MAtkBonus": 0,
@@ -696,28 +448,264 @@
             "SpeedBonus": 0,
             "BaseSkills": [
               {
-                "SkillNum": "spark",
-                "Charges": 5,
-                "CanForget": false
+                "SkillNum": "dragon_breath",
+                "Charges": 10
               },
               {
-                "SkillNum": "thunder_wave",
-                "Charges": 15,
-                "CanForget": false
+                "SkillNum": "aerial_ace",
+                "Charges": 10
               },
               {
-                "SkillNum": "quick_attack",
-                "Charges": 10,
-                "CanForget": false
+                "SkillNum": "dragon_claw",
+                "Charges": 10
               },
               {
-                "SkillNum": "sand_attack",
-                "Charges": 20,
-                "CanForget": false
+                "SkillNum": "twister",
+                "Charges": 10
               }
             ],
             "BaseIntrinsics": [
-              "slow_start"
+              "intimidate"
+            ],
+            "FormIntrinsicSlot": -1,
+            "Relearnables": {},
+            "Discriminator": 0,
+            "MetAt": "",
+            "MetLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "DefeatAt": "",
+            "DefeatLoc": {
+              "ID": "",
+              "StructID": {
+                "Segment": -1,
+                "ID": -1
+              },
+              "EntryPoint": -1
+            },
+            "IsFounder": false,
+            "IsPartner": false,
+            "NameLocked": false,
+            "IsFavorite": false,
+            "Unrecruitable": true,
+            "ActionEvents": [],
+            "ScriptVars": null
+          },
+          {
+            "Element1": "dragon",
+            "Element2": "flying",
+            "TurnWait": 0,
+            "TiersUsed": 0,
+            "TurnUsed": false,
+            "movementSpeed": 0,
+            "dead": false,
+            "serializationLoc": {
+              "X": 9,
+              "Y": 5
+            },
+            "serializationDir": 0,
+            "ProxyName": "",
+            "ProxySprite": {
+              "Species": "",
+              "Form": -1,
+              "Skin": "",
+              "Gender": -1
+            },
+            "CurrentForm": {
+              "Species": "altaria",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": 1
+            },
+            "ProxyAtk": -1,
+            "ProxyDef": -1,
+            "ProxyMAtk": -1,
+            "ProxyMDef": -1,
+            "ProxySpeed": -1,
+            "Skills": [
+              {
+                "Element": {
+                  "SkillNum": "dragon_breath",
+                  "Charges": 10,
+                  "Enabled": true,
+                  "Sealed": false
+                },
+                "BackRef": 0
+              },
+              {
+                "Element": {
+                  "SkillNum": "air_slash",
+                  "Charges": 10,
+                  "Enabled": true,
+                  "Sealed": false
+                },
+                "BackRef": 1
+              },
+              {
+                "Element": {
+                  "SkillNum": "sing",
+                  "Charges": 10,
+                  "Enabled": true,
+                  "Sealed": false
+                },
+                "BackRef": 2
+              },
+              {
+                "Element": {
+                  "SkillNum": "safeguard",
+                  "Charges": 10,
+                  "Enabled": true,
+                  "Sealed": false
+                },
+                "BackRef": 3
+              }
+            ],
+            "Intrinsics": [
+              {
+                "Element": {
+                  "ID": "natural_cure"
+                },
+                "BackRef": 0
+              }
+            ],
+            "EquippedItem": {
+              "ID": "held_power_band",
+              "Cursed": false,
+              "HiddenValue": "",
+              "Amount": 0,
+              "Price": 0
+            },
+            "Absentee": false,
+            "ChargeBoost": 0,
+            "HP": 165,
+            "HPRemainder": 0,
+            "Fullness": 100,
+            "FullnessRemainder": 0,
+            "MaxFullness": 100,
+            "StatusEffects": {},
+            "MissChain": 0,
+            "EXPMarked": false,
+            "Tactic": {
+              "Name": {
+                "DefaultText": "Dumb Wander",
+                "LocalTexts": {}
+              },
+              "Released": false,
+              "Comment": "",
+              "ID": "wander_dumb",
+              "Assignable": false,
+              "Plans": [
+                {
+                  "$type": "PMDC.Dungeon.AttackFoesPlan, PMDC",
+                  "AttackPattern": 1,
+                  "PositionPattern": 0,
+                  "IQ": 36,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 4,
+                  "StatusRange": 4,
+                  "SelfStatusRange": 3,
+                  "AbandonRangeOnHit": true
+                },
+                {
+                  "$type": "PMDC.Dungeon.FollowLeaderPlan, PMDC",
+                  "IQ": 164,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": true
+                },
+                {
+                  "$type": "PMDC.Dungeon.ExplorePlan, PMDC",
+                  "IQ": 164,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": true
+                },
+                {
+                  "$type": "PMDC.Dungeon.WaitPlan, PMDC",
+                  "IQ": 164,
+                  "RestrictedMobilityTypes": 0,
+                  "RestrictMobilityPassable": false,
+                  "AttackRange": 0,
+                  "StatusRange": 0,
+                  "SelfStatusRange": 0,
+                  "AbandonRangeOnHit": true
+                }
+              ]
+            },
+            "Mobility": 0,
+            "CantWalk": false,
+            "ItemDisabled": false,
+            "IntrinsicDisabled": false,
+            "CanRemoveStuck": false,
+            "StopItemAtHit": false,
+            "MovesScrambled": false,
+            "ChargeSaver": false,
+            "WaitToAttack": false,
+            "CantInteract": false,
+            "EnemyOfFriend": false,
+            "AttackFriend": false,
+            "TileSight": -1,
+            "CharSight": -1,
+            "Unidentifiable": false,
+            "Unlocatable": false,
+            "SeeAllChars": false,
+            "SeeItems": false,
+            "SeeWallItems": false,
+            "SeeTraps": false,
+            "CharStates": [],
+            "BackRef": {
+              "Assembly": false,
+              "Index": -1
+            },
+            "Nickname": "Nubila",
+            "OriginalUUID": "",
+            "OriginalTeam": "",
+            "BaseForm": {
+              "Species": "luxray",
+              "Form": 0,
+              "Skin": "normal",
+              "Gender": 1
+            },
+            "Level": 33,
+            "EXP": 0,
+            "MaxHPBonus": 40,
+            "AtkBonus": 0,
+            "DefBonus": 0,
+            "MAtkBonus": 0,
+            "MDefBonus": 0,
+            "SpeedBonus": 0,
+            "BaseSkills": [
+              {
+                "SkillNum": "dragon_breath",
+                "Charges": 10
+              },
+              {
+                "SkillNum": "air_slash",
+                "Charges": 10
+              },
+              {
+                "SkillNum": "sing",
+                "Charges": 10
+              },
+              {
+                "SkillNum": "safeguard",
+                "Charges": 10
+              }
+            ],
+            "BaseIntrinsics": [
+              "natural_cure"
             ],
             "FormIntrinsicSlot": -1,
             "Relearnables": {},
@@ -922,7 +910,7 @@
       "NeighborCode": -1
     },
     "TextureMap": {},
-    "Element": "normal",
+    "Element": "dragon",
     "Background": {
       "$type": "RogueEssence.Dungeon.MapBG, RogueEssence",
       "MapLoc": {

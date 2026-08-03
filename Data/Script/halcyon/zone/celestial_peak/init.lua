@@ -1,9 +1,12 @@
 --[[
     init.lua
     Pic Celeste (Celestial Peak) — Chapitre 10
-    22 etages en 6 segments : 8 contreforts + relais + 6 nuages + Escouade Fulgur + 4 sommet + boss Rayquaza
+    22 etages en 6 segments : 8 contreforts + relais + 6 nuages + Aire des Dragons + 4 sommet + boss Rayquaza
     (l'arene celestial_peak_boss portait lugia n35 jusqu'au 2026-08-04 : corrigee en rayquaza n40)
-    Course contre l'Escouade Fulgur (Luxray, Lucario, Heliolisk)
+    Aire des Dragons : trio Vertevire (Dracolosse), Bregonde (Drattak),
+    Nubila (Altaria). Recaste le 2026-08-04 — l'etage portait jusque-la une
+    « Escouade Fulgur » electrique (Luxray/Lucario/Heliolisk), etrangere a
+    une tour de dragons. Les drapeaux gardent leur nom (sauvegardes).
     Premiere vision de Necrozma
 ]]
 require 'origin.common'
@@ -135,7 +138,7 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
           end
       end
   elseif segmentID == 3 then
-      -- Escouade Fulgur
+      -- Aire des Dragons : le trio barre la route avant le Sommet Sacre
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
           SV.Chapter10.OutranEscouadeFulgur = true
           GAME:EnterGroundMap('celestial_peak_relay', 'Main_Entrance_Marker')
@@ -144,7 +147,7 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter10.PeakMidState = 'DeathArrival'
               GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('celestial_peak_relay'), 0, true, true)
           GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
-              "L'Escouade Fulgur...[pause=0] ils nous ont devances...[pause=20] trop rapides...", "Pain")
+              "Leurs ailes...[pause=0] on ne peut pas lutter contre ca...[pause=20] pas ici...", "Pain")
           GAME:WaitFrames(20)
           GAME:EnterZone("master_zone", -1, GROUND_IDX('celestial_peak_relay'), 0)
       end
