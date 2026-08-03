@@ -4,11 +4,11 @@
   <resheader name="version"><value>2.0</value></resheader>
   <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
   <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
-  <data name="CPF_001" xml:space="preserve"><value>L'Escouade Fulgur ne recule devant rien.[pause=15] Tu as osé gravir notre pic ?</value></data>
-  <data name="CPF_002" xml:space="preserve"><value>L'aura est avec nous.[pause=15] Ensemble, nous sommes invincibles.</value></data>
-  <data name="CPF_003" xml:space="preserve"><value>Le soleil nous donne sa force.[pause=15] Prépare-toi !</value></data>
-  <data name="CPF_R01" xml:space="preserve"><value>La corniche est déserte.[pause=20] Ils ont dû redescendre depuis longtemps.</value></data>
-  <data name="CPF_R02" xml:space="preserve"><value>(Trois empreintes dans la neige, effacées aux trois quarts.[pause=15] Ils sont passés, c'est tout.)</value></data>
-  <data name="CPF_R03" xml:space="preserve"><value>Tant mieux.[pause=15] Je n'avais pas envie de recommencer cette course.</value></data>
-  <data name="CPF_R04" xml:space="preserve"><value>Il n'y a plus rien à trouver ici.[pause=0] Il est temps de rentrer.</value></data>
+  <data name="CPF_001" xml:space="preserve"><value>Halte.[pause=25] Personne ne franchit cette corniche sans notre accord.</value></data>
+  <data name="CPF_002" xml:space="preserve"><value>Le nid est juste au-dessus.[pause=20] Nous le gardons depuis que l'air a change.</value></data>
+  <data name="CPF_003" xml:space="preserve"><value>Trois paires d'ailes contre deux pattes.[pause=20] Faites demi-tour,[pause=15] ou envolez-vous.</value></data>
+  <data name="CPF_R01" xml:space="preserve"><value>La corniche est deserte.[pause=20] Plus une seule ombre au-dessus de la voie.</value></data>
+  <data name="CPF_R02" xml:space="preserve"><value>(Des ecailles prises dans la glace,[pause=15] et de longues griffures sur la pierre.[pause=20] Ils veillaient bien ici.)</value></data>
+  <data name="CPF_R03" xml:space="preserve"><value>Ils nous ont laisses passer, cette fois.[pause=15] Ou alors ils sont partis plus haut.</value></data>
+  <data name="CPF_R04" xml:space="preserve"><value>Il n'y a plus rien a trouver ici.[pause=0] Il est temps de rentrer.</value></data>
 </root>

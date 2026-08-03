@@ -1405,6 +1405,34 @@ local characters = {
 			skin = "normal"
 		},
 
+	--Aire des Dragons (Tour Celeste, segment 3). Trio qui garde la voie
+	--directe vers le Sommet Sacre. Remplace l'Escouade Fulgur electrique,
+	--qui reste par ailleurs une equipe rivale du recit (SuaireArc).
+		Wyrm_Dragonite = {
+			species = "dragonite",
+			nickname = 'Vertevire',
+			instance = 'Wyrm_Dragonite',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Wyrm_Salamence = {
+			species = "salamence",
+			nickname = 'Bregonde',
+			instance = 'Wyrm_Salamence',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+		Wyrm_Altaria = {
+			species = "altaria",
+			nickname = 'Nubila',
+			instance = 'Wyrm_Altaria',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
+
 	--Vendor/Shop NPCs
 		Kangaskhan = {
 			species = "kangaskhan",

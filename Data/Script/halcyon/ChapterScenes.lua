@@ -226,11 +226,13 @@ function ChapterScenes.MarshArrival()
 end
 
 --------------------------------------------------------------------
--- CHAPITRE 10 — Le Pic Celeste : l'urgence et la rivalite
+-- CHAPITRE 10 — Le Pic Celeste : l'urgence et la menace au-dessus
 --------------------------------------------------------------------
 -- Registre : adrenaline. Phrases lancees, coupees. Pas de contemplation :
--- l'Escouade Fulgur a de l'avance et chaque seconde compte. Le vent porte
--- deja leurs voix. On entend les rivaux sans les voir : c'est plus tendu.
+-- trois dragons tournent deja au-dessus de la voie directe et le duo doit
+-- decider vite. On les voit sans les entendre : c'est plus inquietant.
+-- (Recale le 2026-08-04 : l'etage-arene portait une « Escouade Fulgur »
+-- electrique, remplacee par le trio Dracolosse/Drattak/Altaria.)
 function ChapterScenes.PeakArrival()
   return Arrival({
     sv = SV.Chapter10, flag = 'PlayedArrivalScene',
@@ -251,21 +253,21 @@ function ChapterScenes.PeakArrival()
       end)
       narrate("Le vent frappe de côté.[pause=25] Il faut se pencher dedans pour tenir debout.")
       GAME:WaitFrames(15)
-      say(partner, 'Surprised', "Là-haut ![pause=15] Sur la deuxième corniche ![pause=20] Trois silhouettes !")
+      say(partner, 'Surprised', "Là-haut ![pause=15] Au-dessus de la deuxième corniche ![pause=20] Trois ombres qui tournent !")
       GAME:WaitFrames(10)
       -- Le vent porte une voix : on ne voit personne, on entend tout.
-      narrate("Le vent apporte un éclat de voix.[pause=20] Un rire, peut-être.[pause=25] Puis plus rien.")
+      narrate("Le vent apporte un cri long,[pause=20] très haut.[pause=25] Puis le silence retombe.")
       GAME:WaitFrames(15)
-      think(hero, 'Shock', "(Ils sont déjà à mi-hauteur.[pause=25] On a perdu deux jours à préparer, et eux sont partis à l'aube.)")
+      think(hero, 'Shock', "(Ils ne se posent pas.[pause=25] Ils tournent au-dessus de la voie, comme s'ils gardaient quelque chose.)")
       GAME:WaitFrames(15)
-      say(partner, 'Angry', "L'Escouade Fulgur.[pause=20] Évidemment.[pause=25] Ils ne nous ont même pas prévenus.")
-      say(partner, 'Worried', "Attends...[pause=25] pourquoi est-ce qu'ils montent SI vite ?[pause=20] Ils ne cherchent pas. Ils SAVENT où aller.")
+      say(partner, 'Worried', "Des dragons.[pause=25] À cette altitude,[pause=20] ça ne peut être qu'eux.")
+      say(partner, 'Worried', "Et ils ne s'éloignent pas.[pause=25] Ils restent exactement au même endroit.[pause=20] Ils attendent.")
       GAME:WaitFrames(20)
-      think(hero, 'Worried', "(Quelqu'un leur a dit.[pause=30] Ou quelque chose.)")
+      think(hero, 'Worried', "(Quelque chose leur a demandé de tenir ce passage.[pause=30] Et ce quelque chose est encore plus haut.)")
       GAME:WaitFrames(20)
-      say(partner, 'Determined', "On ne les rattrapera pas en montant comme eux.[pause=25] Alors on ne monte pas comme eux.")
+      say(partner, 'Determined', "On ne passera pas en force par la voie directe.[pause=25] Alors on ne prend pas la voie directe.")
       say(partner, 'Happy', "La voie des contreforts.[pause=20] Plus longue, plus dure,[pause=15] et personne ne la prend jamais.")
-      think(hero, 'Determined', "(...Ce qui veut dire que personne ne nous y attendra.)")
+      think(hero, 'Determined', "(...Ce qui veut dire qu'ils ne nous verront pas venir.)")
       GAME:WaitFrames(15)
       say(partner, 'Determined', "Exactement.[pause=25] Accroche-toi.[pause=20] On part maintenant.")
 
@@ -324,6 +326,114 @@ function ChapterScenes.PeakArrival()
       end)
     end,
   })
+end
+
+
+--------------------------------------------------------------------
+-- CHAPITRE 10 — LA TOUR SE DEVOILE
+--------------------------------------------------------------------
+-- Beat classique de Donjon Mystere : le duo leve les yeux, et le jeu
+-- montre PLEIN ECRAN ce qu'il voit. Ici la Tour Celeste entiere, du pied
+-- au sommet, avec un travelling ascendant.
+--
+-- COMMENT C'EST FAIT, ET POURQUOI AINSI
+-- RogueEssence n'a pas de « cinematique video ». Le seul moyen d'occuper
+-- tout l'ecran est un FiniteOverlayEmitter alimente par un BGAnimData,
+-- c'est-a-dire une image de Content/BG. On a donc converti
+-- Sky_Tower_cutscene_RTRB.png (288x216, Rescue Team) au format .dir du
+-- moteur — entete 8 octets + PNG + 16 octets (largeur, hauteur,
+-- frameTime, frames), format releve sur les 22 BG existants — et
+-- redimensionne en 320x240, la taille de tous les BG plein cadre du mod
+-- (Chapter_1..10). Outil : tools/png2bg.py.
+--
+-- LE TRAVELLING. L'overlay ne « scrolle » pas tout seul : son parametre
+-- Movement fait defiler la nappe. On la fait descendre (moveY positif),
+-- ce qui donne a l'oeil l'impression que le REGARD monte. C'est le meme
+-- procede que le vent de PeakArrival (SE5_Wind_Background, moveX -180),
+-- deja valide en jeu.
+--
+-- LA MUSIQUE. « Sky Tower.ogg » demarre AVEC l'image et non avant : le
+-- theme du donjon est la recompense du plan, pas son accompagnement.
+--
+-- Appelee par celestial_peak_entrance juste avant l'entree du donjon.
+-- Flag propre, elle ne se joue qu'une fois.
+--------------------------------------------------------------------
+function ChapterScenes.PeakTowerReveal()
+  if SV.Chapter10 == nil then return false end
+  if SV.Chapter10.PlayedTowerReveal then return false end
+  SV.Chapter10.PlayedTowerReveal = true
+
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+
+  local ok, err = pcall(function()
+    GAME:CutsceneMode(true)
+    if partner ~= nil then AI:DisableCharacterAI(partner) end
+
+    -- 1. Ils s'arretent. Le partenaire leve la tete le premier.
+    pcall(function()
+      GROUND:CharAnimateTurnTo(partner, Direction.Up, 6)
+      GAME:WaitFrames(9)
+      GROUND:CharAnimateTurnTo(hero, Direction.Up, 6)
+    end)
+    GAME:WaitFrames(24)
+    say(partner, 'Surprised', "Attends.[pause=30] Leve les yeux.")
+    GAME:WaitFrames(20)
+
+    -- 2. LE PLAN. Silence complet, puis l'image monte.
+    pcall(function() SOUND:FadeOutBGM(30) end)
+    GAME:WaitFrames(35)
+    pcall(function() GAME:FadeOut(false, 30) end)
+    GAME:WaitFrames(20)
+
+    -- L'overlay couvre l'ecran. TotalTime long : il tient pendant tout
+    -- l'echange. Movement vertical lent = le regard qui remonte la tour.
+    pcall(function()
+      BossFX.Overlay('Sky_Tower_Reveal', 0, 0, 40, 900, 60, DrawLayer.Top, 0, 22)
+    end)
+    pcall(function() SOUND:PlayBGM('Sky Tower.ogg', true) end)
+    GAME:FadeIn(60)
+    GAME:WaitFrames(50)
+
+    -- 3. Les deux commentent, chacun son portrait, pendant que l'image
+    --    continue de defiler. Le heros pense, il ne parle jamais tout haut.
+    narrate("Une colonne de nuages tordus monte droit dans le ciel.[pause=30] On n'en voit pas le sommet.")
+    GAME:WaitFrames(30)
+    say(partner, 'Shock', "C'est... c'est ca, la Tour Celeste ?[pause=30] Mais elle n'a pas de fin !")
+    GAME:WaitFrames(25)
+    think(hero, 'Surprised', "(Elle ne s'appuie sur rien.[pause=30] Elle tient debout toute seule, au milieu du vide.)")
+    GAME:WaitFrames(30)
+    say(partner, 'Worried', "Les anciens disaient qu'elle touchait le toit du monde.[pause=30] Je croyais qu'ils exageraient.")
+    GAME:WaitFrames(25)
+    think(hero, 'Worried', "(Ils n'exageraient pas.[pause=30] Ils n'avaient simplement pas de mot pour ca.)")
+    GAME:WaitFrames(30)
+    say(partner, 'Determined', "Et il faut monter jusqu'en haut.[pause=35] Jusqu'a lui.")
+    GAME:WaitFrames(35)
+
+    -- 4. Retour au sol. L'image se retire, le duo est toujours la, tete
+    --    levee — et c'est CE plan qui ferme la scene.
+    pcall(function() GAME:FadeOut(false, 50) end)
+    GAME:WaitFrames(60)
+    GAME:FadeIn(50)
+    GAME:WaitFrames(25)
+    narrate("Le vent redescend.[pause=25] Devant eux, le premier escalier attend.")
+    GAME:WaitFrames(20)
+  end)
+
+  if not ok then
+    PrintInfo('[ChapterScenes.PeakTowerReveal] scene ecourtee : ' .. tostring(err))
+  end
+
+  -- HORS pcall : la main est rendue quoi qu'il arrive.
+  pcall(function() UI:ResetSpeaker() end)
+  pcall(function()
+    if partner ~= nil then
+      AI:EnableCharacterAI(partner)
+      AI:SetCharacterAI(partner, 'origin.ai.ground_partner', hero, partner.Position)
+    end
+  end)
+  pcall(function() GAME:CutsceneMode(false) end)
+  return true
 end
 
 return ChapterScenes

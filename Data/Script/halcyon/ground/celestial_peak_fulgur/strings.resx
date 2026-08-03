@@ -4,11 +4,11 @@
   <resheader name="version"><value>2.0</value></resheader>
   <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
   <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
-  <data name="CPF_001" xml:space="preserve"><value>Fulgur Squad backs down from nothing.[pause=15] You dared climb our peak?</value></data>
-  <data name="CPF_002" xml:space="preserve"><value>The aura is with us.[pause=15] Together, we cannot be beaten.</value></data>
-  <data name="CPF_003" xml:space="preserve"><value>The sun lends us its strength.[pause=15] Get ready!</value></data>
-  <data name="CPF_R01" xml:space="preserve"><value>The ledge is deserted.[pause=20] They must have gone back down a long while ago.</value></data>
-  <data name="CPF_R02" xml:space="preserve"><value>(Three sets of prints in the snow, three quarters faded.[pause=15] They came through, that's all.)</value></data>
-  <data name="CPF_R03" xml:space="preserve"><value>Just as well.[pause=15] I wasn't keen on running that race again.</value></data>
-  <data name="CPF_R04" xml:space="preserve"><value>Nothing more to find here.[pause=0] Time to head home.</value></data>
+  <data name="CPF_001" xml:space="preserve"><value>Halt.[pause=25] No one crosses this ledge without our leave.</value></data>
+  <data name="CPF_002" xml:space="preserve"><value>The roost lies just above.[pause=20] We have guarded it since the air changed.</value></data>
+  <data name="CPF_003" xml:space="preserve"><value>Three pairs of wings against two pairs of feet.[pause=20] Turn back,[pause=15] or learn to fly.</value></data>
+  <data name="CPF_R01" xml:space="preserve"><value>The ledge is deserted.[pause=20] Not one shadow left above the path.</value></data>
+  <data name="CPF_R02" xml:space="preserve"><value>(Scales caught in the ice,[pause=15] and long claw marks on the stone.[pause=20] They kept a close watch here.)</value></data>
+  <data name="CPF_R03" xml:space="preserve"><value>They let us through this time.[pause=15] Or they moved higher up.</value></data>
+  <data name="CPF_R04" xml:space="preserve"><value>There's nothing left to find here.[pause=0] Time to head home.</value></data>
 </root>

@@ -42,11 +42,24 @@ function celestial_peak_entrance.Dungeon_Entrance_Touch(obj, activator)
   partner.IsInteracting = true
   GROUND:CharSetAnim(partner, 'None', true)
   GROUND:CharSetAnim(CH('PLAYER'), 'None', true)
-  UI:ChoiceMenuYesNo("Entrer dans le Pic Céleste ?", true)
+  UI:ChoiceMenuYesNo("Entrer dans la Tour Céleste ?", true)
   UI:WaitForChoice()
   local res = UI:ChoiceResult()
   UI:SetCenter(false)
   if res then
+    --LA TOUR SE DEVOILE. Une seule fois, juste avant la premiere montee :
+    --le duo leve les yeux et le jeu montre plein ecran ce qu'il voit.
+    --Placee ICI et non dans Enter() a dessein — le plan n'a de sens qu'au
+    --moment ou l'on decide de monter, pas en arrivant sur les lieux.
+    --Sous pcall : si la scene casse, l'entree du donjon reste possible.
+    partner.IsInteracting = false
+    pcall(function() GROUND:CharEndAnim(partner) end)
+    pcall(function() GROUND:CharEndAnim(CH('PLAYER')) end)
+    pcall(function() ChapterScenes.PeakTowerReveal() end)
+    partner.IsInteracting = true
+    pcall(function() GROUND:CharSetAnim(partner, 'None', true) end)
+    pcall(function() GROUND:CharSetAnim(CH('PLAYER'), 'None', true) end)
+
     GAME:FadeOut(false, 60)
     partner.IsInteracting = false
     GROUND:CharEndAnim(partner)

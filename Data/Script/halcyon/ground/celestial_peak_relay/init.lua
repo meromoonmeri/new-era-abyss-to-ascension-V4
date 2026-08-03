@@ -60,8 +60,8 @@ function celestial_peak_relay.Enter(map)
         lines = {
           { spk='partner', emo='Normal', txt="On est au-dessus des nuages...[pause=20] Regarde,[pause=10] la mer de brume s'étend jusqu'à l'horizon.[pause=0] Metano doit être quelque part là-dessous.", wait=10 },
           { spk='partner', emo='Normal', txt="Une statue de Kangourex,[pause=10] plantée face aux vents.[pause=0] Qui a bien pu la hisser jusqu'ici ?" },
-          { spk='hero', emo='Worried', txt="(L'air se raréfie.[pause=0] Chaque pas coûtera plus cher là-haut...[pause=10] et l'Escouade Fulgur ne nous attendra pas.)", wait=10 },
-          { spk='partner', emo='Worried', txt="Tu as entendu leurs cris tout à l'heure, plus haut sur la paroi ?[pause=0] Ils grimpent vite.[pause=10] Trop vite.[pause=0] Comme s'ils savaient exactement ce qui les attend au sommet." },
+          { spk='hero', emo='Worried', txt="(L'air se raréfie.[pause=0] Chaque pas coûtera plus cher là-haut...[pause=10] et quelque chose garde encore la voie directe.)", wait=10 },
+          { spk='partner', emo='Worried', txt="Tu as vu les trois ombres tourner au-dessus de la corniche ?[pause=0] Elles ne montent pas.[pause=10] Elles ne descendent pas.[pause=0] Elles surveillent." },
           { spk='partner', emo='Determined', txt="Alors pas de temps à perdre — mais pas d'imprudence non plus.[pause=0] On sauvegarde,[pause=10] on souffle un coup,[pause=10] et on va montrer à ce pic ce qu'on vaut." },
         },
       })

@@ -1,4 +1,16 @@
---[[ Celestial Peak — Escouade Fulgur ]]
+--[[ Tour Celeste — Aire des Dragons (segment 3).
+
+     RECASTE le 2026-08-04. Cet etage portait une « Escouade Fulgur »
+     electrique (Luxray / Lucario / Heliolisk) au milieu d'une tour de
+     dragons, sur la route de Rayquaza. Le trio est desormais
+     Vertevire (Dracolosse), Bregonde (Drattak) et Nubila (Altaria).
+
+     L'Escouade Fulgur n'est PAS supprimee du jeu : elle reste l'equipe
+     rivale de l'arc du Suaire (SuaireArc.lua), ou sa presence a du sens.
+     Seul cet etage change de casting.
+
+     Les positions de cinematique sont conservees telles quelles : elles
+     etaient deja calees sur la geometrie du ground. ]]
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
@@ -9,9 +21,9 @@ function celestial_peak_fulgur.Init(map) DEBUG.EnableDbgCoro() end
 function celestial_peak_fulgur.Enter(map)
   DEBUG.EnableDbgCoro()
 
-  -- Rejouabilite : la course contre l'Escouade Fulgur a deja eu lieu. Ils ne
-  -- campent pas la corniche en permanence. On constate, puis on continue vers
-  -- le Sommet Sacre (segment 4) — ce n'est PAS une fin de donjon.
+  -- Rejouabilite : le trio a deja ete ecarte. Il ne campe pas la corniche en
+  -- permanence. On constate, puis on continue vers le Sommet Sacre
+  -- (segment 4) — ce n'est PAS une fin de donjon.
   if ReplayEnding.IsReplay('celestial_peak', 10) then
     ReplayEnding.PlayEmptyScene({
       hero = {172, 180}, partner = {140, 180},
@@ -23,7 +35,7 @@ function celestial_peak_fulgur.Enter(map)
         { spk='partner', emo='Happy',  key='CPF_R03' },
       },
     })
-    -- On rejoint le relais, comme le ferait une victoire sur l'Escouade au
+    -- On rejoint le relais, comme le ferait une victoire sur le trio au
     -- chapitre 10 : le joueur y retrouve son rocher Kangourex avant le sommet.
     -- Le relais lit SV.Chapter10.OutranEscouadeFulgur (deja vrai) pour viser
     -- le segment 4 en sortie nord.
@@ -34,14 +46,17 @@ function celestial_peak_fulgur.Enter(map)
 
   GAME:FadeIn(40)
   SOUND:PlayBGM("Boss Battle!.ogg", false)
-  local luxray = CharacterEssentials.MakeCharactersFromList({{'Fulgur_Luxray', 120, 140, Direction.Down}})
-  local lucario = CharacterEssentials.MakeCharactersFromList({{'Fulgur_Lucario', 156, 140, Direction.Down}})
-  local heliolisk = CharacterEssentials.MakeCharactersFromList({{'Fulgur_Heliolisk', 192, 140, Direction.Down}})
-  UI:SetSpeaker(luxray)
+  -- Le meneur au centre, les deux ailes de part et d'autre : meme
+  -- disposition que dans l'arene qui suit (Dracolosse en 7,4 ; Drattak a
+  -- gauche en 5,5 ; Altaria a droite en 9,5).
+  local salamence = CharacterEssentials.MakeCharactersFromList({{'Wyrm_Salamence', 120, 140, Direction.Down}})
+  local dragonite = CharacterEssentials.MakeCharactersFromList({{'Wyrm_Dragonite', 156, 140, Direction.Down}})
+  local altaria   = CharacterEssentials.MakeCharactersFromList({{'Wyrm_Altaria',   192, 140, Direction.Down}})
+  UI:SetSpeaker(dragonite)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CPF_001']))
-  UI:SetSpeaker(lucario)
+  UI:SetSpeaker(altaria)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CPF_002']))
-  UI:SetSpeaker(heliolisk)
+  UI:SetSpeaker(salamence)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CPF_003']))
   COMMON.BossTransition()
   GAME:CutsceneMode(false)

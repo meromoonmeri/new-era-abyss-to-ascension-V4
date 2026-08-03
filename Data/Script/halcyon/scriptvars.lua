@@ -1333,6 +1333,12 @@ SV.Chapter10 =
 	PeakMidState = nil,
 	PeakMidReturn = false,
 	PlayedArrivalScene = false,--scene d'arrivee devant le donjon (ChapterScenes, ch10),
+	--La Tour se devoile : plan plein ecran + travelling ascendant, joue au
+	--ground d'entree juste avant de toucher l'entree du donjon
+	--(ChapterScenes.PeakTowerReveal). Distinct de PlayedArrivalScene, qui
+	--couvre l'arrivee sur le lieu : le duo peut ressortir et revenir sans
+	--rejouer ni l'une ni l'autre.
+	PlayedTowerReveal = false,
 	PlayedVictoryScene = false,--scene d'apres-boss (ChapterAftermath, ch10)
 	--Rejouabilite : jalon interne a un parcours rejoue. OutranEscouadeFulgur
 	--reste vrai pour toujours et ne peut donc plus servir a savoir ou on en est
