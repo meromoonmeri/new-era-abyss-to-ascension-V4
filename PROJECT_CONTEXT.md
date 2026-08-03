@@ -550,3 +550,125 @@ Conclusion actee : pas d'asset de tente reutilisable -> le camp reste raconte pa
 - campement (ch5 + resx EN/FR) : restaure a -U (b1d5a9d, donc SANS la refonte -V reunion progressive) + inversion propre du patch -S : le dialogue d'arrivee sur le noir (MWE5_001/002) est de retour. Protections anti-crash conservees et invisibles : preflight -T/-U du reve + re-greffe du garde zoneConnait (-W), sorties garanties -U, hero_dream/init.lua et init du camp inchanges (HEAD).
 - Consequence mesurable : count_dialogue ch5 repasse a 1580 (= baseline pre-V) ; audits integrite 925 / bugs 12 ; lupa OK x2 ; 158+86 cles completes EN/FR ; legend 0 echec.
 - NON teste en jeu. Si la frame parasite du creuset persiste sur cette build ANCIENNE, elle ne vient pas des versions recentes de ces scripts : il faudra les lignes de log [NREPROBE] + [BossSeq]/[MWE5] pour poursuivre.
+
+
+## Audit exhaustif total (2026-08-03, agent Arena.ai) — 6 domaines, mesures réelles
+
+Passe d'audit systématique demandée (narration, code, architecture, RogueEssence, Lua,
+positionnement, français). Outils du dépôt exécutés AVANT toute réécriture, conformément
+à la méthode. Toute anomalie ci-dessous est adossée à un fichier + ligne.
+
+### Intégrité de départ
+`git status --short` propre, 0 `deleted:`. Comptages réels : **278 `.rsground`, 537 `.tile`,
+147 `.ogg` (dont 133 dans `Content/Music`), 696 `.lua`**. `verify_new_era.sh` au vert sur ses
+seuils (278/537/133). Note : `PROJECT_CONTEXT.md:38-40` annonce encore 276/498/133 — compteurs
+de doc en retard d'une vague d'import, le script, lui, est à jour.
+
+### CORRIGÉ 1 — `index.idx` : 8 grounds atteignables non déclarés (BLOQUANT)
+`Data/Zone/index.idx` déclarait **88** grounds dans `master_zone.Grounds` contre **185** dans
+`Data/Zone/master_zone.json` (`GroundMaps`). 8 d'entre eux n'étaient présents dans **aucun**
+résumé de zone alors qu'ils sont atteignables par `EnterGroundMap` :
+
+| ground | appelant (preuve) |
+|---|---|
+| `guilde_parvis` | `ground/carrefour_assemblee/init.lua:67` |
+| `carrefour_sud` | `ground/carrefour_assemblee/init.lua:72` |
+| `carrefour_assemblee` | `ground/bourg_comptoir/init.lua:154` |
+| `cap_dents_mer` | `ground/bourg_comptoir/init.lua:144` |
+| `dojo_ossatueur` | `ground/bourg_comptoir/init.lua:149` |
+| `plage_lucioles` | `ground/carrefour_sud/init.lua:47` |
+| `carrefour_nord` | `ground/metano_town_nuit/init.lua:112` |
+| `tour_ciel_sommet` | `zone/celestial_peak/init.lua:126` |
+
+C'est exactement le mode de crash documenté pour `hero_dream` : le moteur valide un nom de
+ground contre l'index compilé (`GroundEntrySummary.Grounds.Contains`), pas contre le `.json`
+→ « Invalid Ground Map Name » au transfert. Les 8 entrées ont été ajoutées, **BOM et style de
+sérialisation préservés**, aucune autre zone modifiée (diff vérifié clé par clé).
+`verify_ground_registration` : **9 anomalies bloquantes → 1**. La divergence restante (89
+grounds) est **légitime** : ils sont indexés sous leur propre zone de donjon (ex.
+`abime_tempetes` → `eaux_inexplorees`), l'outil ne compare que `master_zone`. Aucun orphelin.
+
+### CORRIGÉ 2 — français (domaine 4.1)
+- `GeneralFunctions.lua:1494` : « Congratulations! » → « Félicitations ! » (montée de grade).
+- `PartnerEssentials.lua:455` : « They're my favorite! » → « C'est mon dessert préféré ! ».
+- « Rank » anglais résiduel → « Rang » (`GeneralFunctions.lua:1495`, `PartnerEssentials.lua:1199`).
+- **150 occurrences** de l'artefact `,[pause=N], ` dans **30 fichiers** : rendait une virgule
+  doublée à l'écran (« Sans partenaire, , ils ne m'ont même pas... »). Corrigé mécaniquement en
+  `,[pause=N] `, sans toucher au texte. Vérifié : 145 lignes, toutes du texte affiché.
+
+### CORRIGÉ 3 — outillage d'audit inexécutable
+`tools/audit_chapter_gaps.py`, `audit_cutscene_exit.py`, `audit_text_tags.py` contenaient
+`MOD='/home/user/nea'; os.chdir(MOD)` en dur → `FileNotFoundError` immédiat. Racine désormais
+déduite du script (surchargeable par `MOD_ROOT`). Les 3 outils tournent.
+
+### Mesuré, NON corrigé (signalements, pas des bugs confirmés)
+
+**Domaine 1.1 — cinématiques par chapitre** (catégories séparées comme exigé ; PNJ =
+handler d'interaction sans `CutsceneMode`, qualitative = caméra + orientation + son) :
+
+| Ch | Cinématiques | qualitatives | partielles | squelettes | PNJ |
+|---|---|---|---|---|---|
+| 1 | 44 | 37 (84 %) | 5 | 2 | 3 |
+| 5 | 61 | 37 (61 %) | 24 | 0 | 43 |
+| 6 | 16 | 8 (50 %) | 8 | 0 | 169 |
+| 7 | 8 | 3 (38 %) | 5 | 0 | 177 |
+| 8 | 6 | 2 (33 %) | 3 | 1 | 4 |
+| 9 | 4 | 1 (25 %) | 3 | 0 | 9 |
+| 10 | 5 | 2 (40 %) | 3 | 0 | 6 |
+
+**Rupture de qualité confirmée aux ch8-10** : 4 à 6 cinématiques par chapitre contre 44 au ch1,
+et surtout un effondrement du monde vivant. Attention : le brut de
+`audit_cinematiques_par_chapitre.py` annonce 90 % de « squelettes » aux ch6-7 — c'est un
+**artefact** de son seuil « ≥6 boîtes », qui classe 165 handlers de PNJ par chapitre comme
+cinématiques. Ne pas agir sur ce chiffre tel quel.
+
+**Domaine 5 — PNJ figés** (mesuré sur `ground/metano_town/strings.fr.resx`) :
+ch8 = 53 PNJ / 216 clés / 0 PNJ à réplique unique ; ch9 = 53 / 194 / **8** ;
+ch10 = 53 / 150 / **25** (Azumarill, Bagon, Bellossom, Butterfree, Doduo, Furret, Gloom,
+Gulpin, Jigglypuff, Lickitung, Linoone, Ludicolo, Mareep, Marill, Metapod, Oddish, Roselia,
+Sentret, Silcoon, Sonata, Spheal, Spinda, Venipede, WooperB, WooperG). Le ch10 est le
+chapitre final de l'arc : c'est là que la ville devrait le plus réagir. Écart net ch6-7
+(349/386 handlers) contre ch8-10 (54 handlers). **Signal d'alerte confirmé, contenu à écrire.**
+
+**Domaine 1.3/1.4 — dialogues de boss** : le test décisif a été passé à l'échelle sur les
+**42 arènes légendaires** : 101 répliques distinctes, **0 réplique partagée par deux boss**.
+Le score 16-18/100 d'`audit_boss_cinematics` mesure la **densité de mise en scène** (2 boîtes,
+1 caméra, 0 coroutine), pas l'interchangeabilité de l'écriture. La Voix (`\uE040`) : 100
+occurrences, dont 88 en `SetSpeaker` = glyphe de **masquage de nom** pour locuteur inconnu, pas
+la Voix. La distinction Voix / voix d'entrée générique est explicitement documentée et gardée
+dans le code (`gloomy_forest_boss_ch_6.lua:16,151`, `pre_tonnerre/init.lua:125`,
+`hero_dream/init.lua:132`). **Aucune confusion introduite.**
+
+**Domaine 3.1 — collisions, vérifiées sur fichier** : 409 points d'intérêt testés sur les 278
+grounds (`Dungeon_Entrance`, `Kangaskhan_Rock`, `Main_Entrance_Marker`, `North/South_Exit`,
+`Boss_Marker`), emprise complète du collider + 1 case. **1 seul cas réellement enclavé** :
+`luminous_spring` `South_Exit` (96,408) muré côté ouest — mais son handler
+`South_Exit_Touch` est **dans un bloc commenté** (`ground/luminous_spring/init.lua:148-154`,
+« Base Game functionality, commented out ») : vestige inerte du jeu de base, **pas un bug, non
+corrigé**. Piège méthodologique à retenir : les sorties sont des bandes de déclenchement
+(ex. 456x4 px) et la grille d'obstacles est **toujours en cases de 8 px**, indépendamment de
+`TexSize` — tester la cellule du coin du collider produit ~30 faux positifs.
+56 grounds ont une grille 100 % libre (dette connue, 13 arènes de boss concernées).
+
+**Domaine 3.4 — fondus** : les 7 signalements d'`audit_fade_leaks` sont des `FadeOut` placés
+dans des **branches d'erreur** (`pcall`) : filets de sécurité volontaires qui ne se déclenchent
+que si le fondu nominal a échoué. Conception correcte, **rien à corriger**.
+
+**Domaine 2.2 — échelle** : les 12 donjons d'histoire vont de 5 étages (`relic_forest`) à 44
+(`celestial_peak`) ; aucun n'atteint la fourchette 30-100 du gabarit légendaire, ce qui est
+cohérent avec leur rôle narratif. 4 zones dépassent 100 étages, 11 sont à 0 étage (dont 6
+`*_maze` en `SingularSegment` et 3 `imbion_*` avec `Released=false`, donc non exposées).
+
+**Domaine 4.2 — texte en dur** : ~6000 appels `WaitShowDialogue` avec littéral français hors
+`STRINGS` (dont toutes les arènes légendaires). C'est un **choix d'architecture assumé du
+dépôt**, pas une régression ; le signaler sans le réécrire (aucune traduction cible ne le
+consomme). Après correction, **0 dialogue anglais visible** (`audit_dialogues`).
+
+### Non vérifiable dans cet environnement — à tester manuellement
+Aucun binaire RogueEssence ni Lua dans le sandbox : tout est **statique**. Restent à valider
+en jeu (règle 6) : (1) l'entrée effective sur les 8 grounds réindexés — c'est le test qui
+ferme le correctif 1 ; (2) le rendu des 150 dialogues reponctués ; (3) la montée de grade
+(« Félicitations ! » + « Rang ») ; (4) le ressenti caméra/emote (domaines 1.5, 1.6, 3.2, 3.3)
+qui ne se mesure pas sur fichier ; (5) raids, boutiques, relais et quêtes annexes — le câblage
+est confirmé (`SideQuests.AllDone` conditionne la progression de chapitre,
+`guild_heros_room/init.lua:157-217`) mais leur jouabilité ne l'est pas.
