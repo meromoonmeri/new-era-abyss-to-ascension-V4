@@ -141,7 +141,12 @@ function tour_ciel_sommet.ArrivalBody()
   GAME:WaitFrames(25)
   GROUND:CharSetAnim(rayquaza, "Idle", true)
 
-  BossMusic.Play('autel_celeste')
+  -- La scene a ete transposee depuis autel_celeste, et l'appel a suivi
+  -- tel quel : elle demandait le theme de l'AUTEL alors qu'elle se joue
+  -- au SOMMET. Les deux pointent aujourd'hui sur la meme piste (T.CIEL),
+  -- donc rien ne s'entendait — mais toute retouche de BossMusic.LIST sur
+  -- l'une aurait silencieusement change l'autre.
+  BossMusic.Play('tour_ciel_sommet')
 
   UI:WaitShowTitle(rayquaza:GetDisplayName(), 20)
   GAME:WaitFrames(40)

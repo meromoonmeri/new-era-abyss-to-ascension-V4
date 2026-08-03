@@ -1,7 +1,8 @@
 --[[
     init.lua
     Pic Celeste (Celestial Peak) — Chapitre 10
-    22 etages en 6 segments : 8 contreforts + relais + 6 nuages + Escouade Fulgur + 4 sommet + boss Lugia
+    22 etages en 6 segments : 8 contreforts + relais + 6 nuages + Escouade Fulgur + 4 sommet + boss Rayquaza
+    (l'arene celestial_peak_boss portait lugia n35 jusqu'au 2026-08-04 : corrigee en rayquaza n40)
     Course contre l'Escouade Fulgur (Luxray, Lucario, Heliolisk)
     Premiere vision de Necrozma
 ]]
@@ -177,7 +178,7 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
           end
       end
   elseif segmentID == 5 then
-      -- Boss Lugia
+      -- Boss Rayquaza (sommet de la Tour Celeste)
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
           SV.Chapter10.DefeatedLugia = true
           SV.Chapter10.CelestialPeakComplete = true
@@ -228,7 +229,7 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter10.PeakMidState = 'DeathArrival'
               GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('celestial_peak_relay'), 0, true, true)
           GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
-              "Lugia...[pause=0] le Gardien des Cieux...[pause=20] nous a juges...", "Pain")
+              "Le Gardien des Cieux...[pause=20] il nous a juges...", "Pain")
           GAME:WaitFrames(20)
           GAME:EnterZone("master_zone", -1, GROUND_IDX('celestial_peak_relay'), 0)
       end

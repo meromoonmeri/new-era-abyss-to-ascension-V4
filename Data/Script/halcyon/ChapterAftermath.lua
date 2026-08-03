@@ -389,17 +389,52 @@ function ChapterAftermath.PeakVictory()
   return Aftermath({
     -- Flag PROPRE a l'acte 1. Les deux actes du climax partageaient
     -- 'PlayedVictoryScene' : PeakVictory le posait, ce qui rendait la
-    -- condition d'entree de l'acte 2 (autel_celeste) definitivement
-    -- fausse. C'est le coeur du blocage corrige le 2026-08-02.
+    -- condition d'entree de l'acte 2 definitivement fausse. C'est le
+    -- coeur du blocage corrige le 2026-08-02. Le nom du flag reste
+    -- 'PlayedLugiaTalk' : le renommer casserait les sauvegardes en cours,
+    -- et il est lu tel quel par tour_ciel_sommet:91.
     sv = SV.Chapter10, flag = 'PlayedLugiaTalk',
     music = 'Rainbow Peak.ogg',
     hero = {296, 296}, partner = {256, 296}, camera = {276, 264},
     scene = function(hero, partner)
-      local lugia = CharacterEssentials.MakeCharactersFromList({{'Lugia', 272, 232, Direction.Down}})
+      -- ================================================================
+      -- REECRITURE 2026-08-04 — LUGIA -> RAYQUAZA
+      -- ================================================================
+      -- Cette scene etait ecrite pour Lugia, gardien reclus qui avait
+      -- « passe mille ans a se taire ». Or tout le climax annonce
+      -- RAYQUAZA : il fend les nuages a l'acte 0, et c'est lui qui
+      -- pulverise la meteorite a l'acte 2. On affrontait Lugia au milieu
+      -- de deux scenes de Rayquaza (l'arene celestial_peak_boss portait
+      -- encore lugia n35, corrige le meme jour).
+      --
+      -- Le texte n'est PAS transpose mot pour mot : le registre de Lugia
+      -- (le reclus qui s'excuse) ne colle pas au dragon qui vient de
+      -- descendre du ciel pour vous juger. Reecrit sur la specification
+      -- du projet, docs/CINEMATIQUE_CLIMAX_CH10_RAYQUAZA.md :
+      --
+      --   « Il y a 30 ans, le monde fut sauve de la collision avec
+      --     l'Etoile de la Destruction grace a un humain transforme en
+      --     Pokemon et son partenaire, qui braverent la Tour Celeste
+      --     pour convaincre Rayquaza de pulveriser le corps celeste. »
+      --
+      -- Les beats STRUCTURELS sont conserves un pour un, parce que ce
+      -- sont eux qui arment l'acte 2 :
+      --   1. le boss s'effondre, le vent tombe          (silence)
+      --   2. il reconnait quelque chose dans le heros   (les 30 ans)
+      --   3. le partenaire fait le lien                 (la legende)
+      --   4. il donne une consigne, une seule           (« sous l'ecaille »)
+      --   5. La Voix intervient devant temoin           (elle a peur)
+      --   6. il tente de se relever et n'y arrive pas   (il ne PEUT plus)
+      --
+      -- Le beat 6 est indispensable : c'est lui qui rend necessaire
+      -- l'effort surhumain de l'acte 2. Rayquaza ne monte pas detruire
+      -- la meteorite parce que c'est facile, mais parce qu'il est le
+      -- seul a pouvoir le faire — et il est deja a bout.
+      local rayquaza = CharacterEssentials.MakeCharactersFromList({{'Rayquaza', 272, 232, Direction.Down}})
 
       -- Il tombe pendant que le vent s'arrete : le silence arrive AVANT
       -- l'immobilite, on l'entend cesser.
-      local c1 = TASK:BranchCoroutine(function() collapse(lugia) end)
+      local c1 = TASK:BranchCoroutine(function() collapse(rayquaza) end)
       local c2 = TASK:BranchCoroutine(function()
         GAME:WaitFrames(20)
         pcall(function() GROUND:RemoveMapStatus("blowing_wind_fast") end)
@@ -407,95 +442,104 @@ function ChapterAftermath.PeakVictory()
       end)
       TASK:JoinCoroutines({c1, c2})
 
-      narrate("Il replie ses ailes.[pause=30] Le vent tombe d'un coup,[pause=20] et le silence du sommet est total.")
+      narrate("Le dragon retombe sur l'anneau de pierre.[pause=30] Le vent tombe avec lui,[pause=20] et le sommet devient parfaitement silencieux.")
       GAME:WaitFrames(30)
 
       -- Premier palier : il redresse la tete. Le duo se tourne vers lui,
       -- chacun depuis sa place (le heros a droite, le partenaire a gauche).
       pcall(function()
-        GROUND:CharSetAnim(lugia, "Idle", true)
-        GROUND:CharTurnToCharAnimated(hero, lugia, 5)
+        GROUND:CharSetAnim(rayquaza, "Idle", true)
+        GROUND:CharTurnToCharAnimated(hero, rayquaza, 5)
         GAME:WaitFrames(6)
-        GROUND:CharTurnToCharAnimated(partner, lugia, 5)
+        GROUND:CharTurnToCharAnimated(partner, rayquaza, 5)
       end)
       GAME:WaitFrames(20)
 
-      say(lugia, 'Normal', "Assez.[pause=25] Vous avez montré ce que je voulais voir.")
-      say(partner, 'Surprised', "C'était...[pause=20] un test ?[pause=25] Tout ça, un TEST ?")
-      say(lugia, 'Normal', "Non.[pause=30] Un adieu.")
+      say(rayquaza, 'Normal', "Assez.[pause=25] Vous tenez encore debout.[pause=20] C'est tout ce que je voulais savoir.")
+      say(partner, 'Surprised', "Vous nous avez...[pause=20] mis a l'epreuve ?[pause=25] On a failli y rester !")
+      say(rayquaza, 'Normal', "J'ai juge.[pause=30] Je juge tout ce qui monte jusqu'ici.")
 
       -- Le mot tombe dans le vide. On laisse le joueur l'encaisser.
       GAME:WaitFrames(40)
-      think(hero, 'Worried', "(Un adieu ?[pause=25] On vient à peine de le rencontrer.)")
+      think(hero, 'Worried', "(Il ne nous a pas attaques par colere.[pause=25] Il verifiait quelque chose.)")
       GAME:WaitFrames(20)
 
-      say(lugia, 'Sad', "Quatre Cœurs ranimés.[pause=25] Je l'ai senti d'ici, chaque fois.[pause=20] Comme un fil qui casse.")
+      -- LE BEAT DES TRENTE ANS. C'est le coeur de la scene : il ne
+      -- reconnait pas le heros, il reconnait ce qu'il PORTE.
+      pcall(function() GROUND:CharTurnToCharAnimated(rayquaza, hero, 5) end)
+      GAME:WaitFrames(18)
+      say(rayquaza, 'Surprised', "Cette lueur, dans tes yeux.[pause=30] Je l'ai deja vue.[pause=25] Exactement la meme.")
+      GAME:WaitFrames(25)
+      say(rayquaza, 'Normal', "Il y a trente ans,[pause=20] deux voyageurs se sont tenus ou vous etes.[pause=25] Un humain qui n'avait plus de corps d'humain,[pause=20] et celui qui ne l'a jamais laisse seul.")
       GAME:WaitFrames(20)
 
-      -- Le partenaire fait le lien avec le marais : il avance d'un pas.
+      -- Le partenaire fait le lien : il avance d'un pas.
       pcall(function() GROUND:MoveToPosition(partner, 260, 280, false, 1) end)
-      say(partner, 'Worried', "Vous aussi vous parlez comme eux...[pause=25] Comme les spectres du marais.")
-      say(lugia, 'Sad', "Alors ils vous ont trouvés.[pause=30] Ils ont plus de courage que moi.")
+      say(partner, 'Shock', "L'equipe de la vieille catastrophe...[pause=25] Celle des contes ?[pause=20] On nous la racontait pour nous endormir !")
+      say(rayquaza, 'Normal', "Ils etaient reels.[pause=30] Ils m'ont affronte ici meme,[pause=20] puis ils m'ont demande d'abattre l'etoile qui tombait.")
+      GAME:WaitFrames(25)
+      say(rayquaza, 'Sad', "Je l'ai fait.[pause=30] Et j'ai cru que c'etait fini.")
       GAME:WaitFrames(25)
 
       -- Il detourne le regard vers le vide : l'aveu qui vient lui coute.
-      pcall(function() GROUND:CharAnimateTurnTo(lugia, Direction.DownLeft, 6) end)
+      pcall(function() GROUND:CharAnimateTurnTo(rayquaza, Direction.DownLeft, 6) end)
       GAME:WaitFrames(18)
-      say(lugia, 'Normal', "Moi, j'ai passé mille ans à me taire.[pause=30] À veiller sur un sommet vide en espérant que personne ne monte.")
+      say(rayquaza, 'Normal', "Trente ans que je surveille ce ciel sans rien voir venir.[pause=30] Et depuis quelques lunes,[pause=20] l'air ne repond plus comme avant.")
       GAME:WaitFrames(20)
-      think(hero, 'Surprised', "(Il ne gardait pas le sommet.[pause=30] Il gardait le CHEMIN. Pour que personne n'arrive jusqu'ici.)")
+      think(hero, 'Surprised', "(Il ne gardait pas un sommet.[pause=30] Il montait la garde. Depuis trente ans,[pause=20] contre quelque chose qu'il croyait mort.)")
       GAME:WaitFrames(25)
 
       -- Il revient sur eux pour la partie utile : ce qu'il PEUT donner.
-      pcall(function() GROUND:CharTurnToCharAnimated(lugia, hero, 5) end)
+      pcall(function() GROUND:CharTurnToCharAnimated(rayquaza, hero, 5) end)
       GAME:WaitFrames(15)
-      say(lugia, 'Sad', "Je ne peux pas vous dire ce qui est en jeu.[pause=30] Pas parce que c'est interdit —[pause=20] parce que je n'en ai plus le droit.")
+      say(rayquaza, 'Sad', "Je ne peux pas vous dire ce qui se prepare.[pause=30] Pas par interdit —[pause=20] je ne le sais pas non plus.")
       GAME:WaitFrames(15)
-      say(lugia, 'Normal', "Alors je vous donne ce que je peux.[pause=30] Trois mots.")
+      say(rayquaza, 'Normal', "Alors je vous donne la seule chose que j'ai.[pause=30] Trois mots.")
 
       -- LA consigne. Resserrement lent, et silence avant de la dire :
       -- c'est l'information que le joueur doit retenir du chapitre.
       local zoom = TASK:BranchCoroutine(function() GAME:MoveCamera(276, 248, 90, false) end)
       local dire = TASK:BranchCoroutine(function()
         GAME:WaitFrames(35)
-        say(lugia, 'Determined', "Cherchez sous l'écaille.")
+        say(rayquaza, 'Determined', "Cherchez sous l'ecaille.")
       end)
       TASK:JoinCoroutines({zoom, dire})
       GAME:WaitFrames(30)
 
-      -- La Voix intervient devant temoin pour la premiere fois. Lugia ne
-      -- reagit pas : elle ne s'adresse qu'au heros.
+      -- La Voix intervient devant temoin pour la premiere fois. Rayquaza
+      -- ne reagit pas : elle ne s'adresse qu'au heros.
       voice("...Il en a trop dit.")
       GAME:WaitFrames(20)
 
       -- Le partenaire voit le heros palir, et se tourne vers LUI, pas vers
-      -- Lugia : il a compris ou est le vrai probleme.
+      -- Rayquaza : il a compris ou est le vrai probleme.
       pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 4) end)
-      say(partner, 'Worried', "Tu as encore pâli.[pause=25] C'était elle, hein ?")
+      say(partner, 'Worried', "Tu as encore pali.[pause=25] C'etait elle, hein ?")
       GAME:WaitFrames(15)
-      think(hero, 'Sad', "(Elle avait peur.[pause=30] Pour la première fois depuis le début,[pause=20] elle avait PEUR.)")
+      think(hero, 'Sad', "(Elle avait peur.[pause=30] Pour la premiere fois depuis le debut,[pause=20] elle avait PEUR.)")
       GAME:WaitFrames(25)
 
-      say(lugia, 'Sad', "Une dernière chose,[pause=20] et ensuite je me tais pour de bon.")
+      say(rayquaza, 'Sad', "Une derniere chose,[pause=20] et je me tais.")
       GAME:WaitFrames(20)
 
-      -- Le pardon. Il baisse la tete — le colosse s'incline devant deux
-      -- enfants. C'est l'image que la scene doit laisser.
-      pcall(function() GROUND:CharSetAnim(lugia, "Hurt", true) end)
+      -- Le regret. Il baisse la tete — le colosse s'incline devant deux
+      -- gamins. C'est l'image que la scene doit laisser.
+      pcall(function() GROUND:CharSetAnim(rayquaza, "Hurt", true) end)
       GAME:WaitFrames(15)
-      say(lugia, 'Sad', "Pardon.[pause=40] Pour ce que nous avons fait,[pause=25] et pour ce que vous allez devoir défaire.")
+      say(rayquaza, 'Sad', "J'aurais du continuer a regarder le ciel.[pause=40] Trente ans a croire qu'on avait gagne,[pause=25] c'est trente ans a ne pas voir revenir.")
       GAME:WaitFrames(40)
 
       -- Il ESSAIE de se relever, et n'y arrive pas. C'est ce plan qui rend
-      -- necessaire l'arrivee de Rayquaza dans la scene suivante.
+      -- necessaire l'effort de l'acte 2 : quand la meteorite tombera, il
+      -- montera quand meme, et le joueur saura ce que ca lui coute.
       pcall(function()
-        GROUND:CharSetAnim(lugia, "Idle", true)
+        GROUND:CharSetAnim(rayquaza, "Idle", true)
         GAME:WaitFrames(20)
         BossFX.ShakeScreen(2, 14)
-        GROUND:CharSetAnim(lugia, "Hurt", true)
+        GROUND:CharSetAnim(rayquaza, "Hurt", true)
       end)
       GAME:WaitFrames(30)
-      narrate("Il tente de se redresser.[pause=30] Ses ailes ne le portent plus.")
+      narrate("Il tente de reprendre de l'altitude.[pause=30] Son corps refuse de quitter la pierre.")
       GAME:WaitFrames(25)
     end,
   })
