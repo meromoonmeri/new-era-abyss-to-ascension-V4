@@ -46,7 +46,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   local t2 = CH('Teammate2')
   local t3 = CH('Teammate3')
   if t2 ~= nil then GROUND:TeleportTo(t2, 288, 464, Direction.Up) end
-  if t3 ~= nil then GROUND:TeleportTo(t3, 264, 464, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 296, 464, Direction.Up) end
   GAME:MoveCamera(288, 440, 1, false)
 
   GAME:CutsceneMode(true)
@@ -328,13 +328,13 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   local coro_push1 = TASK:BranchCoroutine(function()
     -- Le partenaire est le plus expose : il recule et encaisse.
     GROUND:AnimateInDirection(partner, "None", partner.Direction, Direction.Down, 8, 1, 1)
-    GROUND:AnimateInDirection(partner, "Hurt", Direction.Down, Direction.Down, 8, 1, 2)
+    GROUND:AnimateInDirection(partner, "Hurt", Direction.Up, Direction.Down, 8, 1, 2)
     BossFX.Impact(12)
   end)
   local coro_push2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(6)
     GROUND:AnimateInDirection(hero, "None", hero.Direction, Direction.Down, 8, 1, 1)
-    GROUND:AnimateInDirection(hero, "Hurt", Direction.Down, Direction.Down, 8, 1, 2)
+    GROUND:AnimateInDirection(hero, "Hurt", Direction.Up, Direction.Down, 8, 1, 2)
   end)
   local coro_push3 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(13)
@@ -359,6 +359,17 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
     end
   end)
   TASK:JoinCoroutines({coro_push1, coro_push2, coro_push3, coro_push4})
+
+  --TOUT LE MONDE SE TOURNE VERS LE GARDIEN. Sans cela, les quatre
+  --restaient orientes vers le BAS apres avoir ete repousses : ils
+  --tournaient le dos a Tornadus, qui se tient au NORD (284,224).
+  --C'est le defaut signale en jeu.
+  pcall(function()
+    GROUND:CharTurnToChar(partner, tornadus)
+    GROUND:CharTurnToChar(hero, tornadus)
+    if t2 ~= nil then GROUND:CharTurnToChar(t2, tornadus) end
+    if t3 ~= nil then GROUND:CharTurnToChar(t3, tornadus) end
+  end)
 
   GAME:WaitFrames(30)
   GROUND:CharSetEmote(partner, "shock", 1)
@@ -636,7 +647,7 @@ local function DefeatedBossBody()
   GAME:WaitFrames(30)
   if noctowl ~= nil then
     local walk1 = TASK:BranchCoroutine(function()
-      pcall(function() GROUND:MoveToPosition(noctowl, 264, 464, false, 0.8) end)
+      pcall(function() GROUND:MoveToPosition(noctowl, 296, 464, false, 0.8) end)
     end)
     TASK:JoinCoroutines({walk1})
     GROUND:CharAnimateTurnTo(noctowl, Direction.Down, 4)

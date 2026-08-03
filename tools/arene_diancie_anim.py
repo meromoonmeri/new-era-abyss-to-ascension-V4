@@ -52,7 +52,19 @@ _cri = (_r > 150) & (_b > 140) & (_g < _r * 0.85)
 _cri[150:] = False
 _lab, _n = ndimage.label(_cri)
 _t = ndimage.sum(_cri, _lab, range(1, _n + 1))
-CRISTAUX = [i + 1 for i, v in enumerate(_t) if v > 150]
+# On ne retient que les masses FRANCHEMENT EN L'AIR. Trois des six
+# descendaient jusqu'a y=149, c'est-a-dire sur le bord du sol (qui
+# commence a y=140) : les animer faisait bouger 781 pixels de la
+# plateforme. Une masse dont le bas depasse y=136 est accrochee au
+# decor, pas en levitation.
+CRISTAUX = []
+for _i, _v in enumerate(_t):
+    if _v <= 150:
+        continue
+    _ys, _xs = np.where(_lab == _i + 1)
+    if _ys.max() > 136:
+        continue
+    CRISTAUX.append(_i + 1)
 
 # rampe de teintes du cercle : rose -> violet -> bleu -> rose
 RAMPE = [np.array(c) for c in
@@ -70,33 +82,34 @@ def _teinte(p):
 
 
 def frame(k, intensite=1.0):
-    """Frame k du cycle. `intensite` module la pulsation du cercle."""
+    """Frame k du cycle.
+
+    CORRECTIF (retour de jeu) : la premiere version repeignait les
+    anneaux du SOL a chaque frame. Mesure : 13142 pixels sur 14218 qui
+    changeaient etaient dans la plateforme, soit 92 % du mouvement.
+    Visuellement, le sol ONDULAIT sous les pieds des combattants au
+    lieu de rester stable — un decor de combat doit etre fixe.
+    Le sol est donc RENDU IMMOBILE. Seuls bougent :
+      - les six cristaux, qui levitent
+      - un halo lumineux au centre exact du cercle, qui respire sans
+        deplacer un seul pixel de motif (on module la luminosite, on
+        ne repeint pas les anneaux)
+    """
     u = 2 * math.pi * k / NF
     img = _src.copy()
 
-    # --- 1. CERCLE QUI PULSE ---------------------------------------
+    # --- 1. LE CERCLE RESPIRE, il ne se repeint pas ----------------
+    # On module UNIQUEMENT la luminosite du coeur, sur un disque etroit.
+    # Aucun anneau n'est redessine : le motif du sol reste identique
+    # d'une frame a l'autre, seule son intensite varie.
     if intensite > 0.01:
-        # onde radiale : elle part du centre et file vers le bord
-        onde = np.sin(_R / 11.0 - 2 * u)
-        sol = (_R < 95) & (_Y > 140)
-        # la couleur suit la position dans l'onde, decalee dans le temps
-        p = (_R / 190.0 + k / float(NF)) % 1.0
-        for lo, hi in [(0.0, .34), (.34, .67), (.67, 1.01)]:
-            m = sol & (p >= lo) & (p < hi) & (onde > 0.15)
-            if m.any():
-                img[m] = img[m] * (1 - 0.55 * intensite) + \
-                         _teinte((lo + hi) / 2)[None, :] * 0.55 * intensite
-        # coeur du cercle : respiration lumineuse
-        coeur = sol & (_R < 34)
-        img[coeur] = img[coeur] * (1 + 0.16 * intensite * math.sin(u))
+        coeur = (_R < 30) & (_Y > 140)
+        k_lum = 1.0 + 0.13 * intensite * math.sin(u)
+        img[coeur] = img[coeur] * k_lum
 
     # --- 2. CRISTAUX EN LEVITATION ---------------------------------
-    # PIEGE : effacer la masse puis la reposer decalee laisse une
-    # TRAINEE quand le decalage est faible — la zone effacee et la zone
-    # reposee se chevauchent, et le rebouchage au fond sombre deborde
-    # sur le cristal. Mesure : traits sombres visibles sur les cristaux.
-    # Solution : on efface d'abord TOUTES les masses, puis on les repose
-    # toutes. L'effacement ne peut plus manger un cristal deja repose.
+    # On efface les six masses d'abord, on les repose ensuite : sinon
+    # un effacement mange un cristal deja repose et laisse une trainee.
     dep = []
     for idx, li in enumerate(CRISTAUX):
         m = (_lab == li)

@@ -11016,37 +11016,115 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 7
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 8
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 9
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
@@ -11129,43 +11207,134 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 5
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 7
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 8
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 9
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
@@ -11268,7 +11437,58 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 4
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 5
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
@@ -11292,31 +11512,58 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 12
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             }
           ],
@@ -11324,7 +11571,134 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 0
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 1
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 2
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 3
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 4
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 5
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
@@ -11348,55 +11722,58 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 12
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             }
           ],
@@ -11404,7 +11781,108 @@
             {
               "AutoTileset": "",
               "Associates": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 0
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 1
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 2
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 3
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
               "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
@@ -11428,55 +11906,58 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 12
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             }
           ],
@@ -11546,7 +12027,20 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
@@ -11570,19 +12064,58 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 12
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             }
           ],
@@ -11646,43 +12179,134 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 5
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 7
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 8
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 9
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
@@ -11823,37 +12447,115 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 7
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 8
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 9
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ],
               "NeighborCode": -1
             },
             {
@@ -12128,7 +12830,7 @@
         ]
       },
       {
-        "Name": "Cristaux_Cercle",
+        "Name": "Cristaux",
         "Layer": 1,
         "Visible": true,
         "Tiles": [
@@ -12252,409 +12954,37 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 1,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 11,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 21,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 31,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 41,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 51,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 61,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 71,
-                        "Y": 6
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 1,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 11,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 21,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 31,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 41,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 51,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 61,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 71,
-                        "Y": 7
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 1,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 11,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 21,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 31,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 41,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 51,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 61,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 71,
-                        "Y": 8
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 1,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 11,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 21,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 31,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 41,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 51,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 61,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 71,
-                        "Y": 9
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 1,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 11,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 21,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 31,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 41,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 51,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 61,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 71,
-                        "Y": 10
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 1,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 11,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 21,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 31,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 41,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 51,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 61,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 71,
-                        "Y": 11
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
@@ -12884,69 +13214,93 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 2,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 12,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 22,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 32,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 42,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 52,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 62,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 72,
-                        "Y": 5
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            }
+          ],
+          [
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
@@ -12958,124 +13312,56 @@
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 2,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 12,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 22,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 32,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 42,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 52,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 62,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 72,
-                        "Y": 6
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 2,
+                        "X": 3,
                         "Y": 7
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 12,
+                        "X": 13,
                         "Y": 7
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 22,
+                        "X": 23,
                         "Y": 7
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 32,
+                        "X": 33,
                         "Y": 7
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 42,
+                        "X": 43,
                         "Y": 7
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 52,
+                        "X": 53,
                         "Y": 7
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 62,
+                        "X": 63,
                         "Y": 7
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 72,
+                        "X": 73,
                         "Y": 7
                       }
                     }
@@ -13094,56 +13380,56 @@
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 2,
+                        "X": 3,
                         "Y": 8
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 12,
+                        "X": 13,
                         "Y": 8
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 22,
+                        "X": 23,
                         "Y": 8
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 32,
+                        "X": 33,
                         "Y": 8
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 42,
+                        "X": 43,
                         "Y": 8
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 52,
+                        "X": 53,
                         "Y": 8
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 62,
+                        "X": 63,
                         "Y": 8
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 72,
+                        "X": 73,
                         "Y": 8
                       }
                     }
@@ -13162,57 +13448,187 @@
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 2,
+                        "X": 3,
                         "Y": 9
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 12,
+                        "X": 13,
                         "Y": 9
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 22,
+                        "X": 23,
                         "Y": 9
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 32,
+                        "X": 33,
                         "Y": 9
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 42,
+                        "X": 43,
                         "Y": 9
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 52,
+                        "X": 53,
                         "Y": 9
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 62,
+                        "X": 63,
                         "Y": 9
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 72,
+                        "X": 73,
                         "Y": 9
+                      }
+                    }
+                  ],
+                  "FrameLength": 12
+                }
+              ],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            }
+          ],
+          [
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Arene_Diancie_Anim",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 7
+                      }
+                    },
+                    {
+                      "Sheet": "Arene_Diancie_Anim",
+                      "TexLoc": {
+                        "X": 14,
+                        "Y": 7
+                      }
+                    },
+                    {
+                      "Sheet": "Arene_Diancie_Anim",
+                      "TexLoc": {
+                        "X": 24,
+                        "Y": 7
+                      }
+                    },
+                    {
+                      "Sheet": "Arene_Diancie_Anim",
+                      "TexLoc": {
+                        "X": 34,
+                        "Y": 7
+                      }
+                    },
+                    {
+                      "Sheet": "Arene_Diancie_Anim",
+                      "TexLoc": {
+                        "X": 44,
+                        "Y": 7
+                      }
+                    },
+                    {
+                      "Sheet": "Arene_Diancie_Anim",
+                      "TexLoc": {
+                        "X": 54,
+                        "Y": 7
+                      }
+                    },
+                    {
+                      "Sheet": "Arene_Diancie_Anim",
+                      "TexLoc": {
+                        "X": 64,
+                        "Y": 7
+                      }
+                    },
+                    {
+                      "Sheet": "Arene_Diancie_Anim",
+                      "TexLoc": {
+                        "X": 74,
+                        "Y": 7
                       }
                     }
                   ],
@@ -13230,57 +13646,57 @@
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 2,
-                        "Y": 10
+                        "X": 4,
+                        "Y": 8
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 12,
-                        "Y": 10
+                        "X": 14,
+                        "Y": 8
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 22,
-                        "Y": 10
+                        "X": 24,
+                        "Y": 8
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 32,
-                        "Y": 10
+                        "X": 34,
+                        "Y": 8
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 42,
-                        "Y": 10
+                        "X": 44,
+                        "Y": 8
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 52,
-                        "Y": 10
+                        "X": 54,
+                        "Y": 8
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 62,
-                        "Y": 10
+                        "X": 64,
+                        "Y": 8
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 72,
-                        "Y": 10
+                        "X": 74,
+                        "Y": 8
                       }
                     }
                   ],
@@ -13298,63 +13714,75 @@
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 2,
-                        "Y": 11
+                        "X": 4,
+                        "Y": 9
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 12,
-                        "Y": 11
+                        "X": 14,
+                        "Y": 9
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 22,
-                        "Y": 11
+                        "X": 24,
+                        "Y": 9
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 32,
-                        "Y": 11
+                        "X": 34,
+                        "Y": 9
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 42,
-                        "Y": 11
+                        "X": 44,
+                        "Y": 9
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 52,
-                        "Y": 11
+                        "X": 54,
+                        "Y": 9
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 62,
-                        "Y": 11
+                        "X": 64,
+                        "Y": 9
                       }
                     },
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 72,
-                        "Y": 11
+                        "X": 74,
+                        "Y": 9
                       }
                     }
                   ],
                   "FrameLength": 12
                 }
               ],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
+              "NeighborCode": -1
+            },
+            {
+              "AutoTileset": "",
+              "Associates": [],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
@@ -13398,1778 +13826,6 @@
                     {
                       "Sheet": "Arene_Diancie_Anim",
                       "TexLoc": {
-                        "X": 3,
-                        "Y": 4
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 13,
-                        "Y": 4
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 23,
-                        "Y": 4
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 33,
-                        "Y": 4
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 43,
-                        "Y": 4
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 53,
-                        "Y": 4
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 63,
-                        "Y": 4
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 73,
-                        "Y": 4
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 3,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 13,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 23,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 33,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 43,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 53,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 63,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 73,
-                        "Y": 5
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 3,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 13,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 23,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 33,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 43,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 53,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 63,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 73,
-                        "Y": 6
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 3,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 13,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 23,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 33,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 43,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 53,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 63,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 73,
-                        "Y": 7
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 3,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 13,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 23,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 33,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 43,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 53,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 63,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 73,
-                        "Y": 8
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 3,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 13,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 23,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 33,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 43,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 53,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 63,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 73,
-                        "Y": 9
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 3,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 13,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 23,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 33,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 43,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 53,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 63,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 73,
-                        "Y": 10
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 3,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 13,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 23,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 33,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 43,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 53,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 63,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 73,
-                        "Y": 11
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 3,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 13,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 23,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 33,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 43,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 53,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 63,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 73,
-                        "Y": 12
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            }
-          ],
-          [
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 4,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 14,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 24,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 34,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 44,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 54,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 64,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 74,
-                        "Y": 0
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 4,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 14,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 24,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 34,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 44,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 54,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 64,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 74,
-                        "Y": 1
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 4,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 14,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 24,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 34,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 44,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 54,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 64,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 74,
-                        "Y": 2
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 4,
-                        "Y": 3
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 14,
-                        "Y": 3
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 24,
-                        "Y": 3
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 34,
-                        "Y": 3
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 44,
-                        "Y": 3
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 54,
-                        "Y": 3
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 64,
-                        "Y": 3
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 74,
-                        "Y": 3
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 4,
-                        "Y": 4
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 14,
-                        "Y": 4
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 24,
-                        "Y": 4
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 34,
-                        "Y": 4
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 44,
-                        "Y": 4
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 54,
-                        "Y": 4
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 64,
-                        "Y": 4
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 74,
-                        "Y": 4
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 4,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 14,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 24,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 34,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 44,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 54,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 64,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 74,
-                        "Y": 5
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 4,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 14,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 24,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 34,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 44,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 54,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 64,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 74,
-                        "Y": 6
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 4,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 14,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 24,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 34,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 44,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 54,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 64,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 74,
-                        "Y": 7
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 4,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 14,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 24,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 34,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 44,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 54,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 64,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 74,
-                        "Y": 8
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 4,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 14,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 24,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 34,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 44,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 54,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 64,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 74,
-                        "Y": 9
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 4,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 14,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 24,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 34,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 44,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 54,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 64,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 74,
-                        "Y": 10
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 4,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 14,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 24,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 34,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 44,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 54,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 64,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 74,
-                        "Y": 11
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 4,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 14,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 24,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 34,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 44,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 54,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 64,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 74,
-                        "Y": 12
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            }
-          ],
-          [
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 5,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 15,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 25,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 35,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 45,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 55,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 65,
-                        "Y": 0
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 75,
-                        "Y": 0
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 5,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 15,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 25,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 35,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 45,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 55,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 65,
-                        "Y": 1
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 75,
-                        "Y": 1
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 5,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 15,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 25,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 35,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 45,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 55,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 65,
-                        "Y": 2
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 75,
-                        "Y": 2
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 5,
-                        "Y": 3
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 15,
-                        "Y": 3
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 25,
-                        "Y": 3
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 35,
-                        "Y": 3
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 45,
-                        "Y": 3
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 55,
-                        "Y": 3
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 65,
-                        "Y": 3
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 75,
-                        "Y": 3
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
-              "NeighborCode": -1
-            },
-            {
-              "AutoTileset": "",
-              "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
                         "X": 5,
                         "Y": 4
                       }
@@ -15300,69 +13956,7 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 5,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 15,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 25,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 35,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 45,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 55,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 65,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 75,
-                        "Y": 6
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
@@ -15572,205 +14166,19 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 5,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 15,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 25,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 35,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 45,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 55,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 65,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 75,
-                        "Y": 10
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 5,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 15,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 25,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 35,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 45,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 55,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 65,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 75,
-                        "Y": 11
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 5,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 15,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 25,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 35,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 45,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 55,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 65,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 75,
-                        "Y": 12
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             }
           ],
@@ -16062,69 +14470,7 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 6,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 16,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 26,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 36,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 46,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 56,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 66,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 76,
-                        "Y": 6
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
@@ -16334,205 +14680,19 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 6,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 16,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 26,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 36,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 46,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 56,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 66,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 76,
-                        "Y": 10
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 6,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 16,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 26,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 36,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 46,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 56,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 66,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 76,
-                        "Y": 11
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 6,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 16,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 26,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 36,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 46,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 56,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 66,
-                        "Y": 12
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 76,
-                        "Y": 12
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             }
           ],
@@ -16756,477 +14916,43 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 7,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 17,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 27,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 37,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 47,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 57,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 67,
-                        "Y": 5
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 77,
-                        "Y": 5
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 7,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 17,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 27,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 37,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 47,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 57,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 67,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 77,
-                        "Y": 6
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 7,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 17,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 27,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 37,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 47,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 57,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 67,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 77,
-                        "Y": 7
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 7,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 17,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 27,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 37,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 47,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 57,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 67,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 77,
-                        "Y": 8
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 7,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 17,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 27,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 37,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 47,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 57,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 67,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 77,
-                        "Y": 9
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 7,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 17,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 27,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 37,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 47,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 57,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 67,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 77,
-                        "Y": 10
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 7,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 17,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 27,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 37,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 47,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 57,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 67,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 77,
-                        "Y": 11
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
@@ -17276,409 +15002,37 @@
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 8,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 18,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 28,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 38,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 48,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 58,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 68,
-                        "Y": 6
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 78,
-                        "Y": 6
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 8,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 18,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 28,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 38,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 48,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 58,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 68,
-                        "Y": 7
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 78,
-                        "Y": 7
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 8,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 18,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 28,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 38,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 48,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 58,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 68,
-                        "Y": 8
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 78,
-                        "Y": 8
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 8,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 18,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 28,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 38,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 48,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 58,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 68,
-                        "Y": 9
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 78,
-                        "Y": 9
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 8,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 18,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 28,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 38,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 48,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 58,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 68,
-                        "Y": 10
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 78,
-                        "Y": 10
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [
-                {
-                  "Frames": [
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 8,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 18,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 28,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 38,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 48,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 58,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 68,
-                        "Y": 11
-                      }
-                    },
-                    {
-                      "Sheet": "Arene_Diancie_Anim",
-                      "TexLoc": {
-                        "X": 78,
-                        "Y": 11
-                      }
-                    }
-                  ],
-                  "FrameLength": 12
-                }
-              ],
+              "Layers": [],
               "NeighborCode": -1
             },
             {
