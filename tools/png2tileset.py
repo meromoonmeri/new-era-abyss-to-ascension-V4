@@ -316,15 +316,42 @@ def collisions(src, nuage, pas, seuil=0.45, amas=3, verbeux=True,
     sat = a.max(axis=2) - a.min(axis=2)
 
     if mode == 'auto':
-        mode = 'luminance' if sat.mean() < 35 else 'teinte'
+        # DESERT OCRE — 3e palette, ajoutee pour le camp des Ruines v2.
+        # Ni 'teinte' ni 'luminance' ne conviennent quand le sol ET la
+        # roche sont ocres. Mesures sur cette carte :
+        #     sable  (231,182,128)  G-B = 54   lum 167..192
+        #     roche  (150,115, 90)  G-B = 24   lum 111..161
+        # La luminance seule echoue (roche a 161 > sable a 167, 6 d'ecart)
+        # et la teinte seule echoue (tout est beige, aucun vert).
+        # C'est l'ECART G-B qui separe net : 54 contre 24, sans recouvrement.
+        # Accord mesure contre le masque valide a l'oeil sur l'apercu :
+        #     teinte 18.8%   luminance 84.9%   desert 99.0%
+        gb_moy = float((G - B).mean())
+        if sat.mean() >= 60 and gb_moy >= 35 and float(lum.mean()) >= 120:
+            mode = 'desert'
+        else:
+            mode = 'luminance' if sat.mean() < 35 else 'teinte'
         if verbeux:
-            print(f'  palette : saturation moyenne {sat.mean():.0f} '
-                  f'-> mode {mode.upper()}')
+            print(f'  palette : saturation moyenne {sat.mean():.0f}, '
+                  f'G-B moyen {gb_moy:.0f} -> mode {mode.upper()}')
 
     vide = ((B - R > 25) & (B > 150)) | ((R > 225) & (G > 225) & (B > 225))
     vide |= nuage
 
-    if mode == 'luminance':
+    if mode == 'desert':
+        # Praticable = sable : chaud (G-B eleve) ET clair.
+        # Tout le reste — roche, eboulis, bouche de grotte, verdure des
+        # corniches — est un obstacle. Conforme a la regle du projet :
+        # en cas de doute, la collision par defaut est SOLIDE.
+        sable = ((G - B) >= 40) & (lum >= 150)
+        praticable = sable & (~vide)
+        obstacle = (~praticable) & (~vide)
+        feuillage = np.zeros_like(vide)
+        roche = obstacle
+        if verbeux:
+            print(f'  mode desert -> {int(praticable.sum())} px de sol '
+                  f'praticable ({100 * praticable.mean():.0f}%)')
+    elif mode == 'luminance':
         t = _otsu(lum)
         # le ciel est clair : il passerait le seuil, on l'exclut a part
         praticable = (lum >= t) & (~vide)
