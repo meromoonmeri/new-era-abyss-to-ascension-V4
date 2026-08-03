@@ -77,6 +77,17 @@ local LITS = {
 }
 cloven_ruins_entrance_ch_5.LITS = LITS
 
+-- Briefing du matin : Penticus devant la grotte ; la Guilde forme deux
+-- rangs ouverts autour du foyer, face a lui. Ces points sont distincts du
+-- cercle du diner et tous sont valides sur la composante praticable.
+local BRIEFING = {
+  Penticus={288,184}, Reinier={176,280}, Shuca={216,280}, hero={256,280},
+  partner={320,280}, Ganlon={376,280}, Phileas={176,320}, Rin={216,320},
+  Coco={256,320}, Almotz={320,320}, Kino={360,320}, Hyko={400,320},
+  Plum={432,320},
+}
+cloven_ruins_entrance_ch_5.BRIEFING = BRIEFING
+
 -- Les renforts entrent depuis le bas de la clairiere, puis gagnent chacun
 -- une position d'attente propre. Aucun trajet ne traverse une falaise.
 local ARR = {
@@ -1052,28 +1063,41 @@ function cloven_ruins_entrance_ch_5.MorningBody()
   Says(t.kino, "Happy", 'CR5_A70', {t.reinier})
   Silence(12)
 
-  -- On replie les paillasses : le decor redevient un camp de jour.
+  -- Les paillasses disparaissent sous un court fondu : c'est un vrai
+  -- changement de decor, pas une teleportation narrative. Les Pokemon
+  -- restent a leurs positions de reveil lorsque l'image revient.
   Narre('CR5_A71')
   GAME:FadeOut(false, 40)
   GAME:WaitFrames(25)
   cloven_ruins_entrance_ch_5.BuildCampDay()
+  GAME:MoveCamera(CX, CY, 1, false)
+  GAME:FadeIn(45)
+  Silence(18)
 
-  -- Rassemblement autour du foyer.
-  local assis = couches
-  for _, a in ipairs(assis) do
-    local c, p = a[1], PLACES[a[2]]
-    if c ~= nil and p ~= nil then
-      pcall(function() GROUND:TeleportTo(c, p[1], p[2], Direction.Up) end)
+  -- Penticus prend d'abord sa place devant la grotte. Puis chaque membre
+  -- marche depuis sa paillasse vers sa position de briefing ; aucun
+  -- TeleportTo ne change la composition de la scene.
+  local briefing = {
+    {t.penticus,'Penticus'},{t.reinier,'Reinier'},{t.shuca,'Shuca'},
+    {hero,'hero'},{partner,'partner'},{t.ganlon,'Ganlon'},{t.phileas,'Phileas'},
+    {t.rin,'Rin'},{t.coco,'Coco'},{t.almotz,'Almotz'},{t.kino,'Kino'},
+    {t.hyko,'Hyko'},{plum,'Plum'},
+  }
+  for _, a in ipairs(briefing) do
+    local ch, pos = a[1], BRIEFING[a[2]]
+    if ch ~= nil and pos ~= nil then
+      pcall(function()
+        GROUND:MoveToPosition(ch, pos[1], pos[2], false, 1)
+        GROUND:CharAnimateTurnTo(ch, (a[2] == 'Penticus') and Direction.Down or Direction.Up, 4)
+      end)
+      GAME:WaitFrames(6)
     end
   end
-  if t.penticus ~= nil then
-    pcall(function() GROUND:TeleportTo(t.penticus, CX, CY - 40, Direction.Down) end)
-  end
-  GAME:MoveCamera(CX, CY - 8, 1, false)
-  GAME:FadeIn(45)
-  Silence(28)
+  GAME:MoveCamera(288, 248, 50, false)
+  Silence(20)
 
-  -- Tout le monde se tourne vers le Maitre de Guilde, en decale.
+  -- Les deux rangs regardent Penticus avec un leger decalage, jamais en
+  -- pivotant tous sur la meme frame.
   Listen(t.penticus, {hero, partner, plum, t.phileas, t.rin, t.coco, t.hyko,
                       t.almotz, t.kino, t.reinier, t.ganlon, t.shuca})
   Silence(24)
