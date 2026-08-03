@@ -94,4 +94,25 @@
   <data name="CRB_REVEL_02" xml:space="preserve"><value>Look...[pause=20] The cliff split as it closed.[pause=25] There's a way through,[pause=15] up there.[pause=20] It wasn't there this morning.</value></data>
   <data name="CRB_REVEL_03" xml:space="preserve"><value>(The sanctum sealed itself...[pause=20] and in sealing,[pause=15] it opened something else.)</value></data>
   <data name="CRB_REVEL_04" xml:space="preserve"><value>A tower of stone rises above the ruins,[pause=25] uncovered by the collapse.[pause=30] Relic Tower is now accessible.</value></data>
+  <data name="CR5_A80" xml:space="preserve">
+    <value>(...!)</value>
+  </data>
+  <data name="CR5_A81" xml:space="preserve">
+    <value>(Her again.[pause=30] And this time,[pause=15] I remember.)</value>
+  </data>
+  <data name="CR5_A82" xml:space="preserve">
+    <value>("Beneath the earth,[pause=15] the silence will know you."[pause=40] What is that supposed to mean?)</value>
+  </data>
+  <data name="CR5_A83" xml:space="preserve">
+    <value>(She said I had already explored depths like these.[pause=30] But not with this body.)</value>
+  </data>
+  <data name="CR5_A84" xml:space="preserve">
+    <value>You sat bolt upright.[pause=25] Bad dream?</value>
+  </data>
+  <data name="CR5_A85" xml:space="preserve">
+    <value>(I can't tell them.[pause=25] Not yet.[pause=30] I wouldn't even know what to say.)</value>
+  </data>
+  <data name="CR5_A86" xml:space="preserve">
+    <value>Go back to sleep.[pause=20] Tomorrow,[pause=15] we go down.</value>
+  </data>
 </root>

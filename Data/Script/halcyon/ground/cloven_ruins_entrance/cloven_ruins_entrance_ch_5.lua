@@ -42,6 +42,9 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
+-- VoiceVisions.Nausea : le sursaut du reveil apres le reve de Gardevoir.
+-- Meme dependance que le Mont Venteux (mount_windswept_entrance_ch_5.lua:5).
+require 'halcyon.VoiceVisions'
 
 cloven_ruins_entrance_ch_5 = {}
 
@@ -53,22 +56,35 @@ cloven_ruins_entrance_ch_5.CAMP_Y = 208
 local CX = cloven_ruins_entrance_ch_5.CAMP_X
 local CY = cloven_ruins_entrance_ch_5.CAMP_Y
 
--- Cercle du diner : ellipse autour du foyer (la carte est plus large
--- que haute), 13 places, au moins 24 px entre voisins.
+-- Cercle du diner : VRAIE ellipse centree sur le foyer (CAMP_X, CAMP_Y).
+--
+-- CORRECTIF « le feu n'est pas au centre du cercle ». Le foyer etait bien a
+-- 4 px du barycentre des places : ce n'est pas lui qui etait decale, c'est le
+-- cercle qui n'en etait pas un. Les places allaient de 48 px (Penticus) a
+-- 112 px (Plum) du feu, soit un rapport de plus du double — a l'ecran, la
+-- moitie du groupe semblait colle aux flammes et l'autre reléguee au loin,
+-- ce qui se lit exactement comme un feu decentre.
+--
+-- Les treize places sont desormais posees sur une ellipse RX=82 RY=45,
+-- repartie en angles reguliers (360/13) a partir du sud. Distance au feu :
+-- 43 a 82 px au lieu de 48 a 112. Ecart minimal entre voisins : 23 px.
+-- Toutes verifiees marchables sur la grille de collision reelle.
+-- Ordre choisi pour que les binomes restent cote a cote (hero/partner,
+-- Kino/Reinier, Ganlon/Shuca) et que le heros soit au sud, face camera.
 local PLACES = {
-  Penticus  = {192, 160},
-  Phileas   = {240, 160},
-  Coco      = {280, 176},
-  Rin       = {296, 200},
-  Almotz    = {288, 224},
-  Hyko      = {264, 240},
-  Kino      = {216, 256},
-  Reinier   = {160, 256},
-  Shuca     = {112, 240},
-  Ganlon    = {88, 224},
-  Plum      = {80, 200},
-  partner   = {96, 176},
-  hero      = {136, 160},
+  hero      = {192, 256},
+  partner   = {152, 248},
+  Plum      = {128, 232},
+  Ganlon    = {112, 216},
+  Shuca     = {112, 192},
+  Kino      = {136, 176},
+  Reinier   = {176, 168},
+  Almotz    = {208, 168},
+  Hyko      = {248, 176},
+  Rin       = {272, 192},
+  Coco      = {272, 216},
+  Phileas   = {256, 232},
+  Penticus  = {232, 248},
 }
 cloven_ruins_entrance_ch_5.PLACES = PLACES
 
@@ -87,23 +103,25 @@ cloven_ruins_entrance_ch_5.PLACES = PLACES
 local PLUM_ACCUEIL = {216, 200}
 cloven_ruins_entrance_ch_5.PLUM_ACCUEIL = PLUM_ACCUEIL
 
--- Paillasses : deux rangees, nord y=168 et sud y=248. 40 px entre
--- voisines (circulation), au moins 56 du foyer et 48 des objets
--- scriptes. Deployees SEULEMENT a l'acte 7.
+-- Paillasses : chacun dort la ou il a mange (patron du Mont Venteux), mais
+-- POUSSE VERS L'EXTERIEUR du cercle pour degager le foyer pendant la nuit.
+-- Recalculees avec les nouvelles places. Verifie : aucune sur un obstacle,
+-- 29 px minimum entre deux paillasses, et le point de couchage lui-meme
+-- (+13/+10, cf. plus bas) tombe sur du marchable.
 local LITS = {
-  Penticus  = {168, 152},
-  Phileas   = {224, 152},
+  hero      = {184, 280},
+  partner   = {136, 264},
+  Plum      = {104, 240},
+  Ganlon    = {88, 216},
+  Shuca     = {88, 184},
+  Kino      = {112, 168},
+  Reinier   = {168, 160},
+  Almotz    = {208, 168},
+  Hyko      = {272, 168},
   Rin       = {296, 184},
-  Coco      = {264, 160},
-  Hyko      = {248, 232},
-  Almotz    = {272, 208},
-  Kino      = {200, 240},
-  Reinier   = {144, 240},
-  Ganlon    = {64, 216},
-  Shuca     = {96, 224},
-  Plum      = {64, 184},
-  hero      = {120, 152},
-  partner   = {88, 160},
+  Coco      = {296, 216},
+  Phileas   = {280, 240},
+  Penticus  = {232, 240},
 }
 cloven_ruins_entrance_ch_5.LITS = LITS
 
@@ -1106,6 +1124,9 @@ end
 function cloven_ruins_entrance_ch_5.MorningBody()
   GAME:FadeOut(false, 1)
   GAME:CutsceneMode(true)
+  -- On sort du reve : le silence est VOULU sur les premieres secondes,
+  -- mais il doit se refermer. La BGM du matin est relancee plus bas, au
+  -- lever du jour (BuildCampDay), et la main n'est jamais rendue sans OST.
   SOUND:StopBGM()
 
   local hero = CH('PLAYER')
@@ -1143,6 +1164,72 @@ function cloven_ruins_entrance_ch_5.MorningBody()
   end
   GAME:MoveCamera(CX, CY, 1, false)
 
+  -- ================================================================
+  -- LE SURSAUT DU REVEIL — patron du Mont Venteux
+  -- ================================================================
+  -- CORRECTIF : « le lendemain matin doit etre exactement le meme que
+  -- celui du Mont Venteux ». Ici on passait directement du reve au
+  -- carton « Le lendemain matin... », puis au camp deja debout : le
+  -- reve n'avait AUCUNE consequence visible sur le corps du heros,
+  -- alors que c'est tout le dispositif de la scene du Mont
+  -- (mount_windswept_entrance_ch_5.lua:2020-2050).
+  --
+  -- Meme chaine que la-bas : camera serree sur sa couche, fondu, SE de
+  -- sursaut, fin de l'anim de sommeil, nausee, puis ses pensees.
+  --
+  -- UNE DIFFERENCE ASSUMEE, et elle est scenaristique : au Mont, le
+  -- heros OUBLIE en se reveillant (MWE5_155/156/157). Ici c'est le
+  -- DEUXIEME reve, et le texte du reve dit explicitement l'inverse —
+  -- « C'est la deuxieme fois que tu m'entends », « Cette fois, je me
+  -- souviens de toi » (DRM_011_RUINS, DRM_012_RUINS). Il se souvient
+  -- donc, et ce sont les mots de Gardevoir qui le poursuivent.
+  -- Recopier l'oubli du Mont contredirait le reve qu'on vient de jouer.
+  local litHero = LITS['hero']
+  if litHero ~= nil then
+    GAME:MoveCamera(litHero[1] + 13, litHero[2] + 10, 1, false)
+  end
+  GAME:FadeIn(45)
+  GAME:WaitFrames(25)
+
+  pcall(function() SOUND:PlayBattleSE('EVT_Emote_Exclaim_2') end)
+  pcall(function() GROUND:CharEndAnim(hero) end)
+  pcall(function() VoiceVisions.Nausea(hero, 1) end)
+  GAME:WaitFrames(25)
+
+  Pense(hero, 'CR5_A80', "Pain")
+  Silence(30)
+  Pense(hero, 'CR5_A81', "Surprised")
+  Silence(25)
+  Pense(hero, 'CR5_A82', "Worried")
+  Silence(25)
+  Pense(hero, 'CR5_A83', "Sad")
+  Silence(35)
+
+  -- LE PARTENAIRE NE PEUT PAS RESTER PASSIF. Il dort a cote : le heros
+  -- vient de se redresser en sursaut, il se reveille forcement. Au Mont,
+  -- c'est Phileas (de garde) qui reagit ; ici tout le monde dort, donc
+  -- c'est le voisin de paillasse. Il se tourne vers lui, chuchote, et
+  -- se rendort — il ne reveille pas le camp pour un cauchemar.
+  if partner ~= nil then
+    pcall(function() GROUND:CharEndAnim(partner) end)
+    pcall(function() GROUND:CharTurnToCharAnimated(partner, hero, 5) end)
+    Silence(20)
+    Says(partner, "Worried", 'CR5_A84', {hero})
+    Silence(18)
+    Pense(hero, 'CR5_A85', "Worried")
+    Silence(22)
+    Says(partner, "Sigh", 'CR5_A86', {hero})
+    Silence(20)
+    pcall(function() GROUND:CharSetAnim(partner, "Sleep", true) end)
+  end
+  Silence(25)
+
+  -- Le heros se recouche. La nuit reprend, et le matin arrive.
+  pcall(function() GROUND:CharSetAnim(hero, "Sleep", true) end)
+  GAME:FadeOut(false, 50)
+  GAME:WaitFrames(30)
+  GAME:MoveCamera(CX, CY, 1, false)
+
   pcall(function() UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CR5_A68']) .. "\n\n", -1) end)
   GAME:FadeIn(60)
   Silence(30)
@@ -1173,6 +1260,16 @@ function cloven_ruins_entrance_ch_5.MorningBody()
   GAME:FadeOut(false, 40)
   GAME:WaitFrames(25)
   cloven_ruins_entrance_ch_5.BuildCampDay()
+
+  -- LE JOUR SE LEVE, ET LA MUSIQUE AVEC LUI.
+  -- Correctif : le matin jouait integralement en silence, y compris le
+  -- rassemblement et le discours du Maitre de Guilde, et le joueur
+  -- reprenait la main sans aucune OST. Le Mont Venteux, lui, relance
+  -- toujours une piste avant de rendre la main
+  -- (mount_windswept_entrance_ch_5.lua:5678, 'Mt. Travail.ogg').
+  -- 'Canyon Camp.ogg' est la piste de camp du Mont Venteux : c'est
+  -- litteralement le meme campement d'expedition, un matin plus tard.
+  pcall(function() SOUND:PlayBGM('Canyon Camp.ogg', true) end)
 
   -- Rassemblement autour du foyer.
   local assis = couches
@@ -1261,6 +1358,10 @@ function cloven_ruins_entrance_ch_5.RetourBody(k1, k2)
 
   cloven_ruins_entrance_ch_5.SetupGround(false)
   cloven_ruins_entrance_ch_5.BuildCampDay()
+  -- Meme correctif que le matin : on rentre bredouille dans un camp qui
+  -- vit toujours. Sans cette ligne la scene de retour, puis toute la
+  -- reprise en main, se jouaient dans le silence complet.
+  pcall(function() SOUND:PlayBGM('Canyon Camp.ogg', true) end)
 
   local rin = E('Rin')
   local penticus = E('Penticus')

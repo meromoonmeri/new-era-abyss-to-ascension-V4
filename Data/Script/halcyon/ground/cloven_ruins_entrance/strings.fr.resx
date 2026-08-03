@@ -94,4 +94,25 @@
   <data name="CRB_REVEL_02" xml:space="preserve"><value>Regarde...[pause=20] La falaise s'est fendue en se refermant.[pause=25] Il y a un passage,[pause=15] là-haut.[pause=20] Il n'y était pas ce matin.</value></data>
   <data name="CRB_REVEL_03" xml:space="preserve"><value>(Le sanctuaire s'est refermé...[pause=20] et en se refermant,[pause=15] il a ouvert autre chose.)</value></data>
   <data name="CRB_REVEL_04" xml:space="preserve"><value>Une tour de pierre monte au-dessus des ruines,[pause=25] découverte par l'effondrement.[pause=30] La Tour des Reliques est désormais accessible.</value></data>
+  <data name="CR5_A80" xml:space="preserve">
+    <value>(...!)</value>
+  </data>
+  <data name="CR5_A81" xml:space="preserve">
+    <value>(Encore elle.[pause=30] Et cette fois,[pause=15] je m'en souviens.)</value>
+  </data>
+  <data name="CR5_A82" xml:space="preserve">
+    <value>(« Sous la terre,[pause=15] le silence te reconnaîtra. »[pause=40] Qu'est-ce que ça veut dire ?)</value>
+  </data>
+  <data name="CR5_A83" xml:space="preserve">
+    <value>(Elle a dit que j'avais déjà exploré des abîmes comme celui-là.[pause=30] Mais pas avec ce corps.)</value>
+  </data>
+  <data name="CR5_A84" xml:space="preserve">
+    <value>Tu t'es redressé d'un coup.[pause=25] Mauvais rêve ?</value>
+  </data>
+  <data name="CR5_A85" xml:space="preserve">
+    <value>(Je ne peux pas lui dire.[pause=25] Pas encore.[pause=30] Je ne sais même pas ce que je lui dirais.)</value>
+  </data>
+  <data name="CR5_A86" xml:space="preserve">
+    <value>Rendors-toi.[pause=20] Demain,[pause=15] on descend.</value>
+  </data>
 </root>
