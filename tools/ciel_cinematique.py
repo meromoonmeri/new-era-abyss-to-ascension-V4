@@ -141,3 +141,54 @@ def frame_pres(i):
     m = champ(PRES, 2 * math.pi * i / NF) > cfg['seuil'] + 0.10
     col = cfg['nua'].astype(int)
     return m, col
+
+
+# ==================================================================
+# MER DE NUAGES EN CONTREBAS + BROUILLARD DE PLATEAU
+# ==================================================================
+# Mesures : le decor s'arrete a y=1343, le bas des falaises est vers
+# y=1255, le plateau praticable occupe y 424..960.
+#
+# MER DE NUAGES : une nappe dense sous les falaises, qui donne
+# l'altitude. Elle est CARTESIENNE (pas de rotation) : une mer de
+# nuages vue d'un sommet defile lentement a l'horizontale, elle ne
+# tourne pas autour de soi. Densite qui croit vers le bas de l'image.
+#
+# BROUILLARD : une echarpe qui traverse le plateau. Elle passe DEVANT
+# le decor (couche superieure) et se dissipe sur les bords pour ne
+# jamais masquer les entites. Amplitude volontairement faible : un
+# brouillard opaque rendrait le combat illisible.
+
+MER_Y0 = 1180.0     # ligne ou la mer commence a apparaitre
+MER_L  = 190.0      # douceur de la montee
+
+def mer(u):
+    """Nappe de nuages sous les falaises. Defilement horizontal lent."""
+    v = 1.0 / (1.0 + np.exp(-(_py - MER_Y0) / 46.0))     # 0 en haut, 1 en bas
+    n = (np.sin(_px / 82.0 + u) * 0.60
+         + np.sin(_px / 41.0 - u) * 0.34
+         + np.sin(_px / 26.0 + 2 * u) * 0.22
+         + np.sin(_py / 33.0 - u) * 0.28)
+    return (n * 0.5 + 0.55) * v
+
+def brouillard(u):
+    """Echarpe qui traverse le plateau.
+
+    Premier essai : bande de 105 px de large, seuil 0,34 -> 11,9 % du
+    decor couvert, mais visuellement le plateau etait AVALE et les
+    menhirs disparaissaient. Un brouillard de sommet est une echarpe
+    FINE et discontinue, pas une nappe.
+    Corrige : bande plus etroite (54 px), grain plus contraste pour la
+    trouer, et attenuation forte au centre du plateau pour degager la
+    zone de combat.
+    """
+    centre = 690.0 + 150.0 * np.sin(u)
+    bande = np.exp(-((_py - centre + 46.0 * np.sin(_px / 190.0 + u)) / 54.0) ** 2)
+    # grain tres contraste : l'echarpe est trouee, pas pleine
+    grain = (np.sin(_px / 44.0 + 2 * u) * np.sin(_py / 31.0 - u)
+             + 0.6 * np.sin(_px / 21.0 - u))
+    grain = np.clip(grain * 0.8 + 0.15, 0.0, 1.0)
+    # se dissipe au centre du plateau (lisibilite du combat) et au loin
+    creux = 1.0 - 0.75 * np.exp(-(_R / 210.0) ** 2)
+    loin = np.exp(-((_R - 330.0) / 300.0) ** 2)
+    return bande * grain * creux * loin
