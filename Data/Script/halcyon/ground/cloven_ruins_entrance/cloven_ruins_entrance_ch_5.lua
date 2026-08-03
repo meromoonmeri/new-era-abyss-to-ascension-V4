@@ -48,27 +48,27 @@ cloven_ruins_entrance_ch_5 = {}
 -- ==================================================================
 -- POSITIONS — toutes validees contre obstacles[]
 -- ==================================================================
-cloven_ruins_entrance_ch_5.CAMP_X = 660
-cloven_ruins_entrance_ch_5.CAMP_Y = 560
+cloven_ruins_entrance_ch_5.CAMP_X = 192
+cloven_ruins_entrance_ch_5.CAMP_Y = 208
 local CX = cloven_ruins_entrance_ch_5.CAMP_X
 local CY = cloven_ruins_entrance_ch_5.CAMP_Y
 
 -- Cercle du diner : ellipse autour du foyer (la carte est plus large
 -- que haute), 13 places, au moins 24 px entre voisins.
 local PLACES = {
-  Penticus  = {660, 390},
-  Phileas   = {776, 409},
-  Coco      = {865, 463},
-  Rin       = {908, 539},
-  Almotz    = {893, 620},
-  Hyko      = {825, 687},
-  Kino      = {719, 725},
-  Reinier   = {600, 725},
-  Shuca     = {494, 687},
-  Ganlon    = {426, 620},
-  Plum      = {411, 539},
-  partner   = {454, 463},
-  hero      = {543, 409},
+  Penticus  = {192, 160},
+  Phileas   = {240, 160},
+  Coco      = {280, 176},
+  Rin       = {296, 200},
+  Almotz    = {288, 224},
+  Hyko      = {264, 240},
+  Kino      = {216, 256},
+  Reinier   = {160, 256},
+  Shuca     = {112, 240},
+  Ganlon    = {88, 224},
+  Plum      = {80, 200},
+  partner   = {96, 176},
+  hero      = {136, 160},
 }
 cloven_ruins_entrance_ch_5.PLACES = PLACES
 
@@ -76,35 +76,35 @@ cloven_ruins_entrance_ch_5.PLACES = PLACES
 -- voisines (circulation), au moins 56 du foyer et 48 des objets
 -- scriptes. Deployees SEULEMENT a l'acte 7.
 local LITS = {
-  Penticus  = {624, 336},
-  Phileas   = {728, 336},
-  Rin       = {936, 336},
-  Coco      = {832, 336},
-  Hyko      = {816, 784},
-  Almotz    = {896, 784},
-  Kino      = {736, 784},
-  Reinier   = {664, 784},
-  Ganlon    = {512, 792},
-  Shuca     = {584, 784},
-  Plum      = {392, 776},
-  hero      = {520, 336},
-  partner   = {416, 336},
+  Penticus  = {168, 152},
+  Phileas   = {224, 152},
+  Rin       = {296, 184},
+  Coco      = {264, 160},
+  Hyko      = {248, 232},
+  Almotz    = {272, 208},
+  Kino      = {200, 240},
+  Reinier   = {144, 240},
+  Ganlon    = {64, 216},
+  Shuca     = {96, 224},
+  Plum      = {64, 184},
+  hero      = {120, 152},
+  partner   = {88, 160},
 }
 cloven_ruins_entrance_ch_5.LITS = LITS
 
 -- Arrivees echelonnees : depart au bord ouest, position d'attente.
 -- Aucune collision entre les positions d'attente (verifie).
 local ARR = {
-  Phileas   = { depart = {24, 488}, attente = {168, 440} },
-  Penticus  = { depart = {24, 488}, attente = {232, 440} },
-  Coco      = { depart = {24, 488}, attente = {168, 496} },
-  Rin       = { depart = {24, 488}, attente = {232, 496} },
-  Ganlon    = { depart = {24, 488}, attente = {168, 552} },
-  Shuca     = { depart = {24, 488}, attente = {232, 552} },
-  Hyko      = { depart = {24, 488}, attente = {168, 608} },
-  Almotz    = { depart = {24, 488}, attente = {232, 608} },
-  Kino      = { depart = {24, 488}, attente = {168, 664} },
-  Reinier   = { depart = {24, 488}, attente = {232, 664} },
+  Phileas   = { depart = {16, 200}, attente = {56, 168} },
+  Penticus  = { depart = {16, 200}, attente = {96, 168} },
+  Coco      = { depart = {16, 200}, attente = {48, 200} },
+  Rin       = { depart = {16, 200}, attente = {88, 200} },
+  Ganlon    = { depart = {16, 200}, attente = {64, 224} },
+  Shuca     = { depart = {16, 200}, attente = {104, 224} },
+  Hyko      = { depart = {16, 200}, attente = {48, 248} },
+  Almotz    = { depart = {16, 200}, attente = {112, 256} },
+  Kino      = { depart = {16, 200}, attente = {24, 232} },
+  Reinier   = { depart = {16, 200}, attente = {136, 224} },
 }
 cloven_ruins_entrance_ch_5.ARR = ARR
 
@@ -430,18 +430,18 @@ function cloven_ruins_entrance_ch_5.ArrivalBody()
 
   -- Le duo entre par l'ouest, sous le noir. Ils MARCHENT vraiment :
   -- c'est leur animation de pas que le joueur percoit.
-  GROUND:TeleportTo(hero, 40, 488, Direction.Right)
-  if partner ~= nil then GROUND:TeleportTo(partner, 40, 520, Direction.Right) end
-  GAME:MoveCamera(200, 504, 1, false)
+  GROUND:TeleportTo(hero, 24, 192, Direction.Right)
+  if partner ~= nil then GROUND:TeleportTo(partner, 24, 216, Direction.Right) end
+  GAME:MoveCamera(96, 200, 1, false)
 
   local marche1 = {}
   marche1[1] = TASK:BranchCoroutine(function()
-    pcall(function() GROUND:MoveToPosition(hero, 120, 488, false, 1) end)
+    pcall(function() GROUND:MoveToPosition(hero, 72, 192, false, 1) end)
   end)
   marche1[2] = TASK:BranchCoroutine(function()
     GAME:WaitFrames(9)
     if partner ~= nil then
-      pcall(function() GROUND:MoveToPosition(partner, 120, 520, false, 1) end)
+      pcall(function() GROUND:MoveToPosition(partner, 72, 216, false, 1) end)
     end
   end)
   pcall(function() TASK:JoinCoroutines(marche1) end)
@@ -453,12 +453,12 @@ function cloven_ruins_entrance_ch_5.ArrivalBody()
   -- Quelques secondes de marche de plus.
   local marche2 = {}
   marche2[1] = TASK:BranchCoroutine(function()
-    pcall(function() GROUND:MoveToPosition(hero, 220, 488, false, 1) end)
+    pcall(function() GROUND:MoveToPosition(hero, 120, 192, false, 1) end)
   end)
   marche2[2] = TASK:BranchCoroutine(function()
     GAME:WaitFrames(9)
     if partner ~= nil then
-      pcall(function() GROUND:MoveToPosition(partner, 220, 520, false, 1) end)
+      pcall(function() GROUND:MoveToPosition(partner, 120, 216, false, 1) end)
     end
   end)
   pcall(function() TASK:JoinCoroutines(marche2) end)
@@ -487,12 +487,12 @@ function cloven_ruins_entrance_ch_5.Acte2(hero, partner)
   -- Ils avancent encore un peu, puis s'arretent net.
   local av = {}
   av[1] = TASK:BranchCoroutine(function()
-    pcall(function() GROUND:MoveToPosition(hero, 340, 504, false, 1) end)
+    pcall(function() GROUND:MoveToPosition(hero, 152, 200, false, 1) end)
   end)
   av[2] = TASK:BranchCoroutine(function()
     GAME:WaitFrames(7)
     if partner ~= nil then
-      pcall(function() GROUND:MoveToPosition(partner, 340, 536, false, 1) end)
+      pcall(function() GROUND:MoveToPosition(partner, 152, 224, false, 1) end)
     end
   end)
   pcall(function() TASK:JoinCoroutines(av) end)
@@ -619,7 +619,7 @@ end
 
 function cloven_ruins_entrance_ch_5.Acte4(hero, partner, plum)
   -- Camera sur le chemin d'arrivee : on voit venir.
-  pcall(function() GAME:MoveCamera(660, 560, 100, false) end)
+  pcall(function() GAME:MoveCamera(192, 208, 100, false) end)
   Silence(20)
 
   -- 1er : Phileas, methodique, il annonce l'etape.
@@ -906,7 +906,11 @@ function cloven_ruins_entrance_ch_5.Acte7(hero, partner, plum, t)
   for _, c in ipairs(couches) do
     local ch, p = c[1], LITS[c[2]]
     if ch ~= nil and p ~= nil then
-      pcall(function() GROUND:TeleportTo(ch, p[1], p[2], Direction.Down) end)
+      -- +13/+10 : centre le sprite SUR la paillasse. Sans ce decalage
+      -- le dormeur est pose sur le coin haut-gauche du Hay_Bed et
+      -- deborde visiblement. Patron du Mont Venteux
+      -- (mount_windswept_entrance_ch_5.lua:81 seatX, :1892-1893).
+      pcall(function() GROUND:TeleportTo(ch, p[1] + 13, p[2] + 10, Direction.Down) end)
     end
   end
   GAME:MoveCamera(CX, CY, 1, false)
@@ -1047,7 +1051,9 @@ function cloven_ruins_entrance_ch_5.MorningBody()
     local ch, p = c[1], LITS[c[2]]
     if ch ~= nil and p ~= nil then
       pcall(function()
-        GROUND:TeleportTo(ch, p[1], p[2], Direction.Down)
+        -- Meme centrage +13/+10 qu'au coucher : le dormeur doit se
+        -- reveiller EXACTEMENT ou il s'est couche.
+        GROUND:TeleportTo(ch, p[1] + 13, p[2] + 10, Direction.Down)
         GROUND:CharSetAnim(ch, "Sleep", true)
       end)
     end

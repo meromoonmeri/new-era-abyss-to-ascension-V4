@@ -14,7 +14,7 @@ ERRORS=0
 # Les anciennes valeurs 68/248/51 dataient de la v0.4 : le script signalait
 # 2 erreurs de comptage en permanence sur un depot pourtant sain.
 EXPECTED_GROUNDS=281
-EXPECTED_TILESETS=538
+EXPECTED_TILESETS=539
 EXPECTED_MUSIC=133
 
 # 1. Ground maps
