@@ -12,6 +12,44 @@ require 'halcyon.ReplayEnding'
 
 local celestial_peak = {}
 
+--------------------------------------------------------------------
+-- INDEX DES GROUNDS DE master_zone — resolus PAR NOM
+--
+-- CORRECTIF (audit 2026-08-04). Ce fichier ciblait deux index ECRITS EN
+-- DUR qui ne designaient pas les cartes voulues :
+--
+--   46 -> vast_steppe_entrance      (attendu : celestial_peak_entrance)
+--   75 -> crystal_sanctuary_boss    (attendu : celestial_peak_relay)
+--
+-- En jeu : mourir dans les contreforts du Pic Celeste deposait le joueur
+-- a l'entree de la Grande Steppe, et mourir dans la Mer de Nuages le
+-- deposait devant l'arene du Sanctuaire de Cristal — un donjon de deux
+-- chapitres en arriere, avec le drapeau PeakMidState pose pour une carte
+-- qu'il n'atteignait jamais.
+--
+-- C'est le TROISIEME cas du meme defaut dans ce depot (cf. les entetes de
+-- zone/cloven_ruins et zone/vast_steppe). On applique le meme remede :
+-- resolution par NOM a l'execution, qui ne peut plus rederiver quand un
+-- ground est ajoute ou retire de master_zone.
+--------------------------------------------------------------------
+local MASTER_FALLBACK = 1  -- metano_town
+
+local function GROUND_IDX(name)
+  local ok, idx = pcall(function()
+    local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("master_zone")
+    for ii = 0, zone.Grounds.Count - 1, 1 do
+      if zone.Grounds[ii] == name then return ii end
+    end
+    return -1
+  end)
+  if not ok or idx == nil or idx < 0 then
+    PrintInfo("[celestial_peak] ground introuvable dans master_zone : " .. tostring(name)
+              .. " — repli sur " .. tostring(MASTER_FALLBACK))
+    return MASTER_FALLBACK
+  end
+  return idx
+end
+
 function celestial_peak.Init(zone)
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Init_celestial_peak")
@@ -62,13 +100,13 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
           GAME:WaitFrames(20)
           SV.Chapter10.LostFoothills = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
-              GAME:EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('celestial_peak_entrance'), 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
                   "Le vent...[pause=0] il est trop fort...[pause=20] on ne peut plus avancer...", "Pain")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, 46, 0)
+              GAME:EnterZone("master_zone", -1, GROUND_IDX('celestial_peak_entrance'), 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('celestial_peak_entrance'), 0, true, true)
           end
       end
   elseif segmentID == 1 then
@@ -86,13 +124,13 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter10.LostCloudSea = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
               SV.Chapter10.PeakMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, 75, 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('celestial_peak_relay'), 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
                   "Les nuages...[pause=0] on est tombes...[pause=25] a travers le ciel...", "Shock")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, 75, 0)
+              GAME:EnterZone("master_zone", -1, GROUND_IDX('celestial_peak_relay'), 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 75, 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('celestial_peak_relay'), 0, true, true)
           end
       end
   elseif segmentID == 3 then
@@ -103,11 +141,11 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
       else
           SV.Chapter10.FulgurReachedSummitFirst = true
           SV.Chapter10.PeakMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, 75, 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('celestial_peak_relay'), 0, true, true)
           GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
               "L'Escouade Fulgur...[pause=0] ils nous ont devances...[pause=20] trop rapides...", "Pain")
           GAME:WaitFrames(20)
-          GAME:EnterZone("master_zone", -1, 75, 0)
+          GAME:EnterZone("master_zone", -1, GROUND_IDX('celestial_peak_relay'), 0)
       end
   elseif segmentID == 4 then
       -- Sommet Sacre : 4 etages
@@ -129,13 +167,13 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter10.LostSummit = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
               SV.Chapter10.PeakMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, 75, 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('celestial_peak_relay'), 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
                   "Le sommet...[pause=0] si proche...[pause=30] et pourtant...", "Sad")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, 75, 0)
+              GAME:EnterZone("master_zone", -1, GROUND_IDX('celestial_peak_relay'), 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 75, 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('celestial_peak_relay'), 0, true, true)
           end
       end
   elseif segmentID == 5 then
@@ -188,11 +226,11 @@ function celestial_peak.ExitSegment(zone, result, rescue, segmentID, mapID)
       else
           SV.Chapter10.DiedToLugia = true
           SV.Chapter10.PeakMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, 75, 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('celestial_peak_relay'), 0, true, true)
           GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
               "Lugia...[pause=0] le Gardien des Cieux...[pause=20] nous a juges...", "Pain")
           GAME:WaitFrames(20)
-          GAME:EnterZone("master_zone", -1, 75, 0)
+          GAME:EnterZone("master_zone", -1, GROUND_IDX('celestial_peak_relay'), 0)
       end
   end
 end

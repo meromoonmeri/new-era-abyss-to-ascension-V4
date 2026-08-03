@@ -3,6 +3,37 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.TownNight'
 
 local crooked_cavern = {}
+
+--------------------------------------------------------------------
+-- INDEX DES GROUNDS DE master_zone — resolus PAR NOM
+--
+-- CORRECTIF (audit 2026-08-04). Ce fichier ciblait des index ECRITS EN
+-- DUR qui ne designaient plus les cartes voulues : master_zone a grossi
+-- depuis, et tout ce qui suivait un ajout s'est decale.
+--   60 -> searing_tunnel_miniboss  (attendu : crooked_cavern_midpoint)
+--   Le commentaire du code annoncait deja « crooked_cavern_midpoint ».
+-- Meme defaut, meme remede que zone/cloven_ruins, zone/vast_steppe et
+-- zone/celestial_peak : resolution par NOM a l'execution, qui ne peut
+-- plus rederiver quand un ground est ajoute ou retire.
+--------------------------------------------------------------------
+local MASTER_FALLBACK = 1  -- metano_town
+
+local function GROUND_IDX(name)
+  local ok, idx = pcall(function()
+    local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("master_zone")
+    for ii = 0, zone.Grounds.Count - 1, 1 do
+      if zone.Grounds[ii] == name then return ii end
+    end
+    return -1
+  end)
+  if not ok or idx == nil or idx < 0 then
+    PrintInfo("[crooked_cavern] ground introuvable dans master_zone : " .. tostring(name)
+              .. " — repli sur " .. tostring(MASTER_FALLBACK))
+    return MASTER_FALLBACK
+  end
+  return idx
+end
+
 --------------------------------------------------
 -- Map Callbacks
 --------------------------------------------------
@@ -109,7 +140,7 @@ function crooked_cavern.ExitSegment(zone, result, rescue, segmentID, mapID)
 				-- crooked_den's FirstPreBossScene (handled in segment 1 below).
 				-- (Original line was: GAME:EnterZone("master_zone", -1, 42, 0).)
 				SV.Chapter3.CrookedMidpointState = 'FirstArrival'
-				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 60, 0, false, false) --crooked_cavern_midpoint (mapID 60)
+				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('crooked_cavern_midpoint'), 0, false, false) --crooked_cavern_midpoint (mapID 60)
 			end
 		end
 
@@ -132,12 +163,12 @@ function crooked_cavern.ExitSegment(zone, result, rescue, segmentID, mapID)
 			SV.CrookedCavern.DiedPastCheckpoint = true
 			SV.Chapter3.CrookedMidpointState = 'DeathArrival'
 			GAME:WaitFrames(20)
-			GAME:EndDungeonRun(result, "master_zone", -1, 60, 0, true, true) --relay (mapID 60); this saves + applies standard loss penalties
+			GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('crooked_cavern_midpoint'), 0, true, true) --relay (mapID 60); this saves + applies standard loss penalties
 			UI:SetSpeaker(GAME:GetPlayerPartyMember(1))
 			GeneralFunctions.SetEmotion("Pain")
 			GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Urf...[pause=0] pas cette fois...", "Pain")
 			GAME:WaitFrames(20)
-			GAME:EnterZone("master_zone", -1, 60, 0) --travel to the relay
+			GAME:EnterZone("master_zone", -1, GROUND_IDX('crooked_cavern_midpoint'), 0) --travel to the relay
 
 		--Cleared the second half: proceed to crooked_den pre-boss scene (UNCHANGED target;
 		--this path was previously reached directly from segment 0).
@@ -164,9 +195,9 @@ function crooked_cavern.ExitSegment(zone, result, rescue, segmentID, mapID)
 			-- (crooked_den's DiedToBoss scene is thereby superseded but left in place).
 			SV.CrookedCavern.DiedPastCheckpoint = true
 			SV.Chapter3.CrookedMidpointState = 'DeathArrival'
-			GAME:EndDungeonRun(result, "master_zone", -1, 60, 0, true, true) --relay (mapID 60)
+			GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('crooked_cavern_midpoint'), 0, true, true) --relay (mapID 60)
 			GAME:WaitFrames(20)
-			GAME:EnterZone("master_zone", -1, 60, 0)
+			GAME:EnterZone("master_zone", -1, GROUND_IDX('crooked_cavern_midpoint'), 0)
 		else
 			--Beat the boss: continue to crooked_den for the post-boss/root scene (UNCHANGED).
 			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 42, 0, false, false) --crooked_den (mapID 42)

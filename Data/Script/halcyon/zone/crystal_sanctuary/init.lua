@@ -12,6 +12,37 @@ require 'halcyon.ReplayEnding'
 
 local crystal_sanctuary = {}
 
+--------------------------------------------------------------------
+-- INDEX DES GROUNDS DE master_zone — resolus PAR NOM
+--
+-- CORRECTIF (audit 2026-08-04). Ce fichier ciblait des index ECRITS EN
+-- DUR qui ne designaient plus les cartes voulues : master_zone a grossi
+-- depuis, et tout ce qui suivait un ajout s'est decale.
+--   46 -> vast_steppe_entrance  (attendu : crystal_sanctuary_entrance)
+--   Mourir dans la premiere moitie renvoyait a un donjon du chapitre 5.
+-- Meme defaut, meme remede que zone/cloven_ruins, zone/vast_steppe et
+-- zone/celestial_peak : resolution par NOM a l'execution, qui ne peut
+-- plus rederiver quand un ground est ajoute ou retire.
+--------------------------------------------------------------------
+local MASTER_FALLBACK = 1  -- metano_town
+
+local function GROUND_IDX(name)
+  local ok, idx = pcall(function()
+    local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("master_zone")
+    for ii = 0, zone.Grounds.Count - 1, 1 do
+      if zone.Grounds[ii] == name then return ii end
+    end
+    return -1
+  end)
+  if not ok or idx == nil or idx < 0 then
+    PrintInfo("[crystal_sanctuary] ground introuvable dans master_zone : " .. tostring(name)
+              .. " — repli sur " .. tostring(MASTER_FALLBACK))
+    return MASTER_FALLBACK
+  end
+  return idx
+end
+
+
 function crystal_sanctuary.Init(zone)
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Init_crystal_sanctuary")
@@ -56,13 +87,13 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
           GAME:WaitFrames(20)
           SV.Chapter8.LostCrystalGallery = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
-              GAME:EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('crystal_sanctuary_entrance'), 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
                   "Les cristaux...[pause=0] ils emprisonnent tout...[pause=15] meme la lumiere...", "Pain")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, 46, 0)
+              GAME:EnterZone("master_zone", -1, GROUND_IDX('crystal_sanctuary_entrance'), 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('crystal_sanctuary_entrance'), 0, true, true)
           end
       end
   elseif segmentID == 1 then
