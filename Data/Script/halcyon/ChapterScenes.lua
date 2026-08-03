@@ -161,27 +161,77 @@ end
 -- Registre : contemplation. Ils parlent bas, comme dans une bibliotheque.
 -- Le danger n'est pas evoque : c'est la beaute qui inquiete, parce qu'elle
 -- est trop parfaite pour etre naturelle.
+-- DECOR (mesure sur crystal_sanctuary_entrance.rsground, 2026-08-04) :
+-- caverne de cristal 240x312, TexSize 3. Un sentier de pierre claire
+-- serpente du bord SUD jusqu'a une arche taillee au NORD (y 104),
+-- herissee d'eclats roses et violets. Ce n'est PAS une cascade : le
+-- texte precedent decrivait un rideau d'eau qui n'existe pas sur la
+-- carte. Corrige.
+-- Cadrage : la carte (240 px) est plus etroite que le viewport (320) ;
+-- la camera x est donc clampee au centre, seul y compte (120 -> 192).
+-- Trajets valides par BFS sur la grille d'obstacles, jamais en ligne
+-- droite : le sentier serpente, un deplacement direct traverse la roche.
 function ChapterScenes.CrystalArrival()
   return Arrival({
     sv = SV.Chapter8, flag = 'PlayedArrivalScene',
     music = 'Crystal Crossing.ogg',
-    camera = {160, 96}, focus = {160, 160},
+    camera = {120, 192}, focus = {120, 120},
     scene = function(hero, partner)
-      narrate("La cascade tombe sans un bruit.[pause=30] C'est la première chose qui cloche.")
+      narrate("Aucun écho.[pause=30] Sous terre, une salle de cette taille devrait renvoyer chaque pas.")
       GAME:WaitFrames(20)
       say(partner, 'Surprised', "Écoute...[pause=25] Non. N'écoute pas.[pause=20] Il n'y a RIEN à écouter.")
-      say(partner, 'Worried', "Une chute d'eau de cette taille, ça devrait couvrir nos voix.[pause=25] On s'entend chuchoter.")
-      think(hero, 'Worried', "(L'eau tombe. Elle touche la pierre. Et le son ne nous parvient pas.)")
+      say(partner, 'Worried', "Le cristal devrait résonner.[pause=25] On s'entend chuchoter.")
+      think(hero, 'Worried', "(Nos pas touchent la pierre.[pause=20] Et le son ne revient pas.)")
       GAME:WaitFrames(20)
-      say(partner, 'Normal', "Derrière le rideau d'eau...[pause=20] tu vois cette lueur ?[pause=15] Elle bat.[pause=25] Lentement. Comme un souffle.")
+
+      --Le duo remonte le sentier. Waypoints issus du BFS : la marche
+      --contourne la roche au lieu de la traverser.
+      pcall(function()
+        local c1 = TASK:BranchCoroutine(function()
+          GROUND:MoveToPosition(hero, 128, 288, false, 1)
+          GROUND:MoveToPosition(hero, 128, 232, false, 1)
+          GROUND:MoveToPosition(hero, 112, 216, false, 1)
+          GROUND:MoveToPosition(hero, 104, 200, false, 1)
+        end)
+        local c2 = TASK:BranchCoroutine(function()
+          GAME:WaitFrames(14)
+          GROUND:MoveToPosition(partner, 128, 288, false, 1)
+          GROUND:MoveToPosition(partner, 128, 232, false, 1)
+          GROUND:MoveToPosition(partner, 120, 232, false, 1)
+          GROUND:MoveToPosition(partner, 120, 208, false, 1)
+        end)
+        TASK:JoinCoroutines({c1, c2})
+      end)
       GAME:WaitFrames(15)
-      narrate("Un halo bleu pâle traverse la cascade, s'éteint, revient.[pause=25] Toujours au même rythme.")
+
+      say(partner, 'Normal', "Les cristaux, là-haut...[pause=20] tu vois ?[pause=15] Ils s'allument.[pause=25] Lentement. Comme un souffle.")
+      GAME:WaitFrames(15)
+      narrate("Une lueur rose parcourt les éclats jusqu'à l'arche, s'éteint, revient.[pause=25] Toujours au même rythme.")
       GAME:WaitFrames(20)
       say(partner, 'Sad', "Phileas a dit que les premiers gardiens avaient écrit leur savoir ici.[pause=30] Moi je ne vois pas une bibliothèque.")
       say(partner, 'Sad', "Je vois un endroit qu'on a fermé.[pause=25] Et le silence, c'est le couvercle.")
-      think(hero, 'Normal', "(Elle a raison. On ne cache pas un livre derrière une cascade.[pause=20] On cache un secret.)")
+      think(hero, 'Normal', "(On ne taille pas une arche pareille pour ranger des livres.[pause=20] On la taille pour garder quelque chose.)")
       GAME:WaitFrames(20)
-      say(partner, 'Determined', "Bon.[pause=20] On n'est pas venus admirer.[pause=25] On passe sous l'eau et on lit ce qu'ils ont laissé.")
+
+      --Ils montent jusqu'au seuil : le decor cadre l'arche derriere eux.
+      pcall(function()
+        local c3 = TASK:BranchCoroutine(function()
+          GROUND:MoveToPosition(hero, 104, 152, false, 1)
+          GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
+        end)
+        local c4 = TASK:BranchCoroutine(function()
+          GAME:WaitFrames(10)
+          GROUND:MoveToPosition(partner, 112, 208, false, 1)
+          GROUND:MoveToPosition(partner, 112, 176, false, 1)
+          GROUND:MoveToPosition(partner, 128, 176, false, 1)
+          GROUND:MoveToPosition(partner, 128, 152, false, 1)
+          GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+        end)
+        TASK:JoinCoroutines({c3, c4})
+      end)
+      GAME:WaitFrames(20)
+
+      say(partner, 'Determined', "Bon.[pause=20] On n'est pas venus admirer.[pause=25] On passe sous l'arche et on lit ce qu'ils ont laissé.")
     end,
   })
 end
