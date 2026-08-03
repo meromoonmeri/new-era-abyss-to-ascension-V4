@@ -306,7 +306,7 @@ function metano_town_ch_1.EnterGuild()
 	GROUND:TeleportTo(partner, 648, 1064, Direction.Up)
 	GROUND:TeleportTo(hero, 648, 1096, Direction.Up)
 
-	coro1= TASK:BranchCoroutine(GAME:MoveCamera(684, 928, frameDur, false))
+	coro1= TASK:BranchCoroutine(function() GAME:MoveCamera(684, 928, frameDur, false) end)
 	--coro1 = TASK:BranchCoroutine(function() GeneralFunctions.CenterCamera({hero, partner, growlithe}, 744, 796, 1) end)
 	coro2 = TASK:BranchCoroutine(metano_town_ch_1.WalkSequenceHero)
 	local coro3 = TASK:BranchCoroutine(metano_town_ch_1.WalkSequencePartner)

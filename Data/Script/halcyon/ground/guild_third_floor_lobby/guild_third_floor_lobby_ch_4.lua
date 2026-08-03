@@ -127,7 +127,7 @@ function guild_third_floor_lobby_ch_4.ExpeditionAnnouncementAddress()
 	local coro7 = TASK:BranchCoroutine(function() GAME:WaitFrames(10)
 												  GROUND:CharSetEmote(hero, "notice", 1) end)
 	local coro8 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(partner, "exclaim", 1) end)
-	TASK:BranchCoroutine({coro1, coro2, coro3, coro4, coro5, coro6, coro7, coro8})
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coro6, coro7, coro8})
 
 	GAME:WaitFrames(50)
 	GROUND:CharSetAnim(growlithe, "Idle", true)
