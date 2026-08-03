@@ -72,6 +72,21 @@ local PLACES = {
 }
 cloven_ruins_entrance_ch_5.PLACES = PLACES
 
+-- POSTE D'ACCUEIL DE PLUM (actes 1 a 5) — distinct de sa place au diner.
+--
+-- CORRECTIF. Elle etait posee d'emblee sur PLACES.Plum = {80, 200}, c'est-a-dire
+-- a l'OUEST du camp. Or le duo entre par l'ouest (x=24) et marche vers l'est
+-- jusqu'a x=152 : il lui passait littéralement dessus, puis la depassait. La
+-- camera partait ensuite la chercher DERRIERE le groupe, et elle etait tournee
+-- vers la gauche, donc de dos. Toute la chute de l'acte 5 (« elle etait devant
+-- tout le monde depuis le debut ») tombait a plat, puisqu'elle etait derriere.
+--
+-- Elle attend desormais a l'EST de l'arret du duo, dans l'axe de la marche :
+-- le groupe avance vers elle et la decouvre en face, ce que la scene raconte.
+-- Position verifiee marchable et sans conflit (tools/audit_camp_ruines.py).
+local PLUM_ACCUEIL = {216, 200}
+cloven_ruins_entrance_ch_5.PLUM_ACCUEIL = PLUM_ACCUEIL
+
 -- Paillasses : deux rangees, nord y=168 et sud y=248. 40 px entre
 -- voisines (circulation), au moins 56 du foyer et 48 des objets
 -- scriptes. Deployees SEULEMENT a l'acte 7.
@@ -92,19 +107,30 @@ local LITS = {
 }
 cloven_ruins_entrance_ch_5.LITS = LITS
 
--- Arrivees echelonnees : depart au bord ouest, position d'attente.
--- Aucune collision entre les positions d'attente (verifie).
+-- Arrivees echelonnees : chacun part du bord ouest et rejoint sa place.
+--
+-- CORRECTIF DE COLLISIONS. Tout le monde partait du MEME point (16, 200) et
+-- visait des places dispersees : les derniers arrives traversaient donc les
+-- premiers. Mesure avant correction (tools/audit_camp_ruines.py) : 11
+-- traversees, dont Reinier passant a 6 px de Coco et Shuca a 8 px de Coco.
+--
+-- Nouvelle regle, tenue pour les dix : CHACUN PART A LA HAUTEUR DE SA PLACE.
+-- Le trajet est alors une ligne droite horizontale, et deux lignes droites a
+-- des hauteurs differentes ne se croisent jamais. Les places sont rangees en
+-- arc ouvert autour du duo, toutes a l'ouest de Plum (x < 200) pour ne jamais
+-- masquer la seule chose que la camera regarde a l'acte 3.
+-- Verifie : 0 traversee, 0 superposition, 0 position dans un obstacle.
 local ARR = {
-  Phileas   = { depart = {16, 200}, attente = {56, 168} },
-  Penticus  = { depart = {16, 200}, attente = {96, 168} },
-  Coco      = { depart = {16, 200}, attente = {48, 200} },
-  Rin       = { depart = {16, 200}, attente = {88, 200} },
-  Ganlon    = { depart = {16, 200}, attente = {64, 224} },
-  Shuca     = { depart = {16, 200}, attente = {104, 224} },
-  Hyko      = { depart = {16, 200}, attente = {48, 248} },
-  Almotz    = { depart = {16, 200}, attente = {112, 256} },
-  Kino      = { depart = {16, 200}, attente = {24, 232} },
-  Reinier   = { depart = {16, 200}, attente = {136, 224} },
+  Phileas   = { depart = {16, 208}, attente = {120, 208} },
+  Penticus  = { depart = {16, 208}, attente = {88, 208} },
+  Rin       = { depart = {16, 176}, attente = {192, 176} },
+  Coco      = { depart = {16, 208}, attente = {56, 208} },
+  Hyko      = { depart = {16, 248}, attente = {192, 248} },
+  Almotz    = { depart = {16, 184}, attente = {104, 184} },
+  Ganlon    = { depart = {16, 232}, attente = {104, 232} },
+  Shuca     = { depart = {16, 184}, attente = {72, 184} },
+  Kino      = { depart = {16, 232}, attente = {72, 232} },
+  Reinier   = { depart = {16, 184}, attente = {40, 184} },
 }
 cloven_ruins_entrance_ch_5.ARR = ARR
 
@@ -271,7 +297,9 @@ function cloven_ruins_entrance_ch_5.SetupGround(includeRecon)
     end
   end
   -- Plum s'est incrustee au Mont Venteux et a suivi. Running gag.
-  spawn[#spawn + 1] = {'Jigglypuff', PLACES.Plum[1], PLACES.Plum[2], Direction.Down}
+  -- Elle apparait a son POSTE D'ACCUEIL, a l'est, deja tournee vers l'ouest :
+  -- c'est par la que le duo arrive, et elle le regarde venir.
+  spawn[#spawn + 1] = {'Jigglypuff', PLUM_ACCUEIL[1], PLUM_ACCUEIL[2], Direction.Left}
 
   -- ================================================================
   -- ANTI-DUPLICATION — bug constate en jeu sur l'ancienne carte
@@ -510,10 +538,21 @@ function cloven_ruins_entrance_ch_5.Acte2(hero, partner)
   Silence(24)
 
   -- Ils regardent DEVANT. Le camp est vide, et ca ne colle pas.
-  pcall(function()
-    GROUND:CharAnimateTurnTo(hero, Direction.Right, 6)
-    if partner ~= nil then GROUND:CharAnimateTurnTo(partner, Direction.Right, 6) end
+  --
+  -- Les deux pivotaient dans la meme frame : une rotation de groupe, que la
+  -- charte du projet interdit. Le partenaire tourne la tete le premier (c'est
+  -- lui qui parle ensuite), le heros suit 7 frames plus tard.
+  local tourne = {}
+  tourne[1] = TASK:BranchCoroutine(function()
+    if partner ~= nil then
+      pcall(function() GROUND:CharAnimateTurnTo(partner, Direction.Right, 6) end)
+    end
   end)
+  tourne[2] = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(7)
+    pcall(function() GROUND:CharAnimateTurnTo(hero, Direction.Right, 6) end)
+  end)
+  pcall(function() TASK:JoinCoroutines(tourne) end)
   Silence(30)
 
   -- Puis ils se regardent l'un l'autre. Rien n'est dit : c'est le
@@ -562,16 +601,34 @@ end
 -- exact du camp. 104 px a parcourir : a 240 frames, c'est un mouvement
 -- que le joueur voit avancer sans le sentir bouger.
 function cloven_ruins_entrance_ch_5.Acte3(hero, partner)
-  pcall(function() GAME:MoveCamera(CX, CY, 240, false) end)
+  -- La camera glisse vers l'EST, la ou attend Plum. Elle ne s'arrete pas au
+  -- foyer : elle depasse le duo et va decouvrir ce qu'il a devant lui.
+  pcall(function() GAME:MoveCamera(PLUM_ACCUEIL[1] - 24, PLUM_ACCUEIL[2], 240, false) end)
   Silence(20)
   Vent()
   Silence(40)
 
   -- Elle est la. Debout. Immobile. Face au groupe. Bras le long du
   -- corps. La camera reste sur elle SANS AUCUN DIALOGUE.
+  --
+  -- Elle est deja tournee vers l'ouest depuis son apparition : elle les a
+  -- regardes arriver tout du long. On ne la fait donc PAS pivoter ici — la
+  -- faire se tourner maintenant dirait qu'elle vient seulement de les
+  -- remarquer, ce qui contredit la chute de l'acte 5.
   local plum = E('Plum')
+
+  -- Le duo, lui, la decouvre : chacun se tourne vers elle a son rythme,
+  -- selon SA position (CharTurnToCharAnimated calcule la direction reelle).
   if plum ~= nil then
-    pcall(function() GROUND:CharAnimateTurnTo(plum, Direction.Left, 8) end)
+    local vu = {}
+    vu[1] = TASK:BranchCoroutine(function()
+      pcall(function() GROUND:CharTurnToCharAnimated(partner, plum, 5) end)
+    end)
+    vu[2] = TASK:BranchCoroutine(function()
+      GAME:WaitFrames(8)
+      pcall(function() GROUND:CharTurnToCharAnimated(hero, plum, 5) end)
+    end)
+    pcall(function() TASK:JoinCoroutines(vu) end)
   end
   Silence(60)
   Vent()
@@ -588,9 +645,12 @@ function cloven_ruins_entrance_ch_5.Acte3(hero, partner)
   Silence(26)
 
   -- Plum ne repond pas. Elle detourne seulement les yeux vers le
-  -- chemin par lequel tout le monde arrive.
+  -- chemin par lequel tout le monde arrive : l'ouest, en contrebas.
+  -- Elle regardait DROIT le duo (Left) ; elle glisse vers UpLeft, ce qui
+  -- casse le contact visuel sans lui tourner le dos. Le duo comprend
+  -- qu'elle ne le regarde plus lui, mais quelque chose derriere lui.
   if plum ~= nil then
-    pcall(function() GROUND:CharAnimateTurnTo(plum, Direction.DownLeft, 10) end)
+    pcall(function() GROUND:CharAnimateTurnTo(plum, Direction.UpLeft, 10) end)
   end
   Silence(50)
   Vent()
@@ -699,10 +759,16 @@ function cloven_ruins_entrance_ch_5.Acte4(hero, partner, plum)
   Silence(14)
 
   -- ...puis ils comprennent que personne ne les ecoute.
+  --
+  -- Ils tournaient vers Direction.Right en dur : selon l'endroit ou ils se
+  -- sont arretes, cela pouvait les faire regarder a cote du groupe. On vise
+  -- desormais le heros lui-meme : CharTurnToCharAnimated calcule la direction
+  -- reelle depuis leurs positions respectives, donc chacun se tourne selon SA
+  -- geometrie. Decalage de 8 frames : Kino comprend avant Reinier.
   pcall(function()
-    GROUND:CharAnimateTurnTo(kino, Direction.Right, 5)
+    GROUND:CharTurnToCharAnimated(kino, hero, 5)
     GAME:WaitFrames(8)
-    GROUND:CharAnimateTurnTo(reinier, Direction.Right, 5)
+    GROUND:CharTurnToCharAnimated(reinier, hero, 5)
   end)
   ReactAll({ {kino, "Question"}, {reinier, "Sweating"} })
   Says(reinier, "Worried", 'CR5_A20', {kino})
@@ -740,7 +806,13 @@ end
 -- ACTE 5 — LE CRI
 -- ==================================================================
 function cloven_ruins_entrance_ch_5.Acte5(hero, partner, plum, t)
-  -- Elle se retourne BRUTALEMENT. Rotation en 1 frame, pas 8.
+  -- Elle FAIT VOLTE-FACE. Rotation en 1 frame, pas 8.
+  --
+  -- Elle avait detourne les yeux vers UpLeft a l'acte 3, puis tout le camp
+  -- est arrive derriere le duo, a l'ouest. Elle revient donc brutalement sur
+  -- Left : le mouvement est reel, et il cadre le groupe entier d'un coup.
+  -- (Avant ce correctif elle « se retournait » vers la direction ou elle
+  -- etait deja : le geste ne se voyait pas et le cri tombait de nulle part.)
   if plum ~= nil then
     pcall(function() GROUND:EntTurn(plum, Direction.Left) end)
     pcall(function() SOUND:PlayBattleSE("EVT_Emote_Shock_2") end)
