@@ -338,24 +338,23 @@ local function FirstPreBossBody()
   SOUND:PlayBattleSE('EVT_Battle_Transition')
   GAME:WaitFrames(20)
 
-  -- TOUS SE TOURNENT VERS LUI, en decale. Auparavant seuls le heros et
-  -- le partenaire pivotaient : t2 et t3 restaient plantes de dos face a
-  -- un legendaire. CharTurnToChar vise l'entite plutot qu'une direction
-  -- fixe : l'orientation reste juste meme si une position change.
+  -- Tornadus est au NORD de toute l'equipe (y=1064 contre y>=1160).
+  -- CharTurnToChar a produit une direction erronée en jeu sur cette map ;
+  -- on applique donc l'orientation géométrique explicite, par vagues.
   coro1 = TASK:BranchCoroutine(function()
-    GROUND:CharTurnToChar(partner, tornadus)
+    GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
   end)
   coro2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(6)
-    GROUND:CharTurnToChar(hero, tornadus)
+    GROUND:CharAnimateTurnTo(hero, Direction.Up, 4)
   end)
   local coro2d = TASK:BranchCoroutine(function()
     GAME:WaitFrames(12)
-    if t2 ~= nil then GROUND:CharTurnToChar(t2, tornadus) end
+    if t2 ~= nil then GROUND:CharAnimateTurnTo(t2, Direction.Up, 4) end
   end)
   local coro2e = TASK:BranchCoroutine(function()
     GAME:WaitFrames(19)
-    if t3 ~= nil then GROUND:CharTurnToChar(t3, tornadus) end
+    if t3 ~= nil then GROUND:CharAnimateTurnTo(t3, Direction.Up, 4) end
   end)
   TASK:JoinCoroutines({coro1, coro2, coro2d, coro2e})
 
@@ -408,9 +407,14 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   local ok, err = pcall(FirstPreBossBody)
   if not ok then
     PrintInfo('[MWG] FirstPreBoss interrupted: ' .. tostring(err))
-    -- Never strand the player in an input-locked, black-screen state.
+    -- Recovery must progress into the boss map, not merely unlock an
+    -- arena with a half-created boss and no active trigger.
+    pcall(function() COMMON.BossTransition() end)
     pcall(function() GAME:CutsceneMode(false) end)
-    pcall(function() GAME:FadeIn(20) end)
+    pcall(function()
+      GAME:ContinueDungeon('mount_windswept', 2, 0, 0,
+        RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    end)
   end
 end
 
