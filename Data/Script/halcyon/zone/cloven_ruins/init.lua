@@ -120,16 +120,27 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
   end
 
   -- Retour au camp d'entree : boucle de secteur OU echec.
+  --
+  -- CORRECTIF (rapport joueur 2026-08-03 : « je finis l'etage 4 et j'ai le
+  -- message de victoire au lieu de la suite prevue »).
+  -- La BOUCLE n'est pas une fin de donjon : le joueur ressort bredouille
+  -- parce que le mot n'est pas epele, ce n'est ni un succes ni un echec.
+  -- On passait pourtant display=true / fanfare=true a EndDungeonRun, d'ou
+  -- l'ecran de resultats et la fanfare de victoire.
+  -- Desormais : pas de bilan ni de fanfare sur une boucle ; on ne les
+  -- garde que pour une vraie sortie (KO ou abandon).
   local function retourCamp(result, motif)
     GAME:WaitFrames(20)
-    if motif ~= nil then SV.Chapter7.LostRuins = true end
+    local boucle = (motif == nil)
+    if not boucle then SV.Chapter7.LostRuins = true end
     if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped
        and motif == 'echec' then
       GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_entrance'), 0, true, true)
       GAME:WaitFrames(20)
       GAME:EnterZone("master_zone", -1, GROUND_IDX('cloven_ruins_entrance'), 0)
     else
-      GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_entrance'), 0, true, true)
+      GeneralFunctions.EndDungeonRun(result, "master_zone", -1,
+        GROUND_IDX('cloven_ruins_entrance'), 0, not boucle, not boucle)
     end
   end
 

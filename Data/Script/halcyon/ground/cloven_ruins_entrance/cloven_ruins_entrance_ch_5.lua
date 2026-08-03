@@ -256,8 +256,19 @@ function cloven_ruins_entrance_ch_5.SetupGround(includeRecon)
     spawn[#spawn + 1] = {'Breloom',   ARR.Kino.attente[1],    ARR.Kino.attente[2],    Direction.Down}
     spawn[#spawn + 1] = {'Girafarig', ARR.Reinier.attente[1], ARR.Reinier.attente[2], Direction.Down}
   else
-    pcall(function() GROUND:Hide('Breloom') end)
-    pcall(function() GROUND:Hide('Girafarig') end)
+    -- CORRECTIF (log joueur 2026-08-03) : ScriptGround.Hide leve une
+    -- ArgumentException si l'entite n'existe pas — et elle n'existe PAS
+    -- a la premiere arrivee, puisqu'on est justement dans la branche qui
+    -- ne la cree pas. Le pcall empechait le crash mais l'exception etait
+    -- quand meme tracee a chaque entree sur la carte, noyant le log.
+    -- On ne masque plus que ce qui existe reellement.
+    for _, nom in ipairs({'Breloom', 'Girafarig'}) do
+      local existe = false
+      pcall(function()
+        existe = (GAME:GetCurrentGround():FindEntity(nom) ~= nil)
+      end)
+      if existe then pcall(function() GROUND:Hide(nom) end) end
+    end
   end
   -- Plum s'est incrustee au Mont Venteux et a suivi. Running gag.
   spawn[#spawn + 1] = {'Jigglypuff', PLACES.Plum[1], PLACES.Plum[2], Direction.Down}

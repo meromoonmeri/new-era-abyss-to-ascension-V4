@@ -258,10 +258,13 @@ function cloven_ruins_entrance.Dungeon_Entrance_Touch(obj, activator)
   GROUND:CharEndAnim(hero)
 end
 
--- Rocher de Kangourex : sauvegarde + stockage (inchangé).
-function cloven_ruins_entrance.Kangaskhan_Rock_Action(obj, activator)
-  GeneralFunctions.Kangashkhan_Rock_Interact(obj, activator)
-end
+-- ROCHER DE KANGOUREX RETIRE du camp des Ruines (demande utilisateur
+-- 2026-08-03). Deux statues apparaissaient a l'ecran : l'objet lui-meme,
+-- et Tablette_Zarbi qui avait ete cree par COPIE du rocher et en portait
+-- donc le sprite (AnimIndex 'Kangaskhan_Rock'). L'entite est supprimee du
+-- .rsground et la tablette n'a plus d'AnimIndex.
+-- Le handler est retire avec elle : un handler sans entite est signale
+-- par verify_entity_handlers.
 
 -- LA TABLETTE DES ZARBI — cœur du puzzle d'Aegis Cave.
 -- Elle lit les cavités, annonce le mot du secteur en cours, dit ce qui
