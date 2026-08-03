@@ -64,12 +64,19 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
           else
               GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
           end
+      else
+          --FILET DE SECURITE. Cleared mais FollowsRoute faux (visite de
+          --rejouabilite, ou SV.ChapterProgression.Chapter bloque a 6 comme
+          --l'explique ReplayEnding.lua:100) : les deux branches ci-dessus
+          --etaient fausses et AUCUNE sortie n'etait appelee -> ecran noir.
+          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
       end
   elseif segmentID == 1 then
-      -- Relais
-      if result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
-          GAME:EnterGroundMap('crystal_sanctuary_relay', 'Main_Entrance_Marker')
-      end
+      -- Relais. Toute issue ramene sur la ground du relais : sans la
+      -- branche Cleared, une sortie reussie de ce segment ne declenchait
+      -- AUCUN EnterGroundMap et laissait le joueur sur un ecran noir.
+      SV.Chapter8.SanctuaryMidReturn = true
+      GAME:EnterGroundMap('crystal_sanctuary_relay', 'Main_Entrance_Marker')
   elseif segmentID == 2 then
       -- Premier 3F des Salles des Glyphes : le mini-boss attend au bout.
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('crystal_sanctuary', 8) then
@@ -80,7 +87,7 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter8.LostGlyphHalls = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
               SV.Chapter8.SanctuaryMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
+          GAME:EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
                   "Les runes...[pause=0] elles parlent...[pause=20] mais on ne comprend pas...", "Pain")
               GAME:WaitFrames(20)
@@ -88,6 +95,10 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
           else
               GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
           end
+      else
+          --FILET DE SECURITE (meme cas qu'au segment 0) : Cleared avec
+          --FollowsRoute faux ne declenchait aucune sortie.
+          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
       end
   elseif segmentID == 3 then
       -- ARENE MINI-BOSS (Strassie + Momartik) : victoire ou defaite, on
@@ -110,7 +121,7 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter8.LostGlyphHalls = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
               SV.Chapter8.SanctuaryMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
+          GAME:EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
                   "Les runes...[pause=0] elles parlent...[pause=20] mais on ne comprend pas...", "Pain")
               GAME:WaitFrames(20)
@@ -118,6 +129,10 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
           else
               GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
           end
+      else
+          --FILET DE SECURITE (meme cas qu'au segment 0) : Cleared avec
+          --FollowsRoute faux ne declenchait aucune sortie.
+          GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
       end
   elseif segmentID == 5 then
       -- Boss Diancie
@@ -140,7 +155,7 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
       else
           SV.Chapter8.DiedToDiancie = true
           SV.Chapter8.SanctuaryMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
+          GAME:EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
           GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
               "Diancie...[pause=0] sa puissance...[pause=15] trop eclatante...", "Pain")
           GAME:WaitFrames(20)
