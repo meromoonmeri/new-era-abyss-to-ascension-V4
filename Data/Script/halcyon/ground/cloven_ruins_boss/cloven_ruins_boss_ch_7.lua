@@ -8,6 +8,7 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
+require 'halcyon.RuinesRenforts'
 
 cloven_ruins_boss_ch_7 = {}
 
@@ -352,6 +353,22 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
   SOUND:PlayBattleSE('_UNK_EVT_102')
   GAME:WaitFrames(20)
 
+  -- ================================================================
+  -- LES HUIT GARDES + LES RENFORTS DE LA GUILDE (portage Aegis Cave)
+  -- ================================================================
+  -- Fidele a EoS : Regigigas n'est pas seul (4 Hitmonlee + 4 Bronzong),
+  -- et le joueur non plus. Adaptation New Era : pas de Team Charm
+  -- importee — ce sont Ganlon, Shuca, Kino et Reinier, DEJA presents au
+  -- camp devant les ruines, qui descendent. Voir RuinesRenforts.lua pour
+  -- la justification de chaque presence.
+  local statues = {}
+  pcall(function() statues = RuinesRenforts.PoserStatues() end)
+  pcall(function() RuinesRenforts.EveillerStatues(statues, hero, partner) end)
+
+  local renforts = {}
+  pcall(function() renforts = RuinesRenforts.FaireEntrerAllies(hero, partner) end)
+  pcall(function() RuinesRenforts.DialogueRenforts(renforts, hero, partner) end)
+
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_010'], hero:GetDisplayName()))
@@ -359,7 +376,9 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("cloven_ruins", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  -- Segment 7 depuis le portage Aegis Cave : 5 est desormais la chambre
+  -- de Registeel, l'arene de Regigigas est la derniere de la zone.
+  GAME:ContinueDungeon("cloven_ruins", 7, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function cloven_ruins_boss_ch_7.SecondPreBossScene()
@@ -406,7 +425,9 @@ function cloven_ruins_boss_ch_7.SecondPreBossScene()
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("cloven_ruins", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  -- Segment 7 depuis le portage Aegis Cave : 5 est desormais la chambre
+  -- de Registeel, l'arene de Regigigas est la derniere de la zone.
+  GAME:ContinueDungeon("cloven_ruins", 7, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 -- Corps de la cinematique, appele sous pcall par DefeatedBoss() : toute erreur

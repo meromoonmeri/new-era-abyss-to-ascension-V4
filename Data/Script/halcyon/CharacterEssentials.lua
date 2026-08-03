@@ -1188,6 +1188,74 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
+		--Ruines Tordues — les huit statues qui gardent Regigigas
+		--(portage Aegis Cave : 4 Hitmonlee + 4 Bronzong). Instances
+		--distinctes : elles s'eveillent en cascade, chacune doit etre
+		--adressable separement.
+		Hitmonlee_1 = {
+			species = "hitmonlee",
+			nickname = 'Hitmonlee',
+			instance = 'Hitmonlee_1',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Hitmonlee_2 = {
+			species = "hitmonlee",
+			nickname = 'Hitmonlee',
+			instance = 'Hitmonlee_2',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Hitmonlee_3 = {
+			species = "hitmonlee",
+			nickname = 'Hitmonlee',
+			instance = 'Hitmonlee_3',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Hitmonlee_4 = {
+			species = "hitmonlee",
+			nickname = 'Hitmonlee',
+			instance = 'Hitmonlee_4',
+			gender = Gender.Male,
+			form = 0,
+			skin = "normal"
+		},
+		Bronzong_1 = {
+			species = "bronzong",
+			nickname = 'Bronzong',
+			instance = 'Bronzong_1',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Bronzong_2 = {
+			species = "bronzong",
+			nickname = 'Bronzong',
+			instance = 'Bronzong_2',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Bronzong_3 = {
+			species = "bronzong",
+			nickname = 'Bronzong',
+			instance = 'Bronzong_3',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Bronzong_4 = {
+			species = "bronzong",
+			nickname = 'Bronzong',
+			instance = 'Bronzong_4',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
 		--Chapitre 8 : Sanctuaire de Cristal — boss Diancie
 		Diancie = {
 			species = "diancie",
