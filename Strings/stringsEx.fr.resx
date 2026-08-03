@@ -5802,4 +5802,7 @@ Comme c'est un volontaire, il ne restera pas avec toi après la sortie.
   <data name="TALK_FULL_3007" xml:space="preserve">
     <value>[{Audino}]Nous sommes peut-être un peu rouillés, mais montrons à [slot1] et [slot2] comment on fait.</value>
   </data>
+  <data name="RUINES_PIERRE_TROUVEE" xml:space="preserve">
+    <value>Le Zarbi se dissipe...[pause=20] et une pierre gravée tombe à sa place.[pause=25] Elle porte la forme {0}.</value>
+  </data>
 </root>

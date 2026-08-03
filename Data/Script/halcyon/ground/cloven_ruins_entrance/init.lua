@@ -13,6 +13,7 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.ground.cloven_ruins_entrance.cloven_ruins_entrance_ch_5'
+require 'halcyon.RuinesZarbi'
 
 local cloven_ruins_entrance = {}
 
@@ -223,7 +224,22 @@ function cloven_ruins_entrance.Dungeon_Entrance_Touch(obj, activator)
       pcall(function() GAME:UnlockDungeon("cloven_ruins") end)
     end
     SV.partner.Spawn = "Default"
-    GAME:EnterDungeon("cloven_ruins", 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    -- AEGIS CAVE : on ne repart pas toujours du premier labyrinthe.
+    -- Le secteur actif est celui dont le mot n'est pas encore epele
+    -- (Glace -> Roche -> Acier), puis le Puits une fois les trois faits.
+    -- C'est ce qui donne la boucle du donjon d'origine : tant qu'il
+    -- manque une pierre, on redescend le MEME labyrinthe.
+    local seg = 0
+    pcall(function()
+      local actif = RuinesZarbi.SecteurActif()
+      if actif ~= nil then
+        seg = actif
+      elseif SV.Ruines ~= nil and SV.Ruines.VaincuRegisteel then
+        seg = 6   -- Le Puits
+      end
+    end)
+    PrintInfo('[Ruines] entree du donjon -> segment ' .. tostring(seg))
+    GAME:EnterDungeon("cloven_ruins", seg, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
   end
   partner.IsInteracting = false
   GROUND:CharEndAnim(partner)
@@ -233,6 +249,47 @@ end
 -- Rocher de Kangourex : sauvegarde + stockage (inchangé).
 function cloven_ruins_entrance.Kangaskhan_Rock_Action(obj, activator)
   GeneralFunctions.Kangashkhan_Rock_Interact(obj, activator)
+end
+
+-- LA TABLETTE DES ZARBI — cœur du puzzle d'Aegis Cave.
+-- Elle lit les cavités, annonce le mot du secteur en cours, dit ce qui
+-- manque, et n'ouvre l'escalier que lorsque toutes les pierres sont là.
+-- Toute la logique vit dans halcyon.RuinesZarbi : ce handler ne fait que
+-- l'appeler, sous pcall, pour qu'un incident de puzzle ne puisse jamais
+-- bloquer le joueur sur le camp.
+function cloven_ruins_entrance.Tablette_Zarbi_Action(obj, activator)
+  DEBUG.EnableDbgCoro()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  UI:ResetSpeaker()
+
+  GAME:CutsceneMode(true)
+  if hero ~= nil then
+    GROUND:CharTurnToCharAnimated(hero, obj, 4)
+  end
+  -- Le partenaire s'approche pour lire par-dessus l'épaule : il est
+  -- concerné, il ne reste pas planté à distance.
+  if partner ~= nil then
+    GROUND:CharTurnToCharAnimated(partner, obj, 4)
+  end
+  GAME:WaitFrames(15)
+
+  local ouvert = false
+  local ok = pcall(function()
+    ouvert = RuinesZarbi.LireTablette()
+  end)
+  if not ok then
+    PrintInfo('[Ruines] ERREUR dans LireTablette — le camp reste jouable.')
+  end
+
+  -- Sortie garantie, quoi qu'il arrive au-dessus.
+  GAME:CutsceneMode(false)
+
+  if ouvert and partner ~= nil then
+    GeneralFunctions.StartConversation(partner,
+      STRINGS:Format(STRINGS.MapStrings['RUINES_TAB_PARTENAIRE']), "Determined")
+    GeneralFunctions.EndConversation(partner)
+  end
 end
 
 -- Actions des membres du camp (interactifs apres la cinematique).

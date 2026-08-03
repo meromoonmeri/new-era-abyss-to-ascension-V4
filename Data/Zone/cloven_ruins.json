@@ -512,6 +512,20 @@
             "sandstorm"
            ]
           }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            2,
+            3
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Script": "RuinesZarbi.PoserDrop",
+           "ArgTable": "{}"
+          }
          }
         ],
         "Comment": "Ruines Tordues — pierre corrompue, veines d'Anima. (seg0)"
@@ -580,8 +594,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 18,
-           "Max": 18
+           "Min": 19,
+           "Max": 19
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -611,8 +625,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 22,
-           "Max": 22
+           "Min": 21,
+           "Max": 21
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -673,8 +687,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 22,
-           "Max": 22
+           "Min": 21,
+           "Max": 21
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -704,8 +718,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 16,
-           "Max": 16
+           "Min": 17,
+           "Max": 17
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -735,8 +749,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 16,
-           "Max": 16
+           "Min": 17,
+           "Max": 17
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -766,8 +780,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 16,
-           "Max": 16
+           "Min": 17,
+           "Max": 17
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -797,8 +811,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 16,
-           "Max": 16
+           "Min": 17,
+           "Max": 17
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -828,8 +842,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 16,
-           "Max": 16
+           "Min": 17,
+           "Max": 17
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -1375,6 +1389,20 @@
             "sandstorm"
            ]
           }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            2,
+            3
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Script": "RuinesZarbi.PoserDrop",
+           "ArgTable": "{}"
+          }
          }
         ],
         "Comment": "Ruines Tordues — pierre corrompue, veines d'Anima. (seg0)"
@@ -1474,8 +1502,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 24,
-           "Max": 24
+           "Min": 22,
+           "Max": 22
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -1505,8 +1533,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 21,
-           "Max": 21
+           "Min": 20,
+           "Max": 20
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -1536,8 +1564,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 24,
-           "Max": 24
+           "Min": 22,
+           "Max": 22
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -2238,6 +2266,20 @@
             "sandstorm"
            ]
           }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            2,
+            3
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Script": "RuinesZarbi.PoserDrop",
+           "ArgTable": "{}"
+          }
          }
         ],
         "Comment": "Ruines Tordues — pierre corrompue, veines d'Anima. (seg0)"
@@ -2306,8 +2348,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 22,
-           "Max": 22
+           "Min": 21,
+           "Max": 21
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -2337,8 +2379,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 26,
-           "Max": 26
+           "Min": 23,
+           "Max": 23
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -2368,8 +2410,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 23,
-           "Max": 23
+           "Min": 21,
+           "Max": 21
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -2399,8 +2441,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 26,
-           "Max": 26
+           "Min": 23,
+           "Max": 23
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -2430,8 +2472,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 20,
-           "Max": 20
+           "Min": 19,
+           "Max": 19
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -2461,8 +2503,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 20,
-           "Max": 20
+           "Min": 19,
+           "Max": 19
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -2492,8 +2534,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 20,
-           "Max": 20
+           "Min": 19,
+           "Max": 19
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -2523,8 +2565,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 20,
-           "Max": 20
+           "Min": 19,
+           "Max": 19
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -2554,8 +2596,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 20,
-           "Max": 20
+           "Min": 19,
+           "Max": 19
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -3169,8 +3211,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 24,
-           "Max": 24
+           "Min": 22,
+           "Max": 22
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -3200,8 +3242,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 28,
-           "Max": 28
+           "Min": 24,
+           "Max": 24
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -3231,8 +3273,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 25,
-           "Max": 25
+           "Min": 22,
+           "Max": 22
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -3262,8 +3304,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 28,
-           "Max": 28
+           "Min": 24,
+           "Max": 24
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -3293,8 +3335,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 30,
-           "Max": 30
+           "Min": 25,
+           "Max": 25
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -3324,8 +3366,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 22,
-           "Max": 22
+           "Min": 20,
+           "Max": 20
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -3355,8 +3397,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 22,
-           "Max": 22
+           "Min": 20,
+           "Max": 20
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -3386,8 +3428,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 22,
-           "Max": 22
+           "Min": 20,
+           "Max": 20
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -3417,8 +3459,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 22,
-           "Max": 22
+           "Min": 20,
+           "Max": 20
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -3448,8 +3490,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 22,
-           "Max": 22
+           "Min": 20,
+           "Max": 20
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",
@@ -3479,8 +3521,8 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 22,
-           "Max": 22
+           "Min": 20,
+           "Max": 20
           },
           "SpecifiedSkills": [],
           "Intrinsic": "",

@@ -6233,4 +6233,7 @@ As he is a volunteer, he won't be staying with you once you leave.
     <value>Please rescue my rival! We haven't finished\nseeing who is the bravest! Please, please!</value>
     <comment>Mission Body - Rivals - Swellow and Staraptor</comment>  </data>
 
+  <data name="RUINES_PIERRE_TROUVEE" xml:space="preserve">
+    <value>The Unown fades away...[pause=20] and a carved stone drops where it stood.[pause=25] It bears the shape {0}.</value>
+  </data>
 </root>

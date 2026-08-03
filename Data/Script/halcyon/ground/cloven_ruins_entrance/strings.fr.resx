@@ -80,4 +80,14 @@
   <data name="CR5_A77" xml:space="preserve"><value>Les Ruines vous ont repoussés.[pause=20] Reposez-vous.[pause=15] Elles ne bougeront pas.</value></data>
   <data name="CR5_A78" xml:space="preserve"><value>Vous avez bien fait de remonter.[pause=20] Forcer n'aurait rien donné.</value></data>
   <data name="CR5_A79" xml:space="preserve"><value>Redescendre à temps est une décision,[pause=10] pas un échec.</value></data>
+  <data name="RUINES_TAB_DECOUVERTE" xml:space="preserve"><value>Une dalle dressée barre le fond de la salle.[pause=20] Sa surface est creusée de cavités,[pause=10] toutes de formes différentes.</value></data>
+  <data name="RUINES_TAB_CAVITES" xml:space="preserve"><value>Les creux dessinent des silhouettes familières...[pause=25] Celles des Zarbi.[pause=20] Ensemble, ils épellent un mot :[pause=15] {0}.</value></data>
+  <data name="RUINES_TAB_MANQUE" xml:space="preserve"><value>Des cavités restent vides.[pause=20] Il manque encore :[pause=10] {0}.</value></data>
+  <data name="RUINES_TAB_COMPLET" xml:space="preserve"><value>Les pierres que vous portez épousent chaque creux.[pause=25] La dalle entière se met à vibrer.</value></data>
+  <data name="RUINES_TAB_FERMER" xml:space="preserve"><value>Fermer les yeux ?</value></data>
+  <data name="RUINES_TAB_REFUS" xml:space="preserve"><value>Vous gardez les yeux ouverts.[pause=20] La vibration retombe,[pause=10] et la dalle redevient une pierre morte.</value></data>
+  <data name="RUINES_TAB_OUVERT" xml:space="preserve"><value>Là où la dalle se dressait,[pause=20] des marches descendent dans le noir.[pause=25] Quelque chose, en bas, vous attend depuis longtemps.</value></data>
+  <data name="RUINES_TAB_FINI" xml:space="preserve"><value>Les trois dalles sont muettes à présent.[pause=20] Seul reste le puits,[pause=15] et ce qui dort tout au fond.</value></data>
+  <data name="RUINES_TAB_PARTENAIRE" xml:space="preserve"><value>L'escalier est là...[pause=20] On descend ?[pause=15] Je passe devant,[pause=10] cette fois.</value></data>
+  <data name="RUINES_PIERRE_TROUVEE" xml:space="preserve"><value>Le Zarbi se dissipe...[pause=20] et une pierre gravée tombe à sa place.[pause=25] Elle porte la forme {0}.</value></data>
 </root>

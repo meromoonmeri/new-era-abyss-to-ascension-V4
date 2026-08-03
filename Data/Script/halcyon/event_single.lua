@@ -1863,3 +1863,41 @@ function SINGLE_CHAR_SCRIPT.LavaBossClear(owner, ownerChar, context, args)
 	end
 
 end
+
+--------------------------------------------------------------------
+-- RUINES TORDUES — un Zarbi vaincu laisse parfois sa pierre gravee.
+--------------------------------------------------------------------
+-- Portage d'Aegis Cave : dans EoS, les Unown laissent aleatoirement une
+-- pierre a leur lettre, et c'est cette pierre qu'il faut presenter a la
+-- tablette. Le drop n'est PAS garanti — c'est la mecanique d'origine, et
+-- elle est conservee telle quelle.
+--
+-- Branche sur OnDeaths, comme MissionGuestCheck (event_mapgen.lua:162) :
+-- meme patron, meme signature, aucune API nouvelle.
+-- La forme du Zarbi (BaseForm.Form) donne la lettre : 0 = A ... 25 = Z.
+function SINGLE_CHAR_SCRIPT.RuinesZarbiDrop(owner, ownerChar, context, args)
+	if context == nil or context.User == nil then return end
+	if not context.User.Dead then return end
+
+	local ok = pcall(function()
+		local bf = context.User.BaseForm
+		if bf == nil then return end
+		if tostring(bf.Species) ~= 'unown' then return end
+
+		local form = bf.Form
+		if form == nil or form < 0 or form > 25 then return end
+		local lettre = string.upper(string.sub('abcdefghijklmnopqrstuvwxyz', form + 1, form + 1))
+
+		if RuinesZarbi == nil then return end
+		if RuinesZarbi.ZarbiVaincu(lettre) then
+			UI:ResetSpeaker(false)
+			UI:SetCenter(true)
+			UI:WaitShowDialogue(STRINGS:FormatKey('RUINES_PIERRE_TROUVEE', lettre))
+			UI:SetCenter(false)
+			UI:ResetSpeaker()
+		end
+	end)
+	if not ok then
+		PrintInfo('[Ruines] RuinesZarbiDrop : echec silencieux, la partie continue.')
+	end
+end

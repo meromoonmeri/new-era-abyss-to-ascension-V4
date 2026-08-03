@@ -80,4 +80,14 @@
   <data name="CR5_A77" xml:space="preserve"><value>The Ruins pushed you back.[pause=20] Rest.[pause=15] They aren't going anywhere.</value></data>
   <data name="CR5_A78" xml:space="preserve"><value>You were right to come back up.[pause=20] Forcing it would have led nowhere.</value></data>
   <data name="CR5_A79" xml:space="preserve"><value>Turning back in time is a decision,[pause=10] not a failure.</value></data>
+  <data name="RUINES_TAB_DECOUVERTE" xml:space="preserve"><value>A standing slab blocks the far end of the chamber.[pause=20] Its surface is hollowed with grooves,[pause=10] each a different shape.</value></data>
+  <data name="RUINES_TAB_CAVITES" xml:space="preserve"><value>The hollows trace familiar silhouettes...[pause=25] Unown.[pause=20] Together they spell a word:[pause=15] {0}.</value></data>
+  <data name="RUINES_TAB_MANQUE" xml:space="preserve"><value>Some grooves are still empty.[pause=20] Still missing:[pause=10] {0}.</value></data>
+  <data name="RUINES_TAB_COMPLET" xml:space="preserve"><value>The stones you carry fit every hollow.[pause=25] The whole slab begins to hum.</value></data>
+  <data name="RUINES_TAB_FERMER" xml:space="preserve"><value>Close your eyes?</value></data>
+  <data name="RUINES_TAB_REFUS" xml:space="preserve"><value>You keep your eyes open.[pause=20] The humming dies away,[pause=10] and the slab is dead stone once more.</value></data>
+  <data name="RUINES_TAB_OUVERT" xml:space="preserve"><value>Where the slab stood,[pause=20] steps descend into darkness.[pause=25] Something below has been waiting a long time.</value></data>
+  <data name="RUINES_TAB_FINI" xml:space="preserve"><value>The three slabs are silent now.[pause=20] Only the pit remains,[pause=15] and whatever sleeps at its bottom.</value></data>
+  <data name="RUINES_TAB_PARTENAIRE" xml:space="preserve"><value>The stairs are right there...[pause=20] Shall we?[pause=15] I'll go first,[pause=10] this time.</value></data>
+  <data name="RUINES_PIERRE_TROUVEE" xml:space="preserve"><value>The Unown fades away...[pause=20] and a carved stone drops where it stood.[pause=25] It bears the shape {0}.</value></data>
 </root>
