@@ -311,6 +311,28 @@ function cloven_ruins_entrance_ch_5.SetupGround(includeRecon)
   end
 end
 
+function cloven_ruins_entrance_ch_5.StartCampLife()
+  -- Talking AI gives idle turns/emotes without moving anyone off their
+  -- deliberately staged camp positions. Delays are staggered to prevent
+  -- a synchronized "statue" effect.
+  local penticus, phileas, rin, coco = E('Penticus'), E('Phileas'), E('Rin'), E('Coco')
+  local hyko, almotz, kino, reinier, plum = E('Hyko'), E('Almotz'), E('Kino'), E('Reinier'), E('Plum')
+  local actors = {
+    {penticus, 0, {hyko, phileas}}, {hyko, 45, {penticus, rin}},
+    {rin, 90, {coco, penticus}}, {coco, 135, {rin, plum}},
+    {almotz, 180, {kino, reinier}}, {kino, 225, {reinier, almotz}},
+    {reinier, 270, {kino, almotz}}, {plum, 315, {coco, hyko}},
+  }
+  for _, a in ipairs(actors) do
+    if a[1] ~= nil then
+      pcall(function()
+        AI:SetCharacterAI(a[1], 'halcyon.ai.ground_talking', false,
+                           120, 60, a[2], false, 'Default', a[3])
+      end)
+    end
+  end
+end
+
 function cloven_ruins_entrance_ch_5.PurgeDecor()
   pcall(function()
     local anims = GAME:GetCurrentGround().Decorations[0].Anims
@@ -1217,6 +1239,7 @@ function cloven_ruins_entrance_ch_5.MorningBody()
       PartnerEssentials.SaveGamePartnerPosition(partner)
     end)
   end
+  cloven_ruins_entrance_ch_5.StartCampLife()
   GeneralFunctions.RendreLaMain(true)
 end
 
@@ -1283,6 +1306,7 @@ function cloven_ruins_entrance_ch_5.RetourBody(k1, k2)
       AI:SetCharacterAI(partner, 'origin.ai.ground_partner', hero, partner.Position)
     end)
   end
+  cloven_ruins_entrance_ch_5.StartCampLife()
   GeneralFunctions.RendreLaMain(true)
 end
 
