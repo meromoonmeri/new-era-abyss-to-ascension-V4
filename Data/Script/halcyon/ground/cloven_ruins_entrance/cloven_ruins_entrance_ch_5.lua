@@ -63,6 +63,11 @@ local PLACES = {
 }
 cloven_ruins_entrance_ch_5.PLACES = PLACES
 
+-- Plum is first seen alone on the sandy approach, directly below the cave.
+-- This is intentionally distinct from her later meal position in PLACES.
+local PLUM_WAIT = {288, 184}
+cloven_ruins_entrance_ch_5.PLUM_WAIT = PLUM_WAIT
+
 -- Paillasses : anneau exterieur, toutes sur sable, sans recouvrir le foyer.
 local LITS = {
   Penticus={240,224}, Phileas={280,208}, Rin={320,208}, Coco={360,224},
@@ -235,7 +240,7 @@ function cloven_ruins_entrance_ch_5.SetupGround(includeRecon)
     pcall(function() GROUND:Hide('Girafarig') end)
   end
   -- Plum s'est incrustee au Mont Venteux et a suivi. Running gag.
-  spawn[#spawn + 1] = {'Jigglypuff', PLACES.Plum[1], PLACES.Plum[2], Direction.Down}
+  spawn[#spawn + 1] = {'Jigglypuff', PLUM_WAIT[1], PLUM_WAIT[2], Direction.Down}
 
   -- ================================================================
   -- ANTI-DUPLICATION — bug constate en jeu sur l'ancienne carte
@@ -550,50 +555,42 @@ end
 -- exact du camp. 104 px a parcourir : a 240 frames, c'est un mouvement
 -- que le joueur voit avancer sans le sentir bouger.
 function cloven_ruins_entrance_ch_5.Acte3(hero, partner)
-  pcall(function() GAME:MoveCamera(CX, CY, 240, false) end)
-  Silence(20)
+  -- La camera abandonne le premier groupe pour cadrer le sentier sableux
+  -- et la bouche de grotte. Plum est seule au centre de ce plan.
+  pcall(function() GAME:MoveCamera(288, 208, 120, false) end)
+  Silence(24)
   Vent()
-  Silence(40)
+  Silence(36)
 
-  -- Elle est la. Debout. Immobile. Face au groupe. Bras le long du
-  -- corps. La camera reste sur elle SANS AUCUN DIALOGUE.
   local plum = E('Plum')
   if plum ~= nil then
-    pcall(function() GROUND:CharAnimateTurnTo(plum, Direction.Left, 8) end)
+    -- Elle ne parle pas. Elle avance juste de quelques pas, comme si elle
+    -- cherchait encore le groupe, puis s'immobilise devant la grotte.
+    pcall(function()
+      GROUND:CharAnimateTurnTo(plum, Direction.Down, 6)
+      GROUND:MoveToPosition(plum, 288, 208, false, 1)
+      GROUND:CharAnimateTurnTo(plum, Direction.DownLeft, 6)
+    end)
   end
-  Silence(60)
+  Silence(54)
   Vent()
-  Silence(70)
+  Silence(42)
 
-  -- Le partenaire finit par rompre le silence. Sourire gene.
   Says(partner, "Sigh", 'CR5_A05')
   Silence(14)
   Says(partner, "Happy", 'CR5_A06')
   Silence(22)
-
-  -- Le heros observe : comment est-elle arrivee avant eux ?
   Pense(hero, 'CR5_A07', "Surprised")
   Silence(26)
 
-  -- Plum ne repond pas. Elle detourne seulement les yeux vers le
-  -- chemin par lequel tout le monde arrive.
-  if plum ~= nil then
-    pcall(function() GROUND:CharAnimateTurnTo(plum, Direction.DownLeft, 10) end)
-  end
-  Silence(50)
-  Vent()
-  Silence(45)
-
-  -- Emote "?" au-dessus de la tete du partenaire.
-  if partner ~= nil then
-    pcall(function() GeneralFunctions.EmoteAndPause(partner, "Question", true) end)
-  end
+  -- Plum garde le silence : la reponse vient de son comportement, pas
+  -- d'une replique. Le partenaire est le premier a l'admettre.
+  if partner ~= nil then pcall(function() GeneralFunctions.EmoteAndPause(partner, "Question", true) end) end
   Says(partner, "Worried", 'CR5_A08')
-  Silence(55)
+  Silence(42)
 
   cloven_ruins_entrance_ch_5.Acte5(hero, partner, plum)
 end
-
 
 -- ==================================================================
 -- ACTE 4 — LES ARRIVEES ECHELONNEES
@@ -742,8 +739,9 @@ function cloven_ruins_entrance_ch_5.Acte5(hero, partner, plum)
   end
   Silence(45)
   pcall(function() BossFX.ShakeScreen(6, 30) end)
+  -- Theme comique atteste au Mont Windsep : il demarre au cri de Plum.
+  pcall(function() SOUND:PlayBGM("Guildmaster Wigglytuff.ogg", false) end)
   Says(plum, "Shouting", 'CR5_A26')
-  pcall(function() SOUND:PlayBGM("Guildmaster Wigglytuff.ogg", true) end)
   local ganlon, shuca = CH('Teammate2'), CH('Teammate3')
   ReactAll({{partner,"Shock"},{hero,"Exclaim"},{ganlon,"Sweating"},{shuca,"Question"}})
   Silence(20)
