@@ -12,7 +12,7 @@ require 'halcyon.BossFX'
 
 mount_windswept_guardian_ch_5 = {}
 
-function mount_windswept_guardian_ch_5.FirstPreBossScene()
+local function FirstPreBossBody()
 
 	--LE NOIR AVANT TOUT APPEL MOTEUR (correctif d'arrivee, 2026-07-30).
 	--Cette scene se joue sous le noir laisse par la carte precedente et ne
@@ -25,8 +25,10 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
 	pcall(function() GAME:FadeOut(false, 1) end)
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
+  assert(hero ~= nil, 'FirstPreBoss: PLAYER absent')
+  assert(partner ~= nil, 'FirstPreBoss: Teammate1 absent')
 
-  if partner ~= nil then AI:DisableCharacterAI(partner) end
+  AI:DisableCharacterAI(partner)
   SOUND:StopBGM()
 
   -- POSITIONS RECALEES SUR LA NOUVELLE ARENE (1128x1344 px).
@@ -68,9 +70,12 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- locuteur anonyme uE040 SANS portrait — la « Voix » qui commente a
   -- la place du boss, exactement ce que l'utilisateur demande de
   -- supprimer.
-  local tornadus = CharacterEssentials.MakeCharactersFromList({
+  local existing_tornadus = nil
+  pcall(function() existing_tornadus = GAME:GetCurrentGround():FindEntity('Tornadus') end)
+  local tornadus = existing_tornadus or CharacterEssentials.MakeCharactersFromList({
     {'Tornadus', 560, 1064, Direction.Down}
   })
+  assert(tornadus ~= nil, 'FirstPreBoss: Tornadus creation failed')
   GROUND:Hide('Tornadus')
 
   GAME:WaitFrames(40)
@@ -138,7 +143,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- TORNADUS S'ANNONCE — il parle avant d'apparaitre, sans son portrait
   -- car il est encore cache dans la brume.
   SOUND:PlayBattleSE('EVT_Emote_Shock_2')
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", 0)
+  UI:ResetSpeaker()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_005']))
   -- "Le Souffle qui garde la cime..."
 
@@ -192,7 +197,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- LES SIENNES : conditions d'acces au sommet, adresse directe au duo.
   -- Il n'est pas encore visible : on lui donne la parole sans portrait
   -- car il est encore cache dans la brume.
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", 0)
+  UI:ResetSpeaker()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_007']))
   -- "L'ultime gardien de la montagne..."
 
@@ -248,7 +253,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_032']))
   -- "D'accord. Meme si mes pattes demandent a etre convaincues."
   GAME:WaitFrames(20)
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, tornadus.CurrentForm.Species, tornadus.CurrentForm.Form, tornadus.CurrentForm.Skin, tornadus.CurrentForm.Gender)
+  UI:ResetSpeaker()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_033']))
   -- "Celui-ci se souvient d'un ciel sans grimpeurs."
   GAME:WaitFrames(15)
@@ -396,6 +401,17 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   GAME:CutsceneMode(false)
   SV.Chapter5.MountGuardianSeen = true
   PrintInfo("[NREPROBE][transition] mount_windswept_guardian_ch_5.lua ContinueDungeon('mount_windswept', 3)") GAME:ContinueDungeon("mount_windswept", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+end
+
+
+function mount_windswept_guardian_ch_5.FirstPreBossScene()
+  local ok, err = pcall(FirstPreBossBody)
+  if not ok then
+    PrintInfo('[MWG] FirstPreBoss interrupted: ' .. tostring(err))
+    -- Never strand the player in an input-locked, black-screen state.
+    pcall(function() GAME:CutsceneMode(false) end)
+    pcall(function() GAME:FadeIn(20) end)
+  end
 end
 
 function mount_windswept_guardian_ch_5.SecondPreBossScene()
@@ -561,7 +577,20 @@ local function DefeatedBossBody()
   TASK:JoinCoroutines(arr)
   GAME:WaitFrames(20)
 
-  -- Tous decouvrent Tornadus : silence, camera elargie.
+  -- Tous decouvrent Tornadus : la reaction est echelonnée, puis la
+  -- camera elargie laisse respirer la nouvelle composition.
+  local witnesses = {hero, partner, t2, t3, tropius, noctowl, girafarig,
+                     breloom, audino, snubbull, growlithe, zigzagoon}
+  local turns = {}
+  for i, c in ipairs(witnesses) do
+    if c ~= nil then
+      turns[#turns + 1] = TASK:BranchCoroutine(function()
+        GAME:WaitFrames((i - 1) * 4)
+        pcall(function() GROUND:CharTurnToCharAnimated(c, tornadus, 4) end)
+      end)
+    end
+  end
+  TASK:JoinCoroutines(turns)
   GAME:MoveCamera(560, 1180, 80, false)
   GAME:WaitFrames(80)
 
@@ -703,8 +732,9 @@ local function DefeatedBossBody()
   GAME:FadeOut(false, 30)
   SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
   GAME:WaitFrames(30)
-  GAME:FadeIn(20)
+  -- The departure is hidden under black: no one-frame pop after FadeIn.
   GROUND:Hide('Tornadus')
+  GAME:FadeIn(20)
   GAME:WaitFrames(30)
 
   -- ============================================================
@@ -798,7 +828,6 @@ local function DefeatedBossBody()
         GAME:WaitFrames(8 + i * 3)
         pcall(function()
           GROUND:MoveInDirection(c, Direction.Up, 110, false, 1)
-          GAME:GetCurrentGround():RemoveTempChar(c)
         end)
       end)
     end
