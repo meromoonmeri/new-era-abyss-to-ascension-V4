@@ -13,6 +13,7 @@ require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_3'
 require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_4'
 require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_5'
 require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_7'
+require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_5_retour'
 require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_helper'
 
 
@@ -71,6 +72,18 @@ end
 
 function guild_third_floor_lobby.PlotScripting()
 	--if generic morning address is flagged, prioritize that.
+	-- RETOUR DE L'EXPEDITION DES RUINES — bilan du chapitre 5.
+	-- Prime sur l'adresse generique : ce matin-la n'est pas un matin
+	-- ordinaire. Joue une seule fois (RuinsBilanDone la referme).
+	if SV.Chapter5 ~= nil and SV.Chapter5.RuinsExpeditionDone
+	   and not SV.Chapter5.RuinsBilanDone then
+		SV.Chapter5.RuinsBilanDone = true
+		SV.TemporaryFlags.MorningAddress = false
+		guild_third_floor_lobby_ch_5_retour.BilanExpedition()
+		GAME:CutsceneMode(false)
+		return
+	end
+
 	if SV.TemporaryFlags.MorningAddress then
 		guild_third_floor_lobby.MorningAddress(true)
 	else

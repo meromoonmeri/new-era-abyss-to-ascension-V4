@@ -9,6 +9,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.RuinesRenforts'
+require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_5_retour'
 
 cloven_ruins_boss_ch_7 = {}
 
@@ -615,8 +616,24 @@ function cloven_ruins_boss_ch_7.DefeatedBoss()
   SV.TemporaryFlags.MorningWakeup = true
   SV.TemporaryFlags.MorningAddress = true
 
-  local exit_ground = 6
-  if SV.TemporaryFlags.MissionCompleted then exit_ground = 22 end
+  -- LE CARTON DE RETOUR — sur le noir laisse par la fuite. Il couvre les
+  -- trois jours de trajet, patron du lendemain matin du chapitre 1.
+  -- Sous pcall : un carton qui casse ne doit pas retenir le joueur dans
+  -- les Ruines.
+  pcall(function() guild_third_floor_lobby_ch_5_retour.CartonRetour() end)
+
+  -- SORTIE VERS LA GUILDE, pas vers la ville : le rassemblement du matin
+  -- attend l'equipe (guild_third_floor_lobby, bilan de l'expedition).
+  -- Index resolu PAR NOM dans master_zone, jamais code en dur : c'est la
+  -- lecon du correctif d'index deja applique a ce projet (un numero qui
+  -- glisse renvoie le joueur dans la mauvaise carte).
+  local exit_ground = 25   -- repli : guild_third_floor_lobby
+  pcall(function()
+    local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("master_zone")
+    for ii = 0, zone.Grounds.Count - 1, 1 do
+      if zone.Grounds[ii] == 'guild_third_floor_lobby' then exit_ground = ii end
+    end
+  end)
   GAME:CutsceneMode(false)
   PrintInfo("[BossSeq][cloven_ruins_boss_ch_7] DefeatedBoss -> master_zone (fin expedition ch5, Chapter=6)")
   GeneralFunctions.EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared,

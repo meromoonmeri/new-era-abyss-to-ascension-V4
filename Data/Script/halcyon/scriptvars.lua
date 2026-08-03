@@ -844,7 +844,9 @@ SV.Chapter5 =
 	PlayedMountMidpointIntro = false,--Did the midpoint rest stop intro play?
 	
 	NeedGiveSupplies = false,--does penticus/phileas need to give supplies out?
-	FinishedExpedition = false,--chapter 5 clear boundary; no chapter 5 scene is changed by this flag
+	FinishedExpedition = false,
+	RuinsExpeditionDone                = false,--l'expedition des Ruines est-elle bouclee ?
+	RuinsBilanDone                     = false,--le bilan a la guilde a-t-il ete joue ?--chapter 5 clear boundary; no chapter 5 scene is changed by this flag
 	FinishedBedtimeCutscene = false,--has player watched the post-expedition bedtime cutscene?
 
 	--Cinematiques de mini-boss / gardiens : memorise la premiere rencontre pour

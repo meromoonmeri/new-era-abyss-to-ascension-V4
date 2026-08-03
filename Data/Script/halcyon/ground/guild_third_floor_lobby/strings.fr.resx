@@ -1084,4 +1084,27 @@
   <data name="Assembly_Info_006" xml:space="preserve"><value>Au fait,[pause=10] les noms de Pokémon colorés comme [color=#00FF00]ceci[color] au lieu de [color=#00FFFF]ceci[color] sont des espèces que tu as déjà recrutées !</value></data>
   <data name="Assembly_Info_007" xml:space="preserve"><value>T-tu peux aussi consulter la liste des Pokémon recrutables à chaque étage de donjon !</value></data>
   <data name="Assembly_Info_008" xml:space="preserve"><value>Regarde Recherche de Recrues dans le menu Autres.[pause=0] Si une espèce est en [color=#FFFF00]jaune[color],[pause=10] c'est qu'elle est déjà recrutée !</value></data>
+  <data name="G5R_CARTON_01" xml:space="preserve"><value>Suite à cette expédition,[pause=30] l'équipe redescendit des Ruines sans se retourner.[pause=25] Derrière elle, la falaise s'était refermée comme une paupière.</value></data>
+  <data name="G5R_CARTON_02" xml:space="preserve"><value>Le trajet du retour prit trois jours.[pause=30] Personne ne parla beaucoup.[pause=25] Chacun portait sa part de ce qu'on avait vu là-dessous.</value></data>
+  <data name="G5R_CARTON_03" xml:space="preserve"><value>Puis Metano réapparut au détour du dernier col,[pause=25] avec ses toits, ses odeurs de pain chaud,[pause=20] et l'impression étrange que la ville, elle, n'avait pas bougé d'un pouce.</value></data>
+  <data name="G5R_001" xml:space="preserve"><value>Vous voilà tous là.[pause=25] Assis, debout, en retard —[pause=15] comme d'habitude.</value></data>
+  <data name="G5R_002" xml:space="preserve"><value>Et surtout :[pause=20] vous voilà tous là.[pause=30] Tous.[pause=25] C'est la première chose que je voulais dire ce matin.</value></data>
+  <data name="G5R_003" xml:space="preserve"><value>Hou.[pause=20] J'ai tenu le registre de l'expédition, comme convenu.[pause=25] Permettez que je le lise à voix haute :[pause=15] ce que nous avons appris vaut d'être entendu ensemble.</value></data>
+  <data name="G5R_004" xml:space="preserve"><value>La Grande Steppe, d'abord.[pause=25] Un Absol nous y attendait au bout de la brume.[pause=20] Il ne nous a pas attaqués :[pause=15] il nous a jaugés,[pause=15] puis il s'est écarté.</value></data>
+  <data name="G5R_005" xml:space="preserve"><value>Le Tunnel Ardent, ensuite.[pause=25] Le clan Limagma nous a accusés d'avoir dérangé l'équilibre de leurs terres.</value></data>
+  <data name="G5R_006" xml:space="preserve"><value>Accusés,[pause=15] oui ![pause=20] Et à tort ![pause=25] ...Bon.[pause=20] On a quand même dû cogner pour le prouver.</value></data>
+  <data name="G5R_007" xml:space="preserve"><value>Le chef du clan s'est incliné après le duel.[pause=25] Mais il a répété une chose que je n'ai pas su lui répondre :[pause=20] « tous ces étrangers qui traversent nos terres ».[pause=30] Il n'y avait plus d'étrangers dans cette région depuis des années.</value></data>
+  <data name="G5R_008" xml:space="preserve"><value>Le Mont Venteux...[pause=25] Le sommet était gardé.[pause=20] Tornadus.[pause=25] L'esprit des vents lui-même.</value></data>
+  <data name="G5R_009" xml:space="preserve"><value>Il nous a laissés monter jusqu'à lui.[pause=25] Et quand il a parlé,[pause=20] il n'a pas demandé qui nous étions.[pause=30] Il le savait déjà.</value></data>
+  <data name="G5R_010" xml:space="preserve"><value>Et puis il y a eu les Ruines.[pause=30] C'est la partie que je n'arrive pas à raconter proprement.</value></data>
+  <data name="G5R_011" xml:space="preserve"><value>Trois gardiens scellés,[pause=20] chacun dans sa salle.[pause=25] Regice, qui a oublié depuis quand il veillait.[pause=20] Regirock, qui avait compté chaque pas entré depuis mille ans.[pause=20] Registeel, qui n'avait jamais dormi.</value></data>
+  <data name="G5R_012" xml:space="preserve"><value>Et tout au fond,[pause=20] le colosse.[pause=25] Il nous a posé une question avant de nous laisser partir,[pause=20] et aucun de nous n'a su quoi répondre :[pause=30] pourquoi les avait-on postés FACE à ce qu'ils gardaient ?</value></data>
+  <data name="G5R_013" xml:space="preserve"><value>Face à...[pause=25] Mais alors ce n'était pas une porte qu'ils tenaient fermée.[pause=20] C'était une cage.</value></data>
+  <data name="G5R_014" xml:space="preserve"><value>Attendez —[pause=20] vous voulez dire qu'il y a quelque chose LÀ-DEDANS ?![pause=25] Et vous êtes redescendus en marchant tranquillement ?!</value></data>
+  <data name="G5R_015" xml:space="preserve"><value>...Hou.[pause=30] Je vais devoir vérifier certaines choses dans les archives du sous-sol.</value></data>
+  <data name="G5R_016" xml:space="preserve"><value>Ne me demandez rien tout de suite.[pause=25] Je préfère me taire que vous dire une chose dont je ne suis pas sûr.[pause=30] Laissez-moi quelques jours.</value></data>
+  <data name="G5R_017" xml:space="preserve"><value>(Il sait quelque chose.[pause=25] Il l'a su avant qu'on parte.)</value></data>
+  <data name="G5R_018" xml:space="preserve"><value>Vous avez ramené plus de questions que de réponses.[pause=25] C'est le propre des bonnes expéditions.</value></data>
+  <data name="G5R_019" xml:space="preserve"><value>Reposez-vous aujourd'hui.[pause=20] Mangez.[pause=15] Dormez.[pause=25] Les questions attendront demain —[pause=20] elles ont attendu mille ans, elles tiendront bien une nuit de plus.</value></data>
+  <data name="G5R_020" xml:space="preserve"><value>La guilde répondit d'une seule voix,[pause=20] comme chaque matin.[pause=30] Mais ce matin-là, quelque chose sonnait différemment.</value></data>
 </root>
