@@ -1,4 +1,14 @@
 --[[ Crystal Sanctuary Boss — Diancie, gardienne de la réserve d'Anima cristallisée
+
+     DECOR (refait 2026-08-04) : arene cristalline 240x312, TexSize 3,
+     planche propre Arene_Diancie. Le ground empruntait auparavant
+     First_Core_Location_Base, le decor d'une autre zone, en tuiles de 8 px.
+     Geometrie MESUREE sur la grille d'obstacles : 67,5 % bloquant,
+     368 cases atteignables, cercle de combat ouvert au centre.
+       Diancie au NORD du cercle  (112,128) — elle domine l'entree
+       le duo arrive par le SUD   (104,295) — 175 px les separent
+     Les anciennes positions visaient une carte 240x320 : le regard de
+     rejouabilite (156,132) et une particule (172,128) tombaient hors sol.
      Intro 3 couches (addendum A) :
        generique : Voix de l'Abysse -> flash blanc -> reveal + titre
        biome     : ruines/cristal -> BossFX.AwakenCrystal (revelation par ACTIVATION,
@@ -21,9 +31,9 @@ function crystal_sanctuary_boss.Enter(map)
   -- Sans cette branche, revenir ici relancait la cinematique ET le combat.
   if ReplayEnding.IsReplay('crystal_sanctuary', 8) then
     ReplayEnding.EmptyArena({
-      hero = {172, 180}, partner = {140, 180},
-      camera = {156, 156}, look = {156, 132},
-      walk = 40, title = true, music = 'Snow Camp.ogg',
+      hero = {104, 271}, partner = {128, 271},
+      camera = {120, 232}, look = {120, 152},
+      walk = 40, title = true, music = 'Crystal Crossing.ogg',
       lines = {
         { spk='partner', emo='Normal', key='CSB_R01', wait=10 },
         { spk='hero',    emo='Normal', key='CSB_R02', wait=10 },
@@ -43,18 +53,18 @@ function crystal_sanctuary_boss.Enter(map)
   BossFX.Voice('CSB_001')
 
   -- Couche biome (cristal) : activation — les gemmes resonnent et s'illuminent.
-  local diancie = CharacterEssentials.MakeCharactersFromList({{'Diancie', 156, 140, Direction.Down}})
+  local diancie = CharacterEssentials.MakeCharactersFromList({{'Diancie', 112, 128, Direction.Down}})
   GROUND:Hide('Diancie')
-  BossFX.AwakenCrystal(diancie, 156, 140)
+  BossFX.AwakenCrystal(diancie, 112, 128)
 
   -- Flash blanc + camera recadree pendant la coupure.
-  GAME:MoveCamera(156, 140, 1, false)
-  BossFX.Flash(156, 140, 2, 4, 20)
+  GAME:MoveCamera(120, 152, 1, false)
+  BossFX.Flash(112, 128, 2, 4, 20)
   GAME:WaitFrames(10)
 
   -- Couche Pokemon : Diancie en pose calme, eclats de gemmes en suspension.
-  BossFX.Particle("Captivate_Sparkles", 140, 128, 4)
-  BossFX.Particle("Captivate_Sparkles", 172, 128, 4)
+  BossFX.Particle("Captivate_Sparkles", 88, 144, 4)
+  BossFX.Particle("Captivate_Sparkles", 144, 144, 4)
   GROUND:CharSetAnim(diancie, "Idle", true)
 
   -- Titre + dialogue court : le test moral, pas un mur de HP.
