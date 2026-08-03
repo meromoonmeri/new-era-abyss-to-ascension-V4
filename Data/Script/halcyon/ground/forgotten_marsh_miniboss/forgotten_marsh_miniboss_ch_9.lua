@@ -81,14 +81,18 @@ function forgotten_marsh_miniboss_ch_9.FirstPreBossScene()
   GAME:WaitFrames(20)
 
   -- Ordre imposé : Voix -> Flash -> Apparition.
-  BossFX.Voice('FMM_003')
-  GAME:WaitFrames(20)
-
-  -- Avaltout apparaît sous un flash blanc.
+  -- Avaltout existe AVANT de parler (mais reste caché) : le gardien
+  -- s'adresse au duo, ce n'est pas un oracle. Patron du clan Limagma au
+  -- Creuset (searing_crucible_ch_5.lua:626-629).
   local swalot = CharacterEssentials.MakeCharactersFromList({
     {'Swalot', BOSS_1[1], BOSS_1[2], Direction.DownRight}
   })
   GROUND:Hide('Swalot')
+
+  BossFX.GuardianVoice(swalot, 'FMM_003')
+  GAME:WaitFrames(20)
+
+  -- Avaltout apparaît sous un flash blanc.
   SOUND:PlayBattleSE('_UNK_EVT_102')
   BossFX.Flash(BOSS_1[1], BOSS_1[2], 3, 5, 20)
   GAME:WaitFrames(8)
@@ -292,7 +296,7 @@ function forgotten_marsh_miniboss_ch_9.DiedToBoss()
   UI:SetSpeaker(toxicroak)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['FMM_014']))
   GAME:WaitFrames(20)
-  BossFX.Voice('FMM_015')
+  BossFX.GuardianVoice(toxicroak, 'FMM_015')
   GAME:WaitFrames(20)
 
   GAME:FadeOut(false, 60)

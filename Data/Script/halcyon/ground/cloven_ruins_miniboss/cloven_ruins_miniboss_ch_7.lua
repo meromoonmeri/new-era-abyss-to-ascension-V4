@@ -78,14 +78,18 @@ function cloven_ruins_miniboss_ch_7.FirstPreBossScene()
   GAME:WaitFrames(20)
 
   -- Ordre imposé : Voix -> Flash -> Apparition.
-  BossFX.Voice('CRM_003')
-  GAME:WaitFrames(20)
-
-  -- Kaorine apparaît sous un flash blanc.
+  -- Kaorine existe AVANT de parler (mais reste caché) : la sentinelle
+  -- s'adresse au duo, ce n'est pas un oracle. Patron du clan Limagma au
+  -- Creuset (searing_crucible_ch_5.lua:626-629).
   local claydol = CharacterEssentials.MakeCharactersFromList({
     {'Claydol', BOSS_1[1], BOSS_1[2], Direction.DownRight}
   })
   GROUND:Hide('Claydol')
+
+  BossFX.GuardianVoice(claydol, 'CRM_003')
+  GAME:WaitFrames(20)
+
+  -- Kaorine apparaît sous un flash blanc.
   SOUND:PlayBattleSE('_UNK_EVT_102')
   BossFX.Flash(BOSS_1[1], BOSS_1[2], 3, 5, 20)
   GAME:WaitFrames(8)
@@ -286,7 +290,7 @@ function cloven_ruins_miniboss_ch_7.DiedToBoss()
   UI:SetSpeaker(claydol)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRM_014']))
   GAME:WaitFrames(20)
-  BossFX.Voice('CRM_015')
+  BossFX.GuardianVoice(claydol, 'CRM_015')
   GAME:WaitFrames(20)
 
   GAME:FadeOut(false, 60)

@@ -456,4 +456,41 @@ function BossFX.Voice(key, mapStrings)
     end)
 end
 
+--------------------------------------------------------------------
+-- Un GARDIEN qui parle avant d'etre vu. Ce n'est PAS la Voix.
+--------------------------------------------------------------------
+-- REFERENCE : le chef du clan Limagma au Creuset
+-- (searing_crucible_ch_5.lua:626-629). Le Magcargo interpelle le duo
+-- alors qu'il est encore cache : nom masque (\uE040) mais PORTRAIT et
+-- espece bien a lui, puis SetSpeaker(chara) des qu'il est visible.
+-- Le joueur entend donc quelqu'un de reel, situe dans le decor, et non
+-- l'oracle desincarne.
+--
+-- Difference volontaire avec BossFX.Voice :
+--   * aucun haut-le-coeur, aucun MoveScreen — le heros n'est pas agresse
+--     mentalement, on lui adresse la parole ;
+--   * le SE reste un signal d'attention, pas un choc.
+--
+-- `chara` doit deja exister (MakeCharactersFromList) meme s'il est encore
+-- sous GROUND:Hide — c'est ce que fait le Creuset.
+function BossFX.GuardianVoice(chara, key, mapStrings)
+    if chara == nil then
+        -- Repli sur une boite centree sans locuteur plutot que d'inventer
+        -- un portrait : patron deja employe pour Zeraora
+        -- (gloomy_forest_boss_ch_6.lua:148-156).
+        UI:ResetSpeaker(false)
+        UI:SetCenter(true)
+        UI:WaitShowDialogue(STRINGS:Format((mapStrings or STRINGS.MapStrings)[key]))
+        UI:SetCenter(false)
+        UI:ResetSpeaker()
+        return
+    end
+
+    SOUND:PlayBattleSE('EVT_Emote_Exclaim')
+    UI:SetSpeaker(STRINGS:Format("\\uE040"), true,
+                  chara.CurrentForm.Species, chara.CurrentForm.Form,
+                  chara.CurrentForm.Skin, chara.CurrentForm.Gender)
+    UI:WaitShowDialogue(STRINGS:Format((mapStrings or STRINGS.MapStrings)[key]))
+end
+
 return BossFX

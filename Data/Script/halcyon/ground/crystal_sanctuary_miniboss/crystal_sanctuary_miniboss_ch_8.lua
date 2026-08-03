@@ -79,14 +79,18 @@ function crystal_sanctuary_miniboss_ch_8.FirstPreBossScene()
   GAME:WaitFrames(20)
 
   -- Ordre imposé : Voix -> Flash -> Apparition.
-  BossFX.Voice('CSM_003')
-  GAME:WaitFrames(20)
-
-  -- Strassie apparaît sous un flash blanc.
+  -- Strassie existe AVANT de parler (mais reste caché) : la gardienne
+  -- s'adresse au duo, ce n'est pas un oracle. Patron du clan Limagma au
+  -- Creuset (searing_crucible_ch_5.lua:626-629).
   local carbink = CharacterEssentials.MakeCharactersFromList({
     {'Carbink', BOSS_1[1], BOSS_1[2], Direction.DownRight}
   })
   GROUND:Hide('Carbink')
+
+  BossFX.GuardianVoice(carbink, 'CSM_003')
+  GAME:WaitFrames(20)
+
+  -- Strassie apparaît sous un flash blanc.
   SOUND:PlayBattleSE('_UNK_EVT_102')
   BossFX.Flash(BOSS_1[1], BOSS_1[2], 3, 5, 20)
   GAME:WaitFrames(8)
@@ -287,7 +291,7 @@ function crystal_sanctuary_miniboss_ch_8.DiedToBoss()
   UI:SetSpeaker(froslass)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CSM_014']))
   GAME:WaitFrames(20)
-  BossFX.Voice('CSM_015')
+  BossFX.GuardianVoice(froslass, 'CSM_015')
   GAME:WaitFrames(20)
 
   GAME:FadeOut(false, 60)

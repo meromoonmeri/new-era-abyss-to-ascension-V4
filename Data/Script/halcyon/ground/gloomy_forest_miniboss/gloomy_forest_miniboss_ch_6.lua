@@ -85,15 +85,19 @@ function gloomy_forest_miniboss_ch_6.FirstPreBossScene()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM_003']))
   GAME:WaitFrames(20)
 
-  -- Ordre imposé : Voix -> Flash -> Apparition.
-  BossFX.Voice('GFM_004')
-  GAME:WaitFrames(20)
-
-  -- Tengalice apparaît sous un flash blanc.
+  -- Ordre imposé : Gardien qui parle -> Flash -> Apparition.
+  -- Tengalice existe AVANT de parler (mais reste caché) : c'est lui qui
+  -- interpelle le duo, pas un oracle. Patron du clan Limagma au Creuset
+  -- (searing_crucible_ch_5.lua:626-629).
   local shiftry = CharacterEssentials.MakeCharactersFromList({
     {'Shiftry', BOSS_1[1], BOSS_1[2], Direction.DownRight}
   })
   GROUND:Hide('Shiftry')
+
+  BossFX.GuardianVoice(shiftry, 'GFM_004')
+  GAME:WaitFrames(20)
+
+  -- Tengalice apparaît sous un flash blanc.
   SOUND:PlayBattleSE('EVT_Emote_Shock_2')
   BossFX.Flash(BOSS_1[1], BOSS_1[2], 3, 5, 20)
   GAME:WaitFrames(8)
@@ -298,7 +302,7 @@ function gloomy_forest_miniboss_ch_6.DiedToBoss()
   UI:SetSpeaker(shiftry)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM_015']))
   GAME:WaitFrames(20)
-  BossFX.Voice('GFM_016')
+  BossFX.GuardianVoice(shiftry, 'GFM_016')
   GAME:WaitFrames(20)
 
   GAME:FadeOut(false, 60)
