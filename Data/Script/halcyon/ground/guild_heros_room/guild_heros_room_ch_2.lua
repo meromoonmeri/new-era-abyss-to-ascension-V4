@@ -270,7 +270,7 @@ function guild_heros_room_ch_2.PostRiverBedtalk()
 	UI:WaitShowBG("Genesis_Void", 40, 20)
 	GAME:WaitFrames(60)
 
-	UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", 0) -- Voix mystérieuse sans portrait
+	UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown) -- Voix mystérieuse sans portrait
 	UI:WaitShowDialogue("...Tu as réussi à franchir la rivière...")
 	GAME:WaitFrames(15)
 	UI:WaitShowDialogue("...Ton cœur s'éveille à ce monde...")

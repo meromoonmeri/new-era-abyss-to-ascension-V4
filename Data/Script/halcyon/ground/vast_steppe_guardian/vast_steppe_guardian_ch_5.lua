@@ -114,7 +114,7 @@ function vast_steppe_guardian_ch_5.FirstPreBossScene()
   GAME:WaitFrames(20)
   -- L'ABSOL PARLE (AVANT D'APPARAITRE) — son avertissement, sans son portrait
   -- car il est encore cache dans la brume.
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", 0)
+  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['VSG_030']))
   -- "Tu peux encore faire demi-tour."
   GAME:WaitFrames(15)

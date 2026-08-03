@@ -61,6 +61,6 @@ require 'halcyon.services.upgrade_tools'
 require 'halcyon.services.config_tools'
 require 'halcyon.services.nre_probe'--sonde runtime NRE IsGameOver (audit 2026-07-27, retirable)
 require 'halcyon.SceneDebug'--armement des scenes pour test en jeu (outil de dev, sans effet sur le jeu)
-PrintInfo('[NREPROBE] build 2026-08-04-O charge (main.lua) — PREMIERE ligne attendue, au LANCEMENT du jeu. Si absente: la copie du mod chargee par le jeu n est PAS celle du depot.')
+PrintInfo('[NREPROBE] build 2026-08-04-P charge (main.lua) — PREMIERE ligne attendue, au LANCEMENT du jeu. Si absente: la copie du mod chargee par le jeu n est PAS celle du depot.')
 
 math.randomseed(os.time())

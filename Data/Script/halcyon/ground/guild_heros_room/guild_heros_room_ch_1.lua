@@ -138,7 +138,7 @@ function guild_heros_room_ch_1.Bedtalk()
 	UI:WaitShowBG("Genesis_Void", 40, 20)
 	GAME:WaitFrames(60)
 
-	UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", 0) -- Voix lointaine sans portrait
+	UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown) -- Voix lointaine sans portrait
 	UI:WaitShowDialogue("...Humain...")
 	GAME:WaitFrames(15)
 	UI:WaitShowDialogue("...S'il te plaît... entends mon appel...")

@@ -66,8 +66,8 @@ function mount_windswept_guardian.Enter(map)
     SV.Chapter5.MountGuardianDefeated = false
     SV.Chapter5.MountGuardianLost = false
     ReplayEnding.EmptyArena({
-      hero = {536, 951}, partner = {600, 951},
-      camera = {568, 951}, look = {568, 470},
+      hero = {264, 464}, partner = {288, 432},
+      camera = {288, 463}, look = {284, 224},
       walk = 40, title = true, music = 'Mt. Travail.ogg',
       lines = {
         { spk='partner', emo='Normal', key='MWG_R01', wait=10 },
