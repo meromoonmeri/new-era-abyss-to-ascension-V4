@@ -598,9 +598,12 @@ function cloven_ruins_entrance_ch_5.Acte3(hero, partner)
   -- d'une replique. Le partenaire est le premier a l'admettre.
   if partner ~= nil then pcall(function() GeneralFunctions.EmoteAndPause(partner, "Question", true) end) end
   Says(partner, "Worried", 'CR5_A08')
+  local ganlon, shuca = CH('Teammate2'), CH('Teammate3')
+  Says(shuca, "Normal", 'CR5_A80', {plum, hero, partner})
+  Says(ganlon, "Worried", 'CR5_A81', {shuca})
   Silence(42)
 
-  cloven_ruins_entrance_ch_5.Acte5(hero, partner, plum)
+  cloven_ruins_entrance_ch_5.Acte4(hero, partner, plum)
 end
 
 -- ==================================================================
@@ -632,31 +635,37 @@ function cloven_ruins_entrance_ch_5.Acte4(hero, partner, plum)
   -- 1er : Phileas, methodique, il annonce l'etape.
   local phileas = Entre('Phileas')
   Says(phileas, "Normal", 'CR5_A09', {hero, partner})
+  Says(phileas, "Normal", 'CR5_A82', {hero, partner})
   Silence(12)
 
   -- 2e : Penticus, le doyen, souffle apres la marche.
   local penticus = Entre('Penticus')
   Says(penticus, "Sigh", 'CR5_A10', {phileas})
+  Says(penticus, "Normal", 'CR5_A83', {phileas, hero, partner})
   Silence(10)
 
   -- 3e : Rin, medicale, elle s'inquiete des pattes de tout le monde.
   local rin = Entre('Rin')
   Says(rin, "Worried", 'CR5_A11', {penticus, partner})
+  Says(rin, "Normal", 'CR5_A84', {hero, partner})
   Silence(10)
 
   -- 4e : Coco, surprise que le heros soit deja la.
   local coco = Entre('Coco')
   Says(coco, "Surprised", 'CR5_A12', {hero, partner})
+  Says(coco, "Normal", 'CR5_A85', {plum})
   Silence(10)
 
   -- 5e : Hyko, garde du perimetre, il flaire quelque chose.
   local hyko = Entre('Hyko')
   Says(hyko, "Normal", 'CR5_A13', {coco})
+  Says(hyko, "Determined", 'CR5_A86', {penticus})
   Silence(10)
 
   -- 6e : Almotz, soulage de ne pas etre le dernier pour une fois.
   local almotz = Entre('Almotz')
   Says(almotz, "Happy", 'CR5_A14', {hyko, rin})
+  Says(almotz, "Happy", 'CR5_A87', {hyko})
   Silence(12)
 
   -- Le groupe respire : personne n'est un mannequin.
@@ -689,28 +698,6 @@ function cloven_ruins_entrance_ch_5.Acte4(hero, partner, plum)
   Says(reinier, "Worried", 'CR5_A20', {kino})
   Silence(20)
 
-  -- Le gag se prolonge maintenant que chacun a rejoint le camp : les
-  -- repliques qui identifient Penticus, Coco, Phileas et Kino ne sont
-  -- jamais jouees avant leur arrivee physique.
-  Says(penticus, "Sigh", 'CR5_A27', {plum})
-  Silence(12)
-  Says(plum, "Angry", 'CR5_A28', {penticus})
-  Silence(10)
-  Says(coco, "Happy", 'CR5_A29', {plum})
-  Silence(10)
-  Says(plum, "Shouting", 'CR5_A30', {coco})
-  Silence(12)
-  Says(phileas, "Normal", 'CR5_A31', {plum})
-  Silence(14)
-  Says(plum, "Sigh", 'CR5_A32', {phileas, partner})
-  Silence(12)
-  Says(kino, "Joyous", 'CR5_A33', {plum})
-  Silence(10)
-  Says(plum, "Angry", 'CR5_A34', {kino})
-  Silence(12)
-  Pense(hero, 'CR5_A35', "Sigh")
-  Silence(20)
-
   -- LE MALAISE. Les conversations se font plus discretes. Chacun a sa
   -- lecture de la situation, fidele a son caractere.
   pcall(function() GAME:MoveCamera(CX - 24, CY, 120, false) end)
@@ -733,7 +720,7 @@ function cloven_ruins_entrance_ch_5.Acte4(hero, partner, plum)
   Pense(hero, 'CR5_A25', "Worried")
   Silence(50)
 
-  cloven_ruins_entrance_ch_5.Acte6(hero, partner, plum,
+  cloven_ruins_entrance_ch_5.Acte5(hero, partner, plum,
     {phileas=phileas, penticus=penticus, rin=rin, coco=coco, hyko=hyko,
      almotz=almotz, kino=kino, reinier=reinier, ganlon=ganlon, shuca=shuca})
 end
@@ -742,8 +729,9 @@ end
 -- ==================================================================
 -- ACTE 5 — LE CRI
 -- ==================================================================
-function cloven_ruins_entrance_ch_5.Acte5(hero, partner, plum)
-  -- Le silence se rompt net : seuls les quatre premiers arrivants sont la.
+function cloven_ruins_entrance_ch_5.Acte5(hero, partner, plum, t)
+  -- Tous sont enfin presents : Plum peut maintenant accuser le groupe
+  -- entier sans parler a des absents.
   if plum ~= nil then
     pcall(function() GROUND:EntTurn(plum, Direction.Down) end)
     pcall(function() SOUND:PlayBattleSE("EVT_Emote_Shock_2") end)
@@ -753,11 +741,32 @@ function cloven_ruins_entrance_ch_5.Acte5(hero, partner, plum)
   -- Theme comique atteste au Mont Windsep : il demarre au cri de Plum.
   pcall(function() SOUND:PlayBGM("Guildmaster Wigglytuff.ogg", false) end)
   Says(plum, "Shouting", 'CR5_A26')
-  local ganlon, shuca = CH('Teammate2'), CH('Teammate3')
-  ReactAll({{partner,"Shock"},{hero,"Exclaim"},{ganlon,"Sweating"},{shuca,"Question"}})
+  ReactAll({{partner,"Shock"},{hero,"Exclaim"},{t.coco,"Shock"},{t.rin,"Sweating"},
+             {t.hyko,"Exclaim"},{t.almotz,"Shock"},{t.kino,"Question"},
+             {t.reinier,"Sweating"},{t.ganlon,"Sweating"},{t.shuca,"Question"}})
   Silence(20)
-  -- Le reste de la Guilde rejoint maintenant le camp, un a un.
-  cloven_ruins_entrance_ch_5.Acte4(hero, partner, plum)
+
+  Says(t.penticus, "Sigh", 'CR5_A27', {plum})
+  Silence(12)
+  Says(plum, "Angry", 'CR5_A28', {t.penticus})
+  Silence(10)
+  Says(t.coco, "Happy", 'CR5_A29', {plum})
+  Silence(10)
+  Says(plum, "Shouting", 'CR5_A30', {t.coco})
+  Silence(12)
+  Says(t.phileas, "Normal", 'CR5_A31', {plum})
+  Silence(14)
+  Says(plum, "Sigh", 'CR5_A32', {t.phileas, partner})
+  Silence(12)
+  Says(t.kino, "Joyous", 'CR5_A33', {plum})
+  Silence(10)
+  Says(plum, "Angry", 'CR5_A34', {t.kino})
+  Silence(12)
+  Pense(hero, 'CR5_A35', "Sigh")
+  Says(t.rin, "Normal", 'CR5_A88', {plum})
+  Silence(20)
+
+  cloven_ruins_entrance_ch_5.Acte6(hero, partner, plum, t)
 end
 
 -- ==================================================================
@@ -829,6 +838,7 @@ function cloven_ruins_entrance_ch_5.Acte6(hero, partner, plum, t)
 
   -- LE DINER : les conversations se croisent.
   Says(t.penticus, "Normal", 'CR5_A43', {hero, partner, t.phileas})
+  Says(t.penticus, "Determined", 'CR5_A89', {hero, partner})
   Silence(12)
   Says(t.kino, "Joyous", 'CR5_A44', {t.reinier, t.coco})
   Silence(10)
@@ -846,6 +856,8 @@ function cloven_ruins_entrance_ch_5.Acte6(hero, partner, plum, t)
   Says(t.phileas, "Normal", 'CR5_A50', {t.penticus, hero, partner})
   Silence(14)
   Says(partner, "Determined", 'CR5_A51', {hero, t.phileas})
+  Says(partner, "Determined", 'CR5_A90', {hero})
+  Says(t.phileas, "Normal", 'CR5_A91', {partner, hero})
   Silence(12)
   Pense(hero, 'CR5_A52', "Happy")
   Silence(20)
@@ -903,6 +915,9 @@ function cloven_ruins_entrance_ch_5.Acte7(hero, partner, plum, t)
   Says(t.rin, "Happy", 'CR5_A55', {t.coco})
   Silence(12)
   Says(t.almotz, "Normal", 'CR5_A56', {t.hyko})
+  Says(t.hyko, "Normal", 'CR5_A92', {t.almotz})
+  Says(t.almotz, "Happy", 'CR5_A93', {t.hyko})
+  Says(t.hyko, "Sigh", 'CR5_A94', {t.almotz})
   Silence(12)
   Says(t.kino, "Joyous", 'CR5_A57', {t.reinier})
   Silence(10)
@@ -919,6 +934,8 @@ function cloven_ruins_entrance_ch_5.Acte7(hero, partner, plum, t)
   Says(t.kino, "Sigh", 'CR5_A61', {t.phileas})
   Silence(14)
   Says(plum, "Angry", 'CR5_A62', {t.phileas})
+  Says(t.penticus, "Normal", 'CR5_A95', {plum})
+  Says(plum, "Happy", 'CR5_A96', {t.penticus})
   Silence(12)
   ReactAll({ {t.phileas, "Sweating"} })
   Silence(20)
@@ -1108,6 +1125,7 @@ function cloven_ruins_entrance_ch_5.MorningBody()
   Says(t.penticus, "Determined", 'CR5_A73')
   Silence(18)
   Says(t.penticus, "Shouting", 'CR5_A74')
+  Says(t.penticus, "Determined", 'CR5_A97', {hero, partner, t.phileas})
   Silence(14)
   -- CORRECTIF d'audit : 'Determined' et 'Joyous' sont des EMOTIONS DE
   -- PORTRAIT, pas des emotes de bulle. EmoteAndPause ne les connait pas

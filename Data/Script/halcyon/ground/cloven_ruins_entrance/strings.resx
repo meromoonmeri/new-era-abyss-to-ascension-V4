@@ -80,4 +80,22 @@
   <data name="CR5_A77" xml:space="preserve"><value>The Ruins pushed you back.[pause=20] Rest.[pause=15] They aren't going anywhere.</value></data>
   <data name="CR5_A78" xml:space="preserve"><value>You were right to come back up.[pause=20] Forcing it would have led nowhere.</value></data>
   <data name="CR5_A79" xml:space="preserve"><value>Turning back in time is a decision,[pause=10] not a failure.</value></data>
+  <data name="CR5_A80" xml:space="preserve"><value>She's not trying to go in.[pause=15] She's waiting for us.</value></data>
+  <data name="CR5_A81" xml:space="preserve"><value>And she's saying nothing.[pause=15] That's worse.</value></data>
+  <data name="CR5_A82" xml:space="preserve"><value>The ground has been disturbed by the door.[pause=15] Stay in the clearing.</value></data>
+  <data name="CR5_A83" xml:space="preserve"><value>We make camp here.[pause=15] No one crosses that door alone.</value></data>
+  <data name="CR5_A84" xml:space="preserve"><value>I want to check everyone's paws before dinner.</value></data>
+  <data name="CR5_A85" xml:space="preserve"><value>Someone knows a shortcut.[pause=15] And someone forgot to tell us.</value></data>
+  <data name="CR5_A86" xml:space="preserve"><value>I'll take first watch.</value></data>
+  <data name="CR5_A87" xml:space="preserve"><value>I'll take second.[pause=15] It looks less bitey.</value></data>
+  <data name="CR5_A88" xml:space="preserve"><value>At least she's in one piece.[pause=15] That's already good news.</value></data>
+  <data name="CR5_A89" xml:space="preserve"><value>Tornadus is behind us.[pause=15] Don't let its fear walk with us.</value></data>
+  <data name="CR5_A90" xml:space="preserve"><value>We did it together.[pause=15] We'll do the same tomorrow.</value></data>
+  <data name="CR5_A91" xml:space="preserve"><value>The ruins owe us nothing.[pause=15] We owe them caution.</value></data>
+  <data name="CR5_A92" xml:space="preserve"><value>I'll sleep after I check the perimeter.</value></data>
+  <data name="CR5_A93" xml:space="preserve"><value>You don't sleep,[pause=10] you count problems.</value></data>
+  <data name="CR5_A94" xml:space="preserve"><value>I'm very good at counting them.</value></data>
+  <data name="CR5_A95" xml:space="preserve"><value>This time,[pause=10] nobody leaves without warning us.</value></data>
+  <data name="CR5_A96" xml:space="preserve"><value>Promise.[pause=15] Well...[pause=10] I'll try.</value></data>
+  <data name="CR5_A97" xml:space="preserve"><value>Tomorrow, we stay together until the door.[pause=15] After that, we adapt.</value></data>
 </root>

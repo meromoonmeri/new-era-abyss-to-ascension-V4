@@ -80,4 +80,22 @@
   <data name="CR5_A77" xml:space="preserve"><value>Les Ruines vous ont repoussés.[pause=20] Reposez-vous.[pause=15] Elles ne bougeront pas.</value></data>
   <data name="CR5_A78" xml:space="preserve"><value>Vous avez bien fait de remonter.[pause=20] Forcer n'aurait rien donné.</value></data>
   <data name="CR5_A79" xml:space="preserve"><value>Redescendre à temps est une décision,[pause=10] pas un échec.</value></data>
+  <data name="CR5_A80" xml:space="preserve"><value>Elle n'essaie pas d'entrer.[pause=15] Elle nous attend.</value></data>
+  <data name="CR5_A81" xml:space="preserve"><value>Et elle ne dit rien.[pause=15] C'est pire.</value></data>
+  <data name="CR5_A82" xml:space="preserve"><value>Le sol a été remué près de la porte.[pause=15] Restez dans la clairière.</value></data>
+  <data name="CR5_A83" xml:space="preserve"><value>On monte le camp ici.[pause=15] Personne ne franchit cette porte seul.</value></data>
+  <data name="CR5_A84" xml:space="preserve"><value>Je veux voir les pattes de chacun avant le repas.</value></data>
+  <data name="CR5_A85" xml:space="preserve"><value>Quelqu'un connaît un raccourci.[pause=15] Et quelqu'un a oublié de nous le dire.</value></data>
+  <data name="CR5_A86" xml:space="preserve"><value>Je prends le premier tour de garde.</value></data>
+  <data name="CR5_A87" xml:space="preserve"><value>Moi, le deuxième.[pause=15] Il a l'air moins mordant.</value></data>
+  <data name="CR5_A88" xml:space="preserve"><value>Au moins, elle est entière.[pause=15] C'est déjà une bonne nouvelle.</value></data>
+  <data name="CR5_A89" xml:space="preserve"><value>Tornadus est derrière nous.[pause=15] Ne laissons pas sa peur marcher avec nous.</value></data>
+  <data name="CR5_A90" xml:space="preserve"><value>On l'a fait ensemble.[pause=15] On fera pareil demain.</value></data>
+  <data name="CR5_A91" xml:space="preserve"><value>Les ruines ne nous doivent rien.[pause=15] Nous leur devons de la prudence.</value></data>
+  <data name="CR5_A92" xml:space="preserve"><value>Je dormirai après avoir vérifié le périmètre.</value></data>
+  <data name="CR5_A93" xml:space="preserve"><value>Tu ne dors pas,[pause=10] tu comptes les problèmes.</value></data>
+  <data name="CR5_A94" xml:space="preserve"><value>Je les compte très bien.</value></data>
+  <data name="CR5_A95" xml:space="preserve"><value>Cette fois,[pause=10] personne ne part sans prévenir.</value></data>
+  <data name="CR5_A96" xml:space="preserve"><value>Promis.[pause=15] Enfin...[pause=10] je vais essayer.</value></data>
+  <data name="CR5_A97" xml:space="preserve"><value>Demain, on reste groupés jusqu'à la porte.[pause=15] Après, on s'adapte.</value></data>
 </root>
