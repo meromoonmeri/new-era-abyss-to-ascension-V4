@@ -381,6 +381,13 @@ function cloven_ruins_entrance_ch_5.BuildCampDay()
 end
 
 -- LES PAILLASSES : posees SEULEMENT a l'acte 7, jamais avant.
+function cloven_ruins_entrance_ch_5.BuildCampMorning()
+  pcall(function() GROUND:RemoveMapStatus("darkness") end)
+  pcall(function() GROUND:RemoveMapStatus("dusk") end)
+  -- No fire during the formal morning assembly: the central axis remains clear.
+  cloven_ruins_entrance_ch_5.PurgeDecor()
+end
+
 function cloven_ruins_entrance_ch_5.DeployBeds()
   -- NUIT NOIRE — patron exact du Mont Venteux
   -- (mount_windswept_entrance_ch_5.lua:4452 pose 'dusk' a l'arrivee au
@@ -950,7 +957,8 @@ function cloven_ruins_entrance_ch_5.Acte7(hero, partner, plum, t)
   pcall(function() GROUND:AddMapStatus("dusk") end)
   pcall(function() SOUND:FadeOutBGM(120) end)
   pcall(function() GAME:FadeIn(40) end)
-  -- Fin de la transition douce
+  -- Fin de la transition douce : l'acte de nuit a sa propre ambiance.
+  SOUND:PlayBGM('On the Beach at Dusk.ogg', true)
 
   Narre('CR5_A53')
   GAME:FadeOut(false, 50)
@@ -1160,20 +1168,13 @@ function cloven_ruins_entrance_ch_5.MorningBody()
   Says(t.kino, "Happy", 'CR5_A70', {t.reinier})
   Silence(12)
 
-  -- Les paillasses disparaissent sous un court fondu : c'est un vrai
-  -- changement de decor, pas une teleportation narrative. Les Pokemon
-  -- restent a leurs positions de reveil lorsque l'image revient.
+  -- Le fondu couvre le rangement et la mise en rang, changement complet
+  -- de configuration. Quand l'image revient, l'assemblée est déjà dans la
+  -- formation de briefing de la Guilde : aucun déplacement inutile à voir.
   Narre('CR5_A71')
   GAME:FadeOut(false, 40)
   GAME:WaitFrames(25)
-  cloven_ruins_entrance_ch_5.BuildCampDay()
-  GAME:MoveCamera(CX, CY, 1, false)
-  GAME:FadeIn(45)
-  Silence(18)
-
-  -- Penticus prend d'abord sa place devant la grotte. Puis chaque membre
-  -- marche depuis sa paillasse vers sa position de briefing ; aucun
-  -- TeleportTo ne change la composition de la scene.
+  cloven_ruins_entrance_ch_5.BuildCampMorning()
   local briefing = {
     {t.penticus,'Penticus'},{t.reinier,'Reinier'},{t.shuca,'Shuca'},
     {hero,'hero'},{partner,'partner'},{t.ganlon,'Ganlon'},{t.phileas,'Phileas'},
@@ -1184,13 +1185,13 @@ function cloven_ruins_entrance_ch_5.MorningBody()
     local ch, pos = a[1], BRIEFING[a[2]]
     if ch ~= nil and pos ~= nil then
       pcall(function()
-        GROUND:MoveToPosition(ch, pos[1], pos[2], false, 1)
-        GROUND:CharAnimateTurnTo(ch, (a[2] == 'Penticus') and Direction.Down or Direction.Up, 4)
+        GROUND:TeleportTo(ch, pos[1], pos[2], (a[2] == 'Penticus') and Direction.Down or Direction.Up)
       end)
-      GAME:WaitFrames(6)
     end
   end
-  GAME:MoveCamera(288, 248, 50, false)
+  GAME:MoveCamera(288, 248, 1, false)
+  SOUND:PlayBGM('Do Your Best, As Always!.ogg', true)
+  GAME:FadeIn(45)
   Silence(20)
 
   -- Les deux rangs regardent Penticus avec un leger decalage, jamais en
