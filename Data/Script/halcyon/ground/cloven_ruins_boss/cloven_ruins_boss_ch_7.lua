@@ -28,10 +28,17 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
   AI:DisableCharacterAI(partner)
   SOUND:StopBGM()
 
-  -- Carte 240x320 px : entrée par le sud, cellules walkables vérifiées.
-  GROUND:TeleportTo(hero, 152, 240, Direction.Up)
-  GROUND:TeleportTo(partner, 120, 240, Direction.Up)
-  GAME:MoveCamera(136, 176, 1, false)
+  -- Carte 600x648 px (TexSize 1) — décor régénéré 2026-08-04 (arène à
+  -- dalles et plaques à glyphes). Géométrie MESURÉE sur la grille
+  -- d'obstacles : 55,0 % bloquant, 2701 cases atteignables.
+  --   couloir d'entrée au SUD : x 264-360, y >= 568
+  --   arène large            : x 104-512, y 240-552
+  --   niche du colosse au NORD : x 232-384, y 48-144
+  -- (Les anciennes coordonnées visaient une carte 240x320 : 5 des 6
+  -- positions du duo tombaient HORS SOL. Corrigé.)
+  GROUND:TeleportTo(hero, 296, 616, Direction.Up)
+  GROUND:TeleportTo(partner, 320, 616, Direction.Up)
+  GAME:MoveCamera(308, 600, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -126,7 +133,7 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
     })
     GROUND:Hide(zid[i])
   end
-  GAME:MoveCamera(144, 168, 40, false)
+  GAME:MoveCamera(308, 400, 40, false)
   for i = 1, 5 do
     SOUND:PlayBattleSE('EVT_Emote_Shock_2')
     BossFX.Flash(zx[i], 152, 2, 3, 12)
@@ -185,18 +192,18 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
   GAME:WaitFrames(12)
 
   local regirock = CharacterEssentials.MakeCharactersFromList({
-    {'Regirock', 96, 120, Direction.Down}
+    {'Regirock', 246, 128, Direction.Down}
   })
   local regice = CharacterEssentials.MakeCharactersFromList({
-    {'Regice', 144, 112, Direction.Down}
+    {'Regice', 304, 136, Direction.Down}
   })
   local registeel = CharacterEssentials.MakeCharactersFromList({
-    {'Registeel', 192, 120, Direction.Down}
+    {'Registeel', 376, 128, Direction.Down}
   })
   GROUND:Hide('Regirock')
   GROUND:Hide('Regice')
   GROUND:Hide('Registeel')
-  GAME:MoveCamera(144, 148, 40, false)
+  GAME:MoveCamera(308, 300, 40, false)
 
   -- Regirock : la pierre s'ebroue.
   BossFX.Flash(96, 120, 3, 5, 18)
@@ -249,7 +256,7 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
   GAME:WaitFrames(20)
 
   -- La camera recule : les trois gardiens ET ce qui dort derriere eux.
-  GAME:MoveCamera(144, 176, 50, false)
+  GAME:MoveCamera(308, 430, 50, false)
   GAME:WaitFrames(15)
 
   -- === FLASH + EMERGENCE DE REGIGIGAS ===
@@ -257,7 +264,7 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
   BossFX.Flash(center.X, center.Y, 3, 6, 18)
 
   local regigigas = CharacterEssentials.MakeCharactersFromList({
-    {'Regigigas', 144, 128, Direction.Down}
+    {'Regigigas', 304, 80, Direction.Down}
   })
   GROUND:Hide('Regigigas')
 
@@ -307,7 +314,7 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
   -- C'est le boss le plus proche du twist des Coeurs, donc celui qui doit
   -- en dire le MOINS. Ici il ne pose que le cadre ; la question qui derange
   -- est reservee a l'apres-boss.
-  GAME:MoveCamera(144, 138, 40, false)
+  GAME:MoveCamera(308, 240, 40, false)
   UI:SetSpeaker(regigigas)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_045']))
   -- "...Halte."
@@ -319,7 +326,7 @@ function cloven_ruins_boss_ch_7.FirstPreBossScene()
   -- "On m'a dit de tenir jusqu'a la releve. Personne n'est venu."
   GAME:WaitFrames(25)
   -- Il s'adresse au duo : cadre commun.
-  GAME:MoveCamera(144, 176, 40, false)
+  GAME:MoveCamera(308, 430, 40, false)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_048']))
   -- "Petits. Etes-vous la releve ?"
   GAME:WaitFrames(25)
@@ -376,16 +383,16 @@ function cloven_ruins_boss_ch_7.SecondPreBossScene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local regigigas = CharacterEssentials.MakeCharactersFromList({
-    {'Regigigas', 144, 128, Direction.Down}
+    {'Regigigas', 304, 80, Direction.Down}
   })
 
   AI:DisableCharacterAI(partner)
   SOUND:StopBGM()
   GROUND:CharSetAnim(regigigas, "Idle", true)
 
-  GROUND:TeleportTo(hero, 152, 240, Direction.Up)
-  GROUND:TeleportTo(partner, 120, 240, Direction.Up)
-  GAME:MoveCamera(136, 176, 1, false)
+  GROUND:TeleportTo(hero, 296, 616, Direction.Up)
+  GROUND:TeleportTo(partner, 320, 616, Direction.Up)
+  GAME:MoveCamera(308, 600, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -428,16 +435,16 @@ local function DefeatedBossBody()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local regigigas = CharacterEssentials.MakeCharactersFromList({
-    {'Regigigas', 144, 128, Direction.Down}
+    {'Regigigas', 304, 80, Direction.Down}
   })
   GROUND:CharSetAnim(regigigas, "Idle", true)
 
   AI:DisableCharacterAI(partner)
   SOUND:StopBGM()
 
-  GROUND:TeleportTo(hero, 152, 224, Direction.Up)
-  GROUND:TeleportTo(partner, 120, 224, Direction.Up)
-  GAME:MoveCamera(136, 176, 1, false)
+  GROUND:TeleportTo(hero, 296, 600, Direction.Up)
+  GROUND:TeleportTo(partner, 320, 600, Direction.Up)
+  GAME:MoveCamera(308, 584, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -477,7 +484,7 @@ local function DefeatedBossBody()
     GAME:WaitFrames(25)
     GROUND:CharSetAnim(regigigas, "Idle", true)
   end)
-  GAME:MoveCamera(144, 150, 40, false)
+  GAME:MoveCamera(308, 310, 40, false)
   GAME:WaitFrames(15)
 
   UI:SetSpeaker(regigigas)
@@ -496,7 +503,7 @@ local function DefeatedBossBody()
   GAME:WaitFrames(25)
 
   -- La question qui derange. Camera serree : c'est LA phrase de la scene.
-  GAME:MoveCamera(144, 140, 40, false)
+  GAME:MoveCamera(308, 250, 40, false)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_055']))
   -- "Prenez-le. Mais repondez-moi une chose, petits."
   GAME:WaitFrames(25)
@@ -510,14 +517,14 @@ local function DefeatedBossBody()
   GAME:WaitFrames(35)
 
   -- Le duo encaisse. Le partenaire n'a pas de reponse : c'est voulu.
-  GAME:MoveCamera(136, 200, 40, false)
+  GAME:MoveCamera(308, 470, 40, false)
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_059']))
   -- "Face a lui...[pause=25] Mais alors ce n'etait pas une salle du tresor."
   GAME:WaitFrames(25)
 
-  GAME:MoveCamera(144, 150, 40, false)
+  GAME:MoveCamera(308, 310, 40, false)
   UI:SetSpeaker(regigigas)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CRB_058']))
   -- "Partez. Avant que je me souvienne du reste de la consigne."
@@ -537,7 +544,7 @@ local function DefeatedBossBody()
   UI:SetCenter(false)
   GAME:WaitFrames(25)
 
-  GAME:MoveCamera(136, 200, 40, false)
+  GAME:MoveCamera(308, 470, 40, false)
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['CRB_014']), "Worried")
   -- "(Cette voix... elle nous a guidés jusqu'ici exprès.)"
 
@@ -562,7 +569,7 @@ function cloven_ruins_boss_ch_7.DefeatedBoss()
   end
 
   -- LE TITAN EST VAINCU — L'EXPEDITION DU CH5 EST TERMINEE.
-  --(Restructuration validee : les Ruines Tordues sont le climax du ch5.
+  --(Restructuration validee : les Ruines Fendues sont le climax du ch5.
   --Regigigas est un GARDIEN QUI TESTE — bienveillant-eprouvant. Le duo
   --l'a releve de sa consigne millenaire. Révélation TARDIVE : le Cœur
   --corrompu n'est PAS revele ici — seule reste l'anomalie inquietante
@@ -602,37 +609,37 @@ function cloven_ruins_boss_ch_7.DiedToBoss()
   SOUND:StopBGM()
 
   local regigigas = CharacterEssentials.MakeCharactersFromList({
-    {'Regigigas', 144, 128, Direction.Down}
+    {'Regigigas', 304, 80, Direction.Down}
   })
   GROUND:CharSetAnim(regigigas, "Idle", true)
 
   -- Les trois gardiens sont la aussi : la defaite se joue devant la veille
   -- au complet, pas devant le seul Titan.
   local regirock = CharacterEssentials.MakeCharactersFromList({
-    {'Regirock', 96, 120, Direction.Down}
+    {'Regirock', 246, 128, Direction.Down}
   })
   local regice = CharacterEssentials.MakeCharactersFromList({
-    {'Regice', 144, 112, Direction.Down}
+    {'Regice', 304, 136, Direction.Down}
   })
   local registeel = CharacterEssentials.MakeCharactersFromList({
-    {'Registeel', 192, 120, Direction.Down}
+    {'Registeel', 376, 128, Direction.Down}
   })
   GROUND:CharSetAnim(regirock, "Idle", true)
   GROUND:CharSetAnim(regice, "Idle", true)
   GROUND:CharSetAnim(registeel, "Idle", true)
 
   -- L'équipe est au sol, vaincue, au pied du Titan.
-  GROUND:TeleportTo(hero, 160, 230, Direction.Up)
-  GROUND:TeleportTo(partner, 128, 230, Direction.Up)
+  GROUND:TeleportTo(hero, 296, 608, Direction.Up)
+  GROUND:TeleportTo(partner, 320, 608, Direction.Up)
   GROUND:CharSetAnim(hero, "EventSleep", true)
   GROUND:CharSetAnim(partner, "EventSleep", true)
-  GAME:MoveCamera(144, 210, 1, false)
+  GAME:MoveCamera(308, 592, 1, false)
 
   GAME:FadeIn(60)
   GAME:WaitFrames(40)
 
   -- La caméra monte lentement le long du colosse.
-  GAME:MoveCamera(144, 150, 60, false)
+  GAME:MoveCamera(308, 310, 60, false)
   GAME:WaitFrames(10)
 
   -- Le Titan se redresse, les veines dorées pulsent.
@@ -658,7 +665,7 @@ function cloven_ruins_boss_ch_7.DiedToBoss()
   GAME:WaitFrames(30)
 
   -- La caméra redescend sur le duo ; le partenaire se redresse à peine.
-  GAME:MoveCamera(144, 220, 40, false)
+  GAME:MoveCamera(308, 500, 40, false)
   GROUND:CharEndAnim(partner)
   GeneralFunctions.DoAnimation(partner, 'Wake')
   GAME:WaitFrames(12)

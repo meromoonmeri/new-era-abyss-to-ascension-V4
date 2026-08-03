@@ -918,9 +918,9 @@ SV.Chapter5 =
 	TunnelMiniBossCleared = false,
 	MountMiniBossCleared = false,
 
-	-- ============ RUINES TORDUES (climax du ch5, option 2 validee) ============
+	-- ============ RUINES FENDUES (climax du ch5, option 2 validee) ============
 	--Apres la victoire sur Tornadus, l'expedition etablit un campement
-	--devant l'entree des Ruines Tordues (cloven_ruins_entrance) au lieu
+	--devant l'entree des Ruines Fendues (cloven_ruins_entrance) au lieu
 	--de rentrer a Metano : respiration narrative avant le donjon final.
 	--  RuinsCampPending    : on arrive au camp et la cinematique d'arrivee
 	--                        (briefing autour du feu) doit se jouer.
@@ -930,7 +930,7 @@ SV.Chapter5 =
 	--  RuinsDreamSeen      : le reve (Gardevoir) a ete vu (pose par
 	--                        hero_dream/init.lua quand DreamReturn==Ruines).
 	--  RuinsEntered        : le joueur a franchi l'entree des Ruines.
-	--  RuinsExpeditionDone : les Ruines Tordues sont terminees — le ch5
+	--  RuinsExpeditionDone : les Ruines Fendues sont terminees — le ch5
 	--                        se clot et le retour a Metano peut avoir lieu.
 	RuinsCampPending = false,
 	RuinsCampDone = false,
@@ -1450,4 +1450,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-08-04-K]')
+print('Script variables default values loaded! [build 2026-08-04-A]')

@@ -12,34 +12,44 @@ require 'halcyon.MidpointTemplate'
 local cloven_ruins_midpoint = {}
 
 --------------------------------------------------------------------
--- HABILLAGE DU POINT MEDIAN — Ruines Tordues (384x480)
+-- HABILLAGE DU POINT MEDIAN — Ruines Tordues (336x240)
 --
 -- STRUCTURE : halcyon.MidpointTemplate, commune a tous les relais.
 -- HABILLAGE : propre a ce biome, jamais recopie ailleurs.
 --
---   Biome     : esplanade taillee au coeur de ruines souterraines.
---               Le calme ne vient ni du vent coupe (Mont) ni du
---               couvert vegetal (Foret) : il vient de la PIERRE, d'une
---               salle que ses batisseurs ont voulu voir survivre.
---   Ambiance  : 'mysterious_distortion' — l'air vibre au-dessus des
---               veines dorees. Statut distinct des trois autres relais.
+--   Biome     : CLAIRIERE A CIEL OUVERT, cernee par les murailles des
+--               ruines. Une trouee de verdure au milieu de la pierre :
+--               les batisseurs ont laisse ce creux respirer, et la
+--               nature l'a repris. Le calme ne vient ni du vent coupe
+--               (Mont) ni du couvert vegetal dense (Foret) : il vient
+--               de l'OUVERTURE, d'un morceau de ciel au milieu des
+--               murs. On y voit le portail du nord depuis le sentier.
+--   Ambiance  : aucune. Le relais est un repit A CIEL OUVERT : y poser
+--               une distorsion contredirait le calme de la clairiere.
 --   Musique   : 'In the Depths of the Pit.ogg', theme de la carte.
---   Lumiere   : souterraine, portee par les veines dans la pierre.
+--   Lumiere   : plein jour.
 --
--- Positions verifiees marchables (tools/nea_map.py).
+-- GEOMETRIE MESUREE sur la grille d'obstacles (55,0 % bloquant,
+-- 517 cases atteignables, une seule composante) :
+--   sentier d'arrivee au SUD (South_Exit 136,232 sur 72 px),
+--   clairiere ovale ouverte au centre (jusqu'a 208 px de large),
+--   portail du donjon au NORD (North_Exit 152,56 sur 32 px),
+--   rocher de Kangourex a l'ouest (112,200).
+-- ATTENTION : l'ancienne carte faisait 384x480 ; les 6 positions de
+-- cette scene tombaient TOUTES hors carte. Recalculees et verifiees.
 --------------------------------------------------------------------
 local RUINS_SKIN = {
   music     = 'In the Depths of the Pit.ogg',
   wakeMusic = 'Heartwarming.ogg',
-  status    = 'mysterious_distortion',
-  hero      = {212, 456},
-  partner   = {180, 456},
-  camera    = {196, 400},
+  status    = nil,
+  hero      = {176, 224},
+  partner   = {152, 224},
+  camera    = {168, 200},
   walk      = 56,
   wake = {
-    hero        = {172, 344}, heroFace    = Direction.Left,
-    partner     = {204, 344}, partnerFace = Direction.Right,
-    camera      = {188, 336},
+    hero        = {96, 176},  heroFace    = Direction.Right,
+    partner     = {144, 176}, partnerFace = Direction.Left,
+    camera      = {120, 176},
   },
 }
 
@@ -62,24 +72,24 @@ function cloven_ruins_midpoint.Enter(map)
     if SV.ChapterProgression.Chapter == 7 then
       -- Première halte pendant l'expédition du chapitre 7 : arrivée jouée.
       RelayScenes.DuoArrival({
-        hero = {212, 456}, partner = {180, 456}, camera = {196, 400},
+        hero = {176, 224}, partner = {152, 224}, camera = {168, 200},
         walk = 56, title = true, music = 'In the Depths of the Pit.ogg',
         lines = {
-          { spk='partner', emo='Normal', txt="Attends...[pause=10] le sol est plat, ici.[pause=0] Taillé.[pause=10] Quelqu'un a NIVELÉ cette esplanade au milieu des ruines.", wait=10 },
-          { spk='partner', emo='Normal', txt="Et là, regarde ![pause=0] Un rocher de Kangourex.[pause=10] Intact.[pause=0] Pas une fissure, alors que tout le reste s'effondre autour." },
-          { spk='hero', emo='Worried', txt="(Les bâtisseurs de ces ruines ont voulu que cet endroit survive.[pause=0] Pourquoi celui-ci et pas le reste ?)", wait=10 },
-          { spk='partner', emo='Worried', txt="Tu as vu les veines dorées dans la pierre, en descendant ?[pause=0] Elles convergent toutes vers le bas...[pause=10] vers ce que la guilde appelle le Cœur." },
-          { spk='partner', emo='Determined', txt="Déposons ce qui nous encombre et sauvegardons.[pause=0] Passé cette esplanade,[pause=10] je crois que les ruines ne nous laisseront plus faire demi-tour aussi facilement." },
+          { spk='partner', emo='Surprised', txt="Attends...[pause=10] de l'herbe ?[pause=15] En plein milieu des ruines ?", wait=10 },
+          { spk='partner', emo='Normal', txt="Les murs s'ouvrent, ici.[pause=0] Il y a du CIEL au-dessus de nous.[pause=10] Ça faisait des heures." },
+          { spk='hero', emo='Worried', txt="(Les bâtisseurs ont laissé ce creux respirer.[pause=0] Pourquoi celui-ci, et pas le reste ?)", wait=10 },
+          { spk='partner', emo='Normal', txt="Et là, regarde ![pause=0] Un rocher de Kangourex.[pause=10] Pas une fissure, alors que tout s'effondre autour." },
+          { spk='partner', emo='Determined', txt="Déposons ce qui nous encombre.[pause=0] Passé ce portail, au nord,[pause=10] je doute qu'on nous laisse faire demi-tour." },
         },
       })
     else
       -- Visite libre (rejouabilité) : découverte plus contemplative.
       RelayScenes.DuoArrival({
-        hero = {212, 456}, partner = {180, 456}, camera = {196, 400},
+        hero = {176, 224}, partner = {152, 224}, camera = {168, 200},
         walk = 56, title = true, music = 'In the Depths of the Pit.ogg',
         lines = {
-          { spk='partner', emo='Normal', txt="Une esplanade taillée au cordeau,[pause=10] en plein cœur des ruines...[pause=0] Les anciens bâtisseurs savaient ce qu'ils faisaient." },
-          { spk='partner', emo='Normal', txt="Le rocher de Kangourex n'a pas bougé.[pause=0] Profitons-en avant de descendre plus bas." },
+          { spk='partner', emo='Normal', txt="Cette clairière au milieu des murailles...[pause=0] On respire mieux, ici." },
+          { spk='partner', emo='Normal', txt="Le rocher de Kangourex n'a pas bougé.[pause=0] Profitons-en avant de passer le portail." },
         },
       })
     end
@@ -94,9 +104,9 @@ function cloven_ruins_midpoint.Enter(map)
       skin = RUINS_SKIN,
       lines = {
         { who = partner, spk = 'partner', emo = 'Normal',
-          txt = "L'esplanade est intacte.[pause=0] Dans ces ruines,[pause=10] c'est presque rassurant.", wait = 10 },
+          txt = "La clairière est intacte.[pause=0] Dans ces ruines,[pause=10] c'est presque rassurant.", wait = 10 },
         { who = partner, spk = 'partner', emo = 'Normal',
-          txt = "Sauvegardons avant de redescendre.[pause=0] Le Cœur n'attend que nous." },
+          txt = "Sauvegardons avant de repasser le portail.[pause=0] Le Cœur n'attend que nous." },
       },
     })
   else
@@ -122,7 +132,7 @@ function cloven_ruins_midpoint.GameLoad(map)
   cloven_ruins_midpoint.Enter(map)
 end
 
--- Sortie nord : continuer vers les profondeurs (segment 2)
+-- Sortie nord : franchir le portail vers les profondeurs (segment 2)
 function cloven_ruins_midpoint.North_Exit_Touch(obj, activator)
   DEBUG.EnableDbgCoro()
   UI:ResetSpeaker(false)
@@ -132,7 +142,7 @@ function cloven_ruins_midpoint.North_Exit_Touch(obj, activator)
   partner.IsInteracting = true
   GROUND:CharSetAnim(partner, 'None', true)
   GROUND:CharSetAnim(hero, 'None', true)
-  UI:ChoiceMenuYesNo("Descendre dans les profondeurs des ruines ?", true)
+  UI:ChoiceMenuYesNo("Franchir le portail et s'enfoncer dans les ruines ?", true)
   UI:WaitForChoice()
   local res = UI:ChoiceResult()
   UI:SetCenter(false)
@@ -204,7 +214,7 @@ end
 
 --------------------------------------------------------------------
 -- Réveil après une défaite au-delà du checkpoint (vague 8).
--- Le duo revient à lui près du Terminal, ranimé par ses réserves.
+-- Le duo revient à lui dans la clairière, ranimé par ses réserves.
 --------------------------------------------------------------------
 function cloven_ruins_midpoint.WipedCutscene()
 
@@ -229,11 +239,11 @@ function cloven_ruins_midpoint.WipedCutscene()
 
     -- Fix audit 2026-07-27 : l'ancienne position du partenaire chevauchait le
   -- collider du rocher Kangourex. Positions libres verifiees (flood-check).
-  GROUND:TeleportTo(hero, 172, 344, Direction.Left)
-  if partner ~= nil then GROUND:TeleportTo(partner, 204, 344, Direction.Right) end
+  GROUND:TeleportTo(hero, 96, 176, Direction.Right)
+  if partner ~= nil then GROUND:TeleportTo(partner, 144, 176, Direction.Left) end
   GROUND:CharSetAnim(hero, "EventSleep", true)
   if partner ~= nil then GROUND:CharSetAnim(partner, "EventSleep", true) end
-  GAME:MoveCamera(188, 336, 1, false)
+  GAME:MoveCamera(120, 176, 1, false)
 
   GAME:FadeIn(60)
   SOUND:PlayBGM('Heartwarming.ogg', true)
@@ -255,10 +265,10 @@ function cloven_ruins_midpoint.WipedCutscene()
 
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Pain")
-  UI:WaitShowDialogue("Ces ruines...[pause=20] même le sol semblait vouloir qu'on parte.")
+  UI:WaitShowDialogue("Ces ruines...[pause=20] même les murs semblaient vouloir qu'on parte.")
   GAME:WaitFrames(14)
   GeneralFunctions.SetEmotion("Worried")
-  UI:WaitShowDialogue("Les veines dorées dans la pierre...[pause=10] elles BRILLAIENT plus fort à mesure qu'on approchait.[pause=20] Comme un avertissement.")
+  UI:WaitShowDialogue("On a réussi à revenir jusqu'à la clairière.[pause=20] L'herbe, le ciel...[pause=10] ça m'a réveillé.")
   GAME:WaitFrames(14)
   GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue("Le Cœur des ruines est tout près, je le sens.[pause=20] Reposons-nous — puis finissons ce qu'on a commencé.")
