@@ -1,6 +1,6 @@
 --[[
     init.lua — Cloven Ruins Entrance
-    Entree des Ruines Tordues — Chapitre 5, climax de l'expedition
+    Entree des Ruines Fendues — Chapitre 5, climax de l'expedition
     ---------------------------------------------------------------
     Apres la victoire sur Tornadus, l'expedition etablit un campement
     devant l'entree (briefing strategique autour du feu, nuit, reve de
@@ -207,7 +207,7 @@ function cloven_ruins_entrance.Dungeon_Entrance_Touch(obj, activator)
   partner.IsInteracting = true
   GROUND:CharSetAnim(partner, 'None', true)
   GROUND:CharSetAnim(hero, 'None', true)
-  UI:ChoiceMenuYesNo("Voulez-vous entrer dans les Ruines Tordues ?", true)
+  UI:ChoiceMenuYesNo("Voulez-vous entrer dans les Ruines Fendues ?", true)
   UI:WaitForChoice()
   local yesnoResult = UI:ChoiceResult()
   if yesnoResult then
@@ -243,7 +243,7 @@ function cloven_ruins_entrance.Teammate1_Action(chara, activator)
      and SV.Chapter5 ~= nil and SV.Chapter5.RuinsCampDone then
     GeneralFunctions.StartConversation(chara, "Cette nuit,[pause=10] autour du feu...[pause=15] Je crois que c'est la première fois que toute l'expédition s'est vraiment parlé.[pause=0] Pas juste des ordres,[pause=10] des craintes,[pause=10] des espoirs.[pause=10] Tout ça.[pause=15] Ça compte,[pause=10] tu sais.", "Normal")
     GeneralFunctions.SetEmotion("Determined")
-    UI:WaitShowDialogue("Et ce rêve...[pause=15] Peu importe ce qu'il voulait dire.[pause=10] On est là,[pause=10] maintenant.[pause=0] Et on entre dans les Ruines Tordues.[pause=10] Ensemble.[pause=10] Comme toujours.")
+    UI:WaitShowDialogue("Et ce rêve...[pause=15] Peu importe ce qu'il voulait dire.[pause=10] On est là,[pause=10] maintenant.[pause=0] Et on entre dans les Ruines Fendues.[pause=10] Ensemble.[pause=10] Comme toujours.")
     GeneralFunctions.SetEmotion("Happy")
     UI:WaitShowDialogue("Regarde le camp.[pause=10] Chacun fait sa part :[pause=0] Hyko veille,[pause=10] Rin prépare,[pause=10] Coco nourrit tout le monde,[pause=10] et Kino et Reinier balisent déjà la route.[pause=15] On n'est pas seuls,[pause=10] {0}.[pause=0] On ne l'a jamais été.", chara:GetDisplayName())
     GeneralFunctions.EndConversation(chara)
@@ -263,7 +263,7 @@ function cloven_ruins_entrance.Tropius_Action(chara, activator)
     GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Kino et Reinier sont déjà à l'intérieur.[pause=15] Si quelque chose tourne mal,[pause=10] ce sont eux qui le verront les premiers.[pause=0] Et ils reviendront nous le dire avant d'y toucher.")
   else
-    GeneralFunctions.StartConversation(chara, "Le camp est prêt.[pause=10] Et nous aussi.[pause=0] Les Ruines Tordues nous attendent depuis trop longtemps.", "Normal")
+    GeneralFunctions.StartConversation(chara, "Le camp est prêt.[pause=10] Et nous aussi.[pause=0] Les Ruines Fendues nous attendent depuis trop longtemps.", "Normal")
   end
   GeneralFunctions.EndConversation(chara)
 end
@@ -364,7 +364,7 @@ function cloven_ruins_entrance.Zigzagoon_Action(chara, activator)
     GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Si Reinier et Kino reviennent avant vous,[pause=10] je leur ferai du thé.[pause=15] Et si vous revenez avant eux,[pause=10] je vous ferai du thé aussi.[pause=0] Tout le monde gagne.[pause=10] C'est ma philosophie.")
   else
-    GeneralFunctions.StartConversation(chara, "Ma mère m'a dit : «[pause=5] Ne reviens pas sans une bonne histoire.[pause=5] »[pause=10] Les Ruines Tordues,[pause=10] ça fera largement l'affaire.", "Happy")
+    GeneralFunctions.StartConversation(chara, "Ma mère m'a dit : «[pause=5] Ne reviens pas sans une bonne histoire.[pause=5] »[pause=10] Les Ruines Fendues,[pause=10] ça fera largement l'affaire.", "Happy")
   end
   GeneralFunctions.EndConversation(chara)
 end

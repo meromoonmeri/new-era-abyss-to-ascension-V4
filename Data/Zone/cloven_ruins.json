@@ -3,9 +3,9 @@
  "Object": {
   "$type": "RogueEssence.Data.ZoneData, RogueEssence",
   "Name": {
-   "DefaultText": "Cloven Ruins",
+   "DefaultText": "Aegis Cave",
    "LocalTexts": {
-    "fr": "Ruines Tordues"
+    "fr": "Ruines Fendues"
    }
   },
   "Released": true,
