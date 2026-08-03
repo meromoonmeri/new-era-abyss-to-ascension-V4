@@ -1,4 +1,4 @@
-﻿{
+{
  "Version": "0.8.9.0",
  "Object": {
   "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -83215,10 +83215,7 @@
    "vallon_perdu",
    "vigie_stratos",
    "tour_ciel_sommet",
-   "parvis_celeste",
-   "cloven_ruins_regice",
-   "cloven_ruins_regirock",
-   "cloven_ruins_registeel"
+   "parvis_celeste"
   ]
  }
 }

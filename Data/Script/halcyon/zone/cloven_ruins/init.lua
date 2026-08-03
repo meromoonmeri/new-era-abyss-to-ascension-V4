@@ -1,14 +1,26 @@
 --[[
     init.lua
-    Ruines Tordues (Cloven Ruins) — Chapitre 7
-    conception_donjons_segmentes.md : 20 etages + relais + 3F + mini-boss
-    (Kaorine + Golemastoc, segment 3) + 3F + boss Regigigas (segment 5).
-    Segment 6 : annexe Toupie (etage mystere).
+    Ruines Tordues (Cloven Ruins) — portage d'Aegis Cave
+
+    HUIT SEGMENTS, quatre labyrinthes et quatre arenes :
+      0 GLACE B1-B3      1 arene de Regice     (crystal_cave_1)
+      2 ROCHE B1-B3      3 arene de Regirock   (rock_maze)
+      4 ACIER B1-B4      5 arene de Registeel  (steel_aegis_cave)
+      6 LE PUITS B1-B5   7 Sanctuaire des Titans / Regigigas (concealed_ruins)
+
+    AUCUN GROUND DANS CE DONJON. Chaque gardien attend dans un ETAGE-ARENE
+    de la zone, construit au biome du labyrinthe qui y mene. Les
+    cinematiques d'eveil et d'apres-combat se jouent DANS ces etages :
+      - eveil        OnMapStarts -> RuinesArenes.Eveil / RuinesTitan.Eveil
+      - apres-combat CustomClearEvent RuinesArenesClear -> .Victoire
+    (Les grounds cloven_ruins_regice/regirock/registeel/boss ont ete
+    supprimes ; ce fichier ne doit plus jamais les cibler.)
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.ReplayEnding'
 require 'halcyon.LegendZones'
+require 'halcyon.RuinesArenes'
 
 local cloven_ruins = {}
 
@@ -152,11 +164,16 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
               -- Le mot est epele : on passe par le ground de cinematique du
               -- gardien, qui joue l'eveil PUIS lance le combat. Une apparition
               -- instantanee est interdite par les regles du projet.
-              local GROUND_GARDIEN = { [0] = 'cloven_ruins_regice',
-                                       [2] = 'cloven_ruins_regirock',
-                                       [4] = 'cloven_ruins_registeel' }
-              PrintInfo("[Ruines] secteur "..tostring(segmentID).." : mot complet -> "..GROUND_GARDIEN[segmentID])
-              GAME:EnterGroundMap(GROUND_GARDIEN[segmentID], 'Main_Entrance_Marker')
+              -- L'escalier descend DIRECTEMENT dans l'arene du gardien.
+              -- Plus aucun ground intermediaire : l'eveil se joue dans
+              -- l'etage lui-meme, sur OnMapStarts (RuinesArenes.Eveil),
+              -- avec le biome du labyrinthe qu'on vient de traverser.
+              local ARENE = { [0] = 1, [2] = 3, [4] = 5 }
+              PrintInfo("[Ruines] secteur "..tostring(segmentID)
+                        .." : mot complet -> arene segment "..tostring(ARENE[segmentID]))
+              COMMON.BossTransition()
+              GAME:ContinueDungeon("cloven_ruins", ARENE[segmentID], 0, 0,
+                RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
           else
               -- Mot incomplet : le donjon boucle, comme dans EoS.
               PrintInfo("[Ruines] secteur "..tostring(segmentID).." : mot incomplet -> retour au camp")
@@ -172,26 +189,50 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
   elseif segmentID == 1 or segmentID == 3 or segmentID == 5 then
       local NOM = { [1] = 'Regice', [3] = 'Regirock', [5] = 'Registeel' }
       local qui = NOM[segmentID]
+      SV.Ruines = SV.Ruines or {}
+
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-          SV.Ruines = SV.Ruines or {}
+          -- La scene d'apres-combat a DEJA ete jouee dans l'arene, avant le
+          -- fondu (RuinesArenesClear -> RuinesArenes.Victoire). Le gardien y
+          -- est redevenu statue sous les yeux du joueur. Il ne reste qu'a
+          -- ramener l'equipe au camp : le scelle est brise, le secteur est
+          -- fini, on ne reboucle plus dessus.
           SV.Ruines['Vaincu' .. qui] = true
-          PrintInfo("[Ruines] " .. qui .. " vaincu")
+          PrintInfo("[Ruines] " .. qui .. " vaincu -> retour au camp")
+          GeneralFunctions.EndDungeonRun(result, "master_zone", -1,
+            GROUND_IDX('cloven_ruins_entrance'), 0, true, true)
       else
-          SV.Ruines = SV.Ruines or {}
+          -- Defaite : il ne poursuit pas, il reprend son poste. Sa derniere
+          -- phrase accompagne la sortie (RuinesArenes.CleDefaite), puis on
+          -- revient au camp. Le scelle reste entier : le joueur pourra
+          -- redescendre, le mot du secteur etant deja epele.
           SV.Ruines['Perdu' .. qui] = true
+          PrintInfo("[Ruines] defaite contre " .. qui)
+          GAME:WaitFrames(20)
+          pcall(function()
+            local cle = RuinesArenes.CleDefaite(segmentID)
+            if cle ~= nil then
+              UI:ResetSpeaker(false)
+              UI:SetCenter(true)
+              UI:WaitShowDialogue(STRINGS:FormatKey(cle))
+              UI:SetCenter(false)
+              UI:ResetSpeaker()
+            end
+          end)
+          GeneralFunctions.EndDungeonRun(result, "master_zone", -1,
+            GROUND_IDX('cloven_ruins_entrance'), 0, true, true)
       end
-      -- Victoire comme defaite : on repasse par le ground du gardien, qui
-      -- lit les flags et joue la scene d'apres-combat (patron mount_windswept).
-      local RETOUR = { [1] = 'cloven_ruins_regice',
-                       [3] = 'cloven_ruins_regirock',
-                       [5] = 'cloven_ruins_registeel' }
-      GAME:EnterGroundMap(RETOUR[segmentID], 'Main_Entrance_Marker')
 
   -- --- LE PUITS : 6 (5 etages, aucun puzzle) -------------------------
   elseif segmentID == 6 then
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ruinsActive() then
-          PrintInfo("[Ruines] Puits franchi -> chambre de Regigigas")
-          GAME:EnterGroundMap('cloven_ruins_boss', 'Main_Entrance_Marker')
+          -- Le fond du Puits ouvre DIRECTEMENT sur le Sanctuaire des Titans
+          -- (segment 7). L'eveil de Regigigas, ses huit gardes et les
+          -- renforts de la guilde se jouent dans l'arene elle-meme.
+          PrintInfo("[Ruines] Puits franchi -> Sanctuaire des Titans (segment 7)")
+          COMMON.BossTransition()
+          GAME:ContinueDungeon("cloven_ruins", 7, 0, 0,
+            RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
           SV.Chapter7.LostDepths = true
@@ -228,7 +269,13 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
           return
       end
 
-      GAME:EnterGroundMap('cloven_ruins_boss', 'Main_Entrance_Marker')
+      -- Tout s'est joue dans l'arene : le renversement, la question de
+      -- Regigigas, sa mise en statue, l'effondrement et la fuite
+      -- (RuinesTitan). On ressort au camp, ou le ground d'entree joue la
+      -- revelation de la Tour des Reliques en lisant SV.Ruines.VaincuRegigigas.
+      GAME:WaitFrames(20)
+      GeneralFunctions.EndDungeonRun(result, "master_zone", -1,
+        GROUND_IDX('cloven_ruins_entrance'), 0, false, false)
   end
 end
 

@@ -62,8 +62,10 @@ require 'halcyon.services.config_tools'
 require 'halcyon.services.nre_probe'--sonde runtime NRE IsGameOver (audit 2026-07-27, retirable)
 require 'halcyon.SceneDebug'--armement des scenes pour test en jeu (outil de dev, sans effet sur le jeu)
 require 'halcyon.RuinesZarbi'--puzzle des Zarbi des Ruines Tordues (portage Aegis Cave)
-require 'halcyon.RuinesGardiens'--eveil des trois scelles
-require 'halcyon.RuinesRenforts'--gardes de Regigigas + renforts de la guilde
+require 'halcyon.DonjonFX'--mise en scene a l'interieur d'un etage de donjon (API DUNGEON:)
+require 'halcyon.RuinesTitan'--Regigigas : eveil, renversement, fuite (etage-arene segment 7)
+require 'halcyon.RuinesArenes'--eveil des trois scelles, joue dans leurs etages-arenes
+require 'halcyon.RuinesRenforts'--renforts de la guilde + revelation de la Tour (camp)
 PrintInfo('[NREPROBE] build 2026-08-04-K charge (main.lua) — PREMIERE ligne attendue, au LANCEMENT du jeu. Si absente: la copie du mod chargee par le jeu n est PAS celle du depot.')
 
 math.randomseed(os.time())

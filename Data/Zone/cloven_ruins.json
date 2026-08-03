@@ -894,6 +894,58 @@
          "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
          "MapID": "cloven_ruins_regice"
         }
+       },
+       {
+        "Key": {
+         "str": [
+          0
+         ]
+        },
+        "Value": {
+         "$type": "RogueEssence.LevelGen.MapEffectStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
+         "Effect": {
+          "UniversalStates": [],
+          "BeforeTryActions": [],
+          "BeforeActions": [],
+          "OnActions": [],
+          "BeforeExplosions": [],
+          "BeforeHits": [],
+          "OnHits": [],
+          "OnHitTiles": [],
+          "AfterActions": [],
+          "ElementEffects": [],
+          "OnEquips": [],
+          "OnPickups": [],
+          "BeforeStatusAdds": [],
+          "OnStatusAdds": [],
+          "OnStatusRemoves": [],
+          "OnMapStatusAdds": [],
+          "OnMapStatusRemoves": [],
+          "OnMapStarts": [
+           {
+            "Key": {
+             "str": [
+              0
+             ]
+            },
+            "Value": {
+             "$type": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
+             "Script": "RuinesArenesEveil",
+             "ArgTable": "{ Segment = 1 }"
+            }
+           }
+          ],
+          "OnTurnStarts": [],
+          "OnTurnEnds": [],
+          "OnMapTurnEnds": [],
+          "OnWalks": [],
+          "OnDeaths": [],
+          "OnRefresh": [],
+          "OnMapRefresh": [],
+          "ModifyHPs": [],
+          "RestoreHPs": []
+         }
+        }
        }
       ],
       "Comment": ""
@@ -1771,6 +1823,58 @@
          "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
          "MapID": "cloven_ruins_regirock"
         }
+       },
+       {
+        "Key": {
+         "str": [
+          0
+         ]
+        },
+        "Value": {
+         "$type": "RogueEssence.LevelGen.MapEffectStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
+         "Effect": {
+          "UniversalStates": [],
+          "BeforeTryActions": [],
+          "BeforeActions": [],
+          "OnActions": [],
+          "BeforeExplosions": [],
+          "BeforeHits": [],
+          "OnHits": [],
+          "OnHitTiles": [],
+          "AfterActions": [],
+          "ElementEffects": [],
+          "OnEquips": [],
+          "OnPickups": [],
+          "BeforeStatusAdds": [],
+          "OnStatusAdds": [],
+          "OnStatusRemoves": [],
+          "OnMapStatusAdds": [],
+          "OnMapStatusRemoves": [],
+          "OnMapStarts": [
+           {
+            "Key": {
+             "str": [
+              0
+             ]
+            },
+            "Value": {
+             "$type": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
+             "Script": "RuinesArenesEveil",
+             "ArgTable": "{ Segment = 3 }"
+            }
+           }
+          ],
+          "OnTurnStarts": [],
+          "OnTurnEnds": [],
+          "OnMapTurnEnds": [],
+          "OnWalks": [],
+          "OnDeaths": [],
+          "OnRefresh": [],
+          "OnMapRefresh": [],
+          "ModifyHPs": [],
+          "RestoreHPs": []
+         }
+        }
        }
       ],
       "Comment": ""
@@ -2647,6 +2751,58 @@
         "Value": {
          "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
          "MapID": "cloven_ruins_registeel"
+        }
+       },
+       {
+        "Key": {
+         "str": [
+          0
+         ]
+        },
+        "Value": {
+         "$type": "RogueEssence.LevelGen.MapEffectStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
+         "Effect": {
+          "UniversalStates": [],
+          "BeforeTryActions": [],
+          "BeforeActions": [],
+          "OnActions": [],
+          "BeforeExplosions": [],
+          "BeforeHits": [],
+          "OnHits": [],
+          "OnHitTiles": [],
+          "AfterActions": [],
+          "ElementEffects": [],
+          "OnEquips": [],
+          "OnPickups": [],
+          "BeforeStatusAdds": [],
+          "OnStatusAdds": [],
+          "OnStatusRemoves": [],
+          "OnMapStatusAdds": [],
+          "OnMapStatusRemoves": [],
+          "OnMapStarts": [
+           {
+            "Key": {
+             "str": [
+              0
+             ]
+            },
+            "Value": {
+             "$type": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
+             "Script": "RuinesArenesEveil",
+             "ArgTable": "{ Segment = 5 }"
+            }
+           }
+          ],
+          "OnTurnStarts": [],
+          "OnTurnEnds": [],
+          "OnMapTurnEnds": [],
+          "OnWalks": [],
+          "OnDeaths": [],
+          "OnRefresh": [],
+          "OnMapRefresh": [],
+          "ModifyHPs": [],
+          "RestoreHPs": []
+         }
         }
        }
       ],
@@ -3572,6 +3728,58 @@
         "Value": {
          "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
          "MapID": "sanctuaire_titans"
+        }
+       },
+       {
+        "Key": {
+         "str": [
+          0
+         ]
+        },
+        "Value": {
+         "$type": "RogueEssence.LevelGen.MapEffectStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
+         "Effect": {
+          "UniversalStates": [],
+          "BeforeTryActions": [],
+          "BeforeActions": [],
+          "OnActions": [],
+          "BeforeExplosions": [],
+          "BeforeHits": [],
+          "OnHits": [],
+          "OnHitTiles": [],
+          "AfterActions": [],
+          "ElementEffects": [],
+          "OnEquips": [],
+          "OnPickups": [],
+          "BeforeStatusAdds": [],
+          "OnStatusAdds": [],
+          "OnStatusRemoves": [],
+          "OnMapStatusAdds": [],
+          "OnMapStatusRemoves": [],
+          "OnMapStarts": [
+           {
+            "Key": {
+             "str": [
+              0
+             ]
+            },
+            "Value": {
+             "$type": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
+             "Script": "RuinesArenesEveil",
+             "ArgTable": "{ Segment = 7 }"
+            }
+           }
+          ],
+          "OnTurnStarts": [],
+          "OnTurnEnds": [],
+          "OnMapTurnEnds": [],
+          "OnWalks": [],
+          "OnDeaths": [],
+          "OnRefresh": [],
+          "OnMapRefresh": [],
+          "ModifyHPs": [],
+          "RestoreHPs": []
+         }
         }
        }
       ],

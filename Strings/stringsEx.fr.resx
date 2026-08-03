@@ -5805,4 +5805,361 @@ Comme c'est un volontaire, il ne restera pas avec toi après la sortie.
   <data name="RUINES_PIERRE_TROUVEE" xml:space="preserve">
     <value>Le Zarbi se dissipe...[pause=20] et une pierre gravée tombe à sa place.[pause=25] Elle porte la forme {0}.</value>
   </data>
+  <data name="RUINES_RG_ICE_01" xml:space="preserve">
+    <value>La salle est plus froide que le couloir.[pause=25] Beaucoup plus froide.[pause=20] Le givre monte le long des parois,[pause=10] et il monte vite.</value>
+  </data>
+  <data name="RUINES_RG_ICE_02" xml:space="preserve">
+    <value>Le givre ne descend pas du plafond...[pause=25] il MONTE.[pause=20] Il vient de quelque chose,[pause=15] au fond.</value>
+  </data>
+  <data name="RUINES_RG_ICE_03" xml:space="preserve">
+    <value>(Chaque pas fait craquer une pellicule de glace qui n'était pas là à l'entrée.)</value>
+  </data>
+  <data name="RUINES_RG_ICE_04" xml:space="preserve">
+    <value>VOUS AVEZ RASSEMBLE LES SIGNES.[pause=25] PERSONNE NE L'AVAIT FAIT DEPUIS...[pause=30] JE NE SAIS PLUS.[pause=20] LE COMPTE S'EST PERDU AVEC LE RESTE.</value>
+  </data>
+  <data name="RUINES_RG_ICE_05" xml:space="preserve">
+    <value>Il ne sait plus depuis quand il est là...[pause=25] Comment on oublie une chose pareille ?</value>
+  </data>
+  <data name="RUINES_RG_ICE_06" xml:space="preserve">
+    <value>LE FROID CONSERVE TOUT.[pause=25] LES PIERRES,[pause=15] LES CORPS,[pause=15] LES ORDRES.[pause=30] TOUT,[pause=20] SAUF LA RAISON QU'ON AVAIT DE LES DONNER.</value>
+  </data>
+  <data name="RUINES_RG_ICE_07" xml:space="preserve">
+    <value>J'AI GARDE LA CONSIGNE INTACTE.[pause=25] C'EST LE POURQUOI QUI A FONDU.[pause=30] MONTREZ-MOI QUE VOUS VALEZ CE QUE J'AI OUBLIE.</value>
+  </data>
+  <data name="RUINES_RG_ICE_08" xml:space="preserve">
+    <value>On ne peut pas lui rendre sa mémoire.[pause=25] Mais on peut lui donner une réponse.[pause=20] Prêt ?</value>
+  </data>
+  <data name="RUINES_RG_ICE_09" xml:space="preserve">
+    <value>...VOUS ETIEZ PLUS CHAUDS QUE LA CONSIGNE.[pause=30] C'EST DEJA UNE REPONSE.[pause=25] ALLEZ VOIR LES DEUX AUTRES.[pause=20] EUX SE SOUVIENNENT MIEUX QUE MOI.</value>
+  </data>
+  <data name="RUINES_RG_ICE_10" xml:space="preserve">
+    <value>Il nous envoie aux autres...[pause=25] Comme s'il savait qu'on reviendrait avec des questions.</value>
+  </data>
+  <data name="RUINES_RG_ICE_11" xml:space="preserve">
+    <value>LE FROID VOUS A REPRIS.[pause=25] IL REPREND TOUT,[pause=15] A LA FIN.[pause=30] REVENEZ QUAND VOUS BRULEREZ PLUS FORT.</value>
+  </data>
+  <data name="RUINES_RG_VICTOIRE" xml:space="preserve">
+    <value>Le gardien s'immobilise.[pause=25] Aucune fissure,[pause=15] aucun effondrement :[pause=20] il se tient simplement plus droit qu'avant,[pause=15] comme relevé d'une charge.</value>
+  </data>
+  <data name="RUINES_RG_VICTOIRE_P" xml:space="preserve">
+    <value>Là où il montait la garde,[pause=20] la pierre s'est fendue.[pause=25] Des marches descendent vers le noir.</value>
+  </data>
+  <data name="RUINES_RG_DEFAITE" xml:space="preserve">
+    <value>Le sol se dérobe.[pause=25] Le gardien ne poursuit pas :[pause=15] il reprend simplement sa place,[pause=10] et attend.</value>
+  </data>
+  <data name="RUINES_RG_DEFAITE_P" xml:space="preserve">
+    <value>On s'est fait sortir...[pause=20] mais il ne nous a pas achevés.[pause=25] Il attend qu'on revienne mieux préparés.[pause=20] Alors revenons-y.</value>
+  </data>
+  <data name="RUINES_RG_ROCK_01" xml:space="preserve">
+    <value>Le sol tremble par à-coups réguliers.[pause=25] Ce n'est pas un éboulement.[pause=20] C'est un rythme.</value>
+  </data>
+  <data name="RUINES_RG_ROCK_02" xml:space="preserve">
+    <value>Ça vient du dessous,[pause=20] pas des côtés.[pause=25] Et ça ralentit...[pause=15] comme si ça nous écoutait approcher.</value>
+  </data>
+  <data name="RUINES_RG_ROCK_03" xml:space="preserve">
+    <value>(Le rythme s'est calé sur nos pas.[pause=20] Un choc pour deux enjambées.)</value>
+  </data>
+  <data name="RUINES_RG_ROCK_04" xml:space="preserve">
+    <value>LA PIERRE SE SOUVIENT DE CHAQUE PAS.[pause=25] LES VOTRES SONT NEUFS.[pause=20] TRES NEUFS.[pause=30] MONTREZ-MOI QU'ILS PESENT QUELQUE CHOSE.</value>
+  </data>
+  <data name="RUINES_RG_ROCK_05" xml:space="preserve">
+    <value>Il nous a entendus depuis le premier étage...[pause=25] Il a juste attendu qu'on arrive jusqu'à lui.</value>
+  </data>
+  <data name="RUINES_RG_ROCK_06" xml:space="preserve">
+    <value>QUATRE CENT SOIXANTE-DOUZE.[pause=30] C'EST LE NOMBRE DE CEUX QUI SONT ENTRES ICI AVANT VOUS.[pause=25] J'AI COMPTE.</value>
+  </data>
+  <data name="RUINES_RG_ROCK_07" xml:space="preserve">
+    <value>AUCUN N'EST RESSORTI PAR LE FOND.[pause=25] TOUS SONT REPARTIS PAR OU ILS ETAIENT VENUS.[pause=30] SOYEZ LES QUATRE CENT SOIXANTE-TREIZIEMES,[pause=20] OU SOYEZ LES PREMIERS.</value>
+  </data>
+  <data name="RUINES_RG_ROCK_08" xml:space="preserve">
+    <value>Les premiers,[pause=20] alors.[pause=25] On n'a pas traversé tout ça pour faire demi-tour au compte.</value>
+  </data>
+  <data name="RUINES_RG_ROCK_09" xml:space="preserve">
+    <value>...LES PREMIERS.[pause=30] JE VAIS DEVOIR RECOMMENCER MON COMPTE.[pause=25] IL Y A UNE CHOSE QUE JE N'AI JAMAIS COMPTEE,[pause=20] POURTANT.[pause=25] LES FOIS OU J'AI REGARDE DERRIERE MOI.</value>
+  </data>
+  <data name="RUINES_RG_ROCK_10" xml:space="preserve">
+    <value>Derrière lui...[pause=25] Il ne surveillait pas l'entrée.[pause=20] Il surveillait le fond.</value>
+  </data>
+  <data name="RUINES_RG_ROCK_11" xml:space="preserve">
+    <value>QUATRE CENT SOIXANTE-TREIZE.[pause=30] LE COMPTE TIENT.[pause=25] REVENEZ PLUS LOURDS.</value>
+  </data>
+  <data name="RUINES_RG_STEEL_01" xml:space="preserve">
+    <value>Rien.[pause=30] Pas de froid,[pause=10] pas de secousse,[pause=10] pas un bruit.[pause=25] Juste une salle vide.</value>
+  </data>
+  <data name="RUINES_RG_STEEL_02" xml:space="preserve">
+    <value>...C'est ça qui me gêne.[pause=25] Les deux autres se sont annoncés.[pause=20] Celui-là,[pause=15] non.</value>
+  </data>
+  <data name="RUINES_RG_STEEL_03" xml:space="preserve">
+    <value>(La poussière au sol n'est pas régulière.[pause=20] Quelque chose se tient debout au même endroit depuis très longtemps.)</value>
+  </data>
+  <data name="RUINES_RG_STEEL_04" xml:space="preserve">
+    <value>JE N'AI PAS DORMI.[pause=30] JE SUIS RESTE DEBOUT PENDANT QUE LES DEUX AUTRES REPOSAIENT.[pause=25] QUELQU'UN DEVAIT REGARDER LA PORTE.</value>
+  </data>
+  <data name="RUINES_RG_STEEL_05" xml:space="preserve">
+    <value>Il était là...[pause=25] Depuis le début.[pause=20] On lui a tourné le dos en entrant.</value>
+  </data>
+  <data name="RUINES_RG_STEEL_06" xml:space="preserve">
+    <value>LE FROID A OUBLIE.[pause=25] LA PIERRE A COMPTE.[pause=25] MOI,[pause=20] J'AI REGARDE.[pause=30] C'EST LA PIRE DES TROIS FACTIONS.</value>
+  </data>
+  <data name="RUINES_RG_STEEL_07" xml:space="preserve">
+    <value>ON NE M'A JAMAIS DIT CE QUE JE SURVEILLAIS.[pause=30] SEULEMENT DE NE PAS DETOURNER LES YEUX.[pause=25] PROUVEZ-MOI QUE JE PEUX,[pause=20] UN INSTANT.</value>
+  </data>
+  <data name="RUINES_RG_STEEL_08" xml:space="preserve">
+    <value>Un instant,[pause=20] alors.[pause=25] Le temps qu'on passe.[pause=20] Après, tu pourras regarder ailleurs.</value>
+  </data>
+  <data name="RUINES_RG_STEEL_09" xml:space="preserve">
+    <value>...J'AI DETOURNE LES YEUX.[pause=30] RIEN N'EST SORTI.[pause=25] MILLE ANS A CRAINDRE UN INSTANT QUI NE VENAIT PAS.[pause=30] DESCENDEZ.[pause=20] DEMANDEZ AU GRAND CE QU'IL GARDAIT VRAIMENT.</value>
+  </data>
+  <data name="RUINES_RG_STEEL_10" xml:space="preserve">
+    <value>« Le grand »...[pause=25] Il y en a un quatrième,[pause=20] plus bas.[pause=25] Et lui,[pause=15] il sait.</value>
+  </data>
+  <data name="RUINES_RG_STEEL_11" xml:space="preserve">
+    <value>JE N'AI PAS DETOURNE LES YEUX.[pause=30] VOUS NON PLUS,[pause=20] LA PROCHAINE FOIS.</value>
+  </data>
+  <data name="RUINES_CRB_001" xml:space="preserve">
+    <value>Le cœur des ruines...[pause=15] Il bat encore.</value>
+  </data>
+  <data name="RUINES_CRB_002" xml:space="preserve">
+    <value>Regarde ces veines dorées...[pause=15] Elles palpitent.</value>
+  </data>
+  <data name="RUINES_CRB_003" xml:space="preserve">
+    <value>Le Titan déchu...[pause=30] Il attend depuis des millénaires.</value>
+  </data>
+  <data name="RUINES_CRB_004" xml:space="preserve">
+    <value>Toi...[pause=10] Tu nous as suivis jusqu'ici ?</value>
+  </data>
+  <data name="RUINES_CRB_005" xml:space="preserve">
+    <value>Je suis partout où la vie des Cœurs s'affaiblit.</value>
+  </data>
+  <data name="RUINES_CRB_006" xml:space="preserve">
+    <value>Et ici...[pause=20] le Cœur ne bat presque plus.</value>
+  </data>
+  <data name="RUINES_CRB_007" xml:space="preserve">
+    <value>REGIGIGAS ![pause=10] Le Titan des Ruines !</value>
+  </data>
+  <data name="RUINES_CRB_008" xml:space="preserve">
+    <value>Je protège ce qui reste du Cœur.[pause=20] Si tu me vaines,[pause=10] le Cœur est à toi.</value>
+  </data>
+  <data name="RUINES_CRB_009" xml:space="preserve">
+    <value>Si tu échoues...[pause=30] ce Cœur s'éteindra pour toujours.</value>
+  </data>
+  <data name="RUINES_CRB_010" xml:space="preserve">
+    <value>Alors on ne peut pas perdre.[pause=15] {0}, à nous !</value>
+  </data>
+  <data name="RUINES_CRB_011" xml:space="preserve">
+    <value>Cette fois, on le terrasse !</value>
+  </data>
+  <data name="RUINES_CRB_012" xml:space="preserve">
+    <value>On a vaincu le Titan !</value>
+  </data>
+  <data name="RUINES_CRB_013" xml:space="preserve">
+    <value>Regarde...[pause=15] la pierre, sous nos pieds.[pause=10] Elle palpite encore.[pause=15] Mais moins fort.[pause=0] Comme si elle reprenait son souffle.</value>
+  </data>
+  <data name="RUINES_CRB_014" xml:space="preserve">
+    <value>(Cette voix...[pause=20] elle nous a guidés jusqu'ici exprès.)</value>
+  </data>
+  <data name="RUINES_CRB_015" xml:space="preserve">
+    <value>On doit parler à Phileas.[pause=25] Il en sait plus qu'il ne le dit.</value>
+  </data>
+  <data name="RUINES_CRB_016" xml:space="preserve">
+    <value>Le Titan ne pardonne pas...</value>
+  </data>
+  <data name="RUINES_CRB_017" xml:space="preserve">
+    <value>Mais ce Cœur t'attend.[pause=30] Reviens quand tu seras prêt.</value>
+  </data>
+  <data name="RUINES_CRB_018" xml:space="preserve">
+    <value>Urgh...[pause=10] Le Titan...[pause=15] il est impossible à arrêter...</value>
+  </data>
+  <data name="RUINES_CRB_019" xml:space="preserve">
+    <value>Regigigas se redresse de toute sa hauteur.[pause=20] Les veines dorées pulsent lentement.</value>
+  </data>
+  <data name="RUINES_CRB_020" xml:space="preserve">
+    <value>Tu n'es pas le premier à défier le Titan.[pause=30] Ni le dernier à tomber.</value>
+  </data>
+  <data name="RUINES_CRB_021" xml:space="preserve">
+    <value>Le colosse retourne à son sommeil millénaire.[pause=20] Les ruines redeviennent silencieuses.</value>
+  </data>
+  <data name="RUINES_CRB_022" xml:space="preserve">
+    <value>Regigigas vacille.[pause=15] Ses veines dorées clignotent,[pause=5] puis s'éteignent.[pause=20] Il tombe à genoux.</value>
+  </data>
+  <data name="RUINES_CRB_023" xml:space="preserve">
+    <value>Le Titan te regarde.[pause=30] Pas de colère.[pause=15] Juste... de la surprise.</value>
+  </data>
+  <data name="RUINES_CRB_024" xml:space="preserve">
+    <value>Tu as fait ce qu'aucun être vivant n'a accompli depuis des millénaires.[pause=30] Le Titan s'incline devant toi.</value>
+  </data>
+  <data name="RUINES_CRB_025" xml:space="preserve">
+    <value>Il se fige en statue de pierre,[pause=15] retournant à l'état dans lequel tu l'as trouvé.[pause=20] Mais cette fois,[pause=10] le Cœur bat librement.</value>
+  </data>
+  <data name="RUINES_CRB_026" xml:space="preserve">
+    <value>On a vaincu le Titan des Ruines...[pause=15] Je n'arrive pas à y croire.</value>
+  </data>
+  <data name="RUINES_CRB_027" xml:space="preserve">
+    <value>Le Titan tombe.[pause=30] Le Cœur des Anima est sauvé.[pause=25] Tu as changé le destin de cette région.</value>
+  </data>
+  <data name="RUINES_CRB_028" xml:space="preserve">
+    <value>L'air vibre.[pause=20] Cinq formes se détachent des murs,[pause=10] une par une.</value>
+  </data>
+  <data name="RUINES_CRB_029" xml:space="preserve">
+    <value>Des Zarbi ![pause=15] Ils sont en train...[pause=10] de se ranger.</value>
+  </data>
+  <data name="RUINES_CRB_030" xml:space="preserve">
+    <value>Ils tiennent leur place.[pause=20] Cinq lettres, dans l'ordre,[pause=10] au-dessus de la porte scellée.</value>
+  </data>
+  <data name="RUINES_CRB_031" xml:space="preserve">
+    <value>R...[pause=10] E...[pause=10] G...[pause=10] I...[pause=10] S.[pause=25] Ça forme un mot.</value>
+  </data>
+  <data name="RUINES_CRB_032" xml:space="preserve">
+    <value>Les bâtisseurs ont laissé la réponse écrite sur la porte qu'ils ont fermée.[pause=25] Ils voulaient qu'on l'ouvre.</value>
+  </data>
+  <data name="RUINES_CRB_033" xml:space="preserve">
+    <value>Alors dis-le.[pause=20] À voix haute.</value>
+  </data>
+  <data name="RUINES_CRB_034" xml:space="preserve">
+    <value>Les cinq Zarbi s'embrasent d'un coup,[pause=15] et la porte s'ouvre en grinçant.</value>
+  </data>
+  <data name="RUINES_CRB_035" xml:space="preserve">
+    <value>Trois niches.[pause=20] Trois formes qui n'ont pas bougé depuis des siècles.</value>
+  </data>
+  <data name="RUINES_CRB_036" xml:space="preserve">
+    <value>Celui de pierre s'éveille le premier.[pause=15] Du gravier coule de ses épaules.</value>
+  </data>
+  <data name="RUINES_CRB_037" xml:space="preserve">
+    <value>Celui de glace ensuite.[pause=15] Toute la salle perd plusieurs degrés.</value>
+  </data>
+  <data name="RUINES_CRB_038" xml:space="preserve">
+    <value>Et celui de fer en dernier.[pause=20] Il ne s'éveille pas :[pause=15] il n'a jamais dormi.</value>
+  </data>
+  <data name="RUINES_CRB_039" xml:space="preserve">
+    <value>Ils sont trois ![pause=15] Le sceau ne retenait pas un gardien.[pause=20] Il tenait une veille.</value>
+  </data>
+  <data name="RUINES_CRB_040" xml:space="preserve">
+    <value>Ils t'éprouveront avant que celui qui les suit ne bouge.[pause=25] C'est l'ordre.[pause=15] Ça l'a toujours été.</value>
+  </data>
+  <data name="RUINES_CRB_041" xml:space="preserve">
+    <value>Pierre, glace et fer...[pause=20] et quelque chose de plus grand qui respire derrière eux.</value>
+  </data>
+  <data name="RUINES_CRB_042" xml:space="preserve">
+    <value>Les trois regagnent leurs niches sans un bruit.[pause=20] La veille reprend.</value>
+  </data>
+  <data name="RUINES_CRB_043" xml:space="preserve">
+    <value>Tu as été mesuré.[pause=25] Tu as été trouvé léger.[pause=20] Reviens quand la mesure aura changé.</value>
+  </data>
+  <data name="RUINES_CRB_044" xml:space="preserve">
+    <value>Les Zarbi ont quitté les murs.[pause=20] La porte s'est refermée.</value>
+  </data>
+  <data name="RUINES_CRB_R01" xml:space="preserve">
+    <value>Les trois alcôves sont vides.[pause=20] Les sceaux sont toujours brisés, exactement comme on les a laissés.</value>
+  </data>
+  <data name="RUINES_CRB_R02" xml:space="preserve">
+    <value>(Aucun souffle sous la pierre.[pause=15] Pour la première fois, ces ruines ne sont que des ruines.)</value>
+  </data>
+  <data name="RUINES_CRB_R03" xml:space="preserve">
+    <value>Les veines dorées ont viré au gris.[pause=20] Ce qui y coulait s'est arrêté depuis longtemps.</value>
+  </data>
+  <data name="RUINES_CRB_R04" xml:space="preserve">
+    <value>Il n'y a plus rien à trouver ici.[pause=0] Il est temps de rentrer.</value>
+  </data>
+  <data name="RUINES_CRB_045" xml:space="preserve">
+    <value>...Halte.</value>
+  </data>
+  <data name="RUINES_CRB_046" xml:space="preserve">
+    <value>Désignation : sentinelle.[pause=25] Poste : cette salle.[pause=20] Durée : inconnue.</value>
+  </data>
+  <data name="RUINES_CRB_047" xml:space="preserve">
+    <value>On m'a dit de tenir jusqu'à la relève.[pause=30] Personne n'est venu.</value>
+  </data>
+  <data name="RUINES_CRB_048" xml:space="preserve">
+    <value>Petits.[pause=25] Êtes-vous la relève ?</value>
+  </data>
+  <data name="RUINES_CRB_049" xml:space="preserve">
+    <value>Non.[pause=30] La relève n'arrive pas en armes.</value>
+  </data>
+  <data name="RUINES_CRB_050" xml:space="preserve">
+    <value>Alors la consigne tient.[pause=25] Rien ne sort de cette salle.</value>
+  </data>
+  <data name="RUINES_CRB_051" xml:space="preserve">
+    <value>...Consigne.[pause=30] Rompue.</value>
+  </data>
+  <data name="RUINES_CRB_052" xml:space="preserve">
+    <value>Sentinelle.[pause=25] Relevée.</value>
+  </data>
+  <data name="RUINES_CRB_053" xml:space="preserve">
+    <value>Je ne me souviens pas de qui a donné la consigne.[pause=30] Je me souviens d'avoir obéi.</value>
+  </data>
+  <data name="RUINES_CRB_054" xml:space="preserve">
+    <value>C'est tout ce qui reste de moi.[pause=25] L'obéissance.</value>
+  </data>
+  <data name="RUINES_CRB_055" xml:space="preserve">
+    <value>Prenez-le.[pause=30] Mais répondez-moi une chose, petits.</value>
+  </data>
+  <data name="RUINES_CRB_056" xml:space="preserve">
+    <value>Si quelque chose doit être tenu à l'écart du monde...[pause=25] pourquoi m'a-t-on posté FACE à lui ?</value>
+  </data>
+  <data name="RUINES_CRB_057" xml:space="preserve">
+    <value>Un garde fait face à ce qu'il tient dehors.[pause=35] J'ai fait face à ce qui dort sous la pierre pendant mille ans.</value>
+  </data>
+  <data name="RUINES_CRB_058" xml:space="preserve">
+    <value>Partez.[pause=25] Avant que je me souvienne du reste de la consigne.</value>
+  </data>
+  <data name="RUINES_CRB_059" xml:space="preserve">
+    <value>Face à lui...[pause=25] Mais alors ce n'était pas une salle du trésor.</value>
+  </data>
+  <data name="RUINES_CRB_060" xml:space="preserve">
+    <value>Le colosse se rassoit dans la poussière,[pause=20] tourné vers ce qu'il gardait.[pause=25] Comme il l'a toujours été.</value>
+  </data>
+  <data name="RUINES_CRB_GARDES_01" xml:space="preserve">
+    <value>Huit silhouettes bordent l'allée,[pause=20] figées dans la pierre depuis si longtemps que la poussière les a recouvertes.[pause=25] Vous êtes passés entre elles sans les regarder.</value>
+  </data>
+  <data name="RUINES_CRB_GARDES_02" xml:space="preserve">
+    <value>...Elles ont bougé.[pause=25] Celle du fond,[pause=15] je te jure qu'elle a bougé.</value>
+  </data>
+  <data name="RUINES_CRB_GARDES_03" xml:space="preserve">
+    <value>La poussière tombe de huit paires d'épaules à la fois.[pause=25] L'allée par laquelle vous êtes entrés vient de se refermer.</value>
+  </data>
+  <data name="RUINES_CRB_RENFORT_01" xml:space="preserve">
+    <value>On a entendu le sol gueuler jusqu'en haut du puits ![pause=20] Vous croyiez vraiment descendre là-dedans sans moi ?</value>
+  </data>
+  <data name="RUINES_CRB_RENFORT_02" xml:space="preserve">
+    <value>Huit.[pause=20] J'en ai compté huit,[pause=15] plus la chose au fond.[pause=25] Je préfère le dire tout haut maintenant que le découvrir en plein combat.</value>
+  </data>
+  <data name="RUINES_CRB_RENFORT_03" xml:space="preserve">
+    <value>(Ils ont descendu cinq étages dans le noir.[pause=20] Sans qu'on leur demande.)</value>
+  </data>
+  <data name="RUINES_CRB_RENFORT_04" xml:space="preserve">
+    <value>Les quatre à jambes frappent vite et de loin.[pause=20] Les quatre cloches encaissent.[pause=25] Séparez-les,[pause=15] ou ils vous useront à tour de rôle.</value>
+  </data>
+  <data name="RUINES_CRB_RENFORT_05" xml:space="preserve">
+    <value>Alors je prends les cloches.[pause=20] La pierre et le métal,[pause=15] ça n'aime pas mes poings.[pause=25] Occupez-vous du grand.</value>
+  </data>
+  <data name="RUINES_CRB_RENFORT_06" xml:space="preserve">
+    <value>On n'est plus deux.[pause=25] On est six.[pause=20] Et lui,[pause=15] il n'a que huit statues et des siècles de solitude.</value>
+  </data>
+  <data name="RUINES_CRB_FUITE_01" xml:space="preserve">
+    <value>Quelque part au-dessus,[pause=20] une pierre cède.[pause=25] Puis une autre.[pause=20] Le plafond du sanctuaire commence à descendre.</value>
+  </data>
+  <data name="RUINES_CRB_FUITE_02" xml:space="preserve">
+    <value>Il s'est levé de son poste...[pause=20] et la salle se referme.[pause=25] Elle n'attendait que ça.[pause=20] Il faut SORTIR !</value>
+  </data>
+  <data name="RUINES_CRB_FUITE_03" xml:space="preserve">
+    <value>Tout le monde dehors ![pause=15] Devant,[pause=10] vous discuterez ![pause=20] COUREZ !</value>
+  </data>
+  <data name="RUINES_CRB_FUITE_04" xml:space="preserve">
+    <value>Le colosse ne bouge pas.[pause=25] Assis dans la poussière,[pause=20] tourné vers ce qu'il a gardé mille ans,[pause=25] il regarde la pierre se refermer sur lui.[pause=30] Il ne demande pas d'aide.</value>
+  </data>
+  <data name="RUINES_CRB_FUITE_05" xml:space="preserve">
+    <value>J'ai compté tout le monde ![pause=20] Personne derrière ![pause=15] Je ferme la marche,[pause=10] AVANCEZ !</value>
+  </data>
+  <data name="RUINES_CRB_REVEL_01" xml:space="preserve">
+    <value>L'air libre,[pause=20] d'un coup.[pause=25] Derrière vous, l'entrée des ruines n'est plus qu'un pan de roche lisse,[pause=20] comme si rien n'avait jamais été creusé là.</value>
+  </data>
+  <data name="RUINES_CRB_REVEL_02" xml:space="preserve">
+    <value>Regarde...[pause=20] La falaise s'est fendue en se refermant.[pause=25] Il y a un passage,[pause=15] là-haut.[pause=20] Il n'y était pas ce matin.</value>
+  </data>
+  <data name="RUINES_CRB_REVEL_03" xml:space="preserve">
+    <value>(Le sanctuaire s'est refermé...[pause=20] et en se refermant,[pause=15] il a ouvert autre chose.)</value>
+  </data>
+  <data name="RUINES_CRB_REVEL_04" xml:space="preserve">
+    <value>Une tour de pierre monte au-dessus des ruines,[pause=25] découverte par l'effondrement.[pause=30] La Tour des Reliques est désormais accessible.</value>
+  </data>
 </root>

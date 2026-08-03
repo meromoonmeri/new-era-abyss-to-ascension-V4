@@ -13,7 +13,14 @@ ERRORS=0
 # Seuils resynchronises le 2026-07-30 (mesure sur le depot, commit 843256e).
 # Les anciennes valeurs 68/248/51 dataient de la v0.4 : le script signalait
 # 2 erreurs de comptage en permanence sur un depot pourtant sain.
-EXPECTED_GROUNDS=281
+#
+# 2026-08-04 : 281 -> 277. Les Ruines Tordues n'ont plus AUCUN ground.
+# Les quatre gardiens (Regice, Regirock, Registeel, Regigigas) attendent
+# desormais dans des etages-arenes de la zone, au biome de leur labyrinthe,
+# et leurs cinematiques se jouent en donjon. Grounds retires :
+# cloven_ruins_regice, cloven_ruins_regirock, cloven_ruins_registeel,
+# cloven_ruins_boss.
+EXPECTED_GROUNDS=277
 EXPECTED_TILESETS=539
 EXPECTED_MUSIC=133
 

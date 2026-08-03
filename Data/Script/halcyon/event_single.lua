@@ -1901,3 +1901,91 @@ function SINGLE_CHAR_SCRIPT.RuinesZarbiDrop(owner, ownerChar, context, args)
 		PrintInfo('[Ruines] RuinesZarbiDrop : echec silencieux, la partie continue.')
 	end
 end
+
+
+--------------------------------------------------------------------
+-- RUINES TORDUES — cloture des quatre arenes des Regi
+--------------------------------------------------------------------
+-- Portage d'Aegis Cave. Les gardiens ne sont plus affrontes sur un ground
+-- de cinematique : chaque Regi a son ETAGE-ARENE dans la zone, au biome de
+-- son labyrinthe. Toute la mise en scene se joue donc en donjon.
+--
+-- POURQUOI UN CLEAR EVENT MAISON
+-- LuaCheckBossClearEvent, le comportement par defaut, fait dans l'ordre :
+-- attendre 40 frames, couper la BGM, fondu au noir, puis EndSegment. Une
+-- scene d'apres-combat jouee apres lui se jouerait sur un ecran noir, hors
+-- du donjon, sans le corps du gardien a l'image.
+--
+-- On intercale donc ici : la scene d'abord, sur la carte encore visible et
+-- le gardien encore en place ; la cloture ensuite. C'est l'usage prevu du
+-- parametre CustomClearEvent de LuaBeginBattleEvent, et c'est exactement ce
+-- que fait deja LavaBossClear pour le boss du Tunnel.
+--
+-- Le corps de la scene est sous pcall : si elle casse, la cloture a QUAND
+-- MEME lieu et le joueur n'est jamais enferme dans une arene vide.
+function SINGLE_CHAR_SCRIPT.RuinesArenesClear(owner, ownerChar, context, args)
+
+	--Tant qu'un seul ennemi respire, il n'y a rien a clore.
+	for i = 0, _ZONE.CurrentMap.MapTeams.Count - 1, 1 do
+		local team = _ZONE.CurrentMap.MapTeams[i].Players
+		for j = 0, team.Count - 1, 1 do
+			if not team[j].Dead then return end
+		end
+	end
+
+	--On se retire de la liste des verificateurs (le moteur n'expose pas
+	--remove(this) en Lua) : patron LuaCheckBossClearEvent.
+	local checks = owner.StatusStates:GetWithDefault(luanet.ctype(MapCheckState))
+	for i = 0, checks.CheckEvents.Count - 1, 1 do
+		if LUA_ENGINE:TypeOf(checks.CheckEvents[i]) == luanet.ctype(SingleCharScriptEvent) then
+			if checks.CheckEvents[i].Script == args.CustomClearEvent then
+				checks.CheckEvents:Remove(checks.CheckEvents[i])
+			end
+		end
+	end
+
+	--LA SCENE D'APRES-COMBAT, pendant que la carte est encore a l'ecran.
+	--Sautee en relecture de replay, comme le fait le moteur par defaut.
+	if _DATA.CurrentReplay == nil then
+		local seg = args.Segment
+		if seg == nil then
+			pcall(function() seg = _ZONE.CurrentMapID.Segment end)
+		end
+		local ok, err = pcall(function()
+			RuinesArenes.Victoire(seg)
+		end)
+		if not ok then
+			PrintInfo('[RuinesArenesClear] scene d apres-combat ecourtee : '..tostring(err))
+			pcall(function() UI:ResetSpeaker() end)
+			pcall(function() GAME:CutsceneMode(false) end)
+		end
+	end
+
+	--CLOTURE. Hors du pcall ci-dessus : elle a lieu quoi qu'il arrive.
+	local function end_sequence()
+		GAME:WaitFrames(30)
+		_GAME:BGM("", true)
+		TASK:WaitTask(_GAME:FadeOut(false))
+		_DUNGEON:ResetTurns()
+
+		local statuses_to_remove = {}
+		for i = 0, _ZONE.CurrentMap.Status.Keys.Count - 1, 1 do
+			statuses_to_remove[i] = _ZONE.CurrentMap.Status.Keys[i]
+		end
+		for i = 0, #statuses_to_remove - 1, 1 do
+			TASK:WaitTask(_DUNGEON:RemoveMapStatus(statuses_to_remove[i], false))
+		end
+
+		for i = 0, GAME:GetPlayerPartyCount() - 1, 1 do
+			_DATA.Save.ActiveTeam.Players[i]:FullRestore()
+		end
+
+		TASK:WaitTask(_GAME:EndSegment(RogueEssence.Data.GameProgress.ResultType.Cleared))
+	end
+
+	if _DATA.CurrentReplay == nil then
+		TASK:WaitTask(end_sequence())
+	else
+		TASK:WaitTask(_GAME:EndSegment(RogueEssence.Data.GameProgress.ResultType.Cleared))
+	end
+end
