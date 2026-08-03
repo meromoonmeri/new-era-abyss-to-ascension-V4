@@ -48,63 +48,38 @@ cloven_ruins_entrance_ch_5 = {}
 -- ==================================================================
 -- POSITIONS — toutes validees contre obstacles[]
 -- ==================================================================
-cloven_ruins_entrance_ch_5.CAMP_X = 160
-cloven_ruins_entrance_ch_5.CAMP_Y = 152
+cloven_ruins_entrance_ch_5.CAMP_X = 288
+cloven_ruins_entrance_ch_5.CAMP_Y = 272
 local CX = cloven_ruins_entrance_ch_5.CAMP_X
 local CY = cloven_ruins_entrance_ch_5.CAMP_Y
 
--- Cercle du diner : ellipse autour du foyer (la carte est plus large
--- que haute), 13 places, au moins 24 px entre voisins.
+-- Positions controlees contre la composante sableuse praticable du nouveau
+-- ground (boite 16x16). Le foyer est au centre ; chaque place est distincte.
 local PLACES = {
-  Penticus  = {160, 112},
-  Phileas   = {184, 120},
-  Coco      = {208, 128},
-  Rin       = {216, 152},
-  Almotz    = {216, 176},
-  Hyko      = {192, 192},
-  Kino      = {160, 200},
-  Reinier   = {128, 200},
-  Shuca     = {104, 184},
-  Ganlon    = {104, 160},
-  Plum      = {104, 136},
-  partner   = {120, 120},
-  hero      = {136, 112},
+  Penticus={288,216}, Phileas={336,224}, Coco={376,248}, Rin={400,280},
+  Almotz={376,312}, Hyko={336,336}, Kino={288,344}, Reinier={240,336},
+  Shuca={192,312}, Ganlon={176,280}, Plum={192,248},
+  partner={232,224}, hero={256,216},
 }
 cloven_ruins_entrance_ch_5.PLACES = PLACES
 
--- Paillasses : deux rangees, nord y=168 et sud y=248. 40 px entre
--- voisines (circulation), au moins 56 du foyer et 48 des objets
--- scriptes. Deployees SEULEMENT a l'acte 7.
+-- Paillasses : anneau exterieur, toutes sur sable, sans recouvrir le foyer.
 local LITS = {
-  Penticus  = {160, 88},
-  Phileas   = {205, 101},
-  Rin       = {224, 152},
-  Coco      = {205, 203},
-  Hyko      = {160, 216},
-  Almotz    = {115, 203},
-  Kino      = {96, 152},
-  Reinier   = {115, 101},
-  Ganlon    = {180, 92},
-  Shuca     = {220, 125},
-  Plum      = {180, 212},
-  hero      = {110, 125},
-  partner   = {110, 180},
+  Penticus={240,224}, Phileas={280,208}, Rin={320,208}, Coco={360,224},
+  Hyko={400,256}, Almotz={400,296}, Kino={360,328}, Reinier={320,344},
+  Ganlon={280,344}, Shuca={240,344}, Plum={200,328}, hero={168,296},
+  partner={168,256},
 }
 cloven_ruins_entrance_ch_5.LITS = LITS
 
--- Arrivees echelonnees : depart au bord ouest, position d'attente.
--- Aucune collision entre les positions d'attente (verifie).
+-- Les renforts entrent depuis le bas de la clairiere, puis gagnent chacun
+-- une position d'attente propre. Aucun trajet ne traverse une falaise.
 local ARR = {
-  Phileas   = { depart = {0, 192}, attente = {120, 192} },
-  Penticus  = { depart = {0, 192}, attente = {120, 168} },
-  Coco      = { depart = {0, 192}, attente = {120, 216} },
-  Rin       = { depart = {0, 192}, attente = {136, 184} },
-  Ganlon    = { depart = {0, 192}, attente = {160, 208} },
-  Shuca     = { depart = {0, 192}, attente = {144, 168} },
-  Hyko      = { depart = {0, 192}, attente = {176, 192} },
-  Almotz    = { depart = {0, 192}, attente = {176, 208} },
-  Kino      = { depart = {0, 192}, attente = {160, 176} },
-  Reinier   = { depart = {0, 192}, attente = {168, 136} },
+  Phileas={depart={280,376}, attente={240,272}}, Penticus={depart={280,376}, attente={272,272}},
+  Coco={depart={280,376}, attente={304,272}}, Rin={depart={280,376}, attente={336,272}},
+  Hyko={depart={280,376}, attente={368,272}}, Almotz={depart={280,376}, attente={400,272}},
+  Ganlon={depart={248,368}, attente={240,304}}, Shuca={depart={312,368}, attente={336,304}},
+  Kino={depart={280,376}, attente={272,304}}, Reinier={depart={280,376}, attente={304,304}},
 }
 cloven_ruins_entrance_ch_5.ARR = ARR
 
@@ -412,6 +387,8 @@ function cloven_ruins_entrance_ch_5.ArrivalBody()
 
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
+  local ganlon = CH('Teammate2')
+  local shuca = CH('Teammate3')
   if partner ~= nil then AI:DisableCharacterAI(partner) end
 
   cloven_ruins_entrance_ch_5.SetupGround(false)
@@ -430,19 +407,27 @@ function cloven_ruins_entrance_ch_5.ArrivalBody()
 
   -- Le duo entre par l'ouest, sous le noir. Ils MARCHENT vraiment :
   -- c'est leur animation de pas que le joueur percoit.
-  GROUND:TeleportTo(hero, 0, 192, Direction.Right)
-  if partner ~= nil then GROUND:TeleportTo(partner, 0, 208, Direction.Right) end
-  GAME:MoveCamera(128, 208, 1, false)
+  GROUND:TeleportTo(hero, 272, 352, Direction.Up)
+  if partner ~= nil then GROUND:TeleportTo(partner, 296, 368, Direction.Up) end
+  if ganlon ~= nil then GROUND:TeleportTo(ganlon, 248, 368, Direction.Up) end
+  if shuca ~= nil then GROUND:TeleportTo(shuca, 312, 368, Direction.Up) end
+  GAME:MoveCamera(288, 336, 1, false)
 
   local marche1 = {}
   marche1[1] = TASK:BranchCoroutine(function()
-    pcall(function() GROUND:MoveToPosition(hero, 64, 192, false, 1) end)
+    pcall(function() GROUND:MoveToPosition(hero, 272, 320, false, 1) end)
   end)
   marche1[2] = TASK:BranchCoroutine(function()
     GAME:WaitFrames(9)
-    if partner ~= nil then
-      pcall(function() GROUND:MoveToPosition(partner, 64, 208, false, 1) end)
-    end
+    if partner ~= nil then pcall(function() GROUND:MoveToPosition(partner, 304, 320, false, 1) end) end
+  end)
+  marche1[3] = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(16)
+    if ganlon ~= nil then pcall(function() GROUND:MoveToPosition(ganlon, 240, 336, false, 1) end) end
+  end)
+  marche1[4] = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(22)
+    if shuca ~= nil then pcall(function() GROUND:MoveToPosition(shuca, 336, 336, false, 1) end) end
   end)
   pcall(function() TASK:JoinCoroutines(marche1) end)
 
@@ -453,12 +438,12 @@ function cloven_ruins_entrance_ch_5.ArrivalBody()
   -- Quelques secondes de marche de plus.
   local marche2 = {}
   marche2[1] = TASK:BranchCoroutine(function()
-    pcall(function() GROUND:MoveToPosition(hero, 120, 192, false, 1) end)
+    pcall(function() GROUND:MoveToPosition(hero, 272, 288, false, 1) end)
   end)
   marche2[2] = TASK:BranchCoroutine(function()
     GAME:WaitFrames(9)
     if partner ~= nil then
-      pcall(function() GROUND:MoveToPosition(partner, 120, 208, false, 1) end)
+      pcall(function() GROUND:MoveToPosition(partner, 304, 288, false, 1) end)
     end
   end)
   pcall(function() TASK:JoinCoroutines(marche2) end)
@@ -487,21 +472,35 @@ function cloven_ruins_entrance_ch_5.Acte2(hero, partner)
   -- Ils avancent encore un peu, puis s'arretent net.
   local av = {}
   av[1] = TASK:BranchCoroutine(function()
-    pcall(function() GROUND:MoveToPosition(hero, 184, 216, false, 1) end)
+    pcall(function() GROUND:MoveToPosition(hero, 256, 264, false, 1) end)
   end)
   av[2] = TASK:BranchCoroutine(function()
     GAME:WaitFrames(7)
     if partner ~= nil then
-      pcall(function() GROUND:MoveToPosition(partner, 184, 232, false, 1) end)
+      pcall(function() GROUND:MoveToPosition(partner, 320, 264, false, 1) end)
     end
+  end)
+  av[3] = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(12)
+    local ganlon = CH('Teammate2'); if ganlon ~= nil then pcall(function() GROUND:MoveToPosition(ganlon, 240, 304, false, 1) end) end
+  end)
+  av[4] = TASK:BranchCoroutine(function()
+    GAME:WaitFrames(18)
+    local shuca = CH('Teammate3'); if shuca ~= nil then pcall(function() GROUND:MoveToPosition(shuca, 336, 304, false, 1) end) end
   end)
   pcall(function() TASK:JoinCoroutines(av) end)
   Silence(24)
+  -- Galon et Shuca sont dans le premier groupe : leurs deux voix
+  -- s'entendent avant que Plum ne rompe le silence du camp.
+  local ganlon, shuca = CH('Teammate2'), CH('Teammate3')
+  if ganlon ~= nil then Says(ganlon, "Sigh", 'CR5_A15', {hero, partner}) end
+  if shuca ~= nil then Says(shuca, "Normal", 'CR5_A16', {ganlon}) end
+  Silence(18)
 
   -- Ils regardent DEVANT. Le camp est vide, et ca ne colle pas.
   pcall(function()
-    GROUND:CharAnimateTurnTo(hero, Direction.Right, 6)
-    if partner ~= nil then GROUND:CharAnimateTurnTo(partner, Direction.Right, 6) end
+    GROUND:CharAnimateTurnTo(hero, Direction.Up, 6)
+    if partner ~= nil then GROUND:CharAnimateTurnTo(partner, Direction.Up, 6) end
   end)
   Silence(30)
 
@@ -592,7 +591,7 @@ function cloven_ruins_entrance_ch_5.Acte3(hero, partner)
   Says(partner, "Worried", 'CR5_A08')
   Silence(55)
 
-  cloven_ruins_entrance_ch_5.Acte4(hero, partner, plum)
+  cloven_ruins_entrance_ch_5.Acte5(hero, partner, plum)
 end
 
 
@@ -619,7 +618,7 @@ end
 
 function cloven_ruins_entrance_ch_5.Acte4(hero, partner, plum)
   -- Camera sur le chemin d'arrivee : on voit venir.
-  pcall(function() GAME:MoveCamera(176, 232, 100, false) end)
+  pcall(function() GAME:MoveCamera(288, 312, 100, false) end)
   Silence(20)
 
   -- 1er : Phileas, methodique, il annonce l'etape.
@@ -657,24 +656,9 @@ function cloven_ruins_entrance_ch_5.Acte4(hero, partner, plum)
   Silence(30)
   pcall(function() TASK:JoinCoroutines(resp) end)
 
-  -- Ganlon et Shuca s'ils sont dans l'equipe.
+  -- Ganlon et Shuca font partie du premier groupe : ils sont deja
+  -- presents autour de Plum et ne sont jamais reintroduits ici.
   local ganlon, shuca = CH('Teammate2'), CH('Teammate3')
-  if ganlon ~= nil then
-    pcall(function()
-      GROUND:TeleportTo(ganlon, ARR.Ganlon.depart[1], ARR.Ganlon.depart[2], Direction.Right)
-      GROUND:MoveToPosition(ganlon, ARR.Ganlon.attente[1], ARR.Ganlon.attente[2], false, 1)
-    end)
-    Says(ganlon, "Sigh", 'CR5_A15', {almotz, coco})
-    Silence(10)
-  end
-  if shuca ~= nil then
-    pcall(function()
-      GROUND:TeleportTo(shuca, ARR.Shuca.depart[1], ARR.Shuca.depart[2], Direction.Right)
-      GROUND:MoveToPosition(shuca, ARR.Shuca.attente[1], ARR.Shuca.attente[2], false, 1)
-    end)
-    Says(shuca, "Normal", 'CR5_A16', {ganlon})
-    Silence(12)
-  end
 
   -- LES TOUT DERNIERS : Kino et Reinier, en pleine conversation.
   -- Ils ne voient meme pas Plum et continuent leur histoire.
@@ -695,6 +679,28 @@ function cloven_ruins_entrance_ch_5.Acte4(hero, partner, plum)
   end)
   ReactAll({ {kino, "Question"}, {reinier, "Sweating"} })
   Says(reinier, "Worried", 'CR5_A20', {kino})
+  Silence(20)
+
+  -- Le gag se prolonge maintenant que chacun a rejoint le camp : les
+  -- repliques qui identifient Penticus, Coco, Phileas et Kino ne sont
+  -- jamais jouees avant leur arrivee physique.
+  Says(penticus, "Sigh", 'CR5_A27', {plum})
+  Silence(12)
+  Says(plum, "Angry", 'CR5_A28', {penticus})
+  Silence(10)
+  Says(coco, "Happy", 'CR5_A29', {plum})
+  Silence(10)
+  Says(plum, "Shouting", 'CR5_A30', {coco})
+  Silence(12)
+  Says(phileas, "Normal", 'CR5_A31', {plum})
+  Silence(14)
+  Says(plum, "Sigh", 'CR5_A32', {phileas, partner})
+  Silence(12)
+  Says(kino, "Joyous", 'CR5_A33', {plum})
+  Silence(10)
+  Says(plum, "Angry", 'CR5_A34', {kino})
+  Silence(12)
+  Pense(hero, 'CR5_A35', "Sigh")
   Silence(20)
 
   -- LE MALAISE. Les conversations se font plus discretes. Chacun a sa
@@ -719,7 +725,7 @@ function cloven_ruins_entrance_ch_5.Acte4(hero, partner, plum)
   Pense(hero, 'CR5_A25', "Worried")
   Silence(50)
 
-  cloven_ruins_entrance_ch_5.Acte5(hero, partner, plum,
+  cloven_ruins_entrance_ch_5.Acte6(hero, partner, plum,
     {phileas=phileas, penticus=penticus, rin=rin, coco=coco, hyko=hyko,
      almotz=almotz, kino=kino, reinier=reinier, ganlon=ganlon, shuca=shuca})
 end
@@ -728,53 +734,22 @@ end
 -- ==================================================================
 -- ACTE 5 — LE CRI
 -- ==================================================================
-function cloven_ruins_entrance_ch_5.Acte5(hero, partner, plum, t)
-  -- Elle se retourne BRUTALEMENT. Rotation en 1 frame, pas 8.
+function cloven_ruins_entrance_ch_5.Acte5(hero, partner, plum)
+  -- Le silence se rompt net : seuls les quatre premiers arrivants sont la.
   if plum ~= nil then
-    pcall(function() GROUND:EntTurn(plum, Direction.Left) end)
+    pcall(function() GROUND:EntTurn(plum, Direction.Down) end)
     pcall(function() SOUND:PlayBattleSE("EVT_Emote_Shock_2") end)
   end
-  -- TRES gros silence. C'est lui qui arme la blague.
-  Silence(75)
-
-  -- LE CRI.
+  Silence(45)
   pcall(function() BossFX.ShakeScreen(6, 30) end)
-  pcall(function() SOUND:PlayBGM("Guildmaster Wigglytuff.ogg", true) end) -- Start funny guild theme!
   Says(plum, "Shouting", 'CR5_A26')
-  pcall(function() GeneralFunctions.EmoteAndPause(plum, "Angry", true) end)
+  pcall(function() SOUND:PlayBGM("Guildmaster Wigglytuff.ogg", true) end)
+  local ganlon, shuca = CH('Teammate2'), CH('Teammate3')
+  ReactAll({{partner,"Shock"},{hero,"Exclaim"},{ganlon,"Sweating"},{shuca,"Question"}})
   Silence(20)
-
-  -- Tout le camp encaisse : emotes DIFFERENTES, en cascade.
-  ReactAll({ {partner, "Shock"}, {hero, "Exclaim"}, {t.coco, "Shock"},
-             {t.rin, "Sweating"}, {t.hyko, "Exclaim"}, {t.almotz, "Shock"},
-             {t.kino, "Question"}, {t.reinier, "Sweating"} })
-  Silence(24)
-
-  -- LE RUNNING GAG
-  Says(t.penticus, "Sigh", 'CR5_A27', {plum})
-  Silence(12)
-  Says(plum, "Angry", 'CR5_A28', {t.penticus})
-  Silence(10)
-  Says(t.coco, "Happy", 'CR5_A29', {plum})
-  Silence(10)
-  Says(plum, "Shouting", 'CR5_A30', {t.coco})
-  Silence(12)
-  Says(t.phileas, "Normal", 'CR5_A31', {plum})
-  Silence(14)
-  -- La chute : elle etait devant tout le monde depuis le debut.
-  Says(plum, "Sigh", 'CR5_A32', {t.phileas, partner})
-  Silence(16)
-  ReactAll({ {t.kino, "Happy"}, {partner, "Sweating"}, {t.almotz, "Happy"} })
-  Says(t.kino, "Joyous", 'CR5_A33', {plum})
-  Silence(12)
-  Says(plum, "Angry", 'CR5_A34', {t.kino})
-  Silence(14)
-  Pense(hero, 'CR5_A35', "Sigh")
-  Silence(20)
-
-  cloven_ruins_entrance_ch_5.Acte6(hero, partner, plum, t)
+  -- Le reste de la Guilde rejoint maintenant le camp, un a un.
+  cloven_ruins_entrance_ch_5.Acte4(hero, partner, plum)
 end
-
 
 -- ==================================================================
 -- ACTE 6 — GANLON A FAIM, SHUCA LE REGARDE
