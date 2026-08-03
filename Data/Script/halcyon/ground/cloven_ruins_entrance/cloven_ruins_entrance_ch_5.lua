@@ -91,11 +91,11 @@ cloven_ruins_entrance_ch_5.BRIEFING = BRIEFING
 -- Les renforts entrent depuis le bas de la clairiere, puis gagnent chacun
 -- une position d'attente propre. Aucun trajet ne traverse une falaise.
 local ARR = {
-  Phileas={depart={280,376}, attente={240,272}}, Penticus={depart={280,376}, attente={272,272}},
-  Coco={depart={280,376}, attente={304,272}}, Rin={depart={280,376}, attente={336,272}},
-  Hyko={depart={280,376}, attente={368,272}}, Almotz={depart={280,376}, attente={400,272}},
+  Phileas={depart={208,352}, attente={176,288}}, Penticus={depart={208,352}, attente={208,272}},
+  Hyko={depart={352,352}, attente={432,256}}, Rin={depart={352,352}, attente={400,288}},
+  Coco={depart={328,368}, attente={400,320}}, Almotz={depart={232,368}, attente={176,320}},
   Ganlon={depart={248,368}, attente={240,304}}, Shuca={depart={312,368}, attente={336,304}},
-  Kino={depart={280,376}, attente={272,304}}, Reinier={depart={280,376}, attente={304,304}},
+  Kino={depart={280,368}, attente={216,344}}, Reinier={depart={328,368}, attente={360,344}},
 }
 cloven_ruins_entrance_ch_5.ARR = ARR
 
@@ -150,6 +150,9 @@ end
 -- Le corps parle avant la bouche.
 local function Says(speaker, emotion, key, listeners, emote)
   if speaker == nil then return end
+  if listeners ~= nil and listeners[1] ~= nil then
+    pcall(function() GROUND:CharTurnToCharAnimated(speaker, listeners[1], 4) end)
+  end
   Listen(speaker, listeners, emote)
   UI:SetSpeaker(speaker)
   GeneralFunctions.SetEmotion(emotion or "Normal")
@@ -574,6 +577,7 @@ function cloven_ruins_entrance_ch_5.Acte3(hero, partner)
   Silence(36)
 
   local plum = E('Plum')
+  local ganlon, shuca = CH('Teammate2'), CH('Teammate3')
   if plum ~= nil then
     -- Elle ne parle pas. Elle avance juste de quelques pas, comme si elle
     -- cherchait encore le groupe, puis s'immobilise devant la grotte.
@@ -587,9 +591,9 @@ function cloven_ruins_entrance_ch_5.Acte3(hero, partner)
   Vent()
   Silence(42)
 
-  Says(partner, "Sigh", 'CR5_A05')
+  Says(partner, "Sigh", 'CR5_A05', {plum, hero, ganlon, shuca})
   Silence(14)
-  Says(partner, "Happy", 'CR5_A06')
+  Says(partner, "Happy", 'CR5_A06', {plum, hero})
   Silence(22)
   Pense(hero, 'CR5_A07', "Surprised")
   Silence(26)
@@ -597,8 +601,7 @@ function cloven_ruins_entrance_ch_5.Acte3(hero, partner)
   -- Plum garde le silence : la reponse vient de son comportement, pas
   -- d'une replique. Le partenaire est le premier a l'admettre.
   if partner ~= nil then pcall(function() GeneralFunctions.EmoteAndPause(partner, "Question", true) end) end
-  Says(partner, "Worried", 'CR5_A08')
-  local ganlon, shuca = CH('Teammate2'), CH('Teammate3')
+  Says(partner, "Worried", 'CR5_A08', {plum, hero, ganlon, shuca})
   Says(shuca, "Normal", 'CR5_A80', {plum, hero, partner})
   Says(ganlon, "Worried", 'CR5_A81', {shuca})
   Pense(hero, 'CR5_A118', "Worried")
@@ -652,6 +655,10 @@ function cloven_ruins_entrance_ch_5.Acte4(hero, partner, plum)
   Says(penticus, "Normal", 'CR5_A83', {phileas, hero, partner})
   Silence(10)
 
+  -- Hyko traverse le premier et prend le flanc est ; Rin et Coco
+  -- peuvent ensuite arriver sans couper sa trajectoire.
+  local hyko = Entre('Hyko')
+
   -- 3e : Rin, medicale, elle s'inquiete des pattes de tout le monde.
   local rin = Entre('Rin')
   Says(rin, "Worried", 'CR5_A11', {penticus, partner})
@@ -666,8 +673,7 @@ function cloven_ruins_entrance_ch_5.Acte4(hero, partner, plum)
   Says(coco, "Normal", 'CR5_A85', {plum})
   Silence(10)
 
-  -- 5e : Hyko, garde du perimetre, il flaire quelque chose.
-  local hyko = Entre('Hyko')
+  -- 5e : Hyko, deja positionne sur le flanc, examine le perimetre.
   Says(hyko, "Normal", 'CR5_A13', {coco})
   Says(hyko, "Determined", 'CR5_A86', {penticus})
   Says(hyko, "Worried", 'CR5_A128', {penticus})
