@@ -169,7 +169,7 @@ function apricorn_grove_entrance.ComeOutFront()
 	GAME:WaitFrames(20)
 	GeneralFunctions.SetEmotion("Normal")
 	if result == 1 then
-		UI:WaitShowDialogue("OK,[pause=10], nous retournerons alors dans le donjon.")
+		UI:WaitShowDialogue("OK,[pause=10] nous retournerons alors dans le donjon.")
 		UI:WaitShowDialogue("C'est parti,[pause=10]" .. hero:GetDisplayName() .. " !")
 		GAME:WaitFrames(20)
 		coro1 = TASK:BranchCoroutine(function() GeneralFunctions.DoAnimation(hero, "Nod") end)
@@ -200,10 +200,10 @@ function apricorn_grove_entrance.ComeOutFront()
 		local rescue = _DATA.Save.Rescue ~= nil and _DATA.Save.Rescue.Rescuing--are we in a rescue?
 
 		if rescue then
-			UI:WaitShowDialogue("OK,[pause=10], nous l'appellerons ici et retournerons au bureau de poste de Pelipper.")
+			UI:WaitShowDialogue("OK,[pause=10] nous l'appellerons ici et retournerons au bureau de poste de Pelipper.")
 			UI:WaitShowDialogue("Allez.[pause=0]Rentrons !")
 		else
-			UI:WaitShowDialogue("OK,[pause=10], nous allons mettre un terme à cette journée et retourner à la guilde.")
+			UI:WaitShowDialogue("OK,[pause=10] nous allons mettre un terme à cette journée et retourner à la guilde.")
 			UI:WaitShowDialogue("Allez.[pause=0]Rentrons !")
 		end
 		GAME:WaitFrames(40)

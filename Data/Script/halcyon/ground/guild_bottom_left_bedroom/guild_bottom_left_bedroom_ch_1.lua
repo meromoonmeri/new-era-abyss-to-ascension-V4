@@ -361,7 +361,7 @@ function guild_bottom_left_bedroom_ch_1.Breloom_Action(chara, activator)
 		AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
 		GAME:CutsceneMode(false)
 	else
-		GeneralFunctions.StartConversation(chara, "Au fait,[pause=10], si jamais vous avez besoin d'aide pour quoi que ce soit,[pause=10]en particulier pour l'exploration,[pause=10]venez me voir ou " .. girafarig:GetDisplayName() .. " !", "Happy")
+		GeneralFunctions.StartConversation(chara, "Au fait,[pause=10] si jamais vous avez besoin d'aide pour quoi que ce soit,[pause=10]en particulier pour l'exploration,[pause=10]venez me voir ou " .. girafarig:GetDisplayName() .. " !", "Happy")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GBL1_054']))
 		GeneralFunctions.EndConversation(chara)
 	end

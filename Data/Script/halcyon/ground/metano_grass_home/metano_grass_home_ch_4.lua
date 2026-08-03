@@ -24,7 +24,7 @@ end
 
 function metano_grass_home_ch_4.Vileplume_Action(chara, activator)
 	if not SV.Chapter4.FinishedGrove then
-		GeneralFunctions.StartConversation(chara, "Avec l'augmentation récente des donjons mystérieux et des hors-la-loi,[pause=10], je suis étonné de voir à quel point la ville peut rester si calme.", "Worried")
+		GeneralFunctions.StartConversation(chara, "Avec l'augmentation récente des donjons mystérieux et des hors-la-loi,[pause=10] je suis étonné de voir à quel point la ville peut rester si calme.", "Worried")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MGH4_001']))
 		GeneralFunctions.EndConversation(chara)
 	else

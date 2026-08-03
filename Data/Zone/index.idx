@@ -511,7 +511,15 @@
         "gloomy_forest_miniboss", 
         "cloven_ruins_miniboss", 
         "crystal_sanctuary_miniboss", 
-        "forgotten_marsh_miniboss"
+        "forgotten_marsh_miniboss", 
+        "cap_dents_mer", 
+        "carrefour_assemblee", 
+        "carrefour_sud", 
+        "dojo_ossatueur", 
+        "guilde_parvis", 
+        "plage_lucioles", 
+        "carrefour_nord", 
+        "tour_ciel_sommet"
       ], 
       "Maps": [
         [

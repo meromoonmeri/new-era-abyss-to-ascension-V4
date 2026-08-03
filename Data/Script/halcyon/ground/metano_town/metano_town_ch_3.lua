@@ -583,7 +583,7 @@ function metano_town_ch_3.MeetTeamStyle()
 
 	GAME:WaitFrames(20)
 	GeneralFunctions.HeroDialogue(hero, "(Nous avons certainement eu affaire à beaucoup de Pokémon grossiers aujourd'hui.[pause=0]Tous les aventuriers,[pause=10]aussi...)", "Worried")
-	GeneralFunctions.HeroDialogue(hero, "(Même si la plupart d'entre eux semblent sympas,[pause=10], je suppose que tous les aventuriers ne sont pas de gentils Pokémon.)", "Worried")
+	GeneralFunctions.HeroDialogue(hero, "(Même si la plupart d'entre eux semblent sympas,[pause=10] je suppose que tous les aventuriers ne sont pas de gentils Pokémon.)", "Worried")
 
 	GAME:WaitFrames(20)
 	UI:SetSpeaker(partner)
@@ -1210,7 +1210,7 @@ end
 
 function metano_town_ch_3.Furret_Action(chara, activator)
 	if not SV.Chapter3.DefeatedBoss then
-		GeneralFunctions.StartConversation(chara, "Ah,[pause=10], je peux à nouveau me détendre maintenant que " .. CharacterEssentials.GetCharacterName("Numel") .. " est de retour sain et sauf !", "Happy", false, false)
+		GeneralFunctions.StartConversation(chara, "Ah,[pause=10] je peux à nouveau me détendre maintenant que " .. CharacterEssentials.GetCharacterName("Numel") .. " est de retour sain et sauf !", "Happy", false, false)
 	else
 		GeneralFunctions.StartConversation(chara, "La seule chose mieux que de dormir dans mon endroit préféré...", "Normal", false, false)
 		GeneralFunctions.SetEmotion("Happy")
@@ -1221,7 +1221,7 @@ end
 
 function metano_town_ch_3.Linoone_Action(chara, activator)
 	if not SV.Chapter3.DefeatedBoss then
-		GeneralFunctions.StartConversation(chara, "Maintenant que les choses sont revenues à la normale,[pause=10], je peux me concentrer sur la lecture de ce livre que " .. CharacterEssentials.GetCharacterName("Medicham") .. " m'a recommandé.")
+		GeneralFunctions.StartConversation(chara, "Maintenant que les choses sont revenues à la normale,[pause=10] je peux me concentrer sur la lecture de ce livre que " .. CharacterEssentials.GetCharacterName("Medicham") .. " m'a recommandé.")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT3_121']))
 	else
 		GeneralFunctions.StartConversation(chara, "Cet endroit au bord de la rivière est un endroit idéal pour lire.")
@@ -1234,7 +1234,7 @@ end
 
 
 function metano_town_ch_3.Luxray_Action(chara, activator)
-	GeneralFunctions.StartConversation(chara, "Hmmph.[pause=0]Le fils de " .. CharacterEssentials.GetCharacterName("Camerupt") .. " s'enfuit,[pause=10]et maintenant qu'il lui a été rendu,[pause=10], elle ne lui donne aucune punition ?")
+	GeneralFunctions.StartConversation(chara, "Hmmph.[pause=0]Le fils de " .. CharacterEssentials.GetCharacterName("Camerupt") .. " s'enfuit,[pause=10]et maintenant qu'il lui a été rendu,[pause=10] elle ne lui donne aucune punition ?")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT3_125']))
 	GeneralFunctions.EndConversation(chara)
 end
@@ -1293,7 +1293,7 @@ function metano_town_ch_3.Growlithe_Desk_Action(chara, activator)
 end
 
 function metano_town_ch_3.Audino_Action(chara, activator)
-	GeneralFunctions.StartConversation(chara, "Oh,[pause=10], vous partez tous les deux pour la journée ?")
+	GeneralFunctions.StartConversation(chara, "Oh,[pause=10] vous partez tous les deux pour la journée ?")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT3_135']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT3_136']))
 	GeneralFunctions.EndConversation(chara)
@@ -1301,7 +1301,7 @@ end
 
 function metano_town_ch_3.Snubbull_Action(chara, activator)
 	if not SV.Chapter3.DefeatedBoss then
-		GeneralFunctions.StartConversation(chara, "Oh,[pause=10], la boutique Kecleon n'a plus d'Apricorns...", "Worried")
+		GeneralFunctions.StartConversation(chara, "Oh,[pause=10] la boutique Kecleon n'a plus d'Apricorns...", "Worried")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT3_137']))
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT3_138']))
 		GeneralFunctions.SetEmotion("Sad")
@@ -1335,7 +1335,7 @@ end
 function metano_town_ch_3.Cranidos_Action(chara, activator)
 	local sandile_species = _DATA:GetMonster('sandile'):GetColoredName()
 	local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("crooked_cavern")
-	GeneralFunctions.StartConversation(chara, "Quoi,[pause=10], suis-je censé être impressionné que vous ayez capturé ce " .. sandile_species .. " ?")
+	GeneralFunctions.StartConversation(chara, "Quoi,[pause=10] suis-je censé être impressionné que vous ayez capturé ce " .. sandile_species .. " ?")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT3_145'], zone:GetColoredName()))
 	GeneralFunctions.SetEmotion("Determined")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT3_146']))

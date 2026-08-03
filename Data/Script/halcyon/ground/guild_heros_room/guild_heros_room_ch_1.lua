@@ -276,7 +276,7 @@ function guild_heros_room_ch_1.RoomIntro()
 											GROUND:CharAnimateTurnTo(partner, Direction.Left, 4) end)
 	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(30)
-	GeneralFunctions.HeroDialogue(hero, "(Pour un tas de pailles,[pause=10], ce lit est en fait assez confortable !)", "Normal")
+	GeneralFunctions.HeroDialogue(hero, "(Pour un tas de pailles,[pause=10] ce lit est en fait assez confortable !)", "Normal")
 
 
 	--is this what's it's like to want to wag your tail?

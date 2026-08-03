@@ -1,5 +1,5 @@
 import re,glob,os,collections
-MOD='/home/user/nea'; os.chdir(MOD)
+MOD=os.environ.get('MOD_ROOT', os.path.dirname(os.path.dirname(os.path.abspath(__file__)))); os.chdir(MOD)
 # build global function bodies index across whole mod
 bodies={}
 for f in glob.glob('Data/Script/**/*.lua',recursive=True):

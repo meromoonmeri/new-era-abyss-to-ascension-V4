@@ -236,7 +236,7 @@ function guild_third_floor_lobby.MorningAddress(generic)
 	GROUND:CharSetEmote(partner, "", 0)
 	UI:SetSpeaker(tropius)
 	GeneralFunctions.SetEmotion("Happy")
-	UI:WaitShowDialogue("Très bien Pokémon,[pause=10], passons aux aventures de la journée !")
+	UI:WaitShowDialogue("Très bien Pokémon,[pause=10] passons aux aventures de la journée !")
 	GAME:WaitFrames(20)
 
 	--HURRAH!

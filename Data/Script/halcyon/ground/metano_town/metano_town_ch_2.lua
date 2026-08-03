@@ -217,7 +217,7 @@ end
 function metano_town_ch_2.Event_Trigger_3_Touch(obj, activator)
 	local hero = CH('PLAYER')
 	local partner = CH('Teammate1')
-	GeneralFunctions.StartPartnerConversation("Hé,[pause=10]" .. hero:GetDisplayName() .. ",[pause=10], ça doit être l'échelle qui mène au dojo juste là-bas !", "Normal", false)
+	GeneralFunctions.StartPartnerConversation("Hé,[pause=10]" .. hero:GetDisplayName() .. ",[pause=10] ça doit être l'échelle qui mène au dojo juste là-bas !", "Normal", false)
 	GeneralFunctions.TurnTowardsLocation(partner, 924, 1128)
 	GeneralFunctions.TurnTowardsLocation(hero, 924, 1128)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT2_007']))
@@ -236,7 +236,7 @@ end
 function metano_town_ch_2.Event_Trigger_5_Touch(obj, activator)
 	local hero = CH('PLAYER')
 	local partner = CH('Teammate1')
-	GeneralFunctions.StartPartnerConversation("Hé,[pause=10]" .. hero:GetDisplayName() .. ",[pause=10], tu ne veux toujours pas regarder autour de toi en ville ?")
+	GeneralFunctions.StartPartnerConversation("Hé,[pause=10]" .. hero:GetDisplayName() .. ",[pause=10] tu ne veux toujours pas regarder autour de toi en ville ?")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT2_008']))
 
 	GeneralFunctions.EndConversation(partner)
@@ -909,7 +909,7 @@ function metano_town_ch_2.Wooper_Siblings_Introduction(chara)
 	UI:SetSpeaker(dee)
   --  coro1 = TASK:BranchCoroutine(function() GROUND:CharTurnToCharAnimated(partner, dee, 4) end)
    -- coro2 = TASK:BranchCoroutine(function() GROUND:CharTurnToCharAnimated(hero, dee, 4) end)
-	UI:WaitShowTimedDialogue("Je ne sais pas,[pause=10], qu'est-ce que-", 40)
+	UI:WaitShowTimedDialogue("Je ne sais pas,[pause=10] qu'est-ce que-", 40)
 	--TASK:JoinCoroutines({coro1, coro2})
 
 	UI:SetSpeaker(electrike)
@@ -1016,7 +1016,7 @@ function metano_town_ch_2.Wooper_Girl_Action(chara, activator)
 	if SV.Chapter2.FinishedFirstDay then
 		metano_town_ch_2.Wooper_Day_2_Conversation(dee)
 	elseif SV.Chapter2.WooperIntro then
-		GeneralFunctions.StartConversation(dee, "Je ne sais pas,[pause=10], que veux-tu faire aujourd'hui,[pause=10]" .. CharacterEssentials.GetCharacterName("Wooper_Boy") .. " ?", "Normal", false)
+		GeneralFunctions.StartConversation(dee, "Je ne sais pas,[pause=10] que veux-tu faire aujourd'hui,[pause=10]" .. CharacterEssentials.GetCharacterName("Wooper_Boy") .. " ?", "Normal", false)
 		GeneralFunctions.EndConversation(dee)
 	else
 		metano_town_ch_2.Wooper_Siblings_Introduction(chara)
@@ -1030,7 +1030,7 @@ function metano_town_ch_2.Wooper_Boy_Action(chara, activator)
 	if SV.Chapter2.FinishedFirstDay then
 		metano_town_ch_2.Wooper_Day_2_Conversation(dun)
 	elseif SV.Chapter2.WooperIntro then
-		GeneralFunctions.StartConversation(dun, "Je ne sais pas,[pause=10], que veux-tu faire aujourd'hui,[pause=10]" .. CharacterEssentials.GetCharacterName("Wooper_Girl") .. " ?", "Normal", false)
+		GeneralFunctions.StartConversation(dun, "Je ne sais pas,[pause=10] que veux-tu faire aujourd'hui,[pause=10]" .. CharacterEssentials.GetCharacterName("Wooper_Girl") .. " ?", "Normal", false)
 		GeneralFunctions.EndConversation(dun)
 	else
 		metano_town_ch_2.Wooper_Siblings_Introduction(chara)
@@ -1081,7 +1081,7 @@ function metano_town_ch_2.Lickitung_Action(chara, activator)
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT2_099']))
 		GeneralFunctions.EndConversation(chara)
 	else --second day dialogue
-		GeneralFunctions.StartConversation(chara, "Comme le café va bientôt rouvrir,[pause=10], nous avons pensé que nous camperions ici jusqu'à son ouverture.")
+		GeneralFunctions.StartConversation(chara, "Comme le café va bientôt rouvrir,[pause=10] nous avons pensé que nous camperions ici jusqu'à son ouverture.")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT2_100']))
 		GeneralFunctions.EndConversation(chara)
 	end

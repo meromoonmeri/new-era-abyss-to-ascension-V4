@@ -3189,7 +3189,7 @@ function metano_town.Assembly_Action(obj, activator)
 			elseif SV.TemporaryFlags.AudinoSummonCount == 6 then
 				GeneralFunctions.SetEmotion("Pain")
 				GROUND:CharSetEmote(audino, "sweating", 1)
-				UI:WaitShowDialogue("Huff...[pause=0]Puff...[pause=0]O-tu m'as certainement fait beaucoup courir aujourd'hui,[pause=10], hein ?")
+				UI:WaitShowDialogue("Huff...[pause=0]Puff...[pause=0]O-tu m'as certainement fait beaucoup courir aujourd'hui,[pause=10] hein ?")
 				GAME:WaitFrames(20)
 				GeneralFunctions.ShakeHead(audino)
 			elseif SV.TemporaryFlags.AudinoSummonCount == 9 then
@@ -3208,7 +3208,7 @@ function metano_town.Assembly_Action(obj, activator)
 				GROUND:CharSetAnim(audino, "None", true)
 				GeneralFunctions.SetEmotion("Determined")
 				UI:WaitShowDialogue("Je commence à croire que vous faites ça exprès !")
-				UI:WaitShowDialogue("Eh bien, je ne craque plus ![pause=0]Si vous souhaitez continuer à utiliser l'assemblage aujourd'hui,[pause=10], venez me voir !")
+				UI:WaitShowDialogue("Eh bien, je ne craque plus ![pause=0]Si vous souhaitez continuer à utiliser l'assemblage aujourd'hui,[pause=10] venez me voir !")
 				GAME:WaitFrames(10)
 			else
 				UI:WaitShowDialogue(hero:GetDisplayName() .. "! " .. partner:GetDisplayName() .. "! Vous avez sonné ?")

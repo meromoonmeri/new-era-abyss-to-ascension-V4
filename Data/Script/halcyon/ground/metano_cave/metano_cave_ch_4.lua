@@ -24,7 +24,7 @@ end
 
 function metano_cave_ch_4.Sunflora_Action(chara, activator)
 	if not SV.Chapter4.FinishedGrove then
-		GeneralFunctions.StartConversation(chara, "...La guilde monte bientôt une expédition,[pause=10], hein ?", "Worried", true, false)
+		GeneralFunctions.StartConversation(chara, "...La guilde monte bientôt une expédition,[pause=10] hein ?", "Worried", true, false)
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MC4_001']))
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MC4_002']))
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MC4_003']))

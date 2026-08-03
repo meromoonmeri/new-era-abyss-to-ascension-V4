@@ -230,7 +230,7 @@ function guild_guildmasters_room_ch_1.MeetGuildmaster()
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GMR1_090']))--foreshadowing
 
 	elseif result == 2 then
-		GeneralFunctions.HeroDialogue(hero, "(En vérité,[pause=10], j'aimerais savoir qui j'étais et comment j'ai perdu la mémoire.)", "Worried")
+		GeneralFunctions.HeroDialogue(hero, "(En vérité,[pause=10] j'aimerais savoir qui j'étais et comment j'ai perdu la mémoire.)", "Worried")
 		GeneralFunctions.HeroDialogue(hero, "(Être un aventurier semble pouvoir m'aider avec ça...)", "Worried")
 		GeneralFunctions.HeroDialogue(hero, "(Mais " .. partner:GetDisplayName() .. " a dit que je ne devrais dire à personne que j'étais un humain...)", "Worried")
 		GAME:WaitFrames(20)

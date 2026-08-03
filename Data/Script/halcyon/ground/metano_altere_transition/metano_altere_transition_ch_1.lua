@@ -245,7 +245,7 @@ function metano_altere_transition_ch_1.HeartToHeartCutscene()
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MAT1_048'], zone:GetColoredName()))
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MAT1_049']))
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MAT1_050']))
-		UI:BeginChoiceMenu("Alors s'il vous plaît,[pause=10], je vous en supplie...[pause=0]Formez une équipe d'aventuriers avec moi.", {"Faire équipe", "Non merci"}, 1, 2)
+		UI:BeginChoiceMenu("Alors s'il vous plaît,[pause=10] je vous en supplie...[pause=0]Formez une équipe d'aventuriers avec moi.", {"Faire équipe", "Non merci"}, 1, 2)
 		UI:WaitForChoice()
 		result = UI:ChoiceResult()
 	end

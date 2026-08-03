@@ -337,7 +337,7 @@ end
 
 function metano_town_ch_4.Mawile_Action(chara, activator)
 	if not SV.Chapter4.FinishedGrove then
-		GeneralFunctions.StartConversation(chara, "Hé,[pause=10], c'est vous deux ![pause=0]Quels sont mes aventuriers préférés en train de faire aujourd'hui ?", "Happy")
+		GeneralFunctions.StartConversation(chara, "Hé,[pause=10] c'est vous deux ![pause=0]Quels sont mes aventuriers préférés en train de faire aujourd'hui ?", "Happy")
 		--GAME:WaitFrames(20)
 		GeneralFunctions.SetEmotion("Normal")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT4_033']))
@@ -371,7 +371,7 @@ end
 
 function metano_town_ch_4.Electrike_Action(chara, activator)
 	if not SV.Chapter4.FinishedGrove then
-		GeneralFunctions.StartConversation(chara, "Vous savez que je peux vous voir tous les deux,[pause=10], n'est-ce pas ?", "Normal", false)
+		GeneralFunctions.StartConversation(chara, "Vous savez que je peux vous voir tous les deux,[pause=10] n'est-ce pas ?", "Normal", false)
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT4_041']))
 		GAME:WaitFrames(20)
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT4_042']))
@@ -647,7 +647,7 @@ function metano_town_ch_4.Sentret_Action(chara, activator)
 	if not SV.Chapter4.FinishedGrove then
 		GeneralFunctions.StartConversation(chara, "Je n'ai aucune corvée à faire ![pause=0]Mon père s'occupe d'eux,[pause=10]donc j'ai toujours le temps de jouer !", "Happy", false)
 	else
-		GeneralFunctions.StartConversation(chara, "Woah,[pause=10], vous êtes tous les deux des aventuriers de guilde, n'est-ce pas ?", "Inspired")
+		GeneralFunctions.StartConversation(chara, "Woah,[pause=10] vous êtes tous les deux des aventuriers de guilde, n'est-ce pas ?", "Inspired")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT4_078']))
 		GAME:WaitFrames(10)
 		SOUND:PlayBattleSE('EVT_Emote_Startled_2')
@@ -671,7 +671,7 @@ end
 
 function metano_town_ch_4.Floatzel_Action(chara, activator)
 	if not SV.Chapter4.FinishedGrove then
-		GeneralFunctions.StartConversation(chara, "Avec tous les hors-la-loi qui courent partout ces derniers temps,[pause=10], j'ai eu une excellente idée !")
+		GeneralFunctions.StartConversation(chara, "Avec tous les hors-la-loi qui courent partout ces derniers temps,[pause=10] j'ai eu une excellente idée !")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT4_080']))
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT4_081']))
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT4_082']))
@@ -835,7 +835,7 @@ function metano_town_ch_4.Furret_Action(chara, activator)
 	if not SV.Chapter4.FinishedGrove then
 		--N/A
 	else
-		GeneralFunctions.StartConversation(chara, "Une fois toutes ces tâches terminées,[pause=10], je reviens à ce que j'aime faire le plus ~", "Happy", false, false)
+		GeneralFunctions.StartConversation(chara, "Une fois toutes ces tâches terminées,[pause=10] je reviens à ce que j'aime faire le plus ~", "Happy", false, false)
 	end
 	GeneralFunctions.EndConversation(chara, false)
 end
@@ -934,7 +934,7 @@ function metano_town_ch_4.Bagon_Action(chara, activator)
 	if not SV.Chapter4.FinishedGrove then
 		--N/A
 	else
-		GeneralFunctions.StartConversation(chara, "Donc la guilde part très bientôt en expédition,[pause=10], hein ?")
+		GeneralFunctions.StartConversation(chara, "Donc la guilde part très bientôt en expédition,[pause=10] hein ?")
 		GeneralFunctions.SetEmotion("Happy")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT4_115']))
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MT4_116'], CharacterEssentials.GetCharacterName("Doduo")))

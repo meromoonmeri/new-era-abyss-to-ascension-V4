@@ -1,6 +1,6 @@
 import re,glob,os,collections
 import xml.etree.ElementTree as ET
-MOD='/home/user/nea'; os.chdir(MOD)
+MOD=os.environ.get('MOD_ROOT', os.path.dirname(os.path.dirname(os.path.abspath(__file__)))); os.chdir(MOD)
 KNOWN=re.compile(r'\[(?:pause=\d+|sound=[^\]]*|color=#[0-9a-fA-F]{6}|color|br|scroll|script=\d+|speed=[+-]?[\d.]+|emote=[\w\-]*|male|female|neutral|a/an|el/la|los/las|der/die/das|ein/eine/einen|ein/eine/ein|il/la|i/le|uno/una|은/는|을/를|이/가|와/과|으/로|이/라면)\]',re.I)
 def unknown_tags(s):
     s2=KNOWN.sub('',s)

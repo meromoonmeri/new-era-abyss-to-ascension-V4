@@ -797,7 +797,7 @@ function guild_second_floor_ch_2.Zigzagoon_Action(chara, activator)
 	local partner = CH('Teammate1')
 	local zigzagoon = CH('Zigzagoon')
 
-	GeneralFunctions.StartConversation(zigzagoon, "Hey Team " .. GAME:GetTeamName() .. ",[pause=10], comment se passe votre première journée ?")
+	GeneralFunctions.StartConversation(zigzagoon, "Hey Team " .. GAME:GetTeamName() .. ",[pause=10] comment se passe votre première journée ?")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G2F2_120']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G2F2_121'], CharacterEssentials.GetCharacterName("Noctowl"), CharacterEssentials.GetCharacterName("Ledian")))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G2F2_122']))
@@ -815,7 +815,7 @@ function guild_second_floor_ch_2.Bagon_Action(chara, activator)
 end
 
 function guild_second_floor_ch_2.Doduo_Action(chara, activator)
-	GeneralFunctions.StartConversation(chara, "Nous sommes venus ici pour trouver du travail,[pause=10], mais nous sommes arrivés ici un peu plus tard que nous l'aurions souhaité.")
+	GeneralFunctions.StartConversation(chara, "Nous sommes venus ici pour trouver du travail,[pause=10] mais nous sommes arrivés ici un peu plus tard que nous l'aurions souhaité.")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G2F2_126']))
 	GeneralFunctions.SetEmotion("Stunned")
 	GROUND:CharSetEmote(chara, "sweating", 1)

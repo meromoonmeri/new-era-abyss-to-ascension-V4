@@ -43,7 +43,7 @@ end
 function metano_cafe_ch_4.Gulpin_Action(chara, activator)
 	if not SV.Chapter4.FinishedGrove then
 		local item = RogueEssence.Dungeon.InvItem('cafe_endurance_tonic')
-		GeneralFunctions.StartConversation(chara, "Tellement savoureux...[pause=0]Quand je bois du " .. item:GetDisplayName() .. ",[pause=10], j'ai l'impression que rien ne peut m'arrêter...", "Inspired")
+		GeneralFunctions.StartConversation(chara, "Tellement savoureux...[pause=0]Quand je bois du " .. item:GetDisplayName() .. ",[pause=10] j'ai l'impression que rien ne peut m'arrêter...", "Inspired")
 	else
 		local item = RogueEssence.Dungeon.InvItem('food_apple_perfect')
 		GeneralFunctions.StartConversation(chara, "Une fois,[pause=10]" .. CharacterEssentials.GetCharacterName("Shuckle") .. " avait un " .. item:GetDisplayName() .. " comme spécial du jour !", "Normal")
@@ -76,7 +76,7 @@ function metano_cafe_ch_4.Cranidos_Action(chara, activator)
 		--N/A
 	else
 		if not SV.Chapter4.CranidosBlush then
-			GeneralFunctions.StartConversation(chara, "Même à l'approche de l'expédition,[pause=10], je préfère continuer à arrêter les hors-la-loi plutôt que de me reposer ici.")
+			GeneralFunctions.StartConversation(chara, "Même à l'approche de l'expédition,[pause=10] je préfère continuer à arrêter les hors-la-loi plutôt que de me reposer ici.")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MCF4_010'], CharacterEssentials.GetCharacterName("Mareep")))
 			GAME:WaitFrames(40)
 			GeneralFunctions.EmoteAndPause(chara, "Exclaim", true)

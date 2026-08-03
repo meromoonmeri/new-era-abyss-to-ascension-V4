@@ -148,7 +148,7 @@ Thinks about when he feels strange besides the times he told the partner, they m
 	GeneralFunctions.HeroDialogue(hero, "(...Et quand j'ai rencontré " .. partner:GetDisplayName() .. ".)", "Worried")
 	GAME:WaitFrames(20)
 
-	GeneralFunctions.HeroDialogue(hero, "(La tension que j'ai ressentie à cette époque n'était pas aussi forte qu'avec l'obélisque et le Printemps lumineux,[pause=10], mais la sensation était similaire.)", "Normal")
+	GeneralFunctions.HeroDialogue(hero, "(La tension que j'ai ressentie à cette époque n'était pas aussi forte qu'avec l'obélisque et le Printemps lumineux,[pause=10] mais la sensation était similaire.)", "Normal")
 
 	GAME:WaitFrames(20)
 	GeneralFunctions.HeroSpeak(hero, 60)
@@ -182,7 +182,7 @@ Thinks about when he feels strange besides the times he told the partner, they m
 	GAME:WaitFrames(20)
 
 	GeneralFunctions.HeroDialogue(hero, "(C'est frustrant, nous ne pourrons pas faire de progrès dans ce domaine bientôt...)", "Worried")
-	GeneralFunctions.HeroDialogue(hero, "(Mais à l'approche de l'expédition,[pause=10], il est logique de se concentrer là-dessus pour le moment.)", "Normal")
+	GeneralFunctions.HeroDialogue(hero, "(Mais à l'approche de l'expédition,[pause=10] il est logique de se concentrer là-dessus pour le moment.)", "Normal")
 	GAME:WaitFrames(20)
 	GeneralFunctions.DoAnimation(hero, "Nod")
 	GAME:WaitFrames(40)

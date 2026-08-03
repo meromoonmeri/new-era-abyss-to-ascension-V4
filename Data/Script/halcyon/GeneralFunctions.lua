@@ -1491,8 +1491,8 @@ function GeneralFunctions.RankUp(leftover_points)
 	UI:ResetSpeaker()
 	UI:SetCenter(true)
 
-	UI:WaitShowDialogue("Congratulations!")
-	UI:WaitShowDialogue("L'équipe " .. GAME:GetTeamName() .. " a grimpé en grade depuis le[color=#FFA5FF]" .. current_rank:gsub("^%l", string.upper) .. " Rank[color]au[color=#FFA5FF]" .. next_rank:gsub("^%l", string.upper) .. " Rank[color]!")
+	UI:WaitShowDialogue("Félicitations !")
+	UI:WaitShowDialogue("L'équipe " .. GAME:GetTeamName() .. " a grimpé en grade depuis le[color=#FFA5FF]" .. current_rank:gsub("^%l", string.upper) .. " Rang[color]au[color=#FFA5FF]" .. next_rank:gsub("^%l", string.upper) .. " Rang[color] !")
 
 	--notify of bag size increase
 	if  _DATA:GetRank(current_rank).BagSize < _DATA:GetRank(next_rank).BagSize then
@@ -1530,7 +1530,7 @@ function GeneralFunctions.RankUp(leftover_points)
 
 	local item = RogueEssence.Dungeon.InvItem(reward_id, false, 1)
 	SOUND:PlayFanfare("Fanfare/Item")
-	UI:WaitShowDialogue("Pour avoir progressé dans le classement,[pause=10], votre équipe a reçu un " .. item:GetDisplayName() .. ".[pause=40].")
+	UI:WaitShowDialogue("Pour avoir progressé dans le classement,[pause=10] votre équipe a reçu un " .. item:GetDisplayName() .. ".[pause=40].")
 
 	--bag is full - equipped count is separate from bag and most be included in the calc
 	if GAME:GetPlayerBagCount() + GAME:GetPlayerEquippedCount() >= GAME:GetPlayerBagLimit() then

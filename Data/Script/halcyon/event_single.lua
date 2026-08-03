@@ -1673,7 +1673,7 @@ function SINGLE_CHAR_SCRIPT.RelicForestTutorial(owner, ownerChar, context, args)
 				GAME:WaitFrames(20)
 			elseif SV.Chapter1.PartnerMetHero and SV.Chapter1.TutorialProgression < 7 then
 				SOUND:PlayFanfare("Fanfare/Note")
-				UI:WaitShowDialogue("Les membres de l'équipe recevront Exp. Points lorsque les ennemis sont vaincus.[pause=0]Lorsqu'un coéquipier en obtient assez,[pause=10], il passe au niveau supérieur !")
+				UI:WaitShowDialogue("Les membres de l'équipe recevront Exp. Points lorsque les ennemis sont vaincus.[pause=0]Lorsqu'un coéquipier en obtient assez,[pause=10] il passe au niveau supérieur !")
 				UI:WaitShowDialogue("Un Pokémon obtiendra plus de HP, des statistiques plus élevées[pause=10],[pause=10]et éventuellement une nouvelle capacité à chaque fois qu'il monte de niveau.")
 				UI:WaitShowDialogue("Assurez-vous de combattre les ennemis si vous voulez vous endurcir !")
 				SV.Chapter1.TutorialProgression = 7
@@ -1688,8 +1688,8 @@ function SINGLE_CHAR_SCRIPT.RelicForestTutorial(owner, ownerChar, context, args)
 				GAME:WaitFrames(20)
 			elseif SV.Chapter1.PartnerMetHero and SV.Chapter1.TutorialProgression < 6 then
 				SOUND:PlayFanfare("Fanfare/Note")
-				UI:WaitShowDialogue("Regardez vos statistiques HP et celles de votre partenaire en haut de l'écran.[pause=0]Si les HP d'un Pokémon atteignent 0,[pause=10], il s'évanouira !")
-				UI:WaitShowDialogue("Si vous ou votre partenaire vous évanouissez,[pause=10], vous serez tous les deux éjectés du donjon ![pause=0]Alors travaillez ensemble pour surmonter le danger !")
+				UI:WaitShowDialogue("Regardez vos statistiques HP et celles de votre partenaire en haut de l'écran.[pause=0]Si les HP d'un Pokémon atteignent 0,[pause=10] il s'évanouira !")
+				UI:WaitShowDialogue("Si vous ou votre partenaire vous évanouissez,[pause=10] vous serez tous les deux éjectés du donjon ![pause=0]Alors travaillez ensemble pour surmonter le danger !")
 				SV.Chapter1.TutorialProgression = 6
 				GAME:WaitFrames(20)
 		end

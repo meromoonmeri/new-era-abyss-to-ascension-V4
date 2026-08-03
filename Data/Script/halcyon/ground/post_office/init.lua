@@ -141,7 +141,7 @@ function post_office.Main_Desk_Action(obj, activator)
 
   	--Only allow players the ability to go on rescues when they're bronze rank (They've started chapter 4)
     if SV.ChapterProgression.Chapter < 4 then
-		GeneralFunctions.StartConversation(chara, "Désolé,[pause=10], mais seules les équipes de rang[color=#FFA5FF]Bronze[color]ou supérieur peuvent utiliser les services ici.")
+		GeneralFunctions.StartConversation(chara, "Désolé,[pause=10] mais seules les équipes de rang[color=#FFA5FF]Bronze[color]ou supérieur peuvent utiliser les services ici.")
 		state = -1
 	else
 		--Reimplement parts of StartConversation
@@ -325,7 +325,7 @@ function post_office.Side_Desk_Action(obj, activator)
 
 	--Only allow players the ability to go on rescues when they're bronze rank (They've started chapter 4)
     if SV.ChapterProgression.Chapter < 4 then
-		GeneralFunctions.StartConversation(chara, "Désolé,[pause=10], mais seules les équipes de rang[color=#FFA5FF]Bronze[color]ou supérieur peuvent utiliser les services ici.")
+		GeneralFunctions.StartConversation(chara, "Désolé,[pause=10] mais seules les équipes de rang[color=#FFA5FF]Bronze[color]ou supérieur peuvent utiliser les services ici.")
 		state = -1
 	else
 		--Reimplement parts of StartConversation
@@ -402,7 +402,7 @@ function post_office.Side_Desk_Action(obj, activator)
 					state = 1
 				end
 			else
-				UI:WaitShowDialogue("Désolé,[pause=10], mais il semble que vous n'ayez pas encore complètement exploré " .. dungeon:GetColoredName() .. ".")
+				UI:WaitShowDialogue("Désolé,[pause=10] mais il semble que vous n'ayez pas encore complètement exploré " .. dungeon:GetColoredName() .. ".")
 				UI:WaitShowDialogue("Nous ne pouvons pas vous permettre de partir en sauvetage dans un endroit que vous n'avez pas correctement terminé !")
 				UI:WaitShowDialogue("Je m'excuse,[pause=10]mais votre ami devra simplement attendre que vous l'ayez terminé.")
 				sos = nil

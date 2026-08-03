@@ -220,7 +220,7 @@ function guild_third_floor_lobby_ch_1.GoToGuildmasterRoom()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G3L1_025'], hero:GetDisplayName()))
 	GAME:WaitFrames(20)
 
-	GeneralFunctions.HeroDialogue(hero, "(En vérité,[pause=10], je ne sais pas ce qui va se passer une fois que nous aurons franchi cette porte...)", "Worried")
+	GeneralFunctions.HeroDialogue(hero, "(En vérité,[pause=10] je ne sais pas ce qui va se passer une fois que nous aurons franchi cette porte...)", "Worried")
 	GeneralFunctions.HeroDialogue(hero, "(Mais vu mon amnésie et les nerfs de " .. partner:GetDisplayName() .. ",[pause=10]nos chances ne me semblent pas trop grandes...)", "Worried")
 	GAME:WaitFrames(20)
 

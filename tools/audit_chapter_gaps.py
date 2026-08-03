@@ -1,5 +1,5 @@
 import re,glob,os,json,collections
-MOD='/home/user/nea'; os.chdir(MOD)
+MOD=os.environ.get('MOD_ROOT', os.path.dirname(os.path.dirname(os.path.abspath(__file__)))); os.chdir(MOD)
 static={}
 for p in glob.glob('Data/Ground/*.rsground'):
     g=os.path.basename(p)[:-9]

@@ -88,7 +88,7 @@ end
 
 function guild_second_floor_ch_4.Jigglypuff_Action(chara, activator)
 	if not SV.Chapter4.FinishedGrove then
-		GeneralFunctions.StartConversation(chara, "Normalement,[pause=10], si l'un des membres de votre équipe s'évanouit,[pause=10], toute l'équipe est expulsée du donjon.")
+		GeneralFunctions.StartConversation(chara, "Normalement,[pause=10] si l'un des membres de votre équipe s'évanouit,[pause=10] toute l'équipe est expulsée du donjon.")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G2F4_005']))
 	else
 		--N/A
@@ -98,7 +98,7 @@ end
 
 function guild_second_floor_ch_4.Marill_Action(chara, activator)
 	if not SV.Chapter4.FinishedGrove then
-		GeneralFunctions.StartConversation(chara, "Vous pouvez utiliser Apricorns pour recruter plus de membres dans votre équipe d'aventuriers,[pause=10], mais nous aimons le nôtre tel qu'il est.")
+		GeneralFunctions.StartConversation(chara, "Vous pouvez utiliser Apricorns pour recruter plus de membres dans votre équipe d'aventuriers,[pause=10] mais nous aimons le nôtre tel qu'il est.")
 		GeneralFunctions.SetEmotion("Happy")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G2F4_006']))
 		GeneralFunctions.SetEmotion("Normal")
@@ -147,7 +147,7 @@ function guild_second_floor_ch_4.Silcoon_Action(chara, activator)
 		local slash = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Skill]:Get("slash")
 		local leaf_blade = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Skill]:Get("leaf_blade")
 
-		GeneralFunctions.StartConversation(chara, "Les aventuriers comme vous doivent connaître les coups critiques,[pause=10], n'est-ce pas ?")
+		GeneralFunctions.StartConversation(chara, "Les aventuriers comme vous doivent connaître les coups critiques,[pause=10] n'est-ce pas ?")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G2F4_013']))
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G2F4_014'], slash:GetColoredName(), leaf_blade:GetColoredName()))
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G2F4_015'], focus:GetColoredName()))

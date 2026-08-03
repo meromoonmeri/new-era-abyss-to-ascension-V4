@@ -123,7 +123,7 @@ function beginner_lesson_evt.Floor_3_ThrownReviver_Speech(owner, ownerChar, char
 	UI:WaitShowDialogue("Hoiyah ![pause=0]Je veux aussi vous parler de " .. seed .. " !")
 	UI:WaitShowDialogue("Ils sont rares,[pause=10]mais permettent de réanimer un coéquipier qui vient de s'évanouir !")
 	UI:WaitShowDialogue("Ils sont inestimables lors des voyages difficiles ![pause=0]Assurez-vous de les utiliser à bon escient !")
-	UI:WaitShowDialogue("Wahtah![pause=0]Pour cet essai,[pause=10], vous devez lancer un " .. stick .. " sur le volontaire devant vous !")
+	UI:WaitShowDialogue("Wahtah![pause=0]Pour cet essai,[pause=10] vous devez lancer un " .. stick .. " sur le volontaire devant vous !")
 	UI:WaitShowDialogue("Après[pause=10], vous devez utiliser " .. seed .. " pour nous ranimer de la puissante contre-attaque du volontaire !")
 	UI:WaitShowDialogue("Oohcha ![pause=0]Cela peut faire peur,[pause=10]mais tu ne dois montrer aucune peur face au danger,[pause=10]mon élève !")
 	SV.Tutorial.Progression = 6
