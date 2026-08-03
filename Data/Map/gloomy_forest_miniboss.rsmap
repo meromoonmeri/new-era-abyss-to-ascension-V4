@@ -1,4 +1,4 @@
-{
+﻿{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Dungeon.Map, RogueEssence",
@@ -102,7 +102,7 @@
             },
             "Absentee": false,
             "ChargeBoost": 0,
-            "HP": 1,
+            "HP": 220,
             "HPRemainder": 0,
             "Fullness": 100,
             "FullnessRemainder": 0,
@@ -198,7 +198,7 @@
               "Skin": "normal",
               "Gender": 1
             },
-            "Level": 33,
+            "Level": 36,
             "EXP": 0,
             "MaxHPBonus": 70,
             "AtkBonus": 0,
@@ -346,7 +346,7 @@
             },
             "Absentee": false,
             "ChargeBoost": 0,
-            "HP": 1,
+            "HP": 150,
             "HPRemainder": 0,
             "Fullness": 100,
             "FullnessRemainder": 0,
@@ -442,7 +442,7 @@
               "Skin": "normal",
               "Gender": 1
             },
-            "Level": 28,
+            "Level": 31,
             "EXP": 0,
             "MaxHPBonus": 60,
             "AtkBonus": 0,
@@ -595,7 +595,7 @@
             },
             "Absentee": false,
             "ChargeBoost": 0,
-            "HP": 1,
+            "HP": 125,
             "HPRemainder": 0,
             "Fullness": 100,
             "FullnessRemainder": 0,
@@ -691,7 +691,7 @@
               "Skin": "normal",
               "Gender": 1
             },
-            "Level": 24,
+            "Level": 27,
             "EXP": 0,
             "MaxHPBonus": 0,
             "AtkBonus": 0,
@@ -844,7 +844,7 @@
             },
             "Absentee": false,
             "ChargeBoost": 0,
-            "HP": 1,
+            "HP": 125,
             "HPRemainder": 0,
             "Fullness": 100,
             "FullnessRemainder": 0,
@@ -940,7 +940,7 @@
               "Skin": "normal",
               "Gender": 1
             },
-            "Level": 24,
+            "Level": 27,
             "EXP": 0,
             "MaxHPBonus": 0,
             "AtkBonus": 0,
@@ -1093,7 +1093,7 @@
             },
             "Absentee": false,
             "ChargeBoost": 0,
-            "HP": 1,
+            "HP": 105,
             "HPRemainder": 0,
             "Fullness": 100,
             "FullnessRemainder": 0,
@@ -1189,7 +1189,7 @@
               "Skin": "normal",
               "Gender": 1
             },
-            "Level": 24,
+            "Level": 26,
             "EXP": 0,
             "MaxHPBonus": 0,
             "AtkBonus": 0,
@@ -1342,7 +1342,7 @@
             },
             "Absentee": false,
             "ChargeBoost": 0,
-            "HP": 1,
+            "HP": 105,
             "HPRemainder": 0,
             "Fullness": 100,
             "FullnessRemainder": 0,
@@ -1438,7 +1438,7 @@
               "Skin": "normal",
               "Gender": 1
             },
-            "Level": 24,
+            "Level": 26,
             "EXP": 0,
             "MaxHPBonus": 0,
             "AtkBonus": 0,
