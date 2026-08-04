@@ -1,4 +1,4 @@
-{
+﻿{
   "Version": "0.8.9.0", 
   "Object": {
     "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib", 
@@ -596,7 +596,11 @@
         "vallon_perdu", 
         "vigie_stratos", 
         "tour_ciel_sommet", 
-        "parvis_celeste"
+        "parvis_celeste", 
+        "gloomy_forest_boss", 
+        "crystal_sanctuary_boss", 
+        "forgotten_marsh_boss", 
+        "celestial_peak_boss"
       ], 
       "Maps": [
         [
@@ -795,7 +799,8 @@
       "Grounds": [
         "gloomy_forest_entrance", 
         "gloomy_forest_midpoint", 
-        "gloomy_forest_miniboss"
+        "gloomy_forest_miniboss", 
+        "gloomy_forest_boss"
       ], 
       "Maps": [
         [
@@ -1053,7 +1058,8 @@
       "Grounds": [
         "crystal_sanctuary_entrance", 
         "crystal_sanctuary_relay", 
-        "crystal_sanctuary_miniboss"
+        "crystal_sanctuary_miniboss", 
+        "crystal_sanctuary_boss"
       ], 
       "Maps": [
         [
@@ -1130,7 +1136,8 @@
       "Grounds": [
         "forgotten_marsh_entrance", 
         "forgotten_marsh_relay", 
-        "forgotten_marsh_miniboss"
+        "forgotten_marsh_miniboss", 
+        "forgotten_marsh_boss"
       ], 
       "Maps": [
         [
@@ -1213,7 +1220,8 @@
         "celestial_peak_entrance", 
         "celestial_peak_relay", 
         "celestial_peak_fulgur", 
-        "autel_celeste"
+        "autel_celeste", 
+        "celestial_peak_boss"
       ], 
       "Maps": [
         [
