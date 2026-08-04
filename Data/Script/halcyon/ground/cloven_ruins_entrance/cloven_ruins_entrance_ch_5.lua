@@ -1015,8 +1015,125 @@ function cloven_ruins_entrance_ch_5.Acte6(hero, partner, plum, t)
   Pense(hero, 'CR5_A52', "Happy")
   Silence(20)
 
+  -- ================================================================
+  -- LA VEILLEE — Ganlon imite Tornadus, Phileas sermonne, puis les
+  -- histoires de Phileas avant le coucher. Tout le monde reagit, en
+  -- decale, chacun son caractere.
+  -- ================================================================
+  -- Ganlon se moque du gardien (running gag post-victoire). Il se leve
+  -- un peu, imite la grosse voix, mime le coup d'aile.
+  if t.ganlon ~= nil then
+    pcall(function()
+      GROUND:CharAnimateTurnTo(t.ganlon, Direction.Up, 4)
+      GROUND:CharSetEmote(t.ganlon, "exclaim", 1)
+    end)
+    Says(t.ganlon, "Joyous", 'CR5_V01', {t.shuca, t.coco, t.rin})
+    Silence(14)
+    -- Shuca ne peut pas s'empecher de rire ; Coco pouffe aussi.
+    ReactAll({ {t.shuca, "Happy"}, {t.coco, "Happy"}, {t.rin, "Sweating"} })
+    Says(t.ganlon, "Joyous", 'CR5_V02', {t.shuca, t.coco})
+    Silence(12)
+    ReactAll({ {t.shuca, "Happy"}, {t.kino, "Happy"}, {t.almotz, "Happy"} })
+    Silence(14)
+  end
+
+  -- PHILEAS S'ARRÊTE. Le rire retombe d'un coup : personne ne rit plus
+  -- quand il reprend la parole sur ce ton.
+  if t.phileas ~= nil then
+    pcall(function()
+      GROUND:CharAnimateTurnTo(t.phileas, Direction.Down, 6)
+      GROUND:CharSetEmote(t.phileas, "", 0)
+    end)
+    Says(t.phileas, "Angry", 'CR5_V03', {t.ganlon, t.shuca, t.coco})
+    Silence(16)
+    -- Ganlon se deflate. Il baisse les yeux, la voix lui manque.
+    if t.ganlon ~= nil then
+      pcall(function() GROUND:CharSetEmote(t.ganlon, "sweating", 1) end)
+      Says(t.ganlon, "Sigh", 'CR5_V04', {t.phileas})
+      Silence(12)
+    end
+    Says(t.phileas, "Normal", 'CR5_V05', {t.ganlon, partner, hero})
+    Silence(18)
+  end
+
+  -- Le duo est trouble : on l'a tous cru battu.
+  Says(partner, "Surprised", 'CR5_V06', {hero, t.phileas})
+  Silence(14)
+  Pense(hero, 'CR5_V24', "Worried")
+  Silence(16)
+
+  -- PHILEAS REVELE LA VERITE SUR TORNADUS.
+  if t.phileas ~= nil then
+    pcall(function() GAME:MoveCamera(t.phileas.Position.X, t.phileas.Position.Y, 50, false) end)
+    Says(t.phileas, "Worried", 'CR5_V07', {partner, hero, t.ganlon})
+    Silence(18)
+    Says(t.phileas, "Normal", 'CR5_V08', {partner, t.penticus})
+    Silence(18)
+    Says(t.phileas, "Determined", 'CR5_V09', {t.ganlon, partner})
+    Silence(20)
+    -- Le silence, puis Ganlon, penaud.
+    if t.ganlon ~= nil then
+      pcall(function() GROUND:CharSetEmote(t.ganlon, "sweating", 1) end)
+      Says(t.shuca, "Sigh", 'CR5_V10', {t.ganlon})
+      Silence(12)
+      ReactAll({ {t.ganlon, "Sweating"}, {t.coco, "Sigh"} })
+    end
+  end
+
+  -- PHILEAS ADOUCIT LE TON : c'est l'heure des histoires.
+  if t.phileas ~= nil then
+    pcall(function()
+      GROUND:CharAnimateTurnTo(t.phileas, Direction.Down, 6)
+      GeneralFunctions.SetEmotion("Happy")
+    end)
+    Says(t.phileas, "Happy", 'CR5_V11', {partner, hero, t.rin})
+    Silence(16)
+    -- LA LEGENDE : 16 ans plus tot, la catastrophe temporelle.
+    pcall(function()
+      GAME:MoveCamera(CX, CY, 60, false)
+      GROUND:CharAnimateTurnTo(t.phileas, Direction.Down, 6)
+    end)
+    GAME:WaitFrames(20)
+    Says(t.phileas, "Normal", 'CR5_V12', {partner, hero, t.rin, t.coco})
+    Silence(20)
+    Says(partner, "Surprised", 'CR5_V13', {t.phileas})
+    Silence(14)
+    Says(t.phileas, "Determined", 'CR5_V14', {partner, hero})
+    Silence(20)
+    -- Le partenaire, bouche beee, pose LA question.
+    Says(partner, "Worried", 'CR5_V15', {t.phileas})
+    Silence(16)
+    Says(t.phileas, "Determined", 'CR5_V16', {partner, hero})
+    Silence(22)
+    -- L'AUTRE LEGENDE : Rescue Team et Rayquaza.
+    Says(t.phileas, "Normal", 'CR5_V17', {partner, t.kino, t.reinier})
+    Silence(20)
+    Says(t.kino, "Joyous", 'CR5_V18', {t.phileas, t.reinier})
+    Silence(14)
+    Says(t.phileas, "Normal", 'CR5_V19', {partner, hero, t.kino})
+    Silence(24)
+
+    -- LE SILENCE. Le feu crepite. Tout le monde encaisse.
+    pcall(function() GAME:MoveCamera(CX, CY, 1, false) end)
+    Silence(30)
+    Narre('CR5_V20')
+    Silence(35)
+  end
+
+  -- PHILEAS RAPPROCHE LE CAMP : il est temps de dormir.
+  if t.phileas ~= nil then
+    pcall(function() GROUND:CharAnimateTurnTo(t.phileas, Direction.Down, 6) end)
+    Says(t.phileas, "Normal", 'CR5_V21', {partner, hero, t.rin, t.coco})
+    Silence(18)
+    Says(partner, "Happy", 'CR5_V22', {t.phileas})
+    Silence(16)
+    Says(t.phileas, "Happy", 'CR5_V23', {partner, hero})
+    Silence(20)
+  end
+
   cloven_ruins_entrance_ch_5.Acte7(hero, partner, plum, t)
 end
+
 
 
 -- ==================================================================

@@ -199,4 +199,100 @@
   <data name="CR5_ENTREE_P5" xml:space="preserve">
     <value>[...] (Phileas et Penticus échangent un regard,[pause=10] puis s'inclinent vers l'entrée.)</value>
   </data>
+
+  <data name="CR5_V01" xml:space="preserve">
+    <value>Et alors,[pause=10] le vent s'est LEVÉ,[pause=15] et j'ai fait—[pause=0] «[pause=5] WOOOOSH ![pause=5] »[pause=20] Le ciel entier a hurlé ![pause=10] Et moi,[pause=10] tranquille,[pause=10] au milieu.[pause=0] «[pause=5] Je suis le Souffle qui garde la cime ![pause=5] »</value>
+  </data>
+
+  <data name="CR5_V02" xml:space="preserve">
+    <value>Tu as VU le Souffle qui garde la cime se faire dégommer par un coup de corne ?[pause=15] HONNÊTEMENT,[pause=10] je l'aurais pas fait,[pause=10] même en rêve.</value>
+  </data>
+
+  <data name="CR5_V03" xml:space="preserve">
+    <value>GANLON.[pause=25] Ça suffit.[pause=20] C'est un LÉGENDAIRE,[pause=10] pas un épouvantail pour tes blagues.</value>
+  </data>
+
+  <data name="CR5_V04" xml:space="preserve">
+    <value>Mais enfin,[pause=10] Phileas,[pause=15] on l'a BATTU ![pause=10] Il a pris la poudre d'escampette,[pause=10] et c'est nous qui—</value>
+  </data>
+
+  <data name="CR5_V05" xml:space="preserve">
+    <value>Vous l'avez battu ?[pause=25] NON.[pause=20] Vous l'avez fait renoncer.[pause=0] Et encore.[pause=15] Parce qu'il l'a décidé.[pause=10] Pas parce que vous étiez plus forts.</value>
+  </data>
+
+  <data name="CR5_V06" xml:space="preserve">
+    <value>Attends...[pause=20] Tu veux dire qu'il aurait pu...?[pause=15] Mais on l'a vu vaciller,[pause=10] tomber à genoux—</value>
+  </data>
+
+  <data name="CR5_V07" xml:space="preserve">
+    <value>Il retenait ses coups.[pause=20] Tu as vu comme il te décochait ses rafales ?[pause=15] Chacune t'a porté,[pause=10] mais AUCUNE ne t'a brisé.[pause=0] Un vrai Tornadus,[pause=10] ça ne vise pas le corps.[pause=0] Ça vise la MONTAGNE.</value>
+  </data>
+
+  <data name="CR5_V08" xml:space="preserve">
+    <value>Et ce n'était même pas sa vraie forme.[pause=25] Le Tornadus des anciens textes,[pause=10] celui qui fend les nuages d'un seul coup d'aile,[pause=15] il ne s'est jamais montré à nous.[pause=0] Nous avons vu une colère contenue.[pause=10] Un avertissement.</value>
+  </data>
+
+  <data name="CR5_V09" xml:space="preserve">
+    <value>Alors oui,[pause=10] riez.[pause=20] Moi,[pause=10] ce soir,[pause=10] je me dis une chose :[pause=15] s'il avait voulu,[pause=10] nous serions encore à mi-pente,[pause=10] à réapprendre à marcher dans le vent.</value>
+  </data>
+
+  <data name="CR5_V10" xml:space="preserve">
+    <value>...Ça y est,[pause=15] tu as fichu la trouille à tout le monde,[pause=10] Ganlon.[pause=0] Bravo.</value>
+  </data>
+
+  <data name="CR5_V11" xml:space="preserve">
+    <value>Hou...[pause=20] J'ai peut-être été un peu loin.[pause=10] Mais c'est pour ça que j'aime ces veillées,[pause=15] tu sais ?[pause=0] Le feu,[pause=10] les rires,[pause=10] et puis...[pause=20] une bonne histoire pour terminer la journée.</value>
+  </data>
+
+  <data name="CR5_V12" xml:space="preserve">
+    <value>D'ailleurs,[pause=20] puisque je parle de légendes...[pause=25] laissez-moi vous raconter quelque chose que peu connaissent.[pause=0] Il y a seize ans,[pause=15] un héros a sauvé notre monde.[pause=0] Pas un champion,[pause=10] pas un roi.[pause=10] Un simple explorateur.[pause=10] Comme vous.</value>
+  </data>
+
+  <data name="CR5_V13" xml:space="preserve">
+    <value>Seize ans ?[pause=20] Mais...[pause=15] C'est l'année où—[pause=10] la grande catastrophe ?</value>
+  </data>
+
+  <data name="CR5_V14" xml:space="preserve">
+    <value>Exactement.[pause=20] La catastrophe temporelle.[pause=15] Le temps lui-même s'était déchiré,[pause=10] et le monde allait s'y engloutir.[pause=0] Et face à ça,[pause=15] il n'y avait qu'une équipe.[pause=10] Une équipe d'exploration.[pause=10] Deux Pokémon.[pause=15] Et leur fidélité l'un envers l'autre.</value>
+  </data>
+
+  <data name="CR5_V15" xml:space="preserve">
+    <value>Deux Pokémon seulement ?[pause=20] Contre la fin du temps ?[pause=15] C'est...[pause=10] c'est fou,[pause=10] non ?</value>
+  </data>
+
+  <data name="CR5_V16" xml:space="preserve">
+    <value>C'est ce qu'on appelle une équipe.[pause=20] Le héros portait la clé.[pause=10] Son partenaire portait la foi.[pause=0] Et le temps,[pause=15] qui n'avait jamais plié devant personne,[pause=20] a fini par céder.[pause=0] Devant deux cœurs qui refusaient de lâcher prise.</value>
+  </data>
+
+  <data name="CR5_V17" xml:space="preserve">
+    <value>Et il y en a eu une autre,[pause=15] vous savez ?[pause=0] Quelques années plus tôt.[pause=15] Une équipe de secours.[pause=10] Un héros,[pause=10] un partenaire,[pause=10] et une créature qui tombait du ciel.[pause=0] Rayquaza.[pause=20] Le maître du ciel lui-même s'est allié à eux.[pause=0] Pour arrêter une étoile qui menaçait d'écraser le monde.</value>
+  </data>
+
+  <data name="CR5_V18" xml:space="preserve">
+    <value>Rayquaza ?![pause=20] LE Rayquaza ?[pause=15] Le serpent de jade qui vit au-delà des nuages ?!</value>
+  </data>
+
+  <data name="CR5_V19" xml:space="preserve">
+    <value>Lui-même.[pause=20] On dit que ce jour-là,[pause=10] le ciel a parlé.[pause=0] Et que Rayquaza,[pause=15] qui n'avait jamais répondu à personne,[pause=20] a répondu à une équipe de deux inconnus.[pause=0] Parce qu'ils portaient en eux quelque chose qu'il avait reconnu.</value>
+  </data>
+
+  <data name="CR5_V20" xml:space="preserve">
+    <value>[...] (Le feu crépite.[pause=15] Personne ne parle.[pause=15] On entend seulement le vent.)</value>
+  </data>
+
+  <data name="CR5_V21" xml:space="preserve">
+    <value>Allez.[pause=25] Assez de bavardage.[pause=10] L'histoire est belle,[pause=15] mais demain nous descendons.[pause=0] Il faut dormir,[pause=10] les enfants.</value>
+  </data>
+
+  <data name="CR5_V22" xml:space="preserve">
+    <value>...Bonne nuit,[pause=10] Phileas.[pause=20] Et merci.[pause=0] Pour les histoires.</value>
+  </data>
+
+  <data name="CR5_V23" xml:space="preserve">
+    <value>Bonne nuit.[pause=20] Et retenez bien ceci :[pause=15] les vraies équipes ne sont pas celles qui gagnent le plus.[pause=0] Ce sont celles qui,[pause=10] la veille du dernier jour,[pause=10] se racontent encore des histoires autour du feu.[pause=15] Dors bien.</value>
+  </data>
+
+  <data name="CR5_V24" xml:space="preserve">
+    <value>(Il nous a laissés gagner.[pause=20] Non...[pause=10] il nous a laissés continuer.[pause=0] La différence,[pause=10] ce soir,[pause=10] je la comprends.)</value>
+  </data>
 </root>

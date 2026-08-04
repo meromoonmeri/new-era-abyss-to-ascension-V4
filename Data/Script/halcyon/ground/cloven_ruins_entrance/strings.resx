@@ -199,4 +199,100 @@
   <data name="CR5_ENTREE_P5" xml:space="preserve">
     <value>[...] (Phileas and Penticus exchange a glance,[pause=10] then bow toward the entrance.)</value>
   </data>
+
+  <data name="CR5_V01" xml:space="preserve">
+    <value>And then,[pause=10] the wind ROSE,[pause=15] and I went—[pause=0] "[pause=5] WOOOOSH ![pause=5] "[pause=20] The whole sky howled ![pause=10] And me,[pause=10] calm,[pause=10] right in the middle.[pause=0] "[pause=5] I am the Breath that guards the peak ![pause=5] "</value>
+  </data>
+
+  <data name="CR5_V02" xml:space="preserve">
+    <value>Did you SEE the Breath that guards the peak get taken down by a headbutt?[pause=15] HONESTLY,[pause=10] I would not have done that,[pause=10] even in a dream.</value>
+  </data>
+
+  <data name="CR5_V03" xml:space="preserve">
+    <value>GANLON.[pause=25] That is enough.[pause=20] It is a LEGENDARY,[pause=10] not a scarecrow for your jokes.</value>
+  </data>
+
+  <data name="CR5_V04" xml:space="preserve">
+    <value>But come on,[pause=10] Phileas,[pause=15] we BEAT him ![pause=10] He ran off,[pause=10] and it is us who—</value>
+  </data>
+
+  <data name="CR5_V05" xml:space="preserve">
+    <value>You beat him?[pause=25] NO.[pause=20] You made him give up.[pause=0] And even then.[pause=15] Because HE decided it.[pause=10] Not because you were stronger.</value>
+  </data>
+
+  <data name="CR5_V06" xml:space="preserve">
+    <value>Wait...[pause=20] You mean he could have...?[pause=15] But we saw him stagger,[pause=10] fall to his knees—</value>
+  </data>
+
+  <data name="CR5_V07" xml:space="preserve">
+    <value>He was holding back.[pause=20] Did you see how he flung his gusts at you?[pause=15] Each one reached you,[pause=10] but NONE broke you.[pause=0] A true Tornadus does not aim at the body.[pause=0] It aims at the MOUNTAIN.</value>
+  </data>
+
+  <data name="CR5_V08" xml:space="preserve">
+    <value>And that was not even his true form.[pause=25] The Tornadus of the old texts,[pause=10] the one that splits clouds with a single wingbeat,[pause=15] he never showed himself to us.[pause=0] We saw a contained anger.[pause=10] A warning.</value>
+  </data>
+
+  <data name="CR5_V09" xml:space="preserve">
+    <value>So yes,[pause=10] laugh.[pause=20] Me,[pause=10] tonight,[pause=10] I tell myself one thing :[pause=15] if he had wanted,[pause=10] we would still be halfway up the slope,[pause=10] learning to walk in the wind again.</value>
+  </data>
+
+  <data name="CR5_V10" xml:space="preserve">
+    <value>...There you go,[pause=15] you scared everyone,[pause=10] Ganlon.[pause=0] Well done.</value>
+  </data>
+
+  <data name="CR5_V11" xml:space="preserve">
+    <value>Hoo...[pause=20] Maybe I went a bit far.[pause=10] But that is why I love these gatherings,[pause=15] you know?[pause=0] The fire,[pause=10] the laughter,[pause=10] and then...[pause=20] a good story to end the day.</value>
+  </data>
+
+  <data name="CR5_V12" xml:space="preserve">
+    <value>Speaking of legends...[pause=20] let me tell you something few know.[pause=0] Sixteen years ago,[pause=15] a hero saved our world.[pause=0] Not a champion,[pause=10] not a king.[pause=10] A simple explorer.[pause=10] Like you.</value>
+  </data>
+
+  <data name="CR5_V13" xml:space="preserve">
+    <value>Sixteen years?[pause=20] But...[pause=15] That is the year when—[pause=10] the great catastrophe?</value>
+  </data>
+
+  <data name="CR5_V14" xml:space="preserve">
+    <value>Exactly.[pause=20] The temporal catastrophe.[pause=15] Time itself had torn apart,[pause=10] and the world was about to sink into it.[pause=0] And facing that,[pause=15] there was only one team.[pause=10] An exploration team.[pause=10] Two Pokemon.[pause=15] And their loyalty to each other.</value>
+  </data>
+
+  <data name="CR5_V15" xml:space="preserve">
+    <value>Only two Pokemon?[pause=20] Against the end of time?[pause=15] That is...[pause=10] that is crazy,[pause=10] right?</value>
+  </data>
+
+  <data name="CR5_V16" xml:space="preserve">
+    <value>That is what a team is.[pause=20] The hero carried the key.[pause=10] His partner carried the faith.[pause=0] And time,[pause=15] which had never bowed to anyone,[pause=20] finally gave way.[pause=0] Before two hearts that refused to let go.</value>
+  </data>
+
+  <data name="CR5_V17" xml:space="preserve">
+    <value>And there was another,[pause=15] you know?[pause=0] A few years earlier.[pause=15] A rescue team.[pause=10] A hero,[pause=10] a partner,[pause=10] and a creature that fell from the sky.[pause=0] Rayquaza.[pause=20] The master of the sky himself allied with them.[pause=0] To stop a star that threatened to crush the world.</value>
+  </data>
+
+  <data name="CR5_V18" xml:space="preserve">
+    <value>Rayquaza ?![pause=20] THE Rayquaza?[pause=15] The jade serpent who lives beyond the clouds?!</value>
+  </data>
+
+  <data name="CR5_V19" xml:space="preserve">
+    <value>Himself.[pause=20] They say that day,[pause=10] the sky spoke.[pause=0] And Rayquaza,[pause=15] who had never answered anyone,[pause=20] answered a team of two strangers.[pause=0] Because they carried within them something he had recognized.</value>
+  </data>
+
+  <data name="CR5_V20" xml:space="preserve">
+    <value>[...] (The fire crackles.[pause=15] No one speaks.[pause=15] Only the wind is heard.)</value>
+  </data>
+
+  <data name="CR5_V21" xml:space="preserve">
+    <value>Come on.[pause=25] Enough chatter.[pause=10] The story is beautiful,[pause=15] but tomorrow we descend.[pause=0] Time to sleep,[pause=10] children.</value>
+  </data>
+
+  <data name="CR5_V22" xml:space="preserve">
+    <value>...Good night,[pause=10] Phileas.[pause=20] And thank you.[pause=0] For the stories.</value>
+  </data>
+
+  <data name="CR5_V23" xml:space="preserve">
+    <value>Good night.[pause=20] And remember this :[pause=15] the true teams are not the ones who win the most.[pause=0] They are the ones who,[pause=10] the eve of the last day,[pause=10] still tell each other stories around the fire.[pause=15] Sleep well.</value>
+  </data>
+
+  <data name="CR5_V24" xml:space="preserve">
+    <value>(He let us win.[pause=20] No...[pause=10] he let us continue.[pause=0] The difference,[pause=10] tonight,[pause=10] I understand it.)</value>
+  </data>
 </root>

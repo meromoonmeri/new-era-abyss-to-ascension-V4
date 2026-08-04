@@ -300,9 +300,9 @@
           },
           "Value": {
            "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-           "GroundTileset": "western_cave_1_floor",
-           "BlockTileset": "western_cave_1_wall",
-           "WaterTileset": "western_cave_1_secondary",
+           "GroundTileset": "crystal_cave_1_floor",
+           "BlockTileset": "crystal_cave_1_wall",
+           "WaterTileset": "crystal_cave_1_secondary",
            "LayeredGround": false,
            "IndependentGround": false,
            "GroundElement": "rock"
@@ -1229,9 +1229,9 @@
           },
           "Value": {
            "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-           "GroundTileset": "western_cave_1_floor",
-           "BlockTileset": "western_cave_1_wall",
-           "WaterTileset": "western_cave_1_secondary",
+           "GroundTileset": "rock_maze_floor",
+           "BlockTileset": "rock_maze_wall",
+           "WaterTileset": "rock_maze_secondary",
            "LayeredGround": false,
            "IndependentGround": false,
            "GroundElement": "rock"
@@ -2158,9 +2158,9 @@
           },
           "Value": {
            "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-           "GroundTileset": "western_cave_1_floor",
-           "BlockTileset": "western_cave_1_wall",
-           "WaterTileset": "western_cave_1_secondary",
+           "GroundTileset": "steel_aegis_cave_floor",
+           "BlockTileset": "steel_aegis_cave_wall",
+           "WaterTileset": "steel_aegis_cave_secondary",
            "LayeredGround": false,
            "IndependentGround": false,
            "GroundElement": "rock"
@@ -3087,9 +3087,9 @@
           },
           "Value": {
            "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-           "GroundTileset": "western_cave_1_floor",
-           "BlockTileset": "western_cave_1_wall",
-           "WaterTileset": "western_cave_1_secondary",
+           "GroundTileset": "concealed_ruins_floor",
+           "BlockTileset": "concealed_ruins_wall",
+           "WaterTileset": "concealed_ruins_floor",
            "LayeredGround": false,
            "IndependentGround": false,
            "GroundElement": "rock"
