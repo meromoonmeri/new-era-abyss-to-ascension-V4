@@ -1,4 +1,4 @@
-﻿{
+{
  "Version": "0.8.9.0",
  "Object": {
   "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -3390,7 +3390,6 @@
   "GroundMaps": [
    "gloomy_forest_entrance",
    "gloomy_forest_midpoint",
-   "gloomy_forest_boss",
    "gloomy_forest_miniboss"
   ]
  }

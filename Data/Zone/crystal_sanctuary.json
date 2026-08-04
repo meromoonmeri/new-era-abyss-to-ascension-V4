@@ -1,4 +1,4 @@
-﻿{
+{
  "Version": "0.8.9.0",
  "Object": {
   "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -2133,7 +2133,6 @@
   "GroundMaps": [
    "crystal_sanctuary_entrance",
    "crystal_sanctuary_relay",
-   "crystal_sanctuary_boss",
    "crystal_sanctuary_miniboss"
   ]
  }

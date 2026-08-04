@@ -1,4 +1,4 @@
-﻿{
+{
  "Version": "0.8.9.0",
  "Object": {
   "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -2133,7 +2133,6 @@
   "GroundMaps": [
    "forgotten_marsh_entrance",
    "forgotten_marsh_relay",
-   "forgotten_marsh_boss",
    "forgotten_marsh_miniboss"
   ]
  }
