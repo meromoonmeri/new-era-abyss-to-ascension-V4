@@ -1,4 +1,4 @@
-﻿{
+{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Dungeon.Map, RogueEssence",
@@ -428,7 +428,7 @@
       }
     },
     "BlankBG": {
-      "AutoTileset": "concealed_ruins_wall",
+      "AutoTileset": "murky_cave_wall",
       "Associates": [],
       "Layers": [],
       "NeighborCode": -1
@@ -2450,7 +2450,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -2472,7 +2472,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -2494,7 +2494,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -2516,7 +2516,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -2538,7 +2538,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -2560,7 +2560,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -2582,7 +2582,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -2604,7 +2604,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -2626,7 +2626,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -2648,7 +2648,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -2670,7 +2670,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -2692,7 +2692,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -2714,7 +2714,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -2736,7 +2736,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -2758,7 +2758,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -2780,7 +2780,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -2802,7 +2802,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -2824,7 +2824,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -2848,7 +2848,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -2870,7 +2870,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -2892,7 +2892,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -2914,7 +2914,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -2936,7 +2936,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -2958,7 +2958,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -2980,7 +2980,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3002,7 +3002,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3024,7 +3024,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3046,7 +3046,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3068,7 +3068,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3090,7 +3090,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3112,7 +3112,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3134,7 +3134,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3156,7 +3156,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3178,7 +3178,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3200,7 +3200,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3222,7 +3222,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3246,7 +3246,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3268,7 +3268,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3290,7 +3290,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3312,7 +3312,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 127
@@ -3334,7 +3334,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -3356,7 +3356,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -3378,7 +3378,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -3400,7 +3400,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -3422,7 +3422,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -3444,7 +3444,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -3466,7 +3466,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -3488,7 +3488,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -3510,7 +3510,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -3532,7 +3532,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -3554,7 +3554,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -3576,7 +3576,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 191
@@ -3598,7 +3598,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -3620,7 +3620,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3644,7 +3644,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3666,7 +3666,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3688,7 +3688,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -3710,7 +3710,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 110
@@ -3732,7 +3732,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 137
@@ -3754,7 +3754,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -3776,7 +3776,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -3798,7 +3798,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -3820,7 +3820,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -3842,7 +3842,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -3864,7 +3864,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -3886,7 +3886,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -3908,7 +3908,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -3930,7 +3930,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -3952,7 +3952,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 76
@@ -3974,7 +3974,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -3996,7 +3996,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4018,7 +4018,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4042,7 +4042,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4064,7 +4064,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4086,7 +4086,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 127
@@ -4108,7 +4108,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 294
@@ -4130,7 +4130,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -4152,7 +4152,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4174,7 +4174,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4196,7 +4196,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4218,7 +4218,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4240,7 +4240,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4262,7 +4262,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4284,7 +4284,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4306,7 +4306,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4328,7 +4328,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4350,7 +4350,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 110
@@ -4372,7 +4372,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -4394,7 +4394,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4416,7 +4416,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4440,7 +4440,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4462,7 +4462,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4484,7 +4484,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 366
@@ -4506,7 +4506,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 137
@@ -4528,7 +4528,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 223
@@ -4550,7 +4550,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4572,7 +4572,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4594,7 +4594,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4616,7 +4616,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4638,7 +4638,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4660,7 +4660,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4682,7 +4682,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4704,7 +4704,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4726,7 +4726,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4748,7 +4748,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 110
@@ -4770,7 +4770,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -4792,7 +4792,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4814,7 +4814,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4838,7 +4838,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4860,7 +4860,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4882,7 +4882,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 110
@@ -4904,7 +4904,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -4926,7 +4926,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4948,7 +4948,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -4970,7 +4970,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -4992,7 +4992,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5014,7 +5014,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5036,7 +5036,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5058,7 +5058,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5080,7 +5080,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5102,7 +5102,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5124,7 +5124,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5146,7 +5146,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 110
@@ -5168,7 +5168,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -5190,7 +5190,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5212,7 +5212,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5236,7 +5236,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5258,7 +5258,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5280,7 +5280,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 622
@@ -5302,7 +5302,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -5324,7 +5324,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5346,7 +5346,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5368,7 +5368,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5390,7 +5390,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5412,7 +5412,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5434,7 +5434,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5456,7 +5456,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5478,7 +5478,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5500,7 +5500,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5522,7 +5522,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5544,7 +5544,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 110
@@ -5566,7 +5566,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -5588,7 +5588,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5610,7 +5610,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5634,7 +5634,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5656,7 +5656,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5678,7 +5678,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 110
@@ -5700,7 +5700,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -5722,7 +5722,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5744,7 +5744,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5766,7 +5766,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5788,7 +5788,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5810,7 +5810,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5832,7 +5832,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5854,7 +5854,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -5876,7 +5876,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5898,7 +5898,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5920,7 +5920,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -5942,7 +5942,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 110
@@ -5964,7 +5964,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -5986,7 +5986,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6008,7 +6008,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6032,7 +6032,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6054,7 +6054,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6076,7 +6076,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 366
@@ -6098,7 +6098,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 19
@@ -6120,7 +6120,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 191
@@ -6142,7 +6142,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6164,7 +6164,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6186,7 +6186,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6208,7 +6208,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6230,7 +6230,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6252,7 +6252,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6274,7 +6274,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6296,7 +6296,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6318,7 +6318,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6340,7 +6340,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 110
@@ -6362,7 +6362,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -6384,7 +6384,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6406,7 +6406,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6430,7 +6430,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6452,7 +6452,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6474,7 +6474,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 239
@@ -6496,7 +6496,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 588
@@ -6518,7 +6518,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -6540,7 +6540,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6562,7 +6562,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6584,7 +6584,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6606,7 +6606,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6628,7 +6628,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6650,7 +6650,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6672,7 +6672,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6694,7 +6694,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6716,7 +6716,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6738,7 +6738,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 110
@@ -6760,7 +6760,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -6782,7 +6782,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6804,7 +6804,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6828,7 +6828,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6850,7 +6850,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -6872,7 +6872,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -6894,7 +6894,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 622
@@ -6916,7 +6916,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 19
@@ -6938,7 +6938,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -6960,7 +6960,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -6982,7 +6982,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -7004,7 +7004,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -7026,7 +7026,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -7048,7 +7048,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -7070,7 +7070,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -7092,7 +7092,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -7114,7 +7114,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 55
@@ -7136,7 +7136,7 @@
           "Data": {
             "ID": "floor",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_floor",
+              "AutoTileset": "murky_cave_floor",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 38
@@ -7158,7 +7158,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 155
@@ -7180,7 +7180,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7202,7 +7202,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7226,7 +7226,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7248,7 +7248,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7270,7 +7270,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7292,7 +7292,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 239
@@ -7314,7 +7314,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -7336,7 +7336,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -7358,7 +7358,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -7380,7 +7380,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -7402,7 +7402,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -7424,7 +7424,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -7446,7 +7446,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -7468,7 +7468,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -7490,7 +7490,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -7512,7 +7512,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -7534,7 +7534,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 205
@@ -7556,7 +7556,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 223
@@ -7578,7 +7578,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7600,7 +7600,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7624,7 +7624,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7646,7 +7646,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7668,7 +7668,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7690,7 +7690,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7712,7 +7712,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7734,7 +7734,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7756,7 +7756,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7778,7 +7778,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7800,7 +7800,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7822,7 +7822,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7844,7 +7844,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7866,7 +7866,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7888,7 +7888,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7910,7 +7910,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7932,7 +7932,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7954,7 +7954,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -7976,7 +7976,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -7998,7 +7998,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8022,7 +8022,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8044,7 +8044,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8066,7 +8066,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8088,7 +8088,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8110,7 +8110,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8132,7 +8132,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8154,7 +8154,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8176,7 +8176,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8198,7 +8198,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8220,7 +8220,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8242,7 +8242,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8264,7 +8264,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8286,7 +8286,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8308,7 +8308,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8330,7 +8330,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8352,7 +8352,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
@@ -8374,7 +8374,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 255
@@ -8396,7 +8396,7 @@
           "Data": {
             "ID": "unbreakable",
             "TileTex": {
-              "AutoTileset": "concealed_ruins_wall",
+              "AutoTileset": "murky_cave_wall",
               "Associates": [],
               "Layers": [],
               "NeighborCode": 511
