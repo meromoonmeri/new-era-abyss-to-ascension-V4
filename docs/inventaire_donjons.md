@@ -108,7 +108,7 @@
 
 ---
 
-## 4. PROPOSITION DU ROSTER DES DONJONS SECONDAIRES POUR LE CHAPITRE 12 — L'ARC FUGITIF (POUR VALIDATION)
+## 4. ROSTER DES DONJONS SECONDAIRES POUR LE CHAPITRE 12 — L'ARC FUGITIF (GÉNÉRÉS ET VALIDÉS)
 
 > **Contexte Narratif (Chapitre 12)** :  
 > Toujours traqués dans les terres désolées du nord après les révélations de la Tour Céleste, le Héros et son Partenaire traversent des reliefs de plus en plus extrêmes, entre cendres volcaniques, failles glaciaires et marais tourbeux.  
@@ -124,5 +124,26 @@
 | **`frozen_rift`** | **Faille Gelée** | **24 ét.** | Faille Glaciale → Caverne Cristal de Glace | **25 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 8 (`frozen_rift_mb1.rsmap`)** : Grelaçon le Gel<br>• **Ét. 16 (`frozen_rift_mb2.rsmap`)** : Hexagel le Cristal<br>• **Ét. 24 (`frozen_rift_boss.rsmap`)** : Séracrawl le Roc Glacé | `frozen_rift_relay.rsground` (Biome Glacial) |
 | **`whispering_crag`** | **Crête Chuchotante** | **23 ét.** | Crête Rocheuse → Sommet Venté | **24 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 7 (`whispering_crag_mb1.rsmap`)** : Aéromite l'Écho<br>• **Ét. 15 (`whispering_crag_mb2.rsmap`)** : Guériaigle le Vent<br>• **Ét. 23 (`whispering_crag_boss.rsmap`)** : Corvaillus l'Acier | `whispering_crag_relay.rsground` (Biome Crête) |
 | **`twilight_marsh`** | **Marais Crépusculaire** | **25 ét.** | Marais Sombres → Bois Tourbeux | **26 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 8 (`twilight_marsh_mb1.rsmap`)** : Crapustule la Tourbe<br>• **Ét. 16 (`twilight_marsh_mb2.rsmap`)** : Bourrinos le Boue<br>• **Ét. 25 (`twilight_marsh_boss.rsmap`)** : Bourrinos la Tourbe | `twilight_marsh_relay.rsground` (Biome Marais) |
+
+---
+
+---
+
+## 5. PROPOSITION DU ROSTER DES DONJONS SECONDAIRES POUR LE CHAPITRE 13 — L'ARC DE LA BRUME DU NORD (POUR VALIDATION)
+
+> **Contexte Narratif (Chapitre 13)** :  
+> Le Héros et son Partenaire s'enfoncent plus profondément dans les terres glaciales et brumeuses du Nord. Les conditions d'exploration deviennent extrêmes, nécessitant une synergie parfaite.  
+> **Respect du Framework (§1, §9)** :
+> - **22 à 25 étages d'exploration** par donjon (2 segments de biome, scaling de niveau Lv 42-58, 20 à 50 espèces sauvages vérifiées dans `Content/Chara/`).
+> - **3 arènes d'étage `.rsmap` intégrées** par donjon (aucun ground `.rsground` indépendant pour les boss).
+> - **Zéro concept de Temps ou d'Espace** dans les donjons secondaires.
+> - **Relais Kangourex** au modèle `searing_tunnel_midpoint` adapté au biome.
+
+| Identifiant (`ID`) | Nom Français | Total Étages | Biomes (Seg 1 → Seg 2) | Espèces Sauvages (`20-50/donjon`, Lv 42-58) | Les 3 Arènes d'Étage (`.rsmap` intégrées, adaptées au biome) | Relais (Modèle Tunnel Incandescent + Kangourex) |
+| :--- | :--- | :---: | :--- | :--- | :--- | :--- |
+| **`shivering_cavern`** | **Caverne Grelottante** | **22 ét.** | Grotte Givre → Caverne Frisson | **26 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 7 (`shivering_cavern_mb1.rsmap`)** : Momartik le Souffle<br>• **Ét. 14 (`shivering_cavern_mb2.rsmap`)** : Blizzarroi le Givre<br>• **Ét. 22 (`shivering_cavern_boss.rsmap`)** : Blizzarroi le Gel Éternel | `shivering_cavern_relay.rsground` (Biome Givre) |
+| **`tempest_ridge`** | **Crête de la Tempête** | **24 ét.** | Crête Orage → Sommet Foudre | **25 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 8 (`tempest_ridge_mb1.rsmap`)** : Élekable l'Éclair<br>• **Ét. 16 (`tempest_ridge_mb2.rsmap`)** : Magnézone le Flux<br>• **Ét. 24 (`tempest_ridge_boss.rsmap`)** : Fulguris le Tonnerre | `tempest_ridge_relay.rsground` (Biome Tempête) |
+| **`hollow_thicket`** | **Fourré Creux** | **23 ét.** | Forêt Ronce → Sous-Bois Creux | **24 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 7 (`hollow_thicket_mb1.rsmap`)** : Desséliande l'Écorce<br>• **Ét. 15 (`hollow_thicket_mb2.rsmap`)** : Banshitrouye l'Ombre<br>• **Ét. 23 (`hollow_thicket_boss.rsmap`)** : Zarude le Rôdeur | `hollow_thicket_relay.rsground` (Biome Ronce) |
+| **`silent_marsh`** | **Marais Silencieux** | **25 ét.** | Marais Brume → Tourbière Muette | **26 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 8 (`silent_marsh_mb1.rsmap`)** : Muplodocus la Brume<br>• **Ét. 16 (`silent_marsh_mb2.rsmap`)** : Tarpaud le Silence<br>• **Ét. 25 (`silent_marsh_boss.rsmap`)** : Muplodocus de Hisui l'Acier | `silent_marsh_relay.rsground` (Biome Tourbière) |
 
 ---

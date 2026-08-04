@@ -21,7 +21,8 @@ SECONDARY_DUNGEONS = [
     "barren_tundra", "barren_cavern", "cracked_ridge", "suspended_valley",
     "depleted_basin", "wayward_wetlands", "southern_jungle", "submerged_chasm",
     "snowbound_path", "thunderstruck_pass", "flyaway_cliffs", "forgotten_silver_spire",
-    "rainy_ravine", "mossy_gorge", "windswept_trail", "foggy_hollow"
+    "rainy_ravine", "mossy_gorge", "windswept_trail", "foggy_hollow",
+    "ashen_hollow", "frozen_rift", "whispering_crag", "twilight_marsh"
 ]
 
 def load_monster_feature_species():

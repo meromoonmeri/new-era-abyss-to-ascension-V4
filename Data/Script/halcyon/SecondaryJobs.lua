@@ -221,6 +221,43 @@ Sécurisez le sentier pour les voyageurs.",
     flavor = "Un rideau de brume obscure désoriente quiconque s'aventure dans le Creux Brumeux.
 Dissipez cette menace pour ramener la clarté.",
   },
+  {
+    chapter = 12, zone = 'ashen_hollow', segment = 0, floor = 10,
+    client = 'slugma', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'slugma', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'A', reward = 'money',
+    title = "Les cendres du cratère",
+    flavor = "Des boues acides empoisonnent la lave du Creux Cendré au nord des montagnes.
+Une mission de purification est requise.",
+  },
+  {
+    chapter = 12, zone = 'frozen_rift', segment = 0, floor = 12,
+    client = 'snorunt', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'snorunt', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'S', reward = 'money',
+    title = "Le puits de glace",
+    flavor = "Un monarque de glace obstrue le puits thermique de la Faille Gelée.
+Libérez le passage pour faire remonter l'air doux.",
+  },
+  {
+    chapter = 12, zone = 'whispering_crag', segment = 0, floor = 11,
+    client = 'pidgeotto', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'pidgeotto', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'S', reward = 'money',
+    title = "Les ailes d'acier",
+    flavor = "Des tempêtes violentes bloquent la route des oiseaux migrateurs sur la Crête Chuchotante.
+Sécurisez l'espace aérien.",
+  },
+  {
+    chapter = 12, zone = 'twilight_marsh', segment = 0, floor = 12,
+    client = 'wooper', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'wooper', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'A', reward = 'money',
+    title = "La tourbe sombre",
+    flavor = "Les champs de baies du Marais Crépusculaire sont ravagés par un étalon lourd.
+Protégez nos cultures marécageuses.",
+  },
+
 
 }
 
