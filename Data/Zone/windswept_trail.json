@@ -3,16 +3,16 @@
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
     "Name": {
-      "DefaultText": "Sunken Relic",
+      "DefaultText": "Windswept Trail",
       "LocalTexts": {
-        "fr": "Relique Engloutie"
+        "fr": "Piste Venteuse"
       }
     },
     "Released": true,
-    "Comment": "New Era ch6 — Ch6 secondary. Trail of the dried-up Anima. Source rescaled per tier chart.",
+    "Comment": "New Era ch11 — Ch11 secondary: Piste Venteuse",
     "NoEXP": false,
     "ExpPercent": 70,
-    "Level": 19,
+    "Level": 38,
     "LevelCap": false,
     "KeepSkills": false,
     "TeamRestrict": false,
@@ -641,8 +641,8 @@
                 },
                 "Value": {
                   "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                  "GroundTileset": "western_cave_1_floor",
-                  "BlockTileset": "western_cave_1_wall",
+                  "GroundTileset": "mt_horn_floor",
+                  "BlockTileset": "mt_horn_wall",
                   "WaterTileset": "desert_region_secondary",
                   "LayeredGround": false,
                   "IndependentGround": false,
@@ -1035,6 +1035,122 @@
                     "Min": 2,
                     "Max": 4
                   }
+                }
+              },
+              {
+                "$type": "RogueEssence.LevelGen.WonderTileStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                "Priority": {
+                  "str": [
+                    3
+                  ]
+                },
+                "Tile": {
+                  "ID": "tile_wonder",
+                  "Revealed": true,
+                  "Owner": 0,
+                  "TileStates": []
+                },
+                "Count": 3
+              },
+              {
+                "$type": "RogueEssence.LevelGen.TrapStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                "Priority": {
+                  "str": [
+                    3
+                  ]
+                },
+                "Traps": {
+                  "$type": "RogueEssence.LevelGen.SpawnList`1[[RogueEssence.LevelGen.EffectTile, RogueEssence]], RogueEssence",
+                  "spawns": {
+                    "trap_0": {
+                      "Spawn": {
+                        "ID": "trap_trip",
+                        "Revealed": false,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 10
+                    },
+                    "trap_1": {
+                      "Spawn": {
+                        "ID": "trap_mud",
+                        "Revealed": false,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 10
+                    },
+                    "trap_2": {
+                      "Spawn": {
+                        "ID": "trap_hunger",
+                        "Revealed": false,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 5
+                    }
+                  },
+                  "spawnTotal": 25
+                }
+              },
+              {
+                "$type": "RogueEssence.LevelGen.ShopStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                "Priority": {
+                  "str": [
+                    4
+                  ]
+                },
+                "SecurityStatus": "shop_security",
+                "Personality": 0,
+                "StartSpawn": {
+                  "$type": "RogueEssence.LevelGen.MobSpawn, RogueEssence",
+                  "BaseForm": {
+                    "Species": "kecleon",
+                    "Form": 0,
+                    "Skin": "normal",
+                    "Gender": -1
+                  },
+                  "Level": {
+                    "Min": 50,
+                    "Max": 55
+                  },
+                  "SpawnFeatures": []
+                },
+                "Items": {
+                  "$type": "RogueEssence.LevelGen.SpawnList`1[[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueEssence",
+                  "spawns": {
+                    "item_0": {
+                      "Spawn": {
+                        "ID": "food_apple",
+                        "Cursed": false,
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0
+                      },
+                      "Rate": 10
+                    },
+                    "item_1": {
+                      "Spawn": {
+                        "ID": "berry_oran",
+                        "Cursed": false,
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0
+                      },
+                      "Rate": 10
+                    },
+                    "item_2": {
+                      "Spawn": {
+                        "ID": "seed_reviver",
+                        "Cursed": false,
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0
+                      },
+                      "Rate": 5
+                    }
+                  },
+                  "spawnTotal": 25
                 }
               }
             ],
@@ -2070,8 +2186,8 @@
                 },
                 "Value": {
                   "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                  "GroundTileset": "western_cave_1_floor",
-                  "BlockTileset": "western_cave_1_wall",
+                  "GroundTileset": "mt_horn_floor",
+                  "BlockTileset": "mt_horn_wall",
                   "WaterTileset": "desert_region_secondary",
                   "LayeredGround": false,
                   "IndependentGround": false,
@@ -3084,6 +3200,122 @@
                     "Min": 2,
                     "Max": 4
                   }
+                }
+              },
+              {
+                "$type": "RogueEssence.LevelGen.WonderTileStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                "Priority": {
+                  "str": [
+                    3
+                  ]
+                },
+                "Tile": {
+                  "ID": "tile_wonder",
+                  "Revealed": true,
+                  "Owner": 0,
+                  "TileStates": []
+                },
+                "Count": 3
+              },
+              {
+                "$type": "RogueEssence.LevelGen.TrapStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                "Priority": {
+                  "str": [
+                    3
+                  ]
+                },
+                "Traps": {
+                  "$type": "RogueEssence.LevelGen.SpawnList`1[[RogueEssence.LevelGen.EffectTile, RogueEssence]], RogueEssence",
+                  "spawns": {
+                    "trap_0": {
+                      "Spawn": {
+                        "ID": "trap_trip",
+                        "Revealed": false,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 10
+                    },
+                    "trap_1": {
+                      "Spawn": {
+                        "ID": "trap_mud",
+                        "Revealed": false,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 10
+                    },
+                    "trap_2": {
+                      "Spawn": {
+                        "ID": "trap_hunger",
+                        "Revealed": false,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 5
+                    }
+                  },
+                  "spawnTotal": 25
+                }
+              },
+              {
+                "$type": "RogueEssence.LevelGen.ShopStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                "Priority": {
+                  "str": [
+                    4
+                  ]
+                },
+                "SecurityStatus": "shop_security",
+                "Personality": 0,
+                "StartSpawn": {
+                  "$type": "RogueEssence.LevelGen.MobSpawn, RogueEssence",
+                  "BaseForm": {
+                    "Species": "kecleon",
+                    "Form": 0,
+                    "Skin": "normal",
+                    "Gender": -1
+                  },
+                  "Level": {
+                    "Min": 50,
+                    "Max": 55
+                  },
+                  "SpawnFeatures": []
+                },
+                "Items": {
+                  "$type": "RogueEssence.LevelGen.SpawnList`1[[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueEssence",
+                  "spawns": {
+                    "item_0": {
+                      "Spawn": {
+                        "ID": "food_apple",
+                        "Cursed": false,
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0
+                      },
+                      "Rate": 10
+                    },
+                    "item_1": {
+                      "Spawn": {
+                        "ID": "berry_oran",
+                        "Cursed": false,
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0
+                      },
+                      "Rate": 10
+                    },
+                    "item_2": {
+                      "Spawn": {
+                        "ID": "seed_reviver",
+                        "Cursed": false,
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0
+                      },
+                      "Rate": 5
+                    }
+                  },
+                  "spawnTotal": 25
                 }
               }
             ],
@@ -5921,8 +6153,8 @@
                 },
                 "Value": {
                   "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                  "GroundTileset": "western_cave_1_floor",
-                  "BlockTileset": "western_cave_1_wall",
+                  "GroundTileset": "mt_horn_floor",
+                  "BlockTileset": "mt_horn_wall",
                   "WaterTileset": "northern_desert_1_secondary",
                   "LayeredGround": false,
                   "IndependentGround": false,
@@ -7579,6 +7811,122 @@
                     "Min": 2,
                     "Max": 4
                   }
+                }
+              },
+              {
+                "$type": "RogueEssence.LevelGen.WonderTileStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                "Priority": {
+                  "str": [
+                    3
+                  ]
+                },
+                "Tile": {
+                  "ID": "tile_wonder",
+                  "Revealed": true,
+                  "Owner": 0,
+                  "TileStates": []
+                },
+                "Count": 3
+              },
+              {
+                "$type": "RogueEssence.LevelGen.TrapStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                "Priority": {
+                  "str": [
+                    3
+                  ]
+                },
+                "Traps": {
+                  "$type": "RogueEssence.LevelGen.SpawnList`1[[RogueEssence.LevelGen.EffectTile, RogueEssence]], RogueEssence",
+                  "spawns": {
+                    "trap_0": {
+                      "Spawn": {
+                        "ID": "trap_trip",
+                        "Revealed": false,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 10
+                    },
+                    "trap_1": {
+                      "Spawn": {
+                        "ID": "trap_mud",
+                        "Revealed": false,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 10
+                    },
+                    "trap_2": {
+                      "Spawn": {
+                        "ID": "trap_hunger",
+                        "Revealed": false,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 5
+                    }
+                  },
+                  "spawnTotal": 25
+                }
+              },
+              {
+                "$type": "RogueEssence.LevelGen.ShopStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                "Priority": {
+                  "str": [
+                    4
+                  ]
+                },
+                "SecurityStatus": "shop_security",
+                "Personality": 0,
+                "StartSpawn": {
+                  "$type": "RogueEssence.LevelGen.MobSpawn, RogueEssence",
+                  "BaseForm": {
+                    "Species": "kecleon",
+                    "Form": 0,
+                    "Skin": "normal",
+                    "Gender": -1
+                  },
+                  "Level": {
+                    "Min": 50,
+                    "Max": 55
+                  },
+                  "SpawnFeatures": []
+                },
+                "Items": {
+                  "$type": "RogueEssence.LevelGen.SpawnList`1[[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueEssence",
+                  "spawns": {
+                    "item_0": {
+                      "Spawn": {
+                        "ID": "food_apple",
+                        "Cursed": false,
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0
+                      },
+                      "Rate": 10
+                    },
+                    "item_1": {
+                      "Spawn": {
+                        "ID": "berry_oran",
+                        "Cursed": false,
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0
+                      },
+                      "Rate": 10
+                    },
+                    "item_2": {
+                      "Spawn": {
+                        "ID": "seed_reviver",
+                        "Cursed": false,
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0
+                      },
+                      "Rate": 5
+                    }
+                  },
+                  "spawnTotal": 25
                 }
               }
             ],
@@ -9648,8 +9996,8 @@
                 },
                 "Value": {
                   "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                  "GroundTileset": "western_cave_1_floor",
-                  "BlockTileset": "western_cave_1_wall",
+                  "GroundTileset": "mt_horn_floor",
+                  "BlockTileset": "mt_horn_wall",
                   "WaterTileset": "northern_desert_2_secondary",
                   "LayeredGround": false,
                   "IndependentGround": false,
@@ -12417,6 +12765,122 @@
                     "Max": 4
                   }
                 }
+              },
+              {
+                "$type": "RogueEssence.LevelGen.WonderTileStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                "Priority": {
+                  "str": [
+                    3
+                  ]
+                },
+                "Tile": {
+                  "ID": "tile_wonder",
+                  "Revealed": true,
+                  "Owner": 0,
+                  "TileStates": []
+                },
+                "Count": 3
+              },
+              {
+                "$type": "RogueEssence.LevelGen.TrapStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                "Priority": {
+                  "str": [
+                    3
+                  ]
+                },
+                "Traps": {
+                  "$type": "RogueEssence.LevelGen.SpawnList`1[[RogueEssence.LevelGen.EffectTile, RogueEssence]], RogueEssence",
+                  "spawns": {
+                    "trap_0": {
+                      "Spawn": {
+                        "ID": "trap_trip",
+                        "Revealed": false,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 10
+                    },
+                    "trap_1": {
+                      "Spawn": {
+                        "ID": "trap_mud",
+                        "Revealed": false,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 10
+                    },
+                    "trap_2": {
+                      "Spawn": {
+                        "ID": "trap_hunger",
+                        "Revealed": false,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 5
+                    }
+                  },
+                  "spawnTotal": 25
+                }
+              },
+              {
+                "$type": "RogueEssence.LevelGen.ShopStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                "Priority": {
+                  "str": [
+                    4
+                  ]
+                },
+                "SecurityStatus": "shop_security",
+                "Personality": 0,
+                "StartSpawn": {
+                  "$type": "RogueEssence.LevelGen.MobSpawn, RogueEssence",
+                  "BaseForm": {
+                    "Species": "kecleon",
+                    "Form": 0,
+                    "Skin": "normal",
+                    "Gender": -1
+                  },
+                  "Level": {
+                    "Min": 50,
+                    "Max": 55
+                  },
+                  "SpawnFeatures": []
+                },
+                "Items": {
+                  "$type": "RogueEssence.LevelGen.SpawnList`1[[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueEssence",
+                  "spawns": {
+                    "item_0": {
+                      "Spawn": {
+                        "ID": "food_apple",
+                        "Cursed": false,
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0
+                      },
+                      "Rate": 10
+                    },
+                    "item_1": {
+                      "Spawn": {
+                        "ID": "berry_oran",
+                        "Cursed": false,
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0
+                      },
+                      "Rate": 10
+                    },
+                    "item_2": {
+                      "Spawn": {
+                        "ID": "seed_reviver",
+                        "Cursed": false,
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0
+                      },
+                      "Rate": 5
+                    }
+                  },
+                  "spawnTotal": 25
+                }
               }
             ],
             "Comment": ""
@@ -12505,8 +12969,8 @@
                 },
                 "Value": {
                   "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-                  "GroundTileset": "western_cave_1_floor",
-                  "BlockTileset": "western_cave_1_wall",
+                  "GroundTileset": "mt_horn_floor",
+                  "BlockTileset": "mt_horn_wall",
                   "WaterTileset": "northern_desert_2_secondary",
                   "LayeredGround": false,
                   "IndependentGround": false,
@@ -12849,6 +13313,122 @@
                     "Min": 2,
                     "Max": 4
                   }
+                }
+              },
+              {
+                "$type": "RogueEssence.LevelGen.WonderTileStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                "Priority": {
+                  "str": [
+                    3
+                  ]
+                },
+                "Tile": {
+                  "ID": "tile_wonder",
+                  "Revealed": true,
+                  "Owner": 0,
+                  "TileStates": []
+                },
+                "Count": 3
+              },
+              {
+                "$type": "RogueEssence.LevelGen.TrapStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                "Priority": {
+                  "str": [
+                    3
+                  ]
+                },
+                "Traps": {
+                  "$type": "RogueEssence.LevelGen.SpawnList`1[[RogueEssence.LevelGen.EffectTile, RogueEssence]], RogueEssence",
+                  "spawns": {
+                    "trap_0": {
+                      "Spawn": {
+                        "ID": "trap_trip",
+                        "Revealed": false,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 10
+                    },
+                    "trap_1": {
+                      "Spawn": {
+                        "ID": "trap_mud",
+                        "Revealed": false,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 10
+                    },
+                    "trap_2": {
+                      "Spawn": {
+                        "ID": "trap_hunger",
+                        "Revealed": false,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 5
+                    }
+                  },
+                  "spawnTotal": 25
+                }
+              },
+              {
+                "$type": "RogueEssence.LevelGen.ShopStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                "Priority": {
+                  "str": [
+                    4
+                  ]
+                },
+                "SecurityStatus": "shop_security",
+                "Personality": 0,
+                "StartSpawn": {
+                  "$type": "RogueEssence.LevelGen.MobSpawn, RogueEssence",
+                  "BaseForm": {
+                    "Species": "kecleon",
+                    "Form": 0,
+                    "Skin": "normal",
+                    "Gender": -1
+                  },
+                  "Level": {
+                    "Min": 50,
+                    "Max": 55
+                  },
+                  "SpawnFeatures": []
+                },
+                "Items": {
+                  "$type": "RogueEssence.LevelGen.SpawnList`1[[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueEssence",
+                  "spawns": {
+                    "item_0": {
+                      "Spawn": {
+                        "ID": "food_apple",
+                        "Cursed": false,
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0
+                      },
+                      "Rate": 10
+                    },
+                    "item_1": {
+                      "Spawn": {
+                        "ID": "berry_oran",
+                        "Cursed": false,
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0
+                      },
+                      "Rate": 10
+                    },
+                    "item_2": {
+                      "Spawn": {
+                        "ID": "seed_reviver",
+                        "Cursed": false,
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0
+                      },
+                      "Rate": 5
+                    }
+                  },
+                  "spawnTotal": 25
                 }
               }
             ],
@@ -13851,14 +14431,14 @@
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "baltoy",
+                      "Species": "pidgey",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 20,
-                      "Max": 25
+                      "Min": 38,
+                      "Max": 43
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -13871,21 +14451,21 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "bronzor",
+                      "Species": "spearow",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 20,
-                      "Max": 25
+                      "Min": 38,
+                      "Max": 43
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -13898,21 +14478,21 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "yamask",
+                      "Species": "zubat",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 21,
-                      "Max": 26
+                      "Min": 39,
+                      "Max": 44
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -13925,21 +14505,21 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "gastly",
+                      "Species": "paras",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 20,
-                      "Max": 25
+                      "Min": 39,
+                      "Max": 44
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -13952,21 +14532,21 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "duskull",
+                      "Species": "venonat",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 21,
-                      "Max": 26
+                      "Min": 40,
+                      "Max": 45
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -13979,21 +14559,21 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "shuppet",
+                      "Species": "psyduck",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 20,
-                      "Max": 25
+                      "Min": 40,
+                      "Max": 45
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -14006,21 +14586,21 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "misdreavus",
+                      "Species": "poliwag",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 21,
-                      "Max": 26
+                      "Min": 38,
+                      "Max": 43
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -14033,21 +14613,21 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "drifloon",
+                      "Species": "bellsprout",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 20,
-                      "Max": 25
+                      "Min": 39,
+                      "Max": 44
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -14060,21 +14640,21 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "litwick",
+                      "Species": "tentacool",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 21,
-                      "Max": 26
+                      "Min": 40,
+                      "Max": 45
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -14087,21 +14667,21 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "golett",
+                      "Species": "geodude",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 20,
-                      "Max": 25
+                      "Min": 39,
+                      "Max": 44
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -14114,21 +14694,21 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "elgyem",
+                      "Species": "magnemite",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 21,
-                      "Max": 26
+                      "Min": 38,
+                      "Max": 43
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -14141,7 +14721,34 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "doduo",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 40,
+                      "Max": 45
+                    },
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                  },
+                  "Role": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 30
                 }
               }
             ],
@@ -14281,7 +14888,7 @@
         ],
         "IsRelevant": true,
         "Comment": "",
-        "Music": "Aegis Cave.ogg"
+        "Music": "Mt. Horn.ogg"
       },
       {
         "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
@@ -15030,6 +15637,131 @@
                     "Max": 6
                   }
                 }
+              },
+              {
+                "$type": "RogueEssence.LevelGen.WonderTileStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                "Priority": {
+                  "str": [
+                    3
+                  ]
+                },
+                "Tile": {
+                  "ID": "tile_wonder",
+                  "Revealed": true,
+                  "Owner": 0,
+                  "TileStates": []
+                },
+                "Count": 3
+              },
+              {
+                "$type": "RogueEssence.LevelGen.TrapStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                "Priority": {
+                  "str": [
+                    3
+                  ]
+                },
+                "Traps": {
+                  "$type": "RogueEssence.LevelGen.SpawnList`1[[RogueEssence.LevelGen.EffectTile, RogueEssence]], RogueEssence",
+                  "spawns": {
+                    "trap_0": {
+                      "Spawn": {
+                        "ID": "trap_seal",
+                        "Revealed": false,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 10
+                    },
+                    "trap_1": {
+                      "Spawn": {
+                        "ID": "trap_slumber",
+                        "Revealed": false,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 10
+                    },
+                    "trap_2": {
+                      "Spawn": {
+                        "ID": "trap_spikes",
+                        "Revealed": false,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 10
+                    },
+                    "trap_3": {
+                      "Spawn": {
+                        "ID": "trap_hunger",
+                        "Revealed": false,
+                        "Owner": 0,
+                        "TileStates": []
+                      },
+                      "Rate": 5
+                    }
+                  },
+                  "spawnTotal": 35
+                }
+              },
+              {
+                "$type": "RogueEssence.LevelGen.ShopStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+                "Priority": {
+                  "str": [
+                    4
+                  ]
+                },
+                "SecurityStatus": "shop_security",
+                "Personality": 0,
+                "StartSpawn": {
+                  "$type": "RogueEssence.LevelGen.MobSpawn, RogueEssence",
+                  "BaseForm": {
+                    "Species": "kecleon",
+                    "Form": 0,
+                    "Skin": "normal",
+                    "Gender": -1
+                  },
+                  "Level": {
+                    "Min": 50,
+                    "Max": 55
+                  },
+                  "SpawnFeatures": []
+                },
+                "Items": {
+                  "$type": "RogueEssence.LevelGen.SpawnList`1[[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueEssence",
+                  "spawns": {
+                    "item_0": {
+                      "Spawn": {
+                        "ID": "food_apple",
+                        "Cursed": false,
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0
+                      },
+                      "Rate": 10
+                    },
+                    "item_1": {
+                      "Spawn": {
+                        "ID": "berry_oran",
+                        "Cursed": false,
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0
+                      },
+                      "Rate": 10
+                    },
+                    "item_2": {
+                      "Spawn": {
+                        "ID": "seed_reviver",
+                        "Cursed": false,
+                        "HiddenValue": "",
+                        "Amount": 0,
+                        "Price": 0
+                      },
+                      "Rate": 5
+                    }
+                  },
+                  "spawnTotal": 25
+                }
               }
             ],
             "Comment": ""
@@ -15067,14 +15799,14 @@
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "claydol",
+                      "Species": "pidgeotto",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 27,
-                      "Max": 33
+                      "Min": 46,
+                      "Max": 52
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -15087,21 +15819,21 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "bronzong",
+                      "Species": "fearow",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 28,
-                      "Max": 35
+                      "Min": 46,
+                      "Max": 52
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -15114,21 +15846,21 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "cofagrigus",
+                      "Species": "golbat",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 29,
-                      "Max": 35
+                      "Min": 47,
+                      "Max": 53
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -15141,21 +15873,21 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "haunter",
+                      "Species": "parasect",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 27,
-                      "Max": 33
+                      "Min": 47,
+                      "Max": 53
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -15168,21 +15900,21 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "dusclops",
+                      "Species": "venomoth",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 28,
-                      "Max": 34
+                      "Min": 48,
+                      "Max": 53
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -15195,21 +15927,21 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "banette",
+                      "Species": "golduck",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 27,
-                      "Max": 33
+                      "Min": 48,
+                      "Max": 53
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -15222,21 +15954,21 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "mismagius",
+                      "Species": "poliwhirl",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 28,
-                      "Max": 35
+                      "Min": 46,
+                      "Max": 52
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -15249,21 +15981,21 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "drifblim",
+                      "Species": "weepinbell",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 27,
-                      "Max": 33
+                      "Min": 47,
+                      "Max": 53
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -15276,21 +16008,21 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "lampent",
+                      "Species": "tentacruel",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 28,
-                      "Max": 34
+                      "Min": 48,
+                      "Max": 53
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -15303,21 +16035,21 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "golurk",
+                      "Species": "graveler",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 29,
-                      "Max": 35
+                      "Min": 47,
+                      "Max": 53
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -15330,21 +16062,21 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "beheeyem",
+                      "Species": "magneton",
                       "Form": 0,
                       "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 28,
-                      "Max": 34
+                      "Min": 46,
+                      "Max": 52
                     },
                     "SpecifiedSkills": [],
                     "Intrinsic": "",
@@ -15357,7 +16089,34 @@
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 20
+                  "Max": 30
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "dodrio",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 48,
+                      "Max": 53
+                    },
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                  },
+                  "Role": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 30
                 }
               }
             ]
@@ -15365,7 +16124,7 @@
         ],
         "IsRelevant": false,
         "Comment": "",
-        "Music": "Concealed Ruins.ogg"
+        "Music": "Craggy Coast.ogg"
       }
     ],
     "GroundMaps": []

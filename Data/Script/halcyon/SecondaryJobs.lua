@@ -185,6 +185,43 @@ SecondaryJobs.CONTRACTS = {
     title = "Le silence de la Cime d'Argent",
     flavor = "Les cloches minérales de la cime ont cessé de résonner dans le vent céleste.\nUne mission d'investigation sacrée est commanditée.",
   },
+  {
+    chapter = 11, zone = 'rainy_ravine', segment = 0, floor = 10,
+    client = 'wooper', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'wooper', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'A', reward = 'money',
+    title = "Le déluge du ravin",
+    flavor = "Des pluies torrentielles inondent le Ravin Pluvieux et menacent nos rivières.
+Une équipe de secours est demandée d'urgence.",
+  },
+  {
+    chapter = 11, zone = 'mossy_gorge', segment = 0, floor = 12,
+    client = 'bellossom', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'bellossom', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'A', reward = 'money',
+    title = "L'eau de la racine sacrée",
+    flavor = "La source sacrée de la Gorge Moussue est accaparée par de redoutables Pokémon.
+Aidez-nous à rendre l'eau aux plantes de la vallée.",
+  },
+  {
+    chapter = 11, zone = 'windswept_trail', segment = 0, floor = 11,
+    client = 'manectric', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'manectric', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'S', reward = 'money',
+    title = "La tempête du nord",
+    flavor = "Des vents violents bloquent le passage sur la Piste Venteuse vers les crêtes nordiques.
+Sécurisez le sentier pour les voyageurs.",
+  },
+  {
+    chapter = 11, zone = 'foggy_hollow', segment = 0, floor = 12,
+    client = 'gloom', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'gloom', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'S', reward = 'money',
+    title = "Le brouillard sans fin",
+    flavor = "Un rideau de brume obscure désoriente quiconque s'aventure dans le Creux Brumeux.
+Dissipez cette menace pour ramener la clarté.",
+  },
+
 }
 
 function SecondaryJobs.EnsureSV()

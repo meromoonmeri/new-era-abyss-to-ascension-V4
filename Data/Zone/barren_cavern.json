@@ -13851,675 +13851,324 @@
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "cubone",
+                      "Species": "zubat",
                       "Form": 0,
-                      "Skin": "",
+                      "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 17,
-                      "Max": 17
+                      "Min": 25,
+                      "Max": 30
                     },
-                    "SpecifiedSkills": [
-                      "bone_club",
-                      "growl"
-                    ],
+                    "SpecifiedSkills": [],
                     "Intrinsic": "",
                     "Tactic": "wait_and_see",
                     "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-                        "StartAt": 2,
-                        "Remove": false
-                      }
-                    ]
+                    "SpawnFeatures": []
                   },
                   "Role": 0
                 },
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 3
+                  "Max": 20
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "rockruff",
+                      "Species": "wooper",
                       "Form": 0,
-                      "Skin": "",
+                      "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 16,
-                      "Max": 16
+                      "Min": 25,
+                      "Max": 30
                     },
-                    "SpecifiedSkills": [
-                      "odor_sleuth",
-                      "rock_throw"
-                    ],
+                    "SpecifiedSkills": [],
                     "Intrinsic": "",
                     "Tactic": "wait_and_see",
                     "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-                        "StartAt": 2,
-                        "Remove": false
-                      }
-                    ]
-                  },
-                  "Role": 1
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 0,
-                  "Max": 2
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "marowak",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 20,
-                      "Max": 20
-                    },
-                    "SpecifiedSkills": [
-                      "bonemerang"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wait_and_see",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-                        "StartAt": 1,
-                        "Remove": false
-                      }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 3,
-                  "Max": 4
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "hippopotas",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 20,
-                      "Max": 20
-                    },
-                    "SpecifiedSkills": [
-                      "sand_tomb",
-                      "dig"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wait_and_see",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-                        "StartAt": 2,
-                        "Remove": false
-                      }
-                    ]
+                    "SpawnFeatures": []
                   },
                   "Role": 0
                 },
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 2
+                  "Max": 20
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "fearow",
+                      "Species": "onix",
                       "Form": 0,
-                      "Skin": "",
+                      "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 18,
-                      "Max": 18
+                      "Min": 26,
+                      "Max": 31
                     },
-                    "SpecifiedSkills": [
-                      "drill_run",
-                      "pluck"
-                    ],
+                    "SpecifiedSkills": [],
                     "Intrinsic": "",
                     "Tactic": "wait_and_see",
                     "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-                        "StartAt": 2,
-                        "Remove": false
-                      }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 1,
-                  "Max": 3
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "sandslash",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 19,
-                      "Max": 19
-                    },
-                    "SpecifiedSkills": [
-                      "magnitude",
-                      "sand_attack"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wait_and_see",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-                        "StartAt": 2,
-                        "Remove": false
-                      }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 1,
-                  "Max": 4
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "cacnea",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 18,
-                      "Max": 18
-                    },
-                    "SpecifiedSkills": [
-                      "leech_seed",
-                      "needle_arm"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wait_and_see",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-                        "StartAt": 2,
-                        "Remove": false
-                      }
-                    ]
+                    "SpawnFeatures": []
                   },
                   "Role": 0
                 },
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 4
+                  "Max": 20
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "skorupi",
+                      "Species": "dunsparce",
                       "Form": 0,
-                      "Skin": "",
+                      "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 18,
-                      "Max": 18
+                      "Min": 25,
+                      "Max": 30
                     },
-                    "SpecifiedSkills": [
-                      "acupressure",
-                      "bug_bite"
-                    ],
+                    "SpecifiedSkills": [],
                     "Intrinsic": "",
                     "Tactic": "wait_and_see",
                     "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-                        "StartAt": 2,
-                        "Remove": false
-                      }
-                    ]
-                  },
-                  "Role": 1
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 2,
-                  "Max": 4
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "torkoal",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 19,
-                      "Max": 19
-                    },
-                    "SpecifiedSkills": [
-                      "smokescreen",
-                      "lava_plume"
-                    ],
-                    "Intrinsic": "drought",
-                    "Tactic": "wait_and_see",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-                        "StartAt": 2,
-                        "Remove": false
-                      }
-                    ]
+                    "SpawnFeatures": []
                   },
                   "Role": 0
                 },
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 2
+                  "Max": 20
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "arbok",
+                      "Species": "whismur",
                       "Form": 0,
-                      "Skin": "",
+                      "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 19,
-                      "Max": 19
+                      "Min": 26,
+                      "Max": 31
                     },
-                    "SpecifiedSkills": [
-                      "screech",
-                      "glare",
-                      "crunch"
-                    ],
+                    "SpecifiedSkills": [],
                     "Intrinsic": "",
                     "Tactic": "wait_and_see",
                     "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-                        "StartAt": 3,
-                        "Remove": false
-                      }
-                    ]
+                    "SpawnFeatures": []
                   },
                   "Role": 0
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 2,
-                  "Max": 4
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "thievul",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 19,
-                      "Max": 19
-                    },
-                    "SpecifiedSkills": [
-                      "snarl",
-                      "assurance"
-                    ],
-                    "Intrinsic": "run_away",
-                    "Tactic": "wait_and_see",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-                        "StartAt": 2,
-                        "Remove": false
-                      }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 2,
-                  "Max": 4
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "trapinch",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 18,
-                      "Max": 18
-                    },
-                    "SpecifiedSkills": [
-                      "mud_slap",
-                      "bide"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wait_and_see",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-                        "StartAt": 2,
-                        "Remove": false
-                      }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 5,
-                "Range": {
-                  "Min": 1,
-                  "Max": 4
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "scraggy",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 18,
-                      "Max": 18
-                    },
-                    "SpecifiedSkills": [
-                      "leer",
-                      "low_kick"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wait_and_see",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-                        "StartAt": 2,
-                        "Remove": false
-                      }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 5,
-                "Range": {
-                  "Min": 0,
-                  "Max": 2
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "gible",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 19,
-                      "Max": 19
-                    },
-                    "SpecifiedSkills": [
-                      "sandstorm",
-                      "dragon_rage"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wait_and_see",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-                        "StartAt": 2,
-                        "Remove": false
-                      }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 2,
-                  "Max": 4
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "rockruff",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 16,
-                      "Max": 16
-                    },
-                    "SpecifiedSkills": [
-                      "odor_sleuth",
-                      "rock_throw"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wait_and_see",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-                        "StartAt": 2,
-                        "Remove": false
-                      }
-                    ]
-                  },
-                  "Role": 1
                 },
                 "Rate": 10,
                 "Range": {
                   "Min": 0,
-                  "Max": 2
+                  "Max": 20
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "lycanroc",
+                      "Species": "makuhita",
                       "Form": 0,
-                      "Skin": "",
+                      "Skin": "normal",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 20,
-                      "Max": 20
+                      "Min": 25,
+                      "Max": 30
                     },
-                    "SpecifiedSkills": [
-                      "accelerock",
-                      "rock_throw"
-                    ],
+                    "SpecifiedSkills": [],
                     "Intrinsic": "",
                     "Tactic": "wait_and_see",
-                    "SpawnConditions": [
-                      {
-                        "$type": "PMDC.LevelGen.MobCheckVersionDiff, PMDC",
-                        "Div": 2,
-                        "Remainder": 0
-                      }
-                    ],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-                        "StartAt": 2,
-                        "Remove": false
-                      }
-                    ]
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                  },
+                  "Role": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "mawile",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 26,
+                      "Max": 31
+                    },
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                  },
+                  "Role": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "aron",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 25,
+                      "Max": 30
+                    },
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                  },
+                  "Role": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "meditite",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 26,
+                      "Max": 31
+                    },
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                  },
+                  "Role": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "sableye",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 25,
+                      "Max": 30
+                    },
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                  },
+                  "Role": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "diglett",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 26,
+                      "Max": 31
+                    },
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                  },
+                  "Role": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "paras",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 25,
+                      "Max": 30
+                    },
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
                   },
                   "Role": 0
                 },
                 "Rate": 10,
                 "Range": {
-                  "Min": 2,
-                  "Max": 4
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "lycanroc",
-                      "Form": 1,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 20,
-                      "Max": 20
-                    },
-                    "SpecifiedSkills": [
-                      "counter",
-                      "rock_throw"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wait_and_see",
-                    "SpawnConditions": [
-                      {
-                        "$type": "PMDC.LevelGen.MobCheckVersionDiff, PMDC",
-                        "Div": 2,
-                        "Remainder": 1
-                      }
-                    ],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-                        "StartAt": 2,
-                        "Remove": false
-                      }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 2,
-                  "Max": 4
+                  "Min": 0,
+                  "Max": 20
                 }
               }
             ],
@@ -15436,6 +15085,336 @@
                 -6
               ]
             }
+          },
+          {
+            "$type": "PMDC.LevelGen.TeamSpawnZoneStep, PMDC",
+            "Priority": -2,
+            "Spawns": [
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "golbat",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 32,
+                      "Max": 38
+                    },
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                  },
+                  "Role": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "crobat",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 35,
+                      "Max": 40
+                    },
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                  },
+                  "Role": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "quagsire",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 32,
+                      "Max": 38
+                    },
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                  },
+                  "Role": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "steelix",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 34,
+                      "Max": 40
+                    },
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                  },
+                  "Role": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "loudred",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 32,
+                      "Max": 38
+                    },
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                  },
+                  "Role": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "exploud",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 35,
+                      "Max": 40
+                    },
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                  },
+                  "Role": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "hariyama",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 33,
+                      "Max": 39
+                    },
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                  },
+                  "Role": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "lairon",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 32,
+                      "Max": 38
+                    },
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                  },
+                  "Role": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "aggron",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 35,
+                      "Max": 40
+                    },
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                  },
+                  "Role": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "medicham",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 33,
+                      "Max": 39
+                    },
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                  },
+                  "Role": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "dugtrio",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 32,
+                      "Max": 38
+                    },
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                  },
+                  "Role": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "parasect",
+                      "Form": 0,
+                      "Skin": "normal",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 32,
+                      "Max": 38
+                    },
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                  },
+                  "Role": 0
+                },
+                "Rate": 10,
+                "Range": {
+                  "Min": 0,
+                  "Max": 20
+                }
+              }
+            ]
           }
         ],
         "IsRelevant": false,

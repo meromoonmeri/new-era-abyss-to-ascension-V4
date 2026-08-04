@@ -265,6 +265,31 @@ def make_spawn_table(spawns_list):
         "spawnTotal": len(spawns_list) * 10
     }
 
+def make_team_spawn_zone_step(spawns_list):
+    spawns = []
+    for sp, min_lv, max_lv in spawns_list:
+        spawns.append({
+            "Spawn": {
+                "Spawn": {
+                    "BaseForm": {"Species": sp, "Form": 0, "Skin": "normal", "Gender": -1},
+                    "Level": {"Min": min_lv, "Max": max_lv},
+                    "SpecifiedSkills": [],
+                    "Intrinsic": "",
+                    "Tactic": "wait_and_see",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": []
+                },
+                "Role": 0
+            },
+            "Rate": 10,
+            "Range": {"Min": 0, "Max": 20}
+        })
+    return {
+        "$type": "PMDC.LevelGen.TeamSpawnZoneStep, PMDC",
+        "Priority": -2,
+        "Spawns": spawns
+    }
+
 def make_shop_step():
     """Génère un Marchand Kecleon aléatoire (12-15% probabilité par étage)."""
     return {
@@ -328,6 +353,13 @@ def update_or_create_dungeon_zone(cfg):
         # Segment 1
         seg1 = segments[0]
         seg1["Music"] = cfg["music_seg1"]
+        has_zs1 = False
+        for zs in seg1.get("ZoneSteps", []):
+            if isinstance(zs, dict) and "TeamSpawnZoneStep" in zs.get("$type", ""):
+                zs["Spawns"] = make_team_spawn_zone_step(cfg["spawns_seg1"])["Spawns"]
+                has_zs1 = True
+        if not has_zs1:
+            seg1.setdefault("ZoneSteps", []).append(make_team_spawn_zone_step(cfg["spawns_seg1"]))
         for fl in seg1.get("Floors", []):
             if isinstance(fl, dict):
                 for st in fl.get("GenSteps", []):
@@ -339,6 +371,13 @@ def update_or_create_dungeon_zone(cfg):
         # Segment 2
         seg2 = segments[1]
         seg2["Music"] = cfg["music_seg2"]
+        has_zs2 = False
+        for zs in seg2.get("ZoneSteps", []):
+            if isinstance(zs, dict) and "TeamSpawnZoneStep" in zs.get("$type", ""):
+                zs["Spawns"] = make_team_spawn_zone_step(cfg["spawns_seg2"])["Spawns"]
+                has_zs2 = True
+        if not has_zs2:
+            seg2.setdefault("ZoneSteps", []).append(make_team_spawn_zone_step(cfg["spawns_seg2"]))
         for fl in seg2.get("Floors", []):
             if isinstance(fl, dict):
                 for st in fl.get("GenSteps", []):

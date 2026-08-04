@@ -20,7 +20,8 @@ SECONDARY_DUNGEONS = [
     "energy_garden", "sunken_relic", "mossy_labyrinth", "magma_quarry",
     "barren_tundra", "barren_cavern", "cracked_ridge", "suspended_valley",
     "depleted_basin", "wayward_wetlands", "southern_jungle", "submerged_chasm",
-    "snowbound_path", "thunderstruck_pass", "flyaway_cliffs", "forgotten_silver_spire"
+    "snowbound_path", "thunderstruck_pass", "flyaway_cliffs", "forgotten_silver_spire",
+    "rainy_ravine", "mossy_gorge", "windswept_trail", "foggy_hollow"
 ]
 
 def load_monster_feature_species():
@@ -50,6 +51,15 @@ def inspect_zone_spawns(zone_id, valid_species):
     
     for s_idx, seg in enumerate(segments):
         spawns = set()
+        for zs in seg.get("ZoneSteps", []):
+            if isinstance(zs, dict):
+                for sp_item in zs.get("Spawns", []):
+                    if isinstance(sp_item, dict):
+                        sp = sp_item.get("Spawn", {}).get("Spawn", {}).get("BaseForm", {}).get("Species")
+                        if sp:
+                            spawns.add(sp)
+                            if valid_species and sp not in valid_species:
+                                invalid_spawns.add(sp)
         floors = seg.get("Floors", [])
         for fl in floors:
             if isinstance(fl, dict):

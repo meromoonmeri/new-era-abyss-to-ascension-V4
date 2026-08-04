@@ -87,7 +87,7 @@
 
 ---
 
-## 3. PROPOSITION DU ROSTER DES DONJONS SECONDAIRES POUR LE CHAPITRE 11 — L'ARC FUGITIF (POUR VALIDATION)
+## 3. ROSTER DES DONJONS SECONDAIRES POUR LE CHAPITRE 11 — L'ARC FUGITIF (GÉNÉRÉS ET VALIDÉS)
 
 > **Contexte Narratif (Chapitre 11 — Arc Fugitif)** :  
 > À la suite des événements de la Tour Céleste au Chapitre 10, le Héros et son Partenaire sont isolés et doivent fuir dans les terres sauvages et hostiles du Nord sous une pluie battante. Les donjons secondaires du Chapitre 11 reflètent cet environnement rude, humide et escarpé.  
@@ -103,5 +103,26 @@
 | **`mossy_gorge`** | **Gorge Moussue** | **24 ét.** | Gorge Ombragée → Caverne Humide | **25 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 8 (`mossy_gorge_mb1.rsmap`)** : Tengalice l'Écorce<br>• **Ét. 16 (`mossy_gorge_mb2.rsmap`)** : Torterra la Racine<br>• **Ét. 24 (`mossy_gorge_boss.rsmap`)** : Ludicolo le Déluge | `mossy_gorge_relay.rsground` (Biome Gorge Moussue) |
 | **`windswept_trail`** | **Piste Venteuse** | **23 ét.** | Sentier Rocailleux → Crête Boréale | **24 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 7 (`windswept_trail_mb1.rsmap`)** : Airmure la Rafale<br>• **Ét. 15 (`windswept_trail_mb2.rsmap`)** : Togekiss le Vent<br>• **Ét. 23 (`windswept_trail_boss.rsmap`)** : Aéromite le Bourrasque | `windswept_trail_relay.rsground` (Biome Crête Venteuse) |
 | **`foggy_hollow`** | **Creux Brumeux** | **25 ét.** | Forêt Brouillard → Sous-Bois Oublié | **26 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 8 (`foggy_hollow_mb1.rsmap`)** : Spiritomb l'Écho<br>• **Ét. 16 (`foggy_hollow_mb2.rsmap`)** : Ectoplasma la Brume<br>• **Ét. 25 (`foggy_hollow_boss.rsmap`)** : Noctunoir le Guetteur | `foggy_hollow_relay.rsground` (Biome Forêt Brumeuse) |
+
+---
+
+---
+
+## 4. PROPOSITION DU ROSTER DES DONJONS SECONDAIRES POUR LE CHAPITRE 12 — L'ARC FUGITIF (POUR VALIDATION)
+
+> **Contexte Narratif (Chapitre 12)** :  
+> Toujours traqués dans les terres désolées du nord après les révélations de la Tour Céleste, le Héros et son Partenaire traversent des reliefs de plus en plus extrêmes, entre cendres volcaniques, failles glaciaires et marais tourbeux.  
+> **Respect du Framework (§1, §9)** :
+> - **22 à 25 étages d'exploration** par donjon (2 segments de biome, scaling de niveau Lv 40-56, 20 à 50 espèces sauvages vérifiées dans `Content/Chara/`).
+> - **3 arènes d'étage `.rsmap` intégrées** par donjon (aucun ground `.rsground` indépendant pour les boss).
+> - **Zéro concept de Temps ou d'Espace** dans les donjons secondaires.
+> - **Relais Kangourex** au modèle `searing_tunnel_midpoint` adapté au biome.
+
+| Identifiant (`ID`) | Nom Français | Total Étages | Biomes (Seg 1 → Seg 2) | Espèces Sauvages (`20-50/donjon`, Lv 40-56) | Les 3 Arènes d'Étage (`.rsmap` intégrées, adaptées au biome) | Relais (Modèle Tunnel Incandescent + Kangourex) |
+| :--- | :--- | :---: | :--- | :--- | :--- | :--- |
+| **`ashen_hollow`** | **Creux Cendré** | **22 ét.** | Grotte Cendrée → Terres Calcinées | **26 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 7 (`ashen_hollow_mb1.rsmap`)** : Limonde le Piège<br>• **Ét. 14 (`ashen_hollow_mb2.rsmap`)** : Grotadmorv le Boue<br>• **Ét. 22 (`ashen_hollow_boss.rsmap`)** : Grotadmorv d'Alola le Toxique | `ashen_hollow_relay.rsground` (Biome Cendres) |
+| **`frozen_rift`** | **Faille Gelée** | **24 ét.** | Faille Glaciale → Caverne Cristal de Glace | **25 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 8 (`frozen_rift_mb1.rsmap`)** : Grelaçon le Gel<br>• **Ét. 16 (`frozen_rift_mb2.rsmap`)** : Hexagel le Cristal<br>• **Ét. 24 (`frozen_rift_boss.rsmap`)** : Séracrawl le Roc Glacé | `frozen_rift_relay.rsground` (Biome Glacial) |
+| **`whispering_crag`** | **Crête Chuchotante** | **23 ét.** | Crête Rocheuse → Sommet Venté | **24 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 7 (`whispering_crag_mb1.rsmap`)** : Aéromite l'Écho<br>• **Ét. 15 (`whispering_crag_mb2.rsmap`)** : Guériaigle le Vent<br>• **Ét. 23 (`whispering_crag_boss.rsmap`)** : Corvaillus l'Acier | `whispering_crag_relay.rsground` (Biome Crête) |
+| **`twilight_marsh`** | **Marais Crépusculaire** | **25 ét.** | Marais Sombres → Bois Tourbeux | **26 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 8 (`twilight_marsh_mb1.rsmap`)** : Crapustule la Tourbe<br>• **Ét. 16 (`twilight_marsh_mb2.rsmap`)** : Bourrinos le Boue<br>• **Ét. 25 (`twilight_marsh_boss.rsmap`)** : Bourrinos la Tourbe | `twilight_marsh_relay.rsground` (Biome Marais) |
 
 ---
