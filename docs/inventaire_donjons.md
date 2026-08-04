@@ -29,10 +29,7 @@
 - **Étages & Segments** : 20 étages en **2 segments** de 10 étages (`RangeDictSegment` / `LayeredSegment`).
   - *Segment 1 (Ét. 1–10)* : Biome **Désert Ardent** (`furnace_desert_floor` / `wall`). Météo : *Tempête de sable* aux étages 4, 8 et 9 (§6.5).
   - *Segment 2 (Ét. 11–20)* : Biome **Vallée Stérile** (`barren_valley_floor` / `wall`). Météo : *Tempête de sable* à l'étage 18.
-- **Points médians (Relais, toutes les 5 étages)** :
-  - *Ét. 5* : `desert_boreal_porte.rsground` (dépôt PMDO compatible).
-  - *Ét. 10* : `blaze_camp.rsground` (Checkpoint Magma/Aride de `dungeon-pack`).
-  - *Ét. 15* : `rocky_camp.rsground` (Checkpoint Rocheux de `dungeon-pack`).
+- **Points médians (Relais)** : `forsaken_desert_relay.rsground` — Modèle Tunnel Incandescent avec **statue Kangourex (`Kangaskhan_Rock`)**, `North_Exit` et `South_Exit`, adapté au biome **Désert Aride / Rocheux**.
 - **Mini-Boss (3 par donjon, noms propres & musique dédiée)** :
   - *Ét. 6* : **Sablaireau l'Ancien** (Sandslash, Lv. 22) — Musique : `Boss Battle.ogg`.
   - *Ét. 12* : **Cacturne le Veilleur** (Cacturne, Lv. 24) — Musique : `Boss Battle.ogg`.
@@ -52,10 +49,7 @@
 - **Étages & Segments** : 20 étages en **2 segments** de 10 étages.
   - *Segment 1 (Ét. 1–10)* : Biome **Grotte de Cristal** (`crystal_cave_1_floor` / `wall`).
   - *Segment 2 (Ét. 11–20)* : Biome **Caverne de Quartz** (`quartz_cavern_floor` / `wall`). Météo : *Brouillard électrostatique* aux étages 14 et 17.
-- **Points médians (toutes les 5 étages)** :
-  - *Ét. 5* : `grotte_cryptique.rsground` (PMDODump compatible).
-  - *Ét. 10* : `elemental_camp.rsground` (Checkpoint Énergie/Cristal de `dungeon-pack`).
-  - *Ét. 15* : `rocky_camp.rsground` (Checkpoint Rocheux).
+- **Points médians (Relais)** : `geode_crevice_relay.rsground` — Modèle Tunnel Incandescent avec **statue Kangourex (`Kangaskhan_Rock`)**, `North_Exit` et `South_Exit`, adapté au biome **Grotte de Cristal / Caverne de Quartz**.
 - **Mini-Boss (3 par donjon)** :
   - *Ét. 7* : **Gravalanch du Filon** (Graveler, Lv. 23) — Musique : `Boss Battle.ogg`.
   - *Ét. 14* : **Tarinor la Boussole** (Nosepass, Lv. 25) — Musique : `Boss Battle.ogg`.
@@ -72,10 +66,7 @@
 - **Étages & Segments** : 20 étages en **2 segments** de 10 étages.
   - *Segment 1 (Ét. 1–10)* : Biome **Bois aux Pommes** (`apple_woods_floor` / `wall`).
   - *Segment 2 (Ét. 11–20)* : Biome **Sentier du Verger** (`orchard_path_floor` / `wall`). Météo : *Pluie* à l'étage 16.
-- **Points médians (toutes les 5 étages)** :
-  - *Ét. 5* : `bois_des_plaintes.rsground`.
-  - *Ét. 10* : `forest_camp.rsground` (Checkpoint Forêt de `dungeon-pack`).
-  - *Ét. 15* : `apricorn_glade.rsground`.
+- **Points médians (Relais)** : `wild_orchard_relay.rsground` — Modèle Tunnel Incandescent avec **statue Kangourex (`Kangaskhan_Rock`)**, `North_Exit` et `South_Exit`, adapté au biome **Nature / Forêt (`Apple Woods`)**.
 - **Mini-Boss (3 par donjon)** :
   - *Ét. 5* : **Scarhino la Corne** (Heracross, Lv. 22) — Musique : `Boss Battle.ogg`.
   - *Ét. 13* : **Scarabrute la Pince** (Pinsir, Lv. 24) — Musique : `Boss Battle.ogg`.
@@ -92,10 +83,7 @@
 - **Étages & Segments** : 20 étages en **2 segments** de 10 étages.
   - *Segment 1 (Ét. 1–10)* : Biome **Plaines Électriques** (`amp_plains_floor` / `wall`).
   - *Segment 2 (Ét. 11–20)* : Biome **Plaines Arides** (`scorched_plains_floor` / `wall`). Météo : *Soleil ardent* à l'étage 15.
-- **Points médians (toutes les 5 étages)** :
-  - *Ét. 5* : `champ_foudre.rsground`.
-  - *Ét. 10* : `blaze_camp.rsground`.
-  - *Ét. 15* : `rocky_camp.rsground`.
+- **Points médians (Relais)** : `scorched_plains_relay.rsground` — Modèle Tunnel Incandescent avec **statue Kangourex (`Kangaskhan_Rock`)**, `North_Exit` et `South_Exit`, adapté au biome **Plaines Arides / Savane Électrique**.
 - **Mini-Boss (3 par donjon)** :
   - *Ét. 8* : **Luxio l'Éclair** (Luxio, Lv. 23) — Musique : `Boss Battle.ogg`.
   - *Ét. 15* : **Phanpy la Charge** (Phanpy, Lv. 25) — Musique : `Boss Battle.ogg`.

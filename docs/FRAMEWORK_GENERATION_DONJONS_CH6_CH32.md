@@ -17,7 +17,7 @@ Avant de générer le moindre donjon, connaître par cœur la documentation du m
 - **Par chapitre** : 1 donjon principal (scénarisé) + jusqu'à **10 donjons secondaires**.
 - **Étages par donjon** : 20 à 60 étages.
 - **Segments** : Chaque tranche de **10 étages** constitue un segment avec **changement de biome** (`RangeDictSegment` / `LayeredSegment`).
-- **Points médians (Relais)** : 1 point médian **toutes les 5 étages** (moitié de segment). *Priorité absolue* : chaque point médian est un Ground récupéré depuis un dépôt GitHub compatible (`dungeon-pack`, `source_duns_imbi`, PMDO), jamais composé manuellement.
+- **Points médians (Relais)** : Chaque donjon dispose de points médians de repos à mi-parcours construits sur le modèle du relais du Tunnel Incandescent (`searing_tunnel_midpoint` avec la statue Kangourex `Kangaskhan_Rock`, les marqueurs `North_Exit` / `South_Exit` et les spawners d'équipe `TEAMMATE_1..3`), **STRICTEMENT ADAPTÉS AU BIOME DU DONJON** (ex. donjon nature/sylvestre ➔ point médian nature avec Kangourex ; donjon désertique ➔ point médian désert avec Kangourex ; donjon cristal/grotte ➔ point médian cristal avec Kangourex).
 - **Mini-boss** : 3 par donjon, répartis logiquement dans la progression — chacun avec un nom propre et une musique dédiée (`Content/Music/`).
 - **Salle de boss dédiée par légendaire** : Si un donjon comporte une rencontre légendaire, sa salle est conçue spécifiquement pour lui (échelle `24 px`, décor et biome adaptés), jamais une arène générique réutilisée.
 - **Numérotation d'histoire** : Rang narratif de 30 à 99 pour le Chapitre 32, consigné dans `docs/inventaire_donjons.md`.
