@@ -14,6 +14,7 @@ require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_4'
 require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_5'
 require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_7'
 require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_5_retour'
+require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_ch_5_epilogue'
 require 'halcyon.ground.guild_third_floor_lobby.guild_third_floor_lobby_helper'
 
 
@@ -79,6 +80,11 @@ function guild_third_floor_lobby.PlotScripting()
 	   and not SV.Chapter5.RuinsBilanDone then
 		SV.Chapter5.RuinsBilanDone = true
 		SV.TemporaryFlags.MorningAddress = false
+		-- L'EPILOGUE d'abord : la grande cinematique de fin d'expedition,
+		-- conclue sur « Et c'est ainsi qu'ils finirent leur expedition... ».
+		-- Le joueur peut sauvegarder a la bascule, puis l'on retombe sur
+		-- l'assemblee-bilan (BilanExpedition) et le chapitre 6.
+		guild_third_floor_lobby_ch_5_epilogue.Epilogue()
 		guild_third_floor_lobby_ch_5_retour.BilanExpedition()
 		GAME:CutsceneMode(false)
 		return

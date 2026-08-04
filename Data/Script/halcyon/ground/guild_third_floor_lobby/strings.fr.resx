@@ -1107,4 +1107,33 @@
   <data name="G5R_018" xml:space="preserve"><value>Vous avez ramené plus de questions que de réponses.[pause=25] C'est le propre des bonnes expéditions.</value></data>
   <data name="G5R_019" xml:space="preserve"><value>Reposez-vous aujourd'hui.[pause=20] Mangez.[pause=15] Dormez.[pause=25] Les questions attendront demain —[pause=20] elles ont attendu mille ans, elles tiendront bien une nuit de plus.</value></data>
   <data name="G5R_020" xml:space="preserve"><value>La guilde répondit d'une seule voix,[pause=20] comme chaque matin.[pause=30] Mais ce matin-là, quelque chose sonnait différemment.</value></data>
+
+  <data name="EP5_000" xml:space="preserve"><value>(La chambre du Colosse était vide.)</value></data>
+  <data name="EP5_001" xml:space="preserve"><value>(Regigigas n'avait pas attendu la réponse.[pause=25] Il avait rendu la pierre,[pause=10] et la terre avait tremblé une dernière fois.[pause=20] Puis tout s'était tu.)</value></data>
+  <data name="EP5_002" xml:space="preserve"><value>(Au-dessus des Ruines,[pause=10] une tour s'était dressée,[pause=20] comme si le sol l'avait gardée pour un autre jour.)</value></data>
+  <data name="EP5_003" xml:space="preserve"><value>Il est parti sans réponse.[pause=25] Tu as vu ça ?[pause=15] Il a posé sa question,[pause=10] et il est parti.</value></data>
+  <data name="EP5_004" xml:space="preserve"><value>Peut-être que c'était ça,[pause=10] la réponse.[pause=20] Le fait qu'on soit encore debout,[pause=10] après tout ça.</value></data>
+  <data name="EP5_005" xml:space="preserve"><value>(Les Ruines Tordues rendirent leur silence.[pause=30] Et l'expédition, enfin, put respirer.)</value></data>
+  <data name="EP5_006" xml:space="preserve"><value>(Le retour fut long.[pause=25] Chaque pas remontait le fil du chemin,[pause=10] à rebours.)</value></data>
+  <data name="EP5_007" xml:space="preserve"><value>(Le camp des Ruines était désert.[pause=25] Les paillasses étaient là,[pause=10] repliées,[pause=10] comme si le départ avait été préparé depuis longtemps.)</value></data>
+  <data name="EP5_008" xml:space="preserve"><value>(Plus loin,[pause=10] la plaine.[pause=20] Puis les toits de Metano.[pause=25] La guilde les attendait.)</value></data>
+  <data name="EP5_009" xml:space="preserve"><value>Rentrer,[pause=15] ça fait bizarre.[pause=20] On est partis des jours,[pause=10] et tout semble identique.[pause=0] Mais rien ne l'est.[pause=15] Plus maintenant.</value></data>
+  <data name="EP5_010" xml:space="preserve"><value>Je me demande ce qu'on va leur raconter.[pause=25] Comment on explique le Colosse ?[pause=20] Comment on explique sa question ?</value></data>
+  <data name="EP5_011" xml:space="preserve"><value>(Et pourtant,[pause=10] la guilde était là.[pause=25] Toute entière,[pause=10] debout,[pause=10] à les attendre sur le perron.)</value></data>
+  <data name="EP5_012" xml:space="preserve"><value>(La Steppe.[pause=20] Le Tunnel.[pause=15] Le Mont,[pause=10] et son gardien dans l'orage.[pause=20] Tous ces pas,[pause=10] pour arriver à cette chambre vide.)</value></data>
+  <data name="EP5_013" xml:space="preserve"><value>(Il a dit qu'il nous connaissait.[pause=25] Que quelqu'un d'autre,[pause=10] autrefois,[pause=10] avait déjà posé ces mêmes questions.[pause=20] Qui ?)</value></data>
+  <data name="EP5_014" xml:space="preserve"><value>(Et ces rêves.[pause=25] Gardevoir.[pause=20] La silhouette dans la pierre.[pause=15] Tout cela finissait par converger,[pause=10] quelque part.[pause=20] Pas encore ici.)</value></data>
+  <data name="EP5_015" xml:space="preserve"><value>(Peu importe.[pause=20] On est rentrés.[pause=15] Le reste attendra le jour.)</value></data>
+  <data name="EP5_016" xml:space="preserve"><value>(Ainsi se referma le chapitre des Ruines.[pause=30] Mais une porte,[pause=10] elle,[pause=10] ne s'était pas refermée.)</value></data>
+  <data name="EP5_017" xml:space="preserve"><value>(Regigigas avait demandé :[pause=25] « Pourquoi les a-t-on postés face à ce qu'ils gardaient ? »[pause=20] Personne n'avait su répondre.)</value></data>
+  <data name="EP5_018" xml:space="preserve"><value>Cette question,[pause=15] elle ne va pas me lâcher.[pause=20] Elle tourne.[pause=10] Comme quelque chose qu'on aurait oublié de comprendre.</value></data>
+  <data name="EP5_019" xml:space="preserve"><value>(Les trois gardiens gardaient les pierres.[pause=25] Le Colosse gardait le sceau.[pause=20] Et derrière le sceau,[pause=10] il n'y avait personne.[pause=15] Rien qu'une question.)</value></data>
+  <data name="EP5_020" xml:space="preserve"><value>(Cette question-là,[pause=10] elle traverserait les chapitres à venir,[pause=20] jusqu'à ce qu'on trouve enfin à qui elle s'adressait.)</value></data>
+  <data name="EP5_021" xml:space="preserve"><value>(L'aube se leva sur la guilde.[pause=30] Le jour de l'assemblée commençait.)</value></data>
+  <data name="EP5_022" xml:space="preserve"><value>(Ils entrèrent dans la grande salle,[pause=10] et la guilde se rassembla pour entendre.[pause=25] Tout.[pause=20] Jusqu'au bout.)</value></data>
+  <data name="EP5_023" xml:space="preserve"><value>Quoi qu'ils demandent,[pause=15] on dira la vérité.[pause=20] Tout ce qu'on a vu.[pause=15] Même ce qu'on ne comprend pas encore.</value></data>
+  <data name="EP5_024" xml:space="preserve"><value>Et puis,[pause=10] après,[pause=20] on dormira.[pause=15] Vraiment.[pause=10] Cette fois,[pause=10] je crois qu'on l'a mérité.</value></data>
+  <data name="EP5_025" xml:space="preserve"><value>(Et c'est ainsi que l'expédition s'acheva.)</value></data>
+  <data name="EP5_026" xml:space="preserve"><value>(Non pas sur une victoire éclatante,[pause=15] mais sur une question.[pause=25] Et c'était bien,[pause=10] peut-être,[pause=10] la seule réponse qu'ils pouvaient emporter.)</value></data>
+  <data name="EP5_027" xml:space="preserve"><value>Et c'est ainsi qu'ils finirent leur expédition,[pause=20] que les portes de la guilde se refermèrent derrière eux,[pause=20] et que le monde recommença à respirer.</value></data>
 </root>
