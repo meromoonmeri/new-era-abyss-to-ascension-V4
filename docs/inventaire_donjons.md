@@ -1,7 +1,7 @@
 # INVENTAIRE CENTRAL DES DONJONS (Source de Vérité Unique)
 
 **Projet** : *New Era : Abyss to Ascension* (moteur RogueEssence / PMDO)  
-**Rôle** : Répertoire unique des donjons d'histoire et secondaires (Chapitres 6 à 32), consignant nom, chapitre, rang narratif, structure, biomes, arènes d'étage (`.rsmap`), mini-boss, légendaires, bestiaire (20 à 50 espèces/donjon), objets, marchand Kecleon, missions du Job Board (`SecondaryJobs.lua`), quêtes secondaires PNJ de Metano Town (`SideQuests.lua`) et musique.  
+**Rôle** : Répertoire unique des donjons d'histoire et secondaires (Chapitres 6 à 32), consignant nom, chapitre, rang narratif, structure, biomes, arènes d'étage (`.rsmap`), mini-boss, légendaires, bestiaire (20 à 50 espèces/donjon), objets, marchand Kecleon, missions du Job Board (`SecondaryJobs.lua`), quêtes secondaires PNJ de Metano Town (`SideQuests.lua`) avec **retour automatique en cinématique de récompense (PNJ ou Job Board de Bekipan)**, et musique.  
 **Règle du Framework (§9)** : Chaque chapitre secondaire est **d'abord listé et présenté pour validation** ci-dessous avant toute génération détaillée de fichiers `.json` ou `.lua`.
 
 ---

@@ -1370,3 +1370,121 @@ SideQuests.LIST = {
     undertow = "mission personnelle de déblocage donjon avec partenaire et héros",
   },
 }
+
+function SideQuests.OnDungeonClear(result, zone)
+  if result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+    return false
+  end
+
+  local s = SideQuests.Ensure()
+  if SV.SecondaryJobsCompleted == nil then
+    SV.SecondaryJobsCompleted = {}
+  end
+
+  -- Vérifier si la zone correspond à un de nos donjons secondaires
+  for _, q in ipairs(SideQuests.LIST) do
+    if q.unlock_dungeon == zone then
+      SV.SecondaryJobsCompleted[zone] = true
+      
+      -- 1. Si le contrat a été pris auprès d'un PNJ en ville
+      if s.Taken[q.id] and not s.Done[q.id] then
+        if SV.TemporaryFlags == nil then
+          SV.TemporaryFlags = {}
+        end
+        SV.TemporaryFlags.RewardCutsceneQuest = q.id
+        GAME:EnterGroundMap("metano_town", "Main_Entrance_Marker")
+        return true
+      end
+      
+      -- 2. Sinon, s'il a été pris sur le Job Board de Bekipan à la guilde
+      if SV.TemporaryFlags == nil then
+        SV.TemporaryFlags = {}
+      end
+      SV.TemporaryFlags.RewardCutsceneJobBoard = zone
+      GAME:EnterGroundMap("guild_second_floor", "Main_Entrance_Marker")
+      return true
+    end
+  end
+
+  return false
+end
+
+function SideQuests.PlayRewardCutscene(q_id)
+  local s = SideQuests.Ensure()
+  for _, q in ipairs(SideQuests.LIST) do
+    if q.id == q_id then
+      local npc = CH(q.giver)
+      if npc == nil then
+        -- Repli si le PNJ est temporairement absent : valider la quête
+        s.Done[q.id] = true
+        return true
+      end
+      
+      local hero = CH('PLAYER')
+      local partner = CH('Teammate1')
+      if hero and partner then
+        -- Repositionner le duo juste devant le PNJ
+        local nx = npc.Position.X
+        local ny = npc.Position.Y
+        GROUND:TeleportTo(hero, nx, ny + 24, Direction.Up)
+        GROUND:TeleportTo(partner, nx + 24, ny + 24, Direction.Up)
+        GAME:MoveCamera(nx, ny + 12, 1, false)
+      end
+      
+      GAME:CutsceneMode(true)
+      GAME:FadeIn(30)
+      
+      local ok = pcall(function()
+        for _, t in ipairs(q.done) do
+          local sp = CH(t[1])
+          if sp then say(sp, t[2], t[3]) end
+        end
+        s.Done[q.id] = true
+        UI:ResetSpeaker(false)
+        UI:SetCenter(true)
+        UI:WaitShowDialogue("Requête accomplie :[pause=10] « " .. q.titre .. " » !")
+        UI:SetCenter(false)
+      end)
+      
+      pcall(function() UI:ResetSpeaker() end)
+      GAME:CutsceneMode(false)
+      return ok
+    end
+  end
+  return false
+end
+
+function SideQuests.PlayJobBoardRewardCutscene(zone_id)
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  if hero and partner then
+    -- Téléporter le duo devant le Tableau des Missions (Job Bulletin Board, ~X=280, Y=208 dans guild_second_floor)
+    GROUND:TeleportTo(hero, 280, 208, Direction.Up)
+    GROUND:TeleportTo(partner, 312, 208, Direction.Up)
+    GAME:MoveCamera(296, 176, 1, false)
+  end
+  
+  GAME:CutsceneMode(true)
+  GAME:FadeIn(30)
+  
+  local partner = CH('Teammate1')
+  if partner then
+    UI:SetSpeaker(partner)
+    UI:WaitShowDialogue("Nous sommes de retour devant le Tableau des Missions, [player] !")
+    UI:WaitShowDialogue("La guilde a authentifié notre victoire dans ce donjon secondaire !")
+  end
+  
+  UI:ResetSpeaker(false)
+  UI:SetCenter(true)
+  UI:WaitShowDialogue("Prime de guilde versée ! Le contrat officiel de Bekipan est accompli.")
+  UI:SetCenter(false)
+  
+  if partner then
+    UI:SetSpeaker(partner)
+    UI:WaitShowDialogue("Encore un contrat rondement mené ! Beau travail d'équipe !")
+  end
+  
+  UI:ResetSpeaker(false)
+  GAME:CutsceneMode(false)
+  return true
+end

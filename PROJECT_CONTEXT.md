@@ -716,6 +716,6 @@ est confirmé (`SideQuests.AllDone` conditionne la progression de chapitre,
 - **Mécanique** : si le joueur discute avec un PNJ de Metano Town (`Sentret`, `Mawile`, `Bellossom`, `Electrike`, `Manectric`, `Meditite`, etc.), une cinématique s'exécute où le PNJ expose une urgence dans un donjon secondaire (sac de courrier volé, ami piégé, sève confisquée, etc.).
 - **Enrichissement des dialogues** : chaque quête comprend de **20 à 25 lignes de dialogue au total** (`ask`, `accept`, `refuse`, `pending`, `done`), et chaque PNJ est vérifié présent dans les tournées actives de la ville (`TownLife.TOURNEES`).
 - **Déblocage** : accepter la quête débloque le donjon dans `SV.ChapterProgression.UnlockedDungeons[dungeon_id] = true` et affiche un message à l'écran.
-- **Récompense** : une fois le donjon accompli (`SV.SecondaryJobsCompleted[dungeon_id] = true`), retourner voir le PNJ déclenche la cinématique de félicitation et offre une récompense de guilde.
+- **Récompense & Retour Automatique (`SideQuests.OnDungeonClear`)** : une fois le donjon accompli (`ResultType.Cleared`), le joueur est automatiquement téléporté **face au PNJ en ville (`metano_town`)** ou **face au Job Board de Bekipan à la guilde (`guild_second_floor`)**, déclenchant la cinématique de félicitation et de remise de prime sans transition manuelle.
 
 

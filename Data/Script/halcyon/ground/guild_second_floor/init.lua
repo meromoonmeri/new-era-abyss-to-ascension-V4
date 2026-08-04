@@ -51,6 +51,13 @@ end
 function guild_second_floor.Enter(map)
 	DEBUG.EnableDbgCoro()
 	print('Enter_guild_second_floor')
+	if SV.TemporaryFlags and SV.TemporaryFlags.RewardCutsceneJobBoard then
+		local zone_id = SV.TemporaryFlags.RewardCutsceneJobBoard
+		SV.TemporaryFlags.RewardCutsceneJobBoard = nil
+		if SideQuests and SideQuests.PlayJobBoardRewardCutscene(zone_id) then
+			return
+		end
+	end
 	UI:ResetSpeaker()
 	guild_second_floor.PlotScripting()
 end

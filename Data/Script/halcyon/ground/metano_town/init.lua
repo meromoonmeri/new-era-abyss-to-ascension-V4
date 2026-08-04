@@ -86,6 +86,13 @@ end
 function metano_town.Enter(map)
 	DEBUG.EnableDbgCoro()
 	print('Enter_metano_town')
+	if SV.TemporaryFlags and SV.TemporaryFlags.RewardCutsceneQuest then
+		local q_id = SV.TemporaryFlags.RewardCutsceneQuest
+		SV.TemporaryFlags.RewardCutsceneQuest = nil
+		if SideQuests and SideQuests.PlayRewardCutscene(q_id) then
+			return
+		end
+	end
 	metano_town.PlotScripting()
 
 	--La premiere fois qu'une saison s'installe, le partenaire la remarque.

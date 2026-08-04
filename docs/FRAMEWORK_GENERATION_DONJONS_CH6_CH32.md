@@ -47,6 +47,7 @@ Avant de générer le moindre donjon, connaître par cœur la documentation du m
   - **Banque de qualificatifs** : À choisir en cohérence avec le biome réel et le lore (sans spawner de spoil avant le payoff) parmi les catégories Sensoriel/atmosphérique, Géographique/descriptif, Émotionnel/narratif et Lié à l'Anima.
 - **Noms de Mini-boss** : Les 3 mini-boss reçoivent un **nom propre individuel** (ex. *Sablaireau l'Ancien*, *Cacturne le Veilleur*, *Hippodocus le Colosse*), semblable à un nom de personnage ou PNJ.
 - **Tableau des Missions de Guilde (`SecondaryJobs.lua` / Job Board)** : Chacun des donjons secondaires est formellement rattaché au Tableau des Missions de la guilde (`Job Bulletin Board`) : chaque donjon offre un contrat épinglé avec client et cible nommés (espèces vérifiées dans `Content/Chara/`), un titre et un texte d'ambiance en français idiomatique, et une difficulté calibrée sur le chapitre.
+- **Cinématique de Récompense Automatique (`SideQuests.OnDungeonClear`)** : À la complétion d'un donjon secondaire (`ResultType.Cleared`), le moteur téléporte automatiquement le joueur **face au PNJ commanditaire à Metano Town** ou **face au Job Board de Bekipan à la guilde (`guild_second_floor`)** pour exécuter la scène de remerciement et verser la prime.
 - **Musique dédiée** : Vérifiée dans `Content/Music/` avant tout appel dans un script (`SOUND:PlayBGM`).
 - **Fichier d'inventaire central (`docs/inventaire_donjons.md`)** : Source de vérité unique.
 

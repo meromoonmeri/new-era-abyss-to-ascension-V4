@@ -220,6 +220,9 @@ function GeneralFunctions.EndDungeonRun(result, zone, structure, mapid, entryid,
 
 	GAME:EndDungeonRun(result, zone, structure, mapid, entryid, display, fanfare)
 	GAME:WaitFrames(20)
+	if SideQuests and SideQuests.OnDungeonClear(result, zone) then
+		return
+	end
 	GAME:EnterZone(zone, structure, mapid, entryid)
 
 	--GAME:EnterGroundMap("guild_heros_room", "Main_Entrance_Marker")
