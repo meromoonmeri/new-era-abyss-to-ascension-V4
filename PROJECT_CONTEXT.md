@@ -710,4 +710,10 @@ est confirmé (`SideQuests.AllDone` conditionne la progression de chapitre,
 ### 3. Pipeline de Conversion Musicale (`tools/music_converter.py`)
 - Outil Python complet automatisant le téléchargement (`yt-dlp`), la normalisation EBU R128 et la suppression des silences (`ffmpeg` `loudnorm`/`silenceremove`), l'encodage Ogg Vorbis paramétré (`-aq 5`, `44100 Hz`) et la journalisation multithreadée.
 
+### 4. Quêtes Secondaires PNJ de Metano Town (`SideQuests.lua`)
+- Injection des **20 quêtes secondaires PNJ** dans `SideQuests.LIST` et câblage de `SideQuests.TalkGiver` / `SideQuests.TurnIn`.
+- **Mécanique** : si le joueur discute avec un PNJ de Metano Town (`Doduo`, `Gulpin`, `Silcoon`, `Mareep`, `Magnemite`, `Bronzor`, etc.), une cinématique s'exécute où le PNJ expose une urgence dans un donjon secondaire (sac de courrier volé, ami piégé, sève confisquée, etc.).
+- **Déblocage** : accepter la quête débloque le donjon dans `SV.ChapterProgression.UnlockedDungeons[dungeon_id] = true` et affiche un message à l'écran.
+- **Récompense** : une fois le donjon accompli (`SV.SecondaryJobsCompleted[dungeon_id] = true`), retourner voir le PNJ déclenche la cinématique de félicitation et offre une récompense de guilde.
+
 
