@@ -576,7 +576,7 @@ function MeuteArc.PlayAct(zoneID)
   PrintInfo("[MeuteArc] acte " .. tostring(n) .. " — " .. tostring(zoneID))
   GAME:CutsceneMode(true)
   if partner ~= nil then AI:DisableCharacterAI(partner) end
-  SOUND:PlayBGM('Team_Dazzling.ogg', true)
+  SOUND:PlayBGM('Team_Dazzling_Theme.ogg', true)
   GAME:WaitFrames(20)
 
   local body = ({ MeuteArc.Act1, MeuteArc.Act2, MeuteArc.Act3 })[n]

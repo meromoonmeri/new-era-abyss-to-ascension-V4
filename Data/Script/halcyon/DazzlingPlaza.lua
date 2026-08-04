@@ -402,7 +402,7 @@ function DazzlingPlaza.ActeI()
 
   --LA FOULE SE RASSEMBLE, attiree par l'entree. Elle vient d'abord au
   --centre — c'est ce qui obligera la place a s'ouvrir juste apres.
-  SOUND:PlayBGM('Team_Dazzling.ogg', true)
+  SOUND:PlayBGM('Team_Dazzling_Theme.ogg', true)
   local ras = {}
   for i, e in ipairs(CERCLE) do
     local c = CH(e[1])

@@ -246,7 +246,7 @@ function metano_town_ch_6.DazzlingIntroduction()
 		GAME:WaitFrames(20)
 
 		--L'ENTREE DES RIVALES — LE MOMENT DOIT SE VOIR ET S'ENTENDRE.
-		--Le theme Team_Dazzling.ogg demarrait pendant que la place etait
+		--Le theme Team_Dazzling_Theme.ogg demarrait pendant que la place etait
 		--encore cadree sur le duo : leur arrivee s'entendait avant de se
 		--voir. La camera glisse desormais vers l'est PENDANT le silence,
 		--et la musique tombe sur l'image une fois le cadre en place —
@@ -255,7 +255,7 @@ function metano_town_ch_6.DazzlingIntroduction()
 			GAME:MoveCamera(960, 816, 50, false)
 		end)
 		TASK:JoinCoroutines({reveal})
-		SOUND:PlayBGM("Team_Dazzling.ogg", true)
+		SOUND:PlayBGM("Team_Dazzling_Theme.ogg", true)
 		GAME:WaitFrames(18)
 
 		--TOUTE LA PLACE SE TOURNE VERS ELLES. Le duo, Butterfree et les
@@ -1601,7 +1601,7 @@ function metano_town_ch_6.PostDefeatCutscene()
 	local quagsire = CH('Quagsire')
 	local luxray = CH('Luxray')
 
-	SOUND:PlayBGM('Team_Dazzling.ogg', true)
+	SOUND:PlayBGM('Team_Dazzling_Theme.ogg', true)
 	GAME:CutsceneMode(true)
 	AI:DisableCharacterAI(partner)
 	AI:DisableCharacterAI(adagio)

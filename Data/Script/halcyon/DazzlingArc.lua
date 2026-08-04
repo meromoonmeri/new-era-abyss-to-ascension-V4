@@ -301,7 +301,7 @@ function DazzlingArc.TrialIntro()
     -- depuis l'entree, donc elles viennent du chemin, pas du fond de la
     -- clairiere. Le nord (y<230) est de la roche pleine sur cette carte
     -- (obstacles verifies) ; le sud y=376..432 est degage.
-    SOUND:PlayBGM('Team_Dazzling.ogg', true)
+    SOUND:PlayBGM('Team_Dazzling_Theme.ogg', true)
     local trio = CharacterEssentials.MakeCharactersFromList({
       {'Adagio', 276, 416, Direction.Up},
       {'Aria',   244, 416, Direction.Up},
@@ -421,7 +421,7 @@ end
 function DazzlingArc.TrialVictory()
   return Scene({
     sv = SV.Chapter6, flag = 'PlayedTrialVictory',
-    music = 'Team_Dazzling.ogg',
+    music = 'Team_Dazzling_Theme.ogg',
     hero = {276, 288}, partner = {308, 288}, camera = {292, 330},
     scene = function(hero, partner)
       -- Memes ancrages que TrialIntro : elles sont restees au sud, le duo
@@ -532,7 +532,7 @@ end
 function DazzlingArc.TrialDefeat()
   return Scene({
     sv = SV.Chapter6, flag = 'PlayedTrialDefeat',
-    music = 'Team_Dazzling.ogg',
+    music = 'Team_Dazzling_Theme.ogg',
     hero = {276, 288}, partner = {308, 288}, camera = {292, 330},
     scene = function(hero, partner)
       local trio = CharacterEssentials.MakeCharactersFromList({

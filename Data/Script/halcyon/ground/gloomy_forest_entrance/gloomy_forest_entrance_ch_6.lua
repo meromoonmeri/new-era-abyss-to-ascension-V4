@@ -155,7 +155,7 @@ function gloomy_forest_entrance_ch_6.ArrivalCutscene()
 	GAME:WaitFrames(15)
 
 	-- 4. ENTRÉE EN SCÈNE COMIQUE ET DÉSORDONNÉE (CHAMAILLERIE)
-	SOUND:PlayBGM("Team_Dazzling.ogg", true)
+	SOUND:PlayBGM("Team_Dazzling_Theme.ogg", true)
 	GROUND:Unhide('Adagio')
 	GROUND:Unhide('Aria')
 	GROUND:Unhide('Sonata')

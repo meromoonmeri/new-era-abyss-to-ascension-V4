@@ -22,7 +22,7 @@ ERRORS=0
 # cloven_ruins_boss.
 EXPECTED_GROUNDS=273
 EXPECTED_TILESETS=539
-EXPECTED_MUSIC=133
+EXPECTED_MUSIC=134
 
 # 1. Ground maps
 echo ""
@@ -94,11 +94,11 @@ else
     ERRORS=$((ERRORS+1))
 fi
 
-# Team_Dazzling.ogg
-if [ -f "Content/Music/Team_Dazzling.ogg" ]; then
-    echo "    ✓ Team_Dazzling.ogg présent"
+# Team_Dazzling.ogg & Team_Dazzling_Theme.ogg
+if [ -f "Content/Music/Team_Dazzling.ogg" ] && [ -f "Content/Music/Team_Dazzling_Theme.ogg" ]; then
+    echo "    ✓ Team_Dazzling.ogg & Team_Dazzling_Theme.ogg présents"
 else
-    echo "    ✗ Team_Dazzling.ogg MANQUANT"
+    echo "    ✗ Team_Dazzling.ogg ou Team_Dazzling_Theme.ogg MANQUANT"
     ERRORS=$((ERRORS+1))
 fi
 

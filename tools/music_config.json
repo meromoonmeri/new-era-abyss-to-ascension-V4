@@ -40,5 +40,19 @@
     "loop_start": 0,
     "loop_length": 4851000,
     "comment": "Thème du Sanctuaire de Cristal"
+  },
+  "Team Dazzling (Combat)": {
+    "source": "https://www.youtube.com/watch?v=EXAMPLE_DAZZLING_BATTLE",
+    "filename": "Team_Dazzling.ogg",
+    "loop_start": 0,
+    "loop_length": 0,
+    "comment": "OST de combat contre la Team Dazzling — duels et affrontement d'arène"
+  },
+  "Team Dazzling (Hors Combat)": {
+    "source": "https://youtu.be/JfqKGtXMDNg",
+    "filename": "Team_Dazzling_Theme.ogg",
+    "loop_start": 0,
+    "loop_length": 0,
+    "comment": "Thème hors combat de la Team Dazzling — entrée en scène, dialogues et chamailleries (MLP Equestria Girls Rainbow Rocks / Dazzlings)"
   }
 }
