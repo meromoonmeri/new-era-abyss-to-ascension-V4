@@ -1444,9 +1444,12 @@ function cloven_ruins_entrance_ch_5.MorningBody()
   -- reprenait la main sans aucune OST. Le Mont Venteux, lui, relance
   -- toujours une piste avant de rendre la main
   -- (mount_windswept_entrance_ch_5.lua:5678, 'Mt. Travail.ogg').
-  -- 'Canyon Camp.ogg' est la piste de camp du Mont Venteux : c'est
-  -- litteralement le meme campement d'expedition, un matin plus tard.
-  pcall(function() SOUND:PlayBGM('Canyon Camp.ogg', true) end)
+  -- 'Aegis Cave.ogg' est la piste des ruines : la meme ambiance que la
+  -- musique du donjon. Demande utilisateur : la musique envoyee (lien
+  -- YouTube pour l'ambiance des ruines) doit aussi accompagner le
+  -- rassemblement du matin, pas seulement le donjon. On l'utilise donc
+  -- ici, des que le jour se leve sur le camp des Ruines Tordues.
+  pcall(function() SOUND:PlayBGM('Aegis Cave.ogg', true) end)
 
   -- LA FORMATION DE LA GUILDE — le rassemblement en rangs de deux,
   -- face au Maitre de Guilde. Même disposition que l'assemblée de la
@@ -1605,7 +1608,8 @@ function cloven_ruins_entrance_ch_5.RetourBody(k1, k2)
   -- Meme correctif que le matin : on rentre bredouille dans un camp qui
   -- vit toujours. Sans cette ligne la scene de retour, puis toute la
   -- reprise en main, se jouaient dans le silence complet.
-  pcall(function() SOUND:PlayBGM('Canyon Camp.ogg', true) end)
+  -- Meme piste que le rassemblement : l'ambiance des ruines (Aegis Cave).
+  pcall(function() SOUND:PlayBGM('Aegis Cave.ogg', true) end)
 
   local rin = E('Rin')
   local penticus = E('Penticus')
@@ -1691,6 +1695,49 @@ function cloven_ruins_entrance_ch_5.EntryTalk()
       GeneralFunctions.SetEmotion("Determined")
       UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_ENTREE_P4']))
       GAME:WaitFrames(22)
+
+      -- LA LEGENDE DE MEW — Phileas, l'erudit, la confie avant qu'on
+      -- pousse la porte. Penticus en connait des bribes, mais jamais
+      -- il n'a entendu le mythe tout entier, a voix haute, ici.
+      -- Un moment de confidence : on parle bas, les deux sages face
+      -- a face, le duo immobile derriere.
+      GROUND:CharTurnToCharAnimated(penticus, phileas, 5)
+      GAME:WaitFrames(8)
+      GROUND:CharTurnToCharAnimated(phileas, penticus, 5)
+      GAME:WaitFrames(24)
+
+      UI:SetSpeaker(phileas)
+      GeneralFunctions.SetEmotion("Normal")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_ENTREE_P6']))
+      GAME:WaitFrames(18)
+
+      UI:SetSpeaker(phileas)
+      GeneralFunctions.SetEmotion("Worried")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_MEW01']))
+      GAME:WaitFrames(14)
+
+      -- Penticus sursaute a peine ; il connait le nom, pas le poids.
+      GROUND:CharTurnToCharAnimated(penticus, phileas, 5)
+      UI:SetSpeaker(penticus)
+      GeneralFunctions.SetEmotion("Surprised")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_MEW02']))
+      GAME:WaitFrames(14)
+
+      UI:SetSpeaker(phileas)
+      GeneralFunctions.SetEmotion("Worried")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_MEW03']))
+      GAME:WaitFrames(14)
+
+      UI:SetSpeaker(penticus)
+      GeneralFunctions.SetEmotion("Normal")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_MEW04']))
+      GAME:WaitFrames(14)
+
+      -- Phileas s'adresse maintenant au duo, pas a Penticus : un vœu.
+      UI:SetSpeaker(phileas)
+      GeneralFunctions.SetEmotion("Determined")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_MEW05']))
+      GAME:WaitFrames(24)
 
       -- Ils se tournent vers l'entree : leur vœu est fait.
       GROUND:CharAnimateTurnTo(penticus, Direction.Right, 6)

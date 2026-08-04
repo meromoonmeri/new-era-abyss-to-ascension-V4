@@ -375,19 +375,8 @@ function cloven_ruins_entrance.Audino_Action(chara, activator)
     UI:WaitShowDialogue("Revenez-moi entiers,[pause=10] tous les deux.[pause=0] C'est tout ce que je demande.[pause=10] Et si la pierre vous blesse,[pause=10] je serai là,[pause=10] au camp,[pause=10] avec de quoi soigner.")
     GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("Kino a insisté pour emporter des bandages de secours.[pause=15] Il connaît les ruines :[pause=10] il sait qu'on y saigne.[pause=0] J'espère ne pas en avoir besoin pour lui.[pause=10] Ni pour vous.")
-    -- LA LEGENDE DE MEW — Rin, la savante, raconte la rumeur.
-    -- Elle ne la revele qu'apres l'assemblee, une fois le joueur libre.
-    if SV.Chapter5 ~= nil and SV.Chapter5.RuinsCampDone then
-      GeneralFunctions.SetEmotion("Normal")
-      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_MEW01']))
-      GeneralFunctions.SetEmotion("Surprised")
-      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_MEW02']))
-      GeneralFunctions.SetEmotion("Worried")
-      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_MEW03']))
-      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_MEW04']))
-      GeneralFunctions.SetEmotion("Normal")
-      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_MEW05']))
-    end
+    -- La légende de Mew n'est plus racontée ici : Phileas la confie au
+    -- duo à la porte du donjon, dans la cinématique d'entrée (EntryTalk).
   else
     GeneralFunctions.StartConversation(chara, "J'ai préparé des baies pour tout le monde.[pause=10] On ne sait jamais,[pause=0] là-dedans.[pause=10] Revenez-moi entiers,[pause=10] c'est tout ce que je demande.", "Worried")
   end

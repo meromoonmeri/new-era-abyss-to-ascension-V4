@@ -200,6 +200,10 @@
     <value>[...] (Phileas and Penticus exchange a glance,[pause=10] then bow toward the entrance.)</value>
   </data>
 
+  <data name="CR5_ENTREE_P6" xml:space="preserve">
+    <value>Before you go in...[pause=20] one last thing.[pause=15] A rumor I have only trusted to the archives,[pause=10] until tonight.[pause=0] The elders claimed a presence dwelt in these ruins,[pause=10] long before the stone and the guardians.</value>
+  </data>
+
   <data name="CR5_V01" xml:space="preserve">
     <value>And then,[pause=10] the wind ROSE,[pause=15] and I went—[pause=0] "[pause=5] WOOOOSH ![pause=5] "[pause=20] The whole sky howled ![pause=10] And me,[pause=10] calm,[pause=10] right in the middle.[pause=0] "[pause=5] I am the Breath that guards the peak ![pause=5] "</value>
   </data>
