@@ -682,3 +682,17 @@ est confirmé (`SideQuests.AllDone` conditionne la progression de chapitre,
 - **Règle absolue 2 — Identité forte et immédiatement reconnaissable** : Chaque donjon s'appuie sur une architecture, une progression, une topologie, des gimmicks environnementaux et une ambiance uniques, permettant au joueur de l'identifier en quelques secondes. Étalon qualitatif : `illuminant_riverbed` (sans jamais le copier).
 - **Règle absolue 3 — Tables de Pokémon sauvages dédiées** : Interdiction du copier-coller de pools sauvages entre donjons. Chaque table est conçue sur mesure selon l'habitat, le barème de niveau du chapitre et la narration.
 
+
+## Framework de Génération des Donjons Ch6 à Ch32 & Roster Ch6 (2026-08-04, agent Arena.ai)
+
+### 1. Constitution et Inventaire Central actés
+- Enregistrement du **Framework de génération (Ch6–32)** dans `docs/FRAMEWORK_GENERATION_DONJONS_CH6_CH32.md` (règle du chapitre par chapitre, 20-60 étages, points médians GitHub toutes les 5 étages, 3 mini-boss nommés, garde-fou légendaires).
+- Création du **Fichier d'Inventaire Central (Source de Vérité Unique)** : `docs/inventaire_donjons.md`.
+
+### 2. Proposition et soumission du Chapitre 6 (Étape 2 du Framework)
+- Soumission du roster des 4 donjons secondaires du Chapitre 6 dans l'inventaire pour validation utilisateur :
+  1. `forsaken_desert` (Désert des Oubliés, 20 ét., 2 segments, 3 mini-boss, 0 légendaire)
+  2. `geode_crevice` (Crevasse de Géode, 20 ét., 2 segments, 3 mini-boss, 0 légendaire)
+  3. `wild_orchard` (Verger Sauvage, 20 ét., 2 segments, 3 mini-boss, 0 légendaire)
+  4. `scorched_plains` (Plaines Brûlées, 20 ét., 2 segments, 3 mini-boss, 0 légendaire)
+
