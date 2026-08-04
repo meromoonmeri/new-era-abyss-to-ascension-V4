@@ -501,11 +501,17 @@ function cloven_ruins_entrance_ch_5.ArrivalBody()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
 
   cloven_ruins_entrance_ch_5.SetupGround(false)
-  -- PLEIN JOUR a l'arrivee : on retire tout filtre herite d'une
-  -- session precedente. Sans cela, un joueur qui recharge apres la
-  -- nuit arriverait dans un camp reste noir.
+  -- CREPUSCULE a l'arrivee : le camp des Ruines s'atteint au couchant.
+  -- On retire seulement la nuit noire heritee d'une session precedente
+  -- (sinon un rechargement apres la nuit arriverait dans un camp reste
+  -- noir), puis on pose 'dusk' : le crepuscule est DEJA tombe quand le
+  -- duo arrive — patron du Mont Venteux (mount_windswept_entrance_ch_5.lua:4452).
   pcall(function() GROUND:RemoveMapStatus("darkness") end)
-  pcall(function() GROUND:RemoveMapStatus("dusk") end)
+  pcall(function() GROUND:AddMapStatus("dusk") end)
+  -- PARTICULES DE FEUILLES : MapStatus 'autumn_leaves' (feuilles qui
+  -- tombent en continu) — il existe bien dans Content/MapStatus, c'est
+  -- le meme que celui des relais (gloomy_forest_midpoint).
+  pcall(function() GROUND:AddMapStatus("autumn_leaves") end)
   -- Camp VIDE : ni feu, ni paillasse. On purge tout decor herite.
   cloven_ruins_entrance_ch_5.PurgeDecor()
 
@@ -1422,12 +1428,22 @@ function cloven_ruins_entrance_ch_5.MorningBody()
 
   -- Le heros se recouche. La nuit reprend, et le matin arrive.
   pcall(function() GROUND:CharSetAnim(hero, "Sleep", true) end)
-  GAME:FadeOut(false, 50)
-  GAME:WaitFrames(30)
+  GAME:FadeOut(false, 60)
+  GAME:WaitFrames(40)
   GAME:MoveCamera(CX, CY, 1, false)
 
+  -- LENDEMAIN ULTRA-LENT (patron Mont Venteux) : pas de carton brusque.
+  -- La nuit noire s'efface tres progressivement, le crepuscule pointe,
+  -- s'attarde, puis le jour prend le relais. On sent le temps passer
+  -- avant que le camp ne se mette en mouvement.
   pcall(function() UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CR5_A68']) .. "\n\n", -1) end)
-  GAME:FadeIn(60)
+  GAME:FadeIn(120)                 -- fondu tres lent
+  GAME:WaitFrames(80)
+  pcall(function() GROUND:RemoveMapStatus("darkness") end)
+  pcall(function() GROUND:AddMapStatus("dusk") end)
+  GAME:WaitFrames(100)             -- le crepuscule s'attarde
+  pcall(function() GROUND:RemoveMapStatus("dusk") end)
+  GAME:WaitFrames(70)
   Silence(30)
 
   -- Le camp se reveille, en decale : personne ne se leve en meme temps.

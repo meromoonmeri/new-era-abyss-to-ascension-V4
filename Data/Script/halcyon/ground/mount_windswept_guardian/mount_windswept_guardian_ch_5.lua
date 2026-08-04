@@ -612,6 +612,27 @@ local function DefeatedBossBody()
   end
 
   -- ============================================================
+  -- LA TEMPETE S'APAISE — après une dizaine d'échanges, Tornadus
+  -- rend le ciel au calme d'un seul flash blanc : la pluie battante,
+  -- le brouillard et le vent se retirent d'un coup. C'est le premier
+  -- signe qu'il lache prise — la guerre des elements s'arrete.
+  -- ============================================================
+  SOUND:PlayBattleSE("EVT_Battle_Flash")
+  local eclairCalme = RogueEssence.Content.FlashEmitter()
+  eclairCalme.FadeInTime = 2
+  eclairCalme.HoldTime = 5
+  eclairCalme.FadeOutTime = 20
+  eclairCalme.StartColor = Color(255, 255, 255, 0)
+  eclairCalme.Layer = DrawLayer.Top
+  eclairCalme.Anim = RogueEssence.Content.BGAnimData("White", 0)
+  pcall(function() GROUND:PlayVFX(eclairCalme, 216, 120) end)
+  GAME:WaitFrames(22)
+  pcall(function() GROUND:RemoveMapStatus('heavy_rain') end)
+  pcall(function() GROUND:RemoveMapStatus('fog') end)
+  pcall(function() GROUND:RemoveMapStatus('blowing_wind') end)
+  GAME:WaitFrames(35)
+
+  -- ============================================================
   -- ACTE 3 : LES EXCUSES DE LA GUILDE
   -- ============================================================
   GAME:WaitFrames(30)
@@ -731,14 +752,28 @@ local function DefeatedBossBody()
   GeneralFunctions.SetEmotion("Happy")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_A34']))
 
-  -- Flash blanc, envol, disparition.
+  -- DEPART EN VOL, PAS DE FLASH BLANC : l'orage a deja ete dissipe par
+  -- le flash precedent. Tornadus s'eleve, un eclair l'embrasse au moment
+  -- du decollage, et il disparait dans le ciel.
+  GROUND:CharSetAnim(tornadus, "Charge", true)
+  local vol = TASK:BranchCoroutine(function()
+    pcall(function()
+      GROUND:MoveToPosition(tornadus, 216, 24, false, 1.1)
+    end)
+  end)
+  -- Un eclair localise (pas un flash plein ecran) accompagne son envol.
+  local eclairVol = RogueEssence.Content.FlashEmitter()
+  eclairVol.FadeInTime = 1
+  eclairVol.HoldTime = 3
+  eclairVol.FadeOutTime = 12
+  eclairVol.StartColor = Color(255, 255, 255, 0)
+  eclairVol.Layer = DrawLayer.Top
+  eclairVol.Anim = RogueEssence.Content.BGAnimData("White", 0)
+  pcall(function() GROUND:PlayVFX(eclairVol, 216, 100) end)
   SOUND:PlayBattleSE("EVT_Battle_Flash")
-  GAME:FadeOut(false, 30)
-  SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
-  GAME:WaitFrames(30)
-  GAME:FadeIn(20)
+  pcall(function() TASK:JoinCoroutines({vol}) end)
   GROUND:Hide('Tornadus')
-  GAME:WaitFrames(30)
+  GAME:WaitFrames(25)
 
   -- ============================================================
   -- ACTE 6 : LA SCENE COMIQUE
