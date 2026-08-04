@@ -696,3 +696,18 @@ est confirmé (`SideQuests.AllDone` conditionne la progression de chapitre,
   3. `wild_orchard` (Verger Sauvage, 20 ét., 2 segments, 3 mini-boss, 0 légendaire)
   4. `scorched_plains` (Plaines Brûlées, 20 ét., 2 segments, 3 mini-boss, 0 légendaire)
 
+
+## Automatisation des Outils & Intégration Job Board des Donjons Secondaires (2026-08-04, agent Arena.ai)
+
+### 1. Intégrité et harmonisation en donjon (Ch6–10)
+- Suppression intégrale des anciens grounds indépendants de boss obsolètes (`gloomy_forest_boss`, `crystal_sanctuary_boss`, `forgotten_marsh_boss`, `celestial_peak_boss`) au profit d'arènes en donjon (`.rsmap`).
+- Harmonisation biômique des 13 arènes de boss et mini-boss Ch5–10 (`retile_all_boss_arenas.py`).
+
+### 2. Job Board & Contrats de Guilde (`SecondaryJobs.lua`)
+- Création du module `Data/Script/halcyon/SecondaryJobs.lua` consignant les **20 contrats officiels** pour les 20 donjons secondaires d'exploration des Chapitres 6 à 10.
+- Câblage dans `GeneralFunctions.lua` : chaque contrat épinglé apparaît sur le **Tableau des Missions de Guilde (`Job Bulletin Board`)** aux emplacements 2 à 5 avec client/cible nommés, titre, texte d'ambiance en français idiomatique et difficulté par chapitre.
+
+### 3. Pipeline de Conversion Musicale (`tools/music_converter.py`)
+- Outil Python complet automatisant le téléchargement (`yt-dlp`), la normalisation EBU R128 et la suppression des silences (`ffmpeg` `loudnorm`/`silenceremove`), l'encodage Ogg Vorbis paramétré (`-aq 5`, `44100 Hz`) et la journalisation multithreadée.
+
+

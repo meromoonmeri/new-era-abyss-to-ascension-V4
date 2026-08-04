@@ -1,0 +1,247 @@
+--[[
+    SecondaryJobs.lua — Contrats des donjons secondaires (Chapitres 6 à 10)
+    pour le Tableau des Missions de Guilde (Job Bulletin Board).
+
+    OBJECTIF
+    --------
+    Garantir que chacun des 20 donjons secondaires d'exploration apparait
+    formellement comme un contrat affiché sur le Tableau des Missions, avec :
+      - un client et une cible nommés (espèces vérifiées)
+      - un titre et un texte d'ambiance en français idiomatique
+      - un niveau de difficulté et une récompense calibrés par chapitre
+      - un épinglage automatique dans SV.MissionBoard.
+]]
+require 'origin.common'
+
+SecondaryJobs = {}
+
+SecondaryJobs.CONTRACTS = {
+  -- === CHAPITRE 6 (Rang 30-33, Difficulté C) ===
+  {
+    chapter = 6, zone = 'forsaken_desert', segment = 0, floor = 10,
+    client = 'sandshrew', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'sandshrew', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'C', reward = 'money',
+    title = "Les mirages qui n'en sont pas",
+    flavor = "Les sables mouvants du désert ont englouti notre cargaison d'herbes médicinales.\nNous avons besoin d'une équipe solide pour retrouver notre piste avant la tempête.",
+  },
+  {
+    chapter = 6, zone = 'geode_crevice', segment = 0, floor = 12,
+    client = 'carbink', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'carbink', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'C', reward = 'money',
+    title = "L'écho des quartz brisés",
+    flavor = "Des roches scintillantes se détachent du plafond de notre caverne sans raison apparente.\nUne mission d'inspection s'impose pour sécuriser les galeries.",
+  },
+  {
+    chapter = 6, zone = 'wild_orchard', segment = 0, floor = 11,
+    client = 'combee', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'combee', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'C', reward = 'money',
+    title = "La récolte interrompue",
+    flavor = "Les Insectes du verger sont agités depuis quelques jours. Nous ne pouvons plus récolter le miel sacré.\nMerci d'enquêter dans les sous-bois.",
+  },
+  {
+    chapter = 6, zone = 'scorched_plains', segment = 0, floor = 12,
+    client = 'shinx', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'shinx', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'C', reward = 'money',
+    title = "Surcharges électriques dans la savane",
+    flavor = "L'air des plaines est saturé d'électricité statique, nos pelages en crépitent encore.\nAllez vérifier ce qui trouble l'équilibre des plaines.",
+  },
+
+  -- === CHAPITRE 7 (Rang 34-37, Difficulté B) ===
+  {
+    chapter = 7, zone = 'energy_garden', segment = 0, floor = 10,
+    client = 'magnemite', client_gender = RogueEssence.Data.Gender.Unknown,
+    target = 'magnemite', target_gender = RogueEssence.Data.Gender.Unknown,
+    difficulty = 'B', reward = 'money',
+    title = "Perturbations magnétiques sous terre",
+    flavor = "Nos champs de sustentation s'inversent lorsque nous pénétrons dans le jardin minéral.\nNous cherchons des explorateurs pour en trouver la source.",
+  },
+  {
+    chapter = 7, zone = 'sunken_relic', segment = 0, floor = 12,
+    client = 'bronzor', client_gender = RogueEssence.Data.Gender.Unknown,
+    target = 'bronzor', target_gender = RogueEssence.Data.Gender.Unknown,
+    difficulty = 'B', reward = 'money',
+    title = "Les fresques englouties",
+    flavor = "Les ruines immergées abritent des écritures anciennes que nous devons recenser.\nAttention aux ombres qui rôdent dans les piliers.",
+  },
+  {
+    chapter = 7, zone = 'mossy_labyrinth', segment = 0, floor = 11,
+    client = 'turtwig', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'turtwig', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'B', reward = 'money',
+    title = "Le labyrinthe qui pousse trop vite",
+    flavor = "La mousse et les racines ont condamné notre ancien chemin de ronde en une seule nuit.\nAidez-nous à frayer un passage sûr.",
+  },
+  {
+    chapter = 7, zone = 'magma_quarry', segment = 0, floor = 12,
+    client = 'numel', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'numel', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'B', reward = 'money',
+    title = "Trépidations volcaniques",
+    flavor = "La roche magmatique chauffe à blanc et des fumerolles acides bloquent les chariots.\nNous offrons une bonne prime pour dégager la carrière.",
+  },
+
+  -- === CHAPITRE 8 (Rang 38-41, Difficulté A) ===
+  {
+    chapter = 8, zone = 'barren_tundra', segment = 0, floor = 10,
+    client = 'spheal', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'spheal', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'A', reward = 'money',
+    title = "Le vent glacé des crêtes",
+    flavor = "Des blizzards soudains ont gelé notre réserve de baies dans la toundra.\nNous cherchons une équipe endurante au froid pour les récupérer.",
+  },
+  {
+    chapter = 8, zone = 'barren_cavern', segment = 0, floor = 12,
+    client = 'aron', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'aron', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'A', reward = 'money',
+    title = "Les éboulements de la caverne",
+    flavor = "Les piliers d'acier naturel s'effondrent sous le poids de créatures agressives.\nUne intervention armée est requise de toute urgence.",
+  },
+  {
+    chapter = 8, zone = 'cracked_ridge', segment = 0, floor = 11,
+    client = 'bagon', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'bagon', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'A', reward = 'money',
+    title = "Les roches qui tombent du ciel",
+    flavor = "Les sommets se fracturent et provoquent des éboulis à chaque secousse.\nVenez sécuriser les sentiers rocheux avec nous.",
+  },
+  {
+    chapter = 8, zone = 'suspended_valley', segment = 0, floor = 12,
+    client = 'fletchling', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'fletchling', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'A', reward = 'money',
+    title = "Courants contraires en altitude",
+    flavor = "Les rafales ascendantes nous empêchent de voler au-dessus du vallon.\nIl faut atteindre le col pour comprendre d'où vient le vent.",
+  },
+
+  -- === CHAPITRE 9 (Rang 42-45, Difficulté A+) ===
+  {
+    chapter = 9, zone = 'depleted_basin', segment = 0, floor = 10,
+    client = 'psyduck', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'psyduck', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'S', reward = 'money',
+    title = "L'eau qui disparaît du bassin",
+    flavor = "Le niveau d'eau du grand bassin baisse inexplicablement de jour en jour.\nEnquêtez dans le lit tari avant la sécheresse totale.",
+  },
+  {
+    chapter = 9, zone = 'wayward_wetlands', segment = 0, floor = 12,
+    client = 'lotad', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'lotad', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'S', reward = 'money',
+    title = "Les brumes trompeuses du marais",
+    flavor = "Des nappes de brume violacée désorientent nos cueilleurs dans les mares.\nNous avons besoin d'guides expérimentés pour traverser le marais.",
+  },
+  {
+    chapter = 9, zone = 'southern_jungle', segment = 0, floor = 11,
+    client = 'oddish', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'oddish', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'S', reward = 'money',
+    title = "Canopée oppressante",
+    flavor = "Les arbres tropicaux ont poussé au point de masquer totalement la lumière du soleil.\nUne expédition de débroussaillage s'impose.",
+  },
+  {
+    chapter = 9, zone = 'submerged_chasm', segment = 0, floor = 12,
+    client = 'shellder', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'shellder', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'S', reward = 'money',
+    title = "Les échos des profondeurs marines",
+    flavor = "Des courants sous-marins anormaux secouent les rochers de la faille.\nNous payons très cher qui plongera pour nous ramener un rapport.",
+  },
+
+  -- === CHAPITRE 10 (Rang 46-49, Difficulté S) ===
+  {
+    chapter = 10, zone = 'snowbound_path', segment = 0, floor = 10,
+    client = 'snorunt', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'snorunt', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'S', reward = 'money',
+    title = "Le col pris dans les glaces",
+    flavor = "La neige s'est entassée sur plus de dix mètres, coupant la route du sommet.\nSeule une équipe de rang supérieur peut forcer le passage.",
+  },
+  {
+    chapter = 10, zone = 'thunderstruck_pass', segment = 0, floor = 12,
+    client = 'shinx', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'shinx', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'S', reward = 'money',
+    title = "Orages continus sur la crête",
+    flavor = "La foudre tombe sans discontinuer sur la crête rocheuse depuis trois jours.\nNous devons inspecter les paratonnerres naturels du col.",
+  },
+  {
+    chapter = 10, zone = 'flyaway_cliffs', segment = 0, floor = 12,
+    client = 'pidgey', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'pidgey', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'S', reward = 'money',
+    title = "Les ombres des hautes falaises",
+    flavor = "Des Pokémon volants de grande envergure patrouillent agressivement au-dessus des falaises.\nSécurisez l'espace aérien pour notre guilde.",
+  },
+  {
+    chapter = 10, zone = 'forgotten_silver_spire', segment = 0, floor = 11,
+    client = 'ralts', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'ralts', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'S', reward = 'money',
+    title = "Le silence de la Cime d'Argent",
+    flavor = "Les cloches minérales de la cime ont cessé de résonner dans le vent céleste.\nUne mission d'investigation sacrée est commanditée.",
+  },
+}
+
+function SecondaryJobs.EnsureSV()
+  if SV.SecondaryJobsCompleted == nil then
+    SV.SecondaryJobsCompleted = {}
+  end
+end
+
+function SecondaryJobs.CleanCompleted()
+  SecondaryJobs.EnsureSV()
+  if SV.MissionBoard == nil then return end
+  
+  local clean = {}
+  for _, slot in ipairs(SV.MissionBoard) do
+    if slot.Zone and not SV.SecondaryJobsCompleted[slot.Zone] then
+      table.insert(clean, slot)
+    end
+  end
+  SV.MissionBoard = clean
+end
+
+function SecondaryJobs.PinToBoard()
+  SecondaryJobs.EnsureSV()
+  if SV.MissionBoard == nil then
+    SV.MissionBoard = {}
+  end
+
+  local current_ch = 6
+  if SV.ChapterProgression and SV.ChapterProgression.Chapter then
+    current_ch = SV.ChapterProgression.Chapter
+  end
+
+  -- Epingler les contrats des donjons secondaires du chapitre actif aux emplacements 2 à 5
+  for _, c in ipairs(SecondaryJobs.CONTRACTS) do
+    if c.chapter == current_ch and not SV.SecondaryJobsCompleted[c.zone] then
+      local job = {
+        Client = c.client,
+        ClientGender = c.client_gender,
+        Target = c.target,
+        TargetGender = c.target_gender,
+        Flavor = c.flavor,
+        Title = c.title,
+        Zone = c.zone,
+        Segment = c.segment,
+        Floor = c.floor,
+        Reward = 0,
+        Type = 0,
+        Completion = 0,
+        Taken = false,
+        Difficulty = c.difficulty,
+        Item = "",
+        Special = "",
+        BonusReward = ""
+      }
+      table.insert(SV.MissionBoard, job)
+    end
+  end
+end
+
+return SecondaryJobs

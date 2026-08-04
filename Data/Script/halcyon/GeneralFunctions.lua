@@ -1,5 +1,6 @@
 require 'origin.common'
 require 'halcyon.SuaireJobs'
+require 'halcyon.SecondaryJobs'
 GeneralFunctions = {}
 
 --[[----------------------------------------------------------------------
@@ -197,6 +198,10 @@ function GeneralFunctions.UpdateDailyFlags()
 	if SuaireJobs ~= nil then
 		SuaireJobs.CleanCompleted()
 		SuaireJobs.PinToBoard()
+	end
+	if SecondaryJobs ~= nil then
+		SecondaryJobs.CleanCompleted()
+		SecondaryJobs.PinToBoard()
 	end
 end
 
