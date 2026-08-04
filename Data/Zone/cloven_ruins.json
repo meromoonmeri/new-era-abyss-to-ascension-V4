@@ -263,7 +263,7 @@
            ]
           },
           "Value": {
-           "$type": "RogueEssence.AddTunnelStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+           "$type": "RogueEssence.AddTunnelStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
            "TurnLength": {
             "Min": 2,
             "Max": 7
@@ -1394,7 +1394,7 @@
            ]
           },
           "Value": {
-           "$type": "RogueEssence.AddTunnelStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+           "$type": "RogueEssence.AddTunnelStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
            "TurnLength": {
             "Min": 2,
             "Max": 7
@@ -2525,7 +2525,7 @@
            ]
           },
           "Value": {
-           "$type": "RogueEssence.AddTunnelStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+           "$type": "RogueEssence.AddTunnelStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
            "TurnLength": {
             "Min": 2,
             "Max": 7
@@ -3669,7 +3669,7 @@
            ]
           },
           "Value": {
-           "$type": "RogueEssence.AddTunnelStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+           "$type": "RogueEssence.AddTunnelStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
            "TurnLength": {
             "Min": 2,
             "Max": 7
