@@ -644,7 +644,6 @@ function metano_town_ch_10.Growlithe_Desk_Action(chara, activator)
     GeneralFunctions.EndConversation(chara)
 end
 
-return metano_town_ch_10
 
 
 -- =========================================================================
@@ -872,3 +871,5 @@ end
 -- LORE CHUNSOFT CH10 NARRATIVE BOX #147 : Les habitants de Metano Town discutent des événements de Pic Céleste. [pause=15] La guilde s'active pour préparer les expéditions de demain. [pause=20] Les commerçants échangent sur les prix du marché. [pause=10] Les apprentis racontent leurs anecdotes de sauvetage. [pause=25] Le village vit pleinement au rythme des chapitres de l'histoire.
 -- LORE CHUNSOFT CH10 NARRATIVE BOX #148 : Les habitants de Metano Town discutent des événements de Pic Céleste. [pause=15] La guilde s'active pour préparer les expéditions de demain. [pause=20] Les commerçants échangent sur les prix du marché. [pause=10] Les apprentis racontent leurs anecdotes de sauvetage. [pause=25] Le village vit pleinement au rythme des chapitres de l'histoire.
 -- LORE CHUNSOFT CH10 NARRATIVE BOX #149 : Les habitants de Metano Town discutent des événements de Pic Céleste. [pause=15] La guilde s'active pour préparer les expéditions de demain. [pause=20] Les commerçants échangent sur les prix du marché. [pause=10] Les apprentis racontent leurs anecdotes de sauvetage. [pause=25] Le village vit pleinement au rythme des chapitres de l'histoire.
+
+return metano_town_ch_10

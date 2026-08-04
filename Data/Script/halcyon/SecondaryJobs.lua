@@ -191,8 +191,7 @@ SecondaryJobs.CONTRACTS = {
     target = 'wooper', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'A', reward = 'money',
     title = "Le déluge du ravin",
-    flavor = "Des pluies torrentielles inondent le Ravin Pluvieux et menacent nos rivières.
-Une équipe de secours est demandée d'urgence.",
+    flavor = "Des pluies torrentielles inondent le Ravin Pluvieux et menacent nos rivières.\nUne équipe de secours est demandée d'urgence.",
   },
   {
     chapter = 11, zone = 'mossy_gorge', segment = 0, floor = 12,
@@ -200,8 +199,7 @@ Une équipe de secours est demandée d'urgence.",
     target = 'bellossom', target_gender = RogueEssence.Data.Gender.Female,
     difficulty = 'A', reward = 'money',
     title = "L'eau de la racine sacrée",
-    flavor = "La source sacrée de la Gorge Moussue est accaparée par de redoutables Pokémon.
-Aidez-nous à rendre l'eau aux plantes de la vallée.",
+    flavor = "La source sacrée de la Gorge Moussue est accaparée par de redoutables Pokémon.\nAidez-nous à rendre l'eau aux plantes de la vallée.",
   },
   {
     chapter = 11, zone = 'windswept_trail', segment = 0, floor = 11,
@@ -209,8 +207,7 @@ Aidez-nous à rendre l'eau aux plantes de la vallée.",
     target = 'manectric', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'S', reward = 'money',
     title = "La tempête du nord",
-    flavor = "Des vents violents bloquent le passage sur la Piste Venteuse vers les crêtes nordiques.
-Sécurisez le sentier pour les voyageurs.",
+    flavor = "Des vents violents bloquent le passage sur la Piste Venteuse vers les crêtes nordiques.\nSécurisez le sentier pour les voyageurs.",
   },
   {
     chapter = 11, zone = 'foggy_hollow', segment = 0, floor = 12,
@@ -218,8 +215,7 @@ Sécurisez le sentier pour les voyageurs.",
     target = 'gloom', target_gender = RogueEssence.Data.Gender.Female,
     difficulty = 'S', reward = 'money',
     title = "Le brouillard sans fin",
-    flavor = "Un rideau de brume obscure désoriente quiconque s'aventure dans le Creux Brumeux.
-Dissipez cette menace pour ramener la clarté.",
+    flavor = "Un rideau de brume obscure désoriente quiconque s'aventure dans le Creux Brumeux.\nDissipez cette menace pour ramener la clarté.",
   },
   {
     chapter = 12, zone = 'ashen_hollow', segment = 0, floor = 10,
@@ -227,8 +223,7 @@ Dissipez cette menace pour ramener la clarté.",
     target = 'slugma', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'A', reward = 'money',
     title = "Les cendres du cratère",
-    flavor = "Des boues acides empoisonnent la lave du Creux Cendré au nord des montagnes.
-Une mission de purification est requise.",
+    flavor = "Des boues acides empoisonnent la lave du Creux Cendré au nord des montagnes.\nUne mission de purification est requise.",
   },
   {
     chapter = 12, zone = 'frozen_rift', segment = 0, floor = 12,
@@ -236,8 +231,7 @@ Une mission de purification est requise.",
     target = 'snorunt', target_gender = RogueEssence.Data.Gender.Female,
     difficulty = 'S', reward = 'money',
     title = "Le puits de glace",
-    flavor = "Un monarque de glace obstrue le puits thermique de la Faille Gelée.
-Libérez le passage pour faire remonter l'air doux.",
+    flavor = "Un monarque de glace obstrue le puits thermique de la Faille Gelée.\nLibérez le passage pour faire remonter l'air doux.",
   },
   {
     chapter = 12, zone = 'whispering_crag', segment = 0, floor = 11,
@@ -245,8 +239,7 @@ Libérez le passage pour faire remonter l'air doux.",
     target = 'pidgeotto', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'S', reward = 'money',
     title = "Les ailes d'acier",
-    flavor = "Des tempêtes violentes bloquent la route des oiseaux migrateurs sur la Crête Chuchotante.
-Sécurisez l'espace aérien.",
+    flavor = "Des tempêtes violentes bloquent la route des oiseaux migrateurs sur la Crête Chuchotante.\nSécurisez l'espace aérien.",
   },
   {
     chapter = 12, zone = 'twilight_marsh', segment = 0, floor = 12,
@@ -254,8 +247,7 @@ Sécurisez l'espace aérien.",
     target = 'wooper', target_gender = RogueEssence.Data.Gender.Female,
     difficulty = 'A', reward = 'money',
     title = "La tourbe sombre",
-    flavor = "Les champs de baies du Marais Crépusculaire sont ravagés par un étalon lourd.
-Protégez nos cultures marécageuses.",
+    flavor = "Les champs de baies du Marais Crépusculaire sont ravagés par un étalon lourd.\nProtégez nos cultures marécageuses.",
   },
   {
     chapter = 13, zone = 'shivering_cavern', segment = 0, floor = 10,
@@ -263,8 +255,7 @@ Protégez nos cultures marécageuses.",
     target = 'snorunt', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'A', reward = 'money',
     title = "Le gel éternel",
-    flavor = "Un blizzard éternel paralyse la source thermale de la Caverne Grelottante.
-Une expédition de secours est réclamée.",
+    flavor = "Un blizzard éternel paralyse la source thermale de la Caverne Grelottante.\nUne expédition de secours est réclamée.",
   },
   {
     chapter = 13, zone = 'tempest_ridge', segment = 0, floor = 12,
@@ -272,8 +263,7 @@ Une expédition de secours est réclamée.",
     target = 'manectric', target_gender = RogueEssence.Data.Gender.Female,
     difficulty = 'S', reward = 'money',
     title = "L'orage de la crête",
-    flavor = "Des foudres violentes interdisent le passage sur la Crête de la Tempête.
-Apaiser l'orage pour rouvrir le col.",
+    flavor = "Des foudres violentes interdisent le passage sur la Crête de la Tempête.\nApaiser l'orage pour rouvrir le col.",
   },
   {
     chapter = 13, zone = 'hollow_thicket', segment = 0, floor = 11,
@@ -281,8 +271,7 @@ Apaiser l'orage pour rouvrir le col.",
     target = 'gloom', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'S', reward = 'money',
     title = "Les ronces du fourré",
-    flavor = "Des lianes sombres emprisonnent les sous-bois du Fourré Creux.
-Libérez les sentiers pour les habitants forestiers.",
+    flavor = "Des lianes sombres emprisonnent les sous-bois du Fourré Creux.\nLibérez les sentiers pour les habitants forestiers.",
   },
   {
     chapter = 13, zone = 'silent_marsh', segment = 0, floor = 12,
@@ -290,8 +279,7 @@ Libérez les sentiers pour les habitants forestiers.",
     target = 'wooper', target_gender = RogueEssence.Data.Gender.Female,
     difficulty = 'A', reward = 'money',
     title = "Le silence du marais",
-    flavor = "Le Marais Silencieux est privé de musique par un gardien en armure d'acier.
-Ramenez le chant des pluies.",
+    flavor = "Le Marais Silencieux est privé de musique par un gardien en armure d'acier.\nRamenez le chant des pluies.",
   },
 
 
