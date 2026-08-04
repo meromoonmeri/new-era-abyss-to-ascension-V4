@@ -9,13 +9,15 @@
     2024 cases bloquantes sur 3672.
 
     Composante praticable REELLE, calculee par remplissage depuis
-    Main_Entrance_Marker (24,216) : 807 positions posables pour une
+    Main_Entrance_Marker (24,216) : 894 positions posables pour une
     boite 16x16 — les 4 cases de 8 px testees a chaque fois.
-    Etendue x 0..424, y 120..296. Le coeur large et continu est la
-    bande y=160..256.
+    Etendue x 0..444, y 120..296. Le coeur large et continu est la
+    bande y=160..256, prolongee a l'est par un chemin degage vers
+    l'entree du donjon (408,200), desormais accessible.
 
-    Objets scriptes a eviter : Dungeon_Entrance (398,118),
-    Kangaskhan_Rock (368,208).
+    Objets scriptes : Dungeon_Entrance (408,200), desormais sur sol
+    praticable. Aucune tablette Zarbi ni statue Kangourex dans la zone
+    (retirees 2026-08-04).
 
     Toutes les positions de ce fichier sortent de cet audit. Aucune
     n'est estimee a l'oeil.
@@ -84,7 +86,7 @@ local PLACES = {
   Rin       = {272, 192},
   Coco      = {272, 216},
   Phileas   = {256, 232},
-  Penticus  = {232, 248},
+  Penticus  = {232, 240},
 }
 cloven_ruins_entrance_ch_5.PLACES = PLACES
 
@@ -109,19 +111,19 @@ cloven_ruins_entrance_ch_5.PLUM_ACCUEIL = PLUM_ACCUEIL
 -- 29 px minimum entre deux paillasses, et le point de couchage lui-meme
 -- (+13/+10, cf. plus bas) tombe sur du marchable.
 local LITS = {
-  hero      = {184, 280},
-  partner   = {136, 264},
-  Plum      = {104, 240},
+  hero      = {176, 256},
+  partner   = {128, 256},
+  Plum      = {104, 232},
   Ganlon    = {88, 216},
   Shuca     = {88, 184},
   Kino      = {112, 168},
   Reinier   = {168, 160},
-  Almotz    = {208, 168},
+  Almotz    = {200, 168},
   Hyko      = {272, 168},
   Rin       = {296, 184},
   Coco      = {296, 216},
-  Phileas   = {280, 240},
-  Penticus  = {232, 240},
+  Phileas   = {280, 232},
+  Penticus  = {224, 232},
 }
 cloven_ruins_entrance_ch_5.LITS = LITS
 
