@@ -672,3 +672,13 @@ ferme le correctif 1 ; (2) le rendu des 150 dialogues reponctués ; (3) la mont�
 qui ne se mesure pas sur fichier ; (5) raids, boutiques, relais et quêtes annexes — le câblage
 est confirmé (`SideQuests.AllDone` conditionne la progression de chapitre,
 `guild_heros_room/init.lua:157-217`) mais leur jouabilité ne l'est pas.
+
+
+## Charte et Manifeste d'Architecture et d'Identité des Donjons (2026-08-04, agent Arena.ai)
+
+### 1. Directive maîtresse actée (Ch6 à Ch32)
+- Enregistrement officiel de la constitution dans `docs/MANIFESTE_IDENTITE_DONJONS_CH6_CH32.md`.
+- **Règle absolue 1 — Zéro ground indépendant pour les boss** : De Tornadus (Ch6) au boss final (Ch32), tout affrontement de boss a lieu dans une salle de confrontation en donjon (`.rsmap` intégrée en fin de segment), adaptée au biome du donjon (tuiles, élément, météo, musique).
+- **Règle absolue 2 — Identité forte et immédiatement reconnaissable** : Chaque donjon s'appuie sur une architecture, une progression, une topologie, des gimmicks environnementaux et une ambiance uniques, permettant au joueur de l'identifier en quelques secondes. Étalon qualitatif : `illuminant_riverbed` (sans jamais le copier).
+- **Règle absolue 3 — Tables de Pokémon sauvages dédiées** : Interdiction du copier-coller de pools sauvages entre donjons. Chaque table est conçue sur mesure selon l'habitat, le barème de niveau du chapitre et la narration.
+
