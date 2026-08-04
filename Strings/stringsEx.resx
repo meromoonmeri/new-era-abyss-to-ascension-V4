@@ -6602,4 +6602,7 @@ As he is a volunteer, he won't be staying with you once you leave.
   <data name="RUINES_CRB_REVEL_04" xml:space="preserve">
     <value>A tower of stone rises above the ruins,[pause=25] uncovered by the collapse.[pause=30] Relic Tower is now accessible.</value>
   </data>
+  <data name="RUINES_CRB_REVEL_05" xml:space="preserve">
+    <value>The ground... it's shaking![pause=15] What's happening!?</value>
+  </data>
 </root>

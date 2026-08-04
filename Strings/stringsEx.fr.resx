@@ -6171,4 +6171,7 @@ Comme c'est un volontaire, il ne restera pas avec toi après la sortie.
   <data name="RUINES_CRB_REVEL_04" xml:space="preserve">
     <value>Une tour de pierre monte au-dessus des ruines,[pause=25] découverte par l'effondrement.[pause=30] La Tour des Reliques est désormais accessible.</value>
   </data>
+  <data name="RUINES_CRB_REVEL_05" xml:space="preserve">
+    <value>La terre...[pause=10] elle tremble ![pause=15] Qu'est-ce qui se passe !?</value>
+  </data>
 </root>

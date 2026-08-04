@@ -52,16 +52,32 @@ function RuinesRenforts.Revelation()
     GAME:WaitFrames(40)
     centre('CRB_REVEL_01')
     GAME:WaitFrames(22)
+
+    -- LE SEISME — la terre tremble, la tour monte d'elle-meme.
+    -- Le sol encaisse d'abord, puis l'ecran bouge par-dessus la boite de
+    -- dialogue : on ressent la secousse pendant qu'on lit.
+    SOUND:PlayBattleSE('EVT_Tower_Quake')
+    GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 5, 30))
+    GAME:WaitFrames(18)
+    if partner ~= nil then
+      GROUND:CharSetEmote(partner, "shock", 1)
+      dit(partner, 'CRB_REVEL_05', "Surprised")   -- « La terre tremble ! Qu'est-ce qui se passe !? »
+    end
+    -- Deuxieme secousse, plus forte, qui accompagne le heros.
+    SOUND:PlayBattleSE('EVT_Tower_Quake')
+    GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 7, 40))
+    GAME:WaitFrames(20)
+    if hero ~= nil then
+      GeneralFunctions.HeroDialogue(hero,
+        STRINGS:Format(STRINGS.MapStrings['CRB_REVEL_03']), "Worried")
+    end
+    -- La falaise s'entrouvre, le passage apparait.
+    GAME:WaitFrames(20)
     if partner ~= nil then
       GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
       dit(partner, 'CRB_REVEL_02', "Surprised")
     end
     GAME:WaitFrames(18)
-    if hero ~= nil then
-      GeneralFunctions.HeroDialogue(hero,
-        STRINGS:Format(STRINGS.MapStrings['CRB_REVEL_03']), "Worried")
-    end
-    GAME:WaitFrames(20)
     centre('CRB_REVEL_04')
     GAME:WaitFrames(25)
   end)
