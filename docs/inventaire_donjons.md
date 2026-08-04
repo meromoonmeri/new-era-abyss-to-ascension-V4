@@ -18,79 +18,89 @@
 
 ---
 
-## 2. CHAPITRE 6 — PROPOSITION DU ROSTER DES DONJONS SECONDAIRES
+## 2. CHAPITRE 6 — ROSTER DES DONJONS SECONDAIRES (GÉNÉRÉS & VALIDÉS)
 
-> **État du processus (§9, Étape 2)** : Proposition formelle des **4 donjons secondaires du Chapitre 6** pour **validation utilisateur** avant génération des fichiers `.json` détaillés.  
-> Tous les mini-boss portent des noms propres, utilisent des musiques présentes dans `Content/Music/` et les espèces sont vérifiées dans `Content/Chara/`.  
-> *Note Légendaire (§2)* : Conformément au garde-fou, **aucun légendaire gratuit** n'est inséré dans ces donjons secondaires ; l'enjeu légendaire du Ch6 reste concentré sur **Zarude** et son contrat de revanche Grodoudou (`verdant_oath`).
+> **État du processus (§9, Étape 3)** : Le roster des **4 donjons secondaires du Chapitre 6** a été **généré, mis en conformité et validé dans le moteur** (`Data/Zone/*.json`).  
+> Tous les noms respectent la **Convention de Nommage (`[Lieu] + [Qualificatif]`)**, le **Scaling Évolutif sur 15 niveaux (`Lv 18-33`)** et la règle des **Relais modèle Tunnel Incandescent + Kangourex par biome**.
 
 ### 6.S1 — Désert des Oubliés (`forsaken_desert` / PMDODump)
+- **Nommage original (§1–§6)** : `[Désert]` (Lieu) + `[des Oubliés]` (Qualificatif géographique/narratif). Aucun conflit avec l'inventaire ni avec la nomenclature officielle de la licence.
 - **Chapitre & Rang narratif** : Chapitre 6 — Rang 30.
 - **Étages & Segments** : 20 étages en **2 segments** de 10 étages (`RangeDictSegment` / `LayeredSegment`).
   - *Segment 1 (Ét. 1–10)* : Biome **Désert Ardent** (`furnace_desert_floor` / `wall`). Météo : *Tempête de sable* aux étages 4, 8 et 9 (§6.5).
   - *Segment 2 (Ét. 11–20)* : Biome **Vallée Stérile** (`barren_valley_floor` / `wall`). Météo : *Tempête de sable* à l'étage 18.
-- **Points médians (Relais)** : `forsaken_desert_relay.rsground` — Modèle Tunnel Incandescent avec **statue Kangourex (`Kangaskhan_Rock`)**, `North_Exit` et `South_Exit`, adapté au biome **Désert Aride / Rocheux**.
+- **Scaling Évolutif (`Lv 18–33`, 15 niveaux d'écart)** :
+  - *Segment 1 (Stade 1, Lv 18–24)* : Sabelette, Cacnea, Trapinch, Baltoy, Hippopotas, Skorupi.
+  - *Segment 2 (Stade Évolué, Lv 25–33)* : Sablaireau, Cacturne, Vibrava, Claydol, Hippodocus, Drapion.
+- **Points médians (Relais, toutes les 5 étages)** :
+  - `forsaken_desert_relay.rsground` ➔ **Modèle Tunnel Incandescent avec statue Kangourex (`Kangaskhan_Rock`)**, `North_Exit` et `South_Exit`, adapté au biome **Désert Aride / Rocheux**.
 - **Mini-Boss (3 par donjon, noms propres & musique dédiée)** :
-  - *Ét. 6* : **Sablaireau l'Ancien** (Sandslash, Lv. 22) — Musique : `Boss Battle.ogg`.
-  - *Ét. 12* : **Cacturne le Veilleur** (Cacturne, Lv. 24) — Musique : `Boss Battle.ogg`.
-  - *Ét. 19* : **Hippodocus le Colosse** (Hippowdon, Lv. 26) — Musique : `Boss Battle 2.ogg`.
+  - *Ét. 6* : **Sablaireau l'Ancien** (Sandslash, Lv. 24) — Musique : `Boss Battle.ogg`.
+  - *Ét. 12* : **Cacturne le Veilleur** (Cacturne, Lv. 28) — Musique : `Boss Battle.ogg`.
+  - *Ét. 19* : **Hippodocus le Colosse** (Hippowdon, Lv. 32) — Musique : `Boss Battle 2.ogg`.
 - **Légendaire** : *Aucun — Donjon d'exploration désertique secondaire (§2).*
-- **Bestiaire vérifié (`Content/Chara/`, 14 espèces)** :  
-  Sandshrew, Sandslash, Cacnea, Cacturne, Trapinch, Vibrava, Baltoy, Claydol, Hippopotas, Hippowdon, Gible, Gabite, Skorupi, Drapion.
 - **Objets & Marchand Kecleon (§4.5, §4.6)** :
   - Patron de spawn : `ItemSpawnZoneStep` (calqué sur `PMDODump` `DataAsset/Zone/Forsaken_Desert.out.txt`). Pool : Orbes désertiques, Baies Oran, Graines Résurrection.
   - Marchand Kecleon : Spawn aléatoire (`probabilité 12 %` par étage dans le segment 2).
-- **Diversité géométrique (§1.5)** : Étages 1–5 : grands plateaux ouverts ; Étages 6–15 : couloirs rocheux étroits ; Étages 16–20 : labyrinthe de dunes.
 
 ---
 
 ### 6.S2 — Crevasse de Géode (`geode_crevice` / PMDODump)
+- **Nommage original (§1–§6)** : `[Crevasse]` (Lieu) + `[de Géode]` (Qualificatif minéral).
 - **Chapitre & Rang narratif** : Chapitre 6 — Rang 31.
 - **Étages & Segments** : 20 étages en **2 segments** de 10 étages.
   - *Segment 1 (Ét. 1–10)* : Biome **Grotte de Cristal** (`crystal_cave_1_floor` / `wall`).
   - *Segment 2 (Ét. 11–20)* : Biome **Caverne de Quartz** (`quartz_cavern_floor` / `wall`). Météo : *Brouillard électrostatique* aux étages 14 et 17.
-- **Points médians (Relais)** : `geode_crevice_relay.rsground` — Modèle Tunnel Incandescent avec **statue Kangourex (`Kangaskhan_Rock`)**, `North_Exit` et `South_Exit`, adapté au biome **Grotte de Cristal / Caverne de Quartz**.
+- **Scaling Évolutif (`Lv 18–33`, 15 niveaux d'écart)** :
+  - *Segment 1 (Stade 1, Lv 18–24)* : Racaillou, Roggenrola, Tarinor, Strassie, Galekid.
+  - *Segment 2 (Stade Évolué, Lv 25–33)* : Gravalanch, Grolem, Géolithe, Gigalithe, Tarinorme, Ténéfix.
+- **Points médians (Relais)** :
+  - `geode_crevice_relay.rsground` ➔ **Modèle Tunnel Incandescent avec statue Kangourex (`Kangaskhan_Rock`)**, `North_Exit` et `South_Exit`, adapté au biome **Grotte de Cristal / Caverne de Quartz**.
 - **Mini-Boss (3 par donjon)** :
-  - *Ét. 7* : **Gravalanch du Filon** (Graveler, Lv. 23) — Musique : `Boss Battle.ogg`.
-  - *Ét. 14* : **Tarinor la Boussole** (Nosepass, Lv. 25) — Musique : `Boss Battle.ogg`.
-  - *Ét. 20* : **Gigalithe le Diamant** (Gigalith, Lv. 27) — Musique : `Boss Battle 2.ogg`.
+  - *Ét. 7* : **Gravalanch du Filon** (Graveler, Lv. 24) — Musique : `Boss Battle.ogg`.
+  - *Ét. 14* : **Tarinor la Boussole** (Nosepass, Lv. 28) — Musique : `Boss Battle.ogg`.
+  - *Ét. 20* : **Gigalithe le Diamant** (Gigalith, Lv. 33) — Musique : `Boss Battle 2.ogg`.
 - **Légendaire** : *Aucun (§2).*
-- **Bestiaire vérifié (`Content/Chara/`, 12 espèces)** :  
-  Geodude, Graveler, Golem, Nosepass, Probopass, Roggenrola, Boldore, Gigalith, Carbink, Sableye, Mawile, Aron.
 - **Objets & Marchand Kecleon** : `ItemSpawnZoneStep` riche en Évolurocs et sphères de lumière. Marchand Kecleon aléatoire (`probabilité 15 %`).
 
 ---
 
 ### 6.S3 — Verger Sauvage (`wild_orchard` / ExplorersOfSkyOrigins)
+- **Nommage original (§1–§6)** : `[Verger]` (Lieu) + `[Sauvage]` (Qualificatif atmosphérique/naturel).
 - **Chapitre & Rang narratif** : Chapitre 6 — Rang 32.
 - **Étages & Segments** : 20 étages en **2 segments** de 10 étages.
   - *Segment 1 (Ét. 1–10)* : Biome **Bois aux Pommes** (`apple_woods_floor` / `wall`).
   - *Segment 2 (Ét. 11–20)* : Biome **Sentier du Verger** (`orchard_path_floor` / `wall`). Météo : *Pluie* à l'étage 16.
-- **Points médians (Relais)** : `wild_orchard_relay.rsground` — Modèle Tunnel Incandescent avec **statue Kangourex (`Kangaskhan_Rock`)**, `North_Exit` et `South_Exit`, adapté au biome **Nature / Forêt (`Apple Woods`)**.
+- **Scaling Évolutif (`Lv 18–33`, 15 niveaux d'écart)** :
+  - *Segment 1 (Stade 1, Lv 18–24)* : Chenipan, Aspicot, Ceribou, Cheniti, Apitrini.
+  - *Segment 2 (Stade Évolué, Lv 25–33)* : Papilusion, Dardargnan, Scarhino, Scarabrute, Apireine, Ceriflor.
+- **Points médians (Relais)** :
+  - `wild_orchard_relay.rsground` ➔ **Modèle Tunnel Incandescent avec statue Kangourex (`Kangaskhan_Rock`)**, `North_Exit` et `South_Exit`, adapté au biome **Nature / Forêt (`Apple Woods`)**.
 - **Mini-Boss (3 par donjon)** :
-  - *Ét. 5* : **Scarhino la Corne** (Heracross, Lv. 22) — Musique : `Boss Battle.ogg`.
-  - *Ét. 13* : **Scarabrute la Pince** (Pinsir, Lv. 24) — Musique : `Boss Battle.ogg`.
-  - *Ét. 20* : **Apireine la Souveraine** (Vespiquen, Lv. 26) — Musique : `Boss Battle 2.ogg`.
+  - *Ét. 5* : **Scarhino la Corne** (Heracross, Lv. 24) — Musique : `Boss Battle.ogg`.
+  - *Ét. 13* : **Scarabrute la Pince** (Pinsir, Lv. 28) — Musique : `Boss Battle.ogg`.
+  - *Ét. 20* : **Apireine la Souveraine** (Vespiquen, Lv. 33) — Musique : `Boss Battle 2.ogg`.
 - **Légendaire** : *Aucun (§2).*
-- **Bestiaire vérifié (`Content/Chara/`, 16 espèces)** :  
-  Caterpie, Metapod, Butterfree, Weedle, Kakuna, Beedrill, Scyther, Pinsir, Heracross, Combee, Vespiquen, Cherubi, Cherrim, Burmy, Wormadam, Mothim.
 - **Objets & Marchand Kecleon** : Abondance de Pommes d'Or et Baies Pecha. Marchand Kecleon aléatoire (`probabilité 10 %`).
 
 ---
 
 ### 6.S4 — Plaines Brûlées (`scorched_plains` / PMDODump)
+- **Nommage original (§1–§6)** : `[Plaines]` (Lieu) + `[Brûlées]` (Qualificatif sensoriel/atmosphérique).
 - **Chapitre & Rang narratif** : Chapitre 6 — Rang 33.
 - **Étages & Segments** : 20 étages en **2 segments** de 10 étages.
   - *Segment 1 (Ét. 1–10)* : Biome **Plaines Électriques** (`amp_plains_floor` / `wall`).
   - *Segment 2 (Ét. 11–20)* : Biome **Plaines Arides** (`scorched_plains_floor` / `wall`). Météo : *Soleil ardent* à l'étage 15.
-- **Points médians (Relais)** : `scorched_plains_relay.rsground` — Modèle Tunnel Incandescent avec **statue Kangourex (`Kangaskhan_Rock`)**, `North_Exit` et `South_Exit`, adapté au biome **Plaines Arides / Savane Électrique**.
+- **Scaling Évolutif (`Lv 18–33`, 15 niveaux d'écart)** :
+  - *Segment 1 (Stade 1, Lv 18–24)* : Lixy, Wattouat, Dynavolt, Phanpy, Zébibron.
+  - *Segment 2 (Stade Évolué, Lv 25–33)* : Luxio, Luxray, Lainergie, Pharamp, Élecsprint, Donphan.
+- **Points médians (Relais)** :
+  - `scorched_plains_relay.rsground` ➔ **Modèle Tunnel Incandescent avec statue Kangourex (`Kangaskhan_Rock`)**, `North_Exit` et `South_Exit`, adapté au biome **Plaines Arides / Savane Électrique**.
 - **Mini-Boss (3 par donjon)** :
-  - *Ét. 8* : **Luxio l'Éclair** (Luxio, Lv. 23) — Musique : `Boss Battle.ogg`.
-  - *Ét. 15* : **Phanpy la Charge** (Phanpy, Lv. 25) — Musique : `Boss Battle.ogg`.
-  - *Ét. 20* : **Élecsprint la Tempête** (Manectric, Lv. 27) — Musique : `Boss Battle 2.ogg`.
+  - *Ét. 8* : **Luxio l'Éclair** (Luxio, Lv. 24) — Musique : `Boss Battle.ogg`.
+  - *Ét. 15* : **Phanpy la Charge** (Phanpy, Lv. 28) — Musique : `Boss Battle.ogg`.
+  - *Ét. 20* : **Élecsprint la Tempête** (Manectric, Lv. 33) — Musique : `Boss Battle 2.ogg`.
 - **Légendaire** : *Aucun (§2).*
-- **Bestiaire vérifié (`Content/Chara/`, 15 espèces)** :  
-  Shinx, Luxio, Luxray, Electrike, Manectric, Mareep, Flaaffy, Ampharos, Phanpy, Donphan, Blitzle, Zebstrika, Helioptile, Heliolisk, Dedenne.
 - **Objets & Marchand Kecleon** : Graines Éclair, Orbes Paralysie. Marchand Kecleon aléatoire (`probabilité 15 %`).
 
 ---
