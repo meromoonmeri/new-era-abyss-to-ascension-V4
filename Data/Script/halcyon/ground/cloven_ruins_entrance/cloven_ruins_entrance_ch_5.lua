@@ -722,6 +722,12 @@ function cloven_ruins_entrance_ch_5.Acte4(hero, partner, plum)
   local penticus = Entre('Penticus')
   Says(penticus, "Sigh", 'CR5_A10', {phileas})
   Silence(10)
+  -- Echange : le doyen jauge la porte scellee devant laquelle le camp
+  -- est monte. Le groupe prend conscience de ce qui l'attend.
+  Says(partner, "Worried", 'CR5_A87', {phileas, penticus})
+  Silence(12)
+  Says(phileas, "Normal", 'CR5_A88', {partner, penticus})
+  Silence(14)
 
   -- 3e : Rin, medicale, elle s'inquiete des pattes de tout le monde.
   local rin = Entre('Rin')
@@ -737,11 +743,22 @@ function cloven_ruins_entrance_ch_5.Acte4(hero, partner, plum)
   local hyko = Entre('Hyko')
   Says(hyko, "Normal", 'CR5_A13', {coco})
   Silence(10)
+  -- Echange : Coco remarque que Hyko n'ecoute plus la steppe, il ecoute
+  -- le sol. Petit detail qui pose le ton des ruines.
+  Says(coco, "Curious", 'CR5_A91', {hyko})
+  Silence(12)
+  Says(hyko, "Worried", 'CR5_A92', {coco})
+  Silence(14)
 
   -- 6e : Almotz, soulage de ne pas etre le dernier pour une fois.
   local almotz = Entre('Almotz')
   Says(almotz, "Happy", 'CR5_A14', {hyko, rin})
+  Silence(10)
+  -- Echange : Rin taquine Almotz sur le sac trop lourd, Almotz se defend.
+  Says(rin, "Teasing", 'CR5_A89', {almotz})
   Silence(12)
+  Says(almotz, "Sigh", 'CR5_A90', {rin})
+  Silence(14)
 
   -- Le groupe respire : personne n'est un mannequin.
   local resp = Respire({phileas, penticus, rin, coco, hyko, almotz})
@@ -960,6 +977,16 @@ function cloven_ruins_entrance_ch_5.Acte6(hero, partner, plum, t)
   ReactAll({ {t.coco, "Happy"}, {t.hyko, "Happy"}, {t.almotz, "Happy"} })
   Says(t.coco, "Joyous", 'CR5_A48', {plum})
   Silence(12)
+  -- Echange intime : Coco demande a Rin ce qu'ils trouveront, Rin repond.
+  Says(t.coco, "Curious", 'CR5_A93', {t.rin})
+  Silence(12)
+  Says(t.rin, "Normal", 'CR5_A94', {t.coco})
+  Silence(14)
+  -- Running gag leger : Almotz et son pain, pour detendre l'atmosphere.
+  Says(t.kino, "Teasing", 'CR5_A95', {t.almotz})
+  Silence(10)
+  Says(t.almotz, "Sigh", 'CR5_A96', {t.kino})
+  Silence(12)
   Says(t.hyko, "Normal", 'CR5_A49', {t.penticus})
   Silence(10)
   Says(t.phileas, "Normal", 'CR5_A50', {t.penticus, hero, partner})
@@ -1032,6 +1059,18 @@ function cloven_ruins_entrance_ch_5.Acte7(hero, partner, plum, t)
   Says(t.reinier, "Sigh", 'CR5_A58', {t.kino})
   Silence(10)
   Says(t.kino, "Happy", 'CR5_A59', {t.reinier})
+  Silence(14)
+  -- Chuchotements supplementaires : Ganlon et le feu, Penticus et son
+  -- coeur. La nuit s'apaise par petites conversations.
+  if t.ganlon ~= nil and t.shuca ~= nil then
+    Says(t.shuca, "Teasing", 'CR5_A97', {t.ganlon})
+    Silence(10)
+    Says(t.ganlon, "Sigh", 'CR5_A98', {t.shuca})
+    Silence(12)
+  end
+  Says(t.penticus, "Worried", 'CR5_A99', {t.phileas})
+  Silence(12)
+  Says(t.phileas, "Normal", 'CR5_A100', {t.penticus})
   Silence(14)
 
   -- PHILEAS rappelle tout le monde a l'ordre — et cite Kino, comme

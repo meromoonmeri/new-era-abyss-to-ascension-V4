@@ -115,4 +115,68 @@
   <data name="CR5_A86" xml:space="preserve">
     <value>Rendors-toi.[pause=20] Demain,[pause=15] on descend.</value>
   </data>
+
+  <data name="CR5_A87" xml:space="preserve">
+    <value>Phileas, vous en êtes sûr ?[pause=10] Trois jours de marche,[pause=10] pour cette porte.[pause=15] Elle a l'air... scellée.</value>
+  </data>
+
+  <data name="CR5_A88" xml:space="preserve">
+    <value>Elle l'est.[pause=15] Mais les scellés,[pause=10] on les ouvre.[pause=0] C'est pour ça qu'on est là.</value>
+  </data>
+
+  <data name="CR5_A89" xml:space="preserve">
+    <value>Almotz,[pause=10] tu as marché avec un sac plus lourd que toi.[pause=15] Je t'ai vu trébucher au moins quatre fois.</value>
+  </data>
+
+  <data name="CR5_A90" xml:space="preserve">
+    <value>C'est la fatigue,[pause=10] pas le sac.[pause=15] Le sac est léger,[pause=10] c'est le chemin qui est lourd.</value>
+  </data>
+
+  <data name="CR5_A91" xml:space="preserve">
+    <value>Hyko,[pause=10] ton flair a changé depuis la steppe.[pause=15] Tu flaires moins,[pause=10] tu écoutes.</value>
+  </data>
+
+  <data name="CR5_A92" xml:space="preserve">
+    <value>Le vent porte plus de choses ici.[pause=15] Les bruits du sol,[pause=10] surtout.[pause=0] La steppe,[pause=10] elle,[pause=10] ne murmurait pas.</value>
+  </data>
+
+  <data name="CR5_A93" xml:space="preserve">
+    <value>Rin,[pause=10] tu crois qu'on trouvera autre chose,[pause=10] là-dedans,[pause=15] que des pierres et des veines ?</value>
+  </data>
+
+  <data name="CR5_A94" xml:space="preserve">
+    <value>Je crois qu'on y trouvera ce qu'on y apporte.[pause=15] De la peur,[pause=10] ou du courage.[pause=0] Autant apporter le courage.</value>
+  </data>
+
+  <data name="CR5_A95" xml:space="preserve">
+    <value>Almotz,[pause=10] arrête de manger en cachette,[pause=10] tout le monde voit le pain disparaître.</value>
+  </data>
+
+  <data name="CR5_A96" xml:space="preserve">
+    <value>C'est pas de la cachette.[pause=15] C'est de la prévoyance.[pause=0] Un soldat rationne,[pause=10] même en temps de paix.</value>
+  </data>
+
+  <data name="CR5_A97" xml:space="preserve">
+    <value>Ganlon,[pause=10] tu dors ?[pause=15] Tu ronfles déjà,[pause=10] et le feu est encore allumé.</value>
+  </data>
+
+  <data name="CR5_A98" xml:space="preserve">
+    <value>Mmm...[pause=20] Je garde le feu ouvert dans mon sommeil.[pause=0] Compétence rare.</value>
+  </data>
+
+  <data name="CR5_A99" xml:space="preserve">
+    <value>Le dernier col était le pire.[pause=15] Mes pattes ont tenu,[pause=10] mais le cœur,[pause=10] lui,[pause=10] a hésité un instant.</value>
+  </data>
+
+  <data name="CR5_A100" xml:space="preserve">
+    <value>C'est le cœur qui tient le plus longtemps,[pause=10] Penticus.[pause=15] Il finit toujours par retrouver la route.[pause=0] Dors.</value>
+  </data>
+
+  <data name="CR5_PHILEAS_REVE" xml:space="preserve">
+    <value>Vous avez fait un rêve,[pause=10] cette nuit.[pause=15] Vous l'avez dit,[pause=10] en vous réveillant.[pause=0] Une silhouette,[pause=10] qui vous reconnaissait.[pause=15] Je n'aime pas les rêves qui connaissent votre nom.</value>
+  </data>
+
+  <data name="CR5_PHILEAS_REVE2" xml:space="preserve">
+    <value>Les archives du sous-sol parlent de tels songes.[pause=15] Ils ne viennent jamais seuls.[pause=0] Et ils ne s'arrêtent jamais à un seul dormeur.</value>
+  </data>
 </root>

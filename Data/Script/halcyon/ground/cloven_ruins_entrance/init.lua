@@ -303,6 +303,14 @@ function cloven_ruins_entrance.Noctowl_Action(chara, activator)
     UI:WaitShowDialogue("Et la remarque de Ganlon sur les pierres chaudes...[pause=15] elle ne me quitte pas.[pause=0] J'aimerais avoir tort,[pause=10] mais je ne crois pas.")
     GeneralFunctions.SetEmotion("Normal")
     UI:WaitShowDialogue("J'ai confié une copie de mes notes à Reinier avant son départ.[pause=15] S'il trouve quelque chose d'anormal,[pause=10] il saura où regarder.[pause=0] Un érudit se doit de préparer ses successeurs.")
+    -- Le lien avec le reve : Phileas a entendu le heros se redresser la
+    -- nuit derniere. Il ne nomme rien, mais il a compris.
+    if SV.Chapter5 ~= nil and SV.Chapter5.RuinsDreamSeen then
+      GeneralFunctions.SetEmotion("Worried")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_PHILEAS_REVE']))
+      GeneralFunctions.SetEmotion("Normal")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_PHILEAS_REVE2']))
+    end
   else
     GeneralFunctions.StartConversation(chara, "J'ai passé la nuit à relire mes notes.[pause=10] Les veines,[pause=10] la chaleur,[pause=10] l'orage...[pause=0] Tout converge ici.[pause=10] Ce n'est pas un hasard.", "Worried")
   end

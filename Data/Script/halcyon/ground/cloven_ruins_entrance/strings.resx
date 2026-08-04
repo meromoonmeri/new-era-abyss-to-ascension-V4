@@ -115,4 +115,68 @@
   <data name="CR5_A86" xml:space="preserve">
     <value>Go back to sleep.[pause=20] Tomorrow,[pause=15] we go down.</value>
   </data>
+
+  <data name="CR5_A87" xml:space="preserve">
+    <value>Phileas, are you sure?[pause=10] Three days of walking,[pause=10] for this door.[pause=15] It looks... sealed.</value>
+  </data>
+
+  <data name="CR5_A88" xml:space="preserve">
+    <value>It is.[pause=15] But seals are meant to be opened.[pause=0] That is why we are here.</value>
+  </data>
+
+  <data name="CR5_A89" xml:space="preserve">
+    <value>Almotz,[pause=10] you walked with a pack heavier than yourself.[pause=15] I saw you stumble at least four times.</value>
+  </data>
+
+  <data name="CR5_A90" xml:space="preserve">
+    <value>It's the fatigue,[pause=10] not the pack.[pause=15] The pack is light.[pause=10] The road is heavy.</value>
+  </data>
+
+  <data name="CR5_A91" xml:space="preserve">
+    <value>Hyko,[pause=10] your nose has changed since the steppe.[pause=15] You sniff less.[pause=10] You listen.</value>
+  </data>
+
+  <data name="CR5_A92" xml:space="preserve">
+    <value>The wind carries more here.[pause=15] Sounds from the ground,[pause=10] mostly.[pause=0] The steppe,[pause=10] it did not whisper.</value>
+  </data>
+
+  <data name="CR5_A93" xml:space="preserve">
+    <value>Rin,[pause=10] do you think we'll find anything else,[pause=10] in there,[pause=15] besides stone and veins?</value>
+  </data>
+
+  <data name="CR5_A94" xml:space="preserve">
+    <value>I think we find what we bring.[pause=15] Fear,[pause=10] or courage.[pause=0] Let's bring courage.</value>
+  </data>
+
+  <data name="CR5_A95" xml:space="preserve">
+    <value>Almotz,[pause=10] stop eating in secret,[pause=10] everyone can see the bread vanishing.</value>
+  </data>
+
+  <data name="CR5_A96" xml:space="preserve">
+    <value>It's not secrecy.[pause=15] It's foresight.[pause=0] A soldier rations,[pause=10] even in peacetime.</value>
+  </data>
+
+  <data name="CR5_A97" xml:space="preserve">
+    <value>Ganlon,[pause=10] are you asleep?[pause=15] You are already snoring,[pause=10] and the fire is still lit.</value>
+  </data>
+
+  <data name="CR5_A98" xml:space="preserve">
+    <value>Mmm...[pause=20] I keep the fire lit in my sleep.[pause=0] A rare skill.</value>
+  </data>
+
+  <data name="CR5_A99" xml:space="preserve">
+    <value>The last pass was the worst.[pause=15] My legs held,[pause=10] but my heart,[pause=10] it hesitated for a moment.</value>
+  </data>
+
+  <data name="CR5_A100" xml:space="preserve">
+    <value>It's the heart that lasts longest,[pause=10] Penticus.[pause=15] It always finds the road again.[pause=0] Sleep.</value>
+  </data>
+
+  <data name="CR5_PHILEAS_REVE" xml:space="preserve">
+    <value>You had a dream,[pause=10] last night.[pause=15] You told me,[pause=10] when you woke.[pause=0] A silhouette,[pause=10] that knew your name.[pause=15] I don't like dreams that know your name.</value>
+  </data>
+
+  <data name="CR5_PHILEAS_REVE2" xml:space="preserve">
+    <value>The archives below speak of such dreams.[pause=15] They never come alone.[pause=0] And they never stop at a single sleeper.</value>
+  </data>
 </root>
