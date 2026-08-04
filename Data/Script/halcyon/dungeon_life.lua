@@ -67,23 +67,83 @@ end
 -- MapEffectStep. Le module d'origine ne les définissait pas : sans eux,
 -- tout étage porteur d'un de ces spawns levait « attempt to call a nil
 -- value » (DungeonLife_MerchantAppears etc. inexistants) -> crash à la
--- génération. Définis ici en sécurité : les apparitions bonus sont
--- volontairement inertes pour l'instant, mais le jeu ne crashe plus.
+-- génération. Implémentés ci-dessous : les PNJ sont posés dans AllyTeams
+-- (Faction.Friend) donc neutres — le moteur les traite en non-hostiles,
+-- comme les habitants de DazzlingPlaza (Map.ReconnectMapReference les
+-- re-catégorise Friend et DSceneAction.GetMatchup renvoie Friend).
 -- ====================================================================
+
+-- Choisit une case libre sur la carte (pas bloquée, pas occupée), loin
+-- de l'équipe. Repli silencieux si aucune case n'est trouvée.
+local function Libre()
+  local origine = GAME:GetPlayerPartyMember(0)
+  if origine == nil then return nil end
+  local ox, oy = origine.CharLoc.X, origine.CharLoc.Y
+  local candidates = {}
+  local W, H = _ZONE.CurrentMap.Width, _ZONE.CurrentMap.Height
+  for dx = -6, 6, 1 do
+    for dy = -6, 6, 1 do
+      local x, y = ox + dx, oy + dy
+      if x >= 0 and y >= 0 and x < W and y < H then
+        local loc = RogueElements.Loc(x, y)
+        if not _ZONE.CurrentMap:TileBlocked(loc) and _ZONE.CurrentMap:GetCharAtLoc(loc) == nil then
+          table.insert(candidates, loc)
+        end
+      end
+    end
+  end
+  if #candidates == 0 then return nil end
+  return candidates[_DATA.Save.Rand:Next(1, #candidates)]
+end
+
+-- Construit et pose un PNJ allié (non-hostile) sur la carte. Retourne le
+-- char, ou nil si aucune case n'est disponible.
+local function PoserAllie(espece, niveau, anim)
+  local loc = Libre()
+  if loc == nil then return nil end
+  local ok = pcall(function()
+    local team = RogueEssence.Dungeon.MonsterTeam()
+    local data = RogueEssence.Dungeon.CharData(true)
+    data.BaseForm = RogueEssence.Dungeon.MonsterID(espece, 0, "normal", RogueEssence.Data.Gender.Unknown)
+    data.Level = niveau or 5
+    local form = _DATA:GetMonster(espece).Forms[0]
+    local ab = form:RollIntrinsic(_DATA.Save.Rand, 3)
+    data.BaseIntrinsics[0] = ab
+    local mob = RogueEssence.Dungeon.Character(data)
+    mob.CharLoc = loc
+    mob.CantWalk = true
+    mob.CantInteract = false
+    if anim ~= nil then mob.Mobility = anim end
+    team.Players:Add(mob)
+    _ZONE.CurrentMap.AllyTeams:Add(team)
+    mob:RefreshTraits()
+    _ZONE.CurrentMap:UpdateExploration(mob)
+  end)
+  if not ok then return nil end
+  return loc
+end
+
 function SINGLE_CHAR_SCRIPT.DungeonLife_MerchantAppears(owner, ownerChar, context, args)
-  -- Réservé : apparition d'un marchand itinérant.
+  -- Un marchand itinérant (Musharna) s'est posé à l'écart.
+  PoserAllie("musharna", 5)
 end
 
 function SINGLE_CHAR_SCRIPT.DungeonLife_DancersAppear(owner, ownerChar, context, args)
-  -- Réservé : groupe de danseurs Spinda+Ludicolo.
+  -- Un duo de danseurs (Spinda + Ludicolo).
+  PoserAllie("spinda", 5)
+  PoserAllie("ludicolo", 5)
 end
 
 function SINGLE_CHAR_SCRIPT.DungeonLife_ResidentAppears(owner, ownerChar, context, args)
-  -- Réservé : habitant pacifique.
+  -- Un habitant pacifique aléatoire.
+  local residents = { "zigzagoon", "sentret", "lillipup", "meowth", "teddiursa", "marill" }
+  local espece = residents[_DATA.Save.Rand:Next(1, #residents)]
+  PoserAllie(espece, 4)
 end
 
 function SINGLE_CHAR_SCRIPT.DungeonLife_SecretZone(owner, ownerChar, context, args)
-  -- Réservé : zone secrète par type Plante.
+  -- Zone secrète par type Plante : marquée, mais aucun spawn (réservé).
+  SV.TemporaryFlags.SecretZoneTriggered = true
 end
 
 return DungeonLife
