@@ -215,6 +215,21 @@
   <data name="CR5_ENTREE_P9" xml:space="preserve">
     <value>En effet.[pause=15] Les gravures du seuil,[pause=10] voilà ce qui nous occupe.[pause=0] Rien d'autre.</value>
   </data>
+  <data name="CR5_REGISTEEL_01" xml:space="preserve">
+    <value>Il est descendu dans le Puits.[pause=25] Au-delà de l'acier.[pause=20] Nous ne pouvons plus rien voir d'ici.</value>
+  </data>
+  <data name="CR5_REGISTEEL_02" xml:space="preserve">
+    <value>Trois gardiens vaincus,[pause=10] et il continue.[pause=20] Le prochain,[pause=10] ce sera le Colosse lui-même.</value>
+  </data>
+  <data name="CR5_REGISTEEL_03" xml:space="preserve">
+    <value>Alors il ne descendra pas seul.[pause=25] Rentrons.[pause=10] Si nous ramenons la guilde,[pause=10] nous serons là quand il le faudra.</value>
+  </data>
+  <data name="CR5_REGISTEEL_04" xml:space="preserve">
+    <value>Phileas a raison.[pause=15] Le camp restera dressé,[pause=10] mais nous partons chercher les nôtres.</value>
+  </data>
+  <data name="CR5_REGISTEEL_05" xml:space="preserve">
+    <value>(...) Ils s'éloignent vers le nord,[pause=10] et le camp redevient un point dans la nuit des ruines.</value>
+  </data>
 
   <data name="CR5_V01" xml:space="preserve">
     <value>Et alors,[pause=10] le vent s'est LEVÉ,[pause=15] et j'ai fait—[pause=0] «[pause=5] WOOOOSH ![pause=5] »[pause=20] Le ciel entier a hurlé ![pause=10] Et moi,[pause=10] tranquille,[pause=10] au milieu.[pause=0] «[pause=5] Je suis le Souffle qui garde la cime ![pause=5] »</value>

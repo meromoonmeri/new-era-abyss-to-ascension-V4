@@ -215,6 +215,21 @@
   <data name="CR5_ENTREE_P9" xml:space="preserve">
     <value>Indeed.[pause=15] The carvings on the threshold,[pause=10] that is what occupies us.[pause=0] Nothing else.</value>
   </data>
+  <data name="CR5_REGISTEEL_01" xml:space="preserve">
+    <value>He has gone down into the Well.[pause=25] Past the steel.[pause=20] We can no longer see anything from here.</value>
+  </data>
+  <data name="CR5_REGISTEEL_02" xml:space="preserve">
+    <value>Three guardians defeated,[pause=10] and he keeps going.[pause=20] Next will be the Colossus itself.</value>
+  </data>
+  <data name="CR5_REGISTEEL_03" xml:space="preserve">
+    <value>Then he will not go down alone.[pause=25] Let us go back.[pause=10] If we bring the guild,[pause=10] we will be there when it matters.</value>
+  </data>
+  <data name="CR5_REGISTEEL_04" xml:space="preserve">
+    <value>Phileas is right.[pause=15] The camp will stay standing,[pause=10] but we leave to find our people.</value>
+  </data>
+  <data name="CR5_REGISTEEL_05" xml:space="preserve">
+    <value>(...) They walk away to the north,[pause=10] and the camp becomes a point in the ruins' night.</value>
+  </data>
 
   <data name="CR5_V01" xml:space="preserve">
     <value>And then,[pause=10] the wind ROSE,[pause=15] and I went—[pause=0] "[pause=5] WOOOOSH ![pause=5] "[pause=20] The whole sky howled ![pause=10] And me,[pause=10] calm,[pause=10] right in the middle.[pause=0] "[pause=5] I am the Breath that guards the peak ![pause=5] "</value>

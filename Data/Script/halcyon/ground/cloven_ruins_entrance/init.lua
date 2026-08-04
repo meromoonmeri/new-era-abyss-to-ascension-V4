@@ -217,6 +217,18 @@ function cloven_ruins_entrance.PlotScripting()
     return
   end
 
+  -- SCENE POST-REGISTEEL (2026-08-04) : apres avoir vaincu Registeel,
+  -- Penticus et Phileas s'inquietent que le duo soit descendu dans le
+  -- Puits et decident de rentrer a la guilde ramener des renforts. Une
+  -- seule fois (RegisteelDepartDone) — c'est ce qui rend coherente leur
+  -- arrivee face a Regigigas avec le reste de la guilde.
+  if c5 ~= nil and not c5.RegisteelDepartDone
+     and SV.Ruines ~= nil and SV.Ruines.VaincuRegisteel then
+    cloven_ruins_entrance_ch_5.SetupGround(true)
+    cloven_ruins_entrance_ch_5.RegisteelDepart()
+    return
+  end
+
   -- ETAT DE CAMP — le joueur est libre (apres la cinematique).
   -- Kino/Reinier sont partis en reconnaissance : seule la base
   -- logistique reste (Penticus, Phileas, Rin, Coco, Hyko, Almotz).

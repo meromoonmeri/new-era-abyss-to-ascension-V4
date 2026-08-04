@@ -1840,4 +1840,74 @@ function cloven_ruins_entrance_ch_5.EntryTalk()
   pcall(function() SV.Chapter5.RuinsEntryTalkDone = true end)
 end
 
+-- ==================================================================
+-- APRES REGISTEEL — Penticus et Phileas decident de rentrer
+-- ==================================================================
+-- Une seule fois (RegisteelDepartDone), au retour au camp apres la
+-- victoire sur Registeel. Le duo est descendu dans le Puits (seg6) ;
+-- les deux sages s'inquietent et decident de rentrer a la guilde pour
+-- ramener des renforts. C'est ce qui rend coherente leur arrivee face a
+-- Regigigas avec le reste de la guilde (RuinesTitan).
+function cloven_ruins_entrance_ch_5.RegisteelDepart()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  local phileas = E('Phileas')
+  local penticus = E('Penticus')
+
+  local ok, err = pcall(function()
+    GAME:CutsceneMode(true)
+    if partner ~= nil then AI:DisableCharacterAI(partner) end
+    UI:ResetSpeaker()
+    GAME:FadeIn(45)
+    GAME:WaitFrames(40)
+
+    if penticus ~= nil and phileas ~= nil then
+      GROUND:CharTurnToCharAnimated(penticus, phileas, 5)
+      GAME:WaitFrames(8)
+      GROUND:CharTurnToCharAnimated(phileas, penticus, 5)
+      GAME:WaitFrames(20)
+
+      UI:SetSpeaker(phileas)
+      GeneralFunctions.SetEmotion("Worried")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_REGISTEEL_01']))
+      GAME:WaitFrames(16)
+
+      UI:SetSpeaker(penticus)
+      GeneralFunctions.SetEmotion("Worried")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_REGISTEEL_02']))
+      GAME:WaitFrames(18)
+
+      UI:SetSpeaker(phileas)
+      GeneralFunctions.SetEmotion("Determined")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_REGISTEEL_03']))
+      GAME:WaitFrames(18)
+
+      UI:SetSpeaker(penticus)
+      GeneralFunctions.SetEmotion("Determined")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_REGISTEEL_04']))
+      GAME:WaitFrames(20)
+
+      -- Ils se tournent vers la sortie : ils rentrent chercher la guilde.
+      GROUND:CharAnimateTurnTo(penticus, Direction.Up, 5)
+      GROUND:CharAnimateTurnTo(phileas, Direction.Up, 5)
+      GAME:WaitFrames(20)
+      UI:ResetSpeaker(false)
+      UI:SetCenter(true)
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_REGISTEEL_05']))
+      UI:SetCenter(false)
+      UI:ResetSpeaker()
+      GAME:WaitFrames(25)
+    end
+  end)
+
+  if not ok then
+    PrintInfo('[CR5.RegisteelDepart] scene ecourtee : ' .. tostring(err))
+  end
+
+  -- Sortie garantie, hors pcall.
+  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() GAME:CutsceneMode(false) end)
+  pcall(function() SV.Chapter5.RegisteelDepartDone = true end)
+end
+
 return cloven_ruins_entrance_ch_5

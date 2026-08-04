@@ -940,8 +940,15 @@ SV.Chapter5 =
 	RuinsDreamSeen = false,
 	RuinsEntered = false,
 	--RuinsEntryTalkDone : la petite scene Penticus/Phileas juste avant
-	--l'entree dans le donjon n'est jouee qu'une seule fois.
+	--l'entree dans le donjon n'est jouee qu'une seule fois. (Depuis
+	--2026-08-04 : la scene se joue apres la victoire sur le 1er Regi.)
 	RuinsEntryTalkDone = false,
+	--RegisteelDepartDone : apres avoir vaincu Registeel, Penticus et
+	--Phileas s'inquietent pour le duo parti dans le Puits et decident de
+	--rentrer a la guilde ramener des renforts (ce qui rend coherente leur
+	--intervention face a Regigigas avec le reste de la guilde). Une seule
+	--fois.
+	RegisteelDepartDone = false,
 	--Routage de retour au camp apres une sortie de donjon (KO/abandon).
 	--  PlayTempRuinsScene  : le camp doit jouer la cinematique de retour
 	--                        (pose par zone ExitSegment / ground boss).
