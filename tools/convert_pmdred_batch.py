@@ -43,6 +43,8 @@ MANIFEST = {
             'Growing Anxiety.ogg',    'reserve entree gouffre'),
  'D06P01': ('mont_grondant_pied',     'Thunderous Foothill',  'Pied du Mont Grondant',
             'Rising Fear.ogg',        'reserve entree donjon orage (echo Fulgur)'),
+ 'D06P03': ('mont_grondant_sommet',   'Thunder Summit',      'Sommet du Mont Grondant',
+            'Boss Battle!.ogg',        'arene officielle d’Électhor (Mt. Thunder Peak, pmd-red)'),
  'D07P01': ('grand_canyon_porte',     'Vast Canyon Gate',     'Porte du Grand Canyon',
             'Canyon Camp.ogg',        'reserve canyon post-ch10 (tileset EoN CrumblingCanyon)'),
  'D08P01': ('grotte_lazuli_seuil',    'Lazuli Cave Mouth',    'Seuil de la Grotte Lazuli',
