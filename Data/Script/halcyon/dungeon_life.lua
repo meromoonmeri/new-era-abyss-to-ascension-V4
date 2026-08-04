@@ -61,4 +61,29 @@ function DungeonLife.CheckTeamForSecretZone(zoneContext, context, queue, seed, a
     queue:Enqueue(RogueElements.Priority(-5), es)
 end
 
+-- ====================================================================
+-- HANDLERS D'ENTREE (OnMapStarts) — référencés par les Spawn* ci-dessus.
+-- DungeonLife_* est appelé au démarrage d'un étage qui a reçu le
+-- MapEffectStep. Le module d'origine ne les définissait pas : sans eux,
+-- tout étage porteur d'un de ces spawns levait « attempt to call a nil
+-- value » (DungeonLife_MerchantAppears etc. inexistants) -> crash à la
+-- génération. Définis ici en sécurité : les apparitions bonus sont
+-- volontairement inertes pour l'instant, mais le jeu ne crashe plus.
+-- ====================================================================
+function SINGLE_CHAR_SCRIPT.DungeonLife_MerchantAppears(owner, ownerChar, context, args)
+  -- Réservé : apparition d'un marchand itinérant.
+end
+
+function SINGLE_CHAR_SCRIPT.DungeonLife_DancersAppear(owner, ownerChar, context, args)
+  -- Réservé : groupe de danseurs Spinda+Ludicolo.
+end
+
+function SINGLE_CHAR_SCRIPT.DungeonLife_ResidentAppears(owner, ownerChar, context, args)
+  -- Réservé : habitant pacifique.
+end
+
+function SINGLE_CHAR_SCRIPT.DungeonLife_SecretZone(owner, ownerChar, context, args)
+  -- Réservé : zone secrète par type Plante.
+end
+
 return DungeonLife
