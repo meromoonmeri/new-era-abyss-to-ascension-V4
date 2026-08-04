@@ -290,15 +290,34 @@ end
 -- includeRecon : Kino et Reinier sont-ils au camp ? Ils partent en
 -- reconnaissance apres le matin.
 function cloven_ruins_entrance_ch_5.SetupGround(includeRecon)
-  local spawn = {
-    {'Tropius',   ARR.Penticus.attente[1], ARR.Penticus.attente[2], Direction.Down},
-    {'Noctowl',   ARR.Phileas.attente[1],  ARR.Phileas.attente[2],  Direction.Down},
-    {'Snubbull',  ARR.Coco.attente[1],     ARR.Coco.attente[2],     Direction.Down},
-    {'Audino',    ARR.Rin.attente[1],      ARR.Rin.attente[2],      Direction.Down},
-    {'Growlithe', ARR.Hyko.attente[1],     ARR.Hyko.attente[2],     Direction.Down},
-    {'Zigzagoon', ARR.Almotz.attente[1],   ARR.Almotz.attente[2],   Direction.Down},
-  }
-  if includeRecon then
+  -- APRES L'ASSEMBLEE MATINALE (RuinsCampDone), tout le monde est parti
+  -- devant dans les Ruines : il ne reste au camp que Penticus, Phileas
+  -- et Plum (qui n'appartient pas a l'expedition). Le heros et le
+  -- partenaire entrent seuls dans le dernier donjon.
+  local apresAssemblee = false
+  pcall(function()
+    apresAssemblee = (SV.Chapter5 ~= nil and SV.Chapter5.RuinsCampDone == true)
+  end)
+
+  local spawn
+  if apresAssemblee then
+    spawn = {
+      {'Tropius',   ARR.Penticus.attente[1], ARR.Penticus.attente[2], Direction.Down},
+      {'Noctowl',   ARR.Phileas.attente[1],  ARR.Phileas.attente[2],  Direction.Down},
+    }
+  else
+    spawn = {
+      {'Tropius',   ARR.Penticus.attente[1], ARR.Penticus.attente[2], Direction.Down},
+      {'Noctowl',   ARR.Phileas.attente[1],  ARR.Phileas.attente[2],  Direction.Down},
+      {'Snubbull',  ARR.Coco.attente[1],     ARR.Coco.attente[2],     Direction.Down},
+      {'Audino',    ARR.Rin.attente[1],      ARR.Rin.attente[2],      Direction.Down},
+      {'Growlithe', ARR.Hyko.attente[1],     ARR.Hyko.attente[2],     Direction.Down},
+      {'Zigzagoon', ARR.Almotz.attente[1],   ARR.Almotz.attente[2],   Direction.Down},
+    }
+  end
+  -- Apres l'assemblee, Kino et Reinier sont partis devant : on ne les
+  -- recre jamais, meme si includeRecon est vrai (retours apres KO, etc.).
+  if includeRecon and not apresAssemblee then
     spawn[#spawn + 1] = {'Breloom',   ARR.Kino.attente[1],    ARR.Kino.attente[2],    Direction.Down}
     spawn[#spawn + 1] = {'Girafarig', ARR.Reinier.attente[1], ARR.Reinier.attente[2], Direction.Down}
   else
@@ -1312,18 +1331,50 @@ function cloven_ruins_entrance_ch_5.MorningBody()
   -- litteralement le meme campement d'expedition, un matin plus tard.
   pcall(function() SOUND:PlayBGM('Canyon Camp.ogg', true) end)
 
-  -- Rassemblement autour du foyer.
-  local assis = couches
-  for _, a in ipairs(assis) do
-    local c, p = a[1], PLACES[a[2]]
+  -- LA FORMATION DE LA GUILDE — le rassemblement en rangs de deux,
+  -- face au Maitre de Guilde. Même disposition que l'assemblée de la
+  -- guilde et que le rassemblement du Mont Windswept :
+  --   Penticus seul au centre, face aux troupes ;
+  --   Phileas, son bras droit, en retrait sur sa gauche ;
+  --   deux rangées de cinq, face à lui ;
+  --   Plum EN DEHORS de la formation (elle ne fait pas partie de
+  --   l'expédition) — sa position dit son statut sans un mot.
+  -- Toutes les positions verifiees libres sur la grille du camp.
+  local FORMATION = {
+    Penticus = {192, 180}, Phileas = {152, 188},
+    -- rang de devant (y=240)
+    partner  = {120, 240}, shuca = {156, 240}, kino = {192, 240},
+    rin      = {228, 240}, hyko  = {264, 240},
+    -- rang de derriere (y=272) — serre pour rester hors du massif
+    -- d'obstacles qui borde le camp a l'est (x>~216).
+    hero     = {116, 272}, ganlon = {140, 272}, reinier = {164, 272},
+    coco     = {188, 272}, almotz = {212, 272},
+    -- plum a l'ecart, a l'est
+    plum     = {320, 200},
+  }
+  local fonde = { {hero,'hero'},{partner,'partner'},{plum,'Plum'},{t.phileas,'Phileas'},
+                  {t.penticus,'Penticus'},{t.rin,'Rin'},{t.coco,'Coco'},{t.hyko,'Hyko'},
+                  {t.almotz,'Almotz'},{t.kino,'Kino'},{t.reinier,'Reinier'},
+                  {t.ganlon,'Ganlon'},{t.shuca,'Shuca'} }
+  for _, a in ipairs(fonde) do
+    local c, cle = a[1], a[2]
+    local p = FORMATION[cle]
     if c ~= nil and p ~= nil then
       pcall(function() GROUND:TeleportTo(c, p[1], p[2], Direction.Up) end)
     end
   end
+  -- Penticus et Phileas se tiennent face a la troupe (vers le bas).
   if t.penticus ~= nil then
-    pcall(function() GROUND:TeleportTo(t.penticus, CX, CY - 40, Direction.Down) end)
+    pcall(function() GROUND:TeleportTo(t.penticus, 192, 180, Direction.Down) end)
   end
-  GAME:MoveCamera(CX, CY - 8, 1, false)
+  if t.phileas ~= nil then
+    pcall(function() GROUND:TeleportTo(t.phileas, 152, 188, Direction.DownRight) end)
+  end
+  -- Plum regarde la formation depuis son ecart.
+  if plum ~= nil then
+    pcall(function() GROUND:TeleportTo(plum, 320, 200, Direction.Left) end)
+  end
+  GAME:MoveCamera(CX, CY + 8, 1, false)
   GAME:FadeIn(45)
   Silence(28)
 
@@ -1350,6 +1401,41 @@ function cloven_ruins_entrance_ch_5.MorningBody()
              {t.hyko, "Notice"}, {plum, "Happy"} })
   Says(partner, "Determined", 'CR5_A75', {hero})
   Silence(18)
+
+  -- ================================================================
+  -- LES AUTRES PARTENT DEVANT — il ne reste que Penticus, Phileas et
+  -- Plum au camp. Le heros et le partenaire entreront seuls dans le
+  -- dernier donjon (equipe de deux, comme au debut du chapitre 5).
+  -- Chacun marche vers l'entree (est) a son rythme, puis est retire
+  -- de la carte. Penticus, Phileas et Plum restent.
+  -- ================================================================
+  local partants = { t.rin, t.coco, t.hyko, t.almotz,
+                     t.kino, t.reinier, t.ganlon, t.shuca }
+  local dep = {}
+  for i, c in ipairs(partants) do
+    if c ~= nil then
+      dep[#dep + 1] = TASK:BranchCoroutine(function()
+        pcall(function()
+          GAME:WaitFrames((i - 1) * 6)
+          -- Ils s'eloignent vers le NORD (au-dela du camp) : 32 px,
+          -- verifie libre pour tous sur la grille. Ils partent devant,
+          -- en decale, chacun son rythme.
+          GROUND:CharAnimateTurnTo(c, Direction.Up, 4)
+          GROUND:MoveInDirection(c, Direction.Up, 32, false, 1)
+          GAME:WaitFrames(10)
+          GAME:GetCurrentGround():RemoveTempChar(c)
+        end)
+      end)
+    end
+  end
+  pcall(function() TASK:JoinCoroutines(dep) end)
+  Silence(20)
+
+  -- La camera revient sur le trio qui reste, puis sur le duo.
+  if t.penticus ~= nil then
+    pcall(function() GAME:MoveCamera(t.penticus.Position.X, t.penticus.Position.Y, 60, false) end)
+  end
+  Silence(20)
 
   SV.Chapter5.RuinsCampDone = true
   if partner ~= nil then
@@ -1430,6 +1516,86 @@ function cloven_ruins_entrance_ch_5.RetourBody(k1, k2)
     end)
   end
   GeneralFunctions.RendreLaMain(true)
+end
+
+
+-- ==================================================================
+-- L'ENTREE — Penticus et Phileas, inquiets, une seule fois
+-- ==================================================================
+-- Le joueur vient de confirmer qu'il entre dans les Ruines. Avant le
+-- fondu qui ouvre sur le donjon, on glisse une courte scene : les deux
+-- sages du camp s'inquietent des nuits mouvementees du heros. Elle ne
+-- se joue qu'une fois (RuinsEntryTalkDone), au premier passage devant
+-- la porte — la repetition tuerait l'effet.
+function cloven_ruins_entrance_ch_5.EntryTalk()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  local phileas = E('Phileas')
+  local penticus = E('Penticus')
+
+  local ok, err = pcall(function()
+    GAME:CutsceneMode(true)
+    if partner ~= nil then AI:DisableCharacterAI(partner) end
+    UI:ResetSpeaker()
+
+    -- La camera quitte le duo et glisse vers les deux sages, deja
+    -- tournes vers la porte. Le silence laisse le joueur comprendre
+    -- qu'on parle de lui, pas de l'entree.
+    pcall(function() SOUND:FadeOutBGM(40) end)
+    if phileas ~= nil and penticus ~= nil then
+      GAME:MoveCamera((phileas.Position.X + penticus.Position.X) / 2,
+                      (phileas.Position.Y + penticus.Position.Y) / 2 - 8, 50, false)
+    end
+    GAME:WaitFrames(50)
+
+    if penticus ~= nil and phileas ~= nil then
+      -- Ils se tournent l'un vers l'autre : une confidence, pas un discours.
+      GROUND:CharTurnToCharAnimated(penticus, phileas, 5)
+      GAME:WaitFrames(8)
+      GROUND:CharTurnToCharAnimated(phileas, penticus, 5)
+      GAME:WaitFrames(20)
+
+      UI:SetSpeaker(penticus)
+      GeneralFunctions.SetEmotion("Worried")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_ENTREE_P1']))
+      GAME:WaitFrames(16)
+
+      UI:SetSpeaker(phileas)
+      GeneralFunctions.SetEmotion("Worried")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_ENTREE_P2']))
+      GAME:WaitFrames(18)
+
+      UI:SetSpeaker(penticus)
+      GeneralFunctions.SetEmotion("Sad")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_ENTREE_P3']))
+      GAME:WaitFrames(18)
+
+      UI:SetSpeaker(phileas)
+      GeneralFunctions.SetEmotion("Determined")
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_ENTREE_P4']))
+      GAME:WaitFrames(22)
+
+      -- Ils se tournent vers l'entree : leur vœu est fait.
+      GROUND:CharAnimateTurnTo(penticus, Direction.Right, 6)
+      GROUND:CharAnimateTurnTo(phileas, Direction.Right, 6)
+      GAME:WaitFrames(20)
+      UI:ResetSpeaker(false)
+      UI:SetCenter(true)
+      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_ENTREE_P5']))
+      UI:SetCenter(false)
+      UI:ResetSpeaker()
+      GAME:WaitFrames(25)
+    end
+  end)
+
+  if not ok then
+    PrintInfo('[CR5.EntryTalk] scene ecourtee : ' .. tostring(err))
+  end
+
+  -- Sortie garantie, hors pcall.
+  pcall(function() UI:ResetSpeaker() end)
+  pcall(function() GAME:CutsceneMode(false) end)
+  pcall(function() SV.Chapter5.RuinsEntryTalkDone = true end)
 end
 
 return cloven_ruins_entrance_ch_5

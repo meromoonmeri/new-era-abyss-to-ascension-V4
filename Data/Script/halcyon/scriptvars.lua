@@ -939,6 +939,9 @@ SV.Chapter5 =
 	RuinsCampNightDone = false,
 	RuinsDreamSeen = false,
 	RuinsEntered = false,
+	--RuinsEntryTalkDone : la petite scene Penticus/Phileas juste avant
+	--l'entree dans le donjon n'est jouee qu'une seule fois.
+	RuinsEntryTalkDone = false,
 	--Routage de retour au camp apres une sortie de donjon (KO/abandon).
 	--  PlayTempRuinsScene  : le camp doit jouer la cinematique de retour
 	--                        (pose par zone ExitSegment / ground boss).

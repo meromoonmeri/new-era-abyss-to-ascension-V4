@@ -224,6 +224,14 @@ function cloven_ruins_entrance.Dungeon_Entrance_Touch(obj, activator)
   UI:WaitForChoice()
   local yesnoResult = UI:ChoiceResult()
   if yesnoResult then
+    -- CINEMATIQUE D'ENTREE — une seule fois (premiere tentative du donjon).
+    -- Penticus et Phileas s'inquietent des nuits mouvementees du heros,
+    -- puis le joueur est plonge dans le donjon. Passe AVANT le fondu pour
+    -- que le noir du fondu enchaîne directement sur l'entree.
+    if SV.Chapter5 ~= nil and not SV.Chapter5.RuinsEntryTalkDone then
+      cloven_ruins_entrance_ch_5.EntryTalk()
+    end
+
     SOUND:FadeOutBGM(60)
     GAME:FadeOut(false, 60)
     partner.IsInteracting = false

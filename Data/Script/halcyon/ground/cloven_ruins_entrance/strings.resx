@@ -179,4 +179,24 @@
   <data name="CR5_PHILEAS_REVE2" xml:space="preserve">
     <value>The archives below speak of such dreams.[pause=15] They never come alone.[pause=0] And they never stop at a single sleeper.</value>
   </data>
+
+  <data name="CR5_ENTREE_P1" xml:space="preserve">
+    <value>Phileas.[pause=20] You feel it too,[pause=10] don't you?[pause=15] Last night,[pause=10] he sat up.[pause=0] Not an ordinary nightmare.</value>
+  </data>
+
+  <data name="CR5_ENTREE_P2" xml:space="preserve">
+    <value>I saw it,[pause=10] Penticus.[pause=15] And I heard him murmur a name.[pause=0] The veins,[pause=10] the heat,[pause=10] the storm...[pause=10] and now,[pause=10] this restless sleep.[pause=15] It all converges here,[pause=10] and it tightens my heart.</value>
+  </data>
+
+  <data name="CR5_ENTREE_P3" xml:space="preserve">
+    <value>He has never wavered,[pause=10] not once,[pause=15] since the guild.[pause=0] And this morning,[pause=10] for the first time...[pause=15] he hesitated at the door.[pause=10] That is a good sign,[pause=10] or a bad one.[pause=0] I no longer know.</value>
+  </data>
+
+  <data name="CR5_ENTREE_P4" xml:space="preserve">
+    <value>Keep him in sight,[pause=10] Phileas.[pause=15] And whatever he finds in there,[pause=10] let him know we are here,[pause=10] outside.[pause=0] We followed him this far.[pause=10] We will follow him to the end.</value>
+  </data>
+
+  <data name="CR5_ENTREE_P5" xml:space="preserve">
+    <value>[...] (Phileas and Penticus exchange a glance,[pause=10] then bow toward the entrance.)</value>
+  </data>
 </root>

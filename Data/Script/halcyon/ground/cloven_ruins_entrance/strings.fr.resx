@@ -179,4 +179,24 @@
   <data name="CR5_PHILEAS_REVE2" xml:space="preserve">
     <value>Les archives du sous-sol parlent de tels songes.[pause=15] Ils ne viennent jamais seuls.[pause=0] Et ils ne s'arrêtent jamais à un seul dormeur.</value>
   </data>
+
+  <data name="CR5_ENTREE_P1" xml:space="preserve">
+    <value>Phileas.[pause=20] Vous aussi,[pause=10] vous le sentez,[pause=10] n'est-ce pas ?[pause=15] Cette nuit,[pause=10] il s'est redressé.[pause=0] Pas un cauchemar ordinaire.</value>
+  </data>
+
+  <data name="CR5_ENTREE_P2" xml:space="preserve">
+    <value>Je l'ai vu,[pause=10] Penticus.[pause=15] Et je l'ai entendu murmurer un nom.[pause=0] Les veines,[pause=10] la chaleur,[pause=10] l'orage...[pause=10] et maintenant,[pause=10] ce sommeil agité.[pause=15] Tout converge ici,[pause=10] et ça me serre le cœur.</value>
+  </data>
+
+  <data name="CR5_ENTREE_P3" xml:space="preserve">
+    <value>Il n'a jamais vacillé,[pause=10] pas une fois,[pause=15] depuis la guilde.[pause=0] Et ce matin,[pause=10] pour la première fois...[pause=15] il a hésité devant la porte.[pause=10] C'est un bon signe,[pause=10] ou un mauvais.[pause=0] Je ne sais plus.</value>
+  </data>
+
+  <data name="CR5_ENTREE_P4" xml:space="preserve">
+    <value>Gardez-le en vue,[pause=10] Phileas.[pause=15] Et quoi qu'il trouve là-dedans,[pause=10] qu'il sache qu'on est là,[pause=10] dehors.[pause=0] On l'a suivi jusqu'ici.[pause=10] On le suivra jusqu'au bout.</value>
+  </data>
+
+  <data name="CR5_ENTREE_P5" xml:space="preserve">
+    <value>[...] (Phileas et Penticus échangent un regard,[pause=10] puis s'inclinent vers l'entrée.)</value>
+  </data>
 </root>
