@@ -432,20 +432,22 @@ function cloven_ruins_entrance_ch_5.RemoveFireBlocker()
   end)
 end
 
--- LE FEU : allume seulement au diner (acte 6). A l'arrivee, le camp
--- doit etre VIDE — c'est une exigence de la scene.
+-- LE FEU : allume seulement au diner et pendant la nuit (acte 6/7),
+-- jamais au matin. A l'arrivee, le camp doit etre VIDE — c'est une
+-- exigence de la scene.
+-- CORRECTIF 2026-08-04 : le feu re-apparaissait au rassemblement du
+-- matin et restait allume pendant la formation et le depart, alors qu'il
+-- doit s'eteindre avec la nuit. BuildCampDay ne rallume plus le foyer :
+-- il purge le decor de la nuit precedente et rend la main sur un camp de
+-- jour, feu eteint. Le feu ne se rallume qu'au diner (Acte 6) et pour la
+-- nuit (DeployBeds).
 function cloven_ruins_entrance_ch_5.BuildCampDay()
   -- JOUR : aucun filtre. On retire ceux d'une nuit precedente, sinon
   -- le camp reste sombre au reveil (defaut constate au Mont Venteux).
   pcall(function() GROUND:RemoveMapStatus("darkness") end)
   pcall(function() GROUND:RemoveMapStatus("dusk") end)
   cloven_ruins_entrance_ch_5.PurgeDecor()
-  pcall(function()
-    local g = GAME:GetCurrentGround()
-    g.Decorations[0].Anims:Add(RogueEssence.Ground.GroundAnim(
-      RogueEssence.Content.ObjAnimData('Campfire', 6), RogueElements.Loc(CX, CY)))
-  end)
-  cloven_ruins_entrance_ch_5.AddFireBlocker()
+  cloven_ruins_entrance_ch_5.RemoveFireBlocker()
 end
 
 -- LES PAILLASSES : posees SEULEMENT a l'acte 7, jamais avant.
@@ -1544,30 +1546,44 @@ function cloven_ruins_entrance_ch_5.MorningBody()
   Silence(18)
 
   -- ================================================================
-  -- LES AUTRES PARTENT DEVANT — il ne reste que Penticus, Phileas et
-  -- Plum au camp. Le heros et le partenaire entreront seuls dans le
-  -- dernier donjon (equipe de deux, comme au debut du chapitre 5).
-  -- Chacun marche vers l'entree (est) a son rythme, puis est retire
-  -- de la carte. Penticus, Phileas et Plum restent.
+  -- LES AUTRES PARTENT DEVANT VERS LA GROTTE, PAR PAIRES — il ne
+  -- reste que Penticus, Phileas et Plum au camp. Le heros et le
+  -- partenaire entreront seuls dans le dernier donjon (equipe de deux,
+  -- comme au debut du chapitre 5).
+  -- CORRECTIF 2026-08-04 : avant, tout le monde s'evaporait d'un coup
+  -- vers le NORD, hors champ, sans lien avec l'entree. Desormais chaque
+  -- paire (deux membres qui partageaient la meme colonne de formation)
+  -- marche a deux vers l'embouchure de la grotte (Dungeon_Entrance,
+  -- cote est), l'un derriere l'autre, puis est retiree a la porte —
+  -- comme des eclairiers qui entrent dans la grotte devant le duo.
   -- ================================================================
-  local partants = { t.rin, t.coco, t.hyko, t.almotz,
-                     t.kino, t.reinier, t.ganlon, t.shuca }
+  local paires_dep = {
+    { t.shuca, t.ganlon, 380, 220 },
+    { t.kino,  t.reinier, 392, 216 },
+    { t.rin,   t.coco,    380, 232 },
+    { t.hyko,  t.almotz,  404, 212 },
+  }
   local dep = {}
-  for i, c in ipairs(partants) do
-    if c ~= nil then
-      dep[#dep + 1] = TASK:BranchCoroutine(function()
-        pcall(function()
-          GAME:WaitFrames((i - 1) * 6)
-          -- Ils s'eloignent vers le NORD (au-dela du camp) : 32 px,
-          -- verifie libre pour tous sur la grille. Ils partent devant,
-          -- en decale, chacun son rythme.
-          GROUND:CharAnimateTurnTo(c, Direction.Up, 4)
-          GROUND:MoveInDirection(c, Direction.Up, 32, false, 1)
-          GAME:WaitFrames(10)
-          GAME:GetCurrentGround():RemoveTempChar(c)
-        end)
+  for i, paire in ipairs(paires_dep) do
+    local a, b, tx, ty = paire[1], paire[2], paire[3], paire[4]
+    dep[#dep + 1] = TASK:BranchCoroutine(function()
+      pcall(function()
+        GAME:WaitFrames((i - 1) * 28)
+        -- La paire se tourne vers l'est et marche vers la grotte, le
+        -- second legerement en retrait : jamais un deplacement de bloc.
+        if a ~= nil then
+          GROUND:CharAnimateTurnTo(a, Direction.Right, 4)
+          GROUND:MoveToPosition(a, tx, ty, false, 1.3)
+        end
+        if b ~= nil then
+          GROUND:CharAnimateTurnTo(b, Direction.Right, 4)
+          GROUND:MoveToPosition(b, tx + 12, ty + 4, false, 1.3)
+        end
+        GAME:WaitFrames(18)
+        if a ~= nil then GAME:GetCurrentGround():RemoveTempChar(a) end
+        if b ~= nil then GAME:GetCurrentGround():RemoveTempChar(b) end
       end)
-    end
+    end)
   end
   pcall(function() TASK:JoinCoroutines(dep) end)
   Silence(20)
