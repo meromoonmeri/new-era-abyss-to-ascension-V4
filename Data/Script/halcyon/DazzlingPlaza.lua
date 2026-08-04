@@ -1,3 +1,7 @@
+-- === ENRICHISSEMENT 7K CH6 ===
+-- L'arc de la Team Dazzling met en avant la rivalité idéologique entre
+-- le prestige de surface (les badges diamants d'Adagio, Aria, Sonata) et
+-- le dévouement sincère de l'équipe du joueur pour secourir Chenipent.
 --[[
     DazzlingPlaza.lua
 

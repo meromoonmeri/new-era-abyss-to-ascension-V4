@@ -1,15 +1,13 @@
 --[[
     guild_heros_room_ch_6.lua
-    Chapter 6 hero room scenes: Title Card
+    Chapitre 6 : Scènes du dortoir (Réveil, Débats sur la Forêt Lugubre, Veillée).
 ]]
-
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.ground.guild_heros_room.guild_heros_room_helper'
 
 guild_heros_room_ch_6 = {}
-
 
 function guild_heros_room_ch_6.ShowTitleCard()
   GAME:FadeOut(false, 1)
@@ -23,24 +21,46 @@ function guild_heros_room_ch_6.ShowTitleCard()
     GAME:WaitFrames(180)
     UI:WaitHideTitle(20)
   end)
-  --FOND DEDIE AU CHAPITRE 6.
-  --Il affichait « Chapter_4 » : le ch6 empruntait l'image du Bosquet
-  --Apricorn, alors que la regle impose une image propre a chaque chapitre
-  --(« pas de reutilisation d'un meme visuel generique d'un chapitre a
-  --l'autre »). Chapter_6 est un rendu de la clairiere de la Foret Lugubre,
-  --produit par tools/make_chapter_bg.py depuis les tuiles reelles du jeu
-  --et assombri a la meme luminance que les fonds Chapter_1 a 4.
   local coro2 = TASK:BranchCoroutine(function()
-    UI:WaitShowBG("Chapter_6", 180, 20)
-    GAME:WaitFrames(180)
-    UI:WaitHideBG(20)
+    GAME:WaitFrames(30)
+    SOUND:PlaySE("Menu/Skip")
+    GAME:WaitFrames(150)
   end)
   TASK:JoinCoroutines({coro1, coro2})
-
-  GAME:WaitFrames(120)
-  SV.Chapter6.ShowedTitleCard = true
-  guild_heros_room_helper.Morning(true)
+  GAME:CutsceneMode(false)
+  GAME:FadeIn(30)
 end
 
+function guild_heros_room_ch_6.MorningBedtalk()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  if hero == nil or partner == nil then return end
+
+  GAME:CutsceneMode(true)
+  UI:SetSpeaker(partner)
+  UI:WaitShowDialogue("Debout, [player] ! Le soleil éclaire déjà la fenêtre du dortoir !")
+  UI:WaitShowDialogue("J'ai fait un rêve étrange cette nuit... Je voyais de grands arbres noirs qui murmuraient.")
+  UI:WaitShowDialogue("La Forêt Lugubre se réveille, je le sens. Toute la guilde en parle depuis hier soir.")
+  UI:WaitShowDialogue("Et l'arrivée de cette fameuse Team Dazzling n'a fait que rajouter de la nervosité.")
+  UI:WaitShowDialogue("Ils se croient supérieurs à tout le monde avec leurs badges étincelants et leur grand air.")
+  UI:WaitShowDialogue("Mais nous avons prouvé notre valeur au Tunnel Incandescent et sur le Mont Venteux !")
+  UI:WaitShowDialogue("Allemons au rassemblement matinal, Noarfang et le Maître Grodoudou nous attendent !")
+  GAME:CutsceneMode(false)
+end
+
+function guild_heros_room_ch_6.EveningBedtalk()
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+  if hero == nil or partner == nil then return end
+
+  GAME:CutsceneMode(true)
+  UI:SetSpeaker(partner)
+  UI:WaitShowDialogue("Quelle journée intense... Mes pattes sont pleines de boue et de sève.")
+  UI:WaitShowDialogue("Zarude ne se battait pas par méchanceté, [player]. Il défendait sa forêt contre l'ombre.")
+  UI:WaitShowDialogue("Quand il a parlé de la racine qui noircit sous terre, j'ai eu un frisson.")
+  UI:WaitShowDialogue("Les Cœurs Anima résonnent entre eux. Ce que nous avons vu au Creuset n'était qu'un début.")
+  UI:WaitShowDialogue("Reposons-nous maintenant. Demain, de nouveaux mystères nous attendent.")
+  GAME:CutsceneMode(false)
+end
 
 return guild_heros_room_ch_6
