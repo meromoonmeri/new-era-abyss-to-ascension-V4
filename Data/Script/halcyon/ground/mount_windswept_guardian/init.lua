@@ -56,14 +56,6 @@ function mount_windswept_guardian.Enter(map)
   --est sans effet, l'appel est donc gratuit dans le cas normal.
   pcall(function() Weather.ClearAll() end)
 
-  -- Le Ground porte sa météo moteur pendant l'approche du gardien :
-  -- ScreenRainEmitter (heavy_rain), nappe fog, ciel sombre et vent.
-  -- Après victoire, on laisse au contraire le calme de l'après-combat.
-  local has_defeated_guardian = SV.Chapter5.MountGuardianDefeated
-  if not has_defeated_guardian then
-    pcall(function() Weather.Set('orage_brouillard') end)
-  end
-
   -- Rejouabilite : l'expedition est bouclee, le sommet est vide.
   -- L'arene est volontairement compacte (240x192 px) : les positions
   -- restent sur le plateau, pres de l'escalier sud, et la camera est

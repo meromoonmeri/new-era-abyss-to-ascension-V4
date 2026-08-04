@@ -79,9 +79,6 @@ Weather.PRESETS = {
   pluie        = { layers = {'falling_rain'} },
   pluie_forte  = { layers = {'heavy_rain', 'gloom'} },
   orage        = { layers = {'heavy_rain', 'gloom'}, thunder = true },
-  -- Sommet de Tornadus : pluie moteur + nappe de brouillard + vent,
-  -- sans toucher au plateau fixe ni aux calques de nuages du Ground.
-  orage_brouillard = { layers = {'heavy_rain', 'gloom', 'fog', 'blowing_wind_fast'}, thunder = true },
   neige        = { layers = {'winter_snow'} },
   blizzard     = { layers = {'blizzard', 'fog'} },
   brouillard   = { layers = {'fog'} },
