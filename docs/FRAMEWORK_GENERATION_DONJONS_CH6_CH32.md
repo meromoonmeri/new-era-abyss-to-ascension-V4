@@ -37,17 +37,25 @@ Avant de générer le moindre donjon, connaître par cœur la documentation du m
 
 ---
 
-## 4. NOM, MUSIQUE ET INVENTAIRE CENTRAL (Section 3)
-- Noms propres obligatoires pour chaque donjon et mini-boss.
-- Musiques vérifiées dans `Content/Music/` avant tout appel dans un script (`SOUND:PlayBGM`).
-- **Fichier d'inventaire central (`docs/inventaire_donjons.md`)** : Source de vérité unique recensant nom, chapitre, rang narratif, étages, biomes par segment, mini-boss, légendaire éventuel, bestiaire, objets et musique.
+## 4. NOMMAGE ORIGINAL, MUSIQUE ET INVENTAIRE CENTRAL (Section 3 & Convention)
+- **Convention de Nommage (`[Lieu] + [Qualificatif]`)** :
+  - **Interdiction de réutilisation directe** : Aucun nom de donjon officiel de la licence Pokémon Donjon Mystère n'est repris verbatim ou presque identique (« Forêt Glauque 2 », etc. sont proscrits).
+  - Chaque nom de donjon de New Era est une création originale suivant la structure : **`[Nom commun de lieu/biome] + [Qualificatif]`** (ex. *Désert des Oubliés*, *Crevasse de Géode*, *Verger Sauvage*, *Plaines Brûlées*, *Cime d'Argent Oubliée*).
+  - **Règle de variété** : Ne pas réutiliser le même nom de lieu plus de 2-3 fois sur les 27 chapitres sans un qualificatif très distinct.
+  - **Banque de qualificatifs** : À choisir en cohérence avec le biome réel et le lore (sans spawner de spoil avant le payoff) parmi les catégories Sensoriel/atmosphérique, Géographique/descriptif, Émotionnel/narratif et Lié à l'Anima.
+- **Noms de Mini-boss** : Les 3 mini-boss reçoivent un **nom propre individuel** (ex. *Sablaireau l'Ancien*, *Cacturne le Veilleur*, *Hippodocus le Colosse*), semblable à un nom de personnage ou PNJ.
+- **Musique dédiée** : Vérifiée dans `Content/Music/` avant tout appel dans un script (`SOUND:PlayBGM`).
+- **Fichier d'inventaire central (`docs/inventaire_donjons.md`)** : Source de vérité unique.
 
 ---
 
-## 5. BESTIAIRE, OBJETS ET MARCHAND KECLEON (Sections 4, 4.5, 4.6)
-- **Bestiaire** : 10 à 20 espèces par donjon standard (jusqu'à 60 pour 60 étages). Espèces obligatoirement vérifiées présentes dans `Content/Chara/` et cohérentes avec le biome du segment.
-- **Spawn d'objets (`ItemSpawnZoneStep`)** : Chaque donjon doit faire apparaître des objets. Réutilisation des patrons légitimes existants (`audinowho/PMDODump` `DataAsset/Zone/*.out.txt`, `RangeDictSegment` du projet), adaptés au pool d'objets du mod (`Data/Item/`).
-- **Marchand Kecleon** : Spawn aléatoire modéré par étage, fonctionnel et cohérent avec la difficulté du segment.
+## 5. BESTIAIRE (20-50 ESPÈCES/DONJON), SCALING ÉVOLUTIF ET OBJETS (Sections 4, 4.5, 4.6)
+- **Bestiaire et Quota d'Espèces** : Chaque donjon intègre de **20 à 50 espèces sauvages différentes**, vérifiées dans `Content/Chara/` et cohérentes avec le biome du segment.
+- **Scaling Évolutif sur ~15 niveaux (`Lv 18-33`, etc.)** :
+  - La progression d'un segment à l'autre est marquée par l'**évolution des espèces rencontrées**.
+  - *Exemple* : Segment 1 (Étages 1 à 10) = faune au **Stade 1 non évolué** (Sabelette, Cacnea, Trapinch) ➔ Segment 2 (Étages 11 à 20) = faune au **Stade Évolué** (Sablaireau, Cacturne, Vibrava, Claydol, Hippodocus).
+- **Spawn d'objets (`ItemSpawnZoneStep`)** : Chaque donjon fait apparaître des objets selon les patrons légitimes (`PMDODump` `DataAsset/Zone/*.out.txt`, `RangeDictSegment`).
+- **Marchand Kecleon** : Spawn aléatoire obligatoire et modéré par étage, cohérent avec la difficulté du segment.
 
 ---
 

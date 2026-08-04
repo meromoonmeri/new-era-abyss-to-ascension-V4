@@ -41,11 +41,11 @@ CH6_DUNGEONS_CONFIG = [
             ("claydol", 27, 32), ("hippowdon", 28, 33), ("drapion", 28, 33)
         ],
         "minibosses": [
-            {"floor": 6,  "name": "Sablaireau l'Ancien", "species": "sandslash", "lv": 24, "music": "Boss Battle.ogg"},
-            {"floor": 12, "name": "Cacturne le Veilleur", "species": "cacturne",  "lv": 28, "music": "Boss Battle.ogg"},
-            {"floor": 19, "name": "Hippodocus le Colosse", "species": "hippowdon", "lv": 32, "music": "Boss Battle 2.ogg"}
+            {"floor": 7,  "name": "Sablaireau l'Ancien", "species": "sandslash", "lv": 24, "music": "Boss Battle.ogg"},
+            {"floor": 14, "name": "Cacturne le Veilleur", "species": "cacturne",  "lv": 28, "music": "Boss Battle.ogg"},
+            {"floor": 22, "name": "Hippodocus le Colosse", "species": "hippowdon", "lv": 32, "music": "Boss Battle 2.ogg"}
         ],
-        "weather_floors": {4: "sandstorm", 8: "sandstorm", 18: "sandstorm"}
+        "weather_floors": {4: "sandstorm", 8: "sandstorm", 20: "sandstorm"}
     },
     {
         "id": "crevasse_geode",
@@ -65,11 +65,11 @@ CH6_DUNGEONS_CONFIG = [
             ("gigalith", 29, 33), ("probopass", 27, 32), ("sableye", 26, 31)
         ],
         "minibosses": [
-            {"floor": 7,  "name": "Gravalanch du Filon", "species": "graveler",  "lv": 24, "music": "Boss Battle.ogg"},
-            {"floor": 14, "name": "Tarinor la Boussole", "species": "nosepass",  "lv": 28, "music": "Boss Battle.ogg"},
-            {"floor": 20, "name": "Gigalithe le Diamant", "species": "gigalith", "lv": 33, "music": "Boss Battle 2.ogg"}
+            {"floor": 8,  "name": "Gravalanch du Filon", "species": "graveler",  "lv": 24, "music": "Boss Battle.ogg"},
+            {"floor": 16, "name": "Tarinor la Boussole", "species": "nosepass",  "lv": 28, "music": "Boss Battle.ogg"},
+            {"floor": 24, "name": "Gigalithe le Diamant", "species": "gigalith", "lv": 33, "music": "Boss Battle 2.ogg"}
         ],
-        "weather_floors": {14: "fog", 17: "fog"}
+        "weather_floors": {14: "fog", 19: "fog"}
     },
     {
         "id": "verger_sauvage",
@@ -89,11 +89,11 @@ CH6_DUNGEONS_CONFIG = [
             ("pinsir", 27, 32), ("vespiquen", 28, 33), ("cherrim", 26, 31)
         ],
         "minibosses": [
-            {"floor": 5,  "name": "Scarhino la Corne", "species": "heracross", "lv": 24, "music": "Boss Battle.ogg"},
-            {"floor": 13, "name": "Scarabrute la Pince", "species": "pinsir",    "lv": 28, "music": "Boss Battle.ogg"},
-            {"floor": 20, "name": "Apireine la Souveraine", "species": "vespiquen", "lv": 33, "music": "Boss Battle 2.ogg"}
+            {"floor": 7,  "name": "Scarhino la Corne", "species": "heracross", "lv": 24, "music": "Boss Battle.ogg"},
+            {"floor": 15, "name": "Scarabrute la Pince", "species": "pinsir",    "lv": 28, "music": "Boss Battle.ogg"},
+            {"floor": 23, "name": "Apireine la Souveraine", "species": "vespiquen", "lv": 33, "music": "Boss Battle 2.ogg"}
         ],
-        "weather_floors": {16: "rain"}
+        "weather_floors": {18: "rain"}
     },
     {
         "id": "plaines_brulees",
@@ -114,10 +114,10 @@ CH6_DUNGEONS_CONFIG = [
         ],
         "minibosses": [
             {"floor": 8,  "name": "Luxio l'Éclair",      "species": "luxio",     "lv": 24, "music": "Boss Battle.ogg"},
-            {"floor": 15, "name": "Phanpy la Charge",    "species": "phanpy",    "lv": 28, "music": "Boss Battle.ogg"},
-            {"floor": 20, "name": "Élecsprint la Tempête", "species": "manectric", "lv": 33, "music": "Boss Battle 2.ogg"}
+            {"floor": 16, "name": "Phanpy la Charge",    "species": "phanpy",    "lv": 28, "music": "Boss Battle.ogg"},
+            {"floor": 25, "name": "Élecsprint la Tempête", "species": "manectric", "lv": 33, "music": "Boss Battle 2.ogg"}
         ],
-        "weather_floors": {15: "sunny"}
+        "weather_floors": {17: "sunny"}
     }
 ]
 
