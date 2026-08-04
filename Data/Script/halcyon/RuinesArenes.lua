@@ -45,6 +45,7 @@ require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.DonjonFX'
 require 'halcyon.RuinesTitan'
+require 'halcyon.EngineKit'
 
 RuinesArenes = {}
 
@@ -138,7 +139,11 @@ function RuinesArenes.Eveil(segmentID)
     -- Le gardien se manifeste. Chaque signature est ecrite dans DonjonFX
     -- et n'est utilisee que par lui.
     f.eveil(gardien)
-    GAME:WaitFrames(20)
+    -- CADRAGE : le gardien trone en haut de l'arene, a des centaines de
+    -- pixels de l'entree. La camera suit le heros (en bas) : sans ce
+    -- recadrage, le gardien se manifeste et parle HORS CHAMP.
+    pcall(function() EngineKit.CamOn(gardien, 0, -8, 45) end)
+    GAME:WaitFrames(30)
 
     -- L'equipe se tourne vers lui, chacun selon sa propre position.
     DonjonFX.RegarderVers(gardien, 7)
@@ -214,6 +219,10 @@ function RuinesArenes.Victoire(segmentID)
     -- Ce qu'il dit en partant. Chacun livre ici SON morceau de la question
     -- que Regigigas posera plus bas : pourquoi les a-t-on postes FACE a ce
     -- qu'ils gardaient ? Aucun des trois n'a la reponse entiere.
+    -- CADRAGE : apres le combat la camera est revenue sur le heros (en bas) ;
+    -- re-centre sur le gardien avant sa derniere prise de parole.
+    pcall(function() EngineKit.CamOn(gardien, 0, -8, 45) end)
+    GAME:WaitFrames(30)
     DonjonFX.VoixGardien(gardien, f.cles[9])
     GAME:WaitFrames(28)
 

@@ -50,6 +50,7 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.DonjonFX'
+require 'halcyon.EngineKit'
 
 RuinesTitan = {}
 
@@ -155,7 +156,12 @@ function RuinesTitan.Eveil()
     -- scene ou l'on cumule secousse, froid et lumiere, parce que c'est lui
     -- que les trois autres gardaient.
     DonjonFX.EveilTitan(gigas)
-    GAME:WaitFrames(20)
+    -- CADRAGE : le gardien trone en haut de l'arene, a des centaines de
+    -- pixels de l'entree. La camera suit le heros (en bas) : sans ce
+    -- recadrage, Regigigas se leve et parle HORS CHAMP. On centre sur lui
+    -- avant qu'il ne prenne la parole (patron EngineKit.CamOn).
+    pcall(function() EngineKit.CamOn(gigas, 0, -8, 45) end)
+    GAME:WaitFrames(30)
     DonjonFX.RegarderVers(gigas, 7)
     GAME:WaitFrames(18)
 
@@ -238,7 +244,10 @@ function RuinesTitan.Victoire()
     DonjonFX.Anim(gigas, "Hurt", true)
     GAME:WaitFrames(25)
     DonjonFX.FinAnim(gigas)
-    GAME:WaitFrames(18)
+    -- CADRAGE : apres le combat la camera est revenue sur le heros (en bas) ;
+    -- Regigigas releve (en haut) serait hors champ pour toute la scene.
+    pcall(function() EngineKit.CamOn(gigas, 0, -8, 45) end)
+    GAME:WaitFrames(30)
 
     titan(gigas, 'CRB_051')
     GAME:WaitFrames(20)
