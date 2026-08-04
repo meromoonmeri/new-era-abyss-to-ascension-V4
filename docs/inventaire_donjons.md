@@ -129,7 +129,7 @@
 
 ---
 
-## 5. PROPOSITION DU ROSTER DES DONJONS SECONDAIRES POUR LE CHAPITRE 13 — L'ARC DE LA BRUME DU NORD (POUR VALIDATION)
+## 5. ROSTER DES DONJONS SECONDAIRES POUR LE CHAPITRE 13 — L'ARC DE LA BRUME DU NORD (GÉNÉRÉS ET VALIDÉS)
 
 > **Contexte Narratif (Chapitre 13)** :  
 > Le Héros et son Partenaire s'enfoncent plus profondément dans les terres glaciales et brumeuses du Nord. Les conditions d'exploration deviennent extrêmes, nécessitant une synergie parfaite.  
@@ -145,5 +145,26 @@
 | **`tempest_ridge`** | **Crête de la Tempête** | **24 ét.** | Crête Orage → Sommet Foudre | **25 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 8 (`tempest_ridge_mb1.rsmap`)** : Élekable l'Éclair<br>• **Ét. 16 (`tempest_ridge_mb2.rsmap`)** : Magnézone le Flux<br>• **Ét. 24 (`tempest_ridge_boss.rsmap`)** : Fulguris le Tonnerre | `tempest_ridge_relay.rsground` (Biome Tempête) |
 | **`hollow_thicket`** | **Fourré Creux** | **23 ét.** | Forêt Ronce → Sous-Bois Creux | **24 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 7 (`hollow_thicket_mb1.rsmap`)** : Desséliande l'Écorce<br>• **Ét. 15 (`hollow_thicket_mb2.rsmap`)** : Banshitrouye l'Ombre<br>• **Ét. 23 (`hollow_thicket_boss.rsmap`)** : Zarude le Rôdeur | `hollow_thicket_relay.rsground` (Biome Ronce) |
 | **`silent_marsh`** | **Marais Silencieux** | **25 ét.** | Marais Brume → Tourbière Muette | **26 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 8 (`silent_marsh_mb1.rsmap`)** : Muplodocus la Brume<br>• **Ét. 16 (`silent_marsh_mb2.rsmap`)** : Tarpaud le Silence<br>• **Ét. 25 (`silent_marsh_boss.rsmap`)** : Muplodocus de Hisui l'Acier | `silent_marsh_relay.rsground` (Biome Tourbière) |
+
+---
+
+---
+
+## 6. PROPOSITION DU ROSTER DES DONJONS SECONDAIRES POUR LE CHAPITRE 14 — L'ARC DU CIEL BORÉAL (POUR VALIDATION)
+
+> **Contexte Narratif (Chapitre 14)** :  
+> Le Héros et son Partenaire atteignent les sommets ultimes du Nord, sous les aurores boréales et les blizzards constants de la crête glaciaire.  
+> **Respect du Framework (§1, §9)** :
+> - **22 à 25 étages d'exploration** par donjon (2 segments de biome, scaling de niveau Lv 44-60, 20 à 50 espèces sauvages vérifiées dans `Content/Chara/`).
+> - **3 arènes d'étage `.rsmap` intégrées** par donjon (aucun ground `.rsground` indépendant pour les boss).
+> - **Zéro concept de Temps ou d'Espace** dans les donjons secondaires.
+> - **Relais Kangourex** au modèle `searing_tunnel_midpoint` adapté au biome.
+
+| Identifiant (`ID`) | Nom Français | Total Étages | Biomes (Seg 1 → Seg 2) | Espèces Sauvages (`20-50/donjon`, Lv 44-60) | Les 3 Arènes d'Étage (`.rsmap` intégrées, adaptées au biome) | Relais (Modèle Tunnel Incandescent + Kangourex) |
+| :--- | :--- | :---: | :--- | :--- | :--- | :--- |
+| **`aurora_pass`** | **Col de l'Aurore** | **22 ét.** | Sentier Boréal → Col Polaire | **26 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 7 (`aurora_pass_mb1.rsmap`)** : Momartik la Brume<br>• **Ét. 14 (`aurora_pass_mb2.rsmap`)** : Blizzarroi le Souffle<br>• **Ét. 22 (`aurora_pass_boss.rsmap`)** : Feunard d'Alola l'Aurore | `aurora_pass_relay.rsground` (Biome Boréal) |
+| **`crystal_crevasse`** | **Crevasse Cristalline** | **24 ét.** | Grotte Quartz → Gouffre Glacé | **25 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 8 (`crystal_crevasse_mb1.rsmap`)** : Hexagel le Givre<br>• **Ét. 16 (`crystal_crevasse_mb2.rsmap`)** : Séracrawl la Glace<br>• **Ét. 24 (`crystal_crevasse_boss.rsmap`)** : Kaimorse le Glacier | `crystal_crevasse_relay.rsground` (Biome Cristal Glacé) |
+| **`roaring_summit`** | **Sommet Grondant** | **23 ét.** | Montagne Ventée → Pic Tempête | **24 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 7 (`roaring_summit_mb1.rsmap`)** : Guériaigle l'Élan<br>• **Ét. 15 (`roaring_summit_mb2.rsmap`)** : Corvaillus l'Ombre<br>• **Ét. 23 (`roaring_summit_boss.rsmap`)** : Dracolosse le Sommet | `roaring_summit_relay.rsground` (Biome Sommet) |
+| **`forgotten_tundra`** | **Toundra Oubliée** | **25 ét.** | Plaine Glacée → Désert Blanc | **26 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 8 (`forgotten_tundra_mb1.rsmap`)** : Mammochon le Croc<br>• **Ét. 16 (`forgotten_tundra_mb2.rsmap`)** : Polagriffe la Force<br>• **Ét. 25 (`forgotten_tundra_boss.rsmap`)** : Blizzarroi le Géant | `forgotten_tundra_relay.rsground` (Biome Toundra) |
 
 ---

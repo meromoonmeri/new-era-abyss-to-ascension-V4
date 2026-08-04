@@ -257,6 +257,43 @@ Sécurisez l'espace aérien.",
     flavor = "Les champs de baies du Marais Crépusculaire sont ravagés par un étalon lourd.
 Protégez nos cultures marécageuses.",
   },
+  {
+    chapter = 13, zone = 'shivering_cavern', segment = 0, floor = 10,
+    client = 'snorunt', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'snorunt', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'A', reward = 'money',
+    title = "Le gel éternel",
+    flavor = "Un blizzard éternel paralyse la source thermale de la Caverne Grelottante.
+Une expédition de secours est réclamée.",
+  },
+  {
+    chapter = 13, zone = 'tempest_ridge', segment = 0, floor = 12,
+    client = 'manectric', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'manectric', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'S', reward = 'money',
+    title = "L'orage de la crête",
+    flavor = "Des foudres violentes interdisent le passage sur la Crête de la Tempête.
+Apaiser l'orage pour rouvrir le col.",
+  },
+  {
+    chapter = 13, zone = 'hollow_thicket', segment = 0, floor = 11,
+    client = 'gloom', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'gloom', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'S', reward = 'money',
+    title = "Les ronces du fourré",
+    flavor = "Des lianes sombres emprisonnent les sous-bois du Fourré Creux.
+Libérez les sentiers pour les habitants forestiers.",
+  },
+  {
+    chapter = 13, zone = 'silent_marsh', segment = 0, floor = 12,
+    client = 'wooper', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'wooper', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'A', reward = 'money',
+    title = "Le silence du marais",
+    flavor = "Le Marais Silencieux est privé de musique par un gardien en armure d'acier.
+Ramenez le chant des pluies.",
+  },
+
 
 
 }
