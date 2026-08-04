@@ -287,9 +287,23 @@ function cloven_ruins_entrance.Dungeon_Entrance_Touch(obj, activator)
   GROUND:CharEndAnim(hero)
 end
 
+-- LA STÈLE DE ZARBI (Aegis Cave) : posee au camp, pres de l'entree du
+-- donjon. On la touche apres avoir ramasse les pierres de lettres ; elle
+-- montre le mot, propose de « fermer les yeux », et une fois le mot
+-- complet, un escalier apparait vers l'arene du Regi. Patron Aegis Cave.
+function cloven_ruins_entrance.Tablette_Zarbi_Action(chara, activator)
+  DEBUG.EnableDbgCoro()
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 5
+     and SV.Chapter5 ~= nil and SV.Chapter5.RuinsCampDone then
+    RuinesZarbi.LireTablette()
+  else
+    GeneralFunctions.StartConversation(chara, "La tablette est froide.[pause=15] Ses cavités attendent des pierres de lettres.", "Normal")
+    GeneralFunctions.EndConversation(chara)
+  end
+end
+
 -- ROCHER DE KANGOUREX RETIRE du camp des Ruines (demande utilisateur
 -- 2026-08-03). Deux statues apparaissaient a l'ecran : l'objet lui-meme,
-
 -- Actions des membres du camp (interactifs apres la cinematique).
 function cloven_ruins_entrance.Teammate1_Action(chara, activator)
   --Apres le camp (briefing + nuit + reve), le partenaire a un mot
