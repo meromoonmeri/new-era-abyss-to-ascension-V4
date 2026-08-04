@@ -646,6 +646,12 @@ function AccusationArc.Scene10a_Ville(hero, partner)
 
   GAME:WaitFrames(20)
   think(hero, 'Sad', "(Trois ans dans cette ville.[pause=30] Et je pars par la porte de service.)")
+  GAME:WaitFrames(20)
+  if partner ~= nil then
+    say(partner, 'Determined', "On reviendra, {0}.[pause=25] Par la grande porte, cette fois.[pause=20] Je te le jure.")
+    GAME:WaitFrames(20)
+  end
+  think(hero, 'Determined', "(Il tremble sous la pluie froide...[pause=25] mais sa voix n'a pas tremblé une seule fois.)")
   GAME:WaitFrames(25)
 
   local s = sv()
@@ -696,6 +702,10 @@ function AccusationArc.Scene10b_Carrefour(hero, partner)
   think(hero, 'Determined', "(Il sait très bien que non.[pause=30] Il me laisse le choix quand même.)")
   GAME:WaitFrames(25)
 
+  -- Silence dramatique de mise en scène (60 frames ~ 1 seconde sous la pluie) avant la décision finale
+  SOUND:FadeOutBGM(40)
+  GAME:WaitFrames(60)
+
   -- Il se retourne vers le nord. La route.
   pcall(function() GROUND:CharAnimateTurnTo(hero, Direction.Up, 6) end)
   GAME:WaitFrames(20)
@@ -720,7 +730,7 @@ function AccusationArc.Scene10b_Carrefour(hero, partner)
   GAME:WaitFrames(40)
 
   -- Carton de fin d'acte : la seule narration, sur ecran noir.
-  narrate("Cette nuit-là, deux explorateurs quittèrent Metano Town sous la pluie.[pause=30] Personne ne les vit partir.")
+  narrate("Cette nuit-là, deux explorateurs quittèrent Metano Town sous la pluie battante.[pause=30] Personne ne les vit partir.[pause=25] Leur seule boussole était la promesse de prouver leur innocence...[pause=20] et de ramener la vérité à toute la région.")
   GAME:WaitFrames(30)
 
   local s = sv()
