@@ -5844,6 +5844,15 @@ Comme c'est un volontaire, il ne restera pas avec toi après la sortie.
   <data name="RUINES_RG_VICTOIRE_P" xml:space="preserve">
     <value>Là où il montait la garde,[pause=20] la pierre s'est fendue.[pause=25] Des marches descendent vers le noir.</value>
   </data>
+  <data name="RUINES_RESPAWN_Regice" xml:space="preserve">
+    <value>Les murs de glace vous accueillent en silence.[pause=25] Regice a quitté les lieux.[pause=20] La chambre vide est devenue votre refuge,[pause=15] et votre point de départ.</value>
+  </data>
+  <data name="RUINES_RESPAWN_Regirock" xml:space="preserve">
+    <value>La pierre ne tremble plus.[pause=25] Regirock est parti.[pause=20] La salle éboulée vous reçoit comme un havre,[pause=15] le temps de reprendre votre souffle.</value>
+  </data>
+  <data name="RUINES_RESPAWN_Registeel" xml:space="preserve">
+    <value>Le métal s'est tu.[pause=25] Registeel n'est plus là.[pause=20] Dans la chambre d'acier,[pause=15] seule votre respiration trouble le silence.</value>
+  </data>
   <data name="RUINES_RG_DEFAITE" xml:space="preserve">
     <value>Le sol se dérobe.[pause=25] Le gardien ne poursuit pas :[pause=15] il reprend simplement sa place,[pause=10] et attend.</value>
   </data>

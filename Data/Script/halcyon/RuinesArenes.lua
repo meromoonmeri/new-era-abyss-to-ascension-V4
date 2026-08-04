@@ -112,6 +112,31 @@ function RuinesArenes.Eveil(segmentID)
   if f == nil then return end
 
   local s = etat()
+
+  -- RESPAWN CHECKPOINT (2026-08-04) : on arrive dans l'arene du Regi
+  -- vaincu (il l'a quittee, il est redevenu statue / n'y est plus). On
+  -- joue une courte scene de reveil dans la chambre videe — c'est la
+  -- cinematique de respawn demandee — puis on rend la main : le gardien
+  -- n'est plus la, l'equipe repart de ce checkpoint vers le labyrinthe
+  -- suivant.
+  local cp = nil
+  pcall(function()
+    if SV.Chapter7 ~= nil and SV.Chapter7.RuinsRespawnArena == segmentID then
+      cp = SV.Chapter7.RuinsRespawnArena
+      SV.Chapter7.RuinsRespawnArena = nil
+    end
+  end)
+  if cp ~= nil then
+    pcall(function()
+      GAME:CutsceneMode(true)
+      GAME:WaitFrames(45)
+      DonjonFX.Recit('RUINES_RESPAWN_' .. f.flag)
+      GAME:WaitFrames(35)
+      GAME:CutsceneMode(false)
+    end)
+    return
+  end
+
   -- Deja joue sur cet etage : on ne rejoue pas l'eveil complet, mais le
   -- gardien reste hostile. Le joueur revient pour se battre, pas pour
   -- reecouter.

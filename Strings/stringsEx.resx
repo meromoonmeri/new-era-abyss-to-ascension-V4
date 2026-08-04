@@ -6275,6 +6275,15 @@ As he is a volunteer, he won't be staying with you once you leave.
   <data name="RUINES_RG_VICTOIRE_P" xml:space="preserve">
     <value>Where it kept watch,[pause=20] the stone has split.[pause=25] Steps descend into the dark.</value>
   </data>
+  <data name="RUINES_RESPAWN_Regice" xml:space="preserve">
+    <value>The walls of ice greet you in silence.[pause=25] Regice has left.[pause=20] The empty chamber has become your refuge,[pause=15] and your starting point.</value>
+  </data>
+  <data name="RUINES_RESPAWN_Regirock" xml:space="preserve">
+    <value>The stone no longer trembles.[pause=25] Regirock is gone.[pause=20] The fallen hall shelters you like a haven,[pause=15] time to catch your breath.</value>
+  </data>
+  <data name="RUINES_RESPAWN_Registeel" xml:space="preserve">
+    <value>The metal has fallen silent.[pause=25] Registeel is no longer here.[pause=20] In the chamber of steel,[pause=15] only your breathing disturbs the quiet.</value>
+  </data>
   <data name="RUINES_RG_DEFAITE" xml:space="preserve">
     <value>The floor gives way.[pause=25] The guardian doesn't pursue:[pause=15] it simply returns to its post,[pause=10] and waits.</value>
   </data>

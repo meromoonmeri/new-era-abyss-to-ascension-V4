@@ -203,6 +203,20 @@ function cloven_ruins_entrance.PlotScripting()
     return
   end
 
+  -- SCENE PENTICUS/PHILEAS POST-1ER-REGI (2026-08-04) : la cinematique
+  -- qui se jouait avant l'entree du donjon est deplacee ici, apres la
+  -- victoire sur le premier Regi. On coupe au camp pendant que le duo est
+  -- au fond : Penticus et Phileas, toujours a l'entrance des Ruines,
+  -- discutent — Plum s'incruste, ils changent de sujet. Une seule fois
+  -- (RuinsEntryTalkDone). Puis fondu, et retour a la suite : le joueur
+  -- reprend la main, libre de poursuivre les Regis suivants.
+  if c5 ~= nil and not c5.RuinsEntryTalkDone
+     and SV.Ruines ~= nil and SV.Ruines.VaincuRegice then
+    cloven_ruins_entrance_ch_5.SetupGround(true)
+    cloven_ruins_entrance_ch_5.EntryTalk()
+    return
+  end
+
   -- ETAT DE CAMP — le joueur est libre (apres la cinematique).
   -- Kino/Reinier sont partis en reconnaissance : seule la base
   -- logistique reste (Penticus, Phileas, Rin, Coco, Hyko, Almotz).
@@ -224,14 +238,9 @@ function cloven_ruins_entrance.Dungeon_Entrance_Touch(obj, activator)
   UI:WaitForChoice()
   local yesnoResult = UI:ChoiceResult()
   if yesnoResult then
-    -- CINEMATIQUE D'ENTREE — une seule fois (premiere tentative du donjon).
-    -- Penticus et Phileas s'inquietent des nuits mouvementees du heros,
-    -- puis le joueur est plonge dans le donjon. Passe AVANT le fondu pour
-    -- que le noir du fondu enchaîne directement sur l'entree.
-    if SV.Chapter5 ~= nil and not SV.Chapter5.RuinsEntryTalkDone then
-      cloven_ruins_entrance_ch_5.EntryTalk()
-    end
-
+    -- Plus AUCUNE cinematique ici : la scene Penticus/Phileas/Plum s'est
+    -- deplacee APRES la victoire sur le premier Regi (voir PlotScripting,
+    -- branche RuinsEntryTalkDone). On entre directement dans le donjon.
     SOUND:FadeOutBGM(60)
     GAME:FadeOut(false, 60)
     partner.IsInteracting = false

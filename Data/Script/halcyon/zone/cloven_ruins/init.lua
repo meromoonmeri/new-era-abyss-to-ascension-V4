@@ -131,6 +131,33 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
     return ok
   end
 
+  -- CHECKPOINT DE RESPAWN (2026-08-04) : apres avoir vaincu un Regi, son
+  -- arene devient le point de respawn. Si le joueur perd dans le labyrinthe
+  -- SUIVANT (entre deux segments), il reapparait dans l'arene du Regi vaincu
+  -- au lieu de retourner au camp. Tant qu'aucun Regi n'est vaincu (ou face
+  -- a un Regi), on respawn a l'entrance du camp.
+  local function checkpArena()
+    SV.Ruines = SV.Ruines or {}
+    if SV.Ruines.VaincuRegisteel then return 5 end
+    if SV.Ruines.VaincuRegirock then return 3 end
+    if SV.Ruines.VaincuRegice then return 1 end
+    return nil
+  end
+
+  -- Respawn dans l'arene checkpoint (le Regi vaincu a quitte les lieux) :
+  -- l'equipe se reveille dans la chambre videe, c'est la cinematique de
+  -- respawn. De la, le joueur redescend vers le labyrinthe suivant.
+  local function respawnCheckpoint(result, cp)
+    SV.Chapter7 = SV.Chapter7 or {}
+    SV.Chapter7.RuinsRespawnArena = cp
+    PrintInfo("[Ruines] defaite entre deux segments -> respawn arene segment "..tostring(cp))
+    GAME:WaitFrames(20)
+    GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_entrance'), 0, false, false)
+    GAME:WaitFrames(10)
+    GAME:EnterDungeon("cloven_ruins", cp, 0, 0,
+      RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  end
+
   -- Retour au camp d'entree : boucle de secteur OU echec.
   --
   -- CORRECTIF (rapport joueur 2026-08-03 : « je finis l'etage 4 et j'ai le
@@ -182,7 +209,14 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
               retourCamp(result, nil)
           end
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
-          retourCamp(result, 'echec')
+          -- Respawn checkpoint : si un Regi est deja vaincu, on se reveille
+          -- dans son arene (entre deux segments) ; sinon, retour a l'entrance.
+          local cp = checkpArena()
+          if cp ~= nil then
+              respawnCheckpoint(result, cp)
+          else
+              retourCamp(result, 'echec')
+          end
       end
 
   -- --- CHAMBRES DES REGI : 1, 3, 5 -----------------------------------
@@ -234,9 +268,14 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
           GAME:ContinueDungeon("cloven_ruins", 7, 0, 0,
             RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+          -- Perdu dans le Puits (seg6) = entre deux segments : on se reveille
+          -- dans l'arene de Registeel (seg5), le dernier Regi vaincu.
           GAME:WaitFrames(20)
           SV.Chapter7.LostDepths = true
-          if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
+          local cp = checkpArena()
+          if cp ~= nil then
+              respawnCheckpoint(result, cp)
+          elseif result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
               SV.Chapter7.RuinsMidState = 'DeathArrival'
               GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_midpoint'), 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Le puits...[pause=0] il n'en finissait pas...", "Pain")

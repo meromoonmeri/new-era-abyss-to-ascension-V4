@@ -1792,16 +1792,41 @@ function cloven_ruins_entrance_ch_5.EntryTalk()
       UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_MEW05']))
       GAME:WaitFrames(24)
 
-      -- Ils se tournent vers l'entree : leur vœu est fait.
-      GROUND:CharAnimateTurnTo(penticus, Direction.Right, 6)
-      GROUND:CharAnimateTurnTo(phileas, Direction.Right, 6)
-      GAME:WaitFrames(20)
-      UI:ResetSpeaker(false)
-      UI:SetCenter(true)
-      UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_ENTREE_P5']))
-      UI:SetCenter(false)
-      UI:ResetSpeaker()
-      GAME:WaitFrames(25)
+      -- PLUM S'INCRUSTE (2026-08-04) : la confidence est interrompue.
+      -- Plum, qui n'a jamais fait partie de l'expedition, vient se glisser
+      -- entre les deux sages. Ils changent de sujet, genes — puis fondu
+      -- noir, et le joueur reprend la main au camp.
+      local plum = E('Plum')
+      if plum ~= nil then
+        GROUND:CharSetEmote(plum, "notice", 1)
+        GROUND:CharTurnToCharAnimated(plum, penticus, 4)
+        GROUND:MoveToPosition(plum,
+          (phileas.Position.X + penticus.Position.X) / 2,
+          (phileas.Position.Y + penticus.Position.Y) / 2 + 16, false, 1.1)
+        GROUND:CharSetEmote(plum, "happy", 1)
+        GAME:WaitFrames(40)
+        UI:SetSpeaker(plum)
+        GeneralFunctions.SetEmotion("Happy")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_ENTREE_P7']))
+        GAME:WaitFrames(16)
+        GROUND:CharTurnToCharAnimated(penticus, plum, 4)
+        UI:SetSpeaker(penticus)
+        GeneralFunctions.SetEmotion("Normal")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_ENTREE_P8']))
+        GAME:WaitFrames(16)
+        UI:SetSpeaker(phileas)
+        GeneralFunctions.SetEmotion("Normal")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CR5_ENTREE_P9']))
+        GAME:WaitFrames(20)
+        -- Plum recule d'un pas, satisfaite d'avoir ete entendue.
+        GROUND:CharAnimateTurnTo(plum, Direction.Left, 4)
+        GROUND:MoveInDirection(plum, Direction.Left, 24, false, 1.0)
+        GAME:WaitFrames(30)
+      end
+      -- FONDU NOIR : la scene se referme ; le joueur reprend la main.
+      pcall(function() GAME:FadeOut(false, 50) end)
+      GAME:WaitFrames(35)
+      pcall(function() GAME:FadeIn(30) end)
     end
   end)
 

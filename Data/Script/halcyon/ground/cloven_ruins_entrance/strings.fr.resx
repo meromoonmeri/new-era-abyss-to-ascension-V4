@@ -206,6 +206,15 @@
   <data name="CR5_ENTREE_P6" xml:space="preserve">
     <value>Avant que vous entriez...[pause=20] une dernière chose.[pause=15] Une rumeur que je n'ai confiée qu'aux archives,[pause=10] jusqu'à ce soir.[pause=0] Les anciens prétendent qu'une présence habitait ces ruines,[pause=10] bien avant la pierre et les gardiens.</value>
   </data>
+  <data name="CR5_ENTREE_P7" xml:space="preserve">
+    <value>...J'ai cru entendre parler de Mew ?[pause=25] Vous savez que je connais quelqu'un qui adorerait ça.[pause=0] Pas vrai ?</value>
+  </data>
+  <data name="CR5_ENTREE_P8" xml:space="preserve">
+    <value>Plum.[pause=20] Nous...[pause=10] discutions de l'expédition.[pause=0] De la pierre,[pause=10] pas des légendes.</value>
+  </data>
+  <data name="CR5_ENTREE_P9" xml:space="preserve">
+    <value>En effet.[pause=15] Les gravures du seuil,[pause=10] voilà ce qui nous occupe.[pause=0] Rien d'autre.</value>
+  </data>
 
   <data name="CR5_V01" xml:space="preserve">
     <value>Et alors,[pause=10] le vent s'est LEVÉ,[pause=15] et j'ai fait—[pause=0] «[pause=5] WOOOOSH ![pause=5] »[pause=20] Le ciel entier a hurlé ![pause=10] Et moi,[pause=10] tranquille,[pause=10] au milieu.[pause=0] «[pause=5] Je suis le Souffle qui garde la cime ![pause=5] »</value>
