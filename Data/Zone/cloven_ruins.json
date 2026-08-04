@@ -588,7 +588,7 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "zubat",
+           "Species": "snorunt",
            "Form": 0,
            "Skin": "",
            "Gender": -1
@@ -619,7 +619,7 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "golbat",
+           "Species": "swinub",
            "Form": 0,
            "Skin": "",
            "Gender": -1
@@ -650,7 +650,7 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "machop",
+           "Species": "sneasel",
            "Form": 0,
            "Skin": "",
            "Gender": -1
@@ -681,7 +681,7 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "machoke",
+           "Species": "jynx",
            "Form": 0,
            "Skin": "",
            "Gender": -1
@@ -1517,7 +1517,7 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "zubat",
+           "Species": "geodude",
            "Form": 0,
            "Skin": "",
            "Gender": -1
@@ -1548,7 +1548,7 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "golbat",
+           "Species": "graveler",
            "Form": 0,
            "Skin": "",
            "Gender": -1
@@ -1579,7 +1579,7 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "machop",
+           "Species": "onix",
            "Form": 0,
            "Skin": "",
            "Gender": -1
@@ -1610,7 +1610,7 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "machoke",
+           "Species": "machop",
            "Form": 0,
            "Skin": "",
            "Gender": -1
@@ -2446,7 +2446,7 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "zubat",
+           "Species": "aron",
            "Form": 0,
            "Skin": "",
            "Gender": -1
@@ -2477,7 +2477,7 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "golbat",
+           "Species": "lairon",
            "Form": 0,
            "Skin": "",
            "Gender": -1
@@ -2508,7 +2508,7 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "machop",
+           "Species": "aggron",
            "Form": 0,
            "Skin": "",
            "Gender": -1
@@ -3361,7 +3361,7 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "zubat",
+           "Species": "snorunt",
            "Form": 0,
            "Skin": "",
            "Gender": -1
@@ -3392,7 +3392,7 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "golbat",
+           "Species": "glalie",
            "Form": 0,
            "Skin": "",
            "Gender": -1
@@ -3423,7 +3423,7 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "machop",
+           "Species": "graveler",
            "Form": 0,
            "Skin": "",
            "Gender": -1
@@ -3454,7 +3454,7 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "machoke",
+           "Species": "golem",
            "Form": 0,
            "Skin": "",
            "Gender": -1

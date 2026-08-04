@@ -295,4 +295,24 @@
   <data name="CR5_V24" xml:space="preserve">
     <value>(Il nous a laissés gagner.[pause=20] Non...[pause=10] il nous a laissés continuer.[pause=0] La différence,[pause=10] ce soir,[pause=10] je la comprends.)</value>
   </data>
+
+  <data name="CR5_MEW01" xml:space="preserve">
+    <value>Au fait...[pause=20] vous connaissez la rumeur sur ces ruines ?[pause=15] On dit qu'il y a très longtemps,[pause=10] un Pokémon mythique y vivait.[pause=0] Une petite créature rose,[pause=10] insaisissable.[pause=0] Mew.</value>
+  </data>
+
+  <data name="CR5_MEW02" xml:space="preserve">
+    <value>Mew ?![pause=20] LE Mew ?[pause=15] Celui qui sait se rendre invisible,[pause=10] qui a la mémoire de tous les Pokémon ?</value>
+  </data>
+
+  <data name="CR5_MEW03" xml:space="preserve">
+    <value>Lui-même.[pause=20] On raconte qu'il a laissé une aura derrière lui,[pause=10] ici,[pause=10] dans la pierre.[pause=0] Une présence qui ne s'est jamais tout à fait dissipée.</value>
+  </data>
+
+  <data name="CR5_MEW04" xml:space="preserve">
+    <value>C'est pour ça que les murs semblent...[pause=20] vivants,[pause=10] parfois ?[pause=15] Que le vent souffle sans raison ?</value>
+  </data>
+
+  <data name="CR5_MEW05" xml:space="preserve">
+    <value>Peut-être.[pause=20] Les anciens disaient que celui qui la ressentait,[pause=10] l'entendait appeler.[pause=0] Sans jamais savoir où.[pause=15] Peut-être que c'est ce que vous cherchez,[pause=10] sans le savoir.</value>
+  </data>
 </root>
