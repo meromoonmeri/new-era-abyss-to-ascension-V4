@@ -2133,7 +2133,8 @@
   "GroundMaps": [
    "crystal_sanctuary_entrance",
    "crystal_sanctuary_relay",
-   "crystal_sanctuary_miniboss"
+   "crystal_sanctuary_miniboss",
+   "crystal_sanctuary_boss"
   ]
  }
 }

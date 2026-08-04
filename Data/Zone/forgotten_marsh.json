@@ -2133,7 +2133,8 @@
   "GroundMaps": [
    "forgotten_marsh_entrance",
    "forgotten_marsh_relay",
-   "forgotten_marsh_miniboss"
+   "forgotten_marsh_miniboss",
+   "forgotten_marsh_boss"
   ]
  }
 }
