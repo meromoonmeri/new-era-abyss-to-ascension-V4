@@ -1,6 +1,6 @@
 --[[
     metano_town_ch_10.lua
-    Chapitre 10 : Pic Celeste — Lugia, Escouade Fulgur, vision Necrozma
+    Chapitre 10 : Pic Celeste — Rayquaza, Escouade Fulgur, vision Necrozma
     ENRICHI (587->1500+ lignes)
 ]]
 require 'origin.common'

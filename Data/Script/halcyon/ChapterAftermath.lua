@@ -39,7 +39,7 @@
       ch9  LA CONFIRMATION  Le Cercle du Suaire ne se bat pas : il CONSTATE.
                             Sa phrase est la piece qui manquait au puzzle.
                             Registre : effroi froid. On repart avec une peur.
-      ch10 LE VERTIGE       Lugia ne juge plus : il S'EXCUSE. Le gardien le
+      ch10 LE VERTIGE       Rayquaza ne juge plus : il S'EXCUSE. Le gardien le
                             plus ancien du monde demande pardon au heros.
                             Registre : renversement. On repart sans repere.
 
@@ -358,7 +358,7 @@ function ChapterAftermath.MarshVictory()
 end
 
 --------------------------------------------------------------------
--- CHAPITRE 10 — Lugia s'excuse. Tous les reperes tombent.
+-- CHAPITRE 10 — Rayquaza s'excuse. Tous les reperes tombent.
 --------------------------------------------------------------------
 -- Le renversement : le plus ancien gardien du monde demande pardon a deux
 -- gamins. S'il s'excuse, c'est qu'il a fait quelque chose. Fin de l'arc
@@ -368,14 +368,14 @@ end
 -- pardon a deux gamins — le joueur perd son dernier repere d'autorite.
 --
 -- CE QUE CETTE SCENE EST, NARRATIVEMENT
--- Lugia vient d'etre vaincu et RESTE : c'est ici qu'il renseigne le heros
+-- Rayquaza vient d'etre vaincu et RESTE : c'est ici qu'il renseigne le heros
 -- sur la marche a suivre. La scene est longue et parlee, c'est voulu.
 -- Elle s'acheve sur son epuisement — ce qui rend possible, juste apres,
--- l'arrivee de Rayquaza face a la meteorite (autel_celeste). Lugia ne
+-- l'arrivee de Rayquaza face a la meteorite (autel_celeste). Rayquaza ne
 -- PEUT plus rien : le climax qui suit n'est donc pas un deus ex machina,
 -- il comble une incapacite etablie trente secondes plus tot.
 --
--- Zero mouvement gratuit. Lugia est a terre : il ne se deplace pas, il
+-- Zero mouvement gratuit. Rayquaza est a terre : il ne se deplace pas, il
 -- se REDRESSE par paliers, puis retombe. Trois etats de corps :
 --   effondre -> assis (il parle) -> tente de se lever (il echoue)
 --
@@ -384,7 +384,7 @@ end
 -- la tete, puis qui essaie de se relever et n'y arrive pas.
 --
 -- Positions verifiees sur la grille (69x75 cellules de 8 px) :
---   hero (296,296) | partner (256,296) | Lugia (272,232) | tous libres
+--   hero (296,296) | partner (256,296) | Rayquaza (272,232) | tous libres
 function ChapterAftermath.PeakVictory()
   return Aftermath({
     -- Flag PROPRE a l'acte 1. Les deux actes du climax partageaient

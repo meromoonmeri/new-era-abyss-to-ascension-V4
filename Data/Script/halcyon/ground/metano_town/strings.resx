@@ -3330,10 +3330,10 @@
 <data name="MT10_Noctowl_001" xml:space="preserve"><value>The Celestial Peak...[pause=25] The highest summit in the Mount Windswept range.</value></data>
 <data name="MT10_Noctowl_002" xml:space="preserve"><value>Up there, the sky touches the earth.[pause=30] And something...[pause=25] is waiting for you.</value></data>
 <data name="MT10_Noctowl_003" xml:space="preserve"><value>Go.[pause=25] Fulgur Squad is already on its way. Don't let them arrive first.</value></data>
-<data name="MT10_Noctowl_004" xml:space="preserve"><value>Lugia...[pause=30] The Warden of the Celestial Peak.</value></data>
+<data name="MT10_Noctowl_004" xml:space="preserve"><value>('Rayquaza...[pause=30] The Warden of the Celestial Tower.',)</value></data>
 <data name="MT10_Noctowl_005" xml:space="preserve"><value>He will not attack you without cause.[pause=25] But he will test you.</value></data>
-<data name="MT10_Noctowl_006" xml:space="preserve"><value>Be worthy.[pause=30] Lugia speaks only to pure hearts.</value></data>
-<data name="MT10_Noctowl_007" xml:space="preserve"><value>You saw Lugia.[pause=25] And he spoke to you.</value></data>
+<data name="MT10_Noctowl_006" xml:space="preserve"><value>('Be worthy.[pause=30] Rayquaza speaks only to pure hearts.',)</value></data>
+<data name="MT10_Noctowl_007" xml:space="preserve"><value>('You saw Rayquaza.[pause=25] And he spoke to you.',)</value></data>
 <data name="MT10_Noctowl_008" xml:space="preserve"><value>What did he tell you?[pause=30] ...'Look beneath the scale'?</value></data>
 <data name="MT10_Noctowl_009" xml:space="preserve"><value>That is an ancient prophecy.[pause=25] I shall consult the archives. At once.</value></data>
 <data name="MT10_Noctowl_010" xml:space="preserve"><value>The vision...[pause=30] the prismatic silhouette.</value></data>
@@ -3352,12 +3352,12 @@
 <data name="MT10_Audino_001" xml:space="preserve"><value>You CLIMBED the Celestial Peak?![pause=15] ON FOOT?!</value></data>
 <data name="MT10_Audino_002" xml:space="preserve"><value>And Fulgur Squad![pause=20] Luxray must be seething!</value></data>
 <data name="MT10_Audino_003" xml:space="preserve"><value>Let me check you for altitude sickness.[pause=25] No, you're fine.</value></data>
-<data name="MT10_Audino_004" xml:space="preserve"><value>Lugia...[pause=25] just the name gives me shivers.</value></data>
-<data name="MT10_Audino_005" xml:space="preserve"><value>If Lugia spoke to you,[pause=20] then you really are special.</value></data>
+<data name="MT10_Audino_004" xml:space="preserve"><value>('Rayquaza...[pause=25] just the name gives me shivers.',)</value></data>
+<data name="MT10_Audino_005" xml:space="preserve"><value>('If Rayquaza spoke to you,[pause=20] then you really are special.',)</value></data>
 <data name="MT10_Audino_006" xml:space="preserve"><value>The Celestial Peak is VERY high.[pause=25] Take Berries for the dizziness.</value></data>
 <data name="MT10_Audino_007" xml:space="preserve"><value>The infirmary is ready![pause=15] For altitude sickness too.</value></data>
-<data name="MT10_Snubbull_001" xml:space="preserve"><value>LUGIA?![pause=10] THE Lugia?![pause=15] You SAW him?!</value></data>
-<data name="MT10_Snubbull_002" xml:space="preserve"><value>If I could sell a Lugia feather...[pause=25] I'd be RICH!</value></data>
+<data name="MT10_Snubbull_001" xml:space="preserve"><value>('RAYQUAZA?![pause=10] THE Rayquaza?![pause=15] You SAW him?!',)</value></data>
+<data name="MT10_Snubbull_002" xml:space="preserve"><value>("If I could sell a Rayquaza scale...[pause=25] I'd be RICH!",)</value></data>
 <data name="MT10_Snubbull_003" xml:space="preserve"><value>...What?[pause=20] It was a joke![pause=15] ...Half a joke.</value></data>
 <data name="MT10_Snubbull_004" xml:space="preserve"><value>Fulgur Squad?![pause=15] Luxray, Lucario AND Heliolisk?![pause=20] All THREE?!</value></data>
 <data name="MT10_Snubbull_005" xml:space="preserve"><value>You beat them in a race?[pause=25] I'M TELLING EVERYONE!</value></data>
@@ -3367,19 +3367,19 @@
 <data name="MT10_Zigzagoon_002" xml:space="preserve"><value>My family can't believe it![pause=15] Neither can I, to be honest!</value></data>
 <data name="MT10_Zigzagoon_003" xml:space="preserve"><value>The Celestial Peak...[pause=20] It's high. Very high.</value></data>
 <data name="MT10_Zigzagoon_004" xml:space="preserve"><value>I'm training![pause=15] One day I'll climb it too!</value></data>
-<data name="MT10_Relicanth_001" xml:space="preserve"><value>Lugia...[pause=30] The first of the Wardens. The wisest.</value></data>
+<data name="MT10_Relicanth_001" xml:space="preserve"><value>('Rayquaza...[pause=30] The first of the Wardens. The wisest.',)</value></data>
 <data name="MT10_Relicanth_002" xml:space="preserve"><value>He told you to 'look beneath the scale'.[pause=25] Do you know what that means?</value></data>
 <data name="MT10_Relicanth_003" xml:space="preserve"><value>The Scale is an old symbol.[pause=30] A broken shell.</value></data>
 <data name="MT10_Relicanth_004" xml:space="preserve"><value>The Celestial Peak...[pause=25] I climbed it a very long time ago.</value></data>
-<data name="MT10_Relicanth_005" xml:space="preserve"><value>Lugia is an ally.[pause=20] But his test can be lethal.</value></data>
+<data name="MT10_Relicanth_005" xml:space="preserve"><value>('Rayquaza is an ally.[pause=20] But his test can be lethal.',)</value></data>
 <data name="MT10_Relicanth_006" xml:space="preserve"><value>The currents speak of the summit...[pause=30] Listen to the wind.</value></data>
 <data name="MT10_Relicanth_007" xml:space="preserve"><value>The currents are speaking...[pause=25] The sky rumbles.</value></data>
-<data name="MT10_Bisharp_001" xml:space="preserve"><value>Lugia defeated — or convinced.[pause=20] The summit is under control.</value></data>
+<data name="MT10_Bisharp_001" xml:space="preserve"><value>('Rayquaza defeated — or convinced.[pause=20] The summit is under control.',)</value></data>
 <data name="MT10_Bisharp_002" xml:space="preserve"><value>Fulgur Squad has headed back to the coast.[pause=25] They'll return. That's certain.</value></data>
 <data name="MT10_Bisharp_003" xml:space="preserve"><value>Fulgur Squad is an official guild.[pause=20] Respect them. But concede nothing.</value></data>
 <data name="MT10_Bisharp_004" xml:space="preserve"><value>The Celestial Peak falls under Metano's jurisdiction.[pause=25] For now.</value></data>
 <data name="MT10_Bisharp_005" xml:space="preserve"><value>Metano's safety is my priority.[pause=20] Even at high altitude.</value></data>
-<data name="MT10_Ledian_001" xml:space="preserve"><value>Lugia's style...[pause=20] Airborne. Unpredictable. Majestic.</value></data>
+<data name="MT10_Ledian_001" xml:space="preserve"><value>("Rayquaza's style...[pause=20] Airborne. Unpredictable. Majestic.",)</value></data>
 <data name="MT10_Ledian_002" xml:space="preserve"><value>The Dojo is going to build a 'Celestial Peak' simulation![pause=25] With REAL wind!</value></data>
 <data name="MT10_Ledian_003" xml:space="preserve"><value>The Peak demands everything.[pause=20] Endurance, speed, will. You have it all.</value></data>
 <data name="MT10_Ledian_004" xml:space="preserve"><value>Training is the key![pause=15] The dojo is open.</value></data>
@@ -3388,7 +3388,7 @@
 <data name="MT10_Machamp_003" xml:space="preserve"><value>Luxray is a swaggerer.[pause=20] Losing will do him good!</value></data>
 <data name="MT10_Machamp_004" xml:space="preserve"><value>Go on![pause=10] Climb higher![pause=15] Show them who's in charge!</value></data>
 <data name="MT10_Machamp_005" xml:space="preserve"><value>Training never stops![pause=10] Least of all before a race.</value></data>
-<data name="MT10_Medicham_001" xml:space="preserve"><value>Lugia spoke to you.[pause=30] Your aura has changed.</value></data>
+<data name="MT10_Medicham_001" xml:space="preserve"><value>('Rayquaza spoke to you.[pause=30] Your aura has changed.',)</value></data>
 <data name="MT10_Medicham_002" xml:space="preserve"><value>You now carry the weight of a secret.[pause=25] Meditate. It will be revealed to you.</value></data>
 <data name="MT10_Medicham_003" xml:space="preserve"><value>Fulgur Squad has an aura of wounded pride.[pause=25] They won't underestimate you again.</value></data>
 <data name="MT10_Meditite_001" xml:space="preserve"><value>You spoke to LUGIA?![pause=15] What's he like?[pause=20] Is he BIG?</value></data>
@@ -3397,7 +3397,7 @@
 <data name="MT10_Nidoqueen_001" xml:space="preserve"><value>Nidorina tried to follow you to the Celestial Peak.[pause=20] I caught her in time.</value></data>
 <data name="MT10_Nidoqueen_002" xml:space="preserve"><value>She's grounded.[pause=25] But between us...[pause=30] I'm proud of her courage.</value></data>
 <data name="MT10_Nidoqueen_003" xml:space="preserve"><value>Take care of yourselves up there.[pause=20] A mother always worries.</value></data>
-<data name="MT10_Nidoking_001" xml:space="preserve"><value>Lugia![pause=10] My wife talks about NOTHING else![pause=15] That and Nidorina.</value></data>
+<data name="MT10_Nidoking_001" xml:space="preserve"><value>('Rayquaza![pause=10] My wife talks about NOTHING else![pause=15] That and Nidorina.',)</value></data>
 <data name="MT10_Nidoking_002" xml:space="preserve"><value>Come to the inn![pause=10] We're celebrating the victory![pause=15] AND Nidorina's grounding!</value></data>
 <data name="MT10_Nidoking_003" xml:space="preserve"><value>Nidorina is grounded.[pause=25] But she's got nerve, my girl!</value></data>
 <data name="MT10_Nidorina_001" xml:space="preserve"><value>Dad grounded me![pause=10] BUT IT WAS WORTH IT![pause=15] I nearly made it!</value></data>
@@ -3416,15 +3416,15 @@
 <data name="MT10_Floatzel_003" xml:space="preserve"><value>The Celestial Peak...[pause=20] Last time I went, I nearly fell.</value></data>
 <data name="MT10_Quagsire_001" xml:space="preserve"><value>...[pause=30] The summit wind is singing.[pause=25] It says thank you.</value></data>
 <data name="MT10_Quagsire_002" xml:space="preserve"><value>The pond is calm.[pause=20] Calmer than ever.</value></data>
-<data name="MT10_Mawile_001" xml:space="preserve"><value>LUGIA![pause=10] THE Lugia![pause=15] I INVESTIGATED![pause=20] Want my file?</value></data>
+<data name="MT10_Mawile_001" xml:space="preserve"><value>('RAYQUAZA![pause=10] THE Rayquaza![pause=15] I INVESTIGATED![pause=20] Want my file?',)</value></data>
 <data name="MT10_Mawile_002" xml:space="preserve"><value>And Fulgur Squad![pause=15] I wrote EVERYTHING down![pause=20] Bria, reporter of the year!</value></data>
 <data name="MT10_Mawile_003" xml:space="preserve"><value>Adagio said what?[pause=25] 'Our equals'?[pause=30] I'M WRITING THAT DOWN!</value></data>
 <data name="MT10_Mawile_004" xml:space="preserve"><value>Fulgur Squad is coming to town?[pause=20] I'm going to interview them!</value></data>
-<data name="MT10_Mawile_005" xml:space="preserve"><value>Have you heard the latest rumours?[pause=15] ...About Lugia?</value></data>
-<data name="MT10_Electrike_001" xml:space="preserve"><value>Lugia's energy...[pause=25] it's IMMENSE. But calm.</value></data>
+<data name="MT10_Mawile_005" xml:space="preserve"><value>('Have you heard the latest rumours?[pause=15] ...About Rayquaza?',)</value></data>
+<data name="MT10_Electrike_001" xml:space="preserve"><value>("Rayquaza's energy...[pause=25] it's IMMENSE. But calm.",)</value></data>
 <data name="MT10_Electrike_002" xml:space="preserve"><value>Like a sleeping storm.[pause=30] It's... soothing.</value></data>
 <data name="MT10_Electrike_003" xml:space="preserve"><value>The energy at the Peak is pure.[pause=25] Very pure. It feels good.</value></data>
-<data name="MT10_Manectric_001" xml:space="preserve"><value>Electrike is at peace.[pause=25] Lugia cleansed the sky.</value></data>
+<data name="MT10_Manectric_001" xml:space="preserve"><value>('Electrike is at peace.[pause=25] Rayquaza cleansed the sky.',)</value></data>
 <data name="MT10_Luxray_001" xml:space="preserve"><value>You won the race.[pause=25] This time.</value></data>
 <data name="MT10_Luxray_002" xml:space="preserve"><value>Fulgur Squad acknowledges your worth.[pause=30] But next time...</value></data>
 <data name="MT10_Luxray_003" xml:space="preserve"><value>The Celestial Peak belongs to us as much as to you.[pause=20] We'll meet at the summit.</value></data>
@@ -3435,7 +3435,7 @@
 <data name="MT10_Oddish_001" xml:space="preserve"><value>Numel and I are going to climb the Peak![pause=15] ...One day![pause=20] Promise!</value></data>
 <data name="MT10_Furret_001" xml:space="preserve"><value>Aaah...[pause=0] the summit wind is perfect for a nap.</value></data>
 <data name="MT10_Linoone_001" xml:space="preserve"><value>I read Pentricus's account of his ascent of the Peak![pause=25] You surpassed him.</value></data>
-<data name="MT10_Sentret_001" xml:space="preserve"><value>You saw Lugia UP CLOSE?![pause=15] Waaaaah![pause=20] So cool!</value></data>
+<data name="MT10_Sentret_001" xml:space="preserve"><value>('You saw Rayquaza UP CLOSE?![pause=15] Waaaaah![pause=20] So cool!',)</value></data>
 <data name="MT10_WooperG_001" xml:space="preserve"><value>We played 'who can climb highest'![pause=15] I won![pause=20] Obviously.</value></data>
 <data name="MT10_WooperB_001" xml:space="preserve"><value>Dee cheated![pause=15] ...I think. As usual.</value></data>
 <data name="MT10_Gulpin_001" xml:space="preserve"><value>Summit air whets the appetite![pause=15] ...Then again, everything does.</value></data>
@@ -3447,23 +3447,23 @@
 <data name="MT10_Jigglypuff_001" xml:space="preserve"><value>A lullaby of the wind?[pause=20] It comes from the summit.</value></data>
 <data name="MT10_Marill_001" xml:space="preserve"><value>I climbed onto the inn roof![pause=15] That's nearly the Peak!</value></data>
 <data name="MT10_Spheal_001" xml:space="preserve"><value>Rolling uphill is hard![pause=15] ...I prefer the way down.</value></data>
-<data name="MT10_Bagon_001" xml:space="preserve"><value>Lugia FLIES![pause=10] I want to learn to fly![pause=15] Like him!</value></data>
+<data name="MT10_Bagon_001" xml:space="preserve"><value>('Rayquaza FLIES![pause=10] I want to learn to fly![pause=15] Like him!',)</value></data>
 <data name="MT10_Doduo_001" xml:space="preserve"><value>We sprinted all the way to the Peak![pause=15] ...Halfway. We're not mad.</value></data>
 <data name="MT10_Metapod_001" xml:space="preserve"><value>......[pause=30] (Metapod seems lighter.)</value></data>
 <data name="MT10_Silcoon_001" xml:space="preserve"><value>You climbed SO HIGH![pause=15] Butterfree can't believe it!</value></data>
-<data name="MT10_Mareep_001" xml:space="preserve"><value>Lugia's energy crackles in the air![pause=20] It's like a million lightning bolts!</value></data>
+<data name="MT10_Mareep_001" xml:space="preserve"><value>("Rayquaza's energy crackles in the air![pause=20] It's like a million lightning bolts!",)</value></data>
 <data name="MT10_Cranidos_001" xml:space="preserve"><value>Fulgur Squad...[pause=25] NOW those are rivals. Serious at last.</value></data>
 <data name="MT10_Cranidos_002" xml:space="preserve"><value>...Fine, all right, YOU'RE serious too. But it's not the same.</value></data>
 <data name="MT10_Butterfree_001" xml:space="preserve"><value>Caterpie tried to climb a tree![pause=15] To 'train like you'.</value></data>
 <data name="MT10_Venipede_001" xml:space="preserve"><value>I climb faster than anyone![pause=10] Except you![pause=15] For now!</value></data>
-<data name="MT10_Adagio_001" xml:space="preserve"><value>Lugia spoke to you.[pause=30] You have gone beyond anything we imagined.</value></data>
+<data name="MT10_Adagio_001" xml:space="preserve"><value>('Rayquaza spoke to you.[pause=30] You have gone beyond anything we imagined.',)</value></data>
 <data name="MT10_Adagio_002" xml:space="preserve"><value>Team Dazzling bows.[pause=25] ...For today.</value></data>
 <data name="MT10_Adagio_003" xml:space="preserve"><value>Fulgur Squad?[pause=25] We know them. By reputation.</value></data>
 <data name="MT10_Aria_001" xml:space="preserve"><value>LUGIA?![pause=10] You spoke to LUGIA?![pause=20] Right, I give up. You're the best.</value></data>
 <data name="MT10_Aria_002" xml:space="preserve"><value>I underestimated you.[pause=30] That won't happen again.</value></data>
-<data name="MT10_Sonata_001" xml:space="preserve"><value>I hid a Lugia feather in town![pause=15] ...No I didn't. But you hesitated!</value></data>
+<data name="MT10_Sonata_001" xml:space="preserve"><value>("I hid a Rayquaza scale in town![pause=15] ...No I didn't. But you hesitated!",)</value></data>
 <data name="MT10_Growlithe_001" xml:space="preserve"><value>The Celestial Peak is entered in the register.[pause=20] You're part of LEGEND.</value></data>
-<data name="MT10_Growlithe_002" xml:space="preserve"><value>Phileas asked me to archive your meeting with Lugia.[pause=30] It's an honour.</value></data>
+<data name="MT10_Growlithe_002" xml:space="preserve"><value>("Phileas asked me to archive your meeting with Rayquaza.[pause=30] It's an honour.",)</value></data>
 <data name="MT10_Growlithe_003" xml:space="preserve"><value>The guild stands behind you.[pause=15] Always. Even against legends.</value></data>
 <data name="MT6_101" xml:space="preserve"><value>Good.[pause=25] Perhaps you are not ordinary beginners after all.[pause=30] Perhaps.</value></data>
 <data name="MT6_102" xml:space="preserve"><value>Oh my ![pause=10] Look who's back ![pause=20] The great heroes of Gloomy Forest ![pause=15] Or what's left of them.</value></data>
@@ -3583,7 +3583,7 @@
 <data name="MT5_Gloom_001" xml:space="preserve"><value>You survived the heat of the Tunnel?[pause=20] I'm drooling with admiration!</value></data>
 <data name="MT5_Gloom_002" xml:space="preserve"><value>The expedition...[pause=25] that's far away. I'm going to miss you.</value></data>
 <data name="MT10_Adagio_004" xml:space="preserve"><value>The Celestial Peak is behind us now.[pause=20] It will not be your last challenge.</value></data>
-<data name="MT10_Aria_003" xml:space="preserve"><value>Lugia...[pause=25] just the name sets me dreaming.</value></data>
+<data name="MT10_Aria_003" xml:space="preserve"><value>('Rayquaza...[pause=25] just the name sets me dreaming.',)</value></data>
 <data name="MT10_Audino_008" xml:space="preserve"><value>The Celestial Peak is behind us now.[pause=20] I'm still not over it.</value></data>
 <data name="MT10_Cranidos_003" xml:space="preserve"><value>Fulgur Squad...[pause=25] They're strong. But so are you, I suppose.</value></data>
 <data name="MT10_Electrike_004" xml:space="preserve"><value>Fulgur Squad...[pause=25] Their energy is... electric. Familiar, almost.</value></data>
