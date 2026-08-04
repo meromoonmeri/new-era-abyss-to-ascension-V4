@@ -39,6 +39,14 @@ function metano_cafe_ch_3.Initial_Girafarig_Breloom_Conversation(chara, activato
 	GROUND:CharTurnToChar(breloom, hero)
 	GROUND:CharTurnToChar(girafarig, hero)
 
+	-- Ouverture : l'odeur du café prend la scène avant les personnages.
+	UI:ResetSpeaker(false)
+	UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MCF3_000']))
+	UI:SetCenter(false)
+	UI:ResetSpeaker()
+	GAME:WaitFrames(20)
+
 	GROUND:CharSetEmote(breloom, "happy", 0)
 	GeneralFunctions.StartConversation(breloom, "Salut vous deux,[pause=10]je pense que je vous attraperais tous les deux fainéants au café maintenant qu'il est à nouveau ouvert,[pause=10]heheh !", "Happy")
 	GROUND:CharSetEmote(breloom, "", 0)

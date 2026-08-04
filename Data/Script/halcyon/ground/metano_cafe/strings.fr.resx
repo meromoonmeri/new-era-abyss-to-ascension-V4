@@ -202,6 +202,9 @@
   <data name="Cafe_New_Drink_2" xml:space="preserve">
     <value>Vous pouvez vérifier les ingrédients nécessaires sur le panneau là-bas ![pause=0] Essayez-la à l'occasion !</value>
   </data>
+  <data name="MCF3_000" xml:space="preserve">
+    <value>L'odeur du café chaud flotte dans l'air,[pause=15] mêlée au bruit des tasses et des conversations.[pause=20] Le café de Metano a rouvert,[pause=10] et tout le village semble l'avoir compris.[pause=25] Personne n'est vraiment pressé,[pause=10] ce matin.</value>
+  </data>
   <data name="MCF3_001" xml:space="preserve">
     <value>Je plaisante ![pause=0] Qu'est-ce qui vous amène ici, vous deux ?</value>
   </data>
