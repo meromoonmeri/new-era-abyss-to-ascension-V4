@@ -988,6 +988,28 @@
        }
       ],
       "SpecificSpawns": []
+     },
+     {
+      "$type": "RogueEssence.LevelGen.MoneySpawnZoneStep, RogueEssence",
+      "Priority": {
+       "str": [
+        1
+       ]
+      },
+      "StartAmount": {
+       "Min": 1,
+       "Max": 1
+      },
+      "AddAmount": {
+       "Min": 1,
+       "Max": 1
+      },
+      "ModStates": [
+       {
+        "assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+        "type": "PMDC.Dungeon.CoinModGenState"
+       }
+      ]
      }
     ]
    },
@@ -2030,6 +2052,28 @@
        }
       ],
       "SpecificSpawns": []
+     },
+     {
+      "$type": "RogueEssence.LevelGen.MoneySpawnZoneStep, RogueEssence",
+      "Priority": {
+       "str": [
+        1
+       ]
+      },
+      "StartAmount": {
+       "Min": 1,
+       "Max": 1
+      },
+      "AddAmount": {
+       "Min": 1,
+       "Max": 1
+      },
+      "ModStates": [
+       {
+        "assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+        "type": "PMDC.Dungeon.CoinModGenState"
+       }
+      ]
      }
     ]
    },
@@ -3085,6 +3129,28 @@
        }
       ],
       "SpecificSpawns": []
+     },
+     {
+      "$type": "RogueEssence.LevelGen.MoneySpawnZoneStep, RogueEssence",
+      "Priority": {
+       "str": [
+        1
+       ]
+      },
+      "StartAmount": {
+       "Min": 1,
+       "Max": 1
+      },
+      "AddAmount": {
+       "Min": 1,
+       "Max": 1
+      },
+      "ModStates": [
+       {
+        "assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+        "type": "PMDC.Dungeon.CoinModGenState"
+       }
+      ]
      }
     ]
    },
@@ -4201,6 +4267,28 @@
        }
       ],
       "SpecificSpawns": []
+     },
+     {
+      "$type": "RogueEssence.LevelGen.MoneySpawnZoneStep, RogueEssence",
+      "Priority": {
+       "str": [
+        1
+       ]
+      },
+      "StartAmount": {
+       "Min": 1,
+       "Max": 1
+      },
+      "AddAmount": {
+       "Min": 1,
+       "Max": 1
+      },
+      "ModStates": [
+       {
+        "assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+        "type": "PMDC.Dungeon.CoinModGenState"
+       }
+      ]
      }
     ]
    },
