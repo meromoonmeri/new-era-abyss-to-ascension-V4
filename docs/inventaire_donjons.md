@@ -105,10 +105,96 @@
 
 ---
 
-## 3. CHECK-LIST DE VALIDATION INTERMÉDIAIRE (FRAMEWORK §9)
+## 3. CHAPITRE 7 — PROPOSITION DU ROSTER DES DONJONS SECONDAIRES
 
-- [ ] Les 4 donjons secondaires proposés pour le **Chapitre 6** conviennent-ils dans leur structure (20 étages, 2 segments/biomes, relais toutes les 5 étages) ?
-- [ ] Le respect de la règle d'absence de légendaire gratuit est-il validé pour le Ch6 ?
+> **État du processus (§9, Étape 2)** : Proposition formelle des **4 donjons secondaires du Chapitre 7** pour **validation utilisateur** avant génération des fichiers `.json` détaillés.  
+> *Règle Légendaires (§2)* : Zéro légendaire gratuit dans ces donjons ; l'enjeu légendaire du Ch7 reste concentré sur **Regigigas et les 4 Régis** (`cloven_ruins`).
+
+### 7.S1 — Jardin d'Énergie (`energy_garden` / PMDODump)
+- **Nommage original (§1–§6)** : `[Jardin]` (Lieu) + `[d'Énergie]` (Qualificatif minéral/atmosphérique).
+- **Chapitre & Rang narratif** : Chapitre 7 — Rang 34.
+- **Étages & Segments** : 20 étages en **2 segments** de 10 étages.
+  - *Segment 1 (Ét. 1–10)* : Biome **Grotte de Cristal** (`crystal_cave_1_floor` / `wall`).
+  - *Segment 2 (Ét. 11–20)* : Biome **Caverne d'Énergie** (`quartz_cavern_floor` / `wall`). Météo : *Brouillard électrostatique* aux étages 14 et 18.
+- **Scaling Évolutif (`Lv 20–35`, 15 niveaux d'écart)** :
+  - *Segment 1 (Stade 1, Lv 20–26)* : Magnéti, Porygon, Lixy, Dynavolt, Racaillou, Tarinor.
+  - *Segment 2 (Stade Évolué, Lv 27–35)* : Magnéton, Porygon2, Luxio, Élecsprint, Gravalanch, Tarinorme.
+- **Points médians (Relais)** :
+  - `energy_garden_relay.rsground` ➔ **Modèle Tunnel Incandescent avec statue Kangourex (`Kangaskhan_Rock`)**, `North_Exit` et `South_Exit`, adapté au biome **Grotte de Cristal / Énergie**.
+- **Mini-Boss (3 par donjon)** :
+  - *Ét. 6* : **Magnéton le Flux** (Magneton, Lv. 26) — Musique : `Boss Battle.ogg`.
+  - *Ét. 13* : **Tarpaud la Résonance** (Politoed, Lv. 30) — Musique : `Boss Battle.ogg`.
+  - *Ét. 20* : **Lucario l'Onde** (Lucario, Lv. 35) — Musique : `Boss Battle 2.ogg`.
+- **Légendaire** : *Aucun (§2).*
+- **Objets & Marchand Kecleon** : `ItemSpawnZoneStep` (Évolurocs, Sphères). Marchand Kecleon aléatoire (`probabilité 12 %`).
+
+---
+
+### 7.S2 — Relique Engloutie (`sunken_relic` / compatible PMDODump)
+- **Nommage original (§1–§6)** : `[Relique]` (Lieu) + `[Engloutie]` (Qualificatif géographique/descriptif).
+- **Chapitre & Rang narratif** : Chapitre 7 — Rang 35.
+- **Étages & Segments** : 20 étages en **2 segments** de 10 étages.
+  - *Segment 1 (Ét. 1–10)* : Biome **Grotte Ouest** (`western_cave_1_floor` / `wall`).
+  - *Segment 2 (Ét. 11–20)* : Biome **Ruines Antiques** (`ancient_relic_floor` / `wall`). Météo : *Brouillard* à l'étage 17.
+- **Scaling Évolutif (`Lv 20–35`, 15 niveaux d'écart)** :
+  - *Segment 1 (Stade 1, Lv 20–26)* : Baltoy, Archéomire, Tutafeh, Fantominus, Skuélénox.
+  - *Segment 2 (Stade Évolué, Lv 27–35)* : Kaorine, Archéodong, Tutufeur, Spectrum, Téraclope.
+- **Points médians (Relais)** :
+  - `sunken_relic_relay.rsground` ➔ **Modèle Tunnel Incandescent avec statue Kangourex (`Kangaskhan_Rock`)**, adapté au biome **Ruines Antiques**.
+- **Mini-Boss (3 par donjon)** :
+  - *Ét. 7* : **Kaorine le Sceau** (Claydol, Lv. 26) — Musique : `Boss Battle.ogg`.
+  - *Ét. 14* : **Archéodong la Cloche** (Bronzong, Lv. 30) — Musique : `Boss Battle.ogg`.
+  - *Ét. 20* : **Tutufeur le Gardien** (Cofagrigus, Lv. 35) — Musique : `Boss Battle 2.ogg`.
+- **Légendaire** : *Aucun (§2).*
+- **Objets & Marchand Kecleon** : Orbes antiques, Baies Oran. Marchand Kecleon aléatoire (`probabilité 15 %`).
+
+---
+
+### 7.S3 — Labyrinthe Moussue (`mossy_labyrinth` / ExplorersOfSkyOrigins Ch7)
+- **Nommage original (§1–§6)** : `[Labyrinthe]` (Lieu) + `[Moussue]` (Qualificatif atmosphérique/végétal).
+- **Chapitre & Rang narratif** : Chapitre 7 — Rang 36.
+- **Étages & Segments** : 20 étages en **2 segments** de 10 étages.
+  - *Segment 1 (Ét. 1–10)* : Biome **Forêt Moussue** (`treeshroud_forest_1_floor` / `wall`).
+  - *Segment 2 (Ét. 11–20)* : Biome **Forêt Envahie** (`overgrown_forest_floor` / `wall`). Météo : *Pluie* à l'étage 15.
+- **Scaling Évolutif (`Lv 20–35`, 15 niveaux d'écart)** :
+  - *Segment 1 (Stade 1, Lv 20–26)* : Grainipiot, Saquedeneu, Tortipouss, Mystherbe, Balignon.
+  - *Segment 2 (Stade Évolué, Lv 27–35)* : Pifeuil, Tengalice, Bouldeneu, Boskara, Ortide, Chapignon.
+- **Points médians (Relais)** :
+  - `mossy_labyrinth_relay.rsground` ➔ **Modèle Tunnel Incandescent avec statue Kangourex (`Kangaskhan_Rock`)**, adapté au biome **Forêt Moussue**.
+- **Mini-Boss (3 par donjon)** :
+  - *Ét. 6* : **Tengalice la Canopée** (Shiftry, Lv. 26) — Musique : `Boss Battle.ogg`.
+  - *Ét. 13* : **Bouldeneu la Racine** (Tangrowth, Lv. 30) — Musique : `Boss Battle.ogg`.
+  - *Ét. 20* : **Torterra le Géant** (Torterra, Lv. 35) — Musique : `Boss Battle 2.ogg`.
+- **Légendaire** : *Aucun (§2).*
+- **Objets & Marchand Kecleon** : Pommes d'Or, Graines Résurrection. Marchand Kecleon aléatoire (`probabilité 10 %`).
+
+---
+
+### 7.S4 — Carrière Magmatique (`magma_quarry` / compatible PMDODump)
+- **Nommage original (§1–§6)** : `[Carrière]` (Lieu) + `[Magmatique]` (Qualificatif géologique/chaleur).
+- **Chapitre & Rang narratif** : Chapitre 7 — Rang 37.
+- **Étages & Segments** : 20 étages en **2 segments** de 10 étages.
+  - *Segment 1 (Ét. 1–10)* : Biome **Caverne Magma** (`magma_cavern_2_floor` / `wall`).
+  - *Segment 2 (Ét. 11–20)* : Biome **Sommet Volcanique** (`mt_blaze_floor` / `wall`). Météo : *Soleil ardent* à l'étage 16.
+- **Scaling Évolutif (`Lv 20–35`, 15 niveaux d'écart)** :
+  - *Segment 1 (Stade 1, Lv 20–26)* : Chamallot, Malosse, Limagma, Goupix, Caninos.
+  - *Segment 2 (Stade Évolué, Lv 27–35)* : Camerupt, Démolosse, Volcaropod, Feunard, Arkani.
+- **Points médians (Relais)** :
+  - `magma_quarry_relay.rsground` ➔ **Modèle Tunnel Incandescent avec statue Kangourex (`Kangaskhan_Rock`)**, adapté au biome **Volcanique / Magmatique**.
+- **Mini-Boss (3 par donjon)** :
+  - *Ét. 8* : **Camerupt la Lave** (Camerupt, Lv. 26) — Musique : `Boss Battle.ogg`.
+  - *Ét. 15* : **Démolosse le Foyer** (Houndoom, Lv. 30) — Musique : `Boss Battle.ogg`.
+  - *Ét. 20* : **Arkani la Flamme** (Arcanine, Lv. 35) — Musique : `Boss Battle 2.ogg`.
+- **Légendaire** : *Aucun (§2).*
+- **Objets & Marchand Kecleon** : Orbes Feu, Baies Rawst. Marchand Kecleon aléatoire (`probabilité 15 %`).
+
+---
+
+## 4. CHECK-LIST DE VALIDATION INTERMÉDIAIRE (FRAMEWORK §9)
+
+- [ ] Les 4 donjons secondaires proposés pour le **Chapitre 6** et les 4 du **Chapitre 7** conviennent-ils dans leur structure (20 étages, 2 segments/biomes, relais toutes les 5 étages) ?
+- [ ] Le respect de la règle d'absence de légendaire gratuit est-il validé pour les Ch6 et Ch7 ?
 - [ ] Les noms propres et musiques de chaque mini-boss sont-ils approuvés ?
 
-**Action attendue** : Dès ta validation sur cette proposition du Chapitre 6, nous lancerons la génération détaillée de leurs fichiers `.json` et `.lua`.
+**Action attendue** : Dès ta validation sur ces propositions des Chapitres 6 et 7, nous lancerons la génération détaillée de leurs fichiers `.json` et `.lua`.
+

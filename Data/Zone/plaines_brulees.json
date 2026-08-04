@@ -3,9 +3,9 @@
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
     "Name": {
-      "DefaultText": "Forsaken Desert",
+      "DefaultText": "Scorched Plains",
       "LocalTexts": {
-        "fr": "Désert des Oubliés"
+        "fr": "Plaines Brûlées"
       }
     },
     "Released": true,
@@ -641,8 +641,8 @@
                 },
                 "Value": {
                   "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                  "GroundTileset": "furnace_desert_floor",
-                  "BlockTileset": "furnace_desert_wall",
+                  "GroundTileset": "amp_plains_floor",
+                  "BlockTileset": "amp_plains_wall",
                   "WaterTileset": "desert_region_secondary",
                   "LayeredGround": false,
                   "IndependentGround": false,
@@ -1957,8 +1957,8 @@
                 },
                 "Value": {
                   "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                  "GroundTileset": "furnace_desert_floor",
-                  "BlockTileset": "furnace_desert_wall",
+                  "GroundTileset": "amp_plains_floor",
+                  "BlockTileset": "amp_plains_wall",
                   "WaterTileset": "desert_region_secondary",
                   "LayeredGround": false,
                   "IndependentGround": false,
@@ -5695,8 +5695,8 @@
                 },
                 "Value": {
                   "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                  "GroundTileset": "furnace_desert_floor",
-                  "BlockTileset": "furnace_desert_wall",
+                  "GroundTileset": "amp_plains_floor",
+                  "BlockTileset": "amp_plains_wall",
                   "WaterTileset": "northern_desert_1_secondary",
                   "LayeredGround": false,
                   "IndependentGround": false,
@@ -9309,8 +9309,8 @@
                 },
                 "Value": {
                   "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                  "GroundTileset": "furnace_desert_floor",
-                  "BlockTileset": "furnace_desert_wall",
+                  "GroundTileset": "amp_plains_floor",
+                  "BlockTileset": "amp_plains_wall",
                   "WaterTileset": "northern_desert_2_secondary",
                   "LayeredGround": false,
                   "IndependentGround": false,
@@ -12053,8 +12053,8 @@
                 },
                 "Value": {
                   "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-                  "GroundTileset": "furnace_desert_floor",
-                  "BlockTileset": "furnace_desert_wall",
+                  "GroundTileset": "amp_plains_floor",
+                  "BlockTileset": "amp_plains_wall",
                   "WaterTileset": "northern_desert_2_secondary",
                   "LayeredGround": false,
                   "IndependentGround": false,
@@ -14094,7 +14094,7 @@
         ],
         "IsRelevant": true,
         "Comment": "",
-        "Music": "Desert Region.ogg"
+        "Music": "Amp Plains.ogg"
       },
       {
         "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
@@ -14697,7 +14697,7 @@
         ],
         "IsRelevant": false,
         "Comment": "",
-        "Music": "Quicksand Cave.ogg"
+        "Music": "Far Amp Plains.ogg"
       }
     ],
     "GroundMaps": []

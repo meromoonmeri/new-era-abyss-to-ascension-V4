@@ -1,4 +1,4 @@
-﻿{
+{
   "Version": "0.8.12.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -1882,9 +1882,9 @@
                             "Gender": -1
                           },
                           "Level": {
-"Min": 18,
-"Max": 18
-},
+                            "Min": 18,
+                            "Max": 18
+                          },
                           "SpecifiedSkills": [
                             "sand_attack",
                             "struggle_bug"
@@ -2619,9 +2619,9 @@
                             "Gender": -1
                           },
                           "Level": {
-"Min": 18,
-"Max": 18
-},
+                            "Min": 18,
+                            "Max": 18
+                          },
                           "SpecifiedSkills": [
                             "sand_attack",
                             "struggle_bug"
@@ -3666,9 +3666,9 @@
                             "Gender": -1
                           },
                           "Level": {
-"Min": 18,
-"Max": 18
-},
+                            "Min": 18,
+                            "Max": 18
+                          },
                           "SpecifiedSkills": [
                             "sand_attack",
                             "struggle_bug"
@@ -16152,9 +16152,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 17,
-"Max": 17
-},
+                      "Min": 17,
+                      "Max": 17
+                    },
                     "SpecifiedSkills": [
                       "confusion"
                     ],
@@ -16190,9 +16190,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 15,
-"Max": 15
-},
+                      "Min": 15,
+                      "Max": 15
+                    },
                     "SpecifiedSkills": [
                       "water_sport",
                       "absorb"
@@ -16229,9 +16229,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 15,
-"Max": 15
-},
+                      "Min": 15,
+                      "Max": 15
+                    },
                     "SpecifiedSkills": [
                       "leech_life",
                       "bite"
@@ -16268,9 +16268,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 17,
-"Max": 17
-},
+                      "Min": 17,
+                      "Max": 17
+                    },
                     "SpecifiedSkills": [
                       "bide",
                       "scratch",
@@ -16308,9 +16308,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 17,
-"Max": 17
-},
+                      "Min": 17,
+                      "Max": 17
+                    },
                     "SpecifiedSkills": [
                       "bubble_beam",
                       "defense_curl"
@@ -16347,9 +16347,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 17,
-"Max": 17
-},
+                      "Min": 17,
+                      "Max": 17
+                    },
                     "SpecifiedSkills": [
                       "play_nice",
                       "life_dew"
@@ -16386,9 +16386,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 17,
-"Max": 17
-},
+                      "Min": 17,
+                      "Max": 17
+                    },
                     "SpecifiedSkills": [
                       "icicle_spear",
                       "mist"
@@ -16425,9 +16425,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 19,
-"Max": 19
-},
+                      "Min": 19,
+                      "Max": 19
+                    },
                     "SpecifiedSkills": [
                       "brutal_swing",
                       "bulldoze"
@@ -16464,9 +16464,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 17,
-"Max": 17
-},
+                      "Min": 17,
+                      "Max": 17
+                    },
                     "SpecifiedSkills": [
                       "bug_bite"
                     ],
@@ -16502,9 +16502,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 19,
-"Max": 19
-},
+                      "Min": 19,
+                      "Max": 19
+                    },
                     "SpecifiedSkills": [
                       "flame_wheel",
                       "howl"
@@ -16541,9 +16541,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 20,
-"Max": 20
-},
+                      "Min": 20,
+                      "Max": 20
+                    },
                     "SpecifiedSkills": [
                       "tickle",
                       "sing"
@@ -16580,9 +16580,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "metal_claw",
                       "mud_slap"
@@ -16619,9 +16619,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "harden",
                       "rock_throw"
@@ -16658,9 +16658,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "aqua_jet",
                       "sonic_boom"
@@ -16697,9 +16697,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "ice_ball",
                       "powder_snow"
@@ -16736,9 +16736,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "hidden_power",
                       "reflect"
@@ -16775,9 +16775,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "swords_dance",
                       "slash"
@@ -16814,9 +16814,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "thunder_shock",
                       "metal_sound"
@@ -16853,9 +16853,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "meditate",
                       "force_palm",
@@ -16893,9 +16893,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "recover",
                       "salt_cure"
@@ -16932,9 +16932,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "shadow_punch",
                       "mega_punch"
@@ -16971,9 +16971,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "leech_life",
                       "mud_slap",
@@ -17011,9 +17011,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "string_shot",
                       "bug_bite"
@@ -17050,9 +17050,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "screech",
                       "confuse_ray",
@@ -17090,9 +17090,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "knock_off",
                       "detect"
@@ -17129,9 +17129,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "water_sport",
                       "fake_out",
@@ -17169,9 +17169,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "haze",
                       "icy_wind"
@@ -17208,9 +17208,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "flamethrower",
                       "rock_slide"
@@ -17247,9 +17247,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "flying_press"
                     ],
@@ -17285,9 +17285,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "sing",
                       "tail_slap"
@@ -17324,9 +17324,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "play_nice",
                       "life_dew",
@@ -17364,9 +17364,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "psyshock",
                       "charm"
@@ -17403,9 +17403,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "psyshock",
                       "charge_beam"
@@ -17442,9 +17442,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "sandstorm",
                       "dig",
@@ -17482,9 +17482,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "aqua_tail",
                       "rollout",
@@ -17522,9 +17522,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "recover",
                       "reflect",
@@ -17562,9 +17562,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "bug_buzz",
                       "thunderbolt"
@@ -17601,9 +17601,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "zap_cannon",
                       "tri_attack"
@@ -17857,9 +17857,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "ice_beam",
                       "mirror_shot"
@@ -17933,9 +17933,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "recover",
                       "salt_cure",
@@ -18040,9 +18040,9 @@
                         "Gender": -1
                       },
                       "Level": {
-"Min": 17,
-"Max": 17
-},
+                        "Min": 17,
+                        "Max": 17
+                      },
                       "SpecifiedSkills": [
                         "uproar",
                         "astonish"
@@ -18286,9 +18286,9 @@
                         "Gender": -1
                       },
                       "Level": {
-"Min": 17,
-"Max": 17
-},
+                        "Min": 17,
+                        "Max": 17
+                      },
                       "SpecifiedSkills": [
                         "uproar",
                         "astonish"
@@ -18332,9 +18332,9 @@
                         "Gender": -1
                       },
                       "Level": {
-"Min": 17,
-"Max": 17
-},
+                        "Min": 17,
+                        "Max": 17
+                      },
                       "SpecifiedSkills": [
                         "uproar",
                         "astonish"
@@ -23847,9 +23847,9 @@
                     "Gender": -1
                   },
                   "Level": {
-"Min": 3,
-"Max": 3
-},
+                    "Min": 3,
+                    "Max": 3
+                  },
                   "SpecifiedSkills": [
                     "leer",
                     "hypnosis",
@@ -23890,9 +23890,9 @@
                     "Gender": -1
                   },
                   "Level": {
-"Min": 3,
-"Max": 3
-},
+                    "Min": 3,
+                    "Max": 3
+                  },
                   "SpecifiedSkills": [
                     "ice_fang",
                     "pursuit",
@@ -23933,9 +23933,9 @@
                     "Gender": -1
                   },
                   "Level": {
-"Min": 3,
-"Max": 3
-},
+                    "Min": 3,
+                    "Max": 3
+                  },
                   "SpecifiedSkills": [
                     "brutal_swing",
                     "bulldoze",
@@ -23975,9 +23975,9 @@
                     "Gender": -1
                   },
                   "Level": {
-"Min": 3,
-"Max": 3
-},
+                    "Min": 3,
+                    "Max": 3
+                  },
                   "SpecifiedSkills": [
                     "reflect",
                     "stealth_rock",
@@ -24018,9 +24018,9 @@
                     "Gender": -1
                   },
                   "Level": {
-"Min": 3,
-"Max": 3
-},
+                    "Min": 3,
+                    "Max": 3
+                  },
                   "SpecifiedSkills": [
                     "fake_out",
                     "mega_drain",
@@ -24060,9 +24060,9 @@
                     "Gender": -1
                   },
                   "Level": {
-"Min": 3,
-"Max": 3
-},
+                    "Min": 3,
+                    "Max": 3
+                  },
                   "SpecifiedSkills": [
                     "first_impression",
                     "razor_shell"
@@ -24101,9 +24101,9 @@
                     "Gender": -1
                   },
                   "Level": {
-"Min": 3,
-"Max": 3
-},
+                    "Min": 3,
+                    "Max": 3
+                  },
                   "SpecifiedSkills": [
                     "mean_look",
                     "poison_fang",
@@ -24143,9 +24143,9 @@
                     "Gender": -1
                   },
                   "Level": {
-"Min": 3,
-"Max": 3
-},
+                    "Min": 3,
+                    "Max": 3
+                  },
                   "SpecifiedSkills": [
                     "ice_beam",
                     "perish_song",
@@ -24185,9 +24185,9 @@
                     "Gender": -1
                   },
                   "Level": {
-"Min": 3,
-"Max": 3
-},
+                    "Min": 3,
+                    "Max": 3
+                  },
                   "SpecifiedSkills": [
                     "high_jump_kick",
                     "zen_headbutt",
@@ -24227,9 +24227,9 @@
                     "Gender": -1
                   },
                   "Level": {
-"Min": 3,
-"Max": 3
-},
+                    "Min": 3,
+                    "Max": 3
+                  },
                   "SpecifiedSkills": [
                     "shadow_punch",
                     "dynamic_punch",
@@ -25966,9 +25966,9 @@
                           "Gender": -1
                         },
                         "Level": {
-"Min": 21,
-"Max": 21
-},
+                          "Min": 21,
+                          "Max": 21
+                        },
                         "SpecifiedSkills": [
                           "nasty_plot",
                           "hyper_beam",
@@ -26035,9 +26035,9 @@
                           "Gender": -1
                         },
                         "Level": {
-"Min": 21,
-"Max": 21
-},
+                          "Min": 21,
+                          "Max": 21
+                        },
                         "SpecifiedSkills": [
                           "conversion",
                           "blizzard",
@@ -26104,9 +26104,9 @@
                           "Gender": -1
                         },
                         "Level": {
-"Min": 21,
-"Max": 21
-},
+                          "Min": 21,
+                          "Max": 21
+                        },
                         "SpecifiedSkills": [
                           "nasty_plot",
                           "hyper_beam",
@@ -26173,9 +26173,9 @@
                           "Gender": -1
                         },
                         "Level": {
-"Min": 21,
-"Max": 21
-},
+                          "Min": 21,
+                          "Max": 21
+                        },
                         "SpecifiedSkills": [
                           "nasty_plot",
                           "tri_attack",
@@ -26242,9 +26242,9 @@
                           "Gender": -1
                         },
                         "Level": {
-"Min": 21,
-"Max": 21
-},
+                          "Min": 21,
+                          "Max": 21
+                        },
                         "SpecifiedSkills": [
                           "agility",
                           "psyshock",
@@ -26311,9 +26311,9 @@
                           "Gender": -1
                         },
                         "Level": {
-"Min": 21,
-"Max": 21
-},
+                          "Min": 21,
+                          "Max": 21
+                        },
                         "SpecifiedSkills": [
                           "conversion_2",
                           "recover",
@@ -26380,9 +26380,9 @@
                           "Gender": -1
                         },
                         "Level": {
-"Min": 21,
-"Max": 21
-},
+                          "Min": 21,
+                          "Max": 21
+                        },
                         "SpecifiedSkills": [
                           "conversion_2",
                           "recover",
@@ -26449,9 +26449,9 @@
                           "Gender": -1
                         },
                         "Level": {
-"Min": 21,
-"Max": 21
-},
+                          "Min": 21,
+                          "Max": 21
+                        },
                         "SpecifiedSkills": [
                           "conversion_2",
                           "magic_coat",
@@ -26518,9 +26518,9 @@
                       "Gender": -1
                     },
                     "Level": {
-"Min": 21,
-"Max": 21
-},
+                      "Min": 21,
+                      "Max": 21
+                    },
                     "SpecifiedSkills": [
                       "agility",
                       "blizzard",
