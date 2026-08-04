@@ -24,6 +24,26 @@ Dernière mise à jour : 2026-08-05 (fix duel Metano — session agent Arena.ai)
   `.tile` → PNG. Toute nouvelle planche **doit** être injectée dans
   `index.idx` ET vérifiée avec `tools/verify_tile_index.py`.
 
+## Session 2026-08-05b — Arène Tornadus régénérée (méthode relais, patron crooked_den)
+
+- **Problème** : `mount_windswept_guardian.rsground` utilisait la feuille 24 px
+  `Mt Horn Entrance Layer 1` sur une grille 8 px → rendu cassé (détecté par
+  `validate_all.py`). Chorégraphie Lua recalée sur un espace 432×432 px.
+- **Correctif (directive utilisateur : "méthode des relais, patron =
+  crooked_den")** : `tools/mapgen/gen_tornadus_arene.py` clone la structure de
+  `crooked_den` (54×54 = 432×432 px exactement l'espace du Lua), compose le
+  visuel depuis `mount_windswept_entrance` (fenêtre recentrée sur le couloir),
+  régénère les obstacles (perchoir nord marchable, positions du Lua forcées
+  libres, BFS depuis l'entrée sud), crée la feuille 8 px
+  `Mount_Windswept_Guardian_Base` **et l'injecte dans `index.idx` (541→542)**.
+- **Intacts** : `AssetName`/`Name`/`Music` (`Sky Tower.ogg`), spawners +
+  markers (repositionnés), `.rsmap` de combat 19×19 `craggy_peak`, zone,
+  master_zone, tous les scripts.
+- **Validation** : `validate_all.py` ✅ toutes salles vertes (l'arène passe de
+  ❌ à ✅, positions resynchronisées) ; `verify_tile_index.py` 542/542.
+- Détails : `docs/ARENE_TORNADUS_PATRON_CROOKED_DEN_2026-08-05.md`.
+- Non testé en jeu (validation statique).
+
 ## But de ce fichier
 
 Fichier de reprise à la racine du dépôt. À lire au début de la prochaine session, en complément de `docs/CONTEXTE_PROJET.md`.

@@ -26,8 +26,10 @@ ROOMS = {
                                  (220, 232), (292, 208), (256, 200)],
     'mount_windswept_miniboss': [(240, 440), (208, 440), (240, 380), (240, 340),
                                  (180, 240), (268, 192), (224, 180)],
-    'mount_windswept_guardian': [(560, 1216), (496, 1224), (560, 1160), (496, 1168),
-                                 (560, 1064)],
+    # regenerate 2026-08-05 (gen_tornadus_arene.py) : salle 54x54 cellules,
+    # equipe au sud, perchoir Tornadus au nord — synchronise avec le ch_5.lua
+    'mount_windswept_guardian': [(216, 376), (168, 376), (216, 320),
+                                 (216, 24), (216, 392)],
     'gloomy_forest_miniboss':    list(MB),
     'cloven_ruins_miniboss':     list(MB),
     'crystal_sanctuary_miniboss': list(MB),
