@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -153,6 +153,12 @@
   </data>
   <data name="DRM_015_RUINS" xml:space="preserve">
     <value>Tu le sauras bien assez tôt.[pause=40] Chaque chose en son temps.</value>
+  </data>
+  <data name="DRM_016b_RUINS" xml:space="preserve">
+    <value>Phileas raconte qu'autrefois,[pause=15] un humain vivait parmi vous.[pause=25] Un humain que vous protégiez.[pause=20] C'était toi,[pause=15] n'est-ce pas ?[pause=15] Avant de devenir... ça.</value>
+  </data>
+  <data name="DRM_016c_RUINS" xml:space="preserve">
+    <value>Tu n'as pas besoin de le savoir.[pause=35] Pas encore.[pause=25] Mais je note ta perspicacité.[pause=30] Tu n'as pas changé.</value>
   </data>
   <data name="DRM_019_RUINS" xml:space="preserve">
     <value>Demain,[pause=15] tu descendras dans les profondeurs.</value>

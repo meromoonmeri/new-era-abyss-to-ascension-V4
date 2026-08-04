@@ -65,6 +65,9 @@
   <data name="CR5_A62" xml:space="preserve"><value>Et personne ne me réveille pour partir sans moi.</value></data>
   <data name="CR5_A63" xml:space="preserve"><value>Hé...[pause=20] Tu dors pas non plus,[pause=10] hein ?</value></data>
   <data name="CR5_A64" xml:space="preserve"><value>(...Non.[pause=15] Je pense à demain.)</value></data>
+  <data name="CR5_A64b" xml:space="preserve"><value>Rin,[pause=10] Coco,[pause=10] Kino,[pause=10] Hyko...[pause=20] Ils nous ont suivis jusqu'ici sans une plainte.[pause=0] Et demain,[pause=10] on les mène tout en bas.[pause=10] La responsabilité,[pause=10] elle pèse,[pause=10] hein.</value></data>
+  <data name="CR5_A64c" xml:space="preserve"><value>(C'est pour eux que je descends.[pause=25] Pour qu'ils aient un lendemain qui vaille la peine de se lever.)</value></data>
+  <data name="CR5_A65b" xml:space="preserve"><value>Quoi qu'on trouve au fond de ces ruines,[pause=10] on le ramène en haut.[pause=15] Tous les deux.[pause=10] Comme toujours.</value></data>
   <data name="CR5_A65" xml:space="preserve"><value>Moi aussi.[pause=20] Mais on a passé le Mont Venteux.[pause=15] On passera ça aussi.</value></data>
   <data name="CR5_A66" xml:space="preserve"><value>Bonne nuit.[pause=20] Vraiment.</value></data>
   <data name="CR5_A67" xml:space="preserve"><value>Bonne nuit à tous.[pause=20] Demain nous appartient.</value></data>
@@ -74,7 +77,7 @@
   <data name="CR5_A71" xml:space="preserve"><value>Les paillasses sont repliées.[pause=20] Le camp se rassemble.</value></data>
   <data name="CR5_A72" xml:space="preserve"><value>Nous y sommes.[pause=20] Trois jours de marche pour cette porte.</value></data>
   <data name="CR5_A73" xml:space="preserve"><value>Je ne vous demanderai pas d'être courageux.[pause=20] Je vous demande de rentrer.[pause=15] Tous.</value></data>
-  <data name="CR5_A74" xml:space="preserve"><value>Team Dazzling,[pause=10] en tête ![pause=20] Les Ruines Tordues nous attendent !</value></data>
+  <data name="CR5_A74" xml:space="preserve"><value>Expédition,[pause=10] en tête ![pause=20] Les Ruines Tordues nous attendent !</value></data>
   <data name="CR5_A75" xml:space="preserve"><value>On y va.[pause=20] Reste près de moi,[pause=10] d'accord ?</value></data>
   <data name="CR5_A76" xml:space="preserve"><value>Ne bougez pas.[pause=20] Vous êtes rentrés,[pause=10] c'est déjà beaucoup.</value></data>
   <data name="CR5_A77" xml:space="preserve"><value>Les Ruines vous ont repoussés.[pause=20] Reposez-vous.[pause=15] Elles ne bougeront pas.</value></data>

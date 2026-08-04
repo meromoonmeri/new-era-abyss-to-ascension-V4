@@ -489,6 +489,26 @@ local function DreamSceneBody()
   voice('DRM_018')
   silence(55)
 
+  -- 5bis. LA QUESTION HUMAINE — uniquement si les reves precedents ont
+  -- eu lieu (Mont Venteux + premier reve du heros). Sans eux, la
+  -- question n'aurait aucun fondement pour le joueur. Le heros a entendu
+  -- Phileas raconter qu'autrefois un humain vivait parmi l'equipe ; il
+  -- rapproche ce souvenir de la silhouette du reve. Gardevoir esquive —
+  -- un detournement de regard, le seul de la scene avec DRM_015 — puis
+  -- repond sans confirmer ni nier : elle note sa perspicacite.
+  if SV.Chapter5 ~= nil and SV.Chapter5.DreamSceneSeen and SV.Chapter5.HadFirstDream then
+    ruins_dreamer('DRM_016b')
+    silence(35)
+    if entity ~= nil then
+      pcall(function() GROUND:CharAnimateTurnTo(entity, Direction.DownRight, 8) end)
+      GAME:WaitFrames(28)
+      pcall(function() GROUND:CharTurnToCharAnimated(entity, hero, 8) end)
+      GAME:WaitFrames(15)
+    end
+    ruins_voice('DRM_016c')
+    silence(45)
+  end
+
   -- 6. L'AVERTISSEMENT — demain, la montagne
   ruins_voice('DRM_019')
   GAME:WaitFrames(35)

@@ -110,9 +110,15 @@ cloven_ruins_entrance_ch_5.PLUM_ACCUEIL = PLUM_ACCUEIL
 -- Recalculees avec les nouvelles places. Verifie : aucune sur un obstacle,
 -- 29 px minimum entre deux paillasses, et le point de couchage lui-meme
 -- (+13/+10, cf. plus bas) tombe sur du marchable.
+-- CORRECTIF 2026-08-04 : la paillasse du PARTENAIRE (128,256) etait a la
+-- lisiere du massif rocheux qui borde le camp au sud (y>=264) : le dormeur
+-- semblait couche sur un rocher. On la remonte a (128,248), en plein sol.
+-- Celle de PENTICUS (224,232) etait elle aussi sur un affleurement : on la
+-- decale a (224,224). Les onze autres paillasses sont conservees telles
+-- quelles (le joueur les a jugees parfaites).
 local LITS = {
   hero      = {176, 256},
-  partner   = {128, 256},
+  partner   = {128, 248},
   Plum      = {104, 232},
   Ganlon    = {88, 216},
   Shuca     = {88, 184},
@@ -123,7 +129,7 @@ local LITS = {
   Rin       = {296, 184},
   Coco      = {296, 216},
   Phileas   = {280, 232},
-  Penticus  = {224, 232},
+  Penticus  = {224, 224},
 }
 cloven_ruins_entrance_ch_5.LITS = LITS
 
@@ -1235,9 +1241,20 @@ function cloven_ruins_entrance_ch_5.Acte7(hero, partner, plum, t)
   Silence(18)
   Pense(hero, 'CR5_A64', "Normal")
   Silence(16)
+  -- ENRICHISSEMENT 2026-08-04 : la discussion ne s'arrete pas apres
+  -- « je pense a demain ». Le partenaire nomme ce qui les attend — les
+  -- autres qui dorment autour du feu, et la responsabilite qu'ils portent
+  -- pour eux. Chacun ajoute sa part, puis on retombe sur le « Bonne nuit »
+  -- d'origine.
+  Says(partner, "Worried", 'CR5_A64b', {hero})
+  Silence(20)
+  Pense(hero, 'CR5_A64c', "Worried")
+  Silence(18)
   Says(partner, "Determined", 'CR5_A65', {hero})
   Silence(20)
-  Says(partner, "Happy", 'CR5_A66', {hero})
+  Says(partner, "Happy", 'CR5_A65b', {hero})
+  Silence(22)
+  Says(partner, "Normal", 'CR5_A66', {hero})
   Silence(24)
 
   -- Bonne nuit au reste de l'equipe.
@@ -1459,14 +1476,18 @@ function cloven_ruins_entrance_ch_5.MorningBody()
   --   deux rangées de cinq, face à lui ;
   --   Plum EN DEHORS de la formation (elle ne fait pas partie de
   --   l'expédition) — sa position dit son statut sans un mot.
+  -- CORRECTIF 2026-08-04 : chaque membre du rang de devant (y=240) est
+  -- desormais EXACTEMENT devant son vis-a-vis du rang de derriere (y=272),
+  -- sur la meme colonne — cinq paires, comme au Mont Venteux et a la
+  -- guilde. Colonnes 116/140/164/188/212 : toutes sur du sol propre, hors
+  -- du massif rocheux au sud (y>=264) et de l'affleurement est (x>~270).
   -- Toutes les positions verifiees libres sur la grille du camp.
   local FORMATION = {
     Penticus = {192, 180}, Phileas = {152, 188},
     -- rang de devant (y=240)
-    partner  = {120, 240}, shuca = {156, 240}, kino = {192, 240},
-    rin      = {228, 240}, hyko  = {264, 240},
-    -- rang de derriere (y=272) — serre pour rester hors du massif
-    -- d'obstacles qui borde le camp a l'est (x>~216).
+    partner  = {116, 240}, shuca = {140, 240}, kino = {164, 240},
+    rin      = {188, 240}, hyko  = {212, 240},
+    -- rang de derriere (y=272)
     hero     = {116, 272}, ganlon = {140, 272}, reinier = {164, 272},
     coco     = {188, 272}, almotz = {212, 272},
     -- plum a l'ecart, a l'est
