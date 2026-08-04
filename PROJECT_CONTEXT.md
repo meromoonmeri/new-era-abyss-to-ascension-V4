@@ -1,6 +1,28 @@
 # PROJECT_CONTEXT — New Era : Abyss to Ascension
 
-Dernière mise à jour : 2026-07-26 (prise en main de session par agent Arena.ai)
+Dernière mise à jour : 2026-08-05 (fix duel Metano — session agent Arena.ai)
+
+## Session 2026-08-05 — Damier mauve/noir du duel Team Dazzling (RÉSOLU)
+
+- **Incident** : `metano_town_duel` en damier mauve/noir depuis `9cbdf80`
+  (63×63 « copie pixel » de toute la ville).
+- **Cause racine vérifiée octet par octet** : les 27 planches
+  `metano_city_*.tile` n'ont **jamais été injectées** dans
+  `Content/Tile/index.idx` (541 entrées avant, pendant et après le commit,
+  malgré son message affirmant « 568 planches »). Sans entrée d'index, le
+  moteur dessine la texture manquante = damier.
+- **Correctif** : restauration du `.rsmap` à `79a096b` (14×18, état valide),
+  suppression des 27 planches mort-nées. Positions intactes : entrées
+  (6,10)/(5,10), trio au centre.
+- **Preuve** : 0 pixel d'écart avec la fenêtre (41,29) de
+  `metano_town.rsground` sur 145 152 px (`tools/verify_duel_pixelmatch.py`).
+- **Garde-fou ajouté** : `tools/verify_tile_index.py` (planches ↔ index ↔
+  cartes : 541/541 cohérent).
+- Détails : `docs/DIAGNOSTIC_DAMIER_DUEL_METANO_2026-08-05.md`.
+- Reste non testé en jeu (validation statique uniquement).
+- Rappel format : chaîne texture = nom `Sheet` → `index.idx` →
+  `.tile` → PNG. Toute nouvelle planche **doit** être injectée dans
+  `index.idx` ET vérifiée avec `tools/verify_tile_index.py`.
 
 ## But de ce fichier
 
