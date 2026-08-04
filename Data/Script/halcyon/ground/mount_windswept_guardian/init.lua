@@ -57,16 +57,18 @@ function mount_windswept_guardian.Enter(map)
   pcall(function() Weather.ClearAll() end)
 
   -- Rejouabilite : l'expedition est bouclee, le sommet est vide.
-  -- L'arene est volontairement compacte (240x192 px) : les positions
-  -- restent sur le plateau, pres de l'escalier sud, et la camera est
-  -- verrouillee au centre afin qu'aucune zone hors-map ne soit visible.
+  -- CORRECTIF 2026-08-04 : les positions ci-dessous visaient une arene
+  -- de 208x176 px. Le sommet fait desormais 1152x1344 : les quatre
+  -- coordonnees tombaient HORS CARTE, le duo etait invisible et la
+  -- camera cadrait le vide. Realignees sur celles des scenes
+  -- principales (arrivee par l'escalier au sud, regard vers le nord).
   if ReplayEnding.IsReplay('mount_windswept', 5) then
     SV.Chapter5.MountGuardianDefeated = false
     SV.Chapter5.MountGuardianLost = false
     ReplayEnding.EmptyArena({
-      hero = {104, 136}, partner = {88, 136},
-      camera = {120, 96}, look = {118, 64},
-      walk = 24, title = true, music = 'Mt. Travail.ogg',
+      hero = {264, 464}, partner = {288, 432},
+      camera = {288, 463}, look = {284, 224},
+      walk = 40, title = true, music = 'Mt. Travail.ogg',
       lines = {
         { spk='partner', emo='Normal', key='MWG_R01', wait=10 },
         { spk='hero',    emo='Normal', key='MWG_R02', wait=10 },

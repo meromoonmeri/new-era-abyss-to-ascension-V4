@@ -30,17 +30,24 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
 
-  -- POSITIONS SUR L'ARENE COMPACTE (240x192 px, 10x8 tuiles de 24 px).
-  -- Toutes sont verifiees contre obstacles[] : libres, connectees au
-  -- marqueur de l'escalier sud et contenues dans le viewport. Tornadus
-  -- attend au nord du cercle, l'equipe arrive depuis l'escalier au sud.
-  GROUND:TeleportTo(hero, 104, 136, Direction.Up)
-  GROUND:TeleportTo(partner, 88, 136, Direction.Up)
+  -- POSITIONS RECALEES SUR LA NOUVELLE ARENE (1128x1344 px).
+  -- L'ancienne carte faisait 448x504 px : les coordonnees d'origine
+  -- (240,328) tombaient dans une POCHE ISOLEE du nouveau decor, hors de
+  -- la plateforme de combat. Verifie cellule par cellule contre
+  -- obstacles[] : chacune de ces positions est libre ET connexe a la
+  -- grande plateforme (zone de 8792 cellules).
+  --   depart  y=1216..1248  (sud de la plateforme, sous le cadre camera)
+  --   arrivee y=1160..1192  (apres la marche de 56 px vers le nord)
+  --   boss    y=1064        (4 cases au-dessus du heros, comme au Creuset)
+  -- L'ecart equipe/boss vaut 128 px : tout le monde tient dans l'ecran
+  -- de 320x240, exigence explicite du brief d'arene.
+  GROUND:TeleportTo(hero, 272, 464, Direction.Up)
+  GROUND:TeleportTo(partner, 256, 464, Direction.Up)
   local t2 = CH('Teammate2')
   local t3 = CH('Teammate3')
-  if t2 ~= nil then GROUND:TeleportTo(t2, 120, 136, Direction.Up) end
-  if t3 ~= nil then GROUND:TeleportTo(t3, 136, 136, Direction.Up) end
-  GAME:MoveCamera(120, 96, 1, false)
+  if t2 ~= nil then GROUND:TeleportTo(t2, 288, 464, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 296, 464, Direction.Up) end
+  GAME:MoveCamera(288, 440, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -63,31 +70,31 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- la place du boss, exactement ce que l'utilisateur demande de
   -- supprimer.
   local tornadus = CharacterEssentials.MakeCharactersFromList({
-    {'Tornadus', 118, 64, Direction.Down}
+    {'Tornadus', 284, 224, Direction.Down}
   })
   GROUND:Hide('Tornadus')
 
   GAME:WaitFrames(40)
   local coro1 = TASK:BranchCoroutine(function()
-    GROUND:MoveInDirection(partner, Direction.Up, 24, false, 1)
+    GROUND:MoveInDirection(partner, Direction.Up, 56, false, 1)
   end)
   local coro2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(6)
-    GROUND:MoveInDirection(hero, Direction.Up, 24, false, 1)
+    GROUND:MoveInDirection(hero, Direction.Up, 56, false, 1)
   end)
   local coro2b = TASK:BranchCoroutine(function()
     GAME:WaitFrames(10)
-    if t2 ~= nil then GROUND:MoveInDirection(t2, Direction.Up, 24, false, 1) end
+    if t2 ~= nil then GROUND:MoveInDirection(t2, Direction.Up, 56, false, 1) end
   end)
   local coro2c = TASK:BranchCoroutine(function()
     GAME:WaitFrames(12)
-    if t3 ~= nil then GROUND:MoveInDirection(t3, Direction.Up, 24, false, 1) end
+    if t3 ~= nil then GROUND:MoveInDirection(t3, Direction.Up, 56, false, 1) end
   end)
   local coro3 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(15)
     -- La camera se cale ENTRE l'equipe arrivee (y=1160) et le point ou
     -- Tornadus se posera (y=1064).
-    GAME:MoveCamera(120, 96, 40, false)
+    GAME:MoveCamera(292, 360, 40, false)
   end)
   TASK:JoinCoroutines({coro1, coro2, coro2b, coro2c, coro3})
 
@@ -228,7 +235,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- ici, on ne le recree pas.
 
   -- LOT 8.3 — l'orage comme presence, le pacte du duo avant l'ultime gardien.
-  GAME:MoveCamera(120, 96, 40, false)
+  GAME:MoveCamera(288, 420, 40, false)
   UI:SetSpeaker(partner)
   GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_030']))
@@ -249,7 +256,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['MWG_034']), "Normal")
   -- "Alors il a eu tout le temps de s'habituer a la deception."
   GAME:WaitFrames(20)
-  GAME:MoveCamera(120, 96, 40, false)
+  GAME:MoveCamera(292, 360, 40, false)
 
   -- === APPARITION SOUS FLASH BLANC (LOT 2) ===
   -- Dispositif volontairement SOBRE : un flash, un impact, et c'est la
@@ -412,7 +419,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- du probleme. Il ne parle ni d'epreuve ni de garde — il decrit ce qu'il
   -- a VU. « Rien de naturel n'a d'angles » plante l'arc des Coeurs sans
   -- rien nommer : le joueur comprendra bien plus tard, le heros jamais ici.
-  GAME:MoveCamera(120, 96, 40, false)
+  GAME:MoveCamera(290, 370, 40, false)
   UI:SetSpeaker(tornadus)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_038']))
   -- "Je vous ai vus depuis la crete. Deux points, qui grimpaient mal."
@@ -424,14 +431,14 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- "De la-haut, on cesse de voir des lieux. On voit des formes."
   GAME:WaitFrames(20)
   -- La revelation : plan serre, puis un temps long. C'est LA phrase.
-  GAME:MoveCamera(120, 96, 40, false)
+  GAME:MoveCamera(288, 300, 40, false)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_041']))
   -- "Et il y a une forme sous votre monde, petits. Elle a des angles."
   GAME:WaitFrames(25)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_042']))
   -- "Rien de naturel n'a d'angles."
   GAME:WaitFrames(30)
-  GAME:MoveCamera(120, 96, 40, false)
+  GAME:MoveCamera(292, 360, 40, false)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_043']))
   -- "Je porte ca sur le dos depuis longtemps. Montrez-moi que vous pouvez aussi."
   GAME:WaitFrames(22)
@@ -468,20 +475,20 @@ function mount_windswept_guardian_ch_5.SecondPreBossScene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local tornadus = CharacterEssentials.MakeCharactersFromList({
-    {'Tornadus', 118, 64, Direction.Down}
+    {'Tornadus', 284, 224, Direction.Down}
   })
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
   GROUND:CharSetAnim(tornadus, "Charge", true)
 
-  GROUND:TeleportTo(hero, 104, 136, Direction.Up)
-  GROUND:TeleportTo(partner, 88, 136, Direction.Up)
+  GROUND:TeleportTo(hero, 280, 456, Direction.Up)
+  GROUND:TeleportTo(partner, 264, 456, Direction.Up)
   local t2 = CH('Teammate2')
   local t3 = CH('Teammate3')
-  if t2 ~= nil then GROUND:TeleportTo(t2, 120, 136, Direction.Up) end
-  if t3 ~= nil then GROUND:TeleportTo(t3, 136, 136, Direction.Up) end
-  GAME:MoveCamera(120, 96, 1, false)
+  if t2 ~= nil then GROUND:TeleportTo(t2, 296, 456, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 272, 464, Direction.Up) end
+  GAME:MoveCamera(292, 360, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -538,17 +545,17 @@ local function DefeatedBossBody()
   -- ACTE 1 : LE CALME APRES LA TEMPETE — Tornadus parle
   -- ============================================================
   local tornadus = CharacterEssentials.MakeCharactersFromList({
-    {'Tornadus', 118, 64, Direction.Down}
+    {'Tornadus', 284, 224, Direction.Down}
   })
   GROUND:CharSetAnim(tornadus, "Idle", true)
 
-  GROUND:TeleportTo(hero, 104, 136, Direction.Up)
-  GROUND:TeleportTo(partner, 88, 136, Direction.Up)
+  GROUND:TeleportTo(hero, 280, 456, Direction.Up)
+  GROUND:TeleportTo(partner, 264, 456, Direction.Up)
   local t2 = CH('Teammate2')
   local t3 = CH('Teammate3')
-  if t2 ~= nil then GROUND:TeleportTo(t2, 120, 136, Direction.Up) end
-  if t3 ~= nil then GROUND:TeleportTo(t3, 136, 136, Direction.Up) end
-  GAME:MoveCamera(120, 96, 1, false)
+  if t2 ~= nil then GROUND:TeleportTo(t2, 296, 456, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 272, 464, Direction.Up) end
+  GAME:MoveCamera(292, 360, 1, false)
 
   GAME:CutsceneMode(true)
   GAME:WaitFrames(60)
@@ -556,7 +563,7 @@ local function DefeatedBossBody()
   GAME:WaitFrames(40)
 
   -- Le vent retombe, la camera se stabilise.
-  GAME:MoveCamera(120, 96, 60, false)
+  GAME:MoveCamera(290, 370, 60, false)
   GAME:WaitFrames(60)
 
   -- Tornadus fait face au duo.
@@ -590,14 +597,14 @@ local function DefeatedBossBody()
   -- combat. Elle arrive par le sud (positions libres y 1220-1236).
   local tropius, noctowl, girafarig, breloom, audino, snubbull, growlithe, zigzagoon =
     CharacterEssentials.MakeCharactersFromList({
-      {'Tropius',    72, 112, Direction.Up},
-      {'Noctowl',    96, 120, Direction.Up},
-      {'Girafarig',  120, 120, Direction.Up},
-      {'Breloom',    144, 120, Direction.Up},
-      {'Audino',     72, 144, Direction.Up},
-      {'Snubbull',   96, 144, Direction.Up},
-      {'Growlithe',  120, 144, Direction.Up},
-      {'Zigzagoon',  144, 144, Direction.Up},
+      {'Tropius',    208, 408, Direction.Up},
+      {'Noctowl',    256, 432, Direction.Up},
+      {'Girafarig',  272, 440, Direction.Up},
+      {'Breloom',    296, 440, Direction.Up},
+      {'Audino',     312, 424, Direction.Up},
+      {'Snubbull',   328, 424, Direction.Up},
+      {'Growlithe',  224, 424, Direction.Up},
+      {'Zigzagoon',  352, 400, Direction.Up},
     })
 
   -- Arrivee en groupe, camera qui suit le mouvement.
@@ -608,7 +615,7 @@ local function DefeatedBossBody()
       arr[#arr+1] = TASK:BranchCoroutine(function()
         GAME:WaitFrames(i * 5)
         pcall(function()
-          GROUND:MoveToPosition(c, c.Position.X, 152, false, 0.9)
+          GROUND:MoveToPosition(c, c.Position.X, 1140, false, 0.9)
           GROUND:CharAnimateTurnTo(c, Direction.Up, 4)
         end)
       end)
@@ -618,7 +625,7 @@ local function DefeatedBossBody()
   GAME:WaitFrames(20)
 
   -- Tous decouvrent Tornadus : silence, camera elargie.
-  GAME:MoveCamera(120, 96, 80, false)
+  GAME:MoveCamera(288, 430, 80, false)
   GAME:WaitFrames(80)
 
   if tropius ~= nil then
@@ -640,7 +647,7 @@ local function DefeatedBossBody()
   GAME:WaitFrames(30)
   if noctowl ~= nil then
     local walk1 = TASK:BranchCoroutine(function()
-      pcall(function() GROUND:MoveToPosition(noctowl, 136, 136, false, 0.8) end)
+      pcall(function() GROUND:MoveToPosition(noctowl, 296, 464, false, 0.8) end)
     end)
     TASK:JoinCoroutines({walk1})
     GROUND:CharAnimateTurnTo(noctowl, Direction.Down, 4)
@@ -735,7 +742,7 @@ local function DefeatedBossBody()
   -- ACTE 5 : LE DEPART DE TORNADUS
   -- ============================================================
   GAME:WaitFrames(30)
-  GAME:MoveCamera(120, 96, 60, false)
+  GAME:MoveCamera(290, 370, 60, false)
   GROUND:CharTurnToCharAnimated(tornadus, hero, 4)
 
   UI:SetSpeaker(tornadus)
@@ -766,7 +773,7 @@ local function DefeatedBossBody()
   -- ============================================================
   -- ACTE 6 : LA SCENE COMIQUE
   -- ============================================================
-  GAME:MoveCamera(120, 96, 40, false)
+  GAME:MoveCamera(288, 430, 40, false)
   GAME:WaitFrames(40)
 
   if noctowl ~= nil then
@@ -860,7 +867,7 @@ local function DefeatedBossBody()
     end
   end
   local coro_cam_final = TASK:BranchCoroutine(function()
-    GAME:MoveCamera(120, 96, 140, false)
+    GAME:MoveCamera(292, 360, 140, false)
   end)
   depart[#depart+1] = coro_cam_final
   TASK:JoinCoroutines(depart)
@@ -932,26 +939,26 @@ function mount_windswept_guardian_ch_5.DiedToBoss()
   SOUND:StopBGM()
 
   local tornadus = CharacterEssentials.MakeCharactersFromList({
-    {'Tornadus', 118, 64, Direction.Down}
+    {'Tornadus', 284, 224, Direction.Down}
   })
   GROUND:CharSetAnim(tornadus, "Idle", true)
 
   -- L'équipe est au sol, vaincue.
-  GROUND:TeleportTo(hero, 104, 136, Direction.Up)
-  GROUND:TeleportTo(partner, 88, 136, Direction.Up)
+  GROUND:TeleportTo(hero, 280, 456, Direction.Up)
+  GROUND:TeleportTo(partner, 264, 456, Direction.Up)
   local t2 = CH('Teammate2')
   local t3 = CH('Teammate3')
-  if t2 ~= nil then GROUND:TeleportTo(t2, 120, 136, Direction.Up) end
-  if t3 ~= nil then GROUND:TeleportTo(t3, 136, 136, Direction.Up) end
+  if t2 ~= nil then GROUND:TeleportTo(t2, 296, 456, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 272, 464, Direction.Up) end
   GROUND:CharSetAnim(hero, "EventSleep", true)
   GROUND:CharSetAnim(partner, "EventSleep", true)
-  GAME:MoveCamera(120, 96, 1, false)
+  GAME:MoveCamera(292, 360, 1, false)
 
   GAME:FadeIn(60)
   GAME:WaitFrames(40)
 
   -- La caméra monte sur le vainqueur.
-  GAME:MoveCamera(120, 96, 40, false)
+  GAME:MoveCamera(288, 300, 40, false)
   GAME:WaitFrames(10)
 
   -- Le boss triomphe.
@@ -978,7 +985,7 @@ function mount_windswept_guardian_ch_5.DiedToBoss()
   GAME:WaitFrames(30)
 
   -- La caméra redescend sur le duo ; le partenaire se redresse à peine.
-  GAME:MoveCamera(120, 96, 40, false)
+  GAME:MoveCamera(288, 420, 40, false)
   GROUND:CharEndAnim(partner)
   GeneralFunctions.DoAnimation(partner, 'Wake')
   GAME:WaitFrames(12)
