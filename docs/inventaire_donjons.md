@@ -84,3 +84,24 @@
 ---
 
 **J'attends ta validation** sur ce roster de **20 donjons secondaires de 20 étages exacts** (dont **3 arènes d'étage `.rsmap` par donjon** et **20 à 50 espèces sauvages en scaling évolutif**) avant d'engager la génération des fichiers de zone et de cartes !
+
+---
+
+## 3. PROPOSITION DU ROSTER DES DONJONS SECONDAIRES POUR LE CHAPITRE 11 — L'ARC FUGITIF (POUR VALIDATION)
+
+> **Contexte Narratif (Chapitre 11 — Arc Fugitif)** :  
+> À la suite des événements de la Tour Céleste au Chapitre 10, le Héros et son Partenaire sont isolés et doivent fuir dans les terres sauvages et hostiles du Nord sous une pluie battante. Les donjons secondaires du Chapitre 11 reflètent cet environnement rude, humide et escarpé.  
+> **Respect du Framework (§1, §9)** :
+> - **22 à 25 étages d'exploration** par donjon (2 segments de biome, scaling de niveau Lv 38-53, 20 à 50 espèces sauvages vérifiées dans `Content/Chara/`).
+> - **3 arènes d'étage `.rsmap` intégrées** par donjon (aucun ground `.rsground` indépendant pour les boss).
+> - **Zéro concept de Temps ou d'Espace** dans les donjons secondaires.
+> - **Relais Kangourex** au modèle `searing_tunnel_midpoint` adapté au biome.
+
+| Identifiant (`ID`) | Nom Français | Total Étages | Biomes (Seg 1 → Seg 2) | Espèces Sauvages (`20-50/donjon`, Lv 38-53) | Les 3 Arènes d'Étage (`.rsmap` intégrées, adaptées au biome) | Relais (Modèle Tunnel Incandescent + Kangourex) |
+| :--- | :--- | :---: | :--- | :--- | :--- | :--- |
+| **`rainy_ravine`** | **Ravin Pluvieux** | **22 ét.** | Ravin Brumeux → Torrent Rocailleux | **26 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 7 (`rainy_ravine_mb1.rsmap`)** : Maraiste le Torrent<br>• **Ét. 14 (`rainy_ravine_mb2.rsmap`)** : Barbicha le Remous<br>• **Ét. 22 (`rainy_ravine_boss.rsmap`)** : Tarpaud la Tempête | `rainy_ravine_relay.rsground` (Biome Ravin Humide) |
+| **`mossy_gorge`** | **Gorge Moussue** | **24 ét.** | Gorge Ombragée → Caverne Humide | **25 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 8 (`mossy_gorge_mb1.rsmap`)** : Tengalice l'Écorce<br>• **Ét. 16 (`mossy_gorge_mb2.rsmap`)** : Torterra la Racine<br>• **Ét. 24 (`mossy_gorge_boss.rsmap`)** : Ludicolo le Déluge | `mossy_gorge_relay.rsground` (Biome Gorge Moussue) |
+| **`windswept_trail`** | **Piste Venteuse** | **23 ét.** | Sentier Rocailleux → Crête Boréale | **24 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 7 (`windswept_trail_mb1.rsmap`)** : Airmure la Rafale<br>• **Ét. 15 (`windswept_trail_mb2.rsmap`)** : Togekiss le Vent<br>• **Ét. 23 (`windswept_trail_boss.rsmap`)** : Aéromite le Bourrasque | `windswept_trail_relay.rsground` (Biome Crête Venteuse) |
+| **`foggy_hollow`** | **Creux Brumeux** | **25 ét.** | Forêt Brouillard → Sous-Bois Oublié | **26 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 8 (`foggy_hollow_mb1.rsmap`)** : Spiritomb l'Écho<br>• **Ét. 16 (`foggy_hollow_mb2.rsmap`)** : Ectoplasma la Brume<br>• **Ét. 25 (`foggy_hollow_boss.rsmap`)** : Noctunoir le Guetteur | `foggy_hollow_relay.rsground` (Biome Forêt Brumeuse) |
+
+---
