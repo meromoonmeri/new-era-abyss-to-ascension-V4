@@ -702,6 +702,7 @@ est confirmé (`SideQuests.AllDone` conditionne la progression de chapitre,
 ### 1. Intégrité et harmonisation en donjon (Ch6–10)
 - Suppression intégrale des anciens grounds indépendants de boss obsolètes (`gloomy_forest_boss`, `crystal_sanctuary_boss`, `forgotten_marsh_boss`, `celestial_peak_boss`) au profit d'arènes en donjon (`.rsmap`).
 - Harmonisation biômique des 13 arènes de boss et mini-boss Ch5–10 (`retile_all_boss_arenas.py`).
+- **Enrichissement des 20 donjons secondaires (Ch6–10)** avec les mécaniques de PMDO, du Dungeon Pack et de ProjectEoN (`enrich_all_secondary_dungeons_features.py`) : pièges légers puis de statut dosés avec parcimonie, 2 à 4 Dalles Miracle (`WonderTileStep`) par étage pour soigner les baisses de statistiques, Marchand Kecleon aléatoire (`12-15%`) et Étages Café (`Café Spinda`) aux étages 10–12.
 
 ### 2. Job Board & Contrats de Guilde (`SecondaryJobs.lua`)
 - Création du module `Data/Script/halcyon/SecondaryJobs.lua` consignant les **20 contrats officiels** pour les 20 donjons secondaires d'exploration des Chapitres 6 à 10.

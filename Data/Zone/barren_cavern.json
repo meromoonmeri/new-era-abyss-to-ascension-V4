@@ -923,6 +923,119 @@
                 "Value": {
                   "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
                 }
+              },
+              {
+                "Value": {
+                  "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                  "Priority": {
+                    "str": [
+                      3
+                    ]
+                  },
+                  "Spawn": {
+                    "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                    "Spawner": {
+                      "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                      "spawns": {
+                        "wonder_0": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "tile_wonder",
+                            "Revealed": true,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        }
+                      },
+                      "spawnTotal": 10
+                    }
+                  },
+                  "AmountSpawner": {
+                    "$type": "RogueElements.RandRange, RogueElements",
+                    "Min": 2,
+                    "Max": 4
+                  }
+                }
+              },
+              {
+                "Value": {
+                  "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                  "Priority": {
+                    "str": [
+                      3
+                    ]
+                  },
+                  "Spawn": {
+                    "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                    "Spawner": {
+                      "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                      "spawns": {
+                        "trap_0": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_mud",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_1": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_gust",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_2": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_sticky",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_3": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_apple",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        }
+                      },
+                      "spawnTotal": 40
+                    }
+                  },
+                  "AmountSpawner": {
+                    "$type": "RogueElements.RandRange, RogueElements",
+                    "Min": 2,
+                    "Max": 4
+                  }
+                }
               }
             ],
             "Comment": ""
@@ -2858,6 +2971,119 @@
                 },
                 "Value": {
                   "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
+                }
+              },
+              {
+                "Value": {
+                  "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                  "Priority": {
+                    "str": [
+                      3
+                    ]
+                  },
+                  "Spawn": {
+                    "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                    "Spawner": {
+                      "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                      "spawns": {
+                        "wonder_0": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "tile_wonder",
+                            "Revealed": true,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        }
+                      },
+                      "spawnTotal": 10
+                    }
+                  },
+                  "AmountSpawner": {
+                    "$type": "RogueElements.RandRange, RogueElements",
+                    "Min": 2,
+                    "Max": 4
+                  }
+                }
+              },
+              {
+                "Value": {
+                  "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                  "Priority": {
+                    "str": [
+                      3
+                    ]
+                  },
+                  "Spawn": {
+                    "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                    "Spawner": {
+                      "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                      "spawns": {
+                        "trap_0": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_mud",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_1": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_gust",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_2": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_sticky",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_3": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_apple",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        }
+                      },
+                      "spawnTotal": 40
+                    }
+                  },
+                  "AmountSpawner": {
+                    "$type": "RogueElements.RandRange, RogueElements",
+                    "Min": 2,
+                    "Max": 4
+                  }
                 }
               }
             ],
@@ -7240,6 +7466,119 @@
                 },
                 "Value": {
                   "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
+                }
+              },
+              {
+                "Value": {
+                  "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                  "Priority": {
+                    "str": [
+                      3
+                    ]
+                  },
+                  "Spawn": {
+                    "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                    "Spawner": {
+                      "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                      "spawns": {
+                        "wonder_0": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "tile_wonder",
+                            "Revealed": true,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        }
+                      },
+                      "spawnTotal": 10
+                    }
+                  },
+                  "AmountSpawner": {
+                    "$type": "RogueElements.RandRange, RogueElements",
+                    "Min": 2,
+                    "Max": 4
+                  }
+                }
+              },
+              {
+                "Value": {
+                  "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                  "Priority": {
+                    "str": [
+                      3
+                    ]
+                  },
+                  "Spawn": {
+                    "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                    "Spawner": {
+                      "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                      "spawns": {
+                        "trap_0": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_mud",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_1": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_gust",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_2": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_sticky",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_3": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_apple",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        }
+                      },
+                      "spawnTotal": 40
+                    }
+                  },
+                  "AmountSpawner": {
+                    "$type": "RogueElements.RandRange, RogueElements",
+                    "Min": 2,
+                    "Max": 4
+                  }
                 }
               }
             ],
@@ -11965,6 +12304,119 @@
                 "Value": {
                   "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
                 }
+              },
+              {
+                "Value": {
+                  "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                  "Priority": {
+                    "str": [
+                      3
+                    ]
+                  },
+                  "Spawn": {
+                    "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                    "Spawner": {
+                      "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                      "spawns": {
+                        "wonder_0": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "tile_wonder",
+                            "Revealed": true,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        }
+                      },
+                      "spawnTotal": 10
+                    }
+                  },
+                  "AmountSpawner": {
+                    "$type": "RogueElements.RandRange, RogueElements",
+                    "Min": 2,
+                    "Max": 4
+                  }
+                }
+              },
+              {
+                "Value": {
+                  "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                  "Priority": {
+                    "str": [
+                      3
+                    ]
+                  },
+                  "Spawn": {
+                    "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                    "Spawner": {
+                      "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                      "spawns": {
+                        "trap_0": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_mud",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_1": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_gust",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_2": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_sticky",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_3": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_apple",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        }
+                      },
+                      "spawnTotal": 40
+                    }
+                  },
+                  "AmountSpawner": {
+                    "$type": "RogueElements.RandRange, RogueElements",
+                    "Min": 2,
+                    "Max": 4
+                  }
+                }
               }
             ],
             "Comment": ""
@@ -12283,6 +12735,119 @@
                         }
                       ]
                     }
+                  }
+                }
+              },
+              {
+                "Value": {
+                  "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                  "Priority": {
+                    "str": [
+                      3
+                    ]
+                  },
+                  "Spawn": {
+                    "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                    "Spawner": {
+                      "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                      "spawns": {
+                        "wonder_0": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "tile_wonder",
+                            "Revealed": true,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        }
+                      },
+                      "spawnTotal": 10
+                    }
+                  },
+                  "AmountSpawner": {
+                    "$type": "RogueElements.RandRange, RogueElements",
+                    "Min": 2,
+                    "Max": 4
+                  }
+                }
+              },
+              {
+                "Value": {
+                  "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                  "Priority": {
+                    "str": [
+                      3
+                    ]
+                  },
+                  "Spawn": {
+                    "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                    "Spawner": {
+                      "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                      "spawns": {
+                        "trap_0": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_mud",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_1": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_gust",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_2": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_sticky",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_3": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_apple",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        }
+                      },
+                      "spawnTotal": 40
+                    }
+                  },
+                  "AmountSpawner": {
+                    "$type": "RogueElements.RandRange, RogueElements",
+                    "Min": 2,
+                    "Max": 4
                   }
                 }
               }
@@ -14663,6 +15228,184 @@
                         }
                       ]
                     }
+                  }
+                }
+              },
+              {
+                "Value": {
+                  "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                  "Priority": {
+                    "str": [
+                      3
+                    ]
+                  },
+                  "Spawn": {
+                    "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                    "Spawner": {
+                      "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                      "spawns": {
+                        "wonder_0": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "tile_wonder",
+                            "Revealed": true,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        }
+                      },
+                      "spawnTotal": 10
+                    }
+                  },
+                  "AmountSpawner": {
+                    "$type": "RogueElements.RandRange, RogueElements",
+                    "Min": 2,
+                    "Max": 4
+                  }
+                }
+              },
+              {
+                "Value": {
+                  "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                  "Priority": {
+                    "str": [
+                      3
+                    ]
+                  },
+                  "Spawn": {
+                    "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                    "Spawner": {
+                      "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+                      "spawns": {
+                        "trap_0": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_mud",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_1": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_gust",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_2": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_sticky",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_3": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_apple",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_4": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_poison",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_5": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_slumber",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_6": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_seal",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_7": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_spikes",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        },
+                        "trap_8": {
+                          "Spawn": {
+                            "TileLoc": {
+                              "X": 0,
+                              "Y": 0
+                            },
+                            "ID": "trap_grudge",
+                            "Revealed": false,
+                            "Owner": 0,
+                            "TileStates": []
+                          },
+                          "Rate": 10
+                        }
+                      },
+                      "spawnTotal": 90
+                    }
+                  },
+                  "AmountSpawner": {
+                    "$type": "RogueElements.RandRange, RogueElements",
+                    "Min": 3,
+                    "Max": 6
                   }
                 }
               }
