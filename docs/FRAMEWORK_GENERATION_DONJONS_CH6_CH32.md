@@ -15,10 +15,12 @@ Avant de générer le moindre donjon, connaître par cœur la documentation du m
 ## 1. PORTÉE ET STRUCTURE GÉNÉRALE
 - **Chapitres concernés** : 6 à 32.
 - **Par chapitre** : 1 donjon principal (scénarisé) + jusqu'à **10 donjons secondaires**.
-- **Étages par donjon** : 20 à 60 étages.
+- **Étages par donjon** : 22 à 25 étages pour les donjons secondaires (+2 à 5 étages par rapport aux 20) / jusqu'à 60 pour les grands donjons d'histoire.
 - **Segments** : Chaque tranche de **10 étages** constitue un segment avec **changement de biome** (`RangeDictSegment` / `LayeredSegment`).
-- **Points médians (Relais)** : Chaque donjon dispose de points médians de repos à mi-parcours construits sur le modèle du relais du Tunnel Incandescent (`searing_tunnel_midpoint` avec la statue Kangourex `Kangaskhan_Rock`, les marqueurs `North_Exit` / `South_Exit` et les spawners d'équipe `TEAMMATE_1..3`), **STRICTEMENT ADAPTÉS AU BIOME DU DONJON** (ex. donjon nature/sylvestre ➔ point médian nature avec Kangourex ; donjon désertique ➔ point médian désert avec Kangourex ; donjon cristal/grotte ➔ point médian cristal avec Kangourex).
-- **Mini-boss** : 3 par donjon, répartis logiquement dans la progression — chacun avec un nom propre et une musique dédiée (`Content/Music/`).
+- **Règle absolue des Camps et Grounds de Cinématique** :
+  - **Les camps (`*_camp.rsground` / `*_relay.rsground`) et les grounds de cinématique sont STRICTEMENT RÉSERVÉS AUX DONJONS D'HISTOIRE.**
+  - **Les donjons secondaires n'ont AUCUN camp de bivouac ni ground de cinématique** : ils proposent une pure expérience d'exploration procédurale sur 22 à 25 étages, rythmée par 3 **Arènes d'Étage (`.rsmap`)** intégrées dans le donjon pour affronter les mini-boss (ex. Ét. 7, Ét. 14) et le boss (ex. Ét. 22/25).
+- **Mini-boss** : 3 par donjon, combattus sur leur Arène d'Étage (`.rsmap`) propre, chacun avec un nom propre et une musique dédiée (`Content/Music/`).
 - **Salle de boss dédiée par légendaire** : Si un donjon comporte une rencontre légendaire, sa salle est conçue spécifiquement pour lui (échelle `24 px`, décor et biome adaptés), jamais une arène générique réutilisée.
 - **Numérotation d'histoire** : Rang narratif de 30 à 99 pour le Chapitre 32, consigné dans `docs/inventaire_donjons.md`.
 
@@ -59,10 +61,14 @@ Avant de générer le moindre donjon, connaître par cœur la documentation du m
 
 ---
 
-## 6. FAIRPLAY, ÉTAGES SPÉCIAUX ET MÉTÉO (Sections 5, 6, 6.5)
+## 6. MÉCANIQUES, PIÈGES, DALLES MIRACLE ET ÉTAGES SPÉCIAUX (Sections 5, 6, 6.5)
 - **Fairplay de génération** : Un escalier ou passage obligatoire n'est jamais placé dans une position désavantageant injustement une équipe (pas d'escalier bloqué par la lave sans chemin praticable alternatif).
-- **Étages spéciaux & Mods** : Maisons de monstres, salles de coffres/clés et mécaniques de niche issues d'ExplorersOfSkyOrigins, ZMDO ou `dungeon-pack` intégrées avec parcimonie et progressivité.
-- **Météo en donjon** : Quelques étages ciblés par segment intègrent un statut météo actif (pluie, tempête de sable, brouillard) cohérent avec le biome, renforçant les moments de tension avant un mini-boss ou un relais.
+- **Intégration des Mécaniques de Donjon (PMDODump, DoubleTrio `dungeon-pack`, ProjectEoN)** :
+  - **Dosage avec parcimonie (sans abus)** : Les fonctions qui font la beauté et l'authenticité de *Donjon Mystère* sont intégrées selon la profondeur et la difficulté :
+    - **Pièges (`TrapSpawnStep` / `TrapStep`)** : densifiés progressivement selon le segment (pièges légers en début de donjon ➔ pièges statut/sceau/torpeur en profondeur).
+    - **Dalles Miracle (`WonderTileStep` / `tile_wonder`)** : disposées avec parcimonie (3 à 5 par étage sur les étages clés) pour permettre au joueur de soigner ses baisses de statistiques.
+    - **Maisons de Monstres & Salles Trésor (`MonsterHouseStep` / `SecretRoomStep`)** : intégrées en tant qu'événements rares et gratifiants, calibrés sur le palier.
+- **Météo en donjon** : Quelques étages ciblés par segment intègrent un statut météo actif (pluie, tempête de sable, brouillard) cohérent avec le biome.
 
 ---
 
