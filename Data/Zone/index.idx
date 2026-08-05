@@ -8777,6 +8777,37 @@
       }, 
       "Released": true, 
       "SortOrder": 0
+    }, 
+    "tornadus_arena": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence", 
+      "ExpPercent": 100, 
+      "Level": -1, 
+      "LevelCap": false, 
+      "KeepSkills": false, 
+      "TeamRestrict": false, 
+      "TeamSize": -1, 
+      "MoneyRestrict": false, 
+      "BagRestrict": -1, 
+      "KeepTreasure": false, 
+      "BagSize": -1, 
+      "Rescues": 0, 
+      "CountedFloors": 1, 
+      "Rogue": 0, 
+      "Grounds": [], 
+      "Maps": [
+        [
+          0
+        ]
+      ], 
+      "Name": {
+        "DefaultText": "Tornadus Arena (TEST)", 
+        "LocalTexts": {
+          "fr": "Arène de Tornadus (TEST)"
+        }
+      }, 
+      "Released": true, 
+      "Comment": "Zone de test : arene Tornadus (voir tornadus_arena.json).", 
+      "SortOrder": 0
     }
   }
 }

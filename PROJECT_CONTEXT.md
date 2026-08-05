@@ -48,6 +48,21 @@ Dernière mise à jour : 2026-08-05 (fix duel Metano — session agent Arena.ai)
 - Détails : `docs/ARENE_TORNADUS_PATRON_CROOKED_DEN_2026-08-05.md`.
 - Non testé en jeu (validation statique).
 
+## Session 2026-08-05c — Zone de test « Arène de Tornadus » (tornadus_arena)
+
+- **Demande** : zone de combat pour tester l'arène Tornadus en jeu, un seul
+  segment fixe, sans toucher l'histoire.
+- **Créée** : `Data/Zone/tornadus_arena.json` (1 segment `LoadGen` +
+  `MappedRoomStep` → `mount_windswept_guardian`, patron mount_windswept
+  seg 2) + entrée `index.idx` (CountedFloors 1, Maps [[0]], Grounds []) +
+  `zone/tornadus_arena/init.lua` (modèle petit_tunnel, retour Metano) +
+  accès test : liste `dungeons` de Metano + `UnlockDungeon` dans
+  debug_tools (lignes commentées TEST).
+- **Validation** : verify_zone_index --all OK ; Lua compile ; JSON round-trip.
+  Les 184 FAIL pré-existants de `--all` ne sont PAS liés (purge ch6-32).
+- Détails + procédure de retrait : `docs/ZONE_TEST_TORNADUS_ARENA_2026-08-05.md`.
+- Non testé en jeu — c'est l'objet de la zone.
+
 ## But de ce fichier
 
 Fichier de reprise à la racine du dépôt. À lire au début de la prochaine session, en complément de `docs/CONTEXTE_PROJET.md`.
