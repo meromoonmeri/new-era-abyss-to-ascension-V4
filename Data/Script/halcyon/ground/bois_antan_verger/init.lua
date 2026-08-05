@@ -10,15 +10,15 @@ require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
 require 'halcyon.BossMusic'
 
-local bois_antan_verger = {}
+local purity_forest_verger = {}
 
-function bois_antan_verger.Init(map)
+function purity_forest_verger.Init(map)
   DEBUG.EnableDbgCoro()
   COMMON.RespawnAllies(true)
   PartnerEssentials.InitializePartnerSpawn()
 end
 
-function bois_antan_verger.Enter(map)
+function purity_forest_verger.Enter(map)
   DEBUG.EnableDbgCoro()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
@@ -38,7 +38,7 @@ function bois_antan_verger.Enter(map)
     UI:WaitShowDialogue("Tu portes une mémoire qui n'est pas la tienne.[pause=20] Voyons si tu mérites de la garder.")
     COMMON.BossTransition()
     GAME:CutsceneMode(false)
-    GAME:ContinueDungeon("bois_antan", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    GAME:ContinueDungeon("purity_forest", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     return
   end
 
@@ -63,7 +63,7 @@ function bois_antan_verger.Enter(map)
   GAME:WaitFrames(18)
   GROUND:CharSetAnim(celebi, "Idle", true)
   -- 6. Titre + thème.
-  BossMusic.Play('bois_antan_verger')
+  BossMusic.Play('purity_forest_verger')
   UI:WaitShowTitle("Celebi, les Heures Mortes", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)
@@ -77,11 +77,11 @@ function bois_antan_verger.Enter(map)
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("bois_antan", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("purity_forest", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function bois_antan_verger.Update(map, time) end
-function bois_antan_verger.GameSave(map) end
-function bois_antan_verger.GameLoad(map) end
+function purity_forest_verger.Update(map, time) end
+function purity_forest_verger.GameSave(map) end
+function purity_forest_verger.GameLoad(map) end
 
-return bois_antan_verger
+return purity_forest_verger

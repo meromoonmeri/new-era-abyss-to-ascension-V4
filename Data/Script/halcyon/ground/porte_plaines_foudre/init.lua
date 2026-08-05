@@ -38,7 +38,7 @@ function porte_plaines_foudre.Enter(map)
     UI:WaitShowDialogue("L'Antenne chante quand je passe.[pause=20] Écoutez-la une dernière fois.")
     COMMON.BossTransition()
     GAME:CutsceneMode(false)
-    GAME:ContinueDungeon("mont_grondant", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    GAME:ContinueDungeon("mt_thunder", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     return
   end
 
@@ -78,7 +78,7 @@ function porte_plaines_foudre.Enter(map)
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("mont_grondant", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("mt_thunder", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function porte_plaines_foudre.Update(map, time) end

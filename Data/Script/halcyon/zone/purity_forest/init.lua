@@ -1,53 +1,53 @@
---[[ Trône de Magma — Donjon-Ancrage (Livre II, ch21). Vague 3.
-     Segment 1 = arene de revanche (groudon). LegendZones key: fallen_visitor ]]
+--[[ Heures Mortes — Donjon-Ancrage (Livre II, ch20). Vague 3.
+     Segment 3 = arene de revanche (celebi). LegendZones key: dead_hours_grove ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.LegendZones'
 require 'halcyon.LegendArc'
 
-local grotte_meteore = {}
+local purity_forest = {}
 
-function grotte_meteore.Init(zone)
+function purity_forest.Init(zone)
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> Init_grotte_meteore")
-  SV.TemporaryFlags.LastDungeonEntered = 'grotte_meteore'
+  PrintInfo("=>> Init_purity_forest")
+  SV.TemporaryFlags.LastDungeonEntered = 'purity_forest'
 end
 
-function grotte_meteore.EnterSegment(zone, rescuing, segmentID, mapID)
+function purity_forest.EnterSegment(zone, rescuing, segmentID, mapID)
   GeneralFunctions.CheckAllowSetRescue(zone.ID)
   if rescuing ~= true then
     COMMON.BeginDungeon(zone.ID, segmentID, mapID)
   end
 end
 
-function grotte_meteore.Rescued(zone, name, mail)
+function purity_forest.Rescued(zone, name, mail)
   COMMON.Rescued(zone, name, mail)
 end
 
-function grotte_meteore.ExitSegment(zone, result, rescue, segmentID, mapID)
+function purity_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.RestoreIdleAnim()
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> ExitSegment_grotte_meteore result "..tostring(result).." segment "..tostring(segmentID))
+  PrintInfo("=>> ExitSegment_purity_forest result "..tostring(result).." segment "..tostring(segmentID))
 
   local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
   SV.adventure.Thief = false
   if exited == true then return end
 
-  if segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+  if segmentID == 2 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
     -- Cinematique du gardien avant l'arene (vague 7).
-    GAME:EnterGroundMap('vallon_perdu', 'Main_Entrance_Marker')
+    GAME:EnterGroundMap('purity_forest_verger', 'Main_Entrance_Marker')
     return
   end
-  if segmentID == 1 then
+  if segmentID == 3 then
     -- Arene de l'Ancrage : victoire = gardien stabilise (revanche/recrutement via Grodoudou).
     if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-      LegendZones.SetDefeated('fallen_visitor')
+      LegendZones.SetDefeated('dead_hours')
       --Adieu du gardien : le combat ne le tue pas, il le STABILISE.
       --Sans cette scene la victoire etait un simple fondu (audit boss : 17/100).
-      LegendArc.Victory('fallen_visitor')
+      LegendArc.Victory('dead_hours')
       if SV.Anchors == nil then SV.Anchors = { Stabilized = {} } end
       if SV.Anchors.Stabilized == nil then SV.Anchors.Stabilized = {} end
-      SV.Anchors.Stabilized['fallen_visitor'] = true
+      SV.Anchors.Stabilized['dead_hours'] = true
     end
     GAME:WaitFrames(20)
     GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
@@ -58,4 +58,4 @@ function grotte_meteore.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
 end
 
-return grotte_meteore
+return purity_forest

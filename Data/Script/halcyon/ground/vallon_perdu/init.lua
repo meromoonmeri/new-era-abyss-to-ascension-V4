@@ -38,7 +38,7 @@ function vallon_perdu.Enter(map)
     UI:WaitShowDialogue("FORME : ATTAQUE.[pause=20] Vous êtes ma leçon du jour.")
     COMMON.BossTransition()
     GAME:CutsceneMode(false)
-    GAME:ContinueDungeon("grotte_meteore", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    GAME:ContinueDungeon("meteor_cave", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     return
   end
 
@@ -80,7 +80,7 @@ function vallon_perdu.Enter(map)
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("grotte_meteore", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("meteor_cave", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function vallon_perdu.Update(map, time) end

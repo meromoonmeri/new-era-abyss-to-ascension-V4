@@ -332,7 +332,7 @@ LegendArc.LIST = {
     last="Alors dormez bien cette nuit.[pause=30] Tous les deux. C'est tout ce que je peux offrir.",
     close="La lune se degage.[pause=25] Les deux visages restent cote a cote, sans se regarder." },
 
-  dead_hours = { g='bois_antan_verger', inst='Celebi', pos={272,248},
+  dead_hours = { g='purity_forest_verger', inst='Celebi', pos={272,248},
     lines={"Les heures mortes, ce sont celles qu'on ne se rappelle pas.",
            "Vous en avez deja beaucoup.[pause=25] Plus que des enfants ne devraient."},
     ask="On n'est pas des enfants.",

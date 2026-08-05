@@ -41,7 +41,7 @@ function new_era_zone_05.ExitSegment(zone, result, rescue, segmentID, mapID)
   if segmentID == 1 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
     -- Veilleur : on passe par le ground cinematique, qui enchainera lui-meme
     -- le ContinueDungeon vers l'arene (segment 2).
-    GAME:EnterGroundMap('mont_grondant_pied', 'Main_Entrance_Marker')
+    GAME:EnterGroundMap('mt_thunder_pied', 'Main_Entrance_Marker')
     return
   end
   if segmentID == 2 then

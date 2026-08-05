@@ -1,19 +1,19 @@
 --[[ Orée du Bois d'Antan — ground importe (format RogueEssence natif, vague 4).
      Assignation : ch20 Celebi - entrée
      Squelette standard : a completer lors du cablage des cinematiques. ]]
-local bois_antan_oree = {}
+local purity_forest_oree = {}
 
-function bois_antan_oree.Init(map)
+function purity_forest_oree.Init(map)
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> Init_bois_antan_oree")
+  PrintInfo("=>> Init_purity_forest_oree")
   COMMON.RespawnAllies()
 end
 
-function bois_antan_oree.Enter(map)
+function purity_forest_oree.Enter(map)
   GAME:FadeIn(20)
 end
 
-function bois_antan_oree.Update(map, time)
+function purity_forest_oree.Update(map, time)
 end
 
-return bois_antan_oree
+return purity_forest_oree

@@ -109,7 +109,7 @@ LegendZones.LIST = {
         name = 'LZ_Name_Dead_Hours', blurb = 'LZ_Blurb_Dead_Hours',
         sight = 'LZ_Sight_Dead_Hours', price = 25000,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 20 end,
-        zone = 'bois_antan', segment = 3, cine = 'bois_antan_verger', roam = true, ready = true
+        zone = 'purity_forest', segment = 3, cine = 'purity_forest_verger', roam = true, ready = true
     },
     {
         key = 'clearwater_ford', species = 'suicune',
@@ -165,21 +165,21 @@ LegendZones.LIST = {
         name = 'LZ_Name_Thawed_Step', blurb = 'LZ_Blurb_Thawed_Step',
         sight = 'LZ_Sight_Thawed_Step', price = 24000,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 17 end,
-        zone = 'montagne_traitresse', segment = 4, cine = 'champ_vent_boreal', roam = false, ready = true
+        zone = 'frosty_forest', segment = 4, cine = 'champ_vent_boreal', roam = false, ready = true
     },
     {
         key = 'high_conductor', species = 'zapdos',
         name = 'LZ_Name_High_Conductor', blurb = 'LZ_Blurb_High_Conductor',
         sight = 'LZ_Sight_High_Conductor', price = 24000,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 17 end,
-        zone = 'mont_grondant', segment = 5, cine = 'porte_plaines_foudre', roam = false, ready = true
+        zone = 'mt_thunder', segment = 5, cine = 'porte_plaines_foudre', roam = false, ready = true
     },
     {
         key = 'long_ash', species = 'moltres',
         name = 'LZ_Name_Long_Ash', blurb = 'LZ_Blurb_Long_Ash',
         sight = 'LZ_Sight_Long_Ash', price = 24000,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 14 end,
-        zone = 'ile_lave_flottante', segment = 5, cine = 'champ_braises', roam = false, ready = true
+        zone = 'mt_blaze', segment = 5, cine = 'champ_braises', roam = false, ready = true
     },
     {
         key = 'quiet_ledger', species = 'uxie',
@@ -346,7 +346,7 @@ LegendZones.LIST = {
         name = 'LZ_Name_Fallen_Visitor', blurb = 'LZ_Blurb_Fallen_Visitor',
         sight = 'LZ_Sight_Fallen_Visitor', price = 37200,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 21 end,
-        zone = 'grotte_meteore', segment = 1, cine = 'vallon_perdu', roam = false, ready = true
+        zone = 'meteor_cave', segment = 1, cine = 'vallon_perdu', roam = false, ready = true
     },
     {
         key = 'thanks_bloom', species = 'shaymin',

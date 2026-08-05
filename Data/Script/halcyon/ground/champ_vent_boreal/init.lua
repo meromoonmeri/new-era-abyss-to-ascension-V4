@@ -38,7 +38,7 @@ function champ_vent_boreal.Enter(map)
     UI:WaitShowDialogue("Vous avez marché longtemps dans mon silence.[pause=20] Voyons si vous savez aussi y combattre.")
     COMMON.BossTransition()
     GAME:CutsceneMode(false)
-    GAME:ContinueDungeon("montagne_traitresse", 4, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    GAME:ContinueDungeon("frosty_forest", 4, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     return
   end
 
@@ -77,7 +77,7 @@ function champ_vent_boreal.Enter(map)
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("montagne_traitresse", 4, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("frosty_forest", 4, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function champ_vent_boreal.Update(map, time) end

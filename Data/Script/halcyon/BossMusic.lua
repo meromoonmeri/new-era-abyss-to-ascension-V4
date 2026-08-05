@@ -150,7 +150,7 @@ BossMusic.LIST = {
   lac_savoir       = T.NATURE,
   lac_espoir       = T.NATURE,
   lac_courage      = T.NATURE,
-  bois_antan_verger= T.NATURE,
+  purity_forest_verger= T.NATURE,
   bois_des_plaintes= T.NATURE,
   champ_sacre      = T.NATURE,
   gue_poulain_autel= T.NATURE,
@@ -177,7 +177,7 @@ BossMusic.LIST = {
   -- Ce ne sont pas des dieux : ce sont des postes de garde qu'on a
   -- oublie de relever. Registre froid, repetitif, mecanique.
   pic_ferreux_pied   = T.MACHINE,
-  mont_grondant_pied = T.MACHINE,
+  mt_thunder_pied = T.MACHINE,
   mont_cendre_pied   = T.MACHINE,
   foret_givree_oree  = T.MACHINE_2,
   mont_gele_pied     = T.MACHINE_2,

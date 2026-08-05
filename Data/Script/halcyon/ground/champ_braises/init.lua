@@ -38,7 +38,7 @@ function champ_braises.Enter(map)
     UI:WaitShowDialogue("Mon feu ne détruit que ce qui doit tomber.[pause=20] Tenez debout, et il vous éclairera.")
     COMMON.BossTransition()
     GAME:CutsceneMode(false)
-    GAME:ContinueDungeon("ile_lave_flottante", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    GAME:ContinueDungeon("mt_blaze", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     return
   end
 
@@ -77,7 +77,7 @@ function champ_braises.Enter(map)
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("ile_lave_flottante", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("mt_blaze", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function champ_braises.Update(map, time) end

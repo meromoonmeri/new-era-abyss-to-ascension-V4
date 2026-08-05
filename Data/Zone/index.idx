@@ -2683,7 +2683,7 @@
    "Released": true,
    "SortOrder": 0
   },
-  "ile_lave_flottante": {
+  "mt_blaze": {
    "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
    "ExpPercent": 75,
    "Level": 42,
@@ -2825,7 +2825,7 @@
    "Released": true,
    "SortOrder": 0
   },
-  "montagne_traitresse": {
+  "frosty_forest": {
    "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
    "ExpPercent": 60,
    "Level": 47,
@@ -3565,7 +3565,7 @@
    "Released": true,
    "SortOrder": 0
   },
-  "bois_antan": {
+  "purity_forest": {
    "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
    "ExpPercent": 75,
    "Level": 55,
@@ -4085,7 +4085,7 @@
    "Released": true,
    "SortOrder": 0
   },
-  "mont_grondant": {
+  "mt_thunder": {
    "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
    "ExpPercent": 80,
    "Level": 47,
@@ -4257,7 +4257,7 @@
    "Released": true,
    "SortOrder": 0
   },
-  "grotte_meteore": {
+  "meteor_cave": {
    "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
    "ExpPercent": 100,
    "Level": 57,

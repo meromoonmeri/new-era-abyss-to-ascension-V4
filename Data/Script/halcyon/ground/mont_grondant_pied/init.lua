@@ -9,16 +9,16 @@ require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.BossMusic'
 
-local mont_grondant_pied = {}
+local mt_thunder_pied = {}
 
-function mont_grondant_pied.Init(map)
+function mt_thunder_pied.Init(map)
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> Init_mont_grondant_pied")
+  PrintInfo("=>> Init_mt_thunder_pied")
   COMMON.RespawnAllies(true)
   PartnerEssentials.InitializePartnerSpawn()
 end
 
-function mont_grondant_pied.Enter(map)
+function mt_thunder_pied.Enter(map)
   DEBUG.EnableDbgCoro()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
@@ -67,7 +67,7 @@ function mont_grondant_pied.Enter(map)
   GAME:WaitFrames(18)
 
   -- 5. Titre + theme.
-  BossMusic.Play('mont_grondant_pied')
+  BossMusic.Play('mt_thunder_pied')
   UI:WaitShowTitle("Câble-Vif, Veilleur du Grand Orage", 20)
   GAME:WaitFrames(50)
   UI:WaitHideTitle(20)
@@ -90,8 +90,8 @@ function mont_grondant_pied.Enter(map)
   GAME:ContinueDungeon("new_era_zone_05", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function mont_grondant_pied.Update(map, time) end
-function mont_grondant_pied.GameSave(map) end
-function mont_grondant_pied.GameLoad(map) end
+function mt_thunder_pied.Update(map, time) end
+function mt_thunder_pied.GameSave(map) end
+function mt_thunder_pied.GameLoad(map) end
 
-return mont_grondant_pied
+return mt_thunder_pied

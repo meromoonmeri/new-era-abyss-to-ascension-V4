@@ -5,29 +5,29 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.LegendZones'
 require 'halcyon.LegendArc'
 
-local montagne_traitresse = {}
+local frosty_forest = {}
 
-function montagne_traitresse.Init(zone)
+function frosty_forest.Init(zone)
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> Init_montagne_traitresse")
-  SV.TemporaryFlags.LastDungeonEntered = 'montagne_traitresse'
+  PrintInfo("=>> Init_frosty_forest")
+  SV.TemporaryFlags.LastDungeonEntered = 'frosty_forest'
 end
 
-function montagne_traitresse.EnterSegment(zone, rescuing, segmentID, mapID)
+function frosty_forest.EnterSegment(zone, rescuing, segmentID, mapID)
   GeneralFunctions.CheckAllowSetRescue(zone.ID)
   if rescuing ~= true then
     COMMON.BeginDungeon(zone.ID, segmentID, mapID)
   end
 end
 
-function montagne_traitresse.Rescued(zone, name, mail)
+function frosty_forest.Rescued(zone, name, mail)
   COMMON.Rescued(zone, name, mail)
 end
 
-function montagne_traitresse.ExitSegment(zone, result, rescue, segmentID, mapID)
+function frosty_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.RestoreIdleAnim()
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> ExitSegment_montagne_traitresse result "..tostring(result).." segment "..tostring(segmentID))
+  PrintInfo("=>> ExitSegment_frosty_forest result "..tostring(result).." segment "..tostring(segmentID))
 
   local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
   SV.adventure.Thief = false
@@ -58,4 +58,4 @@ function montagne_traitresse.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
 end
 
-return montagne_traitresse
+return frosty_forest

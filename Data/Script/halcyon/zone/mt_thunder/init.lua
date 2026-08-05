@@ -5,29 +5,29 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.LegendZones'
 require 'halcyon.LegendArc'
 
-local mont_grondant = {}
+local mt_thunder = {}
 
-function mont_grondant.Init(zone)
+function mt_thunder.Init(zone)
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> Init_mont_grondant")
-  SV.TemporaryFlags.LastDungeonEntered = 'mont_grondant'
+  PrintInfo("=>> Init_mt_thunder")
+  SV.TemporaryFlags.LastDungeonEntered = 'mt_thunder'
 end
 
-function mont_grondant.EnterSegment(zone, rescuing, segmentID, mapID)
+function mt_thunder.EnterSegment(zone, rescuing, segmentID, mapID)
   GeneralFunctions.CheckAllowSetRescue(zone.ID)
   if rescuing ~= true then
     COMMON.BeginDungeon(zone.ID, segmentID, mapID)
   end
 end
 
-function mont_grondant.Rescued(zone, name, mail)
+function mt_thunder.Rescued(zone, name, mail)
   COMMON.Rescued(zone, name, mail)
 end
 
-function mont_grondant.ExitSegment(zone, result, rescue, segmentID, mapID)
+function mt_thunder.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.RestoreIdleAnim()
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> ExitSegment_mont_grondant result "..tostring(result).." segment "..tostring(segmentID))
+  PrintInfo("=>> ExitSegment_mt_thunder result "..tostring(result).." segment "..tostring(segmentID))
 
   local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
   SV.adventure.Thief = false
@@ -58,4 +58,4 @@ function mont_grondant.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
 end
 
-return mont_grondant
+return mt_thunder
