@@ -23,7 +23,7 @@ local sky_tower = {}
 -- DUR qui ne designaient pas les cartes voulues :
 --
 --   46 -> vast_steppe_entrance      (attendu : sky_tower_entrance)
---   75 -> crystal_sanctuary_boss    (attendu : sky_tower_relay)
+--   75 -> waterfall_pond_boss    (attendu : sky_tower_relay)
 --
 -- En jeu : mourir dans les contreforts du Pic Celeste deposait le joueur
 -- a l'entree de la Grande Steppe, et mourir dans la Mer de Nuages le

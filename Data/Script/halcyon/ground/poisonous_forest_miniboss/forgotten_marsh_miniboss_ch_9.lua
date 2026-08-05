@@ -1,5 +1,5 @@
 --[[
-    forgotten_marsh_miniboss_ch_9.lua
+    poisonous_forest_miniboss_ch_9.lua
     Marais de l'Oubli — Mini-Boss : Avaltout + Coatox (boue et venin)
     Simple : flash blanc + dialogues (directive utilisateur).
     Salle 456x456 px, ring de 2 tuiles de murs : plancher de (48,48) à (408,408).
@@ -11,7 +11,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 
-forgotten_marsh_miniboss_ch_9 = {}
+poisonous_forest_miniboss_ch_9 = {}
 
 local HERO_SPAWN = {220, 348}
 local PARTNER_SPAWN = {252, 348}
@@ -31,7 +31,7 @@ local function PlaceTeam(hero, partner)
   if t3 ~= nil then GROUND:TeleportTo(t3, T3_SPAWN[1], T3_SPAWN[2], Direction.Up) end
 end
 
-function forgotten_marsh_miniboss_ch_9.FirstPreBossScene()
+function poisonous_forest_miniboss_ch_9.FirstPreBossScene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
@@ -141,11 +141,11 @@ function forgotten_marsh_miniboss_ch_9.FirstPreBossScene()
   GAME:CutsceneMode(false)
   SV.Chapter9.MarshMiniBossSeen = true
   -- Segment 3 : l'arène de combat proprement dite.
-  PrintInfo("[BossSeq][marsh_miniboss] ContinueDungeon('forgotten_marsh', 3)")
-  GAME:ContinueDungeon("forgotten_marsh", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  PrintInfo("[BossSeq][marsh_miniboss] ContinueDungeon('poisonous_forest', 3)")
+  GAME:ContinueDungeon("poisonous_forest", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function forgotten_marsh_miniboss_ch_9.SecondPreBossScene()
+function poisonous_forest_miniboss_ch_9.SecondPreBossScene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local swalot = CharacterEssentials.MakeCharactersFromList({
@@ -182,8 +182,8 @@ function forgotten_marsh_miniboss_ch_9.SecondPreBossScene()
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  PrintInfo("[BossSeq][marsh_miniboss] ContinueDungeon('forgotten_marsh', 3)")
-  GAME:ContinueDungeon("forgotten_marsh", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  PrintInfo("[BossSeq][marsh_miniboss] ContinueDungeon('poisonous_forest', 3)")
+  GAME:ContinueDungeon("poisonous_forest", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 local function DefeatedBossBody()
@@ -252,8 +252,8 @@ local function DefeatedBossBody()
   GAME:WaitFrames(90)
 end
 
-function forgotten_marsh_miniboss_ch_9.DefeatedBoss()
-  PrintInfo("[BossSeq][forgotten_marsh_miniboss_ch_9] DefeatedBoss start")
+function poisonous_forest_miniboss_ch_9.DefeatedBoss()
+  PrintInfo("[BossSeq][poisonous_forest_miniboss_ch_9] DefeatedBoss start")
 
   local ok, err = pcall(DefeatedBossBody)
   if not ok then
@@ -263,12 +263,12 @@ function forgotten_marsh_miniboss_ch_9.DefeatedBoss()
 
   GAME:CutsceneMode(false)
   -- Segment 4 : les 3F au-dessus du mini-boss, vers la cale de Laggron.
-  PrintInfo("[BossSeq][forgotten_marsh_miniboss_ch_9] -> ContinueDungeon(seg 4)")
-  GAME:ContinueDungeon("forgotten_marsh", 4, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  PrintInfo("[BossSeq][poisonous_forest_miniboss_ch_9] -> ContinueDungeon(seg 4)")
+  GAME:ContinueDungeon("poisonous_forest", 4, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function forgotten_marsh_miniboss_ch_9.DiedToBoss()
-  PrintInfo("[BossSeq][forgotten_marsh_miniboss_ch_9] DiedToBoss start")
+function poisonous_forest_miniboss_ch_9.DiedToBoss()
+  PrintInfo("[BossSeq][poisonous_forest_miniboss_ch_9] DiedToBoss start")
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
@@ -308,8 +308,8 @@ function forgotten_marsh_miniboss_ch_9.DiedToBoss()
 
   -- Checkpoint : réveil au relais (WipedCutscene du relay).
   SV.Chapter9.MarshMidState = 'DeathArrival'
-  PrintInfo("[BossSeq][forgotten_marsh_miniboss_ch_9] DiedToBoss -> forgotten_marsh_relay")
-  GAME:EnterGroundMap("forgotten_marsh_relay", "Main_Entrance_Marker")
+  PrintInfo("[BossSeq][poisonous_forest_miniboss_ch_9] DiedToBoss -> poisonous_forest_relay")
+  GAME:EnterGroundMap("poisonous_forest_relay", "Main_Entrance_Marker")
 end
 
-return forgotten_marsh_miniboss_ch_9
+return poisonous_forest_miniboss_ch_9

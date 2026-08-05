@@ -144,7 +144,7 @@ BossMusic.LIST = {
   ile_close           = T.OMBRE_2, -- la Lumiere Empruntee
   mont_lune_vue       = T.OMBRE_2, -- les Deux Visages du sommeil
   antre_occident      = T.OMBRE_2, -- le Silence Occidental
-  crystal_sanctuary_boss = T.OMBRE, -- Diancie : le doute, pas le combat
+  waterfall_pond_boss = T.OMBRE, -- Diancie : le doute, pas le combat
 
   ---------------- NATURE : les gardiens du vivant ----------------
   lac_savoir       = T.NATURE,
@@ -160,7 +160,7 @@ BossMusic.LIST = {
   sanctuaire_voeu  = T.NATURE,
   cretes_boreales  = T.NATURE,
   arene_clairiere_secrete = T.NATURE,  -- le jeu, pas la guerre
-  forgotten_marsh_boss    = T.NATURE,  -- le marais, ch9
+  poisonous_forest_boss    = T.NATURE,  -- le marais, ch9
 
   ---------------- TELLURIQUE : la roche et le feu ----------------
   arene_trone_magma = T.TELLURIQUE,

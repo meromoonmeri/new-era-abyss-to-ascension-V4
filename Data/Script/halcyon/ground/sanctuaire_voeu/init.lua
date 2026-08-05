@@ -155,7 +155,7 @@ function sanctuaire_voeu.PlayTerapagosScene(hero, partner)
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
   -- Lancer le combat de boss Terapagos dans segment 5
-  GAME:ContinueDungeon("crystal_sanctuary", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("waterfall_pond", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function sanctuaire_voeu.Update(map, time) end

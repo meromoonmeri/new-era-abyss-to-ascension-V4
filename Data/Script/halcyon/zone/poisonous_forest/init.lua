@@ -10,7 +10,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.ChapterAftermath'
 require 'halcyon.ReplayEnding'
 
-local forgotten_marsh = {}
+local poisonous_forest = {}
 
 --------------------------------------------------------------------
 -- INDEX DES GROUNDS DE master_zone — resolus PAR NOM
@@ -18,8 +18,8 @@ local forgotten_marsh = {}
 -- CORRECTIF (audit 2026-08-04). Ce fichier ciblait des index ECRITS EN
 -- DUR qui ne designaient plus les cartes voulues : master_zone a grossi
 -- depuis, et tout ce qui suivait un ajout s'est decale.
---   46 -> vast_steppe_entrance     (attendu : forgotten_marsh_entrance)
---   73 -> celestial_peak_entrance  (attendu : forgotten_marsh_relay)
+--   46 -> vast_steppe_entrance     (attendu : poisonous_forest_entrance)
+--   73 -> celestial_peak_entrance  (attendu : poisonous_forest_relay)
 -- Meme defaut, meme remede que zone/cloven_ruins, zone/vast_steppe et
 -- zone/celestial_peak : resolution par NOM a l'execution, qui ne peut
 -- plus rederiver quand un ground est ajoute ou retire.
@@ -35,7 +35,7 @@ local function GROUND_IDX(name)
     return -1
   end)
   if not ok or idx == nil or idx < 0 then
-    PrintInfo("[forgotten_marsh] ground introuvable dans master_zone : " .. tostring(name)
+    PrintInfo("[poisonous_forest] ground introuvable dans master_zone : " .. tostring(name)
               .. " — repli sur " .. tostring(MASTER_FALLBACK))
     return MASTER_FALLBACK
   end
@@ -43,27 +43,27 @@ local function GROUND_IDX(name)
 end
 
 
-function forgotten_marsh.Init(zone)
+function poisonous_forest.Init(zone)
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> Init_forgotten_marsh")
-  SV.TemporaryFlags.LastDungeonEntered = 'forgotten_marsh'
+  PrintInfo("=>> Init_poisonous_forest")
+  SV.TemporaryFlags.LastDungeonEntered = 'poisonous_forest'
 end
 
-function forgotten_marsh.EnterSegment(zone, rescuing, segmentID, mapID)
+function poisonous_forest.EnterSegment(zone, rescuing, segmentID, mapID)
     GeneralFunctions.CheckAllowSetRescue(zone.ID)
     if rescuing ~= true then
         COMMON.BeginDungeon(zone.ID, segmentID, mapID)
     end
 end
 
-function forgotten_marsh.Rescued(zone, name, mail)
+function poisonous_forest.Rescued(zone, name, mail)
     COMMON.Rescued(zone, name, mail)
 end
 
-function forgotten_marsh.ExitSegment(zone, result, rescue, segmentID, mapID)
+function poisonous_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.RestoreIdleAnim()
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> ExitSegment_forgotten_marsh result "..tostring(result).." segment "..tostring(segmentID))
+  PrintInfo("=>> ExitSegment_poisonous_forest result "..tostring(result).." segment "..tostring(segmentID))
 
   local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
   SV.adventure.Thief = false
@@ -80,44 +80,44 @@ function forgotten_marsh.ExitSegment(zone, result, rescue, segmentID, mapID)
 
   if segmentID == 0 then
       -- Berges Putrides : 10 etages
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('forgotten_marsh', 9) then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('poisonous_forest', 9) then
           SV.Chapter9.ReachedMarshRelay = true
-          GAME:EnterGroundMap('forgotten_marsh_relay', 'Main_Entrance_Marker')
+          GAME:EnterGroundMap('poisonous_forest_relay', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
           SV.Chapter9.LostMarshBanks = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
-              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('forgotten_marsh_entrance'), 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('poisonous_forest_entrance'), 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
                   "La vase...[pause=0] elle nous aspire...[pause=20] vers le fond...", "Pain")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, GROUND_IDX('forgotten_marsh_entrance'), 0)
+              GAME:EnterZone("master_zone", -1, GROUND_IDX('poisonous_forest_entrance'), 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('forgotten_marsh_entrance'), 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('poisonous_forest_entrance'), 0, true, true)
           end
       end
   elseif segmentID == 1 then
       -- Relais
       if result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
-          GAME:EnterGroundMap('forgotten_marsh_relay', 'Main_Entrance_Marker')
+          GAME:EnterGroundMap('poisonous_forest_relay', 'Main_Entrance_Marker')
       end
   elseif segmentID == 2 then
       -- Premier 3F des Abysses Vaseux : le mini-boss attend au bout.
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('forgotten_marsh', 9) then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('poisonous_forest', 9) then
           PrintInfo("[NREPROBE][transition] marsh seg2 cleared -> miniboss ground")
-          GAME:EnterGroundMap('forgotten_marsh_miniboss', 'Main_Entrance_Marker')
+          GAME:EnterGroundMap('poisonous_forest_miniboss', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
           SV.Chapter9.LostMarshDepths = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
               SV.Chapter9.MarshMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('forgotten_marsh_relay'), 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('poisonous_forest_relay'), 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
                   "Une ombre...[pause=0] dans la brume...[pause=30] elle nous regardait...", "Shock")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, GROUND_IDX('forgotten_marsh_relay'), 0)
+              GAME:EnterZone("master_zone", -1, GROUND_IDX('poisonous_forest_relay'), 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('forgotten_marsh_relay'), 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('poisonous_forest_relay'), 0, true, true)
           end
       end
   elseif segmentID == 3 then
@@ -129,27 +129,27 @@ function forgotten_marsh.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter9.MarshMiniBossLost = true
       end
       PrintInfo("[NREPROBE][transition] marsh seg3 (arene) -> miniboss ground")
-      GAME:EnterGroundMap('forgotten_marsh_miniboss', 'Main_Entrance_Marker')
+      GAME:EnterGroundMap('poisonous_forest_miniboss', 'Main_Entrance_Marker')
   elseif segmentID == 4 then
       -- Second 3F des Abysses Vaseux — le Cercle du Suaire rode, et la
       -- cale de Laggron s'ouvre au bout.
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('forgotten_marsh', 9) then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('poisonous_forest', 9) then
           SV.Chapter9.ReachedMarshDepths = true
           SV.Chapter9.SawCercleDuSuaire = true
           PrintInfo("[NREPROBE][transition] marsh seg4 cleared -> boss ground")
-          GAME:EnterGroundMap('forgotten_marsh_boss', 'Main_Entrance_Marker')
+          GAME:EnterGroundMap('poisonous_forest_boss', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
           SV.Chapter9.LostMarshDepths = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
               SV.Chapter9.MarshMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('forgotten_marsh_relay'), 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('poisonous_forest_relay'), 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
                   "Une ombre...[pause=0] dans la brume...[pause=30] elle nous regardait...", "Shock")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, GROUND_IDX('forgotten_marsh_relay'), 0)
+              GAME:EnterZone("master_zone", -1, GROUND_IDX('poisonous_forest_relay'), 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('forgotten_marsh_relay'), 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('poisonous_forest_relay'), 0, true, true)
           end
       end
   elseif segmentID == 5 then
@@ -173,13 +173,13 @@ function forgotten_marsh.ExitSegment(zone, result, rescue, segmentID, mapID)
       else
           SV.Chapter9.DiedToMegaBlastoise = true
           SV.Chapter9.MarshMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('forgotten_marsh_relay'), 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('poisonous_forest_relay'), 0, true, true)
           GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
               "Le marecage...[pause=0] nous engloutit...[pause=20] tout disparait...", "Pain")
           GAME:WaitFrames(20)
-          GAME:EnterZone("master_zone", -1, GROUND_IDX('forgotten_marsh_relay'), 0)
+          GAME:EnterZone("master_zone", -1, GROUND_IDX('poisonous_forest_relay'), 0)
       end
   end
 end
 
-return forgotten_marsh
+return poisonous_forest

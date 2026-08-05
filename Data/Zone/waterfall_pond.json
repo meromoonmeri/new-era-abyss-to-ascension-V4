@@ -3,9 +3,9 @@
  "Object": {
   "$type": "RogueEssence.Data.ZoneData, RogueEssence",
   "Name": {
-   "DefaultText": "Crystal Sanctuary",
+   "DefaultText": "Waterfall Pond",
    "LocalTexts": {
-    "fr": "Sanctuaire de Cristal"
+    "fr": "Étang Cascade"
    }
   },
   "Released": true,

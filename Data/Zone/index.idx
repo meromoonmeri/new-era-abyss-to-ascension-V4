@@ -487,10 +487,10 @@
         "genesis_vision", 
         "cloven_ruins_midpoint", 
  
-        "forgotten_marsh_entrance", 
+        "poisonous_forest_entrance", 
         "parvis_celeste", 
-        "crystal_sanctuary_relay", 
-        "forgotten_marsh_relay", 
+        "waterfall_pond_relay", 
+        "poisonous_forest_relay", 
         "palier_celeste", 
         "palier_celeste", 
         "autel_celeste", 
@@ -498,8 +498,8 @@
         "guild_guildmasters_bedroom", 
         "gloomy_forest_miniboss", 
         "cloven_ruins_miniboss", 
-        "crystal_sanctuary_miniboss", 
-        "forgotten_marsh_miniboss", 
+        "waterfall_pond_miniboss", 
+        "poisonous_forest_miniboss", 
         "cap_dents_mer", 
         "carrefour_assemblee", 
         "carrefour_sud", 
@@ -599,7 +599,7 @@
         "parvis_celeste", 
         "gloomy_forest_boss", 
         "sanctuaire_voeu", 
-        "forgotten_marsh_boss", 
+        "poisonous_forest_boss", 
         "tour_ciel_sommet"
       ], 
       "Maps": [
@@ -1040,7 +1040,7 @@
       "Comment": "In the second set of training mazes. Unlocked in Chapter 3.", 
       "SortOrder": 0
     }, 
-    "crystal_sanctuary": {
+    "waterfall_pond": {
       "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence", 
       "ExpPercent": 100, 
       "Level": -1, 
@@ -1057,8 +1057,8 @@
       "Rogue": 0, 
       "Grounds": [
  
-        "crystal_sanctuary_relay", 
-        "crystal_sanctuary_miniboss", 
+        "waterfall_pond_relay", 
+        "waterfall_pond_miniboss", 
         "sanctuaire_voeu"
       ], 
       "Maps": [
@@ -1118,7 +1118,7 @@
       "Released": true, 
       "SortOrder": 0
     }, 
-    "forgotten_marsh": {
+    "poisonous_forest": {
       "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence", 
       "ExpPercent": 100, 
       "Level": -1, 
@@ -1134,10 +1134,10 @@
       "CountedFloors": 21, 
       "Rogue": 0, 
       "Grounds": [
-        "forgotten_marsh_entrance", 
-        "forgotten_marsh_relay", 
-        "forgotten_marsh_miniboss", 
-        "forgotten_marsh_boss"
+        "poisonous_forest_entrance", 
+        "poisonous_forest_relay", 
+        "poisonous_forest_miniboss", 
+        "poisonous_forest_boss"
       ], 
       "Maps": [
         [

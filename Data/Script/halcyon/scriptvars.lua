@@ -1234,18 +1234,18 @@ SV.Chapter8 =
 	FinishedBedtimeCutscene = false,--veillee de fin de chapitre (guild_heros_room_ch_8)
 	PlayedSanctuaryRelayIntro = false,
 	--Relais du Sanctuaire : 'DeathArrival' si KO au-dela du checkpoint
-	--(lu par ground/crystal_sanctuary_relay). SanctuaryMidReturn porte le
+	--(lu par ground/waterfall_pond_relay). SanctuaryMidReturn porte le
 	--retour A L'AMIABLE (repli volontaire ou sauvegarde reprise sur place).
 	SanctuaryMidState = nil,
 	SanctuaryMidReturn = false,
 	PlayedArrivalScene = false,--scene d'arrivee devant le donjon (ChapterScenes, ch8)
 	PlayedVictoryScene = false,--scene d'apres-boss (ChapterAftermath, ch8)
-	--Jalon de fin de donjon, ecrit par zone/crystal_sanctuary:95 et lu par
+	--Jalon de fin de donjon, ecrit par zone/waterfall_pond:95 et lu par
 	--ReplayEnding + guild_heros_room. Il n'etait declare NULLE PART : une
 	--partie neuve arrivait donc avec nil.
 	CrystalSanctuaryComplete = false,
 	--Heraut et spectre (mini-boss segment 3 : Strassie + Momartik).
-	--Lus par ground/crystal_sanctuary_miniboss, ecrits par zone/crystal_sanctuary.
+	--Lus par ground/waterfall_pond_miniboss, ecrits par zone/waterfall_pond.
 	CrystalMiniBossSeen = false,
 	CrystalMiniBossDefeated = false,
 	CrystalMiniBossLost = false,
@@ -1281,10 +1281,10 @@ SV.Chapter9 =
 	MarshMidReturn = false,
 	PlayedArrivalScene = false,--scene d'arrivee devant le donjon (ChapterScenes, ch9)
 	PlayedVictoryScene = false,--scene d'apres-boss (ChapterAftermath, ch9)
-	--Meme cas que ch8 : ecrit par zone/forgotten_marsh:96, jamais declare.
+	--Meme cas que ch8 : ecrit par zone/poisonous_forest:96, jamais declare.
 	ForgottenMarshComplete = false,
 	--Boue et venin (mini-boss segment 3 : Avaltout + Coatox).
-	--Lus par ground/forgotten_marsh_miniboss, ecrits par zone/forgotten_marsh.
+	--Lus par ground/poisonous_forest_miniboss, ecrits par zone/poisonous_forest.
 	MarshMiniBossSeen = false,
 	MarshMiniBossDefeated = false,
 	MarshMiniBossLost = false

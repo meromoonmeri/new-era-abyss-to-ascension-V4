@@ -1,5 +1,5 @@
 --[[
-    crystal_sanctuary_miniboss_ch_8.lua
+    waterfall_pond_miniboss_ch_8.lua
     Sanctuaire de Cristal — Mini-Boss : Strassie + Momartik
     (héraut et spectre du seuil, avant la chambre de Diancie)
     Simple : flash blanc + dialogues (directive utilisateur).
@@ -12,7 +12,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 
-crystal_sanctuary_miniboss_ch_8 = {}
+waterfall_pond_miniboss_ch_8 = {}
 
 local HERO_SPAWN = {220, 348}
 local PARTNER_SPAWN = {252, 348}
@@ -32,7 +32,7 @@ local function PlaceTeam(hero, partner)
   if t3 ~= nil then GROUND:TeleportTo(t3, T3_SPAWN[1], T3_SPAWN[2], Direction.Up) end
 end
 
-function crystal_sanctuary_miniboss_ch_8.FirstPreBossScene()
+function waterfall_pond_miniboss_ch_8.FirstPreBossScene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
@@ -139,11 +139,11 @@ function crystal_sanctuary_miniboss_ch_8.FirstPreBossScene()
   GAME:CutsceneMode(false)
   SV.Chapter8.CrystalMiniBossSeen = true
   -- Segment 3 : l'arène de combat proprement dite.
-  PrintInfo("[BossSeq][crystal_miniboss] ContinueDungeon('crystal_sanctuary', 3)")
-  GAME:ContinueDungeon("crystal_sanctuary", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  PrintInfo("[BossSeq][crystal_miniboss] ContinueDungeon('waterfall_pond', 3)")
+  GAME:ContinueDungeon("waterfall_pond", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function crystal_sanctuary_miniboss_ch_8.SecondPreBossScene()
+function waterfall_pond_miniboss_ch_8.SecondPreBossScene()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   local carbink = CharacterEssentials.MakeCharactersFromList({
@@ -180,8 +180,8 @@ function crystal_sanctuary_miniboss_ch_8.SecondPreBossScene()
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  PrintInfo("[BossSeq][crystal_miniboss] ContinueDungeon('crystal_sanctuary', 3)")
-  GAME:ContinueDungeon("crystal_sanctuary", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  PrintInfo("[BossSeq][crystal_miniboss] ContinueDungeon('waterfall_pond', 3)")
+  GAME:ContinueDungeon("waterfall_pond", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 local function DefeatedBossBody()
@@ -247,8 +247,8 @@ local function DefeatedBossBody()
   GAME:WaitFrames(90)
 end
 
-function crystal_sanctuary_miniboss_ch_8.DefeatedBoss()
-  PrintInfo("[BossSeq][crystal_sanctuary_miniboss_ch_8] DefeatedBoss start")
+function waterfall_pond_miniboss_ch_8.DefeatedBoss()
+  PrintInfo("[BossSeq][waterfall_pond_miniboss_ch_8] DefeatedBoss start")
 
   local ok, err = pcall(DefeatedBossBody)
   if not ok then
@@ -258,12 +258,12 @@ function crystal_sanctuary_miniboss_ch_8.DefeatedBoss()
 
   GAME:CutsceneMode(false)
   -- Segment 4 : les 3F au-dessus du mini-boss, vers la chambre de Diancie.
-  PrintInfo("[BossSeq][crystal_sanctuary_miniboss_ch_8] -> ContinueDungeon(seg 4)")
-  GAME:ContinueDungeon("crystal_sanctuary", 4, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  PrintInfo("[BossSeq][waterfall_pond_miniboss_ch_8] -> ContinueDungeon(seg 4)")
+  GAME:ContinueDungeon("waterfall_pond", 4, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
-function crystal_sanctuary_miniboss_ch_8.DiedToBoss()
-  PrintInfo("[BossSeq][crystal_sanctuary_miniboss_ch_8] DiedToBoss start")
+function waterfall_pond_miniboss_ch_8.DiedToBoss()
+  PrintInfo("[BossSeq][waterfall_pond_miniboss_ch_8] DiedToBoss start")
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
 
@@ -303,8 +303,8 @@ function crystal_sanctuary_miniboss_ch_8.DiedToBoss()
 
   -- Checkpoint : réveil au relais (WipedCutscene du relay).
   SV.Chapter8.SanctuaryMidState = 'DeathArrival'
-  PrintInfo("[BossSeq][crystal_sanctuary_miniboss_ch_8] DiedToBoss -> crystal_sanctuary_relay")
-  GAME:EnterGroundMap("crystal_sanctuary_relay", "Main_Entrance_Marker")
+  PrintInfo("[BossSeq][waterfall_pond_miniboss_ch_8] DiedToBoss -> waterfall_pond_relay")
+  GAME:EnterGroundMap("waterfall_pond_relay", "Main_Entrance_Marker")
 end
 
-return crystal_sanctuary_miniboss_ch_8
+return waterfall_pond_miniboss_ch_8

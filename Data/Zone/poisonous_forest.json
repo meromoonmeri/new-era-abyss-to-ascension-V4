@@ -1,11 +1,11 @@
-{
+﻿{
  "Version": "0.8.9.0",
  "Object": {
   "$type": "RogueEssence.Data.ZoneData, RogueEssence",
   "Name": {
-   "DefaultText": "Forgotten Marsh",
+   "DefaultText": "Poisonous Forest",
    "LocalTexts": {
-    "fr": "Marais de l'Oubli"
+    "fr": "Forêt Toxique"
    }
   },
   "Released": true,

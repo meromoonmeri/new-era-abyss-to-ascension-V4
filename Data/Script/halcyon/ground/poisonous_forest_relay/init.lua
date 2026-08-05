@@ -1,5 +1,5 @@
 --[[
-    init.lua — forgotten_marsh_relay
+    init.lua — poisonous_forest_relay
     Relais mi-donjon (patron searing_tunnel_midpoint) : Statue Kangourex,
     sortie avant vers le segment suivant, sortie arrière vers l'entrée.
 ]]
@@ -9,7 +9,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.RelayScenes'
 require 'halcyon.MidpointTemplate'
 
-local forgotten_marsh_relay = {}
+local poisonous_forest_relay = {}
 
 --------------------------------------------------------------------
 -- HABILLAGE DU POINT MEDIAN — Marais de l'Oubli (408x432)
@@ -37,17 +37,17 @@ local RELAY_SKIN = {
   walk      = 56,
 }
 
-function forgotten_marsh_relay.Init(map)
+function poisonous_forest_relay.Init(map)
   DEBUG.EnableDbgCoro()
-  print('=>> Init_forgotten_marsh_relay <<=')
+  print('=>> Init_poisonous_forest_relay <<=')
   COMMON.RespawnAllies(true)
   PartnerEssentials.InitializePartnerSpawn()
 end
 
-function forgotten_marsh_relay.Enter(map)
+function poisonous_forest_relay.Enter(map)
   if SV.Chapter9.MarshMidState == 'DeathArrival' then
     SV.Chapter9.MarshMidState = nil
-    forgotten_marsh_relay.WipedCutscene()
+    poisonous_forest_relay.WipedCutscene()
     return
   end
   if not SV.Chapter9.PlayedMarshRelayIntro then
@@ -97,23 +97,23 @@ function forgotten_marsh_relay.Enter(map)
   end
 end
 
-function forgotten_marsh_relay.Update(map, time) end
+function poisonous_forest_relay.Update(map, time) end
 
-function forgotten_marsh_relay.GameSave(map)
+function poisonous_forest_relay.GameSave(map)
   PartnerEssentials.SaveGamePartnerPosition(CH('Teammate1'))
 end
 
 -- Reprise d'une sauvegarde faite AU relais : sortie a l'amiable.
 -- On arme le retour sobre du template plutot qu'un fondu muet.
-function forgotten_marsh_relay.GameLoad(map)
+function poisonous_forest_relay.GameLoad(map)
   PartnerEssentials.LoadGamePartnerPosition(CH('Teammate1'))
   if SV.Chapter9.PlayedMarshRelayIntro and SV.Chapter9.MarshMidState ~= 'DeathArrival' then
     SV.Chapter9.MarshMidReturn = true
   end
-  forgotten_marsh_relay.Enter(map)
+  poisonous_forest_relay.Enter(map)
 end
 
-function forgotten_marsh_relay.North_Exit_Touch(obj, activator)
+function poisonous_forest_relay.North_Exit_Touch(obj, activator)
   DEBUG.EnableDbgCoro()
   UI:ResetSpeaker(false)
   UI:SetCenter(true)
@@ -131,20 +131,20 @@ function forgotten_marsh_relay.North_Exit_Touch(obj, activator)
     partner.IsInteracting = false
     GROUND:CharEndAnim(partner)
     GROUND:CharEndAnim(hero)
-    GAME:EnterDungeon("forgotten_marsh", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    GAME:EnterDungeon("poisonous_forest", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
   end
   partner.IsInteracting = false
   GROUND:CharEndAnim(partner)
   GROUND:CharEndAnim(hero)
 end
 
-function forgotten_marsh_relay.South_Exit_Touch(obj, activator)
+function poisonous_forest_relay.South_Exit_Touch(obj, activator)
   DEBUG.EnableDbgCoro()
   UI:ResetSpeaker(false)
   UI:SetCenter(true)
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
-  local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("forgotten_marsh")
+  local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("poisonous_forest")
   partner.IsInteracting = true
   GROUND:CharSetAnim(partner, 'None', true)
   GROUND:CharSetAnim(hero, 'None', true)
@@ -163,28 +163,28 @@ function forgotten_marsh_relay.South_Exit_Touch(obj, activator)
     GROUND:CharEndAnim(partner)
     GROUND:CharEndAnim(hero)
     GAME:WaitFrames(60)
-    GAME:EnterGroundMap("forgotten_marsh_entrance", "Main_Entrance_Marker")
+    GAME:EnterGroundMap("poisonous_forest_entrance", "Main_Entrance_Marker")
   end
   partner.IsInteracting = false
   GROUND:CharEndAnim(partner)
   GROUND:CharEndAnim(hero)
 end
 
-function forgotten_marsh_relay.Kangaskhan_Rock_Action(obj, activator)
+function poisonous_forest_relay.Kangaskhan_Rock_Action(obj, activator)
   GeneralFunctions.Kangashkhan_Rock_Interact(obj, activator)
 end
 
-function forgotten_marsh_relay.Teammate1_Action(chara, activator)
+function poisonous_forest_relay.Teammate1_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   PartnerEssentials.GetPartnerDialogue(CH('Teammate1'))
 end
 
-function forgotten_marsh_relay.Teammate2_Action(chara, activator)
+function poisonous_forest_relay.Teammate2_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   GeneralFunctions.GroundInteract(activator, chara)
 end
 
-function forgotten_marsh_relay.Teammate3_Action(chara, activator)
+function poisonous_forest_relay.Teammate3_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   GeneralFunctions.GroundInteract(activator, chara)
 end
@@ -195,7 +195,7 @@ end
 -- Réveil après une défaite au-delà du checkpoint (vague 8).
 -- Le duo revient à lui près du Terminal, ranimé par ses réserves.
 --------------------------------------------------------------------
-function forgotten_marsh_relay.WipedCutscene()
+function poisonous_forest_relay.WipedCutscene()
 
 	--LE NOIR AVANT TOUTE MISE EN PLACE (correctif de retour de boss,
 	--2026-07-30). Cette scene est jouee juste apres un EndSegment /
@@ -262,4 +262,4 @@ function forgotten_marsh_relay.WipedCutscene()
   GAME:FadeIn(1)
 end
 
-return forgotten_marsh_relay
+return poisonous_forest_relay

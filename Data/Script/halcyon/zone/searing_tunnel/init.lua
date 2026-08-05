@@ -186,7 +186,7 @@ function searing_tunnel.ExitSegment(zone, result, rescue, segmentID, mapID)
 			-- Les fichiers du mini-boss (Data/Map/searing_tunnel_miniboss.rsmap,
 			-- son ground et ses scripts) sont LAISSES INTACTS sur le disque :
 			-- ils servent de GABARIT DE REFERENCE a quatre autres mini-boss du
-			-- mod (cloven_ruins, crystal_sanctuary, forgotten_marsh,
+			-- mod (cloven_ruins, waterfall_pond, poisonous_forest,
 			-- gloomy_forest, qui citent tous « patron : searing_tunnel_miniboss »).
 			-- Seul le BRANCHEMENT est coupe, pas le contenu.
 			PrintInfo("[NREPROBE][transition] searing_tunnel.ExitSegment -> EnterGroundMap('searing_crucible')") GAME:EnterGroundMap('searing_crucible', 'Main_Entrance_Marker')

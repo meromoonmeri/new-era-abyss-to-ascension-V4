@@ -10,7 +10,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.ChapterAftermath'
 require 'halcyon.ReplayEnding'
 
-local crystal_sanctuary = {}
+local waterfall_pond = {}
 
 --------------------------------------------------------------------
 -- INDEX DES GROUNDS DE master_zone — resolus PAR NOM
@@ -35,7 +35,7 @@ local function GROUND_IDX(name)
     return -1
   end)
   if not ok or idx == nil or idx < 0 then
-    PrintInfo("[crystal_sanctuary] ground introuvable dans master_zone : " .. tostring(name)
+    PrintInfo("[waterfall_pond] ground introuvable dans master_zone : " .. tostring(name)
               .. " — repli sur " .. tostring(MASTER_FALLBACK))
     return MASTER_FALLBACK
   end
@@ -43,27 +43,27 @@ local function GROUND_IDX(name)
 end
 
 
-function crystal_sanctuary.Init(zone)
+function waterfall_pond.Init(zone)
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> Init_crystal_sanctuary")
-  SV.TemporaryFlags.LastDungeonEntered = 'crystal_sanctuary'
+  PrintInfo("=>> Init_waterfall_pond")
+  SV.TemporaryFlags.LastDungeonEntered = 'waterfall_pond'
 end
 
-function crystal_sanctuary.EnterSegment(zone, rescuing, segmentID, mapID)
+function waterfall_pond.EnterSegment(zone, rescuing, segmentID, mapID)
     GeneralFunctions.CheckAllowSetRescue(zone.ID)
     if rescuing ~= true then
         COMMON.BeginDungeon(zone.ID, segmentID, mapID)
     end
 end
 
-function crystal_sanctuary.Rescued(zone, name, mail)
+function waterfall_pond.Rescued(zone, name, mail)
     COMMON.Rescued(zone, name, mail)
 end
 
-function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
+function waterfall_pond.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.RestoreIdleAnim()
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> ExitSegment_crystal_sanctuary result "..tostring(result).." segment "..tostring(segmentID))
+  PrintInfo("=>> ExitSegment_waterfall_pond result "..tostring(result).." segment "..tostring(segmentID))
 
   local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
   SV.adventure.Thief = false
@@ -80,9 +80,9 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
 
   if segmentID == 0 then
       -- Galerie Cristalline : 12 etages
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('crystal_sanctuary', 8) then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('waterfall_pond', 8) then
           SV.Chapter8.ReachedCrystalRelay = true
-          GAME:EnterGroundMap('crystal_sanctuary_relay', 'Main_Entrance_Marker')
+          GAME:EnterGroundMap('waterfall_pond_relay', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
           SV.Chapter8.LostCrystalGallery = true
@@ -99,13 +99,13 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
   elseif segmentID == 1 then
       -- Relais
       if result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
-          GAME:EnterGroundMap('crystal_sanctuary_relay', 'Main_Entrance_Marker')
+          GAME:EnterGroundMap('waterfall_pond_relay', 'Main_Entrance_Marker')
       end
   elseif segmentID == 2 then
       -- Premier 3F des Salles des Glyphes : le mini-boss attend au bout.
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('crystal_sanctuary', 8) then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('waterfall_pond', 8) then
           PrintInfo("[NREPROBE][transition] crystal seg2 cleared -> miniboss ground")
-          GAME:EnterGroundMap('crystal_sanctuary_miniboss', 'Main_Entrance_Marker')
+          GAME:EnterGroundMap('waterfall_pond_miniboss', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
           SV.Chapter8.LostGlyphHalls = true
@@ -129,10 +129,10 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter8.CrystalMiniBossLost = true
       end
       PrintInfo("[NREPROBE][transition] crystal seg3 (arene) -> miniboss ground")
-      GAME:EnterGroundMap('crystal_sanctuary_miniboss', 'Main_Entrance_Marker')
+      GAME:EnterGroundMap('waterfall_pond_miniboss', 'Main_Entrance_Marker')
   elseif segmentID == 4 then
       -- Second 3F des Salles des Glyphes : la chambre de Diancie s'ouvre.
-      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('crystal_sanctuary', 8) then
+      if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('waterfall_pond', 8) then
           SV.Chapter8.ReachedDiancieChamber = true
           PrintInfo("[NREPROBE][transition] crystal seg4 cleared -> boss ground")
           GAME:EnterGroundMap('sanctuaire_voeu', 'Main_Entrance_Marker')
@@ -180,4 +180,4 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
   end
 end
 
-return crystal_sanctuary
+return waterfall_pond

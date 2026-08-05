@@ -66,8 +66,8 @@ ReplayEnding.CLEARED = {
   --Ch7 : DefeatedRuinsBoss est un drapeau de routage remis a false. Le
   --drapeau durable est celui pose par la scene d'apres-combat.
   cloven_ruins        = function() return SV.Chapter5  ~= nil and SV.Chapter5.SawAnimaCoreCorruption == true end,
-  crystal_sanctuary   = function() return SV.Chapter8  ~= nil and SV.Chapter8.CrystalSanctuaryComplete == true end,
-  forgotten_marsh     = function() return SV.Chapter9  ~= nil and SV.Chapter9.ForgottenMarshComplete == true end,
+  waterfall_pond   = function() return SV.Chapter8  ~= nil and SV.Chapter8.CrystalSanctuaryComplete == true end,
+  poisonous_forest     = function() return SV.Chapter9  ~= nil and SV.Chapter9.ForgottenMarshComplete == true end,
   sky_tower      = function() return SV.Chapter10 ~= nil and SV.Chapter10.CelestialPeakComplete == true end,
 }
 

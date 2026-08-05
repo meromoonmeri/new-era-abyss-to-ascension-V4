@@ -1,5 +1,5 @@
 --[[
-    init.lua — crystal_sanctuary_relay
+    init.lua — waterfall_pond_relay
     Relais mi-donjon (patron searing_tunnel_midpoint) : Statue Kangourex,
     sortie avant vers le segment suivant, sortie arrière vers l'entrée.
 ]]
@@ -9,7 +9,7 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.RelayScenes'
 require 'halcyon.MidpointTemplate'
 
-local crystal_sanctuary_relay = {}
+local waterfall_pond_relay = {}
 
 --------------------------------------------------------------------
 -- HABILLAGE DU POINT MEDIAN — Sanctuaire de Cristal (600x648)
@@ -36,17 +36,17 @@ local RELAY_SKIN = {
   walk      = 56,
 }
 
-function crystal_sanctuary_relay.Init(map)
+function waterfall_pond_relay.Init(map)
   DEBUG.EnableDbgCoro()
-  print('=>> Init_crystal_sanctuary_relay <<=')
+  print('=>> Init_waterfall_pond_relay <<=')
   COMMON.RespawnAllies(true)
   PartnerEssentials.InitializePartnerSpawn()
 end
 
-function crystal_sanctuary_relay.Enter(map)
+function waterfall_pond_relay.Enter(map)
   if SV.Chapter8.SanctuaryMidState == 'DeathArrival' then
     SV.Chapter8.SanctuaryMidState = nil
-    crystal_sanctuary_relay.WipedCutscene()
+    waterfall_pond_relay.WipedCutscene()
     return
   end
   if not SV.Chapter8.PlayedSanctuaryRelayIntro then
@@ -96,23 +96,23 @@ function crystal_sanctuary_relay.Enter(map)
   end
 end
 
-function crystal_sanctuary_relay.Update(map, time) end
+function waterfall_pond_relay.Update(map, time) end
 
-function crystal_sanctuary_relay.GameSave(map)
+function waterfall_pond_relay.GameSave(map)
   PartnerEssentials.SaveGamePartnerPosition(CH('Teammate1'))
 end
 
 -- Reprise d'une sauvegarde faite AU relais : sortie a l'amiable.
 -- On arme le retour sobre du template plutot qu'un fondu muet.
-function crystal_sanctuary_relay.GameLoad(map)
+function waterfall_pond_relay.GameLoad(map)
   PartnerEssentials.LoadGamePartnerPosition(CH('Teammate1'))
   if SV.Chapter8.PlayedSanctuaryRelayIntro and SV.Chapter8.SanctuaryMidState ~= 'DeathArrival' then
     SV.Chapter8.SanctuaryMidReturn = true
   end
-  crystal_sanctuary_relay.Enter(map)
+  waterfall_pond_relay.Enter(map)
 end
 
-function crystal_sanctuary_relay.North_Exit_Touch(obj, activator)
+function waterfall_pond_relay.North_Exit_Touch(obj, activator)
   DEBUG.EnableDbgCoro()
   UI:ResetSpeaker(false)
   UI:SetCenter(true)
@@ -130,20 +130,20 @@ function crystal_sanctuary_relay.North_Exit_Touch(obj, activator)
     partner.IsInteracting = false
     GROUND:CharEndAnim(partner)
     GROUND:CharEndAnim(hero)
-    GAME:EnterDungeon("crystal_sanctuary", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    GAME:EnterDungeon("waterfall_pond", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
   end
   partner.IsInteracting = false
   GROUND:CharEndAnim(partner)
   GROUND:CharEndAnim(hero)
 end
 
-function crystal_sanctuary_relay.South_Exit_Touch(obj, activator)
+function waterfall_pond_relay.South_Exit_Touch(obj, activator)
   DEBUG.EnableDbgCoro()
   UI:ResetSpeaker(false)
   UI:SetCenter(true)
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
-  local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("crystal_sanctuary")
+  local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("waterfall_pond")
   partner.IsInteracting = true
   GROUND:CharSetAnim(partner, 'None', true)
   GROUND:CharSetAnim(hero, 'None', true)
@@ -169,21 +169,21 @@ function crystal_sanctuary_relay.South_Exit_Touch(obj, activator)
   GROUND:CharEndAnim(hero)
 end
 
-function crystal_sanctuary_relay.Kangaskhan_Rock_Action(obj, activator)
+function waterfall_pond_relay.Kangaskhan_Rock_Action(obj, activator)
   GeneralFunctions.Kangashkhan_Rock_Interact(obj, activator)
 end
 
-function crystal_sanctuary_relay.Teammate1_Action(chara, activator)
+function waterfall_pond_relay.Teammate1_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   PartnerEssentials.GetPartnerDialogue(CH('Teammate1'))
 end
 
-function crystal_sanctuary_relay.Teammate2_Action(chara, activator)
+function waterfall_pond_relay.Teammate2_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   GeneralFunctions.GroundInteract(activator, chara)
 end
 
-function crystal_sanctuary_relay.Teammate3_Action(chara, activator)
+function waterfall_pond_relay.Teammate3_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   GeneralFunctions.GroundInteract(activator, chara)
 end
@@ -194,7 +194,7 @@ end
 -- Réveil après une défaite au-delà du checkpoint (vague 8).
 -- Le duo revient à lui près du Terminal, ranimé par ses réserves.
 --------------------------------------------------------------------
-function crystal_sanctuary_relay.WipedCutscene()
+function waterfall_pond_relay.WipedCutscene()
 
 	--LE NOIR AVANT TOUTE MISE EN PLACE (correctif de retour de boss,
 	--2026-07-30). Cette scene est jouee juste apres un EndSegment /
@@ -261,4 +261,4 @@ function crystal_sanctuary_relay.WipedCutscene()
   GAME:FadeIn(1)
 end
 
-return crystal_sanctuary_relay
+return waterfall_pond_relay
