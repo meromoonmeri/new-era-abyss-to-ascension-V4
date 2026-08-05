@@ -486,7 +486,7 @@
         "cloven_ruins_entrance", 
         "genesis_vision", 
         "cloven_ruins_midpoint", 
-        "crystal_sanctuary_entrance", 
+ 
         "forgotten_marsh_entrance", 
         "parvis_celeste", 
         "crystal_sanctuary_relay", 
@@ -598,7 +598,7 @@
         "tour_ciel_sommet", 
         "parvis_celeste", 
         "gloomy_forest_boss", 
-        "crystal_sanctuary_boss", 
+        "sanctuaire_voeu", 
         "forgotten_marsh_boss", 
         "tour_ciel_sommet"
       ], 
@@ -1056,10 +1056,10 @@
       "CountedFloors": 21, 
       "Rogue": 0, 
       "Grounds": [
-        "crystal_sanctuary_entrance", 
+ 
         "crystal_sanctuary_relay", 
         "crystal_sanctuary_miniboss", 
-        "crystal_sanctuary_boss"
+        "sanctuaire_voeu"
       ], 
       "Maps": [
         [

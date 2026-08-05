@@ -162,7 +162,7 @@ function crystal_sanctuary_relay.South_Exit_Touch(obj, activator)
     GROUND:CharEndAnim(partner)
     GROUND:CharEndAnim(hero)
     GAME:WaitFrames(60)
-    GAME:EnterGroundMap("crystal_sanctuary_entrance", "Main_Entrance_Marker")
+    GAME:EnterGroundMap("metano_town", "Main_Entrance_Marker")
   end
   partner.IsInteracting = false
   GROUND:CharEndAnim(partner)

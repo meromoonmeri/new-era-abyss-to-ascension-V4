@@ -18,7 +18,7 @@ local crystal_sanctuary = {}
 -- CORRECTIF (audit 2026-08-04). Ce fichier ciblait des index ECRITS EN
 -- DUR qui ne designaient plus les cartes voulues : master_zone a grossi
 -- depuis, et tout ce qui suivait un ajout s'est decale.
---   46 -> vast_steppe_entrance  (attendu : crystal_sanctuary_entrance)
+--   46 -> vast_steppe_entrance  (attendu : metano_town)
 --   Mourir dans la premiere moitie renvoyait a un donjon du chapitre 5.
 -- Meme defaut, meme remede que zone/cloven_ruins, zone/vast_steppe et
 -- zone/celestial_peak : resolution par NOM a l'execution, qui ne peut
@@ -87,13 +87,13 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
           GAME:WaitFrames(20)
           SV.Chapter8.LostCrystalGallery = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
-              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('crystal_sanctuary_entrance'), 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('metano_town'), 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
                   "Les cristaux...[pause=0] ils emprisonnent tout...[pause=15] meme la lumiere...", "Pain")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, GROUND_IDX('crystal_sanctuary_entrance'), 0)
+              GAME:EnterZone("master_zone", -1, GROUND_IDX('metano_town'), 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('crystal_sanctuary_entrance'), 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('metano_town'), 0, true, true)
           end
       end
   elseif segmentID == 1 then
@@ -135,7 +135,7 @@ function crystal_sanctuary.ExitSegment(zone, result, rescue, segmentID, mapID)
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('crystal_sanctuary', 8) then
           SV.Chapter8.ReachedDiancieChamber = true
           PrintInfo("[NREPROBE][transition] crystal seg4 cleared -> boss ground")
-          GAME:EnterGroundMap('crystal_sanctuary_boss', 'Main_Entrance_Marker')
+          GAME:EnterGroundMap('sanctuaire_voeu', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
           SV.Chapter8.LostGlyphHalls = true

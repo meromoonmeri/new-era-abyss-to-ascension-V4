@@ -1,4 +1,4 @@
-{
+﻿{
  "Version": "0.8.9.0",
  "Object": {
   "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -2119,7 +2119,7 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-         "MapID": "crystal_sanctuary_boss"
+         "MapID": "sanctuaire_voeu"
         }
        }
       ],
@@ -2134,7 +2134,7 @@
    "crystal_sanctuary_entrance",
    "crystal_sanctuary_relay",
    "crystal_sanctuary_miniboss",
-   "crystal_sanctuary_boss"
+   "sanctuaire_voeu"
   ]
  }
 }
