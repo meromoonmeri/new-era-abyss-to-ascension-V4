@@ -692,6 +692,7 @@ SV.Reseau =
 
 SV.ChapterProgression = 
 {
+	UnlockedDungeons = {},
 	DaysPassed = 0,--total number of in game days played in the game
 	DaysToReach = -1, --Used to figure out what day needs to be reached to continue the story
 	Chapter = 1,
@@ -955,6 +956,18 @@ SV.Chapter5 =
 	--  RuinsLastExitReason : 'Died' (KO) ou 'Retreated' (abandon volontaire).
 	PlayTempRuinsScene = false,
 	RuinsLastExitReason = '',
+	RuinsRespawnArena = nil,
+	RuinsMidState = nil,
+	RuinsMidpointState = 'FirstArrival',
+	RuinsMidReturn = false,
+	RuinsMiniBossSeen = false,
+	RuinsMiniBossDefeated = false,
+	RuinsMiniBossLost = false,
+	LostRuins = false,
+	LostDepths = false,
+	DefeatedRuinsBoss = false,
+	DiedToRuinsBoss = false,
+	SawAnimaCoreCorruption = false,
 	RuinsExpeditionDone = false
 }
 
@@ -1185,29 +1198,18 @@ SV.SearingTunnel =
 
 SV.Chapter7 = 
 {
-	-- Chapter 7: Ruines Tordues + Cinematique de la Genese
-	ShowedTitleCard = false,
+	-- Chapter 7
 	EnteredRuins = false,
 	LostRuins = false,
 	LostDepths = false,
 	DefeatedRuinsBoss = false,
 	DiedToRuinsBoss = false,
 	SawAnimaCoreCorruption = false,
+	ShowedTitleCard = false,
 	HeardGenesisTale = false,
 	HadFirstDream = false,--Premier reve de Necrozma
 	RuinsAddressGiven = false,--Adresse du matin Ch7 donnee
 	MissionAccepted = false,--Mission Ruines Tordues acceptee
-	RuinsMidpointState = 'FirstArrival',
-	--Retour A L'AMIABLE au relais des Ruines (repli volontaire par la
-	--sortie sud, ou reprise d'une sauvegarde faite sur place). Declenche
-	--l'etat RepeatArrival du template de point median ; distinct de
-	--RuinsMidState, qui porte le reveil apres un KO.
-	RuinsMidReturn = false,
-	--Gardiens antiques (mini-boss segment 3 : Kaorine + Golemastoc).
-	--Lus par ground/cloven_ruins_miniboss, ecrits par zone/cloven_ruins (seg 3).
-	RuinsMiniBossSeen = false,
-	RuinsMiniBossDefeated = false,
-	RuinsMiniBossLost = false,
 	AlakazamScenePlayed = false,
 	VisitedXatu = false,
 	GreatReunionPlayed = false,

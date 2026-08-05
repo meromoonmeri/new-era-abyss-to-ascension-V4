@@ -95,6 +95,14 @@ function RuinesRenforts.Revelation()
     end
   end)
   PrintInfo('[Ruines] Tour des Reliques deverrouillee')
+
+  -- Retour de l'expédition des Ruines : boucle le chapitre 5 et transition vers ch 6.
+  if SV.Chapter5 ~= nil then
+    SV.Chapter5.RuinsExpeditionDone = true
+    SV.Chapter5.FinishedExpedition = true
+  end
+  GAME:FadeOut(false, 60)
+  GAME:EnterGroundMap("guild_third_floor_lobby", "Main_Entrance_Marker")
 end
 
 return RuinesRenforts

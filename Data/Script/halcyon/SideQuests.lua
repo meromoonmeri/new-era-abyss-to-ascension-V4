@@ -51,6 +51,12 @@ require 'halcyon.CharacterEssentials'
 
 SideQuests = {}
 
+local function say(who, emo, txt)
+  UI:SetSpeaker(who)
+  if emo then UI:SetSpeakerEmotion(emo) end
+  UI:WaitShowDialogue(txt)
+end
+
 --------------------------------------------------------------------
 -- ETAT
 --------------------------------------------------------------------
@@ -61,6 +67,179 @@ function SideQuests.Ensure()
   if s.Taken == nil then s.Taken = {} end      -- [id] = true
   if s.Step == nil then s.Step = {} end        -- [id] = n (avancement)
   return s
+end
+
+local function say_list(tbl)
+  if tbl == nil then return end
+  if type(tbl[1]) == "table" then
+    for _, t in ipairs(tbl) do
+      local chara = CH(t[1])
+      if chara then
+        UI:SetSpeaker(chara)
+        if t[2] then UI:SetSpeakerEmotion(t[2]) end
+        UI:WaitShowDialogue(t[3])
+      else
+        UI:ResetSpeaker()
+        UI:WaitShowDialogue(t[3])
+      end
+    end
+  else
+    local chara = CH(tbl[1])
+    if chara then
+      UI:SetSpeaker(chara)
+      if tbl[2] then UI:SetSpeakerEmotion(tbl[2]) end
+      UI:WaitShowDialogue(tbl[3])
+    else
+      UI:ResetSpeaker()
+      UI:WaitShowDialogue(tbl[3])
+    end
+  end
+end
+
+function SideQuests.OfChapter(ch)
+  local res = {}
+  for _, q in ipairs(SideQuests.LIST) do
+    if q.ch == ch then
+      table.insert(res, q)
+    end
+  end
+  return res
+end
+
+function SideQuests.Remaining(ch)
+  local s = SideQuests.Ensure()
+  local count = 0
+  for _, q in ipairs(SideQuests.OfChapter(ch)) do
+    if not s.Done[q.id] then
+      count = count + 1
+    end
+  end
+  return count
+end
+
+function SideQuests.AllDone(ch)
+  local s = SideQuests.Ensure()
+  local quests = SideQuests.OfChapter(ch)
+  if #quests == 0 then return true end
+  for _, q in ipairs(quests) do
+    if not s.Done[q.id] then
+      return false
+    end
+  end
+  return true
+end
+
+function SideQuests.Board(ch)
+  local s = SideQuests.Ensure()
+  local quests = SideQuests.OfChapter(ch)
+  if #quests == 0 then
+    UI:ResetSpeaker()
+    UI:SetCenter(true)
+    UI:WaitShowDialogue("Le tableau d'affichage est vide pour ce chapitre.")
+    UI:SetCenter(false)
+    return
+  end
+
+  UI:ResetSpeaker()
+  UI:SetCenter(true)
+  UI:WaitShowDialogue("Tableau des requêtes de Metano Town (Chapitre " .. tostring(ch) .. ") :")
+  for _, q in ipairs(quests) do
+    local status = "Disponible"
+    if s.Done[q.id] then
+      status = "Accomplie"
+    elseif s.Taken[q.id] then
+      status = "En cours"
+    end
+    UI:WaitShowDialogue("- " .. q.titre .. " (" .. status .. ")")
+  end
+  UI:SetCenter(false)
+end
+
+function SideQuests.Interact(inst, ch)
+  local s = SideQuests.Ensure()
+  local quests = SideQuests.OfChapter(ch)
+
+  for _, q in ipairs(quests) do
+    -- 1. Si on interagit avec le donneur de quête (giver)
+    if q.giver == inst then
+      if s.Done[q.id] then
+        -- Déjà faite
+      else
+        -- Si la quête a été résolue et attend d'être rendue (conversations)
+        if s.Step[q.id] == 1 then
+          GAME:CutsceneMode(true)
+          local ok, err = pcall(function()
+            say_list(q.done)
+            s.Done[q.id] = true
+            s.Step[q.id] = 2
+            UI:ResetSpeaker(false)
+            UI:SetCenter(true)
+            UI:WaitShowDialogue("Requête accomplie :[pause=10] « " .. q.titre .. " » !")
+            UI:SetCenter(false)
+          end)
+          if not ok then print("Error in SideQuests.Interact done: " .. tostring(err)) end
+          pcall(function() UI:ResetSpeaker() end)
+          GAME:CutsceneMode(false)
+          return true
+        
+        -- Si la quête est en cours (déjà acceptée)
+        elseif s.Taken[q.id] then
+          GAME:CutsceneMode(true)
+          pcall(function()
+            say_list(q.pending)
+          end)
+          pcall(function() UI:ResetSpeaker() end)
+          GAME:CutsceneMode(false)
+          return true
+        
+        -- Si la quête n'a pas encore été acceptée
+        else
+          GAME:CutsceneMode(true)
+          local ok, err = pcall(function()
+            say_list(q.ask)
+            UI:ChoiceMenuYesNo("Accepter la requête : « " .. q.titre .. " » ?", true)
+            UI:WaitForChoice()
+            if UI:ChoiceResult() then
+              s.Taken[q.id] = true
+              say_list(q.accept)
+              if q.unlock_dungeon then
+                COMMON.UnlockWithFanfare(q.unlock_dungeon, false)
+                if SV.ChapterProgression and SV.ChapterProgression.UnlockedDungeons then
+                  SV.ChapterProgression.UnlockedDungeons[q.unlock_dungeon] = true
+                end
+              end
+              UI:ResetSpeaker(false)
+              UI:SetCenter(true)
+              UI:WaitShowDialogue("Requête acceptée :[pause=10] « " .. q.titre .. " ».")
+              UI:SetCenter(false)
+            else
+              say_list(q.refuse)
+            end
+          end)
+          if not ok then print("Error in SideQuests.Interact ask: " .. tostring(err)) end
+          pcall(function() UI:ResetSpeaker() end)
+          GAME:CutsceneMode(false)
+          return true
+        end
+      end
+
+    -- 2. Si on interagit avec la cible de quête (target) et qu'elle est différente du donneur
+    elseif q.target == inst and q.giver ~= q.target then
+      if s.Taken[q.id] and not s.Done[q.id] and s.Step[q.id] ~= 1 then
+        GAME:CutsceneMode(true)
+        local ok, err = pcall(function()
+          say_list(q.solve)
+          s.Step[q.id] = 1 -- Prête à être rendue au donneur
+        end)
+        if not ok then print("Error in SideQuests.Interact solve: " .. tostring(err)) end
+        pcall(function() UI:ResetSpeaker() end)
+        GAME:CutsceneMode(false)
+        return true
+      end
+    end
+  end
+
+  return false
 end
 
 --------------------------------------------------------------------

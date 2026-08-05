@@ -121,9 +121,9 @@ function RuinesArenes.Eveil(segmentID)
   -- suivant.
   local cp = nil
   pcall(function()
-    if SV.Chapter7 ~= nil and SV.Chapter7.RuinsRespawnArena == segmentID then
-      cp = SV.Chapter7.RuinsRespawnArena
-      SV.Chapter7.RuinsRespawnArena = nil
+    if SV.Chapter5 ~= nil and SV.Chapter5.RuinsRespawnArena == segmentID then
+      cp = SV.Chapter5.RuinsRespawnArena
+      SV.Chapter5.RuinsRespawnArena = nil
     end
   end)
   if cp ~= nil then

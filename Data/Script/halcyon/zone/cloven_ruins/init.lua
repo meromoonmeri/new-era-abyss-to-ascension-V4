@@ -138,8 +138,8 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
   -- de ce segment au lieu de retourner au camp. Tant qu'aucun Regi n'est
   -- vaincu (ou face a un Regi), on respawn a l'entrance du camp.
   local function respawnCheckpoint(result, cp)
-    SV.Chapter7 = SV.Chapter7 or {}
-    SV.Chapter7.RuinsRespawnArena = cp
+    SV.Chapter5 = SV.Chapter5 or {}
+    SV.Chapter5.RuinsRespawnArena = cp
     PrintInfo("[Ruines] defaite entre deux segments -> respawn salle de stele segment "..tostring(cp))
     GAME:WaitFrames(20)
     GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_entrance'), 0, false, false)
@@ -170,7 +170,7 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
   local function retourCamp(result, motif)
     GAME:WaitFrames(20)
     local boucle = (motif == nil)
-    if not boucle then SV.Chapter7.LostRuins = true end
+    if not boucle then SV.Chapter5.LostRuins = true end
     if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped
        and motif == 'echec' then
       GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_entrance'), 0, true, true)
@@ -271,12 +271,12 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
           -- Perdu dans le Puits (seg6) : on se reveille dans la salle de
           -- stele du segment (le Puits sert de salle de repli).
           GAME:WaitFrames(20)
-          SV.Chapter7.LostDepths = true
+          SV.Chapter5.LostDepths = true
           local cp = steleRoom()
           if cp ~= nil then
               respawnCheckpoint(result, cp)
           elseif result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
-              SV.Chapter7.RuinsMidState = 'DeathArrival'
+              SV.Chapter5.RuinsMidState = 'DeathArrival'
               GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_midpoint'), 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1), "Le puits...[pause=0] il n'en finissait pas...", "Pain")
               GAME:WaitFrames(20)
@@ -289,20 +289,20 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
   -- --- REGIGIGAS : 7 (boss final) ------------------------------------
   elseif segmentID == 7 then
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-          SV.Chapter7.DefeatedRuinsBoss = true
+          SV.Chapter5.DefeatedRuinsBoss = true
           -- Marque la victoire pour la scene de revelation jouee au camp
           -- (sortie d'Aegis Cave : la Tour des Reliques s'ouvre).
           SV.Ruines = SV.Ruines or {}
           SV.Ruines.VaincuRegigigas = true
           LegendZones.SetDefeated('colossus_quarry')
       else
-          SV.Chapter7.DiedToRuinsBoss = true
+          SV.Chapter5.DiedToRuinsBoss = true
       end
 
-      -- Revanche achetee chez Grodoudou : l'histoire du ch7 est deja faite,
+      -- Revanche achetee chez Grodoudou : l'histoire du ch5 est deja faite,
       -- on ne rejoue pas la cinematique, on ressort en ville.
-      if SV.Chapter7 ~= nil and SV.Chapter7.SawAnimaCoreCorruption == true
-         and SV.ChapterProgression.Chapter ~= 7 then
+      if SV.Chapter5 ~= nil and SV.Chapter5.SawAnimaCoreCorruption == true
+         and SV.ChapterProgression.Chapter ~= 5 then
           GAME:WaitFrames(20)
           GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
           return
