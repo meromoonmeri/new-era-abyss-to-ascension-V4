@@ -1,59 +1,53 @@
---[[ Trône de Magma — Donjon-Ancrage (Livre II, ch11). Vague 3.
-     Segment 1 = arene de revanche (groudon). LegendZones key: molten_throne ]]
+--[[ Vœux Tus — Donjon-Ancrage (Livre II, ch31). Vague 3.
+     Segment 1 = arene de revanche (jirachi). LegendZones key: unsaid_wishes_maze ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.LegendZones'
 require 'halcyon.LegendArc'
 
-local caldeira_endormie = {}
+local wish_cave = {}
 
-function caldeira_endormie.Init(zone)
+function wish_cave.Init(zone)
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> Init_caldeira_endormie")
-  SV.TemporaryFlags.LastDungeonEntered = 'caldeira_endormie'
+  PrintInfo("=>> Init_wish_cave")
+  SV.TemporaryFlags.LastDungeonEntered = 'wish_cave'
 end
 
-function caldeira_endormie.EnterSegment(zone, rescuing, segmentID, mapID)
+function wish_cave.EnterSegment(zone, rescuing, segmentID, mapID)
   GeneralFunctions.CheckAllowSetRescue(zone.ID)
   if rescuing ~= true then
     COMMON.BeginDungeon(zone.ID, segmentID, mapID)
   end
 end
 
-function caldeira_endormie.Rescued(zone, name, mail)
+function wish_cave.Rescued(zone, name, mail)
   COMMON.Rescued(zone, name, mail)
 end
 
-function caldeira_endormie.ExitSegment(zone, result, rescue, segmentID, mapID)
+function wish_cave.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.RestoreIdleAnim()
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> ExitSegment_caldeira_endormie result "..tostring(result).." segment "..tostring(segmentID))
+  PrintInfo("=>> ExitSegment_wish_cave result "..tostring(result).." segment "..tostring(segmentID))
 
   local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
   SV.adventure.Thief = false
   if exited == true then return end
-  if segmentID == 2 then
-    -- Annexe de la Toupie (etage mystere) : sortie douce.
-    GAME:WaitFrames(10)
-    GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
-    return
-  end
 
   if segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
     -- Cinematique du gardien avant l'arene (vague 7).
-    GAME:EnterGroundMap('arene_trone_magma', 'Main_Entrance_Marker')
+    GAME:EnterGroundMap('sanctuaire_voeu', 'Main_Entrance_Marker')
     return
   end
   if segmentID == 1 then
     -- Arene de l'Ancrage : victoire = gardien stabilise (revanche/recrutement via Grodoudou).
     if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-      LegendZones.SetDefeated('molten_throne')
+      LegendZones.SetDefeated('unsaid_wishes')
       --Adieu du gardien : le combat ne le tue pas, il le STABILISE.
       --Sans cette scene la victoire etait un simple fondu (audit boss : 17/100).
-      LegendArc.Victory('molten_throne')
+      LegendArc.Victory('unsaid_wishes')
       if SV.Anchors == nil then SV.Anchors = { Stabilized = {} } end
       if SV.Anchors.Stabilized == nil then SV.Anchors.Stabilized = {} end
-      SV.Anchors.Stabilized['molten_throne'] = true
+      SV.Anchors.Stabilized['unsaid_wishes'] = true
     end
     GAME:WaitFrames(20)
     GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
@@ -64,4 +58,4 @@ function caldeira_endormie.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
 end
 
-return caldeira_endormie
+return wish_cave

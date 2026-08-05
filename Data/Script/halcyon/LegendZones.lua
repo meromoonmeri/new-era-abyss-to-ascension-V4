@@ -116,21 +116,21 @@ LegendZones.LIST = {
         name = 'LZ_Name_Clearwater_Ford', blurb = 'LZ_Blurb_Clearwater_Ford',
         sight = 'LZ_Sight_Clearwater_Ford', price = 26000,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 25 end,
-        zone = 'antre_chuchotant', segment = 1, cine = 'bois_des_plaintes', roam = true, ready = true
+        zone = 'northwind_field', segment = 1, cine = 'bois_des_plaintes', roam = true, ready = true
     },
     {
         key = 'ember_vigil', species = 'entei',
         name = 'LZ_Name_Ember_Vigil', blurb = 'LZ_Blurb_Ember_Vigil',
         sight = 'LZ_Sight_Ember_Vigil', price = 26000,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 22 end,
-        zone = 'crete_faille', segment = 3, cine = 'plaines_brulees', roam = false, ready = true
+        zone = 'fiery_field', segment = 3, cine = 'plaines_brulees', roam = false, ready = true
     },
     {
         key = 'storm_bell', species = 'raikou',
         name = 'LZ_Name_Storm_Bell', blurb = 'LZ_Blurb_Storm_Bell',
         sight = 'LZ_Sight_Storm_Bell', price = 26000,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 16 end,
-        zone = 'crete_voilee', segment = 5, cine = 'arene_hautes_plaines', roam = true, ready = true
+        zone = 'lightning_field', segment = 5, cine = 'arene_hautes_plaines', roam = true, ready = true
     },
     {
         key = 'soft_sleep', species = 'cresselia',
@@ -151,7 +151,7 @@ LegendZones.LIST = {
         name = 'LZ_Name_Unsaid_Wishes', blurb = 'LZ_Blurb_Unsaid_Wishes',
         sight = 'LZ_Sight_Unsaid_Wishes', price = 32000,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 31 end,
-        zone = 'dedale_voeu', segment = 1, cine = 'sanctuaire_voeu', roam = false, ready = true
+        zone = 'wish_cave', segment = 1, cine = 'sanctuaire_voeu', roam = false, ready = true
     },
     {
         key = 'first_cradle', species = 'mew',
@@ -207,14 +207,14 @@ LegendZones.LIST = {
         name = 'LZ_Name_Sunken_Choir', blurb = 'LZ_Blurb_Sunken_Choir',
         sight = 'LZ_Sight_Sunken_Choir', price = 36000,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 19 end,
-        zone = 'fosse_abysses', segment = 1, cine = 'fosse_argentee', roam = false, ready = true
+        zone = 'silver_trench', segment = 1, cine = 'fosse_argentee', roam = false, ready = true
     },
     {
         key = 'rainbow_ash', species = 'ho_oh',
         name = 'LZ_Name_Rainbow_Ash', blurb = 'LZ_Blurb_Rainbow_Ash',
         sight = 'LZ_Sight_Rainbow_Ash', price = 36000,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 18 end,
-        zone = 'tour_sacree', segment = 1, cine = 'sommet_aurore', roam = false, ready = true
+        zone = 'mt_faraway', segment = 1, cine = 'sommet_aurore', roam = false, ready = true
     },
     {
         key = 'stone_argument', species = 'terrakion',
@@ -252,28 +252,28 @@ LegendZones.LIST = {
         name = 'LZ_Name_Molten_Throne', blurb = 'LZ_Blurb_Molten_Throne',
         sight = 'LZ_Sight_Molten_Throne', price = 25200,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 11 end,
-        zone = 'caldeira_endormie', segment = 1, cine = 'arene_trone_magma', roam = false, ready = true
+        zone = 'magma_cavern', segment = 1, cine = 'arene_trone_magma', roam = false, ready = true
     },
     {
         key = 'tide_hollow', species = 'kyogre',
         name = 'LZ_Name_Tide_Hollow', blurb = 'LZ_Blurb_Tide_Hollow',
         sight = 'LZ_Sight_Tide_Hollow', price = 26400,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 12 end,
-        zone = 'eaux_inexplorees', segment = 32, cine = 'abime_tempetes', roam = false, ready = true
+        zone = 'stormy_sea', segment = 32, cine = 'abime_tempetes', roam = false, ready = true
     },
     {
         key = 'western_silence', species = 'mewtwo',
         name = 'LZ_Name_Western_Silence', blurb = 'LZ_Blurb_Western_Silence',
         sight = 'LZ_Sight_Western_Silence', price = 37200,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 21 end,
-        zone = 'forteresse_abandonnee', segment = 1, cine = 'antre_occident', roam = false, ready = true
+        zone = 'western_cave', segment = 1, cine = 'antre_occident', roam = false, ready = true
     },
     {
         key = 'victory_spark', species = 'victini',
         name = 'LZ_Name_Victory_Spark', blurb = 'LZ_Blurb_Victory_Spark',
         sight = 'LZ_Sight_Victory_Spark', price = 38400,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 22 end,
-        zone = 'crete_faille', segment = 3, roam = true, ready = true
+        zone = 'fiery_field', segment = 3, roam = true, ready = true
     },
     {
         key = 'twin_rift', species = 'latios',

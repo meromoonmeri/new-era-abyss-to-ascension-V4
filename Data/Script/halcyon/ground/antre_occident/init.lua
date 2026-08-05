@@ -100,7 +100,7 @@ function antre_occident.Enter(map)
     UI:WaitShowDialogue("Je ne garde pas ce lieu.[pause=20] C'est ce lieu qui me garde.[pause=20] Viens.[pause=10] Aide-moi à vérifier lequel de nous deux a raison.")
     COMMON.BossTransition()
     GAME:CutsceneMode(false)
-    GAME:ContinueDungeon("forteresse_abandonnee", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    GAME:ContinueDungeon("western_cave", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     return
   end
 
@@ -142,7 +142,7 @@ function antre_occident.Enter(map)
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("forteresse_abandonnee", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("western_cave", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function antre_occident.Update(map, time) end

@@ -1,53 +1,53 @@
---[[ Creux des Marées — Donjon-Ancrage (Livre II, ch12). Vague 3.
-     Segment 32 = arene de revanche (kyogre). LegendZones key: tide_hollow ]]
+--[[ Silence de l'Occident — Donjon-Ancrage (Livre II, ch21). Vague 3.
+     Segment 1 = arene de revanche (mewtwo). LegendZones key: western_silence ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.LegendZones'
 require 'halcyon.LegendArc'
 
-local eaux_inexplorees = {}
+local western_cave = {}
 
-function eaux_inexplorees.Init(zone)
+function western_cave.Init(zone)
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> Init_eaux_inexplorees")
-  SV.TemporaryFlags.LastDungeonEntered = 'eaux_inexplorees'
+  PrintInfo("=>> Init_western_cave")
+  SV.TemporaryFlags.LastDungeonEntered = 'western_cave'
 end
 
-function eaux_inexplorees.EnterSegment(zone, rescuing, segmentID, mapID)
+function western_cave.EnterSegment(zone, rescuing, segmentID, mapID)
   GeneralFunctions.CheckAllowSetRescue(zone.ID)
   if rescuing ~= true then
     COMMON.BeginDungeon(zone.ID, segmentID, mapID)
   end
 end
 
-function eaux_inexplorees.Rescued(zone, name, mail)
+function western_cave.Rescued(zone, name, mail)
   COMMON.Rescued(zone, name, mail)
 end
 
-function eaux_inexplorees.ExitSegment(zone, result, rescue, segmentID, mapID)
+function western_cave.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.RestoreIdleAnim()
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> ExitSegment_eaux_inexplorees result "..tostring(result).." segment "..tostring(segmentID))
+  PrintInfo("=>> ExitSegment_western_cave result "..tostring(result).." segment "..tostring(segmentID))
 
   local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
   SV.adventure.Thief = false
   if exited == true then return end
 
-  if segmentID == 31 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+  if segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
     -- Cinematique du gardien avant l'arene (vague 7).
-    GAME:EnterGroundMap('abime_tempetes', 'Main_Entrance_Marker')
+    GAME:EnterGroundMap('antre_occident', 'Main_Entrance_Marker')
     return
   end
-  if segmentID == 32 then
+  if segmentID == 1 then
     -- Arene de l'Ancrage : victoire = gardien stabilise (revanche/recrutement via Grodoudou).
     if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-      LegendZones.SetDefeated('tide_hollow')
+      LegendZones.SetDefeated('western_silence')
       --Adieu du gardien : le combat ne le tue pas, il le STABILISE.
       --Sans cette scene la victoire etait un simple fondu (audit boss : 17/100).
-      LegendArc.Victory('tide_hollow')
+      LegendArc.Victory('western_silence')
       if SV.Anchors == nil then SV.Anchors = { Stabilized = {} } end
       if SV.Anchors.Stabilized == nil then SV.Anchors.Stabilized = {} end
-      SV.Anchors.Stabilized['tide_hollow'] = true
+      SV.Anchors.Stabilized['western_silence'] = true
     end
     GAME:WaitFrames(20)
     GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
@@ -58,4 +58,4 @@ function eaux_inexplorees.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
 end
 
-return eaux_inexplorees
+return western_cave

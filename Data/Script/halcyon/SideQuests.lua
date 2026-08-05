@@ -658,7 +658,7 @@ SideQuests.LIST = {
   -- (Spinda) qui l'affiche au comptoir, pas un habitant de la place.
   --
   -- ANTERIORITE ASSUMEE. Raikou est deja un Ancrage du Livre II
-  -- (storm_bell / crete_voilee / arene_hautes_plaines, ch16). Il
+  -- (storm_bell / lightning_field / arene_hautes_plaines, ch16). Il
   -- n'est PAS vaincu ici : le duo le deloge, il repart de lui-meme.
   -- La vraie confrontation reste celle du ch16, et cette rencontre
   -- lui donne du poids au lieu de la vider — meme traitement que

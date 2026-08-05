@@ -38,7 +38,7 @@ function arene_hautes_plaines.Enter(map)
     UI:WaitShowDialogue("Courez si vous voulez.[pause=10] L'orage, c'est moi.")
     COMMON.BossTransition()
     GAME:CutsceneMode(false)
-    GAME:ContinueDungeon("crete_voilee", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    GAME:ContinueDungeon("lightning_field", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     return
   end
 
@@ -78,7 +78,7 @@ function arene_hautes_plaines.Enter(map)
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("crete_voilee", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("lightning_field", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function arene_hautes_plaines.Update(map, time) end

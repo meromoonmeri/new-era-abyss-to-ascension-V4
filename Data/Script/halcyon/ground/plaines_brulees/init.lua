@@ -41,7 +41,7 @@ function plaines_brulees.Enter(map)
     UI:WaitShowDialogue("Il dit que vous allez perdre.[pause=10] Moi je dis que non ![pause=20] Départagez-nous !")
     COMMON.BossTransition()
     GAME:CutsceneMode(false)
-    GAME:ContinueDungeon("crete_faille", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    GAME:ContinueDungeon("fiery_field", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     return
   end
 
@@ -85,7 +85,7 @@ function plaines_brulees.Enter(map)
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("crete_faille", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("fiery_field", 3, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function plaines_brulees.Update(map, time) end

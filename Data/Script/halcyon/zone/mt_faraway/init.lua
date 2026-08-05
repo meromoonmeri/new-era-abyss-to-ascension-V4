@@ -5,29 +5,29 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.LegendZones'
 require 'halcyon.LegendArc'
 
-local tour_sacree = {}
+local mt_faraway = {}
 
-function tour_sacree.Init(zone)
+function mt_faraway.Init(zone)
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> Init_tour_sacree")
-  SV.TemporaryFlags.LastDungeonEntered = 'tour_sacree'
+  PrintInfo("=>> Init_mt_faraway")
+  SV.TemporaryFlags.LastDungeonEntered = 'mt_faraway'
 end
 
-function tour_sacree.EnterSegment(zone, rescuing, segmentID, mapID)
+function mt_faraway.EnterSegment(zone, rescuing, segmentID, mapID)
   GeneralFunctions.CheckAllowSetRescue(zone.ID)
   if rescuing ~= true then
     COMMON.BeginDungeon(zone.ID, segmentID, mapID)
   end
 end
 
-function tour_sacree.Rescued(zone, name, mail)
+function mt_faraway.Rescued(zone, name, mail)
   COMMON.Rescued(zone, name, mail)
 end
 
-function tour_sacree.ExitSegment(zone, result, rescue, segmentID, mapID)
+function mt_faraway.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.RestoreIdleAnim()
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> ExitSegment_tour_sacree result "..tostring(result).." segment "..tostring(segmentID))
+  PrintInfo("=>> ExitSegment_mt_faraway result "..tostring(result).." segment "..tostring(segmentID))
 
   local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
   SV.adventure.Thief = false
@@ -58,4 +58,4 @@ function tour_sacree.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
 end
 
-return tour_sacree
+return mt_faraway

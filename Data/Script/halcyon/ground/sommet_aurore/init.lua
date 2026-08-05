@@ -38,7 +38,7 @@ function sommet_aurore.Enter(map)
     UI:WaitShowDialogue("J'ai promis de revenir quand les cœurs seraient purs.[pause=20] Montrez-moi que j'ai bien choisi ma date.")
     COMMON.BossTransition()
     GAME:CutsceneMode(false)
-    GAME:ContinueDungeon("tour_sacree", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    GAME:ContinueDungeon("mt_faraway", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     return
   end
 
@@ -77,7 +77,7 @@ function sommet_aurore.Enter(map)
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("tour_sacree", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("mt_faraway", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function sommet_aurore.Update(map, time) end

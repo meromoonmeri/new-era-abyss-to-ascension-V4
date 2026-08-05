@@ -100,7 +100,7 @@ function abime_tempetes.Enter(map)
     UI:WaitShowDialogue("Chaque marée est une question.[pause=20] Réponds, ou coule.")
     COMMON.BossTransition()
     GAME:CutsceneMode(false)
-    GAME:ContinueDungeon("eaux_inexplorees", 32, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    GAME:ContinueDungeon("stormy_sea", 32, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     return
   end
 
@@ -139,7 +139,7 @@ function abime_tempetes.Enter(map)
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("eaux_inexplorees", 32, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("stormy_sea", 32, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function abime_tempetes.Update(map, time) end

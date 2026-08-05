@@ -38,7 +38,7 @@ function bois_des_plaintes.Enter(map)
     UI:WaitShowDialogue("Je purifie ce que je touche.[pause=20] Voyons ce qu'il restera de vous.")
     COMMON.BossTransition()
     GAME:CutsceneMode(false)
-    GAME:ContinueDungeon("antre_chuchotant", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    GAME:ContinueDungeon("northwind_field", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     return
   end
 
@@ -77,7 +77,7 @@ function bois_des_plaintes.Enter(map)
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("antre_chuchotant", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("northwind_field", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function bois_des_plaintes.Update(map, time) end

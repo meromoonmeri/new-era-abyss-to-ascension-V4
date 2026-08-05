@@ -106,7 +106,7 @@ function fosse_argentee.Enter(map)
     UI:WaitShowDialogue("Le fond de la mer n'oublie pas.[pause=20] Encore une fois, donc.")
     COMMON.BossTransition()
     GAME:CutsceneMode(false)
-    GAME:ContinueDungeon("fosse_abysses", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    GAME:ContinueDungeon("silver_trench", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     return
   end
 
@@ -145,7 +145,7 @@ function fosse_argentee.Enter(map)
 
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  GAME:ContinueDungeon("fosse_abysses", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("silver_trench", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function fosse_argentee.Update(map, time) end

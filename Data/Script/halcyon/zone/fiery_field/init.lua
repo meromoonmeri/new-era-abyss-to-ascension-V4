@@ -1,53 +1,54 @@
---[[ Chœur Englouti — Donjon-Ancrage (Livre II, ch19). Vague 3.
-     Segment 1 = arene de revanche (lugia). LegendZones key: sunken_choir_deep ]]
+--[[ Veillée des Braises — Donjon-Ancrage (Livre II, ch22). Vague 3.
+     Segment 3 = arene de revanche (entei/victini). LegendZones key: ember_vigil_ridge ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.LegendZones'
 require 'halcyon.LegendArc'
 
-local fosse_abysses = {}
+local fiery_field = {}
 
-function fosse_abysses.Init(zone)
+function fiery_field.Init(zone)
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> Init_fosse_abysses")
-  SV.TemporaryFlags.LastDungeonEntered = 'fosse_abysses'
+  PrintInfo("=>> Init_fiery_field")
+  SV.TemporaryFlags.LastDungeonEntered = 'fiery_field'
 end
 
-function fosse_abysses.EnterSegment(zone, rescuing, segmentID, mapID)
+function fiery_field.EnterSegment(zone, rescuing, segmentID, mapID)
   GeneralFunctions.CheckAllowSetRescue(zone.ID)
   if rescuing ~= true then
     COMMON.BeginDungeon(zone.ID, segmentID, mapID)
   end
 end
 
-function fosse_abysses.Rescued(zone, name, mail)
+function fiery_field.Rescued(zone, name, mail)
   COMMON.Rescued(zone, name, mail)
 end
 
-function fosse_abysses.ExitSegment(zone, result, rescue, segmentID, mapID)
+function fiery_field.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.RestoreIdleAnim()
   DEBUG.EnableDbgCoro()
-  PrintInfo("=>> ExitSegment_fosse_abysses result "..tostring(result).." segment "..tostring(segmentID))
+  PrintInfo("=>> ExitSegment_fiery_field result "..tostring(result).." segment "..tostring(segmentID))
 
   local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
   SV.adventure.Thief = false
   if exited == true then return end
 
-  if segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+  if segmentID == 2 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
     -- Cinematique du gardien avant l'arene (vague 7).
-    GAME:EnterGroundMap('fosse_argentee', 'Main_Entrance_Marker')
+    GAME:EnterGroundMap('plaines_brulees', 'Main_Entrance_Marker')
     return
   end
-  if segmentID == 1 then
+  if segmentID == 3 then
     -- Arene de l'Ancrage : victoire = gardien stabilise (revanche/recrutement via Grodoudou).
     if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-      LegendZones.SetDefeated('sunken_choir')
+      LegendZones.SetDefeated('ember_vigil')
       --Adieu du gardien : le combat ne le tue pas, il le STABILISE.
       --Sans cette scene la victoire etait un simple fondu (audit boss : 17/100).
-      LegendArc.Victory('sunken_choir')
+      LegendArc.Victory('ember_vigil')
+      LegendZones.SetDefeated('victory_spark')
       if SV.Anchors == nil then SV.Anchors = { Stabilized = {} } end
       if SV.Anchors.Stabilized == nil then SV.Anchors.Stabilized = {} end
-      SV.Anchors.Stabilized['sunken_choir'] = true
+      SV.Anchors.Stabilized['ember_vigil'] = true
     end
     GAME:WaitFrames(20)
     GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
@@ -58,4 +59,4 @@ function fosse_abysses.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
 end
 
-return fosse_abysses
+return fiery_field
