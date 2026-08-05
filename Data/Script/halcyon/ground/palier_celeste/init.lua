@@ -1,7 +1,12 @@
 --[[ Déchire-Nuages, Veilleur du Ciel Fracturé — cinematique de Veilleur (Reseau des Anciens Chemins).
      Ground pmd-red importe 1:1 ; geometrie intouchee, dialogues New Era.
      Grammaire : signal -> irruption -> recul -> reveal -> titre -> echange
-     -> BossTransition -> arene. Rematch : intro raccourcie. ]]
+     -> BossTransition -> arene. Rematch : intro raccourcie.
+     
+     INTÉGRATION DE L'HISTOIRE (CHAPITRE 10 - RELAIS) :
+     Pendant l'histoire principale, cette zone sert de relais d'altitude (palier_celeste)
+     au milieu de la Tour Céleste. Elle dispose d'une sauvegarde et d'un accès sécurisé au segment 2.
+]]
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
@@ -23,6 +28,12 @@ function palier_celeste.Enter(map)
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   GAME:CutsceneMode(true)
+
+  -- LIAISON DE L'HISTOIRE DE LA TOUR CÉLESTE (CHAPITRE 10)
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 10 then
+    palier_celeste.PlayStoryRelay(hero, partner)
+    return
+  end
 
   -- Duo cote a cote (32 px d'ecart), ~80 px sous le Veilleur.
   GROUND:TeleportTo(hero, 240, 296, Direction.Up)
@@ -86,6 +97,51 @@ function palier_celeste.Enter(map)
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
   GAME:ContinueDungeon("new_era_zone_17", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+end
+
+-- ============================================================
+-- MODE RELAIS DE L'HISTOIRE (TOUR CÉLESTE)
+-- ============================================================
+function palier_celeste.PlayStoryRelay(hero, partner)
+  GROUND:TeleportTo(hero, 224, 296, Direction.Up)
+  if partner ~= nil then GROUND:TeleportTo(partner, 192, 296, Direction.Up) end
+  GAME:MoveCamera(208, 250, 1, false)
+  
+  GAME:FadeIn(30)
+  GAME:CutsceneMode(false) -- Permettre le mouvement pour sauvegarder ou monter
+end
+
+function palier_celeste.Dungeon_Entrance_Touch(obj, activator)
+  UI:ResetSpeaker(false)
+  UI:SetCenter(true)
+  UI:ChoiceMenuYesNo("Continuer l'ascension de la Tour Céleste ?", true)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  UI:SetCenter(false)
+  if res then
+    GAME:FadeOut(false, 40)
+    -- Envoie le joueur au segment 2 (Mer de Nuages) de la Tour Céleste
+    GAME:ContinueDungeon("sky_tower", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  end
+end
+
+function palier_celeste.Kangaskhan_Rock_Action(obj, activator)
+  local chara = CH('PLAYER')
+  local partner = CH('Teammate1')
+  GROUND:CharTurnToChar(chara, partner)
+  UI:ResetSpeaker(false)
+  UI:SetCenter(true)
+  UI:ChoiceMenuYesNo("Sauvegarder la partie ?", true)
+  UI:WaitForChoice()
+  local res = UI:ChoiceResult()
+  UI:SetCenter(false)
+  if res then
+    GAME:SaveDungeonDay()
+    UI:ResetSpeaker(false)
+    UI:SetCenter(true)
+    UI:WaitShowDialogue("La partie a été sauvegardée.")
+    UI:SetCenter(false)
+  end
 end
 
 function palier_celeste.Update(map, time) end

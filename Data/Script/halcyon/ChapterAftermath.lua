@@ -404,7 +404,7 @@ function ChapterAftermath.PeakVictory()
       -- « passe mille ans a se taire ». Or tout le climax annonce
       -- RAYQUAZA : il fend les nuages a l'acte 0, et c'est lui qui
       -- pulverise la meteorite a l'acte 2. On affrontait Lugia au milieu
-      -- de deux scenes de Rayquaza (l'arene celestial_peak_boss portait
+      -- de deux scenes de Rayquaza (l'arene sky_tower_boss portait
       -- encore lugia n35, corrige le meme jour).
       --
       -- Le texte n'est PAS transpose mot pour mot : le registre de Lugia

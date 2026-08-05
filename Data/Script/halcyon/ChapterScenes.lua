@@ -355,7 +355,7 @@ end
 -- LA MUSIQUE. « Sky Tower.ogg » demarre AVEC l'image et non avant : le
 -- theme du donjon est la recompense du plan, pas son accompagnement.
 --
--- Appelee par celestial_peak_entrance juste avant l'entree du donjon.
+-- Appelee par sky_tower_entrance juste avant l'entree du donjon.
 -- Flag propre, elle ne se joue qu'une fois.
 --------------------------------------------------------------------
 function ChapterScenes.PeakTowerReveal()

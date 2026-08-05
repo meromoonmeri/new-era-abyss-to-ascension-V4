@@ -3,9 +3,9 @@
  "Object": {
   "$type": "RogueEssence.Data.ZoneData, RogueEssence",
   "Name": {
-   "DefaultText": "Celestial Peak",
+   "DefaultText": "Sky Tower",
    "LocalTexts": {
-    "fr": "Pic Celeste"
+    "fr": "Tour Celeste"
    }
   },
   "Released": true,
