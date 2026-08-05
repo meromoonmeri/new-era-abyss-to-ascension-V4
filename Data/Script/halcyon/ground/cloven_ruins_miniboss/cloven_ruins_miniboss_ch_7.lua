@@ -249,10 +249,7 @@ end
 function cloven_ruins_miniboss_ch_7.DefeatedBoss()
   PrintInfo("[BossSeq][cloven_ruins_miniboss_ch_7] DefeatedBoss start")
 
-  local ok, err = pcall(DefeatedBossBody)
-  if not ok then
-    PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
-    pcall(function() GAME:FadeOut(false, 20) end)
+  DefeatedBossBody())
   end
 
   GAME:CutsceneMode(false)

@@ -250,10 +250,7 @@ end
 function crystal_sanctuary_miniboss_ch_8.DefeatedBoss()
   PrintInfo("[BossSeq][crystal_sanctuary_miniboss_ch_8] DefeatedBoss start")
 
-  local ok, err = pcall(DefeatedBossBody)
-  if not ok then
-    PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
-    pcall(function() GAME:FadeOut(false, 20) end)
+  DefeatedBossBody())
   end
 
   GAME:CutsceneMode(false)

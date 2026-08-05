@@ -1344,10 +1344,7 @@ end
 function searing_crucible_ch_5.DefeatedBoss()
 	PrintInfo("[BossSeq][searing_crucible_ch_5] DefeatedBoss cutscene start")
 
-	local ok, err = pcall(DefeatedBossBody)
-	if not ok then
-		PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
-		pcall(function() GAME:FadeOut(false, 20) GAME:WaitFrames(20) end)
+	DefeatedBossBody())
 	end
 
 	-- Sortie garantie : la suite de l'expedition (Mont) doit TOUJOURS s'ouvrir.

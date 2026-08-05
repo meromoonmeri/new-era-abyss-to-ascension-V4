@@ -561,12 +561,7 @@ function searing_tunnel_miniboss_ch_5.DefeatedBoss()
   PrintInfo("[BossSeq][searing_tunnel_miniboss_ch_5] DefeatedBoss cutscene start")
   SV.Chapter5.TunnelMiniBossCleared = true
 
-  local ok, err = pcall(DefeatedBossBody)
-  if not ok then
-    PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
-    -- Le WaitFrames complete le fondu AVANT la bascule (sinon la carte
-    -- sortante reste dessinee 20 frames — fuite signalee par audit_fade_leaks).
-    pcall(function() GAME:FadeOut(false, 20) GAME:WaitFrames(20) end)
+  DefeatedBossBody())
   end
 
   -- Sortie garantie, quoi qu'il arrive.

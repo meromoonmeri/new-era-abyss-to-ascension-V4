@@ -351,6 +351,7 @@ function DebugTools:OnUpgrade()
  end
  --ZONE DE TEST : arene Tornadus (validation en jeu, 2026-08-05) — a retirer avant release
  if not GAME:DungeonUnlocked("tornadus_arena") then GAME:UnlockDungeon("tornadus_arena") end
+ if not GAME:DungeonUnlocked("mount_windsep") then GAME:UnlockDungeon("mount_windsep") end
  --Add-on Reseau des Anciens Chemins : deblocage a partir du Livre II (ch11+) ou fin d'histoire
  if (SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 11) or SV.ChapterProgression.StoryCompleted == true then
 	if not GAME:DungeonUnlocked("new_era_zone_00") then GAME:UnlockDungeon("new_era_zone_00") end

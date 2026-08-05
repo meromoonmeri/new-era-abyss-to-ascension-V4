@@ -259,10 +259,7 @@ end
 function gloomy_forest_miniboss_ch_6.DefeatedBoss()
   PrintInfo("[BossSeq][gloomy_forest_miniboss_ch_6] DefeatedBoss start")
 
-  local ok, err = pcall(DefeatedBossBody)
-  if not ok then
-    PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
-    pcall(function() GAME:FadeOut(false, 20) end)
+  DefeatedBossBody())
   end
 
   GAME:CutsceneMode(false)

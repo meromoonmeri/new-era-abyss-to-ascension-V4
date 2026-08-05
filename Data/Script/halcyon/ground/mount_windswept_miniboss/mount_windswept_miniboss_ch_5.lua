@@ -506,10 +506,7 @@ function mount_windswept_miniboss_ch_5.DefeatedBoss()
   PrintInfo("[BossSeq][mount_windswept_miniboss_ch_5] DefeatedBoss cutscene start")
   SV.Chapter5.MountMiniBossCleared = true
 
-  local ok, err = pcall(DefeatedBossBody)
-  if not ok then
-    PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
-    pcall(function() GAME:FadeOut(false, 20) GAME:WaitFrames(20) end)
+  DefeatedBossBody())
   end
 
   -- Sortie garantie, quoi qu'il arrive.

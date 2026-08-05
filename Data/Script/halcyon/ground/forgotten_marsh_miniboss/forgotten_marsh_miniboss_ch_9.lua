@@ -255,10 +255,7 @@ end
 function forgotten_marsh_miniboss_ch_9.DefeatedBoss()
   PrintInfo("[BossSeq][forgotten_marsh_miniboss_ch_9] DefeatedBoss start")
 
-  local ok, err = pcall(DefeatedBossBody)
-  if not ok then
-    PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
-    pcall(function() GAME:FadeOut(false, 20) end)
+  DefeatedBossBody())
   end
 
   GAME:CutsceneMode(false)

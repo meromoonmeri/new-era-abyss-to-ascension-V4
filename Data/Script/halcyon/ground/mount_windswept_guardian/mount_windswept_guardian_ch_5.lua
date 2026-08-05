@@ -895,11 +895,7 @@ end
 function mount_windswept_guardian_ch_5.DefeatedBoss()
   PrintInfo("[BossSeq][mount_windswept_guardian_ch_5] DefeatedBoss cutscene start")
 
-  local ok, err = pcall(DefeatedBossBody)
-  if not ok then
-    PrintInfo("[BossSeq] DefeatedBoss ERREUR: "..tostring(err))
-    pcall(function() GAME:FadeOut(false, 20) end)
-  end
+  DefeatedBossBody()
 
   --LE MODE CINEMATIQUE RESTE ACTIF PENDANT LA BASCULE (patron du Creuset,
   --searing_crucible_ch_5.lua:DefeatedBoss) : le couper ici laissait au
