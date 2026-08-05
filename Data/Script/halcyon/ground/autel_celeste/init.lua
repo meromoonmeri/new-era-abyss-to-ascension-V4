@@ -206,6 +206,10 @@ function autel_celeste.PlayPostVictoryScene(hero, partner)
   
   -- Animation de chargement de puissance divine (Mega Evolution/Draco-Ascension)
   SOUND:PlaySE("DUN_Stat_Up")
+  pcall(function()
+    local ray_emitter = RogueEssence.Content.SingleEmitter(RogueEssence.Content.AnimData("VFX_Rayquaza_Hyperbeam_Core", 4))
+    GROUND:PlayVFX(ray_emitter, rayquaza.Position.X, rayquaza.Position.Y)
+  end)
   GAME:FadeOut(false, 10)
   GAME:WaitFrames(15)
   GAME:FadeIn(10)
@@ -217,6 +221,10 @@ function autel_celeste.PlayPostVictoryScene(hero, partner)
   
   -- Flashs et explosions dans le ciel
   SOUND:PlaySE("DUN_Hyper_Beam")
+  pcall(function()
+    local beam_emitter = RogueEssence.Content.SingleEmitter(RogueEssence.Content.AnimData("VFX_Rayquaza_Hyperbeam_Core", 4))
+    GROUND:PlayVFX(beam_emitter, 276, 180) -- Centre du ciel
+  end)
   GAME:FadeOut(false, 2)
   GAME:WaitFrames(10)
   GAME:FadeIn(2)
@@ -225,6 +233,10 @@ function autel_celeste.PlayPostVictoryScene(hero, partner)
   GAME:FadeIn(1)
   
   SOUND:PlaySE("DUN_Explosion")
+  pcall(function()
+    local met_emitter = RogueEssence.Content.SingleEmitter(RogueEssence.Content.AnimData("VFX_Meteor_Fragment", 8))
+    GROUND:PlayVFX(met_emitter, 276, 180) -- Explosion de la météorite
+  end)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CPB_014']))
   UI:SetCenter(false)
   
