@@ -488,11 +488,11 @@
         "cloven_ruins_midpoint", 
         "crystal_sanctuary_entrance", 
         "forgotten_marsh_entrance", 
-        "celestial_peak_entrance", 
+        "parvis_celeste", 
         "crystal_sanctuary_relay", 
         "forgotten_marsh_relay", 
-        "celestial_peak_relay", 
-        "celestial_peak_fulgur", 
+        "palier_celeste", 
+        "palier_celeste", 
         "autel_celeste", 
         "metano_town_nuit", 
         "guild_guildmasters_bedroom", 
@@ -600,7 +600,7 @@
         "gloomy_forest_boss", 
         "crystal_sanctuary_boss", 
         "forgotten_marsh_boss", 
-        "celestial_peak_boss"
+        "tour_ciel_sommet"
       ], 
       "Maps": [
         [
@@ -1201,7 +1201,7 @@
       "Released": true, 
       "SortOrder": 0
     }, 
-    "celestial_peak": {
+    "sky_tower": {
       "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence", 
       "ExpPercent": 100, 
       "Level": -1, 
@@ -1217,11 +1217,11 @@
       "CountedFloors": 23, 
       "Rogue": 0, 
       "Grounds": [
-        "celestial_peak_entrance", 
-        "celestial_peak_relay", 
-        "celestial_peak_fulgur", 
+        "parvis_celeste", 
+        "palier_celeste", 
+        "palier_celeste", 
         "autel_celeste", 
-        "celestial_peak_boss"
+        "tour_ciel_sommet"
       ], 
       "Maps": [
         [
@@ -2368,7 +2368,7 @@
       "Released": true, 
       "SortOrder": 0
     }, 
-    "caldeira_endormie": {
+    "magma_cavern": {
       "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence", 
       "ExpPercent": 100, 
       "Level": 36, 
@@ -2423,7 +2423,7 @@
       "Released": true, 
       "SortOrder": 0
     }, 
-    "eaux_inexplorees": {
+    "stormy_sea": {
       "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence", 
       "ExpPercent": 100, 
       "Level": 38, 
@@ -2756,7 +2756,7 @@
       "Released": true, 
       "SortOrder": 0
     }, 
-    "crete_voilee": {
+    "lightning_field": {
       "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence", 
       "ExpPercent": 80, 
       "Level": 45, 
@@ -2890,7 +2890,7 @@
       "Released": true, 
       "SortOrder": 0
     }, 
-    "tour_sacree": {
+    "mt_faraway": {
       "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence", 
       "ExpPercent": 100, 
       "Level": 50, 
@@ -2994,7 +2994,7 @@
       "Released": true, 
       "SortOrder": 0
     }, 
-    "fosse_abysses": {
+    "silver_trench": {
       "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence", 
       "ExpPercent": 100, 
       "Level": 53, 
@@ -3118,7 +3118,7 @@
       "Released": true, 
       "SortOrder": 0
     }, 
-    "forteresse_abandonnee": {
+    "western_cave": {
       "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence", 
       "ExpPercent": 100, 
       "Level": 57, 
@@ -3170,7 +3170,7 @@
       "Released": true, 
       "SortOrder": 0
     }, 
-    "crete_faille": {
+    "fiery_field": {
       "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence", 
       "ExpPercent": 100, 
       "Level": 59, 
@@ -3324,7 +3324,7 @@
       "Released": true, 
       "SortOrder": 0
     }, 
-    "antre_chuchotant": {
+    "northwind_field": {
       "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence", 
       "ExpPercent": 100, 
       "Level": 65, 
@@ -3935,7 +3935,7 @@
       "Released": true, 
       "SortOrder": 0
     }, 
-    "dedale_voeu": {
+    "wish_cave": {
       "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence", 
       "ExpPercent": 100, 
       "Level": 75, 
