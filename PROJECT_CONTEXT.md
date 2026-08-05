@@ -28,19 +28,23 @@ Dernière mise à jour : 2026-08-05 (fix duel Metano — session agent Arena.ai)
 
 - **Problème** : `mount_windswept_guardian.rsground` utilisait la feuille 24 px
   `Mt Horn Entrance Layer 1` sur une grille 8 px → rendu cassé (détecté par
-  `validate_all.py`). Chorégraphie Lua recalée sur un espace 432×432 px.
-- **Correctif (directive utilisateur : "méthode des relais, patron =
-  crooked_den")** : `tools/mapgen/gen_tornadus_arene.py` clone la structure de
-  `crooked_den` (54×54 = 432×432 px exactement l'espace du Lua), compose le
-  visuel depuis `mount_windswept_entrance` (fenêtre recentrée sur le couloir),
-  régénère les obstacles (perchoir nord marchable, positions du Lua forcées
-  libres, BFS depuis l'entrée sud), crée la feuille 8 px
-  `Mount_Windswept_Guardian_Base` **et l'injecte dans `index.idx` (541→542)**.
-- **Intacts** : `AssetName`/`Name`/`Music` (`Sky Tower.ogg`), spawners +
-  markers (repositionnés), `.rsmap` de combat 19×19 `craggy_peak`, zone,
-  master_zone, tous les scripts.
-- **Validation** : `validate_all.py` ✅ toutes salles vertes (l'arène passe de
-  ❌ à ✅, positions resynchronisées) ; `verify_tile_index.py` 542/542.
+  `validate_all.py`).
+- **v1 algorithmique ECARTEE** (composition depuis `mount_windswept_entrance`)
+  : jugée « horrible » par l'auteur. Leçon : ne plus JAMAIS composer une salle
+  algorithmiquement ; partir d'un plan officiel porté.
+- **v2 RETENUE ET VALIDEE par l'auteur** : plan officiel EoS `mt_travail_peak`
+  (dépôt `slothplaysnecro/PMDO-Explorers-Maps`, vendored dans
+  `tools/mapgen/data/mt_travail_peak_source.png`), recadré (36,24) en 54×54
+  cellules 8 px = 432×432 px, pile l'espace de la chorégraphie Lua. Sommet à
+  horizon dégagé : Tornadus plane au perchoir (216,24) dans la bande ciel
+  (obstacles libres là, coiffes de falaises bloquées par critère de texture).
+- **Correctif** : `tools/mapgen/gen_tornadus_arene.py` clone la structure de
+  `crooked_den`, régénère feuille `Mount_Windswept_Guardian_Base` + entrée
+  `index.idx` mise à jour en place, obstacles (64 % marchable, positions Lua
+  forcées libres, BFS entrée sud), spawners/markers repositionnés.
+- **Intacts** : `AssetName`/`Name`/`Music` (`Sky Tower.ogg`), `.rsmap` de
+  combat 19×19 `craggy_peak`, zone, master_zone, scripts.
+- **Validation** : `validate_all.py` ✅ ; `verify_tile_index.py` 542/542.
 - Détails : `docs/ARENE_TORNADUS_PATRON_CROOKED_DEN_2026-08-05.md`.
 - Non testé en jeu (validation statique).
 
