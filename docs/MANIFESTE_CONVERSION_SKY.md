@@ -470,3 +470,294 @@ Regigigas, mise en statue, effondrement, fuite) puis `RuinesRenforts.lua`
 `MUSIC_AEGIS_CAVE` (dungeon.h:2567) = piste « In the Depths of the Pit »
 dans EoS. Le mod possède déjà `Content/Music/Aegis Cave.ogg` et l'utilise
 sur les segments 0-6 de cloven_ruins ; `Boss Battle!.ogg` sur le segment 7.
+
+---
+
+## IMPORT COMPLET SKY — 186 maps de donjon (2026-08-07)
+
+> Généré par `tools/convert_sky_all.py` depuis pret/pmd-sky `files/MAP_BG/`
+> (BPL/BPC/BMA/BPA via skytemple-files 1.8.5). Rendu SANS overlay de debug
+> (include_collision=False, include_unknown_data_block=False), TOUTES les
+> frames d'animation encodées par tuile (période locale, FrameLength 8 sur
+> maps animées / 60 sinon), collision BMA source (par tuile ou chunk 3x3,
+> bordure bloquée sinon), marqueur Main_Entrance_Marker sur zone libre.
+
+| Indicateur | Valeur |
+|---|---|
+| Maps converties | 186 |
+| Maps animées (frames > 1) | 37 |
+| Frames max par map | 16 (d53p41b) |
+| Poids .rsground | 214 Mo |
+| Poids planches .tile | 59 Mo |
+| Dépôt | RESERVE/sky_grounds/ + RESERVE/sky_tiles/ (format PMDO, restituable) |
+
+### Table des 186 maps
+
+| Map | Identité canonique (scènes SSB : BGM/lieux) | Cellules | Frames | Poids |
+|---|---|---|---|---|
+| d00p01 | *(à confirmer)* | 57x57 | 1 | 0.6 Mo |
+| d00p02 | *(à confirmer)* | 57x57 | 1 | 0.6 Mo |
+| d01p11a | Hautes Terres Cachées [HIDDEN_HIGHLAND] | 99x48 | 16 | 1.2 Mo |
+| d01p11b | Terre Cachée (Hidden Land) | 99x48 | 16 | 1.2 Mo |
+| d01p41a | Grotte Plage (Beach Cave) | 57x60 | 16 | 0.9 Mo |
+| d02p11a | Falaise Trempée [DRENCHED_BLUFF] | 66x51 | 1 | 0.7 Mo |
+| d02p31a | Falaise Trempée (Drenched Bluff) | 60x48 | 1 | 0.6 Mo |
+| d03p11a | Mont Bristle [MT_BRISTLE] | 69x60 | 1 | 0.8 Mo |
+| d03p41a | Mont Bristle (Mt. Bristle) | 87x81 | 1 | 1.4 Mo |
+| d04p11a | Rain2 (BGM) | 63x57 | 1 | 0.7 Mo |
+| d04p12a | Grotte Cascade [WATERFALL_CAVE] | 51x69 | 12 | 0.8 Mo |
+| d04p31a | Rain2 (BGM) | 63x54 | 16 | 1.1 Mo |
+| d05p11a | Bois Pommier [APPLE_WOODS] | 69x51 | 1 | 0.7 Mo |
+| d05p31a | Bois Pommier (Apple Woods) | 69x69 | 1 | 0.9 Mo |
+| d06p11a | Côte Escarpée [CRAGGY_COAST] | 69x54 | 6 | 0.7 Mo |
+| d07p11a | Mont Corne [MT_HORN] | 69x45 | 1 | 0.6 Mo |
+| d08p11a | Forêt Brumeuse [FOGGY_FOREST] | 75x99 | 1 | 1.5 Mo |
+| d09p11a | Grotte Vapeur [STEAM_CAVE] | 63x63 | 1 | 0.8 Mo |
+| d10p21a | Haute Grotte Vapeur [UPPER_STEAM_CAVE] | 57x57 | 1 | 0.6 Mo |
+| d10p41a | Grotte Vapeur [STEAM_CAVE] | 81x78 | 1 | 1.2 Mo |
+| d11p11a | Plaines Amp [AMP_PLAINS] | 57x51 | 1 | 0.6 Mo |
+| d12p21a | Ampériques Lointaines [FAR_AMP_PLAINS] | 57x57 | 1 | 0.6 Mo |
+| d12p41a | Plaines Amp (Amp Plains) | 69x63 | 1 | 0.9 Mo |
+| d13p11a | Désert Boréal [NORTHERN_DESERT] | 57x57 | 1 | 0.6 Mo |
+| d14p11a | Lac des Brumes (Fogbound Lake) | 57x48 | 6 | 0.7 Mo |
+| d14p12a | Grotte des Sables [QUICKSAND_CAVE] | 75x51 | 4 | 0.8 Mo |
+| d15p21a | Gouffre des Sables [QUICKSAND_PIT] | 57x57 | 1 | 0.6 Mo |
+| d15p41a | Lac des Brumes (Fogbound Lake) | 75x75 | 16 | 1.7 Mo |
+| d16p11a | Grotte Cristal [CRYSTAL_CAVE] | 75x51 | 16 | 0.8 Mo |
+| d16p31a | Lac Cristal (Shining Lake) | 75x60 | 16 | 1.0 Mo |
+| d17p11a | Croisement Cristal [CRYSTAL_CROSSING] | 75x60 | 16 | 1.0 Mo |
+| d17p31a | Croisement Cristal (Crystal Crossing) | 45x51 | 1 | 0.5 Mo |
+| d17p32a | Croisement Cristal (Crystal Crossing) | 51x57 | 1 | 0.6 Mo |
+| d17p33a | Croisement Cristal (Crystal Crossing) | 57x63 | 1 | 0.7 Mo |
+| d17p34a | Croisement Cristal (Crystal Crossing) | 87x75 | 1 | 1.3 Mo |
+| d17p45a | Croisement Cristal (Crystal Crossing) | 87x63 | 1 | 1.1 Mo |
+| d18p11a | Gouffre [CHASM_CAVE] | 75x48 | 1 | 0.7 Mo |
+| d19p11a | Colline Sombre [DARK_HILL] | 96x48 | 1 | 0.9 Mo |
+| d20p11a | Ruine Scellée [SEALED_RUIN] | 75x48 | 1 | 0.7 Mo |
+| d21p21a | Gouffre de la Ruine Scellée [SEALED_RUIN_PIT] | 57x57 | 1 | 0.6 Mo |
+| d21p41a | Sealed Ruin Pit (BGM) | 81x66 | 1 | 1.1 Mo |
+| d22p11a | Forêt Crépusculaire [DUSK_FOREST] | 69x69 | 1 | 0.9 Mo |
+| d23p11a | Forêt Crépusculaire Profonde [DEEP_DUSK_FOREST] | 69x69 | 1 | 0.9 Mo |
+| d24p11a | Forêt des Cimes [TREESHROUD_FOREST] | 63x54 | 1 | 0.7 Mo |
+| d24p31a | Forêt des Cimes (Treeshroud Forest) | 63x60 | 1 | 0.7 Mo |
+| d24p31b | Treeshroud Forest (BGM) | 63x60 | 1 | 0.7 Mo |
+| d25p11a | Grotte Saumure [BRINE_CAVE] | 81x63 | 15 | 2.0 Mo |
+| d26p21a | Basse Grotte Saumure [LOWER_BRINE_CAVE] | 57x57 | 1 | 0.6 Mo |
+| d26p31a | Lower Brine Cave (BGM) | 69x93 | 4 | 1.3 Mo |
+| d26p43a | Terre Cachée (Hidden Land) | 69x93 | 4 | 1.3 Mo |
+| d27p11a | Terre Cachée [HIDDEN_LAND] | 57x69 | 4 | 0.8 Mo |
+| d28p21a | Hautes Terres Cachées [HIDDEN_HIGHLAND] | 57x57 | 1 | 0.6 Mo |
+| d28p31a | Hautes Terres Cachées [HIDDEN_HIGHLAND] | 102x45 | 1 | 0.9 Mo |
+| d28p32a | Hautes Terres Cachées [HIDDEN_HIGHLAND] | 60x54 | 1 | 0.6 Mo |
+| d28p33a | Hautes Terres Cachées [HIDDEN_HIGHLAND] | 75x54 | 1 | 0.8 Mo |
+| d28p33c | Tour Temporelle (Temporal Tower) | 75x54 | 1 | 0.8 Mo |
+| d28p34a | Tour Temporelle (Temporal Tower) | 81x66 | 1 | 1.1 Mo |
+| d28p44a | Hautes Terres Cachées [HIDDEN_HIGHLAND] | 63x66 | 1 | 0.8 Mo |
+| d29p11a | Tour Temporelle [TEMPORAL_TOWER] | 75x69 | 16 | 1.9 Mo |
+| d30p21a | Flèche Temporelle [TEMPORAL_SPIRE] | 57x57 | 1 | 0.6 Mo |
+| d30p32a | Tour Temporelle (Temporal Tower) | 69x72 | 12 | 1.0 Mo |
+| d30p33a | Tour Temporelle (Temporal Tower) | 69x72 | 7 | 1.0 Mo |
+| d30p34a | Tour Temporelle (Temporal Tower) | 69x72 | 7 | 1.0 Mo |
+| d30p41a | Pinacle Temporel [TEMPORAL_PINNACLE] | 69x72 | 7 | 1.0 Mo |
+| d30p42a | Tour Temporelle (Temporal Tower) | 69x72 | 12 | 1.0 Mo |
+| d31p11a | Forêt Mystifiante [MYSTIFYING_FOREST] | 75x63 | 1 | 0.9 Mo |
+| d31p31a | Forêt Mystifiante (Mystifying Forest) | 57x63 | 1 | 0.7 Mo |
+| d31p41a | Forêt Mystifiante (Mystifying Forest) | 69x63 | 1 | 0.9 Mo |
+| d32p11a | Aegis Cave [AEGIS_CAVE] | 126x57 | 1 | 1.4 Mo |
+| d32p12a | Ruines Cachées (Concealed Ruins) | 126x57 | 1 | 1.4 Mo |
+| d32p13a | Ruines Cachées (Concealed Ruins) | 126x57 | 1 | 1.4 Mo |
+| d32p14a | Terre Cachée [HIDDEN_LAND] | 72x51 | 1 | 0.7 Mo |
+| d32p31a | Ruine Scellée [SEALED_RUIN] | 114x57 | 1 | 1.3 Mo |
+| d32p32a | Ruine Scellée [SEALED_RUIN] | 114x57 | 1 | 1.3 Mo |
+| d32p33a | Ruine Scellée [SEALED_RUIN] | 114x57 | 1 | 1.3 Mo |
+| d32p41a | Ruines Cachées (Concealed Ruins) | 180x120 | 1 | 4.3 Mo |
+| d32p42a | Ruines Cachées (Concealed Ruins) | 180x120 | 1 | 4.3 Mo |
+| d32p43a | Ruines Cachées (Concealed Ruins) | 180x120 | 1 | 4.3 Mo |
+| d32p44a | Basse Grotte Saumure [LOWER_BRINE_CAVE] | 75x81 | 1 | 1.2 Mo |
+| d33p41a | Fond de la Mer Miracle (Miracle Seabed) | 180x120 | 1 | 4.3 Mo |
+| d34p41a | Mont Travail (Mt. Travail) | 57x57 | 1 | 0.6 Mo |
+| d35p21a | Mer Miracle [MIRACLE_SEA] | 57x57 | 1 | 0.6 Mo |
+| d35p41a | Forêt Mystifiante [MYSTIFYING_FOREST] | 180x120 | 1 | 4.3 Mo |
+| d36p11a | Mont Travail [MT_TRAVAIL] | 51x36 | 1 | 0.4 Mo |
+| d36p41a | Mont Travail (Mt. Travail) | 63x60 | 1 | 0.7 Mo |
+| d37p11a | Welcome To The World Of Pokemon (BGM) | 60x60 | 1 | 0.7 Mo |
+| d37p41a | Welcome To The World Of Pokemon (BGM) | 57x57 | 1 | 0.6 Mo |
+| d38p11a | Gouffre de la Ruine Scellée [SEALED_RUIN_PIT] | 60x57 | 1 | 0.7 Mo |
+| d38p12a | Gouffre [CHASM_CAVE] | 57x57 | 1 | 0.6 Mo |
+| d39p21a | Ruine Scellée [SEALED_RUIN] | 57x57 | 1 | 0.6 Mo |
+| d39p32a | Gouffre de la Ruine Scellée [SEALED_RUIN_PIT] | 60x60 | 1 | 0.7 Mo |
+| d39p41a | Cratère des Ténèbres (Dark Crater) | 180x120 | 1 | 4.3 Mo |
+| d40p11a | Cratère des Ténèbres [DARK_CRATER] | 45x57 | 16 | 0.5 Mo |
+| d41p21a | Cratère des Ténèbres Profond [DEEP_DARK_CRATER] | 57x57 | 1 | 0.6 Mo |
+| d41p41a | Hautes Terres Cachées [HIDDEN_HIGHLAND] | 69x72 | 13 | 2.9 Mo |
+| d42p21a | Grotte Étoile Profonde [DEEP_STAR_CAVE] | 57x57 | 1 | 0.6 Mo |
+| d42p31a | Grotte Étoile (Star Cave) | 126x63 | 16 | 1.7 Mo |
+| d42p41a | Grotte Étoile (Star Cave) | 63x63 | 16 | 0.9 Mo |
+| d42p42a | Grotte Étoile (Star Cave) | 63x57 | 16 | 0.8 Mo |
+| d43p31a | Rising Fear (BGM) | 51x54 | 1 | 0.5 Mo |
+| d44p31a | Fire Crackling (BGM) | 114x69 | 16 | 1.6 Mo |
+| d45p21a | Profondeurs du Ravin [FORTUNE_RAVINE_DEPTHS] | 57x57 | 1 | 0.6 Mo |
+| d45p31a | Fortune Ravine Depths (BGM) | 102x51 | 1 | 1.0 Mo |
+| d45p42a | Fortune Ravine Depths (BGM) | 63x63 | 1 | 0.8 Mo |
+| d46p11a | Vallée Stérile [BARREN_VALLEY] | 57x51 | 1 | 0.6 Mo |
+| d46p21a | Vallée Stérile [BARREN_VALLEY] | 57x57 | 1 | 0.6 Mo |
+| d46p31a | Hautes Terres Cachées [HIDDEN_HIGHLAND] | 57x63 | 1 | 0.7 Mo |
+| d46p41a | Tour Temporelle (Temporal Tower) | 57x63 | 1 | 0.7 Mo |
+| d47p11a | Terre Dévastée [DARK_WASTELAND] | 57x36 | 1 | 0.4 Mo |
+| d48p11a | Tour Temporelle [TEMPORAL_TOWER] | 75x69 | 1 | 1.0 Mo |
+| d48p21a | Flèche Temporelle [TEMPORAL_SPIRE] | 57x57 | 1 | 0.6 Mo |
+| d49p41a | Abîme du Monde (World Abyss) | 57x54 | 1 | 0.6 Mo |
+| d50p11a | Falaises Spatiales [SPACIAL_CLIFFS] | 63x45 | 1 | 0.6 Mo |
+| d51p11a | Mont de Glace Sombre [DARK_ICE_MOUNTAIN] | 63x39 | 1 | 0.5 Mo |
+| d51p21a | Mont de Glace Sombre [DARK_ICE_MOUNTAIN] | 57x57 | 1 | 0.6 Mo |
+| d51p41a | Pinacle Temporel [TEMPORAL_PINNACLE] | 63x51 | 1 | 0.6 Mo |
+| d52p11a | Forêt de Givre [ICICLE_FOREST] | 63x51 | 1 | 0.6 Mo |
+| d52p11c | Forêt de Givre (Icicle Forest) | 63x51 | 1 | 0.6 Mo |
+| d52p31a | Forêt de Givre (Icicle Forest) | 63x51 | 1 | 0.6 Mo |
+| d52p32a | Hautes Terres Cachées [HIDDEN_HIGHLAND] | 63x63 | 1 | 0.8 Mo |
+| d53p11a | Mont de Glace Immense [VAST_ICE_MOUNTAIN] | 63x45 | 1 | 0.6 Mo |
+| d53p11b | Vast Ice Mountain Peak (BGM) | 63x45 | 1 | 0.6 Mo |
+| d53p21a | Vast Ice Mountain Peak (BGM) | 57x57 | 1 | 0.6 Mo |
+| d53p41a | Vast Ice Mountain Peak (BGM) | 63x60 | 1 | 0.7 Mo |
+| d53p41b | Vast Ice Mountain Peak (BGM) | 63x60 | 16 | 3.7 Mo |
+| d53p41c | Vast Ice Mountain Peak (BGM) | 63x60 | 1 | 0.7 Mo |
+| d54p11a | Jungle Méridionale [SOUTHERN_JUNGLE] | 63x54 | 1 | 0.7 Mo |
+| d54p31a | Jungle Méridionale — sortie (ES4, n06a0501) | 63x57 | 1 | 0.7 Mo |
+| d54p32a | Antichambre ES4 (Team Charm, n06a0502) | 75x57 | 1 | 0.8 Mo |
+| d55p11a | Carrière Rocher [BOULDER_QUARRY] | 69x63 | 1 | 0.9 Mo |
+| d55p21a | Carrière Rocher [BOULDER_QUARRY] | 57x57 | 1 | 0.6 Mo |
+| d55p41a | Thème de l'Équipe Charme [TEAM_CHARMS_THEME] | 63x57 | 1 | 0.7 Mo |
+| d56p11a | Salle de la Pierre Illusoire [ILLUSION_STONE_CHAMBER] | 63x51 | 1 | 0.6 Mo |
+| d56p12a | Caverne Calcaire [LIMESTONE_CAVERN] | 39x42 | 16 | 0.5 Mo |
+| d56p21a | Caverne Calcaire Profonde [DEEP_LIMESTONE_CAVERN] | 57x57 | 1 | 0.6 Mo |
+| d56p41a | Salle du coffre ES4 (Team Charm, n06a3401) | 57x60 | 12 | 1.1 Mo |
+| d57p21a | Profondeurs de la Grotte Source [SPRING_CAVE_DEPTHS] | 57x57 | 1 | 0.6 Mo |
+| d57p41a | Heavy Wind2 (BGM) | 57x57 | 1 | 0.6 Mo |
+| d57p42a | Heavy Wind2 (BGM) | 57x66 | 16 | 0.8 Mo |
+| d57p43a | Grotte Source — poursuite Haunter (ES3, n04a2001) | 114x57 | 16 | 1.9 Mo |
+| d57p44a | Grotte Source — fond chaud (ES3, n04a2501/2601) | 57x57 | 16 | 1.1 Mo |
+| d58p41a | *(à confirmer)* | 57x57 | 1 | 0.6 Mo |
+| d59p41a | *(à confirmer)* | 57x57 | 1 | 0.6 Mo |
+| d60p41a | *(à confirmer)* | 57x57 | 1 | 0.6 Mo |
+| d61p41a | *(à confirmer)* | 57x57 | 1 | 0.6 Mo |
+| d62p41a | Dojo d'Ossatueur (Marowak Dojo) | 57x57 | 1 | 0.6 Mo |
+| d63p41a | Tour du Destin (Destiny Tower) | 57x57 | 1 | 0.6 Mo |
+| d65p41a | Volcan Géant (Giant Volcano) | 180x120 | 1 | 4.3 Mo |
+| d66p41a | Désert Scintillant (Shimmer Desert) | 180x120 | 1 | 4.3 Mo |
+| d67p41a | Mont Avalanche (Mt. Avalanche) | 180x120 | 1 | 4.3 Mo |
+| d68p41a | Mer sans Fond (Bottomless Sea) | 180x120 | 1 | 4.3 Mo |
+| d69p41a | Abîme du Monde (World Abyss) | 180x120 | 1 | 4.3 Mo |
+| d70p41a | Jungle Mystère (Mystery Jungle) | 180x120 | 1 | 4.3 Mo |
+| d71p41a | Escalier du Ciel (Sky Stairway) | 180x120 | 1 | 4.3 Mo |
+| d72p41a | Pré Fleuri (Tiny Meadow) | 180x120 | 1 | 4.3 Mo |
+| d73p11a | Village Shaymin (Shaymin Village) | 81x69 | 1 | 1.1 Mo |
+| d73p21a | Forêt du Pic du Ciel [SKY_PEAK_FOREST] | 57x63 | 1 | 0.7 Mo |
+| d73p22a | Grotte du Pic du Ciel [SKY_PEAK_CAVE] | 57x63 | 1 | 0.7 Mo |
+| d73p23a | Prairie du Pic du Ciel [SKY_PEAK_PRAIRIE] | 57x63 | 1 | 0.7 Mo |
+| d73p24a | Prairie du Pic du Ciel [SKY_PEAK_PRAIRIE] | 57x63 | 1 | 0.7 Mo |
+| d73p25a | Prairie du Pic du Ciel [SKY_PEAK_PRAIRIE] | 57x57 | 1 | 0.6 Mo |
+| d73p26a | Champs de Neige du Pic du Ciel [SKY_PEAK_SNOWFIELD] | 57x63 | 1 | 0.7 Mo |
+| d73p27a | Champs de Neige du Pic du Ciel [SKY_PEAK_SNOWFIELD] | 57x57 | 1 | 0.6 Mo |
+| d73p28a | Village Shaymin (Shaymin Village) | 57x63 | 4 | 0.7 Mo |
+| d73p29a | Dernier Col du Pic du Ciel [SKY_PEAK_FINAL_PASS] | 57x57 | 1 | 0.6 Mo |
+| d73p31a | Pic du Ciel (Sky Peak) | 63x63 | 4 | 1.0 Mo |
+| d73p41a | Pic du Ciel (Sky Peak) | 63x63 | 8 | 0.8 Mo |
+| d79p11a | Grotte de la Faille (Crevice Cave) | 75x63 | 1 | 0.9 Mo |
+| d79p21a | Grotte de la Faille (Crevice Cave) | 57x57 | 1 | 0.6 Mo |
+| d79p41a | Grotte de la Faille (Crevice Cave) | 180x120 | 1 | 4.3 Mo |
+| d80p41a | Grotte du Labyrinthe (Labyrinth Cave) | 180x120 | 1 | 4.3 Mo |
+| d81p41a | Belvédère (Happy Outlook) | 57x57 | 1 | 0.6 Mo |
+| d82p41a | Mont Mistral | 57x57 | 1 | 0.6 Mo |
+| d83p41a | Colline Scintillante (Shimmer Hill) | 57x57 | 1 | 0.6 Mo |
+| d84p41a | Terre Sauvage Perdue (Lost Wilderness) | 57x57 | 1 | 0.6 Mo |
+| d85p41a | Forêt de Minuit (Midnight Forest) | 57x57 | 1 | 0.6 Mo |
+| d86p41a | Île Zéro Nord (Zero Isle North) | 57x57 | 1 | 0.6 Mo |
+| d87p41a | Île Zéro Est (Zero Isle East) | 57x57 | 1 | 0.6 Mo |
+| d88p41a | Île Zéro Ouest (Zero Isle West) | 57x57 | 1 | 0.6 Mo |
+| d89p41a | Île Zéro Sud (Zero Isle South) | 57x57 | 1 | 0.6 Mo |
+| d90p41a | Île Zéro Centre (Zero Isle Center) | 57x57 | 1 | 0.6 Mo |
+| d91p41a | Tour du Destin (Destiny Tower) | 90x60 | 1 | 1.1 Mo |
+| d92p41a | Petites Plaines (Little Plains) | 90x60 | 1 | 1.1 Mo |
+| d93p41a | Mont Clair (Mt. Clear) | 90x60 | 1 | 1.1 Mo |
+| d94p41a | Rivière Défi (Challenge River) | 90x60 | 1 | 1.1 Mo |
+| d95p41a | Forêt d'Épreuve (Trial Forest) | 90x60 | 1 | 1.1 Mo |
+
+### Identités par groupe (synthèse des scènes SSB décompilées)
+
+| Groupe | Donjon canonique | Preuves |
+|---|---|---|
+| d01 | Grotte Plage | BGM_IN_THE_DEPTHS_OF_THE_PIT |
+| d02 | Falaise Trempée | BGM_DRENCHED_BLUFF |
+| d03 | Mont Bristle | BGM_MT_BRISTLE |
+| d04 | Grotte Cascade | BGM_WATERFALL_CAVE ; "That water's pounding down!" |
+| d05 | Bois Pommier | BGM_APPLE_WOODS ; lieu "Apple Woods" |
+| d06 | Côte Escarpée | BGM_CRAGGY_COAST |
+| d07 | Mont Corne | BGM_MT_HORN ; lieu "Mt. Horn" |
+| d08 | Forêt Brumeuse / Lac des Brumes | BGM_FOGGY_FOREST ; lieu "Fogbound Lake" |
+| d09 | Grotte Vapeur | BGM_STEAM_CAVE |
+| d10 | Haute Grotte Vapeur | BGM_UPPER_STEAM_CAVE ; "We've climbed way up high!" |
+| d11 | Plaines Amp | BGM_AMP_PLAINS |
+| d12 | Ampériques Lointaines | BGM_FAR_AMP_PLAINS |
+| d13 | Désert Boréal | BGM_NORTHERN_DESERT ; "If a Time Gear really is here" |
+| d14 | Grotte des Sables | BGM_QUICKSAND_CAVE ; "It's quicksand!" |
+| d15 | Gouffre des Sables | BGM_QUICKSAND_PIT |
+| d16 | Grotte Cristal | BGM_CRYSTAL_CAVE ; "So this is Crystal Cave!" |
+| d17 | Croisement Cristal | BGM_CRYSTAL_CROSSING |
+| d18 | Gouffre (Chasm Cave) | BGM_CHASM_CAVE |
+| d19 | Colline Sombre | BGM_DARK_HILL |
+| d20 | Ruine Scellée | BGM_SEALED_RUIN |
+| d21 | Ruine Scellée Profonde | BGM_SEALED_RUIN_PIT |
+| d22 | Forêt Crépusculaire | BGM_DUSK_FOREST |
+| d23 | Forêt Crépusculaire Profonde | BGM_DEEP_DUSK_FOREST |
+| d24 | Forêt des Cimes | BGM_TREESHROUD_FOREST |
+| d25 | Grotte Saumure | BGM_BRINE_CAVE |
+| d26 | Basse Grotte Saumure | BGM_LOWER_BRINE_CAVE |
+| d27 | Terre Cachée | BGM_HIDDEN_LAND |
+| d28 | Pic du Ciel (Sky Peak) | lieu "Sky Peak" (105 occ.) ; Village Shaymin |
+| d50 | Falaises Spatiales (ES5) | BGM_SPACIAL_CLIFFS |
+| d51 | Mont de Glace Sombre (ES5) | BGM_DARK_ICE_MOUNTAIN |
+| d52 | Forêt de Givre (ES5) | BGM_ICICLE_FOREST |
+| d53 | Mont de Glace Immense (ES5) | BGM_VAST_ICE_MOUNTAIN ; Primal Dialga "GIGI GIGIGIGI" (n09a1801) |
+| d54 | Jungle Méridionale (ES4) | BGM_SOUTHERN_JUNGLE ; n06a0501 "sorties de la Jungle Méridionale" |
+| d55 | Carrière Rocher (ES4) | BGM_BOULDER_QUARRY ; scènes Team Charm |
+| d56 | Caverne Calcaire (ES4) | BGM_LIMESTONE_CAVERN / DEEP_LIMESTONE_CAVERN ; "limestone cavern!" |
+| d57 | Grotte Source (ES3) | BGM_SPRING_CAVE_DEPTHS ; "Je vais t'arrêter, Haunter!" ; "hot hot hot!" |
+| d58 | Template unique d58-d61 (md5 identiques) — identité à confirmer | — |
+| d59 | Template unique d58-d61 (md5 identiques) — identité à confirmer | — |
+| d60 | Template unique d58-d61 (md5 identiques) — identité à confirmer | — |
+| d61 | Template unique d58-d61 (md5 identiques) — identité à confirmer | — |
+| d62 | Dojo d'Ossatueur | BGM_MAROWAK_DOJO |
+
+### Doublons et priorité Sky
+
+- Aucun ground existant n'a été écrasé : préfixe **sky_** (sky_d54p11a…). Les
+  7 IDs Red du dépôt (d09p02…, t01p01 — exports officiels PMD Red, arc fugitif
+  ch11 + SceneDebug) restent intacts : les ID de maps Red et Sky ne se
+  recouvrent pas canoniquement.
+- **bourg_comptoir** (« Trading Burg », 48x21, Treasure Town.ogg) : port existant
+  d'une ville de type Bourg-Comptoir, assignée à la réserve ville 2 (ch11+).
+  La carte source Sky (GROUND/*.sir0) n'est PAS dans pret/pmd-sky (binaire de
+  ROM) : la version Sky ne peut pas encore être importée. Règle actée :
+  **l'importation Sky est prioritaire** — quand le .sir0 sera disponible, il
+  remplacera bourg_comptoir (scènes ch11 à recaler).
+- Doublons internes assumés : arc_parvis_celeste/parvis_celeste,
+  arc_palier_celeste/palier_celeste, arc_tour_ciel_sommet/tour_ciel_sommet,
+  bois_sombres_oree/gloomy_forest_entrance, carrefour_assemblee/carrefour_nord,
+  vast_steppe_guardian/vast_steppe_miniboss, chambres de guilde, 4 midpoints.
+
+### Restitution (au cas par cas)
+
+1. Copier `RESERVE/sky_grounds/sky_X.rsground` → `Data/Ground/` (nom canonique
+   FR) et `RESERVE/sky_tiles/sky_X_Base.tile` → `Content/Tile/`.
+2. `python3 tools/rebuild_tile_index.py` ; déclarer dans la zone (index.idx +
+   GroundMaps) ; brancher les scènes (patron cloven_ruins).
+3. `python3 tools/audit_grounds_correlation.py` — 0 bloquant exigé.
+
+### Limites
+
+- 5 maps (d17p31a-d34a, d73p11a) rendues SANS leurs BPA (assertion skytemple) :
+  frame unique, animations à reprendre quand le handler sera compatible.
+- FrameLength uniformisé (8) : les durées BPA originales ne sont pas exportées
+  par to_pil (LCM des longueurs).
+- 6 cartes sans dossier SCRIPT dans le dépôt decompilé → identité à confirmer.
+
