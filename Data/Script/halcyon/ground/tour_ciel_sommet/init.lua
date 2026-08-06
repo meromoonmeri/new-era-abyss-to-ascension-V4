@@ -95,7 +95,7 @@ function tour_ciel_sommet.ArrivalBody()
   end
 
   -- Rejouabilité : après la fin du jeu, le sommet est désert.
-  if ReplayEnding.IsReplay('celestial_peak', 10) then
+  if ReplayEnding.IsReplay('sky_tower', 10) then
     ReplayEnding.EmptyArena({
       hero = {284, 400}, partner = {252, 400},
       camera = {268, 330}, look = {268, 264},
@@ -169,7 +169,7 @@ function tour_ciel_sommet.ArrivalBody()
   GAME:CutsceneMode(false)
   
   -- Lancement du combat de boss légendaire
-  GAME:ContinueDungeon("celestial_peak", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("sky_tower", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 -- ============================================================

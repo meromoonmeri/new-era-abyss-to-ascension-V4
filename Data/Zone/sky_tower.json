@@ -5845,7 +5845,7 @@
                 },
                 "Value": {
                   "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-                  "MapID": "sky_tower_relay"
+                  "MapID": "palier_celeste"
                 }
               }
             ],
@@ -11561,7 +11561,7 @@
                 },
                 "Value": {
                   "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-                  "MapID": "sky_tower_fulgur"
+                  "MapID": "parvis_celeste"
                 }
               }
             ],

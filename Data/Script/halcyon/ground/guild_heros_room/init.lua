@@ -203,7 +203,7 @@ function guild_heros_room.CheckTriggerEvent()
 	local chapter_gates = {
 		--[ch] = { drapeau de cloture, ch suivant, donjon, secondaires, nuits de repos }
 		[7]  = { function() return SV.Chapter8.CrystalSanctuaryComplete end, 8,  "poisonous_forest",   {"marais_errants"}, 4 },
-		[8]  = { function() return SV.Chapter9.ForgottenMarshComplete end,   9,  "celestial_peak",    {"falaises_envol", "sentier_enneige"}, 5 },
+		[8]  = { function() return SV.Chapter9.ForgottenMarshComplete end,   9,  "sky_tower",    {"falaises_envol", "sentier_enneige"}, 5 },
 		[9]  = { function() return SV.Chapter10.CelestialPeakComplete end,   10, "bourg_comptoir",    {}, 5 },
 	}
 	local gate = chapter_gates[SV.ChapterProgression.Chapter]

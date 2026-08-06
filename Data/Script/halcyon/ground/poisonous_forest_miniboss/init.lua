@@ -9,7 +9,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
-require 'halcyon.ground.poisonous_forest_miniboss.poisonous_forest_miniboss_ch_9'
+require 'halcyon.ground.poisonous_forest_miniboss.forgotten_marsh_miniboss_ch_9'
 
 local poisonous_forest_miniboss = {}
 

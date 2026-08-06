@@ -102,7 +102,7 @@ MISSION_GEN.DUNGEON_DIFFICULTY["sentier_enneige"] = "S"
 MISSION_GEN.DUNGEON_DIFFICULTY["cloven_ruins"] = "S"
 MISSION_GEN.DUNGEON_DIFFICULTY["waterfall_pond"] = "S"
 MISSION_GEN.DUNGEON_DIFFICULTY["poisonous_forest"] = "S"
-MISSION_GEN.DUNGEON_DIFFICULTY["celestial_peak"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["sky_tower"] = "STAR_1"
 
 
 --order of difficulties. 
@@ -191,7 +191,7 @@ MISSION_GEN.EXPECTED_LEVEL["sentier_enneige"] = 27
 MISSION_GEN.EXPECTED_LEVEL["cloven_ruins"] = 26
 MISSION_GEN.EXPECTED_LEVEL["waterfall_pond"] = 28
 MISSION_GEN.EXPECTED_LEVEL["poisonous_forest"] = 30
-MISSION_GEN.EXPECTED_LEVEL["celestial_peak"] = 33
+MISSION_GEN.EXPECTED_LEVEL["sky_tower"] = 33
 
 
 MISSION_GEN.TITLES =  {
