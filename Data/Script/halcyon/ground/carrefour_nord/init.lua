@@ -19,6 +19,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.AccusationArc'
+require 'halcyon.FugitiveArc'
 
 local carrefour_nord = {}
 
@@ -43,13 +44,10 @@ function carrefour_nord.Enter(map)
     if a ~= nil and a.Scene == 10 then
       AccusationArc.Play(AccusationArc.Scene10b_Carrefour, 'Scene10b_Carrefour')
       -- La scène pose Scene = 11 et FledGuild. Le duo reprend ensuite
-      -- sa route : le Bourg du Comptoir s'ouvre par Loaklass, depuis
-      -- la Mare Altérée (altere_pond_ch_11).
-      pcall(function()
-        GAME:FadeOut(false, 50)
-        GAME:WaitFrames(30)
-        GAME:EnterGroundMap("altere_pond", "Main_Entrance_Marker")
-      end)
+      -- sa route : l'ARC FUGITIF canon (PMD Red), qui enchaîne
+      -- A02P01 -> ... -> D13 Sky Tower -> Place -> rêve -> fin, puis
+      -- débouche sur la Mare Altérée (altere_pond_ch_11).
+      FugitiveArc.Begin()
       return
     end
   end

@@ -1365,6 +1365,11 @@ SV.Chapter10 =
 	PlayedLugiaTalk = false
 }
 
+SV.FugitiveArc =
+{
+	Step = 0  -- étape courante de l'Arc Fugitif (0 = pas commencé)
+}
+
 SV.Chapter11 = 
 {
 	ShowedTitleCard = false,

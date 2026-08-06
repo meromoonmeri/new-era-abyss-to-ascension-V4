@@ -601,7 +601,23 @@
         "crystal_sanctuary_boss",
         "forgotten_marsh_boss",
         "celestial_peak_boss",
-        "poisonous_forest_entrance"
+        "poisonous_forest_entrance",
+        "a02p01",
+        "a02p02",
+        "a02p03",
+        "a02p04",
+        "grotte_lazuli_seuil",
+        "d09p02",
+        "d09p03",
+        "d10p02",
+        "d10p03",
+        "d11p02",
+        "d11p03",
+        "gorge_ardente_porte",
+        "gorge_ardente_coeur",
+        "t01p01",
+        "a04p01",
+        "a05p03"
       ],
       "Maps": [
         [
