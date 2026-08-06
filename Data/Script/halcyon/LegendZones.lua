@@ -58,6 +58,27 @@ LegendZones = {}
 
 LegendZones.LIST = {
     ------------------------------------------------------------------
+    -- JOUABLES AUJOURD'HUI (restaures le 2026-08-06 : la purge de la
+    -- reduction les avait emportes par erreur).
+    ------------------------------------------------------------------
+    {
+        key = 'verdant_oath', species = 'zarude',
+        name = 'LZ_Name_Verdant_Oath', blurb = 'LZ_Blurb_Verdant_Oath',
+        sight = 'LZ_Sight_Verdant_Oath', price = 15000,
+        -- Pose par zone/gloomy_forest/init.lua (segment 4, victoire).
+        flag = function() return SV.Chapter6 ~= nil and SV.Chapter6.DefeatedGloomyBoss == true end,
+        zone = 'gloomy_forest', segment = 5, roam = true, ready = true
+    },
+    {
+        key = 'colossus_quarry', species = 'regigigas',
+        name = 'LZ_Name_Colossus_Quarry', blurb = 'LZ_Blurb_Colossus_Quarry',
+        sight = 'LZ_Sight_Colossus_Quarry', price = 22000,
+        -- Segment 7 = Sanctuaire des Titans (Regigigas). CORRIGE : la
+        -- version d'origine pointait le segment 5 (arene de Registeel).
+        flag = function() return SV.Chapter5 ~= nil and SV.Chapter5.SawAnimaCoreCorruption == true end,
+        zone = 'cloven_ruins', segment = 7, roam = false, ready = true
+    },
+    ------------------------------------------------------------------
     -- JOUABLE AUJOURD'HUI
     ------------------------------------------------------------------
 }

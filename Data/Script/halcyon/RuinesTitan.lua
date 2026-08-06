@@ -221,6 +221,12 @@ end
 function RuinesTitan.Victoire()
   local s = etat()
   s.VaincuRegigigas = true
+  -- CORRECTIF (audit cloven_ruins) : SawAnimaCoreCorruption n'etait plus
+  -- pose nulle part depuis la restructuration ch7 -> ch5. Sans lui, la
+  -- revanche achetee chez Grodoudou (LegendZones colossus_quarry) et la
+  -- branche sobre du segment 7 (zone/cloven_ruins/init.lua) ne se
+  -- declenchaient jamais. Pose ici, garanti meme si la scene s'ecourte.
+  if SV.Chapter5 ~= nil then SV.Chapter5.SawAnimaCoreCorruption = true end
 
   local hero = DonjonFX.Hero()
   local partner = DonjonFX.Partner()

@@ -171,6 +171,18 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
     GAME:WaitFrames(20)
     local boucle = (motif == nil)
     if not boucle then SV.Chapter5.LostRuins = true end
+    -- CINEMATIQUE DE RETOUR AU CAMP (correctif audit cloven_ruins) :
+    -- PlayTempRuinsScene n'etait jamais pose, le ground d'entree ne
+    -- jouait ni le reveil apres KO ni le repli apres abandon. Le camp
+    -- lit ces deux flags (cloven_ruins_entrance/init.lua PlotScripting).
+    if not boucle then
+      SV.Chapter5.PlayTempRuinsScene = true
+      if result == RogueEssence.Data.GameProgress.ResultType.Escaped then
+        SV.Chapter5.RuinsLastExitReason = 'Retreated'
+      else
+        SV.Chapter5.RuinsLastExitReason = 'Died'
+      end
+    end
     if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped
        and motif == 'echec' then
       GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('cloven_ruins_entrance'), 0, true, true)
@@ -241,6 +253,12 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
           -- revient au camp. Le scelle reste entier : le joueur pourra
           -- redescendre, le mot du secteur etant deja epele.
           SV.Ruines['Perdu' .. qui] = true
+          SV.Chapter5.PlayTempRuinsScene = true
+          if result == RogueEssence.Data.GameProgress.ResultType.Escaped then
+            SV.Chapter5.RuinsLastExitReason = 'Retreated'
+          else
+            SV.Chapter5.RuinsLastExitReason = 'Died'
+          end
           PrintInfo("[Ruines] defaite contre " .. qui)
           GAME:WaitFrames(20)
           pcall(function()
@@ -312,6 +330,15 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
       -- Regigigas, sa mise en statue, l'effondrement et la fuite
       -- (RuinesTitan). On ressort au camp, ou le ground d'entree joue la
       -- revelation de la Tour des Reliques en lisant SV.Ruines.VaincuRegigigas.
+      -- Defaite (ou abandon) : on arme la cinematique de reveil au camp.
+      if result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+        SV.Chapter5.PlayTempRuinsScene = true
+        if result == RogueEssence.Data.GameProgress.ResultType.Escaped then
+          SV.Chapter5.RuinsLastExitReason = 'Retreated'
+        else
+          SV.Chapter5.RuinsLastExitReason = 'Died'
+        end
+      end
       GAME:WaitFrames(20)
       GeneralFunctions.EndDungeonRun(result, "master_zone", -1,
         GROUND_IDX('cloven_ruins_entrance'), 0, false, false)

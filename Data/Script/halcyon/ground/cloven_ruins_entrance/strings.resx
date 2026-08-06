@@ -346,4 +346,7 @@
   <data name="CR5_MEW05" xml:space="preserve">
     <value>Perhaps.[pause=20] The elders said that whoever felt it,[pause=10] heard it calling.[pause=0] Without ever knowing where.[pause=15] Maybe that is what you are looking for,[pause=10] without knowing it.</value>
   </data>
+  <data name="CRB_REVEL_05" xml:space="preserve">
+    <value>The ground is shaking![pause=10] What is happening!?</value>
+  </data>
 </root>

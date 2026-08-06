@@ -346,4 +346,7 @@
   <data name="CR5_MEW05" xml:space="preserve">
     <value>Peut-être.[pause=20] Les anciens disaient que celui qui la ressentait,[pause=10] l'entendait appeler.[pause=0] Sans jamais savoir où.[pause=15] Peut-être que c'est ce que vous cherchez,[pause=10] sans le savoir.</value>
   </data>
+  <data name="CRB_REVEL_05" xml:space="preserve">
+    <value>La terre tremble ![pause=10] Qu'est-ce qui se passe !?</value>
+  </data>
 </root>
