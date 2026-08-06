@@ -189,6 +189,391 @@ SceneDebug.scenes = {
       end)
     end,
   },
+
+  {
+    key = 'ch1_intro',
+    label = "Ch1 — Forêt des Reliques : arrivée du duo",
+    chapter = 1, ground = 'relic_forest', entry = 'Main_Entrance_Marker',
+    note = "relic_forest/init.lua:69 — not PlayedIntroCutscene",
+    set = { Chapter1 = { PlayedIntroCutscene = false, PartnerMetHero = false, PartnerEnteredForest = false, PartnerCompletedForest = false, TeamCompletedForest = false }},
+  },
+  {
+    key = 'ch2_riviere',
+    label = "Ch2 — Rivière Lumineuse : arrivée",
+    chapter = 2, ground = 'illuminant_riverbed_entrance', entry = 'Main_Entrance_Marker',
+    note = "illuminant_riverbed_entrance — première visite ch2",
+    set = { Chapter2 = { FinishedRiver = false }},
+  },
+  {
+    key = 'ch3_caverne',
+    label = "Ch3 — Caverne Tortueuse : arrivée",
+    chapter = 3, ground = 'crooked_cavern_entrance', entry = 'Main_Entrance_Marker',
+    note = "crooked_cavern_entrance — première visite ch3",
+    set = { Chapter3 = { FinishedOutlawIntro = false }},
+  },
+  {
+    key = 'ch4_noigrumes',
+    label = "Ch4 — Forêt des Noigrumes : arrivée",
+    chapter = 4, ground = 'apricorn_grove_entrance', entry = 'Main_Entrance_Marker',
+    note = "apricorn_grove_entrance/init.lua:78 — not EnteredGrove",
+    set = { Chapter4 = { EnteredGrove = false, FinishedGrove = false, ReachedGlade = false }},
+  },
+  {
+    key = 'ch6_boss_zeraora',
+    label = "Ch6 — Forêt Lugubre : combat Zeraora (arène)",
+    chapter = 6, ground = 'gloomy_forest_boss', entry = 'Main_Entrance_Marker',
+    note = "gloomy_forest_boss — arène (combat + cinématique OnMapStarts)",
+    set = { Chapter6 = { DefeatedGloomyBoss = false }},
+  },
+  {
+    key = 'ch10_rayquaza',
+    label = "Ch10 — Sommet de la Tour : climax Rayquaza",
+    chapter = 10, ground = 'tour_ciel_sommet', entry = 'Main_Entrance_Marker',
+    note = "tour_ciel_sommet/init.lua — Enter() acte 1 (PeakVictory)",
+    set = { Chapter10 = { CelestialPeakComplete = true, PlayedLugiaTalk = false }},
+  },
+
+  -- ================================================================
+  -- ARC FUGITIF (ch11) — scenes standalone jouables directement.
+  -- Dialogues = cles SCENE_* (a adopter) ; le menu permet de voir le
+  -- deroule, les fondus et les musiques.
+  -- ================================================================
+  {
+    key = 'arc_fuite_fissure',
+    label = "Ch11 — Arc Fugitif : la fissure (A02P01)",
+    ground = 'a02p01', entry = 'Main_Entrance_Marker',
+    note = "scène standalone a02p01.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.a02p01')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_fuite_feu',
+    label = "Ch11 — Arc Fugitif : l'incendie (A02P02)",
+    ground = 'a02p02', entry = 'Main_Entrance_Marker',
+    note = "scène standalone a02p02.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.a02p02')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_fuite_lapis',
+    label = "Ch11 — Arc Fugitif : grotte Lapis (A02P03)",
+    ground = 'a02p03', entry = 'Main_Entrance_Marker',
+    note = "scène standalone a02p03.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.a02p03')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_fuite_volcan',
+    label = "Ch11 — Arc Fugitif : le volcan (A02P04)",
+    ground = 'a02p04', entry = 'Main_Entrance_Marker',
+    note = "scène standalone a02p04.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.a02p04')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_lapis_entree',
+    label = "Ch11 — Arc Fugitif : Lapis entrée (D08P01)",
+    ground = 'grotte_lazuli_seuil', entry = 'Main_Entrance_Marker',
+    note = "scène standalone grotte_lazuli_seuil.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.grotte_lazuli_seuil')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_lapis_fond',
+    label = "Ch11 — Arc Fugitif : Lapis fond (D08P02)",
+    ground = 'grotte_lazuli_fond', entry = 'Main_Entrance_Marker',
+    note = "scène standalone grotte_lazuli_fond.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.grotte_lazuli_fond')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_brasier_entree',
+    label = "Ch11 — Arc Fugitif : Mt Brasier entrée (D09P01)",
+    ground = 'mont_cendre_pied', entry = 'Main_Entrance_Marker',
+    note = "scène standalone mont_cendre_pied.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.mont_cendre_pied')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_brasier_relais',
+    label = "Ch11 — Arc Fugitif : Mt Brasier relais (D09P02)",
+    ground = 'd09p02', entry = 'Main_Entrance_Marker',
+    note = "scène standalone d09p02.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.d09p02')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_brasier_sommet',
+    label = "Ch11 — Arc Fugitif : sommet Moltres (D09P03)",
+    ground = 'd09p03', entry = 'Main_Entrance_Marker',
+    note = "scène standalone d09p03.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.d09p03')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_givree_entree',
+    label = "Ch11 — Arc Fugitif : Forêt Givrée entrée (D10P01)",
+    ground = 'foret_givree_oree', entry = 'Main_Entrance_Marker',
+    note = "scène standalone foret_givree_oree.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.foret_givree_oree')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_givree_relais',
+    label = "Ch11 — Arc Fugitif : Forêt Givrée relais (D10P02)",
+    ground = 'd10p02', entry = 'Main_Entrance_Marker',
+    note = "scène standalone d10p02.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.d10p02')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_givree_sommet',
+    label = "Ch11 — Arc Fugitif : sommet Artikodin (D10P03)",
+    ground = 'd10p03', entry = 'Main_Entrance_Marker',
+    note = "scène standalone d10p03.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.d10p03')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_gele_entree',
+    label = "Ch11 — Arc Fugitif : Mt Gelé entrée (D11P01)",
+    ground = 'mont_gele_pied', entry = 'Main_Entrance_Marker',
+    note = "scène standalone mont_gele_pied.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.mont_gele_pied')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_gele_relais',
+    label = "Ch11 — Arc Fugitif : Mt Gelé relais (D11P02)",
+    ground = 'd11p02', entry = 'Main_Entrance_Marker',
+    note = "scène standalone d11p02.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.d11p02')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_gele_autel',
+    label = "Ch11 — Arc Fugitif : autel Feunard (D11P03)",
+    ground = 'd11p03', entry = 'Main_Entrance_Marker',
+    note = "scène standalone d11p03.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.d11p03')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_magma_entree',
+    label = "Ch11 — Arc Fugitif : Caverne Magma entrée (D12P01)",
+    ground = 'gorge_ardente_porte', entry = 'Main_Entrance_Marker',
+    note = "scène standalone gorge_ardente_porte.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.gorge_ardente_porte')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_magma_coeur',
+    label = "Ch11 — Arc Fugitif : Caverne Magma cœur (D12P02)",
+    ground = 'gorge_ardente_coeur', entry = 'Main_Entrance_Marker',
+    note = "scène standalone gorge_ardente_coeur.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.gorge_ardente_coeur')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_magma_fosse',
+    label = "Ch11 — Arc Fugitif : fosse Groudon (D12P04)",
+    ground = 'fosse_ardente', entry = 'Main_Entrance_Marker',
+    note = "scène standalone fosse_ardente.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.fosse_ardente')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_tour_entree',
+    label = "Ch11 — Arc Fugitif : Tour Céleste entrée (D13P01)",
+    ground = 'arc_parvis_celeste', entry = 'Main_Entrance_Marker',
+    note = "scène standalone d13p01.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.d13p01')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_tour_relais',
+    label = "Ch11 — Arc Fugitif : Tour Céleste relais (D13P02)",
+    ground = 'arc_palier_celeste', entry = 'Main_Entrance_Marker',
+    note = "scène standalone d13p02.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.d13p02')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_tour_sommet',
+    label = "Ch11 — Arc Fugitif : sommet Rayquaza (D13P03)",
+    ground = 'arc_tour_ciel_sommet', entry = 'Main_Entrance_Marker',
+    note = "scène standalone d13p03.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.d13p03')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_place',
+    label = "Ch11 — Arc Fugitif : Place Pokémon panique (T01P01)",
+    ground = 't01p01', entry = 'Main_Entrance_Marker',
+    note = "scène standalone t01p01.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.t01p01')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_reve',
+    label = "Ch11 — Arc Fugitif : le rêve (A04P01)",
+    ground = 'a04p01', entry = 'Main_Entrance_Marker',
+    note = "scène standalone a04p01.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.a04p01')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
+  {
+    key = 'arc_fin',
+    label = "Ch11 — Arc Fugitif : The End (A05P03)",
+    ground = 'a05p03', entry = 'Main_Entrance_Marker',
+    note = "scène standalone a05p03.lua (dialogues SCENE_* à adopter)",
+    set = {},
+    play = function()
+      GAME:CutsceneMode(true)
+      local mod = require('halcyon.arc_fugitif.scene.a05p03')
+      if mod ~= nil and mod.Cutscene ~= nil then mod.Cutscene() end
+      GAME:CutsceneMode(false)
+      GAME:FadeIn(20)
+    end,
+  },
 }
 
 
