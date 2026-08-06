@@ -7765,7 +7765,7 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-         "MapID": "purity_forest"
+         "MapID": "bois_antan_verger"
         }
        }
       ],

@@ -6853,7 +6853,7 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-         "MapID": "wish_cave"
+         "MapID": "sanctuaire_voeu"
         }
        }
       ],

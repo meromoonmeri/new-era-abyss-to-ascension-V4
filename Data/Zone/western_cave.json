@@ -6357,7 +6357,7 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-         "MapID": "western_cave"
+         "MapID": "antre_occident"
         }
        }
       ],

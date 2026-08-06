@@ -2872,7 +2872,7 @@
    "CountedFloors": 41,
    "Rogue": 0,
    "Grounds": [
-    "mt_faraway"
+    "pic_arc_en_ciel"
    ],
    "Maps": [
     [
@@ -2946,7 +2946,7 @@
    "CountedFloors": 100,
    "Rogue": 0,
    "Grounds": [
-    "silver_trench"
+    "fosse_argentee"
    ],
    "Maps": [
     [
@@ -3079,7 +3079,7 @@
    "CountedFloors": 100,
    "Rogue": 0,
    "Grounds": [
-    "western_cave"
+    "antre_occident"
    ],
    "Maps": [
     [
@@ -3380,7 +3380,7 @@
    "CountedFloors": 31,
    "Rogue": 0,
    "Grounds": [
-    "northwind_field"
+    "bois_des_plaintes"
    ],
    "Maps": [
     [
@@ -3637,7 +3637,7 @@
    "CountedFloors": 100,
    "Rogue": 0,
    "Grounds": [
-    "purity_forest"
+    "bois_antan_verger"
    ],
    "Maps": [
     [
@@ -4094,7 +4094,7 @@
    "CountedFloors": 100,
    "Rogue": 0,
    "Grounds": [
-    "wish_cave"
+    "sanctuaire_voeu"
    ],
    "Maps": [
     [
@@ -4344,8 +4344,8 @@
    "CountedFloors": 15,
    "Rogue": 0,
    "Grounds": [
-    "mt_thunder_mid",
-    "mt_thunder_end"
+    "mont_grondant_pied",
+    "pre_tonnerre"
    ],
    "Maps": [
     [
@@ -4501,7 +4501,7 @@
    "CountedFloors": 21,
    "Rogue": 0,
    "Grounds": [
-    "meteor_cave"
+    "vallon_perdu"
    ],
    "Maps": [
     [

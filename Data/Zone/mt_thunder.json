@@ -5781,7 +5781,7 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-         "MapID": "mt_thunder_mid"
+         "MapID": "mont_grondant_pied"
         }
        }
       ],
@@ -11481,7 +11481,7 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-         "MapID": "mt_thunder_end"
+         "MapID": "pre_tonnerre"
         }
        }
       ],

@@ -5845,7 +5845,7 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-         "MapID": "mt_faraway"
+         "MapID": "pic_arc_en_ciel"
         }
        }
       ],
