@@ -1212,10 +1212,11 @@
    "KeepTreasure": false,
    "BagSize": -1,
    "Rescues": 2,
-   "CountedFloors": 36,
+   "CountedFloors": 38,
    "Rogue": 0,
    "Grounds": [
-    "palier_celeste",
+    "sky_tower_relay",
+    "sky_tower_fulgur",
     "tour_ciel_sommet"
    ],
    "Maps": [
@@ -1255,6 +1256,15 @@
      0,
      0,
      0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0
+    ],
+    [
      0,
      0,
      0,

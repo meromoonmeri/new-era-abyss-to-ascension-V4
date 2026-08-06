@@ -33,12 +33,12 @@ function frosty_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
   SV.adventure.Thief = false
   if exited == true then return end
 
-  if segmentID == 3 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+  if segmentID == 2 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
     -- Cinematique du gardien avant l'arene (vague 7).
     GAME:EnterGroundMap('champ_vent_boreal', 'Main_Entrance_Marker')
     return
   end
-  if segmentID == 4 then
+  if segmentID == 3 then
     -- Arene de l'Ancrage : victoire = gardien stabilise (revanche/recrutement via Grodoudou).
     if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
       LegendZones.SetDefeated('thawed_step')

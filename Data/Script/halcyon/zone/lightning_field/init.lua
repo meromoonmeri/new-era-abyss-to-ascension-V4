@@ -39,12 +39,12 @@ function lightning_field.ExitSegment(zone, result, rescue, segmentID, mapID)
     return
   end
 
-  if segmentID == 4 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+  if segmentID == 0 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
     -- Cinematique du gardien avant l'arene (vague 7).
     GAME:EnterGroundMap('arene_hautes_plaines', 'Main_Entrance_Marker')
     return
   end
-  if segmentID == 5 then
+  if segmentID == 1 then
     -- Arene de l'Ancrage : victoire = gardien stabilise (revanche/recrutement via Grodoudou).
     if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
       LegendZones.SetDefeated('storm_bell')

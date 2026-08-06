@@ -109,7 +109,7 @@ LegendZones.LIST = {
         name = 'LZ_Name_Dead_Hours', blurb = 'LZ_Blurb_Dead_Hours',
         sight = 'LZ_Sight_Dead_Hours', price = 25000,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 20 end,
-        zone = 'purity_forest', segment = 3, cine = 'purity_forest_verger', roam = true, ready = true
+        zone = 'purity_forest', segment = 1, cine = 'purity_forest_verger', roam = true, ready = true
     },
     {
         key = 'clearwater_ford', species = 'suicune',
@@ -123,14 +123,14 @@ LegendZones.LIST = {
         name = 'LZ_Name_Ember_Vigil', blurb = 'LZ_Blurb_Ember_Vigil',
         sight = 'LZ_Sight_Ember_Vigil', price = 26000,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 22 end,
-        zone = 'fiery_field', segment = 3, cine = 'plaines_brulees', roam = false, ready = true
+        zone = 'fiery_field', segment = 1, cine = 'plaines_brulees', roam = false, ready = true
     },
     {
         key = 'storm_bell', species = 'raikou',
         name = 'LZ_Name_Storm_Bell', blurb = 'LZ_Blurb_Storm_Bell',
         sight = 'LZ_Sight_Storm_Bell', price = 26000,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 16 end,
-        zone = 'lightning_field', segment = 5, cine = 'arene_hautes_plaines', roam = true, ready = true
+        zone = 'lightning_field', segment = 1, cine = 'arene_hautes_plaines', roam = true, ready = true
     },
     {
         key = 'soft_sleep', species = 'cresselia',
@@ -165,21 +165,21 @@ LegendZones.LIST = {
         name = 'LZ_Name_Thawed_Step', blurb = 'LZ_Blurb_Thawed_Step',
         sight = 'LZ_Sight_Thawed_Step', price = 24000,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 17 end,
-        zone = 'frosty_forest', segment = 4, cine = 'champ_vent_boreal', roam = false, ready = true
+        zone = 'frosty_forest', segment = 3, cine = 'champ_vent_boreal', roam = false, ready = true
     },
     {
         key = 'high_conductor', species = 'zapdos',
         name = 'LZ_Name_High_Conductor', blurb = 'LZ_Blurb_High_Conductor',
         sight = 'LZ_Sight_High_Conductor', price = 24000,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 17 end,
-        zone = 'mt_thunder', segment = 5, cine = 'porte_plaines_foudre', roam = false, ready = true
+        zone = 'mt_thunder', segment = 3, cine = 'porte_plaines_foudre', roam = false, ready = true
     },
     {
         key = 'long_ash', species = 'moltres',
         name = 'LZ_Name_Long_Ash', blurb = 'LZ_Blurb_Long_Ash',
         sight = 'LZ_Sight_Long_Ash', price = 24000,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 14 end,
-        zone = 'mt_blaze', segment = 5, cine = 'champ_braises', roam = false, ready = true
+        zone = 'mt_blaze', segment = 3, cine = 'champ_braises', roam = false, ready = true
     },
     {
         key = 'quiet_ledger', species = 'uxie',
@@ -217,18 +217,11 @@ LegendZones.LIST = {
         zone = 'mt_faraway', segment = 1, cine = 'sommet_aurore', roam = false, ready = true
     },
     {
-        key = 'stone_argument', species = 'terrakion',
-        name = 'LZ_Name_Stone_Argument', blurb = 'LZ_Blurb_Stone_Argument',
-        sight = 'LZ_Sight_Stone_Argument', price = 25000,
-        flag = function() return false end,
-        zone = '', segment = -1, roam = false, ready = false
-    },
-    {
         key = 'ninth_summit', species = 'rayquaza',
         name = 'LZ_Name_Ninth_Summit', blurb = 'LZ_Blurb_Ninth_Summit',
         sight = 'LZ_Sight_Ninth_Summit', price = 45000,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 27 end,
-        zone = 'hauteurs_etoile', segment = 1, cine = 'vigie_stratos', roam = false, ready = true
+        zone = 'sky_tower', segment = 5, cine = 'vigie_stratos', roam = false, ready = true
     },
     {
         key = 'borrowed_light', species = 'necrozma',
@@ -273,7 +266,7 @@ LegendZones.LIST = {
         name = 'LZ_Name_Victory_Spark', blurb = 'LZ_Blurb_Victory_Spark',
         sight = 'LZ_Sight_Victory_Spark', price = 38400,
         flag = function() return SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 22 end,
-        zone = 'fiery_field', segment = 3, roam = true, ready = true
+        zone = 'fiery_field', segment = 1, roam = true, ready = true
     },
     {
         key = 'twin_rift', species = 'latios',
