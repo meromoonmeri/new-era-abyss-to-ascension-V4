@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <data name="TCE_001" xml:space="preserve"><value>The wind rushes here...[pause=20] You can hear the Tower breathe.</value></data>
-  <data name="TCE_002" xml:space="preserve"><value>This is the entrance to Sky Tower.[pause=15] The old tales say it pierces the clouds.</value></data>
-  <data name="TCE_003" xml:space="preserve"><value>(The draft comes from above...[pause=15] Something awaits at the summit.)</value></data>
+  <data name="TCE_001" xml:space="preserve"><value>...[pause=20] Look at the height!</value></data>
+  <data name="TCE_002" xml:space="preserve"><value>Sky Tower...[pause=15] It literally pierces the sky.</value></data>
+  <data name="TCE_003" xml:space="preserve"><value>We saw it from Metano, but from here...[pause=20] We feel tiny.</value></data>
+  <data name="TCE_004" xml:space="preserve"><value>(The wind from above...[pause=15] It carries a voice.)</value></data>
+  <data name="TCE_005" xml:space="preserve"><value>Do you hear it?[pause=15] Like a song... or a call?</value></data>
+  <data name="TCE_006" xml:space="preserve"><value>Maybe the Tower itself.[pause=20] It has waited for centuries.</value></data>
+  <data name="TCE_007" xml:space="preserve"><value>Let's climb![pause=15] Rayquaza awaits at the summit.</value></data>
+  <data name="TCE_008" xml:space="preserve"><value>Together, [player]![pause=15] To the top!</value></data>
 </root>

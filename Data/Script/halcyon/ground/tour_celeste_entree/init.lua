@@ -1,9 +1,9 @@
 --[[
   tour_celeste_entree/init.lua
-  Tour Céleste — Entrée (D13P01) — PMD Red authentique 1:1
-  Source: PMD-5/Data/Ground/sky_tower.rsground (36x27) + PMDRed D13P01
-  Preserve integrite: Ground 36x27, Sheet SkyTower_Base, Markers Main_Entrance+Cutscene
-  Branchement: GroundMaps[0] de Zone tour_celeste (master_zone index auto)
+  Tour Céleste — Entrée (D13P01) — PMD Red authentique 1:1 — VUE PANORAMIQUE
+  Source: PMD-5 sky_tower.rsground 36x27 SkyTower_Base + PMDRed D13P01 (8 dlg, BGM_SWITCH, CAMERA_INIT_PAN)
+  Preserve integrite: Ground 36x27, Sheet SkyTower_Base, Markers Main_Entrance+Cutscene — NE PAS MODIFIER LE .rsground
+  Choregraphie: CAMERA_INIT_PAN (vue Tour) -> BGM_SWITCH Sky Tower -> Flash -> Dialogues
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -12,10 +12,7 @@ require 'halcyon.CharacterEssentials'
 local entree = {}
 
 function entree.Init(map)
-  -- Init se joue sous noir, avant FadeIn (cf. vast_steppe_guardian correctif)
   pcall(function() GAME:FadeOut(false, 1) end)
-  -- Musique d'ambiance Tour (Sky Tower) — si manquante, silence non bloquant
-  pcall(function() SOUND:PlayBGM("Sky Tower.ogg", true) end)
 end
 
 function entree.Enter(map)
@@ -23,29 +20,51 @@ function entree.Enter(map)
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   if partner then AI:DisableCharacterAI(partner) end
-  -- Positionne duo au Main_Entrance_Marker (PMD-5 : 36x27, centre ~ 18,13)
-  -- Le moteur place déjà au marker, on ne téléporte pas hors marker
-  GAME:MoveCamera(144, 108, 1, false) -- centre approx 36*8/2, 27*8/2
+  -- Placement PMD-5 : Main_Entrance_Marker au sud, équipe regarde nord vers la Tour
+  GAME:MoveCamera(144, 200, 1, false) -- bas de la Tour (vue pied)
   GAME:CutsceneMode(true)
-  GAME:WaitFrames(30)
+  GAME:WaitFrames(40)
   UI:ResetSpeaker()
+  -- Titre PMD Red
   UI:WaitShowTitle(GAME:GetCurrentGround().Name:ToLocal(), 20)
   GAME:WaitFrames(30)
   UI:WaitHideTitle(20)
-  GAME:FadeIn(40)
+  -- BGM_SWITCH MUS_SKY_TOWER (D13P01 first action)
   pcall(function() SOUND:PlayBGM("Sky Tower.ogg", true) end)
-  GAME:WaitFrames(20)
-  -- Cinématique D13P01 (PMDRed) — 8 dialogues, 7 anims, BGM SWITCH
-  -- Traduction choregraphique : CAMERA_INIT_PAN → MoveCamera, BGM_SWITCH → PlayBGM synchro
+  GAME:FadeIn(40)
+  GAME:WaitFrames(30)
+  -- CAMERA_INIT_PAN : dévoile la Tour du pied au sommet — 90 frames lent (grandeur)
+  -- PMD Red : CAMERA_INIT_PAN + CAMERA_PAN direction Up, speed lent = tension
+  local camPan = TASK:BranchCoroutine(function() GAME:MoveCamera(144, 40, 90, false) end)
+  GAME:WaitFrames(10)
   if partner then
-    GeneralFunctions.StartConversation(partner, STRINGS:Format(STRINGS.MapStrings['TCE_001']), "Worried")
+    GeneralFunctions.StartConversation(partner, STRINGS:Format(STRINGS.MapStrings['TCE_001']), "Surprised")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TCE_002']))
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TCE_003']))
     GeneralFunctions.EndConversation(partner)
-    GAME:WaitFrames(15)
-    GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['TCE_003']), "Normal")
   end
-  -- Laisse la main au donjon : le panneau d'entrée du donjon est au nord
-  -- Le joueur marche vers le nord pour entrer dans tour_celeste (Zone)
+  TASK:JoinCoroutines({camPan})
+  GAME:WaitFrames(20)
+  -- Dialogue héros (pensée) — vue confirmée
+  if hero then GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['TCE_004']), "Worried") end
+  GAME:WaitFrames(15)
+  -- Flash + BGM_SWITCH second (D13P01 mid)
+  pcall(function() SOUND:PlayBGM("Sky Tower.ogg", true) end)
+  do local c=GAME:GetCameraCenter(); pcall(function() GAME:FadeOut(false, 8) end); GAME:WaitFrames(8); pcall(function() GAME:FadeIn(8) end) end
+  if partner then
+    GeneralFunctions.StartConversation(partner, STRINGS:Format(STRINGS.MapStrings['TCE_005']), "Worried")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TCE_006']))
+    GeneralFunctions.EndConversation(partner)
+  end
+  GAME:WaitFrames(15)
+  -- Second pan : retour sur équipe
+  GAME:MoveCamera(144, 108, 60, false)
+  GAME:WaitFrames(60)
+  if partner then
+    GeneralFunctions.StartConversation(partner, STRINGS:Format(STRINGS.MapStrings['TCE_007']), "Determined")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TCE_008']))
+    GeneralFunctions.EndConversation(partner)
+  end
   GAME:CutsceneMode(false)
   if partner then AI:EnableCharacterAI(partner) end
 end

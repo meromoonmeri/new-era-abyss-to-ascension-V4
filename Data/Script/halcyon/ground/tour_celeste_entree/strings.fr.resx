@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <data name="TCE_001" xml:space="preserve"><value>Le vent s'engouffre ici...[pause=20] On entend la Tour respirer.</value></data>
-  <data name="TCE_002" xml:space="preserve"><value>C'est l'entrée de la Tour Céleste.[pause=15] D'après les anciens, elle perce les nuages.</value></data>
-  <data name="TCE_003" xml:space="preserve"><value>(Le courant d'air vient d'en haut...[pause=15] Quelque chose nous attend au sommet.)</value></data>
+  <data name="TCE_001" xml:space="preserve"><value>...[pause=20] Regarde la hauteur !</value></data>
+  <data name="TCE_002" xml:space="preserve"><value>La Tour Céleste...[pause=15] Elle transperce littéralement le ciel.</value></data>
+  <data name="TCE_003" xml:space="preserve"><value>On la voyait de Metano, mais d'ici...[pause=20] On se sent minuscules.</value></data>
+  <data name="TCE_004" xml:space="preserve"><value>(Le vent qui descend de là-haut...[pause=15] Il porte une voix.)</value></data>
+  <data name="TCE_005" xml:space="preserve"><value>Tu l'entends ?[pause=15] Comme un chant... ou un appel ?</value></data>
+  <data name="TCE_006" xml:space="preserve"><value>Peut-être la Tour elle-même.[pause=20] Elle attend depuis des siècles.</value></data>
+  <data name="TCE_007" xml:space="preserve"><value>Allez,[pause=10] on grimpe ![pause=15] Rayquaza nous attend au sommet.</value></data>
+  <data name="TCE_008" xml:space="preserve"><value>Ensemble, [player] ![pause=15] Jusqu'en haut !</value></data>
 </root>
