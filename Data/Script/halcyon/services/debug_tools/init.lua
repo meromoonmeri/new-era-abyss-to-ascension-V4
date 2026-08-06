@@ -350,48 +350,8 @@ function DebugTools:OnUpgrade()
 	GAME:UnlockDungeon("grotte_echoue")
  end
  --ZONE DE TEST : arene Tornadus (validation en jeu, 2026-08-05) — a retirer avant release
- if not GAME:DungeonUnlocked("tornadus_arena") then GAME:UnlockDungeon("tornadus_arena") end
  --Add-on Reseau des Anciens Chemins : deblocage a partir du Livre II (ch11+) ou fin d'histoire
  if (SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 11) or SV.ChapterProgression.StoryCompleted == true then
-	if not GAME:DungeonUnlocked("new_era_zone_00") then GAME:UnlockDungeon("new_era_zone_00") end
-	if not GAME:DungeonUnlocked("new_era_zone_01") then GAME:UnlockDungeon("new_era_zone_01") end
-	if not GAME:DungeonUnlocked("new_era_zone_02") then GAME:UnlockDungeon("new_era_zone_02") end
-	if not GAME:DungeonUnlocked("new_era_zone_03") then GAME:UnlockDungeon("new_era_zone_03") end
-	if not GAME:DungeonUnlocked("new_era_zone_04") then GAME:UnlockDungeon("new_era_zone_04") end
-	if not GAME:DungeonUnlocked("new_era_zone_05") then GAME:UnlockDungeon("new_era_zone_05") end
-	if not GAME:DungeonUnlocked("new_era_zone_07") then GAME:UnlockDungeon("new_era_zone_07") end
-	if not GAME:DungeonUnlocked("new_era_zone_08") then GAME:UnlockDungeon("new_era_zone_08") end
-	if not GAME:DungeonUnlocked("new_era_zone_09") then GAME:UnlockDungeon("new_era_zone_09") end
-	if not GAME:DungeonUnlocked("new_era_zone_11") then GAME:UnlockDungeon("new_era_zone_11") end
-	if not GAME:DungeonUnlocked("new_era_zone_13") then GAME:UnlockDungeon("new_era_zone_13") end
-	if not GAME:DungeonUnlocked("new_era_zone_15") then GAME:UnlockDungeon("new_era_zone_15") end
-	if not GAME:DungeonUnlocked("new_era_zone_17") then GAME:UnlockDungeon("new_era_zone_17") end
-	if not GAME:DungeonUnlocked("new_era_zone_19") then GAME:UnlockDungeon("new_era_zone_19") end
-	if not GAME:DungeonUnlocked("new_era_zone_20") then GAME:UnlockDungeon("new_era_zone_20") end
-	if not GAME:DungeonUnlocked("new_era_zone_21") then GAME:UnlockDungeon("new_era_zone_21") end
-	if not GAME:DungeonUnlocked("new_era_zone_23") then GAME:UnlockDungeon("new_era_zone_23") end
-	if not GAME:DungeonUnlocked("new_era_zone_26") then GAME:UnlockDungeon("new_era_zone_26") end
-	if not GAME:DungeonUnlocked("new_era_zone_27") then GAME:UnlockDungeon("new_era_zone_27") end
-	if not GAME:DungeonUnlocked("new_era_zone_28") then GAME:UnlockDungeon("new_era_zone_28") end
-	if not GAME:DungeonUnlocked("new_era_zone_29") then GAME:UnlockDungeon("new_era_zone_29") end
-	if not GAME:DungeonUnlocked("new_era_zone_31") then GAME:UnlockDungeon("new_era_zone_31") end
-	if not GAME:DungeonUnlocked("new_era_zone_32") then GAME:UnlockDungeon("new_era_zone_32") end
-	if not GAME:DungeonUnlocked("new_era_zone_33") then GAME:UnlockDungeon("new_era_zone_33") end
-	if not GAME:DungeonUnlocked("new_era_zone_34") then GAME:UnlockDungeon("new_era_zone_34") end
-	if not GAME:DungeonUnlocked("new_era_zone_35") then GAME:UnlockDungeon("new_era_zone_35") end
-	if not GAME:DungeonUnlocked("new_era_zone_36") then GAME:UnlockDungeon("new_era_zone_36") end
-	if not GAME:DungeonUnlocked("new_era_zone_37") then GAME:UnlockDungeon("new_era_zone_37") end
-	if not GAME:DungeonUnlocked("new_era_zone_38") then GAME:UnlockDungeon("new_era_zone_38") end
-	if not GAME:DungeonUnlocked("new_era_zone_39") then GAME:UnlockDungeon("new_era_zone_39") end
-	if not GAME:DungeonUnlocked("new_era_zone_40") then GAME:UnlockDungeon("new_era_zone_40") end
-	if not GAME:DungeonUnlocked("new_era_zone_41") then GAME:UnlockDungeon("new_era_zone_41") end
-	if not GAME:DungeonUnlocked("new_era_zone_42") then GAME:UnlockDungeon("new_era_zone_42") end
-	if not GAME:DungeonUnlocked("new_era_zone_43") then GAME:UnlockDungeon("new_era_zone_43") end
-	if not GAME:DungeonUnlocked("new_era_zone_44") then GAME:UnlockDungeon("new_era_zone_44") end
-	if not GAME:DungeonUnlocked("new_era_zone_45") then GAME:UnlockDungeon("new_era_zone_45") end
-	if not GAME:DungeonUnlocked("new_era_zone_46") then GAME:UnlockDungeon("new_era_zone_46") end
-	if not GAME:DungeonUnlocked("new_era_zone_47") then GAME:UnlockDungeon("new_era_zone_47") end
-	if not GAME:DungeonUnlocked("new_era_zone_48") then GAME:UnlockDungeon("new_era_zone_48") end
  end
  --Rattrapage des sauvegardes bloquees en fin de chapitre 6.
  --La progression s'arretait la : aucun declencheur ne portait Chapter de 6 a 7,
@@ -487,89 +447,15 @@ function DebugTools:OnUpgrade()
  end
  --Add-on « Reseau du Ciel » (Explorateurs du Ciel) — 3 paliers.
  if (SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 11) or SV.ChapterProgression.StoryCompleted == true then
-	if not GAME:DungeonUnlocked("new_era_sky_00") then GAME:UnlockDungeon("new_era_sky_00") end
-	if not GAME:DungeonUnlocked("new_era_sky_01") then GAME:UnlockDungeon("new_era_sky_01") end
-	if not GAME:DungeonUnlocked("new_era_sky_02") then GAME:UnlockDungeon("new_era_sky_02") end
-	if not GAME:DungeonUnlocked("new_era_sky_03") then GAME:UnlockDungeon("new_era_sky_03") end
-	if not GAME:DungeonUnlocked("new_era_sky_04") then GAME:UnlockDungeon("new_era_sky_04") end
-	if not GAME:DungeonUnlocked("new_era_sky_05") then GAME:UnlockDungeon("new_era_sky_05") end
-	if not GAME:DungeonUnlocked("new_era_sky_06") then GAME:UnlockDungeon("new_era_sky_06") end
-	if not GAME:DungeonUnlocked("new_era_sky_07") then GAME:UnlockDungeon("new_era_sky_07") end
-	if not GAME:DungeonUnlocked("new_era_sky_08") then GAME:UnlockDungeon("new_era_sky_08") end
-	if not GAME:DungeonUnlocked("new_era_sky_09") then GAME:UnlockDungeon("new_era_sky_09") end
-	if not GAME:DungeonUnlocked("new_era_sky_10") then GAME:UnlockDungeon("new_era_sky_10") end
-	if not GAME:DungeonUnlocked("new_era_sky_11") then GAME:UnlockDungeon("new_era_sky_11") end
-	if not GAME:DungeonUnlocked("new_era_sky_12") then GAME:UnlockDungeon("new_era_sky_12") end
-	if not GAME:DungeonUnlocked("new_era_sky_13") then GAME:UnlockDungeon("new_era_sky_13") end
-	if not GAME:DungeonUnlocked("new_era_sky_14") then GAME:UnlockDungeon("new_era_sky_14") end
-	if not GAME:DungeonUnlocked("new_era_sky_15") then GAME:UnlockDungeon("new_era_sky_15") end
-	if not GAME:DungeonUnlocked("new_era_sky_16") then GAME:UnlockDungeon("new_era_sky_16") end
-	if not GAME:DungeonUnlocked("new_era_sky_17") then GAME:UnlockDungeon("new_era_sky_17") end
-	if not GAME:DungeonUnlocked("new_era_sky_18") then GAME:UnlockDungeon("new_era_sky_18") end
-	if not GAME:DungeonUnlocked("new_era_sky_19") then GAME:UnlockDungeon("new_era_sky_19") end
-	if not GAME:DungeonUnlocked("new_era_sky_20") then GAME:UnlockDungeon("new_era_sky_20") end
-	if not GAME:DungeonUnlocked("new_era_sky_21") then GAME:UnlockDungeon("new_era_sky_21") end
-	if not GAME:DungeonUnlocked("new_era_sky_22") then GAME:UnlockDungeon("new_era_sky_22") end
-	if not GAME:DungeonUnlocked("new_era_sky_23") then GAME:UnlockDungeon("new_era_sky_23") end
  end
  if (SV.ChapterProgression.Chapter ~= nil and SV.ChapterProgression.Chapter >= 20) or SV.ChapterProgression.StoryCompleted == true then
-	if not GAME:DungeonUnlocked("new_era_sky_24") then GAME:UnlockDungeon("new_era_sky_24") end
-	if not GAME:DungeonUnlocked("new_era_sky_25") then GAME:UnlockDungeon("new_era_sky_25") end
-	if not GAME:DungeonUnlocked("new_era_sky_26") then GAME:UnlockDungeon("new_era_sky_26") end
-	if not GAME:DungeonUnlocked("new_era_sky_27") then GAME:UnlockDungeon("new_era_sky_27") end
-	if not GAME:DungeonUnlocked("new_era_sky_28") then GAME:UnlockDungeon("new_era_sky_28") end
-	if not GAME:DungeonUnlocked("new_era_sky_29") then GAME:UnlockDungeon("new_era_sky_29") end
-	if not GAME:DungeonUnlocked("new_era_sky_30") then GAME:UnlockDungeon("new_era_sky_30") end
-	if not GAME:DungeonUnlocked("new_era_sky_31") then GAME:UnlockDungeon("new_era_sky_31") end
-	if not GAME:DungeonUnlocked("new_era_sky_32") then GAME:UnlockDungeon("new_era_sky_32") end
-	if not GAME:DungeonUnlocked("new_era_sky_33") then GAME:UnlockDungeon("new_era_sky_33") end
-	if not GAME:DungeonUnlocked("new_era_sky_34") then GAME:UnlockDungeon("new_era_sky_34") end
  end
  if SV.ChapterProgression.StoryCompleted == true then
-	if not GAME:DungeonUnlocked("new_era_sky_35") then GAME:UnlockDungeon("new_era_sky_35") end
-	if not GAME:DungeonUnlocked("new_era_sky_36") then GAME:UnlockDungeon("new_era_sky_36") end
-	if not GAME:DungeonUnlocked("new_era_sky_37") then GAME:UnlockDungeon("new_era_sky_37") end
-	if not GAME:DungeonUnlocked("new_era_sky_38") then GAME:UnlockDungeon("new_era_sky_38") end
-	if not GAME:DungeonUnlocked("new_era_sky_39") then GAME:UnlockDungeon("new_era_sky_39") end
-	if not GAME:DungeonUnlocked("new_era_sky_40") then GAME:UnlockDungeon("new_era_sky_40") end
-	if not GAME:DungeonUnlocked("new_era_sky_41") then GAME:UnlockDungeon("new_era_sky_41") end
-	if not GAME:DungeonUnlocked("new_era_sky_42") then GAME:UnlockDungeon("new_era_sky_42") end
-	if not GAME:DungeonUnlocked("new_era_sky_43") then GAME:UnlockDungeon("new_era_sky_43") end
-	if not GAME:DungeonUnlocked("new_era_sky_44") then GAME:UnlockDungeon("new_era_sky_44") end
-	if not GAME:DungeonUnlocked("new_era_sky_45") then GAME:UnlockDungeon("new_era_sky_45") end
-	if not GAME:DungeonUnlocked("new_era_sky_46") then GAME:UnlockDungeon("new_era_sky_46") end
-	if not GAME:DungeonUnlocked("new_era_sky_47") then GAME:UnlockDungeon("new_era_sky_47") end
-	if not GAME:DungeonUnlocked("new_era_sky_48") then GAME:UnlockDungeon("new_era_sky_48") end
-	if not GAME:DungeonUnlocked("new_era_sky_49") then GAME:UnlockDungeon("new_era_sky_49") end
-	if not GAME:DungeonUnlocked("new_era_sky_50") then GAME:UnlockDungeon("new_era_sky_50") end
-	if not GAME:DungeonUnlocked("new_era_sky_51") then GAME:UnlockDungeon("new_era_sky_51") end
-	if not GAME:DungeonUnlocked("new_era_sky_52") then GAME:UnlockDungeon("new_era_sky_52") end
-	if not GAME:DungeonUnlocked("new_era_sky_53") then GAME:UnlockDungeon("new_era_sky_53") end
-	if not GAME:DungeonUnlocked("new_era_sky_54") then GAME:UnlockDungeon("new_era_sky_54") end
-	if not GAME:DungeonUnlocked("new_era_sky_55") then GAME:UnlockDungeon("new_era_sky_55") end
-	if not GAME:DungeonUnlocked("new_era_sky_56") then GAME:UnlockDungeon("new_era_sky_56") end
-	if not GAME:DungeonUnlocked("new_era_sky_57") then GAME:UnlockDungeon("new_era_sky_57") end
-	if not GAME:DungeonUnlocked("new_era_sky_58") then GAME:UnlockDungeon("new_era_sky_58") end
-	if not GAME:DungeonUnlocked("new_era_sky_59") then GAME:UnlockDungeon("new_era_sky_59") end
-	if not GAME:DungeonUnlocked("new_era_sky_60") then GAME:UnlockDungeon("new_era_sky_60") end
-	if not GAME:DungeonUnlocked("new_era_sky_61") then GAME:UnlockDungeon("new_era_sky_61") end
-	if not GAME:DungeonUnlocked("new_era_sky_62") then GAME:UnlockDungeon("new_era_sky_62") end
-	if not GAME:DungeonUnlocked("new_era_sky_63") then GAME:UnlockDungeon("new_era_sky_63") end
-	if not GAME:DungeonUnlocked("new_era_sky_64") then GAME:UnlockDungeon("new_era_sky_64") end
-	if not GAME:DungeonUnlocked("new_era_sky_65") then GAME:UnlockDungeon("new_era_sky_65") end
-	if not GAME:DungeonUnlocked("new_era_sky_66") then GAME:UnlockDungeon("new_era_sky_66") end
  end
  --Add-on v2 : donjons post-game du jeu d'origine (Relique des Glyphes, Tour de
  --la Joie Premiere, Mer du Lointain, Foret de l'Epure, Ile des Vestiges, Mer des
  --Merveilles, Detroit des Chimeres) : reserves a l'apres-histoire.
  if SV.ChapterProgression.StoryCompleted == true then
-	if not GAME:DungeonUnlocked("new_era_zone_49") then GAME:UnlockDungeon("new_era_zone_49") end
-	if not GAME:DungeonUnlocked("new_era_zone_50") then GAME:UnlockDungeon("new_era_zone_50") end
-	if not GAME:DungeonUnlocked("new_era_zone_51") then GAME:UnlockDungeon("new_era_zone_51") end
-	if not GAME:DungeonUnlocked("new_era_zone_52") then GAME:UnlockDungeon("new_era_zone_52") end
-	if not GAME:DungeonUnlocked("new_era_zone_53") then GAME:UnlockDungeon("new_era_zone_53") end
-	if not GAME:DungeonUnlocked("new_era_zone_54") then GAME:UnlockDungeon("new_era_zone_54") end
-	if not GAME:DungeonUnlocked("new_era_zone_55") then GAME:UnlockDungeon("new_era_zone_55") end
  end
  --Vague 8 : etats de checkpoint (reveil au relais)
  --Audit IsGameOver : flags persistants de mini-boss pour les parties existantes.

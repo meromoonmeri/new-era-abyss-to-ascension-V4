@@ -729,22 +729,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24-28 LIGNES AVEC PARTENAIRE/HÉROS) : Désert des Oubliés ===
   {
     id = 'q6_desert', ch = 6, giver = 'Sentret', target = 'Sentret',
-    unlock_dungeon = 'forsaken_desert', dungeon_name = "Désert des Oubliés",
-    titre = "Le sac de courrier volé",
-    ask = {
-      {'Sentret', 'Worried', 'C est une catastrophe ! Vous devez m aider !'},
-      {'Teammate1', 'Surprised','Sentret ! Que s est-il passé ? Pourquoi courez-vous ainsi ?'},
-      {'Sentret', 'Sad',     'Je faisais ma tournée de guet au sud-est des remparts de Metano...'},
-      {'Sentret', 'Worried', 'Quand soudain, une tempête de sable s est levée sans aucun avertissement.'},
-      {'Sentret', 'Angry',   'Et dans la tourmente, Hippodocus le Colosse a jailli des dunes pour arracher ma sacoche prioritaire !'},
-      {'Sentret', 'Sad',     'Il a emporté toutes les lettres dans les profondeurs du Désert des Oubliés.'},
-      {'Teammate1', 'Angry',   'Le courrier officiel de la guilde ? C est inadmissible !'},
-      {'PLAYER',    'Normal',  '(Je regarde mon partenaire en hochant fermement la tête.)'},
-      {'Sentret', 'Worried', 'Si je perds ces plis, le Conseil de la Guilde m interdira de guet pour toute la saison...'},
-      {'Sentret', 'Normal',  'Ce désert est un labyrinthe de sable et de roches brûlantes où je ne peux pas m aventurer.'},
-      {'Teammate1', 'Determined','Ne vous en faites pas ! Notre équipe va descendre dans ce désert et récupérer votre sacoche !'},
-      {'Sentret', 'Inspired','Vous feriez ça pour moi ? Vous traqueriez Hippodocus au milieu des dunes ?'}
-    },
     accept = {{'Sentret', 'Happy',   'Merci mille fois ! Je savais que la guilde ne m abandonnerait pas !'},
       {'Teammate1', 'Happy', 'Comptez sur nous, nous revenons très vite !'},
       {'Sentret', 'Normal',  'L entrée du Désert des Oubliés se trouve au-delà du vieux pont de limon au sud-est.'}},
@@ -771,22 +755,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24-28 LIGNES AVEC PARTENAIRE/HÉROS) : Crevasse de Géode ===
   {
     id = 'q6_geode', ch = 6, giver = 'Mawile', target = 'Mawile',
-    unlock_dungeon = 'geode_crevice', dungeon_name = "Crevasse de Géode",
-    titre = "Tarinor pris au piège",
-    ask = {
-      {'Mawile', 'Sad',     'Je me fais un sang d encre pour mon ami Tarinor de la guilde minérale.'},
-      {'Teammate1', 'Worried','Tarinor ? Le géologue de l est ? Qu est-ce qui lui est arrivé ?'},
-      {'Mawile', 'Worried', 'Il était parti ce matin pour étudier les vibrations magnétiques de la Crevasse de Géode.'},
-      {'Mawile', 'Normal',  'C est une faille cristalline magnifique au nord des anciennes carrières de la ville.'},
-      {'Mawile', 'Angry',   'Mais les éboulements sont devenus incontrôlables depuis que Gigalithe le Diamant s est réveillé !'},
-      {'Mawile', 'Sad',     'Tarinor s est retrouvé coincé sous des tonnes de roches de quartz.'},
-      {'Teammate1', 'Surprised','Coincé au fond d une crevasse ?! Il risque de manquer d air !'},
-      {'PLAYER',    'Determined','(Je pointe le doigt vers le nord pour indiquer que nous partons tout de suite.)'},
-      {'Mawile', 'Worried', 'Son nez magnétique indique qu il est encore en vie tout au fond de la crevasse.'},
-      {'Mawile', 'Sad',     'Je n ai pas la force pour dégager un éboulis pareil seule dans la faille.'},
-      {'Teammate1', 'Determined','Laissez-nous faire, Mysdibule ! Nous allons forcer le passage et libérer Tarinor !'},
-      {'Mawile', 'Inspired','Vous feriez ça ? Vous descendriez dans la crevasse pour lui ?'}
-    },
     accept = {{'Mawile', 'Happy',   'Quel soulagement ! Vous êtes formidables !'},
       {'Teammate1', 'Happy', 'Nous ramenons Tarinor sain et sauf, promesse d explorateur !'},
       {'Mawile', 'Normal',  'Suivez le sentier minéral au nord, la faille brille d une lueur violette.'}},
@@ -813,22 +781,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24-28 LIGNES AVEC PARTENAIRE/HÉROS) : Verger Sauvage ===
   {
     id = 'q6_verger', ch = 6, giver = 'Bellossom', target = 'Bellossom',
-    unlock_dungeon = 'wild_orchard', dungeon_name = "Verger Sauvage",
-    titre = "La sève dorée de la reine",
-    ask = {
-      {'Bellossom', 'Worried', 'Les arbres du Verger Sauvage pleurent à chaudes larmes depuis trois jours.'},
-      {'Teammate1', 'Surprised','Des arbres qui pleurent ? Joliflor, de quoi parlez-vous ?'},
-      {'Bellossom', 'Sad',     'Notre colonie de fleurs dépend de la sève dorée pour réussir notre pollinisation.'},
-      {'Bellossom', 'Normal',  'C est une forêt ancienne qui jouxte les limites ouest des jardins de guilde.'},
-      {'Bellossom', 'Angry',   'Mais Apireine la Souveraine a ordonné à son essaim de confisquer toutes les gouttes de sève !'},
-      {'Bellossom', 'Sad',     'Elle prétend que le verger lui appartient désormais en totalité.'},
-      {'Teammate1', 'Angry',   'Confisquer la sève aux autres plantes ? C est complètement injuste !'},
-      {'PLAYER',    'Normal',  '(Je serre le poing : la forêt doit être partagée par tous.)'},
-      {'Bellossom', 'Worried', 'Sans cette nutrition royale, nos fleurs vont s assécher avant le printemps.'},
-      {'Bellossom', 'Sad',     'Nous sommes incapables de bouger pour nous défendre ou parlementer.'},
-      {'Teammate1', 'Determined','Ne perdez pas espoir ! Nous allons aller parler à Apireine et lui faire entendre raison !'},
-      {'Bellossom', 'Inspired','Explorateurs, vous oseriez défier un essaim entier pour nous ?'}
-    },
     accept = {{'Bellossom', 'Happy',   'Oh, merci ! Vous redonnez l espoir à tout notre sous-bois !'},
       {'Teammate1', 'Happy', 'Nous nous occupons du verger, préparez vos fleurs !'},
       {'Bellossom', 'Normal',  'Le chemin du verger s ouvre juste derrière la haie de baies à l ouest.'}},
@@ -855,22 +807,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24-28 LIGNES AVEC PARTENAIRE/HÉROS) : Plaines Brûlées ===
   {
     id = 'q6_plaines', ch = 6, giver = 'Electrike', target = 'Electrike',
-    unlock_dungeon = 'scorched_plains', dungeon_name = "Plaines Brûlées",
-    titre = "Surcharges dans la savane",
-    ask = {
-      {'Electrike', 'Worried', 'Bzz ! L air de la savane est devenu irrespirable pour notre meute.'},
-      {'Teammate1', 'Surprised','Dynavolt ! Vous tremblez ! Est-ce un excès d électricité ?'},
-      {'Electrike', 'Sad',     'Nos pelages accumulent une charge électrostatique qui nous brûle la peau.'},
-      {'Electrike', 'Normal',  'Les Plaines Brûlées sont notre pâturage d hiver par-delà la colline foudroyée.'},
-      {'Electrike', 'Angry',   'Mais Élecsprint la Tempête est entré dans une rage territoriale incontrôlable !'},
-      {'Electrike', 'Sad',     'Sa présence maintient un soleil ardent et des éclairs secs nuit et jour.'},
-      {'Teammate1', 'Worried', 'Un orage sec perpétuel ? La savane entière risque de prendre feu !'},
-      {'PLAYER',    'Determined','(Je regarde vers le ciel jaune-ocre qui gronde à l horizon.)'},
-      {'Electrike', 'Worried', 'Les jeunes de notre meute ne peuvent plus s y nourrir en sécurité.'},
-      {'Electrike', 'Sad',     'Si la foudre continue de tomber ainsi, toute notre terre va finir en cendres.'},
-      {'Teammate1', 'Determined','Nous ne laisserons pas faire ! Nous partons pour les plaines canaliser cet orage !'},
-      {'Electrike', 'Inspired','Pouvez-vous vraiment traverser la savane pour apaiser la colère d Élecsprint ?'}
-    },
     accept = {{'Electrike', 'Happy',   'Bzz ! Merci ! Vous avez le courage d une vraie garde de champions !'},
       {'Teammate1', 'Happy', 'Préparez vos pâturages, l orage est sur le point d être dissipé !'},
       {'Electrike', 'Normal',  'Traversez la crête rocheuse au sud, vous verrez les herbes hautes crépiter.'}},
@@ -897,22 +833,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24-28 LIGNES AVEC PARTENAIRE/HÉROS) : Jardin d'Énergie ===
   {
     id = 'q7_jardin', ch = 7, giver = 'Manectric', target = 'Manectric',
-    unlock_dungeon = 'energy_garden', dungeon_name = "Jardin d'Énergie",
-    titre = "L'antenne disparue",
-    ask = {
-      {'Manectric', 'Worried', 'Bzz... Bzz... Alerte ! Signal magnétique de notre relais souterrain à zéro !'},
-      {'Teammate1', 'Surprised','Élecsprint ! Une panne d antenne sur le réseau de la guilde ?'},
-      {'Manectric', 'Sad',     'Notre station de mesure surveillait les flux d énergie des grottes de quartz.'},
-      {'Manectric', 'Normal',  'Le Jardin d Énergie est une cavité naturelle de cristaux purs sous la faille nord.'},
-      {'Manectric', 'Angry',   'Mais Lucario l Onde s est approprié notre antenne de résonance en or !'},
-      {'Manectric', 'Sad',     'Il l utilise pour focaliser ses propres capacités au centre du sanctuaire.'},
-      {'Teammate1', 'Worried', 'Si nous ne surveillons plus les failles, nous ne verrons pas venir les prochains séismes !'},
-      {'PLAYER',    'Determined','(Je fais signe qu il faut descendre récupérer cette antenne sans attendre.)'},
-      {'Manectric', 'Worried', 'Sans cette antenne, la guilde est aveugle aux secousses géologiques profondes.'},
-      {'Manectric', 'Sad',     'Nos champs de sustentation faiblissent dès que nous approchons de ses ondes.'},
-      {'Teammate1', 'Determined','Laissez-nous descendre ! Nous allons affronter Lucario et rétablir la transmission !'},
-      {'Manectric', 'Inspired','Explorateurs, pouvez-vous descendre au jardin minéral pour récupérer notre antenne ?'}
-    },
     accept = {{'Manectric', 'Happy',   'Bzz ! Positif ! Votre coefficient de bravoure dépasse 99% !'},
       {'Teammate1', 'Happy', 'Antenne en cours de récupération, restez à l écoute !'},
       {'Manectric', 'Normal',  'L accès se trouve dans la crevasse au nord-est de la place marchande.'}},
@@ -939,22 +859,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24-28 LIGNES AVEC PARTENAIRE/HÉROS) : Relique Engloutie ===
   {
     id = 'q7_relique', ch = 7, giver = 'Meditite', target = 'Meditite',
-    unlock_dungeon = 'sunken_relic', dungeon_name = "Relique Engloutie",
-    titre = "Les tables sacrées englouties",
-    ask = {
-      {'Meditite', 'Sad',     'Hummm... Un drame silencieux se joue au fond de la crique occidentale.'},
-      {'Teammate1', 'Surprised','Méditikka ? Que se passe-t-il dans les ruines de la côte ?'},
-      {'Meditite', 'Worried', 'Les ruines de la Relique Engloutie ont émergé de quelques mètres après les séismes.'},
-      {'Meditite', 'Normal',  'Ces murs portent les tables gravées racontant l origine des premiers donjons.'},
-      {'Meditite', 'Angry',   'Mais Tutufeur le Gardien s est emparé du hall principal et en interdit l accès !'},
-      {'Meditite', 'Sad',     'Il prétend que les écrits des anciens ne doivent jamais être lus par les vivants.'},
-      {'Teammate1', 'Worried', 'Mais si l eau salée ronge les pierres, ces écritures historiques vont disparaître !'},
-      {'PLAYER',    'Normal',  '(Je regarde les ruines au large avec un sentiment de respect historique.)'},
-      {'Meditite', 'Worried', 'L eau salée ronge rapidement la roche dorée de ces tables millénaires.'},
-      {'Meditite', 'Sad',     'Si personne n en fait le relevé cette semaine, ces secrets seront perdus à jamais.'},
-      {'Teammate1', 'Determined','Nous allons explorer la Relique Engloutie et vous ramener ces estampages !'},
-      {'Meditite', 'Inspired','Pouvez-vous pénétrer dans les ruines pour nous rapporter l estampage des tables ?'}
-    },
     accept = {{'Meditite', 'Happy',   'Hummm ! La sagesse des anciens vous illuminera ! Merci !'},
       {'Teammate1', 'Happy', 'Préparez votre parchemin, l histoire sera préservée !'},
       {'Meditite', 'Normal',  'Descendez par les marches de pierre submergées à l ouest du port.'}},
@@ -981,22 +885,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24-28 LIGNES AVEC PARTENAIRE/HÉROS) : Labyrinthe Moussue ===
   {
     id = 'q7_labyrinthe', ch = 7, giver = 'Oddish', target = 'Oddish',
-    unlock_dungeon = 'mossy_labyrinth', dungeon_name = "Labyrinthe Moussue",
-    titre = "Les racines envahissantes",
-    ask = {
-      {'Oddish', 'Worried', 'Au secours ! La forêt de l est se referme sur nos terrains de jeu !'},
-      {'Teammate1', 'Surprised','Mystherbe ! Pourquoi êtes-vous si affolé ? Qui est piégé ?'},
-      {'Oddish', 'Sad',     'Le Labyrinthe Moussue était une forêt paisible où les jeunes plantes apprenaient à pousser.'},
-      {'Oddish', 'Normal',  'Mais les pluies récentes ont déclenché une croissance végétale incontrôlable.'},
-      {'Oddish', 'Angry',   'Et Torterra le Géant s est installé au centre, laissant ses racines bloquer tous les sentiers !'},
-      {'Oddish', 'Sad',     'Ses racines ligneuses ont piégé trois jeunes Germignon dans une clairière fermée.'},
-      {'Teammate1', 'Angry',   'Des petits Germignon enfermés sans lumière ? Il faut aller les chercher !'},
-      {'PLAYER',    'Determined','(Je prends mon sac : pas question de laisser des petits en danger.)'},
-      {'Oddish', 'Worried', 'Si nous n élaguons pas le passage rapidement, ils vont manquer de lumière et d eau.'},
-      {'Oddish', 'Sad',     'Je suis trop petit pour couper du bois aussi dur avec mes jeunes feuilles.'},
-      {'Teammate1', 'Determined','Ne pleurez plus ! Nous allons traverser le labyrinthe et élaguer ces racines !'},
-      {'Oddish', 'Inspired','Pouvez-vous traverser le labyrinthe pour élaguer les racines et libérer nos amis ?'}
-    },
     accept = {{'Oddish', 'Happy',   'Hourra ! Vous êtes les meilleurs explorateurs du monde !'},
       {'Teammate1', 'Happy', 'Rassurez tout le monde en ville, nous ramenons les Germignon !'},
       {'Oddish', 'Normal',  'Le labyrinthe commence au nord du vieux chêne de la rivière.'}},
@@ -1023,22 +911,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24-28 LIGNES AVEC PARTENAIRE/HÉROS) : Carrière Magmatique ===
   {
     id = 'q7_carriere', ch = 7, giver = 'Numel', target = 'Numel',
-    unlock_dungeon = 'magma_quarry', dungeon_name = "Carrière Magmatique",
-    titre = "Le charbon thermique",
-    ask = {
-      {'Numel', 'Sad',     'Pfff... J ai un énorme problème pour préparer la saison froide.'},
-      {'Teammate1', 'Surprised','Chamallot ? Votre bosse semble toute froide, que se passe-t-il ?'},
-      {'Numel', 'Worried', 'Ma bosse interne a besoin de charbon thermique pour maintenir ma température vitale.'},
-      {'Numel', 'Normal',  'Le seul gisement pur se trouve au cœur de la Carrière Magmatique.'},
-      {'Numel', 'Angry',   'Mais Arkani la Flamme a investi la mine et attaque tous les mineurs qui approchent !'},
-      {'Numel', 'Sad',     'La chaleur y est devenue si intense que même les parois rocheuses fondent.'},
-      {'Teammate1', 'Worried', 'Si vous manquez de minerai thermique, votre feu intérieur va s éteindre !'},
-      {'PLAYER',    'Determined','(Je regarde mon partenaire : nous savons résister aux flammes.)'},
-      {'Numel', 'Worried', 'Sans ce minerai volcanique, je vais souffrir d hypothermie interne d ici quelques jours.'},
-      {'Numel', 'Sad',     'Les chariots de guilde ne peuvent plus descendre dans les galeries inférieures.'},
-      {'Teammate1', 'Determined','Laissez-nous faire, Chamallot ! Nous allons rapporter ce charbon de la carrière !'},
-      {'Numel', 'Inspired','Explorateurs, avez-vous la force d affronter la carrière pour m extraire ce minerai ?'}
-    },
     accept = {{'Numel', 'Happy',   'Pfff ! Chaleureux merci ! La carrière est dans la faille volcanique !'},
       {'Teammate1', 'Happy', 'Préparez votre bosse, le minerai chaud arrive très vite !'},
       {'Numel', 'Normal',  'La carrière s ouvre dans la faille volcanique à l extrême ouest de la falaise.'}},
@@ -1065,22 +937,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24-28 LIGNES AVEC PARTENAIRE/HÉROS) : Toundra Désolée ===
   {
     id = 'q8_toundra', ch = 8, giver = 'Wooper_Girl', target = 'Wooper_Girl',
-    unlock_dungeon = 'barren_tundra', dungeon_name = "Toundra Désolée",
-    titre = "La cargaison gelée",
-    ask = {
-      {'Wooper_Girl', 'Sad',     'Aglagla... C est terrible... Notre provision de baies d hiver est perdue !'},
-      {'Teammate1',   'Surprised','Axoloto ! Vous grelottez ! Où est passée votre cargaison ?'},
-      {'Wooper_Girl', 'Worried', 'Le convoi de notre colonie traversait le col de la Toundra Désolée ce matin.'},
-      {'Wooper_Girl', 'Normal',  'C est une région glaciaire immense aux crêtes battues par le vent du nord.'},
-      {'Wooper_Girl', 'Angry',   'Mais Blizzarroi l Hiver a déclenché une tempête de grêle monstrueuse qui a enfoui nos caisses !'},
-      {'Wooper_Girl', 'Sad',     'Les baies sont figées sous trois mètres de glace épaisse au milieu des pics.'},
-      {'Teammate1',   'Worried', 'Sans baies dans le froid glaciaire, toute votre colonie va souffrir de la faim !'},
-      {'PLAYER',      'Determined','(Je resserre mon écharpe : nous devons monter affronter ce blizzard.)'},
-      {'Wooper_Girl', 'Worried', 'Sans ces réserves, nos petits ne survivront pas à la longue nuit glaciaire.'},
-      {'Wooper_Girl', 'Sad',     'Nos nageoires sont trop courtes pour creuser dans une glace aussi dure.'},
-      {'Teammate1',   'Determined','Comptez sur nous ! Nous allons braver la Toundra Désolée et sauver vos provisions !'},
-      {'Wooper_Girl', 'Inspired','Qui aura le courage d affronter la toundra pour nous ramener notre cargaison ?'}
-    },
     accept = {{'Wooper_Girl', 'Happy',   'Aglagla ! Hourra ! Vous avez le cœur plus chaud que le soleil d été !'},
       {'Teammate1',   'Happy',   'Nous allons briser la glace, restez bien au chaud en ville !'},
       {'Wooper_Girl', 'Normal',  'Le sentier enneigé démarre au nord de la rivière gelée.'}},
@@ -1107,22 +963,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24-28 LIGNES AVEC PARTENAIRE/HÉROS) : Caverne Stérile ===
   {
     id = 'q8_caverne', ch = 8, giver = 'Machamp', target = 'Machamp',
-    unlock_dungeon = 'barren_cavern', dungeon_name = "Caverne Stérile",
-    titre = "Les filons d'acier",
-    ask = {
-      {'Machamp', 'Worried', 'Croc... Croc... Alerte ! Notre mine d acier naturelle est sous scellés !'},
-      {'Teammate1', 'Surprised','Mackogneur ? Qu est-ce qui a pu bloquer une mine de votre clan ?'},
-      {'Machamp', 'Sad',     'Nous nous nourrissons des filons ferreux de la Caverne Stérile depuis des générations.'},
-      {'Machamp', 'Normal',  'C est un réseau rocheux très profond où la pierre contient du fer pur.'},
-      {'Machamp', 'Angry',   'Mais Charmina le Sceau s est enfermé dans la galerie centrale et a dressé des remparts de force !'},
-      {'Machamp', 'Sad',     'Plus aucun mineur ne peut atteindre les cristaux de fer.'},
-      {'Teammate1', 'Worried', 'Des barrières psychiques qui empêchent les mineurs de travailler ? Il faut agir !'},
-      {'PLAYER',    'Determined','(Je regarde les muscles de Mackogneur : si sa force faiblit, toute la guilde en pâtira.)'},
-      {'Machamp', 'Worried', 'Notre force musculaire commence déjà à s amincir par manque de minerais ferreux.'},
-      {'Machamp', 'Sad',     'Si le sceau n est pas brisé, notre clan devra s expatrier loin de sa terre natale.'},
-      {'Teammate1', 'Determined','Laissez-nous faire, Mackogneur ! Nous allons briser les sceaux de Charmina !'},
-      {'Machamp', 'Inspired','Pouvez-vous descendre dans la caverne pour vaincre Charmina et rouvrir nos filons ?'}
-    },
     accept = {{'Machamp', 'Happy',   'Croc ! Fantastique ! Votre armure de courage est indestructible !'},
       {'Teammate1', 'Happy', 'Préparez vos pioches, les galeries seront bientôt libres !'},
       {'Machamp', 'Normal',  'L entrée de la caverne s ouvre au pied de l éboulis nord-ouest.'}},
@@ -1149,22 +989,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24-28 LIGNES AVEC PARTENAIRE/HÉROS) : Crête Craquelée ===
   {
     id = 'q8_crete', ch = 8, giver = 'Luxray', target = 'Luxray',
-    unlock_dungeon = 'cracked_ridge', dungeon_name = "Crête Craquelée",
-    titre = "Les ailes d'altitude",
-    ask = {
-      {'Luxray', 'Angry',   'Je veux surmonter la crête ! Mais on m interdit de monter !'},
-      {'Teammate1', 'Surprised','Luxray ? Qui oserait vous interdire de patrouiller sur les crêtes ?'},
-      {'Luxray', 'Worried', 'La Crête Craquelée est le seul endroit où les vents sont parfaits pour surveiller.'},
-      {'Luxray', 'Normal',  'C est une arête rocheuse vertigineuse qui domine toute la vallée du sud.'},
-      {'Luxray', 'Angry',   'Mais Drattak la Cime a bloqué le col supérieur et provoque des éboulis à chaque rugissement !'},
-      {'Luxray', 'Sad',     'Il prétend que les voyageurs ne sont pas assez résistants pour survivre au sommet.'},
-      {'Teammate1', 'Angry',   'Bloquer un sentier sous prétexte de force ? C est inacceptable !'},
-      {'PLAYER',    'Determined','(Je hoche la tête : il est temps de prouver la force de notre équipe.)'},
-      {'Luxray', 'Worried', 'J ai essayé de grimper trois fois, mais ses éboulis m ont fait redescendre en roulant.'},
-      {'Luxray', 'Sad',     'Si je n atteins pas la falaise du sommet ce mois-ci, je ne serai jamais un vrai garde.'},
-      {'Teammate1', 'Determined','Comptez sur nous ! Nous allons monter au sommet et relever le défi de Drattak !'},
-      {'Luxray', 'Inspired','Explorateurs, pouvez-vous affronter Drattak pour prouver notre bravoure à tous ?'}
-    },
     accept = {{'Luxray', 'Happy',   'GÉ-NIAL ! Vous êtes mes idoles ! Montrons-lui de quel rocher on se chauffe !'},
       {'Teammate1', 'Happy', 'Nous portons les couleurs de la garde jusqu au sommet !'},
       {'Luxray', 'Normal',  'Le sentier de la crête s élève juste au-dessus du vieux pont de pierre.'}},
@@ -1191,22 +1015,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24-28 LIGNES AVEC PARTENAIRE/HÉROS) : Vallon Suspendu ===
   {
     id = 'q8_vallon', ch = 8, giver = 'Gloom', target = 'Gloom',
-    unlock_dungeon = 'suspended_valley', dungeon_name = "Vallon Suspendu",
-    titre = "La plume d'argent",
-    ask = {
-      {'Gloom', 'Sad',     'Cuii... J ai perdu le trésor le plus précieux de notre jardin...'},
-      {'Teammate1', 'Surprised','Ortide ? Quel trésor avez-vous perdu dans la brume ?'},
-      {'Gloom', 'Worried', 'C est la plume d argent royale, offerte par les grands oiseaux des sommets.'},
-      {'Gloom', 'Normal',  'Elle s est envolée dans le Vallon Suspendu pendant un coup de vent violent.'},
-      {'Gloom', 'Angry',   'Et Bruyverne le Cri l a capturée dans sa caverne des hauteurs !'},
-      {'Gloom', 'Sad',     'Ses ultrasons sont si violents qu ils nous empêchent de voler au-dessus du vallon.'},
-      {'Teammate1', 'Worried', 'Des ultrasons qui brisent la paix de tout le vallon ? C est très inquiétant !'},
-      {'PLAYER',    'Determined','(Je hoche la tête avec calme : nous avons affronté bien des tempêtes.)'},
-      {'Gloom', 'Worried', 'Cette plume était le talisman qui protégeait notre haie contre la tempête.'},
-      {'Gloom', 'Sad',     'Sans elle, notre haie risque de se disperser à la prochaine bourrasque.'},
-      {'Teammate1', 'Determined','Ne vous en faites pas ! Nous allons grimper dans le vallon et rapporter votre plume !'},
-      {'Gloom', 'Inspired','Pouvez-vous grimper au secours de notre haie pour rapporter la plume d argent ?'}
-    },
     accept = {{'Gloom', 'Happy',   'Merci ! Vous avez la justice avec vous !'},
       {'Teammate1', 'Happy', 'Préparez votre jardin, la plume sacrée revient !'},
       {'Gloom', 'Normal',  'Le vallon flottant est accessible par les courants ascendants de l ouest.'}},
@@ -1233,22 +1041,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24-28 LIGNES AVEC PARTENAIRE/HÉROS) : Bassin Tari ===
   {
     id = 'q9_bassin', ch = 9, giver = 'Wooper_Boy', target = 'Wooper_Boy',
-    unlock_dungeon = 'depleted_basin', dungeon_name = "Bassin Tari",
-    titre = "La perle d'eau pure",
-    ask = {
-      {'Wooper_Boy', 'Worried', 'Psyyy... J ai un mal de crâne atroce qui ne s arrête jamais...'},
-      {'Teammate1',  'Surprised','Axoloto ! Vous tenez votre tête à deux pattes, qu est-ce qui ne va pas ?'},
-      {'Wooper_Boy', 'Sad',     'Notre bassin de baignade s assèche à une vitesse anormale depuis quatre jours.'},
-      {'Wooper_Boy', 'Normal',  'Le Bassin Tari est une grande dépression lacustre au sud de la plaine de limon.'},
-      {'Wooper_Boy', 'Angry',   'Léviator le Courroux y a accaparé la perle d eau pure au fond de l abysse !'},
-      {'Wooper_Boy', 'Sad',     'Il absorbe toute la source hydrique pour alimenter sa propre colère.'},
-      {'Teammate1',  'Angry',   'Accaparer toute la source du bassin et assécher le quartier ? C est affreux !'},
-      {'PLAYER',     'Determined','(Je croise les bras : nous savons comment calmer un Léviator en furie.)'},
-      {'Wooper_Boy', 'Worried', 'Sans cette eau fraîche, nos réserves s épuisent vite !'},
-      {'Wooper_Boy', 'Sad',     'Tous les Pokémon aquatiques du quartier nagent dans trois centimètres de boue.'},
-      {'Teammate1',  'Determined','Comptez sur notre expédition ! Nous allons affronter Léviator et ramener la perle !'},
-      {'Wooper_Boy', 'Inspired','Par pitié, pouvez-vous affronter Léviator pour ramener la perle et la pluie ?'}
-    },
     accept = {{'Wooper_Boy', 'Happy',   'Quel soulagement ! Ma tête va déjà un tout petit peu mieux !'},
       {'Teammate1',  'Happy',   'Préparez vos étangs, l eau claire couler bientôt à flots !'},
       {'Wooper_Boy', 'Normal',  'Descendez dans le bassin par les rochers humides de la rive sud.'}},
@@ -1275,22 +1067,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24-28 LIGNES AVEC PARTENAIRE/HÉROS) : Marais Errants ===
   {
     id = 'q9_marais', ch = 9, giver = 'Ludicolo', target = 'Ludicolo',
-    unlock_dungeon = 'wayward_wetlands', dungeon_name = "Marais Errants",
-    titre = "Le nénuphar géant",
-    ask = {
-      {'Ludicolo', 'Sad',     'Plouf... Regardez la feuille sur ma tête, elle jaunit et se ratatibe...'},
-      {'Teammate1', 'Surprised','Ludicolo ! Pourquoi avez-vous arrêté de danser ? Que se passe-t-il ?'},
-      {'Ludicolo', 'Worried', 'Les Marais Errants sont empoisonnés par une brume violacée anormale.'},
-      {'Ludicolo', 'Normal',  'C est un vaste réseau d étangs stagnants et de racines à l est du fleuve.'},
-      {'Ludicolo', 'Angry',   'Et Milobellus le Bassin a scellé le sanctuaire des nénuphars géants au centre !'},
-      {'Ludicolo', 'Sad',     'Ces nénuphars sacrés filtrent naturellement les toxines de notre eau.'},
-      {'Teammate1', 'Worried', 'Une brume toxique qui détruit la végétation du marais ? C est gravissime !'},
-      {'PLAYER',    'Determined','(Je hoche la tête : nous ne laisserons pas la brume empoisonner le marais.)'},
-      {'Ludicolo', 'Worried', 'Si nous ne replantons pas une bouture saine dans notre mare avant ce soir...'},
-      {'Ludicolo', 'Sad',     '...toute notre colonie perdra sa musique pour toujours.'},
-      {'Teammate1', 'Determined','Ne vous arrêtez pas de danser ! Nous allons traverser les marais et rapporter cette bouture !'},
-      {'Ludicolo', 'Inspired','Explorateurs, pouvez-vous traverser les marais pour nous cueillir une bouture ?'}
-    },
     accept = {{'Ludicolo', 'Happy',   'Plouf ! Youpi ! Vous êtes l eau vive de notre espoir !'},
       {'Teammate1', 'Happy', 'Préparez votre piste de danse, la bouture arrive !'},
       {'Ludicolo', 'Normal',  'Les marais commencent après le pont de bois moussue de la rivière Est.'}},
@@ -1317,22 +1093,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24-28 LIGNES AVEC PARTENAIRE/HÉROS) : Jungle Méridionale ===
   {
     id = 'q9_jungle', ch = 9, giver = 'Roselia', target = 'Roselia',
-    unlock_dungeon = 'southern_jungle', dungeon_name = "Jungle Méridionale",
-    titre = "La graine solaire",
-    ask = {
-      {'Roselia', 'Worried', 'Au secours ! Il fait nuit noire en plein midi dans notre sous-bois !'},
-      {'Teammate1', 'Surprised','Rosélia ? Pourquoi la lumière n atteint plus votre jardin ?'},
-      {'Roselia', 'Sad',     'La canopée de la Jungle Méridionale est devenue si dense que le soleil ne passe plus.'},
-      {'Roselia', 'Normal',  'C est une forêt tropicale foisonnante qui s étend vers les côtes chaudes du sud.'},
-      {'Roselia', 'Angry',   'Mais Roserade le Venin a emprisonné la graine solaire sacrée dans son antre !'},
-      {'Roselia', 'Sad',     'Elle utilise sa lumière pour cultiver ses propres fleurs toxiques géantes.'},
-      {'Teammate1', 'Angry',   'Emprisonner le soleil de la jungle pour cultiver du venin ? C est intolérable !'},
-      {'PLAYER',    'Determined','(Je regarde vers le sud : nous allons ramener la lumière dans la jungle.)'},
-      {'Roselia', 'Worried', 'Sans la graine solaire, toutes les plantes de Metano s arrêtent de pousser.'},
-      {'Roselia', 'Sad',     'Nos pétales s étiolent et nous ne pouvons plus synthétiser d énergie.'},
-      {'Teammate1', 'Determined','Comptez sur nous ! Nous partons affronter la jungle tropicale !'},
-      {'Roselia', 'Inspired','Pouvez-vous affronter la jungle tropicale pour nous libérer la graine solaire ?'}
-    },
     accept = {{'Roselia', 'Happy',   'Merci ! Nos racines trépignent d impatience ! Vous êtes nos soleils !'},
       {'Teammate1', 'Happy', 'Préparez vos pétales, la lumière dorée revient très vite !'},
       {'Roselia', 'Normal',  'La jungle démarre juste derrière les grands banians de la lisière sud.'}},
@@ -1359,22 +1119,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24-28 LIGNES AVEC PARTENAIRE/HÉROS) : Gouffre Immergé ===
   {
     id = 'q9_gouffre', ch = 9, giver = 'Quagsire', target = 'Quagsire',
-    unlock_dungeon = 'submerged_chasm', dungeon_name = "Gouffre Immergé",
-    titre = "La conque abyssale",
-    ask = {
-      {'Quagsire', 'Sad',     'Clac... Clac... Je suis inconsolable... J ai perdu l héritage de mon clan.'},
-      {'Teammate1', 'Surprised','Maraiste ? Quel est ce coquillage que vous cherchez dans le port ?'},
-      {'Quagsire', 'Worried', 'C est la conque abyssale, un coquillage géant qui résonne avec le chant des mers.'},
-      {'Quagsire', 'Normal',  'Elle a glissé lors des grandes marées d automne.'},
-      {'Quagsire', 'Angry',   'Elle est tombée tout au fond du Gouffre Immergé, où trône Hyporoi le Fond !'},
-      {'Quagsire', 'Sad',     'Il a installé son repaire dans cette faille marine aux pressions écrasantes.'},
-      {'Teammate1', 'Worried', 'Une conque qui guide les marées emportée au fond de la faille ?'},
-      {'PLAYER',    'Determined','(Je fais un pas en avant avec confiance : nous sommes des pros des abysses.)'},
-      {'Quagsire', 'Worried', 'Sans le chant de la conque, notre clan ne sait plus orienter ses coquilles.'},
-      {'Quagsire', 'Sad',     'Les courants nous ballottent contre les rochers sans repère.'},
-      {'Teammate1', 'Determined','Ne désespérez pas ! Nous allons plonger au fond du gouffre et vous rapporter la conque !'},
-      {'Quagsire', 'Inspired','Explorateurs, pouvez-vous plonger dans la faille pour rapporter notre conque ?'}
-    },
     accept = {{'Quagsire', 'Happy',   'Clac ! Formidable ! Vous avez le courage des grands cachalots du large !'},
       {'Teammate1', 'Happy', 'La conque abyssale résonnera à nouveau, promesse d explorateur !'},
       {'Quagsire', 'Normal',  'Le gouffre sous-marin s ouvre au bout de la grande jetée rocheuse.'}},
@@ -1401,22 +1145,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24-28 LIGNES AVEC PARTENAIRE/HÉROS) : Sentier Enneigé ===
   {
     id = 'q10_sentier', ch = 10, giver = 'Furret', target = 'Furret',
-    unlock_dungeon = 'snowbound_path', dungeon_name = "Sentier Enneigé",
-    titre = "La cape du blizzard",
-    ask = {
-      {'Furret', 'Sad',     'Frrr... Frrr... Le froid glaciaire pèse trop lourd sur mes petites épaules.'},
-      {'Teammate1', 'Surprised','Fouineau ! Vous grelottez ! Le vent polaire descend jusqu ici ?'},
-      {'Furret', 'Worried', 'Ma cape de paille traditionnelle ne résiste plus aux blizzards polaires du nord.'},
-      {'Furret', 'Normal',  'Le Sentier Enneigé est le grand col alpin qui relie Metano aux glaciers éternels.'},
-      {'Furret', 'Angry',   'Mais Momartik le Souffle a confisqué toute la soie de givre sacrée au sommet !'},
-      {'Furret', 'Sad',     'Elle la réserve exclusivement à sa cour d ombres gelées.'},
-      {'Teammate1', 'Angry',   'Confisquer la soie qui protège les habitants du gel ? C est un caprice de blizzard !'},
-      {'PLAYER',    'Determined','(Je regarde vers les pics enneigés avec une détermination à toute épreuve.)'},
-      {'Furret', 'Worried', 'Si je ne me fais pas une cape de givre avant la grande nuit d hiver...'},
-      {'Furret', 'Sad',     '...je serai congelée sur place sans pouvoir sortir de chez moi.'},
-      {'Teammate1', 'Determined','Nous allons grimper sur le sentier alpin et vous obtenir cette soie de givre !'},
-      {'Furret', 'Inspired','Explorateurs, pouvez-vous affronter le col pour m obtenir de la soie de givre ?'}
-    },
     accept = {{'Furret', 'Happy',   'Frrr ! Merci infiniment ! Vous me réchauffez déjà le cœur !'},
       {'Teammate1', 'Happy', 'Restez près du feu de guilde, nous partons dans la neige !'},
       {'Furret', 'Normal',  'Le sentier enneigé débute après le pont des glaces à l extrême nord.'}},
@@ -1443,22 +1171,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24-28 LIGNES AVEC PARTENAIRE/HÉROS) : Col de la Foudre ===
   {
     id = 'q10_foudre', ch = 10, giver = 'Spinda', target = 'Spinda',
-    unlock_dungeon = 'thunderstruck_pass', dungeon_name = "Col de la Foudre",
-    titre = "Le paratonnerre antique",
-    ask = {
-      {'Spinda', 'Worried', 'Bzz ! Bzz ! Alerte rouge ! Des éclairs tombent sur les toits de la ville !'},
-      {'Teammate1', 'Surprised','Spinda ! Pourquoi le café tremble-t-il autant sous le tonnerre ?'},
-      {'Spinda', 'Sad',     'Le système de paratonnerres naturels du Col de la Foudre est déréglé.'},
-      {'Spinda', 'Normal',  'C est un col de haute montagne où les nuages d orage convergent en permanence.'},
-      {'Spinda', 'Angry',   'Et Magnézone l Éclair a déconnecté la borne d ancrage électrique au sommet !'},
-      {'Spinda', 'Sad',     'Il concentre tous les éclairs sur sa propre coque pour augmenter son champ de force.'},
-      {'Teammate1', 'Worried', 'Une borne déconnectée qui fait foudroyer toute la vallée ? C est un péril immédiat !'},
-      {'PLAYER',    'Determined','(Je regarde mon partenaire : nous savons comment négocier avec un Magnézone.)'},
-      {'Spinda', 'Worried', 'Sans la borne d ancrage, la foudre frappe au hasard dans toute la vallée de Metano.'},
-      {'Spinda', 'Sad',     'Si un éclair touche la réserve de poudres de la guilde, ce sera la catastrophe.'},
-      {'Teammate1', 'Determined','Laissez-nous faire, Spinda ! Nous allons gravir le col et rebrancher cette borne !'},
-      {'Spinda', 'Inspired','Pouvez-vous gravir le col sous la foudre pour réactiver la borne d ancrage ?'}
-    },
     accept = {{'Spinda', 'Happy',   'Bzz ! GÉNIAL ! Votre énergie positive électrise toute notre équipe !'},
       {'Teammate1', 'Happy', 'Abritez le café, nous partons au sommet !'},
       {'Spinda', 'Normal',  'Le col est visible au nord-est, là où le ciel clignote sans cesse.'}},
@@ -1485,22 +1197,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24-28 LIGNES AVEC PARTENAIRE/HÉROS) : Falaises de l'Envol ===
   {
     id = 'q10_falaises', ch = 10, giver = 'Zigzagoon', target = 'Zigzagoon',
-    unlock_dungeon = 'flyaway_cliffs', dungeon_name = "Falaises de l'Envol",
-    titre = "L'œuf du nid suprême",
-    ask = {
-      {'Zigzagoon', 'Sad',     'Cui ! Cui ! Au secours ! Un malheur est arrivé à notre couvée de printemps !'},
-      {'Teammate1', 'Surprised','Zigzagoon ? Vous parlez pour les oiseaux de la falaise ? Que se passe-t-il ?'},
-      {'Zigzagoon', 'Worried', 'Une bourrasque ascendante a emporté un œuf royal au-dessus des falaises.'},
-      {'Zigzagoon', 'Normal',  'Les Falaises de l Envol sont des à-pics rocheux vertigineux qui touchent les nuages.'},
-      {'Zigzagoon', 'Angry',   'Et Roucarnage le Sommet a recueilli l œuf dans son nid géant sur la plus haute crête !'},
-      {'Zigzagoon', 'Sad',     'Il refuse de le rendre, prétendant que seul le ciel de haute altitude l est digne.'},
-      {'Teammate1', 'Worried', 'Mais si l œuf quitte son nid d origine, il risque de ne jamais éclore !'},
-      {'PLAYER',    'Determined','(Je regarde vers les hautes parois rocheuses de l est.)'},
-      {'Zigzagoon', 'Worried', 'Sans la chaleur maternelle du nid d en bas, l œuf va se refroidir dans le vent.'},
-      {'Zigzagoon', 'Sad',     'Les vents là-haut sont trop violents pour que de petits Pokémon aillent négocier.'},
-      {'Teammate1', 'Determined','Comptez sur nous ! Nous allons gravir ces falaises et rapporter cet œuf intact !'},
-      {'Zigzagoon', 'Inspired','Explorateurs, avez-vous la force de gravir les falaises pour nous rapporter l œuf ?'}
-    },
     accept = {{'Zigzagoon', 'Happy',   'CUI ! CUI ! Merci ! Vous nous redonnez le souffle de l espoir !'},
       {'Teammate1', 'Happy', 'Préparez un nid bien chaud, nous partons sur les hauteurs !'},
       {'Zigzagoon', 'Normal',  'Le sentier des falaises monte en lacets par la face nord de la falaise d argent.'}},
@@ -1527,22 +1223,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24-28 LIGNES AVEC PARTENAIRE/HÉROS) : Cime d'Argent Oubliée ===
   {
     id = 'q10_cime', ch = 10, giver = 'Nidoking', target = 'Nidoking',
-    unlock_dungeon = 'forgotten_silver_spire', dungeon_name = "Cime d'Argent Oubliée",
-    titre = "Le diadème d'argent",
-    ask = {
-      {'Nidoking', 'Sad',     'Hummm... Hummm... Un voile de ténèbres psychiques s est abattu sur nos esprits.'},
-      {'Teammate1', 'Surprised','Nidoking ? Pourquoi votre clan semble-t-il si épuisé par les nuits ?'},
-      {'Nidoking', 'Worried', 'Le diadème d argent qui clarifiait nos rêves a été subtilisé dans notre sanctuaire.'},
-      {'Nidoking', 'Normal',  'La Cime d Argent Oubliée est un pic minéral sacré qui s élève au-dessus de la Tour Céleste.'},
-      {'Nidoking', 'Angry',   'Et Kaorine l Antique l a scellé dans son autel pour invoquer des visions du passé !'},
-      {'Nidoking', 'Sad',     'Sa magie ancienne crée des interférences qui nous font faire des cauchemars sans fin.'},
-      {'Teammate1', 'Worried', 'Des cauchemars qui empêchent toute la région de dormir ? C est dramatique !'},
-      {'PLAYER',    'Determined','(Je hoche la tête vers la flèche céleste : nous allons lever ce fléau psychique.)'},
-      {'Nidoking', 'Worried', 'Si le diadème ne retrouve pas son socle en bas, notre lucidité mentale va s éteindre.'},
-      {'Nidoking', 'Sad',     'Nous sommes trop sensibles aux ondes de la cime pour pouvoir l approcher nous-mêmes.'},
-      {'Teammate1', 'Determined','Faites-nous confiance ! Nous allons gravir la cime d argent et briser ce sceau !'},
-      {'Nidoking', 'Inspired','Explorateurs au cœur pur, pouvez-vous purifier la cime pour nous ramener le diadème ?'}
-    },
     accept = {{'Nidoking', 'Happy',   'Hummm ! Quel éclat d esprit pur ! Merci de tout notre être !'},
       {'Teammate1', 'Happy', 'Reposez-vous à l auberge, la lumière d argent va revenir !'},
       {'Nidoking', 'Normal',  'La cime argentée est accessible par l escalier de roche blanche au nord du pic.'}},
@@ -1568,22 +1248,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24 LIGNES AVEC PARTENAIRE/HÉROS) : Ravin Pluvieux ===
   {
     id = 'q11_ravin', ch = 11, giver = 'Wooper_Boy', target = 'Wooper_Boy',
-    unlock_dungeon = 'rainy_ravine', dungeon_name = "Ravin Pluvieux",
-    titre = "L'inondation du ravin",
-    ask = {
-      {'Wooper_Boy', 'Sad',     'Ouin... Ouin... Le ravin pluvieux déborde de toutes parts.'},
-      {'Teammate1', 'Surprised','Axoloto ? Pourquoi l eau monte-t-elle si vite dans votre vallée ?'},
-      {'Wooper_Boy', 'Worried', 'Tarpaud la Tempête a invoqué un déluge continu depuis le sommet.'},
-      {'Wooper_Boy', 'Normal',  'Le Ravin Pluvieux est une gorge escarpée où coulent nos rivières.'},
-      {'Wooper_Boy', 'Angry',   'Mais ses remous furieux menacent d emporter nos nids !'},
-      {'Wooper_Boy', 'Sad',     'Nous sommes trop petits pour remonter le torrent contre la pluie.'},
-      {'Teammate1', 'Worried', 'Une inondation continue ? C est dangereux pour tous les fugitifs !'},
-      {'PLAYER',    'Determined','(Je hoche la tête : nous devons calmer les eaux du ravin.)'},
-      {'Wooper_Boy', 'Worried', 'Si Tarpaud ne cesse pas son chant, le ravin sera englouti.'},
-      {'Wooper_Boy', 'Sad',     'Nous avons besoin d aventuriers courageux pour l atteindre.'},
-      {'Teammate1', 'Determined','Compte sur nous ! Nous allons remonter le ravin et arrêter la tempête !'},
-      {'Wooper_Boy', 'Inspired','Vrai ? Merci ! Sauvez notre vallée des eaux !'}
-    },
     accept = {{'Wooper_Boy', 'Happy',   'Youpi ! Vous êtes nos héros !'},
       {'Teammate1', 'Happy', 'Fais attention à toi en attendant notre retour !'},
       {'Wooper_Boy', 'Normal',  'Le ravin s ouvre juste après les falaises brumeuses du nord.'}},
@@ -1609,22 +1273,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24 LIGNES AVEC PARTENAIRE/HÉROS) : Gorge Moussue ===
   {
     id = 'q11_gorge', ch = 11, giver = 'Bellossom', target = 'Bellossom',
-    unlock_dungeon = 'mossy_gorge', dungeon_name = "Gorge Moussue",
-    titre = "La racine sacrée",
-    ask = {
-      {'Bellossom', 'Sad',     'Ah... Ah... Les fleurs de la gorge perdent tout leur éclat.'},
-      {'Teammate1', 'Surprised','Joliflor ? Que se passe-t-il dans les profondeurs de la gorge ?'},
-      {'Bellossom', 'Worried', 'Ludicolo le Déluge a accaparé la source d eau pure de notre racine sacrée.'},
-      {'Bellossom', 'Normal',  'La Gorge Moussue est un sanctuaire d ombre où pousse notre flore.'},
-      {'Bellossom', 'Angry',   'Sans cette eau, toute notre vallée végétale va se flétrir !'},
-      {'Bellossom', 'Sad',     'Nos danses ne suffisent plus à réveiller la terre.'},
-      {'Teammate1', 'Worried', 'La flore qui meurt ? Nous ne pouvons pas laisser faire cela !'},
-      {'PLAYER',    'Determined','(Je regarde mon partenaire : allons rendre l eau aux plantes.)'},
-      {'Bellossom', 'Worried', 'Il faut convaincre Ludicolo de partager le cours d eau de la gorge.'},
-      {'Bellossom', 'Sad',     'Pouvez-vous descendre dans la gorge pour nous aider ?'},
-      {'Teammate1', 'Determined','Bien sûr ! Nous allons libérer la source sacrée de la gorge !'},
-      {'Bellossom', 'Inspired','Oh, quel soulagement ! Que la nature vous guide !'}
-    },
     accept = {{'Bellossom', 'Happy',   'Merci ! Votre courage fait refleurir l espoir !'},
       {'Teammate1', 'Happy', 'Préparez vos chants pour fêter le retour de l eau !'},
       {'Bellossom', 'Normal',  'Le sentier de la gorge descend au cœur de la vallée brumeuse.'}},
@@ -1650,22 +1298,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24 LIGNES AVEC PARTENAIRE/HÉROS) : Piste Venteuse ===
   {
     id = 'q11_piste', ch = 11, giver = 'Manectric', target = 'Manectric',
-    unlock_dungeon = 'windswept_trail', dungeon_name = "Piste Venteuse",
-    titre = "La boussole des vents",
-    ask = {
-      {'Manectric', 'Sad',     'Grrr... Les vents du col sont devenus incontrôlables.'},
-      {'Teammate1', 'Surprised','Élecsprint ? Pourquoi ces rafales bloquent-elles le passage nord ?'},
-      {'Manectric', 'Worried', 'Aéromite le Bourrasque a déréglé les courants de la Piste Venteuse.'},
-      {'Manectric', 'Normal',  'Ce sentier est la seule route praticable pour traverser les crêtes.'},
-      {'Manectric', 'Angry',   'Ses vents violents repoussent tous les voyageurs qui tentent de passer !'},
-      {'Manectric', 'Sad',     'Nos éclairs n arrivent pas à percer cette tempête de vent.'},
-      {'Teammate1', 'Worried', 'Le passage nord bloqué ? C est crucial pour notre route !'},
-      {'PLAYER',    'Determined','(Je sers les poings : nous devons traverser cette tempête.)'},
-      {'Manectric', 'Worried', 'Si le vent ne se calme pas, la route restera coupée.'},
-      {'Manectric', 'Sad',     'Nous cherchons des explorateurs capables de résister aux rafales.'},
-      {'Teammate1', 'Determined','Laisse-nous faire ! Nous allons gravir la piste et calmer le vent !'},
-      {'Manectric', 'Inspired','Vrai ? Votre courage honore la guilde !'}
-    },
     accept = {{'Manectric', 'Happy',   'Excellent ! Que la force vous accompagne !'},
       {'Teammate1', 'Happy', 'Reste à l abri, le ciel va bientôt s éclaircir !'},
       {'Manectric', 'Normal',  'La piste commence au pied des grandes crêtes rocheuses du nord.'}},
@@ -1691,22 +1323,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24 LIGNES AVEC PARTENAIRE/HÉROS) : Creux Brumeux ===
   {
     id = 'q11_creux', ch = 11, giver = 'Gloom', target = 'Gloom',
-    unlock_dungeon = 'foggy_hollow', dungeon_name = "Creux Brumeux",
-    titre = "L'écho dans le brouillard",
-    ask = {
-      {'Gloom', 'Sad',     'Snif... Snif... Une brume étrange a capturé les échos de la forêt.'},
-      {'Teammate1', 'Surprised','Ortide ? Pourquoi semblez-vous tous désorientés par le brouillard ?'},
-      {'Gloom', 'Worried', 'Noctunoir le Guetteur a étendu un rideau d ombre sur le Creux Brumeux.'},
-      {'Gloom', 'Normal',  'C est une cuvette boisée où nos chants résonnent d habitude.'},
-      {'Gloom', 'Angry',   'Maintenant, quiconque y entre perd la notion du temps et du chemin !'},
-      {'Gloom', 'Sad',     'Plus personne n ose s aventurer dans les sous-bois du nord.'},
-      {'Teammate1', 'Worried', 'Un brouillard qui fait perdre le chemin ? C est un piège !'},
-      {'PLAYER',    'Determined','(Je regarde vers la brume : notre complicité sera notre guide.)'},
-      {'Gloom', 'Worried', 'Sans une lumière d amitié pure, le creux restera scellé.'},
-      {'Gloom', 'Sad',     'Avez-vous le courage de dissiper le brouillard de Noctunoir ?'},
-      {'Teammate1', 'Determined','Bien sûr ! Nous allons entrer dans le creux et ramener la clarté !'},
-      {'Gloom', 'Inspired','Oh ! Merci, explorateurs au cœur vaillant !'}
-    },
     accept = {{'Gloom', 'Happy',   'Snif ! Votre détermination éclaire déjà mon cœur !'},
       {'Teammate1', 'Happy', 'Ne t en fais plus, le soleil va percer le brouillard !'},
       {'Gloom', 'Normal',  'Le creux se trouve au fond du grand ravin forestier du nord.'}},
@@ -1732,22 +1348,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24 LIGNES AVEC PARTENAIRE/HÉROS) : Creux Cendré ===
   {
     id = 'q12_cendres', ch = 12, giver = 'Slugma', target = 'Slugma',
-    unlock_dungeon = 'ashen_hollow', dungeon_name = "Creux Cendré",
-    titre = "La cendre sacrée",
-    ask = {
-      {'Slugma', 'Sad',     'Pfff... Pfff... Les cendres de notre grotte sont devenues toxiques.'},
-      {'Teammate1', 'Surprised','Limagma ? Pourquoi votre creux volcanique dégage-t-il cette fumée ?'},
-      {'Slugma', 'Worried', 'Grotadmorv d Alola le Toxique a contaminé le cœur du Creux Cendré.'},
-      {'Slugma', 'Normal',  'Ce vallon calciné est notre refuge de chaleur au nord des montagnes.'},
-      {'Slugma', 'Angry',   'Ses boues acides étouffent tous les foyers de lave de notre tribu !'},
-      {'Slugma', 'Sad',     'Sans chaleur pure, nos corps de lave vont se solidifier.'},
-      {'Teammate1', 'Worried', 'Une contamination acide ? C est un danger pour toute la montagne !'},
-      {'PLAYER',    'Determined','(Je regarde la fumée noire : nous allons purifier ce foyer volcanique.)'},
-      {'Slugma', 'Worried', 'Si Grotadmorv ne quitte pas le cratère, la chaleur s éteindra.'},
-      {'Slugma', 'Sad',     'Nous cherchons des explorateurs qui ne craignent pas les brûlures.'},
-      {'Teammate1', 'Determined','Laisse-nous faire ! Nous allons gravir le creux et chasser la boue !'},
-      {'Slugma', 'Inspired','Vrai ? Merci ! Sauvez la flamme de notre tribu !'}
-    },
     accept = {{'Slugma', 'Happy',   'Génial ! Votre courage réchauffe déjà nos cœurs !'},
       {'Teammate1', 'Happy', 'Gardez votre chaleur, le cratère sera bientôt purifié !'},
       {'Slugma', 'Normal',  'Le creux est niché au pied du grand volcan fumant du nord.'}},
@@ -1773,22 +1373,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24 LIGNES AVEC PARTENAIRE/HÉROS) : Faille Gelée ===
   {
     id = 'q12_faille', ch = 12, giver = 'Snorunt', target = 'Snorunt',
-    unlock_dungeon = 'frozen_rift', dungeon_name = "Faille Gelée",
-    titre = "Le cristal de glace",
-    ask = {
-      {'Snorunt', 'Sad',     'Brrr... Brrr... Le vent de la faille glace même nos cœurs.'},
-      {'Teammate1', 'Surprised','Stalgamin ? Pourquoi tremblez-vous dans votre propre caverne de glace ?'},
-      {'Snorunt', 'Worried', 'Séracrawl le Roc Glacé a bloqué le grand puits de la Faille Gelée.'},
-      {'Snorunt', 'Normal',  'Cette faille est le chemin par lequel remonte l air tempéré du sous-sol.'},
-      {'Snorunt', 'Angry',   'Son immense corps de glace obstrue tout, provoquant un gel éternel !'},
-      {'Snorunt', 'Sad',     'Nos petits n arrivent plus à creuser dans cette glace trop dure.'},
-      {'Teammate1', 'Worried', 'Un gel qui bloque le passage de la chaleur ? C est un désastre !'},
-      {'PLAYER',    'Determined','(Je sers les poings : nous devons dégager le puits de la faille.)'},
-      {'Snorunt', 'Worried', 'Si Séracrawl ne se déplace pas, la faille sera scellée à jamais.'},
-      {'Snorunt', 'Sad',     'Pouvez-vous descendre dans le blizzard pour lui parler ?'},
-      {'Teammate1', 'Determined','Comptez sur nous ! Nous allons traverser le givre et ouvrir le puits !'},
-      {'Snorunt', 'Inspired','Vrai ? Merci de tout cœur, braves explorateurs !'}
-    },
     accept = {{'Snorunt', 'Happy',   'Youpi ! Votre présence nous réchauffe déjà !'},
       {'Teammate1', 'Happy', 'Abriter les petits, la chaleur va remonter du sous-sol !'},
       {'Snorunt', 'Normal',  'La faille s ouvre dans le grand glacier au nord des crêtes.'}},
@@ -1814,22 +1398,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24 LIGNES AVEC PARTENAIRE/HÉROS) : Crête Chuchotante ===
   {
     id = 'q12_crete', ch = 12, giver = 'Pidgeotto', target = 'Pidgeotto',
-    unlock_dungeon = 'whispering_crag', dungeon_name = "Crête Chuchotante",
-    titre = "Le vent d'acier",
-    ask = {
-      {'Pidgeotto', 'Sad',     'Roucou... Les vents des crêtes portent des cris menaçants.'},
-      {'Teammate1', 'Surprised','Roucoups ? Pourquoi les oiseaux n osent-ils plus voler vers le sommet ?'},
-      {'Pidgeotto', 'Worried', 'Corvaillus l Acier a revendiqué toute la Crête Chuchotante.'},
-      {'Pidgeotto', 'Normal',  'Cette crête est notre halte naturelle lors de la traversée des monts.'},
-      {'Pidgeotto', 'Angry',   'Ses ailes d acier provoquent des tempêtes qui plaquent tout au sol !'},
-      {'Pidgeotto', 'Sad',     'Les migrations de printemps sont bloquées en bas de falaise.'},
-      {'Teammate1', 'Worried', 'Les migrations interrompues ? C est tout le ciel qui est en danger !'},
-      {'PLAYER',    'Determined','(Je regarde vers la crête : allons libérer l espace aérien.)'},
-      {'Pidgeotto', 'Worried', 'Si Corvaillus ne partage pas le vent, aucun oiseau ne passera.'},
-      {'Pidgeotto', 'Sad',     'Nous cherchons des explorateurs au pied ferme pour l affronter.'},
-      {'Teammate1', 'Determined','Laisse-nous faire ! Nous allons monter sur la crête et lui parler !'},
-      {'Pidgeotto', 'Inspired','Vrai ? Merci ! Que le vent vous porte !'}
-    },
     accept = {{'Pidgeotto', 'Happy',   'Génial ! Vous êtes l espoir du ciel !'},
       {'Teammate1', 'Happy', 'Prévenez les nuées, le couloir aérien va rouvrir !'},
       {'Pidgeotto', 'Normal',  'La crête est accessible par le sentier venteux du grand mont nordique.'}},
@@ -1855,22 +1423,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24 LIGNES AVEC PARTENAIRE/HÉROS) : Marais Crépusculaire ===
   {
     id = 'q12_marais', ch = 12, giver = 'Wooper_Girl', target = 'Wooper_Girl',
-    unlock_dungeon = 'twilight_marsh', dungeon_name = "Marais Crépusculaire",
-    titre = "La tourbe du couchant",
-    ask = {
-      {'Wooper_Girl', 'Sad',     'Ouin... Ouin... La boue claire du marais s est changée en tourbe noire.'},
-      {'Teammate1', 'Surprised','Axoloto ? Pourquoi votre marais semble-t-il figé au crépuscule ?'},
-      {'Wooper_Girl', 'Worried', 'Bourrinos la Tourbe a piétiné les sources claires du Marais Crépusculaire.'},
-      {'Wooper_Girl', 'Normal',  'C est un marécage paisible où nous cultivons nos baies d humidité.'},
-      {'Wooper_Girl', 'Angry',   'Ses sabots lourds écrasent tout sur leur passage dans la boue !'},
-      {'Wooper_Girl', 'Sad',     'Plus aucune baie ne pousse dans cette tourbe trop dense.'},
-      {'Teammate1', 'Worried', 'Les baies qui sont détruites ? Toute la faune du marais va souffrir !'},
-      {'PLAYER',    'Determined','(Je regarde la boue sombre : nous devons apaiser le grand étalon.)'},
-      {'Wooper_Girl', 'Worried', 'Il faut persuader Bourrinos de quitter les champs de baies.'},
-      {'Wooper_Girl', 'Sad',     'Pouvez-vous traverser les fondrières pour nous aider ?'},
-      {'Teammate1', 'Determined','Compte sur nous ! Nous allons libérer les sources du marais !'},
-      {'Wooper_Girl', 'Inspired','Vrai ? Merci ! Sauvez notre jardin de boue !'}
-    },
     accept = {{'Wooper_Girl', 'Happy',   'Youpi ! Votre gentillesse est immense !'},
       {'Teammate1', 'Happy', 'Préparez les semences, le marais va redevenir fertile !'},
       {'Wooper_Girl', 'Normal',  'Le marais s étend à la lisière des grands bois tourbeux du nord.'}},
@@ -1896,22 +1448,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24 LIGNES AVEC PARTENAIRE/HÉROS) : Caverne Grelottante ===
   {
     id = 'q13_caverne', ch = 13, giver = 'Snorunt', target = 'Snorunt',
-    unlock_dungeon = 'shivering_cavern', dungeon_name = "Caverne Grelottante",
-    titre = "Le gel éternel",
-    ask = {
-      {'Snorunt', 'Sad',     'Brrr... Brrr... Notre grotte de glace tremble de frissons de givre.'},
-      {'Teammate1', 'Surprised','Stalgamin ? Pourquoi votre clan semble-t-il gelé par le vent du nord ?'},
-      {'Snorunt', 'Worried', 'Blizzarroi le Gel Éternel a scellé la source tiède de la Caverne Grelottante.'},
-      {'Snorunt', 'Normal',  'Cette caverne abrite les parois de cristal où nous grandissons.'},
-      {'Snorunt', 'Angry',   'Ses tempêtes de neige transforment tout en statues de givre !'},
-      {'Snorunt', 'Sad',     'Nos feux de camp s éteignent avant même d être allumés.'},
-      {'Teammate1', 'Worried', 'Un gel éternel ? Tout le nord risque de geler complètement !'},
-      {'PLAYER',    'Determined','(Je hoche la tête : nous devons réchauffer cette caverne de givre.)'},
-      {'Snorunt', 'Worried', 'Si Blizzarroi ne se calme pas, la grotte sera condamnée.'},
-      {'Snorunt', 'Sad',     'Pouvez-vous descendre dans le blizzard et ouvrir la source ?'},
-      {'Teammate1', 'Determined','Laisse-nous faire ! Nous allons traverser la caverne et apaiser le gel !'},
-      {'Snorunt', 'Inspired','Vrai ? Merci de tout cœur ! Que la flamme vous guide !'}
-    },
     accept = {{'Snorunt', 'Happy',   'Youpi ! Votre chaleur nous protège déjà !'},
       {'Teammate1', 'Happy', 'Abriter les petits, la source chaude va bientôt remonter !'},
       {'Snorunt', 'Normal',  'La caverne s ouvre au fond de la crevasse nordique.'}},
@@ -1937,22 +1473,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24 LIGNES AVEC PARTENAIRE/HÉROS) : Crête de la Tempête ===
   {
     id = 'q13_crete', ch = 13, giver = 'Manectric', target = 'Manectric',
-    unlock_dungeon = 'tempest_ridge', dungeon_name = "Crête de la Tempête",
-    titre = "Le tonnerre du col",
-    ask = {
-      {'Manectric', 'Sad',     'Grrr... Les éclairs de la haute crête grondent sans discontinuer.'},
-      {'Teammate1', 'Surprised','Élecsprint ? Pourquoi ces foudres bloquent-elles le passage nordique ?'},
-      {'Manectric', 'Worried', 'Fulguris le Tonnerre a déchaîné un orage sur la Crête de la Tempête.'},
-      {'Manectric', 'Normal',  'Cette crête est notre relais pour capter la lumière du sommet.'},
-      {'Manectric', 'Angry',   'Ses foudres féroces empêchent quiconque de franchir le col !'},
-      {'Manectric', 'Sad',     'Nos patrouilles ne peuvent plus traverser la foudre.'},
-      {'Teammate1', 'Worried', 'Un orage infranchissable ? C est un danger pour toute la région !'},
-      {'PLAYER',    'Determined','(Je regarde vers la crête : allons apaiser la foudre.)'},
-      {'Manectric', 'Worried', 'Il faut convaincre Fulguris de retenir sa foudre royale.'},
-      {'Manectric', 'Sad',     'Avez-vous la vitesse suffisante pour monter sur la crête ?'},
-      {'Teammate1', 'Determined','Bien sûr ! Nous allons gravir la crête et calmer l orage !'},
-      {'Manectric', 'Inspired','Oh, quel courage ! Que l éclair guide vos pas !'}
-    },
     accept = {{'Manectric', 'Happy',   'Excellent ! Votre détermination brille comme la foudre !'},
       {'Teammate1', 'Happy', 'Prévenez les patrouilles, le col sera bientôt rouvert !'},
       {'Manectric', 'Normal',  'La crête monte directement après les grands monts électrisés.'}},
@@ -1978,22 +1498,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24 LIGNES AVEC PARTENAIRE/HÉROS) : Fourré Creux ===
   {
     id = 'q13_fourre', ch = 13, giver = 'Gloom', target = 'Gloom',
-    unlock_dungeon = 'hollow_thicket', dungeon_name = "Fourré Creux",
-    titre = "Les racines de l'ombre",
-    ask = {
-      {'Gloom', 'Sad',     'Snif... Snif... Les ronces du fourré ont envahi tous les sentiers.'},
-      {'Teammate1', 'Surprised','Ortide ? Pourquoi les bois sont-ils devenus si impraticables ?'},
-      {'Gloom', 'Worried', 'Zarude le Rôdeur a resserré l écorce du Fourré Creux.'},
-      {'Gloom', 'Normal',  'Ce fourré est une ancienne plantation sauvage des profondeurs.'},
-      {'Gloom', 'Angry',   'Ses lianes sombres étouffent toute la lumière qui traverse le feuillage !'},
-      {'Gloom', 'Sad',     'Les petits Pokémon des bois sont pris au piège à l intérieur.'},
-      {'Teammate1', 'Worried', 'Des petits piégés par les lianes ? Nous devons intervenir !'},
-      {'PLAYER',    'Determined','(Je hoche la tête : nous allons libérer les sous-bois.)'},
-      {'Gloom', 'Worried', 'Si Zarude ne desserre pas ses ronces, la forêt mourra.'},
-      {'Gloom', 'Sad',     'Pouvez-vous traverser le fourré pour lui faire entendre raison ?'},
-      {'Teammate1', 'Determined','Laisse-nous faire ! Nous allons ouvrir le fourré et sauver les petits !'},
-      {'Gloom', 'Inspired','Vrai ? Merci infiniment, braves explorateurs !'}
-    },
     accept = {{'Gloom', 'Happy',   'Snif ! Votre bonté est immense !'},
       {'Teammate1', 'Happy', 'Gardez espoir, la lumière va revenir dans le fourré !'},
       {'Gloom', 'Normal',  'Le fourré commence au nord des anciennes ruines végétales.'}},
@@ -2019,22 +1523,6 @@ SideQuests.LIST = {
   -- === QUÊTE DÉBLOCAGE DONJON SECONDAIRE (24 LIGNES AVEC PARTENAIRE/HÉROS) : Marais Silencieux ===
   {
     id = 'q13_marais', ch = 13, giver = 'Wooper_Girl', target = 'Wooper_Girl',
-    unlock_dungeon = 'silent_marsh', dungeon_name = "Marais Silencieux",
-    titre = "La tourbière muette",
-    ask = {
-      {'Wooper_Girl', 'Sad',     'Ouin... Ouin... Le marais a perdu toute sa voix et ses chants.'},
-      {'Teammate1', 'Surprised','Axoloto ? Pourquoi votre tourbière est-elle plongée dans ce silence ?'},
-      {'Wooper_Girl', 'Worried', 'Muplodocus de Hisui l Acier a scellé les brumes du Marais Silencieux.'},
-      {'Wooper_Girl', 'Normal',  'C est un marais sacré où résonnent les chants de pluie de notre clan.'},
-      {'Wooper_Girl', 'Angry',   'Sa coquille d acier lourd étouffe tous les sons et assèche la vase !'},
-      {'Wooper_Girl', 'Sad',     'Sans musique, nos œufs d Axoloto n éclosent plus.'},
-      {'Teammate1', 'Worried', 'Des œufs qui n éclosent plus ? C est une tragédie pour votre clan !'},
-      {'PLAYER',    'Determined','(Je regarde la brume muette : allons ramener la chanson du marais.)'},
-      {'Wooper_Girl', 'Worried', 'Il faut persuader Muplodocus d ouvrir sa coquille d acier.'},
-      {'Wooper_Girl', 'Sad',     'Avez-vous le courage d entrer dans la tourbière silencieuse ?'},
-      {'Teammate1', 'Determined','Compte sur nous ! Nous allons libérer la musique du marais !'},
-      {'Wooper_Girl', 'Inspired','Vrai ? Merci ! Que le chant des pluies vous guide !'}
-    },
     accept = {{'Wooper_Girl', 'Happy',   'Youpi ! Vous êtes nos sauveurs !'},
       {'Teammate1', 'Happy', 'Préparez vos chants, la musique va revenir !'},
       {'Wooper_Girl', 'Normal',  'Le marais s étend au-delà des bois d ombre nordiques.'}},

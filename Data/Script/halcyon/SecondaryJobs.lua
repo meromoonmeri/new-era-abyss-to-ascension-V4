@@ -18,7 +18,6 @@ SecondaryJobs = {}
 SecondaryJobs.CONTRACTS = {
   -- === CHAPITRE 6 (Rang 30-33, Difficulté C) ===
   {
-    chapter = 6, zone = 'forsaken_desert', segment = 0, floor = 10,
     client = 'sandshrew', client_gender = RogueEssence.Data.Gender.Male,
     target = 'sandshrew', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'C', reward = 'money',
@@ -26,7 +25,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Les sables mouvants du désert ont englouti notre cargaison d'herbes médicinales.\nNous avons besoin d'une équipe solide pour retrouver notre piste avant la tempête.",
   },
   {
-    chapter = 6, zone = 'geode_crevice', segment = 0, floor = 12,
     client = 'carbink', client_gender = RogueEssence.Data.Gender.Female,
     target = 'carbink', target_gender = RogueEssence.Data.Gender.Female,
     difficulty = 'C', reward = 'money',
@@ -34,7 +32,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Des roches scintillantes se détachent du plafond de notre caverne sans raison apparente.\nUne mission d'inspection s'impose pour sécuriser les galeries.",
   },
   {
-    chapter = 6, zone = 'wild_orchard', segment = 0, floor = 11,
     client = 'combee', client_gender = RogueEssence.Data.Gender.Female,
     target = 'combee', target_gender = RogueEssence.Data.Gender.Female,
     difficulty = 'C', reward = 'money',
@@ -42,7 +39,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Les Insectes du verger sont agités depuis quelques jours. Nous ne pouvons plus récolter le miel sacré.\nMerci d'enquêter dans les sous-bois.",
   },
   {
-    chapter = 6, zone = 'scorched_plains', segment = 0, floor = 12,
     client = 'shinx', client_gender = RogueEssence.Data.Gender.Male,
     target = 'shinx', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'C', reward = 'money',
@@ -52,7 +48,6 @@ SecondaryJobs.CONTRACTS = {
 
   -- === CHAPITRE 7 (Rang 34-37, Difficulté B) ===
   {
-    chapter = 7, zone = 'energy_garden', segment = 0, floor = 10,
     client = 'magnemite', client_gender = RogueEssence.Data.Gender.Unknown,
     target = 'magnemite', target_gender = RogueEssence.Data.Gender.Unknown,
     difficulty = 'B', reward = 'money',
@@ -60,7 +55,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Nos champs de sustentation s'inversent lorsque nous pénétrons dans le jardin minéral.\nNous cherchons des explorateurs pour en trouver la source.",
   },
   {
-    chapter = 7, zone = 'sunken_relic', segment = 0, floor = 12,
     client = 'bronzor', client_gender = RogueEssence.Data.Gender.Unknown,
     target = 'bronzor', target_gender = RogueEssence.Data.Gender.Unknown,
     difficulty = 'B', reward = 'money',
@@ -68,7 +62,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Les ruines immergées abritent des écritures anciennes que nous devons recenser.\nAttention aux ombres qui rôdent dans les piliers.",
   },
   {
-    chapter = 7, zone = 'mossy_labyrinth', segment = 0, floor = 11,
     client = 'turtwig', client_gender = RogueEssence.Data.Gender.Male,
     target = 'turtwig', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'B', reward = 'money',
@@ -76,7 +69,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "La mousse et les racines ont condamné notre ancien chemin de ronde en une seule nuit.\nAidez-nous à frayer un passage sûr.",
   },
   {
-    chapter = 7, zone = 'magma_quarry', segment = 0, floor = 12,
     client = 'numel', client_gender = RogueEssence.Data.Gender.Female,
     target = 'numel', target_gender = RogueEssence.Data.Gender.Female,
     difficulty = 'B', reward = 'money',
@@ -86,7 +78,6 @@ SecondaryJobs.CONTRACTS = {
 
   -- === CHAPITRE 8 (Rang 38-41, Difficulté A) ===
   {
-    chapter = 8, zone = 'barren_tundra', segment = 0, floor = 10,
     client = 'spheal', client_gender = RogueEssence.Data.Gender.Male,
     target = 'spheal', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'A', reward = 'money',
@@ -94,7 +85,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Des blizzards soudains ont gelé notre réserve de baies dans la toundra.\nNous cherchons une équipe endurante au froid pour les récupérer.",
   },
   {
-    chapter = 8, zone = 'barren_cavern', segment = 0, floor = 12,
     client = 'aron', client_gender = RogueEssence.Data.Gender.Male,
     target = 'aron', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'A', reward = 'money',
@@ -102,7 +92,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Les piliers d'acier naturel s'effondrent sous le poids de créatures agressives.\nUne intervention armée est requise de toute urgence.",
   },
   {
-    chapter = 8, zone = 'cracked_ridge', segment = 0, floor = 11,
     client = 'bagon', client_gender = RogueEssence.Data.Gender.Female,
     target = 'bagon', target_gender = RogueEssence.Data.Gender.Female,
     difficulty = 'A', reward = 'money',
@@ -110,7 +99,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Les sommets se fracturent et provoquent des éboulis à chaque secousse.\nVenez sécuriser les sentiers rocheux avec nous.",
   },
   {
-    chapter = 8, zone = 'suspended_valley', segment = 0, floor = 12,
     client = 'fletchling', client_gender = RogueEssence.Data.Gender.Male,
     target = 'fletchling', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'A', reward = 'money',
@@ -120,7 +108,6 @@ SecondaryJobs.CONTRACTS = {
 
   -- === CHAPITRE 9 (Rang 42-45, Difficulté A+) ===
   {
-    chapter = 9, zone = 'depleted_basin', segment = 0, floor = 10,
     client = 'psyduck', client_gender = RogueEssence.Data.Gender.Male,
     target = 'psyduck', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'S', reward = 'money',
@@ -128,7 +115,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Le niveau d'eau du grand bassin baisse inexplicablement de jour en jour.\nEnquêtez dans le lit tari avant la sécheresse totale.",
   },
   {
-    chapter = 9, zone = 'wayward_wetlands', segment = 0, floor = 12,
     client = 'lotad', client_gender = RogueEssence.Data.Gender.Female,
     target = 'lotad', target_gender = RogueEssence.Data.Gender.Female,
     difficulty = 'S', reward = 'money',
@@ -136,7 +122,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Des nappes de brume violacée désorientent nos cueilleurs dans les mares.\nNous avons besoin d'guides expérimentés pour traverser le marais.",
   },
   {
-    chapter = 9, zone = 'southern_jungle', segment = 0, floor = 11,
     client = 'oddish', client_gender = RogueEssence.Data.Gender.Male,
     target = 'oddish', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'S', reward = 'money',
@@ -144,7 +129,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Les arbres tropicaux ont poussé au point de masquer totalement la lumière du soleil.\nUne expédition de débroussaillage s'impose.",
   },
   {
-    chapter = 9, zone = 'submerged_chasm', segment = 0, floor = 12,
     client = 'shellder', client_gender = RogueEssence.Data.Gender.Male,
     target = 'shellder', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'S', reward = 'money',
@@ -154,7 +138,6 @@ SecondaryJobs.CONTRACTS = {
 
   -- === CHAPITRE 10 (Rang 46-49, Difficulté S) ===
   {
-    chapter = 10, zone = 'snowbound_path', segment = 0, floor = 10,
     client = 'snorunt', client_gender = RogueEssence.Data.Gender.Female,
     target = 'snorunt', target_gender = RogueEssence.Data.Gender.Female,
     difficulty = 'S', reward = 'money',
@@ -162,7 +145,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "La neige s'est entassée sur plus de dix mètres, coupant la route du sommet.\nSeule une équipe de rang supérieur peut forcer le passage.",
   },
   {
-    chapter = 10, zone = 'thunderstruck_pass', segment = 0, floor = 12,
     client = 'shinx', client_gender = RogueEssence.Data.Gender.Male,
     target = 'shinx', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'S', reward = 'money',
@@ -170,7 +152,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "La foudre tombe sans discontinuer sur la crête rocheuse depuis trois jours.\nNous devons inspecter les paratonnerres naturels du col.",
   },
   {
-    chapter = 10, zone = 'flyaway_cliffs', segment = 0, floor = 12,
     client = 'pidgey', client_gender = RogueEssence.Data.Gender.Female,
     target = 'pidgey', target_gender = RogueEssence.Data.Gender.Female,
     difficulty = 'S', reward = 'money',
@@ -178,7 +159,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Des Pokémon volants de grande envergure patrouillent agressivement au-dessus des falaises.\nSécurisez l'espace aérien pour notre guilde.",
   },
   {
-    chapter = 10, zone = 'forgotten_silver_spire', segment = 0, floor = 11,
     client = 'ralts', client_gender = RogueEssence.Data.Gender.Female,
     target = 'ralts', target_gender = RogueEssence.Data.Gender.Female,
     difficulty = 'S', reward = 'money',
@@ -186,7 +166,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Les cloches minérales de la cime ont cessé de résonner dans le vent céleste.\nUne mission d'investigation sacrée est commanditée.",
   },
   {
-    chapter = 11, zone = 'rainy_ravine', segment = 0, floor = 10,
     client = 'wooper', client_gender = RogueEssence.Data.Gender.Male,
     target = 'wooper', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'A', reward = 'money',
@@ -194,7 +173,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Des pluies torrentielles inondent le Ravin Pluvieux et menacent nos rivières.\nUne équipe de secours est demandée d'urgence.",
   },
   {
-    chapter = 11, zone = 'mossy_gorge', segment = 0, floor = 12,
     client = 'bellossom', client_gender = RogueEssence.Data.Gender.Female,
     target = 'bellossom', target_gender = RogueEssence.Data.Gender.Female,
     difficulty = 'A', reward = 'money',
@@ -202,7 +180,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "La source sacrée de la Gorge Moussue est accaparée par de redoutables Pokémon.\nAidez-nous à rendre l'eau aux plantes de la vallée.",
   },
   {
-    chapter = 11, zone = 'windswept_trail', segment = 0, floor = 11,
     client = 'manectric', client_gender = RogueEssence.Data.Gender.Male,
     target = 'manectric', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'S', reward = 'money',
@@ -210,7 +187,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Des vents violents bloquent le passage sur la Piste Venteuse vers les crêtes nordiques.\nSécurisez le sentier pour les voyageurs.",
   },
   {
-    chapter = 11, zone = 'foggy_hollow', segment = 0, floor = 12,
     client = 'gloom', client_gender = RogueEssence.Data.Gender.Female,
     target = 'gloom', target_gender = RogueEssence.Data.Gender.Female,
     difficulty = 'S', reward = 'money',
@@ -218,7 +194,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Un rideau de brume obscure désoriente quiconque s'aventure dans le Creux Brumeux.\nDissipez cette menace pour ramener la clarté.",
   },
   {
-    chapter = 12, zone = 'ashen_hollow', segment = 0, floor = 10,
     client = 'slugma', client_gender = RogueEssence.Data.Gender.Male,
     target = 'slugma', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'A', reward = 'money',
@@ -226,7 +201,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Des boues acides empoisonnent la lave du Creux Cendré au nord des montagnes.\nUne mission de purification est requise.",
   },
   {
-    chapter = 12, zone = 'frozen_rift', segment = 0, floor = 12,
     client = 'snorunt', client_gender = RogueEssence.Data.Gender.Female,
     target = 'snorunt', target_gender = RogueEssence.Data.Gender.Female,
     difficulty = 'S', reward = 'money',
@@ -234,7 +208,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Un monarque de glace obstrue le puits thermique de la Faille Gelée.\nLibérez le passage pour faire remonter l'air doux.",
   },
   {
-    chapter = 12, zone = 'whispering_crag', segment = 0, floor = 11,
     client = 'pidgeotto', client_gender = RogueEssence.Data.Gender.Male,
     target = 'pidgeotto', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'S', reward = 'money',
@@ -242,7 +215,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Des tempêtes violentes bloquent la route des oiseaux migrateurs sur la Crête Chuchotante.\nSécurisez l'espace aérien.",
   },
   {
-    chapter = 12, zone = 'twilight_marsh', segment = 0, floor = 12,
     client = 'wooper', client_gender = RogueEssence.Data.Gender.Female,
     target = 'wooper', target_gender = RogueEssence.Data.Gender.Female,
     difficulty = 'A', reward = 'money',
@@ -250,7 +222,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Les champs de baies du Marais Crépusculaire sont ravagés par un étalon lourd.\nProtégez nos cultures marécageuses.",
   },
   {
-    chapter = 13, zone = 'shivering_cavern', segment = 0, floor = 10,
     client = 'snorunt', client_gender = RogueEssence.Data.Gender.Male,
     target = 'snorunt', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'A', reward = 'money',
@@ -258,7 +229,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Un blizzard éternel paralyse la source thermale de la Caverne Grelottante.\nUne expédition de secours est réclamée.",
   },
   {
-    chapter = 13, zone = 'tempest_ridge', segment = 0, floor = 12,
     client = 'manectric', client_gender = RogueEssence.Data.Gender.Female,
     target = 'manectric', target_gender = RogueEssence.Data.Gender.Female,
     difficulty = 'S', reward = 'money',
@@ -266,7 +236,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Des foudres violentes interdisent le passage sur la Crête de la Tempête.\nApaiser l'orage pour rouvrir le col.",
   },
   {
-    chapter = 13, zone = 'hollow_thicket', segment = 0, floor = 11,
     client = 'gloom', client_gender = RogueEssence.Data.Gender.Male,
     target = 'gloom', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'S', reward = 'money',
@@ -274,7 +243,6 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Des lianes sombres emprisonnent les sous-bois du Fourré Creux.\nLibérez les sentiers pour les habitants forestiers.",
   },
   {
-    chapter = 13, zone = 'silent_marsh', segment = 0, floor = 12,
     client = 'wooper', client_gender = RogueEssence.Data.Gender.Female,
     target = 'wooper', target_gender = RogueEssence.Data.Gender.Female,
     difficulty = 'A', reward = 'money',

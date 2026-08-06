@@ -99,57 +99,57 @@ function sky_tower.ExitSegment(zone, result, rescue, segmentID, mapID)
       -- Contreforts Venteux : 8 etages
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('sky_tower', 10) then
           SV.Chapter10.ReachedCloudRelay = true
-          GAME:EnterGroundMap('sky_tower_relay', 'Main_Entrance_Marker')
+          GAME:EnterGroundMap('palier_celeste', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
           SV.Chapter10.LostFoothills = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
-              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('sky_tower_entrance'), 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('parvis_celeste'), 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
                   "Le vent...[pause=0] il est trop fort...[pause=20] on ne peut plus avancer...", "Pain")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, GROUND_IDX('sky_tower_entrance'), 0)
+              GAME:EnterZone("master_zone", -1, GROUND_IDX('parvis_celeste'), 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('sky_tower_entrance'), 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('parvis_celeste'), 0, true, true)
           end
       end
   elseif segmentID == 1 then
       -- Relais — corniche nuageuse
       if result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
-          GAME:EnterGroundMap('sky_tower_relay', 'Main_Entrance_Marker')
+          GAME:EnterGroundMap('palier_celeste', 'Main_Entrance_Marker')
       end
   elseif segmentID == 2 then
       -- Mer de Nuages : 6 etages
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('sky_tower', 10) then
           SV.Chapter10.ReachedFulgurEncounter = true
-          GAME:EnterGroundMap('sky_tower_fulgur', 'Main_Entrance_Marker')
+          GAME:EnterGroundMap('parvis_celeste', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
           SV.Chapter10.LostCloudSea = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
               SV.Chapter10.PeakMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('sky_tower_relay'), 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('palier_celeste'), 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
                   "Les nuages...[pause=0] on est tombes...[pause=25] a travers le ciel...", "Shock")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, GROUND_IDX('sky_tower_relay'), 0)
+              GAME:EnterZone("master_zone", -1, GROUND_IDX('palier_celeste'), 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('sky_tower_relay'), 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('palier_celeste'), 0, true, true)
           end
       end
   elseif segmentID == 3 then
       -- Aire des Dragons : le trio barre la route avant le Sommet Sacre
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
           SV.Chapter10.OutranEscouadeFulgur = true
-          GAME:EnterGroundMap('sky_tower_relay', 'Main_Entrance_Marker')
+          GAME:EnterGroundMap('palier_celeste', 'Main_Entrance_Marker')
       else
           SV.Chapter10.FulgurReachedSummitFirst = true
           SV.Chapter10.PeakMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('sky_tower_relay'), 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('palier_celeste'), 0, true, true)
           GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
               "Leurs ailes...[pause=0] on ne peut pas lutter contre ca...[pause=20] pas ici...", "Pain")
           GAME:WaitFrames(20)
-          GAME:EnterZone("master_zone", -1, GROUND_IDX('sky_tower_relay'), 0)
+          GAME:EnterZone("master_zone", -1, GROUND_IDX('palier_celeste'), 0)
       end
   elseif segmentID == 4 then
       -- Sommet Sacre : 4 etages
@@ -171,13 +171,13 @@ function sky_tower.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter10.LostSummit = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
               SV.Chapter10.PeakMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('sky_tower_relay'), 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('palier_celeste'), 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
                   "Le sommet...[pause=0] si proche...[pause=30] et pourtant...", "Sad")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, GROUND_IDX('sky_tower_relay'), 0)
+              GAME:EnterZone("master_zone", -1, GROUND_IDX('palier_celeste'), 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('sky_tower_relay'), 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('palier_celeste'), 0, true, true)
           end
       end
   elseif segmentID == 5 then
@@ -230,11 +230,11 @@ function sky_tower.ExitSegment(zone, result, rescue, segmentID, mapID)
       else
           SV.Chapter10.DiedToLugia = true
           SV.Chapter10.PeakMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('sky_tower_relay'), 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('palier_celeste'), 0, true, true)
           GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
               "Le Gardien des Cieux...[pause=20] il nous a juges...", "Pain")
           GAME:WaitFrames(20)
-          GAME:EnterZone("master_zone", -1, GROUND_IDX('sky_tower_relay'), 0)
+          GAME:EnterZone("master_zone", -1, GROUND_IDX('palier_celeste'), 0)
       end
   end
 end

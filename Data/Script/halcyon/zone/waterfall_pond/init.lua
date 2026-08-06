@@ -82,7 +82,7 @@ function waterfall_pond.ExitSegment(zone, result, rescue, segmentID, mapID)
       -- Galerie Cristalline : 12 etages
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('waterfall_pond', 8) then
           SV.Chapter8.ReachedCrystalRelay = true
-          GAME:EnterGroundMap('waterfall_pond_relay', 'Main_Entrance_Marker')
+          GAME:EnterGroundMap('sanctuaire_voeu', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
           SV.Chapter8.LostCrystalGallery = true
@@ -99,13 +99,13 @@ function waterfall_pond.ExitSegment(zone, result, rescue, segmentID, mapID)
   elseif segmentID == 1 then
       -- Relais
       if result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
-          GAME:EnterGroundMap('waterfall_pond_relay', 'Main_Entrance_Marker')
+          GAME:EnterGroundMap('sanctuaire_voeu', 'Main_Entrance_Marker')
       end
   elseif segmentID == 2 then
       -- Premier 3F des Salles des Glyphes : le mini-boss attend au bout.
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('waterfall_pond', 8) then
           PrintInfo("[NREPROBE][transition] crystal seg2 cleared -> miniboss ground")
-          GAME:EnterGroundMap('waterfall_pond_miniboss', 'Main_Entrance_Marker')
+          GAME:EnterGroundMap('sanctuaire_voeu', 'Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
           SV.Chapter8.LostGlyphHalls = true
@@ -115,7 +115,7 @@ function waterfall_pond.ExitSegment(zone, result, rescue, segmentID, mapID)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
                   "Les runes...[pause=0] elles parlent...[pause=20] mais on ne comprend pas...", "Pain")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, 71, 0)
+              GAME:EnterZone("master_zone", -1, 1, 0)
           else
               GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
           end
@@ -129,7 +129,7 @@ function waterfall_pond.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter8.CrystalMiniBossLost = true
       end
       PrintInfo("[NREPROBE][transition] crystal seg3 (arene) -> miniboss ground")
-      GAME:EnterGroundMap('waterfall_pond_miniboss', 'Main_Entrance_Marker')
+      GAME:EnterGroundMap('sanctuaire_voeu', 'Main_Entrance_Marker')
   elseif segmentID == 4 then
       -- Second 3F des Salles des Glyphes : la chambre de Diancie s'ouvre.
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('waterfall_pond', 8) then
@@ -145,7 +145,7 @@ function waterfall_pond.ExitSegment(zone, result, rescue, segmentID, mapID)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
                   "Les runes...[pause=0] elles parlent...[pause=20] mais on ne comprend pas...", "Pain")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, 71, 0)
+              GAME:EnterZone("master_zone", -1, 1, 0)
           else
               GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
           end
@@ -175,7 +175,7 @@ function waterfall_pond.ExitSegment(zone, result, rescue, segmentID, mapID)
           GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
               "Diancie...[pause=0] sa puissance...[pause=15] trop eclatante...", "Pain")
           GAME:WaitFrames(20)
-          GAME:EnterZone("master_zone", -1, 71, 0)
+          GAME:EnterZone("master_zone", -1, 1, 0)
       end
   end
 end

@@ -322,7 +322,7 @@ function metano_town.East_Exit_Touch(obj, activator)
   ReplayEnding.SyncUnlocks()
   GeneralFunctions.StartPartnerConversation("Où devrions-nous aller,[pause=10]" .. CH('PLAYER'):GetDisplayName() .. " ?", "Normal", false)
   GAME:WaitFrames(20)
-  local dungeons = {"relic_forest", "illuminant_riverbed", "crooked_cavern", "apricorn_grove", "vast_steppe", "searing_tunnel", "mount_windswept", "gloomy_forest", "cloven_ruins", "waterfall_pond", "poisonous_forest", "celestial_peak", "petit_tunnel", "bosquet_voile", "grotte_mystere", "vallee_fertile", "antre_enigme", "carriere_cuivre", "grotte_echoue", "tornadus_arena"}--this needs to be updated when more dungeons come out.
+  local dungeons = {"relic_forest", "illuminant_riverbed", "crooked_cavern", "apricorn_grove", "vast_steppe", "searing_tunnel", "mount_windswept", "gloomy_forest", "cloven_ruins", "waterfall_pond", "poisonous_forest", "petit_tunnel", "bosquet_voile", "grotte_mystere", "vallee_fertile", "antre_enigme", "carriere_cuivre", "grotte_echoue"}--this needs to be updated when more dungeons come out.
   local grounds = {}
   metano_town.ShowDestinationMenu(dungeons, grounds)
 end
@@ -506,11 +506,10 @@ function metano_town.ShowDestinationMenu(dungeon_entrances,ground_entrances)
   dungeon_entrance_mapping["vast_steppe"] = 46--Vast Steppe Entrance
   dungeon_entrance_mapping["searing_tunnel"] = 47--Searing Tunnel Entrance
   dungeon_entrance_mapping["mount_windswept"] = 50--Mt. Windswept Entrance
-  dungeon_entrance_mapping["gloomy_forest"] = 51--Gloomy Forest Entrance
-  dungeon_entrance_mapping["cloven_ruins"] = 64--Cloven Ruins Entrance
-  dungeon_entrance_mapping["waterfall_pond"] = 68--Crystal Sanctuary Entrance
-  dungeon_entrance_mapping["poisonous_forest"] = 69--Forgotten Marsh Entrance
-  dungeon_entrance_mapping["celestial_peak"] = 70--Celestial Peak Entrance
+  dungeon_entrance_mapping["gloomy_forest"] = 54--Gloomy Forest Entrance
+  dungeon_entrance_mapping["cloven_ruins"] = 66--Cloven Ruins Entrance
+  dungeon_entrance_mapping["waterfall_pond"] = 172--Crystal Sanctuary Entrance
+  dungeon_entrance_mapping["poisonous_forest"] = 184--Forgotten Marsh Entrance
 
 
 	local mission_dests = {}

@@ -89,11 +89,7 @@ function RuinesRenforts.Revelation()
   GAME:CutsceneMode(false)
   SV.Ruines = SV.Ruines or {}
   SV.Ruines.TourRevelee = true
-  pcall(function()
-    if not GAME:DungeonUnlocked("tour_reliques") then
-      GAME:UnlockDungeon("tour_reliques")
-    end
-  end)
+  -- tour_reliques (ch28) retirée de la base : plus de déblocage ici.
   PrintInfo('[Ruines] Tour des Reliques deverrouillee')
 
   -- Retour de l'expédition des Ruines : boucle le chapitre 5 et transition vers ch 6.
