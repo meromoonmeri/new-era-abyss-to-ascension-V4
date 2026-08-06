@@ -2130,11 +2130,6 @@
     "Comment": "Antre de Mega-Blastoise — caverne noyee, eau violette"
    }
   ],
-  "GroundMaps": [
-   "forgotten_marsh_entrance",
-   "forgotten_marsh_relay",
-   "forgotten_marsh_boss",
-   "forgotten_marsh_miniboss"
-  ]
+  "GroundMaps": []
  }
 }
