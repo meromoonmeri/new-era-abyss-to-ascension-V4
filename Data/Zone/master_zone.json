@@ -1,4 +1,4 @@
-{
+﻿{
  "Version": "0.8.9.0",
  "Object": {
   "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -83100,20 +83100,11 @@
    "cloven_ruins_entrance",
    "genesis_vision",
    "cloven_ruins_midpoint",
-   "crystal_sanctuary_entrance",
-   "forgotten_marsh_entrance",
-   "celestial_peak_entrance",
-   "crystal_sanctuary_relay",
-   "forgotten_marsh_relay",
-   "celestial_peak_relay",
-   "celestial_peak_fulgur",
    "autel_celeste",
    "metano_town_nuit",
    "guild_guildmasters_bedroom",
    "gloomy_forest_miniboss",
    "cloven_ruins_miniboss",
-   "crystal_sanctuary_miniboss",
-   "forgotten_marsh_miniboss",
    "cap_dents_mer",
    "carrefour_assemblee",
    "carrefour_sud",
@@ -83211,10 +83202,7 @@
    "vigie_stratos",
    "tour_ciel_sommet",
    "parvis_celeste",
-   "gloomy_forest_boss",
-   "crystal_sanctuary_boss",
-   "forgotten_marsh_boss",
-   "celestial_peak_boss"
+   "gloomy_forest_boss"
   ]
  }
 }

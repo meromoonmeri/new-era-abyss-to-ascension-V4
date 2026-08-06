@@ -1069,7 +1069,7 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-         "MapID": "crystal_sanctuary_relay"
+         "MapID": "lac_cascade"
         }
        }
       ],
@@ -1594,7 +1594,7 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-         "MapID": "crystal_sanctuary_miniboss"
+         "MapID": "sanctuaire_voeu"
         }
        }
       ],

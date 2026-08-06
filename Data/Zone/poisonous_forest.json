@@ -1069,7 +1069,7 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-         "MapID": "forgotten_marsh_relay"
+         "MapID": "poisonous_forest_relay"
         }
        }
       ],
@@ -1594,7 +1594,7 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-         "MapID": "forgotten_marsh_miniboss"
+         "MapID": "poisonous_forest_miniboss"
         }
        }
       ],
@@ -2119,7 +2119,7 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-         "MapID": "forgotten_marsh_boss"
+         "MapID": "poisonous_forest_boss"
         }
        }
       ],
