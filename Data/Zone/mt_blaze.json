@@ -58,8 +58,8 @@
            "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
            "CellWidth": 10,
            "CellHeight": 10,
-           "CellX": 3,
-           "CellY": 3,
+           "CellX": 4,
+           "CellY": 4,
            "CellWall": 1,
            "Wrap": false
           }
@@ -81,12 +81,12 @@
               "Spawn": {
                "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                "Width": {
-                "Min": 8,
-                "Max": 10
+                "Min": 5,
+                "Max": 8
                },
                "Height": {
-                "Min": 8,
-                "Max": 10
+                "Min": 5,
+                "Max": 8
                }
               },
               "Rate": 10
@@ -108,8 +108,8 @@
               "Brush": {
                "$type": "RogueElements.SquareHallBrush, RogueElements",
                "Dims": {
-                "X": 2,
-                "Y": 2
+                "X": 1,
+                "Y": 1
                }
               },
               "Width": {
@@ -127,8 +127,8 @@
               "Brush": {
                "$type": "RogueElements.SquareHallBrush, RogueElements",
                "Dims": {
-                "X": 3,
-                "Y": 3
+                "X": 1,
+                "Y": 1
                }
               },
               "Width": {
@@ -146,8 +146,8 @@
               "Brush": {
                "$type": "RogueElements.SquareHallBrush, RogueElements",
                "Dims": {
-                "X": 3,
-                "Y": 3
+                "X": 1,
+                "Y": 1
                }
               },
               "Width": {
@@ -165,8 +165,8 @@
               "Brush": {
                "$type": "RogueElements.SquareHallBrush, RogueElements",
                "Dims": {
-                "X": 2,
-                "Y": 3
+                "X": 1,
+                "Y": 1
                }
               },
               "Width": {
@@ -355,8 +355,8 @@
            "OrderComplexity": 3,
            "OrderSoftness": 1,
            "WaterPercent": {
-            "Min": 45,
-            "Max": 46
+            "Min": 35,
+            "Max": 45
            },
            "Bowl": true,
            "Terrain": {
@@ -5774,8 +5774,8 @@
            "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
            "CellWidth": 10,
            "CellHeight": 10,
-           "CellX": 3,
-           "CellY": 3,
+           "CellX": 4,
+           "CellY": 4,
            "CellWall": 1,
            "Wrap": false
           }
@@ -5797,12 +5797,12 @@
               "Spawn": {
                "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                "Width": {
-                "Min": 8,
-                "Max": 10
+                "Min": 5,
+                "Max": 8
                },
                "Height": {
-                "Min": 8,
-                "Max": 10
+                "Min": 5,
+                "Max": 8
                }
               },
               "Rate": 10
@@ -5824,8 +5824,8 @@
               "Brush": {
                "$type": "RogueElements.SquareHallBrush, RogueElements",
                "Dims": {
-                "X": 2,
-                "Y": 2
+                "X": 1,
+                "Y": 1
                }
               },
               "Width": {
@@ -5843,8 +5843,8 @@
               "Brush": {
                "$type": "RogueElements.SquareHallBrush, RogueElements",
                "Dims": {
-                "X": 3,
-                "Y": 3
+                "X": 1,
+                "Y": 1
                }
               },
               "Width": {
@@ -5862,8 +5862,8 @@
               "Brush": {
                "$type": "RogueElements.SquareHallBrush, RogueElements",
                "Dims": {
-                "X": 3,
-                "Y": 3
+                "X": 1,
+                "Y": 1
                }
               },
               "Width": {
@@ -5881,8 +5881,8 @@
               "Brush": {
                "$type": "RogueElements.SquareHallBrush, RogueElements",
                "Dims": {
-                "X": 2,
-                "Y": 3
+                "X": 1,
+                "Y": 1
                }
               },
               "Width": {
@@ -6071,8 +6071,8 @@
            "OrderComplexity": 3,
            "OrderSoftness": 1,
            "WaterPercent": {
-            "Min": 45,
-            "Max": 46
+            "Min": 35,
+            "Max": 45
            },
            "Bowl": true,
            "Terrain": {

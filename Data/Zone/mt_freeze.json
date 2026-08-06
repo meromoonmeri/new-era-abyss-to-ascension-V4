@@ -59,7 +59,7 @@
            "CellWidth": 10,
            "CellHeight": 10,
            "CellX": 3,
-           "CellY": 3,
+           "CellY": 4,
            "CellWall": 1,
            "Wrap": false
           }
@@ -82,11 +82,11 @@
                "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                "Width": {
                 "Min": 8,
-                "Max": 10
+                "Max": 11
                },
                "Height": {
                 "Min": 8,
-                "Max": 10
+                "Max": 11
                }
               },
               "Rate": 10
@@ -108,8 +108,8 @@
               "Brush": {
                "$type": "RogueElements.SquareHallBrush, RogueElements",
                "Dims": {
-                "X": 2,
-                "Y": 2
+                "X": 1,
+                "Y": 1
                }
               },
               "Width": {
@@ -127,8 +127,8 @@
               "Brush": {
                "$type": "RogueElements.SquareHallBrush, RogueElements",
                "Dims": {
-                "X": 3,
-                "Y": 3
+                "X": 1,
+                "Y": 1
                }
               },
               "Width": {
@@ -146,8 +146,8 @@
               "Brush": {
                "$type": "RogueElements.SquareHallBrush, RogueElements",
                "Dims": {
-                "X": 3,
-                "Y": 3
+                "X": 1,
+                "Y": 1
                }
               },
               "Width": {
@@ -165,8 +165,8 @@
               "Brush": {
                "$type": "RogueElements.SquareHallBrush, RogueElements",
                "Dims": {
-                "X": 2,
-                "Y": 3
+                "X": 1,
+                "Y": 1
                }
               },
               "Width": {
@@ -355,8 +355,8 @@
            "OrderComplexity": 3,
            "OrderSoftness": 1,
            "WaterPercent": {
-            "Min": 45,
-            "Max": 46
+            "Min": 0,
+            "Max": 0
            },
            "Bowl": true,
            "Terrain": {
@@ -5823,7 +5823,7 @@
            "CellWidth": 10,
            "CellHeight": 10,
            "CellX": 3,
-           "CellY": 3,
+           "CellY": 4,
            "CellWall": 1,
            "Wrap": false
           }
@@ -5846,11 +5846,11 @@
                "$type": "RogueElements.RoomGenCave`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                "Width": {
                 "Min": 8,
-                "Max": 10
+                "Max": 11
                },
                "Height": {
                 "Min": 8,
-                "Max": 10
+                "Max": 11
                }
               },
               "Rate": 10
@@ -5872,8 +5872,8 @@
               "Brush": {
                "$type": "RogueElements.SquareHallBrush, RogueElements",
                "Dims": {
-                "X": 2,
-                "Y": 2
+                "X": 1,
+                "Y": 1
                }
               },
               "Width": {
@@ -5891,8 +5891,8 @@
               "Brush": {
                "$type": "RogueElements.SquareHallBrush, RogueElements",
                "Dims": {
-                "X": 3,
-                "Y": 3
+                "X": 1,
+                "Y": 1
                }
               },
               "Width": {
@@ -5910,8 +5910,8 @@
               "Brush": {
                "$type": "RogueElements.SquareHallBrush, RogueElements",
                "Dims": {
-                "X": 3,
-                "Y": 3
+                "X": 1,
+                "Y": 1
                }
               },
               "Width": {
@@ -5929,8 +5929,8 @@
               "Brush": {
                "$type": "RogueElements.SquareHallBrush, RogueElements",
                "Dims": {
-                "X": 2,
-                "Y": 3
+                "X": 1,
+                "Y": 1
                }
               },
               "Width": {
@@ -6119,8 +6119,8 @@
            "OrderComplexity": 3,
            "OrderSoftness": 1,
            "WaterPercent": {
-            "Min": 45,
-            "Max": 46
+            "Min": 0,
+            "Max": 0
            },
            "Bowl": true,
            "Terrain": {
