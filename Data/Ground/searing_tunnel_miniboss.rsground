@@ -31971,7 +31971,12 @@
       "RepeatX": false,
       "RepeatY": false
     },
-    "BlankBG": {"AutoTileset": "", "Associates": [], "Layers": [], "NeighborCode": -1},
+    "BlankBG": {
+      "AutoTileset": "",
+      "Associates": [],
+      "Layers": [],
+      "NeighborCode": -1
+    },
     "Layers": [
       {
         "Name": "Base",

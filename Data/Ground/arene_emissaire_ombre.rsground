@@ -46455,7 +46455,30 @@
         "MapChars": [],
         "GroundObjects": [],
         "Spawners": [],
-        "Markers": []
+        "Markers": [
+          {
+            "EntName": "Main_Entrance_Marker",
+            "Direction": 4,
+            "EntEnabled": true,
+            "Collider": {
+              "X": 0,
+              "Y": 0,
+              "Width": 16,
+              "Height": 16
+            }
+          },
+          {
+            "EntName": "Cutscene_Marker",
+            "Direction": 4,
+            "EntEnabled": true,
+            "Collider": {
+              "X": 0,
+              "Y": 0,
+              "Width": 16,
+              "Height": 16
+            }
+          }
+        ]
       }
     ]
   }

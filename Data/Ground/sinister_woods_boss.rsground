@@ -13648,7 +13648,32 @@
         "MapChars": [],
         "GroundObjects": [],
         "Spawners": [],
-        "Markers": []
+        "Markers": [
+          {
+            "$type": "RogueEssence.Ground.GroundMarker, RogueEssence",
+            "EntName": "Main_Entrance_Marker",
+            "Direction": 4,
+            "EntEnabled": true,
+            "Collider": {
+              "X": 0,
+              "Y": 0,
+              "Width": 16,
+              "Height": 16
+            }
+          },
+          {
+            "$type": "RogueEssence.Ground.GroundMarker, RogueEssence",
+            "EntName": "Cutscene_Marker",
+            "Direction": 4,
+            "EntEnabled": true,
+            "Collider": {
+              "X": 0,
+              "Y": 0,
+              "Width": 16,
+              "Height": 16
+            }
+          }
+        ]
       }
     ]
   }
