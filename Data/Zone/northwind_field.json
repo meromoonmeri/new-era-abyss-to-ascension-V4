@@ -642,8 +642,8 @@
           },
           "Value": {
            "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-           "GroundTileset": "lightning_field_floor",
-           "BlockTileset": "lightning_field_wall",
+           "GroundTileset": "northwind_field_floor",
+           "BlockTileset": "northwind_field_wall",
            "WaterTileset": "lightning_field_secondary",
            "LayeredGround": false,
            "IndependentGround": false,

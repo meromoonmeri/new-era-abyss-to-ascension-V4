@@ -642,8 +642,8 @@
           },
           "Value": {
            "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-           "GroundTileset": "lightning_field_floor",
-           "BlockTileset": "lightning_field_wall",
+           "GroundTileset": "sky_tower_floor",
+           "BlockTileset": "sky_tower_wall",
            "WaterTileset": "lightning_field_secondary",
            "LayeredGround": false,
            "IndependentGround": false,
@@ -6502,8 +6502,8 @@
           },
           "Value": {
            "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-           "GroundTileset": "lightning_field_floor",
-           "BlockTileset": "lightning_field_wall",
+           "GroundTileset": "sky_tower_floor",
+           "BlockTileset": "sky_tower_wall",
            "WaterTileset": "lightning_field_secondary",
            "LayeredGround": false,
            "IndependentGround": false,
@@ -12218,8 +12218,8 @@
           },
           "Value": {
            "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-           "GroundTileset": "lightning_field_floor",
-           "BlockTileset": "lightning_field_wall",
+           "GroundTileset": "sky_tower_floor",
+           "BlockTileset": "sky_tower_wall",
            "WaterTileset": "lightning_field_secondary",
            "LayeredGround": false,
            "IndependentGround": false,
