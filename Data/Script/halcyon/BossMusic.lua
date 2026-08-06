@@ -125,7 +125,7 @@ BossMusic.LIST = {
   --Rayquaza deplace au sommet de la Tour Celeste le 2026-08-04.
   --Meme theme : c'est le meme boss, la meme fin de chapitre.
   tour_ciel_sommet   = T.CIEL,     -- Sky Tower Summit, climax Rayquaza
-  celestial_peak_boss= T.CIEL,     -- le Sommet Sacre
+  tour_celeste_sommet= T.CIEL,     -- le Sommet de la Tour Celeste
   sommet_aurore      = T.CIEL_2,   -- le Bucher de l'Aurore
   ile_legendaire     = T.CIEL_2,   -- la Premiere Lumiere
   palier_celeste     = T.CIEL_2,   -- le Ciel Fracture (Veilleur aerien)
@@ -192,7 +192,7 @@ BossMusic.LIST = {
   champ_vent_boreal    = T.CIEL_2,
 
   ---------------- EPREUVE : rivaux et mini-boss ----------------
-  celestial_peak_fulgur = T.EPREUVE,   -- l'Escouade Fulgur : une course
+  -- (escouade Fulgur supprimee : le donjon Tour Celeste n'a plus ce mini-boss)
   gloomy_forest_boss    = T.EPREUVE,   -- Zarude (musique posee ailleurs)
 }
 

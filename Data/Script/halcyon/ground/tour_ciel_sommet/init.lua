@@ -38,12 +38,12 @@
      DEUX ACTES, COMME À L'AUTEL
      ------------------------------------------------------------------
      ACTE 1  Enter() — Rayquaza fend les nuages, se pose, provoque.
-             Enchaîne sur celestial_peak segment 5 (le combat).
+             Enchaîne sur tour_celeste segment 2 (le combat).
      ACTE 2  PlayPostVictoryScene — la météorite, le clin d'oeil à
              l'équipe d'origine, la bascule Chapter = 11.
 
-     Le segment 5 de celestial_peak revient désormais ICI et non plus à
-     autel_celeste (zone/celestial_peak/init.lua).
+     Le segment 2 de tour_celeste revient désormais ICI et non plus à
+     autel_celeste (zone/tour_celeste/init.lua).
 ]]--
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
@@ -85,7 +85,7 @@ function tour_ciel_sommet.ArrivalBody()
   -- Première rédaction : SV.Chapter10.DefeatedRayquaza — drapeau que
   -- j'avais INVENTÉ. Vérification faite dans scriptvars.lua : il n'existe
   -- pas. Les drapeaux réels sont CelestialPeakComplete (posé par
-  -- zone/celestial_peak:137) et PlayedLugiaTalk (posé par
+  -- zone/tour_celeste) et PlayedLugiaTalk (posé par
   -- ChapterAftermath.PeakVictory, acte 1).
   if SV.Chapter10 ~= nil and SV.Chapter10.CelestialPeakComplete
      and SV.Chapter10.PlayedLugiaTalk
@@ -95,7 +95,7 @@ function tour_ciel_sommet.ArrivalBody()
   end
 
   -- Rejouabilité : après la fin du jeu, le sommet est désert.
-  if ReplayEnding.IsReplay('celestial_peak', 10) then
+  if ReplayEnding.IsReplay('tour_celeste', 10) then
     ReplayEnding.EmptyArena({
       hero = {284, 400}, partner = {252, 400},
       camera = {268, 330}, look = {268, 264},
@@ -169,7 +169,7 @@ function tour_ciel_sommet.ArrivalBody()
   GAME:CutsceneMode(false)
   
   -- Lancement du combat de boss légendaire
-  GAME:ContinueDungeon("celestial_peak", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("tour_celeste", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 -- ============================================================

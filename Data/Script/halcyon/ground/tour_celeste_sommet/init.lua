@@ -20,7 +20,7 @@ local function RayquazaVFX_SkyTowerEnd()
   GAME:WaitFrames(8)
   BossFX.Flash(center.X, center.Y, 3, 5, 8)
   GAME:WaitFrames(8)
-  SOUND:PlayBattleSE("EVT_Roar")
+  SOUND:PlayBattleSE("Heavy Earthquake.ogg")
   BossFX.ShakeScreen(4, 20) -- SHAKE
   GAME:WaitFrames(20)
   BossFX.Flash(center.X, center.Y, 3, 5, 30) -- FLASH_TO 30
@@ -48,7 +48,7 @@ function sommet.PlayPostVictory(hero, partner, rayquaza, bx, by)
   -- Rayquaza déjà présent au Boss_Marker, équipe au sud
   GAME:CutsceneMode(true)
   GAME:MoveCamera(276, 300, 1, false)
-  pcall(function() SOUND:PlayBGM("Rayquaza's Domain.ogg", true) end)
+  pcall(function() SOUND:PlayBGM("Summit.ogg", true) end)
   GAME:FadeIn(40)
   GAME:WaitFrames(30)
   -- Dialogue : Rayquaza accepte
@@ -58,7 +58,7 @@ function sommet.PlayPostVictory(hero, partner, rayquaza, bx, by)
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TCS_017']))
   end
   -- La météorite apparaît au nord (ciel) — VFX Flash + BGM World Calamity (A04P03)
-  pcall(function() SOUND:PlayBGM("MUS_WORLD_CALAMITY.ogg", true) end)
+  pcall(function() SOUND:PlayBGM("Summit.ogg", true) end)
   pcall(function() SOUND:PlayBGM("Sky Tower.ogg", true) end)
   GAME:MoveCamera(276, 150, 60, false) -- pan vers le ciel
   GAME:WaitFrames(60)
@@ -67,27 +67,19 @@ function sommet.PlayPostVictory(hero, partner, rayquaza, bx, by)
   -- Rayquaza charge l'Ultralaser (anim Shoot + charge VFX)
   if rayquaza then GROUND:CharSetAnim(rayquaza, "Shoot", false) end
   GAME:WaitFrames(20)
-  local emitterCharge = RogueEssence.Content.SingleEmitter(RogueEssence.Content.AnimData("Charge_Beam", 3))
-  emitterCharge.LocHeight=16
-  GROUND:PlayVFX(emitterCharge, bx, by)
-  SOUND:PlayBattleSE("DUN_Hyper_Beam")
+  do local c=GAME:GetCameraCenter(); BossFX.Flash(c.X,c.Y,3,5,20); GAME:WaitFrames(20) end
+  SOUND:PlayBattleSE("Heavy Earthquake.ogg")
   GAME:WaitFrames(40)
   -- Flash 8 x2 avant tir (D13P03 + A04P03)
   do local c=GAME:GetCameraCenter(); BossFX.Flash(c.X,c.Y,3,5,15); GAME:WaitFrames(8); pcall(function() GAME:FadeIn(8) end); BossFX.Flash(c.X,c.Y,3,5,15); GAME:WaitFrames(8); pcall(function() GAME:FadeIn(8) end) end
   -- TIR : Hyper Beam du nord au sud vers la météorite (VFX beam)
-  local emitterBeam = RogueEssence.Content.SingleEmitter(RogueEssence.Content.AnimData("Hyper_Beam", 3))
-  emitterBeam.LocHeight=24
-  -- Beam de Rayquaza (bx,by) vers ciel (bx, 40)
-  GROUND:PlayVFX(emitterBeam, bx, by)
-  SOUND:PlayBattleSE("DUN_Hyper_Beam")
+  do local c=GAME:GetCameraCenter(); BossFX.Flash(c.X,c.Y,3,5,15); GAME:WaitFrames(8); pcall(function() GAME:FadeIn(8) end) end
+  SOUND:PlayBattleSE("Heavy Earthquake.ogg")
   BossFX.ShakeScreen(6, 30)
   GAME:WaitFrames(30)
   -- Explosion météorite (Flash 45 + explosion VFX)
-  local emitterExpl = RogueEssence.Content.SingleEmitter(RogueEssence.Content.AnimData("Explosion", 3))
-  emitterExpl.LocHeight=32
-  GROUND:PlayVFX(emitterExpl, bx, 40)
-  SOUND:PlayBattleSE("DUN_Explosion")
   BossFX.Flash(bx, 40, 3, 5, 45)
+  SOUND:PlayBattleSE("Heavy Earthquake.ogg")
   BossFX.ShakeScreen(8, 40)
   GAME:WaitFrames(45)
   pcall(function() GAME:FadeIn(16) end)
@@ -159,7 +151,7 @@ function sommet.Enter(map)
   GAME:WaitFrames(40)
   UI:WaitHideTitle(20)
   -- BGM_SWITCH MUS_RAYQUAZAS_DOMAIN (D13P03 first action)
-  pcall(function() SOUND:PlayBGM("Rayquaza's Domain.ogg", true) end)
+  pcall(function() SOUND:PlayBGM("Summit.ogg", true) end)
   pcall(function() SOUND:PlayBGM("Sky Tower.ogg", true) end) -- fallback
   GAME:FadeIn(40)
   GAME:WaitFrames(20)
@@ -189,7 +181,7 @@ function sommet.Enter(map)
   GAME:WaitFrames(10)
   if rayquaza then UI:SetSpeaker(rayquaza); UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TCS_003'])) end
   -- SHAKE + FLASH 30 (D13P03 mid)
-  SOUND:PlayBattleSE("EVT_Roar")
+  SOUND:PlayBattleSE("Heavy Earthquake.ogg")
   BossFX.ShakeScreen(4, 20)
   GAME:WaitFrames(20)
   do local c=GAME:GetCameraCenter(); BossFX.Flash(c.X,c.Y,3,5,30); GAME:WaitFrames(30); pcall(function() GAME:FadeIn(16) end) end
@@ -204,7 +196,7 @@ function sommet.Enter(map)
   if rayquaza then
     GROUND:CharSetAnim(rayquaza, "Idle", true)
     BossFX.Flash(bx, by, 3, 5, 15)
-    SOUND:PlayBattleSE("EVT_Roar")
+    SOUND:PlayBattleSE("Heavy Earthquake.ogg")
   end
   local rc1 = TASK:BranchCoroutine(function() if partner then GeneralFunctions.EmoteAndPause(partner, "Shock", true) end end)
   local rc2 = TASK:BranchCoroutine(function() GAME:WaitFrames(8); if hero then GeneralFunctions.EmoteAndPause(hero, "Exclaim", false) end end)
@@ -234,10 +226,10 @@ function sommet.Enter(map)
     UI:SetSpeaker(rayquaza)
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TCS_015']))
   end
-  SOUND:PlayBattleSE("EVT_Roar")
+  SOUND:PlayBattleSE("Heavy Earthquake.ogg")
   GAME:WaitFrames(20)
   -- Re-BGM Rayquaza
-  pcall(function() SOUND:PlayBGM("Rayquaza's Domain.ogg", true) end)
+  pcall(function() SOUND:PlayBGM("Summit.ogg", true) end)
   pcall(function() SOUND:PlayBGM("Sky Tower.ogg", true) end)
   pcall(function() GAME:FadeIn(16) end)
   pcall(function() SOUND:FadeOutBGM(60) end)
@@ -249,7 +241,7 @@ function sommet.Enter(map)
   -- Ici on est déjà sur la ground d'arène, on déclenche le combat direct
   -- Le Zone tour_celeste Segment final (boss) sera appelé via ContinueDungeon
   -- Pour ground seul, on simule l'entrée donjon :
-  pcall(function() GAME:ContinueDungeon("tour_celeste", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false) end)
+  pcall(function() GAME:ContinueDungeon("tour_celeste", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false) end)
 end
 
 function sommet.Update(map) end

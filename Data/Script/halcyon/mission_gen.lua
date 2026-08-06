@@ -72,7 +72,7 @@ MISSION_GEN.DUNGEON_LIST = {"illuminant_riverbed", "crooked_cavern", "apricorn_g
 	"new_era_zone_41",
 	"new_era_zone_42",
 	"new_era_zone_43",
-	"cloven_ruins", "crystal_sanctuary", "forgotten_marsh", "celestial_peak"}
+	"cloven_ruins", "crystal_sanctuary", "forgotten_marsh", "tour_celeste"}
 --Les donjons du chapitre 5/6 sont desormais eligibles au tableau des missions :
 --sans eux, les 2 jours d'attente imposes entre les chapitres 5 et 6 (DaysToReach)
 --ne proposaient aucune mission dans le contenu recemment debloque.
@@ -166,7 +166,7 @@ MISSION_GEN.DUNGEON_DIFFICULTY["new_era_zone_43"] = "STAR_1"
 MISSION_GEN.DUNGEON_DIFFICULTY["cloven_ruins"] = "S"
 MISSION_GEN.DUNGEON_DIFFICULTY["crystal_sanctuary"] = "S"
 MISSION_GEN.DUNGEON_DIFFICULTY["forgotten_marsh"] = "S"
-MISSION_GEN.DUNGEON_DIFFICULTY["celestial_peak"] = "STAR_1"
+MISSION_GEN.DUNGEON_DIFFICULTY["tour_celeste"] = "STAR_1"
 
 
 --order of difficulties. 
@@ -284,7 +284,7 @@ MISSION_GEN.EXPECTED_LEVEL["new_era_zone_43"] = 49
 MISSION_GEN.EXPECTED_LEVEL["cloven_ruins"] = 26
 MISSION_GEN.EXPECTED_LEVEL["crystal_sanctuary"] = 28
 MISSION_GEN.EXPECTED_LEVEL["forgotten_marsh"] = 30
-MISSION_GEN.EXPECTED_LEVEL["celestial_peak"] = 33
+MISSION_GEN.EXPECTED_LEVEL["tour_celeste"] = 33
 
 
 MISSION_GEN.TITLES =  {

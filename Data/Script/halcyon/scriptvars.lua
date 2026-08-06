@@ -1344,7 +1344,7 @@ SV.Chapter10 =
 	--reste vrai pour toujours et ne peut donc plus servir a savoir ou on en est
 	--dans l'ascension. Remis a false a chaque entree dans le donjon.
 	ReplayPastFulgur = false,
-	--Meme cas que ch8/ch9 : ecrit par zone/celestial_peak:137, jamais declare.
+	--Meme cas que ch8/ch9 : ecrit par zone/tour_celeste, jamais declare.
 	CelestialPeakComplete = false,
 	--Acte 1 du climax : la longue discussion de Lugia apres sa defaite
 	--(ChapterAftermath.PeakVictory). Distinct de PlayedVictoryScene, qui

@@ -33,7 +33,7 @@ function autel_celeste.Enter(map)
   DEBUG.EnableDbgCoro()
 
   -- Rejouabilité : après la fin du jeu, l'autel céleste est désert.
-  if ReplayEnding.IsReplay('celestial_peak', 10) then
+  if ReplayEnding.IsReplay('tour_celeste', 10) then
     ReplayEnding.EmptyArena({
       hero = {296, 296}, partner = {256, 296},
       camera = {276, 280}, look = {276, 248},
@@ -145,7 +145,7 @@ function autel_celeste.Enter(map)
   GAME:CutsceneMode(false)
   
   -- Lancement du combat de boss légendaire
-  GAME:ContinueDungeon("celestial_peak", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:ContinueDungeon("tour_celeste", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 -- ============================================================

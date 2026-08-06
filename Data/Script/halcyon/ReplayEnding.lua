@@ -68,7 +68,7 @@ ReplayEnding.CLEARED = {
   cloven_ruins        = function() return SV.Chapter7  ~= nil and SV.Chapter7.SawAnimaCoreCorruption == true end,
   crystal_sanctuary   = function() return SV.Chapter8  ~= nil and SV.Chapter8.CrystalSanctuaryComplete == true end,
   forgotten_marsh     = function() return SV.Chapter9  ~= nil and SV.Chapter9.ForgottenMarshComplete == true end,
-  celestial_peak      = function() return SV.Chapter10 ~= nil and SV.Chapter10.CelestialPeakComplete == true end,
+  tour_celeste       = function() return SV.TourCeleste ~= nil and SV.TourCeleste.DefeatedRayquaza == true end,
 }
 
 --Le donjon d'histoire `zoneID` a-t-il deja ete termine ?
