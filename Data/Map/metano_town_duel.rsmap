@@ -1,4 +1,4 @@
-{
+﻿{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Dungeon.Map, RogueEssence",
@@ -22533,8 +22533,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 0,
+                        "Y": 0
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22555,8 +22568,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 0,
+                        "Y": 1
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22577,8 +22603,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 0,
+                        "Y": 2
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22599,8 +22638,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 0,
+                        "Y": 3
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22621,8 +22673,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 0,
+                        "Y": 4
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22643,8 +22708,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 0,
+                        "Y": 5
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22665,8 +22743,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 0,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22687,8 +22778,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 0,
+                        "Y": 7
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22709,8 +22813,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 0,
+                        "Y": 8
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22731,8 +22848,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 0,
+                        "Y": 9
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22753,8 +22883,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 0,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22775,8 +22918,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 0,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22797,8 +22953,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 0,
+                        "Y": 12
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22819,8 +22988,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 0,
+                        "Y": 13
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22841,8 +23023,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 0,
+                        "Y": 14
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22863,8 +23058,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 0,
+                        "Y": 15
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22885,8 +23093,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 0,
+                        "Y": 16
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22907,8 +23128,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 0,
+                        "Y": 17
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22931,8 +23165,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 0
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22953,8 +23200,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 1
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22975,8 +23235,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 2
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -22997,8 +23270,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 3
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23019,8 +23305,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 4
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23041,8 +23340,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 5
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23063,8 +23375,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23085,8 +23410,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 7
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23107,8 +23445,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 8
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23129,8 +23480,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 9
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23151,8 +23515,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23173,8 +23550,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23195,8 +23585,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 12
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23217,8 +23620,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 13
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23239,8 +23655,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 14
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23261,8 +23690,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 15
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23283,8 +23725,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 16
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23305,8 +23760,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 1,
+                        "Y": 17
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23329,8 +23797,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 0
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23351,8 +23832,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 1
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23373,8 +23867,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 2
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23395,8 +23902,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 3
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23417,8 +23937,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 4
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23439,8 +23972,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 5
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23461,8 +24007,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23483,8 +24042,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 7
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23505,8 +24077,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 8
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23527,8 +24112,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 9
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23549,8 +24147,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23571,8 +24182,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23593,8 +24217,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 12
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23615,8 +24252,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 13
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23637,8 +24287,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 14
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23659,8 +24322,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 15
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23681,8 +24357,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 16
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23703,8 +24392,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 2,
+                        "Y": 17
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23727,8 +24429,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 0
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23749,8 +24464,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 1
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23771,8 +24499,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 2
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23793,8 +24534,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 3
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23815,8 +24569,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 4
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23837,8 +24604,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 5
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23859,8 +24639,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23881,8 +24674,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 7
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23903,8 +24709,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 8
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23925,8 +24744,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 9
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23947,8 +24779,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23969,8 +24814,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -23991,8 +24849,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 12
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24013,8 +24884,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 13
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24035,8 +24919,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 14
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24057,8 +24954,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 15
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24079,8 +24989,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 16
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24101,8 +25024,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 3,
+                        "Y": 17
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24125,8 +25061,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 0
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24147,8 +25096,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 1
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24169,8 +25131,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 2
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24191,8 +25166,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 3
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24213,8 +25201,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 4
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24235,8 +25236,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 5
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24257,8 +25271,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24279,8 +25306,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 7
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24301,8 +25341,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 8
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24323,8 +25376,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 9
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24345,8 +25411,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24367,8 +25446,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24389,8 +25481,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 12
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24411,8 +25516,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 13
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24433,8 +25551,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 14
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24455,8 +25586,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 15
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24477,8 +25621,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 16
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24499,8 +25656,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 4,
+                        "Y": 17
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24523,8 +25693,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 0
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24545,8 +25728,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 1
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24567,8 +25763,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 2
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24589,8 +25798,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 3
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24611,8 +25833,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 4
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24633,8 +25868,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 5
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24655,8 +25903,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24677,8 +25938,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 7
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24699,8 +25973,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 8
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24721,8 +26008,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 9
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24743,8 +26043,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24765,8 +26078,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24787,8 +26113,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 12
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24809,8 +26148,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 13
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24831,8 +26183,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 14
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24853,8 +26218,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 15
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24875,8 +26253,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 16
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24897,8 +26288,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 5,
+                        "Y": 17
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24921,8 +26325,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 0
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24943,8 +26360,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 1
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24965,8 +26395,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 2
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -24987,8 +26430,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 3
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25009,8 +26465,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 4
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25031,8 +26500,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 5
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25053,8 +26535,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25075,8 +26570,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 7
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25097,8 +26605,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 8
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25119,8 +26640,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 9
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25141,8 +26675,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25163,8 +26710,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25185,8 +26745,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 12
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25207,8 +26780,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 13
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25229,8 +26815,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 14
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25251,8 +26850,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 15
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25273,8 +26885,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 16
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25295,8 +26920,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 6,
+                        "Y": 17
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25319,8 +26957,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 0
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25341,8 +26992,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 1
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25363,8 +27027,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 2
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25385,8 +27062,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 3
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25407,8 +27097,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 4
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25429,8 +27132,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 5
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25451,8 +27167,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25473,8 +27202,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 7
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25495,8 +27237,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 8
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25517,8 +27272,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 9
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25539,8 +27307,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25561,8 +27342,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25583,8 +27377,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 12
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25605,8 +27412,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 13
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25627,8 +27447,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 14
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25649,8 +27482,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 15
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25671,8 +27517,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 16
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25693,8 +27552,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 7,
+                        "Y": 17
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25717,8 +27589,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 0
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25739,8 +27624,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 1
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25761,8 +27659,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 2
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25783,8 +27694,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 3
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25805,8 +27729,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 4
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25827,8 +27764,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 5
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25849,8 +27799,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25871,8 +27834,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 7
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25893,8 +27869,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 8
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25915,8 +27904,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 9
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25937,8 +27939,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25959,8 +27974,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -25981,8 +28009,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 12
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26003,8 +28044,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 13
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26025,8 +28079,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 14
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26047,8 +28114,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 15
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26069,8 +28149,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 16
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26091,8 +28184,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 8,
+                        "Y": 17
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26115,8 +28221,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 9,
+                        "Y": 0
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26137,8 +28256,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 9,
+                        "Y": 1
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26159,8 +28291,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 9,
+                        "Y": 2
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26181,8 +28326,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 9,
+                        "Y": 3
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26203,8 +28361,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 9,
+                        "Y": 4
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26225,8 +28396,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 9,
+                        "Y": 5
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26247,8 +28431,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 9,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26269,8 +28466,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 9,
+                        "Y": 7
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26291,8 +28501,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 9,
+                        "Y": 8
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26313,8 +28536,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 9,
+                        "Y": 9
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26335,8 +28571,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 9,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26357,8 +28606,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 9,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26379,8 +28641,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 9,
+                        "Y": 12
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26401,8 +28676,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 9,
+                        "Y": 13
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26423,8 +28711,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 9,
+                        "Y": 14
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26445,8 +28746,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 9,
+                        "Y": 15
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26467,8 +28781,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 9,
+                        "Y": 16
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26489,8 +28816,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 9,
+                        "Y": 17
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26513,8 +28853,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 10,
+                        "Y": 0
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26535,8 +28888,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 10,
+                        "Y": 1
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26557,8 +28923,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 10,
+                        "Y": 2
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26579,8 +28958,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 10,
+                        "Y": 3
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26601,8 +28993,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 10,
+                        "Y": 4
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26623,8 +29028,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 10,
+                        "Y": 5
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26645,8 +29063,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 10,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26667,8 +29098,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 10,
+                        "Y": 7
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26689,8 +29133,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 10,
+                        "Y": 8
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26711,8 +29168,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 10,
+                        "Y": 9
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26733,8 +29203,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 10,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26755,8 +29238,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 10,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26777,8 +29273,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 10,
+                        "Y": 12
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26799,8 +29308,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 10,
+                        "Y": 13
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26821,8 +29343,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 10,
+                        "Y": 14
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26843,8 +29378,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 10,
+                        "Y": 15
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26865,8 +29413,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 10,
+                        "Y": 16
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26887,8 +29448,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 10,
+                        "Y": 17
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26911,8 +29485,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 11,
+                        "Y": 0
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26933,8 +29520,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 11,
+                        "Y": 1
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26955,8 +29555,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 11,
+                        "Y": 2
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26977,8 +29590,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 11,
+                        "Y": 3
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -26999,8 +29625,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 11,
+                        "Y": 4
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27021,8 +29660,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 11,
+                        "Y": 5
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27043,8 +29695,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 11,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27065,8 +29730,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 11,
+                        "Y": 7
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27087,8 +29765,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 11,
+                        "Y": 8
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27109,8 +29800,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 11,
+                        "Y": 9
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27131,8 +29835,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 11,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27153,8 +29870,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 11,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27175,8 +29905,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 11,
+                        "Y": 12
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27197,8 +29940,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 11,
+                        "Y": 13
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27219,8 +29975,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 11,
+                        "Y": 14
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27241,8 +30010,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 11,
+                        "Y": 15
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27263,8 +30045,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 11,
+                        "Y": 16
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27285,8 +30080,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 11,
+                        "Y": 17
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27309,8 +30117,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 12,
+                        "Y": 0
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27331,8 +30152,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 12,
+                        "Y": 1
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27353,8 +30187,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 12,
+                        "Y": 2
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27375,8 +30222,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 12,
+                        "Y": 3
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27397,8 +30257,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 12,
+                        "Y": 4
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27419,8 +30292,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 12,
+                        "Y": 5
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27441,8 +30327,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 12,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27463,8 +30362,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 12,
+                        "Y": 7
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27485,8 +30397,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 12,
+                        "Y": 8
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27507,8 +30432,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 12,
+                        "Y": 9
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27529,8 +30467,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 12,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27551,8 +30502,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 12,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27573,8 +30537,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 12,
+                        "Y": 12
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27595,8 +30572,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 12,
+                        "Y": 13
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27617,8 +30607,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 12,
+                        "Y": 14
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27639,8 +30642,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 12,
+                        "Y": 15
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27661,8 +30677,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 12,
+                        "Y": 16
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27683,8 +30712,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 12,
+                        "Y": 17
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27707,8 +30749,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 13,
+                        "Y": 0
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27729,8 +30784,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 13,
+                        "Y": 1
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27751,8 +30819,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 13,
+                        "Y": 2
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27773,8 +30854,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 13,
+                        "Y": 3
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27795,8 +30889,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 13,
+                        "Y": 4
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27817,8 +30924,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 13,
+                        "Y": 5
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27839,8 +30959,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 13,
+                        "Y": 6
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27861,8 +30994,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 13,
+                        "Y": 7
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27883,8 +31029,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 13,
+                        "Y": 8
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27905,8 +31064,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 13,
+                        "Y": 9
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27927,8 +31099,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 13,
+                        "Y": 10
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27949,8 +31134,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 13,
+                        "Y": 11
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27971,8 +31169,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 13,
+                        "Y": 12
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -27993,8 +31204,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 13,
+                        "Y": 13
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -28015,8 +31239,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 13,
+                        "Y": 14
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -28037,8 +31274,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 13,
+                        "Y": 15
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -28059,8 +31309,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 13,
+                        "Y": 16
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
@@ -28081,8 +31344,21 @@
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
-              "Layers": [],
-              "NeighborCode": -1
+              "NeighborCode": -1,
+              "Layers": [
+                {
+                  "Frames": [
+                    {
+                      "Sheet": "Metano_Arene_Base",
+                      "TexLoc": {
+                        "X": 13,
+                        "Y": 17
+                      }
+                    }
+                  ],
+                  "FrameLength": 60
+                }
+              ]
             },
             "StableTex": false
           },
