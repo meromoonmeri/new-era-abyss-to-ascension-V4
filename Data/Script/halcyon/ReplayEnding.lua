@@ -110,7 +110,7 @@ function ReplayEnding.IsReplay(zoneID, chapter)
   -- que le chapitre ait avance ou non.
   --
   -- Sans cette regle : la Foret Lugubre (ch6, dernier chapitre atteignable)
-  -- rejouait la cinematique ET le combat contre un Zarude deja vaincu, et le
+  -- rejouait la cinematique ET le combat contre un Zeraora deja vaincu, et le
   -- Pic Celeste restait definitivement injouable apres la fin du jeu.
   return ReplayEnding.IsCleared(zoneID)
 end

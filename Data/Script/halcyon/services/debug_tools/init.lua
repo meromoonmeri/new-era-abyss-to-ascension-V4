@@ -547,9 +547,9 @@ function DebugTools:OnUpgrade()
  if SV.Chapter6.GloomyPlayedMidpointIntro == nil then SV.Chapter6.GloomyPlayedMidpointIntro = false end
  if SV.Chapter6.GloomyMidpointState == nil then SV.Chapter6.GloomyMidpointState = 'FirstArrival' end
 
- --Apres-boss de Zarude et Epreuve des Trois (DazzlingArc.lua).
+ --Apres-boss de Zeraora et Epreuve des Trois (DazzlingArc.lua).
  --Une partie deja au-dela du chapitre 6 n'a jamais vu ces scenes : on ne
- --les rejoue pas de force, mais on ouvre le duel a qui a battu Zarude,
+ --les rejoue pas de force, mais on ouvre le duel a qui a battu Zeraora,
  --puisqu'il ne depend d'aucun etat de donjon.
  if SV.Chapter6.PlayedVictoryScene == nil then
 	SV.Chapter6.PlayedVictoryScene = (SV.Chapter6.DefeatedGloomyBoss == true)

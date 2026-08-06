@@ -506,7 +506,7 @@ local function DefeatedBossBody()
   -- Tornadus est un GARDIEN qui se revele : il ne testait pas par
   -- malveillance, il cherchait a comprendre les perturbations. Un
   -- vrai echange s'engage, la Guilde arrive, on repart vers les
-  -- Ruines Tordues. Foreshadowing Ch6 (Zarude) / Ch7 (Groudon).
+  -- Ruines Tordues. Foreshadowing Ch6 (Zeraora) / Ch7 (Groudon).
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()

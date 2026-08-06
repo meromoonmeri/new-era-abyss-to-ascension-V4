@@ -425,7 +425,7 @@ local characters = {
 		--donjon depuis le retrait du mini-boss. Type VOL PUR : verifie dans
 		--Data/Misc/Index.json (Element1 flying, Element2 none, 2 formes).
 		--Aucune fiche locale dans Data/Monster n'est necessaire — meme cas
-		--que Zarude, Lugia, Diancie, Regigigas et Terrakion, deja employes
+		--que Zeraora, Lugia, Diancie, Regigigas et Terrakion, deja employes
 		--comme boss dans ce mod : PathMod retombe sur le jeu de base.
 		--Forme 0 = Avatar (la forme humanoide, celle qui peut soutenir un
 		--dialogue de plusieurs minutes face au duo).
@@ -434,14 +434,6 @@ local characters = {
 			nickname = 'Tornadus',
 			instance = 'Tornadus',
 			gender = Gender.Male,
-			form = 0,
-			skin = "normal"
-		},
-		Zarude = {
-			species = "zarude",
-			nickname = 'Zarude',
-			instance = 'Zarude',
-			gender = Gender.Genderless,
 			form = 0,
 			skin = "normal"
 		},

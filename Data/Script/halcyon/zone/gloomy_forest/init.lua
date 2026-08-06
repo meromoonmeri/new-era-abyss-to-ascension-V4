@@ -70,8 +70,8 @@ end
 --   1  = 3F profondeurs (objectif de sauvetage Chenipent)
 --   2  = ARENE MINI-BOSS (gloomy_forest_miniboss.rsmap : Tengalice + Cornèbre)
 --   3  = 3F au-dessus du mini-boss
---   4  = boss (Zarude, LoadGen gloomy_forest_boss.rsmap)
---   5  = Serment Verdoyant (revanche Zarude, LegendZones 'verdant_oath')
+--   4  = boss (Zeraora, LoadGen gloomy_forest_boss.rsmap)
+--   5  = Serment Verdoyant (revanche Zeraora, LegendZones 'verdant_oath')
 --   6  = annexe Toupie
 --   7  = Epreuve des Trois (duel Team Dazzling)
 --   8-10 = pillards de Metano (raid nocturne, 3 vagues)
@@ -218,7 +218,7 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 			SV.Chapter6.GloomyBossEncountered = true
 			SV.Chapter6.DefeatedGloomyBoss = true
 			SV.Chapter6.MissionComplete = true
-			SV.Chapter6.DefeatedByZarude = false
+			SV.Chapter6.DefeatedByZeraora = false
 			SV.Chapter6.MissionAccepted = false
 			--Scene d'apres-boss : la consequence se joue AVANT le retour en
 			--ville, exactement comme aux chapitres 8, 9 et 10
@@ -231,12 +231,12 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 			-- Beat the boss: return to town (UNCHANGED).
 			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
 		else
-			-- *** CHECKPOINT (NEW) *** : died/escaped to the boss (Zarude) -> respawn at
+			-- *** CHECKPOINT (NEW) *** : died/escaped to the boss (Zeraora) -> respawn at
 			-- the relay (previously returned to town, mapID 1). GloomyBossEncountered
 			-- stays true so the next gloomy_forest_boss visit plays the retry scene.
 			SV.GloomyForest.DiedPastCheckpoint = true
 			SV.Chapter6.GloomyMidpointState = 'DeathArrival'
-			SV.Chapter6.DefeatedByZarude = true
+			SV.Chapter6.DefeatedByZeraora = true
 			SV.Chapter6.DiedToGloomyBoss = true
 			SV.Chapter6.MissionAccepted = false
 			GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('gloomy_forest_midpoint'), 0, true, true) --relay (mapID 61)
@@ -247,12 +247,12 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 	end
 
 	------------------------------------------------------------------
-	-- Segment 5 : arene de revanche Zarude (zone "Serment Verdoyant").
+	-- Segment 5 : arene de revanche Zeraora (zone "Serment Verdoyant").
 	-- Accessible uniquement via le stand de Grodoudou, apres achat de la
-	-- zone, et seulement si l'histoire a deja fait vaincre Zarude
+	-- zone, et seulement si l'histoire a deja fait vaincre Zeraora
 	-- (SV.Chapter6.DefeatedGloomyBoss). Ce n'est pas une rencontre
 	-- aleatoire : c'est un retour volontaire sur les lieux.
-	-- Ici le Zarude n'est PAS Unrecruitable : le vaincre peut donc le
+	-- Ici le Zeraora n'est PAS Unrecruitable : le vaincre peut donc le
 	-- faire rejoindre l'equipe selon les regles de recrutement normales.
 	------------------------------------------------------------------
 	------------------------------------------------------------------

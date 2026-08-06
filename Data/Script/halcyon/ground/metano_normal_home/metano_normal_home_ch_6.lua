@@ -12,7 +12,7 @@
     vit sa routine de PNJ en ville des le ch6 : metano_town_ch_6.lua
     le rend interactif (Zigzagoon_Action), avec une replique
     d'encouragement adressee au HEROS ET AU PARTENAIRE qui partent
-    cette fois affronter Zarude (MT6_064 : "{0} et {1} vont y aller,
+    cette fois affronter Zeraora (MT6_064 : "{0} et {1} vont y aller,
     hein ? Ils sont courageux. Ou fous. Ou les deux."). Almotz
     n'accompagne pas cette mission : ce n'est plus son expedition.
 

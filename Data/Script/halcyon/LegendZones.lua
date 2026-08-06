@@ -62,7 +62,7 @@ LegendZones.LIST = {
     -- reduction les avait emportes par erreur).
     ------------------------------------------------------------------
     {
-        key = 'verdant_oath', species = 'zarude',
+        key = 'verdant_oath', species = 'zeraora',
         name = 'LZ_Name_Verdant_Oath', blurb = 'LZ_Blurb_Verdant_Oath',
         sight = 'LZ_Sight_Verdant_Oath', price = 15000,
         -- Pose par zone/gloomy_forest/init.lua (segment 4, victoire).

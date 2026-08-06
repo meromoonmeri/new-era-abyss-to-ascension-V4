@@ -5,13 +5,13 @@
 --[[
     DazzlingArc.lua
 
-    LE CHAPITRE 6 : ZARUDE, PUIS LES TROIS
+    LE CHAPITRE 6 : ZERAORA, PUIS LES TROIS
     ================================================================
     Etat des lieux avant ce lot (mesure tools/count_dialogue.py) :
     le chapitre 6 comptait 199 lignes, contre 1442 au chapitre 5. Deux
     trous precis, et non un manque diffus :
 
-      1. ZARUDE N'AVAIT AUCUN APRES-BOSS. On le battait, la zone posait
+      1. ZERAORA N'AVAIT AUCUN APRES-BOSS. On le battait, la zone posait
          SV.Chapter6.DefeatedGloomyBoss = true, et on rentrait dormir.
          Les chapitres 8, 9 et 10 ont recu leur scene de consequence
          (ChapterAftermath.lua) ; le 6, lui, se terminait plus sechement
@@ -37,7 +37,7 @@
       d'une equipe, et non de trois PNJ.
 
     * pret/pmd-red : CASCADE D'ANIMATIONS SUR UN ACTEUR (setAnimation 0xE,
-      0xF, 0x10...). Un corps traverse une SUITE d'etats. -> Ici : Zarude
+      0xF, 0x10...). Un corps traverse une SUITE d'etats. -> Ici : Zeraora
       vaincu passe Hurt -> secousse -> Idle -> EventSleep, avec des temps
       morts. Il ne s'eteint pas d'un bloc.
 
@@ -52,7 +52,7 @@
     ------------------------------------------------------------------
     IDENTITE NARRATIVE DES DEUX SCENES (elles ne se ressemblent pas)
     ------------------------------------------------------------------
-      APRES-BOSS ZARUDE   Registre : honte. Zarude n'est pas un mechant,
+      APRES-BOSS ZERAORA   Registre : honte. Zeraora n'est pas un mechant,
                           c'est un gardien qui a eu peur. Il croyait
                           proteger la foret en la fermant. Il decouvre
                           qu'il l'etouffait. Personne ne triomphe.
@@ -178,17 +178,17 @@ local function Scene(cfg)
 end
 
 --------------------------------------------------------------------
--- APRES-BOSS DU CHAPITRE 6 — Zarude comprend ce qu'il a fait.
+-- APRES-BOSS DU CHAPITRE 6 — Zeraora comprend ce qu'il a fait.
 --------------------------------------------------------------------
 -- Se joue dans le ground gloomy_forest_boss (600x600, ancrages officiels
 -- verifies : Main_Entrance_Marker 276,584 / TEAMMATE_1 308,584 ; la
 -- clairiere jouable de la scene d'apparition va de y=208 a y=416 en x
 -- 240..310). Les positions ci-dessous reprennent EXACTEMENT celles de
 -- gloomy_forest_boss_ch_6.FirstBossScene : hero 276,288 / partner 308,288
--- / Zarude 276,208. Aucun nouveau reperage : on rejoue le meme cadre,
+-- / Zeraora 276,208. Aucun nouveau reperage : on rejoue le meme cadre,
 -- ce qui garantit que le decor derriere les sprites est celui prevu.
 --
--- Ton : personne ne gagne. Zarude ne se rend pas, il REALISE. Le partenaire,
+-- Ton : personne ne gagne. Zeraora ne se rend pas, il REALISE. Le partenaire,
 -- qui hurlait « on n'abandonne personne » avant le combat, est celui qui
 -- lui tend la main — c'est le paiement de sa replique d'avant-combat.
 function DazzlingArc.GloomyVictory()
@@ -198,38 +198,38 @@ function DazzlingArc.GloomyVictory()
     hero = {276, 288}, partner = {308, 288}, camera = {292, 250},
     settle = 40,
     scene = function(hero, partner)
-      local zarude = CharacterEssentials.MakeCharactersFromList({
-        {'Zarude', 276, 208, Direction.Down}
+      local zeraora = CharacterEssentials.MakeCharactersFromList({
+        {'Zeraora', 276, 208, Direction.Down}
       })
-      pcall(function() AI:DisableCharacterAI(zarude) end)
-      collapse(zarude)
+      pcall(function() AI:DisableCharacterAI(zeraora) end)
+      collapse(zeraora)
 
       narrate("Les lianes retombent une a une.[pause=25] Pour la premiere fois, on entend la foret respirer.")
       GAME:WaitFrames(20)
 
-      say(zarude, 'Pain', "...Assez.[pause=25] Vous avez gagne le passage.")
+      say(zeraora, 'Pain', "...Assez.[pause=25] Vous avez gagne le passage.")
       say(partner, 'Worried', "On ne voulait pas vous blesser.[pause=20] On voulait juste recuperer Chenipent.")
       GAME:WaitFrames(15)
-      say(zarude, 'Sad', "Chenipent.[pause=30] C'est donc son nom.")
+      say(zeraora, 'Sad', "Chenipent.[pause=30] C'est donc son nom.")
       GAME:WaitFrames(20)
       think(hero, 'Surprised', "(Il ne savait meme pas qui il retenait.)")
       GAME:WaitFrames(15)
 
-      say(zarude, 'Normal', "Je ne l'ai pas pris.[pause=25] Il s'est perdu, et j'ai ferme les chemins derriere lui.")
+      say(zeraora, 'Normal', "Je ne l'ai pas pris.[pause=25] Il s'est perdu, et j'ai ferme les chemins derriere lui.")
       say(partner, 'Angry', "Vous l'avez ENFERME ![pause=20] Il avait peur !")
       GAME:WaitFrames(20)
-      say(zarude, 'Sad', "Oui.[pause=30] Je croyais le mettre a l'abri.")
+      say(zeraora, 'Sad', "Oui.[pause=30] Je croyais le mettre a l'abri.")
       GAME:WaitFrames(25)
 
       -- Le pivot : le gardien qui etouffe ce qu'il protege. C'est le
       -- theme du chapitre, dit par la bouche du boss et non par un
       -- narrateur.
-      say(zarude, 'Sad', "Il y a longtemps, quelque chose est entre dans cette foret.[pause=30] Depuis, je ferme.")
-      say(zarude, 'Normal', "Les chemins, les clairieres, la lumiere.[pause=25] Tout ce qui pouvait laisser passer.")
+      say(zeraora, 'Sad', "Il y a longtemps, quelque chose est entre dans cette foret.[pause=30] Depuis, je ferme.")
+      say(zeraora, 'Normal', "Les chemins, les clairieres, la lumiere.[pause=25] Tout ce qui pouvait laisser passer.")
       GAME:WaitFrames(20)
       say(partner, 'Sad', "Et la foret est devenue... ca.[pause=25] Noire. Silencieuse.")
       GAME:WaitFrames(20)
-      say(zarude, 'Pain', "Une foret fermee ne meurt pas.[pause=30] Elle s'eteint. C'est plus lent.")
+      say(zeraora, 'Pain', "Une foret fermee ne meurt pas.[pause=30] Elle s'eteint. C'est plus lent.")
       GAME:WaitFrames(25)
 
       think(hero, 'Worried', "(Il a passe tout ce temps a proteger un endroit qu'il etait en train de tuer.)")
@@ -239,11 +239,11 @@ function DazzlingArc.GloomyVictory()
       -- personne derriere »). Il l'applique a l'adversaire.
       say(partner, 'Determined', "Alors rouvrez.[pause=25] On reviendra. On surveillera avec vous.")
       GAME:WaitFrames(20)
-      say(zarude, 'Surprised', "...Pourquoi ?[pause=25] Je viens de vous barrer la route.")
+      say(zeraora, 'Surprised', "...Pourquoi ?[pause=25] Je viens de vous barrer la route.")
       say(partner, 'Normal', "Parce que vous aviez une bonne raison.[pause=20] Juste une mauvaise methode.")
       GAME:WaitFrames(25)
 
-      say(zarude, 'Normal', "Emmenez le petit.[pause=30] Et dites-lui que la foret s'excuse.")
+      say(zeraora, 'Normal', "Emmenez le petit.[pause=30] Et dites-lui que la foret s'excuse.")
       GAME:WaitFrames(20)
 
       -- Il ne disparait pas dans un effet : il s'ecarte. Un gardien qui
@@ -251,8 +251,8 @@ function DazzlingArc.GloomyVictory()
       pcall(function()
         -- Il se decale vers le bas-gauche : a y=208 les cotes sont de la
         -- roche pleine (obstacles verifies), le degagement est au sud.
-        GROUND:CharAnimateTurnTo(zarude, Direction.DownLeft, 4)
-        GROUND:MoveToPosition(zarude, 268, 232, false, 1)
+        GROUND:CharAnimateTurnTo(zeraora, Direction.DownLeft, 4)
+        GROUND:MoveToPosition(zeraora, 268, 232, false, 1)
       end)
       GAME:WaitFrames(20)
       narrate("Il s'ecarte du passage.[pause=25] Il ne s'en va pas :[pause=20] il arrete simplement de se tenir devant.")
@@ -272,7 +272,7 @@ end
 --
 -- Regle de la scene : AUCUN enjeu. Pas de Voix, pas de Coeur, pas de
 -- fragment. Adagio le dit explicitement — c'est ce qui rend le combat
--- respirable apres Zarude.
+-- respirable apres Zeraora.
 function DazzlingArc.TrialIntro()
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
@@ -525,7 +525,7 @@ end
 -- LE DUEL DES TROIS — defaite du joueur.
 --------------------------------------------------------------------
 -- Aucune humiliation. C'est la difference avec PostDefeatCutscene du
--- ch6 (ou elles narguent apres l'echec contre Zarude) : la, l'echec
+-- ch6 (ou elles narguent apres l'echec contre Zeraora) : la, l'echec
 -- etait un manquement a une mission ; ici, ce n'est qu'un match perdu.
 -- Adagio, qui se moque en ville, est CORRECTE sur le terrain. Ce
 -- contraste est le vrai portrait du personnage.

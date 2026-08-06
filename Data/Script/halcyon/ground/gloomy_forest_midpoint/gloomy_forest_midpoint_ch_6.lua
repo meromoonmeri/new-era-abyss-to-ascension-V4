@@ -88,7 +88,7 @@ end
 ------------------------------------------------------------------
 -- L'EPREUVE DES TROIS — accroche au relais.
 ------------------------------------------------------------------
--- Une fois Zarude ecarte, la Team Dazzling attend au campement. Le duel
+-- Une fois Zeraora ecarte, la Team Dazzling attend au campement. Le duel
 -- est ENTIEREMENT FACULTATIF : on peut l'ignorer, le refuser, y revenir.
 -- Il ne fait avancer aucun drapeau d'histoire.
 --
@@ -256,7 +256,7 @@ function gloomy_forest_midpoint_ch_6.FirstArrival()
 end
 
 
--- Returned after fainting past the checkpoint (depth floors or Zarude).
+-- Returned after fainting past the checkpoint (depth floors or Zeraora).
 function gloomy_forest_midpoint_ch_6.WipedCutscene()
 
 	--LE NOIR AVANT TOUTE MISE EN PLACE (correctif de retour de boss,
@@ -308,7 +308,7 @@ function gloomy_forest_midpoint_ch_6.WipedCutscene()
   GAME:WaitFrames(20)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM6_021']))
 
-  -- GloomyBossEncountered distinguishes a Zarude wipe (true) from a depth-floors wipe (false).
+  -- GloomyBossEncountered distinguishes a Zeraora wipe (true) from a depth-floors wipe (false).
   -- Unlike Crooked's LostToBoss, it must NOT be cleared here: gloomy_forest_boss uses it to
   -- pick the retry scene on the next visit.
   if SV.Chapter6.GloomyBossEncountered then

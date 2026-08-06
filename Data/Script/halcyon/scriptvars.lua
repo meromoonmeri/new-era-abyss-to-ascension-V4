@@ -986,7 +986,7 @@ SV.Chapter6 =
 	ChenipentFound = false,
 	MissionComplete = false,
 	PostMissionScenePlayed = false,
-	DefeatedByZarude = false,
+	DefeatedByZeraora = false,
 	DazzlingTownVisit = 0,
 	ShowedTitleCard = false,--Has the Chapter 6 title card been shown?
 	PostDefeatScenePlayed = false,
@@ -1001,7 +1001,7 @@ SV.Chapter6 =
 	--faite sur place : ce relais n'a pas de sortie arriere). Declenche
 	--l'etat RepeatArrival du template de point median.
 	GloomyMidReturn = false,
-	--Apres-boss de Zarude (DazzlingArc.GloomyVictory). Le chapitre 6 etait
+	--Apres-boss de Zeraora (DazzlingArc.GloomyVictory). Le chapitre 6 etait
 	--le seul chapitre a boss sans scene de consequence.
 	PlayedVictoryScene = false,
 	--Duel amical contre la Team Dazzling (segment 7 de gloomy_forest).
@@ -1186,7 +1186,7 @@ SV.CrookedCavern =
 
 SV.GloomyForest =
 {
-	DiedPastCheckpoint = false--defaite dans les profondeurs ou contre Zarude ?
+	DiedPastCheckpoint = false--defaite dans les profondeurs ou contre Zeraora ?
 }
 
 SV.SearingTunnel = 

@@ -18,7 +18,7 @@
       early    avant l'arrivee des rivales — la routine
       pre      les rivales sont la — la ville jase
       during   l'equipe est partie dans la foret — l'attente
-      post     Zarude est vaincu — le soulagement
+      post     Zeraora est vaincu — le soulagement
       quests   les requetes sont rendues — la ville a ete AIDEE,
                et elle s'en souvient
 

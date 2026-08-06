@@ -193,7 +193,7 @@ BossMusic.LIST = {
 
   ---------------- EPREUVE : rivaux et mini-boss ----------------
   sky_tower_fulgur = T.EPREUVE,   -- l'Escouade Fulgur : une course
-  gloomy_forest_boss    = T.EPREUVE,   -- Zarude (musique posee ailleurs)
+  gloomy_forest_boss    = T.EPREUVE,   -- Zeraora (musique posee ailleurs)
 }
 
 --------------------------------------------------------------------

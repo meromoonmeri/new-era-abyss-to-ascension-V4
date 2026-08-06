@@ -27,7 +27,7 @@
     fonction locale a un autre fichier) :
       early   avant l'arrivee des rivales
       pre     les rivales sont en ville, la mission n'est pas prise
-      during  l'equipe est partie affronter Zarude
+      during  l'equipe est partie affronter Zeraora
       post    la mission est terminee
 
     REGLES DU PROJET
