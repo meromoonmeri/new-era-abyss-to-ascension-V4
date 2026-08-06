@@ -3179,7 +3179,7 @@ function mount_windswept_entrance_ch_5.MorningAfterDreamBody(hero, partner, t)
 
 	-- 16. LA SCENE FINALE — Penticus, Phileas, et la porte du donjon
 	--Ne restent que quatre silhouettes devant l'entree (reference :
-	--Grand Stepped Entrance). Plans larges sur la montagne, plans
+	--Grande Entree des Marches (Grand Stepped - vestige corrige 2026-08-06)). Plans larges sur la montagne, plans
 	--rapproches sur les visages, silences.
 	--Positions recalculees pour la nouvelle formation. Les cinq trajets
 	--sont verifies contre Ganlon (264,204) et Shuca (280,204), restes en

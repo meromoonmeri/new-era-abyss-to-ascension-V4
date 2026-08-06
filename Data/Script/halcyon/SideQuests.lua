@@ -1983,3 +1983,103 @@ function SideQuests.PlayJobBoardRewardCutscene(zone_id)
   GAME:CutsceneMode(false)
   return true
 end
+
+--------------------------------------------------------------------
+-- ACCES MANQUANTS (audit 2026-08-06) — ces 5 fonctions etaient
+-- appelees mais jamais definies : Postboard, TownVoices, ch6 les
+-- invoquaient via pcall, donc pas de crash, mais logique morte.
+-- Implementees sur le patron SideExpeditions, adaptees a SideQuests.LIST.
+--------------------------------------------------------------------
+function SideQuests.OfChapter(ch)
+  local out = {}
+  for _, q in ipairs(SideQuests.LIST) do
+    if q.ch == ch then table.insert(out, q) end
+  end
+  return out
+end
+
+function SideQuests.Remaining(ch)
+  local s = SideQuests.Ensure()
+  local n = 0
+  for _, q in ipairs(SideQuests.OfChapter(ch)) do
+    if not s.Done[q.id] then n = n + 1 end
+  end
+  return n
+end
+
+function SideQuests.AllDone(ch)
+  return SideQuests.Remaining(ch) == 0
+end
+
+function SideQuests.Board(ch)
+  -- Panneau des Requetes (Postboard) : liste textuelle, pas de menu custom
+  local list = SideQuests.OfChapter(ch)
+  if #list == 0 then
+    UI:SetCenter(true)
+    UI:WaitShowDialogue("Il n'y a rien ici pour le moment.\nRevenez une autre fois !")
+    UI:SetCenter(false)
+    return
+  end
+  UI:SetCenter(true)
+  UI:WaitShowDialogue("=== Requetes du Chapitre " .. tostring(ch) .. " ===")
+  UI:SetCenter(false)
+  for _, q in ipairs(list) do
+    local s = SideQuests.Ensure()
+    local etat = s.Done[q.id] and "[Fait]" or (s.Taken[q.id] and "[En cours]" or "[Dispo]")
+    UI:SetSpeaker(CH(q.giver) or CH('Teammate1'))
+    UI:WaitShowDialogue(etat .. " " .. q.titre .. " — via " .. q.giver)
+  end
+  local rem = SideQuests.Remaining(ch)
+  if rem == 0 then
+    UI:SetCenter(true)
+    UI:WaitShowDialogue("Toutes les requetes du chapitre " .. ch .. " sont accomplies !")
+    UI:SetCenter(false)
+  else
+    UI:SetCenter(true)
+    UI:WaitShowDialogue("Il reste " .. rem .. " requete(s) a rendre.")
+    UI:SetCenter(false)
+  end
+end
+
+function SideQuests.Interact(inst, ch)
+  local s = SideQuests.Ensure()
+  for _, q in ipairs(SideQuests.OfChapter(ch or SV.ChapterProgression.Chapter)) do
+    if q.giver == inst and not s.Done[q.id] then
+      local chara = CH(inst)
+      if chara == nil then return false end
+      local ok = pcall(function()
+        -- Demande deja acceptee mais pas encore faite : rappel
+        if s.Taken[q.id] then
+          if q.pending then
+            for _, t in ipairs(q.pending) do
+              local sp = CH(t[1]); if sp then UI:SetSpeaker(sp); GeneralFunctions.SetEmotion(t[2]); UI:WaitShowDialogue(t[3]) end
+            end
+          else
+            UI:SetSpeaker(chara); UI:WaitShowDialogue("Alors ? Tu as avance sur : " .. q.titre .. " ?")
+          end
+          return
+        end
+        -- Nouvelle demande : ask + choix
+        if q.ask then
+          for _, t in ipairs(q.ask) do
+            local sp = CH(t[1]); if sp then UI:SetSpeaker(sp); GeneralFunctions.SetEmotion(t[2]); UI:WaitShowDialogue(t[3]) end
+          end
+        end
+        UI:ChoiceMenuYesNo("Accepter : " .. q.titre .. " ?", false)
+        UI:WaitForChoice()
+        if UI:ChoiceResult() then
+          s.Taken[q.id] = true
+          if q.accept then
+            local t = q.accept; local sp = CH(t[1]); if sp then UI:SetSpeaker(sp); GeneralFunctions.SetEmotion(t[2]); UI:WaitShowDialogue(t[3]) end
+          end
+        else
+          if q.refuse then
+            local t = q.refuse; local sp = CH(t[1]); if sp then UI:SetSpeaker(sp); GeneralFunctions.SetEmotion(t[2]); UI:WaitShowDialogue(t[3]) end
+          end
+        end
+      end)
+      return ok
+    end
+  end
+  return false
+end

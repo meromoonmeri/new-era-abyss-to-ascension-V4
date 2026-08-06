@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="TCE_001" xml:space="preserve"><value>The wind rushes here...[pause=20] You can hear the Tower breathe.</value></data>
+  <data name="TCE_002" xml:space="preserve"><value>This is the entrance to Sky Tower.[pause=15] The old tales say it pierces the clouds.</value></data>
+  <data name="TCE_003" xml:space="preserve"><value>(The draft comes from above...[pause=15] Something awaits at the summit.)</value></data>
+</root>
