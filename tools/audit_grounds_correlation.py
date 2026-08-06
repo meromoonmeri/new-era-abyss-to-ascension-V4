@@ -237,9 +237,19 @@ def main():
             P(('U2', 'contenu identique (md5 %s) : %s' % (h[:12], ', '.join(lst))))
 
     # U3 quasi-doublons (même taille, musique et dims, fichiers distincts)
+    # Les PLACEHOLDER de débogage (tools/materialise_phantoms.py) sont
+    # identiques par construction : on les exclut du signal.
+    def _is_placeholder(g):
+        try:
+            with io.open(os.path.join(GROUND_DIR, g + '.rsground'),
+                         encoding='utf-8-sig') as fh:
+                return 'PLACEHOLDER DE DÉBOGAGE' in fh.read(2000)
+        except Exception:
+            return False
+
     seen = set()
     for a in sorted(grounds):
-        if 'error' in grounds[a]:
+        if 'error' in grounds[a] or _is_placeholder(a):
             continue
         for b in sorted(grounds):
             if b <= a or (a, b) in seen:

@@ -1,8 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-convert_sky_aegis.py — Conversion exhaustive d'Aegis Cave (PMD Explorers of Sky)
-depuis pret/pmd-sky vers PMDO/RogueEssence, depuis ZÉRO (aucun port existant).
+convert_sky_aegis.py — ⚠️ NON CANONIQUE — NE PAS UTILISER POUR cloven_ruins.
+
+RÉVISION 2026-08-07 : les maps files/MAP_BG/d54…d61 de pret/pmd-sky ne sont
+PAS les cartes d'Aegis Cave. Vérifié sur les scènes SSB du jeu (voir
+RESERVE/aegis_non_canonique/README.md) : d54=Jungle Méridionale (ES4),
+d55=Carrière Rocher (ES4), d56=Caverne Calcaire (ES4), d57=Mont Travail (ES3),
+d58-d61=un seul template dupliqué. La table (donjon, étage) → (groupe de
+cartes, map) vit dans DUNGEON/dungeon.bin, absent du dépôt pret/pmd-sky :
+les vrais étages fixes d'Aegis Cave ne sont pas extractibles ici.
+Les 19 grounds produits par ce script ont été purgés vers
+RESERVE/aegis_non_canonique/. Ce script est conservé uniquement comme
+documentation de la méthode (décodage BPL/BPC/BMA via skytemple-files).
 
 Méthode (100% pixel-perfect, collision source) :
   * Décodage BPL/BPC/BMA via skytemple-files (BpcHandler/BplHandler/BmaHandler)

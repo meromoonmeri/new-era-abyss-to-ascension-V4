@@ -831,3 +831,81 @@ Procéder scène par scène et transition par transition :
 3. Pour chaque transition, appliquer spécifiquement la checklist de la section précédente.
 4. Consigner les incohérences trouvées avec leur localisation précise (fichier + scène), sans se limiter au fondu du tunnel déjà signalé.
 5. Ne corriger que ce qui est confirmé comme incohérent après audit — ne pas modifier une scène qui passe déjà le test de crédibilité, pour éviter toute régression sur du contenu déjà validé.
+
+---
+
+# ANNEXE C — RÉVISION AEGIS CAVE + AUDIT MODE DEV (2026-08-07)
+
+## Aegis Cave : la conversion d54-d61 est NON canonique (purge)
+
+Le commit 2180945 convertissait files/MAP_BG/d54…d61 de pret/pmd-sky en 19
+grounds « Aegis Cave » en supposant numéro de donjon == numéro de groupe de
+cartes. **Faux, vérifié par désassemblage SSB** (skytemple-files,
+`to_explorerscript`) sur les scènes du jeu :
+
+- d54 = Jungle Méridionale (ES4) : n06a0501 « Nous sommes sorties de la
+  Jungle Méridionale » ; d54p31a/p32a rendues à 94-96 % vert (feuillage).
+- d55 = Carrière Rocher (ES4) : BGM_BOULDER_QUARRY ; n06a3401 = coffre vide
+  / Team AWD.
+- d56 = Caverne Calcaire (ES4) : n06a2802 « I-in a limestone cavern! »,
+  BGM_LIMESTONE_CAVERN.
+- d57 = Mont Travail (ES3, Sunflora/Haunter) : n04a2001 « Je vais t'arrêter,
+  Haunter ! », « hot hot hot! » (lave).
+- d58-d61 = UN SEUL template (md5 identiques .bma/.bpc/.bpl, même layout
+  57×57, 23 % libre) — pas 4 salles distinctes.
+- d50-d53 = ES5 (Falaises Spatiales, montagnes de glace ; Primal Dialga sur
+  d53p41a/b « GIGI GIGIGIGI »).
+
+La table (donjon, étage) → (groupe de cartes, map) vit dans
+`DUNGEON/dungeon.bin`, absent du repo : **les vrais étages fixes d'Aegis
+Cave ne sont pas extractibles ici**. Les 19 grounds + 19 planches ont été
+déplacés vers `RESERVE/aegis_non_canonique/` (README sur place).
+`tools/convert_sky_aegis.py` est conservé, marqué NON CANONIQUE.
+`docs/MANIFESTE_CONVERSION_SKY.md` corrigé en conséquence.
+
+**Ce qui est canonique et déjà intégré dans cloven_ruins (ne rien casser) :**
+mots Zarbi GLACE/ROCHE/ACIER (RuinesZarbi.lua), pierres `ruines_pierre_*`,
+tablette « fermer les yeux », boucle de secteur, ordre Regice→Regirock→
+Registeel→Regigigas, Puits B1-B5, Regigigas + 4 Hitmonlee + 4 Bronzong,
+renforts Team Charme, finale RuinesTitan/RuinesRenforts. Arènes = étages
+fixes (rsmap) où l'éveil ET le combat ont lieu sur la même carte.
+
+## Audit mode dev — corrections livrées
+
+1. **50 grounds fantômes matérialisés** (tools/materialise_phantoms.py) :
+   les noms déclarés dans index.idx (master_zone index 10, 70-118 ;
+   normal_maze) sans fichier faisaient crasher le warp du mode dev. Ils
+   sont ENCASTRÉS dans la numérotation utilisée par des index en dur des
+   scripts ch1-6 → impossible de les retirer. Chaque fantôme est désormais
+   un minuscule ground de débogage (16×12 cellules, une planche partagée
+   `debug_placeholder_Base.tile`), marqué PLACEHOLDER dans son Comment.
+   Résultat audit : C1 50 → 0. Ne pas supprimer ces fichiers.
+2. **26 références musicales cassées corrigées** (tools/fix_musiques.py) :
+   `Boss Battle.ogg`/`Boss Battle 2.ogg` → `Boss Battle!.ogg` (23 rsmap de
+   boss, dont jardin_secret ch4 / foret_embuscade ch5 / desert_oublies ch6
+   — correction DATA uniquement, aucun script/structure ch1-6 touché) ;
+   `Rayquazas Domain.ogg` → `Sky Tower.ogg` (tour_ciel_sommet,
+   arc_tour_ciel_sommet) ; `Desert Region.ogg` → `Forsaken Desert.ogg`
+   (desert_oublies) ; `Threat.ogg` → `Rising Fear.ogg` (marais_errants_fond).
+   C7 : 26 → 0.
+3. **Index des tilesets régénéré** (590 planches) après purge aegis +
+   ajout placeholder.
+4. **Audit ground correlation : 0 bloquant, 9 avertissements** (U1 noms
+   internes dupliqués = copies d'arcs intentionnelles ; C8 retours
+   volontaires ; C9 mapping waterfall_pond=113→sanctuaire_voeu assumé ;
+   C3/C5 : bois_sombres_fond + 4 midpoints non branchés — les brancher
+   toucherait les zones ch1-6, INTERDIT, laisser en l'état).
+5. **Vérifs complètes** : 510+ Lua compilent 0 erreur ; tous les JSON
+   parsent ; MapID des LayeredSegment existent ; EnterDungeon/
+   ContinueDungeon segments dans les bornes ; SceneDebug 36/36 cibles et
+   entrées valides ; dungeon_entrance_mapping résolu (cloven_ruins=56).
+
+## Pièges à éviter
+
+- `open(f, 'w')` AVANT de lire pour réécrire un JSON → fichier tronqué à 0
+  octet (vécu). Toujours parser d'abord, écrire ensuite.
+- Les numéros de donjon (enums.h DUNGEON_*) ne sont PAS les numéros de
+  groupes de cartes (MAP_BG) hors plage d01-d49 — ne jamais réutiliser
+  l'hypothèse d54=Ice Aegis Cave.
+- Ne pas supprimer les entrées fantômes d'index.idx : les index en dur des
+  scripts ch1-6 en dépendent (base_camp_2=10, abime_tempetes=70…).

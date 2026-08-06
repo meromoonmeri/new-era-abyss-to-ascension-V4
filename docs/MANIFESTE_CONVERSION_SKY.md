@@ -401,77 +401,72 @@ Outil : `PMDSky_PMDO_Framework` (extracteurs + convertisseurs, à corriger pour 
 
 ## SECTION SPÉCIALE — AEGIS CAVE (remplace les Ruines Tordues / cloven_ruins ch5)
 
-### Ordre canonique des boss (EoS)
+> **MISE À JOUR 2026-08-07 — RÉVISION CRITIQUE.** La conversion initiale
+> (19 grounds depuis files/MAP_BG/d54…d61, commit 2180945) partait de
+> l'hypothèse « numéro de donjon == numéro de groupe de cartes ».
+> Vérification faite sur les scènes SSB du jeu (désassemblées via
+> skytemple-files, to_explorerscript) : **cette hypothèse est fausse** pour
+> la plage d50-d61. Les cartes converties sont des donjons d'épisodes
+> spéciaux, PAS Aegis Cave :
+>
+> | Groupe MAP_BG | Identité réelle (preuve) |
+> |---|---|
+> | d50 | Falaises Spatiales (ES5) — n08a2608 « entrée des Falaises Spatiales » |
+> | d51-d52 | Mont de Glace Sombre / Forêt de Givre (ES5) — palettes glace, scènes n09 |
+> | d53 | Mont de Glace Immense / Pinnacle (ES5) — n09a1801 : Primal Dialga « GIGI GIGIGIGI » |
+> | d54 | Jungle Méridionale (ES4) — n06a0501 : « Nous sommes sorties de la Jungle Méridionale », BGM_SOUTHERN_JUNGLE |
+> | d55 | Carrière Rocher (ES4) — BGM_BOULDER_QUARRY, n06a3401 coffre vide / Team AWD |
+> | d56 | Caverne Calcaire (ES4) — n06a2802 : « I-in a limestone cavern! », BGM_LIMESTONE_CAVERN |
+> | d57 | Mont Travail (ES3, Sunflora/Haunter) — n04a2001 : « Je vais t'arrêter, Haunter ! », « hot hot hot! » |
+> | d58-d61 | **Un seul template** (md5 identiques .bma/.bpc/.bpl) — pas 4 salles distinctes |
+>
+> Les vrais étages fixes d'Aegis Cave (chambres des Regi, salles Zarbi,
+> fond du puits) ne sont pas extractibles de ce dépôt : la table
+> (donjon, étage) → (groupe de cartes, map) vit dans `DUNGEON/dungeon.bin`,
+> absent de pret/pmd-sky. **Les 19 grounds convertis ont été purgés vers
+> `RESERVE/aegis_non_canonique/`** (voir le README sur place).
+> `tools/convert_sky_aegis.py` est conservé mais marqué NON CANONIQUE.
 
-| Étape | Donjon | Chambre | Boss | Mot Zarbi (plaques) | Arène (ground converti) |
+### Ordre canonique des boss (EoS) — CE QUI EST INTÉGRÉ DANS cloven_ruins
+
+| Étape | Labyrinthe | Chambre | Boss | Mot Zarbi (plaques) | Dans le mod |
 |---|---|---|---|---|---|
-| 1 | Ice Aegis Cave (d54) | Regice Chamber (d55) | **Regice** niv ~40 | G-L-A-C-E (ICE) | `aegis_regice_arene` (d55p41a) |
-| 2 | Rock Aegis Cave (d56) | Regirock Chamber (d57) | **Regirock** niv ~42 | R-O-C-H-E (ROCK) | `aegis_regirock_arene` (d56p41a) |
-| 3 | Steel Aegis Cave (d58) | Registeel Chamber (d59) | **Registeel** niv ~44 | A-C-I-E-R (STEEL) | `aegis_registeel_arene` (d59p41a) |
-| 4 | Aegis Cave Pit (d60) | Regigigas Chamber (d61) | **Regigigas** niv ~50 | (aucune — combat direct) | `aegis_regigigas_arene` (d61p41a) |
+| 1 | Ice Aegis Cave B1-B3 | Regice Chamber | **Regice** | G-L-A-C-E (ICE) | segment 0 → 1 (`cloven_ruins_regice.rsmap`) |
+| 2 | Rock Aegis Cave B1-B3 | Regirock Chamber | **Regirock** | R-O-C-H-E (ROCK) | segment 2 → 3 (`cloven_ruins_regirock.rsmap`) |
+| 3 | Steel Aegis Cave B1-B4 | Registeel Chamber | **Registeel** | A-C-I-E-R (STEEL) | segment 4 → 5 (`cloven_ruins_registeel.rsmap`) |
+| 4 | Aegis Cave Pit B1-B5 | Regigigas Chamber | **Regigigas** + 4 Hitmonlee + 4 Bronzong | (aucune — combat direct) | segment 6 → 7 (`sanctuaire_titans.rsmap`) |
 
-### Les 19 grounds convertis (pixel-perfect, collision BMA source)
+Sources canoniques vérifiées : Serebii (Ice Maze B3F / Rock Maze B3F /
+Steel Maze B4F / Deepest Part B5F ; Unown sur IM B1-B3, RM B1-B3,
+SM B1-B4, DP B1-B5 ; boss Regice → Regirock → Registeel → Regigigas +
+4 Hitmonlee + 4 Bronzong) ; textes du jeu (text_e.str : les 8 noms de
+sous-donjons dans cet ordre).
 
-| Map source | Ground converti | Rôle |
-|---|---|---|
-| d54p11a | aegis_glace_entree | Entrée Aegis Glace (63x54, 83% murs) |
-| d54p31a | aegis_glace_salle_zarbi | Salle des plaques Unown Glace (63x57, animée 32f) |
-| d54p32a | aegis_glace_antechambre | Antichambre de Regice (75x57) |
-| d55p11a | aegis_regice_entree | Entrée Chambre de Regice (69x63) |
-| d55p21a | aegis_regice_autel | Autel de Regice (57x57) |
-| d55p41a | aegis_regice_arene | **Arène de Regice** (63x57, 7% murs = zone libre) |
-| d56p11a | aegis_roche_entree | Entrée Aegis Roche (63x51) |
-| d56p12a | aegis_roche_salle_zarbi | Salle des plaques Unown Roche (39x42, animée 32f) |
-| d56p21a | aegis_roche_antechambre | Antichambre de Regirock (57x57) |
-| d56p41a | aegis_regirock_arene | **Arène de Regirock** (57x60, animée 24f) |
-| d57p21a | aegis_regirock_autel | Autel de Regirock (57x57) |
-| d57p41a | aegis_roche_couloir_1 | Couloir Roche 1 (57x57) |
-| d57p42a | aegis_roche_couloir_2 | Couloir Roche 2 (57x66, animé 64f) |
-| d57p43a | aegis_roche_couloir_3 | Couloir Roche 3 (114x57, animé 84f) |
-| d57p44a | aegis_roche_couloir_4 | Couloir Roche 4 (57x57, animé 84f) |
-| d58p41a | aegis_acier_salle_zarbi | Salle des plaques Unown Acier (57x57) |
-| d59p41a | aegis_registeel_arene | **Arène de Registeel** (57x57) |
-| d60p41a | aegis_puits_fond | Puits d'Aegis — fond (57x57) |
-| d61p41a | aegis_regigigas_arene | **Arène de Regigigas** (57x57) |
+### Mécanique des plaques Unown (Zarbi) — DÉJÀ INTÉGRÉE
 
-### Mécanique des plaques Unown (Zarbi)
+`Data/Script/halcyon/RuinesZarbi.lua` reproduit fidèlement EoS :
+- chaque labyrinthe ne livre la chambre QUE si le mot est épelé ;
+- les Zarbi vaincus laissent PARFOIS leur pierre (drop aléatoire, lettres
+  utiles au secteur en cours) — items `ruines_pierre_a/c/e/g/h/i/l/o/r`
+  présents dans Data/Item (+ index.idx) ;
+- tablette au camp : lecture des cavités → « fermer les yeux » → le mot
+  s'illumine → l'escalier vers l'arène apparaît ;
+- tant que le mot est incomplet, le donjon BOUCLE (retour au camp) ;
+- le mot reste acquis après une défaite : on retraverse et on retrouve le
+  gardien, sans re-collecter les pierres (comportement EoS).
 
-Dans EoS, chaque labyrinthe (Glace/Roche/Acier) contient des **plaques Unown**
-éparpillées dans les étages procéduraux. Le joueur doit les trouver puis les
-poser sur les socles de la salle des plaques pour **épeler le mot** :
-- Glace : G-L-A-C-E (ICE)
-- Roche : R-O-C-H-E (ROCK)
-- Acier : A-C-I-E-R (STEEL)
+### Scènes SSB — statut
 
-Une fois le mot complet, l'accès à la chambre du Regi s'ouvre. Sans le mot,
-le donjon BOUCLE (le joueur ressort par l'entrée). — Le mod New Era possède
-déjà `RuinesZarbi.lua` (mécanique des mots implémentée pour cloven_ruins) ;
-il sera branché sur ces nouvelles salles.
+Les scènes `n06a####`/`n04a####` des dossiers D54-D57 sont des scènes
+d'épisodes spéciaux (Team Charm, Sunflora, Bidoof), PAS les cinématiques
+d'Aegis Cave. Les scènes des vraies salles d'Aegis (D61P41A = chambre de
+Regigigas) n'existent pas dans les SCRIPT/ du dépôt. La finale du mod vit
+dans `RuinesTitan.lua` (éveil, huit gardes, renversement, question de
+Regigigas, mise en statue, effondrement, fuite) puis `RuinesRenforts.lua`
+(révélation de la Tour au camp) — conforme au cahier des charges du ch5.
 
-### Scripts de scène (SSB) des maps Aegis
+### Musique
 
-Les dossiers `files/language-specific/EU/SCRIPT/D5xPyy` contiennent les
-scènes (entrée, apparition des Regi, cinématiques) :
-
-| Map | Scripts SSB notables | Rôle |
-|---|---|---|
-| D54P11A | n06a0201/0301/0401/3902 | Cinématiques d'entrée Aegis Glace |
-| D54P31A | n06a0501 | Salle des plaques (intro) |
-| D54P32A | (enter) | Antichambre |
-| D55P41A | n06a1301/1701/1801 | Apparition de Regice + combat |
-| D56P11A | (enter + cinématiques) | Entrée Aegis Roche |
-| D56P41A | n06a2201... | Apparition de Regirock |
-| D57P41A-44A | (multi) | Couloirs Roche (pièges) |
-| D58P41A | (enter) | Salle des plaques Acier |
-| D59P41A | n06a3001... | Apparition de Registeel |
-| D60P41A | (enter) | Puits d'Aegis |
-| D61P41A | n06a3401... | **Cinématique finale Regigigas** (défaite → statue → effondrement) |
-
-Les .ssb seront désassemblés (ssb_disassembler.py) puis réécrits en Lua
-New Era (mécanisme conservé, dialogues réécrits).
-
-### Items et musique
-
-- Musique : `MUSIC_AEGIS_CAVE` (dungeon.h:2567) — à mapper sur un .ogg.
-- Items : les étages procéduraux d'Aegis utilisent le spawner d'items du
-  donjon (à reconfigurer dans la zone cloven_ruins).
+`MUSIC_AEGIS_CAVE` (dungeon.h:2567) = piste « In the Depths of the Pit »
+dans EoS. Le mod possède déjà `Content/Music/Aegis Cave.ogg` et l'utilise
+sur les segments 0-6 de cloven_ruins ; `Boss Battle!.ogg` sur le segment 7.
