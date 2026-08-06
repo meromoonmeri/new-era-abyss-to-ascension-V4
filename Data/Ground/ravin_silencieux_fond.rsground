@@ -3,9 +3,9 @@
   "Object": {
     "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
     "Name": {
-      "DefaultText": "Mont Gel Entree",
+      "DefaultText": "Ravin Silencieux Fond",
       "LocalTexts": {
-        "fr": "mont_gel_entree"
+        "fr": "ravin_silencieux_fond"
       }
     },
     "Released": true,

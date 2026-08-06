@@ -3,9 +3,9 @@
   "Object": {
     "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
     "Name": {
-      "DefaultText": "Mont Gel Entree",
+      "DefaultText": "Bois Sinistre Entree",
       "LocalTexts": {
-        "fr": "mont_gel_entree"
+        "fr": "bois_sinistre_entree"
       }
     },
     "Released": true,

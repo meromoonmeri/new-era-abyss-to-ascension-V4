@@ -3,13 +3,13 @@
   "Object": {
     "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
     "Name": {
-      "DefaultText": "GROTTE_LAPIS_ENTREE",
+      "DefaultText": "Grotte Lapis Entree",
       "LocalTexts": {
         "fr": "grotte_lapis_entree"
       }
     },
     "Released": true,
-    "Comment": "Canonically restored from PMD Red/Sky via PMDO Framework",
+    "Comment": "Canonically restored from PMD Red via PMDO Framework",
     "obstacles": [
       [
         {
@@ -8170,6 +8170,2726 @@
           },
           "Tags": 0
         }
+      ],
+      [
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 0,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 8,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 16,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 24,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 32,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 40,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 48,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 56,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 64,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 72,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 80,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 88,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 96,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 104,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 112,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 120,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 128,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 136,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 144,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 152,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 160,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 168,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 176,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 184,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 192,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 200,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 208,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 216,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 224,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 240,
+            "Y": 232,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        }
+      ],
+      [
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 0,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 8,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 16,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 24,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 32,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 40,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 48,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 56,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 64,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 72,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 80,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 88,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 96,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 104,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 112,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 120,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 128,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 136,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 144,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 152,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 160,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 168,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 176,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 184,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 192,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 200,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 208,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 216,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 224,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 248,
+            "Y": 232,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        }
+      ],
+      [
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 0,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 8,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 16,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 24,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 32,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 40,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 48,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 56,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 64,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 72,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 80,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 88,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 96,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 104,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 112,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 120,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 128,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 136,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 144,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 152,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 160,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 168,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 176,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 184,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 192,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 200,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 208,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 216,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 224,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 256,
+            "Y": 232,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        }
+      ],
+      [
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 0,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 8,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 16,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 24,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 32,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 40,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 48,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 56,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 64,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 72,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 80,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 88,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 96,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 104,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 112,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 120,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 128,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 136,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 144,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 152,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 160,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 168,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 176,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 184,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 192,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 200,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 208,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 216,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 224,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 264,
+            "Y": 232,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        }
+      ],
+      [
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 0,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 8,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 16,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 24,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 32,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 40,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 48,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 56,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 64,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 72,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 80,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 88,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 96,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 104,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 112,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 120,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 128,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 136,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 144,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 152,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 160,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 168,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 176,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 184,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 192,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 200,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 208,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 216,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 224,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 272,
+            "Y": 232,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        }
+      ],
+      [
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 0,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 8,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 16,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 24,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 32,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 40,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 48,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 56,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 64,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 72,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 80,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 88,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 96,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 104,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 112,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 120,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 128,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 136,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 144,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 152,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 160,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 168,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 176,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 184,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 192,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 200,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 208,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 216,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 224,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 280,
+            "Y": 232,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        }
+      ],
+      [
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 0,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 8,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 16,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 24,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 32,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 40,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 48,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 56,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 64,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 72,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 80,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 88,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 96,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 104,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 112,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 120,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 128,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 136,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 144,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 152,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 160,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 168,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 176,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 184,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 192,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 200,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 208,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 216,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 224,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 288,
+            "Y": 232,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        }
+      ],
+      [
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 0,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 8,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 16,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 24,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 32,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 40,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 48,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 56,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 64,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 72,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 80,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 88,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 96,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 104,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 112,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 120,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 128,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 136,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 144,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 152,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 160,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 168,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 176,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 184,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 192,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 200,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 208,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 216,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 224,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 296,
+            "Y": 232,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        }
+      ],
+      [
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 0,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 8,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 16,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 24,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 32,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 40,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 48,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 56,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 64,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 72,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 80,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 88,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 96,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 104,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 112,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 120,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 128,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 136,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 144,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 152,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 160,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 168,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 176,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 184,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 192,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 200,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 208,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 216,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 224,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 304,
+            "Y": 232,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        }
+      ],
+      [
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 0,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 8,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 16,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 24,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 32,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 40,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 48,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 56,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 64,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 72,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 80,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 88,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 96,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 104,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 112,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 120,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 128,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 136,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 144,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 152,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 160,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 168,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 176,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 184,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 192,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 200,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 208,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 216,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 224,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        },
+        {
+          "Bounds": {
+            "X": 312,
+            "Y": 232,
+            "Width": 8,
+            "Height": 8
+          },
+          "Tags": 0
+        }
       ]
     ],
     "Layers": [
@@ -8178,6 +10898,1826 @@
         "Layer": 0,
         "Visible": true,
         "Tiles": [
+          [
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            }
+          ],
+          [
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            }
+          ],
+          [
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            }
+          ],
+          [
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            }
+          ],
+          [
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            }
+          ],
+          [
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            }
+          ],
+          [
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            }
+          ],
+          [
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            }
+          ],
+          [
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            }
+          ],
+          [
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            },
+            {
+              "AutoTileset": "",
+              "NeighborCode": -1,
+              "Associates": [],
+              "Layers": []
+            }
+          ],
           [
             {
               "AutoTileset": "",
@@ -13648,7 +18188,30 @@
         "MapChars": [],
         "GroundObjects": [],
         "Spawners": [],
-        "Markers": []
+        "Markers": [
+          {
+            "EntName": "Main_Entrance_Marker",
+            "Direction": 4,
+            "EntEnabled": true,
+            "Collider": {
+              "X": 0,
+              "Y": 0,
+              "Width": 16,
+              "Height": 16
+            }
+          },
+          {
+            "EntName": "Cutscene_Marker",
+            "Direction": 4,
+            "EntEnabled": true,
+            "Collider": {
+              "X": 0,
+              "Y": 0,
+              "Width": 16,
+              "Height": 16
+            }
+          }
+        ]
       }
     ]
   }

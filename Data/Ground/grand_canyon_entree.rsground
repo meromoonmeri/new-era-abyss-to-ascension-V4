@@ -3,9 +3,9 @@
   "Object": {
     "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
     "Name": {
-      "DefaultText": "Mont Gel Entree",
+      "DefaultText": "Grand Canyon Entree",
       "LocalTexts": {
-        "fr": "mont_gel_entree"
+        "fr": "grand_canyon_entree"
       }
     },
     "Released": true,
