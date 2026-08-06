@@ -49,13 +49,14 @@ function mount_windswept_guardian.Enter(map)
   PrintInfo("=>> Enter_mount_windswept_guardian")
 
   -- Rejouabilite : l'expedition est bouclee, le sommet est vide.
-  -- Attention : cette arene fait 208x176 px, le duo doit rester dans la carte.
+  -- Northwind Field (360x336 px) : ellipse centrale libre x 104..248,
+  -- y 80..264. Le duo reste dans la carte.
   if ReplayEnding.IsReplay('mount_windswept', 5) then
     SV.Chapter5.MountGuardianDefeated = false
     SV.Chapter5.MountGuardianLost = false
     ReplayEnding.EmptyArena({
-      hero = {120, 144}, partner = {88, 144},
-      camera = {104, 120}, look = {104, 96},
+      hero = {176, 248}, partner = {152, 248},
+      camera = {176, 216}, look = {176, 168},
       walk = 40, title = true, music = 'Mt. Travail.ogg',
       lines = {
         { spk='partner', emo='Normal', key='MWG_R01', wait=10 },

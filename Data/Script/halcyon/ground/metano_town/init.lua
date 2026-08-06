@@ -500,16 +500,16 @@ function metano_town.ShowDestinationMenu(dungeon_entrances,ground_entrances)
   --Story dungeons and their corresponding "entrance ground" used for story cutscenes during the relevant chapter.
   --Illuminant Riverbed and Relic Forest 1 are story dungeons not accessed via this menu and thus the flag doesn't track them.
   local dungeon_entrance_mapping = {}
-  dungeon_entrance_mapping["illuminant_riverbed"] = 38 --Illuminant Riverbed, but this shouldn't ever be used.
-  dungeon_entrance_mapping["crooked_cavern"] = 41--Crooked Cavern
-  dungeon_entrance_mapping["apricorn_grove"] = 44--Apricorn Grove
-  dungeon_entrance_mapping["vast_steppe"] = 46--Vast Steppe Entrance
-  dungeon_entrance_mapping["searing_tunnel"] = 47--Searing Tunnel Entrance
-  dungeon_entrance_mapping["mount_windswept"] = 50--Mt. Windswept Entrance
-  dungeon_entrance_mapping["gloomy_forest"] = 54--Gloomy Forest Entrance
-  dungeon_entrance_mapping["cloven_ruins"] = 66--Cloven Ruins Entrance
-  dungeon_entrance_mapping["waterfall_pond"] = 172--Crystal Sanctuary Entrance
-  dungeon_entrance_mapping["poisonous_forest"] = 184--Forgotten Marsh Entrance
+  dungeon_entrance_mapping["illuminant_riverbed"] = 29 --Illuminant Riverbed, but this shouldn't ever be used.
+  dungeon_entrance_mapping["crooked_cavern"] = 32--Crooked Cavern
+  dungeon_entrance_mapping["apricorn_grove"] = 35--Apricorn Grove
+  dungeon_entrance_mapping["vast_steppe"] = 37--Vast Steppe Entrance
+  dungeon_entrance_mapping["searing_tunnel"] = 38--Searing Tunnel Entrance
+  dungeon_entrance_mapping["mount_windswept"] = 41--Mt. Windswept Entrance
+  dungeon_entrance_mapping["gloomy_forest"] = 45--Gloomy Forest Entrance
+  dungeon_entrance_mapping["cloven_ruins"] = 56--Cloven Ruins Entrance
+  dungeon_entrance_mapping["waterfall_pond"] = 113--Crystal Sanctuary Entrance
+  dungeon_entrance_mapping["poisonous_forest"] = 122--Forgotten Marsh Entrance
 
 
 	local mission_dests = {}
