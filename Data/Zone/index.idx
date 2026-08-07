@@ -493,7 +493,6 @@
         "arene_hautes_plaines",
         "arene_trone_magma",
         "bois_des_plaintes",
-        "bois_sombres_oree",
         "carriere_magnetique",
         "chambre_agee_o",
         "champ_braises",
@@ -557,7 +556,8 @@
         "a05p03",
         "arc_parvis_celeste",
         "arc_palier_celeste",
-        "arc_tour_ciel_sommet"
+        "arc_tour_ciel_sommet",
+        "sinister_woods_clearing"
       ],
       "Maps": [
         [
@@ -756,7 +756,8 @@
       "Grounds": [
         "gloomy_forest_entrance",
         "gloomy_forest_midpoint",
-        "gloomy_forest_miniboss"
+        "gloomy_forest_miniboss",
+        "sinister_woods_clearing"
       ],
       "Maps": [
         [

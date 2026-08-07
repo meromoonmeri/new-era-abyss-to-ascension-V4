@@ -3,13 +3,13 @@
  "Object": {
   "$type": "RogueEssence.Data.ZoneData, RogueEssence",
   "Name": {
-   "DefaultText": "Gloomy Forest",
+   "DefaultText": "Sinister Woods",
    "LocalTexts": {
-    "fr": "Forêt Lugubre"
+    "fr": "Sinister Woods — trente ans plus tard"
    }
   },
   "Released": true,
-  "Comment": "Chapitre 6 — mission de sauvetage de Chenipent pour la Team Dazzling. | tuto retire : le declencheur didacticiel ne se lance plus ici (conserve chez relic_forest) | mini-boss : gardes du coeur (Tengalice + Cornèbre), 3F -> miniboss -> 3F -> Zarude.",
+  "Comment": "Sinister Woods canonique (Rescue Team) réinterprétée au chapitre 6 avec Team Dazzling et l’arc New Era. ID technique gloomy_forest conservé pour les sauvegardes.",
   "NoEXP": false,
   "ExpPercent": 100,
   "Level": -1,
@@ -3390,7 +3390,8 @@
   "GroundMaps": [
    "gloomy_forest_entrance",
    "gloomy_forest_midpoint",
-   "gloomy_forest_miniboss"
+   "gloomy_forest_miniboss",
+   "sinister_woods_clearing"
   ]
  }
 }

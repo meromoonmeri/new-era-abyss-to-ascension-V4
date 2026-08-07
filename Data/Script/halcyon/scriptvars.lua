@@ -979,6 +979,8 @@ SV.Chapter6 =
 	MissionAvailable = false,
 	MissionAccepted = false,
 	EnteredGloomyForest = false,
+	--D04P01 approche sobre, distincte de la confrontation D04P02 recastée.
+	SinisterApproachSeen = false,
 	FinishedGloomyForestIntro = false,
 	GloomyBossEncountered = false,
 	DefeatedGloomyBoss = false,

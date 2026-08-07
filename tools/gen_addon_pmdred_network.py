@@ -85,7 +85,7 @@ Z = [
  (0,'Tiny Woods','Lisière du Premier Signal','forest',5,'foret_tendre_oree',None,None),
  (1,'Thunderwave Cave','Conduit à Ondes Rémanentes','electric',6,'grotte_statique_seuil',None,None),
  (2,'Mt. Steel','Pylône du Vieux Fer','mountain',8,'pic_ferreux_pied',None,None),
- (3,'Sinister Woods','Taillis des Interférences','forest',10,'bois_sombres_oree',None,None),
+ (3,'Sinister Woods','Taillis des Interférences','forest',10,'gloomy_forest_entrance',None,None),
  (4,'Silent Chasm','Faille du Silence Long','cave',12,'gouffre_muet_bord',None,None),
  (5,'Mt. Thunder (+Peak)','Antenne du Grand Orage','electric',14,'mont_grondant_pied',None,'Station de la Foudre Basse'),
  (7,'Great Canyon','Canyon des Voix Éteintes','mountain',16,'grand_canyon_porte',None,None),

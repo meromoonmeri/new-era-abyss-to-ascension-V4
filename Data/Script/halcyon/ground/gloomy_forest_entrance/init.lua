@@ -35,13 +35,13 @@ function gloomy_forest_entrance.PlotScripting()
 	--exactement le symptome constate en jeu.
 	--Le MapStatus a ete cree, mais la protection reste : aucune scene ne
 	--doit pouvoir laisser le joueur devant un ecran noir.
-	if SV.ChapterProgression.Chapter == 6 and not SV.Chapter6.FinishedGloomyForestIntro then
-		local ok, err = pcall(gloomy_forest_entrance_ch_6.ArrivalCutscene)
+	if SV.ChapterProgression.Chapter == 6 and not SV.Chapter6.SinisterApproachSeen then
+		local ok, err = pcall(gloomy_forest_entrance_ch_6.ApproachCutscene)
 		if not ok then
-			PrintInfo('[gloomy_forest_entrance] ArrivalCutscene interrompue : '..tostring(err))
+			PrintInfo('[gloomy_forest_entrance] ApproachCutscene interrompue : '..tostring(err))
 			--On ne rejoue pas une scene a moitie jouee : on la marque faite,
 			--on rend la main, et le joueur peut continuer.
-			pcall(function() SV.Chapter6.FinishedGloomyForestIntro = true end)
+			pcall(function() SV.Chapter6.SinisterApproachSeen = true end)
 			pcall(function() gloomy_forest_entrance_ch_6.SetupGround() end)
 			pcall(function() GAME:CutsceneMode(false) end)
 			pcall(function() GAME:FadeIn(20) end)

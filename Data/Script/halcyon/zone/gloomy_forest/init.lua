@@ -174,8 +174,8 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 	if segmentID == 3 then
 		-- 3F au-dessus du mini-boss : le coeur de la foret s'ouvre au bout.
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-			PrintInfo("[NREPROBE][transition] gloomy seg3 cleared -> boss ground")
-			GAME:ContinueDungeon('gloomy_forest', 4, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+			PrintInfo("[NREPROBE][transition] Sinister Woods seg3 -> clairiere canonique D04P02")
+			GAME:EnterGroundMap('sinister_woods_clearing', 'Main_Entrance_Marker')
 		elseif result == RogueEssence.Data.GameProgress.ResultType.Escaped then
 			-- Escaped: leave to the entrance, NOT the relay (mirrors Searing Tunnel).
 			GAME:WaitFrames(20)

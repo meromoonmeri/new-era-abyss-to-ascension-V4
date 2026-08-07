@@ -25,7 +25,7 @@ GROUNDS = {
     'a05p03': ('A05P03', None),
     'arc_palier_celeste': ('D13P02', None), 'arc_parvis_celeste': ('D13P01', None),
     'arc_tour_ciel_sommet': ('D13P03', None),
-    'bois_sombres_fond': ('D04P02', None), 'bois_sombres_oree': ('D04P01', None),
+    'sinister_woods_clearing': ('D04P02', None), 'gloomy_forest_entrance': ('D04P01', None),
     'd09p02': ('D09P02', None), 'd09p03': ('D09P03', None),
     'd10p02': ('D10P02', None), 'd10p03': ('D10P03', None),
     'd11p02': ('D11P02', None), 'd11p03': ('D11P03', None),

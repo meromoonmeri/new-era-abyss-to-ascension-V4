@@ -51,6 +51,12 @@ Chaque lieu canonique doit être restauré comme un **paquet indivisible** :
 
 **Interdiction absolue :** prendre le Ground canonique d’un lieu et le greffer sur le JSON, le boss ou la fonction narrative d’un autre lieu. Un asset canonique n’est pas un décor générique.
 
+### Directive de recasting cinématique Red/Sky
+
+Pour chaque Ground cinématique hérité, les positions d’entités de la scène source sont contractuelles. Les personnages historiques sont remplacés rôle pour rôle par le casting New Era **aux mêmes coordonnées**, avec les mêmes orientations structurantes, le même ordre d’apparition, les mêmes mouvements, la même caméra, les mêmes pauses et les mêmes VFX. Les dialogues et les conséquences `SV.*` sont réécrits pour New Era. Il est interdit de recomposer librement la scène sur la carte canonique : la mise en scène originale est le patron, le casting est l’adaptation.
+
+Exemple autoritatif : Sinister Woods D04P02 conserve les trois slots de Team Meanies — centre `(272,192)`, droite `(312,224)`, gauche `(240,224)` — réattribués respectivement à Adagio, Aria et Sonata.
+
 Exemples d’associations interdites à démêler :
 
 - Wish Cave/Jirachi utilisé pour le Sanctuaire de Cristal/Diancie ;

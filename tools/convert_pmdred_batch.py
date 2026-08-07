@@ -37,7 +37,7 @@ MANIFEST = {
             'Friend Area Cave.ogg',   'reserve entree donjon electrique'),
  'D03P01': ('pic_ferreux_pied',       'Ironclad Foothill',    'Pied du Pic Ferreux',
             'Mt. Horn.ogg',           'reserve entree donjon minier'),
- 'D04P01': ('bois_sombres_oree',      'Duskwood Edge',        'Orée des Bois Sombres',
+ 'D04P01': ('gloomy_forest_entrance',      'Duskwood Edge',        'Orée des Bois Sombres',
             'Mystifying Forest.ogg',  'reserve entree foret sombre (Suaire, arc Accusation)'),
  'D05P01': ('gouffre_muet_bord',      'Silent Rim',           'Bord du Gouffre Muet',
             'Growing Anxiety.ogg',    'reserve entree gouffre'),

@@ -328,6 +328,12 @@ function DebugTools:OnUpgrade()
  if SV.Chapter5.PlayTempRuinsScene == nil then SV.Chapter5.PlayTempRuinsScene = false end
  if SV.Chapter5.RuinsLastExitReason == nil then SV.Chapter5.RuinsLastExitReason = '' end
  if SV.Chapter5.RuinsExpeditionDone == nil then SV.Chapter5.RuinsExpeditionDone = false end
+
+ --Sinister Woods D04P01/D04P02 : séparation approche / clairière pour les sauvegardes existantes.
+ if SV.Chapter6 == nil then SV.Chapter6 = {} end
+ if SV.Chapter6.SinisterApproachSeen == nil then
+   SV.Chapter6.SinisterApproachSeen = (SV.Chapter6.FinishedGloomyForestIntro == true)
+ end
  
  
 
