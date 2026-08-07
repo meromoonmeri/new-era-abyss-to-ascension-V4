@@ -2313,6 +2313,60 @@
       },
       "Released": true,
       "SortOrder": 0
+    },
+    "mt_blaze": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 14,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 15,
+      "Rogue": 0,
+      "Grounds": [
+        "mont_cendre_pied",
+        "d09p02",
+        "d09p03"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Mt. Blaze",
+        "LocalTexts": {
+          "fr": "Mt. Blaze — trente ans plus tard"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Donjon canonique PMD Red restauré: 12F, D09P02, Peak 3F, D09P03/Moltres. Casting/cinématiques adaptés New Era."
     }
   }
 }

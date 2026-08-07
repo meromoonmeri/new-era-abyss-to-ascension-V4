@@ -1159,6 +1159,13 @@ SV.DungeonFlags =
 	GenericEnding = false--do a generic ending for the end of a dungeon in the relevant zone/ground
 }
 
+--Routage des paquets canoniques Red restaurés (Ground cinématique -> segment).
+SV.CanonicalDungeons =
+{
+	Pending = nil,
+	MtBlazeCleared = false
+}
+
 --For dojo lessons
 SV.Tutorial = 
 {

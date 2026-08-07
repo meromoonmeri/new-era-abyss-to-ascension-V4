@@ -12,7 +12,16 @@ function d09p02.Init(map)
 end
 
 function d09p02.Enter(map)
-  FugitiveArc.Play('d09p02')
+  if SV.CanonicalDungeons and SV.CanonicalDungeons.Pending == 'mt_blaze_mid' then
+    local ok, scene = pcall(require, 'halcyon.arc_fugitif.scene.d09p02')
+    if ok and scene and scene.Cutscene then pcall(scene.Cutscene) end
+    SV.CanonicalDungeons.Pending = nil
+    GAME:FadeOut(false, 30)
+    GAME:EnterDungeon('mt_blaze', 1, 0, 0,
+      RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  else
+    FugitiveArc.Play('d09p02')
+  end
 end
 
 function d09p02.Update(map) end
