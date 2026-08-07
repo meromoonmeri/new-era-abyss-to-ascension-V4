@@ -1,0 +1,11 @@
+{
+  "map": "sky_d01p11a",
+  "png_path": "/home/user/new-era-abyss-to-ascension-V4/docs/renders/pret_sky_d01p11a_extracted.png",
+  "resolution": "792x384 px",
+  "total_8x8_tiles": 4752,
+  "pure_black_tiles_count": 0,
+  "black_percentage": 0.0,
+  "status": "PASS",
+  "black_tiles_diagnostics": [],
+  "details": "✅ CERTIFIÉ : Zéro tuile noire (0.00% noir absolu). Le décodeur 8-slot BPC/BPA a reconstruit l'intégralité du framebuffer DS sans trou ni bande noire."
+}
