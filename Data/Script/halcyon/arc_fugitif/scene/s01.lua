@@ -8,7 +8,7 @@ function s01.Cutscene()
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_S01_004"))
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_S01_005"))
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_S01_006"))
-  SOUND:PlayBGM('Welcome To The World Of Pokemon', true)
+  SOUND:PlayBGM('Welcome to the World of Pokémon!.ogg', true)
   SOUND:FadeOutBGM(30)
   GAME:CutsceneMode(false)
 end

@@ -2,7 +2,7 @@
 local d12p04 = {}
 function d12p04.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('In The Depths Of The Pit', true)
+  SOUND:PlayBGM('In the Depths of the Pit.ogg', true)
   SOUND:FadeOutBGM(60)
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D12P04_001"))
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D12P04_002"))

@@ -2,7 +2,7 @@
 local h15p01 = {}
 function h15p01.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('Friend Area Lab', true)
+  SOUND:PlayBGM('Mysterious Passage 2.ogg', true)
   -- GROUND:CharSetAction(ent, 2)
   -- GROUND:CharSetAction(ent, 2)
   -- GROUND:CharSetAction(ent, 2)

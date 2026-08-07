@@ -2,7 +2,7 @@
 local h13p02 = {}
 function h13p02.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('Friend Area Cryptic Cave', true)
+  SOUND:PlayBGM('Mysterious Passage.ogg', true)
   -- GROUND:CharSetAction(ent, 2)
   -- GROUND:CharSetAction(ent, 2)
   -- GROUND:CharSetAction(ent, 2)

@@ -2,7 +2,7 @@
 local t00p01 = {}
 function t00p01.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('Pokemon Square', true)
+  SOUND:PlayBGM('Treasure Town.ogg', true)
   -- GROUND:CharSetAction(ent, 2)
   -- GROUND:CharSetAction(ent, 2)
   -- GROUND:CharSetAction(ent, 2)

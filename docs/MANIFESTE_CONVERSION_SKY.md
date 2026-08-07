@@ -555,4 +555,55 @@ conservés ; l'index des tilesets a été régénéré (593 planches).
 - 5 maps sans BPA (skytemple incompatible) ; FrameLength uniformisé (8) ;
   184 maps sans dossier SCRIPT (variantes *2, secondaires) → identité à
   confirmer avant branchement ; objets .wan des villes non convertis.
+---
+
+## IMPORT COMPLET PMD RED — 245 maps, TOUTES les animations (2026-08-07)
+
+> Généré par `tools/convert_red_all.py` depuis pret/pmd-red (data/map_bg) +
+> `map_dependencies.json` du port officiel (triplets bpl/bpc/bma/bpa exacts).
+> Rendu EXACT par tick : BPA (tuiles animées, slots multiples à compteur
+> propre) + animation de palette BPL (durées/nb frames lus dans le binaire),
+> couches BMA multiples composées, tuiles 8x8 par position de grille (format
+> exact du port), fond noir opaque, FrameLength = durée native (repli pgcd
+> exact pour durées mixtes). Dépôt : RESERVE/red_grounds/ + RESERVE/red_tiles/.
+
+| Indicateur | Valeur |
+|---|---|
+| Maps converties | 245 |
+| Maps avec animation native (BPA et/ou palette) | 139 |
+| Maps statiques (aucune animation dans la source) | 106 |
+| Poids .rsground | 252 Mo |
+| Poids planches .tile | 88 Mo |
+| Rapport détaillé | docs/AUDIT_ANIMATIONS_PMD_RED_2026-08-07.md |
+
+### Grounds Red EN JEU (Data/Ground) — tous animés
+
+Les 35 grounds Red utilisés par le jeu sont régénérés avec leurs animations
+natives (tools/regenerate_red_grounds.py), entités/obstacles/marqueurs/
+musique conservés. Audit : **35/35 conformes** (0 non-conforme). Exemples :
+a02p02 (eau, 26 cellules), a02p04 (lave, 59), gorge_ardente_porte (lave,
+214), mont_cendre_pied (62), mont_gele_pied (43), parvis_celeste + arc
+(aurores, 72), pre_tonnerre (119), t01p01 (BPA+palette, 101),
+poisonous_forest_boss (BPA+palette, 15).
+
+### Non-régression prouvée
+
+Reconstruction 8x8 vs port officiel (pmdred_lib) sur 7 maps de référence
+(D09P02, A02P01, D18P01, D12P04, H17P01, D04P01, D13P03) : **0 pixel
+différent, RGBA complet**. Tornadus ground vs rsmap : **0/120960**.
+
+### Cas particuliers documentés
+
+- 3 maps « animation inerte » : A05P02 (frames de palette IDENTIQUES),
+  D14P01/D15P01 (palette animée jamais référencée par les chunks) — aucune
+  perte (vérifié dans les données).
+- 10 maps à 2 couches BMA (A04P03, A04P04, A05P01, T01P03, A01P01/02,
+  H29P04, D05P01, S01/S02) : couche supérieure composée (l'ancien port les
+  ignorait).
+- 2 fichiers BPA par map (bases d'équipe CONSTRUCTION) : slots gérés
+  séparément.
+- **Correctif format critique** : planches .tile en tuiles 8x8 par position
+  de grille (le premier jet écrivait des cellules 24x24 — le moteur aurait
+  mal dessiné ; corrigé et re-prouvé).
+
 

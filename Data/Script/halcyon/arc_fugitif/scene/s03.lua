@@ -2,7 +2,7 @@
 local s03 = {}
 function s03.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('Intro', true)
+  SOUND:PlayBGM('Welcome to the World of Pokémon!.ogg', true)
   GAME:FadeOut(true, 60)
   -- GAME:MoveCamera(HeroX, HeroY, 1)
   -- GROUND:CharSetAction(ent, 16)

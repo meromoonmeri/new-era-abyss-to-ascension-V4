@@ -2,7 +2,7 @@
 local d05p01 = {}
 function d05p01.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('Silent Chasm', true)
+  SOUND:PlayBGM('Chasm Cave.ogg', true)
   -- GAME:MoveCamera(HeroX, HeroY, 1)
   -- GROUND:CharSetAction(ent, 2)
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D05P01_001"))

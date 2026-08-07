@@ -2,7 +2,7 @@
 local a02p04 = {}
 function a02p04.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('The Escape', true)
+  SOUND:PlayBGM('Rising Fear.ogg', true)
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A02P04_001"))
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A02P04_002"))
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A02P04_003"))

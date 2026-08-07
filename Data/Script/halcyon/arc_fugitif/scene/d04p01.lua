@@ -2,11 +2,11 @@
 local d04p01 = {}
 function d04p01.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('Sinister Woods', true)
+  SOUND:PlayBGM('Bramble Woods.ogg', true)
   -- GROUND:CharSetAction(ent, 2)
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D04P01_001"))
   -- GROUND:CharSetAction(ent, 2)
-  SOUND:PlayBGM('Sinister Woods', true)
+  SOUND:PlayBGM('Bramble Woods.ogg', true)
   -- GROUND:CharSetAction(ent, 2)
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D04P01_002"))
   -- GROUND:CharSetAction(ent, 2)

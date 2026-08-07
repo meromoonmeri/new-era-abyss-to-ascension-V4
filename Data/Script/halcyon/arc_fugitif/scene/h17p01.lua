@@ -2,7 +2,7 @@
 local h17p01 = {}
 function h17p01.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('Friend Area Wilds', true)
+  SOUND:PlayBGM('Overgrown Wilds.ogg', true)
   -- GROUND:CharSetAction(ent, 2)
   -- GROUND:CharSetAction(ent, 2)
   -- GROUND:CharSetAction(ent, 2)

@@ -2,7 +2,7 @@
 local h07p06 = {}
 function h07p06.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('Friend Area Healing Forest', true)
+  SOUND:PlayBGM('Healing Forest.ogg', true)
   -- GROUND:CharSetAction(ent, 2)
   -- GROUND:CharSetAction(ent, 2)
   -- GROUND:CharSetAction(ent, 2)

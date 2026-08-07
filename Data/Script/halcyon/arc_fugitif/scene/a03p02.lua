@@ -2,7 +2,7 @@
 local a03p02 = {}
 function a03p02.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('Escape Through The Snow', true)
+  SOUND:PlayBGM('Snowbound Path.ogg', true)
   -- GROUND:CharSetAction(ent, 2)
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A03P02_001"))
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A03P02_002"))

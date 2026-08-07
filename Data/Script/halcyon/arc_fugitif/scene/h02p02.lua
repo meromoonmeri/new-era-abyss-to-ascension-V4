@@ -2,7 +2,7 @@
 local h02p02 = {}
 function h02p02.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('Friend Area Deepsea Current', true)
+  SOUND:PlayBGM('Water Cave.ogg', true)
   -- GROUND:CharSetAction(ent, 2)
   -- GROUND:CharSetAction(ent, 2)
   -- GROUND:CharSetAction(ent, 2)

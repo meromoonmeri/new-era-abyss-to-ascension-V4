@@ -2,7 +2,7 @@
 local d01p02 = {}
 function d01p02.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('In The Depths Of The Pit', true)
+  SOUND:PlayBGM('In the Depths of the Pit.ogg', true)
   -- GROUND:CharSetAction(ent, 2)
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D01P02_001"))
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D01P02_002"))

@@ -2,7 +2,7 @@
 local h29p02 = {}
 function h29p02.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('Friend Area Southern Island', true)
+  SOUND:PlayBGM('On the Beach at Dusk.ogg', true)
   -- GROUND:CharSetAction(ent, 2)
   -- GROUND:CharSetAction(ent, 2)
   -- GROUND:CharSetAction(ent, 2)

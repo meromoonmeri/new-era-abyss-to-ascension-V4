@@ -2,7 +2,7 @@
 local t01p06 = {}
 function t01p06.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('Makuhita Dojo', true)
+  SOUND:PlayBGM('Marowak Dojo.ogg', true)
   -- GROUND:CharSetAction(ent, 2)
   -- GROUND:CharSetAction(ent, 2)
   GAME:CutsceneMode(false)

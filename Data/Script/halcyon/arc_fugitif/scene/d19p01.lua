@@ -2,7 +2,7 @@
 local d19p01 = {}
 function d19p01.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('Theres Trouble', true)
+  SOUND:PlayBGM('Growing Anxiety.ogg', true)
   -- GROUND:CharSetAction(ent, 2)
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D19P01_001"))
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D19P01_002"))

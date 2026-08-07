@@ -2,7 +2,7 @@
 local h29p04 = {}
 function h29p04.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('Friend Area Final Island', true)
+  SOUND:PlayBGM('Friend Area Swamp.ogg', true)
   -- GROUND:CharSetAction(ent, 2)
   -- GROUND:CharSetAction(ent, 2)
   -- GROUND:CharSetAction(ent, 2)

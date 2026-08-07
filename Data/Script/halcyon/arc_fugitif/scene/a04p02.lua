@@ -2,7 +2,7 @@
 local a04p02 = {}
 function a04p02.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('Sky Tower', true)
+  SOUND:PlayBGM('Sky Tower.ogg', true)
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A04P02_001"))
   -- GAME:MoveCamera(HeroX, HeroY, 1)
   GAME:CutsceneMode(false)

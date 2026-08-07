@@ -472,7 +472,7 @@ function AccusationArc.Scene5_GuildeProtege(hero, partner)
   local penticus = CH('Tropius')
   local phileas  = CH('Noctowl')
 
-  SOUND:PlayBGM('Wigglytuff\'s Guild.ogg', true)
+  SOUND:PlayBGM("Wigglytuff's Guild.ogg", true)
   GAME:WaitFrames(40)
 
   if penticus ~= nil then

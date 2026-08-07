@@ -2,7 +2,7 @@
 local d08p02 = {}
 function d08p02.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('Theres Trouble', true)
+  SOUND:PlayBGM('Growing Anxiety.ogg', true)
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D08P02_001"))
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D08P02_002"))
   -- GROUND:CharSetAction(ent, 2)

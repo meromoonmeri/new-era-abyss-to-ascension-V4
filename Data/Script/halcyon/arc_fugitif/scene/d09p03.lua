@@ -2,7 +2,7 @@
 local d09p03 = {}
 function d09p03.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('In The Depths Of The Pit', true)
+  SOUND:PlayBGM('In the Depths of the Pit.ogg', true)
   -- GAME:MoveCamera(HeroX, HeroY, 1)
   -- GROUND:CharSetAction(ent, 2)
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D09P03_001"))

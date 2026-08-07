@@ -2,7 +2,7 @@
 local h27p01 = {}
 function h27p01.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('Friend Area Stratos Lookout', true)
+  SOUND:PlayBGM('Flyaway Cliffs.ogg', true)
   -- GROUND:CharSetAction(ent, 2)
   -- GROUND:CharSetAction(ent, 2)
   -- GROUND:CharSetAction(ent, 2)

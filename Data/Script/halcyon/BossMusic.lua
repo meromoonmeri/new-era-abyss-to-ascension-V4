@@ -134,7 +134,7 @@ BossMusic.LIST = {
   -- vents de haute montagne. Sky Tower plutot que Rainbow Peak — le
   -- registre ample et tendu convient a un gardien qui juge, pas a une
   -- ascension contemplative.
-  mount_windswept_guardian = T.CIEL,
+  mount_windswept_guardian = 'Mt. Travail.ogg', -- sommet venteux : musique du donjon (cutscene + rsmap identiques)
 
   ---------------- OMBRE : ce qui vient d'a cote ----------------
   grotte_cryptique    = T.OMBRE,   -- le Versant Inverse

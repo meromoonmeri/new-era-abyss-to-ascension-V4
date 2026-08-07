@@ -2,7 +2,7 @@
 local d07p02 = {}
 function d07p02.Cutscene()
   GAME:CutsceneMode(true)
-  SOUND:PlayBGM('In The Depths Of The Pit', true)
+  SOUND:PlayBGM('In the Depths of the Pit.ogg', true)
   SOUND:FadeOutBGM(60)
   -- GROUND:CharSetAction(ent, 2)
   UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D07P02_001"))
@@ -32,7 +32,7 @@ function d07p02.Cutscene()
   -- GROUND:CharSetAction(ent, 2)
   -- GROUND:CharSetAction(ent, 9)
   -- GROUND:CharSetAction(ent, 2)
-  SOUND:PlayBGM('In The Depths Of The Pit', true)
+  SOUND:PlayBGM('In the Depths of the Pit.ogg', true)
   -- GAME:MoveCamera(HeroX, HeroY, 1)
   -- CAMERA_PAN(512, 10),
   -- CAMERA_PAN(512, 12),
