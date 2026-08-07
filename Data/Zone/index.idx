@@ -2523,6 +2523,71 @@
       "Released": true,
       "SortOrder": 0,
       "Comment": "Donjon canonique PMD Red: 14F, D08P01 entrée, D08P02 sortie; aucune boutique ni Monster House; obscurité 1-4 et 9-14."
+    },
+    "magma_cavern": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 14,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 26,
+      "Rogue": 0,
+      "Grounds": [
+        "gorge_ardente_porte",
+        "gorge_ardente_coeur",
+        "fosse_ardente"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Magma Cavern",
+        "LocalTexts": {
+          "fr": "Magma Cavern — trente ans plus tard"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Canon PMD Red: 23F, D12P02, Pit 3F, D12P04/Groudon."
     }
   }
 }

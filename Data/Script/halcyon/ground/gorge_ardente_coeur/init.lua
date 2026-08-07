@@ -12,7 +12,12 @@ function gorge_ardente_coeur.Init(map)
 end
 
 function gorge_ardente_coeur.Enter(map)
-  FugitiveArc.Play('gorge_ardente_coeur')
+  if SV.CanonicalDungeons and SV.CanonicalDungeons.Pending=='magma_cavern_mid' then
+    local ok,scene=pcall(require,'halcyon.arc_fugitif.scene.d12p02')
+    if ok and scene and scene.Cutscene then pcall(scene.Cutscene) end
+    SV.CanonicalDungeons.Pending=nil;GAME:FadeOut(false,30)
+    GAME:EnterDungeon('magma_cavern',1,0,0,RogueEssence.Data.GameProgress.DungeonStakes.Risk,true,false)
+  else FugitiveArc.Play('gorge_ardente_coeur') end
 end
 
 function gorge_ardente_coeur.Update(map) end

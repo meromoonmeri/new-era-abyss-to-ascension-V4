@@ -1166,7 +1166,8 @@ SV.CanonicalDungeons =
 	MtBlazeCleared = false,
 	FrostyForestCleared = false,
 	MtFreezeCleared = false,
-	LapisCaveCleared = false
+	LapisCaveCleared = false,
+	MagmaCavernCleared = false
 }
 
 --For dojo lessons

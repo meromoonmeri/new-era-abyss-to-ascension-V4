@@ -12,7 +12,17 @@ function fosse_ardente.Init(map)
 end
 
 function fosse_ardente.Enter(map)
-  FugitiveArc.Play('fosse_ardente')
+  if SV.CanonicalDungeons and SV.CanonicalDungeons.Pending=='magma_cavern_pit' then
+    local ok,scene=pcall(require,'halcyon.arc_fugitif.scene.d12p04')
+    if ok and scene and scene.Cutscene then pcall(scene.Cutscene) end
+    -- VFX canonique du port : réveil de Groudon avant le combat.
+    pcall(function()
+      local flame=RogueEssence.Content.SingleEmitter(RogueEssence.Content.AnimData('VFX_Groudon_Awakening_Flame',4))
+      GROUND:PlayVFX(flame,252,252)
+    end)
+    SV.CanonicalDungeons.Pending=nil;GAME:FadeOut(false,30)
+    GAME:EnterDungeon('magma_cavern',2,0,0,RogueEssence.Data.GameProgress.DungeonStakes.Risk,true,false)
+  else FugitiveArc.Play('fosse_ardente') end
 end
 
 function fosse_ardente.Update(map) end
