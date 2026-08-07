@@ -30,7 +30,7 @@ function gloomy_forest_entrance_ch_6.ApproachCutscene()
   if partner then AI:DisableCharacterAI(partner) end
   -- Positions extraites D04P01 : entrée et partenaire du port actif.
   GROUND:TeleportTo(hero, 208, 192, Direction.Up)
-  if partner then GROUND:TeleportTo(partner, 320, 240, Direction.Up) end
+  if partner then GROUND:TeleportTo(partner, 240, 192, Direction.Up) end
   GAME:MoveCamera(224, 176, 1, false)
   SOUND:PlayBGM('Mystifying Forest.ogg', true)
   GAME:FadeIn(30)
@@ -50,14 +50,14 @@ function gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()
   GAME:CutsceneMode(true)
   if partner then AI:DisableCharacterAI(partner) end
 
-  GROUND:TeleportTo(hero, 304, 256, Direction.Up)
-  if partner then GROUND:TeleportTo(partner, 344, 256, Direction.Up) end
+  GROUND:TeleportTo(hero, 224, 208, Direction.Up)
+  if partner then GROUND:TeleportTo(partner, 264, 208, Direction.Up) end
   local adagio, aria, sonata = CharacterEssentials.MakeCharactersFromList({
-    {'Adagio', 320, 192, Direction.Down},
-    {'Aria', 360, 224, Direction.Left},
-    {'Sonata', 288, 224, Direction.Right},
+    {'Adagio', 240, 144, Direction.Down},
+    {'Aria', 280, 176, Direction.Left},
+    {'Sonata', 208, 176, Direction.Right},
   })
-  GAME:MoveCamera(320, 240, 1, false)
+  GAME:MoveCamera(240, 192, 1, false)
   SOUND:PlayBGM('In the Depths of the Pit.ogg', true)
   GAME:FadeIn(30)
 
