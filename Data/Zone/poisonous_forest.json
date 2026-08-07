@@ -1,4 +1,4 @@
-﻿{
+{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -2133,8 +2133,7 @@
     "GroundMaps": [
       "poisonous_forest_entrance",
       "poisonous_forest_relay",
-      "poisonous_forest_miniboss",
-      "poisonous_forest_boss"
+      "poisonous_forest_miniboss"
     ]
   }
 }

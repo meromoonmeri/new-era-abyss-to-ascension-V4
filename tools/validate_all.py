@@ -40,7 +40,7 @@ ROOMS = {
 MAP_ARENAS = {
     'crystal_sanctuary_relay',
     'crystal_sanctuary_miniboss',
-    'sanctuaire_voeu',
+    'crystal_sanctuary_boss',
     'forgotten_marsh_relay',
     'forgotten_marsh_miniboss',
     'forgotten_marsh_boss',

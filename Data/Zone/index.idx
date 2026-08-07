@@ -1011,9 +1011,7 @@
       "Rescues": 2,
       "CountedFloors": 34,
       "Rogue": 0,
-      "Grounds": [
-        "sanctuaire_voeu"
-      ],
+      "Grounds": [],
       "Maps": [
         [
           0,
@@ -1089,8 +1087,7 @@
       "Grounds": [
         "poisonous_forest_entrance",
         "poisonous_forest_relay",
-        "poisonous_forest_miniboss",
-        "poisonous_forest_boss"
+        "poisonous_forest_miniboss"
       ],
       "Maps": [
         [

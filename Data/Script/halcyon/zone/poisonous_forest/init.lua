@@ -137,7 +137,7 @@ function poisonous_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter9.ReachedMarshDepths = true
           SV.Chapter9.SawCercleDuSuaire = true
           PrintInfo("[NREPROBE][transition] marsh seg4 cleared -> boss ground")
-          GAME:EnterGroundMap('poisonous_forest_boss', 'Main_Entrance_Marker')
+          GAME:ContinueDungeon('poisonous_forest', 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
           SV.Chapter9.LostMarshDepths = true
