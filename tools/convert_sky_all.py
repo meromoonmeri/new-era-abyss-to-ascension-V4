@@ -206,18 +206,35 @@ def minimal_period(seq):
     return n
 
 
+
+def build_8slot_bpas(bpc, bpa_list):
+    slots = [None] * 8
+    bpa_pool = list(bpa_list)
+    for lay_idx, lay in enumerate(bpc.layers):
+        for i, n_tiles in enumerate(lay.bpas):
+            if n_tiles > 0:
+                for j, b in enumerate(bpa_pool):
+                    if b.number_of_tiles == n_tiles:
+                        slots[lay_idx * 4 + i] = b
+                        bpa_pool.pop(j)
+                        break
+    return slots
+
 def convert(name, apply=True, group_names=None):
     group = name[:3]
     bpc, bpl, bma, bpas = load(name)
+    slots = build_8slot_bpas(bpc, bpas)
     try:
-        frames = bma.to_pil(bpc, bpl, bpas, include_collision=False,
+        frames = bma.to_pil(bpc, bpl, slots, include_collision=False,
                             include_unknown_data_block=False, pal_ani=True)
-    except Exception:
-        # BPA inexploitables par skytemple (assertion nombre de tuiles) :
-        # rendu sans animation de palette, documenté dans le manifeste.
-        print(f'   (fallback sans BPA pour {name})', flush=True)
-        frames = bma.to_pil(bpc, bpl, [], include_collision=False,
-                            include_unknown_data_block=False, pal_ani=False)
+    except Exception as e:
+        import traceback
+        print(f"❌ Échec bma.to_pil() sur {name} !", file=sys.stderr)
+        print(f"   • BPAs fournis : {[f.number_of_tiles for f in bpas]} tuiles", file=sys.stderr)
+        print(f"   • Slots attendus (BPC) : {[lay.bpas for lay in bpc.layers]}", file=sys.stderr)
+        print(f"   • Cause exacte : {e}", file=sys.stderr)
+        traceback.print_exc()
+        raise
     frames = [f.convert('RGBA') for f in frames]
     W, H = frames[0].size
     tw, th = W // CELL, H // CELL
