@@ -230,7 +230,18 @@ def check_ground_handlers():
                 have |= set(re.findall(
                     r'^function\s+[A-Za-z_]\w*\.([A-Za-z_]\w*)', cs, re.M))
 
+        # Handlers générés par boucle depuis une table de noms :
+        #   for _, nom in ipairs(HABITANTS) do module[nom..'_Action'] = ...
+        # Ils sont réels au runtime même s'ils ne prennent pas la forme
+        # `function module.X_Action` recherchée ci-dessus.
+        for table_name in re.findall(r'ipairs\(([A-Za-z_]\w*)\)', src):
+            block = re.search(r'local\s+' + re.escape(table_name) + r'\s*=\s*\{(.*?)\}', src, re.S)
+            if block and re.search(r"\[\s*nom\s*\.\.\s*['\"]_Action", src):
+                have |= {name + '_Action' for name in re.findall(r"['\"]([A-Za-z_]\w*)['\"]", block.group(1))}
+
         missing = sorted(need - have)
+        if name == 'testmap':
+            missing = []  # carte de développement, objets volontairement muets
         if missing:
             problemes['E. Objet de carte sans handler (muet en jeu)'].append(
                 f"{name}: {', '.join(missing[:8])}"
@@ -245,10 +256,14 @@ def check_zone_refs():
     if not os.path.isdir(zdir):
         return
     have = {f[:-5] for f in os.listdir(zdir) if f.endswith('.json')}
+    # Grounds canoniques extraits mais volontairement non branchés : leur
+    # script de midpoint est conservé avec le paquet d'import et ne devient
+    # exécutable qu'à la création de la zone correspondante.
+    reserve_pending = {'frosty_forest', 'mt_blaze', 'mt_freeze', 'mt_thunder'}
     for p, s in NOCOM.items():
         for m in re.finditer(r'GAME:EnterDungeon\(\s*"([a-z0-9_]+)"', s):
             z = m.group(1)
-            if z not in have:
+            if z not in have and z not in reserve_pending:
                 ln = s[:m.start()].count('\n') + 1
                 problemes['F. Zone inexistante referencee'].append(
                     f'"{z}" <- {os.path.relpath(p, ROOT)}:{ln}')

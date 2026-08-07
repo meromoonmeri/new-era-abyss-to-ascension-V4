@@ -2,10 +2,7 @@
      Ground template d'origine conservé 1:1 ; dialogues New Era.
      Grammaire Rescue Team : signal -> irruption -> recul -> flash -> reveal
      -> titre -> ligne courte. Rematch : intro raccourcie.
-     
-     INTÉGRATION DE L'HISTOIRE DU SANCTUAIRE DE CRISTAL (CHAPITRE 8 - BOSS TERAPAGOS) :
-     Pendant l'histoire (Chapitre 8), cette arène (sanctuaire_voeu) sert de fond de zone.
-     Le boss n'est plus Diancie, mais Terapagos, qui passe par là.
+
 ]]
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
@@ -28,12 +25,6 @@ function sanctuaire_voeu.Enter(map)
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   GAME:CutsceneMode(true)
-
-  -- LIAISON DE L'HISTOIRE DU SANCTUAIRE DE CRISTAL (CHAPITRE 8)
-  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 8 then
-    sanctuaire_voeu.PlayTerapagosScene(hero, partner)
-    return
-  end
 
   GROUND:TeleportTo(hero, 160, 272, Direction.Up)
   if partner ~= nil then GROUND:TeleportTo(partner, 136, 272, Direction.Up) end
@@ -90,72 +81,6 @@ function sanctuaire_voeu.Enter(map)
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
   GAME:ContinueDungeon("wish_cave", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
-end
-
--- ============================================================
--- CINÉMATIQUE DE TERAPAGOS DANS LA GROTTE DU VŒU (CHAPITRE 8)
--- ============================================================
-function sanctuaire_voeu.PlayTerapagosScene(hero, partner)
-  GROUND:TeleportTo(hero, 160, 272, Direction.Up)
-  if partner ~= nil then GROUND:TeleportTo(partner, 136, 272, Direction.Up) end
-  
-  -- Spawner de Terapagos (forme normale ou stellaire selon les besoins)
-  local terapagos = CharacterEssentials.MakeCharactersFromList({{'Terapagos', 176, 144, Direction.Down}})
-  GROUND:Hide('Terapagos')
-  GAME:MoveCamera(176, 136, 1, false)
-  
-  GAME:FadeIn(40)
-  GAME:WaitFrames(30)
-  
-  -- Le duo s'avance lentement vers le centre de la grotte sacrée
-  local walk1 = TASK:BranchCoroutine(function()
-    GeneralFunctions.EightWayMove(hero, 192, 224, false, 1)
-  end)
-  local walk2 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(10)
-    GeneralFunctions.EightWayMove(partner, 160, 224, false, 1)
-  end)
-  TASK:JoinCoroutines({walk1, walk2})
-  GAME:WaitFrames(20)
-  
-  -- Un bruissement et une lueur de cristal azur émerge (effet de flash doux)
-  SOUND:PlaySE("DUN_Will_O_Wisp")
-  GAME:FadeOut(false, 5)
-  GAME:WaitFrames(5)
-  GAME:FadeIn(5)
-  
-  -- Terapagos apparaît dans une aura étincelante
-  GROUND:Unhide('Terapagos')
-  GROUND:CharSetAnim(terapagos, "Idle", true)
-  pcall(function() GROUND:CharSetEmote(partner, "shock", 1) end)
-  SOUND:PlayBattleSE("EVT_Emote_Startled_2")
-  GAME:WaitFrames(25)
-  
-  -- Dialogue de surprise face à Terapagos qui "passe par là"
-  UI:SetSpeaker(partner)
-  GeneralFunctions.SetEmotion("Surprised")
-  UI:WaitShowDialogue("Oh ?! Quel est ce Pokémon étincelant ?[pause=20] Il ressemble à une petite tortue de cristal...")
-  UI:WaitShowDialogue("Il ne semble pas être le gardien d'origine...[pause=15] On dirait qu'il passait juste par là !")
-  
-  -- Terapagos s'éveille et scintille
-  SOUND:PlaySE("DUN_Stat_Up")
-  pcall(function()
-    local shine = RogueEssence.Content.SingleEmitter(RogueEssence.Content.AnimData("VFX_Rayquaza_Hyperbeam_Core", 4))
-    GROUND:PlayVFX(shine, terapagos.Position.X, terapagos.Position.Y)
-  end)
-  GAME:WaitFrames(20)
-  
-  UI:SetSpeaker(terapagos)
-  UI:WaitShowDialogue("Tee-raa...[pause=20] Paa-goos...")
-  
-  UI:SetSpeaker(partner)
-  GeneralFunctions.SetEmotion("Determined")
-  UI:WaitShowDialogue("Il bloque le passage vers la faille de cristal.[pause=20] On n'a pas le choix, {0}, il faut combattre ! En garde !")
-  
-  COMMON.BossTransition()
-  GAME:CutsceneMode(false)
-  -- Lancer le combat de boss Terapagos dans segment 5
-  GAME:ContinueDungeon("waterfall_pond", 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function sanctuaire_voeu.Update(map, time) end

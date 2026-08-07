@@ -1469,8 +1469,9 @@ SV.final_stop =
 
 SV.guildmaster_summit = 
 {
-  ExpositionComplete  = false,
-  BattleComplete = false
+  ExpositionComplete = false,
+  BattleComplete = false,
+  GameComplete = false
 }
 
 ----------------------------------------------

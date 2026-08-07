@@ -160,7 +160,6 @@ BossMusic.LIST = {
   sanctuaire_voeu  = T.NATURE,
   cretes_boreales  = T.NATURE,
   arene_clairiere_secrete = T.NATURE,  -- le jeu, pas la guerre
-  poisonous_forest_boss    = T.NATURE,  -- le marais, ch9
 
   ---------------- TELLURIQUE : la roche et le feu ----------------
   arene_trone_magma = T.TELLURIQUE,
