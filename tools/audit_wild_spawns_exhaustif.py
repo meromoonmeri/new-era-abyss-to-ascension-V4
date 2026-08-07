@@ -23,7 +23,8 @@ SECONDARY_DUNGEONS = [
     "snowbound_path", "thunderstruck_pass", "flyaway_cliffs", "forgotten_silver_spire",
     "rainy_ravine", "mossy_gorge", "windswept_trail", "foggy_hollow",
     "ashen_hollow", "frozen_rift", "whispering_crag", "twilight_marsh",
-    "shivering_cavern", "tempest_ridge", "hollow_thicket", "silent_marsh"
+    "shivering_cavern", "tempest_ridge", "hollow_thicket", "silent_marsh",
+    "aurora_pass", "crystal_crevasse", "roaring_summit", "forgotten_tundra"
 ]
 
 def load_monster_feature_species():

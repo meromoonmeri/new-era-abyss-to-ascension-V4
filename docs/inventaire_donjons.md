@@ -150,7 +150,7 @@
 
 ---
 
-## 6. PROPOSITION DU ROSTER DES DONJONS SECONDAIRES POUR LE CHAPITRE 14 — L'ARC DU CIEL BORÉAL (POUR VALIDATION)
+## 6. ROSTER DES DONJONS SECONDAIRES POUR LE CHAPITRE 14 — L'ARC DU CIEL BORÉAL (GÉNÉRÉS ET VALIDÉS)
 
 > **Contexte Narratif (Chapitre 14)** :  
 > Le Héros et son Partenaire atteignent les sommets ultimes du Nord, sous les aurores boréales et les blizzards constants de la crête glaciaire.  
@@ -166,5 +166,26 @@
 | **`crystal_crevasse`** | **Crevasse Cristalline** | **24 ét.** | Grotte Quartz → Gouffre Glacé | **25 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 8 (`crystal_crevasse_mb1.rsmap`)** : Hexagel le Givre<br>• **Ét. 16 (`crystal_crevasse_mb2.rsmap`)** : Séracrawl la Glace<br>• **Ét. 24 (`crystal_crevasse_boss.rsmap`)** : Kaimorse le Glacier | `crystal_crevasse_relay.rsground` (Biome Cristal Glacé) |
 | **`roaring_summit`** | **Sommet Grondant** | **23 ét.** | Montagne Ventée → Pic Tempête | **24 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 7 (`roaring_summit_mb1.rsmap`)** : Guériaigle l'Élan<br>• **Ét. 15 (`roaring_summit_mb2.rsmap`)** : Corvaillus l'Ombre<br>• **Ét. 23 (`roaring_summit_boss.rsmap`)** : Dracolosse le Sommet | `roaring_summit_relay.rsground` (Biome Sommet) |
 | **`forgotten_tundra`** | **Toundra Oubliée** | **25 ét.** | Plaine Glacée → Désert Blanc | **26 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 8 (`forgotten_tundra_mb1.rsmap`)** : Mammochon le Croc<br>• **Ét. 16 (`forgotten_tundra_mb2.rsmap`)** : Polagriffe la Force<br>• **Ét. 25 (`forgotten_tundra_boss.rsmap`)** : Blizzarroi le Géant | `forgotten_tundra_relay.rsground` (Biome Toundra) |
+
+---
+
+---
+
+## 7. PROPOSITION DU ROSTER DES DONJONS SECONDAIRES POUR LE CHAPITRE 15 — L'ARC DE L'AUBE GLACIALE (POUR VALIDATION)
+
+> **Contexte Narratif (Chapitre 15)** :  
+> Le Héros et son Partenaire traversent la ligne de crête finale du Nord glaciaire, là où les aurores célestes rencontrent les tempêtes magnétiques et les marécages de glace.  
+> **Respect du Framework (§1, §9)** :
+> - **22 à 25 étages d'exploration** par donjon (2 segments de biome, scaling de niveau Lv 46-62, 20 à 50 espèces sauvages vérifiées dans `Content/Chara/`).
+> - **3 arènes d'étage `.rsmap` intégrées** par donjon (aucun ground `.rsground` indépendant pour les boss).
+> - **Zéro concept de Temps ou d'Espace** dans les donjons secondaires.
+> - **Relais Kangourex** au modèle `searing_tunnel_midpoint` adapté au biome.
+
+| Identifiant (`ID`) | Nom Français | Total Étages | Biomes (Seg 1 → Seg 2) | Espèces Sauvages (`20-50/donjon`, Lv 46-62) | Les 3 Arènes d'Étage (`.rsmap` intégrées, adaptées au biome) | Relais (Modèle Tunnel Incandescent + Kangourex) |
+| :--- | :--- | :---: | :--- | :--- | :--- | :--- |
+| **`shimmering_glacier`** | **Glacier Scintillant** | **22 ét.** | Vallée Givre → Faille Scintillante | **26 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 7 (`shimmering_glacier_mb1.rsmap`)** : Momartik le Souffle<br>• **Ét. 14 (`shimmering_glacier_mb2.rsmap`)** : Blizzarroi le Givre<br>• **Ét. 22 (`shimmering_glacier_boss.rsmap`)** : Feunard d'Alola le Givre | `shimmering_glacier_relay.rsground` (Biome Glacial) |
+| **`tempest_gorge`** | **Gorge de la Tempête** | **24 ét.** | Ravin Orage → Caverne Foudre | **25 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 8 (`tempest_gorge_mb1.rsmap`)** : Élekable l'Éclair<br>• **Ét. 16 (`tempest_gorge_mb2.rsmap`)** : Magnézone le Flux<br>• **Ét. 24 (`tempest_gorge_boss.rsmap`)** : Fulguris la Foudre | `tempest_gorge_relay.rsground` (Biome Orage) |
+| **`bramble_crag`** | **Crête de Ronces** | **23 ét.** | Crête Ronce → Sommet Épine | **24 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 7 (`bramble_crag_mb1.rsmap`)** : Desséliande l'Écorce<br>• **Ét. 15 (`bramble_crag_mb2.rsmap`)** : Banshitrouye l'Ombre<br>• **Ét. 23 (`bramble_crag_boss.rsmap`)** : Zarude le Sommet | `bramble_crag_relay.rsground` (Biome Ronce) |
+| **`misty_marshland`** | **Marécage Brumeux** | **25 ét.** | Marais Brume → Tourbière Glaciale | **26 espèces**<br>*(Stade 1 → Évolué)* | • **Ét. 8 (`misty_marshland_mb1.rsmap`)** : Muplodocus la Brume<br>• **Ét. 16 (`misty_marshland_mb2.rsmap`)** : Tarpaud le Silence<br>• **Ét. 25 (`misty_marshland_boss.rsmap`)** : Muplodocus de Hisui le Givre | `misty_marshland_relay.rsground` (Biome Tourbière) |
 
 ---

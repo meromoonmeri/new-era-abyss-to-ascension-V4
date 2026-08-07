@@ -293,6 +293,43 @@ Libérez les sentiers pour les habitants forestiers.",
     flavor = "Le Marais Silencieux est privé de musique par un gardien en armure d'acier.
 Ramenez le chant des pluies.",
   },
+  {
+    chapter = 14, zone = 'aurora_pass', segment = 0, floor = 10,
+    client = 'vulpix', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'vulpix', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'S', reward = 'money',
+    title = "L'aurore boréale",
+    flavor = "Un blizzard obscurcit le ciel du Col de l'Aurore et prive notre clan de lumière.
+Sécurisez le sommet nordique.",
+  },
+  {
+    chapter = 14, zone = 'crystal_crevasse', segment = 0, floor = 12,
+    client = 'snorunt', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'snorunt', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'S', reward = 'money',
+    title = "Le miroir glacé",
+    flavor = "La Crevasse Cristalline est assombrie par un géant des mers glaciaires.
+Aidez-nous à restaurer l'éclat des cristaux.",
+  },
+  {
+    chapter = 14, zone = 'roaring_summit', segment = 0, floor = 11,
+    client = 'pidgeotto', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'pidgeotto', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'S', reward = 'money',
+    title = "Le dragon du sommet",
+    flavor = "Des ouragans perpétuels empêchent la patrouille aérienne du Sommet Grondant.
+Apaiser les vents au sommet.",
+  },
+  {
+    chapter = 14, zone = 'forgotten_tundra', segment = 0, floor = 12,
+    client = 'swinub', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'swinub', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'A', reward = 'money',
+    title = "La plaine blanche",
+    flavor = "Le permafrost de la Toundra Oubliée est piétiné par un monarque des neiges.
+Protégez nos champs de baies polaires.",
+  },
+
 
 
 
