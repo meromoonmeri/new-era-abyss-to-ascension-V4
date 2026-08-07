@@ -50,14 +50,14 @@ function gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()
   GAME:CutsceneMode(true)
   if partner then AI:DisableCharacterAI(partner) end
 
-  GROUND:TeleportTo(hero, 224, 208, Direction.Up)
-  if partner then GROUND:TeleportTo(partner, 264, 208, Direction.Up) end
+  GROUND:TeleportTo(hero, 256, 256, Direction.Up)
+  if partner then GROUND:TeleportTo(partner, 296, 256, Direction.Up) end
   local adagio, aria, sonata = CharacterEssentials.MakeCharactersFromList({
-    {'Adagio', 240, 144, Direction.Down},
-    {'Aria', 280, 176, Direction.Left},
-    {'Sonata', 208, 176, Direction.Right},
+    {'Adagio', 272, 192, Direction.Down},
+    {'Aria', 312, 224, Direction.Left},
+    {'Sonata', 240, 224, Direction.Right},
   })
-  GAME:MoveCamera(240, 192, 1, false)
+  GAME:MoveCamera(272, 240, 1, false)
   SOUND:PlayBGM('In the Depths of the Pit.ogg', true)
   GAME:FadeIn(30)
 
