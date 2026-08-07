@@ -223,6 +223,9 @@ def check_ground_handlers():
         # absent. On accepte donc n'importe quel prefixe de module.
         have = set(re.findall(r'^function\s+[A-Za-z_]\w*\.([A-Za-z_]\w*)',
                               src, re.M))
+        # Fonctions créées par affectation (alias/factory), par exemple
+        # `module.Sign_Action = Panneau(...)`.
+        have |= set(re.findall(r'^[A-Za-z_]\w*\.([A-Za-z_]\w*)\s*=', src, re.M))
         # certains fichiers delegent tout : on considere le chapitre courant
         for ch_file in sorted(os.listdir(os.path.dirname(sp))):
             if ch_file.startswith(name + '_ch_') and ch_file.endswith('.lua'):
