@@ -26,6 +26,7 @@ import glob
 import hashlib
 import io
 import json
+import re
 import math
 import os
 import struct
@@ -142,7 +143,12 @@ GROUP_NAMES = {
 
 def load(name):
     base = os.path.join(SRC, name)
-    bpc = BpcHandler.deserialize(open(base + '.bpc', 'rb').read())
+    # Variantes *2 : le .bpc est partagé avec la map de base (ex. g01p01a2 -> g01p01a.bpc)
+    bpc_path = base + '.bpc'
+    if not os.path.exists(bpc_path):
+        alt = re.sub(r'\d$', '', name)
+        bpc_path = os.path.join(SRC, alt + '.bpc')
+    bpc = BpcHandler.deserialize(open(bpc_path, 'rb').read())
     bpl = BplHandler.deserialize(open(base + '.bpl', 'rb').read())
     bma = BmaHandler.deserialize(open(base + '.bma', 'rb').read())
     bpas = []
@@ -365,7 +371,7 @@ def main():
     if '--ids' in sys.argv:
         i = sys.argv.index('--ids')
         only = set(sys.argv[i + 1].split(','))
-    maps = sorted(os.path.basename(f)[:-4] for f in glob.glob(SRC + '/d*.bma'))
+    maps = sorted(os.path.basename(f)[:-4] for f in glob.glob(SRC + '/*.bma'))
     if only:
         maps = [m for m in maps if m in only]
     print(f'{len(maps)} maps à convertir (apply={apply})', flush=True)
