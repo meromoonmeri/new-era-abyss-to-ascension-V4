@@ -2476,6 +2476,53 @@
       "Released": true,
       "SortOrder": 0,
       "Comment": "Donjon canonique PMD Red: Mt. Freeze 15F, D11P02, Peak 5F, D11P03/Ninetales. Recasting New Era; aucune fausse bataille ajoutée."
+    },
+    "lapis_cave": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 14,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 14,
+      "Rogue": 0,
+      "Grounds": [
+        "grotte_lazuli_seuil",
+        "grotte_lazuli_fond"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Lapis Cave",
+        "LocalTexts": {
+          "fr": "Lapis Cave — trente ans plus tard"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Donjon canonique PMD Red: 14F, D08P01 entrée, D08P02 sortie; aucune boutique ni Monster House; obscurité 1-4 et 9-14."
     }
   }
 }

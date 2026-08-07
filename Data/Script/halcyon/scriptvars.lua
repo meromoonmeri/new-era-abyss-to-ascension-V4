@@ -1165,7 +1165,8 @@ SV.CanonicalDungeons =
 	Pending = nil,
 	MtBlazeCleared = false,
 	FrostyForestCleared = false,
-	MtFreezeCleared = false
+	MtFreezeCleared = false,
+	LapisCaveCleared = false
 }
 
 --For dojo lessons

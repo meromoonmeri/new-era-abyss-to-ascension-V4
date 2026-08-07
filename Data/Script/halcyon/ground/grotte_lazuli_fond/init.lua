@@ -12,7 +12,12 @@ function grotte_lazuli_fond.Init(map)
 end
 
 function grotte_lazuli_fond.Enter(map)
-  FugitiveArc.Play('grotte_lazuli_fond')
+  if SV.CanonicalDungeons and SV.CanonicalDungeons.Pending=='lapis_cave_exit' then
+    local ok,scene=pcall(require,'halcyon.arc_fugitif.scene.d08p02')
+    if ok and scene and scene.Cutscene then pcall(scene.Cutscene) end
+    SV.CanonicalDungeons.Pending=nil;SV.CanonicalDungeons.LapisCaveCleared=true
+    GAME:FadeOut(false,30);GAME:EnterZone('master_zone',-1,1,0)
+  else FugitiveArc.Play('grotte_lazuli_fond') end
 end
 
 function grotte_lazuli_fond.Update(map) end
