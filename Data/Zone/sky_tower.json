@@ -1,4 +1,4 @@
-﻿{
+{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -1523,6 +1523,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 25
                 }
               },
               {
@@ -1539,6 +1543,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 25
                 }
               },
               {
@@ -1555,6 +1563,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 25
                 }
               },
               {
@@ -1571,6 +1583,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 25
                 }
               },
               {
@@ -1587,6 +1603,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 25
                 }
               },
               {
@@ -1603,6 +1623,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 25
                 }
               },
               {
@@ -1619,6 +1643,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 25
                 }
               },
               {
@@ -1635,6 +1663,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 25
                 }
               },
               {
@@ -1651,6 +1683,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 25
                 }
               },
               {
@@ -1667,6 +1703,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 25
                 }
               },
               {
@@ -1683,6 +1723,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 25
                 }
               },
               {
@@ -1699,6 +1743,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 25
                 }
               },
               {
@@ -1715,6 +1763,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 25
                 }
               },
               {
@@ -1731,6 +1783,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 25
                 }
               },
               {
@@ -1747,6 +1803,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 25
                 }
               },
               {
@@ -1763,6 +1823,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 25
                 }
               }
             ],
@@ -7383,6 +7447,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 9
                 }
               },
               {
@@ -7399,6 +7467,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 9
                 }
               },
               {
@@ -7415,6 +7487,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 9
                 }
               },
               {
@@ -7431,6 +7507,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 9
                 }
               },
               {
@@ -7447,6 +7527,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 9
                 }
               },
               {
@@ -7463,6 +7547,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 9
                 }
               },
               {
@@ -7479,6 +7567,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 9
                 }
               }
             ],
@@ -13099,6 +13191,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 4
                 }
               },
               {
@@ -13115,6 +13211,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 4
                 }
               },
               {
@@ -13131,6 +13231,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 4
                 }
               },
               {
@@ -13147,6 +13251,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 4
                 }
               },
               {
@@ -13163,6 +13271,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 4
                 }
               },
               {
@@ -13179,6 +13291,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 4
                 }
               },
               {
@@ -13195,6 +13311,10 @@
                   "IntrinsicState": [],
                   "CharStates": [],
                   "BaseSkills": []
+                },
+                "Range": {
+                  "Min": 0,
+                  "Max": 4
                 }
               }
             ],
