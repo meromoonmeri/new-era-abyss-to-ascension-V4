@@ -1,4 +1,4 @@
-﻿{
+{
   "Version": "0.8.12.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -54,11 +54,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
-                  "CellY": 4,
-                  "CellWall": 1,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 5,
+                  "CellY": 3,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -71,12 +71,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 85,
+                    "Max": 100
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 15,
+                    "Max": 45
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -102,21 +102,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 12
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 12
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -132,17 +132,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -165,7 +165,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 55,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -181,17 +181,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -648,11 +648,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
-                  "CellY": 4,
-                  "CellWall": 1,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 5,
+                  "CellY": 3,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -665,12 +665,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 85,
+                    "Max": 100
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 15,
+                    "Max": 45
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -696,21 +696,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 12
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 12
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -726,17 +726,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -759,7 +759,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 55,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -775,17 +775,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -1242,11 +1242,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
-                  "CellY": 4,
-                  "CellWall": 1,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 5,
+                  "CellY": 3,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -1259,12 +1259,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 85,
+                    "Max": 100
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 15,
+                    "Max": 45
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -1290,21 +1290,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 12
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 12
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -1320,17 +1320,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -1353,7 +1353,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 55,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -1369,17 +1369,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -1836,11 +1836,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
-                  "CellY": 4,
-                  "CellWall": 1,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 5,
+                  "CellY": 3,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -1853,12 +1853,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 85,
+                    "Max": 100
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 15,
+                    "Max": 45
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -1884,21 +1884,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 12
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 12
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -1914,17 +1914,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -1947,7 +1947,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 55,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -1963,17 +1963,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -2430,11 +2430,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
-                  "CellY": 4,
-                  "CellWall": 1,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 5,
+                  "CellY": 3,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -2447,12 +2447,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 85,
+                    "Max": 100
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 15,
+                    "Max": 45
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -2478,21 +2478,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 12
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 12
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -2508,17 +2508,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -2541,7 +2541,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 55,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -2557,17 +2557,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -3024,11 +3024,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
-                  "CellY": 4,
-                  "CellWall": 1,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 5,
+                  "CellY": 3,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -3041,12 +3041,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 85,
+                    "Max": 100
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 15,
+                    "Max": 45
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -3072,21 +3072,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 12
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 12
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -3102,17 +3102,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -3135,7 +3135,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 55,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -3151,17 +3151,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -3618,11 +3618,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
-                  "CellY": 4,
-                  "CellWall": 1,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 5,
+                  "CellY": 3,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -3635,12 +3635,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 85,
+                    "Max": 100
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 15,
+                    "Max": 45
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -3666,21 +3666,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 12
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 12
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -3696,17 +3696,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -3729,7 +3729,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 55,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -3745,17 +3745,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -4212,11 +4212,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
-                  "CellY": 4,
-                  "CellWall": 1,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 5,
+                  "CellY": 3,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -4229,12 +4229,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 85,
+                    "Max": 100
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 15,
+                    "Max": 45
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -4260,21 +4260,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 12
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 12
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -4290,17 +4290,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -4323,7 +4323,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 55,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -4339,17 +4339,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -4806,11 +4806,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
-                  "CellY": 4,
-                  "CellWall": 1,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 6,
+                  "CellY": 3,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -4823,12 +4823,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 80,
+                    "Max": 97
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 20,
+                    "Max": 46
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -4854,21 +4854,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 13
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 13
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -4884,17 +4884,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -4917,7 +4917,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 50,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -4933,17 +4933,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -5400,11 +5400,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
-                  "CellY": 4,
-                  "CellWall": 1,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 6,
+                  "CellY": 3,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -5417,12 +5417,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 80,
+                    "Max": 97
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 20,
+                    "Max": 46
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -5448,21 +5448,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 13
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 13
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -5478,17 +5478,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -5511,7 +5511,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 50,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -5527,17 +5527,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -5994,11 +5994,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
-                  "CellY": 4,
-                  "CellWall": 1,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 6,
+                  "CellY": 3,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -6011,12 +6011,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 80,
+                    "Max": 97
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 20,
+                    "Max": 46
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -6042,21 +6042,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 13
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 13
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -6072,17 +6072,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -6105,7 +6105,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 50,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -6121,17 +6121,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -6588,11 +6588,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
-                  "CellY": 4,
-                  "CellWall": 1,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 6,
+                  "CellY": 3,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -6605,12 +6605,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 80,
+                    "Max": 97
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 20,
+                    "Max": 46
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -6636,21 +6636,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 13
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 13
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -6666,17 +6666,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -6699,7 +6699,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 50,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -6715,17 +6715,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -7182,11 +7182,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
-                  "CellY": 4,
-                  "CellWall": 1,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 6,
+                  "CellY": 3,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -7199,12 +7199,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 80,
+                    "Max": 97
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 20,
+                    "Max": 46
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -7230,21 +7230,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 13
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 13
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -7260,17 +7260,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -7293,7 +7293,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 50,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -7309,17 +7309,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -7776,11 +7776,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
-                  "CellY": 4,
-                  "CellWall": 1,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 6,
+                  "CellY": 3,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -7793,12 +7793,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 80,
+                    "Max": 97
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 20,
+                    "Max": 46
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -7824,21 +7824,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 13
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 13
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -7854,17 +7854,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -7887,7 +7887,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 50,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -7903,17 +7903,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -8370,11 +8370,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
-                  "CellY": 4,
-                  "CellWall": 1,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 6,
+                  "CellY": 3,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -8387,12 +8387,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 80,
+                    "Max": 97
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 20,
+                    "Max": 46
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -8418,21 +8418,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 13
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 13
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -8448,17 +8448,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -8481,7 +8481,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 50,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -8497,17 +8497,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -8964,11 +8964,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
-                  "CellY": 4,
-                  "CellWall": 1,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 6,
+                  "CellY": 3,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -8981,12 +8981,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 80,
+                    "Max": 97
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 20,
+                    "Max": 46
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -9012,21 +9012,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 13
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 13
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -9042,17 +9042,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -9075,7 +9075,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 50,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -9091,17 +9091,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -9558,11 +9558,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 5,
                   "CellY": 4,
-                  "CellWall": 1,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -9575,12 +9575,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 75,
+                    "Max": 94
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 25,
+                    "Max": 47
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -9606,21 +9606,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 14
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 14
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -9636,17 +9636,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -9669,7 +9669,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 45,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -9685,17 +9685,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -10152,11 +10152,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 5,
                   "CellY": 4,
-                  "CellWall": 1,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -10169,12 +10169,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 75,
+                    "Max": 94
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 25,
+                    "Max": 47
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -10200,21 +10200,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 14
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 14
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -10230,17 +10230,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -10263,7 +10263,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 45,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -10279,17 +10279,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -10746,11 +10746,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 5,
                   "CellY": 4,
-                  "CellWall": 1,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -10763,12 +10763,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 75,
+                    "Max": 94
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 25,
+                    "Max": 47
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -10794,21 +10794,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 14
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 14
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -10824,17 +10824,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -10857,7 +10857,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 45,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -10873,17 +10873,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -11340,11 +11340,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 5,
                   "CellY": 4,
-                  "CellWall": 1,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -11357,12 +11357,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 75,
+                    "Max": 94
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 25,
+                    "Max": 47
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -11388,21 +11388,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 14
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 14
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -11418,17 +11418,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -11451,7 +11451,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 45,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -11467,17 +11467,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -11934,11 +11934,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 5,
                   "CellY": 4,
-                  "CellWall": 1,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -11951,12 +11951,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 75,
+                    "Max": 94
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 25,
+                    "Max": 47
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -11982,21 +11982,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 14
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 14
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -12012,17 +12012,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -12045,7 +12045,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 45,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -12061,17 +12061,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -12528,11 +12528,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 5,
                   "CellY": 4,
-                  "CellWall": 1,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -12545,12 +12545,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 75,
+                    "Max": 94
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 25,
+                    "Max": 47
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -12576,21 +12576,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 14
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 14
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -12606,17 +12606,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -12639,7 +12639,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 45,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -12655,17 +12655,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -13122,11 +13122,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 5,
                   "CellY": 4,
-                  "CellWall": 1,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -13139,12 +13139,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 75,
+                    "Max": 94
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 25,
+                    "Max": 47
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -13170,21 +13170,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 14
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 14
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -13200,17 +13200,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -13233,7 +13233,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 45,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -13249,17 +13249,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -13716,11 +13716,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 5,
                   "CellY": 4,
-                  "CellWall": 1,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -13733,12 +13733,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 75,
+                    "Max": 94
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 25,
+                    "Max": 47
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -13764,21 +13764,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 14
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 14
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -13794,17 +13794,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -13827,7 +13827,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 45,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -13843,17 +13843,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
@@ -14310,11 +14310,11 @@
                 },
                 "Value": {
                   "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "CellWidth": 10,
-                  "CellHeight": 10,
-                  "CellX": 4,
+                  "CellWidth": 9,
+                  "CellHeight": 9,
+                  "CellX": 6,
                   "CellY": 4,
-                  "CellWall": 1,
+                  "CellWall": 2,
                   "Wrap": false
                 }
               },
@@ -14327,12 +14327,12 @@
                 "Value": {
                   "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                   "RoomRatio": {
-                    "Min": 90,
-                    "Max": 90
+                    "Min": 70,
+                    "Max": 91
                   },
                   "BranchRatio": {
-                    "Min": 0,
-                    "Max": 25
+                    "Min": 30,
+                    "Max": 48
                   },
                   "NoForcedBranches": false,
                   "GenericRooms": {
@@ -14358,21 +14358,21 @@
                             "Max": 6
                           }
                         },
-                        "Rate": 10
+                        "Rate": 16
                       },
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
                           "Width": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 15
                           },
                           "Height": {
-                            "Min": 5,
-                            "Max": 9
+                            "Min": 7,
+                            "Max": 15
                           }
                         },
-                        "Rate": 10
+                        "Rate": 2
                       }
                     ]
                   },
@@ -14388,17 +14388,17 @@
                       {
                         "Spawn": {
                           "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 50,
+                          "HallTurnBias": 5,
                           "Brush": {
                             "$type": "RogueElements.DefaultHallBrush, RogueElements"
                           },
                           "Width": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           },
                           "Height": {
-                            "Min": 0,
-                            "Max": 0
+                            "Min": 2,
+                            "Max": 4
                           }
                         },
                         "Rate": 10
@@ -14421,7 +14421,7 @@
                 },
                 "Value": {
                   "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                  "ConnectPercent": 75,
+                  "ConnectPercent": 40,
                   "Filters": [
                     {
                       "$type": "RogueElements.RoomFilterComponent, RogueElements",
@@ -14437,17 +14437,17 @@
                     "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
                     "ToSpawn": {
                       "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "HallTurnBias": 50,
+                      "HallTurnBias": 5,
                       "Brush": {
                         "$type": "RogueElements.DefaultHallBrush, RogueElements"
                       },
                       "Width": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       },
                       "Height": {
-                        "Min": 0,
-                        "Max": 0
+                        "Min": 2,
+                        "Max": 4
                       }
                     }
                   },
