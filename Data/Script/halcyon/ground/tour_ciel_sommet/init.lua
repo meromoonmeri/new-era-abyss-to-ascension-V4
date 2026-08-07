@@ -1,49 +1,16 @@
---[[ Sommet de la Tour Céleste (Sky Tower Summit) — CLIMAX RAYQUAZA.
+--[[ SKY TOWER SUMMIT — D13P03 / gs209 (PMD Red Rescue Team).
 
-     ------------------------------------------------------------------
-     ORIGINE DU DÉCOR
-     ------------------------------------------------------------------
-     Converti depuis Sky_Tower_summit_RTRB.png (Rescue Team Red/Blue) par
-     tools/png2tileset.py, planche « Sky_Tower_Summit_Base », 4968 tuiles,
-     relecture sans écart. PNG source 551 px de large — largeur IMPAIRE,
-     non divisible par la maille de 8 px : recadré en 552 par duplication
-     de la dernière colonne (ciel uni, raccord invisible).
+     Ground et tileset importés 1:1 depuis meromoonmeri/PMD-RED-PMDO-PORT.
+     Géométrie 69x75, collision et marqueurs canoniques conservés :
+       héros/entrée (296,296), partenaire (256,296),
+       Rayquaza (272,272), déclencheur/caméra (272,280).
 
-     Carte 552x576 px. Sol praticable = le disque de nuage central,
-     isolé par remplissage connexe (les nuages du fond ont la même
-     teinte mais ne touchent pas le plateau). Étendue x 144..392,
-     y 224..464.
-
-     ------------------------------------------------------------------
-     POURQUOI RAYQUAZA EST ICI, ET PLUS À L'AUTEL
-     ------------------------------------------------------------------
-     Canoniquement (Rescue Team), Rayquaza se combat au SOMMET DE LA TOUR
-     CÉLESTE. Il était jusqu'ici dans autel_celeste, bâti sur les tilesets
-     Mount_Windswept_* — un pic, pas une tour.
-
-     La scène n'a PAS été réécrite : elle est transposée telle quelle,
-     mêmes répliques, mêmes clés CPB_001..CPB_017, mêmes effets. Seules
-     les coordonnées changent, recalées sur le disque de nuage et
-     vérifiées libres case par case (les 4 cases de 8 px de chaque boîte
-     16x16). Les deux .resx sont copiés dans ce dossier : STRINGS.MapStrings
-     est PROPRE À CHAQUE CARTE, chaque ground charge le .resx de son
-     propre dossier.
-
-       héros     (284, 400)   bas du disque, il monte vers Rayquaza
-       partenaire(252, 400)   à sa gauche
-       Rayquaza  (268, 264)   haut du disque, il descend du ciel
-       caméra    (268, 330)   entre les deux
-
-     ------------------------------------------------------------------
-     DEUX ACTES, COMME À L'AUTEL
-     ------------------------------------------------------------------
-     ACTE 1  Enter() — Rayquaza fend les nuages, se pose, provoque.
-             Enchaîne sur celestial_peak segment 5 (le combat).
-     ACTE 2  PlayPostVictoryScene — la météorite, le clin d'oeil à
-             l'équipe d'origine, la bascule Chapter = 11.
-
-     Le segment 5 de celestial_peak revient désormais ICI et non plus à
-     autel_celeste (zone/celestial_peak/init.lua).
+     La cinématique New Era transpose le casting sans changer la grammaire
+     de gs209/d13p03 : Domaine de Rayquaza, double flash 8f, rugissement et
+     secousse, flash 30f/retour 16f, confrontation, combat, puis séquence
+     météorite/hyperbeam. Les dialogues racontent l'état du monde trente ans
+     plus tard, mais le lieu, les positions, les VFX et le rythme restent
+     ceux du sommet canonique.
 ]]--
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
@@ -97,8 +64,8 @@ function tour_ciel_sommet.ArrivalBody()
   -- Rejouabilité : après la fin du jeu, le sommet est désert.
   if ReplayEnding.IsReplay('sky_tower', 10) then
     ReplayEnding.EmptyArena({
-      hero = {284, 400}, partner = {252, 400},
-      camera = {268, 330}, look = {268, 264},
+      hero = {296, 296}, partner = {256, 296},
+      camera = {272, 280}, look = {272, 272},
       walk = 48, title = true, music = 'Sky Tower.ogg',
     })
     return
@@ -106,24 +73,34 @@ function tour_ciel_sommet.ArrivalBody()
 
   GAME:CutsceneMode(true)
   if partner ~= nil then AI:DisableCharacterAI(partner) end
-  GROUND:TeleportTo(hero, 284, 400, Direction.Up)
-  if partner ~= nil then GROUND:TeleportTo(partner, 252, 400, Direction.Up) end
-  GAME:MoveCamera(268, 330, 1, false)
+  GROUND:TeleportTo(hero, 296, 296, Direction.Up)
+  if partner ~= nil then GROUND:TeleportTo(partner, 256, 296, Direction.Up) end
+  GAME:MoveCamera(272, 280, 1, false)
   pcall(function() SOUND:PlayBGM('Sky Tower.ogg', true) end)
   GAME:FadeIn(40)
   GAME:WaitFrames(30)
 
   UI:ResetSpeaker(false)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CPB_001']))
+  -- Cadence exacte extraite de d13p03.cif.json (gs209) : deux éclairs,
+  -- rugissement/secousse, puis révélation longue.
+  GAME:FadeOut(true, 8)
+  GAME:FadeIn(8)
+  GAME:FadeOut(true, 8)
+  GAME:FadeIn(8)
+  SOUND:PlayBattleSE('EVT_Roar')
+  pcall(function() GAME:ScreenShake(4, 4, 20) end)
   GAME:WaitFrames(20)
+  GAME:FadeOut(true, 30)
+  GAME:FadeIn(16)
 
   -- ------------------------------------------------------------
   -- Couche 2 — il fend les nuages. Descente verticale reelle,
   -- puis souffle qui repousse le groupe.
   -- ------------------------------------------------------------
-  local rayquaza = CharacterEssentials.MakeCharactersFromList({{'Rayquaza', 268, 264, Direction.Down}})
+  local rayquaza = CharacterEssentials.MakeCharactersFromList({{'Rayquaza', 272, 272, Direction.Down}})
   GROUND:Hide('Rayquaza')
-  BossFX.DescendSky(rayquaza, 268, 264, 160)
+  BossFX.DescendSky(rayquaza, 272, 272, 160)
 
   BossFX.PushBack({hero, partner}, Direction.Down)
   pcall(function()
@@ -137,7 +114,7 @@ function tour_ciel_sommet.ArrivalBody()
   -- ------------------------------------------------------------
   GROUND:CharSetAnim(rayquaza, "Attack", false)
   SOUND:PlaySE("DUN_Thundurus_Spawn")
-  pcall(function() BossFX.Flash(268, 264, 4, 6, 30) end)
+  pcall(function() BossFX.Flash(272, 272, 4, 6, 30) end)
   GAME:WaitFrames(25)
   GROUND:CharSetAnim(rayquaza, "Idle", true)
 
@@ -177,13 +154,13 @@ end
 -- ============================================================
 
 function tour_ciel_sommet.PlayPostVictoryScene(hero, partner)
-  local rayquaza = CharacterEssentials.MakeCharactersFromList({{'Rayquaza', 268, 264, Direction.Down}})
+  local rayquaza = CharacterEssentials.MakeCharactersFromList({{'Rayquaza', 272, 272, Direction.Down}})
   
   -- Rayquaza est blessé, à bout de forces
   GROUND:CharSetAnim(rayquaza, "Pain", true)
-  GROUND:TeleportTo(hero, 284, 400, Direction.Up)
-  GROUND:TeleportTo(partner, 252, 400, Direction.Up)
-  GAME:MoveCamera(268, 330, 1, false)
+  GROUND:TeleportTo(hero, 296, 296, Direction.Up)
+  GROUND:TeleportTo(partner, 256, 296, Direction.Up)
+  GAME:MoveCamera(272, 280, 1, false)
   
   GAME:FadeIn(30)
   GAME:WaitFrames(20)
@@ -240,8 +217,20 @@ function tour_ciel_sommet.PlayPostVictoryScene(hero, partner)
   UI:SetCenter(true)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CPB_013']))
   
-  -- Flashs et explosions dans le ciel
+  -- Flashs et explosions dans le ciel. Les deux VFX proviennent du port
+  -- canonique PMD-RED-PMDO-PORT et sont vérifiés octet pour octet.
   SOUND:PlaySE("DUN_Hyper_Beam")
+  pcall(function()
+    local core = RogueEssence.Content.SingleEmitter(
+      RogueEssence.Content.AnimData("VFX_Rayquaza_Hyperbeam_Core", 4))
+    GROUND:PlayVFX(core, rayquaza.Position.X, rayquaza.Position.Y)
+  end)
+  GAME:WaitFrames(8)
+  pcall(function()
+    local meteor = RogueEssence.Content.SingleEmitter(
+      RogueEssence.Content.AnimData("VFX_Meteor_Fragment", 4))
+    GROUND:PlayVFX(meteor, 272, 224)
+  end)
   GAME:FadeOut(false, 2)
   GAME:WaitFrames(10)
   GAME:FadeIn(2)

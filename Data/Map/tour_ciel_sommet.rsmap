@@ -7,7 +7,7 @@
       "LocalTexts": {}
     },
     "Released": true,
-    "Comment": "Étage-arène 1:1 du ground tour_ciel_sommet (pixel-perfect, méthode make_ground_arena.py). Aucune différence visuelle entre l'exploration et le combat.",
+    "Comment": "Arène intégrée du sommet canonique D13P03/gs209. Ground source 1:1 PMD-RED-PMDO-PORT; Rayquaza seul.",
     "Begun": false,
     "ID": 0,
     "MapTeams": [
@@ -274,7 +274,7 @@
     },
     "AssetName": "tour_ciel_sommet",
     "ScriptEvents": {},
-    "Music": "Team_Dazzling.ogg",
+    "Music": "Sky Tower.ogg",
     "TileSight": 0,
     "CharSight": 0,
     "Status": {
