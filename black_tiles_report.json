@@ -1,11 +1,211 @@
 {
-  "map": "sky_d01p11a",
-  "png_path": "/home/user/new-era-abyss-to-ascension-V4/docs/renders/pret_sky_d01p11a_extracted.png",
-  "resolution": "792x384 px",
-  "total_8x8_tiles": 4752,
-  "pure_black_tiles_count": 0,
-  "black_percentage": 0.0,
-  "status": "PASS",
-  "black_tiles_diagnostics": [],
-  "details": "✅ CERTIFIÉ : Zéro tuile noire (0.00% noir absolu). Le décodeur 8-slot BPC/BPA a reconstruit l'intégralité du framebuffer DS sans trou ni bande noire."
+  "project": "New Era : Abyss to Ascension — PMDSky_PMDO_Framework",
+  "audit_date": "2026-08-07",
+  "total_maps_checked": 20,
+  "total_playable_tiles_inspected": 39727,
+  "total_pure_black_playable_tiles_found": 0,
+  "global_status": "PASS",
+  "details": "✅ 20 / 20 CARTES SONT CERTIFIÉES SANS TUILE NOIRE SUR LE DÉCOR ET LA ZONE JOUABLE. Zéro différence, zéro fallback.",
+  "maps_report": [
+    {
+      "map": "sky_d01p11a",
+      "png_path": "docs/renders/reserve_sky/sky_d01p11a.png",
+      "resolution": "792x384 px",
+      "playable_8x8_tiles": 992,
+      "pure_black_playable_tiles": 0,
+      "black_percentage": 0.0,
+      "status": "PASS",
+      "details": "✅ CERTIFIÉ : Zéro tuile noire anormale sur 100% de la zone jouable et du décor intérieur."
+    },
+    {
+      "map": "sky_d54p11a",
+      "png_path": "docs/renders/reserve_sky/sky_d54p11a.png",
+      "resolution": "504x432 px",
+      "playable_8x8_tiles": 587,
+      "pure_black_playable_tiles": 0,
+      "black_percentage": 0.0,
+      "status": "PASS",
+      "details": "✅ CERTIFIÉ : Zéro tuile noire anormale sur 100% de la zone jouable et du décor intérieur."
+    },
+    {
+      "map": "sky_d54p31a",
+      "png_path": "docs/renders/reserve_sky/sky_d54p31a.png",
+      "resolution": "504x456 px",
+      "playable_8x8_tiles": 3355,
+      "pure_black_playable_tiles": 0,
+      "black_percentage": 0.0,
+      "status": "PASS",
+      "details": "✅ CERTIFIÉ : Zéro tuile noire anormale sur 100% de la zone jouable et du décor intérieur."
+    },
+    {
+      "map": "sky_d54p32a",
+      "png_path": "docs/renders/reserve_sky/sky_d54p32a.png",
+      "resolution": "600x456 px",
+      "playable_8x8_tiles": 4015,
+      "pure_black_playable_tiles": 0,
+      "black_percentage": 0.0,
+      "status": "PASS",
+      "details": "✅ CERTIFIÉ : Zéro tuile noire anormale sur 100% de la zone jouable et du décor intérieur."
+    },
+    {
+      "map": "sky_d55p11a",
+      "png_path": "docs/renders/reserve_sky/sky_d55p11a.png",
+      "resolution": "552x504 px",
+      "playable_8x8_tiles": 915,
+      "pure_black_playable_tiles": 0,
+      "black_percentage": 0.0,
+      "status": "PASS",
+      "details": "✅ CERTIFIÉ : Zéro tuile noire anormale sur 100% de la zone jouable et du décor intérieur."
+    },
+    {
+      "map": "sky_d55p21a",
+      "png_path": "docs/renders/reserve_sky/sky_d55p21a.png",
+      "resolution": "456x456 px",
+      "playable_8x8_tiles": 873,
+      "pure_black_playable_tiles": 0,
+      "black_percentage": 0.0,
+      "status": "PASS",
+      "details": "✅ CERTIFIÉ : Zéro tuile noire anormale sur 100% de la zone jouable et du décor intérieur."
+    },
+    {
+      "map": "sky_d55p41a",
+      "png_path": "docs/renders/reserve_sky/sky_d55p41a.png",
+      "resolution": "504x456 px",
+      "playable_8x8_tiles": 3355,
+      "pure_black_playable_tiles": 0,
+      "black_percentage": 0.0,
+      "status": "PASS",
+      "details": "✅ CERTIFIÉ : Zéro tuile noire anormale sur 100% de la zone jouable et du décor intérieur."
+    },
+    {
+      "map": "sky_d56p11a",
+      "png_path": "docs/renders/reserve_sky/sky_d56p11a.png",
+      "resolution": "504x408 px",
+      "playable_8x8_tiles": 465,
+      "pure_black_playable_tiles": 0,
+      "black_percentage": 0.0,
+      "status": "PASS",
+      "details": "✅ CERTIFIÉ : Zéro tuile noire anormale sur 100% de la zone jouable et du décor intérieur."
+    },
+    {
+      "map": "sky_d56p12a",
+      "png_path": "docs/renders/reserve_sky/sky_d56p12a.png",
+      "resolution": "312x336 px",
+      "playable_8x8_tiles": 1480,
+      "pure_black_playable_tiles": 0,
+      "black_percentage": 0.0,
+      "status": "PASS",
+      "details": "✅ CERTIFIÉ : Zéro tuile noire anormale sur 100% de la zone jouable et du décor intérieur."
+    },
+    {
+      "map": "sky_d56p21a",
+      "png_path": "docs/renders/reserve_sky/sky_d56p21a.png",
+      "resolution": "456x456 px",
+      "playable_8x8_tiles": 873,
+      "pure_black_playable_tiles": 0,
+      "black_percentage": 0.0,
+      "status": "PASS",
+      "details": "✅ CERTIFIÉ : Zéro tuile noire anormale sur 100% de la zone jouable et du décor intérieur."
+    },
+    {
+      "map": "sky_d56p41a",
+      "png_path": "docs/renders/reserve_sky/sky_d56p41a.png",
+      "resolution": "456x480 px",
+      "playable_8x8_tiles": 3190,
+      "pure_black_playable_tiles": 0,
+      "black_percentage": 0.0,
+      "status": "PASS",
+      "details": "✅ CERTIFIÉ : Zéro tuile noire anormale sur 100% de la zone jouable et du décor intérieur."
+    },
+    {
+      "map": "sky_d57p21a",
+      "png_path": "docs/renders/reserve_sky/sky_d57p21a.png",
+      "resolution": "456x456 px",
+      "playable_8x8_tiles": 873,
+      "pure_black_playable_tiles": 0,
+      "black_percentage": 0.0,
+      "status": "PASS",
+      "details": "✅ CERTIFIÉ : Zéro tuile noire anormale sur 100% de la zone jouable et du décor intérieur."
+    },
+    {
+      "map": "sky_d57p41a",
+      "png_path": "docs/renders/reserve_sky/sky_d57p41a.png",
+      "resolution": "456x456 px",
+      "playable_8x8_tiles": 3025,
+      "pure_black_playable_tiles": 0,
+      "black_percentage": 0.0,
+      "status": "PASS",
+      "details": "✅ CERTIFIÉ : Zéro tuile noire anormale sur 100% de la zone jouable et du décor intérieur."
+    },
+    {
+      "map": "sky_d57p42a",
+      "png_path": "docs/renders/reserve_sky/sky_d57p42a.png",
+      "resolution": "456x528 px",
+      "playable_8x8_tiles": 3520,
+      "pure_black_playable_tiles": 0,
+      "black_percentage": 0.0,
+      "status": "PASS",
+      "details": "✅ CERTIFIÉ : Zéro tuile noire anormale sur 100% de la zone jouable et du décor intérieur."
+    },
+    {
+      "map": "sky_d57p43a",
+      "png_path": "docs/renders/reserve_sky/sky_d57p43a.png",
+      "resolution": "912x456 px",
+      "playable_8x8_tiles": 6160,
+      "pure_black_playable_tiles": 0,
+      "black_percentage": 0.0,
+      "status": "PASS",
+      "details": "✅ CERTIFIÉ : Zéro tuile noire anormale sur 100% de la zone jouable et du décor intérieur."
+    },
+    {
+      "map": "sky_d57p44a",
+      "png_path": "docs/renders/reserve_sky/sky_d57p44a.png",
+      "resolution": "456x456 px",
+      "playable_8x8_tiles": 3025,
+      "pure_black_playable_tiles": 0,
+      "black_percentage": 0.0,
+      "status": "PASS",
+      "details": "✅ CERTIFIÉ : Zéro tuile noire anormale sur 100% de la zone jouable et du décor intérieur."
+    },
+    {
+      "map": "sky_d58p41a",
+      "png_path": "docs/renders/reserve_sky/sky_d58p41a.png",
+      "resolution": "456x456 px",
+      "playable_8x8_tiles": 756,
+      "pure_black_playable_tiles": 0,
+      "black_percentage": 0.0,
+      "status": "PASS",
+      "details": "✅ CERTIFIÉ : Zéro tuile noire anormale sur 100% de la zone jouable et du décor intérieur."
+    },
+    {
+      "map": "sky_d59p41a",
+      "png_path": "docs/renders/reserve_sky/sky_d59p41a.png",
+      "resolution": "456x456 px",
+      "playable_8x8_tiles": 756,
+      "pure_black_playable_tiles": 0,
+      "black_percentage": 0.0,
+      "status": "PASS",
+      "details": "✅ CERTIFIÉ : Zéro tuile noire anormale sur 100% de la zone jouable et du décor intérieur."
+    },
+    {
+      "map": "sky_d60p41a",
+      "png_path": "docs/renders/reserve_sky/sky_d60p41a.png",
+      "resolution": "456x456 px",
+      "playable_8x8_tiles": 756,
+      "pure_black_playable_tiles": 0,
+      "black_percentage": 0.0,
+      "status": "PASS",
+      "details": "✅ CERTIFIÉ : Zéro tuile noire anormale sur 100% de la zone jouable et du décor intérieur."
+    },
+    {
+      "map": "sky_d61p41a",
+      "png_path": "docs/renders/reserve_sky/sky_d61p41a.png",
+      "resolution": "456x456 px",
+      "playable_8x8_tiles": 756,
+      "pure_black_playable_tiles": 0,
+      "black_percentage": 0.0,
+      "status": "PASS",
+      "details": "✅ CERTIFIÉ : Zéro tuile noire anormale sur 100% de la zone jouable et du décor intérieur."
+    }
+  ]
 }
