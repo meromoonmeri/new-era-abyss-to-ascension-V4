@@ -12,7 +12,12 @@ function d11p02.Init(map)
 end
 
 function d11p02.Enter(map)
-  FugitiveArc.Play('d11p02')
+  if SV.CanonicalDungeons and SV.CanonicalDungeons.Pending=='mt_freeze_mid' then
+    local ok,scene=pcall(require,'halcyon.arc_fugitif.scene.d11p02')
+    if ok and scene and scene.Cutscene then pcall(scene.Cutscene) end
+    SV.CanonicalDungeons.Pending=nil; GAME:FadeOut(false,30)
+    GAME:EnterDungeon('mt_freeze',1,0,0,RogueEssence.Data.GameProgress.DungeonStakes.Risk,true,false)
+  else FugitiveArc.Play('d11p02') end
 end
 
 function d11p02.Update(map) end

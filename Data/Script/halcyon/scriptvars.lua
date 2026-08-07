@@ -1164,7 +1164,8 @@ SV.CanonicalDungeons =
 {
 	Pending = nil,
 	MtBlazeCleared = false,
-	FrostyForestCleared = false
+	FrostyForestCleared = false,
+	MtFreezeCleared = false
 }
 
 --For dojo lessons

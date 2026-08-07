@@ -12,7 +12,14 @@ function d11p03.Init(map)
 end
 
 function d11p03.Enter(map)
-  FugitiveArc.Play('d11p03')
+  if SV.CanonicalDungeons and SV.CanonicalDungeons.Pending=='mt_freeze_summit' then
+    local ok,scene=pcall(require,'halcyon.arc_fugitif.scene.d11p03')
+    if ok and scene and scene.Cutscene then pcall(scene.Cutscene) end
+    SV.CanonicalDungeons.Pending=nil
+    SV.CanonicalDungeons.MtFreezeCleared=true
+    GAME:FadeOut(false,30)
+    GAME:EnterZone('master_zone',-1,1,0)
+  else FugitiveArc.Play('d11p03') end
 end
 
 function d11p03.Update(map) end

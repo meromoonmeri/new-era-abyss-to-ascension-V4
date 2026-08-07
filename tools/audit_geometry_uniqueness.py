@@ -5,7 +5,7 @@ import collections,hashlib,json,math
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 GEOM_WORDS=('InitGrid','GridPath','DrawGrid','FloorPath','RoomGen','HallGen','Connect','ClampFloor','AddDisconnected','DetectIsolated','EraseIsolated','Blob','Perlin','LoadGen','MappedRoom')
-IGNORE={'Priority','Music','Name','Comment','GroundTileset','BlockTileset','WaterTileset','Element','TimeLimit','TileSight','CharSight','ClampCamera','Spawn','Spawns','Items','Mobs','TeamSpawns','ItemSpawns'}
+IGNORE={'Priority','Music','Name','Comment','GroundTileset','BlockTileset','WaterTileset','Element','TimeLimit','TileSight','CharSight','ClampCamera','Spawn','Items','Mobs','TeamSpawns','ItemSpawns'}
 
 def short_type(t):
  # Le premier backtick termine le nom de la classe générique; couper sur la
@@ -23,8 +23,11 @@ def geom_tokens(v,out):
  if isinstance(v,dict):
   typ=v.get('$type','')
   if any(w in typ for w in GEOM_WORDS):out.append((short_type(typ),scalar_params(v)))
+  if 'ChanceFloorGen' in typ:
+   for choice in v.get('Spawns',[]):
+    if isinstance(choice,dict):geom_tokens(choice.get('Spawn'),out)
   for k,x in v.items():
-   if k not in IGNORE:geom_tokens(x,out)
+   if k not in IGNORE and not ('ChanceFloorGen' in typ and k=='Spawns'):geom_tokens(x,out)
  elif isinstance(v,list):
   for x in v:geom_tokens(x,out)
 def floors(zone):
@@ -64,7 +67,7 @@ for g in sorted(exact,key=lambda x:(-len(x),x))[:100]:print('EXACT:',g)
 print('Similarité structurelle >=70%:')
 for score,a,b,na,nb in sorted(pairs,reverse=True):print(f'  {score:5.1%} {a} <-> {b} ({na}/{nb} tokens)')
 # Focus imports canoniques réellement branchés.
-focus=['cloven_ruins','gloomy_forest','sky_tower','mt_blaze','frosty_forest']
+focus=['cloven_ruins','gloomy_forest','sky_tower','mt_blaze','frosty_forest','mt_freeze']
 print('FOCUS IMPORTS CANONIQUES:')
 for z in focus:
  if z not in sigs:print(' ',z,'aucun générateur procédural');continue

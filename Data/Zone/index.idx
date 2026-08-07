@@ -2420,6 +2420,62 @@
       "Released": true,
       "SortOrder": 0,
       "Comment": "Donjon canonique PMD Red: Frosty Forest 9F, D10P02, Frosty Grotto 5F, D10P03/Articuno. Recasting New Era."
+    },
+    "mt_freeze": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 14,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 20,
+      "Rogue": 0,
+      "Grounds": [
+        "mont_gele_pied",
+        "d11p02",
+        "d11p03"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Mt. Freeze",
+        "LocalTexts": {
+          "fr": "Mt. Freeze — trente ans plus tard"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Donjon canonique PMD Red: Mt. Freeze 15F, D11P02, Peak 5F, D11P03/Ninetales. Recasting New Era; aucune fausse bataille ajoutée."
     }
   }
 }
