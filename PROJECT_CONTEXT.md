@@ -7,6 +7,7 @@
 - Les imports Sky/Red 1:1 sont la fondation du monde, ensuite vieillie par retouche artistique manuelle.
 - **`cloven_ruins` / Aegis Cave est le donjon final du chapitre 5**, après le Mont Venteux, et mène à `FinishedExpedition` puis au chapitre 6. Toute mention le classant chapitre 7 est obsolète.
 - Référence complète : `docs/CONTINUITE_CANONIQUE_30_ANS_APRES.md`.
+- **Portée à partir de la fin du chapitre 5 / début du chapitre 6** : un lieu canonique est un paquet indivisible Ground(s) + donjon JSON + segments + salles `.rsmap` + tables + mécaniques + boss + musique + scripts + géographie. Les Grounds Red/Sky ne sont jamais des décors interchangeables. Tout croisement entre le Ground d’un lieu et le JSON/boss d’un autre est une corruption architecturale à démêler.
 
 
 Dernière mise à jour : 2026-08-05 (fix duel Metano — session agent Arena.ai)

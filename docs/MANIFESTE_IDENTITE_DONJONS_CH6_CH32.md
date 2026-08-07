@@ -75,6 +75,8 @@ Pour Treasure Town, la ville ou le camp de l’Équipe de Secours, Sky Tower, Mt
 
 Importer et adapter ces lieux est la méthode de construction de la continuité du monde, pas un raccourci de production.
 
+À compter du début du chapitre 6, l’import porte obligatoirement sur le **donjon complet**, jamais sur son Ground isolé. Le Ground, la zone JSON, les segments, la progression d’étages, les salles fixes `.rsmap`, les tables de spawn, les mécaniques, les musiques et le légendaire historiquement associé doivent décrire le même lieu canonique. Toute exception liée aux trente années écoulées doit être écrite comme un événement historique précis et ne permet pas de réutiliser l’architecture d’un autre lieu sous un nouveau nom.
+
 ### B. Lieux entièrement nouveaux de New Era
 
 Pour les donjons secondaires Ch6–32 et les lieux propres à l’Abîme sans précédent canonique, la convention originale `[Lieu] + [Qualificatif]` reste obligatoire. Ils ne doivent pas emprunter abusivement le nom d’un lieu historique.
