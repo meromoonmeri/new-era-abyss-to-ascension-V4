@@ -129,9 +129,10 @@ function altere_pond_ch_11.ArrivalCutscene()
   UI:SetCenter(false)
   GAME:WaitFrames(40)
 
-  -- Débloquer Treasure Town et transférer
+  -- Treasure Town est un Ground de master_zone, pas un donjon. Appeler
+  -- UnlockDungeon sur cet identifiant absent de Data/Zone faisait planter
+  -- la sauvegarde Dev lors du déblocage.
   SV.Chapter11.FinishedTreasureTownIntro = true
-  pcall(function() GAME:UnlockDungeon("bourg_comptoir") end)
   GAME:EnterGroundMap("bourg_comptoir", "Main_Entrance_Marker")
 end
 

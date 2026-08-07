@@ -136,10 +136,31 @@ function DebugTools:OnNewGame()
 		--GAME:GivePlayerItem('seed_reviver')	  
 		
 		
-		local dungeon_keys = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:GetOrderedKeys(false)
-		for ii = 0, dungeon_keys.Count-1 ,1 do
-			GAME:UnlockDungeon(dungeon_keys[ii])
-		end
+        -- MOD DEV : ne jamais déverrouiller aveuglément toutes les entrées
+        -- de l'index Zone. `master_zone` est un hub de Grounds, et les zones
+        -- CountedFloors=0 ne sont pas des destinations de donjon valides.
+        -- Les ajouter à la liste de destination provoque un crash lorsque le
+        -- menu essaie de construire leur résumé.
+        local zone_index = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]
+        local dungeon_keys = zone_index:GetOrderedKeys(false)
+        for ii = 0, dungeon_keys.Count - 1, 1 do
+          local zone_id = dungeon_keys[ii]
+          local ok, err = pcall(function()
+            local summary = zone_index:Get(zone_id)
+            if zone_id ~= 'master_zone' and summary ~= nil
+               and summary.Released == true
+               and summary.CountedFloors ~= nil and summary.CountedFloors > 0 then
+              GAME:UnlockDungeon(zone_id)
+            else
+              PrintInfo('[DevUnlock] exclu: ' .. tostring(zone_id))
+            end
+          end)
+          if not ok then
+            -- Une zone mal formée ne doit pas empêcher la création de toute
+            -- la sauvegarde Dev. Elle reste verrouillée et l'erreur est loguée.
+            PrintInfo('[DevUnlock] échec ' .. tostring(zone_id) .. ': ' .. tostring(err))
+          end
+        end
 	  
 	  SV.base_camp.ExpositionComplete = true
 	  SV.base_camp.IntroComplete = true
