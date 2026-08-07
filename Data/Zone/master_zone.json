@@ -1,4 +1,4 @@
-﻿{
+{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -83152,7 +83152,6 @@
       "vigie_stratos",
       "tour_ciel_sommet",
       "parvis_celeste",
-      "gloomy_forest_boss",
       "poisonous_forest_entrance",
       "a02p01",
       "a02p02",

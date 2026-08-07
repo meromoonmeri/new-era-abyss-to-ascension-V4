@@ -42,7 +42,7 @@ Niveaux **mesurés dans les .rsmap du dépôt** :
 | 4 | Bosquet Apricorn | — |
 | 5 | Grande Steppe + Tunnel Incandescent + Mont Venteux | — |
 | 6 | Forêt Lugubre | zone légendaire Zarude (verdant_oath) |
-| 7 | Ruines Tordues (Regigigas) | — |
+| 7 | Aegis Cave (Regigigas) | — |
 | 8 | Sanctuaire de Cristal (Diancie) | — |
 | 9 | Marais de l'Oubli (Laggron) | — |
 | 10 | Pic Céleste (Lugia + Escouade Fulgur) | — |
@@ -107,7 +107,7 @@ Chaque légendaire de cette réserve reste soumis à la règle §5 de la directi
 ## 4. Tilesets/à-côtés (pas des donjons)
 
 - ProjectEoN (6 tilesets curatés) : DrenchedBluffEnd→côte future, CrumblingCanyon→canyon post-ch10, ForestDark→variante Forêt Lugubre, Cloudless*→variantes Pic Céleste, GuildMesshall/GuildmasterRoomNight→guilde Metano. Import à la demande, via ré-indexation hash (procédure gloomy_forest_exit_witness).
-- Friend Area : Volcanic_Pit→Crucible, Peanut/Poison_Swamp→Marais, Rainbow_Peak→arène Lugia, Stratos_Lookout→arène Fulgur, Ancient_Relic→Cloven Ruins, Frigid_Cavern/Furnace_Desert→réserve glace/désert. NB : `FA_Rainbow_Peak_RTRB.tile` est déjà dans le dépôt.
+- Friend Area : Volcanic_Pit→Crucible, Peanut/Poison_Swamp→Marais, Rainbow_Peak→arène Lugia, Stratos_Lookout→arène Fulgur, Ancient_Relic→Aegis Cave, Frigid_Cavern/Furnace_Desert→réserve glace/désert. NB : `FA_Rainbow_Peak_RTRB.tile` est déjà dans le dépôt.
 - Checkpoints dungeon-pack (blaze/cove/elemental/forest/frost/rocky) : à mapper sur le patron Kangourex existant pour tout donjon 15+ étages de la réserve. Les scripts `source_duns_imbi/ground/{base,canyon,cliff,forest}_camp` déjà présents serviront de pont.
 - EoSO objets/particules (86+18) : tri séparé, VFX génériques présumés sûrs — inventaire à faire avant import.
 

@@ -219,13 +219,6 @@ SceneDebug.scenes = {
     set = { Chapter4 = { EnteredGrove = false, FinishedGrove = false, ReachedGlade = false }},
   },
   {
-    key = 'ch6_boss_zeraora',
-    label = "Ch6 — Forêt Lugubre : combat Zeraora (arène)",
-    chapter = 6, ground = 'gloomy_forest_boss', entry = 'Main_Entrance_Marker',
-    note = "gloomy_forest_boss — arène (combat + cinématique OnMapStarts)",
-    set = { Chapter6 = { DefeatedGloomyBoss = false }},
-  },
-  {
     key = 'ch10_rayquaza',
     label = "Ch10 — Sommet de la Tour : climax Rayquaza",
     chapter = 10, ground = 'tour_ciel_sommet', entry = 'Main_Entrance_Marker',

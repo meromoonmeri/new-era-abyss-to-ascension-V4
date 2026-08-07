@@ -381,7 +381,7 @@ structure de phrase française impose de revoir l'ordre des arguments.
 Le moteur affiche le `DefaultText` anglais faute de `LocalTexts.fr` :
 
 - **18 noms de donjons sur 19** : Apricorn Grove, Crooked Cavern, Illuminant Riverbed,
-  Relic Forest, Searing Tunnel, Vast Steppe, Mt. Windswept, Cloven Ruins, et les
+  Relic Forest, Searing Tunnel, Vast Steppe, Mt. Windswept, Aegis Cave, et les
   7 labyrinthes du dojo (`Bug Maze`, `Fire Maze`…). **Très visible** : ces noms
   apparaissent dans le menu de destination, les missions et les dialogues via
   `zone:GetColoredName()`.

@@ -6,11 +6,11 @@
     "Name": {
       "DefaultText": "Shattered Ruins Entrance",
       "LocalTexts": {
-        "fr": "Entrée des Ruines Fendues"
+        "fr": "Entrée des Aegis Cave"
       }
     },
     "Released": true,
-    "Comment": "New Era — Entrée des Ruines Fendues (climax ch5). Ground réutilisé : aegis_cave_entrance (ExplorersOfSkyOrigins, Minemaker0430), import RogueEssence natif (TexSize 3, 24px, 576x408). Collision ouverte (Tags=0, comme la source). Campement de la Guilde posé en Lua (cloven_ruins_entrance_ch_5.lua) : foyer (288,320), sièges/briefing, paillasses, cuisine Plum (120,360). Porte donjon au nord (288,48,96x32), arrivée du Mont au sud (288,392).",
+    "Comment": "New Era — Entrée des Aegis Cave (climax ch5). Ground réutilisé : aegis_cave_entrance (ExplorersOfSkyOrigins, Minemaker0430), import RogueEssence natif (TexSize 3, 24px, 576x408). Collision ouverte (Tags=0, comme la source). Campement de la Guilde posé en Lua (cloven_ruins_entrance_ch_5.lua) : foyer (288,320), sièges/briefing, paillasses, cuisine Plum (120,360). Porte donjon au nord (288,48,96x32), arrivée du Mont au sud (288,392).",
     "obstacles": [
       [
         {

@@ -74,7 +74,7 @@ function waterfall_pond.ExitSegment(zone, result, rescue, segmentID, mapID)
   if segmentID == 6 then
     -- Annexe de la Toupie (etage mystere) : sortie douce.
     GAME:WaitFrames(10)
-    GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
+    GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('metano_town'), 0, false, false)
     return
   end
 
@@ -111,13 +111,13 @@ function waterfall_pond.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter8.LostGlyphHalls = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
               SV.Chapter8.SanctuaryMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('sanctuaire_voeu'), 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
                   "Les runes...[pause=0] elles parlent...[pause=20] mais on ne comprend pas...", "Pain")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, 1, 0)
+              GAME:EnterZone("master_zone", -1, GROUND_IDX('metano_town'), 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('sanctuaire_voeu'), 0, true, true)
           end
       end
   elseif segmentID == 3 then
@@ -141,13 +141,13 @@ function waterfall_pond.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.Chapter8.LostGlyphHalls = true
           if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then
               SV.Chapter8.SanctuaryMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('sanctuaire_voeu'), 0, true, true)
               GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
                   "Les runes...[pause=0] elles parlent...[pause=20] mais on ne comprend pas...", "Pain")
               GAME:WaitFrames(20)
-              GAME:EnterZone("master_zone", -1, 1, 0)
+              GAME:EnterZone("master_zone", -1, GROUND_IDX('metano_town'), 0)
           else
-              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
+              GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('sanctuaire_voeu'), 0, true, true)
           end
       end
   elseif segmentID == 5 then
@@ -171,11 +171,11 @@ function waterfall_pond.ExitSegment(zone, result, rescue, segmentID, mapID)
       else
           SV.Chapter8.DiedToDiancie = true
           SV.Chapter8.SanctuaryMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, 71, 0, true, true)
+              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('sanctuaire_voeu'), 0, true, true)
           GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
               "Diancie...[pause=0] sa puissance...[pause=15] trop eclatante...", "Pain")
           GAME:WaitFrames(20)
-          GAME:EnterZone("master_zone", -1, 1, 0)
+          GAME:EnterZone("master_zone", -1, GROUND_IDX('metano_town'), 0)
       end
   end
 end

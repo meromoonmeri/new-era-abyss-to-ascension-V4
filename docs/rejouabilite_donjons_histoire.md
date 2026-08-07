@@ -272,7 +272,7 @@ Elle accepte désormais aussi `ReplayEnding.IsCleared('gloomy_forest')`.
    `y=272 ≥ 240`, Mont `y=176 ≥ 176`). Les scènes de boss d'origine décalent
    en fait de **+16 en Y et ±32 en X** (les alliés s'écartent sur les côtés).
    Module aligné sur ce patron.
-2. **Ruines Tordues : duo sur le bord bas.** La scène ch7 spawne à `y=240` sur
+2. **Aegis Cave : duo sur le bord bas.** La scène ch7 spawne à `y=240` sur
    une carte de 240 px — elle ne place aucun équipier, donc ça passait. En
    copiant ces coordonnées, les équipiers sortaient. Duo remonté à `y=200`.
 3. **`IsReplay` inopérant** sur Forêt Lugubre et Pic Céleste (voir encadré).

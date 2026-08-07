@@ -115,7 +115,7 @@ Blocages corrigés
 -Le dojo peuple à nouveau sa salle au chapitre 5 (Azumarill était absent, Gible mal placé), et Azumarill répond quand on lui parle.
 
 Affichage
--L'entrée des Ruines Fendues s'affichait entièrement en tuiles d'erreur : son jeu de tuiles manquait à l'index. Corrigé.
+-L'entrée des Aegis Cave s'affichait entièrement en tuiles d'erreur : son jeu de tuiles manquait à l'index. Corrigé.
 -La Source Lumineuse était touchée par le même défaut, en pire : son index était périmé et 624 de ses 625 tuiles pointaient sur des données invalides. Index régénéré, 720 tuiles toutes valides.
 -Les dialogues n'affichent plus « [player] » ou « [hero] » en toutes lettres : 16 répliques utilisaient une balise que le moteur ne remplace pas. Le nom du héros s'affiche désormais correctement.
 -Trois répliques demandaient une émotion de portrait inexistante ; le portrait ne s'affichait pas. Remplacée par l'émotion équivalente.
@@ -140,7 +140,7 @@ Passe de finition (2026-07-30, suite)
 
 Correctif d'arrivée (2026-07-30)
 -Plus d'aperçu de la zone précédente en arrivant quelque part. En quittant le Creuset pour le Mont Venteux, l'écran laissait passer un éclair de carte nue — décor pas encore posé, caméra pas encore cadrée — juste avant les répliques sur le noir. Le fondu de sécurité est désormais la toute première instruction de chaque scène d'arrivée, avant même la musique.
--22 scènes d'arrivée corrigées au total : Creuset, Mont Venteux, Steppe, Tunnel, Ruines Fendues, Forêt Lugubre, Bosquet, Antre Tordu et les relais.
+-22 scènes d'arrivée corrigées au total : Creuset, Mont Venteux, Steppe, Tunnel, Aegis Cave, Forêt Lugubre, Bosquet, Antre Tordu et les relais.
 
 Campement du Mont Venteux (2026-07-30)
 -Au réveil, le Maître de Guilde n'est plus planté dans Rin. Il se tenait à 13 pixels d'elle et passait devant : elle disparaissait sous lui. Il est désormais debout près du foyer, face au camp qu'il s'apprête à réveiller.

@@ -55,7 +55,7 @@ def lire(p, bom=True):
 
 def main() -> int:
     print("=" * 78)
-    print(" ARCHITECTURE DU DONJON DES RUINES TORDUES")
+    print(" ARCHITECTURE DU DONJON DES AEGIS CAVE")
     print("=" * 78)
 
     zone = json.loads(lire(ZONE))["Object"]

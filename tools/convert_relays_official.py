@@ -175,13 +175,13 @@ convert('forest_camp', 'gloomy_forest_midpoint',
 # 5. cloven_ruins_midpoint <- end_moonlit_temple (temple ancien = ruines)
 # ============================================================
 convert('end_moonlit_temple', 'cloven_ruins_midpoint',
-    'Cloven Ruins Relay', 'Relais Ruines Tordues', 'In the Depths of the Pit.ogg',
+    'Aegis Cave Relay', 'Relais Aegis Cave', 'In the Depths of the Pit.ogg',
     {'South_Exit': 'South_Exit', 'Cutscene_Trigger': 'North_Exit'},
     [mk_rock(188, 312)],
     [mk_marker('Main_Entrance_Marker', 196, 440)],
     [mk_spawner('TEAMMATE_1', 228, 440), mk_spawner('TEAMMATE_2', 160, 440),
      mk_spawner('TEAMMATE_3', 228, 416)],
-    SRC + 'end_moonlit_temple -> relais ch7 Ruines Tordues. Trigger cutscene reconverti en sortie nord.')
+    SRC + 'end_moonlit_temple -> relais ch7 Aegis Cave. Trigger cutscene reconverti en sortie nord.')
 
 # ============================================================
 # 6. crystal_sanctuary_relay <- final_stop (camp de neige = purete cristalline)

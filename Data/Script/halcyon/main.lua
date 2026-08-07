@@ -61,7 +61,7 @@ require 'halcyon.services.upgrade_tools'
 require 'halcyon.services.config_tools'
 require 'halcyon.services.nre_probe'--sonde runtime NRE IsGameOver (audit 2026-07-27, retirable)
 require 'halcyon.SceneDebug'--armement des scenes pour test en jeu (outil de dev, sans effet sur le jeu)
-require 'halcyon.RuinesZarbi'--puzzle des Zarbi des Ruines Tordues (portage Aegis Cave)
+require 'halcyon.RuinesZarbi'--puzzle des Zarbi des Aegis Cave (portage Aegis Cave)
 require 'halcyon.DonjonFX'--mise en scene a l'interieur d'un etage de donjon (API DUNGEON:)
 require 'halcyon.RuinesTitan'--Regigigas : eveil, renversement, fuite (etage-arene segment 7)
 require 'halcyon.RuinesArenes'--eveil des trois scelles, joue dans leurs etages-arenes

@@ -3,13 +3,13 @@
  "Object": {
   "$type": "RogueEssence.Data.ZoneData, RogueEssence",
   "Name": {
-   "DefaultText": "Cloven Ruins",
+   "DefaultText": "Aegis Cave",
    "LocalTexts": {
-    "fr": "Ruines Tordues"
+    "fr": "Aegis Cave"
    }
   },
   "Released": true,
-  "Comment": "Chapter 7 dungeon. Corrupted ruins hiding an Anima Core. Boss: Regigigas. | mini-boss : gardiens antiques (Kaorine + Golemastoc), 3F -> miniboss -> 3F -> Regigigas.",
+  "Comment": "Final dungeon of Chapter 5. Canonical Aegis Cave, thirty years after Explorers of Sky: ICE/ROCK/STEEL seals, Regi chambers, the Pit, then Regigigas.",
   "NoEXP": false,
   "ExpPercent": 100,
   "Level": -1,
@@ -708,7 +708,7 @@
           }
          }
         ],
-        "Comment": "Ruines Tordues — pierre corrompue, veines d'Anima. (seg0)"
+        "Comment": "Aegis Cave — pierre corrompue, veines d'Anima. (seg0)"
        },
        "Range": {
         "Min": 0,
@@ -1839,7 +1839,7 @@
           }
          }
         ],
-        "Comment": "Ruines Tordues — pierre corrompue, veines d'Anima. (seg0)"
+        "Comment": "Aegis Cave — pierre corrompue, veines d'Anima. (seg0)"
        },
        "Range": {
         "Min": 0,
@@ -2983,7 +2983,7 @@
           }
          }
         ],
-        "Comment": "Ruines Tordues — pierre corrompue, veines d'Anima. (seg0)"
+        "Comment": "Aegis Cave — pierre corrompue, veines d'Anima. (seg0)"
        },
        "Range": {
         "Min": 0,
@@ -4126,7 +4126,7 @@
           }
          }
         ],
-        "Comment": "Ruines Tordues — pierre corrompue, veines d'Anima. (seg0)"
+        "Comment": "Aegis Cave — pierre corrompue, veines d'Anima. (seg0)"
        },
        "Range": {
         "Min": 0,

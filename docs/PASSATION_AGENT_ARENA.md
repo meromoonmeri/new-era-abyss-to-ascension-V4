@@ -235,7 +235,7 @@ appliquée partout depuis :
 **Erreur commise et corrigée** : une scène convoquait « Phileas, maître de
 guilde » et « Chatot, son second ». Les deux étaient faux. Preuve dans
 `guild_third_floor_lobby_ch_7.lua` : Penticus ouvre l'adresse du matin et donne
-la parole — *« …les Ruines Tordues. Phileas ? »* — et Phileas répond
+la parole — *« …les Aegis Cave. Phileas ? »* — et Phileas répond
 *« Merci, Penticus »*.
 
 ---

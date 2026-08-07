@@ -37,7 +37,7 @@
       * Le maitre de guilde est PENTICUS (Tropius). Preuve :
         guild_third_floor_lobby_ch_7.lua ouvre l'adresse du matin sur
         lui, et c'est LUI qui donne la parole a Phileas (« Et au coeur
-        de tout ca, les anciennes Ruines Tordues. Phileas ? »).
+        de tout ca, les anciennes Aegis Cave. Phileas ? »).
       * PHILEAS (Noctowl) est le savant de la guilde, pas son chef. Il
         repond « Merci, Penticus » et enchaine sur le savoir des ruines.
         C'est lui qui raconte la Genese au ch7.

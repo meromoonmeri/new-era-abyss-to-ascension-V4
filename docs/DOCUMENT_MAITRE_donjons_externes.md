@@ -93,7 +93,7 @@ Laggron 32, Fulgur 33, Lugia 35.
 | 4 | Bosquet Apricorn | Grotte de l'Échoué |
 | 5 | Grande Steppe + Tunnel Incandescent + Mont Venteux | — |
 | 6 | Forêt Lugubre (Zarude) | zone légendaire verdant_oath |
-| 7 | Ruines Tordues (Regigigas) | — |
+| 7 | Aegis Cave (Regigigas) | — |
 | 8 | Sanctuaire de Cristal (Diancie) | — |
 | 9 | Marais de l'Oubli (Laggron) | — |
 | 10 | Pic Céleste (Fulgur + Lugia / Autel des Cieux) | — |
@@ -207,7 +207,7 @@ pas seulement pmd-red/pmd-sky.
 | Peanut/Poison_Swamp | Forgotten Marsh | importés, non câblés |
 | Rainbow_Peak | **arène de combat Lugia** (retiling `celestial_peak_boss.rsmap`) | voir Partie 8, point 4 — plus de conflit |
 | Stratos_Lookout | Celestial Peak — arène Fulgur | importé, non câblé |
-| Ancient_Relic | Cloven Ruins | importé, non câblé |
+| Ancient_Relic | Aegis Cave | importé, non câblé |
 | Frigid_Cavern | futur donjon glace | réserve |
 | Furnace_Desert | futur donjon désert | réserve |
 

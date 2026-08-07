@@ -1,4 +1,4 @@
-# Inventaire comparatif — Aegis Cave (EoS) vs Ruines Tordues (New Era)
+# Inventaire comparatif — Aegis Cave (EoS) vs Aegis Cave (New Era)
 
 Date : 2026-08-03. Établi AVANT toute modification, conformément à la demande.
 Aucune ligne de code n'a été écrite sur la base de ce document : il sert à

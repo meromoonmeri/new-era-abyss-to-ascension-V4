@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-fix_ruines_meteo.py — supprime la meteo qui fait planter les Ruines Tordues.
+fix_ruines_meteo.py — supprime la meteo qui fait planter les Aegis Cave.
 
 LE CRASH
 --------

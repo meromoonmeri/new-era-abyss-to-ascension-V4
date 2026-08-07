@@ -34,7 +34,7 @@
     ------------------------------------------------------------------
       PENTICUS (Tropius)  maitre de guilde. Preuve : c'est lui qui ouvre
         l'adresse du matin et donne la parole aux autres
-        (guild_third_floor_lobby_ch_7 : « ...les Ruines Tordues. Phileas ? »).
+        (guild_third_floor_lobby_ch_7 : « ...les Aegis Cave. Phileas ? »).
         Il est deja sur la carte (MapChars : Tropius, en 184,112).
       PHILEAS (Noctowl)   le savant. Il repond « Merci, Penticus » dans
         la meme scene. Il ne commande pas : il sait.

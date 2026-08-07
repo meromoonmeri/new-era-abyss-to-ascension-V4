@@ -67,7 +67,7 @@ pré-évolutions. »*
 | Grande Steppe | Stantler + Mudbray | ❌ paire non apparentée, aucune escorte |
 | Mont Venteux | Gligar + Skarmory | ❌ idem |
 | Forêt Lugubre | Shiftry + Murkrow | ❌ idem |
-| Ruines Tordues | Golurk + Claydol | ❌ idem |
+| Aegis Cave | Golurk + Claydol | ❌ idem |
 | Sanctuaire Cristal | Froslass + Carbink | ❌ idem |
 | Marais de l'Oubli | Toxicroak + Swalot | ❌ idem |
 
@@ -83,7 +83,7 @@ gabarit :
 | Grande Steppe | Stantler | 3 Cerfrousse *(Deerling)* |
 | Mont Venteux | Skarmory | 3 Gligar *(Gligar est déjà la pré-évo de Gliscor — inverser : Gliscor + Gligar)* |
 | Forêt Lugubre | Shiftry | 2 Nuzleaf + 2 Seedot |
-| Ruines Tordues | Golurk | 4 Golett |
+| Aegis Cave | Golurk | 4 Golett |
 | Sanctuaire Cristal | Froslass | 3 Snorunt |
 | Marais de l'Oubli | Toxicroak | 4 Croagunk |
 

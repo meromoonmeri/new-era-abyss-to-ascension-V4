@@ -56,6 +56,43 @@ Le donjon **`illuminant_riverbed` (Rivière Illuminée)** est désigné comme l'
 
 ---
 
+## 3 bis. CONTINUITÉ CANONIQUE — DEUX CATÉGORIES DE LIEUX
+
+> **Principe fondateur** : *New Era: Abyss to Ascension* se déroule dans le même monde que *Pokémon Mystery Dungeon: Red/Blue Rescue Team* et *Explorers of Sky*, environ **trente ans après** leurs événements. Ce n’est ni un monde parallèle ni une simple inspiration stylistique.
+
+La règle de nommage original ne s’applique donc pas uniformément.
+
+### A. Lieux canoniques hérités de Rescue Team / Explorers of Sky
+
+Pour Treasure Town, la ville ou le camp de l’Équipe de Secours, Sky Tower, Mt. Thunder, Mt. Blaze, Mt. Freeze, Temporal Tower, Spacial Rift, Buried Relic, Aegis Cave et les autres lieux canoniques :
+
+- le **nom canonique est conservé et assumé** ;
+- un qualificatif temporel peut être ajouté s’il décrit une transformation réelle, sans masquer le nom d’origine ;
+- la géométrie, les collisions et les positions structurantes importées constituent une fondation **1:1** ;
+- les trente années écoulées doivent ensuite être visibles : usure, réparations, végétation, extensions ou ruines ;
+- le casting placé sur les cartes est celui de New Era, sauf apparition historique volontaire et documentée ;
+- le statut du légendaire et des personnages historiques doit être décidé explicitement avant validation du lieu.
+
+Importer et adapter ces lieux est la méthode de construction de la continuité du monde, pas un raccourci de production.
+
+### B. Lieux entièrement nouveaux de New Era
+
+Pour les donjons secondaires Ch6–32 et les lieux propres à l’Abîme sans précédent canonique, la convention originale `[Lieu] + [Qualificatif]` reste obligatoire. Ils ne doivent pas emprunter abusivement le nom d’un lieu historique.
+
+### C. Critères de validation d’un lieu hérité
+
+- [ ] nom canonique conservé, avec qualificatif temporel éventuel ;
+- [ ] provenance Red/Sky et pipeline d’extraction documentés ;
+- [ ] géométrie/collision 1:1 vérifiées avant retouche ;
+- [ ] passage de trente ans visible dans le décor ;
+- [ ] statut des personnages historiques et du légendaire documenté ;
+- [ ] casting d’origine non réutilisé par défaut ;
+- [ ] transitions géographiques cohérentes avec les autres lieux canoniques.
+
+Un lieu qui échoue à l’un de ces critères reste en cours de production.
+
+---
+
 ## 4. TABLES DE POKÉMON SAUVAGES DÉDIÉES PAR DONJON
 
 > **Règle absolue** : Chaque donjon de New Era doit disposer de sa **propre table d'apparitions de Pokémon sauvages** (`Spawns` / `MonsterTeam`).  

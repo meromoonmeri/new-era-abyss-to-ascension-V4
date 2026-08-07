@@ -1,5 +1,14 @@
 # PROJECT_CONTEXT — New Era : Abyss to Ascension
 
+## Décision fondatrice autoritative — 2026-08-07
+
+- New Era est une suite dans le même monde que Rescue Team et Explorers of Sky, environ 30 ans plus tard.
+- Les lieux canoniques conservent leur nom et leur géographie reconnaissable ; la convention de noms originaux ne concerne que les lieux inédits.
+- Les imports Sky/Red 1:1 sont la fondation du monde, ensuite vieillie par retouche artistique manuelle.
+- **`cloven_ruins` / Aegis Cave est le donjon final du chapitre 5**, après le Mont Venteux, et mène à `FinishedExpedition` puis au chapitre 6. Toute mention le classant chapitre 7 est obsolète.
+- Référence complète : `docs/CONTINUITE_CANONIQUE_30_ANS_APRES.md`.
+
+
 Dernière mise à jour : 2026-08-05 (fix duel Metano — session agent Arena.ai)
 
 ## Session 2026-08-05 — Damier mauve/noir du duel Team Dazzling (RÉSOLU)

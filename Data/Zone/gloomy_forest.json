@@ -3390,8 +3390,7 @@
   "GroundMaps": [
    "gloomy_forest_entrance",
    "gloomy_forest_midpoint",
-   "gloomy_forest_miniboss",
-   "gloomy_forest_boss"
+   "gloomy_forest_miniboss"
   ]
  }
 }

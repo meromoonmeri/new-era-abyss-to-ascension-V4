@@ -220,7 +220,7 @@ mouvement avec la vie → apaisement final**.
 
 | | |
 |---|---|
-| **Écran** | L'or des Cœurs **se ternit**, vire au violet désaturé — la palette exacte de `DeepSealedRuin`, celle des étages 11-15 des Ruines Tordues. Les 8 frames animent uniquement cette décoloration. |
+| **Écran** | L'or des Cœurs **se ternit**, vire au violet désaturé — la palette exacte de `DeepSealedRuin`, celle des étages 11-15 des Aegis Cave. Les 8 frames animent uniquement cette décoloration. |
 | **Sprites** | **Aucun.** On revient au vide du début — mais corrompu, pas vierge. |
 | **Caméra** | **Retour à l'immobilité totale.** Aucun mouvement pendant les 3 dernières répliques. Le contraste avec l'Acte 3 fait le travail. Puis `GAME:FadeOut(false, 120)`. |
 
@@ -245,7 +245,7 @@ a region to sustain life »*) **sans trancher** Necrozma / Eternatus / autre.
 |---|---|---|
 | Les Cœurs permettent à une région de porter la vie | `first_core_location_ch_3.lua:25` | Acte 4 en donne l'origine |
 | Briser un Cœur ⇒ la région perd cette capacité | `.lua:26-28` | Acte 5 le pose comme menace |
-| Un Cœur peut être dans « une cité ancienne en ruines » | `.lua:20` | C'est exactement les Ruines Tordues |
+| Un Cœur peut être dans « une cité ancienne en ruines » | `.lua:20` | C'est exactement les Aegis Cave |
 | Ambiguïté Necrozma/Eternatus | prompt ch.7 | Aucun nom prononcé |
 
 L'Acte 5 **fournit la cause narrative** de la corruption du chapitre 7 sans la

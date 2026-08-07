@@ -27,7 +27,7 @@
          demande a oublier, et que le vent le reconnaitra (DRM_011 a
          DRM_022). Au sommet, TORNADUS, « le Souffle qui garde la cime ».
          Il savait qu'on venait.
-      4. LES RUINES TORDUES. Les trois scelles — Regice, Regirock,
+      4. LES AEGIS CAVE. Les trois scelles — Regice, Regirock,
          Registeel — puis Regigigas. Chacun dit un morceau de la meme
          chose : ils etaient postes FACE a ce qu'ils gardaient, et aucun
          ne sait pourquoi. Le sanctuaire se referme derriere l'equipe.

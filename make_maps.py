@@ -178,9 +178,9 @@ if __name__ == '__main__':
     specs = [
         ('vast_steppe_midpoint', 'Data/Ground/vast_steppe_entrance.rsground', 'midpoint', 'Relais Grande Steppe', 'Sky Peak Prairie.ogg'),
         ('mount_windswept_midpoint', 'Data/Ground/mount_windswept_entrance.rsground', 'midpoint', 'Relais Mont Venteux', 'Mt. Travail.ogg'),
-        ('cloven_ruins_entrance', 'Data/Ground/gloomy_forest_entrance.rsground', 'entrance', 'Entree Ruines Tordues', 'In the Depths of the Pit.ogg'),
-        ('cloven_ruins_midpoint', 'Data/Ground/gloomy_forest_boss.rsground', 'midpoint', 'Relais Ruines Tordues', 'In the Depths of the Pit.ogg'),
-        ('cloven_ruins_boss', 'Data/Ground/gloomy_forest_boss.rsground', 'boss', 'Coeur Ruines Tordues', 'Boss Battle!.ogg'),
+        ('cloven_ruins_entrance', 'Data/Ground/gloomy_forest_entrance.rsground', 'entrance', 'Entree Aegis Cave', 'In the Depths of the Pit.ogg'),
+        ('cloven_ruins_midpoint', 'Data/Ground/gloomy_forest_boss.rsground', 'midpoint', 'Relais Aegis Cave', 'In the Depths of the Pit.ogg'),
+        ('cloven_ruins_boss', 'Data/Ground/gloomy_forest_boss.rsground', 'boss', 'Coeur Aegis Cave', 'Boss Battle!.ogg'),
     ]
     
     for name, src, biome, title, music in specs:

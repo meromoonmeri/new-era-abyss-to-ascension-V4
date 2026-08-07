@@ -40,7 +40,7 @@ Les noms principaux des donjons sont désormais :
 - Vast Steppe → **Grande Steppe** ;
 - Searing Tunnel → **Tunnel Incandescent** ;
 - Mt. Windswept → **Mont Venteux** ;
-- Cloven Ruins → **Ruines Fendues**.
+- Aegis Cave → **Aegis Cave**.
 
 ## Ce qui reste encore à faire pour une traduction réellement globale
 

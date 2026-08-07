@@ -40,10 +40,10 @@ Avant de générer le moindre donjon, connaître par cœur la documentation du m
 ---
 
 ## 4. NOMMAGE ORIGINAL, MUSIQUE ET INVENTAIRE CENTRAL (Section 3 & Convention)
-- **Convention de Nommage (`[Lieu] + [Qualificatif]`)** :
-  - **Interdiction de réutilisation directe** : Aucun nom de donjon officiel de la licence Pokémon Donjon Mystère n'est repris verbatim ou presque identique (« Forêt Glauque 2 », etc. sont proscrits).
-  - Chaque nom de donjon de New Era est une création originale suivant la structure : **`[Nom commun de lieu/biome] + [Qualificatif]`** (ex. *Désert des Oubliés*, *Crevasse de Géode*, *Verger Sauvage*, *Plaines Brûlées*, *Cime d'Argent Oubliée*).
-  - **Règle de variété** : Ne pas réutiliser le même nom de lieu plus de 2-3 fois sur les 27 chapitres sans un qualificatif très distinct.
+- **Convention de nommage — distinction obligatoire** :
+  - **Lieux canoniques hérités de Rescue Team / Explorers of Sky** : leur nom officiel est conservé afin d’assurer la reconnaissance et la continuité trente ans plus tard (`Sky Tower`, `Mt. Thunder`, `Temporal Tower`, `Buried Relic`, etc.). Un qualificatif temporel descriptif peut être ajouté, mais aucun renommage complet ne doit effacer l’identité historique du lieu.
+  - **Lieux entièrement nouveaux de New Era** : chaque nom suit la structure originale **`[Nom commun de lieu/biome] + [Qualificatif]`** (ex. *Désert des Oubliés*, *Crevasse de Géode*, *Verger Sauvage*, *Plaines Brûlées*). Un nouveau lieu ne doit pas emprunter artificiellement un nom canonique.
+  - **Règle de variété des lieux nouveaux** : ne pas réutiliser le même nom de lieu plus de 2-3 fois sur les 27 chapitres sans un qualificatif très distinct.
   - **Banque de qualificatifs** : À choisir en cohérence avec le biome réel et le lore (sans spawner de spoil avant le payoff) parmi les catégories Sensoriel/atmosphérique, Géographique/descriptif, Émotionnel/narratif et Lié à l'Anima.
 - **Noms de Mini-boss** : Les 3 mini-boss reçoivent un **nom propre individuel** (ex. *Sablaireau l'Ancien*, *Cacturne le Veilleur*, *Hippodocus le Colosse*), semblable à un nom de personnage ou PNJ.
 - **Tableau des Missions de Guilde (`SecondaryJobs.lua` / Job Board)** : Chacun des donjons secondaires est formellement rattaché au Tableau des Missions de la guilde (`Job Bulletin Board`) : chaque donjon offre un contrat épinglé avec client et cible nommés (espèces vérifiées dans `Content/Chara/`), un titre et un texte d'ambiance en français idiomatique, et une difficulté calibrée sur le chapitre.

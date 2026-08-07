@@ -20,19 +20,19 @@ Chaque zone suit la même grille :
 
 ### 1. FONCTION NARRATIVE
 
-**Contexte** : Après avoir vaincu Regigigas et libéré le Cœur des Ruines Tordues (Chap. 7), 
-Phileas révèle l'existence d'un ancien sanctuaire où les premiers gardiens des Cœurs 
-ont consigné leur savoir. Les héros doivent s'y rendre pour comprendre COMMENT protéger 
+**Contexte** : Après avoir vaincu Regigigas et libéré le Cœur des Aegis Cave (Chap. 7),
+Phileas révèle l'existence d'un ancien sanctuaire où les premiers gardiens des Cœurs
+ont consigné leur savoir. Les héros doivent s'y rendre pour comprendre COMMENT protéger
 un Cœur qui s'éteint — la bataille ne suffit pas toujours.
 
-**Rôle dans l'arc** : Premier donjon de l'Arc 2. Montre que les Cœurs sont fragiles et 
-que la corruption s'étend. Le sanctuaire lui-même est partiellement cristallisé — signe 
-qu'un Cœur proche est en train de se solidifier/mourir. Introduit la notion de 
+**Rôle dans l'arc** : Premier donjon de l'Arc 2. Montre que les Cœurs sont fragiles et
+que la corruption s'étend. Le sanctuaire lui-même est partiellement cristallisé — signe
+qu'un Cœur proche est en train de se solidifier/mourir. Introduit la notion de
 « Cœur malade » (par opposition à « Cœur possédé » comme Regigigas).
 
 **Structure** : 3 segments — 12 étages normaux + checkpoint + 6 étages profonds + boss
-**Boss** : Diancie (Lv. 42) — gardienne cristalline du sanctuaire, non hostile mais 
-teste les héros. Carbink x4 en renfort. Combat de « purification » (elle est possédée 
+**Boss** : Diancie (Lv. 42) — gardienne cristalline du sanctuaire, non hostile mais
+teste les héros. Carbink x4 en renfort. Combat de « purification » (elle est possédée
 par la corruption mais pas malveillante).
 
 **Post-combat** : Diancie, libérée, offre un Fragment de Cristal — clé pour le Chapitre 9.
@@ -123,23 +123,23 @@ par la corruption mais pas malveillante).
 
 ### 1. FONCTION NARRATIVE
 
-**Contexte** : Le Fragment de Cristal de Diancie réagit à une source de corruption 
-lointaine. Les héros suivent sa pulsation jusqu'aux Marais de l'Oubli, une zone 
-marécageuse où un Cœur se noie littéralement dans une corruption liquide. 
-**Première apparition du Cercle du Suaire** (Banette, Ectoplasma, Nosferalto) — 
+**Contexte** : Le Fragment de Cristal de Diancie réagit à une source de corruption
+lointaine. Les héros suivent sa pulsation jusqu'aux Marais de l'Oubli, une zone
+marécageuse où un Cœur se noie littéralement dans une corruption liquide.
+**Première apparition du Cercle du Suaire** (Banette, Ectoplasma, Nosferalto) —
 ils semblent ACCÉLÉRER la corruption plutôt que la combattre.
 
-**Rôle dans l'arc** : Présente les antagonistes spectraux de l'Arc 2. Montre une 
-nouvelle forme de corruption (liquide/toxique, pas solide/cristalline comme Ch8). 
-Établit que les ennemis ne sont pas tous des boss sauvages — certains sont des 
+**Rôle dans l'arc** : Présente les antagonistes spectraux de l'Arc 2. Montre une
+nouvelle forme de corruption (liquide/toxique, pas solide/cristalline comme Ch8).
+Établit que les ennemis ne sont pas tous des boss sauvages — certains sont des
 Pokémon rationnels avec leurs propres objectifs.
 
 **Structure** : 3 segments — 10 étages marécageux + checkpoint + 8 étages profonds + boss
-**Boss** : Méga-Tortank (Lv. 44) — gardien corrompu du Cœur noyé, gonflé par 
+**Boss** : Méga-Tortank (Lv. 44) — gardien corrompu du Cœur noyé, gonflé par
 l'énergie toxique. Combat en 2 phases : carapace (défensif) → berserk (offensif).
 
-**Post-combat** : Le Cœur est purifié mais affaibli. Banette apparaît brièvement 
-et lance : « Vous croyez sauver quoi que ce soit ? Chaque cœur que vous "guérissez" 
+**Post-combat** : Le Cœur est purifié mais affaibli. Banette apparaît brièvement
+et lance : « Vous croyez sauver quoi que ce soit ? Chaque cœur que vous "guérissez"
 rapproche la fin. » — départ en brume. Premier indice du twist de l'Arc 5-6.
 
 ### 2. FAUNE (Spawn Tables par segment)
@@ -232,28 +232,28 @@ rapproche la fin. » — départ en brume. Premier indice du twist de l'Arc 5-6.
 
 ### 1. FONCTION NARRATIVE
 
-**Contexte** : Après la rencontre avec le Cercle du Suaire, les héros sont troublés. 
-Leurs rêves (depuis Ch7) s'intensifient — visions d'une silhouette prismatique 
-enchaînée dans le vide, une voix qui murmure « plus haut... plus haut... ». 
-Phileas interprète : un être ancien tente de communiquer depuis le Pic Céleste, 
-une montagne sacrée où le ciel touche la terre. L'Escouade Fulgur (Luxray, Lucario, 
+**Contexte** : Après la rencontre avec le Cercle du Suaire, les héros sont troublés.
+Leurs rêves (depuis Ch7) s'intensifient — visions d'une silhouette prismatique
+enchaînée dans le vide, une voix qui murmure « plus haut... plus haut... ».
+Phileas interprète : un être ancien tente de communiquer depuis le Pic Céleste,
+une montagne sacrée où le ciel touche la terre. L'Escouade Fulgur (Luxray, Lucario,
 Héliolisk) est déjà en route — course vers le sommet.
 
-**Rôle dans l'arc** : Point culminant émotionnel de l'Arc 2. Affrontement indirect 
-avec l'Escouade Fulgur (pas de combat, mais une course — qui arrive au sommet 
-en premier ?). Révélation : Necrozma n'est pas nommé, mais sa silhouette apparaît 
-dans une vision. Le message est cryptique : « La lumière n'est pas ce qu'elle semble. 
+**Rôle dans l'arc** : Point culminant émotionnel de l'Arc 2. Affrontement indirect
+avec l'Escouade Fulgur (pas de combat, mais une course — qui arrive au sommet
+en premier ?). Révélation : Necrozma n'est pas nommé, mais sa silhouette apparaît
+dans une vision. Le message est cryptique : « La lumière n'est pas ce qu'elle semble.
 Cherchez sous l'écaille. »
 
-**Structure** : 4 segments — 8 étages ascension + checkpoint + 6 étages ciel + 
+**Structure** : 4 segments — 8 étages ascension + checkpoint + 6 étages ciel +
 miniboss Escouade Fulgur (arrivée simultanée) + 4 étages sommet + boss
 
-**Boss** : Lugia (Lv. 46) — gardien du Pic Céleste, premier contact avec un 
-légendaire de haut rang. Combat aérien sur plates-formes nuageuses. N'est PAS 
+**Boss** : Lugia (Lv. 46) — gardien du Pic Céleste, premier contact avec un
+légendaire de haut rang. Combat aérien sur plates-formes nuageuses. N'est PAS
 corrompu — il teste les héros car « seuls les cœurs purs peuvent entendre la vérité ».
 
-**Post-combat** : Lugia confirme les paroles de Necrozma sans le nommer. 
-« Quelque chose dort sous le monde. La lumière des Cœurs le contient. Chaque 
+**Post-combat** : Lugia confirme les paroles de Necrozma sans le nommer.
+« Quelque chose dort sous le monde. La lumière des Cœurs le contient. Chaque
 Cœur qui s'éteint... le rapproche du réveil. » — écho direct au twist final.
 
 ### 2. FAUNE (Spawn Tables par segment)
@@ -282,7 +282,7 @@ Cœur qui s'éteint... le rapproche du réveil. » — écho direct au twist fin
 
 **Segment 3 — L'Escouade Fulgur (étages 15-18, affrontement indirect)**
 Luxray, Lucario et Héliolisk apparaissent comme PNJ hostiles mais ne combattent pas.
-Ils activent des pièges, bloquent des passages, forcent le joueur à trouver des 
+Ils activent des pièges, bloquent des passages, forcent le joueur à trouver des
 chemins alternatifs. Course tactique, pas un combat direct.
 
 **Segment 4 — Sommet Sacré (étages 19-22)**

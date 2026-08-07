@@ -140,7 +140,7 @@ function guild_heros_room.CheckTriggerEvent()
 	--contenu du chapitre 7 existait deja et etait cable (carton-titre et reve
 	--dans guild_heros_room_ch_7, adresse du matin dans guild_third_floor_lobby_ch_7,
 	--dialogues de ville dans metano_town_ch_7, donjon + arene + cinematiques des
-	--Ruines Tordues), mais rien ne portait jamais Chapter de 6 a 7 : le joueur
+	--Aegis Cave), mais rien ne portait jamais Chapter de 6 a 7 : le joueur
 	--restait bloque indefiniment en fin de chapitre 6.
 	--
 	--Le donjon lui-meme n'etait UnlockDungeon nulle part non plus, il faut donc

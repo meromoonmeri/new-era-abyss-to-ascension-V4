@@ -12,7 +12,7 @@ Source de vérité pour l'audit global (§10). Une ligne par ressource migrée/r
 | PMDO base (DumpAsset) | canyon_camp | mount_windswept_midpoint — Relais Mont Venteux | 5 | — | Checkpoint mi-donjon montagne | Donjon principal | Fait 2026-07-26 (ground officiel) |
 | PMDO base (DumpAsset) | rest_stop | crooked_cavern_midpoint — Relais Caverne Tortueuse | 3 | — | Checkpoint mi-donjon caverne | Donjon principal | Fait 2026-07-26 (ground officiel) |
 | PMDO base (DumpAsset) | forest_camp | gloomy_forest_midpoint — Relais Forêt Lugubre | 6 | — | Checkpoint avant les profondeurs (sortie unique) | Donjon principal | Fait 2026-07-26 (ground officiel) |
-| PMDO base (DumpAsset) | end_moonlit_temple | cloven_ruins_midpoint — Relais Ruines Tordues | 7 | — | Esplanade-relais avant Regigigas | Donjon principal | Fait 2026-07-26 (ground officiel) |
+| PMDO base (DumpAsset) | end_moonlit_temple | cloven_ruins_midpoint — Relais Aegis Cave | 7 | — | Esplanade-relais avant Regigigas | Donjon principal | Fait 2026-07-26 (ground officiel) |
 | PMDO base (DumpAsset) | final_stop | crystal_sanctuary_relay — Relais du Sanctuaire | 8 | — | Checkpoint avant les Salles des Glyphes | Donjon principal | Fait 2026-07-26 (ground officiel) |
 | PMDO base (DumpAsset) | end_ambush_forest | forgotten_marsh_relay — Relais du Marais | 9 | — | Checkpoint avant les Abysses Vaseux | Donjon principal | Fait 2026-07-26 (ground officiel) |
 | PMDO base (DumpAsset) | guildmaster_summit | celestial_peak_relay — Relais du Pic Céleste | 10 | — | Corniche-relais, réutilisée post-Fulgur | Donjon principal | Fait 2026-07-26 (ground officiel) |
@@ -36,7 +36,7 @@ Source de vérité pour l'audit global (§10). Une ligne par ressource migrée/r
 
 ## Justification narrative des légendaires (§5)
 
-- **Regigigas (ch7)** : Titan gardien du Cœur d'Anima des Ruines Tordues. Ni hostile ni corrompu : il protège ce qui reste du Cœur. La Voix de l'Abysse guide volontairement l'équipe vers lui — premier indice de manipulation. Conséquence : `SawAnimaCoreCorruption`, conduit au récit de la Genèse par Phileas.
+- **Regigigas (ch7)** : Titan gardien du Cœur d'Anima des Aegis Cave. Ni hostile ni corrompu : il protège ce qui reste du Cœur. La Voix de l'Abysse guide volontairement l'équipe vers lui — premier indice de manipulation. Conséquence : `SawAnimaCoreCorruption`, conduit au récit de la Genèse par Phileas.
 - **Diancie (ch8)** : gardienne d'une réserve d'Anima cristallisée ; hostile parce qu'elle soupçonne les visiteurs d'être responsables de l'affaiblissement des Cœurs — test moral, pas mur de HP. Conséquence : `ObtainedCrystalFragment`.
 - **Lugia (ch10)** : Gardien des Cieux au sommet du Pic Céleste ; juge la légitimité de l'équipe avant la vision de Necrozma. Conséquence : `SawNecrozmaVision`, transition vers l'arc final.
 - **Laggron (Mega-Blastoise prévu, ch9)** : gardien millénaire du Cœur du Marais. Note : la trame (`docs/08_zones_vivantes_ch8_ch10.md`) prévoit Mega-Blastoise ; le sprite/espèce méga n'étant pas garanti dans le jeu de base, l'arène utilise **Laggron (Swampert)** en attendant la validation d'un asset méga. À trancher avant la démo.

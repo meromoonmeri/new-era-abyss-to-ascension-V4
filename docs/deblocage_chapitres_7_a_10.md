@@ -15,7 +15,7 @@ Ce n'était pas un manque de contenu. Tout était déjà là :
 
 | Chapitre | Donjon | Contenu existant, non atteignable |
 |---|---|---|
-| 7 | Ruines Tordues | carton-titre, adresse du matin, rêve, dialogues de ville, énigme des Zarbi, éveil des trois golems, boss Regigigas |
+| 7 | Aegis Cave | carton-titre, adresse du matin, rêve, dialogues de ville, énigme des Zarbi, éveil des trois golems, boss Regigigas |
 | 8 | Sanctuaire de Cristal | dialogues de ville, relais, arène Diancie |
 | 9 | Marais de l'Oubli | dialogues de ville, relais, arène Laggron, Cercle du Suaire |
 | 10 | Pic Céleste | dialogues de ville, relais, Escouade Fulgur, Autel des Cieux, boss Lugia |
@@ -111,7 +111,7 @@ est au ch6 avec la mission bouclée.
 ## Ce que le joueur verra
 
 Chapitre 7 : chaîne complète et soignée — carton-titre au réveil, adresse du
-matin de Phileas au 3ᵉ étage, expédition aux Ruines Tordues, énigme des Zarbi,
+matin de Phileas au 3ᵉ étage, expédition aux Aegis Cave, énigme des Zarbi,
 éveil des trois golems, Regigigas, puis le récit de la Genèse et le premier
 rêve.
 

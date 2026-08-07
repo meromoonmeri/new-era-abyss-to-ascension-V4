@@ -834,7 +834,7 @@ function guild_third_floor_lobby_ch_5.SecondExpeditionAddress()
 	GROUND:CharAnimateTurnTo(tropius, Direction.Down, 4)
 	
 	--cloven ruins/relic
-	--[color=#FFC663]Cloven Ruins[color]
+	--[color=#FFC663]Aegis Cave[color]
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G3L5_071']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G3L5_072'], zone:GetColoredName()))
 	GAME:WaitFrames(10)
@@ -1028,8 +1028,8 @@ function guild_third_floor_lobby_ch_5.SecondExpeditionAddress()
 	
 	
 	 --[[pretty cool name, huh? 
-	--UI:WaitShowDialogue(breloom:GetDisplayName() .. " and " .. girafarig:GetDisplayName() .. " have proposed a name for them: [color=#FFC663]Cloven Ruins[color].")
-	--UI:WaitShowDialogue("But rather than continuing to refer to them in that verbose manner...[pause=10] " .. breloom:GetDisplayName() .. " and " .. girafarig:GetDisplayName() .. " suggested a name: [color=#FFC663]Cloven Ruins[color].")
+	--UI:WaitShowDialogue(breloom:GetDisplayName() .. " and " .. girafarig:GetDisplayName() .. " have proposed a name for them: [color=#FFC663]Aegis Cave[color].")
+	--UI:WaitShowDialogue("But rather than continuing to refer to them in that verbose manner...[pause=10] " .. breloom:GetDisplayName() .. " and " .. girafarig:GetDisplayName() .. " suggested a name: [color=#FFC663]Aegis Cave[color].")
 	
 	--[[
 	GAME:WaitFrames(10)

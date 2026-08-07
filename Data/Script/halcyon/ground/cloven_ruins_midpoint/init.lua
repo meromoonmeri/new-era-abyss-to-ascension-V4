@@ -1,6 +1,6 @@
 --[[
-    init.lua — Cloven Ruins Midpoint (Relais des Ruines Tordues)
-    Chapitre 7 — relais mi-donjon type Statue Kangourex.
+    init.lua — Aegis Cave Midpoint (Relais des Aegis Cave)
+    Chapitre 5 — relais d’Aegis Cave, donjon final de l’expédition.
     Modèle : searing_tunnel_midpoint / vast_steppe_midpoint (patron validé).
 ]]
 require 'origin.common'
@@ -12,7 +12,7 @@ require 'halcyon.MidpointTemplate'
 local cloven_ruins_midpoint = {}
 
 --------------------------------------------------------------------
--- HABILLAGE DU POINT MEDIAN — Ruines Tordues (384x480)
+-- HABILLAGE DU POINT MEDIAN — Aegis Cave (384x480)
 --
 -- STRUCTURE : halcyon.MidpointTemplate, commune a tous les relais.
 -- HABILLAGE : propre a ce biome, jamais recopie ailleurs.

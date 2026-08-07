@@ -506,7 +506,7 @@ local function DefeatedBossBody()
   -- Tornadus est un GARDIEN qui se revele : il ne testait pas par
   -- malveillance, il cherchait a comprendre les perturbations. Un
   -- vrai echange s'engage, la Guilde arrive, on repart vers les
-  -- Ruines Tordues. Foreshadowing Ch6 (Zeraora) / Ch7 (Groudon).
+  -- Aegis Cave. Foreshadowing Ch6 (Zeraora) / Ch7 (Groudon).
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
@@ -912,11 +912,11 @@ function mount_windswept_guardian_ch_5.DefeatedBoss()
   --PlotScripting.
 
   --LE SOMMET EST VAINCU — MAIS L'EXPEDITION N'EST PAS TERMINEE.
-  --(Restructuration validee : option 2 — les Ruines Tordues sont le
+  --(Restructuration validee : option 2 — les Aegis Cave sont le
   --climax du ch5.) La scene post-combat (7 actes) a ete jouee dans
   --DefeatedBossBody : Tornadus a revele les perturbations de la
   --region et indique que les reponses se trouvent plus loin. La suite
-  --logique est le CAMPEMENT DEVANT LES RUINES TORDUES
+  --logique est le CAMPEMENT DEVANT LES AEGIS CAVE
   --(cloven_ruins_entrance), pas un retour a Metano. Le briefing, la
   --nuit et le reve s'y jouent (cloven_ruins_entrance_ch_5.lua), puis
   --le donjon final. FinishedExpedition ne sera pose qu'apres les
@@ -924,7 +924,7 @@ function mount_windswept_guardian_ch_5.DefeatedBoss()
   --Cette bascule est HORS du pcall : meme si la mise en scene casse,
   --l'expedition doit TOUJOURS pouvoir continuer vers les Ruines.
   SV.Chapter5.RuinsCampPending = true
-  PrintInfo("[BossSeq][mount_windswept_guardian_ch_5] DefeatedBoss -> cloven_ruins_entrance (campement des Ruines Tordues)")
+  PrintInfo("[BossSeq][mount_windswept_guardian_ch_5] DefeatedBoss -> cloven_ruins_entrance (campement des Aegis Cave)")
   GAME:EnterGroundMap("cloven_ruins_entrance", "Main_Entrance_Marker")
 end
 

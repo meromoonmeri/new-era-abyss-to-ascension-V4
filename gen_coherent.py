@@ -180,20 +180,20 @@ print("OK mount_windswept_midpoint")
 regions = extract_regions('Data/Ground/gloomy_forest_entrance.rsground', 40, 30)
 build_map_from_regions(regions, 'Data/Ground/gloomy_forest_entrance.rsground',
     'Data/Ground/cloven_ruins_entrance.rsground', 40, 30, 'entrance',
-    'Entrée des Ruines Tordues', 'In the Depths of the Pit.ogg')
+    'Entrée des Aegis Cave', 'In the Depths of the Pit.ogg')
 print("OK cloven_ruins_entrance")
 
 # 4. CLOVEN RUINS MIDPOINT
 regions = extract_regions('Data/Ground/gloomy_forest_boss.rsground', 40, 30)
 build_map_from_regions(regions, 'Data/Ground/gloomy_forest_boss.rsground',
     'Data/Ground/cloven_ruins_midpoint.rsground', 40, 30, 'midpoint',
-    'Relais des Ruines Tordues', 'In the Depths of the Pit.ogg')
+    'Relais des Aegis Cave', 'In the Depths of the Pit.ogg')
 print("OK cloven_ruins_midpoint")
 
 # 5. CLOVEN RUINS BOSS
 build_map_from_regions(regions, 'Data/Ground/gloomy_forest_boss.rsground',
     'Data/Ground/cloven_ruins_boss.rsground', 40, 30, 'boss',
-    'Cœur des Ruines Tordues', 'Boss Battle!.ogg')
+    'Cœur des Aegis Cave', 'Boss Battle!.ogg')
 print("OK cloven_ruins_boss")
 
 print("\n5 maps generees avec coherence spatiale.")

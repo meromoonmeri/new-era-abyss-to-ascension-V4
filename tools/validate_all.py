@@ -28,12 +28,25 @@ ROOMS = {
                                  (180, 240), (268, 192), (224, 180)],
     # regenerate 2026-08-05 (gen_tornadus_arene.py) : salle 54x54 cellules,
     # equipe au sud, perchoir Tornadus au nord — synchronise avec le ch_5.lua
-    'mount_windswept_guardian': [(216, 376), (168, 376), (216, 320),
-                                 (216, 24), (216, 392)],
+    'mount_windswept_guardian': [(176, 248), (152, 248), (200, 248),
+                                 (176, 136), (176, 260)],
     'gloomy_forest_miniboss':    list(MB),
     'cloven_ruins_miniboss':     list(MB),
-    'crystal_sanctuary_miniboss': list(MB),
-    'forgotten_marsh_miniboss':  list(MB),
+}
+
+# Les arènes Ch8/Ch9 sont des .rsmap intégrées au donjon et non des
+# .rsground de cinématique. Leur existence/câblage est contrôlé par
+# verify_zone_index.py et par le contrôle dédié ci-dessous.
+MAP_ARENAS = {
+    'crystal_sanctuary_relay',
+    'crystal_sanctuary_miniboss',
+    'sanctuaire_voeu',
+    'forgotten_marsh_relay',
+    'forgotten_marsh_miniboss',
+    'forgotten_marsh_boss',
+    'palier_celeste',
+    'parvis_celeste',
+    'tour_ciel_sommet',
 }
 
 def reachable(mask, start):
@@ -120,6 +133,20 @@ for name, pts in ROOMS.items():
              len(d['Layers'])))
     for pr in problems:
         print('      → %s' % pr)
+
+# 7. Arènes .rsmap chargées par les segments Ch8-Ch10 : présence et JSON.
+for name in sorted(MAP_ARENAS):
+    path = os.path.join(P, 'Data/Map', name + '.rsmap')
+    try:
+        data = json.load(open(path, encoding='utf-8-sig'))['Object']
+        if data.get('AssetName') != name:
+            print('❌ %-26s AssetName incohérent dans .rsmap' % name)
+            ok_all = False
+        else:
+            print('✅ %-26s .rsmap présent et lisible' % name)
+    except (OSError, ValueError, KeyError) as exc:
+        print('❌ %-26s .rsmap invalide/absent: %s' % (name, exc))
+        ok_all = False
 
 print()
 print('RÉSULTAT GLOBAL :', '✅ toutes les salles sont valides' if ok_all else '❌ corrections nécessaires')

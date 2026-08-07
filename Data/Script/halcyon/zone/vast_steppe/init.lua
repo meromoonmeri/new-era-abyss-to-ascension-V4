@@ -58,12 +58,12 @@ function vast_steppe.Init(zone)
   PrintInfo("=>> Init_vast_steppe")
   --Mark this as the last dungeon entered.
   SV.TemporaryFlags.LastDungeonEntered = 'vast_steppe'
-  
+
 end
 
 function vast_steppe.EnterSegment(zone, rescuing, segmentID, mapID)
   nre_snap('vast_steppe.EnterSegment seg='..tostring(segmentID))
-    GeneralFunctions.CheckAllowSetRescue(zone.ID) 
+    GeneralFunctions.CheckAllowSetRescue(zone.ID)
 	if rescuing ~= true then
 		COMMON.BeginDungeon(zone.ID, segmentID, mapID)
 	end
@@ -78,11 +78,11 @@ function vast_steppe.ExitSegment(zone, result, rescue, segmentID, mapID)
   GeneralFunctions.RestoreIdleAnim()
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
   PrintInfo("=>> ExitSegment_vast_steppe (Vast Steppe) result "..tostring(result).." segment "..tostring(segmentID))
-  
+
   local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
   --always clear the Thief flag when leaving the dungeon via any means. UpdateDailyFlags does take care of this, but that won't always be called when leaving this dungeon.
   SV.adventure.Thief = false
-	
+
 	--[[Different dungeon result typeS (cleared, died, etc)
 		   public enum ResultType
 		{
@@ -127,41 +127,41 @@ function vast_steppe.ExitSegment(zone, result, rescue, segmentID, mapID)
 		end
 		PrintInfo("[NREPROBE][transition] vast_steppe.ExitSegment -> EnterGroundMap('vast_steppe_guardian')") GAME:EnterGroundMap('vast_steppe_guardian', 'Main_Entrance_Marker')
 	elseif SV.ChapterProgression.Chapter == 5 and result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
-		GAME:WaitFrames(20)	
+		GAME:WaitFrames(20)
 		SV.Chapter5.LostSteppe = true--if escaped or died, they "lost" in the steppe and therefore they dallied somewhat in getting to the tunnel.
 		if result ~= RogueEssence.Data.GameProgress.ResultType.Escaped then--Died
 			SV.Chapter5.DiedSteppe = true
 			--I use the components of the general function version of this so I can have the textbox pop up after the results screen
 			--this saves the game, so it must be called 2nd to last.
-			GAME:EndDungeonRun(result, "master_zone", -1, 46, 0, true, true)
-			UI:SetSpeaker(GAME:GetPlayerPartyMember(3))--set audino as speaker 
+			GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('vast_steppe_entrance'), 0, true, true)
+			UI:SetSpeaker(GAME:GetPlayerPartyMember(3))--set audino as speaker
 			GeneralFunctions.SetEmotion("Pain")
 			UI:WaitShowDialogue("Ouf ![pause=0] C'est t-trop difficile...")
 			GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(3), "N-nous devons r-rebrousser chemin...", "Pain")
 			GAME:WaitFrames(20)
-			GAME:EnterZone("master_zone", -1, 46, 0)--Exit back to Vast Steppe Entrance
-		
+			GAME:EnterZone("master_zone", -1, GROUND_IDX('vast_steppe_entrance'), 0)--Exit back to Vast Steppe Entrance
+
 		else--Escaped
 			SV.Chapter5.EscapedSteppe = true
-			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 46, 0, true, true) --Go to Vast Steppe Entrance ground map
+			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('vast_steppe_entrance'), 0, true, true) --Go to Vast Steppe Entrance ground map
 		end
-		
+
 	elseif SV.ChapterProgression.Chapter == 5 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 		--Made it through Vast Steppe in chapter 5.
-		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 47, 0, false, false) --Go to Searing Tunnel Entrance ground map
+		GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('searing_tunnel_entrance'), 0, false, false) --Go to Searing Tunnel Entrance ground map
 
 	else--generic win/loss. Works for both cases outside chapter 5 since there's no end of dungeon map.
-		if result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then 
+		if result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
 			--Other zones have a 20 frame wait on not winning, so adding this here for consistency.
 			GAME:WaitFrames(20)
 		end
-			
+
 		--CHOIX DE FIN DE JOURNEE (TownNight.EndDay). Avant le ch6 et pendant
 		--toute scene imposee, comportement d'origine strictement identique :
 		--memes drapeaux, sortie vers le refectoire (6) ou le 2e etage (22).
 		TownNight.EndDay(result, true)
 	end
 end
-	
+
 
 return vast_steppe

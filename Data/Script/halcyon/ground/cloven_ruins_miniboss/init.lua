@@ -1,6 +1,6 @@
 --[[
     init.lua
-    Cloven Ruins — salle cinématique du mini-boss (Chapitre 7)
+    Aegis Cave — salle cinématique des gardiens (Chapitre 5)
     Gardiens antiques : Kaorine + Golemastoc.
     Patron : searing_tunnel_miniboss (dispatch Seen/Defeated/Lost),
     simplifié : flash blanc + dialogues (directive utilisateur).

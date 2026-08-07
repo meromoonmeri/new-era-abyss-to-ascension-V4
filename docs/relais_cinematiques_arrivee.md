@@ -45,7 +45,7 @@ suivantes restent un simple fondu (pas de friction en farm).
 **Relais d'histoire ch7→10** — deux variantes chacun : *pendant le chapitre*
 (tension du récit) et *visite libre* (contemplative, si découverte hors
 chapitre) :
-- **Relais Ruines Tordues (ch7)** : l'esplanade nivelée par les bâtisseurs,
+- **Relais Aegis Cave (ch7)** : l'esplanade nivelée par les bâtisseurs,
   les veines dorées qui convergent vers le Cœur — écho direct à
   `SawAnimaCoreCorruption` et à la WipedCutscene existante.
 - **Relais du Sanctuaire de Cristal (ch8)** : les cristaux **cessent de

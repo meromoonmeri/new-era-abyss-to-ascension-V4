@@ -1,5 +1,5 @@
 --[[
-    cloven_ruins_entrance_ch_5.lua — CAMP DES RUINES TORDUES
+    cloven_ruins_entrance_ch_5.lua — CAMP DES AEGIS CAVE
     REFONTE COMPLETE (2026-08-04)
 
     ==================================================================
@@ -1483,7 +1483,7 @@ function cloven_ruins_entrance_ch_5.MorningBody()
   -- musique du donjon. Demande utilisateur : la musique envoyee (lien
   -- YouTube pour l'ambiance des ruines) doit aussi accompagner le
   -- rassemblement du matin, pas seulement le donjon. On l'utilise donc
-  -- ici, des que le jour se leve sur le camp des Ruines Tordues.
+  -- ici, des que le jour se leve sur le camp des Aegis Cave.
   pcall(function() SOUND:PlayBGM('Aegis Cave.ogg', true) end)
 
   -- LA FORMATION DE LA GUILDE — le rassemblement en rangs de deux,

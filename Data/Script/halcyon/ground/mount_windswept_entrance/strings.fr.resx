@@ -68,7 +68,7 @@
     <value>Nous devrions installer le camp ici et nous reposer avant la dernière ascension.</value>
   </data>
   <data name="MWE5_004" xml:space="preserve">
-    <value>Demain, nous atteindrons les Ruines Tordues...[pause=0] si le Mont nous laisse passer.</value>
+    <value>Demain, nous atteindrons les Aegis Cave...[pause=0] si le Mont nous laisse passer.</value>
   </data>
   <data name="MWE5_005" xml:space="preserve">
     <value>D'accord.[pause=0] Reposons-nous et reprenons des forces.</value>
@@ -234,7 +234,7 @@
     <value>Bonjour, Pokémon ![pause=0] J'espère que tout le monde est bien reposé,[pause=10] grâce à l'aide...[pause=10] énergique de {0} !</value>
   </data>
   <data name="MWE5_062" xml:space="preserve">
-    <value>Aujourd'hui, nous gravissons le Mont Venteux.[pause=10] Au-delà se trouvent les Ruines Tordues :[pause=10] notre objectif,[pause=10] et le terme de cette expédition.</value>
+    <value>Aujourd'hui, nous gravissons le Mont Venteux.[pause=10] Au-delà se trouvent les Aegis Cave :[pause=10] notre objectif,[pause=10] et le terme de cette expédition.</value>
   </data>
   <data name="MWE5_063" xml:space="preserve">
     <value>{0} ![pause=10] Maintenant que tu es enfin RÉVEILLÉ,[pause=10] peux-tu nous dire ce que la montagne nous réserve ?</value>

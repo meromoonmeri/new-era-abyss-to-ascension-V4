@@ -136,7 +136,7 @@ function gloomy_forest_midpoint_ch_6.Adagio_Action(chara, activator)
 
   SOUND:FadeOutBGM(40)
   GAME:FadeOut(false, 40)
-  GAME:EnterGroundMap('gloomy_forest_boss', 'Main_Entrance_Marker')
+  GAME:ContinueDungeon('gloomy_forest', 4, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function gloomy_forest_midpoint_ch_6.Aria_Action(chara, activator)

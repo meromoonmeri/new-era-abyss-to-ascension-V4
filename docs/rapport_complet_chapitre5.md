@@ -13,7 +13,7 @@ La règle narrative est respectée :
 - Eternatus n'est pas nommé ;
 - l'Abîme reste une inquiétude descriptive ;
 - les Pokémon rencontrés sont présentés comme perturbés ou territoriaux ;
-- les Ruines Fendues sont préparées mais réservées au chapitre 6.
+- les Aegis Cave sont préparées mais réservées au chapitre 6.
 
 ## 2. Progression narrative
 
@@ -153,7 +153,7 @@ La conclusion prévue comprend :
 1. arrivée de l'équipe ;
 2. rapport incomplet de l'expédition ;
 3. inquiétude persistante concernant le phénomène lumineux ;
-4. décision de préparer l'accès aux Ruines Fendues ;
+4. décision de préparer l'accès aux Aegis Cave ;
 5. report de la résolution des ruines au chapitre 6.
 
 ## 3. État technique

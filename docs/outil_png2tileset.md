@@ -223,7 +223,7 @@ grounds du mod, et l'outil la force.
 
 L'outil **refuse** en plus toute carte plus petite que l'écran
 (320 × 240) : en dessous, le moteur centre la carte et laisse du vide.
-Cloven Ruins fait 1144 × 1360, soit **3,6 × 5,7 écrans**.
+Aegis Cave fait 1144 × 1360, soit **3,6 × 5,7 écrans**.
 
 ### Collisions par logique spatiale
 
@@ -273,7 +273,7 @@ du bruit de texture, pas un rocher. Cela retire ~500 fausses collisions.
   première fois sur une case libre mais enclavée, puis correctement en
   (512,1088) après durcissement du critère.
 
-Résultat sur Cloven Ruins : **69 % de sol praticable**, **98 %** de ce
+Résultat sur Aegis Cave : **69 % de sol praticable**, **98 %** de ce
 sol connexe depuis l'entrée, entrée du donjon atteignable, **0 entité en
 défaut**.
 
@@ -282,7 +282,7 @@ défaut**.
 `--herite` reprend marqueur d'entrée, spawners d'équipiers et objets
 scriptés, puis les **repositionne** à l'échelle de la nouvelle carte.
 Sans cela, remplacer un décor casserait tous les scripts qui le
-référencent. Contrôle après coup sur Cloven Ruins : **6 entités, 0 en
+référencent. Contrôle après coup sur Aegis Cave : **6 entités, 0 en
 défaut**, et l'entrée du donjon est atteignable depuis le point
 d'arrivée (17 963 cases connexes).
 

@@ -1,6 +1,6 @@
 --[[
     init.lua
-    Ruines Tordues (Cloven Ruins) — portage d'Aegis Cave
+    Aegis Cave (Aegis Cave) — portage d'Aegis Cave
 
     HUIT SEGMENTS, quatre labyrinthes et quatre arenes :
       0 GLACE B1-B3      1 arene de Regice     (crystal_cave_1)
@@ -83,12 +83,15 @@ end
 
 --LES RUINES FENDUES se jouent au ch5 (climax de l'expedition,
 --restructuration validee) et, pour les sauvegardes existantes, encore
---au ch7 (tant que l'arc Groudon n'a pas remplace le donjon d'histoire
---du ch7). En rejouabilite, la zone terminee reste jouable.
+--au chapitre 5 comme donjon final de l'expedition. En rejouabilite,
+--la zone terminee reste accessible sans rejouer la progression principale.
 local function ruinsActive()
   if SV.ChapterProgression ~= nil then
     local ch = SV.ChapterProgression.Chapter
-    if ch == 5 or ch == 7 then return true end
+    -- Aegis Cave est le donjon FINAL du chapitre 5. L'ancien routage
+    -- chapitre 7 était une dérive documentaire et ne doit plus réactiver
+    -- le flux principal. Après le chapitre 5, seule la revanche le permet.
+    if ch == 5 then return true end
   end
   return ReplayEnding.IsCleared('cloven_ruins')
 end

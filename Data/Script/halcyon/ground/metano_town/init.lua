@@ -499,17 +499,29 @@ function metano_town.ShowDestinationMenu(dungeon_entrances,ground_entrances)
 
   --Story dungeons and their corresponding "entrance ground" used for story cutscenes during the relevant chapter.
   --Illuminant Riverbed and Relic Forest 1 are story dungeons not accessed via this menu and thus the flag doesn't track them.
-  local dungeon_entrance_mapping = {}
-  dungeon_entrance_mapping["illuminant_riverbed"] = 29 --Illuminant Riverbed, but this shouldn't ever be used.
-  dungeon_entrance_mapping["crooked_cavern"] = 32--Crooked Cavern
-  dungeon_entrance_mapping["apricorn_grove"] = 35--Apricorn Grove
-  dungeon_entrance_mapping["vast_steppe"] = 37--Vast Steppe Entrance
-  dungeon_entrance_mapping["searing_tunnel"] = 38--Searing Tunnel Entrance
-  dungeon_entrance_mapping["mount_windswept"] = 41--Mt. Windswept Entrance
-  dungeon_entrance_mapping["gloomy_forest"] = 45--Gloomy Forest Entrance
-  dungeon_entrance_mapping["cloven_ruins"] = 56--Cloven Ruins Entrance
-  dungeon_entrance_mapping["waterfall_pond"] = 113--Crystal Sanctuary Entrance
-  dungeon_entrance_mapping["poisonous_forest"] = 122--Forgotten Marsh Entrance
+  -- Les imports Sky/Red font évoluer GroundMaps : aucune destination ne doit
+  -- dépendre d'un index numérique. Les zones sans véritable ground d'entrée
+  -- (waterfall_pond actuellement) entrent directement dans le donjon au lieu
+  -- de détourner un asset canonique de réserve tel que sanctuaire_voeu/Jirachi.
+  local dungeon_entrance_mapping = {
+    illuminant_riverbed = "illuminant_riverbed_entrance",
+    crooked_cavern = "crooked_cavern_entrance",
+    apricorn_grove = "apricorn_grove_entrance",
+    vast_steppe = "vast_steppe_entrance",
+    searing_tunnel = "searing_tunnel_entrance",
+    mount_windswept = "mount_windswept_entrance",
+    gloomy_forest = "gloomy_forest_entrance",
+    cloven_ruins = "cloven_ruins_entrance",
+    poisonous_forest = "poisonous_forest_entrance"
+  }
+
+  local function master_ground_idx(name)
+    local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("master_zone")
+    for ii = 0, zone.Grounds.Count - 1 do
+      if zone.Grounds[ii] == name then return ii end
+    end
+    return nil
+  end
 
 
 	local mission_dests = {}
@@ -605,10 +617,15 @@ function metano_town.ShowDestinationMenu(dungeon_entrances,ground_entrances)
 	GAME:FadeOut(false, 60)
 	GeneralFunctions.EndConversation(CH('Teammate1'))--end the conversation that was started with the partner before we enter the dungeon.
 	if dest.StructID.Segment > -1 then
-	  if SV.ChapterProgression.CurrentStoryDungeon == dest.ID then --go to the ground outside instead as it's the current story dungeon.
-		GAME:WaitFrames(120)--wait a bit before going to the ground
-	    SV.partner.Spawn = "Default"--set partner spawn area as the default for the map.
-		GAME:EnterZone("master_zone", -1, dungeon_entrance_mapping[dest.ID], 0)
+	  if SV.ChapterProgression.CurrentStoryDungeon == dest.ID and dungeon_entrance_mapping[dest.ID] ~= nil then
+        -- Le donjon d'histoire passe par son vrai ground d'approche, résolu par nom.
+        GAME:WaitFrames(120)
+        SV.partner.Spawn = "Default"
+        local ground_idx = master_ground_idx(dungeon_entrance_mapping[dest.ID])
+        if ground_idx == nil then
+          error("Ground d'entrée absent de master_zone: " .. tostring(dungeon_entrance_mapping[dest.ID]))
+        end
+        GAME:EnterZone("master_zone", -1, ground_idx, 0)
 	  else
 	    SV.partner.Spawn = "Default"--default partner spawn, since it could be a bunch of things before this, but it should be default for wherever we end up after the dungeon.
 	    GAME:EnterDungeon(dest.ID, dest.StructID.Segment, dest.StructID.ID, dest.EntryPoint, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)

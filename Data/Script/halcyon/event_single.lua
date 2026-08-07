@@ -1865,7 +1865,7 @@ function SINGLE_CHAR_SCRIPT.LavaBossClear(owner, ownerChar, context, args)
 end
 
 --------------------------------------------------------------------
--- RUINES TORDUES — un Zarbi vaincu laisse parfois sa pierre gravee.
+-- AEGIS CAVE — un Zarbi vaincu laisse parfois sa pierre gravee.
 --------------------------------------------------------------------
 -- Portage d'Aegis Cave : dans EoS, les Unown laissent aleatoirement une
 -- pierre a leur lettre, et c'est cette pierre qu'il faut presenter a la
@@ -1904,7 +1904,7 @@ end
 
 
 --------------------------------------------------------------------
--- RUINES TORDUES — cloture des quatre arenes des Regi
+-- AEGIS CAVE — cloture des quatre arenes des Regi
 --------------------------------------------------------------------
 -- Portage d'Aegis Cave. Les gardiens ne sont plus affrontes sur un ground
 -- de cinematique : chaque Regi a son ETAGE-ARENE dans la zone, au biome de

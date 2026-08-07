@@ -183,7 +183,7 @@ conforme à cette image — c'est déjà l'entrée de la Tour, mal nommée.
    (`tools/collisions_depuis_png.py` quand le PNG source existe).
 3. Créer les grounds Sky Tower et Mt Blaze depuis les PNG fournis, et
    arbitrer le déplacement de Rayquaza vers la Tour.
-4. Uniformiser « Ruines Tordues » (30 occurrences de « Ruines Fendues »
+4. Uniformiser « Aegis Cave » (30 occurrences de « Aegis Cave »
    subsistent).
 
 ---

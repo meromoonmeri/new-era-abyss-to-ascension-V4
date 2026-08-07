@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-drop_ruines_grounds.py — retire les grounds de boss des Ruines Tordues.
+drop_ruines_grounds.py — retire les grounds de boss des Aegis Cave.
 
 Demande explicite : « pas de ground », les cinematiques se jouent sur les
 etages-arenes de la zone. Quatre grounds n'ont donc plus lieu d'exister :

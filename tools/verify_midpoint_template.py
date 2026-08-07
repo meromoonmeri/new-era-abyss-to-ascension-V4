@@ -23,7 +23,7 @@ RELAYS = {
     'Grande Steppe':       'vast_steppe_midpoint',
     'Mont Venteux':        'mount_windswept_midpoint',
     'Foret Lugubre':       'gloomy_forest_midpoint',
-    'Ruines Tordues':      'cloven_ruins_midpoint',
+    'Aegis Cave':      'cloven_ruins_midpoint',
     'Caverne Tortueuse':   'crooked_cavern_midpoint',
     'Sanctuaire Cristal':  'crystal_sanctuary_relay',
     'Marais de l Oubli':   'forgotten_marsh_relay',

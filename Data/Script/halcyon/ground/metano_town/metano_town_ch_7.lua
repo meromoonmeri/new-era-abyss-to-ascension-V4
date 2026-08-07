@@ -1,6 +1,6 @@
 --[[
     metano_town_ch_7.lua
-    Chapitre 7 : Dialogues PNJ — post-expedition, Ruines Tordues, Genese, Reve Necrozma
+    Chapitre 7 : Dialogues PNJ — post-expedition, Aegis Cave, Genese, Reve Necrozma
     ~50 fonctions, 6 paliers Ch7State(), 37 cles MT7_077-113 + cles nommees
     Densite alignee sur Ch6 (815 lignes, 51 fonctions)
 ]]
@@ -1265,7 +1265,7 @@ function metano_town_ch_7.AlakazamScene()
 
   UI:SetSpeaker(alakazam)
   UI:WaitShowDialogue("Mmm...[pause=10] Je ressens les vibrations telluriques d'ici. L'énergie du noyau terrestre s'échappe par cette faille.")
-  UI:WaitShowDialogue("Les flux d'énergie convergent tous vers les Ruines Tordues. Quelque chose là-bas cherche à s'éveiller.")
+  UI:WaitShowDialogue("Les flux d'énergie convergent tous vers les Aegis Cave. Quelque chose là-bas cherche à s'éveiller.")
   GAME:WaitFrames(15)
 
   -- Tyranocif intervient

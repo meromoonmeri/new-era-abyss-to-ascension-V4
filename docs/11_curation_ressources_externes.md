@@ -53,7 +53,7 @@ Rejetés : 62 tilesets numériques (rips Explorers of Sky), BanditStealing, Dini
 
 ### FRIEND AREA — 8 tilesets + 5 musiques + 1 pattern Lua
 
-- **(1)** → Tilesets assignés : Volcanic_Pit → Searing Crucible, Peanut/Poison_Swamp → Forgotten Marsh, Rainbow_Peak → Celestial Peak Lugia, Stratos_Lookout → Celestial Peak Fulgur, Ancient_Relic → Cloven Ruins, Frigid_Cavern → futur donjon glace, Furnace_Desert → futur donjon désert. Musiques → relais et scènes.
+- **(1)** → Tilesets assignés : Volcanic_Pit → Searing Crucible, Peanut/Poison_Swamp → Forgotten Marsh, Rainbow_Peak → Celestial Peak Lugia, Stratos_Lookout → Celestial Peak Fulgur, Ancient_Relic → Aegis Cave, Frigid_Cavern → futur donjon glace, Furnace_Desert → futur donjon désert. Musiques → relais et scènes.
 - **(2)** → Pattern `allowed_species` extrait dans `FriendAreaUtils.lua` (utilitaire). Aucune autre adaptation — le système Friend Area complet est incompatible.
 - **(3)** → Biomes déjà nommés. Pas de conflit avec les camps existants.
 

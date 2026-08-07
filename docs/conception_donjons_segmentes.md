@@ -92,7 +92,7 @@ mini-boss → 3F → boss**.
 | Ch | Donjon | Étages avant | Étages après | Mini-boss | Statut |
 |---|---|---|---|---|---|
 | 6 | Forêt Lugubre | 18+3 | 18+3+3 + OST propre (Hidden Highland.ogg, Sky) | Tengalice + Cornèbre (seg 2) | **conforme, non testé en jeu** |
-| 7 | Ruines Tordues | 15+5 | 20+3+3 | Kaorine + Golemastoc (seg 3) | **conforme, non testé en jeu** |
+| 7 | Aegis Cave | 15+5 | 20+3+3 | Kaorine + Golemastoc (seg 3) | **conforme, non testé en jeu** |
 | 8 | Sanctuaire de Cristal | 12+6 | 25+3+3 | Strassie + Momartik (seg 3) | **conforme, non testé en jeu** |
 | 9 | Marais de l'Oubli | 10+8 | 30+3+3 | Avaltout + Coatox (seg 3) | **conforme, non testé en jeu** |
 | 10 | Pic Céleste | 8+6+4 | **35**+3+3 | Salle Fulgurée (déjà en place) | **CONFORME** |

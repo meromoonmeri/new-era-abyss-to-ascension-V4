@@ -921,9 +921,9 @@ SV.Chapter5 =
 	TunnelMiniBossCleared = false,
 	MountMiniBossCleared = false,
 
-	-- ============ RUINES TORDUES (climax du ch5, option 2 validee) ============
+	-- ============ AEGIS CAVE (climax du ch5, option 2 validee) ============
 	--Apres la victoire sur Tornadus, l'expedition etablit un campement
-	--devant l'entree des Ruines Tordues (cloven_ruins_entrance) au lieu
+	--devant l'entree des Aegis Cave (cloven_ruins_entrance) au lieu
 	--de rentrer a Metano : respiration narrative avant le donjon final.
 	--  RuinsCampPending    : on arrive au camp et la cinematique d'arrivee
 	--                        (briefing autour du feu) doit se jouer.
@@ -933,7 +933,7 @@ SV.Chapter5 =
 	--  RuinsDreamSeen      : le reve (Gardevoir) a ete vu (pose par
 	--                        hero_dream/init.lua quand DreamReturn==Ruines).
 	--  RuinsEntered        : le joueur a franchi l'entree des Ruines.
-	--  RuinsExpeditionDone : les Ruines Tordues sont terminees — le ch5
+	--  RuinsExpeditionDone : les Aegis Cave sont terminees — le ch5
 	--                        se clot et le retour a Metano peut avoir lieu.
 	RuinsCampPending = false,
 	RuinsCampDone = false,
@@ -1209,7 +1209,7 @@ SV.Chapter7 =
 	HeardGenesisTale = false,
 	HadFirstDream = false,--Premier reve de Necrozma
 	RuinsAddressGiven = false,--Adresse du matin Ch7 donnee
-	MissionAccepted = false,--Mission Ruines Tordues acceptee
+	MissionAccepted = false,--Mission Aegis Cave acceptee
 	AlakazamScenePlayed = false,
 	VisitedXatu = false,
 	GreatReunionPlayed = false,
@@ -1474,7 +1474,7 @@ SV.guildmaster_summit =
 }
 
 ----------------------------------------------
--- RUINES TORDUES — portage d'Aegis Cave (Explorers of Sky)
+-- AEGIS CAVE — portage d'Aegis Cave (Explorers of Sky)
 ----------------------------------------------
 -- Structure fidele : 3 labyrinthes qui BOUCLENT tant que le mot du
 -- secteur n'est pas epele avec les pierres de Zarbi, chacun suivi de la

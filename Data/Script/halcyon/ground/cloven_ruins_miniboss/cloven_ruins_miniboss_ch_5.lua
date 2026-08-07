@@ -1,6 +1,6 @@
 --[[
     cloven_ruins_miniboss_ch_5.lua
-    Ruines Tordues — Mini-Boss : Kaorine + Golemastoc (gardiens antiques)
+    Aegis Cave — Mini-Boss : Kaorine + Golemastoc (gardiens antiques)
     Simple : flash blanc + dialogues (directive utilisateur).
     Salle 456x456 px, ring de 2 tuiles de murs : plancher de (48,48) à (408,408).
 ]]

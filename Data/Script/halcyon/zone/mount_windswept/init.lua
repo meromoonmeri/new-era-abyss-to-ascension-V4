@@ -113,7 +113,7 @@ function mount_windswept.ExitSegment(zone, result, rescue, segmentID, mapID)
 			if result == RogueEssence.Data.GameProgress.ResultType.Escaped
 			or result == RogueEssence.Data.GameProgress.ResultType.GaveUp then
 				SV.Chapter5.MountLastExitReason = 'Retreated'
-				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 50, 0, true, true) --Go to Mt. Windswept Entrance ground map
+				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('mount_windswept_entrance'), 0, true, true) --Go to Mt. Windswept Entrance ground map
 			else--Died / TimedOut
 				SV.Chapter5.MountLastExitReason = 'Died'
 				if result == RogueEssence.Data.GameProgress.ResultType.TimedOut then
@@ -122,10 +122,10 @@ function mount_windswept.ExitSegment(zone, result, rescue, segmentID, mapID)
 				--Composants de la version GeneralFunctions pour placer la
 				--boite de dialogue apres l'ecran de resultats (patron du
 				--Tunnel). EndDungeonRun sauvegarde : a appeler avant EnterZone.
-				GAME:EndDungeonRun(result, "master_zone", -1, 50, 0, true, true)
+				GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('mount_windswept_entrance'), 0, true, true)
 				GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(2), "Le vent...[pause=10] le vent était trop fort...[pause=0] Relevez-vous.", "Pain")--set Ganlon (Teammate2 de la cordee du sommet) as speaker
 				GAME:WaitFrames(20)
-				GAME:EnterZone("master_zone", -1, 50, 0)--Exit back to Mt. Windswept Entrance
+				GAME:EnterZone("master_zone", -1, GROUND_IDX('mount_windswept_entrance'), 0)--Exit back to Mt. Windswept Entrance
 			end
 		else
 			TownNight.EndDay(result, true)

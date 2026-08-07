@@ -9,7 +9,7 @@ Décision utilisateur : **option (a)** — renivelage des boss ch6-10 vers le ba
 |---|---|---|---|
 | Zarude (Forêt Lugubre, ch6) | L42 | **L27** | 200+80 |
 | Zarude revanche (verdant_oath) | L45 | **L30** | 220+90 |
-| Regigigas (Ruines Tordues, ch7) | L45 | **L28** | 260+120 |
+| Regigigas (Aegis Cave, ch7) | L45 | **L28** | 260+120 |
 | Diancie (Sanctuaire, ch8) | L40 | **L30** | 240+100 |
 | Laggron (Marais, ch9) | L42 | **L32** | 280+120 |
 | Escouade Fulgur (ch10) | L38 | **L33** | 180-190+30/40 |

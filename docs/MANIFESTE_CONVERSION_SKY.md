@@ -399,7 +399,7 @@ Outil : `PMDSky_PMDO_Framework` (extracteurs + convertisseurs, à corriger pour 
 
 ---
 
-## SECTION SPÉCIALE — AEGIS CAVE (remplace les Ruines Tordues / cloven_ruins ch5)
+## SECTION SPÉCIALE — AEGIS CAVE (remplace les Aegis Cave / cloven_ruins ch5)
 
 > **MISE À JOUR 2026-08-07 — RÉVISION CRITIQUE.** La conversion initiale
 > (19 grounds depuis files/MAP_BG/d54…d61, commit 2180945) partait de

@@ -3,7 +3,7 @@
 # make_cloven_entrance.py — reconstruction totale de Data/Ground/cloven_ruins_entrance.rsground
 #
 # CONCEPT (choix utilisateur 2026-07-29, "porte_foret") :
-#   entree des Ruines Tordues = portique enfoui dans la foret.
+#   entree des Aegis Cave = portique enfoui dans la foret.
 #   Assemblage authentique "Old Ruins Stairs" (L1+L2+L3, 480x432 px natif)
 #   + portique de piliers (Relic_Forest_Blob_*) + decombres, sur une base
 #   d'herbe Relic_Forest_Base (frame echantillonnee de la map d'origine).

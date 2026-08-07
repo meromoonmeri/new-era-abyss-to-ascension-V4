@@ -11,16 +11,16 @@ Suffixes des fichiers : `RTRB` = Rescue Team Red/Blue (pmd-red),
 
 ## 1. Décision de nommage
 
-**« Ruines Tordues »** est retenu (décision auteur, 2026-08-02).
+**« Aegis Cave »** est retenu (décision auteur, 2026-08-02).
 
-`Data/Zone/cloven_ruins.json` porte déjà `LocalTexts.fr = "Ruines Tordues"`.
-En revanche **30 occurrences de « Ruines Fendues »** subsistent dans les
-`.lua` et les `.resx` contre 28 de « Ruines Tordues » : le joueur voit
+`Data/Zone/cloven_ruins.json` porte déjà `LocalTexts.fr = "Aegis Cave"`.
+En revanche **30 occurrences de « Aegis Cave »** subsistent dans les
+`.lua` et les `.resx` contre 28 de « Aegis Cave » : le joueur voit
 aujourd'hui les deux noms pour le même donjon. À uniformiser (non fait
 dans ce lot — c'est un passage sur 10 fichiers, à traiter séparément pour
 ne pas noyer le correctif de collision).
 
-Fichiers concernés par « Ruines Fendues » :
+Fichiers concernés par « Aegis Cave » :
 `CharacterEssentials.lua`, `cloven_ruins_boss_ch_7.lua`,
 `cloven_ruins_entrance_ch_5.lua`, `cloven_ruins_entrance/init.lua`,
 `cloven_ruins_entrance/strings.fr.resx`, `hero_dream/init.lua`,
@@ -137,7 +137,7 @@ spawners — il est simplement injoignable.
 3. Les 2 PNG de cinématique (`Sky_Tower_cutscene`, `Mt_Blaze_cutscene`)
    ne sont pas des grounds : ce sont des fonds fixes, à traiter comme
    décor de scène.
-4. Uniformiser « Ruines Tordues » sur les 10 fichiers listés en §1.
+4. Uniformiser « Aegis Cave » sur les 10 fichiers listés en §1.
 
 ---
 

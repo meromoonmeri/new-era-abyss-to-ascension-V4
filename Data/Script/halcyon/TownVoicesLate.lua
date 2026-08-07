@@ -71,7 +71,7 @@ TownVoicesLate = {}
 TownVoicesLate.FICHES = {}
 
 --====================================================================
--- CHAPITRE 7 — LES RUINES TORDUES, PUIS LE RECIT DES ORIGINES
+-- CHAPITRE 7 — LES AEGIS CAVE, PUIS LE RECIT DES ORIGINES
 --====================================================================
 -- Registre : l'inquietude qu'on n'ose pas nommer. La ville sent que
 -- quelque chose a change mais met ca sur le compte du temps, des

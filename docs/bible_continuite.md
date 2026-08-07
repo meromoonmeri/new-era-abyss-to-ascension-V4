@@ -13,7 +13,7 @@
 | 4 | Une Vraie Aventure | Bosquet Apricorn, assemblée déverrouillée | locale |
 | 5 | L'Expédition | Grande expédition guilde : Steppe → Tunnel → Mont. Phénomène lumineux au sommet | régionale — TOUTE la ville en parle au retour |
 | 6 | La Forêt Lugubre | Team Dazzling, corruption des Anima découverte, Zarude vaincu | régionale |
-| 7 | (Ruines Tordues) | Regigigas, premier Cœur d'Anima vu corrompu, récit de la Genèse | régionale, la guilde sait |
+| 7 | (Aegis Cave) | Regigigas, premier Cœur d'Anima vu corrompu, récit de la Genèse | régionale, la guilde sait |
 | 8 | (Sanctuaire de Cristal) | Diancie, Fragment de Cristal obtenu | guilde + proches |
 | 9 | (Marais de l'Oubli) | Laggron, Cercle du Suaire aperçu, Cœur purifié | guilde ; rumeurs déformées en ville |
 | 10 | (Pic Céleste) | Course contre l'Escouade Fulgur, Lugia, vision de Necrozma | fin d'arc — `SV.ChapterProgression.StoryCompleted` |
@@ -104,7 +104,7 @@ Chaque légende a son OST, son conteur attitré et prépare un contenu futur pla
 
 | Légende | Conteur | Lieu | OST | Légendaires cités | Prépare |
 |---|---|---|---|---|---|
-| Les Trois Serviteurs et le Colosse | Rubble (Aggron, ex-mineur) | café | In the Depths of the Pit | Regirock, Regice, Registeel + « le Colosse » (Regigigas non nommé) | ch7 Ruines Tordues |
+| Les Trois Serviteurs et le Colosse | Rubble (Aggron, ex-mineur) | café | In the Depths of the Pit | Regirock, Regice, Registeel + « le Colosse » (Regigigas non nommé) | ch7 Aegis Cave |
 | Les Trois Lacs | le vieux Relicanth | étang d'Altere | Star Cave | Créhelf, Créfollet, Créfadet | Sentiers Savoir/Espoir/Courage (P5) |
 | Les Deux Gardiens du Ciel | Nidoqueen (aubergiste, histoire de sa mère) | auberge | I Saw Something Again... | Ho-Oh, Lugia (« il ne remonte que si le ciel est en danger ») | ch10 Pic Céleste |
 | Le Fourneau et les Cœurs | Phileas (Noctowl) — GRANDE VEILLÉE mise en scène | camp du Tunnel | I Saw Something Again... → Rising Fear | Heatran + les « Cœurs » (Anima sans le mot) | tout l'arc Anima |

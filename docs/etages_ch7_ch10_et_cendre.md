@@ -59,7 +59,7 @@ Adaptation par donjon :
 
 | donjon | musique | tileset | élément | météo par étage |
 |---|---|---|---|---|
-| Ruines Tordues | `Deep Dark Crater` | `western_cave_1` | rock | clear ×3, **sandstorm** |
+| Aegis Cave | `Deep Dark Crater` | `western_cave_1` | rock | clear ×3, **sandstorm** |
 | Sanctuaire de Cristal | `Crystal Cave` | `crystal_cave_1` | ice | clear ×4 |
 | Marais Oublié | `Murky Cave` | `murky_cave` | water | clear ×2, **rain** ×2 |
 | Pic Céleste | `Sky Tower` | `sky_tower` | flying | clear ×2, **falling_ash** ×2 |

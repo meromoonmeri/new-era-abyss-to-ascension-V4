@@ -10,7 +10,7 @@ Build : `2026-08-01-B` · Audit du 2026-07-28
 |---|---|
 | **Nom** | La Genèse — récit de Phileas |
 | **Fichier** | `ground/genesis_vision/genesis_vision_ch_7.lua` |
-| **Chapitre** | 7 (après la découverte de la corruption dans les Ruines Tordues) |
+| **Chapitre** | 7 (après la découverte de la corruption dans les Aegis Cave) |
 | **Déclencheur** | Phileas, 3ᵉ étage de la guilde |
 | **Rôle narratif** | **Le récit fondateur du jeu.** Explique d'où vient la vie, ce que sont les Cœurs des Anima, et pourquoi leur extinction est une catastrophe. Tout l'arc 7-32 en découle. |
 | **Format** | 5 actes, 5 planches animées plein écran, 19 lignes de voix off |

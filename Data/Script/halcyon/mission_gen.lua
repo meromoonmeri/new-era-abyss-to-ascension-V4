@@ -17,7 +17,7 @@ require 'halcyon.CharacterEssentials'
 --Escort Species - should be given as a blank if this is not an escort mission.
 --Zone (dungeon)
 --Segment (part of the dungeon) - this is typically the default segment
---Floor 
+--Floor
 --Reward - given as item name's string. If money, should be given as "Money" and the amount will be based off the difficulty.
 --Mission Type - outlaw, escort, or rescue
 --Completion status - Incomplete or Complete. When a reward is handed out at the end of the day, any missions that are completed should be removed from the taken board.
@@ -60,7 +60,7 @@ MISSION_GEN.DIFFICULTY["STAR_1"] = 100
 --dungeon's assigned difficulty
 MISSION_GEN.DUNGEON_DIFFICULTY = {}
 MISSION_GEN.DUNGEON_DIFFICULTY[""] = "F"--just in case lul
-MISSION_GEN.DUNGEON_DIFFICULTY["relic_forest"] = "E"--missions shouldn't be given for relic forest 
+MISSION_GEN.DUNGEON_DIFFICULTY["relic_forest"] = "E"--missions shouldn't be given for relic forest
 MISSION_GEN.DUNGEON_DIFFICULTY["illuminant_riverbed"] = "D"
 MISSION_GEN.DUNGEON_DIFFICULTY["crooked_cavern"] = "C"
 MISSION_GEN.DUNGEON_DIFFICULTY["apricorn_grove"] = "B"
@@ -105,7 +105,7 @@ MISSION_GEN.DUNGEON_DIFFICULTY["poisonous_forest"] = "S"
 MISSION_GEN.DUNGEON_DIFFICULTY["sky_tower"] = "STAR_1"
 
 
---order of difficulties. 
+--order of difficulties.
 MISSION_GEN.DIFF_TO_ORDER = {}
 MISSION_GEN.DIFF_TO_ORDER[""] = 1
 MISSION_GEN.DIFF_TO_ORDER["F"] = 2
@@ -239,7 +239,7 @@ MISSION_GEN.TITLES =  {
 		"MISSION_TITLE_DELIVERY_003",
 		"MISSION_TITLE_DELIVERY_004",
 		"MISSION_TITLE_DELIVERY_005"
-	},	
+	},
 	LOST_ITEM = {
 		"MISSION_TITLE_LOST_ITEM_001",
 		"MISSION_TITLE_LOST_ITEM_002",
@@ -265,14 +265,14 @@ MISSION_GEN.TITLES =  {
 		"MISSION_TITLE_OUTLAW_ITEM_003",
 		"MISSION_TITLE_OUTLAW_ITEM_004",
 		"MISSION_TITLE_OUTLAW_ITEM_005"
-	},	
+	},
 	OUTLAW_MONSTER_HOUSE = {
 		"MISSION_TITLE_OUTLAW_MONSTER_HOUSE_001",
 		"MISSION_TITLE_OUTLAW_MONSTER_HOUSE_002",
 		"MISSION_TITLE_OUTLAW_MONSTER_HOUSE_003",
 		"MISSION_TITLE_OUTLAW_MONSTER_HOUSE_004",
 		"MISSION_TITLE_OUTLAW_MONSTER_HOUSE_005"
-	},	
+	},
 	OUTLAW_FLEE = {
 		"MISSION_TITLE_OUTLAW_FLEE_001",
 		"MISSION_TITLE_OUTLAW_FLEE_002",
@@ -280,14 +280,14 @@ MISSION_GEN.TITLES =  {
 		"MISSION_TITLE_OUTLAW_FLEE_004",
 		"MISSION_TITLE_OUTLAW_FLEE_005"
 	},
-	
+
 	--For special client/targets
 	RIVAL = {
 		"MISSION_TITLE_SPECIAL_RIVAL_001",
 		"MISSION_TITLE_SPECIAL_RIVAL_002",
 		"MISSION_TITLE_SPECIAL_RIVAL_003"
 	},
-	
+
 	CHILD = {
 		"MISSION_TITLE_SPECIAL_CHILD_001",
 		"MISSION_TITLE_SPECIAL_CHILD_002",
@@ -302,7 +302,7 @@ MISSION_GEN.TITLES =  {
 		"MISSION_TITLE_SPECIAL_LOVER_001",
 		"MISSION_TITLE_SPECIAL_LOVER_002",
 		"MISSION_TITLE_SPECIAL_LOVER_003"
-	}	
+	}
 }
 
 MISSION_GEN.FLAVOR_TOP =  {
@@ -350,7 +350,7 @@ MISSION_GEN.FLAVOR_TOP =  {
 		"MISSION_BODY_TOP_DELIVERY_003",
 		"MISSION_BODY_TOP_DELIVERY_004",
 		"MISSION_BODY_TOP_DELIVERY_005"
-	},	
+	},
 	LOST_ITEM = {
 		"MISSION_BODY_TOP_LOST_ITEM_001",
 		"MISSION_BODY_TOP_LOST_ITEM_002",
@@ -376,14 +376,14 @@ MISSION_GEN.FLAVOR_TOP =  {
 		"MISSION_BODY_TOP_OUTLAW_ITEM_003",
 		"MISSION_BODY_TOP_OUTLAW_ITEM_004",
 		"MISSION_BODY_TOP_OUTLAW_ITEM_005"
-	},	
+	},
 	OUTLAW_MONSTER_HOUSE = {
 		"MISSION_BODY_TOP_OUTLAW_MONSTER_HOUSE_001",
 		"MISSION_BODY_TOP_OUTLAW_MONSTER_HOUSE_002",
 		"MISSION_BODY_TOP_OUTLAW_MONSTER_HOUSE_003",
 		"MISSION_BODY_TOP_OUTLAW_MONSTER_HOUSE_004",
 		"MISSION_BODY_TOP_OUTLAW_MONSTER_HOUSE_005"
-	},	
+	},
 	OUTLAW_FLEE = {
 		"MISSION_BODY_TOP_OUTLAW_FLEE_001",
 		"MISSION_BODY_TOP_OUTLAW_FLEE_002",
@@ -438,7 +438,7 @@ MISSION_GEN.FLAVOR_BOTTOM =  {
 		"MISSION_BODY_BOTTOM_DELIVERY_003",
 		"MISSION_BODY_BOTTOM_DELIVERY_004",
 		"MISSION_BODY_BOTTOM_DELIVERY_005"
-	},	
+	},
 	LOST_ITEM = {
 		"MISSION_BODY_BOTTOM_LOST_ITEM_001",
 		"MISSION_BODY_BOTTOM_LOST_ITEM_002",
@@ -459,14 +459,14 @@ MISSION_GEN.FLAVOR_BOTTOM =  {
 		"MISSION_BODY_BOTTOM_OUTLAW_ITEM_003",
 		"MISSION_BODY_BOTTOM_OUTLAW_ITEM_004",
 		"MISSION_BODY_BOTTOM_OUTLAW_ITEM_005"
-	},	
+	},
 	OUTLAW_MONSTER_HOUSE = {
 		"MISSION_BODY_BOTTOM_OUTLAW_MONSTER_HOUSE_001",
 		"MISSION_BODY_BOTTOM_OUTLAW_MONSTER_HOUSE_002",
 		"MISSION_BODY_BOTTOM_OUTLAW_MONSTER_HOUSE_003",
 		"MISSION_BODY_BOTTOM_OUTLAW_MONSTER_HOUSE_004",
 		"MISSION_BODY_BOTTOM_OUTLAW_MONSTER_HOUSE_005"
-	},	
+	},
 	OUTLAW_FLEE = {
 		"MISSION_BODY_BOTTOM_OUTLAW_FLEE_001",
 		"MISSION_BODY_BOTTOM_OUTLAW_FLEE_002",
@@ -478,7 +478,7 @@ MISSION_GEN.FLAVOR_BOTTOM =  {
 --master pokemon list
 --This is a list of all Released Pokemon, minus ones who are in the same evolutionary family as a named character in the game,
 --starters, legendaries, and a few other "special" mons (unown for example)
-MISSION_GEN.MASTER_POKEMON_LIST = 
+MISSION_GEN.MASTER_POKEMON_LIST =
 {"abra","absol","aerodactyl","aipom","alakazam","alcremie","altaria","amaura","anorith","appletun","applin","arbok","archen","ariados","armaldo","aron","arrokuda","aurorus","axew",
 "baltoy","banette","barboach","bastiodon","beedrill","beldum","bellsprout","bibarel","bidoof","blissey","bonsly","bounsweet","bronzong","bronzor","buneary","burmy",
 "carnivine","carvanha","cascoon","castform","chandelure","chansey","chatot","cherrim","cherubi","chimecho","chinchou","chingling","clamperl","claydol","clobbopus","cloyster","combee","corphish","corsola","corviknight","cradily","cramorant","crawdaunt","croagunk","crobat","cubchoo","cursola","cutiefly",
@@ -508,7 +508,7 @@ MISSION_GEN.MASTER_POKEMON_LIST =
 
 MISSION_GEN.POKEMON = {
 	--weak mons for easy missions
-	TIER_LOW = 
+	TIER_LOW =
 	{"abra","amaura","anorith","applin","archen","aron","arrokuda","axew",
 	"baltoy","barboach","beldum","bellsprout","bidoof","bonsly","bounsweet","bronzor","buneary","burmy",
 	"carvanha","cascoon","cherubi","chinchou","chingling","clamperl","clobbopus","combee","corphish","croagunk","cubchoo","cutiefly",
@@ -537,7 +537,7 @@ MISSION_GEN.POKEMON = {
 	"zubat"},
 
 	--middling mons for medium missions
-	TIER_MID = 
+	TIER_MID =
 	{"aipom","arbok","ariados",
 	"beedrill","bibarel",
 	"carnivine","castform","chansey","chatot","cherrim","chimecho","corsola","cramorant",
@@ -566,7 +566,7 @@ MISSION_GEN.POKEMON = {
 	},
 
 	--strong pokemon for difficult missions
-	TIER_HIGH = 
+	TIER_HIGH =
 	{"absol","aerodactyl","alakazam","alcremie","altaria","appletun","armaldo","aurorus",
 	"banette","bastiodon","blissey","bronzong",
 	"chandelure","claydol","cloyster","corviknight","cradily","crawdaunt","crobat","cursola",
@@ -751,7 +751,7 @@ MISSION_GEN.REWARDS = {
 		{"ammo_stick", 5},
 		{"ammo_silver_spike", 5}
 	},
-	
+
 	AMMO_HIGH = {
 		{"ammo_rare_fossil", 5},
 		{"ammo_corsola_twig", 5},
@@ -766,7 +766,7 @@ MISSION_GEN.REWARDS = {
 		{"food_chestnut", 12},
 		{"gummi_blue", 1},
 		{"gummi_black", 1},
-		{"gummi_clear", 1}, 
+		{"gummi_clear", 1},
 		{"gummi_grass", 1},
 		{"gummi_green", 1},
 		{"gummi_brown", 1},
@@ -791,7 +791,7 @@ MISSION_GEN.REWARDS = {
 		{"food_banana_big", 18},
 		{"gummi_blue", 1},
 		{"gummi_black", 1},
-		{"gummi_clear", 1}, 
+		{"gummi_clear", 1},
 		{"gummi_grass", 1},
 		{"gummi_green", 1},
 		{"gummi_brown", 1},
@@ -814,7 +814,7 @@ MISSION_GEN.REWARDS = {
 		{"boost_carbos", 1},
 		{"boost_iron", 1},
 		{"boost_nectar", 1}
-		
+
 	},
 	--includes seeds and berries
 	SEED_LOW = {
@@ -833,7 +833,7 @@ MISSION_GEN.REWARDS = {
 		{'berry_persim', 5},
 		{'berry_lum', 5}
 	},
-	
+
 	--includes seeds and berries
 	SEED_HIGH = {
 		{'seed_reviver', 5},
@@ -841,24 +841,24 @@ MISSION_GEN.REWARDS = {
 		{'seed_joy', 2},
 		{'berry_sitrus', 5},
 		{'berry_lum', 5}
-	}, 
-	
+	},
+
 	HELD_LOW = {
 		{'held_power_band', 5},
 		{'held_special_band', 5},
 		{'held_defense_scarf', 5},
 		{'held_zinc_band', 5},
-		
+
 		{'held_pecha_scarf', 5},
 		{'held_cheri_scarf', 5},
 		{'held_rawst_scarf', 5},
 		{'held_aspear_scarf', 5},
 		{'held_insomniascope', 5},
 		{'held_persim_band', 5},
-		
+
 		{'held_warp_scarf', 5}
 	},
-	
+
 	HELD_HIGH = {
 		{'held_friend_bow', 2},
 		{'held_mobile_scarf', 2},
@@ -872,7 +872,7 @@ MISSION_GEN.REWARDS = {
 		{'held_x_ray_specs', 5},
 		{'held_twist_band', 5}
 	},
-	
+
 	TM_LOW = {
 		{'tm_snatch', 5},
 		{'tm_sunny_day', 5},
@@ -880,7 +880,7 @@ MISSION_GEN.REWARDS = {
 		{'tm_sandstorm', 5},
 		{'tm_hail', 5},
 		{'tm_taunt', 5},
-		
+
 		{'tm_safeguard', 5},
 		{'tm_light_screen', 5},
 		{'tm_dream_eater', 5},
@@ -924,7 +924,7 @@ MISSION_GEN.REWARDS = {
 		{'tm_embargo', 5},
 		{'tm_struggle_bug', 5},
 		{'tm_quash', 5}},
-		
+
 	TM_MID = {
 
 		{'tm_explosion', 5},
@@ -1004,9 +1004,9 @@ MISSION_GEN.REWARDS = {
 		{'tm_giga_drain', 5},
 		{'tm_dive', 5},
 		{'tm_poison_jab', 5},
-	
+
 		{'tm_iron_tail', 5},
-	
+
 		{'tm_dig', 5},
 		{'tm_fly', 5},
 		{'tm_dragon_claw', 5},
@@ -1038,7 +1038,7 @@ MISSION_GEN.SPECIAL_LOVER_PAIRS = {
 		{'volbeat', 1, 'illumise', 2, "MISSION_BODY_SPECIAL_LOVER_001"},
 		{'minun', 1, 'plusle', 2, "MISSION_BODY_SPECIAL_LOVER_002"},
 		{'mareep', 2, 'wooloo', 1, "MISSION_BODY_SPECIAL_LOVER_003"},
-		{'luvdisc', 2, 'luvdisc', 2, "MISSION_BODY_SPECIAL_LOVER_004"}	
+		{'luvdisc', 2, 'luvdisc', 2, "MISSION_BODY_SPECIAL_LOVER_004"}
 	},
 	TIER_MID = {
 		{'miltank', 2, 'tauros', 1, "MISSION_BODY_SPECIAL_LOVER_005"},
@@ -1080,7 +1080,7 @@ MISSION_GEN.SPECIAL_CHILD_PAIRS = {
 		{'hatterene', 2, 'hatenna', 2, "MISSION_BODY_SPECIAL_CHILD_016"},
 		{'gothitelle', 2, 'gothita', 2, "MISSION_BODY_SPECIAL_CHILD_017"},
 		{'dugtrio', 1, 'diglett', 1, "MISSION_BODY_SPECIAL_CHILD_018"}
-	},	
+	},
 	TIER_HIGH = {
 		{'tyranitar', 2, 'larvitar', 1, "MISSION_BODY_SPECIAL_CHILD_019"},
 		{'salamence', 1, 'bagon', 2, "MISSION_BODY_SPECIAL_CHILD_020"},
@@ -1088,10 +1088,10 @@ MISSION_GEN.SPECIAL_CHILD_PAIRS = {
 		{'noivern', 1, 'noibat', 1, "MISSION_BODY_SPECIAL_CHILD_022"},
 		{'goodra', 2, 'goomy', 1, "MISSION_BODY_SPECIAL_CHILD_023"}
 	}
-	
-	
-	
-	
+
+
+
+
 }
 
 MISSION_GEN.SPECIAL_FRIEND_PAIRS = {
@@ -1136,7 +1136,7 @@ MISSION_GEN.SPECIAL_RIVAL_PAIRS = {
 		{'lillipup', 2, 'poochyena', 1, "MISSION_BODY_SPECIAL_RIVAL_008"}
 
 },
-	
+
 	TIER_MID = {
 		{'vigoroth', 1, 'primeape', 1, "MISSION_BODY_SPECIAL_RIVAL_009"},--full of energy!
 		{'sawsbuck', 1, 'stantler', 1, "MISSION_BODY_SPECIAL_RIVAL_010"},--butt antlers!
@@ -1144,7 +1144,7 @@ MISSION_GEN.SPECIAL_RIVAL_PAIRS = {
 		{'mareanie', 2, 'corsola', 2, "MISSION_BODY_SPECIAL_RIVAL_012"}
 
 	},
-	
+
 	TIER_HIGH = {
 		{'heracross', 1, 'pinsir', 1, "MISSION_BODY_SPECIAL_RIVAL_013"},
 		{'slowking', 1, 'slowbro', 1, "MISSION_BODY_SPECIAL_RIVAL_014"},--slowbro may not be as smart as me, but we're still great friends!
@@ -1186,7 +1186,7 @@ MISSION_GEN.DELIVERABLE_ITEMS = {
 
 --"order" of dungeons
 MISSION_GEN.DUNGEON_ORDER = {}
-MISSION_GEN.DUNGEON_ORDER[""] = 99999--empty missions should get shoved towards the end 
+MISSION_GEN.DUNGEON_ORDER[""] = 99999--empty missions should get shoved towards the end
 MISSION_GEN.DUNGEON_ORDER["relic_forest"] = 1
 MISSION_GEN.DUNGEON_ORDER["illuminant_riverbed"] = 2
 MISSION_GEN.DUNGEON_ORDER["crooked_cavern"] = 3
@@ -1284,64 +1284,7 @@ SV.MissionBoard =
 		ClientGender = -1,
 		TargetGender = -1,
 		BonusReward = ""
-	},	
-	{
-		Client = "",
-		Target = "",
-		Flavor = "",
-		Title = "",
-		Zone = "",
-		Segment = -1,
-		Floor = -1,
-		Reward = "",
-		Type = -1,
-		Completion = -1,
-		Taken = false,
-		Difficulty = "",
-		Item = "",
-		Special = "",
-		ClientGender = -1,
-		TargetGender = -1,
-		BonusReward = ""
-	},	
-	{
-		Client = "",
-		Target = "",
-		Flavor = "",
-		Title = "",
-		Zone = "",
-		Segment = -1,
-		Floor = -1,
-		Reward = "",
-		Type = -1,
-		Completion = -1,
-		Taken = false,
-		Difficulty = "",
-		Item = "",
-		Special = "",
-		ClientGender = -1,
-		TargetGender = -1,
-		BonusReward = ""
-	},	
-	{
-		Client = "",
-		Target = "",
-		Flavor = "",
-		Title = "",
-		Zone = "",
-		Segment = -1,
-		Floor = -1,
-		Reward = "",
-		Type = -1,
-		Completion = -1,
-		Taken = false,
-		Difficulty = "",
-		Item = "",
-		Special = "",
-		ClientGender = -1,
-		TargetGender = -1,
-		BonusReward = ""
-	},	
+	},
 	{
 		Client = "",
 		Target = "",
@@ -1379,7 +1322,64 @@ SV.MissionBoard =
 		ClientGender = -1,
 		TargetGender = -1,
 		BonusReward = ""
-	},	
+	},
+	{
+		Client = "",
+		Target = "",
+		Flavor = "",
+		Title = "",
+		Zone = "",
+		Segment = -1,
+		Floor = -1,
+		Reward = "",
+		Type = -1,
+		Completion = -1,
+		Taken = false,
+		Difficulty = "",
+		Item = "",
+		Special = "",
+		ClientGender = -1,
+		TargetGender = -1,
+		BonusReward = ""
+	},
+	{
+		Client = "",
+		Target = "",
+		Flavor = "",
+		Title = "",
+		Zone = "",
+		Segment = -1,
+		Floor = -1,
+		Reward = "",
+		Type = -1,
+		Completion = -1,
+		Taken = false,
+		Difficulty = "",
+		Item = "",
+		Special = "",
+		ClientGender = -1,
+		TargetGender = -1,
+		BonusReward = ""
+	},
+	{
+		Client = "",
+		Target = "",
+		Flavor = "",
+		Title = "",
+		Zone = "",
+		Segment = -1,
+		Floor = -1,
+		Reward = "",
+		Type = -1,
+		Completion = -1,
+		Taken = false,
+		Difficulty = "",
+		Item = "",
+		Special = "",
+		ClientGender = -1,
+		TargetGender = -1,
+		BonusReward = ""
+	},
 	{
 		Client = "",
 		Target = "",
@@ -1442,64 +1442,7 @@ SV.OutlawBoard =
 		ClientGender = -1,
 		TargetGender = -1,
 		BonusReward = ""
-	},	
-	{
-		Client = "",
-		Target = "",
-		Flavor = "",
-		Title = "",
-		Zone = "",
-		Segment = -1,
-		Floor = -1,
-		Reward = "",
-		Type = -1,
-		Completion = -1,
-		Taken = false,
-		Difficulty = "",
-		Item = "",
-		Special = "",
-		ClientGender = -1,
-		TargetGender = -1,
-		BonusReward = ""
-	},	
-	{
-		Client = "",
-		Target = "",
-		Flavor = "",
-		Title = "",
-		Zone = "",
-		Segment = -1,
-		Floor = -1,
-		Reward = "",
-		Type = -1,
-		Completion = -1,
-		Taken = false,
-		Difficulty = "",
-		Item = "",
-		Special = "",
-		ClientGender = -1,
-		TargetGender = -1,
-		BonusReward = ""
-	},	
-	{
-		Client = "",
-		Target = "",
-		Flavor = "",
-		Title = "",
-		Zone = "",
-		Segment = -1,
-		Floor = -1,
-		Reward = "",
-		Type = -1,
-		Completion = -1,
-		Taken = false,
-		Difficulty = "",
-		Item = "",
-		Special = "",
-		ClientGender = -1,
-		TargetGender = -1,
-		BonusReward = ""
-	},	
+	},
 	{
 		Client = "",
 		Target = "",
@@ -1537,7 +1480,64 @@ SV.OutlawBoard =
 		ClientGender = -1,
 		TargetGender = -1,
 		BonusReward = ""
-	},	
+	},
+	{
+		Client = "",
+		Target = "",
+		Flavor = "",
+		Title = "",
+		Zone = "",
+		Segment = -1,
+		Floor = -1,
+		Reward = "",
+		Type = -1,
+		Completion = -1,
+		Taken = false,
+		Difficulty = "",
+		Item = "",
+		Special = "",
+		ClientGender = -1,
+		TargetGender = -1,
+		BonusReward = ""
+	},
+	{
+		Client = "",
+		Target = "",
+		Flavor = "",
+		Title = "",
+		Zone = "",
+		Segment = -1,
+		Floor = -1,
+		Reward = "",
+		Type = -1,
+		Completion = -1,
+		Taken = false,
+		Difficulty = "",
+		Item = "",
+		Special = "",
+		ClientGender = -1,
+		TargetGender = -1,
+		BonusReward = ""
+	},
+	{
+		Client = "",
+		Target = "",
+		Flavor = "",
+		Title = "",
+		Zone = "",
+		Segment = -1,
+		Floor = -1,
+		Reward = "",
+		Type = -1,
+		Completion = -1,
+		Taken = false,
+		Difficulty = "",
+		Item = "",
+		Special = "",
+		ClientGender = -1,
+		TargetGender = -1,
+		BonusReward = ""
+	},
 	{
 		Client = "",
 		Target = "",
@@ -1566,7 +1566,7 @@ end
 function MISSION_GEN.GenerateBoard(board_type)
 	local jobs_to_make = math.random(5, 7)--Todo: jobs generated is based on your rank or how many dungeons you've done.
 	local assigned_combos = {}--floor/dungeon combinations that already have had missions genned for it. Need to consider already genned missions and missions on taken board.
-	
+
 
 	-- All seen Pokemon in the pokedex
 	--local seen_pokemon = {}
@@ -1578,13 +1578,13 @@ function MISSION_GEN.GenerateBoard(board_type)
 	--end
 
 	--print( seen_pokemon[ math.random( #seen_pokemon ) ] )
-	
+
 
 
 	--default to mission.
 	local mission_type = COMMON.MISSION_BOARD_MISSION
 	if board_type == COMMON.MISSION_BOARD_OUTLAW then mission_type = COMMON.MISSION_BOARD_OUTLAW end
-	
+
 	--get list of potential dungeons for missions, remove any that haven't been completed yet.
 	--Les donjons classiques d'autres jeux (new_era_zone_ et new_era_sky_) sont TOUJOURS disponibles
 	--pour proposer de superbes missions de secours d'autres jeux sur le tableau Bekipan !
@@ -1596,12 +1596,12 @@ function MISSION_GEN.GenerateBoard(board_type)
 			table.remove(dungeon_candidates, i)
 		end
 	end
-	
+
 	--failsafe. Just quit if no dungeons are eligible.
 	if #dungeon_candidates == 0 then return end
-	
+
 	--generate jobs
-	for i = 1, jobs_to_make, 1 do 
+	for i = 1, jobs_to_make, 1 do
 		--choose a dungeon, client, target, item, etc
 		local dungeon = dungeon_candidates[math.random(1, #dungeon_candidates)]
 		local client = ""
@@ -1612,36 +1612,36 @@ function MISSION_GEN.GenerateBoard(board_type)
 
 
 		--generate the objective.
-		local objective 
-		if mission_type == COMMON.MISSION_BOARD_OUTLAW then 
+		local objective
+		if mission_type == COMMON.MISSION_BOARD_OUTLAW then
 			local roll = math.random(1, 10)
 			if roll <= 5 then
 				objective = COMMON.MISSION_TYPE_OUTLAW
-			elseif roll <= 8 then 
+			elseif roll <= 8 then
 				objective = COMMON.MISSION_TYPE_OUTLAW_ITEM
-			elseif roll <= 9 then 
+			elseif roll <= 9 then
 				objective = COMMON.MISSION_TYPE_OUTLAW_MONSTER_HOUSE
 			else
 				objective = COMMON.MISSION_TYPE_OUTLAW_FLEE
 			end
 		else
 			local roll = math.random(1, 10)
-			if roll <= 2 then 
+			if roll <= 2 then
 				--if there's already an escort or exploration mission generated for this dungeon, don't gen another one and just make it a rescue.
 				if roll == 1 then
-					objective = COMMON.MISSION_TYPE_EXPLORATION 
+					objective = COMMON.MISSION_TYPE_EXPLORATION
 				else
 					objective = COMMON.MISSION_TYPE_ESCORT
 				end
 
 				--only check from 1 to i-1 to save time.
-				for j = 1, i-1, 1 do 
+				for j = 1, i-1, 1 do
 					if SV.MissionBoard[j].Zone == dungeon and (SV.MissionBoard[j].Type == COMMON.MISSION_TYPE_ESCORT or SV.MissionBoard[j].Type == COMMON.MISSION_TYPE_EXPLORATION) then
 						objective = COMMON.MISSION_TYPE_RESCUE
 						break
-					end 
-				end 
-				
+					end
+				end
+
 				for j = 1, 8, 1 do
 					if SV.TakenBoard[j].Zone == dungeon and (SV.TakenBoard[j].Type == COMMON.MISSION_TYPE_ESCORT or SV.TakenBoard[j].Type == COMMON.MISSION_TYPE_EXPLORATION) then
 						objective = COMMON.MISSION_TYPE_RESCUE
@@ -1677,64 +1677,64 @@ function MISSION_GEN.GenerateBoard(board_type)
 			offset = 2
 		end
 		difficulty = MISSION_GEN.ORDER_TO_DIFF[MISSION_GEN.DIFF_TO_ORDER[difficulty]+offset]
-		
-		
-		
+
+
+
 		--Generate a tier, then the client
 		local tier = MISSION_GEN.WeightedRandom(MISSION_GEN.DIFF_POKEMON[difficulty])
 		local client_candidates = MISSION_GEN.POKEMON[tier]
 		client = client_candidates[math.random(1, #client_candidates)]
-		
+
 		--50% chance that the client and target are the same. Target is the escort if its an escort mission.
 		--It is possible for this to roll the same target as the client again, which is fine.
 		--Always give a target if objective is escort or a outlaw stole an item.
-		--Target should always be client for 
+		--Target should always be client for
 		local target = client
 		local target_candidates = MISSION_GEN.POKEMON[tier]
-		if math.random(1, 2) == 1 or objective == COMMON.MISSION_TYPE_ESCORT or objective == COMMON.MISSION_TYPE_OUTLAW_ITEM then 
-			target = target_candidates[math.random(1, #target_candidates)]	
+		if math.random(1, 2) == 1 or objective == COMMON.MISSION_TYPE_ESCORT or objective == COMMON.MISSION_TYPE_OUTLAW_ITEM then
+			target = target_candidates[math.random(1, #target_candidates)]
 			--print(target_candidates[1]) --to give an idea of what tier we rolled
 		end
-		
+
 		--if its a generic outlaw mission, or a monster house / fleeing outlaw, Zhayn is the client. Normal mons only ask you to go after their stolen items.
 		if objective == COMMON.MISSION_TYPE_OUTLAW or objective == COMMON.MISSION_TYPE_OUTLAW_FLEE or objective == COMMON.MISSION_TYPE_OUTLAW_MONSTER_HOUSE then
 			client = "zhayn"
 		end
-		
+
 		--if it's a delivery, exploration, or lost item, target and client should match.
 		if objective == COMMON.MISSION_TYPE_EXPLORATION or objective == COMMON.MISSION_TYPE_DELIVERY or objective == COMMON.MISSION_TYPE_LOST_ITEM then
 			target = client
 		end
-		
-		
+
+
 		--Reroll target if target is ghost and target is a fleeing outlaw, that shit would be too obnoxious to deal with
 		local target_type_1 = _DATA:GetMonster(target).Forms[0].Element1
 		local target_type_2 = _DATA:GetMonster(target).Forms[0].Element2
 		while objective == COMMON.MISSION_TYPE_OUTLAW_FLEE and (target_type_1 == "ghost" or target_type_2 == "ghost") do
 			print(target .. ": Rerolling cowardly ghost outlaw!!!")
-			target = target_candidates[math.random(1, #target_candidates)]	
+			target = target_candidates[math.random(1, #target_candidates)]
 			target_type_1 = _DATA:GetMonster(target).Forms[0].Element1
 			target_type_2 = _DATA:GetMonster(target).Forms[0].Element2
 			print("new target is " .. target)
 		end
-		
+
 		--Roll for genders. Use base form because it PROBABLY won't ever matter.
 		--because Scriptvars doesnt like saving genders instead of regular structures, use 1/2/0 for m/f/genderless respectively, and convert when needed
 		local client_gender
-		
+
 		if client == "zhayn" then--Zhayn is a special exception
 			client_gender = 0
 		else
 			client_gender = _DATA:GetMonster(client).Forms[0]:RollGender(_ZONE.CurrentGround.Rand)
 			client_gender = GeneralFunctions.GenderToNum(client_gender)
-		end 
-		
+		end
+
 		local target_gender = _DATA:GetMonster(target).Forms[0]:RollGender(_ZONE.CurrentGround.Rand)
-	
+
 		target_gender = GeneralFunctions.GenderToNum(target_gender)
 
 		--Special cases
-		--Roll for the main 3 rescue special cases 
+		--Roll for the main 3 rescue special cases
 		if objective == COMMON.MISSION_TYPE_RESCUE and math.random(1, 10) <= 2 then
 			local special_candidates = {}
 			special = MISSION_GEN.SPECIAL_CLIENT_OPTIONS[math.random(1, #MISSION_GEN.SPECIAL_CLIENT_OPTIONS)]
@@ -1747,53 +1747,53 @@ function MISSION_GEN.GenerateBoard(board_type)
 			elseif special == MISSION_GEN.SPECIAL_CLIENT_FRIEND then
 				special_candidates = MISSION_GEN.SPECIAL_FRIEND_PAIRS[tier]
 			end
-				
-		
+
+
 			--Set variables with special client/target info
 			local special_choice = special_candidates[math.random(1, #special_candidates)]
 			client = special_choice[1]
 			client_gender = special_choice[2]
 			target = special_choice[3]
 			target_gender = special_choice[4]
-			
+
 			local special_title_candidates = MISSION_GEN.TITLES[special]
 			title = RogueEssence.StringKey(special_title_candidates[math.random(1, #special_title_candidates)]):ToLocal()
 
 			flavor = RogueEssence.StringKey(special_choice[5]):ToLocal()
-			
-	
+
+
 		end
 
 
-		
-		
+
+
 		--generate reward with hardcoded list of weighted rewards
 		local reward = "money"
 		--1/4 chance you get money instead of an item
-		
-		if math.random(1, 4) > 1 then 
+
+		if math.random(1, 4) > 1 then
 			reward = MISSION_GEN.WeightedRandom(MISSION_GEN.REWARDS[MISSION_GEN.WeightedRandom(MISSION_GEN.DIFF_REWARDS[difficulty])])
 		end
-		
-		--1/3 chance you get a bonus reward. Bonus reward is always an item, never money 
+
+		--1/3 chance you get a bonus reward. Bonus reward is always an item, never money
 		local bonus_reward = ""
-		
-		if math.random(1,3) == 1 then 
+
+		if math.random(1,3) == 1 then
 			bonus_reward = MISSION_GEN.WeightedRandom(MISSION_GEN.REWARDS[MISSION_GEN.WeightedRandom(MISSION_GEN.DIFF_REWARDS[difficulty])])
-		end 
-		
+		end
+
 		--get the zone, and max floors (counted floors of relevant segments)
 		local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get(dungeon)
-		
-		
+
+
 		--segment is typically 0. If needed, add more advanced logic here in the future to pick relevant segments for a given zone.
 		local segment = 0
-		
+
 
 
 		--Choose a random title that's appropriate.
 		local title_candidates = {}
-		
+
 		if special == "" then -- get title if special didn't already generate it
 			if objective == COMMON.MISSION_TYPE_RESCUE and client ~= target then
 				title_candidates = MISSION_GEN.TITLES["RESCUE_FRIEND"]
@@ -1814,31 +1814,31 @@ function MISSION_GEN.GenerateBoard(board_type)
 			elseif objective == COMMON.MISSION_TYPE_OUTLAW_MONSTER_HOUSE then
 				title_candidates = MISSION_GEN.TITLES["OUTLAW_MONSTER_HOUSE"]
 			elseif objective == COMMON.MISSION_TYPE_OUTLAW_FLEE then
-				title_candidates = MISSION_GEN.TITLES["OUTLAW_FLEE"]			
+				title_candidates = MISSION_GEN.TITLES["OUTLAW_FLEE"]
 			end
 			title = RogueEssence.StringKey(title_candidates[math.random(1, #title_candidates)]):ToLocal()
-			
+
 			--string substitutions, if needed.
 			if string.find(title, "%[target%]") then
 				title = string.gsub(title, "%[target%]", _DATA:GetMonster(target):GetColoredName())
-			end 
-			
+			end
+
 			if string.find(title, "%[dungeon%]") then
 				title = string.gsub(title, "%[dungeon%]", _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get(dungeon):GetColoredName())
-			end 
-			
+			end
+
 			if string.find(title, "%[item%]") then
 				title = string.gsub(title, "%[item%]",  _DATA:GetItem(item):GetColoredName())
 			end
-		end 
-		
-		
-		
+		end
+
+
+
 		--Flavor text generation
 		local flavor_top_candidates = {}
 		local flavor_bottom_candidates = {}
-		
-		if special == "" then -- get flavor if special didn't already generate it 
+
+		if special == "" then -- get flavor if special didn't already generate it
 			if objective == COMMON.MISSION_TYPE_RESCUE and client ~= target then
 				flavor_top_candidates = MISSION_GEN.FLAVOR_TOP["RESCUE_FRIEND"]
 				flavor_bottom_candidates = MISSION_GEN.FLAVOR_BOTTOM["RESCUE_FRIEND"]
@@ -1871,30 +1871,30 @@ function MISSION_GEN.GenerateBoard(board_type)
 				flavor_bottom_candidates = MISSION_GEN.FLAVOR_BOTTOM["OUTLAW_FLEE"]
 			end
 			flavor = RogueEssence.StringKey(flavor_top_candidates[math.random(1, #flavor_top_candidates)]):ToLocal() .. '\n' .. RogueEssence.StringKey(flavor_bottom_candidates[math.random(1, #flavor_bottom_candidates)]):ToLocal()
-		
+
 			--string substitutions, if needed.
 			if string.find(flavor, "%[target%]") then
 				flavor = string.gsub(flavor, "%[target%]", _DATA:GetMonster(target):GetColoredName())
 			end
-			
+
 			if string.find(flavor, "%[dungeon%]") then
 				flavor = string.gsub(flavor, "%[dungeon%]", _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get(dungeon):GetColoredName())
 			end
-						
+
 			if string.find(flavor, "%[item%]") then
 				flavor = string.gsub(flavor, "%[item%]",  _DATA:GetItem(item):GetColoredName())
 			end
-			
-		end 
+
+		end
 
 
 
-		
+
 		--mission floor should be in last 45% of the dungeon
 		--don't pick a floor that's already been chosen for another mission in a dungeon
 		--It's smart; it'll only randomly choose floors that haven't been used up yet. If all floors are used up that are possible, only then is the job thrown out.
 		local used_floors = {}
-		for j = 1, 8, 1 do 
+		for j = 1, 8, 1 do
 			if SV.OutlawBoard[j].Zone == dungeon then
 				table.insert(used_floors, 1, SV.OutlawBoard[j].Floor)
 			end
@@ -1905,21 +1905,21 @@ function MISSION_GEN.GenerateBoard(board_type)
 				table.insert(used_floors, 1, SV.TakenBoard[j].Floor)
 			end
 		end
-				
+
 		local floor_candidates = MISSION_GEN.Generate_List_Range(math.floor(zone.CountedFloors * .55), zone.CountedFloors)
-		MISSION_GEN.array_sub(used_floors, floor_candidates)	
-		 
-		
+		MISSION_GEN.array_sub(used_floors, floor_candidates)
+
+
 
 		local mission_floor = -1
 		if #floor_candidates > 0 then
 			mission_floor = floor_candidates[math.random(1, #floor_candidates)]
 		end
-		
+
 		if mission_floor == -1 then print("Can't generate job, no more floors available!") end
-		
+
 		--don't generate this particular job slot if no more are available for the dungeon.
-		if mission_floor ~= -1 then 
+		if mission_floor ~= -1 then
 			if mission_type == COMMON.MISSION_BOARD_OUTLAW then
 				SV.OutlawBoard[i].Client = client
 				SV.OutlawBoard[i].Target = target
@@ -1938,7 +1938,7 @@ function MISSION_GEN.GenerateBoard(board_type)
 				SV.OutlawBoard[i].ClientGender = client_gender
 				SV.OutlawBoard[i].TargetGender = target_gender
 				SV.OutlawBoard[i].BonusReward = bonus_reward
-			else 
+			else
 				SV.MissionBoard[i].Client = client
 				SV.MissionBoard[i].Target = target
 				SV.MissionBoard[i].Flavor = flavor
@@ -1952,22 +1952,22 @@ function MISSION_GEN.GenerateBoard(board_type)
 				SV.MissionBoard[i].Taken = false
 				SV.MissionBoard[i].Difficulty = difficulty
 				SV.MissionBoard[i].Item = item
-				SV.MissionBoard[i].Special = special		
+				SV.MissionBoard[i].Special = special
 				SV.MissionBoard[i].ClientGender = client_gender
 				SV.MissionBoard[i].TargetGender = target_gender
 				SV.MissionBoard[i].BonusReward = bonus_reward
 			end
 		end
-			
+
 	end
-	
+
 end
 
 function MISSION_GEN.JobSortFunction(j1, j2)
-	--if they're the same dungeon, then check floors. Otherwise, dungeon order takes presidence. 
+	--if they're the same dungeon, then check floors. Otherwise, dungeon order takes presidence.
 	if MISSION_GEN.DUNGEON_ORDER[j1.Zone] == MISSION_GEN.DUNGEON_ORDER[j2.Zone] then
-		return j1.Floor < j2.Floor 
-	else 
+		return j1.Floor < j2.Floor
+	else
 		return MISSION_GEN.DUNGEON_ORDER[j1.Zone] < MISSION_GEN.DUNGEON_ORDER[j2.Zone]
 	end
 end
@@ -2026,22 +2026,22 @@ end
 
 JobMenu = Class('JobMenu')
 
---jobs is a job board 
+--jobs is a job board
 --job type should be taken, mission, or outlaw
 --job number should be 1-8
 function JobMenu:initialize(job_type, job_number, parent_board_menu)
   assert(self, "JobMenu:initialize(): Error, self is nil!")
   self.menu = RogueEssence.Menu.ScriptableMenu(32, 32, 256, 176, function(input) self:Update(input) end)
   --self.menu.Elements:Add(RogueEssence.Menu.MenuText(jobs[i], RogueElements.Loc(16, 8 + 14 * (i-1))))
-    
-  local job 
-  
+
+  local job
+
   self.job_number = job_number
-  
+
   self.job_type = job_type
-  
+
   self.parent_board_menu = parent_board_menu
-  
+
   --get relevant board
   local job
   if job_type == COMMON.MISSION_BOARD_TAKEN then
@@ -2051,76 +2051,76 @@ function JobMenu:initialize(job_type, job_number, parent_board_menu)
   else --default to mission board
   	job = SV.MissionBoard[job_number]
   end
-  
+
   self.taken = job.Taken
-  
+
   self.flavor = job.Flavor
   --Zhayn is the only non-species name that'll show up here. So he is hardcoded in as an exception here.
   --TODO: Unhardcode this by adding in a check if string is not empty and if its not a species name, then add the color coding around it for  proper names.
   self.client = ""
-  if job.Client == 'zhayn' then 
-	self.client = '[color=#00FFFF]Zhayn[color]' 
-  elseif job.Client ~= "" then 
-	self.client = _DATA:GetMonster(job.Client):GetColoredName() 
+  if job.Client == 'zhayn' then
+	self.client = '[color=#00FFFF]Zhayn[color]'
+  elseif job.Client ~= "" then
+	self.client = _DATA:GetMonster(job.Client):GetColoredName()
   end
 
   self.target = ""
   if job.Target ~= '' then self.target = _DATA:GetMonster(job.Target):GetColoredName() end
-  
+
 	self.item = ""
 	if job.Item ~= '' then self.item = _DATA:GetItem(job.Item):GetColoredName() end
-  
+
   self.objective = ""
   self.type = job.Type
   self.taken_count = MISSION_GEN.GetTakenCount()
-  
+
   if self.type == COMMON.MISSION_TYPE_RESCUE then
 		self.objective = "Rescue " .. self.target .. "."
   elseif self.type == COMMON.MISSION_TYPE_ESCORT then
     self.objective = "Escort " .. self.client .. " to " .. self.target .. "."
 	elseif self.type == COMMON.MISSION_TYPE_EXPLORATION then
 		self.objective = "Explore with " .. self.client .. "."
-  elseif self.type == COMMON.MISSION_TYPE_OUTLAW or self.type == COMMON.MISSION_TYPE_OUTLAW_FLEE or self.type == COMMON.MISSION_TYPE_OUTLAW_MONSTER_HOUSE then 
+  elseif self.type == COMMON.MISSION_TYPE_OUTLAW or self.type == COMMON.MISSION_TYPE_OUTLAW_FLEE or self.type == COMMON.MISSION_TYPE_OUTLAW_MONSTER_HOUSE then
 		self.objective = "Arrest " .. self.target .. "."
-	elseif self.type == COMMON.MISSION_TYPE_LOST_ITEM then 
+	elseif self.type == COMMON.MISSION_TYPE_LOST_ITEM then
 		self.objective = "Find " .. self.item .. " for " .. self.client .. "."
-	elseif self.type == COMMON.MISSION_TYPE_DELIVERY then 
+	elseif self.type == COMMON.MISSION_TYPE_DELIVERY then
 		self.objective = "Deliver " .. self.item .. " to " .. self.client .. "."
-  elseif self.type == COMMON.MISSION_TYPE_OUTLAW_ITEM then 
+  elseif self.type == COMMON.MISSION_TYPE_OUTLAW_ITEM then
 		self.objective = "Reclaim " .. self.item .. " from " .. self.target .. "."
   end
-  
-  
+
+
   self.zone = ""
   if job.Zone ~= "" then self.zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get(job.Zone):GetColoredName() end
-  
+
   self.floor = ""
   if job.Floor ~= -1 then self.floor = MISSION_GEN.STAIR_TYPE[job.Zone] .. '[color=#00FFFF]' .. tostring(job.Floor) .. "[color]F" end
-  
+
   self.difficulty = ""
-  if job.Difficulty ~= "" then self.difficulty = MISSION_GEN.DIFF_TO_COLOR[job.Difficulty] .. job.Difficulty .. "[color]   (" .. tostring(MISSION_GEN.DIFFICULTY[job.Difficulty]) .. ")" end 
-  
-  
-  
-  
+  if job.Difficulty ~= "" then self.difficulty = MISSION_GEN.DIFF_TO_COLOR[job.Difficulty] .. job.Difficulty .. "[color]   (" .. tostring(MISSION_GEN.DIFFICULTY[job.Difficulty]) .. ")" end
+
+
+
+
   self.reward = ""
   if job.Reward ~= '' then
 	--special case for money
 	if job.Reward == "money" then
 		self.reward = '[color=#00FFFF]' .. MISSION_GEN.DIFF_TO_MONEY[job.Difficulty] .. '[color]' .. STRINGS:Format("\\uE024")
-	else 
+	else
 		self.reward = RogueEssence.Dungeon.InvItem(job.Reward, false, RogueEssence.Data.DataManager.Instance:GetItem(job.Reward).MaxStack):GetDisplayName()
     end
   end
-  
+
   --add in the ??? for a bonus reward if one exists
   if job.BonusReward ~= "" then
 	self.reward = self.reward .. ' + ?'
   end
-  
-  
+
+
 	self:DrawJob()
-  
+
 
 end
 
@@ -2130,32 +2130,32 @@ function JobMenu:DrawJob()
 
   --Standard title. Reuse this whenever a title is needed.
   self.menu.Elements:Add(RogueEssence.Menu.MenuText("Job Summary", RogueElements.Loc(16, 8)))
-  
-  --Accepted element 
+
+  --Accepted element
   self.menu.Elements:Add(RogueEssence.Menu.MenuDivider(RogueElements.Loc(8, self.menu.Bounds.Height - 24), self.menu.Bounds.Width - 8 * 2))
   self.menu.Elements:Add(RogueEssence.Menu.MenuText("Accepted: " .. self.taken_count .. "/8", RogueElements.Loc(96, self.menu.Bounds.Height - 20)))
 
 
-  
+
   self.menu.Elements:Add(RogueEssence.Menu.MenuText(self.flavor, RogueElements.Loc(16, 24)))
   self.menu.Elements:Add(RogueEssence.Menu.MenuText("Client:", RogueElements.Loc(16, 54)))
   self.menu.Elements:Add(RogueEssence.Menu.MenuText("Objective:", RogueElements.Loc(16, 68)))
   self.menu.Elements:Add(RogueEssence.Menu.MenuText("Place:", RogueElements.Loc(16, 82)))
   self.menu.Elements:Add(RogueEssence.Menu.MenuText("Difficulty:", RogueElements.Loc(16, 96)))
-  self.menu.Elements:Add(RogueEssence.Menu.MenuText("Reward:", RogueElements.Loc(16, 110))) 
+  self.menu.Elements:Add(RogueEssence.Menu.MenuText("Reward:", RogueElements.Loc(16, 110)))
 
-  local client = self.client 
+  local client = self.client
   --Don't show "Zhayn" if the nickname mod is enabled. Need to still save it internally as Zhayn though for other processes.
   if not CONFIG.UseNicknames() then
 	client = string.gsub(client, "Zhayn", "Bisharp")
   end
-  
+
   self.menu.Elements:Add(RogueEssence.Menu.MenuText(client, RogueElements.Loc(68, 54)))
   self.menu.Elements:Add(RogueEssence.Menu.MenuText(self.objective, RogueElements.Loc(68, 68)))
   self.menu.Elements:Add(RogueEssence.Menu.MenuText(self.zone .. " " .. self.floor, RogueElements.Loc(68, 82)))
   self.menu.Elements:Add(RogueEssence.Menu.MenuText(self.difficulty, RogueElements.Loc(68, 96)))
   self.menu.Elements:Add(RogueEssence.Menu.MenuText(self.reward, RogueElements.Loc(68, 110)))
-end 
+end
 
 
 
@@ -2171,13 +2171,13 @@ function JobMenu:DeleteJob()
 			COMMON.MISSION_TYPE_OUTLAW_MONSTER_HOUSE
 		}
 
-		if GeneralFunctions.TableContains(outlaw_arr, mission.Type) then 
+		if GeneralFunctions.TableContains(outlaw_arr, mission.Type) then
 			SV.OutlawBoard[back_ref].Taken = false
 		else
 			SV.MissionBoard[back_ref].Taken = false
 		end
-	end 
-	
+	end
+
 	SV.TakenBoard[self.job_number] = {
 										Client = "",
 										Target = "",
@@ -2198,30 +2198,30 @@ function JobMenu:DeleteJob()
 										BonusReward = "",
 										BackReference = -1
 									}
-	
+
 	MISSION_GEN.SortTaken()
-	if self.parent_board_menu ~= nil then 
+	if self.parent_board_menu ~= nil then
 		--redraw board with potentially changed information from job board
 		self.parent_board_menu.menu.Elements:Clear()
 		self.parent_board_menu:RefreshSelf()
 		self.parent_board_menu:DrawBoard()
-		
+
 		--redraw selection board with potentially changed information
-		if self.parent_board_menu.parent_selection_menu ~= nil then 
+		if self.parent_board_menu.parent_selection_menu ~= nil then
 			self.parent_board_menu.parent_selection_menu.menu.Elements:Clear()
 			self.parent_board_menu.parent_selection_menu:DrawMenu()
 		end
-		
+
 	end
 	_MENU:RemoveMenu()
-	
+
 	--If we accessed the job via the main menu, then close the main menu if we've deleted our last job. Only need it here because only on total job deletion should the main menu ever need to change.
-	if self.parent_board_menu.parent_main_menu ~= nil then 
+	if self.parent_board_menu.parent_main_menu ~= nil then
 		if self.taken_count == 1 then--1 instead of 0 as the taken_count of the last job that was just deleted would be 1
 			_MENU:RemoveMenu()
 		end
 	end
-	
+
 end
 
 --for use with submenu
@@ -2232,16 +2232,16 @@ function JobMenu:FlipTakenStatus()
 		SV.TakenBoard[self.job_number].Taken = self.taken
 	elseif self.job_type == COMMON.MISSION_BOARD_OUTLAW then
 		SV.OutlawBoard[self.job_number].Taken = self.taken
-	else 
+	else
 		SV.MissionBoard[self.job_number].Taken = self.taken
 	end
-	if self.parent_board_menu ~= nil then 
+	if self.parent_board_menu ~= nil then
 		--redraw board with potentially changed information from job board
 		self.parent_board_menu.menu.Elements:Clear()
 		self.parent_board_menu:RefreshSelf()
 		self.parent_board_menu:DrawBoard()
 	end
-end 
+end
 
 --for use with submenu
 --adds the current job to the taken board, then sorts it. Then close the menu
@@ -2253,32 +2253,32 @@ function JobMenu:AddJobToTaken()
 			SV.TakenBoard[8] = MISSION_GEN.ShallowCopy(SV.OutlawBoard[self.job_number])
 		elseif self.job_type == COMMON.MISSION_BOARD_MISSION then
 			SV.TakenBoard[8] = MISSION_GEN.ShallowCopy(SV.MissionBoard[self.job_number])
-		end 
+		end
 		SV.TakenBoard[8].BackReference = self.job_number
 		MISSION_GEN.SortTaken()
 	end
-	
-	if self.parent_board_menu ~= nil then 
+
+	if self.parent_board_menu ~= nil then
 		--redraw board with potentially changed information from job board
 		self.parent_board_menu.menu.Elements:Clear()
 		self.parent_board_menu:RefreshSelf()
 		self.parent_board_menu:DrawBoard()
-		
+
 		--redraw selection board with potentially changed information
-		if self.parent_board_menu.parent_selection_menu ~= nil then 
+		if self.parent_board_menu.parent_selection_menu ~= nil then
 			self.parent_board_menu.parent_selection_menu.menu.Elements:Clear()
 			self.parent_board_menu.parent_selection_menu:DrawMenu()
 		end
 	end
-	
+
 
 	_MENU:RemoveMenu()
 end
 
 function JobMenu:OpenSubMenu()
-	if self.job_type ~= COMMON.MISSION_BOARD_TAKEN and self.taken then 
+	if self.job_type ~= COMMON.MISSION_BOARD_TAKEN and self.taken then
 		--This is a job from the board that was already taken!
-	else 
+	else
 		--create prompt menu
 		local choices = {}
 		--print(self.job_type .. " taken: " .. tostring(self.taken))
@@ -2290,28 +2290,28 @@ function JobMenu:OpenSubMenu()
 			choices = {	{choice_str, true, function() self:FlipTakenStatus() _MENU:RemoveMenu() _MENU:RemoveMenu() end},
 						{"Delete", true, function() self:DeleteJob() _MENU:RemoveMenu() end},
 						{"Cancel", true, function() _MENU:RemoveMenu() _MENU:RemoveMenu() end} }
-			
+
 		else --outlaw/mission boards
-			--we already made a check above to see if this is a job board and not taken 
+			--we already made a check above to see if this is a job board and not taken
 			--only selectable if there's room on the taken board for the job and we haven't already taken this mission
-			choices = {{"Take Job", SV.TakenBoard[8].Client == "" and not self.taken, function() self:FlipTakenStatus() 
+			choices = {{"Take Job", SV.TakenBoard[8].Client == "" and not self.taken, function() self:FlipTakenStatus()
 																								 self:AddJobToTaken() _MENU:RemoveMenu() end },
 					   {"Cancel", true, function() _MENU:RemoveMenu() _MENU:RemoveMenu() end} }
-		end 
-	
-		submenu = RogueEssence.Menu.ScriptableSingleStripMenu(232, 138, 24, choices, 0, function() _MENU:RemoveMenu() _MENU:RemoveMenu() end) 
+		end
+
+		submenu = RogueEssence.Menu.ScriptableSingleStripMenu(232, 138, 24, choices, 0, function() _MENU:RemoveMenu() _MENU:RemoveMenu() end)
 		_MENU:AddMenu(submenu, true)
-		
+
 	end
 end
 
 function JobMenu:Update(input)
     assert(self, "BaseState:Begin(): Error, self is nil!")
-  if input:JustPressed(RogueEssence.FrameInput.InputType.Confirm) then  
-	if self.job_type ~= COMMON.MISSION_BOARD_TAKEN and self.taken then 
+  if input:JustPressed(RogueEssence.FrameInput.InputType.Confirm) then
+	if self.job_type ~= COMMON.MISSION_BOARD_TAKEN and self.taken then
 		--This is a job from the board that was already taken! Play a cancel noise.
 		_GAME:SE("Menu/Cancel")
-	else 
+	else
 		--This job has not yet been taken.  This block will never be hit because the submenu will automatically open.
 	end
   elseif input:JustPressed(RogueEssence.FrameInput.InputType.Cancel) or input:JustPressed(RogueEssence.FrameInput.InputType.Menu) then
@@ -2321,27 +2321,27 @@ function JobMenu:Update(input)
   else
 
   end
-end 
+end
 
 
 
 BoardMenu = Class('BoardMenu')
 
---board type should be taken, mission, or outlaw 
+--board type should be taken, mission, or outlaw
 function BoardMenu:initialize(board_type, parent_selection_menu, parent_main_menu)
   assert(self, "BoardMenu:initialize(): Error, self is nil!")
-    
+
   self.menu = RogueEssence.Menu.ScriptableMenu(32, 32, 256, 176, function(input) self:Update(input) end)
   self.cursor = RogueEssence.Menu.MenuCursor(self.menu)
-  
+
   self.board_type = board_type
-  
+
   --For refreshing the parent selection menu
   self.parent_selection_menu = parent_selection_menu
-  
+
   --for refreshing the main menu (esc menu) if we accessed the board menu via that
   self.parent_main_menu = parent_main_menu
-  
+
   if self.board_type == COMMON.MISSION_BOARD_TAKEN then
 	self.jobs = SV.TakenBoard
   elseif self.board_type == COMMON.MISSION_BOARD_OUTLAW then
@@ -2352,11 +2352,11 @@ function BoardMenu:initialize(board_type, parent_selection_menu, parent_main_men
 
   self.total_items = #self.jobs
   --get total job count
-  --todo: make this less bad 
-  for i = #self.jobs, 1, -1 do 
+  --todo: make this less bad
+  for i = #self.jobs, 1, -1 do
 	if self.jobs[i].Client ~= "" then break else self.total_items = self.total_items - 1 end
   end
-  
+
   self.current_item = 0
   self.cursor.Loc = RogueElements.Loc(9, 27)
   self.page = 1--1 or 2
@@ -2379,24 +2379,24 @@ function BoardMenu:RefreshSelf()
   	self.jobs = SV.MissionBoard
   end
   print("Boardtype: " .. self.board_type)
-  
+
   self.total_items = #self.jobs
   --get total job count
-  --todo: make this less bad 
-  for i = #self.jobs, 1, -1 do 
+  --todo: make this less bad
+  for i = #self.jobs, 1, -1 do
 	if self.jobs[i].Client ~= "" then break else self.total_items = self.total_items - 1 end
   end
- 
+
   --in the event of deleting the last item on the board, move the cursor to accomodate.
-  if self:GetSelectedJobIndex() > self.total_items then 
+  if self:GetSelectedJobIndex() > self.total_items then
 	print("On refresh self, needed to adjust current item!")
 	self.current_item = (self.total_items - 1) % 4
-	
+
 	--move cursor to reflect new current item location
 	self.cursor:ResetTimeOffset()
     self.cursor.Loc = RogueElements.Loc(9, 27 + 28 * self.current_item)
   end
-  
+
   self.total_pages = math.ceil(self.total_items / 4)
 
   --go to page 1 if we now only have 1 page
@@ -2406,12 +2406,12 @@ function BoardMenu:RefreshSelf()
 
   --refresh taken count
   self.taken_count = MISSION_GEN.GetTakenCount()
-  
-  --if there are no more missions and we're on the taken screen, close the menu.  
-  if SV.TakenBoard[1].Client == "" and self.board_type == COMMON.MISSION_BOARD_TAKEN then 
+
+  --if there are no more missions and we're on the taken screen, close the menu.
+  if SV.TakenBoard[1].Client == "" and self.board_type == COMMON.MISSION_BOARD_TAKEN then
 	  _MENU:RemoveMenu()
   end
-end 
+end
 
 
 --NOTE: Board is hardcoded to have 4 items a page, and only to have up to 8 total items to display.
@@ -2422,47 +2422,47 @@ function BoardMenu:DrawBoard()
 
   --Standard title. Reuse this whenever a title is needed.
   self.menu.Elements:Add(RogueEssence.Menu.MenuText("Notice Board", RogueElements.Loc(16, 8)))
-  
+
   --page element
   self.menu.Elements:Add(RogueEssence.Menu.MenuText("(" .. tostring(self.page) .. "/" .. tostring(self.total_pages) .. ")", RogueElements.Loc(self.menu.Bounds.Width - 35, 8)))
 
-	
-  --Accepted element 
+
+  --Accepted element
   self.menu.Elements:Add(RogueEssence.Menu.MenuDivider(RogueElements.Loc(8, self.menu.Bounds.Height - 24), self.menu.Bounds.Width - 8 * 2))
   self.menu.Elements:Add(RogueEssence.Menu.MenuText("Accepted: " .. tostring(self.taken_count) .. "/8", RogueElements.Loc(96, self.menu.Bounds.Height - 20)))
 
 
   self.menu.Elements:Add(self.cursor)
-  
+
   --populate 4 self.jobs on a page
-  for i = (4 * self.page) - 3, 4 * self.page, 1 do 
+  for i = (4 * self.page) - 3, 4 * self.page, 1 do
 	--stop populating self.jobs if we hit a job that's empty
-    if self.jobs[i].Client == "" then break end 
-	
-	
+    if self.jobs[i].Client == "" then break end
+
+
 	local title = self.jobs[i].Title
 	local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get(self.jobs[i].Zone):GetColoredName()
     local floor =  MISSION_GEN.STAIR_TYPE[self.jobs[i].Zone] ..'[color=#00FFFF]' .. tostring(self.jobs[i].Floor) .. "[color]F"
-    local difficulty = MISSION_GEN.DIFF_TO_COLOR[self.jobs[i].Difficulty] .. self.jobs[i].Difficulty .. "[color]" 
-	
+    local difficulty = MISSION_GEN.DIFF_TO_COLOR[self.jobs[i].Difficulty] .. self.jobs[i].Difficulty .. "[color]"
+
 	local icon = ""
 	if self.board_type == COMMON.MISSION_BOARD_TAKEN then
-		if self.jobs[i].Taken then 
+		if self.jobs[i].Taken then
 			icon = STRINGS:Format("\\uE10F")--open letter
 		else
 			icon = STRINGS:Format("\\uE10E")--closed letter
 		end
-	else 
-		if self.jobs[i].Taken then 
+	else
+		if self.jobs[i].Taken then
 			icon = STRINGS:Format("\\uE10E")--closed letter
 		else
 			icon = STRINGS:Format("\\uE110")--paper
 		end
 	end
-	
+
 	local location = zone .. " " .. floor
 
-	
+
 	--color everything red if job is taken and this is a job board
 	if self.jobs[i].Taken and self.board_type ~= COMMON.MISSION_BOARD_TAKEN then
 		location = string.gsub(location, '%b[]', '')
@@ -2473,16 +2473,16 @@ function BoardMenu:DrawBoard()
 		title = "[color=#FF0000]" .. title .. "[color]"
 		location = "[color=#FF0000]" .. location .. "[color]"
 	end
-	
+
 	--modulo the iterator so that if we're on the 2nd page it goes to the right spot
-	
+
 	self.menu.Elements:Add(RogueEssence.Menu.MenuText(icon, RogueElements.Loc(21, 26 + 28 * ((i-1) % 4))))
 	self.menu.Elements:Add(RogueEssence.Menu.MenuText(title, RogueElements.Loc(33, 26 + 28 * ((i-1) % 4))))
 	self.menu.Elements:Add(RogueEssence.Menu.MenuText(location, RogueElements.Loc(33, 38 + 28 * ((i-1) % 4))))
 	self.menu.Elements:Add(RogueEssence.Menu.MenuText(difficulty, RogueElements.Loc(self.menu.Bounds.Width - 33, 38 + 28 * ((i-1) % 4))))
 
   end
-end 
+end
 
 
 function BoardMenu:Update(input)
@@ -2502,9 +2502,9 @@ function BoardMenu:Update(input)
     if RogueEssence.Menu.InteractableMenu.IsInputting(input, LUA_ENGINE:MakeLuaArray(Dir8, { Dir8.Down, Dir8.DownLeft, Dir8.DownRight })) then
       moved = true
       self.current_item = (self.current_item + 1) % 4
-	  
+
 	  --if we try to move the cursor to an empty slot on a down press, then move it to the space for the first job on the page.
-	  if self:GetSelectedJobIndex() > self.total_items then 
+	  if self:GetSelectedJobIndex() > self.total_items then
 		local new_current = 0
 		--undo moved flag if we didn't actually move
 		if new_current == (self.current_item - 1) % 4 then
@@ -2512,13 +2512,13 @@ function BoardMenu:Update(input)
 		end
 		self.current_item = new_current
 	  end
-	  
+
     elseif RogueEssence.Menu.InteractableMenu.IsInputting(input, LUA_ENGINE:MakeLuaArray(Dir8, { Dir8.Up, Dir8.UpLeft, Dir8.UpRight })) then
       moved = true
       self.current_item = (self.current_item - 1) % 4
-	  
+
 	  --if we try to move the cursor to an empty slot on an up press, then move it to the space for the last job on the page.
-	  if self:GetSelectedJobIndex() > self.total_items then 
+	  if self:GetSelectedJobIndex() > self.total_items then
 		local new_current = (self.total_items % 4) - 1
 		--undo moved flag if we didn't actually move
 		if new_current == (self.current_item + 1 ) % 4 then
@@ -2526,21 +2526,21 @@ function BoardMenu:Update(input)
 		end
 		self.current_item = new_current
 	  end
-	  
+
 	elseif RogueEssence.Menu.InteractableMenu.IsInputting(input, LUA_ENGINE:MakeLuaArray(Dir8, {Dir8.Left, Dir8.Right})) then
 	  --go to other menu if there are more options on the 2nd menu
-	  if self.total_pages > 1 then 
+	  if self.total_pages > 1 then
 	    --change the page
 	    if self.page == 1 then self.page = 2 else self.page = 1 end
 		moved = true
-		
+
 	  --if we try to move the cursor to an empty slot on a side press, then move it to the space for the last job on the page.
-	    if self:GetSelectedJobIndex() > self.total_items then 
+	    if self:GetSelectedJobIndex() > self.total_items then
 			local new_current = (self.total_items % 4) - 1
 			self.current_item = new_current
 		end
-		
-		
+
+
 		self.menu.Elements:Clear()
 		self:DrawBoard()
 	  end
@@ -2551,12 +2551,12 @@ function BoardMenu:Update(input)
       self.cursor.Loc = RogueElements.Loc(9, 27 + 28 * self.current_item)
     end
   end
-end 
+end
 
 --gets current job index based on the current item and the page. if self.page is 2, and current item is 0, returned answer should be 5.
 function BoardMenu:GetSelectedJobIndex()
 	return self.current_item + (4 * (self.page - 1) + 1)
-	
+
 end
 
 
@@ -2574,67 +2574,67 @@ BoardSelectionMenu = Class('BoardSelectionMenu')
 --Used to choose between viewing the board, your job list, or to cancel
 function BoardSelectionMenu:initialize(board_type)
   assert(self, "BoardSelectionMenu:initialize(): Error, self is nil!")
-  
-  --I'm bad at this. Need different menu sizes depending on the board 
+
+  --I'm bad at this. Need different menu sizes depending on the board
   if board_type == COMMON.MISSION_BOARD_OUTLAW then
 	self.menu = RogueEssence.Menu.ScriptableMenu(24, 22, 128, 60, function(input) self:Update(input) end)
   else
   	self.menu = RogueEssence.Menu.ScriptableMenu(24, 22, 119, 60, function(input) self:Update(input) end)
 
-  end 
+  end
   self.cursor = RogueEssence.Menu.MenuCursor(self.menu)
   self.board_type = board_type
-  
+
   self.current_item = 0
   self.cursor.Loc = RogueElements.Loc(9, 8)
-  
+
   self:DrawMenu()
 
 end
 
 --refreshes information and draws to the menu. This is important in case there's a change to the taken board
 function BoardSelectionMenu:DrawMenu()
-  
+
   --color this red if there's no jobs and mark there's no jobs to view.
   self.board_populated = true
   local board_name = ""
   if self.board_type == COMMON.MISSION_BOARD_OUTLAW then
-	if SV.OutlawBoard[1].Client == '' then 
+	if SV.OutlawBoard[1].Client == '' then
 		board_name = "[color=#FF0000]Outlaw Notice Board[color]"
 		self.board_populated = false
 	else
-		board_name = "Outlaw Notice Board" 
+		board_name = "Outlaw Notice Board"
 	end
   else
-	if SV.MissionBoard[1].Client == '' then 
+	if SV.MissionBoard[1].Client == '' then
 		board_name = "[color=#FF0000]Job Bulletin Board[color]"
 		self.board_populated = false
 	else
-		board_name = "Job Bulletin Board" 
-	end	
+		board_name = "Job Bulletin Board"
+	end
   end
-  
+
   --color this red if there's no jobs, mark there's no jobs taken
   self.job_list = "Job List"
-  self.taken_populated = true 
+  self.taken_populated = true
   if SV.TakenBoard[1].Client == "" then
 	self.job_list = "[color=#FF0000]Job List[color]"
-	self.taken_populated = false 
+	self.taken_populated = false
   end
-  
+
   self.menu.Elements:Add(RogueEssence.Menu.MenuText(board_name, RogueElements.Loc(21, 8)))
   self.menu.Elements:Add(RogueEssence.Menu.MenuText(self.job_list, RogueElements.Loc(21, 22)))
   self.menu.Elements:Add(RogueEssence.Menu.MenuText("Exit", RogueElements.Loc(21, 36)))
 
   self.menu.Elements:Add(self.cursor)
-end 
+end
 
 
 function BoardSelectionMenu:Update(input)
 
  if input:JustPressed(RogueEssence.FrameInput.InputType.Confirm) then
-	if self.current_item == 0 then --open relevant job menu 
-		if self.board_populated then 
+	if self.current_item == 0 then --open relevant job menu
+		if self.board_populated then
 			_GAME:SE("Menu/Confirm")
 			local board_menu = BoardMenu:new(self.board_type, self)
 			_MENU:AddMenu(board_menu.menu, false)
@@ -2649,10 +2649,10 @@ function BoardSelectionMenu:Update(input)
 		else
 		    _GAME:SE("Menu/Cancel")
 		end
-	else 
+	else
 		_GAME:SE("Menu/Cancel")
 		_MENU:RemoveMenu()
-	end 
+	end
   elseif input:JustPressed(RogueEssence.FrameInput.InputType.Cancel) or input:JustPressed(RogueEssence.FrameInput.InputType.Menu) then
     _GAME:SE("Menu/Cancel")
     _MENU:RemoveMenu()
@@ -2662,19 +2662,19 @@ function BoardSelectionMenu:Update(input)
     if RogueEssence.Menu.InteractableMenu.IsInputting(input, LUA_ENGINE:MakeLuaArray(Dir8, { Dir8.Down, Dir8.DownLeft, Dir8.DownRight })) then
       moved = true
       self.current_item = (self.current_item + 1) % 3
-	  
+
     elseif RogueEssence.Menu.InteractableMenu.IsInputting(input, LUA_ENGINE:MakeLuaArray(Dir8, { Dir8.Up, Dir8.UpLeft, Dir8.UpRight })) then
       moved = true
       self.current_item = (self.current_item - 1) % 3
 	end
-	
+
     if moved then
       _GAME:SE("Menu/Select")
       self.cursor:ResetTimeOffset()
       self.cursor.Loc = RogueElements.Loc(9, 8 + 14 * self.current_item)
     end
   end
-end 
+end
 
 
 
@@ -2687,25 +2687,25 @@ DungeonJobList = Class('DungeonJobList')
 --Used to see what jobs are in this dungeon
 function DungeonJobList:initialize()
   assert(self, "DungeonJobList:initialize(): Error, self is nil!")
-  
+
   self.menu = RogueEssence.Menu.ScriptableMenu(32, 32, 256, 176, function(input) self:Update(input) end)
   self.dungeon = ""
-  
+
   --This menu should only be accessible from dungeons, but add this as a check just in case we somehow access this menu from outside a dungeon.
   if RogueEssence.GameManager.Instance.CurrentScene == RogueEssence.Dungeon.DungeonScene.Instance then
 	self.dungeon = _ZONE.CurrentZoneID
   end
-  
+
   self.jobs = SV.TakenBoard
   self.job_count = 0
-  
+
   for i = 1, 8, 1 do
-    if SV.TakenBoard[i].Client == "" then 
-	  break 
-    elseif SV.TakenBoard[i].Zone ~= '' and SV.TakenBoard[i].Zone == self.dungeon then 
-	  self.job_count = self.job_count + 1 
+    if SV.TakenBoard[i].Client == "" then
+	  break
+    elseif SV.TakenBoard[i].Zone ~= '' and SV.TakenBoard[i].Zone == self.dungeon then
+	  self.job_count = self.job_count + 1
 	end
-  end 
+  end
   self:DrawMenu()
 
 end
@@ -2717,10 +2717,10 @@ function DungeonJobList:DrawMenu()
 
   --Standard title. Reuse this whenever a title is needed.
   self.menu.Elements:Add(RogueEssence.Menu.MenuText("Mission Objectives", RogueElements.Loc(16, 8)))
-  
+
   --how many jobs have we populated so far
   local count = 0
-  
+
 	if _DATA.Save.Rescue ~= nil and _DATA.Save.Rescue.Rescuing then
 		local floor =  MISSION_GEN.STAIR_TYPE[_DATA.Save.Rescue.SOS.Goal.ID] ..'[color=#00FFFF]' .. tostring(_DATA.Save.Rescue.SOS.Goal.StructID.ID + 1) .. "[color]F"
 		local objective = "Rescue [color=#FFA5FF]" .. _DATA.Save.Rescue.SOS.TeamName .. "[color]."
@@ -2728,46 +2728,46 @@ function DungeonJobList:DrawMenu()
 		self.menu.Elements:Add(RogueEssence.Menu.MenuText(icon, RogueElements.Loc(16, 24 + 14 * count)))
 		self.menu.Elements:Add(RogueEssence.Menu.MenuText(floor, RogueElements.Loc(28, 24 + 14 * count)))
 		self.menu.Elements:Add(RogueEssence.Menu.MenuText(objective, RogueElements.Loc(60, 24 + 14 * count)))
-		
+
 		count = count + 1
   else
 
 
   --populate jobs that are in this dungeon
-  for i = 1, 8, 1 do 
+  for i = 1, 8, 1 do
 	--stop populating if we hit a job that's empty
-    if self.jobs[i].Client == "" then break end 
-	
+    if self.jobs[i].Client == "" then break end
+
 	--only look at jobs in the current dungeon that aren't suspended
-			if self.jobs[i].Zone == self.dungeon and self.jobs[i].Taken then 	
+			if self.jobs[i].Zone == self.dungeon and self.jobs[i].Taken then
 				local floor =  MISSION_GEN.STAIR_TYPE[self.jobs[i].Zone] ..'[color=#00FFFF]' .. tostring(self.jobs[i].Floor) .. "[color]F"
 				local objective = ""
 				local icon = ""
 				local goal = self.jobs[i].Type
-				
+
 				local target = _DATA:GetMonster(self.jobs[i].Target):GetColoredName()
-			
+
 				local client = ""
-				if self.jobs[i].Client == "zhayn" then 
+				if self.jobs[i].Client == "zhayn" then
 					client = "[color=#00FFFF]Zhayn[color]"
-				else 
+				else
 					client = _DATA:GetMonster(self.jobs[i].Client):GetColoredName()
 				end
-				
-				local item = "" 
+
+				local item = ""
 				if self.jobs[i].Item ~= "" then
 					item = _DATA:GetItem(self.jobs[i].Item):GetColoredName()
 				end
-				
+
 				if goal == COMMON.MISSION_TYPE_RESCUE then
 					objective = "Rescue " .. target .. "."
-				elseif goal == COMMON.MISSION_TYPE_ESCORT then 
+				elseif goal == COMMON.MISSION_TYPE_ESCORT then
 					objective = "Escort " .. client .. " to " .. target .. "."
 				elseif goal == COMMON.MISSION_TYPE_OUTLAW then
 					objective = "Arrest " .. target .. "."
 				elseif goal == COMMON.MISSION_TYPE_EXPLORATION then
 					objective = "Explore with " .. client .. "."
-				elseif goal == COMMON.MISSION_TYPE_LOST_ITEM then 
+				elseif goal == COMMON.MISSION_TYPE_LOST_ITEM then
 					objective = "Find " .. item .. " for " .. client .. "."
 				elseif goal == COMMON.MISSION_TYPE_OUTLAW_ITEM then
 					objective = "Reclaim " .. item .. " from " .. target .. "."
@@ -2778,30 +2778,30 @@ function DungeonJobList:DrawMenu()
 				elseif goal == COMMON.MISSION_TYPE_DELIVERY then
 					objective = "Deliver " .. item .. " to " .. client .. "."
 				end
-				
-				
-				
-				if self.jobs[i].Completion == COMMON.MISSION_INCOMPLETE then 
+
+
+
+				if self.jobs[i].Completion == COMMON.MISSION_INCOMPLETE then
 					icon = STRINGS:Format("\\uE10F")--open letter
 				else
 					icon = STRINGS:Format("\\uE10A")--check mark
 				end
 
-				
 
-				
+
+
 				self.menu.Elements:Add(RogueEssence.Menu.MenuText(icon, RogueElements.Loc(16, 24 + 14 * count)))
 				self.menu.Elements:Add(RogueEssence.Menu.MenuText(floor, RogueElements.Loc(28, 24 + 14 * count)))
 				self.menu.Elements:Add(RogueEssence.Menu.MenuText(objective, RogueElements.Loc(60, 24 + 14 * count)))
-				
+
 				count = count + 1
 			end
   	end
 	end
-  
+
   --put a special message if no jobs dependent on story progression.
   local message = ""
-  if count == 0 then 
+  if count == 0 then
 	--partner only relic forest
     if SV.ChapterProgression.Chapter == 1 and self.dungeon == 'relic_forest' and not SV.Chapter1.PartnerCompletedForest then
 		message = "Explore the forest."
@@ -2812,19 +2812,19 @@ function DungeonJobList:DrawMenu()
 	elseif SV.ChapterProgression.Chapter == 2 and self.dungeon == 'illuminant_riverbed' and not SV.Chapter2.FinishedRiver then
 		message = 'Rescue ' .. CharacterEssentials.GetCharacterName('Numel') .. "."
 	--Crooked Cavern, before seeing the boss
-	elseif SV.ChapterProgression.Chapter == 3 and self.dungeon == 'crooked_cavern' and not SV.Chapter3.EncounteredBoss then 
+	elseif SV.ChapterProgression.Chapter == 3 and self.dungeon == 'crooked_cavern' and not SV.Chapter3.EncounteredBoss then
 		message = 'Apprehend ' .. CharacterEssentials.GetCharacterName('Sandile') .. "."
 	--Crooked cavern, at the boss
-	elseif SV.ChapterProgression.Chapter == 3 and self.dungeon == 'crooked_cavern' and SV.Chapter3.EncounteredBoss and not SV.Chapter3.DefeatedBoss and _ZONE.CurrentMapID.Segment == 1 then 
+	elseif SV.ChapterProgression.Chapter == 3 and self.dungeon == 'crooked_cavern' and SV.Chapter3.EncounteredBoss and not SV.Chapter3.DefeatedBoss and _ZONE.CurrentMapID.Segment == 1 then
 		message = 'Defeat Team [color=#FFA5FF]Style[color]!'
 	--crooked cavern, lost to boss, on the way back.
-	elseif SV.ChapterProgression.Chapter == 3 and self.dungeon == 'crooked_cavern' and SV.Chapter3.EncounteredBoss and not SV.Chapter3.DefeatedBoss and _ZONE.CurrentMapID.Segment == 0 then 
+	elseif SV.ChapterProgression.Chapter == 3 and self.dungeon == 'crooked_cavern' and SV.Chapter3.EncounteredBoss and not SV.Chapter3.DefeatedBoss and _ZONE.CurrentMapID.Segment == 0 then
 		message = 'Get back to the end of the cavern.'
 	elseif SV.ChapterProgression.Chapter == 4 and self.dungeon == 'apricorn_grove' and not SV.Chapter4.ReachedGlade and not SV.Chapter4.FinishedGrove then
 		message = 'Try to find something of interest.'
 	elseif SV.ChapterProgression.Chapter == 4 and self.dungeon == 'apricorn_grove' and SV.Chapter4.ReachedGlade and not SV.Chapter4.FinishedGrove then
 		message = 'Return to the large Apricorn tree with enough\nPokémon to reach the big Apricorn.'
-	elseif SV.ChapterProgression.Chapter == 5 and self.dungeon == 'vast_steppe' then 
+	elseif SV.ChapterProgression.Chapter == 5 and self.dungeon == 'vast_steppe' then
 		message = 'Avancez dans la steppe vers le\npremier camp de base.'
 	elseif SV.ChapterProgression.Chapter == 5 and self.dungeon == 'searing_tunnel' and _ZONE.CurrentMapID.Segment == 0 and not SV.Chapter5.EncounteredBoss then
 		message = 'Avancez dans le tunnel vers le\ndeuxième camp de base.'
@@ -2833,17 +2833,17 @@ function DungeonJobList:DrawMenu()
 	elseif SV.ChapterProgression.Chapter == 5 and self.dungeon == 'searing_tunnel' and _ZONE.CurrentMapID.Segment == 1 then
 		message = "Vainquez la tribu de " .. CharacterEssentials.GetCharacterName("Magcargo") .. " !"
 	elseif SV.ChapterProgression.Chapter == 5 and self.dungeon == 'mount_windswept' then
-		message = "Traversez la montagne jusqu'au dernier\ncamp de base aux [color=#FFC663]Ruines Tordues[color]."	
+		message = "Traversez la montagne jusqu'au dernier\ncamp de base aux [color=#FFC663]Aegis Cave[color]."
 	else
 		message = "Allez aussi loin que possible."
-	end 
+	end
 	self.menu.Elements:Add(RogueEssence.Menu.MenuText(message, RogueElements.Loc(16, 12 + 14)))
-  end 
+  end
 
-  
-  
-  
-end 
+
+
+
+end
 
 
 function DungeonJobList:Update(input)
@@ -2858,18 +2858,18 @@ function DungeonJobList:Update(input)
     _GAME:SE("Menu/Cancel")
     _MENU:RemoveMenu()
   end
-end 
+end
 
 --How many missions are taken? Probably shoulda just had a variable that kept track, but oh well...
 function MISSION_GEN.GetTakenCount()
 	local count = 0
 	for i = 1, 8, 1 do
-		if SV.TakenBoard[i].Client == "" then 
-			break 
+		if SV.TakenBoard[i].Client == "" then
+			break
 		else
-			count = count + 1 
-		end 
-	end 
+			count = count + 1
+		end
+	end
 	return count
 end
 
@@ -2902,10 +2902,10 @@ function MISSION_GEN.GetDebugMissionInfo(board, slot)
 			print("ClientGender = female")
 		elseif client_gender == 0 then
 			print("ClientGender = genderless")
-		else 
+		else
 			print("Non valid gender!!!!!!")
 		end
-		
+
 		local target_Gender = SV.OutlawBoard[slot].ClientGender
 		if target_Gender == 1 then
 			print("TargetGender = male")
@@ -2913,7 +2913,7 @@ function MISSION_GEN.GetDebugMissionInfo(board, slot)
 			print("TargetGender = female")
 		elseif target_Gender == 0 then
 			print("TargetGender = genderless")
-		else 
+		else
 			print("Non valid gender!!!!!!")
 		end
 		print("Bonus = " .. SV.OutlawBoard[slot].BonusReward)
@@ -2940,10 +2940,10 @@ function MISSION_GEN.GetDebugMissionInfo(board, slot)
 			print("ClientGender = female")
 		elseif client_gender == 0 then
 			print("ClientGender = genderless")
-		else 
+		else
 			print("Non valid gender!!!!!!")
 		end
-		
+
 		local target_Gender = SV.MissionBoard[slot].ClientGender
 		if target_Gender == 1 then
 			print("TargetGender = male")
@@ -2951,7 +2951,7 @@ function MISSION_GEN.GetDebugMissionInfo(board, slot)
 			print("TargetGender = female")
 		elseif target_Gender == 0 then
 			print("TargetGender = genderless")
-		else 
+		else
 			print("Non valid gender!!!!!!")
 		end
 		print("Bonus = " .. SV.MissionBoard[slot].BonusReward)
@@ -2978,10 +2978,10 @@ function MISSION_GEN.GetDebugMissionInfo(board, slot)
 			print("ClientGender = female")
 		elseif client_gender == 0 then
 			print("ClientGender = genderless")
-		else 
+		else
 			print("Non valid gender!!!!!!")
 		end
-		
+
 		local target_Gender = SV.TakenBoard[slot].ClientGender
 		if target_Gender == 1 then
 			print("TargetGender = male")
@@ -2989,7 +2989,7 @@ function MISSION_GEN.GetDebugMissionInfo(board, slot)
 			print("TargetGender = female")
 		elseif target_Gender == 0 then
 			print("TargetGender = genderless")
-		else 
+		else
 			print("Non valid gender!!!!!!")
 		end
 		print("Bonus = " .. SV.TakenBoard[slot].BonusReward)

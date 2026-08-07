@@ -6,11 +6,11 @@ Ce document détaille la trame narrative, les sous-arcs, la structure des donjon
 
 ## 1. Le Fil Rouge : L'Évolution des Perturbations
 
-L'arc narratif est structuré autour d'un déséquilibre planétaire croissant. Les « perturbations » semées à la fin du Chapitre 5 (Ruines Tordues) trouvent leur explication et leur résolution progressive d'un chapitre à l'autre :
+L'arc narratif est structuré autour d'un déséquilibre planétaire croissant. Les « perturbations » semées à la fin du Chapitre 5 (Aegis Cave) trouvent leur explication et leur résolution progressive d'un chapitre à l'autre :
 
 | Chapitre | Donjon Majeur | Manifestation du Fil Rouge | Révélation / Foreshadowing |
 | :--- | :--- | :--- | :--- |
-| **5 (Fin)** | Ruines Tordues | Les veines dorées s'animent sous l'effet des secousses telluriques de Regigigas. | Découverte des premiers flux d'énergie anormaux convergeant sous terre. |
+| **5 (Fin)** | Aegis Cave | Les veines dorées s'animent sous l'effet des secousses telluriques de Regigigas. | Découverte des premiers flux d'énergie anormaux convergeant sous terre. |
 | **6** | Mine Magma | Activité volcanique et thermique anormalement violente. | Première piste concrète : les flux souterrains réchauffent anormalement les failles rocheuses de la région. |
 | **7** | Enquête Terrestre | Tempêtes de sable violentes et perturbations de courants marins. | Les trois éléments (vent, sol, chaleur) sont liés par une même origine globale de flux ascendants. |
 | **8** | Sanctuaire de Cristal | Les gemmes cristallines entrent en résonance et vibrent d'énergie. | Recherches à la bibliothèque de la Guilde : les légendes désignent un gardien de la haute atmosphère (Rayquaza). |
@@ -27,7 +27,7 @@ L'arc narratif est structuré autour d'un déséquilibre planétaire croissant. 
   2. **Exploration et respiration (Job Board)** : Après la traversée de la première moitié, l'équipe s'installe au relais volcanique. Une journée job board obligatoire laisse respirer le rythme.
   3. **L'Épreuve du Feu** : Le groupe affronte les émanations du volcan. Un groupe de Pokémon hostiles influencés par la chaleur (confrontation d'escouade plutôt qu'un boss légendaire unique, pour varier la structure narrative) barre le passage.
 * **Géométrie Unique** : Plateformes de roche magmatique instables, coulées de lave dynamiques nécessitant de calculer sa progression (mécanique de traversée par vagues).
-* **Foreshadowing** : En fin de chapitre, l'érudit Phileas formule l'hypothèse d'un lien thermique direct avec les veines d'énergie observées sous les Ruines Fendues.
+* **Foreshadowing** : En fin de chapitre, l'érudit Phileas formule l'hypothèse d'un lien thermique direct avec les veines d'énergie observées sous les Aegis Cave.
 
 ---
 

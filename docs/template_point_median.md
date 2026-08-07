@@ -46,7 +46,7 @@ Aucun couple (musique, ambiance) n'est réutilisé. Vérifié automatiquement pa
 | Tunnel Incandescent | `steam` | Lower Spring Cave | Poche de vapeur, chaleur volcanique |
 | Mont Venteux | `blowing_wind` | Canyon Camp | Canyon coupe-vent : le calme vient des parois |
 | Forêt Lugubre | `autumn_leaves` | Mystifying Forest | Le calme vient du couvert végétal |
-| Ruines Tordues | `mysterious_distortion` | In the Depths of the Pit | Le calme vient de la pierre taillée |
+| Aegis Cave | `mysterious_distortion` | In the Depths of the Pit | Le calme vient de la pierre taillée |
 | Sanctuaire de Cristal | `winter_snow` | Snow Camp | Poussière de cristal, silence des prismes |
 | Marais de l'Oubli | `mysterious_distortion` | Cave Camp | Brume au-dessus de l'eau — **musique différente** des Ruines |
 | Pic Céleste | `blowing_wind_fast` | Summit | Vent d'altitude : même famille que le Mont, degré supérieur |

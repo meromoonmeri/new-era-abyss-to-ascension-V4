@@ -1,6 +1,6 @@
 --[[
     guild_third_floor_lobby_ch_7.lua
-    Chapter 7 — Ruines Tordues morning address + Phileas dialogue
+    Chapter 7 — Aegis Cave morning address + Phileas dialogue
 ]]
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
@@ -32,7 +32,7 @@ function guild_third_floor_lobby_ch_7.RuinsExpeditionAddress()
   GAME:WaitFrames(20)
   GROUND:CharTurnToChar(tropius, noctowl)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['G3F7_004']))
-  -- "Et au coeur de tout ca, les anciennes Ruines Tordues. Phileas ?"
+  -- "Et au coeur de tout ca, les anciennes Aegis Cave. Phileas ?"
 
   GAME:WaitFrames(20)
   UI:SetSpeaker(noctowl)
@@ -107,7 +107,7 @@ function guild_third_floor_lobby_ch_7.Noctowl_Action(chara, activator)
     GeneralFunctions.StartConversation(chara, 
       STRINGS:Format(STRINGS.MapStrings['MT7_Noctowl_006']))
     GeneralFunctions.SetEmotion("Normal")
-    UI:WaitShowDialogue("Les Ruines Tordues se trouvent au nord de Metano.[pause=20] Ce sont les vestiges d'une civilisation ancienne.")
+    UI:WaitShowDialogue("Les Aegis Cave se trouvent au nord de Metano.[pause=20] Ce sont les vestiges d'une civilisation ancienne.")
     GeneralFunctions.SetEmotion("Worried")
     UI:WaitShowDialogue("C'est la que se trouve le Coeur des Anima de notre region.[pause=25] Et il est en train de mourir.")
     GeneralFunctions.SetEmotion("Determined")

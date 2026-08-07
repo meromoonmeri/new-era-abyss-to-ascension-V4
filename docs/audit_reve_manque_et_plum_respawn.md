@@ -134,7 +134,7 @@ Le prompt impose trois structures et pas une de plus : **Route**, **Boss**,
 | Grande Steppe | ✅ | ✅ | ✅ | ✅ gardien |
 | Mont Venteux | ✅ | ✅ | ✅ | ✅ gardien |
 | Forêt Lugubre | ✅ | ✅ | ✅ | ✅ |
-| Ruines Tordues | ✅ | ✅ | ✅ | ✅ |
+| Aegis Cave | ✅ | ✅ | ✅ | ✅ |
 | Caverne Tortueuse | ✅ | ✅ | — | — |
 
 Aucune structure hors des trois catégories n'a été trouvée sur ces donjons : les

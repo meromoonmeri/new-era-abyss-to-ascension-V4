@@ -25,7 +25,7 @@ DUNGEONS_CH6_CH10 = [
     },
     {
         "id": "cloven_ruins",
-        "name": "Ruines Tordues",
+        "name": "Aegis Cave",
         "ch": 7,
         "boss": "Regigigas / Régis",
         "rsmap_boss": ["cloven_ruins_boss", "cloven_ruins_regice", "cloven_ruins_regirock", "cloven_ruins_registeel"],

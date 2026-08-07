@@ -496,7 +496,7 @@ if __name__ == '__main__':
                     f"\t\t\tgender = {gender},\n\t\t\tform = 0,\n"
                     f"\t\t\tskin = \"normal\"\n\t\t}},\n")
     if add:
-        anchor = "\t\t--Chapitre 7 : Ruines Tordues"
+        anchor = "\t\t--Chapitre 7 : Aegis Cave"
         ce = ce.replace(anchor, "\t\t--Livre II : gardiens d'Ancrage (cinematiques vague 7)\n" + add + anchor, 1)
         open('Data/Script/halcyon/CharacterEssentials.lua', 'w', encoding='utf-8').write(ce)
     print('CharacterEssentials: especes ajoutees')

@@ -16,7 +16,7 @@ les données de Sky Tower sous une forme exploitable.**
 séquences d'événements et les tables de donjon sont des **données binaires
 embarquées dans la ROM**, que le projet n'a pas extraites en source lisible.
 C'est exactement le même mur que pour Aegis Cave (`pret/pmd-sky`), constaté et
-documenté lors du portage des Ruines Tordues.
+documenté lors du portage des Aegis Cave.
 
 Concrètement, cela veut dire :
 
@@ -159,7 +159,7 @@ Voix, le premier aperçu du sommet). Volume mesuré, pas de remplissage.
 ## 5. Ce que je ne promets pas
 
 - **Aucun timing extrait de la ROM.** Les rythmes seront calibrés sur les
-  cinématiques déjà validées du projet (Mont Venteux, Ruines Tordues).
+  cinématiques déjà validées du projet (Mont Venteux, Aegis Cave).
 - **Aucun asset inventé.** Chaque tileset, son, particule et musique sera
   vérifié contre un usage réel du dépôt avant emploi — règle qui a déjà
   rattrapé 5 assets inexistants.

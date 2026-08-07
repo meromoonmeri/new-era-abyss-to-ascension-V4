@@ -50,7 +50,7 @@ Extraits (chaque relais a sa voix) :
 | Grande Steppe (ch5) | seg2 → 62 | vast_steppe_midpoint_ch_5 | SteppeMidState |
 | Tunnel Incandescent (ch5) | seg1 → 48 (déjà bon) + flag | searing_tunnel_midpoint_ch_5 | TunnelMidState |
 | Mont Venteux (ch5) | seg2 → 63 | mount_windswept_midpoint_ch_5 | WindsweptMidState |
-| Ruines Tordues (ch7) | seg2/3 → 66 (**fix bug 46**) | cloven_ruins_midpoint | RuinsMidState |
+| Aegis Cave (ch7) | seg2/3 → 66 (**fix bug 46**) | cloven_ruins_midpoint | RuinsMidState |
 | Sanctuaire de Cristal (ch8) | seg2/3 → 71 (**fix bug 46**) | crystal_sanctuary_relay | SanctuaryMidState |
 | Marais de l'Oubli (ch9) | seg2/3 → 73 (**fix bug 46**) | forgotten_marsh_relay | MarshMidState |
 | Pic Céleste (ch10) | seg2/3/4/5 → 75 (**fix bug 46**) | celestial_peak_relay | PeakMidState |

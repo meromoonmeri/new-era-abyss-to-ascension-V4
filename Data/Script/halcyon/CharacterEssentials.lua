@@ -1105,7 +1105,7 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
-		--Chapitre 7 : les trois gardiens scelles des Ruines Tordues
+		--Chapitre 7 : les trois gardiens scelles des Aegis Cave
 		Regirock = {
 			species = "regirock",
 			nickname = 'Regirock',
@@ -1130,7 +1130,7 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
-		--Zarbi de l'enigme des Ruines Tordues (formes R E G I S)
+		--Zarbi de l'enigme des Aegis Cave (formes R E G I S)
 		Zarbi_R = {
 			species = "unown",
 			nickname = 'Zarbi',
@@ -1171,7 +1171,7 @@ local characters = {
 			form = 18,
 			skin = "normal"
 		},
-		--Chapitre 7 : Ruines Tordues — boss Regigigas
+		--Chapitre 7 : Aegis Cave — boss Regigigas
 		Regigigas = {
 			species = "regigigas",
 			nickname = 'Regigigas',
@@ -1180,7 +1180,7 @@ local characters = {
 			form = 0,
 			skin = "normal"
 		},
-		--Ruines Tordues — les huit statues qui gardent Regigigas
+		--Aegis Cave — les huit statues qui gardent Regigigas
 		--(portage Aegis Cave : 4 Hitmonlee + 4 Bronzong). Instances
 		--distinctes : elles s'eveillent en cascade, chacune doit etre
 		--adressable separement.

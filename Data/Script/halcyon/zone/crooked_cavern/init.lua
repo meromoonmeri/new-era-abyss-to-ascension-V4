@@ -138,7 +138,7 @@ function crooked_cavern.ExitSegment(zone, result, rescue, segmentID, mapID)
 				-- crooked_den (the pre-boss scene), stop at the relay first. The relay's
 				-- North exit then starts segment 1 (Profondeurs); clearing that reaches
 				-- crooked_den's FirstPreBossScene (handled in segment 1 below).
-				-- (Original line was: GAME:EnterZone("master_zone", -1, 42, 0).)
+				-- (Original line was: GAME:EnterZone("master_zone", -1, GROUND_IDX('crooked_den'), 0).)
 				SV.Chapter3.CrookedMidpointState = 'FirstArrival'
 				GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('crooked_cavern_midpoint'), 0, false, false) --crooked_cavern_midpoint (mapID 60)
 			end
@@ -156,7 +156,7 @@ function crooked_cavern.ExitSegment(zone, result, rescue, segmentID, mapID)
 		--(Mirrors searing_tunnel: escape does not benefit from the checkpoint.)
 		elseif result == RogueEssence.Data.GameProgress.ResultType.Escaped then
 			GAME:WaitFrames(20)
-			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 41, 0, true, true) --crooked_cavern_entrance (mapID 41)
+			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('crooked_cavern_entrance'), 0, true, true)
 
 		--Died in the second half: respawn at the checkpoint.
 		elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
@@ -173,7 +173,7 @@ function crooked_cavern.ExitSegment(zone, result, rescue, segmentID, mapID)
 		--Cleared the second half: proceed to crooked_den pre-boss scene (UNCHANGED target;
 		--this path was previously reached directly from segment 0).
 		else
-			GAME:EnterZone("master_zone", -1, 42, 0) --crooked_den (mapID 42) -> FirstPreBossScene -> boss (segment 2)
+			GAME:EnterZone("master_zone", -1, GROUND_IDX('crooked_den'), 0) --crooked_den (mapID 42) -> FirstPreBossScene -> boss (segment 2)
 		end
 
 	else -- segment 2: boss arena (previously segment 1) exit segment
@@ -190,7 +190,7 @@ function crooked_cavern.ExitSegment(zone, result, rescue, segmentID, mapID)
 		if result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
 			-- *** CHECKPOINT (NEW) ***
 			-- Died/escaped to the boss: respawn at the relay instead of crooked_den.
-			-- (Original always did: GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 42, 0, false, false).)
+			-- (Original always did: GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('crooked_den'), 0, false, false).)
 			-- The relay's WipedCutscene uses SV.Chapter3.LostToBoss to show boss-specific lines
 			-- (crooked_den's DiedToBoss scene is thereby superseded but left in place).
 			SV.CrookedCavern.DiedPastCheckpoint = true
@@ -200,7 +200,7 @@ function crooked_cavern.ExitSegment(zone, result, rescue, segmentID, mapID)
 			GAME:EnterZone("master_zone", -1, GROUND_IDX('crooked_cavern_midpoint'), 0)
 		else
 			--Beat the boss: continue to crooked_den for the post-boss/root scene (UNCHANGED).
-			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 42, 0, false, false) --crooked_den (mapID 42)
+			GeneralFunctions.EndDungeonRun(result, "master_zone", -1, GROUND_IDX('crooked_den'), 0, false, false) --crooked_den (mapID 42)
 		end
 	end
 end

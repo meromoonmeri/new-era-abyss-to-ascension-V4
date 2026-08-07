@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-make_ruines_arenes.py — construit les QUATRE etages-arenes des Ruines Tordues.
+make_ruines_arenes.py — construit les QUATRE etages-arenes des Aegis Cave.
 
 CONTEXTE
 --------
@@ -87,7 +87,7 @@ BIOMES = {
         "nom_fr": "Chambre de Regice",
         "nom_en": "Regice's Chamber",
         "commentaire": (
-            "Ruines Tordues — arene de Regice (etage de zone, segment 1). "
+            "Aegis Cave — arene de Regice (etage de zone, segment 1). "
             "Portage Aegis Cave / Ice Maze. Salle carree et ouverte : une "
             "caverne de glace, pas un temple. Le froid a fait eclater les "
             "murs, d'ou les piliers ecartes."
@@ -109,7 +109,7 @@ BIOMES = {
         "nom_fr": "Chambre de Regirock",
         "nom_en": "Regirock's Chamber",
         "commentaire": (
-            "Ruines Tordues — arene de Regirock (etage de zone, segment 3). "
+            "Aegis Cave — arene de Regirock (etage de zone, segment 3). "
             "Portage Aegis Cave / Rock Maze. Salle LARGE et BASSE : une "
             "carriere, pas une nef. Six piliers massifs, alignes comme les "
             "restes d'une galerie effondree."
@@ -131,7 +131,7 @@ BIOMES = {
         "nom_fr": "Chambre de Registeel",
         "nom_en": "Registeel's Chamber",
         "commentaire": (
-            "Ruines Tordues — arene de Registeel (etage de zone, segment 5). "
+            "Aegis Cave — arene de Registeel (etage de zone, segment 5). "
             "Portage Aegis Cave / Steel Maze, tileset d'origine "
             "steel_aegis_cave. Salle ETROITE et LONGUE : une nef. Le gardien "
             "est visible des l'entree, tout au fond — c'est le principe de sa "
@@ -154,7 +154,7 @@ BIOMES = {
         "nom_fr": "Sanctuaire des Titans",
         "nom_en": "Titans Sanctum",
         "commentaire": (
-            "Ruines Tordues — arene de Regigigas (etage de zone, segment 7). "
+            "Aegis Cave — arene de Regigigas (etage de zone, segment 7). "
             "Portage Aegis Cave / Regigigas Pit. La plus vaste des quatre : "
             "Regigigas plus ses huit gardes (4 Hitmonlee, 4 Bronzong) plus "
             "les renforts de la guilde doivent tenir dedans. Tileset "

@@ -233,7 +233,7 @@ def _otsu(lum):
     Methode d'Otsu : on cherche le seuil qui maximise la variance ENTRE
     les deux groupes. Aucun reglage a la main, et le seuil s'adapte a la
     palette de l'image — c'est ce qui permet de traiter aussi bien un
-    decor vert (Cloven Ruins) qu'une arene grise (Tornadus).
+    decor vert (Aegis Cave) qu'une arene grise (Tornadus).
     """
     hist, _ = np.histogram(lum, bins=256, range=(0, 256))
     tot = lum.size
@@ -267,12 +267,12 @@ def collisions(src, nuage, pas, seuil=0.45, amas=3, verbeux=True,
     Les decors du projet ne se ressemblent pas, et un seul jeu de seuils
     ne peut pas les couvrir. Mesure comparee :
 
-      Cloven Ruins (ile verte)      Tornadus (cime grise)
+      Aegis Cave (ile verte)      Tornadus (cime grise)
         herbe    (207,186, 97)        plateforme (132,139,142) sat 10
         falaise  (173,148, 77)        roche      ( 59, 68, 76) sat 17
         arbre    (144,106, 47)        ciel       (204,223,248) sat 44
 
-    Sur Cloven Ruins la TEINTE porte l'information (vert = vegetation,
+    Sur Aegis Cave la TEINTE porte l'information (vert = vegetation,
     beige = roche). Sur Tornadus tout est gris : la teinte ne dit plus
     rien, mais l'histogramme de luminance est franchement BIMODAL —
     657 127 px de plateforme claire (128-143) contre ~680 000 px de
@@ -306,7 +306,7 @@ def collisions(src, nuage, pas, seuil=0.45, amas=3, verbeux=True,
     d'obstacle par cellule et on bloque au-dela de `seuil`, puis on
     supprime les amas de moins de `amas` cellules : un obstacle isole
     d'une seule case au milieu d'une esplanade est du bruit de texture,
-    pas un rocher (~500 fausses collisions retirees sur Cloven Ruins).
+    pas un rocher (~500 fausses collisions retirees sur Aegis Cave).
 
     Retourne (bloque, stats) ; `bloque` est indexe [y][x].
     """
@@ -406,7 +406,7 @@ def degager_entites(obj, bloque, pas, verbeux=True):
 
     Necessaire parce que les collisions sont calculees APRES le
     repositionnement : une entite peut atterrir sur un arbre ou un rocher
-    que l'ancienne carte n'avait pas. Constate sur Cloven Ruins, le
+    que l'ancienne carte n'avait pas. Constate sur Aegis Cave, le
     spawner TEAMMATE_2 se retrouvait dans un massif d'arbres.
 
     On cherche la cellule libre la plus proche, en spirale. Une entite
@@ -550,7 +550,7 @@ def _composantes(masque, mini=200):
 def _masques(im, verbeux=False):
     """Isole les CASCADES et les NUAGES, chacun avec sa methode.
 
-    Le piege, mesure sur l'image de Cloven Ruins : cascade et ciel ont la
+    Le piege, mesure sur l'image de Aegis Cave : cascade et ciel ont la
     MEME signature bleue.
         cascade (43,97,181) (81,160,236)   ciel (191,211,239)
     Un simple seuil `B - R > 70` marquait donc tout le pourtour du ciel
@@ -577,7 +577,7 @@ def _masques(im, verbeux=False):
         w = max(xs) - min(xs) + 1
         # Une chute d'eau : nettement plus haute que large, etroite, ET
         # DETACHEE DES BORDS. Ce dernier critere elimine les langues de
-        # ciel qui longent le cadre : sur Cloven Ruins, sept blocs
+        # ciel qui longent le cadre : sur Aegis Cave, sept blocs
         # verticaux touchaient x=0 ou x=W-1 et passaient les deux premiers
         # tests. Une cascade nait d'une falaise, au milieu de l'image ;
         # elle ne peut pas etre collee au bord.
@@ -888,7 +888,7 @@ def cmd_anime(a):
       'Anim'     uniquement les cellules qui contiennent
                  du nuage ou de la cascade                (N frames)
     Les cellules fixes ne sont PAS dupliquees dans les planches d'anim :
-    seules celles qui bougent le sont. Sur Cloven Ruins cela represente
+    seules celles qui bougent le sont. Sur Aegis Cave cela represente
     une fraction des tuiles, pas les 8000 de la carte.
 
     VITESSES : les nuages derivent lentement a l'horizontale, l'eau tombe

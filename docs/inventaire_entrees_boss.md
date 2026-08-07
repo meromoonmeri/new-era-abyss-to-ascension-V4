@@ -150,8 +150,8 @@ Proposition d'affectation par direction artistique, **à valider avant écriture
 | Mont Venteux (gardien) | Aerodactyl | fossile, brutal | `Treacherous Mountain` | lourd, ancestral |
 | Forêt Lugubre (mini) | Tengalice + Cornèbre | rusé, hostile | `Ambush Forest` | embuscade, littéral |
 | Forêt Lugubre (boss) | Zarude | protecteur farouche | `Deep Dusk Forest` | dense, pas gratuitement menaçant |
-| Ruines Tordues (mini) | Kaorine + Golemastoc | gardiens de pierre | `Sealed Ruin` | minéral, solennel |
-| Ruines Tordues (boss) | Regis + Regigigas | colosses ancestraux | `Aegis Cave` | thème canonique des Regi |
+| Aegis Cave (mini) | Kaorine + Golemastoc | gardiens de pierre | `Sealed Ruin` | minéral, solennel |
+| Aegis Cave (boss) | Regis + Regigigas | colosses ancestraux | `Aegis Cave` | thème canonique des Regi |
 | Sanctuaire Cristal | — | lumineux, serein | `Crystal Crossing` | beau plutôt que menaçant |
 
 > Le prompt insiste : un boss serein garde une musique **belle ou majestueuse**

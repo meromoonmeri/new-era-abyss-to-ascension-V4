@@ -83,7 +83,7 @@ end
 --------------------------------------------------------------------
 -- LÉGENDE : « Les Trois Serviteurs et le Colosse » (Rubble, ex-mineur)
 -- Mentions : Regirock, Regice, Registeel, et « le Colosse » (Regigigas,
--- jamais nommé). Prépare le ch7 (Ruines Tordues) sans rien divulguer.
+-- jamais nommé). Prépare le ch7 (Aegis Cave) sans rien divulguer.
 -- OST : In the Depths of the Pit. Mise en scène : le café se fige.
 --------------------------------------------------------------------
 function metano_cafe_ch_5.LegendOfTheTitans(chara)
