@@ -96,6 +96,30 @@ def convert(ground, name, apply=False):
     glayers = gobj['Layers']
     ob = gobj['obstacles']
 
+    # Un Ground TexSize=3 est DÉJÀ dessiné en tuiles 24 px. Le refusionner
+    # par blocs 3x3 produisait une arène 3 fois trop petite (bug historique
+    # gloomy_forest_miniboss 19x19 -> 7x7). On conserve directement ses
+    # couches et on agrège seulement la grille d'obstacles 8 px.
+    if gobj.get('TexSize', 1) == 3:
+        import copy
+        w = len(glayers[0]['Tiles'])
+        h = len(glayers[0]['Tiles'][0])
+        map_tiles = []
+        for bx in range(w):
+            col = []
+            for by in range(h):
+                blocked = sum(ob[bx * 3 + i][by * 3 + j].get('Tags', 0) != 0
+                              for i in range(3) for j in range(3))
+                tid = 'unbreakable' if blocked >= 5 else 'floor'
+                col.append({
+                    'Data': {'ID': tid, 'TileTex': empty_tile(), 'StableTex': False},
+                    'Effect': {'TileLoc': {'X': bx, 'Y': by}, 'ID': '',
+                               'Revealed': False, 'Owner': 0, 'TileStates': []},
+                })
+            map_tiles.append(col)
+        print(f'{ground} : {w}x{h} tuiles 24px natives -> copie directe')
+        return copy.deepcopy(glayers), map_tiles, []
+
     # dimensions en tuiles 24px : ceil(dim_cellules / 3)
     gw = len(glayers[0]['Tiles'])
     gh = len(glayers[0]['Tiles'][0])
