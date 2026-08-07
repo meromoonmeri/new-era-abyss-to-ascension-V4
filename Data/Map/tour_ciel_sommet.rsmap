@@ -7,7 +7,7 @@
       "LocalTexts": {}
     },
     "Released": true,
-    "Comment": "Arène intégrée du sommet canonique D13P03/gs209. Ground source 1:1 PMD-RED-PMDO-PORT; Rayquaza seul.",
+    "Comment": "Arène dérivée du rendu final visible D13P03; identique au Ground cinématique sans material-layer noir.",
     "Begun": false,
     "ID": 0,
     "MapTeams": [
@@ -777,7 +777,7 @@
     ],
     "Layers": [
       {
-        "Name": "Base",
+        "Name": "Canonical Final Render",
         "Layer": 0,
         "Visible": true,
         "Tiles": [
@@ -790,7 +790,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 0
@@ -809,7 +809,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 1
@@ -828,7 +828,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 2
@@ -847,7 +847,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 3
@@ -866,7 +866,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 4
@@ -885,7 +885,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 5
@@ -904,7 +904,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 6
@@ -923,7 +923,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 7
@@ -942,7 +942,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 8
@@ -961,7 +961,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 9
@@ -980,7 +980,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 10
@@ -999,7 +999,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 11
@@ -1018,7 +1018,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 12
@@ -1037,7 +1037,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 13
@@ -1056,7 +1056,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 14
@@ -1075,7 +1075,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 15
@@ -1094,7 +1094,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 16
@@ -1113,7 +1113,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 17
@@ -1132,7 +1132,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 18
@@ -1151,7 +1151,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 19
@@ -1170,7 +1170,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 20
@@ -1189,7 +1189,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 21
@@ -1208,7 +1208,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 22
@@ -1227,7 +1227,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 23
@@ -1246,7 +1246,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 0,
                         "Y": 24
@@ -1267,7 +1267,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 0
@@ -1286,7 +1286,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 1
@@ -1305,7 +1305,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 2
@@ -1324,7 +1324,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 3
@@ -1343,7 +1343,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 4
@@ -1362,7 +1362,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 5
@@ -1381,7 +1381,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 6
@@ -1400,7 +1400,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 7
@@ -1419,7 +1419,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 8
@@ -1438,7 +1438,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 9
@@ -1457,7 +1457,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 10
@@ -1476,7 +1476,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 11
@@ -1495,7 +1495,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 12
@@ -1514,7 +1514,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 13
@@ -1533,7 +1533,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 14
@@ -1552,7 +1552,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 15
@@ -1571,7 +1571,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 16
@@ -1590,7 +1590,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 17
@@ -1609,7 +1609,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 18
@@ -1628,7 +1628,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 19
@@ -1647,7 +1647,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 20
@@ -1666,7 +1666,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 21
@@ -1685,7 +1685,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 22
@@ -1704,7 +1704,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 23
@@ -1723,7 +1723,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 1,
                         "Y": 24
@@ -1744,7 +1744,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 0
@@ -1763,7 +1763,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 1
@@ -1782,7 +1782,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 2
@@ -1801,7 +1801,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 3
@@ -1820,7 +1820,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 4
@@ -1839,7 +1839,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 5
@@ -1858,7 +1858,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 6
@@ -1877,7 +1877,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 7
@@ -1896,7 +1896,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 8
@@ -1915,7 +1915,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 9
@@ -1934,7 +1934,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 10
@@ -1953,7 +1953,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 11
@@ -1972,7 +1972,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 12
@@ -1991,7 +1991,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 13
@@ -2010,7 +2010,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 14
@@ -2029,7 +2029,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 15
@@ -2048,7 +2048,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 16
@@ -2067,7 +2067,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 17
@@ -2086,7 +2086,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 18
@@ -2105,7 +2105,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 19
@@ -2124,7 +2124,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 20
@@ -2143,7 +2143,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 21
@@ -2162,7 +2162,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 22
@@ -2181,7 +2181,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 23
@@ -2200,7 +2200,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 2,
                         "Y": 24
@@ -2221,7 +2221,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 0
@@ -2240,7 +2240,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 1
@@ -2259,7 +2259,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 2
@@ -2278,7 +2278,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 3
@@ -2297,7 +2297,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 4
@@ -2316,7 +2316,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 5
@@ -2335,7 +2335,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 6
@@ -2354,7 +2354,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 7
@@ -2373,7 +2373,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 8
@@ -2392,7 +2392,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 9
@@ -2411,7 +2411,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 10
@@ -2430,7 +2430,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 11
@@ -2449,7 +2449,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 12
@@ -2468,7 +2468,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 13
@@ -2487,7 +2487,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 14
@@ -2506,7 +2506,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 15
@@ -2525,7 +2525,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 16
@@ -2544,7 +2544,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 17
@@ -2563,7 +2563,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 18
@@ -2582,7 +2582,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 19
@@ -2601,7 +2601,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 20
@@ -2620,7 +2620,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 21
@@ -2639,7 +2639,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 22
@@ -2658,7 +2658,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 23
@@ -2677,7 +2677,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 3,
                         "Y": 24
@@ -2698,7 +2698,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 0
@@ -2717,7 +2717,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 1
@@ -2736,7 +2736,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 2
@@ -2755,7 +2755,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 3
@@ -2774,7 +2774,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 4
@@ -2793,7 +2793,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 5
@@ -2812,7 +2812,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 6
@@ -2831,7 +2831,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 7
@@ -2850,7 +2850,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 8
@@ -2869,7 +2869,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 9
@@ -2888,7 +2888,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 10
@@ -2907,7 +2907,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 11
@@ -2926,7 +2926,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 12
@@ -2945,7 +2945,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 13
@@ -2964,7 +2964,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 14
@@ -2983,7 +2983,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 15
@@ -3002,7 +3002,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 16
@@ -3021,7 +3021,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 17
@@ -3040,7 +3040,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 18
@@ -3059,7 +3059,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 19
@@ -3078,7 +3078,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 20
@@ -3097,7 +3097,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 21
@@ -3116,7 +3116,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 22
@@ -3135,7 +3135,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 23
@@ -3154,7 +3154,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 4,
                         "Y": 24
@@ -3175,7 +3175,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 0
@@ -3194,7 +3194,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 1
@@ -3213,7 +3213,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 2
@@ -3232,7 +3232,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 3
@@ -3251,7 +3251,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 4
@@ -3270,7 +3270,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 5
@@ -3289,7 +3289,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 6
@@ -3308,7 +3308,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 7
@@ -3327,7 +3327,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 8
@@ -3346,7 +3346,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 9
@@ -3365,7 +3365,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 10
@@ -3384,7 +3384,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 11
@@ -3403,7 +3403,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 12
@@ -3422,7 +3422,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 13
@@ -3441,7 +3441,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 14
@@ -3460,7 +3460,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 15
@@ -3479,7 +3479,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 16
@@ -3498,7 +3498,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 17
@@ -3517,7 +3517,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 18
@@ -3536,7 +3536,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 19
@@ -3555,7 +3555,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 20
@@ -3574,7 +3574,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 21
@@ -3593,7 +3593,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 22
@@ -3612,7 +3612,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 23
@@ -3631,7 +3631,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 5,
                         "Y": 24
@@ -3652,7 +3652,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 0
@@ -3671,7 +3671,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 1
@@ -3690,7 +3690,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 2
@@ -3709,7 +3709,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 3
@@ -3728,7 +3728,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 4
@@ -3747,7 +3747,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 5
@@ -3766,7 +3766,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 6
@@ -3785,7 +3785,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 7
@@ -3804,7 +3804,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 8
@@ -3823,7 +3823,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 9
@@ -3842,7 +3842,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 10
@@ -3861,7 +3861,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 11
@@ -3880,7 +3880,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 12
@@ -3899,7 +3899,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 13
@@ -3918,7 +3918,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 14
@@ -3937,7 +3937,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 15
@@ -3956,7 +3956,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 16
@@ -3975,7 +3975,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 17
@@ -3994,7 +3994,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 18
@@ -4013,7 +4013,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 19
@@ -4032,7 +4032,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 20
@@ -4051,7 +4051,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 21
@@ -4070,7 +4070,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 22
@@ -4089,7 +4089,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 23
@@ -4108,7 +4108,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 6,
                         "Y": 24
@@ -4129,7 +4129,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 0
@@ -4148,7 +4148,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 1
@@ -4167,7 +4167,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 2
@@ -4186,7 +4186,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 3
@@ -4205,7 +4205,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 4
@@ -4224,7 +4224,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 5
@@ -4243,7 +4243,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 6
@@ -4262,7 +4262,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 7
@@ -4281,7 +4281,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 8
@@ -4300,7 +4300,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 9
@@ -4319,7 +4319,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 10
@@ -4338,7 +4338,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 11
@@ -4357,7 +4357,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 12
@@ -4376,7 +4376,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 13
@@ -4395,7 +4395,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 14
@@ -4414,7 +4414,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 15
@@ -4433,7 +4433,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 16
@@ -4452,7 +4452,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 17
@@ -4471,7 +4471,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 18
@@ -4490,7 +4490,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 19
@@ -4509,7 +4509,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 20
@@ -4528,7 +4528,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 21
@@ -4547,7 +4547,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 22
@@ -4566,7 +4566,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 23
@@ -4585,7 +4585,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 7,
                         "Y": 24
@@ -4606,7 +4606,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 0
@@ -4625,7 +4625,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 1
@@ -4644,7 +4644,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 2
@@ -4663,7 +4663,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 3
@@ -4682,7 +4682,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 4
@@ -4701,7 +4701,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 5
@@ -4720,7 +4720,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 6
@@ -4739,7 +4739,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 7
@@ -4758,7 +4758,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 8
@@ -4777,7 +4777,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 9
@@ -4796,7 +4796,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 10
@@ -4815,7 +4815,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 11
@@ -4834,7 +4834,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 12
@@ -4853,7 +4853,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 13
@@ -4872,7 +4872,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 14
@@ -4891,7 +4891,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 15
@@ -4910,7 +4910,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 16
@@ -4929,7 +4929,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 17
@@ -4948,7 +4948,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 18
@@ -4967,7 +4967,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 19
@@ -4986,7 +4986,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 20
@@ -5005,7 +5005,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 21
@@ -5024,7 +5024,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 22
@@ -5043,7 +5043,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 23
@@ -5062,7 +5062,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 8,
                         "Y": 24
@@ -5083,7 +5083,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 0
@@ -5102,7 +5102,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 1
@@ -5121,7 +5121,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 2
@@ -5140,7 +5140,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 3
@@ -5159,7 +5159,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 4
@@ -5178,7 +5178,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 5
@@ -5197,7 +5197,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 6
@@ -5216,7 +5216,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 7
@@ -5235,7 +5235,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 8
@@ -5254,7 +5254,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 9
@@ -5273,7 +5273,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 10
@@ -5292,7 +5292,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 11
@@ -5311,7 +5311,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 12
@@ -5330,7 +5330,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 13
@@ -5349,7 +5349,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 14
@@ -5368,7 +5368,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 15
@@ -5387,7 +5387,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 16
@@ -5406,7 +5406,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 17
@@ -5425,7 +5425,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 18
@@ -5444,7 +5444,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 19
@@ -5463,7 +5463,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 20
@@ -5482,7 +5482,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 21
@@ -5501,7 +5501,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 22
@@ -5520,7 +5520,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 23
@@ -5539,7 +5539,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 9,
                         "Y": 24
@@ -5560,7 +5560,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 0
@@ -5579,7 +5579,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 1
@@ -5598,7 +5598,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 2
@@ -5617,7 +5617,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 3
@@ -5636,7 +5636,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 4
@@ -5655,7 +5655,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 5
@@ -5674,7 +5674,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 6
@@ -5693,7 +5693,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 7
@@ -5712,7 +5712,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 8
@@ -5731,7 +5731,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 9
@@ -5750,7 +5750,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 10
@@ -5769,7 +5769,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 11
@@ -5788,7 +5788,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 12
@@ -5807,7 +5807,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 13
@@ -5826,7 +5826,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 14
@@ -5845,7 +5845,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 15
@@ -5864,7 +5864,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 16
@@ -5883,7 +5883,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 17
@@ -5902,7 +5902,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 18
@@ -5921,7 +5921,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 19
@@ -5940,7 +5940,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 20
@@ -5959,7 +5959,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 21
@@ -5978,7 +5978,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 22
@@ -5997,7 +5997,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 23
@@ -6016,7 +6016,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 10,
                         "Y": 24
@@ -6037,7 +6037,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 0
@@ -6056,7 +6056,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 1
@@ -6075,7 +6075,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 2
@@ -6094,7 +6094,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 3
@@ -6113,7 +6113,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 4
@@ -6132,7 +6132,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 5
@@ -6151,7 +6151,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 6
@@ -6170,7 +6170,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 7
@@ -6189,7 +6189,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 8
@@ -6208,7 +6208,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 9
@@ -6227,7 +6227,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 10
@@ -6246,7 +6246,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 11
@@ -6265,7 +6265,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 12
@@ -6284,7 +6284,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 13
@@ -6303,7 +6303,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 14
@@ -6322,7 +6322,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 15
@@ -6341,7 +6341,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 16
@@ -6360,7 +6360,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 17
@@ -6379,7 +6379,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 18
@@ -6398,7 +6398,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 19
@@ -6417,7 +6417,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 20
@@ -6436,7 +6436,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 21
@@ -6455,7 +6455,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 22
@@ -6474,7 +6474,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 23
@@ -6493,7 +6493,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 11,
                         "Y": 24
@@ -6514,7 +6514,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 0
@@ -6533,7 +6533,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 1
@@ -6552,7 +6552,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 2
@@ -6571,7 +6571,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 3
@@ -6590,7 +6590,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 4
@@ -6609,7 +6609,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 5
@@ -6628,7 +6628,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 6
@@ -6647,7 +6647,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 7
@@ -6666,7 +6666,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 8
@@ -6685,7 +6685,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 9
@@ -6704,7 +6704,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 10
@@ -6723,7 +6723,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 11
@@ -6742,7 +6742,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 12
@@ -6761,7 +6761,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 13
@@ -6780,7 +6780,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 14
@@ -6799,7 +6799,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 15
@@ -6818,7 +6818,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 16
@@ -6837,7 +6837,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 17
@@ -6856,7 +6856,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 18
@@ -6875,7 +6875,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 19
@@ -6894,7 +6894,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 20
@@ -6913,7 +6913,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 21
@@ -6932,7 +6932,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 22
@@ -6951,7 +6951,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 23
@@ -6970,7 +6970,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 12,
                         "Y": 24
@@ -6991,7 +6991,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 0
@@ -7010,7 +7010,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 1
@@ -7029,7 +7029,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 2
@@ -7048,7 +7048,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 3
@@ -7067,7 +7067,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 4
@@ -7086,7 +7086,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 5
@@ -7105,7 +7105,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 6
@@ -7124,7 +7124,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 7
@@ -7143,7 +7143,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 8
@@ -7162,7 +7162,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 9
@@ -7181,7 +7181,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 10
@@ -7200,7 +7200,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 11
@@ -7219,7 +7219,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 12
@@ -7238,7 +7238,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 13
@@ -7257,7 +7257,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 14
@@ -7276,7 +7276,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 15
@@ -7295,7 +7295,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 16
@@ -7314,7 +7314,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 17
@@ -7333,7 +7333,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 18
@@ -7352,7 +7352,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 19
@@ -7371,7 +7371,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 20
@@ -7390,7 +7390,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 21
@@ -7409,7 +7409,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 22
@@ -7428,7 +7428,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 23
@@ -7447,7 +7447,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 13,
                         "Y": 24
@@ -7468,7 +7468,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 0
@@ -7487,7 +7487,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 1
@@ -7506,7 +7506,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 2
@@ -7525,7 +7525,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 3
@@ -7544,7 +7544,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 4
@@ -7563,7 +7563,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 5
@@ -7582,7 +7582,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 6
@@ -7601,7 +7601,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 7
@@ -7620,7 +7620,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 8
@@ -7639,7 +7639,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 9
@@ -7658,7 +7658,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 10
@@ -7677,7 +7677,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 11
@@ -7696,7 +7696,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 12
@@ -7715,7 +7715,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 13
@@ -7734,7 +7734,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 14
@@ -7753,7 +7753,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 15
@@ -7772,7 +7772,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 16
@@ -7791,7 +7791,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 17
@@ -7810,7 +7810,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 18
@@ -7829,7 +7829,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 19
@@ -7848,7 +7848,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 20
@@ -7867,7 +7867,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 21
@@ -7886,7 +7886,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 22
@@ -7905,7 +7905,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 23
@@ -7924,7 +7924,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 14,
                         "Y": 24
@@ -7945,7 +7945,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 0
@@ -7964,7 +7964,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 1
@@ -7983,7 +7983,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 2
@@ -8002,7 +8002,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 3
@@ -8021,7 +8021,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 4
@@ -8040,7 +8040,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 5
@@ -8059,7 +8059,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 6
@@ -8078,7 +8078,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 7
@@ -8097,7 +8097,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 8
@@ -8116,7 +8116,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 9
@@ -8135,7 +8135,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 10
@@ -8154,7 +8154,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 11
@@ -8173,7 +8173,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 12
@@ -8192,7 +8192,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 13
@@ -8211,7 +8211,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 14
@@ -8230,7 +8230,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 15
@@ -8249,7 +8249,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 16
@@ -8268,7 +8268,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 17
@@ -8287,7 +8287,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 18
@@ -8306,7 +8306,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 19
@@ -8325,7 +8325,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 20
@@ -8344,7 +8344,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 21
@@ -8363,7 +8363,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 22
@@ -8382,7 +8382,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 23
@@ -8401,7 +8401,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 15,
                         "Y": 24
@@ -8422,7 +8422,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 0
@@ -8441,7 +8441,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 1
@@ -8460,7 +8460,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 2
@@ -8479,7 +8479,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 3
@@ -8498,7 +8498,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 4
@@ -8517,7 +8517,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 5
@@ -8536,7 +8536,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 6
@@ -8555,7 +8555,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 7
@@ -8574,7 +8574,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 8
@@ -8593,7 +8593,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 9
@@ -8612,7 +8612,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 10
@@ -8631,7 +8631,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 11
@@ -8650,7 +8650,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 12
@@ -8669,7 +8669,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 13
@@ -8688,7 +8688,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 14
@@ -8707,7 +8707,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 15
@@ -8726,7 +8726,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 16
@@ -8745,7 +8745,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 17
@@ -8764,7 +8764,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 18
@@ -8783,7 +8783,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 19
@@ -8802,7 +8802,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 20
@@ -8821,7 +8821,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 21
@@ -8840,7 +8840,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 22
@@ -8859,7 +8859,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 23
@@ -8878,7 +8878,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 16,
                         "Y": 24
@@ -8899,7 +8899,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 0
@@ -8918,7 +8918,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 1
@@ -8937,7 +8937,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 2
@@ -8956,7 +8956,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 3
@@ -8975,7 +8975,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 4
@@ -8994,7 +8994,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 5
@@ -9013,7 +9013,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 6
@@ -9032,7 +9032,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 7
@@ -9051,7 +9051,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 8
@@ -9070,7 +9070,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 9
@@ -9089,7 +9089,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 10
@@ -9108,7 +9108,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 11
@@ -9127,7 +9127,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 12
@@ -9146,7 +9146,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 13
@@ -9165,7 +9165,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 14
@@ -9184,7 +9184,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 15
@@ -9203,7 +9203,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 16
@@ -9222,7 +9222,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 17
@@ -9241,7 +9241,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 18
@@ -9260,7 +9260,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 19
@@ -9279,7 +9279,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 20
@@ -9298,7 +9298,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 21
@@ -9317,7 +9317,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 22
@@ -9336,7 +9336,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 23
@@ -9355,7 +9355,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 17,
                         "Y": 24
@@ -9376,7 +9376,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 0
@@ -9395,7 +9395,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 1
@@ -9414,7 +9414,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 2
@@ -9433,7 +9433,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 3
@@ -9452,7 +9452,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 4
@@ -9471,7 +9471,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 5
@@ -9490,7 +9490,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 6
@@ -9509,7 +9509,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 7
@@ -9528,7 +9528,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 8
@@ -9547,7 +9547,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 9
@@ -9566,7 +9566,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 10
@@ -9585,7 +9585,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 11
@@ -9604,7 +9604,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 12
@@ -9623,7 +9623,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 13
@@ -9642,7 +9642,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 14
@@ -9661,7 +9661,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 15
@@ -9680,7 +9680,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 16
@@ -9699,7 +9699,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 17
@@ -9718,7 +9718,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 18
@@ -9737,7 +9737,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 19
@@ -9756,7 +9756,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 20
@@ -9775,7 +9775,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 21
@@ -9794,7 +9794,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 22
@@ -9813,7 +9813,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 23
@@ -9832,7 +9832,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 18,
                         "Y": 24
@@ -9853,7 +9853,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 0
@@ -9872,7 +9872,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 1
@@ -9891,7 +9891,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 2
@@ -9910,7 +9910,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 3
@@ -9929,7 +9929,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 4
@@ -9948,7 +9948,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 5
@@ -9967,7 +9967,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 6
@@ -9986,7 +9986,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 7
@@ -10005,7 +10005,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 8
@@ -10024,7 +10024,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 9
@@ -10043,7 +10043,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 10
@@ -10062,7 +10062,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 11
@@ -10081,7 +10081,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 12
@@ -10100,7 +10100,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 13
@@ -10119,7 +10119,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 14
@@ -10138,7 +10138,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 15
@@ -10157,7 +10157,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 16
@@ -10176,7 +10176,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 17
@@ -10195,7 +10195,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 18
@@ -10214,7 +10214,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 19
@@ -10233,7 +10233,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 20
@@ -10252,7 +10252,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 21
@@ -10271,7 +10271,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 22
@@ -10290,7 +10290,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 23
@@ -10309,7 +10309,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 19,
                         "Y": 24
@@ -10330,7 +10330,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 0
@@ -10349,7 +10349,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 1
@@ -10368,7 +10368,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 2
@@ -10387,7 +10387,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 3
@@ -10406,7 +10406,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 4
@@ -10425,7 +10425,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 5
@@ -10444,7 +10444,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 6
@@ -10463,7 +10463,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 7
@@ -10482,7 +10482,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 8
@@ -10501,7 +10501,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 9
@@ -10520,7 +10520,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 10
@@ -10539,7 +10539,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 11
@@ -10558,7 +10558,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 12
@@ -10577,7 +10577,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 13
@@ -10596,7 +10596,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 14
@@ -10615,7 +10615,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 15
@@ -10634,7 +10634,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 16
@@ -10653,7 +10653,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 17
@@ -10672,7 +10672,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 18
@@ -10691,7 +10691,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 19
@@ -10710,7 +10710,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 20
@@ -10729,7 +10729,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 21
@@ -10748,7 +10748,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 22
@@ -10767,7 +10767,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 23
@@ -10786,7 +10786,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 20,
                         "Y": 24
@@ -10807,7 +10807,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 0
@@ -10826,7 +10826,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 1
@@ -10845,7 +10845,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 2
@@ -10864,7 +10864,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 3
@@ -10883,7 +10883,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 4
@@ -10902,7 +10902,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 5
@@ -10921,7 +10921,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 6
@@ -10940,7 +10940,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 7
@@ -10959,7 +10959,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 8
@@ -10978,7 +10978,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 9
@@ -10997,7 +10997,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 10
@@ -11016,7 +11016,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 11
@@ -11035,7 +11035,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 12
@@ -11054,7 +11054,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 13
@@ -11073,7 +11073,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 14
@@ -11092,7 +11092,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 15
@@ -11111,7 +11111,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 16
@@ -11130,7 +11130,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 17
@@ -11149,7 +11149,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 18
@@ -11168,7 +11168,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 19
@@ -11187,7 +11187,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 20
@@ -11206,7 +11206,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 21
@@ -11225,7 +11225,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 22
@@ -11244,7 +11244,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 23
@@ -11263,7 +11263,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 21,
                         "Y": 24
@@ -11284,7 +11284,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 0
@@ -11303,7 +11303,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 1
@@ -11322,7 +11322,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 2
@@ -11341,7 +11341,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 3
@@ -11360,7 +11360,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 4
@@ -11379,7 +11379,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 5
@@ -11398,7 +11398,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 6
@@ -11417,7 +11417,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 7
@@ -11436,7 +11436,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 8
@@ -11455,7 +11455,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 9
@@ -11474,7 +11474,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 10
@@ -11493,7 +11493,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 11
@@ -11512,7 +11512,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 12
@@ -11531,7 +11531,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 13
@@ -11550,7 +11550,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 14
@@ -11569,7 +11569,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 15
@@ -11588,7 +11588,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 16
@@ -11607,7 +11607,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 17
@@ -11626,7 +11626,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 18
@@ -11645,7 +11645,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 19
@@ -11664,7 +11664,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 20
@@ -11683,7 +11683,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 21
@@ -11702,7 +11702,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 22
@@ -11721,7 +11721,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 23
@@ -11740,7 +11740,7 @@
                 {
                   "Frames": [
                     {
-                      "Sheet": "tour_ciel_sommet_Base",
+                      "Sheet": "tour_ciel_sommet_Canonical_Final_Render",
                       "TexLoc": {
                         "X": 22,
                         "Y": 24
@@ -24466,13 +24466,6 @@
       {
         "Loc": {
           "X": 11,
-          "Y": 12
-        },
-        "Dir": 4
-      },
-      {
-        "Loc": {
-          "X": 12,
           "Y": 12
         },
         "Dir": 4
