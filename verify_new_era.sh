@@ -20,8 +20,9 @@ ERRORS=0
 # et leurs cinematiques se jouent en donjon. Grounds retires :
 # cloven_ruins_regice, cloven_ruins_regirock, cloven_ruins_registeel,
 # cloven_ruins_boss.
-EXPECTED_GROUNDS=273
-EXPECTED_TILESETS=539
+
+EXPECTED_GROUNDS=310
+EXPECTED_TILESETS=593
 EXPECTED_MUSIC=134
 
 # 1. Ground maps
