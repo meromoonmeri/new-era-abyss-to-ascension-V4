@@ -164,33 +164,6 @@ SceneDebug.scenes = {
     set = { Chapter8 = { QuizScore = nil }},
   },
   {
-    key = 'zeraora',
-    label = "Zeraora — Arene du Pre-Tonnerre (halte + irruption)",
-    ground = 'pre_tonnerre', entry = 'Main_Entrance_Marker',
-    -- Pas de `chapter` : la scene ne lit PAS SV.ChapterProgression, elle
-    -- ne depend que de LegendZones.IsDefeated('wild_current'). Forcer un
-    -- chapitre n'apporterait rien et casserait la sauvegarde de test.
-    note = "pre_tonnerre.Enter — premiere visite si wild_current n'est pas vaincu",
-    set = {},
-  },
-  {
-    key = 'zeraora_rematch',
-    label = "Zeraora — revanche (intro raccourcie)",
-    ground = 'pre_tonnerre', entry = 'Main_Entrance_Marker',
-    note = "pre_tonnerre.Enter — branche rematch, wild_current deja vaincu",
-    set = {},
-    -- Cas particulier : l'etat vit dans SV.LegendZones.Defeated, pas dans
-    -- une table SV.ChapterN. Arm() ne sait ecrire que des tables de
-    -- chapitre, d'ou ce crochet.
-    apres = function()
-      pcall(function()
-        require 'halcyon.LegendZones'
-        LegendZones.SetDefeated('wild_current')
-      end)
-    end,
-  },
-
-  {
     key = 'ch1_intro',
     label = "Ch1 — Forêt des Reliques : arrivée du duo",
     chapter = 1, ground = 'relic_forest', entry = 'Main_Entrance_Marker',

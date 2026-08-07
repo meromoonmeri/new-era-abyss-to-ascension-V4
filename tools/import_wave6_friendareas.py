@@ -79,6 +79,9 @@ FA = {
 }
 
 if __name__ == '__main__':
+    raise SystemExit('INTERDIT: les Friend Areas sont des zones d accueil vendues par Grodoudou, jamais des arenes de boss. Utiliser le pipeline FriendAreas.')
+
+if False:  # ancien générateur conservé uniquement comme trace de conversion
     import re as _re
     t = open('/tmp/pmd-red/src/map_files_table.c').read()
     fa_files = dict((n[12:], (bpl, bma)) for n, bpl, bpc, bma in _re.findall(

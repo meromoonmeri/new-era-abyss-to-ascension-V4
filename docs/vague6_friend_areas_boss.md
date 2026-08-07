@@ -1,4 +1,8 @@
-# Vague 6 — 57 Friend Areas pmd-red importées 1:1 comme arènes de boss (2026-07-27)
+# ARCHIVE OBSOLÈTE — ancienne attribution erronée des Friend Areas
+
+> **Décision autoritative 2026-08-07 : cette vague est annulée.** Les Friend Areas sont exclusivement des zones d’accueil vendues par Grodoudou, comme dans Rescue Team. Elles ne sont jamais des arènes de boss. Le tableau ci-dessous est conservé uniquement comme preuve de la dérive corrigée et ne doit plus être exécuté. Voir `MANIFESTE_FRIEND_AREAS_RED.md` et `tools/audit_friend_areas.py`.
+
+# Vague 6 — 57 Friend Areas pmd-red anciennement importées comme arènes (ANNULÉ)
 
 Réponse à la directive : « toutes les OST et Friend Areas utilisables comme
 zones de battle boss pour les légendaires absents de PMD Rescue Team de base ».

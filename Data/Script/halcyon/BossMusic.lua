@@ -187,7 +187,6 @@ BossMusic.LIST = {
   ---------------- ELECTRIQUE / VIVACITE ----------------
   arene_hautes_plaines = T.EPREUVE,
   porte_plaines_foudre = T.EPREUVE,
-  pre_tonnerre         = T.EPREUVE,
   champ_vent_boreal    = T.CIEL_2,
 
   ---------------- EPREUVE : rivaux et mini-boss ----------------
