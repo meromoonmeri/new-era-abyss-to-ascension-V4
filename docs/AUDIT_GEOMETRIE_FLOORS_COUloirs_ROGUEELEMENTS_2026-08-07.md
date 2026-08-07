@@ -146,6 +146,41 @@ Le puzzle Zarbi doit s’inscrire dans ces topologies, pas seulement dans les ta
 
 Remplacer progressivement la grille de Grande Steppe par une montée verticale : chemins principaux plus longs, petites plateformes, connexions rares, densité décroissante et vide croissant. Les trois sections doivent employer des GenSteps différents, pas uniquement des valeurs de taille/eau différentes.
 
+## Corrections appliquées — lot canonique
+
+Les trois imports canoniques actifs ont reçu des signatures internes distinctes :
+
+### Sinister Woods
+
+- segment 0 : grille 3×4, salles 4–8, branches 35–61 %, reconnexion 55 % ;
+- segment 1 : grille 4×3, salles 6–11, branches 55–86 %, reconnexion 40 % ;
+- segment 3 : grille 3×5, salles 4–9, halls à biais 90, reconnexion 65 %.
+
+Similarité avec Relic Forest après correction : **26,5 %**, contre 59,1 % et des floors exacts avant correction. Aucun floor principal n’est encore identique.
+
+### Aegis Cave
+
+- Glace : réseau 4×5, petites salles, branchement fort, reconnexion 35 % ;
+- Roche : cellules 9×9, grandes salles 8–13, halls larges 2–4 ;
+- Acier : réseau horizontal 5×3, halls rectilignes, reconnexion 15 % ;
+- Puits : réseau vertical 3×5, forte profondeur de branches, reconnexion 20 %.
+
+Similarité avec Crooked Cavern après correction : **21,2 %**, contre 64,7 % et des floors exacts avant correction.
+
+### Sky Tower
+
+- contreforts : grille 3×5, salles 8–12, vide 35–46 % ;
+- montée : grille 3×6, salles 7–10, vide 55–66 % ;
+- sommet : grille 2×7, salles 5–8, vide 70–81 %, connexions rares.
+
+La verticalité augmente et la densité diminue à chaque segment. Similarité avec Grande Steppe : **30,6 %**, contre 65,2 % avant correction.
+
+### Résultat après correction
+
+- imports canoniques partageant un floor exact avec un autre donjon : **0** ;
+- Aegis Cave, Sinister Woods et Sky Tower possèdent désormais des signatures propres ;
+- les duplications restantes concernent les donjons New Era secondaires et un segment utilitaire, à corriger dans un lot séparé.
+
 ## Conclusion
 
-Les Grounds et cinématiques canoniques sont en cours de restitution correcte, mais **les JSON de floors restent largement hérités de gabarits étrangers**. L’architecture ne peut pas être déclarée propre avant la séparation des signatures indiquées ci-dessus.
+Les trois donjons canoniques actifs ne reprennent plus la géométrie interne d’un autre donjon. Les duplications secondaires signalées restent une dette réelle : Waterfall Pond/Poisonous Forest et le trio Grotte Repos/Halles Royales/Jardin Énergie.
