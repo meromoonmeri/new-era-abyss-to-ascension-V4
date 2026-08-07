@@ -660,7 +660,7 @@ SV.LegendZones =
 }
 
 
---LES 42 ANCRAGES (LegendArc.lua) ET LE RESEAU DES VEILLEURS (VeilleurArc.lua)
+--ÉTAT DES ANCRAGES ET DU RÉSEAU DES VEILLEURS (scripts d’arc retirés tant qu’aucun flux runtime ne les consomme)
 --
 --Ces deux tables etaient lues 219 et 184 fois SANS etre declarees ici. Le
 --code s'en sortait grace a des gardes dispersees (43 pour Anchors, 28 pour
