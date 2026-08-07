@@ -2367,6 +2367,59 @@
       "Released": true,
       "SortOrder": 0,
       "Comment": "Donjon canonique PMD Red restauré: 12F, D09P02, Peak 3F, D09P03/Moltres. Casting/cinématiques adaptés New Era."
+    },
+    "frosty_forest": {
+      "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+      "ExpPercent": 100,
+      "Level": 14,
+      "LevelCap": false,
+      "KeepSkills": false,
+      "TeamRestrict": false,
+      "TeamSize": -1,
+      "MoneyRestrict": false,
+      "BagRestrict": -1,
+      "KeepTreasure": false,
+      "BagSize": -1,
+      "Rescues": 2,
+      "CountedFloors": 14,
+      "Rogue": 0,
+      "Grounds": [
+        "foret_givree_oree",
+        "d10p02",
+        "d10p03"
+      ],
+      "Maps": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0
+        ]
+      ],
+      "Name": {
+        "DefaultText": "Frosty Forest",
+        "LocalTexts": {
+          "fr": "Frosty Forest — trente ans plus tard"
+        }
+      },
+      "Released": true,
+      "SortOrder": 0,
+      "Comment": "Donjon canonique PMD Red: Frosty Forest 9F, D10P02, Frosty Grotto 5F, D10P03/Articuno. Recasting New Era."
     }
   }
 }

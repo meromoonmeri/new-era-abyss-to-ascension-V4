@@ -64,7 +64,7 @@ for g in sorted(exact,key=lambda x:(-len(x),x))[:100]:print('EXACT:',g)
 print('Similarité structurelle >=70%:')
 for score,a,b,na,nb in sorted(pairs,reverse=True):print(f'  {score:5.1%} {a} <-> {b} ({na}/{nb} tokens)')
 # Focus imports canoniques réellement branchés.
-focus=['cloven_ruins','gloomy_forest','sky_tower','mt_blaze']
+focus=['cloven_ruins','gloomy_forest','sky_tower','mt_blaze','frosty_forest']
 print('FOCUS IMPORTS CANONIQUES:')
 for z in focus:
  if z not in sigs:print(' ',z,'aucun générateur procédural');continue

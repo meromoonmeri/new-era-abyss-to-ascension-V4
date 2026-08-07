@@ -1163,7 +1163,8 @@ SV.DungeonFlags =
 SV.CanonicalDungeons =
 {
 	Pending = nil,
-	MtBlazeCleared = false
+	MtBlazeCleared = false,
+	FrostyForestCleared = false
 }
 
 --For dojo lessons
