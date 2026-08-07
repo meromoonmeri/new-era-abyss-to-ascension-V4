@@ -1174,6 +1174,18 @@ SV.CanonicalDungeons =
 SV.WishCave = { WishStone=false, PendingWish=false, WishGranted=false }
 SV.FriendAreas = { Owned={}, Residents={} }
 
+-- Campagne canonique Rescue Team après la trame New Era existante.
+-- Les vagues sont parallèles : aucun ordre fictif n'est imposé entre les arcs
+-- postgame du jeu original. Les extensions New Era restent des overlays.
+SV.PostgameRed =
+{
+	Unlocked = false,
+	Waves = {},
+	Cleared = {},
+	Bosses = {},
+	Seen = {}
+}
+
 --For dojo lessons
 SV.Tutorial = 
 {
