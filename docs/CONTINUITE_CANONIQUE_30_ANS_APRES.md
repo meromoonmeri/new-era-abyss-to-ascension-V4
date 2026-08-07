@@ -57,6 +57,10 @@ Pour chaque Ground cinématique hérité, les positions d’entités de la scèn
 
 Exemple autoritatif : Sinister Woods D04P02 conserve les trois slots de Team Meanies — centre `(272,192)`, droite `(312,224)`, gauche `(240,224)` — réattribués respectivement à Adagio, Aria et Sonata.
 
+### Unité spatiale cinématique → combat → conséquence
+
+Toute confrontation se déroule dans un seul lieu visuel. Le Ground de pré-scène est la source de la `.rsmap` de combat : mêmes couches, décor, collision agrégée, météo et cadrage. Les positions 8 px du Ground sont converties sur la grille 24 px sans changer la composition. La post-scène revient sur ce même Ground. Une arène générique ou un changement de salle invisible derrière un fondu est interdit.
+
 Exemples d’associations interdites à démêler :
 
 - Wish Cave/Jirachi utilisé pour le Sanctuaire de Cristal/Diancie ;
