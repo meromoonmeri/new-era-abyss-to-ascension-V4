@@ -1167,8 +1167,12 @@ SV.CanonicalDungeons =
 	FrostyForestCleared = false,
 	MtFreezeCleared = false,
 	LapisCaveCleared = false,
-	MagmaCavernCleared = false
+	MagmaCavernCleared = false,
+	WishCaveCleared = false
 }
+
+SV.WishCave = { WishStone=false, PendingWish=false, WishGranted=false }
+SV.FriendAreas = { Owned={}, Residents={} }
 
 --For dojo lessons
 SV.Tutorial = 

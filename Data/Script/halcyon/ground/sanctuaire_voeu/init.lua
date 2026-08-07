@@ -11,6 +11,7 @@ require 'halcyon.CharacterEssentials'
 require 'halcyon.BossFX'
 require 'halcyon.LegendZones'
 require 'halcyon.BossMusic'
+require 'halcyon.WishSystem'
 
 local sanctuaire_voeu = {}
 
@@ -25,6 +26,17 @@ function sanctuaire_voeu.Enter(map)
   local hero = CH('PLAYER')
   local partner = CH('Teammate1')
   GAME:CutsceneMode(true)
+
+  -- Retour après la victoire 99F : le vœu est accordé dans la même salle.
+  if SV.WishCave and SV.WishCave.PendingWish then
+    SV.WishCave.PendingWish=false
+    GAME:FadeIn(30)
+    WishSystem.Grant()
+    GAME:CutsceneMode(false)
+    GAME:FadeOut(false,30)
+    GAME:EnterZone('master_zone',-1,1,0)
+    return
+  end
 
   GROUND:TeleportTo(hero, 160, 272, Direction.Up)
   if partner ~= nil then GROUND:TeleportTo(partner, 136, 272, Direction.Up) end
