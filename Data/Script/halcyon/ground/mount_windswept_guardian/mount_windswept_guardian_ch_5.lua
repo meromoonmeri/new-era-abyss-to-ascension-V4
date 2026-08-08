@@ -45,7 +45,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   local t2 = CH('Teammate2')
   local t3 = CH('Teammate3')
   if t2 ~= nil then GROUND:TeleportTo(t2, 200, 248, Direction.Up) end
-  if t3 ~= nil then GROUND:TeleportTo(t3, 176, 260, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 224, 248, Direction.Up) end
   GAME:MoveCamera(176, 240, 1, false)
 
   GAME:CutsceneMode(true)
@@ -452,7 +452,7 @@ function mount_windswept_guardian_ch_5.SecondPreBossScene()
   local t2 = CH('Teammate2')
   local t3 = CH('Teammate3')
   if t2 ~= nil then GROUND:TeleportTo(t2, 200, 240, Direction.Up) end
-  if t3 ~= nil then GROUND:TeleportTo(t3, 176, 252, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 224, 240, Direction.Up) end
   GAME:MoveCamera(176, 196, 1, false)
 
   GAME:CutsceneMode(true)
@@ -524,7 +524,7 @@ local function DefeatedBossBody()
   local t2 = CH('Teammate2')
   local t3 = CH('Teammate3')
   if t2 ~= nil then GROUND:TeleportTo(t2, 200, 240, Direction.Up) end
-  if t3 ~= nil then GROUND:TeleportTo(t3, 176, 252, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 224, 240, Direction.Up) end
   GAME:MoveCamera(176, 196, 1, false)
 
   GAME:CutsceneMode(true)
@@ -954,7 +954,7 @@ function mount_windswept_guardian_ch_5.DiedToBoss()
   local t2 = CH('Teammate2')
   local t3 = CH('Teammate3')
   if t2 ~= nil then GROUND:TeleportTo(t2, 200, 240, Direction.Up) end
-  if t3 ~= nil then GROUND:TeleportTo(t3, 176, 252, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 224, 240, Direction.Up) end
   GROUND:CharSetAnim(hero, "EventSleep", true)
   GROUND:CharSetAnim(partner, "EventSleep", true)
   GAME:MoveCamera(176, 196, 1, false)

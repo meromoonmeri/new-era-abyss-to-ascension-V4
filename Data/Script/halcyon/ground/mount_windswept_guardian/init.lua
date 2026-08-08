@@ -68,16 +68,28 @@ function mount_windswept_guardian.Enter(map)
     return
   end
 
-  if SV.Chapter5.MountGuardianDefeated then
-    SV.Chapter5.MountGuardianDefeated = false
-    mount_windswept_guardian_ch_5.DefeatedBoss()
-  elseif SV.Chapter5.MountGuardianLost then
-    SV.Chapter5.MountGuardianLost = false
-    mount_windswept_guardian_ch_5.DiedToBoss()
-  elseif SV.Chapter5.MountGuardianSeen then
-    mount_windswept_guardian_ch_5.SecondPreBossScene()
-  else
-    mount_windswept_guardian_ch_5.FirstPreBossScene()
+  -- SORTIE GARANTIE : cette carte est généralement chargée depuis un écran
+  -- noir. Toute erreur avant le FadeIn interne laissait donc le joueur dans
+  -- le noir, manette bloquée. Le dispatch entier est protégé et restitue
+  -- toujours caméra, CutsceneMode et affichage.
+  local ok, err = pcall(function()
+    if SV.Chapter5.MountGuardianDefeated then
+      SV.Chapter5.MountGuardianDefeated = false
+      mount_windswept_guardian_ch_5.DefeatedBoss()
+    elseif SV.Chapter5.MountGuardianLost then
+      SV.Chapter5.MountGuardianLost = false
+      mount_windswept_guardian_ch_5.DiedToBoss()
+    elseif SV.Chapter5.MountGuardianSeen then
+      mount_windswept_guardian_ch_5.SecondPreBossScene()
+    else
+      mount_windswept_guardian_ch_5.FirstPreBossScene()
+    end
+  end)
+  if not ok then
+    PrintInfo('[mount_windswept_guardian] scene interrompue : '..tostring(err))
+    pcall(function() GAME:MoveCamera(176,196,1,false) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    pcall(function() GAME:FadeIn(20) end)
   end
 end
 
@@ -88,6 +100,10 @@ function mount_windswept_guardian.GameSave(map)
 end
 
 function mount_windswept_guardian.GameLoad(map)
+  -- Une sauvegarde chargée sur ce Ground doit toujours rendre l'image avant
+  -- de reprendre le dispatch narratif.
+  pcall(function() GAME:MoveCamera(176,196,1,false) end)
+  pcall(function() GAME:FadeIn(20) end)
 end
 
 return mount_windswept_guardian
