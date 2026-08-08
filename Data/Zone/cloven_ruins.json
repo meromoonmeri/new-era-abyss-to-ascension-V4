@@ -367,12 +367,12 @@
                     },
                     "Value": {
                       "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "GroundTileset": "concealed_ruins_floor",
-                      "BlockTileset": "concealed_ruins_wall",
-                      "WaterTileset": "buried_relic_1_floor",
+                      "GroundTileset": "crystal_cave_1_floor",
+                      "BlockTileset": "crystal_cave_1_wall",
+                      "WaterTileset": "crystal_cave_1_secondary",
                       "LayeredGround": false,
                       "IndependentGround": false,
-                      "GroundElement": "rock"
+                      "GroundElement": "ice"
                     }
                   },
                   {
@@ -1498,9 +1498,9 @@
                     },
                     "Value": {
                       "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "GroundTileset": "concealed_ruins_floor",
-                      "BlockTileset": "concealed_ruins_wall",
-                      "WaterTileset": "buried_relic_1_floor",
+                      "GroundTileset": "rock_maze_floor",
+                      "BlockTileset": "rock_maze_wall",
+                      "WaterTileset": "rock_maze_secondary",
                       "LayeredGround": false,
                       "IndependentGround": false,
                       "GroundElement": "rock"
@@ -2629,12 +2629,12 @@
                     },
                     "Value": {
                       "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "GroundTileset": "concealed_ruins_floor",
-                      "BlockTileset": "concealed_ruins_wall",
-                      "WaterTileset": "buried_relic_1_floor",
+                      "GroundTileset": "steel_aegis_cave_floor",
+                      "BlockTileset": "steel_aegis_cave_wall",
+                      "WaterTileset": "steel_aegis_cave_secondary",
                       "LayeredGround": false,
                       "IndependentGround": false,
-                      "GroundElement": "rock"
+                      "GroundElement": "steel"
                     }
                   },
                   {
@@ -3775,7 +3775,7 @@
                       "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
                       "GroundTileset": "concealed_ruins_floor",
                       "BlockTileset": "concealed_ruins_wall",
-                      "WaterTileset": "concealed_ruins_floor",
+                      "WaterTileset": "concealed_ruins_secondary",
                       "LayeredGround": false,
                       "IndependentGround": false,
                       "GroundElement": "rock"
