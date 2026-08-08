@@ -13,6 +13,7 @@ require 'halcyon.BossFX'
 mount_windswept_guardian_ch_5 = {}
 
 function mount_windswept_guardian_ch_5.FirstPreBossScene()
+  PrintInfo('[TORNADUS_ROUTE] CUTSCENE_START')
 
 	--LE NOIR AVANT TOUT APPEL MOTEUR (correctif d'arrivee, 2026-07-30).
 	--Cette scene se joue sous le noir laisse par la carte precedente et ne
@@ -71,6 +72,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   local tornadus = CharacterEssentials.MakeCharactersFromList({
     {'Tornadus', 176, 136, Direction.Down}
   })
+  PrintInfo('[TORNADUS_ROUTE] ENTITY_SPAWNED')
   GROUND:Hide('Tornadus')
 
   GAME:WaitFrames(40)
@@ -142,7 +144,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- TORNADUS S'ANNONCE — il parle avant d'apparaitre, sans son portrait
   -- car il est encore cache dans la brume.
   SOUND:PlayBattleSE('EVT_Emote_Shock_2')
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", 0)
+  UI:SetSpeaker(tornadus)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_005']))
   -- "Le Souffle qui garde la cime..."
 
@@ -196,7 +198,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- LES SIENNES : conditions d'acces au sommet, adresse directe au duo.
   -- Il n'est pas encore visible : on lui donne la parole sans portrait
   -- car il est encore cache dans la brume.
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", 0)
+  UI:SetSpeaker(tornadus)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_007']))
   -- "L'ultime gardien de la montagne..."
 
@@ -252,7 +254,7 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_032']))
   -- "D'accord. Meme si mes pattes demandent a etre convaincues."
   GAME:WaitFrames(20)
-  UI:SetSpeaker(STRINGS:Format("\\uE040"), true, tornadus.CurrentForm.Species, tornadus.CurrentForm.Form, tornadus.CurrentForm.Skin, tornadus.CurrentForm.Gender)
+  UI:SetSpeaker(tornadus)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_033']))
   -- "Celui-ci se souvient d'un ciel sans grimpeurs."
   GAME:WaitFrames(15)
@@ -299,7 +301,9 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   GAME:WaitFrames(8)
   -- Tornadus fend les nuages dans l'éclair et se pose sur la plateforme.
   GROUND:Unhide('Tornadus')
+  PrintInfo('[TORNADUS_ROUTE] BOSS_REVEALED')
   BossFX.Impact(9)
+  PrintInfo('[TORNADUS_ROUTE] REVEAL_IMPACT_DONE')
   GROUND:CharSetAnim(tornadus, "Charge", true)
 
   GAME:WaitFrames(15)
@@ -313,40 +317,29 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- groupe exigee par les regles de mise en scene ; personne ne reagit
   -- « a la meme vitesse ni de la meme facon ».
   GAME:WaitFrames(20)
-  local coro_push1 = TASK:BranchCoroutine(function()
-    -- Le partenaire est le plus expose : il recule et encaisse.
-    GROUND:AnimateInDirection(partner, "None", partner.Direction, Direction.Down, 8, 1, 1)
-    GROUND:AnimateInDirection(partner, "Hurt", Direction.Down, Direction.Down, 8, 1, 2)
-    BossFX.Impact(12)
-  end)
-  local coro_push2 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(6)
-    GROUND:AnimateInDirection(hero, "None", hero.Direction, Direction.Down, 8, 1, 1)
-    GROUND:AnimateInDirection(hero, "Hurt", Direction.Down, Direction.Down, 8, 1, 2)
-  end)
-  local coro_push3 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(13)
-    if t2 ~= nil then
-      -- t2 est de cote : il est deporte, pas plaque au sol.
-      GROUND:AnimateInDirection(t2, "None", t2.Direction, Direction.Down, 6, 1, 1)
-      GAME:WaitFrames(4)
-      GROUND:CharSetEmote(t2, "shock", 1)
-      GROUND:CharAnimateTurnTo(t2, Direction.Up, 4)
-    end
-  end)
-  local coro_push4 = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(21)
-    if t3 ~= nil then
-      -- t3 ferme la marche : il recule d'un pas, se fige, puis leve
-      -- les yeux. Reaction plus tardive et plus discrete : c'est lui
-      -- qui a vu la scene de plus loin.
-      GROUND:AnimateInDirection(t3, "None", t3.Direction, Direction.Down, 6, 1, 1)
-      GAME:WaitFrames(10)
-      GROUND:CharSetEmote(t3, "sweatdrop", 1)
-      GROUND:CharAnimateTurnTo(t3, Direction.Up, 6)
-    end
-  end)
-  TASK:JoinCoroutines({coro_push1, coro_push2, coro_push3, coro_push4})
+  PrintInfo('[TORNADUS_ROUTE] PUSH_BEGIN')
+  -- Deterministic recoil: the former four-way TASK join could wait forever
+  -- when any actor's collision movement failed to complete. Preserve the
+  -- staggered physical reaction without concurrent movement coroutines.
+  GROUND:TeleportTo(partner, partner.Position.X, partner.Position.Y + 8, Direction.Up)
+  GROUND:CharSetAnim(partner, 'Hurt', false)
+  BossFX.Impact(12)
+  GAME:WaitFrames(6)
+  GROUND:TeleportTo(hero, hero.Position.X, hero.Position.Y + 8, Direction.Up)
+  GROUND:CharSetAnim(hero, 'Hurt', false)
+  GAME:WaitFrames(7)
+  if t2 ~= nil then
+    GROUND:TeleportTo(t2, t2.Position.X, t2.Position.Y + 8, Direction.Up)
+    GROUND:CharSetEmote(t2, 'shock', 1)
+  end
+  GAME:WaitFrames(8)
+  if t3 ~= nil then
+    GROUND:TeleportTo(t3, t3.Position.X, t3.Position.Y + 8, Direction.Up)
+    GROUND:CharSetEmote(t3, 'sweatdrop', 1)
+  end
+  GROUND:CharSetAnim(partner, 'Idle', true)
+  GROUND:CharSetAnim(hero, 'Idle', true)
+  PrintInfo('[TORNADUS_ROUTE] PUSH_END')
 
   GAME:WaitFrames(30)
   GROUND:CharSetEmote(partner, "shock", 1)
@@ -431,9 +424,11 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   pcall(function() GROUND:RemoveMapStatus('light_rain') end)
   pcall(function() GROUND:RemoveMapStatus('fog') end)
   pcall(function() GROUND:RemoveMapStatus('blowing_wind') end)
+  PrintInfo('[TORNADUS_ROUTE] BATTLE_PREPARATION')
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
   SV.Chapter5.MountGuardianSeen = true
+  PrintInfo('[TORNADUS_ROUTE] CUTSCENE_END')
   PrintInfo("[TORNADUS_RUNTIME] BATTLE_INITIALIZATION zone=mount_windswept segment=2 floor=0")
   GAME:ContinueDungeon("mount_windswept", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
