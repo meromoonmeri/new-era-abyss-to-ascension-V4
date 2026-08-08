@@ -1,17 +1,5 @@
---- Scene: d09p02
-local d09p02 = {}
-function d09p02.Cutscene()
-  GAME:CutsceneMode(true)
-  SOUND:PlayBGM('Treacherous Mountain.ogg', true)
-  SOUND:FadeOutBGM(60)
-  SOUND:FadeOutBGM(30)
-  -- GROUND:CharSetAction(ent, 2)
-  -- GROUND:CharSetAction(ent, 2)
-  -- GROUND:CharSetAction(ent, 2)
-  -- GROUND:CharSetAction(ent, 2)
-  SOUND:PlayBGM('Treacherous Mountain.ogg', true)
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D09P02_001"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D09P02_002"))
-  GAME:CutsceneMode(false)
-end
-return d09p02
+--- New Era fugitive arc cinematic: d09p02
+local C=require 'halcyon.FugitiveCinematics'
+local M={}
+function M.Cutscene() C.Play('d09p02') end
+return M

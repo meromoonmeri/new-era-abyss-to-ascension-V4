@@ -1,41 +1,5 @@
---- Scene: d12p04
-local d12p04 = {}
-function d12p04.Cutscene()
-  GAME:CutsceneMode(true)
-  SOUND:PlayBGM('In the Depths of the Pit.ogg', true)
-  SOUND:FadeOutBGM(60)
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D12P04_001"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D12P04_002"))
-  -- GROUND:CharSetAction(ent, 2)
-  GAME:FadeOut(true, 4)
-  GAME:FadeIn(4)
-  GAME:FadeOut(true, 4)
-  GAME:FadeIn(4)
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D12P04_003"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D12P04_004"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D12P04_005"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D12P04_006"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D12P04_007"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D12P04_008"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D12P04_009"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D12P04_010"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D12P04_011"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D12P04_012"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D12P04_013"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D12P04_014"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D12P04_015"))
-  -- GROUND:CharSetAction(ent, 2)
-  -- GROUND:CharSetAction(ent, 2)
-  -- GROUND:CharSetAction(ent, 2)
-  -- GROUND:CharSetAction(ent, 22)
-  -- GROUND:CharSetAction(ent, 23)
-  -- GROUND:CharSetAction(ent, 2)
-  -- GROUND:CharSetAction(ent, 25)
-  -- GROUND:CharSetAction(ent, 2)
-  -- GROUND:CharSetAction(ent, 23)
-  -- GROUND:CharSetAction(ent, 2)
-  SOUND:PlayBattleSE('EVT_Emote_Shock_2')
-  GAME:WaitFrames(20)
-  GAME:CutsceneMode(false)
-end
-return d12p04
+--- New Era fugitive arc cinematic: d12p04
+local C=require 'halcyon.FugitiveCinematics'
+local M={}
+function M.Cutscene() C.Play('d12p04') end
+return M

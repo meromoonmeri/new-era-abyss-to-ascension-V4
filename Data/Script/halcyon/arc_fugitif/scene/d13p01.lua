@@ -1,34 +1,5 @@
---- Scene: d13p01
-local d13p01 = {}
-function d13p01.Cutscene()
-  GAME:CutsceneMode(true)
-  SOUND:FadeOutBGM(30)
-  SOUND:PlayBGM('Sky Tower.ogg', true)
-  -- GROUND:CharSetAction(ent, 48)
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D13P01_001"))
-  -- GROUND:CharSetAction(ent, 2)
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D13P01_002"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D13P01_003"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D13P01_004"))
-  -- GROUND:CharSetAction(ent, 48)
-  -- GROUND:CharSetAction(ent, 2)
-  -- GROUND:CharSetAction(ent, 49)
-  -- GROUND:CharSetAction(ent, 2)
-  -- GROUND:CharSetAction(ent, 2)
-  SOUND:PlayBGM('Sky Tower.ogg', true)
-  -- GROUND:CharSetAction(ent, 2)
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D13P01_005"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D13P01_006"))
-  -- GROUND:CharSetAction(ent, 2)
-  -- GROUND:CharSetAction(ent, 2)
-  SOUND:PlayBGM('Sky Tower.ogg', true)
-  -- GROUND:CharSetAction(ent, 48)
-  -- GROUND:CharSetAction(ent, 2)
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D13P01_007"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D13P01_008"))
-  -- GROUND:CharSetAction(ent, 48)
-  -- GROUND:CharSetAction(ent, 2)
-  -- GROUND:CharSetAction(ent, 2)
-  GAME:CutsceneMode(false)
-end
-return d13p01
+--- New Era fugitive arc cinematic: d13p01
+local C=require 'halcyon.FugitiveCinematics'
+local M={}
+function M.Cutscene() C.Play('d13p01') end
+return M

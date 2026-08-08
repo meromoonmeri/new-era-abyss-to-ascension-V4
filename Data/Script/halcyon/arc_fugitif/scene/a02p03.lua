@@ -1,30 +1,5 @@
---- Scene: a02p03
-local a02p03 = {}
-function a02p03.Cutscene()
-  GAME:CutsceneMode(true)
-  -- GROUND:CharSetAction(ent, 2)
-  SOUND:FadeOutBGM(60)
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A02P03_001"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A02P03_002"))
-  SOUND:PlayBGM('Treacherous Mountain.ogg', true)
-  -- GROUND:CharSetAction(ent, 2)
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A02P03_003"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A02P03_004"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A02P03_005"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A02P03_006"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A02P03_007"))
-  SOUND:FadeOutBGM(90)
-  -- GROUND:CharSetAction(ent, 2)
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A02P03_008"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A02P03_009"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A02P03_010"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A02P03_011"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A02P03_012"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A02P03_013"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A02P03_014"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A02P03_015"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_A02P03_016"))
-  -- GROUND:CharSetAction(ent, 2)
-  GAME:CutsceneMode(false)
-end
-return a02p03
+--- New Era fugitive arc cinematic: a02p03
+local C=require 'halcyon.FugitiveCinematics'
+local M={}
+function M.Cutscene() C.Play('a02p03') end
+return M

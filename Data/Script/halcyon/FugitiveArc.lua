@@ -72,7 +72,8 @@ function FugitiveArc.Begin()
   DEBUG.EnableDbgCoro()
   local sv = SV.FugitiveArc
   if sv == nil then SV.FugitiveArc = {} end
-  if SV.FugitiveArc.Step == nil then SV.FugitiveArc.Step = 1 end
+  if SV.FugitiveArc.Step == nil or SV.FugitiveArc.Step < 1 then SV.FugitiveArc.Step = 1 end
+  SV.FugitiveArc.Started = true
   local step = FugitiveArc.SEQUENCE[SV.FugitiveArc.Step]
   if step == nil then
     -- arc terminé : retour au monde (à brancher)
@@ -124,6 +125,7 @@ function FugitiveArc.Play(currentGround)
       GAME:EnterGroundMap(nextStep.ground, 'Main_Entrance_Marker')
     else
       -- fin de l'arc : le duo débouche sur la Mare Altérée (suite du ch11)
+      SV.FugitiveArc.Completed = true
       GAME:EnterGroundMap('altere_pond', 'Main_Entrance_Marker')
     end
   end)

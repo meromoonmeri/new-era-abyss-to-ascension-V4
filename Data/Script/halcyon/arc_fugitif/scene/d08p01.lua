@@ -1,48 +1,5 @@
---- Scene: d08p01
-local d08p01 = {}
-function d08p01.Cutscene()
-  GAME:CutsceneMode(true)
-  SOUND:PlayBGM('Water Cave.ogg', true)
-  -- GROUND:CharSetAction(ent, 2)
-  -- GROUND:CharSetAction(ent, 2)
-  -- GROUND:CharSetAction(ent, 2)
-  -- GROUND:CharSetAction(ent, 2)
-  -- GROUND:CharSetAction(ent, 2)
-  -- GROUND:CharSetAction(ent, 2)
-  SOUND:PlayBGM('Rising Fear.ogg', true)
-  -- GROUND:CharSetAction(ent, 2)
-  SOUND:FadeOutBGM(30)
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D08P01_001"))
-  SOUND:PlayBGM('Water Cave.ogg', true)
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D08P01_002"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D08P01_003"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D08P01_004"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D08P01_005"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D08P01_006"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D08P01_007"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D08P01_008"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D08P01_009"))
-  -- CAMERA_PAN(256, 2),
-  -- GROUND:CharSetAction(ent, 2)
-  -- CAMERA_PAN(256, 2),
-  SOUND:PlayBGM('Water Cave.ogg', true)
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D08P01_010"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D08P01_011"))
-  -- GROUND:CharSetAction(ent, 2)
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D08P01_012"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D08P01_013"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D08P01_014"))
-  SOUND:FadeOutBGM(60)
-  SOUND:FadeOutBGM(60)
-  -- GROUND:CharSetAction(ent, 2)
-  SOUND:PlayBGM('Water Cave.ogg', true)
-  -- GROUND:CharSetAction(ent, 2)
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D08P01_015"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D08P01_016"))
-  -- GROUND:CharSetAction(ent, 2)
-  SOUND:PlayBGM('Water Cave.ogg', true)
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D08P01_017"))
-  UI:WaitShowDialogue(STRINGS:FormatKey("SCENE_D08P01_018"))
-  GAME:CutsceneMode(false)
-end
-return d08p01
+--- New Era fugitive arc cinematic: d08p01
+local C=require 'halcyon.FugitiveCinematics'
+local M={}
+function M.Cutscene() C.Play('d08p01') end
+return M

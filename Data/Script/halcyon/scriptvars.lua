@@ -1396,7 +1396,10 @@ SV.Chapter10 =
 
 SV.FugitiveArc =
 {
-	Step = 0  -- étape courante de l'Arc Fugitif (0 = pas commencé)
+	Step = 0, -- étape courante de l'Arc Fugitif (0 = pas commencé)
+	Started = false,
+	Completed = false,
+	NinetalesTestimony = false
 }
 
 SV.Chapter11 = 
