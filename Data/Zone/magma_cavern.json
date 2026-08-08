@@ -1072,9 +1072,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Searing Tunnel\\nB{0}F",
+              "DefaultText": "Magma Cavern\\nB{0}F",
               "LocalTexts": {
-                "fr": "Tunnel Incandescent\\n{0}E"
+                "fr": "Caverne Magma\\n{0}E"
               }
             },
             "Priority": {
@@ -8388,9 +8388,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Searing Depths\\nB{0}F",
+              "DefaultText": "Magma Cavern Pit\\nB{0}F",
               "LocalTexts": {
-                "fr": "Profondeurs Incandescentes\\n{0}E"
+                "fr": "Fosse de la Caverne Magma\\n{0}E"
               }
             },
             "Priority": {

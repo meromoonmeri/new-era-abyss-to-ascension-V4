@@ -5,5 +5,5 @@
   "errors": [],
   "runtime": "NOT_TESTED",
   "static_verdict": "PASS_STATIC",
-  "correction": "189 transparent border coordinates restored"
+  "correction": "189 transparent border coordinates restored in prior batch"
 }

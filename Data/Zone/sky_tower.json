@@ -852,9 +852,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Vast Steppe\\n{0}F",
+              "DefaultText": "Sky Tower\\n{0}F",
               "LocalTexts": {
-                "fr": "Grande Steppe\\n{0}E"
+                "fr": "Tour Céleste\\n{0}E"
               }
             },
             "Priority": {
@@ -6776,9 +6776,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Vast Steppe\\n{0}F",
+              "DefaultText": "Sky Tower\\n{0}F",
               "LocalTexts": {
-                "fr": "Grande Steppe\\n{0}E"
+                "fr": "Tour Céleste\\n{0}E"
               }
             },
             "Priority": {
@@ -12520,9 +12520,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Vast Steppe\\n{0}F",
+              "DefaultText": "Sky Tower\\n{0}F",
               "LocalTexts": {
-                "fr": "Grande Steppe\\n{0}E"
+                "fr": "Tour Céleste\\n{0}E"
               }
             },
             "Priority": {

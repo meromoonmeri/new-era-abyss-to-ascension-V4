@@ -474,7 +474,7 @@
       "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
       "floors": 9,
       "labels": [
-        "Searing Tunnel\\nB{0}F"
+        "Frosty Forest\\n{0}F"
       ],
       "comment": ""
     },
@@ -484,7 +484,7 @@
       "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
       "floors": 5,
       "labels": [
-        "Searing Depths\\nB{0}F"
+        "Frosty Grotto\\nB{0}F"
       ],
       "comment": ""
     },
@@ -694,7 +694,7 @@
       "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
       "floors": 14,
       "labels": [
-        "Searing Tunnel\\nB{0}F"
+        "Lapis Cave\\nB{0}F"
       ],
       "comment": ""
     },
@@ -704,7 +704,7 @@
       "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
       "floors": 23,
       "labels": [
-        "Searing Tunnel\\nB{0}F"
+        "Magma Cavern\\nB{0}F"
       ],
       "comment": ""
     },
@@ -714,7 +714,7 @@
       "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
       "floors": 3,
       "labels": [
-        "Searing Depths\\nB{0}F"
+        "Magma Cavern Pit\\nB{0}F"
       ],
       "comment": ""
     },
@@ -1004,7 +1004,7 @@
       "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
       "floors": 25,
       "labels": [
-        "Vast Steppe\\n{0}F"
+        "Sky Tower\\n{0}F"
       ],
       "comment": ""
     },
@@ -1024,7 +1024,7 @@
       "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
       "floors": 9,
       "labels": [
-        "Vast Steppe\\n{0}F"
+        "Sky Tower\\n{0}F"
       ],
       "comment": ""
     },
@@ -1044,7 +1044,7 @@
       "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
       "floors": 4,
       "labels": [
-        "Vast Steppe\\n{0}F"
+        "Sky Tower\\n{0}F"
       ],
       "comment": ""
     },
@@ -1216,7 +1216,7 @@
       "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
       "floors": 98,
       "labels": [
-        "Searing Tunnel\\nB{0}F"
+        "Wish Cave\\nB{0}F"
       ],
       "comment": ""
     },
@@ -1301,90 +1301,6 @@
       "segment": 1,
       "floor": "Verdant Oath",
       "cause": "same floor identity used by foret_embuscade,frosty_forest,gloomy_forest,magma_cavern,sky_tower,toundra_desolee,wish_cave"
-    },
-    {
-      "type": "CROSS_DUNGEON_FLOOR_NAME",
-      "zone": "frosty_forest",
-      "segment": 0,
-      "floor": "Searing Tunnel\\nB{0}F",
-      "cause": "same floor identity used by frosty_forest,lapis_cave,magma_cavern,searing_tunnel,wish_cave"
-    },
-    {
-      "type": "CROSS_DUNGEON_FLOOR_NAME",
-      "zone": "lapis_cave",
-      "segment": 0,
-      "floor": "Searing Tunnel\\nB{0}F",
-      "cause": "same floor identity used by frosty_forest,lapis_cave,magma_cavern,searing_tunnel,wish_cave"
-    },
-    {
-      "type": "CROSS_DUNGEON_FLOOR_NAME",
-      "zone": "magma_cavern",
-      "segment": 0,
-      "floor": "Searing Tunnel\\nB{0}F",
-      "cause": "same floor identity used by frosty_forest,lapis_cave,magma_cavern,searing_tunnel,wish_cave"
-    },
-    {
-      "type": "CROSS_DUNGEON_FLOOR_NAME",
-      "zone": "searing_tunnel",
-      "segment": 0,
-      "floor": "Searing Tunnel\\nB{0}F",
-      "cause": "same floor identity used by frosty_forest,lapis_cave,magma_cavern,searing_tunnel,wish_cave"
-    },
-    {
-      "type": "CROSS_DUNGEON_FLOOR_NAME",
-      "zone": "wish_cave",
-      "segment": 0,
-      "floor": "Searing Tunnel\\nB{0}F",
-      "cause": "same floor identity used by frosty_forest,lapis_cave,magma_cavern,searing_tunnel,wish_cave"
-    },
-    {
-      "type": "CROSS_DUNGEON_FLOOR_NAME",
-      "zone": "frosty_forest",
-      "segment": 1,
-      "floor": "Searing Depths\\nB{0}F",
-      "cause": "same floor identity used by frosty_forest,magma_cavern,searing_tunnel"
-    },
-    {
-      "type": "CROSS_DUNGEON_FLOOR_NAME",
-      "zone": "magma_cavern",
-      "segment": 1,
-      "floor": "Searing Depths\\nB{0}F",
-      "cause": "same floor identity used by frosty_forest,magma_cavern,searing_tunnel"
-    },
-    {
-      "type": "CROSS_DUNGEON_FLOOR_NAME",
-      "zone": "searing_tunnel",
-      "segment": 1,
-      "floor": "Searing Depths\\nB{0}F",
-      "cause": "same floor identity used by frosty_forest,magma_cavern,searing_tunnel"
-    },
-    {
-      "type": "CROSS_DUNGEON_FLOOR_NAME",
-      "zone": "sky_tower",
-      "segment": 0,
-      "floor": "Vast Steppe\\n{0}F",
-      "cause": "same floor identity used by sky_tower,vast_steppe"
-    },
-    {
-      "type": "CROSS_DUNGEON_FLOOR_NAME",
-      "zone": "sky_tower",
-      "segment": 2,
-      "floor": "Vast Steppe\\n{0}F",
-      "cause": "same floor identity used by sky_tower,vast_steppe"
-    },
-    {
-      "type": "CROSS_DUNGEON_FLOOR_NAME",
-      "zone": "sky_tower",
-      "segment": 4,
-      "floor": "Vast Steppe\\n{0}F",
-      "cause": "same floor identity used by sky_tower,vast_steppe"
-    },
-    {
-      "type": "CROSS_DUNGEON_FLOOR_NAME",
-      "zone": "vast_steppe",
-      "segment": 0,
-      "floor": "Vast Steppe\\n{0}F",
-      "cause": "same floor identity used by sky_tower,vast_steppe"
     }
   ]
 }

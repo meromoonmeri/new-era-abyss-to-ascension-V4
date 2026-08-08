@@ -1072,9 +1072,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Searing Tunnel\\nB{0}F",
+              "DefaultText": "Wish Cave\\nB{0}F",
               "LocalTexts": {
-                "fr": "Tunnel Incandescent\\n{0}E"
+                "fr": "Grotte des Vœux\\n{0}E"
               }
             },
             "Priority": {

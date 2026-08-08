@@ -5,17 +5,16 @@
     "TORNADUS_CUTSCENE_STATUS": "RUNTIME_FAIL",
     "TORNADUS_RUNTIME_TESTS": [
       {
-        "test": "direct first-execution probe",
+        "test": "PHASE2 direct first-entry probe",
         "result": "FAIL",
-        "last_event": "CUTSCENE_MODE_ON / before title completion",
-        "evidence": "docs/audit_global/TORNADUS_PROBE.log",
-        "caveat": "direct service-entry context may differ from parent-dungeon route"
+        "evidence": "TORNADUS_PHASE2_PROBE.log",
+        "CUTSCENE_END": false
       }
     ],
     "TORNADUS_FREEZE_DETECTED": true,
-    "TORNADUS_ROOT_CAUSE": "Current intro freeze not proven to a production-path operation. Previous independently proven battle blocker was invalid BattlePosition relative offsets (fixed in 84b200c).",
-    "TORNADUS_FIX": "NO_NEW_FIX_CLAIMED; speculative scene edits reverted",
-    "TORNADUS_REGRESSION_RESULT": "FAIL/INCONCLUSIVE \u2014 CUTSCENE_END not reached"
+    "TORNADUS_ROOT_CAUSE": "UNPROVEN for production parent-dungeon route",
+    "TORNADUS_FIX": "EXPERIMENTAL CHANGE REVERTED",
+    "TORNADUS_REGRESSION_RESULT": "FAIL_INCONCLUSIVE"
   },
   "bosses": [
     {

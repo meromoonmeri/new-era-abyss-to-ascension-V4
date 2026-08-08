@@ -3118,9 +3118,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Searing Tunnel\\nB{0}F",
+              "DefaultText": "Lapis Cave\\nB{0}F",
               "LocalTexts": {
-                "fr": "Tunnel Incandescent\\n{0}E"
+                "fr": "Grotte Lapis\\n{0}E"
               }
             },
             "Priority": {
