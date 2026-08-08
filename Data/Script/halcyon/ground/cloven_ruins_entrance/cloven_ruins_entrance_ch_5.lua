@@ -194,28 +194,45 @@ end
 -- Les auditeurs se tournent vers le locuteur, en decale.
 local function Listen(speaker, listeners, emote)
   if speaker == nil or listeners == nil then return end
-  local turns = {}
-  for i, who in ipairs(listeners) do
+  -- Séquentiel plutôt qu'un Join de coroutines : les regards restent lisibles
+  -- et aucun acteur bloqué ne peut suspendre toute la scène.
+  for _, who in ipairs(listeners) do
     if who ~= nil and who ~= speaker then
-      turns[#turns + 1] = TASK:BranchCoroutine(function()
-        pcall(function()
-          GAME:WaitFrames((i - 1) * 4)
-          GROUND:CharTurnToCharAnimated(who, speaker, 4)
-          if emote ~= nil then GROUND:CharSetEmote(who, emote, 1) end
-        end)
+      pcall(function()
+        GROUND:CharTurnToCharAnimated(who, speaker, 4)
+        if emote ~= nil then GROUND:CharSetEmote(who, emote, 1) end
       end)
+      GAME:WaitFrames(2)
     end
   end
-  if #turns > 0 then pcall(function() TASK:JoinCoroutines(turns) end) end
 end
 
--- Le corps parle avant la bouche.
+local EMOTION_EMOTE = {
+  Surprised='shock', Stunned='shock', Worried='sweatdrop',
+  Angry='angry', Shouting='exclaim', Determined='notice',
+  Happy='happy', Joyous='happy', Inspired='notice', Pain='sweatdrop',
+  Sigh='sweatdrop'
+}
+
+-- Le corps parle avant la bouche : regard, réaction, respiration, parole.
 local function Says(speaker, emotion, key, listeners, emote)
   if speaker == nil then return end
-  Listen(speaker, listeners, emote)
+  if listeners ~= nil then
+    for _, target in ipairs(listeners) do
+      if target ~= nil and target ~= speaker then
+        pcall(function() GROUND:CharTurnToCharAnimated(speaker, target, 4) end)
+        break
+      end
+    end
+  end
+  local body_emote = emote or EMOTION_EMOTE[emotion or 'Normal']
+  if body_emote ~= nil then pcall(function() GROUND:CharSetEmote(speaker, body_emote, 1) end) end
+  Listen(speaker, listeners, nil)
+  GAME:WaitFrames(4)
   UI:SetSpeaker(speaker)
   GeneralFunctions.SetEmotion(emotion or "Normal")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings[key]))
+  GAME:WaitFrames(5)
 end
 
 -- Le heros ne parle JAMAIS a voix haute : pensee entre parentheses.
