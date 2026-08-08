@@ -10,6 +10,8 @@ PAIRS={
  'gloomy_forest_miniboss':'gloomy_forest_miniboss',
  'mount_windswept_guardian':'mount_windswept_guardian',
  'magma_cavern_pit':'fosse_ardente',
+ 'mt_blaze_summit':'d09p03',
+ 'frosty_forest_summit':'d10p03',
  'vast_steppe_guardian':'vast_steppe_guardian',
  'searing_crucible':'searing_crucible',
  'tour_ciel_sommet':'tour_ciel_sommet',
