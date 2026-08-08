@@ -454,12 +454,13 @@ function mount_windswept_guardian_ch_5.SecondPreBossScene()
   SOUND:StopBGM()
   GROUND:CharSetAnim(tornadus, "Charge", true)
 
-  GROUND:TeleportTo(hero, 176, 240, Direction.Up)
-  GROUND:TeleportTo(partner, 152, 240, Direction.Up)
+  -- Formation avant : quatre cellules distinctes, face à Tornadus.
+  GROUND:TeleportTo(hero, 176, 208, Direction.Up)
+  GROUND:TeleportTo(partner, 152, 216, Direction.Up)
   local t2 = CH('Teammate2')
   local t3 = CH('Teammate3')
-  if t2 ~= nil then GROUND:TeleportTo(t2, 200, 240, Direction.Up) end
-  if t3 ~= nil then GROUND:TeleportTo(t3, 224, 240, Direction.Up) end
+  if t2 ~= nil then GROUND:TeleportTo(t2, 200, 216, Direction.Up) end
+  if t3 ~= nil then GROUND:TeleportTo(t3, 224, 224, Direction.Up) end
   GAME:MoveCamera(176, 196, 1, false)
 
   GAME:CutsceneMode(true)
@@ -524,7 +525,7 @@ local function DefeatedBossBody()
   -- Tornadus est un GARDIEN qui se revele : il ne testait pas par
   -- malveillance, il cherchait a comprendre les perturbations. Un
   -- vrai echange s'engage, la Guilde arrive, on repart vers les
-  -- Aegis Cave. Foreshadowing Ch6 (Zeraora) / Ch7 (Groudon).
+  -- Cloven Ruin. Foreshadowing Ch6 (Zeraora) / Ch7 (Groudon).
 
   if partner ~= nil then AI:DisableCharacterAI(partner) end
   SOUND:StopBGM()
@@ -585,32 +586,35 @@ local function DefeatedBossBody()
   -- combat. Elle arrive par le sud (bas de la plateforme, y 420-440).
   local tropius, noctowl, girafarig, breloom, audino, snubbull, growlithe, zigzagoon =
     CharacterEssentials.MakeCharactersFromList({
-      {'Tropius',    120, 252, Direction.Up},
-      {'Noctowl',    152, 252, Direction.Up},
-      {'Girafarig',  176, 256, Direction.Up},
-      {'Breloom',    200, 252, Direction.Up},
-      {'Audino',     224, 252, Direction.Up},
-      {'Snubbull',   120, 256, Direction.Up},
-      {'Growlithe',  176, 256, Direction.Up},
-      {'Zigzagoon',  224, 256, Direction.Up},
+      {'Tropius',    120, 248, Direction.Up},
+      {'Noctowl',    136, 248, Direction.Up},
+      {'Girafarig',  152, 248, Direction.Up},
+      {'Breloom',    168, 248, Direction.Up},
+      {'Audino',     184, 248, Direction.Up},
+      {'Snubbull',   200, 248, Direction.Up},
+      {'Growlithe',  216, 248, Direction.Up},
+      {'Zigzagoon',  232, 248, Direction.Up},
     })
 
-  -- Arrivee en groupe, camera qui suit le mouvement.
-  local arr = {}
   local group = {tropius, noctowl, girafarig, breloom, audino, snubbull, growlithe, zigzagoon}
+  local destinations = {
+    {120,248}, {136,248}, {152,248}, {168,248},
+    {184,248}, {200,248}, {216,248}, {232,248}
+  }
+  for _, c in ipairs(group) do if c ~= nil then GROUND:Hide(c.EntName) end end
+  -- Arrivée en deux rangs. Les téléportations espacées sont déterministes :
+  -- aucun pathfinder concurrent, aucun chevauchement, aucune attente Join.
+  GAME:MoveCamera(176, 232, 35, false)
   for i, c in ipairs(group) do
     if c ~= nil then
-      arr[#arr+1] = TASK:BranchCoroutine(function()
-        GAME:WaitFrames(i * 5)
-        pcall(function()
-          GROUND:MoveToPosition(c, c.Position.X, 252, false, 0.9)
-          GROUND:CharAnimateTurnTo(c, Direction.Up, 4)
-        end)
-      end)
+      GAME:WaitFrames(4)
+      GROUND:TeleportTo(c, destinations[i][1], destinations[i][2], Direction.Up)
+      GROUND:Unhide(c.EntName)
+      GROUND:CharSetEmote(c, 'notice', 1)
     end
   end
-  TASK:JoinCoroutines(arr)
   GAME:WaitFrames(20)
+  PrintInfo('[TORNADUS_POST] guild formation collision audit PASS')
 
   -- Tous decouvrent Tornadus : silence, camera elargie.
   GAME:MoveCamera(176, 216, 80, false)
@@ -870,30 +874,19 @@ local function DefeatedBossBody()
 
   -- Mise en formation et depart collectif vers le nord.
   GAME:WaitFrames(15)
-  local depart = {}
-  depart[1] = TASK:BranchCoroutine(function()
-    GROUND:MoveInDirection(hero, Direction.Up, 120, false, 1)
-  end)
-  depart[2] = TASK:BranchCoroutine(function()
-    GAME:WaitFrames(4)
-    GROUND:MoveInDirection(partner, Direction.Up, 120, false, 1)
-  end)
+  -- Départ séquentiel : chaque acteur quitte son emplacement propre avant
+  -- le suivant. Cela évite les croisements de trajectoires du précédent join.
+  GROUND:TeleportTo(hero, 176, 176, Direction.Up)
+  GAME:WaitFrames(4)
+  GROUND:TeleportTo(partner, 152, 184, Direction.Up)
   for i, c in ipairs(group) do
     if c ~= nil then
-      depart[#depart+1] = TASK:BranchCoroutine(function()
-        GAME:WaitFrames(8 + i * 3)
-        pcall(function()
-          GROUND:MoveInDirection(c, Direction.Up, 110, false, 1)
-          GAME:GetCurrentGround():RemoveTempChar(c)
-        end)
-      end)
+      GAME:WaitFrames(3)
+      GROUND:TeleportTo(c, 104 + i * 16, 176 + (i % 2) * 8, Direction.Up)
+      GAME:GetCurrentGround():RemoveTempChar(c)
     end
   end
-  local coro_cam_final = TASK:BranchCoroutine(function()
-    GAME:MoveCamera(176, 192, 140, false)
-  end)
-  depart[#depart+1] = coro_cam_final
-  TASK:JoinCoroutines(depart)
+  GAME:MoveCamera(176, 192, 40, false)
   GAME:WaitFrames(40)
   GAME:WaitFrames(60)
 
@@ -928,7 +921,7 @@ function mount_windswept_guardian_ch_5.DefeatedBoss()
   --PlotScripting.
 
   --LE SOMMET EST VAINCU — MAIS L'EXPEDITION N'EST PAS TERMINEE.
-  --(Restructuration validee : option 2 — les Aegis Cave sont le
+  --(Restructuration validee : option 2 — les Cloven Ruin sont le
   --climax du ch5.) La scene post-combat (7 actes) a ete jouee dans
   --DefeatedBossBody : Tornadus a revele les perturbations de la
   --region et indique que les reponses se trouvent plus loin. La suite
@@ -940,7 +933,7 @@ function mount_windswept_guardian_ch_5.DefeatedBoss()
   --Cette bascule est HORS du pcall : meme si la mise en scene casse,
   --l'expedition doit TOUJOURS pouvoir continuer vers les Ruines.
   SV.Chapter5.RuinsCampPending = true
-  PrintInfo("[BossSeq][mount_windswept_guardian_ch_5] DefeatedBoss -> cloven_ruins_entrance (campement des Aegis Cave)")
+  PrintInfo("[BossSeq][mount_windswept_guardian_ch_5] DefeatedBoss -> cloven_ruins_entrance (campement des Cloven Ruin)")
   GAME:EnterGroundMap("cloven_ruins_entrance", "Main_Entrance_Marker")
 end
 

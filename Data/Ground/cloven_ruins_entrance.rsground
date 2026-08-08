@@ -4,9 +4,9 @@
     "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
     "TexSize": 1,
     "Name": {
-      "DefaultText": "Shattered Ruins Entrance",
+      "DefaultText": "Cloven Ruin Entrance",
       "LocalTexts": {
-        "fr": "Entrée des Aegis Cave"
+        "fr": "Entrée de Cloven Ruin"
       }
     },
     "Released": true,
