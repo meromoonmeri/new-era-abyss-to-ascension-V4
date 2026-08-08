@@ -83171,7 +83171,10 @@
       "arc_parvis_celeste",
       "arc_palier_celeste",
       "arc_tour_ciel_sommet",
-      "sinister_woods_clearing"
+      "sinister_woods_clearing",
+      "luluby_town_morning",
+      "luluby_town_evening",
+      "luluby_town_night"
     ]
   }
 }

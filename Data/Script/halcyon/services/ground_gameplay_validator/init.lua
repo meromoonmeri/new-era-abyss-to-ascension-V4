@@ -14,11 +14,18 @@ local function emit(s)
  PrintInfo('[GROUND_VALIDATOR] '..s)
  local f=io.open('/tmp/ground_gameplay_validator.jsonl','a');if f then f:write(s..'\n');f:flush();f:close() end
 end
-function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:');self.idx=0;self.entered=false;self.busy=false end
+function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby');self.idx=0;self.entered=false;self.busy=false end
 function V:begin()
  if not self.enabled or self.idx>0 then return end
  SV.RuntimeGroundAudit=SV.RuntimeGroundAudit or {};SV.RuntimeGroundAudit.Active=true
  local f=io.open('/tmp/ground_gameplay_validator.jsonl','w');if f then f:close() end
+ if string.sub(self.mode or '',1,6)=='luluby' then
+  self.idx=-2;SV.RuntimeGroundAudit.Active=false
+  local gi=141;if self.mode=='luluby_evening' then gi=142 elseif self.mode=='luluby_night' then gi=143 end
+  emit('{"event":"luluby_runtime_begin","ground_index":'..tostring(gi)..'}')
+  GAME:EnterZone('master_zone',-1,gi,0)
+  return
+ end
  if self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' then
   self.idx=-1
   SV.Chapter5=SV.Chapter5 or {};SV.Chapter5.MountGuardianSeen=true
@@ -41,7 +48,7 @@ function V:OnDungeonFloorEnter()
  emit(ok and msg or ('{"event":"arena_battle_runtime","verdict":"RUNTIME_FAIL","error":"'..tostring(msg):gsub('"','\\"')..'"}'))
 end
 function V:OnGroundMapEnter()
- if not self.enabled or (self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:') or self.busy then return end
+ if not self.enabled or (self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' or string.sub(self.mode or '',1,6)=='luluby') or self.busy then return end
  -- GroundMapEnter est synchrone. Le travail qui yield est reporte dans Update.
  self.pending=false;self.busy=true
  emit('{"event":"ground_entered","ground":"'..PILOT[self.idx].id..'","scheduler":"TASK_BRANCH"}')

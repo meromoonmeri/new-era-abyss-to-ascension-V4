@@ -323,7 +323,14 @@ function metano_town.East_Exit_Touch(obj, activator)
   GeneralFunctions.StartPartnerConversation("Où devrions-nous aller,[pause=10]" .. CH('PLAYER'):GetDisplayName() .. " ?", "Normal", false)
   GAME:WaitFrames(20)
   local dungeons = {"relic_forest", "illuminant_riverbed", "crooked_cavern", "apricorn_grove", "vast_steppe", "searing_tunnel", "mount_windswept", "gloomy_forest", "cloven_ruins", "waterfall_pond", "poisonous_forest", "petit_tunnel", "bosquet_voile", "grotte_mystere", "vallee_fertile", "antre_enigme", "carriere_cuivre", "grotte_echoue"}--this needs to be updated when more dungeons come out.
-  local grounds = {}
+  -- Luluby Town (Waves of Nostalgia) est une destination Ground, pas un
+  -- faux donjon. Les trois éclairages sont proposés pour valider et jouer
+  -- matin, soirée et nuit pendant l'arc du Tournoi Multiguilde.
+  local grounds = {
+    {Zone="master_zone", GroundName="luluby_town_morning", Flag=true, Entry=0},
+    {Zone="master_zone", GroundName="luluby_town_evening", Flag=true, Entry=0},
+    {Zone="master_zone", GroundName="luluby_town_night", Flag=true, Entry=0}
+  }
   metano_town.ShowDestinationMenu(dungeons, grounds)
 end
 
@@ -559,9 +566,15 @@ function metano_town.ShowDestinationMenu(dungeon_entrances,ground_entrances)
     if ground_entrances[ii].Flag then
 	  local ground_id = ground_entrances[ii].Zone
 	  local zone = _DATA:GetZone(ground_id)
-	  local ground = _DATA:GetGround(zone.GroundMaps[ground_entrances[ii].ID])
+      local ground_idx = ground_entrances[ii].ID
+      if ground_idx == nil and ground_entrances[ii].GroundName ~= nil then
+        if ground_id ~= "master_zone" then error("GroundName dynamique seulement supporté dans master_zone") end
+        ground_idx = master_ground_idx(ground_entrances[ii].GroundName)
+      end
+      if ground_idx == nil then error("Ground destination absente: "..tostring(ground_entrances[ii].GroundName)) end
+	  local ground = _DATA:GetGround(zone.GroundMaps[ground_idx])
 	  local ground_name = ground:GetColoredName()
-      table.insert(open_dests, { Name=ground_name, Dest=RogueEssence.Dungeon.ZoneLoc(ground_id, -1, ground_entrances[ii].ID, ground_entrances[ii].Entry) })
+      table.insert(open_dests, { Name=ground_name, Title=ground_name, Dest=RogueEssence.Dungeon.ZoneLoc(ground_id, -1, ground_idx, ground_entrances[ii].Entry or 0) })
 	end
   end
 
@@ -588,24 +601,23 @@ function metano_town.ShowDestinationMenu(dungeon_entrances,ground_entrances)
 
 	  ask_dest = open_dests[choice].Dest
 
-	  if ask_dest.StructID.Segment >= 0 then
-	    --chosen dungeon entry
-        --confirm the choice
-		UI:ResetSpeaker(false)
-		UI:SetAutoFinish(true)
-		UI:SetCenter(true)
-		local dest_name = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get(ask_dest.ID):GetColoredName()
-		UI:ChoiceMenuYesNo(dest_name .. " est la destination.\nEst-ce exact ?")
-		UI:WaitForChoice()
-		local confirm = UI:ChoiceResult()
-		UI:SetCenter(false)
-		UI:SetAutoFinish(false)
-		UI:ResetSpeaker()
-		if confirm then
-		  dest = ask_dest
-		  break
-		end
-	  end
+	  -- Confirmation commune aux donjons et aux Grounds. L'ancienne branche
+      -- ignorait entièrement les destinations Segment=-1 : elles figuraient
+      -- au menu mais ne pouvaient jamais être sélectionnées.
+      UI:ResetSpeaker(false)
+      UI:SetAutoFinish(true)
+      UI:SetCenter(true)
+      local dest_name = open_dests[choice].Title or open_dests[choice].Name
+      UI:ChoiceMenuYesNo(dest_name .. " est la destination.\nEst-ce exact ?")
+      UI:WaitForChoice()
+      local confirmed = UI:ChoiceResult()
+      UI:SetCenter(false)
+      UI:SetAutoFinish(false)
+      UI:ResetSpeaker()
+      if confirmed then
+        dest = ask_dest
+        break
+      end
 	end
   else
     PrintInfo("No valid destinations found!")
