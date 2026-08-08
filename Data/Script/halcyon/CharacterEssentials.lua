@@ -326,20 +326,6 @@ local characters = {
 			skin = 'normal'
 		},
 		
-	--Team Charm — veteran explorers, thirty years after Explorers of Sky.
-		TeamCharmLopunny = {
-			species = "lopunny", nickname = 'Lopunny', instance = 'TeamCharmLopunny',
-			gender = Gender.Female, form = 0, skin = "normal"
-		},
-		TeamCharmGardevoir = {
-			species = "gardevoir", nickname = 'Gardevoir', instance = 'TeamCharmGardevoir',
-			gender = Gender.Female, form = 0, skin = "normal"
-		},
-		TeamCharmMedicham = {
-			species = "medicham", nickname = 'Medicham', instance = 'TeamCharmMedicham',
-			gender = Gender.Female, form = 0, skin = "normal"
-		},
-
 	--Team Dazzling
 		-- Their public codenames are deliberately stored as nicknames.  The
 		-- French species name Lockpin belongs to Lopunny in the base data; it
