@@ -1186,6 +1186,16 @@ SV.PostgameRed =
 	Seen = {}
 }
 
+-- Donjons canoniques Explorers of Sky, trente ans plus tard.
+SV.SkyCanon =
+{
+	Unlocked = {},
+	Cleared = {},
+	Bosses = {},
+	Scenes = {},
+	Restored = {}
+}
+
 --For dojo lessons
 SV.Tutorial = 
 {
