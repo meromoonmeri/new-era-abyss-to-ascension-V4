@@ -1196,6 +1196,15 @@ SV.SkyCanon =
 	Restored = {}
 }
 
+-- Team Charme, vétéranes canoniques des Aegis Cave.
+SV.TeamCharm =
+{
+	AegisMet = false,
+	BriefingSeen = false,
+	RegisCommented = {},
+	Departed = false
+}
+
 --For dojo lessons
 SV.Tutorial = 
 {

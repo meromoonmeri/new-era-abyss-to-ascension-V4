@@ -15,6 +15,7 @@ require 'halcyon.CharacterEssentials'
 require 'halcyon.ground.cloven_ruins_entrance.cloven_ruins_entrance_ch_5'
 require 'halcyon.RuinesZarbi'
 require 'halcyon.RuinesRenforts'
+local TeamCharmAegis = require 'halcyon.TeamCharmAegis'
 
 local cloven_ruins_entrance = {}
 
@@ -233,7 +234,24 @@ function cloven_ruins_entrance.PlotScripting()
   -- Kino/Reinier sont partis en reconnaissance : seule la base
   -- logistique reste (Penticus, Phileas, Rin, Coco, Hyko, Almotz).
   cloven_ruins_entrance_ch_5.SetupGround(false)
-  GAME:FadeIn(20)
+  -- Team Charme est liée canoniquement aux Aegis Cave. Trente ans après sa
+  -- première exploration, elle rejoint le camp comme équipe de vétéranes :
+  -- conseil et mémoire, jamais remplacement des victoires du joueur.
+  pcall(function() TeamCharmAegis.Spawn() end)
+  local played = false
+  pcall(function() played = TeamCharmAegis.Arrival() end)
+  if not played then GAME:FadeIn(20) end
+end
+
+-- Interactions Team Charme au camp.
+function cloven_ruins_entrance.TeamCharmLopunny_Action(chara, activator)
+  TeamCharmAegis.Talk('Lopunny', chara)
+end
+function cloven_ruins_entrance.TeamCharmGardevoir_Action(chara, activator)
+  TeamCharmAegis.Talk('Gardevoir', chara)
+end
+function cloven_ruins_entrance.TeamCharmMedicham_Action(chara, activator)
+  TeamCharmAegis.Talk('Medicham', chara)
 end
 
 -- ENTREE DANS LES AEGIS CAVE (donjon final du ch5).
