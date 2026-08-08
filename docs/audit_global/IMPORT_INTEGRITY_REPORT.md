@@ -8,26 +8,26 @@ Classification: **static exhaustive discovery**. No runtime PASS inferred.
 - structures: 132
 - segments: 132
 - floors: 804
-- grounds: 162
-- tile_sheets: 635
-- frames: 730378
-- tile_references: 730378
-- markers: 393
-- spawners: 211
+- grounds: 166
+- tile_sheets: 639
+- frames: 748953
+- tile_references: 748953
+- markers: 397
+- spawners: 223
 - entities: 448
 - transitions: 295
 - bosses: 181
-- lua_files: 512
-- cinematic_candidate_files: 329
+- lua_files: 517
+- cinematic_candidate_files: 330
 
 ## Verdict counts
-- TOTAL_DISCOVERED: 1465090
-- TOTAL_AUDITED: 1465090
+- TOTAL_DISCOVERED: 1502270
+- TOTAL_AUDITED: 1502270
 - TOTAL_FIXED: 0
 - TOTAL_RUNTIME_PASS: 0
 - TOTAL_RUNTIME_FAIL: 0
 - TOTAL_INCONCLUSIVE: 0
-- TOTAL_NOT_TESTED: 343
+- TOTAL_NOT_TESTED: 347
 - problems: 28
 
 ## Findings by type
@@ -38,7 +38,3 @@ Classification: **static exhaustive discovery**. No runtime PASS inferred.
 
 ## Tornadus
 `CRITICAL_RUNTIME_BLOCKER — INCONCLUSIVE`. Full interactive cutscene repetition tests have not run in this batch.
-
-## PHASE 2 — REPAIR RESULTS (current batch)
-See `PHASE2_REPAIR_RESULTS.md`. Cross-dungeon floor identities: **22 → 10**.
-Tornadus remains `RUNTIME_FAIL`; no PASS claimed.

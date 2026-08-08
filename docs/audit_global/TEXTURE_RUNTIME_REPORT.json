@@ -1,9 +1,6 @@
 {
   "classification": "STATIC_PAYLOAD_AUDIT_NOT_RUNTIME",
-  "sheets": 635,
-  "references": 730378,
-  "errors": [],
-  "runtime": "NOT_TESTED",
-  "static_verdict": "PASS_STATIC",
-  "correction": "189 transparent border coordinates restored in prior batch"
+  "sheets": 639,
+  "references": 748953,
+  "errors": []
 }

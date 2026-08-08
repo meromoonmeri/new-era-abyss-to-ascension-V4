@@ -6,26 +6,26 @@
     "structures": 132,
     "segments": 132,
     "floors": 804,
-    "grounds": 162,
-    "tile_sheets": 635,
-    "frames": 730378,
-    "tile_references": 730378,
-    "markers": 393,
-    "spawners": 211,
+    "grounds": 166,
+    "tile_sheets": 639,
+    "frames": 748953,
+    "tile_references": 748953,
+    "markers": 397,
+    "spawners": 223,
     "entities": 448,
     "transitions": 295,
     "bosses": 181,
-    "lua_files": 512,
-    "cinematic_candidate_files": 329
+    "lua_files": 517,
+    "cinematic_candidate_files": 330
   },
   "summary": {
-    "TOTAL_DISCOVERED": 1465090,
-    "TOTAL_AUDITED": 1465090,
-    "TOTAL_FIXED": 12,
+    "TOTAL_DISCOVERED": 1502270,
+    "TOTAL_AUDITED": 1502270,
+    "TOTAL_FIXED": 0,
     "TOTAL_RUNTIME_PASS": 0,
-    "TOTAL_RUNTIME_FAIL": 1,
-    "TOTAL_INCONCLUSIVE": 28,
-    "TOTAL_NOT_TESTED": 343,
+    "TOTAL_RUNTIME_FAIL": 0,
+    "TOTAL_INCONCLUSIVE": 0,
+    "TOTAL_NOT_TESTED": 347,
     "problems": 28
   },
   "problems": [
@@ -186,14 +186,5 @@
       "type": "INVALID_TRANSITION_TARGET",
       "cause": "Data/Script/halcyon/ground/palier_celeste/init.lua:ContinueDungeon:new_era_zone_17"
     }
-  ],
-  "phase2": {
-    "ERRORS_BEFORE": 40,
-    "ERRORS_FIXED_THIS_BATCH": 12,
-    "ERRORS_REMAINING": 28,
-    "RUNTIME_TESTS_ADDED": 1,
-    "RUNTIME_TESTS_PASSED": 0,
-    "RUNTIME_TESTS_FAILED": 1,
-    "INCONCLUSIVE": 1
-  }
+  ]
 }

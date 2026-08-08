@@ -5,17 +5,17 @@
     "structures": 132,
     "segments": 132,
     "floors": 804,
-    "grounds": 162,
-    "tile_sheets": 635,
-    "frames": 730378,
-    "tile_references": 730378,
-    "markers": 393,
-    "spawners": 211,
+    "grounds": 166,
+    "tile_sheets": 639,
+    "frames": 748953,
+    "tile_references": 748953,
+    "markers": 397,
+    "spawners": 223,
     "entities": 448,
     "transitions": 295,
     "bosses": 181,
-    "lua_files": 512,
-    "cinematic_candidate_files": 329
+    "lua_files": 517,
+    "cinematic_candidate_files": 330
   },
   "grounds": [
     {
@@ -2057,6 +2057,54 @@
       "dimensions": [
         16,
         12
+      ]
+    },
+    {
+      "ground": "cloven_ruin_regice_chamber_sky",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        63,
+        57
+      ]
+    },
+    {
+      "ground": "cloven_ruin_regirock_chamber_sky",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        57,
+        57
+      ]
+    },
+    {
+      "ground": "cloven_ruin_registeel_chamber_sky",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        57,
+        57
+      ]
+    },
+    {
+      "ground": "cloven_ruin_regigigas_chamber_sky",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        57,
+        57
       ]
     }
   ]

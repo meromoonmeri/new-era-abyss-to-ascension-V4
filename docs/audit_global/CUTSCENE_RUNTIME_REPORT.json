@@ -1,20 +1,13 @@
 {
   "classification": "STATIC_DISCOVERY; NOT runtime completion",
-  "candidate_files": 329,
+  "candidate_files": 330,
   "tornadus": {
-    "TORNADUS_CUTSCENE_STATUS": "RUNTIME_FAIL",
-    "TORNADUS_RUNTIME_TESTS": [
-      {
-        "test": "PHASE2 direct first-entry probe",
-        "result": "FAIL",
-        "evidence": "TORNADUS_PHASE2_PROBE.log",
-        "CUTSCENE_END": false
-      }
-    ],
-    "TORNADUS_FREEZE_DETECTED": true,
-    "TORNADUS_ROOT_CAUSE": "UNPROVEN for production parent-dungeon route",
-    "TORNADUS_FIX": "EXPERIMENTAL CHANGE REVERTED",
-    "TORNADUS_REGRESSION_RESULT": "FAIL_INCONCLUSIVE"
+    "TORNADUS_CUTSCENE_STATUS": "INCONCLUSIVE",
+    "TORNADUS_RUNTIME_TESTS": [],
+    "TORNADUS_FREEZE_DETECTED": "REPORTED_NOT_REPRODUCED_THIS_BATCH",
+    "TORNADUS_ROOT_CAUSE": "previous BattlePosition offset fixed; current cutscene freeze location unproven",
+    "TORNADUS_FIX": "NOT_CLAIMED_COMPLETE",
+    "TORNADUS_REGRESSION_RESULT": "NOT_TESTED"
   },
   "bosses": [
     {
@@ -1389,10 +1382,10 @@
     },
     {
       "map": "magma_cavern_pit",
-      "species": "zeraora",
+      "species": "groudon",
       "position": {
-        "X": 7,
-        "Y": 5
+        "X": 10,
+        "Y": 7
       },
       "level": 37,
       "runtime": "NOT_TESTED"
@@ -1569,9 +1562,9 @@
     },
     {
       "map": "mt_blaze_summit",
-      "species": "zeraora",
+      "species": "moltres",
       "position": {
-        "X": 7,
+        "X": 11,
         "Y": 5
       },
       "level": 35,

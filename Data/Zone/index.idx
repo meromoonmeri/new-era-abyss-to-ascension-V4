@@ -560,7 +560,11 @@
         "sinister_woods_clearing",
         "luluby_town_morning",
         "luluby_town_evening",
-        "luluby_town_night"
+        "luluby_town_night",
+        "cloven_ruin_regice_chamber_sky",
+        "cloven_ruin_regirock_chamber_sky",
+        "cloven_ruin_registeel_chamber_sky",
+        "cloven_ruin_regigigas_chamber_sky"
       ],
       "Maps": [
         [
