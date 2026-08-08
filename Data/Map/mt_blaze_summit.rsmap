@@ -17,15 +17,15 @@
         "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
         "Players": [
           {
-            "Element1": "dark",
-            "Element2": "grass",
+            "Element1": "fire",
+            "Element2": "flying",
             "TurnWait": 0,
             "TiersUsed": 0,
             "TurnUsed": false,
             "movementSpeed": 0,
             "dead": false,
             "serializationLoc": {
-              "X": 7,
+              "X": 11,
               "Y": 5
             },
             "serializationDir": 0,
@@ -37,10 +37,10 @@
               "Gender": -1
             },
             "CurrentForm": {
-              "Species": "zeraora",
+              "Species": "moltres",
               "Form": 0,
               "Skin": "normal",
-              "Gender": 1
+              "Gender": 3
             },
             "ProxyAtk": -1,
             "ProxyDef": -1,
@@ -50,7 +50,7 @@
             "Skills": [
               {
                 "Element": {
-                  "SkillNum": "fury_swipes",
+                  "SkillNum": "flamethrower",
                   "Charges": 15,
                   "Enabled": true,
                   "Sealed": false
@@ -59,7 +59,7 @@
               },
               {
                 "Element": {
-                  "SkillNum": "scary_face",
+                  "SkillNum": "wing_attack",
                   "Charges": 20,
                   "Enabled": true,
                   "Sealed": false
@@ -68,8 +68,8 @@
               },
               {
                 "Element": {
-                  "SkillNum": "grass_knot",
-                  "Charges": 15,
+                  "SkillNum": "agility",
+                  "Charges": 20,
                   "Enabled": true,
                   "Sealed": false
                 },
@@ -77,8 +77,8 @@
               },
               {
                 "Element": {
-                  "SkillNum": "bite",
-                  "Charges": 18,
+                  "SkillNum": "endure",
+                  "Charges": 10,
                   "Enabled": true,
                   "Sealed": false
                 },
@@ -196,7 +196,7 @@
               "Species": "moltres",
               "Form": 0,
               "Skin": "normal",
-              "Gender": 1
+              "Gender": 3
             },
             "Level": 35,
             "EXP": 0,
@@ -208,23 +208,23 @@
             "SpeedBonus": 0,
             "BaseSkills": [
               {
-                "SkillNum": "fury_swipes",
+                "SkillNum": "flamethrower",
                 "Charges": 15,
                 "CanForget": false
               },
               {
-                "SkillNum": "scary_face",
+                "SkillNum": "wing_attack",
                 "Charges": 20,
                 "CanForget": false
               },
               {
-                "SkillNum": "grass_knot",
-                "Charges": 15,
+                "SkillNum": "agility",
+                "Charges": 20,
                 "CanForget": false
               },
               {
-                "SkillNum": "bite",
-                "Charges": 18,
+                "SkillNum": "endure",
+                "Charges": 10,
                 "CanForget": false
               }
             ],

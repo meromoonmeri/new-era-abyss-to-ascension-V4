@@ -9,7 +9,7 @@
       }
     },
     "Released": true,
-    "Comment": "Donjon canonique PMD Red restauré: 12F, D09P02, Peak 3F, D09P03/Moltres. Casting/cinématiques adaptés New Era.",
+    "Comment": "Donjon canonique PMD Red restauré: 12F, D09P02, Peak 3F, D09P03/Moltres. Casting/cinématiques adaptés New Era. Canonical encounters: pret/pmd-red MtBlaze/MtBlazePeak; 15-species New Era additive pool.",
     "NoEXP": false,
     "ExpPercent": 100,
     "Level": -1,
@@ -1705,62 +1705,13 @@
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "geodude",
-                      "Form": 1,
+                      "Species": "pidgeot",
+                      "Form": 0,
                       "Skin": "",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 14,
-                      "Max": 16
-                    },
-                    "SpecifiedSkills": [
-                      "spark",
-                      "rollout",
-                      "charge",
-                      "rock_polish"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wander_dumb",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
-                        "Rarity": {
-                          "Min": 1,
-                          "Max": 2
-                        },
-                        "Box": "box_heavy",
-                        "MapStartOnly": false,
-                        "Chance": {
-                          "Numerator": 2,
-                          "Denominator": 100
-                        }
-                      }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 0,
-                  "Max": 5
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "geodude",
-                      "Form": 1,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 15,
+                      "Min": 16,
                       "Max": 17
                     },
                     "SpecifiedSkills": [
@@ -1789,34 +1740,35 @@
                           "Denominator": 100
                         }
                       }
-                    ]
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
                   },
                   "Role": 0
                 },
-                "Rate": 10,
+                "Rate": 2857,
                 "Range": {
-                  "Min": 5,
-                  "Max": 10
+                  "Min": 0,
+                  "Max": 1
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "sandshrew",
+                      "Species": "slugma",
                       "Form": 0,
                       "Skin": "",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 13,
-                      "Max": 15
+                      "Min": 16,
+                      "Max": 17
                     },
                     "SpecifiedSkills": [
+                      "spark",
                       "rollout",
-                      "sand_attack",
-                      "fury_cutter",
-                      "sand_tomb"
+                      "charge",
+                      "rock_polish"
                     ],
                     "Intrinsic": "",
                     "Tactic": "wander_dumb",
@@ -1831,462 +1783,22 @@
                           "Min": 1,
                           "Max": 2
                         },
-                        "Box": "box_nifty",
+                        "Box": "box_heavy",
                         "MapStartOnly": false,
                         "Chance": {
                           "Numerator": 2,
                           "Denominator": 100
                         }
                       }
-                    ]
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
                   },
                   "Role": 0
                 },
-                "Rate": 10,
+                "Rate": 1429,
                 "Range": {
                   "Min": 0,
-                  "Max": 5
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "sandshrew",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 14,
-                      "Max": 16
-                    },
-                    "SpecifiedSkills": [
-                      "rollout",
-                      "sand_attack",
-                      "fury_cutter",
-                      "magnitude"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wander_dumb_two_range",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
-                        "Rarity": {
-                          "Min": 1,
-                          "Max": 2
-                        },
-                        "Box": "box_nifty",
-                        "MapStartOnly": false,
-                        "Chance": {
-                          "Numerator": 2,
-                          "Denominator": 100
-                        }
-                      }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 5,
-                  "Max": 10
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "salandit",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 13,
-                      "Max": 15
-                    },
-                    "SpecifiedSkills": [
-                      "dragon_rage",
-                      "sweet_scent",
-                      "smog",
-                      "ember"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wander_dumb",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
-                        "Rarity": {
-                          "Min": 1,
-                          "Max": 2
-                        },
-                        "Box": "box_dainty",
-                        "MapStartOnly": false,
-                        "Chance": {
-                          "Numerator": 2,
-                          "Denominator": 100
-                        }
-                      }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 0,
-                  "Max": 5
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "salandit",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 14,
-                      "Max": 16
-                    },
-                    "SpecifiedSkills": [
-                      "dragon_rage",
-                      "sweet_scent",
-                      "smog",
-                      "ember"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wander_dumb",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
-                        "Rarity": {
-                          "Min": 1,
-                          "Max": 2
-                        },
-                        "Box": "box_dainty",
-                        "MapStartOnly": false,
-                        "Chance": {
-                          "Numerator": 2,
-                          "Denominator": 100
-                        }
-                      }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 5,
-                  "Max": 10
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "bagon",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 14,
-                      "Max": 16
-                    },
-                    "SpecifiedSkills": [
-                      "bite",
-                      "ember",
-                      "rage",
-                      "dragon_breath"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wander_dumb_two_range",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
-                        "Rarity": {
-                          "Min": 1,
-                          "Max": 2
-                        },
-                        "Box": "box_glittery",
-                        "MapStartOnly": false,
-                        "Chance": {
-                          "Numerator": 2,
-                          "Denominator": 100
-                        }
-                      }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 0,
-                  "Max": 5
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "bagon",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 15,
-                      "Max": 17
-                    },
-                    "SpecifiedSkills": [
-                      "bite",
-                      "ember",
-                      "rage",
-                      "dragon_breath"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wander_dumb_two_range",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
-                        "Rarity": {
-                          "Min": 1,
-                          "Max": 2
-                        },
-                        "Box": "box_glittery",
-                        "MapStartOnly": false,
-                        "Chance": {
-                          "Numerator": 2,
-                          "Denominator": 100
-                        }
-                      }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 5,
-                  "Max": 10
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "koffing",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 14,
-                      "Max": 16
-                    },
-                    "SpecifiedSkills": [
-                      "clear_smog",
-                      "assurance",
-                      "poison_gas",
-                      "tackle"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wander_dumb",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
-                        "Rarity": {
-                          "Min": 1,
-                          "Max": 2
-                        },
-                        "Box": "box_light",
-                        "MapStartOnly": false,
-                        "Chance": {
-                          "Numerator": 2,
-                          "Denominator": 100
-                        }
-                      }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 0,
-                  "Max": 5
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "koffing",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 15,
-                      "Max": 17
-                    },
-                    "SpecifiedSkills": [
-                      "clear_smog",
-                      "assurance",
-                      "poison_gas",
-                      "tackle"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wander_dumb",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
-                        "Rarity": {
-                          "Min": 1,
-                          "Max": 2
-                        },
-                        "Box": "box_light",
-                        "MapStartOnly": false,
-                        "Chance": {
-                          "Numerator": 2,
-                          "Denominator": 100
-                        }
-                      }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 5,
-                  "Max": 10
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "houndour",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 14,
-                      "Max": 16
-                    },
-                    "SpecifiedSkills": [
-                      "roar",
-                      "howl",
-                      "bite",
-                      "fire_fang"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wander_dumb",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
-                        "Rarity": {
-                          "Min": 1,
-                          "Max": 2
-                        },
-                        "Box": "box_glittery",
-                        "MapStartOnly": false,
-                        "Chance": {
-                          "Numerator": 2,
-                          "Denominator": 100
-                        }
-                      }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 0,
-                  "Max": 5
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "houndour",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 15,
-                      "Max": 17
-                    },
-                    "SpecifiedSkills": [
-                      "roar",
-                      "howl",
-                      "bite",
-                      "fire_fang"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wander_dumb",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
-                        "Rarity": {
-                          "Min": 1,
-                          "Max": 2
-                        },
-                        "Box": "box_glittery",
-                        "MapStartOnly": false,
-                        "Chance": {
-                          "Numerator": 2,
-                          "Denominator": 100
-                        }
-                      }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 5,
-                  "Max": 10
+                  "Max": 1
                 }
               },
               {
@@ -2299,14 +1811,14 @@
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 14,
-                      "Max": 16
+                      "Min": 17,
+                      "Max": 18
                     },
                     "SpecifiedSkills": [
-                      "feint_attack",
-                      "smokescreen",
-                      "smog",
-                      "ember"
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
                     ],
                     "Intrinsic": "",
                     "Tactic": "wander_dumb",
@@ -2321,20 +1833,721 @@
                           "Min": 1,
                           "Max": 2
                         },
-                        "Box": "box_nifty",
+                        "Box": "box_heavy",
                         "MapStartOnly": false,
                         "Chance": {
                           "Numerator": 2,
                           "Denominator": 100
                         }
                       }
-                    ]
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
                   },
                   "Role": 0
                 },
-                "Rate": 10,
+                "Rate": 2857,
                 "Range": {
                   "Min": 0,
+                  "Max": 1
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "numel",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 14,
+                      "Max": 15
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 2857,
+                "Range": {
+                  "Min": 0,
+                  "Max": 1
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "pidgeot",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 16,
+                      "Max": 17
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 2857,
+                "Range": {
+                  "Min": 1,
+                  "Max": 2
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "slugma",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 16,
+                      "Max": 17
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1429,
+                "Range": {
+                  "Min": 1,
+                  "Max": 2
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "magby",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 17,
+                      "Max": 18
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 2857,
+                "Range": {
+                  "Min": 1,
+                  "Max": 2
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "numel",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 14,
+                      "Max": 15
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 2857,
+                "Range": {
+                  "Min": 1,
+                  "Max": 2
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "pidgeot",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 16,
+                      "Max": 17
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 2857,
+                "Range": {
+                  "Min": 2,
+                  "Max": 3
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "slugma",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 16,
+                      "Max": 17
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1429,
+                "Range": {
+                  "Min": 2,
+                  "Max": 3
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "magby",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 17,
+                      "Max": 18
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 2857,
+                "Range": {
+                  "Min": 2,
+                  "Max": 3
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "numel",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 14,
+                      "Max": 15
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 2857,
+                "Range": {
+                  "Min": 2,
+                  "Max": 3
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "slugma",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 16,
+                      "Max": 17
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1,
+                "Range": {
+                  "Min": 3,
+                  "Max": 4
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "magby",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 17,
+                      "Max": 18
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 2,
+                "Range": {
+                  "Min": 3,
+                  "Max": 4
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "numel",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 14,
+                      "Max": 15
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 2,
+                "Range": {
+                  "Min": 3,
+                  "Max": 4
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "shuckle",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 15,
+                      "Max": 16
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1304,
+                "Range": {
+                  "Min": 4,
+                  "Max": 5
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "slugma",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 16,
+                      "Max": 17
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1739,
+                "Range": {
+                  "Min": 4,
                   "Max": 5
                 }
               },
@@ -2348,14 +2561,14 @@
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 15,
-                      "Max": 17
+                      "Min": 17,
+                      "Max": 18
                     },
                     "SpecifiedSkills": [
-                      "feint_attack",
-                      "smokescreen",
-                      "smog",
-                      "ember"
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
                     ],
                     "Intrinsic": "",
                     "Tactic": "wander_dumb",
@@ -2370,20 +2583,871 @@
                           "Min": 1,
                           "Max": 2
                         },
-                        "Box": "box_nifty",
+                        "Box": "box_heavy",
                         "MapStartOnly": false,
                         "Chance": {
                           "Numerator": 2,
                           "Denominator": 100
                         }
                       }
-                    ]
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
                   },
                   "Role": 0
                 },
-                "Rate": 10,
+                "Rate": 3479,
+                "Range": {
+                  "Min": 4,
+                  "Max": 5
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "numel",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 14,
+                      "Max": 15
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 3478,
+                "Range": {
+                  "Min": 4,
+                  "Max": 5
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "shuckle",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 15,
+                      "Max": 16
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 2000,
                 "Range": {
                   "Min": 5,
+                  "Max": 6
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "slugma",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 16,
+                      "Max": 17
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 2667,
+                "Range": {
+                  "Min": 5,
+                  "Max": 6
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "numel",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 14,
+                      "Max": 15
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 5333,
+                "Range": {
+                  "Min": 5,
+                  "Max": 6
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "shuckle",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 15,
+                      "Max": 16
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 2000,
+                "Range": {
+                  "Min": 6,
+                  "Max": 7
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "slugma",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 16,
+                      "Max": 17
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 2667,
+                "Range": {
+                  "Min": 6,
+                  "Max": 7
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "torkoal",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 15,
+                      "Max": 16
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 5333,
+                "Range": {
+                  "Min": 6,
+                  "Max": 7
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "rapidash",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 10,
+                      "Max": 11
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 3478,
+                "Range": {
+                  "Min": 7,
+                  "Max": 8
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "shuckle",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 15,
+                      "Max": 16
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1305,
+                "Range": {
+                  "Min": 7,
+                  "Max": 8
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "slugma",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 16,
+                      "Max": 17
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1739,
+                "Range": {
+                  "Min": 7,
+                  "Max": 8
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "torkoal",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 15,
+                      "Max": 16
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 3478,
+                "Range": {
+                  "Min": 7,
+                  "Max": 8
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "rapidash",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 10,
+                      "Max": 11
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 3478,
+                "Range": {
+                  "Min": 8,
+                  "Max": 9
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "shuckle",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 15,
+                      "Max": 16
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1305,
+                "Range": {
+                  "Min": 8,
+                  "Max": 9
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "slugma",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 16,
+                      "Max": 17
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1739,
+                "Range": {
+                  "Min": 8,
+                  "Max": 9
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "torkoal",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 15,
+                      "Max": 16
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 3478,
+                "Range": {
+                  "Min": 8,
+                  "Max": 9
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "rapidash",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 10,
+                      "Max": 11
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 2,
+                "Range": {
+                  "Min": 9,
+                  "Max": 10
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "slugma",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 16,
+                      "Max": 17
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1,
+                "Range": {
+                  "Min": 9,
                   "Max": 10
                 }
               },
@@ -2397,16 +3461,16 @@
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 17,
-                      "Max": 18
+                      "Min": 15,
+                      "Max": 16
                     },
                     "SpecifiedSkills": [
-                      "withdraw",
-                      "fire_spin",
-                      "rapid_spin",
-                      "ember"
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
                     ],
-                    "Intrinsic": "white_smoke",
+                    "Intrinsic": "",
                     "Tactic": "wander_dumb",
                     "SpawnConditions": [],
                     "SpawnFeatures": [
@@ -2422,38 +3486,39 @@
                         "Box": "box_heavy",
                         "MapStartOnly": false,
                         "Chance": {
-                          "Numerator": 5,
+                          "Numerator": 2,
                           "Denominator": 100
                         }
                       }
-                    ]
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
                   },
                   "Role": 0
                 },
-                "Rate": 3,
+                "Rate": 2,
                 "Range": {
-                  "Min": 0,
-                  "Max": 12
+                  "Min": 9,
+                  "Max": 10
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "magmar",
+                      "Species": "rapidash",
                       "Form": 0,
                       "Skin": "",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 17,
-                      "Max": 18
+                      "Min": 10,
+                      "Max": 11
                     },
                     "SpecifiedSkills": [
-                      "fire_spin",
-                      "feint_attack",
-                      "smokescreen",
-                      "smog"
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
                     ],
                     "Intrinsic": "",
                     "Tactic": "wander_dumb",
@@ -2468,21 +3533,822 @@
                           "Min": 1,
                           "Max": 2
                         },
-                        "Box": "box_nifty",
+                        "Box": "box_heavy",
                         "MapStartOnly": false,
                         "Chance": {
-                          "Numerator": 5,
+                          "Numerator": 2,
                           "Denominator": 100
                         }
                       }
-                    ]
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
                   },
                   "Role": 0
                 },
-                "Rate": 3,
+                "Rate": 2,
+                "Range": {
+                  "Min": 10,
+                  "Max": 11
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "slugma",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 16,
+                      "Max": 17
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1,
+                "Range": {
+                  "Min": 10,
+                  "Max": 11
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "torkoal",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 15,
+                      "Max": 16
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 2,
+                "Range": {
+                  "Min": 10,
+                  "Max": 11
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "rapidash",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 10,
+                      "Max": 11
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 2,
+                "Range": {
+                  "Min": 11,
+                  "Max": 12
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "slugma",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 16,
+                      "Max": 17
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1,
+                "Range": {
+                  "Min": 11,
+                  "Max": 12
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "torkoal",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 15,
+                      "Max": 16
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 2,
+                "Range": {
+                  "Min": 11,
+                  "Max": 12
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "slugma",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 16,
+                      "Max": 17
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "NEW_ERA_ADDITIVE"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1,
                 "Range": {
                   "Min": 0,
-                  "Max": 12
+                  "Max": 1
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "numel",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 16,
+                      "Max": 17
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "NEW_ERA_ADDITIVE"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1,
+                "Range": {
+                  "Min": 2,
+                  "Max": 3
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "torkoal",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 16,
+                      "Max": 17
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "NEW_ERA_ADDITIVE"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1,
+                "Range": {
+                  "Min": 4,
+                  "Max": 5
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "magby",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 17,
+                      "Max": 18
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "NEW_ERA_ADDITIVE"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1,
+                "Range": {
+                  "Min": 6,
+                  "Max": 7
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "larvesta",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 17,
+                      "Max": 18
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "NEW_ERA_ADDITIVE"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1,
+                "Range": {
+                  "Min": 8,
+                  "Max": 9
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "salandit",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 17,
+                      "Max": 18
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "NEW_ERA_ADDITIVE"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1,
+                "Range": {
+                  "Min": 10,
+                  "Max": 11
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "rolycoly",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 18,
+                      "Max": 19
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "NEW_ERA_ADDITIVE"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1,
+                "Range": {
+                  "Min": 0,
+                  "Max": 1
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "carkol",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 18,
+                      "Max": 19
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "NEW_ERA_ADDITIVE"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1,
+                "Range": {
+                  "Min": 2,
+                  "Max": 3
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "charcadet",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 18,
+                      "Max": 19
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "NEW_ERA_ADDITIVE"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1,
+                "Range": {
+                  "Min": 4,
+                  "Max": 5
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "litleo",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 19,
+                      "Max": 20
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "NEW_ERA_ADDITIVE"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1,
+                "Range": {
+                  "Min": 6,
+                  "Max": 7
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "houndour",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 19,
+                      "Max": 20
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "NEW_ERA_ADDITIVE"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1,
+                "Range": {
+                  "Min": 8,
+                  "Max": 9
                 }
               }
             ],
@@ -7532,14 +9398,14 @@
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "geodude",
-                      "Form": 1,
+                      "Species": "fearow",
+                      "Form": 0,
                       "Skin": "",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 16,
-                      "Max": 17
+                      "Min": 17,
+                      "Max": 18
                     },
                     "SpecifiedSkills": [
                       "spark",
@@ -7567,34 +9433,35 @@
                           "Denominator": 100
                         }
                       }
-                    ]
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
                   },
                   "Role": 0
                 },
-                "Rate": 10,
+                "Rate": 1,
                 "Range": {
                   "Min": 0,
-                  "Max": 3
+                  "Max": 1
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "salandit",
+                      "Species": "arcanine",
                       "Form": 0,
                       "Skin": "",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 15,
-                      "Max": 16
+                      "Min": 18,
+                      "Max": 19
                     },
                     "SpecifiedSkills": [
-                      "dragon_rage",
-                      "sweet_scent",
-                      "smog",
-                      "ember"
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
                     ],
                     "Intrinsic": "",
                     "Tactic": "wander_dumb",
@@ -7609,175 +9476,29 @@
                           "Min": 1,
                           "Max": 2
                         },
-                        "Box": "box_dainty",
+                        "Box": "box_heavy",
                         "MapStartOnly": false,
                         "Chance": {
                           "Numerator": 2,
                           "Denominator": 100
                         }
                       }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 0,
-                  "Max": 3
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "houndour",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 16,
-                      "Max": 17
-                    },
-                    "SpecifiedSkills": [
-                      "roar",
-                      "howl",
-                      "bite",
-                      "fire_fang"
                     ],
-                    "Intrinsic": "",
-                    "Tactic": "wander_dumb",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
-                        "Rarity": {
-                          "Min": 1,
-                          "Max": 2
-                        },
-                        "Box": "box_glittery",
-                        "MapStartOnly": false,
-                        "Chance": {
-                          "Numerator": 2,
-                          "Denominator": 100
-                        }
-                      }
-                    ]
+                    "Comment": "CANONICAL_PMD_RED"
                   },
                   "Role": 0
                 },
-                "Rate": 10,
+                "Rate": 1,
                 "Range": {
                   "Min": 0,
-                  "Max": 3
+                  "Max": 1
                 }
               },
               {
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "magby",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 16,
-                      "Max": 17
-                    },
-                    "SpecifiedSkills": [
-                      "feint_attack",
-                      "smokescreen",
-                      "smog",
-                      "fire_spin"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wander_dumb",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
-                        "Rarity": {
-                          "Min": 1,
-                          "Max": 2
-                        },
-                        "Box": "box_nifty",
-                        "MapStartOnly": false,
-                        "Chance": {
-                          "Numerator": 2,
-                          "Denominator": 100
-                        }
-                      }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 0,
-                  "Max": 3
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "slugma",
-                      "Form": 0,
-                      "Skin": "",
-                      "Gender": -1
-                    },
-                    "Level": {
-                      "Min": 16,
-                      "Max": 17
-                    },
-                    "SpecifiedSkills": [
-                      "yawn",
-                      "rock_throw",
-                      "smog",
-                      "ember"
-                    ],
-                    "Intrinsic": "",
-                    "Tactic": "wander_dumb",
-                    "SpawnConditions": [],
-                    "SpawnFeatures": [
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
-                      },
-                      {
-                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
-                        "Rarity": {
-                          "Min": 1,
-                          "Max": 2
-                        },
-                        "Box": "box_light",
-                        "MapStartOnly": false,
-                        "Chance": {
-                          "Numerator": 2,
-                          "Denominator": 100
-                        }
-                      }
-                    ]
-                  },
-                  "Role": 0
-                },
-                "Rate": 10,
-                "Range": {
-                  "Min": 0,
-                  "Max": 3
-                }
-              },
-              {
-                "Spawn": {
-                  "Spawn": {
-                    "BaseForm": {
-                      "Species": "larvesta",
+                      "Species": "fearow",
                       "Form": 0,
                       "Skin": "",
                       "Gender": -1
@@ -7787,10 +9508,10 @@
                       "Max": 18
                     },
                     "SpecifiedSkills": [
-                      "flame_charge",
-                      "string_shot",
-                      "take_down",
-                      "leech_life"
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
                     ],
                     "Intrinsic": "",
                     "Tactic": "wander_dumb",
@@ -7805,21 +9526,72 @@
                           "Min": 1,
                           "Max": 2
                         },
-                        "Box": "box_glittery",
+                        "Box": "box_heavy",
                         "MapStartOnly": false,
                         "Chance": {
-                          "Numerator": 5,
+                          "Numerator": 2,
                           "Denominator": 100
                         }
                       }
-                    ]
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
                   },
                   "Role": 0
                 },
-                "Rate": 3,
+                "Rate": 1,
                 "Range": {
-                  "Min": 0,
-                  "Max": 3
+                  "Min": 1,
+                  "Max": 2
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "arcanine",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 18,
+                      "Max": 19
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "CANONICAL_PMD_RED"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1,
+                "Range": {
+                  "Min": 1,
+                  "Max": 2
                 }
               },
               {
@@ -7832,14 +9604,14 @@
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 17,
-                      "Max": 18
+                      "Min": 22,
+                      "Max": 23
                     },
                     "SpecifiedSkills": [
-                      "ember",
-                      "smog",
-                      "protect",
-                      "iron_defense"
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
                     ],
                     "Intrinsic": "",
                     "Tactic": "wander_dumb",
@@ -7854,20 +9626,121 @@
                           "Min": 1,
                           "Max": 2
                         },
-                        "Box": "box_glittery",
+                        "Box": "box_heavy",
                         "MapStartOnly": false,
                         "Chance": {
-                          "Numerator": 5,
+                          "Numerator": 2,
                           "Denominator": 100
                         }
                       }
-                    ]
+                    ],
+                    "Comment": "NEW_ERA_ADDITIVE"
                   },
                   "Role": 0
                 },
-                "Rate": 3,
+                "Rate": 1,
+                "Range": {
+                  "Min": 1,
+                  "Max": 2
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "heatmor",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 23,
+                      "Max": 24
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "NEW_ERA_ADDITIVE"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1,
                 "Range": {
                   "Min": 0,
+                  "Max": 1
+                }
+              },
+              {
+                "Spawn": {
+                  "Spawn": {
+                    "BaseForm": {
+                      "Species": "coalossal",
+                      "Form": 0,
+                      "Skin": "",
+                      "Gender": -1
+                    },
+                    "Level": {
+                      "Min": 23,
+                      "Max": 24
+                    },
+                    "SpecifiedSkills": [
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
+                    ],
+                    "Intrinsic": "",
+                    "Tactic": "wander_dumb",
+                    "SpawnConditions": [],
+                    "SpawnFeatures": [
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+                      },
+                      {
+                        "$type": "PMDC.LevelGen.MobSpawnExclFamily, PMDC",
+                        "Rarity": {
+                          "Min": 1,
+                          "Max": 2
+                        },
+                        "Box": "box_heavy",
+                        "MapStartOnly": false,
+                        "Chance": {
+                          "Numerator": 2,
+                          "Denominator": 100
+                        }
+                      }
+                    ],
+                    "Comment": "NEW_ERA_ADDITIVE"
+                  },
+                  "Role": 0
+                },
+                "Rate": 1,
+                "Range": {
+                  "Min": 2,
                   "Max": 3
                 }
               },
@@ -7875,20 +9748,20 @@
                 "Spawn": {
                   "Spawn": {
                     "BaseForm": {
-                      "Species": "magmar",
+                      "Species": "magcargo",
                       "Form": 0,
                       "Skin": "",
                       "Gender": -1
                     },
                     "Level": {
-                      "Min": 18,
-                      "Max": 19
+                      "Min": 23,
+                      "Max": 24
                     },
                     "SpecifiedSkills": [
-                      "flame_burst",
-                      "feint_attack",
-                      "smokescreen",
-                      "smog"
+                      "spark",
+                      "rollout",
+                      "charge",
+                      "rock_polish"
                     ],
                     "Intrinsic": "",
                     "Tactic": "wander_dumb",
@@ -7903,21 +9776,22 @@
                           "Min": 1,
                           "Max": 2
                         },
-                        "Box": "box_nifty",
+                        "Box": "box_heavy",
                         "MapStartOnly": false,
                         "Chance": {
-                          "Numerator": 5,
+                          "Numerator": 2,
                           "Denominator": 100
                         }
                       }
-                    ]
+                    ],
+                    "Comment": "NEW_ERA_ADDITIVE"
                   },
                   "Role": 0
                 },
-                "Rate": 3,
+                "Rate": 1,
                 "Range": {
-                  "Min": 0,
-                  "Max": 3
+                  "Min": 1,
+                  "Max": 2
                 }
               }
             ],
