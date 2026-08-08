@@ -1,4 +1,4 @@
-{
+﻿{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
@@ -2332,7 +2332,8 @@
       "Grounds": [
         "mont_cendre_pied",
         "d09p02",
-        "d09p03"
+        "d09p03",
+        "mt_blaze_midpoint"
       ],
       "Maps": [
         [
@@ -2386,7 +2387,8 @@
       "Grounds": [
         "foret_givree_oree",
         "d10p02",
-        "d10p03"
+        "d10p03",
+        "frosty_forest_midpoint"
       ],
       "Maps": [
         [
@@ -2439,7 +2441,8 @@
       "Grounds": [
         "mont_gele_pied",
         "d11p02",
-        "d11p03"
+        "d11p03",
+        "mt_freeze_midpoint"
       ],
       "Maps": [
         [
