@@ -128,8 +128,13 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   -- Le sommet est un orage : la pluie (heavy_rain) et le brouillard (fog)
   -- rendent la menace palpable avant l'apparition. pcall : un MapStatus
   -- absent echoue en silence, la scene continue.
-  pcall(function() GROUND:AddMapStatus('heavy_rain') end)
-  pcall(function() GROUND:AddMapStatus('fog') end)
+  -- Tornadus: pluie et brouillard interdits pour cette sequence.
+  -- Nettoyage defensif des statuts potentiellement herites d'une sauvegarde
+  -- ou d'une ancienne version, puis vent seul.
+  pcall(function() GROUND:RemoveMapStatus('heavy_rain') end)
+  pcall(function() GROUND:RemoveMapStatus('falling_rain') end)
+  pcall(function() GROUND:RemoveMapStatus('light_rain') end)
+  pcall(function() GROUND:RemoveMapStatus('fog') end)
   pcall(function() GROUND:AddMapStatus('blowing_wind') end)
 
   GAME:WaitFrames(60)
@@ -420,10 +425,17 @@ function mount_windswept_guardian_ch_5.FirstPreBossScene()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_010'], hero:GetDisplayName()))
   -- "Alors on va lui montrer que notre voyage ne fait que commencer ! [hero], à nous deux !"
 
+  -- Aucun statut pluie/brouillard ne doit survivre dans l'arene de combat.
+  pcall(function() GROUND:RemoveMapStatus('heavy_rain') end)
+  pcall(function() GROUND:RemoveMapStatus('falling_rain') end)
+  pcall(function() GROUND:RemoveMapStatus('light_rain') end)
+  pcall(function() GROUND:RemoveMapStatus('fog') end)
+  pcall(function() GROUND:RemoveMapStatus('blowing_wind') end)
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
   SV.Chapter5.MountGuardianSeen = true
-  PrintInfo("[NREPROBE][transition] mount_windswept_guardian_ch_5.lua ContinueDungeon('mount_windswept', 2)") GAME:ContinueDungeon("mount_windswept", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  PrintInfo("[TORNADUS_RUNTIME] BATTLE_INITIALIZATION zone=mount_windswept segment=2 floor=0")
+  GAME:ContinueDungeon("mount_windswept", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 function mount_windswept_guardian_ch_5.SecondPreBossScene()
@@ -465,8 +477,13 @@ function mount_windswept_guardian_ch_5.SecondPreBossScene()
   GAME:FadeIn(40)
 
   -- L'orage de Tornadus persiste au retry : pluie + brouillard + vent.
-  pcall(function() GROUND:AddMapStatus('heavy_rain') end)
-  pcall(function() GROUND:AddMapStatus('fog') end)
+  -- Tornadus: pluie et brouillard interdits pour cette sequence.
+  -- Nettoyage defensif des statuts potentiellement herites d'une sauvegarde
+  -- ou d'une ancienne version, puis vent seul.
+  pcall(function() GROUND:RemoveMapStatus('heavy_rain') end)
+  pcall(function() GROUND:RemoveMapStatus('falling_rain') end)
+  pcall(function() GROUND:RemoveMapStatus('light_rain') end)
+  pcall(function() GROUND:RemoveMapStatus('fog') end)
   pcall(function() GROUND:AddMapStatus('blowing_wind') end)
 
   SOUND:PlayBGM('Rising Fear.ogg', false)
@@ -477,9 +494,15 @@ function mount_windswept_guardian_ch_5.SecondPreBossScene()
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['MWG_011'], hero:GetDisplayName()))
   -- "Cette fois, on le terrasse. Promis, [hero]."
 
+  pcall(function() GROUND:RemoveMapStatus('heavy_rain') end)
+  pcall(function() GROUND:RemoveMapStatus('falling_rain') end)
+  pcall(function() GROUND:RemoveMapStatus('light_rain') end)
+  pcall(function() GROUND:RemoveMapStatus('fog') end)
+  pcall(function() GROUND:RemoveMapStatus('blowing_wind') end)
   COMMON.BossTransition()
   GAME:CutsceneMode(false)
-  PrintInfo("[NREPROBE][transition] mount_windswept_guardian_ch_5.lua ContinueDungeon('mount_windswept', 2)") GAME:ContinueDungeon("mount_windswept", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  PrintInfo("[TORNADUS_RUNTIME] BATTLE_INITIALIZATION retry zone=mount_windswept segment=2 floor=0")
+  GAME:ContinueDungeon("mount_windswept", 2, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 -- Corps de la cinematique, appele sous pcall par DefeatedBoss() : toute erreur

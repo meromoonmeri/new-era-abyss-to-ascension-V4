@@ -41,8 +41,22 @@ function mount_windswept_guardian.Init(map)
 end
 
 function mount_windswept_guardian.Enter(map)
+  -- Sonde opt-in: l'appel est volontairement effectue depuis la coroutine
+  -- Ground.Enter, seul contexte dans lequel ContinueDungeon peut yield.
+  if os.getenv('PMDO_GROUND_VALIDATOR') == 'tornadus_battle' then
+    PrintInfo('[TORNADUS_RUNTIME] ground coroutine -> ContinueDungeon segment=2')
+    GAME:CutsceneMode(false)
+    GAME:ContinueDungeon('mount_windswept',2,0,0,RogueEssence.Data.GameProgress.DungeonStakes.Risk,true,false)
+    return
+  end
   if SV.RuntimeGroundAudit and SV.RuntimeGroundAudit.Active then GAME:CutsceneMode(false); GAME:FadeIn(1); return end
   nre_snap('mount_windswept_guardian.Enter')
+  -- Purge explicite : cette sequence ne doit jamais afficher pluie ou fog,
+  -- y compris apres retry, sauvegarde ou retour post-combat.
+  pcall(function() GROUND:RemoveMapStatus('heavy_rain') end)
+  pcall(function() GROUND:RemoveMapStatus('falling_rain') end)
+  pcall(function() GROUND:RemoveMapStatus('light_rain') end)
+  pcall(function() GROUND:RemoveMapStatus('fog') end)
 	if SV.Chapter5.MountGuardianDefeated == nil then SV.Chapter5.MountGuardianDefeated = false end
 	if SV.Chapter5.MountGuardianLost == nil then SV.Chapter5.MountGuardianLost = false end
 	if SV.Chapter5.MountGuardianSeen == nil then SV.Chapter5.MountGuardianSeen = false end

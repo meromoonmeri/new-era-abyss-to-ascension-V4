@@ -1,4 +1,4 @@
-﻿{
+{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Dungeon.Map, RogueEssence",
@@ -1705,51 +1705,34 @@
             "StartLocs": [
               {
                 "Loc": {
-                  "X": 6,
-                  "Y": 10
+                  "X": 0,
+                  "Y": 0
                 },
                 "Dir": 4
               },
               {
                 "Loc": {
-                  "X": 5,
-                  "Y": 10
+                  "X": -1,
+                  "Y": 1
                 },
                 "Dir": 4
               },
               {
                 "Loc": {
-                  "X": 4,
-                  "Y": 10
+                  "X": 1,
+                  "Y": 1
                 },
                 "Dir": 4
               },
               {
                 "Loc": {
-                  "X": 4,
-                  "Y": 11
+                  "X": 0,
+                  "Y": 2
                 },
                 "Dir": 4
               }
             ],
-            "Positions": [
-              {
-                "X": 6,
-                "Y": 10
-              },
-              {
-                "X": 5,
-                "Y": 10
-              },
-              {
-                "X": 4,
-                "Y": 10
-              },
-              {
-                "X": 4,
-                "Y": 11
-              }
-            ]
+            "Positions": null
           }
         },
         {
