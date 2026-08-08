@@ -103227,10 +103227,10 @@
               "Y": 0
             },
             "Collider": {
-              "X": 408,
-              "Y": 204,
-              "Width": 36,
-              "Height": 44
+              "X": 384,
+              "Y": 184,
+              "Width": 24,
+              "Height": 24
             }
           }
         ],
@@ -103519,6 +103519,20 @@
               "Y": 200,
               "Width": 16,
               "Height": 16
+            }
+          },
+          {
+            "EntName": "Dungeon_Entrance_Marker",
+            "Direction": 4,
+            "EntEnabled": true,
+            "EntOrder": 0,
+            "InteractOrder": 0,
+            "triggerType": 0,
+            "Collider": {
+              "X": 384,
+              "Y": 184,
+              "Width": 24,
+              "Height": 24
             }
           }
         ]
