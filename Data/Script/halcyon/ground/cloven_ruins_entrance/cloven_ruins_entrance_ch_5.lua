@@ -43,6 +43,7 @@ require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
+local TeamDazzlingAegis = require 'halcyon.TeamDazzlingAegis'
 require 'halcyon.BossFX'
 -- VoiceVisions.Nausea : le sursaut du reveil apres le reve de Gardevoir.
 -- Meme dependance que le Mont Venteux (mount_windswept_entrance_ch_5.lua:5).
@@ -1534,7 +1535,10 @@ function cloven_ruins_entrance_ch_5.MorningBody()
   end
   GAME:MoveCamera(CX, CY + 8, 1, false)
   GAME:FadeIn(45)
-  Silence(28)
+  Silence(18)
+  -- Team Dazzling remplace définitivement Team Charm dans le présent de Cloven Ruin.
+  TeamDazzlingAegis.GatheringAppearance()
+  Silence(18)
 
   -- Tout le monde se tourne vers le Maitre de Guilde, en decale.
   Listen(t.penticus, {hero, partner, plum, t.phileas, t.rin, t.coco, t.hyko,

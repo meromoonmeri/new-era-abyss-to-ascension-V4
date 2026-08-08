@@ -586,20 +586,17 @@ local function DefeatedBossBody()
   -- combat. Elle arrive par le sud (bas de la plateforme, y 420-440).
   local tropius, noctowl, girafarig, breloom, audino, snubbull, growlithe, zigzagoon =
     CharacterEssentials.MakeCharactersFromList({
-      {'Tropius',    120, 248, Direction.Up},
-      {'Noctowl',    136, 248, Direction.Up},
-      {'Girafarig',  152, 248, Direction.Up},
-      {'Breloom',    168, 248, Direction.Up},
-      {'Audino',     184, 248, Direction.Up},
-      {'Snubbull',   200, 248, Direction.Up},
-      {'Growlithe',  216, 248, Direction.Up},
-      {'Zigzagoon',  232, 248, Direction.Up},
+      -- Seule l'équipe d'expédition rejoint le sommet. Les spectateurs de
+      -- Metano restent en ville : quatre silhouettes espacées en demi-cercle.
+      {'Tropius',    120, 248, Direction.UpRight},
+      {'Noctowl',    144, 256, Direction.UpRight},
+      {'Girafarig',  208, 256, Direction.UpLeft},
+      {'Breloom',    232, 248, Direction.UpLeft},
     })
 
-  local group = {tropius, noctowl, girafarig, breloom, audino, snubbull, growlithe, zigzagoon}
+  local group = {tropius, noctowl, girafarig, breloom}
   local destinations = {
-    {120,248}, {136,248}, {152,248}, {168,248},
-    {184,248}, {200,248}, {216,248}, {232,248}
+    {120,248}, {144,256}, {208,256}, {232,248}
   }
   for _, c in ipairs(group) do if c ~= nil then GROUND:Hide(c.EntName) end end
   -- Arrivée en deux rangs. Les téléportations espacées sont déterministes :
