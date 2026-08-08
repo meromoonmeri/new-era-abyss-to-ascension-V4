@@ -15,6 +15,7 @@ require 'halcyon.CharacterEssentials'
 require 'halcyon.ground.cloven_ruins_entrance.cloven_ruins_entrance_ch_5'
 require 'halcyon.RuinesZarbi'
 require 'halcyon.RuinesRenforts'
+local TeamDazzlingAegis = require 'halcyon.TeamDazzlingAegis'
 
 local cloven_ruins_entrance = {}
 
@@ -101,6 +102,10 @@ function cloven_ruins_entrance.PlotScripting()
   if SV.Ruines ~= nil and SV.Ruines.VaincuRegigigas and not SV.Ruines.TourRevelee then
     cloven_ruins_entrance_ch_5.SetupGround(true)
     pcall(function() RuinesRenforts.Revelation() end)
+    -- Après la fermeture d'Aegis Cave seulement : Team Dazzling prend le
+    -- relais narratif et amorce Sinister Woods. Aucun membre de Team Charm
+    -- n'est réutilisé dans la distribution présente de New Era.
+    pcall(function() TeamDazzlingAegis.Aftermath() end)
     return
   end
 

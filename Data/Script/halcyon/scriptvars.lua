@@ -975,6 +975,7 @@ SV.Chapter5 =
 SV.Chapter6 = 
 {
 	-- Chapter 6 starts only after the chapter boundary sets ChapterProgression.Chapter to 6.
+	DazzlingAegisAftermath = false,--teaser joué après Regigigas, jamais avant/dans Aegis Cave
 	DazzlingIntroPlayed = false,
 	MissionAvailable = false,
 	MissionAccepted = false,
