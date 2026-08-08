@@ -136342,8 +136342,8 @@
             "Direction": 4,
             "EntEnabled": true,
             "Collider": {
-              "X": 184,
-              "Y": 376,
+              "X": 152,
+              "Y": 248,
               "Width": 16,
               "Height": 16
             },
@@ -136357,8 +136357,8 @@
             "Direction": 4,
             "EntEnabled": true,
             "Collider": {
-              "X": 160,
-              "Y": 392,
+              "X": 200,
+              "Y": 248,
               "Width": 16,
               "Height": 16
             },
@@ -136372,8 +136372,8 @@
             "Direction": 4,
             "EntEnabled": true,
             "Collider": {
-              "X": 216,
-              "Y": 392,
+              "X": 224,
+              "Y": 248,
               "Width": 16,
               "Height": 16
             },
@@ -136390,8 +136390,8 @@
             "InteractOrder": 0,
             "triggerType": 0,
             "Collider": {
-              "X": 184,
-              "Y": 280,
+              "X": 176,
+              "Y": 248,
               "Width": 16,
               "Height": 16
             }
@@ -136404,8 +136404,8 @@
             "InteractOrder": 0,
             "triggerType": 0,
             "Collider": {
-              "X": 184,
-              "Y": 216,
+              "X": 176,
+              "Y": 136,
               "Width": 16,
               "Height": 16
             }
@@ -136418,8 +136418,8 @@
             "InteractOrder": 0,
             "triggerType": 0,
             "Collider": {
-              "X": 184,
-              "Y": 264,
+              "X": 176,
+              "Y": 192,
               "Width": 16,
               "Height": 16
             }
@@ -136432,8 +136432,8 @@
             "InteractOrder": 0,
             "triggerType": 0,
             "Collider": {
-              "X": 184,
-              "Y": 216,
+              "X": 176,
+              "Y": 136,
               "Width": 16,
               "Height": 16
             }

@@ -15,7 +15,7 @@ function mt_freeze.ExitSegment(zone,result,rescue,segmentID,mapID)
     GeneralFunctions.EndDungeonRun(result,'master_zone',-1,1,0,true,true); return
   end
   if segmentID==0 then
-    SV.CanonicalDungeons.Pending='mt_freeze_mid'; GAME:EnterGroundMap('d11p02','Main_Entrance_Marker')
+    SV.CanonicalDungeons.Pending='mt_freeze_mid'; GAME:EnterGroundMap('mt_freeze_midpoint','Main_Entrance_Marker')
   else
     SV.CanonicalDungeons.Pending='mt_freeze_summit'; GAME:EnterGroundMap('d11p03','Main_Entrance_Marker')
   end

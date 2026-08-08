@@ -1,4 +1,4 @@
-{
+﻿{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -10600,7 +10600,8 @@
     "GroundMaps": [
       "foret_givree_oree",
       "d10p02",
-      "d10p03"
+      "d10p03",
+      "frosty_forest_midpoint"
     ]
   }
 }

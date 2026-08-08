@@ -27,7 +27,7 @@ function mt_blaze.ExitSegment(zone, result, rescue, segmentID, mapID)
   end
   if segmentID == 0 then
     SV.CanonicalDungeons.Pending = 'mt_blaze_mid'
-    GAME:EnterGroundMap('d09p02', 'Main_Entrance_Marker')
+    GAME:EnterGroundMap('mt_blaze_midpoint', 'Main_Entrance_Marker')
   elseif segmentID == 1 then
     SV.CanonicalDungeons.Pending = 'mt_blaze_summit'
     GAME:EnterGroundMap('d09p03', 'Main_Entrance_Marker')

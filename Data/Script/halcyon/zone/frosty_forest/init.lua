@@ -15,7 +15,7 @@ function frosty_forest.ExitSegment(zone,result,rescue,segmentID,mapID)
     GeneralFunctions.EndDungeonRun(result,'master_zone',-1,1,0,true,true); return
   end
   if segmentID==0 then
-    SV.CanonicalDungeons.Pending='frosty_forest_mid'; GAME:EnterGroundMap('d10p02','Main_Entrance_Marker')
+    SV.CanonicalDungeons.Pending='frosty_forest_mid'; GAME:EnterGroundMap('frosty_forest_midpoint','Main_Entrance_Marker')
   elseif segmentID==1 then
     SV.CanonicalDungeons.Pending='frosty_forest_summit'; GAME:EnterGroundMap('d10p03','Main_Entrance_Marker')
   else

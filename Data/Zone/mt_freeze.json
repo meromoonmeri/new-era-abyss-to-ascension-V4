@@ -1,4 +1,4 @@
-{
+﻿{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -10546,7 +10546,8 @@
     "GroundMaps": [
       "mont_gele_pied",
       "d11p02",
-      "d11p03"
+      "d11p03",
+      "mt_freeze_midpoint"
     ]
   }
 }

@@ -286,4 +286,12 @@ if __name__ == '__main__':
         print('WARN: aucune zone libre 2x2 trouvée, entry au centre')
     with open(os.path.join(MAP_DIR, name + '.rsmap'), 'w', encoding='utf-8-sig') as f:
         json.dump(gab, f, ensure_ascii=False, indent=2)
-    print(f'écrit Data/Map/{name}.rsmap')
+    # CRITIQUE : GraphicsManager ne lit pas les offsets dans le .tile au
+    # runtime; il utilise Content/Tile/index.idx. Toute planche régénérée doit
+    # donc remplacer son nœud d'index dans la même transaction, sinon PMDO lit
+    # les anciens offsets et Texture2D.FromStream échoue sur des PNG pourtant
+    # valides.
+    from inject_tile_index import injecter
+    for sheet_name in sheets:
+        injecter(ROOT, sheet_name)
+    print(f'écrit Data/Map/{name}.rsmap et indexé {len(sheets)} planche(s)')
