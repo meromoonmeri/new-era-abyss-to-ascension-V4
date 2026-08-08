@@ -9,6 +9,7 @@ PAIRS={
  'gloomy_forest_boss':'sinister_woods_clearing',
  'gloomy_forest_miniboss':'gloomy_forest_miniboss',
  'mount_windswept_guardian':'mount_windswept_guardian',
+ 'magma_cavern_pit':'fosse_ardente',
  'vast_steppe_guardian':'vast_steppe_guardian',
  'searing_crucible':'searing_crucible',
  'tour_ciel_sommet':'tour_ciel_sommet',
