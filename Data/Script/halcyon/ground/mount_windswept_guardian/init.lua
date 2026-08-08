@@ -43,10 +43,16 @@ end
 function mount_windswept_guardian.Enter(map)
   -- Sonde opt-in: l'appel est volontairement effectue depuis la coroutine
   -- Ground.Enter, seul contexte dans lequel ContinueDungeon peut yield.
-  if os.getenv('PMDO_GROUND_VALIDATOR') == 'tornadus_battle' then
-    PrintInfo('[TORNADUS_RUNTIME] ground coroutine -> ContinueDungeon segment=2')
+  local probe = os.getenv('PMDO_GROUND_VALIDATOR')
+  if probe == 'tornadus_battle' or (probe ~= nil and string.sub(probe,1,6) == 'arena:') then
+    local zone, seg = 'mount_windswept', 2
+    if probe ~= 'tornadus_battle' then
+      zone, seg = string.match(probe, '^arena:([^:]+):(%d+)$')
+      seg = tonumber(seg)
+    end
+    PrintInfo('[ARENA_RUNTIME] ground coroutine -> ContinueDungeon '..tostring(zone)..' segment='..tostring(seg))
     GAME:CutsceneMode(false)
-    GAME:ContinueDungeon('mount_windswept',2,0,0,RogueEssence.Data.GameProgress.DungeonStakes.Risk,true,false)
+    GAME:ContinueDungeon(zone,seg,0,0,RogueEssence.Data.GameProgress.DungeonStakes.Risk,true,false)
     return
   end
   if SV.RuntimeGroundAudit and SV.RuntimeGroundAudit.Active then GAME:CutsceneMode(false); GAME:FadeIn(1); return end
@@ -83,28 +89,19 @@ function mount_windswept_guardian.Enter(map)
     return
   end
 
-  -- SORTIE GARANTIE : cette carte est généralement chargée depuis un écran
-  -- noir. Toute erreur avant le FadeIn interne laissait donc le joueur dans
-  -- le noir, manette bloquée. Le dispatch entier est protégé et restitue
-  -- toujours caméra, CutsceneMode et affichage.
-  local ok, err = pcall(function()
-    if SV.Chapter5.MountGuardianDefeated then
-      SV.Chapter5.MountGuardianDefeated = false
-      mount_windswept_guardian_ch_5.DefeatedBoss()
-    elseif SV.Chapter5.MountGuardianLost then
-      SV.Chapter5.MountGuardianLost = false
-      mount_windswept_guardian_ch_5.DiedToBoss()
-    elseif SV.Chapter5.MountGuardianSeen then
-      mount_windswept_guardian_ch_5.SecondPreBossScene()
-    else
-      mount_windswept_guardian_ch_5.FirstPreBossScene()
-    end
-  end)
-  if not ok then
-    PrintInfo('[mount_windswept_guardian] scene interrompue : '..tostring(err))
-    pcall(function() GAME:MoveCamera(176,196,1,false) end)
-    pcall(function() GAME:CutsceneMode(false) end)
-    pcall(function() GAME:FadeIn(20) end)
+  -- Ne pas envelopper le dispatch dans pcall : une faute de scène doit être
+  -- visible dans le journal runtime et corrigée, jamais transformée en faux
+  -- retour au gameplay sans combat.
+  if SV.Chapter5.MountGuardianDefeated then
+    SV.Chapter5.MountGuardianDefeated = false
+    mount_windswept_guardian_ch_5.DefeatedBoss()
+  elseif SV.Chapter5.MountGuardianLost then
+    SV.Chapter5.MountGuardianLost = false
+    mount_windswept_guardian_ch_5.DiedToBoss()
+  elseif SV.Chapter5.MountGuardianSeen then
+    mount_windswept_guardian_ch_5.SecondPreBossScene()
+  else
+    mount_windswept_guardian_ch_5.FirstPreBossScene()
   end
 end
 

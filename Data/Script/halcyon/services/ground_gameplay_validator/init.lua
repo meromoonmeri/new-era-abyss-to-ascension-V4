@@ -14,15 +14,15 @@ local function emit(s)
  PrintInfo('[GROUND_VALIDATOR] '..s)
  local f=io.open('/tmp/ground_gameplay_validator.jsonl','a');if f then f:write(s..'\n');f:flush();f:close() end
 end
-function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle');self.idx=0;self.entered=false;self.busy=false end
+function V:initialize() BaseService.initialize(self);self.mode=os.getenv('PMDO_GROUND_VALIDATOR');self.enabled=(self.mode=='1' or self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:');self.idx=0;self.entered=false;self.busy=false end
 function V:begin()
  if not self.enabled or self.idx>0 then return end
  SV.RuntimeGroundAudit=SV.RuntimeGroundAudit or {};SV.RuntimeGroundAudit.Active=true
  local f=io.open('/tmp/ground_gameplay_validator.jsonl','w');if f then f:close() end
- if self.mode=='tornadus_battle' then
+ if self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:' then
   self.idx=-1
   SV.Chapter5=SV.Chapter5 or {};SV.Chapter5.MountGuardianSeen=true
-  emit('{"event":"tornadus_battle_begin","zone":"mount_windswept","segment":2,"floor":0}')
+  emit('{"event":"arena_probe_begin","mode":"'..self.mode..'"}')
   -- EnterDungeon doit etre appele depuis la coroutine du Ground, pas depuis
   -- l'evenement service NewGame (sinon NLua: yield outside a coroutine).
   GAME:EnterZone('mount_windswept',-1,2,0)
@@ -31,32 +31,62 @@ function V:begin()
  self.idx=1;emit('{"event":"begin","count":'..#PILOT..'}');GAME:EnterZone(PILOT[self.idx].zone,-1,PILOT[self.idx].idx,0)
 end
 function V:OnDungeonFloorEnter()
- if not self.enabled or self.mode~='tornadus_battle' then return end
+ if not self.enabled or (self.mode~='tornadus_battle' and string.sub(self.mode or '',1,6)~='arena:') then return end
  local ok,msg=pcall(function()
   local map=_ZONE.CurrentMap
   local foes=map.MapTeams.Count
   local boss=map.MapTeams[0].Players[0]
-  return string.format('{"event":"tornadus_battle_runtime","zone":"%s","segment":%d,"map_teams":%d,"boss_species":"%s","boss_level":%d,"boss_x":%d,"boss_y":%d,"player_control":"DUNGEON_MODE_ENTERED","verdict":"BATTLE_START_PASS"}',tostring(_ZONE.CurrentZoneID),_ZONE.CurrentMapID.Segment,foes,tostring(boss.CurrentForm.Species),boss.Level,boss.CharLoc.X,boss.CharLoc.Y)
+  return string.format('{"event":"arena_battle_runtime","zone":"%s","segment":%d,"map_teams":%d,"boss_species":"%s","boss_level":%d,"boss_x":%d,"boss_y":%d,"player_control":"DUNGEON_MODE_ENTERED","verdict":"BATTLE_START_PASS"}',tostring(_ZONE.CurrentZoneID),_ZONE.CurrentMapID.Segment,foes,tostring(boss.CurrentForm.Species),boss.Level,boss.CharLoc.X,boss.CharLoc.Y)
  end)
- emit(ok and msg or ('{"event":"tornadus_battle_runtime","verdict":"RUNTIME_FAIL","error":"'..tostring(msg):gsub('"','\\"')..'"}'))
+ emit(ok and msg or ('{"event":"arena_battle_runtime","verdict":"RUNTIME_FAIL","error":"'..tostring(msg):gsub('"','\\"')..'"}'))
 end
 function V:OnGroundMapEnter()
- if not self.enabled or self.mode=='tornadus_battle' or self.busy then return end
- self.busy=true;self:validate();self.idx=self.idx+1
- if self.idx>#PILOT then SV.RuntimeGroundAudit.Active=false;emit('{"event":"end"}')
- else GAME:EnterZone(PILOT[self.idx].zone,-1,PILOT[self.idx].idx,0) end
- self.busy=false
+ if not self.enabled or (self.mode=='tornadus_battle' or string.sub(self.mode or '',1,6)=='arena:') or self.busy then return end
+ -- GroundMapEnter est synchrone. Le travail qui yield est reporte dans Update.
+ self.pending=false;self.busy=true
+ emit('{"event":"ground_entered","ground":"'..PILOT[self.idx].id..'","scheduler":"TASK_BRANCH"}')
+ -- Conserver la référence évite que la branche soit abandonnée après le callback.
+ self.task=TASK:BranchCoroutine(function()
+   local ok,err=xpcall(function()self:validate_async()end,debug.traceback)
+   if not ok then emit('{"ground":"'..tostring(PILOT[self.idx] and PILOT[self.idx].id)..'","verdict":"RUNTIME_FAIL","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}') end
+   self.idx=self.idx+1
+   if self.idx>#PILOT then SV.RuntimeGroundAudit.Active=false;emit('{"event":"end"}')
+   else GAME:EnterZone(PILOT[self.idx].zone,-1,PILOT[self.idx].idx,0) end
+   self.busy=false;self.task=nil
+ end)
 end
-function V:validate()
+function V:validate_async()
  local id=PILOT[self.idx].id;local map=safe(function()return GAME:GetCurrentGround()end,nil);local hero=CH('PLAYER')
  if not map or not hero then emit('{"ground":"'..id..'","verdict":"RUNTIME_FAIL","error":"map_or_hero_nil"}');return end
+ GAME:WaitFrames(12)
  local x=safe(function()return hero.Position.X end,-1);local y=safe(function()return hero.Position.Y end,-1)
- local beforeX,beforeY=x,y;local moves={}
+ local moves={};local deltas={}
  for _,d in ipairs({Direction.Up,Direction.Right,Direction.Down,Direction.Left}) do
-  pcall(function()GROUND:MoveInDirection(hero,d,8,false,2)end);local nx=safe(function()return hero.Position.X end,x);local ny=safe(function()return hero.Position.Y end,y);moves[#moves+1]=(nx~=x or ny~=y) and 1 or 0;pcall(function()GROUND:TeleportTo(hero,x,y,Direction.Down)end)
+  GROUND:MoveInDirection(hero,d,8,false,2)
+  GAME:WaitFrames(2)
+  local nx=safe(function()return hero.Position.X end,x);local ny=safe(function()return hero.Position.Y end,y)
+  moves[#moves+1]=(nx~=x or ny~=y) and 1 or 0
+  deltas[#deltas+1]=string.format('"%d,%d"',nx-x,ny-y)
+  GROUND:TeleportTo(hero,x,y,Direction.Down);GAME:WaitFrames(2)
  end
- local movable=(moves[1]+moves[2]+moves[3]+moves[4])>0
- emit(string.format('{"ground":"%s","load":"PASS","spawn":{"x":%d,"y":%d},"move_dirs":[%d,%d,%d,%d],"movement_probe":"INCONCLUSIVE_SYNC_CONTEXT","verdict":"MANUAL_REVIEW"}',id,beforeX,beforeY,moves[1],moves[2],moves[3],moves[4]))
+ local count=moves[1]+moves[2]+moves[3]+moves[4]
+ local verdict=count>0 and 'SAFE' or 'NEEDS_REPAIR'
+ local probe=count>0 and 'MOVEMENT_PASS' or 'SPAWN_ISOLATED'
+ emit(string.format('{"ground":"%s","load":"LOAD_PASS","spawn":{"x":%d,"y":%d},"move_dirs":[%d,%d,%d,%d],"move_deltas":[%s],"movement_probe":"%s","verdict":"%s"}',id,x,y,moves[1],moves[2],moves[3],moves[4],table.concat(deltas,','),probe,verdict))
+end
+function V:OnUpdate(gtime)
+ if not self.enabled or not self.pending or self.busy then return end
+ self.pending=false;self.busy=true
+ -- Le callback Update est synchrone, mais il peut amorcer une vraie coroutine
+ -- TASK qui sera reprise par le moteur aux frames suivantes.
+ TASK:BranchCoroutine(function()
+   local ok,err=xpcall(function()self:validate_async()end,debug.traceback)
+   if not ok then emit('{"ground":"'..tostring(PILOT[self.idx] and PILOT[self.idx].id)..'","verdict":"RUNTIME_FAIL","error":"'..tostring(err):gsub('"','\\"'):gsub('\n',' | ')..'"}') end
+   self.idx=self.idx+1
+   if self.idx>#PILOT then SV.RuntimeGroundAudit.Active=false;emit('{"event":"end"}')
+   else GAME:EnterZone(PILOT[self.idx].zone,-1,PILOT[self.idx].idx,0) end
+   self.busy=false
+ end)
 end
 function V:Update(gtime) while true do coroutine.yield() end end
 function V:OnInit()
@@ -68,6 +98,7 @@ end
 function V:OnNewGame()self:begin()end
 function V:OnLoadSavedData()self:begin()end
 function V:Subscribe(med)
+ med:Subscribe('GroundGameplayValidator',EngineServiceEvents.Update,function(_,args)self.OnUpdate(self,args)end)
  med:Subscribe('GroundGameplayValidator',EngineServiceEvents.Init,function()self.OnInit(self)end)
  med:Subscribe('GroundGameplayValidator',EngineServiceEvents.NewGame,function()self.OnNewGame(self)end)
  med:Subscribe('GroundGameplayValidator',EngineServiceEvents.LoadSavedData,function()self.OnLoadSavedData(self)end)
