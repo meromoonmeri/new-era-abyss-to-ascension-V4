@@ -1,0 +1,2345 @@
+{
+  "coverage": {
+    "zones": 50,
+    "dungeons": 50,
+    "structures": 132,
+    "segments": 132,
+    "floors": 804,
+    "grounds": 162,
+    "tile_sheets": 635,
+    "frames": 730378,
+    "tile_references": 730378,
+    "markers": 393,
+    "spawners": 211,
+    "entities": 448,
+    "transitions": 295,
+    "bosses": 181,
+    "lua_files": 512,
+    "cinematic_candidate_files": 329
+  },
+  "grounds": [
+    {
+      "ground": "a02p01",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        60,
+        45
+      ]
+    },
+    {
+      "ground": "a02p02",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        33,
+        24
+      ]
+    },
+    {
+      "ground": "a02p03",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        45,
+        36
+      ]
+    },
+    {
+      "ground": "a02p04",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        33,
+        48
+      ]
+    },
+    {
+      "ground": "a04p01",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        39,
+        75
+      ]
+    },
+    {
+      "ground": "a05p03",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        39,
+        30
+      ]
+    },
+    {
+      "ground": "abime_tempetes",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        66,
+        63
+      ]
+    },
+    {
+      "ground": "altere_pond",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze",
+        "relic_forest"
+      ],
+      "dimensions": [
+        116,
+        96
+      ]
+    },
+    {
+      "ground": "antre_occident",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        45,
+        42
+      ]
+    },
+    {
+      "ground": "apricorn_glade",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "apricorn_grove",
+        "master_zone"
+      ],
+      "dimensions": [
+        73,
+        69
+      ]
+    },
+    {
+      "ground": "apricorn_grove_entrance",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "apricorn_grove",
+        "master_zone"
+      ],
+      "dimensions": [
+        43,
+        38
+      ]
+    },
+    {
+      "ground": "arc_palier_celeste",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        57,
+        57
+      ]
+    },
+    {
+      "ground": "arc_parvis_celeste",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        51,
+        36
+      ]
+    },
+    {
+      "ground": "arc_tour_ciel_sommet",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        69,
+        75
+      ]
+    },
+    {
+      "ground": "arene_clairiere_secrete",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "arene_hautes_plaines",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "arene_trone_magma",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "base_camp",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "normal_maze"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "base_camp_2",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "bois_des_plaintes",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        45,
+        42
+      ]
+    },
+    {
+      "ground": "bourg_comptoir",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        84,
+        63
+      ]
+    },
+    {
+      "ground": "canyon_camp",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "normal_maze"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "cap_dents_mer",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
+      ],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        63,
+        48
+      ]
+    },
+    {
+      "ground": "carrefour_assemblee",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        54,
+        57
+      ]
+    },
+    {
+      "ground": "carrefour_nord",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "SPAWNER_OUT_OF_BOUNDS:None",
+        "SPAWNER_OUT_OF_BOUNDS:None",
+        "SPAWNER_OUT_OF_BOUNDS:None"
+      ],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        54,
+        57
+      ]
+    },
+    {
+      "ground": "carrefour_sud",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
+      ],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        54,
+        54
+      ]
+    },
+    {
+      "ground": "carriere_magnetique",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "carte_chapitre_v2",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "ORPHAN_GROUND"
+      ],
+      "owners": [],
+      "dimensions": [
+        16,
+        16
+      ]
+    },
+    {
+      "ground": "chambre_agee_o",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "champ_braises",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        45,
+        45
+      ]
+    },
+    {
+      "ground": "champ_sacre",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "champ_vent_boreal",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        45,
+        42
+      ]
+    },
+    {
+      "ground": "cliff_camp",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "normal_maze"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "cloven_ruins_entrance",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "cloven_ruins",
+        "master_zone"
+      ],
+      "dimensions": [
+        72,
+        51
+      ]
+    },
+    {
+      "ground": "cloven_ruins_midpoint",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "MARKER_OUT_OF_BOUNDS:Start",
+        "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+      ],
+      "owners": [
+        "cloven_ruins",
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        20
+      ]
+    },
+    {
+      "ground": "cloven_ruins_miniboss",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+      ],
+      "owners": [
+        "cloven_ruins",
+        "master_zone"
+      ],
+      "dimensions": [
+        19,
+        19
+      ]
+    },
+    {
+      "ground": "colline_anciens",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        30,
+        20
+      ]
+    },
+    {
+      "ground": "colline_sans_lumiere",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker"
+      ],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        32,
+        16
+      ]
+    },
+    {
+      "ground": "couloir_legendes",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "cretes_boreales",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        63,
+        60
+      ]
+    },
+    {
+      "ground": "creux_ombres_scelle",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "crooked_cavern_entrance",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "crooked_cavern",
+        "master_zone"
+      ],
+      "dimensions": [
+        40,
+        30
+      ]
+    },
+    {
+      "ground": "crooked_cavern_midpoint",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "MARKER_OUT_OF_BOUNDS:entrance_south",
+        "MARKER_OUT_OF_BOUNDS:entrance_center",
+        "MARKER_OUT_OF_BOUNDS:entrance_north",
+        "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker",
+        "MARKER_OUT_OF_BOUNDS:entrance",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+      ],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        19,
+        19
+      ]
+    },
+    {
+      "ground": "crooked_den",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "crooked_cavern",
+        "master_zone"
+      ],
+      "dimensions": [
+        45,
+        54
+      ]
+    },
+    {
+      "ground": "d09p02",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "mt_blaze"
+      ],
+      "dimensions": [
+        57,
+        57
+      ]
+    },
+    {
+      "ground": "d09p03",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "mt_blaze"
+      ],
+      "dimensions": [
+        69,
+        69
+      ]
+    },
+    {
+      "ground": "d10p02",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "frosty_forest",
+        "master_zone"
+      ],
+      "dimensions": [
+        57,
+        57
+      ]
+    },
+    {
+      "ground": "d10p03",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "frosty_forest",
+        "master_zone"
+      ],
+      "dimensions": [
+        66,
+        63
+      ]
+    },
+    {
+      "ground": "d11p02",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "mt_freeze"
+      ],
+      "dimensions": [
+        57,
+        57
+      ]
+    },
+    {
+      "ground": "d11p03",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "mt_freeze"
+      ],
+      "dimensions": [
+        63,
+        63
+      ]
+    },
+    {
+      "ground": "dojo_ossatueur",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "MARKER_OUT_OF_BOUNDS:MarowakDojoDungeonEntranceMarker",
+        "MARKER_OUT_OF_BOUNDS:MarowakDojoExitMarker",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
+      ],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        21,
+        18
+      ]
+    },
+    {
+      "ground": "ecran_titre_v2",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "ORPHAN_GROUND"
+      ],
+      "owners": [],
+      "dimensions": [
+        16,
+        16
+      ]
+    },
+    {
+      "ground": "escalier_origine",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "final_stop",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "normal_maze"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "first_core_location",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        69,
+        63
+      ]
+    },
+    {
+      "ground": "fleche_reliques_courroux",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "forest_camp",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "normal_maze"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "foret_givree_oree",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "frosty_forest",
+        "master_zone"
+      ],
+      "dimensions": [
+        33,
+        42
+      ]
+    },
+    {
+      "ground": "fosse_ardente",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "magma_cavern",
+        "master_zone"
+      ],
+      "dimensions": [
+        63,
+        63
+      ]
+    },
+    {
+      "ground": "fosse_argentee",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        69,
+        75
+      ]
+    },
+    {
+      "ground": "fosse_volcanique",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "frosty_forest_midpoint",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "frosty_forest"
+      ],
+      "dimensions": [
+        57,
+        57
+      ]
+    },
+    {
+      "ground": "genesis_vision",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        30,
+        40
+      ]
+    },
+    {
+      "ground": "gloomy_forest_entrance",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "gloomy_forest",
+        "master_zone"
+      ],
+      "dimensions": [
+        57,
+        48
+      ]
+    },
+    {
+      "ground": "gloomy_forest_midpoint",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "MARKER_OUT_OF_BOUNDS:entrance_south",
+        "MARKER_OUT_OF_BOUNDS:entrance_center",
+        "MARKER_OUT_OF_BOUNDS:entrance_north",
+        "MARKER_OUT_OF_BOUNDS:entrance_tent",
+        "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker",
+        "MARKER_OUT_OF_BOUNDS:entrance",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+      ],
+      "owners": [
+        "gloomy_forest",
+        "master_zone"
+      ],
+      "dimensions": [
+        38,
+        30
+      ]
+    },
+    {
+      "ground": "gloomy_forest_miniboss",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+      ],
+      "owners": [
+        "gloomy_forest",
+        "master_zone"
+      ],
+      "dimensions": [
+        19,
+        19
+      ]
+    },
+    {
+      "ground": "gorge_ardente_coeur",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "magma_cavern",
+        "master_zone"
+      ],
+      "dimensions": [
+        57,
+        57
+      ]
+    },
+    {
+      "ground": "gorge_ardente_porte",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "magma_cavern",
+        "master_zone"
+      ],
+      "dimensions": [
+        51,
+        42
+      ]
+    },
+    {
+      "ground": "grotte_cryptique",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "grotte_echos",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "grotte_lazuli_fond",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "lapis_cave",
+        "master_zone"
+      ],
+      "dimensions": [
+        45,
+        36
+      ]
+    },
+    {
+      "ground": "grotte_lazuli_seuil",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "lapis_cave",
+        "master_zone"
+      ],
+      "dimensions": [
+        45,
+        36
+      ]
+    },
+    {
+      "ground": "grotte_rocheuse",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "gue_poulain_autel",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "guild_bedroom_hallway",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        60,
+        32
+      ]
+    },
+    {
+      "ground": "guild_bottom_left_bedroom",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        44,
+        44
+      ]
+    },
+    {
+      "ground": "guild_bottom_right_bedroom",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        44,
+        44
+      ]
+    },
+    {
+      "ground": "guild_dining_room",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        56,
+        36
+      ]
+    },
+    {
+      "ground": "guild_first_floor",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        40,
+        30
+      ]
+    },
+    {
+      "ground": "guild_guildmasters_bedroom",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        44,
+        44
+      ]
+    },
+    {
+      "ground": "guild_guildmasters_room",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        48,
+        48
+      ]
+    },
+    {
+      "ground": "guild_heros_room",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        44,
+        44
+      ]
+    },
+    {
+      "ground": "guild_hut",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "normal_maze"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "guild_path",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "normal_maze"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "guild_second_floor",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        84,
+        56
+      ]
+    },
+    {
+      "ground": "guild_storage_hallway",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        44,
+        48
+      ]
+    },
+    {
+      "ground": "guild_storage_room",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        44,
+        44
+      ]
+    },
+    {
+      "ground": "guild_third_floor_lobby",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        100,
+        56
+      ]
+    },
+    {
+      "ground": "guild_top_left_bedroom",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        44,
+        44
+      ]
+    },
+    {
+      "ground": "guild_top_right_bedroom",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        44,
+        44
+      ]
+    },
+    {
+      "ground": "guilde_parvis",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "MARKER_OUT_OF_BOUNDS:GuildEntranceMarker",
+        "MARKER_OUT_OF_BOUNDS:CrossRoadsEntranceMarker",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3",
+        "SPAWNER_OUT_OF_BOUNDS:PARTNER_SPAWN"
+      ],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        20,
+        17
+      ]
+    },
+    {
+      "ground": "guildmaster_summit",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "normal_maze"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "hero_dream",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "cloven_ruins",
+        "master_zone",
+        "mount_windswept",
+        "searing_tunnel"
+      ],
+      "dimensions": [
+        40,
+        30
+      ]
+    },
+    {
+      "ground": "ile_australe",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "ile_close",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "ile_legendaire",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "illuminant_riverbed_entrance",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "illuminant_riverbed",
+        "master_zone"
+      ],
+      "dimensions": [
+        40,
+        30
+      ]
+    },
+    {
+      "ground": "labo_decrepit",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "lac_courage",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "lac_espoir",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "lac_savoir",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "ledian_dojo",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        51,
+        39
+      ]
+    },
+    {
+      "ground": "luluby_town_evening",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        84,
+        72
+      ]
+    },
+    {
+      "ground": "luluby_town_morning",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        84,
+        72
+      ]
+    },
+    {
+      "ground": "luluby_town_night",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        84,
+        72
+      ]
+    },
+    {
+      "ground": "luminous_spring",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3",
+        "SPAWNER_OUT_OF_BOUNDS:EVO_SUBJECT"
+      ],
+      "owners": [
+        "illuminant_riverbed",
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        25,
+        25
+      ]
+    },
+    {
+      "ground": "metano_altere_transition",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        64,
+        38
+      ]
+    },
+    {
+      "ground": "metano_cafe",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        57,
+        40
+      ]
+    },
+    {
+      "ground": "metano_cave",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        52,
+        46
+      ]
+    },
+    {
+      "ground": "metano_electric_home",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        43,
+        34
+      ]
+    },
+    {
+      "ground": "metano_fire_home",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        43,
+        34
+      ]
+    },
+    {
+      "ground": "metano_grass_home",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        46,
+        35
+      ]
+    },
+    {
+      "ground": "metano_inn",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        56,
+        44
+      ]
+    },
+    {
+      "ground": "metano_normal_home",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        45,
+        35
+      ]
+    },
+    {
+      "ground": "metano_rock_home",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        44,
+        34
+      ]
+    },
+    {
+      "ground": "metano_town",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze",
+        "relic_forest"
+      ],
+      "dimensions": [
+        189,
+        189
+      ]
+    },
+    {
+      "ground": "metano_town_nuit",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        189,
+        189
+      ]
+    },
+    {
+      "ground": "metano_water_home",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        43,
+        34
+      ]
+    },
+    {
+      "ground": "mont_cendre_pied",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "mt_blaze"
+      ],
+      "dimensions": [
+        45,
+        39
+      ]
+    },
+    {
+      "ground": "mont_gele_pied",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "mt_freeze"
+      ],
+      "dimensions": [
+        33,
+        36
+      ]
+    },
+    {
+      "ground": "mont_lune_vue",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "mount_windswept_entrance",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "mount_windswept"
+      ],
+      "dimensions": [
+        69,
+        63
+      ]
+    },
+    {
+      "ground": "mount_windswept_guardian",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "mount_windswept"
+      ],
+      "dimensions": [
+        45,
+        42
+      ]
+    },
+    {
+      "ground": "mount_windswept_midpoint",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "mount_windswept"
+      ],
+      "dimensions": [
+        144,
+        78
+      ]
+    },
+    {
+      "ground": "mount_windswept_miniboss",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "mount_windswept"
+      ],
+      "dimensions": [
+        48,
+        66
+      ]
+    },
+    {
+      "ground": "mt_blaze_midpoint",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "mt_blaze"
+      ],
+      "dimensions": [
+        57,
+        57
+      ]
+    },
+    {
+      "ground": "mt_freeze_midpoint",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "mt_freeze"
+      ],
+      "dimensions": [
+        57,
+        57
+      ]
+    },
+    {
+      "ground": "mt_thunder_midpoint",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "ORPHAN_GROUND",
+        "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+      ],
+      "owners": [],
+      "dimensions": [
+        19,
+        19
+      ]
+    },
+    {
+      "ground": "nef_prisme_est",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "palier_celeste",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "sky_tower"
+      ],
+      "dimensions": [
+        57,
+        57
+      ]
+    },
+    {
+      "ground": "parvis_celeste",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "sky_tower"
+      ],
+      "dimensions": [
+        51,
+        36
+      ]
+    },
+    {
+      "ground": "personality_test",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        40,
+        30
+      ]
+    },
+    {
+      "ground": "plage_lucioles",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "MARKER_OUT_OF_BOUNDS:Entrance",
+        "MARKER_OUT_OF_BOUNDS:CutsceneEntranceA",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2",
+        "SPAWNER_OUT_OF_BOUNDS:PARTNER_SPAWN"
+      ],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        33,
+        16
+      ]
+    },
+    {
+      "ground": "plaines_brulees",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "poisonous_forest_entrance",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "poisonous_forest"
+      ],
+      "dimensions": [
+        30,
+        40
+      ]
+    },
+    {
+      "ground": "poisonous_forest_miniboss",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+      ],
+      "owners": [
+        "poisonous_forest"
+      ],
+      "dimensions": [
+        19,
+        19
+      ]
+    },
+    {
+      "ground": "poisonous_forest_relay",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "MARKER_OUT_OF_BOUNDS:Entrance",
+        "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+      ],
+      "owners": [
+        "poisonous_forest"
+      ],
+      "dimensions": [
+        17,
+        18
+      ]
+    },
+    {
+      "ground": "porte_plaines_foudre",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "post_office",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "MARKER_OUT_OF_BOUNDS:entrance_south",
+        "MARKER_OUT_OF_BOUNDS:entrance_counter",
+        "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker",
+        "MARKER_OUT_OF_BOUNDS:Rescue_Spawn",
+        "MARKER_OUT_OF_BOUNDS:Rescue_Spawn_Partner",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1"
+      ],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        16,
+        13
+      ]
+    },
+    {
+      "ground": "pre_tonnerre",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        57,
+        42
+      ]
+    },
+    {
+      "ground": "recif_genereux",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "relic_forest",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze",
+        "relic_forest"
+      ],
+      "dimensions": [
+        75,
+        75
+      ]
+    },
+    {
+      "ground": "rest_stop",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "normal_maze"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "sanctuaire_voeu",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "wish_cave"
+      ],
+      "dimensions": [
+        45,
+        42
+      ]
+    },
+    {
+      "ground": "searing_crucible",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+      ],
+      "owners": [
+        "master_zone",
+        "searing_tunnel"
+      ],
+      "dimensions": [
+        21,
+        21
+      ]
+    },
+    {
+      "ground": "searing_tunnel_entrance",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "searing_tunnel"
+      ],
+      "dimensions": [
+        73,
+        48
+      ]
+    },
+    {
+      "ground": "searing_tunnel_midpoint",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+      ],
+      "owners": [
+        "master_zone",
+        "searing_tunnel"
+      ],
+      "dimensions": [
+        19,
+        19
+      ]
+    },
+    {
+      "ground": "searing_tunnel_miniboss",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "searing_tunnel"
+      ],
+      "dimensions": [
+        52,
+        68
+      ]
+    },
+    {
+      "ground": "sinister_woods_clearing",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 3)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 4)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 5)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 41)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 42)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 43)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 3)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 4)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 5)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 41)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 42)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 43)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 3)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 4)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 5)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 41)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 42)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 43)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(3, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(3, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(3, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(3, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(3, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(3, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(4, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(4, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(4, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(4, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(4, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(4, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(5, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(5, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(5, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(5, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(5, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(5, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(6, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(6, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(6, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(6, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(6, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(6, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(7, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(7, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(7, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(7, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(7, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(7, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(8, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(8, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(8, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(8, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(8, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(8, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(9, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(9, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(9, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(9, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(9, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(9, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(10, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(10, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(10, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(10, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(10, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(10, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(11, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(11, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(11, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(11, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(11, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(11, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(48, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(48, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(48, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(48, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(48, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(48, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(49, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(49, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(49, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(49, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(49, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(49, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(50, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(50, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(50, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(50, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(50, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(50, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(51, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(51, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(51, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(51, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(51, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(51, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(52, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(52, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(52, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(52, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(52, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(52, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(53, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(53, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(53, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(53, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(53, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(53, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(54, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(54, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(54, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(54, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(54, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(54, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(55, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(55, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(55, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(55, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(55, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(55, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(56, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(56, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(56, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(56, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(56, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(56, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 3)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 4)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 5)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 6)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 7)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 8)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 41)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 42)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 43)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 3)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 4)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 5)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 6)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 7)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 8)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 41)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 42)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 43)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 46)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 0)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 1)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 2)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 3)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 4)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 5)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 6)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 7)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 8)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 41)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 42)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 43)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 44)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 45)",
+        "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 46)"
+      ],
+      "owners": [
+        "gloomy_forest",
+        "master_zone"
+      ],
+      "dimensions": [
+        60,
+        47
+      ]
+    },
+    {
+      "ground": "sommet_aurore",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        66,
+        63
+      ]
+    },
+    {
+      "ground": "t01p01",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        120,
+        90
+      ]
+    },
+    {
+      "ground": "terres_tues_porte",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "test_grounds",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "normal_maze"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "testmap",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        114,
+        136
+      ]
+    },
+    {
+      "ground": "tour_ciel_sommet",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "sky_tower"
+      ],
+      "dimensions": [
+        69,
+        75
+      ]
+    },
+    {
+      "ground": "vallon_malsain_fond",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "vallon_perdu",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        51,
+        45
+      ]
+    },
+    {
+      "ground": "vast_steppe_entrance",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "vast_steppe"
+      ],
+      "dimensions": [
+        64,
+        64
+      ]
+    },
+    {
+      "ground": "vast_steppe_guardian",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "vast_steppe"
+      ],
+      "dimensions": [
+        46,
+        66
+      ]
+    },
+    {
+      "ground": "vast_steppe_midpoint",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "MARKER_OUT_OF_BOUNDS:entrance_west",
+        "MARKER_OUT_OF_BOUNDS:entrance_center",
+        "MARKER_OUT_OF_BOUNDS:entrance_east",
+        "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+      ],
+      "owners": [
+        "master_zone",
+        "vast_steppe"
+      ],
+      "dimensions": [
+        33,
+        22
+      ]
+    },
+    {
+      "ground": "vast_steppe_miniboss",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "vast_steppe"
+      ],
+      "dimensions": [
+        46,
+        66
+      ]
+    },
+    {
+      "ground": "vigie_stratos",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    }
+  ]
+}

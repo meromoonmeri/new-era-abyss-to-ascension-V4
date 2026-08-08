@@ -1,0 +1,952 @@
+{
+  "classification": "STATIC_PAYLOAD_AUDIT_NOT_RUNTIME",
+  "sheets": 635,
+  "references": 730378,
+  "errors": [
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 3)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 4)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 41)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 42)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 43)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 5)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 3)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 4)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 41)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 42)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 43)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 5)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(10, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(10, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(10, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(10, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(10, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(10, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(11, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(11, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(11, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(11, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(11, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(11, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 3)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 4)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 41)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 42)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 43)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 5)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(3, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(3, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(3, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(3, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(3, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(3, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(4, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(4, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(4, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(4, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(4, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(4, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(48, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(48, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(48, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(48, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(48, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(48, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(49, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(49, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(49, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(49, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(49, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(49, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(5, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(5, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(5, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(5, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(5, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(5, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(50, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(50, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(50, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(50, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(50, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(50, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(51, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(51, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(51, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(51, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(51, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(51, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(52, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(52, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(52, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(52, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(52, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(52, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(53, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(53, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(53, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(53, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(53, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(53, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(54, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(54, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(54, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(54, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(54, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(54, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(55, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(55, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(55, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(55, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(55, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(55, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(56, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(56, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(56, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(56, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(56, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(56, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 3)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 4)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 41)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 42)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 43)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 5)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 6)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 7)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 8)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 3)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 4)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 41)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 42)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 43)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 5)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 6)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 7)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 8)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 3)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 4)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 41)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 42)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 43)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 5)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 6)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 7)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 8)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(6, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(6, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(6, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(6, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(6, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(6, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(7, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(7, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(7, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(7, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(7, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(7, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(8, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(8, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(8, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(8, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(8, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(8, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(9, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(9, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(9, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(9, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(9, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(9, 46)"
+    }
+  ]
+}

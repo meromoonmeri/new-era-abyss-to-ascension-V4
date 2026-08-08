@@ -1,0 +1,1620 @@
+{
+  "classification": "STATIC_GLOBAL_AUDIT; runtime statuses separate",
+  "coverage": {
+    "zones": 50,
+    "dungeons": 50,
+    "structures": 132,
+    "segments": 132,
+    "floors": 804,
+    "grounds": 162,
+    "tile_sheets": 635,
+    "frames": 730378,
+    "tile_references": 730378,
+    "markers": 393,
+    "spawners": 211,
+    "entities": 448,
+    "transitions": 295,
+    "bosses": 181,
+    "lua_files": 512,
+    "cinematic_candidate_files": 329
+  },
+  "summary": {
+    "TOTAL_DISCOVERED": 1465090,
+    "TOTAL_AUDITED": 1465090,
+    "TOTAL_FIXED": 6,
+    "TOTAL_RUNTIME_PASS": 0,
+    "TOTAL_RUNTIME_FAIL": 1,
+    "TOTAL_INCONCLUSIVE": 1,
+    "TOTAL_NOT_TESTED": 343,
+    "problems": 307
+  },
+  "problems": [
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "foret_embuscade",
+      "segment": 4,
+      "floor": "Verdant Oath",
+      "cause": "same floor identity used by foret_embuscade,frosty_forest,gloomy_forest,magma_cavern,sky_tower,toundra_desolee,wish_cave"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "frosty_forest",
+      "segment": 2,
+      "floor": "Verdant Oath",
+      "cause": "same floor identity used by foret_embuscade,frosty_forest,gloomy_forest,magma_cavern,sky_tower,toundra_desolee,wish_cave"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "gloomy_forest",
+      "segment": 5,
+      "floor": "Verdant Oath",
+      "cause": "same floor identity used by foret_embuscade,frosty_forest,gloomy_forest,magma_cavern,sky_tower,toundra_desolee,wish_cave"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "gloomy_forest",
+      "segment": 6,
+      "floor": "Verdant Oath",
+      "cause": "same floor identity used by foret_embuscade,frosty_forest,gloomy_forest,magma_cavern,sky_tower,toundra_desolee,wish_cave"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "magma_cavern",
+      "segment": 2,
+      "floor": "Verdant Oath",
+      "cause": "same floor identity used by foret_embuscade,frosty_forest,gloomy_forest,magma_cavern,sky_tower,toundra_desolee,wish_cave"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "sky_tower",
+      "segment": 1,
+      "floor": "Verdant Oath",
+      "cause": "same floor identity used by foret_embuscade,frosty_forest,gloomy_forest,magma_cavern,sky_tower,toundra_desolee,wish_cave"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "sky_tower",
+      "segment": 3,
+      "floor": "Verdant Oath",
+      "cause": "same floor identity used by foret_embuscade,frosty_forest,gloomy_forest,magma_cavern,sky_tower,toundra_desolee,wish_cave"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "sky_tower",
+      "segment": 5,
+      "floor": "Verdant Oath",
+      "cause": "same floor identity used by foret_embuscade,frosty_forest,gloomy_forest,magma_cavern,sky_tower,toundra_desolee,wish_cave"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "toundra_desolee",
+      "segment": 1,
+      "floor": "Verdant Oath",
+      "cause": "same floor identity used by foret_embuscade,frosty_forest,gloomy_forest,magma_cavern,sky_tower,toundra_desolee,wish_cave"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "wish_cave",
+      "segment": 1,
+      "floor": "Verdant Oath",
+      "cause": "same floor identity used by foret_embuscade,frosty_forest,gloomy_forest,magma_cavern,sky_tower,toundra_desolee,wish_cave"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "frosty_forest",
+      "segment": 0,
+      "floor": "Searing Tunnel\\nB{0}F",
+      "cause": "same floor identity used by frosty_forest,lapis_cave,magma_cavern,searing_tunnel,wish_cave"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "lapis_cave",
+      "segment": 0,
+      "floor": "Searing Tunnel\\nB{0}F",
+      "cause": "same floor identity used by frosty_forest,lapis_cave,magma_cavern,searing_tunnel,wish_cave"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "magma_cavern",
+      "segment": 0,
+      "floor": "Searing Tunnel\\nB{0}F",
+      "cause": "same floor identity used by frosty_forest,lapis_cave,magma_cavern,searing_tunnel,wish_cave"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "searing_tunnel",
+      "segment": 0,
+      "floor": "Searing Tunnel\\nB{0}F",
+      "cause": "same floor identity used by frosty_forest,lapis_cave,magma_cavern,searing_tunnel,wish_cave"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "wish_cave",
+      "segment": 0,
+      "floor": "Searing Tunnel\\nB{0}F",
+      "cause": "same floor identity used by frosty_forest,lapis_cave,magma_cavern,searing_tunnel,wish_cave"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "frosty_forest",
+      "segment": 1,
+      "floor": "Searing Depths\\nB{0}F",
+      "cause": "same floor identity used by frosty_forest,magma_cavern,searing_tunnel"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "magma_cavern",
+      "segment": 1,
+      "floor": "Searing Depths\\nB{0}F",
+      "cause": "same floor identity used by frosty_forest,magma_cavern,searing_tunnel"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "searing_tunnel",
+      "segment": 1,
+      "floor": "Searing Depths\\nB{0}F",
+      "cause": "same floor identity used by frosty_forest,magma_cavern,searing_tunnel"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "sky_tower",
+      "segment": 0,
+      "floor": "Vast Steppe\\n{0}F",
+      "cause": "same floor identity used by sky_tower,vast_steppe"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "sky_tower",
+      "segment": 2,
+      "floor": "Vast Steppe\\n{0}F",
+      "cause": "same floor identity used by sky_tower,vast_steppe"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "sky_tower",
+      "segment": 4,
+      "floor": "Vast Steppe\\n{0}F",
+      "cause": "same floor identity used by sky_tower,vast_steppe"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "vast_steppe",
+      "segment": 0,
+      "floor": "Vast Steppe\\n{0}F",
+      "cause": "same floor identity used by sky_tower,vast_steppe"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "cap_dents_mer",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "cap_dents_mer",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "carrefour_nord",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:None"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "carrefour_sud",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "carrefour_sud",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
+    },
+    {
+      "type": "ORPHAN_GROUND",
+      "ground": "carte_chapitre_v2",
+      "cause": "ORPHAN_GROUND"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "cloven_ruins_midpoint",
+      "cause": "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "cloven_ruins_midpoint",
+      "cause": "MARKER_OUT_OF_BOUNDS:Start"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "cloven_ruins_midpoint",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "cloven_ruins_midpoint",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "cloven_ruins_midpoint",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "cloven_ruins_miniboss",
+      "cause": "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "cloven_ruins_miniboss",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "cloven_ruins_miniboss",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "cloven_ruins_miniboss",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "colline_sans_lumiere",
+      "cause": "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "crooked_cavern_midpoint",
+      "cause": "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "crooked_cavern_midpoint",
+      "cause": "MARKER_OUT_OF_BOUNDS:entrance"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "crooked_cavern_midpoint",
+      "cause": "MARKER_OUT_OF_BOUNDS:entrance_center"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "crooked_cavern_midpoint",
+      "cause": "MARKER_OUT_OF_BOUNDS:entrance_north"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "crooked_cavern_midpoint",
+      "cause": "MARKER_OUT_OF_BOUNDS:entrance_south"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "crooked_cavern_midpoint",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "crooked_cavern_midpoint",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "crooked_cavern_midpoint",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "dojo_ossatueur",
+      "cause": "MARKER_OUT_OF_BOUNDS:MarowakDojoDungeonEntranceMarker"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "dojo_ossatueur",
+      "cause": "MARKER_OUT_OF_BOUNDS:MarowakDojoExitMarker"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "dojo_ossatueur",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "dojo_ossatueur",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
+    },
+    {
+      "type": "ORPHAN_GROUND",
+      "ground": "ecran_titre_v2",
+      "cause": "ORPHAN_GROUND"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "gloomy_forest_midpoint",
+      "cause": "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "gloomy_forest_midpoint",
+      "cause": "MARKER_OUT_OF_BOUNDS:entrance"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "gloomy_forest_midpoint",
+      "cause": "MARKER_OUT_OF_BOUNDS:entrance_center"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "gloomy_forest_midpoint",
+      "cause": "MARKER_OUT_OF_BOUNDS:entrance_north"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "gloomy_forest_midpoint",
+      "cause": "MARKER_OUT_OF_BOUNDS:entrance_south"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "gloomy_forest_midpoint",
+      "cause": "MARKER_OUT_OF_BOUNDS:entrance_tent"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "gloomy_forest_midpoint",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "gloomy_forest_midpoint",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "gloomy_forest_midpoint",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "gloomy_forest_miniboss",
+      "cause": "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "gloomy_forest_miniboss",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "gloomy_forest_miniboss",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "gloomy_forest_miniboss",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "guilde_parvis",
+      "cause": "MARKER_OUT_OF_BOUNDS:CrossRoadsEntranceMarker"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "guilde_parvis",
+      "cause": "MARKER_OUT_OF_BOUNDS:GuildEntranceMarker"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "guilde_parvis",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:PARTNER_SPAWN"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "guilde_parvis",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "guilde_parvis",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "guilde_parvis",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "luminous_spring",
+      "cause": "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "luminous_spring",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:EVO_SUBJECT"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "luminous_spring",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "luminous_spring",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "luminous_spring",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "mt_thunder_midpoint",
+      "cause": "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker"
+    },
+    {
+      "type": "ORPHAN_GROUND",
+      "ground": "mt_thunder_midpoint",
+      "cause": "ORPHAN_GROUND"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "mt_thunder_midpoint",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "mt_thunder_midpoint",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "mt_thunder_midpoint",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "plage_lucioles",
+      "cause": "MARKER_OUT_OF_BOUNDS:CutsceneEntranceA"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "plage_lucioles",
+      "cause": "MARKER_OUT_OF_BOUNDS:Entrance"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "plage_lucioles",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:PARTNER_SPAWN"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "plage_lucioles",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "plage_lucioles",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "poisonous_forest_miniboss",
+      "cause": "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "poisonous_forest_miniboss",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "poisonous_forest_miniboss",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "poisonous_forest_miniboss",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "poisonous_forest_relay",
+      "cause": "MARKER_OUT_OF_BOUNDS:Entrance"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "poisonous_forest_relay",
+      "cause": "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "poisonous_forest_relay",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "poisonous_forest_relay",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "poisonous_forest_relay",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "post_office",
+      "cause": "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "post_office",
+      "cause": "MARKER_OUT_OF_BOUNDS:Rescue_Spawn"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "post_office",
+      "cause": "MARKER_OUT_OF_BOUNDS:Rescue_Spawn_Partner"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "post_office",
+      "cause": "MARKER_OUT_OF_BOUNDS:entrance_counter"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "post_office",
+      "cause": "MARKER_OUT_OF_BOUNDS:entrance_south"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "post_office",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "searing_crucible",
+      "cause": "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "searing_crucible",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "searing_crucible",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "searing_crucible",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "searing_tunnel_midpoint",
+      "cause": "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "searing_tunnel_midpoint",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "searing_tunnel_midpoint",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "searing_tunnel_midpoint",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 3)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 4)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 41)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 42)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 43)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(0, 5)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 3)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 4)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 41)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 42)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 43)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(1, 5)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(10, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(10, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(10, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(10, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(10, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(10, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(11, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(11, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(11, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(11, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(11, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(11, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 3)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 4)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 41)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 42)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 43)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(2, 5)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(3, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(3, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(3, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(3, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(3, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(3, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(4, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(4, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(4, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(4, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(4, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(4, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(48, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(48, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(48, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(48, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(48, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(48, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(49, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(49, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(49, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(49, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(49, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(49, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(5, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(5, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(5, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(5, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(5, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(5, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(50, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(50, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(50, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(50, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(50, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(50, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(51, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(51, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(51, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(51, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(51, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(51, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(52, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(52, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(52, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(52, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(52, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(52, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(53, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(53, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(53, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(53, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(53, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(53, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(54, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(54, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(54, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(54, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(54, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(54, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(55, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(55, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(55, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(55, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(55, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(55, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(56, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(56, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(56, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(56, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(56, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(56, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 3)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 4)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 41)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 42)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 43)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 5)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 6)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 7)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(57, 8)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 3)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 4)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 41)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 42)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 43)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 5)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 6)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 7)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(58, 8)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 3)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 4)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 41)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 42)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 43)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 5)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 6)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 7)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(59, 8)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(6, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(6, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(6, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(6, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(6, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(6, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(7, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(7, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(7, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(7, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(7, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(7, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(8, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(8, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(8, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(8, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(8, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(8, 46)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(9, 0)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(9, 1)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(9, 2)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(9, 44)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(9, 45)"
+    },
+    {
+      "type": "INVALID_TEXLOC",
+      "ground": "sinister_woods_clearing",
+      "cause": "INVALID_TEXLOC:SinisterWoodsFinalCanonical_Base:(9, 46)"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "vast_steppe_midpoint",
+      "cause": "MARKER_OUT_OF_BOUNDS:Main_Entrance_Marker"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "vast_steppe_midpoint",
+      "cause": "MARKER_OUT_OF_BOUNDS:entrance_center"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "vast_steppe_midpoint",
+      "cause": "MARKER_OUT_OF_BOUNDS:entrance_east"
+    },
+    {
+      "type": "MARKER_OUT_OF_BOUNDS",
+      "ground": "vast_steppe_midpoint",
+      "cause": "MARKER_OUT_OF_BOUNDS:entrance_west"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "vast_steppe_midpoint",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "vast_steppe_midpoint",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
+    },
+    {
+      "type": "SPAWNER_OUT_OF_BOUNDS",
+      "ground": "vast_steppe_midpoint",
+      "cause": "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3"
+    },
+    {
+      "type": "INVALID_TRANSITION_TARGET",
+      "cause": "Data/Script/halcyon/ground/mt_thunder_midpoint/init.lua:EnterDungeon:mt_thunder"
+    },
+    {
+      "type": "INVALID_TRANSITION_TARGET",
+      "cause": "Data/Script/halcyon/ground/palier_celeste/init.lua:ContinueDungeon:new_era_zone_17"
+    },
+    {
+      "type": "INVALID_TRANSITION_TARGET",
+      "cause": "Data/Script/halcyon/ground/palier_celeste/init.lua:ContinueDungeon:new_era_zone_17"
+    },
+    {
+      "SOURCE GAME": "PMD Red",
+      "DUNGEON": "Mt. Freeze",
+      "ZONE": "mt_freeze",
+      "STRUCTURE": "segments 0-1",
+      "TYPE": "CROSS_DUNGEON_CONTENT_SIGNATURE",
+      "CAUSE": "Fire-type Searing Tunnel encounter tables remain in Mt. Freeze despite Mt. Freeze tiles/names",
+      "SOURCE REFERENCE": "Data/Zone/mt_freeze.json",
+      "CORRECTION": "Names corrected; encounter reconstruction requires canonical Red table",
+      "RUNTIME RESULT": "NOT_TESTED"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-﻿{
+{
   "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -1072,9 +1072,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Searing Tunnel\\nB{0}F",
+              "DefaultText": "Mt. Blaze\\n{0}F",
               "LocalTexts": {
-                "fr": "Tunnel Incandescent\\n{0}E"
+                "fr": "Mont Ardent\\n{0}E"
               }
             },
             "Priority": {
@@ -6899,9 +6899,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Searing Depths\\nB{0}F",
+              "DefaultText": "Mt. Blaze Peak\\n{0}F",
               "LocalTexts": {
-                "fr": "Profondeurs Incandescentes\\n{0}E"
+                "fr": "Sommet du Mont Ardent\\n{0}E"
               }
             },
             "Priority": {
@@ -10581,9 +10581,9 @@
               ]
             },
             "Name": {
-              "DefaultText": "Verdant Oath",
+              "DefaultText": "Mt. Blaze Summit",
               "LocalTexts": {
-                "fr": "Serment Verdoyant"
+                "fr": "Sommet du Mont Ardent"
               }
             },
             "Priority": {

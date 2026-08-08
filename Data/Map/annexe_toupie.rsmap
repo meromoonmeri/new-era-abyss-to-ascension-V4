@@ -1,4 +1,4 @@
-﻿{
+{
   "Version": "0.8.12.0",
   "Object": {
     "$type": "RogueEssence.Dungeon.Map, RogueEssence",
@@ -11,7 +11,7 @@
     "Released": false,
     "Comment": "New Era — secret cafe floor (Explorers Secret Bazaar structure, PMDO-native Mysteriosity mechanic). Ground layout window from cafe_toupie (SpindaCafe tileset), NPCs recast New Era.",
     "Begun": false,
-    "ID": "annexe_toupie",
+    "ID": 0,
     "MapTeams": [],
     "AllyTeams": [],
     "rand": {
