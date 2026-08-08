@@ -12,6 +12,7 @@ function d11p03.Init(map)
 end
 
 function d11p03.Enter(map)
+  if SV.RuntimeGroundAudit and SV.RuntimeGroundAudit.Active then GAME:CutsceneMode(false); GAME:FadeIn(1); return end
   if SV.CanonicalDungeons and SV.CanonicalDungeons.Pending=='mt_freeze_summit' then
     local ok,scene=pcall(require,'halcyon.arc_fugitif.scene.d11p03')
     if ok and scene and scene.Cutscene then pcall(scene.Cutscene) end

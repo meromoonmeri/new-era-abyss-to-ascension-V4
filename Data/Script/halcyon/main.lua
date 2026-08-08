@@ -60,6 +60,7 @@ require 'halcyon.services.menu_tools'
 require 'halcyon.services.upgrade_tools'
 require 'halcyon.services.config_tools'
 require 'halcyon.services.nre_probe'--sonde runtime NRE IsGameOver (audit 2026-07-27, retirable)
+require 'halcyon.services.ground_gameplay_validator'--opt-in: PMDO_GROUND_VALIDATOR=1 uniquement
 require 'halcyon.SceneDebug'--armement des scenes pour test en jeu (outil de dev, sans effet sur le jeu)
 require 'halcyon.RuinesZarbi'--puzzle des Zarbi des Aegis Cave (portage Aegis Cave)
 require 'halcyon.DonjonFX'--mise en scene a l'interieur d'un etage de donjon (API DUNGEON:)

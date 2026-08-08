@@ -41,6 +41,7 @@ function mount_windswept_guardian.Init(map)
 end
 
 function mount_windswept_guardian.Enter(map)
+  if SV.RuntimeGroundAudit and SV.RuntimeGroundAudit.Active then GAME:CutsceneMode(false); GAME:FadeIn(1); return end
   nre_snap('mount_windswept_guardian.Enter')
 	if SV.Chapter5.MountGuardianDefeated == nil then SV.Chapter5.MountGuardianDefeated = false end
 	if SV.Chapter5.MountGuardianLost == nil then SV.Chapter5.MountGuardianLost = false end

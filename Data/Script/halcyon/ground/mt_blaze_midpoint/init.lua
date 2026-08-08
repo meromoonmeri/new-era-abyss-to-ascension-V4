@@ -14,6 +14,7 @@ function mt_blaze_midpoint.Init(map)
 end
 
 function mt_blaze_midpoint.Enter(map)
+  if SV.RuntimeGroundAudit and SV.RuntimeGroundAudit.Active then GAME:CutsceneMode(false); GAME:FadeIn(1); return end
   GAME:FadeIn(20)
 end
 

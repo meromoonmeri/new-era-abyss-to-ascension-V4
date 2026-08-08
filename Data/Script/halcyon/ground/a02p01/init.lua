@@ -12,6 +12,7 @@ function a02p01.Init(map)
 end
 
 function a02p01.Enter(map)
+  if SV.RuntimeGroundAudit and SV.RuntimeGroundAudit.Active then GAME:CutsceneMode(false); GAME:FadeIn(1); return end
   FugitiveArc.Play('a02p01')
 end
 
