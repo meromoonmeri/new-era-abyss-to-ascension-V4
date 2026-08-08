@@ -52,7 +52,7 @@ for p in (R/'Data/Ground').glob('*.rsground'):
  try:o=load(p)['Object']
  except Exception as e:rec['status']='FAIL_STATIC';rec['issues'].append('PARSE:'+str(e));grounds.append(rec);continue
  if not rec['owners']:rec['issues'].append('ORPHAN_GROUND')
- layers=o.get('Layers',[]);W=len(layers[0].get('Tiles',[])) if layers else 0;H=len(layers[0]['Tiles'][0]) if W else 0;rec['dimensions']=[W,H]
+ layers=o.get('Layers',[]);dims=[(len(l.get('Tiles',[])),len(l.get('Tiles',[[]])[0]) if l.get('Tiles') else 0) for l in layers];W=max([x for x,y in dims]+[len(o.get('obstacles',[]))]);H=max([y for x,y in dims]+[len(o.get('obstacles',[[]])[0]) if o.get('obstacles') else 0]);rec['dimensions']=[W,H]
  for d in walk(layers):
   if 'Frames' in d and isinstance(d['Frames'],list):
    for f in d['Frames']:

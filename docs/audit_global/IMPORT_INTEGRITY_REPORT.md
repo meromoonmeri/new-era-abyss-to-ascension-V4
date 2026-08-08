@@ -55,3 +55,10 @@ The direct automated first-execution probe did not reach `CUTSCENE_END`; it is r
 as `RUNTIME_FAIL`, not PASS. Speculative timing/camera edits used to localize the stop
 were reverted. The previously proven BattlePosition crash remains fixed, but that does
 not validate the complete intro, victory, reload, or repetition scenarios.
+
+## Batch: Sinister Woods canonical border repair
+- 189 invalid `TexLoc` references all belonged to the omitted transparent border of `SinisterWoodsFinalCanonical_Base`.
+- The missing coordinate keys now share a valid transparent 8×8 PNG payload. No screenshot, interpolation, or painted terrain was used.
+- Re-audit: **0 missing sheets, 0 invalid TexLoc, 0 marker out-of-bounds** across 730,378 references.
+- PMDO engine decoding of this changed sheet remains `NOT_TESTED`; result is `PASS_STATIC`, not `RUNTIME_PASS`.
+- Ground dimension calculation now uses maximum visual/collision geometry, eliminating 78 false positives while retaining 12 spawner findings for manual/runtime review.
