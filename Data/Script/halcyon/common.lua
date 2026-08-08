@@ -642,9 +642,14 @@ function COMMON.BossTransition()
 	COMMON.MakeWhoosh(center, -176, 3, false)
 	COMMON.MakeWhoosh(center, 112, 3, false)
     GAME:WaitFrames(40)
-    GAME:FadeOut(true, 30)
-    GAME:WaitFrames(120)
 
+    -- Do not leave a persistent screen fade active across ContinueDungeon.
+    -- Imported fixed-floor boss maps do not run a Ground FadeIn callback, so
+    -- the former FadeOut + 120-frame hold survived the mode switch and left
+    -- the actual battle running under a black screen.  The flashes/whooshes
+    -- above already communicate the transition; the dungeon engine can now
+    -- present its first rendered frame normally.
+    PrintInfo('[BOSS_TRANSITION] visual handoff complete; no persistent fade')
 
 end
 
