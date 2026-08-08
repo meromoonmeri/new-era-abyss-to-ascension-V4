@@ -177,6 +177,24 @@ function metano_town_ch_6.DazzlingIntroduction()
 	local floatzel = CH('Floatzel')
 	local quagsire = CH('Quagsire')
 
+	-- Continuité directe avec la fin d'Aegis Cave : si le trio a déjà
+	-- annoncé son arrivée au camp, cette scène est une RETROUVAILLE, jamais
+	-- une seconde présentation. Son thème reste le même, mais les dialogues
+	-- reconnaissent explicitement la rencontre précédente.
+	if SV.Chapter6.DazzlingAegisAftermath then
+		GAME:CutsceneMode(true)
+		AI:DisableCharacterAI(partner);AI:DisableCharacterAI(adagio);AI:DisableCharacterAI(aria);AI:DisableCharacterAI(sonata)
+		GAME:MoveCamera(960,816,1,false);SOUND:PlayBGM("Team_Dazzling_Theme.ogg",true)
+		GROUND:MoveToPosition(adagio,1008,784,false,1);GROUND:MoveToPosition(aria,1040,816,false,1);GROUND:MoveToPosition(sonata,1072,848,false,1)
+		UI:SetSpeaker(partner);GeneralFunctions.SetEmotion("Surprised");UI:WaitShowDialogue("Vous trois...[pause=10] Les Aegis Cave.[pause=15] Vous aviez dit qu'on se reverrait à Metano.")
+		UI:SetSpeaker(adagio);GeneralFunctions.SetEmotion("Normal");UI:WaitShowDialogue("Et nous tenons parole.[pause=10] La pulsation que Sonata a suivie atteint maintenant Sinister Woods.")
+		UI:SetSpeaker(sonata);GeneralFunctions.SetEmotion("Worried");UI:WaitShowDialogue("Elle se déplace sous les racines.[pause=10] Quelque chose l'attire vers le cœur de la forêt.")
+		UI:SetSpeaker(aria);GeneralFunctions.SetEmotion("Happy");UI:WaitShowDialogue("Alors ?[pause=10] Vous êtes toujours aussi courageux loin de Regigigas ?")
+		UI:SetSpeaker(butterfree);GeneralFunctions.SetEmotion("Worried");UI:WaitShowDialogue("Mon enfant est parti vers cette forêt.[pause=15] S'il vous plaît,[pause=10] retrouvez-le.")
+		SV.Chapter6.DazzlingIntroPlayed=true;SV.Chapter6.MissionAvailable=true
+		SOUND:FadeOutBGM(40);GAME:CutsceneMode(false);return
+	end
+
 	GAME:CutsceneMode(true)
 	AI:DisableCharacterAI(partner)
 	AI:DisableCharacterAI(butterfree)
