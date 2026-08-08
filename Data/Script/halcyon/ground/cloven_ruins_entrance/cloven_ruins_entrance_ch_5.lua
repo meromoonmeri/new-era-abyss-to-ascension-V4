@@ -1436,15 +1436,14 @@ function cloven_ruins_entrance_ch_5.MorningBody()
   -- La nuit noire s'efface tres progressivement, le crepuscule pointe,
   -- s'attarde, puis le jour prend le relais. On sent le temps passer
   -- avant que le camp ne se mette en mouvement.
+  -- Ellipse temporelle entièrement sous le noir : le crépuscule reste en
+  -- place pendant la soirée, puis la nuit. Le joueur ne voit plus un faux
+  -- lever nuit → crépuscule → matin. Le prochain FadeIn révèle directement
+  -- le camp reconstruit au matin, avec toute la formation déjà en place.
   pcall(function() UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CR5_A68']) .. "\n\n", -1) end)
-  GAME:FadeIn(120)                 -- fondu tres lent
-  GAME:WaitFrames(80)
   pcall(function() GROUND:RemoveMapStatus("darkness") end)
-  pcall(function() GROUND:AddMapStatus("dusk") end)
-  GAME:WaitFrames(100)             -- le crepuscule s'attarde
   pcall(function() GROUND:RemoveMapStatus("dusk") end)
-  GAME:WaitFrames(70)
-  Silence(30)
+  GAME:WaitFrames(30)
 
   -- Le camp se reveille, en decale : personne ne se leve en meme temps.
   local leve = {}
