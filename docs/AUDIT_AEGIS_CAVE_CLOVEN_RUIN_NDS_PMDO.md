@@ -238,3 +238,53 @@ corrigé → **46/46 floors, 223/223 Pokémon, 0 espèce inconnue ; 2 FAIL = BGM
 
 **NON RUNTIME VERIFIED** — le moteur PMDO n'a pas été exécuté dans cet environnement.
 Toute la couche « STATIC » reste à confirmer en jeu (boot → DevTab → parcours complet).
+
+
+---
+
+## CORRECTIFS 2026-08-09 — AEGIS CAVE DEVENU JOUABLE (1:1 NDS)
+
+### Bug racine corrigé : la stèle Zarbi n'était jamais posée
+Le script `cloven_ruins_entrance/init.lua` définissait `Tablette_Zarbi_Action`
+(-> `RuinesZarbi.LireTablette`) et l'asset NDS `Content/Object/Tablette_Zarbi.dir`
+existait, MAIS l'objet interactif (triggerType 1) avait été retiré du ground
+le 2026-08-04 (« Aucune tablette Zarbi ni statue Kangourex dans la zone »).
+Résultat : le joueur ne pouvait jamais lire les mots, le système Aegis Cave
+était inaccessible in-game.
+→ **Corrigé** : objet `Tablette_Zarbi` posé sur `cloven_ruins_entrance.rsground`
+(192,176, triggerType 1, anim NDS, position validée par `audit_camp_ruines.py`).
+Script : `tools/add_tablette_zarbi.py`.
+
+### Chambres des Regis = GROUNDS NDS (architecture 1:1)
+Le flux pointait vers les étages-arènes (ContinueDungeon). Corrigé :
+- Mot complet (GLACE/ROCHE/ACIER) → `EnterGroundMap(cloven_ruin_*_chamber_sky)`
+  (grounds NDS D32P31A/32A/33A, MAP_BG D55P41A/D57P44A/D59P41A).
+- Le ground joue l'éveil (`ClovenCanonicalChamber`) puis lance le combat via
+  `EnterDungeon` vers le segment 1/3/5/7 (fixed floors .rsmap).
+- Victoire → retour au ground chambre pour le serment (« JE SUIS REGICE…
+  JE VOUS JURE FIDÉLITÉ »), puis enchaîne sur le labyrinthe suivant.
+- Puits (6) franchi → `EnterGroundMap(cloven_ruin_regigigas_chamber_sky)` (D32P44A).
+- Musique `Aegis Cave.ogg` posée sur les 4 grounds chambres.
+
+### Nouveaux modules
+- `ClovenNDSScenes.lua` : matrice de routage des scènes NDS s04 (rôle + cast New Era).
+- `ClovenCanonicalChamber.lua` : câblage des 4 chambres (éveil, combat, serment, enchaînement).
+
+### Séquence finale s04p1901 → s04p1902 (Canceled Ruins)
+- `RuinesTitan.Effondrement` : pose `SceneS04P1901Complete` + `SceneS04P1902Pending`.
+- `RuinesRenforts.Revelation` (au camp, après victoire Regigigas) : consomme le
+  drapeau, pose `SceneS04P1902Complete` (éveil des Canceled Ruins).
+
+### Différences documentées (non corrigées — REQUIRES_ASSET)
+- Sprites des 28 pierres de Zarbi NDS (items ITEM_A..Z_STONE) ABSENTS : le mod
+  utilise `Stone_Black` (sprite générique) pour ses 9 pierres (a,c,e,g,h,i,l,o,r)
+  couvrant les mots FR GLACE/ROCHE/ACIER. REQUIRES_ASSET pour les sprites NDS.
+- Mots FR (GLACE/ROCHE/ACIER) vs US (ICE/ROCK/STEEL) : adaptation narrative.
+
+### État
+- STATIC VERIFIED : syntaxe Lua OK, JSON OK, audit camp OK, arènes peuplées
+  (Regice L30, Regirock L32, Registeel L34, Regigigas L36 + 4 Hitmonlee + 4 Bronzong).
+- RUNTIME : NON EXÉCUTÉ (REQUIRES_RUNTIME). À valider sur le Windows de
+  l'utilisateur : entrée camp → stèle → labyrinthe → mot complet → ground chambre
+  → combat → serment → labyrinthe suivant → Puits → Regigigas → séisme → fuite →
+  Canceled Ruins.
