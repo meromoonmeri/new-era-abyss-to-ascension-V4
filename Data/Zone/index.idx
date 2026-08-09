@@ -2976,9 +2976,9 @@
     ]
    ],
    "Name": {
-    "DefaultText": "Sealed Ruin Pit",
+    "DefaultText": "Spiritomb Room",
     "LocalTexts": {
-     "fr": "Fosse des Ruines Scellées"
+     "fr": "Spiritomb Room"
     }
    },
    "Released": true,
