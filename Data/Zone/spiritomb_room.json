@@ -5,7 +5,7 @@
   "Name": {
    "DefaultText": "Sealed Ruin Pit",
    "LocalTexts": {
-    "fr": "Sealed Ruin Pit"
+    "fr": "Fosse des Ruines Scellées"
    }
   },
   "Released": true,
@@ -683,7 +683,7 @@
      }
     ],
     "IsRelevant": true,
-    "Comment": "NDS dungeon Sealed Ruin Pit (arc du futur). 1 floors, mappa_s: structure/room_dens/en_dens/item_dens/trap_dens extraits. Ennemis (md_index@niveau) : documentés dans AUDIT_DUNGEONS_FUTURE_ARC_NDS_PMDO.md. Tileset NDS dungeonXX.dpc/dpl/dma -> auto-tileset PMDO sealed_ruin_pit (REQUIRES_ASSET)."
+    "Comment": "Salle du BOSS SPIRITOMB (dungeon 31, D21P41A) — arc du futur. Arène fixe NDS (fixed floor 7) : 22x17, Spiritomb placé à (8,2) tuiles = (324,196) px, escalier au centre. Cinématiques m18b0902/1101/1201/1301 : Spiritomb attaque le trio, s'effraie et s'enfuit ; Grovyle révèle qu'il est normalement timide (scène de confiance). 1 floor. Musique : Sealed Ruin Pit."
    }
   ],
   "GroundMaps": []

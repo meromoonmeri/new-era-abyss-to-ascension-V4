@@ -15,7 +15,7 @@ Le **main story** (héros + partenaire + Grovyle, dans le futur corrompu) traver
 | **28** | **Dark Hill** | **15** | 19 | D19P11A | m18a0101/0201/0301 |
 | **29** | **Sealed Ruin** | **8** | 20 | D20P11A | m18b0501/0601/0701 |
 | **30** | **Sealed Ruin Pit** | **6** | 20 (prec 8) | D21P21A | m18b0801/0901/1002 |
-| **31** | Salle Mismagius | **1** | 20 (prec 14) | D21P41A | m18b0902/1101/1201/1301 |
+| **31** | Salle SPIRITOMB (boss) | **1** | 20 (prec 14) | D21P41A | m18b0902/1101/1201/1301 |
 | **32** | **Dusk Forest** | **8** | 21 | D22P11A | m19a0201/0301/0401/0403/0501 |
 
 Preuves :
@@ -25,7 +25,7 @@ Preuves :
 - BGM des scènes : InTheFuture (futur) puis **ChasmCave / DarkHill / SealedRuin /
   SealedRuinPit / DuskForest** — noms des donjons du parcours.
 - Dialogues : « Why did Dusknoir bring us here? » (D19P11A) ; « This is Dusk
-  Forest. Its name comes from the dark fog » (D22P11A) ; Mismagius timide
+  Forest. Its name comes from the dark fog » (D22P11A) ; Spiritomb timide
   (D21P41A) — pas un boss, la scène de confiance avec Grovyle.
 - Acteurs : PLAYER + ATTENDANT1 + JUPUTORU (Grovyle) dans toutes les scènes →
   MAIN STORY, pas SE5.
@@ -33,7 +33,7 @@ Preuves :
 ## RÉPONSES AUX QUESTIONS
 
 **A. Vrais donjons du parcours** : 6 (Chasm Cave, Dark Hill, Sealed Ruin,
-Sealed Ruin Pit, salle Mismagius, Dusk Forest) — dungeons 27-32.
+Sealed Ruin Pit, salle Spiritomb, Dusk Forest) — dungeons 27-32.
 
 **B. Floors par dungeon** : 27=8, 28=15, 29=8, 30=6, 31=1, 32=8 (total 46 floors).
 
@@ -83,7 +83,7 @@ ennemis : 89, 232, 404, 407, 507, 518 (L27-31)
 tileset 31, music 22, en_dens 5, item 4, trap 6, monster_house 5%
 ennemis : 89, 232, 404, 407, 507, 518 (L28-32)
 
-### Dungeon 31 = salle Mismagius (groupe 20, prec 14) — 1 floor FIXE
+### Dungeon 31 = salle Spiritomb (groupe 20, prec 14) — 1 floor FIXE
 tileset 176, fixed_floor_id=7, **1 ennemi : 484@L51 (weight 10000)**
 
 ### Dungeon 32 = Dusk Forest (groupe 21) — 8 floors
@@ -101,7 +101,7 @@ ennemis : 189@33, 453@30, 471@31, 486@33
 | Dungeons 138/139 (D55P11A/21A) | NON | OUI (n08a2108, n08a1808) | — |
 | Dungeons D46-D53 (n08a*) | NON | OUI | — |
 | Dungeons 143-165 (D56-D63) | NON | NON | OUI (Team Charm) |
-| Dungeon 31 = Mismagius | OUI (scène de confiance) | — | — |
+| Dungeon 31 = Spiritomb | OUI (scène de confiance) | — | — |
 
 ## ARCHITECTURE PMDO — ÉTAT RÉEL
 
@@ -111,7 +111,7 @@ ennemis : 189@33, 453@30, 471@31, 486@33
 | 28 Dark Hill | ❌ absent | ❌ | D19p11a.rsground ✅ | D19p11a_Base.tile ✅ | **MISSING (Zone)** |
 | 29 Sealed Ruin | ❌ absent | ❌ | D20p11a.rsground ✅ | D20p11a_Base.tile ✅ | **MISSING (Zone)** |
 | 30 SR Pit | ❌ absent | ❌ | D21p21a.rsground ✅ | D21p21a_Base.tile ✅ | **MISSING (Zone)** |
-| 31 Mismagius | ❌ absent | ❌ | D21p41a.rsground ✅ | D21p41a_Base.tile ✅ | **MISSING (Zone)** |
+| 31 Spiritomb | ❌ absent | ❌ | D21p41a.rsground ✅ | D21p41a_Base.tile ✅ | **MISSING (Zone)** |
 | 32 Dusk Forest | ❌ absent | ❌ | D22p11a.rsground ✅ | D22p11a_Base.tile ✅ | **MISSING (Zone)** |
 
 **CONCLUSION ARCHITECTURALE** : les 6 donjons du parcours futur ne sont PAS
@@ -128,8 +128,9 @@ cinématiques, mais chaque dungeon doit être une Zone PMDO native
 
 - **6 Zones donjon** à créer (MISSING — le cœur du travail restant).
 - **Ennemis** : md_index → espèce : table monster.md (REQUIRES_EXTRACTION —
-  les md_index + niveaux + poids sont extraits, les noms d'espèces nécessitent
-  le décodage monster.md ; exemples vérifiés : 470=Mismagius, 518=Dusknoir).
+  les md_index + niveaux + poids sont extraits ; le boss du dungeon 31 est
+  CONFIRMÉ = SPIRITOMB par l'entité script NPC_MIKARUGE (ミカルゲ) des scènes
+  D21P41A, seule entité de l'arène fixe 7, placée à (8,2) = (324,196) px).
 - **Tilesets de donjon** (dungeon26-34.dpc/.dpl/.dma) : conversion vers les
   auto-tilesets PMDO (REQUIRES_ASSET).
 - **BGM** : ChasmCave/DarkHill/SealedRuin/SealedRuinPit/DuskForest → .ogg

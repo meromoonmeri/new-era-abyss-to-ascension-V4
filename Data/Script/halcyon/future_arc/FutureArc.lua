@@ -127,9 +127,7 @@ function FutureArc.EnterDungeon55()
   DEBUG.EnableDbgCoro()
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(30)
-  -- main_EnterDungeon(140) = level 140 = D55P41A (3e étage du donjon)
-  GAME:EnterDungeon('passage_temps', 2, 0, 0,
-    RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+  GAME:EnterDungeon('passage_temps', 1, 0, false)
   GAME:FadeIn(20)
 end
 

@@ -13,7 +13,6 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.BossFX'
-require 'halcyon.future_arc.FutureArc'
 
 local n08a2308 = {}
 
@@ -275,7 +274,7 @@ function n08a2308.Cutscene()
         -- PARTIEL : WaitSe [5143]
         SOUND:FadeOutBGM(30)
         -- CallCommon(BOSS_WIPE_FUNC) : helper à implémenter
-        FutureArc.EnterDungeon55() -- main_EnterDungeon(140) : entrée dans le donjon D55 (Passage du Temps)
+        -- main_EnterDungeon(140) : entrée donjon (mapping id REQUIS)
         -- main_EnterDungeon(32767) : entrée donjon (mapping id REQUIS)
         -- Hold : NON CONVERTI (pause maintenue, pas d'équivalent PMDO)
         -- End : fin de scène

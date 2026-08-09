@@ -40,6 +40,12 @@ ADAPT_DIR = "/home/user/V4/docs/ssb_adaptation"
 OUT_DIR = "/home/user/V4/docs/lua_arc_futur"
 REPORT_MD = "/home/user/V4/docs/RAPPORT_CONVERSION_LUA_ARC_FUTUR.md"
 
+# Tables DÉFINITIVES (SkyTemple wiki : Animation_ID + table SetAnimation +
+# List_of_Sound_Effects) — extraites dans tables_rom.json.
+_TROM = json.load(open(os.path.join(ADAPT_DIR, "tables_rom.json")))
+ANIM_TABLE = {int(k): v for k, v in _TROM["anim"].items()}   # param -> {anim_id, name, loop}
+SE_TABLE = _TROM["se"]                                        # id -> {sky, pmdo}
+
 # ---------------------------------------------------------------------------
 # Tables d'adaptation
 # ---------------------------------------------------------------------------
@@ -95,6 +101,7 @@ ACTOR_CH = {
     "NPC_YONOWAARU": "CH('Dusknoir')",
     "NPC_YONOWAARU_N8": "CH('Dusknoir')",
     "NPC_SEREBII": "CH('Celebi')",
+    "NPC_MIKARUGE": "CH('Spiritomb')",  # ミカルゲ = SPIRITOMB (boss canonique du Sealed Ruin Pit, arc du futur)
     "PLAYER_FUTURE": "CH('HeroFuture')",
     "NPC_YAMIRAMI": "CH('Sableye_1')",
     "NPC_YAMIRAMI2": "CH('Sableye_2')",
@@ -277,6 +284,26 @@ class Converter:
             return
         if name == "Jump":
             self.w("-- Jump (structurel)", indent)
+            return
+        if name == "SwitchSector":
+            self.w("-- SwitchSector : sélection du point d'entrée (structurel)", indent)
+            return
+        if name == "Switch":
+            self.w("-- Switch (structurel)", indent)
+            return
+        if name == "Case":
+            self.w("-- Case (structurel)", indent)
+            return
+        if name == "JumpCommon":
+            routine = op["resolved"][0] if op["resolved"] else None
+            self.adapt.append((seq, "JumpCommon", routine or ""))
+            self.w(f"-- JumpCommon({routine}) : helper à implémenter (comme CallCommon)", indent)
+            return
+        if name == "debug_Print":
+            self.w("-- debug_Print (ignoré)", indent)
+            return
+        if name in ("WaitScreenFade", "WaitScreenFadeAll"):
+            self.w("GAME:WaitFrames(1) -- attente de fondu d'écran", indent)
             return
         if name == "End":
             self.flush_branches(indent)
@@ -483,13 +510,19 @@ class Converter:
             return
         if name == "SetAnimation":
             a = arg("id")
-            anim_id = a["raw"] if a else "?"
-            self.adapt.append((seq, name, f"anim id {anim_id} (table anim REQUISE)"))
-            if anim_id == 78:
-                emit(f"pcall(function() GROUND:CharSetAnim({e}, 'Struggle', true) end) -- id 78 (ligoté)")
+            aid = a["raw"] if a else None
+            if aid in (1, 2):
+                # params spéciaux de la table officielle : 1 = boucle anim 0/7,
+                # 2 = boucle anim 0 ou codé par espèce
+                emit(f"-- SetAnimation {aid} (spécial : boucle anim courante)")
+            elif aid in ANIM_TABLE:
+                info = ANIM_TABLE[aid]
+                loop = "true" if info["loop"] else "false"
+                self.adapt.append((seq, name, f"anim {aid} = {info['name']} (id {info['anim_id']})"))
+                emit(f"GROUND:CharSetAnim({e}, '{info['name']}', {loop}) -- param {aid} = anim {info['anim_id']} ({info['name']})")
             else:
-                emit(f"-- SetAnimation id {anim_id} : table anim REQUISE (non inventée)")
-                emit(f"pcall(function() GROUND:CharSetAnim({e}, 'Idle', true) end) -- placeholder sûr")
+                self.non_conv.append((seq, name, f"param anim {aid} absent de la table officielle"))
+                emit(f"-- SetAnimation {aid} : NON CONVERTI (param absent de la table officielle)")
             return
         if name == "WaitAnimation":
             emit(f"pcall(function() GROUND:CharWaitAnim({e}) end)")
@@ -743,9 +776,14 @@ class Converter:
             return
         if name in ("se_Play",):
             a = arg("se_id")
-            sid = a["raw"] if a else "?"
-            self.adapt.append((seq, name, f"SE id {sid} (table SE REQUISE)"))
-            self.w(f"pcall(function() SOUND:PlayBattleSE('SSB_SE_{sid}') end) -- TODO table SE id {sid}", indent)
+            sid = a["raw"] if a else None
+            info = SE_TABLE.get(str(sid)) if sid is not None else None
+            if info and info.get("pmdo"):
+                self.w(f"SOUND:PlayBattleSE('{info['pmdo']}') -- SE {sid} ({info.get('sky')})", indent)
+            else:
+                sky = info.get("sky") if info else None
+                self.adapt.append((seq, name, f"SE {sid} ({sky}) : pas d'équivalent PMDO attesté"))
+                self.w(f"pcall(function() SOUND:PlayBattleSE('SSB_SE_{sid}') end) -- TODO SE {sid} ({sky})", indent)
             return
         if name in ("se_Stop", "se_FadeOut", "sound_Stop", "WaitSe"):
             self.partiel.append((seq, name, "pas d'arrêt SE direct PMDO"))
@@ -861,7 +899,8 @@ class Converter:
 def main():
     os.makedirs(OUT_DIR, exist_ok=True)
     irs = [json.load(open(p)) for p in glob.glob(os.path.join(IR_DIR, "*_*.json"))
-           if "_summary" not in p and "_graph" not in p and "_coverage" not in p]
+           if "_summary" not in p and "_graph" not in p and "_coverage" not in p
+           and "_spawns" not in p and "_ssa_positions" not in p]
 
     rows = []
     totals = {"scenes": 0, "ops": 0, "non_conv": 0, "partiel": 0, "adapt": 0}
