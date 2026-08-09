@@ -41,10 +41,34 @@ end
 --------------------------------------------------------------------
 function SINGLE_CHAR_SCRIPT.Ch8_RelaisArrivee(owner, ownerChar, context, args)
   if context ~= nil and context.User ~= nil then return end
-  if guard_done('Ch8Relais') then return end
 
   local hero = DonjonFX.Hero()
   local partner = DonjonFX.Partner()
+  SV.Chapter8 = SV.Chapter8 or {}
+
+  -- Réveil au checkpoint après une défaite contre Terapagos. Cette branche
+  -- doit précéder guard_done : contrairement à la découverte, elle est rejouable.
+  if SV.Chapter8.SanctuaryMidState == 'TerapagosRespawn' then
+    SV.Chapter8.SanctuaryMidState = nil
+    local tries = SV.Chapter8.TerapagosDefeats or 1
+    pcall(function()
+      GAME:CutsceneMode(true); GAME:FadeIn(45); GAME:WaitFrames(25)
+      DonjonFX.Flash(hero, 'white', 4)
+      if tries == 1 then
+        DonjonFX.Recit('@La lumière revient par pulsations. Le relais vous a ramenés au dernier point stable.')
+        DonjonFX.Dire(partner, '@Tu respires... Terapagos nous a rejetés jusqu’ici. Le checkpoint a tenu.', 'Worried')
+        DonjonFX.Penser('@(Les quinze premiers étages sont derrière nous. Il faut repartir des profondeurs.)', 'Determined')
+      else
+        DonjonFX.Dire(partner, '@Encore au relais. Il nous a sauvés une nouvelle fois.', 'Pain')
+        DonjonFX.Penser('@(Se relever. Comprendre son rythme. Recommencer.)', 'Determined')
+      end
+      GAME:CutsceneMode(false)
+    end)
+    return
+  end
+
+  if guard_done('Ch8Relais') then return end
+  SV.Chapter8.TerapagosCheckpoint = true
 
   local ok, err = pcall(function()
     GAME:CutsceneMode(true)

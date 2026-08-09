@@ -518,7 +518,7 @@
        },
        "Range": {
         "Min": 0,
-        "Max": 13
+        "Max": 8
        }
       },
       {
@@ -1009,14 +1009,14 @@
         "Comment": "Sanctuaire de Cristal — galerie bleue, veines lumineuses. (seg0)"
        },
        "Range": {
-        "Min": 13,
-        "Max": 25
+        "Min": 8,
+        "Max": 15
        }
       }
      ]
     },
     "IsRelevant": true,
-    "Comment": "Galerie Cristalline : 12 etages, cristaux bleus, veines lumineuses",
+    "Comment": "Terapagos F01-F15 — progression cristalline; relais immédiatement après F15.",
     "ZoneSteps": [
      {
       "$type": "RogueEssence.LevelGen.SpreadStepRangeZoneStep, RogueEssence",
@@ -1129,7 +1129,7 @@
      }
     ],
     "IsRelevant": true,
-    "Comment": "Relais — autel cristallin (checkpoint Kangourex)"
+    "Comment": "Relais Terapagos — checkpoint après F15."
    },
    {
     "$type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
@@ -1630,7 +1630,7 @@
      ]
     },
     "IsRelevant": true,
-    "Comment": "Salles des Glyphes : 6 etages profonds, runes anciennes, cristaux noirs"
+    "Comment": "Terapagos F16-F18 — densité cristalline croissante."
    },
    {
     "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
@@ -1706,7 +1706,7 @@
      }
     ],
     "IsRelevant": true,
-    "Comment": "Mini-boss crystal_sanctuary (insertion tools/insert_miniboss_segments.py)."
+    "Comment": "Transition fixe des profondeurs; ne compte pas parmi les 20 étages procéduraux."
    },
    {
     "$type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
@@ -2201,13 +2201,13 @@
        },
        "Range": {
         "Min": 0,
-        "Max": 3
+        "Max": 2
        }
       }
      ]
     },
     "IsRelevant": true,
-    "Comment": "3F au-dessus du mini-boss crystal_sanctuary (clone du premier tiers post-relais)."
+    "Comment": "Terapagos F19-F20 — approche finale."
    },
    {
     "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
@@ -2283,7 +2283,7 @@
      }
     ],
     "IsRelevant": true,
-    "Comment": "Chambre de Diancie — arene cristalline circulaire"
+    "Comment": "Arène Terapagos après F20."
    }
   ],
   "GroundMaps": []

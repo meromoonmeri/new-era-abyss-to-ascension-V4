@@ -3,11 +3,13 @@
  "Object": {
   "$type": "RogueEssence.Dungeon.Map, RogueEssence",
   "Name": {
-   "DefaultText": "Crystal Sanctuary — Diancie Chamber",
-   "LocalTexts": {}
+   "DefaultText": "Terapagos",
+   "LocalTexts": {
+    "fr": "Terapagos"
+   }
   },
   "Released": true,
-  "Comment": "New Era original arena for Diancie. Separate asset: never aliases Wish Cave/Jirachi D23P01.",
+  "Comment": "New Era original arena for Diancie. Separate asset: never aliases Wish Cave/Jirachi D23P01. | Terapagos utilise Diancie comme proxy graphique compatible PMDO 0.8.12; ne pas référencer species terapagos absent.",
   "Begun": false,
   "ID": 0,
   "MapTeams": [
@@ -29,7 +31,7 @@
       "serializationDir": 0,
       "ProxyName": "",
       "ProxySprite": {
-       "Species": "",
+       "Species": "diancie",
        "Form": -1,
        "Skin": "",
        "Gender": -1
@@ -187,7 +189,7 @@
        "Assembly": false,
        "Index": -1
       },
-      "Nickname": "Adagio",
+      "Nickname": "Terapagos",
       "OriginalUUID": "",
       "OriginalTeam": "",
       "BaseForm": {

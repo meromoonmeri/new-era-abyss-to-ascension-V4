@@ -153,7 +153,8 @@ function waterfall_pond.ExitSegment(zone, result, rescue, segmentID, mapID)
   elseif segmentID == 5 then
       -- Boss Diancie
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-          SV.Chapter8.DefeatedDiancie = true
+          SV.Chapter8.DefeatedTerapagos = true
+          SV.Chapter8.DefeatedDiancie = true -- compatibilité anciennes sauvegardes/scènes
           SV.Chapter8.ObtainedCrystalFragment = true
           SV.Chapter8.CrystalSanctuaryComplete = true
           --Scene d'apres-boss : la consequence se joue AVANT le retour a la
@@ -169,13 +170,14 @@ function waterfall_pond.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.TemporaryFlags.MorningAddress = true
           GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 2, 0, true, true)
       else
-          SV.Chapter8.DiedToDiancie = true
-          SV.Chapter8.SanctuaryMidState = 'DeathArrival'
-              GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('metano_town'), 0, true, true)
-          GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
-              "Diancie...[pause=0] sa puissance...[pause=15] trop eclatante...", "Pain")
+          -- Le checkpoint est établi après F15. Une défaite contre Terapagos
+          -- renvoie au relais, sans réinitialiser les flags narratifs ni le boss.
+          SV.Chapter8.DiedToTerapagos = true
+          SV.Chapter8.TerapagosDefeats = (SV.Chapter8.TerapagosDefeats or 0) + 1
+          SV.Chapter8.SanctuaryMidState = 'TerapagosRespawn'
           GAME:WaitFrames(20)
-          GAME:EnterZone("master_zone", -1, GROUND_IDX('metano_town'), 0)
+          GAME:ContinueDungeon('waterfall_pond', 1, 0, 0,
+            RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
       end
   end
 end
