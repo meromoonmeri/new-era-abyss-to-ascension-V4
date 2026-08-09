@@ -5,8 +5,9 @@ Date : 2026-08-09 — Branche `arena/019fd882-new-era-abyss-to-ascension-v4`
 ## Statut global
 
 **Le décodage SSB est terminé et certifié. La couche intermédiaire canonique
-est construite et validée à 100 %. La conversion Lua/PMDO (couche 4) est la
-prochaine étape — elle ne commence qu'après cette validation.**
+est construite et validée à 100 %. Les 24 scènes sont converties en Lua PMDO
+(couche 4, générées + syntaxe validée). Restent : dialogues FR (clés FUT_*),
+tables anim/SE/effets (ROM), import des 8 grounds, tests runtime PMDO.**
 
 ## Les 4 couches (aucune fusion)
 
@@ -99,15 +100,36 @@ vocabulaire.json).
   effets (640/645/651) — à établir depuis les données ROM (pmdsky-debug / ROM
   USA) avant conversion complète.
 
-## Prochaine étape (couche 4)
+## Couche 4 — Conversion Lua PMDO (FAITE, à compléter)
 
-Convertisseur `IR canonique → Lua PMDO` :
-1. résolution des contextes (`lives`/`performer`/`object` → acteurs Lua) ;
-2. résolution des acteurs (cast.json), BGM (tables.json), grounds, faces, vars ;
-3. génération d'une coroutine Lua par scène (`GAME:CutsceneMode`, `GROUND:*`,
-   `UI:*`, `SOUND:*` — API attestée du mod) ;
-4. compilation Lua + test runtime PMDO.
+Rapport : `docs/RAPPORT_CONVERSION_LUA_ARC_FUTUR.md` · fichiers :
+`docs/lua_arc_futur/<ZONE>_<scene>.lua` (24 modules, 6388 lignes).
 
-**Le travail PMDO n'est PAS déclaré terminé.** Chaque scène convertie recevra
-son rapport de validation final (parsing 100 %, opcodes 100 %, params 100 %,
-chorégraphie 100 %, actors 100 %, ground OK, Lua compilable, runtime OK).
+| Contrôle | Résultat |
+|---|---|
+| Scènes converties | **24/24** |
+| Syntaxe Lua validée (luaparser) | **24/24 ✅** |
+| API utilisée attestée dans le mod (GROUND/GAME/UI/SOUND/TASK/AI) | ✅ (aucun appel inventé) |
+| Positions | tuiles SSB → pixels ×8 (+4 si .5) — convention du port ✅ |
+| Vitesses | Sky (point fixe) → PMDO px/frame ×2 (calibré mod) |
+| Parallélisme `lives`/`WaitExecuteLives` | waves → `TASK:JoinCoroutines` par acteur ✅ |
+| Embrachement `m17a0301 → S04P01A` | conservé (`GAME:EnterGroundMap('s04p01a')`) ✅ |
+| Ops NON converties | 4 types : `bgm2_PlayFadeIn/FadeOut` (1 canal BGM), `message_Mail` (×2), `SetEffect` 640/645/651, `SetPositionMark` sur objet, `Hold` — toutes signalées en commentaire, jamais silencieuses |
+| Tables REQUISES (non inventées) | animations (id → nom PMDO, placeholder Idle sûr + TODO), SE (id → nom, `SSB_SE_<id>` pcall + TODO), effets 54/100/172/640/645/651 (BossFX) |
+
+**Dialogue** : le texte canonique Sky est conservé en commentaire de chaque
+`UI:WaitShowDialogue` ; le texte joué est une clé `FUT_<SCENE>_<NNN>` à écrire
+en français (couche d'adaptation, jamais fusionnée dans l'IR).
+
+**À noter (décision narrative requise)** : dans `m17a0103` (P05P01A, repaire),
+Dusknoir s'adresse au « Master Dialga ». New Era : Dusknoir est allié, le
+maître est Necrozma. La ré-attribution (locuteur Sableye, ou Dusknoir face à
+Necrozma) est laissée à la couche dialogue — chorégraphie conservée 1:1.
+
+**Reste pour rendre les scènes jouables :**
+1. Import des 8 grounds (p05p01a→p09p01a) avec entités nommées selon
+   `ACTOR_CH` (Dusknoir, Grovyle, Sableye_1..6, Celebi, HeroFuture) ;
+2. tables anim/SE/effets depuis la ROM (pmdsky-debug / ROM USA) ;
+3. dialogues FR (clés FUT_*) dans `Strings/stringsEx.*.resx` ;
+4. branchement des modules sur l'init.lua des grounds + runner d'arc ;
+5. compilation + tests runtime PMDO (rapport final par scène).
