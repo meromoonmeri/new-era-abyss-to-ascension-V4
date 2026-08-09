@@ -1,0 +1,803 @@
+{
+  "scope": "Treasure Town urban dependency corpus: T00/T01/P01/G01",
+  "summary": {
+    "canonical_grounds": 30,
+    "static_verified": 6,
+    "partial": 3,
+    "missing": 21,
+    "runtime_verified": 0,
+    "source_families": {
+      "t00p": 4,
+      "t01p": 4,
+      "p01p": 4,
+      "g01p": 18
+    }
+  },
+  "source_to_pmdo": [
+    {
+      "source": "g01p01a",
+      "family": "g01",
+      "source_metrics": {
+        "width": 60,
+        "height": 51,
+        "cells": 3060,
+        "frames": 3162,
+        "animated_cells": 42,
+        "sheets": [
+          "G01p01a_Base"
+        ],
+        "collision": "afa2b54e37566414eeff092bb9bb4cc94e01f14a1fc7246dc01c79611e99195b"
+      },
+      "pmdo": [
+        {
+          "ground": "guilde_parvis",
+          "geometry": true,
+          "collision": true,
+          "frames": true,
+          "animated_cells": true,
+          "pmdo_metrics": {
+            "width": 60,
+            "height": 51,
+            "cells": 3060,
+            "frames": 3162,
+            "animated_cells": 42,
+            "sheets": [
+              "G01p01a_Base"
+            ],
+            "collision": "afa2b54e37566414eeff092bb9bb4cc94e01f14a1fc7246dc01c79611e99195b"
+          }
+        }
+      ],
+      "static_status": "STATIC_VERIFIED",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "g01p01b",
+      "family": "g01",
+      "source_metrics": {
+        "width": 60,
+        "height": 51,
+        "cells": 3060,
+        "frames": 3446,
+        "animated_cells": 142,
+        "sheets": [
+          "G01p01b_Base"
+        ],
+        "collision": "50e38fcc0f8a4e9d4d8a25483e45216d9fc850eef2b02545b93674c836e0d352"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "g01p01c",
+      "family": "g01",
+      "source_metrics": {
+        "width": 60,
+        "height": 51,
+        "cells": 3060,
+        "frames": 3713,
+        "animated_cells": 286,
+        "sheets": [
+          "G01p01c_Base"
+        ],
+        "collision": "50e38fcc0f8a4e9d4d8a25483e45216d9fc850eef2b02545b93674c836e0d352"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "g01p02a",
+      "family": "g01",
+      "source_metrics": {
+        "width": 51,
+        "height": 39,
+        "cells": 1989,
+        "frames": 1989,
+        "animated_cells": 0,
+        "sheets": [
+          "G01p02a_Base"
+        ],
+        "collision": "dabc7299952a99432df188859fc6dc2ed5f31288780b013dabcc5b70694bc1dc"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "g01p03a",
+      "family": "g01",
+      "source_metrics": {
+        "width": 87,
+        "height": 57,
+        "cells": 4959,
+        "frames": 4959,
+        "animated_cells": 0,
+        "sheets": [
+          "G01p03a_Base"
+        ],
+        "collision": "4ee1e12939451ad78c0391d605c83e2c5e89b00f2a5646c44d4d556c87560e67"
+      },
+      "pmdo": [
+        {
+          "ground": "sky_wigglytuff_guild_entrance",
+          "geometry": true,
+          "collision": true,
+          "frames": true,
+          "animated_cells": true,
+          "pmdo_metrics": {
+            "width": 87,
+            "height": 57,
+            "cells": 4959,
+            "frames": 4959,
+            "animated_cells": 0,
+            "sheets": [
+              "G01p03a_Base"
+            ],
+            "collision": "4ee1e12939451ad78c0391d605c83e2c5e89b00f2a5646c44d4d556c87560e67"
+          }
+        }
+      ],
+      "static_status": "STATIC_VERIFIED",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "g01p04a",
+      "family": "g01",
+      "source_metrics": {
+        "width": 81,
+        "height": 54,
+        "cells": 4374,
+        "frames": 4374,
+        "animated_cells": 0,
+        "sheets": [
+          "G01p04a_Base"
+        ],
+        "collision": "73c08600236134d5c36f2ea9b22a9a54ebe7781e6912cbe8ea2bf9ac056e9f89"
+      },
+      "pmdo": [
+        {
+          "ground": "sky_wigglytuff_guild_main",
+          "geometry": true,
+          "collision": true,
+          "frames": true,
+          "animated_cells": true,
+          "pmdo_metrics": {
+            "width": 81,
+            "height": 54,
+            "cells": 4374,
+            "frames": 4374,
+            "animated_cells": 0,
+            "sheets": [
+              "G01p04a_Base"
+            ],
+            "collision": "73c08600236134d5c36f2ea9b22a9a54ebe7781e6912cbe8ea2bf9ac056e9f89"
+          }
+        }
+      ],
+      "static_status": "STATIC_VERIFIED",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "g01p04c",
+      "family": "g01",
+      "source_metrics": {
+        "width": 81,
+        "height": 54,
+        "cells": 4374,
+        "frames": 4374,
+        "animated_cells": 0,
+        "sheets": [
+          "G01p04c_Base"
+        ],
+        "collision": "11967c931dcc21e57d476eb3bddffe23385c5390d2a68f422e5c1eb8334fe315"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "g01p05a",
+      "family": "g01",
+      "source_metrics": {
+        "width": 51,
+        "height": 48,
+        "cells": 2448,
+        "frames": 2448,
+        "animated_cells": 0,
+        "sheets": [
+          "G01p05a_Base"
+        ],
+        "collision": "e95716839f01598adf4c434c4590dbbcef910fa9c332c0831454533161e1ae77"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "g01p05c",
+      "family": "g01",
+      "source_metrics": {
+        "width": 51,
+        "height": 48,
+        "cells": 2448,
+        "frames": 2562,
+        "animated_cells": 40,
+        "sheets": [
+          "G01p05c_Base"
+        ],
+        "collision": "24596280fbd8c4959c3d18e635e49d7ce2212443b79a25f181758d32d8b150f5"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "g01p06a",
+      "family": "g01",
+      "source_metrics": {
+        "width": 63,
+        "height": 45,
+        "cells": 2835,
+        "frames": 2881,
+        "animated_cells": 17,
+        "sheets": [
+          "G01p06a_Base"
+        ],
+        "collision": "b82f0a1c83ea88b06d313e92e267ca6d346b0b28d88556bf6a233dabb7e46278"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "g01p06b",
+      "family": "g01",
+      "source_metrics": {
+        "width": 63,
+        "height": 45,
+        "cells": 2835,
+        "frames": 2881,
+        "animated_cells": 17,
+        "sheets": [
+          "G01p06b_Base"
+        ],
+        "collision": "b82f0a1c83ea88b06d313e92e267ca6d346b0b28d88556bf6a233dabb7e46278"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "g01p07a",
+      "family": "g01",
+      "source_metrics": {
+        "width": 48,
+        "height": 39,
+        "cells": 1872,
+        "frames": 1872,
+        "animated_cells": 0,
+        "sheets": [
+          "G01p07a_Base"
+        ],
+        "collision": "69514020f73d2542a0aa9664ac2510e8715b7ceb1ecae549baff654b4aa9da14"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "g01p07c",
+      "family": "g01",
+      "source_metrics": {
+        "width": 48,
+        "height": 39,
+        "cells": 1872,
+        "frames": 24510,
+        "animated_cells": 1872,
+        "sheets": [
+          "G01p07c_Base"
+        ],
+        "collision": "69514020f73d2542a0aa9664ac2510e8715b7ceb1ecae549baff654b4aa9da14"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "g01p08a",
+      "family": "g01",
+      "source_metrics": {
+        "width": 33,
+        "height": 45,
+        "cells": 1485,
+        "frames": 1485,
+        "animated_cells": 0,
+        "sheets": [
+          "G01p08a_Base"
+        ],
+        "collision": "d8e513f0baf99db34597116d261ec56239cf3607c07b79e8c96cd3bc289247f1"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "g01p09a",
+      "family": "g01",
+      "source_metrics": {
+        "width": 54,
+        "height": 42,
+        "cells": 2268,
+        "frames": 2268,
+        "animated_cells": 0,
+        "sheets": [
+          "G01p09a_Base"
+        ],
+        "collision": "9b1f6ab2592c5441d9d7300ba8439230d65bec2350fa620dda32666ad64fdf10"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "g01p09c",
+      "family": "g01",
+      "source_metrics": {
+        "width": 54,
+        "height": 42,
+        "cells": 2268,
+        "frames": 2268,
+        "animated_cells": 0,
+        "sheets": [
+          "G01p09c_Base"
+        ],
+        "collision": "9b1f6ab2592c5441d9d7300ba8439230d65bec2350fa620dda32666ad64fdf10"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "g01p10a",
+      "family": "g01",
+      "source_metrics": {
+        "width": 54,
+        "height": 42,
+        "cells": 2268,
+        "frames": 2280,
+        "animated_cells": 6,
+        "sheets": [
+          "G01p10a_Base"
+        ],
+        "collision": "4a4b000dfa02e44c1ab0e6b90982e42be9cbd50d4dd0c392bda397db8a60c49c"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "g01p10c",
+      "family": "g01",
+      "source_metrics": {
+        "width": 54,
+        "height": 42,
+        "cells": 2268,
+        "frames": 2280,
+        "animated_cells": 6,
+        "sheets": [
+          "G01p10c_Base"
+        ],
+        "collision": "4a4b000dfa02e44c1ab0e6b90982e42be9cbd50d4dd0c392bda397db8a60c49c"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "p01p01a",
+      "family": "p01",
+      "source_metrics": {
+        "width": 54,
+        "height": 57,
+        "cells": 3078,
+        "frames": 3304,
+        "animated_cells": 94,
+        "sheets": [
+          "P01p01a_Base"
+        ],
+        "collision": "bc5e33cb2b6b506ee3e0662dc04d6fd8a8b790e06b7959e0f8b33ee54419efce"
+      },
+      "pmdo": [
+        {
+          "ground": "carrefour_nord",
+          "geometry": true,
+          "collision": false,
+          "frames": false,
+          "animated_cells": false,
+          "pmdo_metrics": {
+            "width": 54,
+            "height": 57,
+            "cells": 3078,
+            "frames": 3078,
+            "animated_cells": 0,
+            "sheets": [
+              "P01P01A_layer1"
+            ],
+            "collision": "8e38ad3627544171b6e65c9287a1c50d5b8cc3e25cf2c5fbd8d24642951ffa41"
+          }
+        }
+      ],
+      "static_status": "PARTIAL",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "p01p02a",
+      "family": "p01",
+      "source_metrics": {
+        "width": 54,
+        "height": 54,
+        "cells": 2916,
+        "frames": 2991,
+        "animated_cells": 30,
+        "sheets": [
+          "P01p02a_Base"
+        ],
+        "collision": "353f62635c95556b08b07ec8cc4aab23183e02e77b861a75752520f3e22c41a0"
+      },
+      "pmdo": [
+        {
+          "ground": "carrefour_sud",
+          "geometry": true,
+          "collision": false,
+          "frames": false,
+          "animated_cells": false,
+          "pmdo_metrics": {
+            "width": 54,
+            "height": 54,
+            "cells": 2974,
+            "frames": 2974,
+            "animated_cells": 0,
+            "sheets": [
+              "P01P02A_layer1",
+              "P01P02A_layer2"
+            ],
+            "collision": "d8cee259ec9892731c6f27a49fe6f11bd4e69ac4584a8e289f244722e6e29d75"
+          }
+        }
+      ],
+      "static_status": "PARTIAL",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "p01p03a",
+      "family": "p01",
+      "source_metrics": {
+        "width": 54,
+        "height": 57,
+        "cells": 3078,
+        "frames": 3304,
+        "animated_cells": 94,
+        "sheets": [
+          "P01p03a_Base"
+        ],
+        "collision": "d2d373348bfe83eaedf6a93709816f112c9a3c4a3910f540f16fa57910b857db"
+      },
+      "pmdo": [
+        {
+          "ground": "carrefour_assemblee",
+          "geometry": true,
+          "collision": true,
+          "frames": true,
+          "animated_cells": true,
+          "pmdo_metrics": {
+            "width": 54,
+            "height": 57,
+            "cells": 3078,
+            "frames": 3304,
+            "animated_cells": 94,
+            "sheets": [
+              "P01p03a_Base"
+            ],
+            "collision": "d2d373348bfe83eaedf6a93709816f112c9a3c4a3910f540f16fa57910b857db"
+          }
+        }
+      ],
+      "static_status": "STATIC_VERIFIED",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "p01p04a",
+      "family": "p01",
+      "source_metrics": {
+        "width": 87,
+        "height": 57,
+        "cells": 4959,
+        "frames": 4959,
+        "animated_cells": 0,
+        "sheets": [
+          "P01p04a_Base"
+        ],
+        "collision": "6c0b377b4ced15a4acecdefcc44da98d8cd939aeeadf7520a283808cfff0d4a0"
+      },
+      "pmdo": [
+        {
+          "ground": "treasure_spinda_cafe",
+          "geometry": true,
+          "collision": true,
+          "frames": true,
+          "animated_cells": true,
+          "pmdo_metrics": {
+            "width": 87,
+            "height": 57,
+            "cells": 4959,
+            "frames": 4959,
+            "animated_cells": 0,
+            "sheets": [
+              "P01p04a_Base"
+            ],
+            "collision": "6c0b377b4ced15a4acecdefcc44da98d8cd939aeeadf7520a283808cfff0d4a0"
+          }
+        }
+      ],
+      "static_status": "STATIC_VERIFIED",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "t00p01",
+      "family": "t00",
+      "source_metrics": {
+        "width": 120,
+        "height": 90,
+        "cells": 10800,
+        "frames": 11723,
+        "animated_cells": 283,
+        "sheets": [
+          "T00p01_Base"
+        ],
+        "collision": "a4eb6980e5cf7944da9ab83dddde27006a6bf81578b44d476454b3774ef1c6e4"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "t00p02",
+      "family": "t00",
+      "source_metrics": {
+        "width": 84,
+        "height": 63,
+        "cells": 5292,
+        "frames": 6689,
+        "animated_cells": 494,
+        "sheets": [
+          "T00p02_Base"
+        ],
+        "collision": "3f12b17b66c5064696bc2b9688600b96ad3725139133b2c28c84d5d04aedad05"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "t00p03",
+      "family": "t00",
+      "source_metrics": {
+        "width": 69,
+        "height": 63,
+        "cells": 4347,
+        "frames": 5054,
+        "animated_cells": 251,
+        "sheets": [
+          "T00p03_Base"
+        ],
+        "collision": "96ab3e93315278bfdc51cf16e46b0c7345054c615a9093ad24430410b360fa16"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "t00p04a",
+      "family": "t00",
+      "source_metrics": {
+        "width": 60,
+        "height": 51,
+        "cells": 3060,
+        "frames": 3162,
+        "animated_cells": 42,
+        "sheets": [
+          "T00p04a_Base"
+        ],
+        "collision": "851c62f354b4bf5d7ef02f7e013e974da43822ad507be7a86ef505993f593c23"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "t01p01a",
+      "family": "t01",
+      "source_metrics": {
+        "width": 84,
+        "height": 63,
+        "cells": 5292,
+        "frames": 6689,
+        "animated_cells": 494,
+        "sheets": [
+          "T01p01a_Base"
+        ],
+        "collision": "28c820d423d806039675b6f40077c9f6338e2cf514925cc209b9b4c58324c053"
+      },
+      "pmdo": [
+        {
+          "ground": "bourg_comptoir",
+          "geometry": true,
+          "collision": true,
+          "frames": true,
+          "animated_cells": true,
+          "pmdo_metrics": {
+            "width": 84,
+            "height": 63,
+            "cells": 5292,
+            "frames": 6689,
+            "animated_cells": 494,
+            "sheets": [
+              "T01p01a_Base"
+            ],
+            "collision": "28c820d423d806039675b6f40077c9f6338e2cf514925cc209b9b4c58324c053"
+          }
+        }
+      ],
+      "static_status": "STATIC_VERIFIED",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "t01p02a",
+      "family": "t01",
+      "source_metrics": {
+        "width": 69,
+        "height": 63,
+        "cells": 4347,
+        "frames": 5054,
+        "animated_cells": 251,
+        "sheets": [
+          "T01p02a_Base"
+        ],
+        "collision": "2bf3c3379bc8be560044af6c51d6869090ddba0e210ab7baffc786f4807544c2"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "t01p03a",
+      "family": "t01",
+      "source_metrics": {
+        "width": 63,
+        "height": 54,
+        "cells": 3402,
+        "frames": 3604,
+        "animated_cells": 77,
+        "sheets": [
+          "T01p03a_Base"
+        ],
+        "collision": "e5ea220a29808c17f0683ac91dae8f5e435c442c4fccab3ac315318917c8f64d"
+      },
+      "pmdo": [
+        {
+          "ground": "dojo_ossatueur",
+          "geometry": false,
+          "collision": false,
+          "frames": false,
+          "animated_cells": false,
+          "pmdo_metrics": {
+            "width": 21,
+            "height": 18,
+            "cells": 393,
+            "frames": 1527,
+            "animated_cells": 378,
+            "sheets": [
+              "MarowakDojo",
+              "T01P03A_layer1"
+            ],
+            "collision": "f58213d250bd02ee0de060ac23cb8cc05e94b1a01d33a660823235c48e00dbbf"
+          }
+        }
+      ],
+      "static_status": "PARTIAL",
+      "runtime_status": "NOT_TESTED"
+    },
+    {
+      "source": "t01p04a",
+      "family": "t01",
+      "source_metrics": {
+        "width": 51,
+        "height": 45,
+        "cells": 2295,
+        "frames": 2378,
+        "animated_cells": 31,
+        "sheets": [
+          "T01p04a_Base"
+        ],
+        "collision": "8bc0adc1ed0e30023c23d46df9aa5d2635d9871e4ee929bab8d14f50cf2cdc24"
+      },
+      "pmdo": [],
+      "static_status": "MISSING",
+      "runtime_status": "NOT_TESTED"
+    }
+  ],
+  "pmdo_to_source": [
+    {
+      "pmdo": "bourg_comptoir",
+      "sources": [
+        "t01p01a"
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "pmdo": "carrefour_assemblee",
+      "sources": [
+        "p01p03a"
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "pmdo": "carrefour_nord",
+      "sources": [
+        "p01p01a"
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "pmdo": "carrefour_sud",
+      "sources": [
+        "p01p02a"
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "pmdo": "dojo_ossatueur",
+      "sources": [
+        "t01p03a"
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "pmdo": "guilde_parvis",
+      "sources": [
+        "g01p01a"
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "pmdo": "sky_wigglytuff_guild_entrance",
+      "sources": [
+        "g01p03a"
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "pmdo": "sky_wigglytuff_guild_main",
+      "sources": [
+        "g01p04a"
+      ],
+      "status": "MAPPED"
+    },
+    {
+      "pmdo": "t01p01",
+      "sources": [],
+      "status": "SOURCE_UNCLEAR"
+    },
+    {
+      "pmdo": "treasure_spinda_cafe",
+      "sources": [
+        "p01p04a"
+      ],
+      "status": "MAPPED"
+    }
+  ],
+  "answer": "NO",
+  "rule": "STATIC_VERIFIED is not RUNTIME_VERIFIED."
+}
