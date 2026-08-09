@@ -62,7 +62,9 @@ RuinesZarbi.MOTS = {
 -- Chance qu'un Zarbi vaincu laisse sa pierre. Valeur d'Aegis Cave :
 -- faible et non garantie. 25 % rend la boucle sensible sans la rendre
 -- interminable sur un mot de 5 lettres.
-RuinesZarbi.CHANCE_PIERRE = 25
+RuinesZarbi.CHANCE_PIERRE = 33  -- valeur NDS : UNOWN_STONE_DROP_CHANCE (arm9, 33%)
+-- (corrigé de 25% le 2026-08-09 : le jeu original donne 33%, cf. pmdsky-debug
+-- overlay10 UNOWN_STONE_DROP_CHANCE 0x22C4474)
 
 --------------------------------------------------------------------
 -- Etat de sauvegarde

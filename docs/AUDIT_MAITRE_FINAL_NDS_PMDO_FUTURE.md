@@ -372,3 +372,25 @@ PMDO : d21p41a -> m18b1101 (ground) -> m18b1201 (ground) -> EnterDungeon('spirit
 - **AUDIO COVERAGE : PARTIAL** — 3/5 BGM présents ; Sealed Ruin Pit.ogg, Dusk Forest.ogg → REQUIRES_ASSET
 - **TRAP COVERAGE : PARTIAL** — 11 pièges mappés ; 7 sans équivalent PMDO documentés
 - **RUNTIME VERIFICATION : PENDING** — statique complète (audit_master_future.py exit=1 sur 2 BGM) ; moteur PMDO non exécutable ici — test en jeu requis
+
+---
+
+## ERRATA 2026-08-09 — CORRECTION DES ESPÈCES (AUDIT MAÎTRE)
+
+**BUG trouvé par l'audit NDS→PMDO** : le champ monstre de `mappa_s.bin` est le
+**MONSTER_ID** (énumération pmdsky-debug, 1-based) et non un « dex-1 ». La table
+précédente (`npn+1`) donnait des espèces **décalées** pour tous les ids après le
+bloc des 28 formes de Zarbi (Unown).
+
+| Zone | Avant (FAUX) | Après (NDS, vérifié Bulbapedia) |
+|---|---|---|
+| Chasm Cave | magneton, eevee, houndour, spinda, drifblim, drowzee, buneary, farfetchd | magnemite, ditto, skarmory, grumpig, drifloon, onix, drifblim, magneton |
+| Dark Hill | haunter, unown, duskull, mamoswine, lileep, tropius | gastly, misdreavus, banette, gliscor, claydol, dusclops, haunter, gengar |
+| Sealed Ruin / Pit | shellder, dunsparce, salamence, metagross, electivire, dusknoir | muk, forretress, shelgon, metang, tangrowth, probopass |
+| Dusk Forest | aipom, combee, honchkrow, garchomp | jumpluff, mothim, mismagius, gabite |
+
+Correction chirurgicale (`tools/fix_future_dungeons_species.py`) : 223 espèces
+réappariées positionnellement (niveaux/poids/pièges/dark/MH/arènes intacts).
+`audit_master_future.py` corrigé : **46/46 floors, 223/223 Pokémon, 2 FAIL
+résiduels = BGM absents (REQUIRES_ASSET)**.
+Rapport complet : `docs/AUDIT_AEGIS_CAVE_CLOVEN_RUIN_NDS_PMDO.md`.

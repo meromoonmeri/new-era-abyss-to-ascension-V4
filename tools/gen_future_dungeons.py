@@ -33,16 +33,26 @@ with open(os.path.join(DOCS, "_md2dex.json"), encoding="utf-8") as f:
     MD2DEX = {int(k): v for k, v in json.load(f).items()}
 
 # ---------------------------------------------------------------------------
-# dex -> species PMDO (identifiants standard du jeu). Table des espèces
-# réellement présentes dans les 6 donjons (27 espèces — données NDS).
+# CORRECTION 2026-08-09 (audit maître NDS → PMDO) :
+# Le champ monstre de mappa_s.bin est le MONSTER_ID (énumération pmdsky-debug,
+# 1-based, identique au « species code » : Bulbasaur=1, ...). L'ancienne table
+# DEX_SPECIES indexée par « npn+1 » (national_dex-1+1) donnait des espèces
+# DÉCALÉES pour tous les ids après le bloc des formes (28 formes de Zarbi
+# décalent tout) : Magnemite→Magneton, Ditto→Eevee, Skarmory→Houndour,
+# Grumpig→Spinda, Drifloon→Drifblim, Onix→Drowzee, Muk→Shellder, etc.
+# La table ci-dessous est l'identité DIRECTE raw mappa id → espèce PMDO,
+# vérifiée espèce par espèce contre Bulbapedia (Sky) et pmdsky-debug
+# (headers/types/common/enums.h, MONSTER_ID_GENDERED).
 # ---------------------------------------------------------------------------
-DEX_SPECIES = {
-    82: "magneton", 83: "farfetchd", 90: "shellder", 93: "haunter", 94: "gengar",
-    95: "onix", 96: "drowzee", 133: "eevee", 190: "aipom", 201: "unown",
-    206: "dunsparce", 228: "houndour", 327: "spinda", 345: "lileep", 355: "duskull",
-    357: "tropius", 373: "salamence", 376: "metagross", 415: "combee", 426: "drifblim",
-    427: "buneary", 430: "honchkrow", 443: "spiritomb", 445: "garchomp", 466: "electivire",
-    473: "mamoswine", 477: "dusknoir",
+MID_SPECIES = {
+    41: "zubat", 42: "golbat", 67: "machoke", 68: "machamp",
+    81: "magnemite", 82: "magneton", 89: "muk", 92: "gastly",
+    93: "haunter", 94: "gengar", 95: "onix", 132: "ditto",
+    169: "crobat", 189: "jumpluff", 200: "misdreavus", 232: "forretress",
+    254: "skarmory", 354: "grumpig", 372: "claydol", 386: "banette",
+    388: "dusclops", 404: "shelgon", 407: "metang", 453: "mothim",
+    467: "drifloon", 468: "drifblim", 471: "mismagius", 484: "spiritomb",
+    486: "gabite", 507: "tangrowth", 514: "gliscor", 518: "probopass",
 }
 
 # ---------------------------------------------------------------------------
@@ -169,10 +179,10 @@ def build_floor(fl, tset_name, music_ogg, floor_index):
     # [7] DetectIsolatedStairsStep
     steps.append(gs(7, {"$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.Dungeon.StairsTile, RogueEssence]], RogueElements"}))
     # MobSpawnStep : TABLE ENNEMIS NDS du floor (PoolTeamSpawner)
+    # (le champ 'md' de mappa_s.bin EST le MONSTER_ID — identité directe)
     mob_spawns = []
     for m in fl["monsters"]:
-        dex = MD2DEX.get(m["md"])
-        sp = DEX_SPECIES.get(dex)
+        sp = MID_SPECIES.get(m["md"])
         if not sp:
             continue
         rate = max(1, round(m["weight"] / 100.0))

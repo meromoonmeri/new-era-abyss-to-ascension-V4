@@ -65,13 +65,18 @@ GROUPS = {27: 18, 28: 19, 29: 20, 30: 20, 31: 20, 32: 21}
 PRECS  = {27: 0, 28: 0, 29: 0, 30: 8, 31: 14, 32: 0}
 NFL    = {27: 8, 28: 15, 29: 8, 30: 6, 31: 1, 32: 8}
 
+# CORRECTION 2026-08-09 : le champ monstre de mappa_s.bin est le MONSTER_ID
+# (1-based, pmdsky-debug). L'ancienne table indexée par « npn+1 » donnait des
+# espèces décalées après le bloc des 28 formes de Zarbi. Identité directe :
 DEX_SPECIES = {
-    82: "magneton", 83: "farfetchd", 90: "shellder", 93: "haunter", 94: "gengar",
-    95: "onix", 96: "drowzee", 133: "eevee", 190: "aipom", 201: "unown",
-    206: "dunsparce", 228: "houndour", 327: "spinda", 345: "lileep", 355: "duskull",
-    357: "tropius", 373: "salamence", 376: "metagross", 415: "combee", 426: "drifblim",
-    427: "buneary", 430: "honchkrow", 443: "spiritomb", 445: "garchomp", 466: "electivire",
-    473: "mamoswine", 477: "dusknoir",
+    41: "zubat", 42: "golbat", 67: "machoke", 68: "machamp",
+    81: "magnemite", 82: "magneton", 89: "muk", 92: "gastly",
+    93: "haunter", 94: "gengar", 95: "onix", 132: "ditto",
+    169: "crobat", 189: "jumpluff", 200: "misdreavus", 232: "forretress",
+    254: "skarmory", 354: "grumpig", 372: "claydol", 386: "banette",
+    388: "dusclops", 404: "shelgon", 407: "metang", 453: "mothim",
+    467: "drifloon", 468: "drifblim", 471: "mismagius", 484: "spiritomb",
+    486: "gabite", 507: "tangrowth", 514: "gliscor", 518: "probopass",
 }
 TSET_NAME = {26: "chasm_cave", 27: "chasm_cave", 28: "dark_hill", 29: "dark_hill",
              30: "sealed_ruin", 31: "sealed_ruin_pit", 33: "dusk_forest",
@@ -170,8 +175,7 @@ for zid, (did, name) in DUNGEONS.items():
             pm_mobs.setdefault(sp, []).append((lv, rate))
         nds_seen = set()
         for md_idx, lv, w in nds["monsters"]:
-            dex = MD2DEX.get(md_idx)
-            sp = DEX_SPECIES.get(dex)
+            sp = DEX_SPECIES.get(md_idx)  # md_idx = MONSTER_ID (identité directe)
             if not sp:
                 errs.append(f"md {md_idx} non résolu")
                 continue
