@@ -76,4 +76,10 @@ end
 -- New Era pour l'instant. Neutralisee explicitement.
 function carrefour_assemblee.DungeonEntrance_Touch(obj, activator) end
 
+function carrefour_assemblee.TreasureSpindaCafeEntrance_Touch(obj, activator)
+  DEBUG.EnableDbgCoro()
+  GAME:FadeOut(false,20)
+  GAME:EnterGroundMap('treasure_spinda_cafe','Main_Entrance_Marker')
+end
+
 return carrefour_assemblee
