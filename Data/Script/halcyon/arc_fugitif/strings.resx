@@ -787,325 +787,325 @@
     <value></value>
   </data>
   <data name="SCENE_A02P01_001" xml:space="preserve">
-    <value></value>
+    <value>The town is behind us.[pause=15] The accusations too.</value>
   </data>
   <data name="SCENE_A02P01_002" xml:space="preserve">
-    <value></value>
+    <value>We have no choice...[pause=10] We must run.</value>
   </data>
   <data name="SCENE_A02P01_003" xml:space="preserve">
-    <value></value>
+    <value>Come on, {NAME_0}![pause=5] They won't catch us.</value>
   </data>
   <data name="SCENE_A02P01_004" xml:space="preserve">
-    <value></value>
+    <value>Straight ahead.[pause=15] The world is wide, and we are free.</value>
   </data>
   <data name="SCENE_A02P02_001" xml:space="preserve">
-    <value></value>
+    <value>Look...[pause=10] The earth is still smoking.</value>
   </data>
   <data name="SCENE_A02P02_002" xml:space="preserve">
-    <value></value>
+    <value>A fire of anger.[pause=15] Or of grief?</value>
   </data>
   <data name="SCENE_A02P02_003" xml:space="preserve">
-    <value></value>
+    <value>Don't stop, {NAME_0}![pause=5] The ground is hot beneath us.</value>
   </data>
   <data name="SCENE_A02P02_004" xml:space="preserve">
-    <value></value>
+    <value>This way![pause=5] While the embers let us pass.</value>
   </data>
   <data name="SCENE_A02P03_001" xml:space="preserve">
-    <value></value>
+    <value>Gasp... Gasp...</value>
   </data>
   <data name="SCENE_A02P03_002" xml:space="preserve">
-    <value></value>
+    <value>Oh, no![pause=10] Look!</value>
   </data>
   <data name="SCENE_A02P03_003" xml:space="preserve">
-    <value></value>
+    <value>Look at them go![pause=10] They're running for Mt. Blaze!</value>
   </data>
   <data name="SCENE_A02P03_004" xml:space="preserve">
-    <value></value>
+    <value>Are they insane?[pause=10] Mt. Blaze is doomed desolation!</value>
   </data>
   <data name="SCENE_A02P03_005" xml:space="preserve">
-    <value></value>
+    <value>No one's ever come this far before!</value>
   </data>
   <data name="SCENE_A02P03_006" xml:space="preserve">
-    <value></value>
+    <value>I don't wanna go anywhere like that.</value>
   </data>
   <data name="SCENE_A02P03_007" xml:space="preserve">
-    <value></value>
+    <value>It can't be helped.[pause=10] Only those brave enough will give chase!</value>
   </data>
   <data name="SCENE_A02P03_008" xml:space="preserve">
-    <value></value>
+    <value>It... It's a mountain of fire!</value>
   </data>
   <data name="SCENE_A02P03_009" xml:space="preserve">
-    <value></value>
+    <value>Look at all that lava[wait=5] pouring from the crater...</value>
   </data>
   <data name="SCENE_A02P03_010" xml:space="preserve">
-    <value></value>
+    <value>Can we even make it through there?</value>
   </data>
   <data name="SCENE_A02P03_011" xml:space="preserve">
-    <value></value>
+    <value>But they're catching up to[wait=5] us...</value>
   </data>
   <data name="SCENE_A02P03_012" xml:space="preserve">
-    <value></value>
+    <value>What'll we do,[pause=10] {NAME_0}?</value>
   </data>
   <data name="SCENE_A02P03_013" xml:space="preserve">
-    <value></value>
+    <value>Look! There they are!</value>
   </data>
   <data name="SCENE_A02P03_014" xml:space="preserve">
-    <value></value>
+    <value>Get them!</value>
   </data>
   <data name="SCENE_A02P03_015" xml:space="preserve">
-    <value></value>
+    <value>There's no choice now!</value>
   </data>
   <data name="SCENE_A02P03_016" xml:space="preserve">
-    <value></value>
+    <value>Let's go, {NAME_0}!</value>
   </data>
   <data name="SCENE_A02P04_001" xml:space="preserve">
-    <value></value>
+    <value>Yeah, you're right.[pause=10] There can't be anyone else.[pause=10] Hahahahaha.</value>
   </data>
   <data name="SCENE_A02P04_002" xml:space="preserve">
-    <value></value>
+    <value>All right![pause=10] We can say good-bye to living like fugitives.</value>
   </data>
   <data name="SCENE_A02P04_003" xml:space="preserve">
-    <value></value>
+    <value>We don't have to keep[wait=5] running away anymore![pause=10] Hahahahaha.</value>
   </data>
   <data name="SCENE_A02P04_004" xml:space="preserve">
-    <value></value>
+    <value>Hahahaha...[pause=10] Haha...[pause=10] Ha...</value>
   </data>
   <data name="SCENE_A02P04_005" xml:space="preserve">
-    <value></value>
+    <value>...We really are alone, then.</value>
   </data>
   <data name="SCENE_A02P04_006" xml:space="preserve">
-    <value></value>
+    <value>Thirty years.[pause=15] Thirty years this world remembers other heroes.</value>
   </data>
   <data name="SCENE_A02P04_007" xml:space="preserve">
-    <value></value>
+    <value>And us...[pause=10] we are the heirs they accuse.</value>
   </data>
   <data name="SCENE_A02P04_008" xml:space="preserve">
-    <value></value>
+    <value>No matter.[pause=15] They will understand in time.</value>
   </data>
   <data name="SCENE_A02P04_009" xml:space="preserve">
-    <value></value>
+    <value>Do you think they will,[pause=10] {NAME_0}?</value>
   </data>
   <data name="SCENE_A02P04_010" xml:space="preserve">
-    <value></value>
+    <value>...Yes.</value>
   </data>
   <data name="SCENE_A02P04_011" xml:space="preserve">
-    <value></value>
+    <value>Then we keep moving forward.[pause=15] To the very end.</value>
   </data>
   <data name="SCENE_A02P04_012" xml:space="preserve">
-    <value></value>
+    <value>Until the truth is stronger than the rumor.</value>
   </data>
   <data name="SCENE_A02P04_013" xml:space="preserve">
-    <value></value>
+    <value>Mt. Blaze awaits us.</value>
   </data>
   <data name="SCENE_A02P04_014" xml:space="preserve">
-    <value></value>
+    <value>After it...[pause=10] the cold.</value>
   </data>
   <data name="SCENE_A02P04_015" xml:space="preserve">
-    <value></value>
+    <value>After the cold...[pause=10] the snow.</value>
   </data>
   <data name="SCENE_A02P04_016" xml:space="preserve">
-    <value></value>
+    <value>And at the end of the road,[pause=10] maybe,[pause=10] peace.</value>
   </data>
   <data name="SCENE_A02P04_017" xml:space="preserve">
-    <value></value>
+    <value>Come on.[pause=15] Forward.</value>
   </data>
   <data name="SCENE_A02P04_018" xml:space="preserve">
-    <value></value>
+    <value>And whatever happens...[pause=10] I stay by your side.</value>
   </data>
   <data name="SCENE_A02P04_019" xml:space="preserve">
-    <value></value>
+    <value>As always.</value>
   </data>
   <data name="SCENE_A02P04_020" xml:space="preserve">
-    <value></value>
+    <value>...Thank you, {NAME_1}.</value>
   </data>
   <data name="SCENE_A02P04_021" xml:space="preserve">
-    <value></value>
+    <value>That's what we are, right?[pause=10] A team.</value>
   </data>
   <data name="SCENE_A02P04_022" xml:space="preserve">
-    <value></value>
+    <value>Even when the whole world turns its back on us.</value>
   </data>
   <data name="SCENE_A02P04_023" xml:space="preserve">
-    <value></value>
+    <value>So... let's go.</value>
   </data>
   <data name="SCENE_A02P04_024" xml:space="preserve">
-    <value></value>
+    <value>The volcano won't stop us.</value>
   </data>
   <data name="SCENE_A02P04_025" xml:space="preserve">
-    <value></value>
+    <value>Not the lava.[pause=10] Not the ash.</value>
   </data>
   <data name="SCENE_A02P04_026" xml:space="preserve">
-    <value></value>
+    <value>Not those who chase us.</value>
   </data>
   <data name="SCENE_A02P04_027" xml:space="preserve">
-    <value></value>
+    <value>We are free.</value>
   </data>
   <data name="SCENE_A03P01_001" xml:space="preserve">
-    <value></value>
+    <value>...Brr...[pause=10] It's cold!</value>
   </data>
   <data name="SCENE_A03P01_002" xml:space="preserve">
-    <value></value>
+    <value>Hachoo!</value>
   </data>
   <data name="SCENE_A03P01_003" xml:space="preserve">
-    <value></value>
+    <value>Yuck...[pause=10] My nose is running,[pause=10] and it's freezing.</value>
   </data>
   <data name="SCENE_A03P01_004" xml:space="preserve">
-    <value></value>
+    <value>........................</value>
   </data>
   <data name="SCENE_A03P01_005" xml:space="preserve">
-    <value></value>
+    <value>Wh-what's that?!</value>
   </data>
   <data name="SCENE_A03P01_006" xml:space="preserve">
-    <value></value>
+    <value>...[pause=10] What was that?[pause=10] It looked like a Pokémon, but...</value>
   </data>
   <data name="SCENE_A03P01_007" xml:space="preserve">
-    <value></value>
+    <value>I wonder what they were[wait=5] doing in this lonely place.</value>
   </data>
   <data name="SCENE_A03P01_008" xml:space="preserve">
-    <value></value>
+    <value>See that?[pause=10] Those trees are frozen!</value>
   </data>
   <data name="SCENE_A03P01_009" xml:space="preserve">
-    <value></value>
+    <value>The cold here...[pause=10] it spares nothing.</value>
   </data>
   <data name="SCENE_A03P01_010" xml:space="preserve">
-    <value></value>
+    <value>We can't stop.[pause=10] Stopping means freezing.</value>
   </data>
   <data name="SCENE_A03P01_011" xml:space="preserve">
-    <value></value>
+    <value>Move, {NAME_0}![pause=5] I'm right behind you.</value>
   </data>
   <data name="SCENE_A03P01_012" xml:space="preserve">
-    <value></value>
+    <value>...What if the snow erases our tracks?</value>
   </data>
   <data name="SCENE_A03P01_013" xml:space="preserve">
-    <value></value>
+    <value>Then no one will find us.[pause=15] Maybe that's a chance.</value>
   </data>
   <data name="SCENE_A03P01_014" xml:space="preserve">
-    <value></value>
+    <value>Keep going.[pause=10] The forest awaits.</value>
   </data>
   <data name="SCENE_A03P02_001" xml:space="preserve">
-    <value></value>
+    <value>Wow![pause=10] The snow is like frozen powder!</value>
   </data>
   <data name="SCENE_A03P02_002" xml:space="preserve">
-    <value></value>
+    <value>It looks pretty, but...[pause=10] It must be harsh there...</value>
   </data>
   <data name="SCENE_A03P03_001" xml:space="preserve">
-    <value></value>
+    <value>(This icy mountain path seems to go[wait=5] on forever...)</value>
   </data>
   <data name="SCENE_A03P03_002" xml:space="preserve">
-    <value></value>
+    <value>(We've walked a long way here...)</value>
   </data>
   <data name="SCENE_A03P03_003" xml:space="preserve">
-    <value></value>
+    <value>({NAME_1} looks exhausted, too...)</value>
   </data>
   <data name="SCENE_A03P03_004" xml:space="preserve">
-    <value></value>
+    <value>(We've been running all this time[wait=5] out of desperation...)</value>
   </data>
   <data name="SCENE_A03P03_005" xml:space="preserve">
-    <value></value>
+    <value>(What's in store for us ahead?)</value>
   </data>
   <data name="SCENE_A03P03_006" xml:space="preserve">
-    <value></value>
+    <value>(Are we really doing the right thing?)</value>
   </data>
   <data name="SCENE_A03P03_007" xml:space="preserve">
-    <value></value>
+    <value>(Yes...)</value>
   </data>
   <data name="SCENE_A03P03_008" xml:space="preserve">
-    <value></value>
+    <value>({NAME_1} trusts me without any[wait=5] doubt.)</value>
   </data>
   <data name="SCENE_A03P03_009" xml:space="preserve">
-    <value></value>
+    <value>(I can't afford to be indecisive.)</value>
   </data>
   <data name="SCENE_A03P03_010" xml:space="preserve">
-    <value></value>
+    <value>(I have to believe in myself more.)</value>
   </data>
   <data name="SCENE_A03P03_011" xml:space="preserve">
-    <value></value>
+    <value>(...Wh-what?[pause=10] What was that?)</value>
   </data>
   <data name="SCENE_A03P03_012" xml:space="preserve">
-    <value></value>
+    <value>(...D-dizzy?[pause=10] Or what?)</value>
   </data>
   <data name="SCENE_A03P03_013" xml:space="preserve">
-    <value></value>
+    <value>...Finally.</value>
   </data>
   <data name="SCENE_A03P03_014" xml:space="preserve">
-    <value></value>
+    <value>...Finally,[pause=10] you have arrived...</value>
   </data>
   <data name="SCENE_A03P03_015" xml:space="preserve">
-    <value></value>
+    <value>(Someone...[pause=10] Someone is talking to me...)</value>
   </data>
   <data name="SCENE_A03P03_016" xml:space="preserve">
-    <value></value>
+    <value>({NAME_1}...?[pause=10] No.[pause=10] This voice isn't {NAME_1}...)</value>
   </data>
   <data name="SCENE_A03P03_017" xml:space="preserve">
-    <value></value>
+    <value>(This voice...[pause=10] I've heard it somewhere...)</value>
   </data>
   <data name="SCENE_A03P03_018" xml:space="preserve">
-    <value></value>
+    <value>Finally...</value>
   </data>
   <data name="SCENE_A03P03_019" xml:space="preserve">
-    <value></value>
+    <value>You have arrived...</value>
   </data>
   <data name="SCENE_A03P03_020" xml:space="preserve">
-    <value></value>
+    <value>I am so glad.[pause=10] Finally,[pause=10] we get to meet.</value>
   </data>
   <data name="SCENE_A03P03_021" xml:space="preserve">
-    <value></value>
+    <value>(...You're...[pause=10] What...)</value>
   </data>
   <data name="SCENE_A03P03_022" xml:space="preserve">
-    <value></value>
+    <value>I cannot be seen by others.</value>
   </data>
   <data name="SCENE_A03P03_023" xml:space="preserve">
-    <value></value>
+    <value>I am visible only to you.</value>
   </data>
   <data name="SCENE_A03P03_024" xml:space="preserve">
-    <value></value>
+    <value>A little farther ahead...</value>
   </data>
   <data name="SCENE_A03P03_025" xml:space="preserve">
-    <value></value>
+    <value>There is a jagged mountain[wait=5] range topped by Mt. Freeze.</value>
   </data>
   <data name="SCENE_A03P03_026" xml:space="preserve">
-    <value></value>
+    <value>Inside its peak...[pause=10] Ninetales lives.</value>
   </data>
   <data name="SCENE_A03P03_027" xml:space="preserve">
-    <value></value>
+    <value>(...Ninetales?!)</value>
   </data>
   <data name="SCENE_A03P03_028" xml:space="preserve">
-    <value></value>
+    <value>Ninetales awaits your[wait=5] arrival.</value>
   </data>
   <data name="SCENE_A03P03_029" xml:space="preserve">
-    <value></value>
+    <value>Beware...</value>
   </data>
   <data name="SCENE_A03P03_030" xml:space="preserve">
-    <value></value>
+    <value>Oh![pause=10] W-wait...!</value>
   </data>
   <data name="SCENE_A03P03_031" xml:space="preserve">
-    <value></value>
+    <value>..................</value>
   </data>
   <data name="SCENE_A03P03_032" xml:space="preserve">
-    <value></value>
+    <value>(Mt. Freeze...[pause=10] Ninetales...)</value>
   </data>
   <data name="SCENE_A03P03_033" xml:space="preserve">
-    <value></value>
+    <value>({NAME_1}...[pause=10] come.[pause=10] There is someone we must see.)</value>
   </data>
   <data name="SCENE_A03P03_034" xml:space="preserve">
-    <value></value>
+    <value>Ninetales.[pause=10] The keeper of the legend.</value>
   </data>
   <data name="SCENE_A03P03_035" xml:space="preserve">
-    <value></value>
+    <value>The one who knows what the world forgot.</value>
   </data>
   <data name="SCENE_A03P03_036" xml:space="preserve">
-    <value></value>
+    <value>Maybe she...[pause=10] she will believe us.</value>
   </data>
   <data name="SCENE_A03P03_037" xml:space="preserve">
-    <value></value>
+    <value>Forward.[pause=15] The summit won't climb itself.</value>
   </data>
   <data name="SCENE_A03P03_038" xml:space="preserve">
-    <value></value>
+    <value>And whatever happens...</value>
   </data>
   <data name="SCENE_A03P03_039" xml:space="preserve">
-    <value></value>
+    <value>we will not run anymore.</value>
   </data>
   <data name="SCENE_A03P03_040" xml:space="preserve">
-    <value></value>
+    <value>We will walk, heads held high.</value>
   </data>
   <data name="SCENE_A04P01_001" xml:space="preserve">
     <value></value>
@@ -6037,88 +6037,88 @@
     <value></value>
   </data>
   <data name="SCENE_D09P03_001" xml:space="preserve">
-    <value></value>
+    <value>Urggggh!</value>
   </data>
   <data name="SCENE_D09P03_002" xml:space="preserve">
-    <value></value>
+    <value>I'm not done![pause=10] I'm not finished yet!</value>
   </data>
   <data name="SCENE_D09P03_003" xml:space="preserve">
-    <value></value>
+    <value>..................[pause=15] Do you say that sincerely?</value>
   </data>
   <data name="SCENE_D09P03_004" xml:space="preserve">
-    <value></value>
+    <value>......</value>
   </data>
   <data name="SCENE_D09P03_005" xml:space="preserve">
-    <value></value>
+    <value>............</value>
   </data>
   <data name="SCENE_D09P03_006" xml:space="preserve">
-    <value></value>
+    <value>........................</value>
   </data>
   <data name="SCENE_D09P03_007" xml:space="preserve">
-    <value></value>
+    <value>Aiyiyiyi!</value>
   </data>
   <data name="SCENE_D09P03_008" xml:space="preserve">
-    <value></value>
+    <value>............[pause=15] Fine.</value>
   </data>
   <data name="SCENE_D09P03_009" xml:space="preserve">
-    <value></value>
+    <value>I trust that you aren't lying.</value>
   </data>
   <data name="SCENE_D09P03_010" xml:space="preserve">
-    <value></value>
+    <value>You may pass.</value>
   </data>
   <data name="SCENE_D09P03_011" xml:space="preserve">
-    <value></value>
+    <value>Get through Mt. Blaze.</value>
   </data>
   <data name="SCENE_D09P03_012" xml:space="preserve">
-    <value></value>
+    <value>And...[pause=10] Promise me this.</value>
   </data>
   <data name="SCENE_D09P03_013" xml:space="preserve">
-    <value></value>
+    <value>Promise me that you will[wait=5] find the cause of the calamities[wait=5] that wrack our world...</value>
   </data>
   <data name="SCENE_D09P03_014" xml:space="preserve">
-    <value></value>
+    <value>And stop the disasters[wait=5] from sowing more destruction[wait=5] and suffering.</value>
   </data>
   <data name="SCENE_D09P03_015" xml:space="preserve">
-    <value></value>
+    <value>............[pause=15] I will hold you to that promise.</value>
   </data>
   <data name="SCENE_D09P03_016" xml:space="preserve">
-    <value></value>
+    <value>You've made me believe[wait=5] that you will honor that promise.</value>
   </data>
   <data name="SCENE_D09P03_017" xml:space="preserve">
-    <value></value>
+    <value>If you do not forget...[pause=10] the courage you showed in facing me.</value>
   </data>
   <data name="SCENE_D09P03_018" xml:space="preserve">
-    <value></value>
+    <value>Waaaah![pause=10] Is...is there anything else?</value>
   </data>
   <data name="SCENE_D09P03_019" xml:space="preserve">
-    <value></value>
+    <value>No.</value>
   </data>
   <data name="SCENE_D09P03_020" xml:space="preserve">
-    <value></value>
+    <value>I was only preparing to[wait=5] take off.</value>
   </data>
   <data name="SCENE_D09P03_021" xml:space="preserve">
-    <value></value>
+    <value>Oh...[pause=10] (Does it need to do that?)</value>
   </data>
   <data name="SCENE_D09P03_022" xml:space="preserve">
-    <value></value>
+    <value>Farewell!</value>
   </data>
   <data name="SCENE_D09P03_023" xml:space="preserve">
-    <value></value>
+    <value>Whew...</value>
   </data>
   <data name="SCENE_D09P03_024" xml:space="preserve">
-    <value></value>
+    <value>(Mt. Blaze...[pause=10] it lets us pass.)</value>
   </data>
   <data name="SCENE_D09P03_025" xml:space="preserve">
-    <value></value>
+    <value>(A promise.[pause=10] Find the cause of the calamities.)</value>
   </data>
   <data name="SCENE_D09P03_026" xml:space="preserve">
-    <value></value>
+    <value>(That's what we're already looking for,[pause=10] {NAME_1}.)</value>
   </data>
   <data name="SCENE_D09P03_027" xml:space="preserve">
-    <value></value>
+    <value>Come on.[pause=15] Let's keep going.</value>
   </data>
   <data name="SCENE_D09P03_028" xml:space="preserve">
-    <value></value>
+    <value>Next...[pause=10] the cold.</value>
   </data>
   <data name="SCENE_D09P03_029" xml:space="preserve">
     <value></value>
@@ -6211,94 +6211,94 @@
     <value></value>
   </data>
   <data name="SCENE_D10P03_001" xml:space="preserve">
-    <value></value>
+    <value>No![pause=10] I cannot allow your passage!</value>
   </data>
   <data name="SCENE_D10P03_002" xml:space="preserve">
-    <value></value>
+    <value>The frigid forest's air...</value>
   </data>
   <data name="SCENE_D10P03_003" xml:space="preserve">
-    <value></value>
+    <value>It has warmed considerably,[wait=5] in recent times.</value>
   </data>
   <data name="SCENE_D10P03_004" xml:space="preserve">
-    <value></value>
+    <value>The flow of frigid air[wait=5] has been disturbed in the forest.[pause=10] Snow has started to melt.</value>
   </data>
   <data name="SCENE_D10P03_005" xml:space="preserve">
-    <value></value>
+    <value>Snow is melting.[pause=10] Snow that has never melted before.</value>
   </data>
   <data name="SCENE_D10P03_006" xml:space="preserve">
-    <value></value>
+    <value>This has never happened,[pause=10] not even once.</value>
   </data>
   <data name="SCENE_D10P03_007" xml:space="preserve">
-    <value></value>
+    <value>Then you appeared in the forest.</value>
   </data>
   <data name="SCENE_D10P03_008" xml:space="preserve">
-    <value></value>
+    <value>Is this not your doing?!</value>
   </data>
   <data name="SCENE_D10P03_009" xml:space="preserve">
-    <value></value>
+    <value>Is that all?[pause=10] You expect me to believe that?!</value>
   </data>
   <data name="SCENE_D10P03_010" xml:space="preserve">
-    <value></value>
+    <value>Waaaaaaaah!</value>
   </data>
   <data name="SCENE_D10P03_011" xml:space="preserve">
-    <value></value>
+    <value>Enough of your foolish talk![pause=10] Prepare for your end!</value>
   </data>
   <data name="SCENE_D10P03_012" xml:space="preserve">
-    <value></value>
+    <value>Stop it!</value>
   </data>
   <data name="SCENE_D10P03_013" xml:space="preserve">
-    <value></value>
+    <value>A-Absol!</value>
   </data>
   <data name="SCENE_D10P03_014" xml:space="preserve">
-    <value></value>
+    <value>There is nothing false in what they said.</value>
   </data>
   <data name="SCENE_D10P03_015" xml:space="preserve">
-    <value></value>
+    <value>Calamities are indeed occurring[wait=5] everywhere in nature.</value>
   </data>
   <data name="SCENE_D10P03_016" xml:space="preserve">
-    <value></value>
+    <value>Is...[pause=10] Is that true?</value>
   </data>
   <data name="SCENE_D10P03_017" xml:space="preserve">
-    <value></value>
+    <value>Yes.</value>
   </data>
   <data name="SCENE_D10P03_018" xml:space="preserve">
-    <value></value>
+    <value>I have the ability to sense natural disasters.</value>
   </data>
   <data name="SCENE_D10P03_019" xml:space="preserve">
-    <value></value>
+    <value>The calamities taking place now[wait=5] are of a special nature.[pause=10] I've never experienced such before.</value>
   </data>
   <data name="SCENE_D10P03_020" xml:space="preserve">
-    <value></value>
+    <value>............[pause=15] So, there are calamities besides this...</value>
   </data>
   <data name="SCENE_D10P03_021" xml:space="preserve">
-    <value></value>
+    <value>..................[pause=15] Fine.[pause=10] I will choose to believe you.</value>
   </data>
   <data name="SCENE_D10P03_022" xml:space="preserve">
-    <value></value>
+    <value>You may pass.</value>
   </data>
   <data name="SCENE_D10P03_023" xml:space="preserve">
-    <value></value>
+    <value>{NAME_2}!</value>
   </data>
   <data name="SCENE_D10P03_024" xml:space="preserve">
-    <value></value>
+    <value>However!</value>
   </data>
   <data name="SCENE_D10P03_025" xml:space="preserve">
-    <value></value>
+    <value>Waah!</value>
   </data>
   <data name="SCENE_D10P03_026" xml:space="preserve">
-    <value></value>
+    <value>You must try to prevent[wait=5] the calamities from spreading.</value>
   </data>
   <data name="SCENE_D10P03_027" xml:space="preserve">
-    <value></value>
+    <value>I'm counting on you!</value>
   </data>
   <data name="SCENE_D10P03_028" xml:space="preserve">
-    <value></value>
+    <value>Yup![pause=10] We promise,[pause=10] {NAME_2}!</value>
   </data>
   <data name="SCENE_D10P03_029" xml:space="preserve">
-    <value></value>
+    <value>Whew...[pause=10] That was too close...</value>
   </data>
   <data name="SCENE_D10P03_030" xml:space="preserve">
-    <value></value>
+    <value>Thank you.[pause=10] You saved us.</value>
   </data>
   <data name="SCENE_D10P03_031" xml:space="preserve">
     <value></value>
@@ -6448,67 +6448,67 @@
     <value></value>
   </data>
   <data name="SCENE_D11P03_001" xml:space="preserve">
-    <value></value>
+    <value>(The peak of Mt. Freeze...[pause=10] This is the place.)</value>
   </data>
   <data name="SCENE_D11P03_002" xml:space="preserve">
-    <value></value>
+    <value>(A presence...[pause=10] ancient.)</value>
   </data>
   <data name="SCENE_D11P03_003" xml:space="preserve">
-    <value></value>
+    <value>I awaited you.</value>
   </data>
   <data name="SCENE_D11P03_004" xml:space="preserve">
-    <value></value>
+    <value>Thirty years ago,[pause=10] two fugitives came here seeking[wait=5] the truth about a curse.</value>
   </data>
   <data name="SCENE_D11P03_005" xml:space="preserve">
-    <value></value>
+    <value>That curse...[pause=10] it was never theirs.</value>
   </data>
   <data name="SCENE_D11P03_006" xml:space="preserve">
-    <value></value>
+    <value>Their humanity was never the cause of the disasters.</value>
   </data>
   <data name="SCENE_D11P03_007" xml:space="preserve">
-    <value></value>
+    <value>They carried what the world refused to see:[pause=10] a will to save, against all odds.</value>
   </data>
   <data name="SCENE_D11P03_008" xml:space="preserve">
-    <value></value>
+    <value>And you,[pause=10] their heirs,[pause=10] you bear the same accusation.</value>
   </data>
   <data name="SCENE_D11P03_009" xml:space="preserve">
-    <value></value>
+    <value>But the truth does not change with rumors.</value>
   </data>
   <data name="SCENE_D11P03_010" xml:space="preserve">
-    <value></value>
+    <value>The calamities are not your doing.</value>
   </data>
   <data name="SCENE_D11P03_011" xml:space="preserve">
-    <value></value>
+    <value>They are the sign of a far older,[pause=10] far deeper imbalance.</value>
   </data>
   <data name="SCENE_D11P03_012" xml:space="preserve">
-    <value></value>
+    <value>Look beneath the surface of the world.</value>
   </data>
   <data name="SCENE_D11P03_013" xml:space="preserve">
-    <value></value>
+    <value>What is believed to protect[wait=5] might be the prison of something immense.</value>
   </data>
   <data name="SCENE_D11P03_014" xml:space="preserve">
-    <value></value>
+    <value>Beware,[pause=10] heirs.</value>
   </data>
   <data name="SCENE_D11P03_015" xml:space="preserve">
-    <value></value>
+    <value>The road ahead[wait=5] leads to the heart of the earth[wait=5] and the summit of the sky.</value>
   </data>
   <data name="SCENE_D11P03_016" xml:space="preserve">
-    <value></value>
+    <value>Ninetales...[pause=10] thank you.</value>
   </data>
   <data name="SCENE_D11P03_017" xml:space="preserve">
-    <value></value>
+    <value>Carry my testimony.</value>
   </data>
   <data name="SCENE_D11P03_018" xml:space="preserve">
-    <value></value>
+    <value>A truth kept too long[wait=5] becomes the weapon of those who lie.</value>
   </data>
   <data name="SCENE_D11P03_019" xml:space="preserve">
-    <value></value>
+    <value>Go,[pause=10] now.</value>
   </data>
   <data name="SCENE_D11P03_020" xml:space="preserve">
-    <value></value>
+    <value>And remember:[pause=10] you are not fugitives.</value>
   </data>
   <data name="SCENE_D11P03_021" xml:space="preserve">
-    <value></value>
+    <value>You are witnesses.</value>
   </data>
   <data name="SCENE_D11P03_022" xml:space="preserve">
     <value></value>
@@ -6880,49 +6880,49 @@
     <value></value>
   </data>
   <data name="SCENE_D12P04_001" xml:space="preserve">
-    <value></value>
+    <value>Look![pause=10] It's {NAME_3}![pause=10] {NAME_4} and {NAME_5} too!</value>
   </data>
   <data name="SCENE_D12P04_002" xml:space="preserve">
-    <value></value>
+    <value>Urrgggh!</value>
   </data>
   <data name="SCENE_D12P04_003" xml:space="preserve">
-    <value></value>
+    <value>Did you do it?[pause=10] {NAME_2}?</value>
   </data>
   <data name="SCENE_D12P04_004" xml:space="preserve">
-    <value></value>
+    <value>Yes, fine.</value>
   </data>
   <data name="SCENE_D12P04_005" xml:space="preserve">
-    <value></value>
+    <value>We will be fine.[pause=10] But we must get out immediately.</value>
   </data>
   <data name="SCENE_D12P04_006" xml:space="preserve">
-    <value></value>
+    <value>What about {NAME_2}?[pause=10] Will it be OK?</value>
   </data>
   <data name="SCENE_D12P04_007" xml:space="preserve">
-    <value></value>
+    <value>Your concern is unneeded.[pause=10] It will awaken soon enough.</value>
   </data>
   <data name="SCENE_D12P04_008" xml:space="preserve">
-    <value></value>
+    <value>It had lost control[wait=5] only because it was enraged[wait=5] from having its sleep disturbed.</value>
   </data>
   <data name="SCENE_D12P04_009" xml:space="preserve">
-    <value></value>
+    <value>It should calm down.</value>
   </data>
   <data name="SCENE_D12P04_010" xml:space="preserve">
-    <value></value>
+    <value>Waah...[pause=10] Another quake!</value>
   </data>
   <data name="SCENE_D12P04_011" xml:space="preserve">
-    <value></value>
+    <value>Out![pause=5] Quickly!</value>
   </data>
   <data name="SCENE_D12P04_012" xml:space="preserve">
-    <value></value>
+    <value>(The heart of the earth...[pause=10] it awakens.)</value>
   </data>
   <data name="SCENE_D12P04_013" xml:space="preserve">
-    <value></value>
+    <value>(We must calm it.[pause=10] For those who accuse us.[pause=10] For ourselves.)</value>
   </data>
   <data name="SCENE_D12P04_014" xml:space="preserve">
-    <value></value>
+    <value>Get ready, {NAME_1}.</value>
   </data>
   <data name="SCENE_D12P04_015" xml:space="preserve">
-    <value></value>
+    <value>It rises.</value>
   </data>
   <data name="SCENE_D13P01_001" xml:space="preserve">
     <value></value>
@@ -6955,28 +6955,28 @@
     <value></value>
   </data>
   <data name="SCENE_D13P03_001" xml:space="preserve">
-    <value></value>
+    <value>(The summit.[pause=10] The clouds.[pause=10] He is here.)</value>
   </data>
   <data name="SCENE_D13P03_002" xml:space="preserve">
-    <value></value>
+    <value>You are those who climbed my tower.</value>
   </data>
   <data name="SCENE_D13P03_003" xml:space="preserve">
-    <value></value>
+    <value>I remember two beings who came to ask the sky[wait=5] to save a world that rejected them.</value>
   </data>
   <data name="SCENE_D13P03_004" xml:space="preserve">
-    <value></value>
+    <value>You ask the same thing,[pause=10] thirty years later.</value>
   </data>
   <data name="SCENE_D13P03_005" xml:space="preserve">
-    <value></value>
+    <value>Show that this world still deserves your choice.</value>
   </data>
   <data name="SCENE_D13P03_006" xml:space="preserve">
-    <value></value>
+    <value>I am ready.</value>
   </data>
   <data name="SCENE_D13P03_007" xml:space="preserve">
-    <value></value>
+    <value>Let the sky judge.</value>
   </data>
   <data name="SCENE_D13P03_008" xml:space="preserve">
-    <value></value>
+    <value>Let's go, {NAME_0}!</value>
   </data>
   <data name="SCENE_D13P03_009" xml:space="preserve">
     <value></value>

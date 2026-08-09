@@ -11,6 +11,8 @@
       -> A02P04 Volcan                      (la fuite)
       -> D08 Lapis Cave (entrée -> fond)
       -> D09 Mt Blaze   (entrée -> relais -> sommet Moltres)
+      -> A03P01 Route de neige -> A03P02 Forêt de neige
+      -> A03P03 Route du blizzard (voix de Feunard)
       -> D10 Frosty Forest (entrée -> relais -> sommet Articuno)
       -> D11 Mt Freeze  (entrée -> relais -> autel Feunard)
       -> D12 Magma Cavern (entrée -> relais -> fosse Groudon)
@@ -42,6 +44,9 @@ FugitiveArc.SEQUENCE = {
   { ground = 'mont_cendre_pied',    scene = 'd09p01', music = 'Treacherous Mountain.ogg' },
   { ground = 'd09p02',            scene = 'd09p02', music = 'Treacherous Mountain.ogg' },
   { ground = 'd09p03',            scene = 'd09p03', music = 'In the Depths of the Pit.ogg' },
+  { ground = 'a03p01',            scene = 'a03p01', music = 'Glacial Path.ogg' },
+  { ground = 'a03p02',            scene = 'a03p02', music = 'Snowbound Path.ogg' },
+  { ground = 'a03p03',            scene = 'a03p03', music = 'Snowbound Path.ogg' },
   { ground = 'foret_givree_oree',   scene = 'd10p01', music = 'Snowbound Path.ogg' },
   { ground = 'd10p02',            scene = 'd10p02', music = 'Glacial Path.ogg' },
   { ground = 'd10p03',            scene = 'd10p03', music = 'In the Depths of the Pit.ogg' },
