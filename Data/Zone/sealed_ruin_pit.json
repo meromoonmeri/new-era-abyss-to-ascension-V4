@@ -634,7 +634,7 @@
          },
          "TerrainStencil": {
           "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-          "Room": true, "Wall": true, "Blocked": true, "Not": false
+          "Room": false, "Wall": true, "Blocked": false, "Not": false
          }
         }
        },
@@ -1321,7 +1321,7 @@
          },
          "TerrainStencil": {
           "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-          "Room": true, "Wall": true, "Blocked": true, "Not": false
+          "Room": false, "Wall": true, "Blocked": false, "Not": false
          }
         }
        },
@@ -2008,7 +2008,7 @@
          },
          "TerrainStencil": {
           "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-          "Room": true, "Wall": true, "Blocked": true, "Not": false
+          "Room": false, "Wall": true, "Blocked": false, "Not": false
          }
         }
        },
@@ -2695,7 +2695,7 @@
          },
          "TerrainStencil": {
           "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-          "Room": true, "Wall": true, "Blocked": true, "Not": false
+          "Room": false, "Wall": true, "Blocked": false, "Not": false
          }
         }
        },
@@ -3382,7 +3382,7 @@
          },
          "TerrainStencil": {
           "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-          "Room": true, "Wall": true, "Blocked": true, "Not": false
+          "Room": false, "Wall": true, "Blocked": false, "Not": false
          }
         }
        },
@@ -4069,7 +4069,7 @@
          },
          "TerrainStencil": {
           "$type": "RogueElements.MapTerrainStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-          "Room": true, "Wall": true, "Blocked": true, "Not": false
+          "Room": false, "Wall": true, "Blocked": false, "Not": false
          }
         }
        },

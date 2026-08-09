@@ -37,10 +37,11 @@ def fix_multispawner(s):
             '\\g<ind>"Amount": {"Min": 2, "Max": 4}')
     return pat.sub(repl, s)
 
-# ---- Fix B : WaterTerrainStencil (absent) -> MapTerrainStencil natif (all-match = ocean)
-# MapTerrainStencil est le stencil natif dominant (246 usages, chargé par le
-# moteur réel ET par le harness). Room/Wall/Blocked=true => toutes tuiles
-# éligibles => l'eau couvre tout l'étage (intention "ocean").
+# ---- Fix B : WaterTerrainStencil (absent) -> MapTerrainStencil natif (pattern vanilla eau)
+# Le WaterTerrainStencil n'existe pas dans le moteur. Le bon remplacement natif
+# est MapTerrainStencil avec Room=false, Wall=true (le pattern exact du donjon
+# jumeau vallee_fertile : WaterPercent 12%, Terrain.ID=water). ATTENTION : NE
+# PAS mettre Room/Wall/Blocked tous à true — cela noierait tout le donjon.
 def fix_waterstencil(s):
     # 1) le type absent WaterTerrainStencil {Stencil:"ocean"}
     pat = re.compile(
@@ -49,16 +50,18 @@ def fix_waterstencil(s):
     )
     repl = ('\\g<ind>"$type": "RogueElements.MapTerrainStencil`1'
             '[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",\n'
-            '\\g<ind>"Room": true, "Wall": true, "Blocked": true, "Not": false')
+            '\\g<ind>"Room": false, "Wall": true, "Blocked": false, "Not": false')
     s = pat.sub(repl, s)
-    # 2) rattrapage : si une exécution précédente avait posé DefaultTerrainStencil
+    # 2) rattrapage : si une exécution précédente avait posé le mauvais all-match,
+    #    on le corrige en pattern vanilla.
     pat2 = re.compile(
-        r'(?P<ind>[ \t]*)"\$type": "RogueElements\.DefaultTerrainStencil`1'
-        r'\[\[RogueEssence\.LevelGen\.MapGenContext, RogueEssence\]\], RogueEssence"'
+        r'(?P<ind>[ \t]*)"\$type": "RogueElements\.MapTerrainStencil`1'
+        r'\[\[RogueEssence\.LevelGen\.MapGenContext, RogueEssence\]\], RogueElements",\n'
+        r'[ \t]*"Room": true, "Wall": true, "Blocked": true, "Not": false'
     )
     repl2 = ('\\g<ind>"$type": "RogueElements.MapTerrainStencil`1'
              '[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",\n'
-             '\\g<ind>"Room": true, "Wall": true, "Blocked": true, "Not": false')
+             '\\g<ind>"Room": false, "Wall": true, "Blocked": false, "Not": false')
     return pat2.sub(repl2, s)
 
 # ---- Fix C : arg générique DetectIsolatedStairsStep StairsTile -> MapGenExit
