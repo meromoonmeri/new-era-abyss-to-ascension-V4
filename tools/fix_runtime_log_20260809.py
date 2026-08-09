@@ -22,6 +22,12 @@ for name,(a,b,cut) in splits.items():
  dump(p,d)
 # Spiritomb is a fixed room, not a malformed 22x17 grid of cells.
 p=R/'Data/Zone/spiritomb_room.json';d=load(p);seg=d['Object']['Segments'][0];seg['Floors']=[{'$type':'RogueEssence.LevelGen.LoadGen, RogueEssence','GenSteps':[{'Key':{'str':[-1]},'Value':{'$type':'RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence','MapID':'spiritomb_arena'}}],'Comment':'Canonical fixed Spiritomb room'}];dump(p,d)
+# Spiritomb fixed map: canonical PMDO autotile IDs and relative party offsets.
+p=R/'Data/Map/spiritomb_arena.rsmap';d=load(p);raw=json.dumps(d).replace('sealed_ruin_pit_','deep_sealed_ruin_');d=json.loads(raw)
+for ev in d['Object'].get('MapEffect',{}).get('OnMapStarts',[]):
+ if 'BattlePositionEvent' in ev.get('Value',{}).get('$type',''):
+  ev['Value']['StartLocs']=[{'Loc':{'X':0,'Y':0},'Dir':4},{'Loc':{'X':-1,'Y':1},'Dir':4},{'Loc':{'X':1,'Y':1},'Dir':4},{'Loc':{'X':0,'Y':2},'Dir':4}];ev['Value']['Positions']=None
+dump(p,d)
 # Every mapped map discovery grid must equal the actual collision Tiles grid.
 for p in (R/'Data/Map').glob('*.rsmap'):
  try:d=load(p);o=d['Object'];w=len(o.get('Tiles',[]));h=len(o['Tiles'][0]) if w else 0;a=o.get('DiscoveryArray',[])

@@ -17,7 +17,7 @@ for n in ['TEAMMATE_1','TEAMMATE_2','TEAMMATE_3']:
  if n not in sp:fails.append(f'palier_celeste missing {n}')
 # canonical base autotiles known from PMDO 0.8.12 DumpAsset
 bad=['chasm_cave_floor','dark_hill_floor','dusk_forest_floor','sealed_ruin_pit_floor']
-for p in (R/'Data/Zone').glob('*.json'):
+for p in list((R/'Data/Zone').glob('*.json'))+list((R/'Data/Map').glob('*.rsmap')):
  s=p.read_text(encoding='utf-8-sig')
  for x in bad:
   if f'"{x}"' in s:fails.append(f'{p}: unresolved tileset {x}')
