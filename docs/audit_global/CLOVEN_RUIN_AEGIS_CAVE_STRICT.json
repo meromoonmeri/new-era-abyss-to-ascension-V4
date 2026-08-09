@@ -25,11 +25,17 @@
     "8 structures / 19 explorable units (15 mazes + 4 chambers)"
   ],
   "problems": [
+    "missing Ground cloven_ruin_regice_chamber_sky",
+    "missing Ground cloven_ruin_regirock_chamber_sky",
+    "missing Ground cloven_ruin_registeel_chamber_sky",
+    "missing Ground cloven_ruin_regigigas_chamber_sky",
+    "missing fixed map cloven_ruins_regice",
+    "missing fixed map cloven_ruins_regirock",
+    "missing fixed map cloven_ruins_registeel",
+    "missing fixed map sanctuaire_titans",
     "missing explicit scene mapping s04p1601",
     "missing explicit scene mapping s04p1701",
     "missing explicit scene mapping s04p1801",
-    "missing explicit scene mapping s04p1901",
-    "missing explicit scene mapping s04p1902",
     "missing explicit scene mapping s04p2001"
   ],
   "runtime": "REQUIRES_RUNTIME",

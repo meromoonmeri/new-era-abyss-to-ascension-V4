@@ -89,6 +89,9 @@ function RuinesRenforts.Revelation()
   GAME:CutsceneMode(false)
   SV.Ruines = SV.Ruines or {}
   SV.Ruines.TourRevelee = true
+  SV.Ruines.SceneS04P1902Pending = false
+  SV.Ruines.SceneS04P1902Complete = true
+  PrintInfo('[Cloven Ruin] s04p1902 complete; Concealed Ruins awakened')
   -- tour_reliques (ch28) retirée de la base : plus de déblocage ici.
   PrintInfo('[Ruines] Tour des Reliques deverrouillee')
 

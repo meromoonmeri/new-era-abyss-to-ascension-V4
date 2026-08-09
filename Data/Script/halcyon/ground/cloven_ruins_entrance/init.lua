@@ -101,7 +101,10 @@ function cloven_ruins_entrance.PlotScripting()
   -- Equivalent du monument qui ouvre les Ruines Cachees dans EoS.
   if SV.Ruines ~= nil and SV.Ruines.VaincuRegigigas and not SV.Ruines.TourRevelee then
     cloven_ruins_entrance_ch_5.SetupGround(true)
-    pcall(function() RuinesRenforts.Revelation() end)
+    if not SV.Ruines.SceneS04P1902Pending then
+      PrintInfo('[Cloven Ruin] WARNING: s04p1902 reached without explicit s04p1901 pending flag')
+    end
+    RuinesRenforts.Revelation()
     -- Après la fermeture d'Aegis Cave seulement : Team Dazzling prend le
     -- relais narratif et amorce Sinister Woods. Aucun membre de Team Charm
     -- n'est réutilisé dans la distribution présente de New Era.
