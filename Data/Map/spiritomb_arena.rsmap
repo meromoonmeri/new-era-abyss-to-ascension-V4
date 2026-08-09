@@ -76,7 +76,7 @@
         "BackRef": 0
        }
       ],
-      "EquippedItem": null,
+      "EquippedItem": {"ID": "", "Cursed": false, "HiddenValue": "", "Amount": 0, "Price": 0},
       "Absentee": false,
       "ChargeBoost": 0,
       "HP": 300,
@@ -84,10 +84,10 @@
       "Fullness": 100,
       "FullnessRemainder": 0,
       "MaxFullness": 100,
-      "StatusEffects": [],
+      "StatusEffects": {},
       "MissChain": 0,
       "EXPMarked": false,
-      "Tactic": "boss_wait_then_attack",
+      "Tactic": {"Name": {"DefaultText": "Dumb Wander", "LocalTexts": {}}, "Released": false, "Comment": "", "ID": "wander_dumb", "Assignable": false, "Plans": [{"$type": "PMDC.Dungeon.AttackFoesPlan, PMDC", "AttackPattern": 1, "PositionPattern": 0, "IQ": 36, "RestrictedMobilityTypes": 0, "RestrictMobilityPassable": false, "AttackRange": 4, "StatusRange": 4, "SelfStatusRange": 3, "AbandonRangeOnHit": true}, {"$type": "PMDC.Dungeon.FollowLeaderPlan, PMDC", "IQ": 164, "RestrictedMobilityTypes": 0, "RestrictMobilityPassable": false, "AttackRange": 0, "StatusRange": 0, "SelfStatusRange": 0, "AbandonRangeOnHit": true}, {"$type": "PMDC.Dungeon.ExplorePlan, PMDC", "IQ": 164, "RestrictedMobilityTypes": 0, "RestrictMobilityPassable": false, "AttackRange": 0, "StatusRange": 0, "SelfStatusRange": 0, "AbandonRangeOnHit": true}, {"$type": "PMDC.Dungeon.WaitPlan, PMDC", "IQ": 164, "RestrictedMobilityTypes": 0, "RestrictMobilityPassable": false, "AttackRange": 0, "StatusRange": 0, "SelfStatusRange": 0, "AbandonRangeOnHit": true}]},
       "Mobility": 3,
       "CantWalk": false,
       "ItemDisabled": false,
@@ -110,10 +110,10 @@
       "SeeWallItems": false,
       "SeeTraps": false,
       "CharStates": [],
-      "BackRef": 0,
+      "BackRef": {"Assembly": false, "Index": -1},
       "Nickname": "",
       "OriginalUUID": "00000000-0000-0000-0000-000000000000",
-      "OriginalTeam": 0,
+      "OriginalTeam": "",
       "BaseForm": {
        "Species": "spiritomb",
        "Form": 0,
@@ -129,26 +129,26 @@
       "MDefBonus": 0,
       "SpeedBonus": 0,
       "BaseSkills": [
-       "shadow_ball",
-       "dark_pulse"
+       {"SkillNum": "shadow_ball", "Charges": 10},
+       {"SkillNum": "dark_pulse", "Charges": 10}
       ],
       "BaseIntrinsics": [
        "pressure"
       ],
       "FormIntrinsicSlot": 0,
-      "Relearnables": [],
+      "Relearnables": {},
       "Discriminator": 0,
-      "MetAt": 0,
-      "MetLoc": 0,
-      "DefeatAt": 0,
-      "DefeatLoc": 0,
+      "MetAt": "",
+      "MetLoc": {"ID": "", "StructID": {"Segment": -1, "ID": -1}, "EntryPoint": -1},
+      "DefeatAt": "",
+      "DefeatLoc": {"ID": "", "StructID": {"Segment": -1, "ID": -1}, "EntryPoint": -1},
       "IsFounder": false,
       "IsPartner": false,
       "NameLocked": false,
       "IsFavorite": false,
       "Unrecruitable": true,
       "ActionEvents": [],
-      "ScriptVars": []
+      "ScriptVars": null
      }
     ],
     "Guests": [],

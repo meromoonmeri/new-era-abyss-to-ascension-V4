@@ -10885,7 +10885,7 @@
     },
     "Status": {},
     "Background": {
-      "$type": "RogueEssence.Ground.LayeredBG, RogueEssence",
+      "$type": "RogueEssence.Dungeon.LayeredBG, RogueEssence",
       "Layers": [
         {
           "Front": false,

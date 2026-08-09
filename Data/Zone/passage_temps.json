@@ -599,8 +599,8 @@
          ],
          "IncludeHalls": false,
          "Spawn": {
-          "$type": "RogueEssence.LevelGen.MultiSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence], RogueEssence]",
-          "Spawns": []
+          "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+          "Amount": {"Min": 2, "Max": 4}
          },
          "Ally": false,
          "ClumpFactor": 20
@@ -1190,8 +1190,8 @@
          ],
          "IncludeHalls": false,
          "Spawn": {
-          "$type": "RogueEssence.LevelGen.MultiSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence], RogueEssence]",
-          "Spawns": []
+          "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+          "Amount": {"Min": 2, "Max": 4}
          },
          "Ally": false,
          "ClumpFactor": 20
@@ -1781,8 +1781,8 @@
          ],
          "IncludeHalls": false,
          "Spawn": {
-          "$type": "RogueEssence.LevelGen.MultiSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence], RogueEssence]",
-          "Spawns": []
+          "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+          "Amount": {"Min": 2, "Max": 4}
          },
          "Ally": false,
          "ClumpFactor": 20
