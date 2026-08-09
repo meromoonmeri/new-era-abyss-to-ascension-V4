@@ -105,3 +105,71 @@ Date : 2026-08-09 — Source : mappa_s.bin + monster.md (données NDS) vs Data/Z
 - **RUNTIME VERIFICATION : PENDING** — statique validée (0 $type inconnu, 0 MultiSpawner, 46/46 floors, 0 différence), test en jeu à effectuer (boot → DevTab → 6 zones → parcours).
 
 Différences restantes (aucune silencieuse) : 2 BGM absents (REQUIRES_ASSET), 7 pièges NDS sans équivalent PMDO (documentés), conversion binaire des tilesets (ADAPTED), runtime non exécuté (PENDING).
+
+---
+
+# BATTLE GROUND FIDELITY (vérification critique finale)
+
+## Audit des combats fixes / confrontations
+
+| Encounter | NDS Ground | PMDO cinematic Ground | PMDO battle Ground | Same? | Résultat |
+|---|---|---|---|---|---|
+| Chasm Cave (entrée donjon) | D18P11A | d18p11a.rsground | chasm_cave (donjon 27, 8f procéduraux) | N/A (donjon procédural) | ✅ |
+| Dark Hill | D19P11A | d19p11a.rsground | dark_hill (donjon 28, 15f) | N/A | ✅ |
+| Sealed Ruin | D20P11A | d20p11a.rsground | sealed_ruin (donjon 29, 8f) | N/A | ✅ |
+| Sealed Ruin Pit | D21P21A | d21p21a.rsground | sealed_ruin_pit (donjon 30, 6f) | N/A | ✅ |
+| **Spiritomb** | **D21P41A** | **d21p41a.rsground** | **spiritomb_arena.rsmap (donjon 31, fixed floor 7)** | **N/A (scène sur ground, combat dans donjon 31)** | **✅ fidèle au NDS** |
+| Dusk Forest | D22P11A | d22p11a.rsground | dusk_forest (donjon 32, 8f) | N/A | ✅ |
+
+## Spiritomb — preuve complète
+
+```
+NDS scene          m18b1101 (approche, SSA) -> m18b1201 (intro + BOSS_WIPE + main_EnterDungeon(31)) -> m18b1301 (fuite, SSA)
+NDS Ground         D21P41A (salle cinématique, Spiritomb à (324,196) px)
+NDS battle         donjon 31, fixed floor 7 (arène 22x17, Spiritomb entity 17 à (8,2), L51, weight 10000)
+PMDO cinematic     d21p41a.rsground (66x81, scènes m18b1101/1201/1301, Spiritomb spawné à (324,196))
+PMDO battle        Data/Map/spiritomb_arena.rsmap (22x17, MapTeams[0] = Spiritomb L51,
+                    BattlePositionEvent OnMapStarts) — chargée par spiritomb_room (RoomGenLoadMap)
+CINEMATIC_GROUND   = d21p41a.rsground
+BATTLE_GROUND      = spiritomb_arena.rsmap (donjon 31)
+GROUND_IDENTITY    = NARRATIVE-SAME (comme le NDS : scène sur ground, combat dans le donjon 31,
+                     retour sur ground pour la fuite)
+ACTUAL RUNTIME PROOF = PENDING (moteur non exécutable ici ; chaîne complète câblée et vérifiée statiquement)
+```
+
+**Correction apportée** : l'implémentation précédente jouait les 3 scènes sur le
+ground SANS entrer dans le donjon 31 (le `main_EnterDungeon(31)` était en
+commentaire) — le combat était contourné. Désormais : m18b1101 → m18b1201 sur
+le ground → **EnterDungeon('spiritomb_room')** (combat sur l'arène natif
+`.rsmap` via RoomGenLoadMap) → retour ground → m18b1301 (fuite) → d22p11a.
+Flag `SV.FutureArc.SpiritombBattleDone` pour distinguer entrée/retour.
+
+## Grounds fixes — identité complète
+
+| Ground | NDS | PMDO .rsground | PMDO .tile | Scene Ground | Battle Ground | Same |
+|---|---|---|---|---|---|---|
+| D18P11A | ✅ | ✅ | ✅ | d18p11a | chasm_cave (donjon) | ✅ |
+| D19P11A | ✅ | ✅ | ✅ | d19p11a | dark_hill (donjon) | ✅ |
+| D20P11A | ✅ | ✅ | ✅ | d20p11a | sealed_ruin (donjon) | ✅ |
+| D21P21A | ✅ | ✅ | ✅ | d21p21a | sealed_ruin_pit (donjon) | ✅ |
+| D21P41A | ✅ | ✅ | ✅ | d21p41a | spiritomb_arena.rsmap (donjon 31) | ✅ |
+| D22P11A | ✅ | ✅ | ✅ | d22p11a | dusk_forest (donjon) | ✅ |
+
+## Arènes génériques
+
+```
+GENERIC_BOSS_ARENAS = 0
+Ground substitutions = 0
+```
+Aucune arène générique, aucune substitution de ground. Tous les combats fixes
+utilisent leur map NDS exacte.
+
+## Verdict final (corrigé)
+
+- **NDS COVERAGE : COMPLETE**
+- **DATA COVERAGE : COMPLETE** (224/224 mobs, 46 floors, MH, dark, musique)
+- **GROUND COVERAGE : COMPLETE** (6/6 grounds + tiles)
+- **BATTLE GROUND COVERAGE : VERIFIED** (Spiritomb sur arène donjon 31 fidèle au NDS ; les autres donjons sont procéduraux comme le NDS — scènes sur grounds exacts)
+- **POKEMON TABLE COVERAGE : COMPLETE**
+- **TILESET COVERAGE : PARTIAL** (auto-tilesets EoS résolus au runtime ; conversion binaire .dpc/.dpl/.dma REQUIRES_ASSET)
+- **RUNTIME VERIFICATION : PENDING** (statique complète ; test en jeu à effectuer)

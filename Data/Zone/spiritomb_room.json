@@ -9,7 +9,7 @@
    }
   },
   "Released": true,
-  "Comment": "D31 SPIRITOMB ROOM — FIXED FLOOR NDS (fixed_floor_id=7, tileset 176). Runtime : la rencontre se joue sur le GROUND D21P41A (source NDS exacte des scènes m18b1101/1201/1301, SSA), Spiritomb (NPC_MIKARUGE) L51 weight 10000 à (8,2)=(324,196)px. Ce JSON n'est PAS procédural : il enregistre la zone ; le parcours passe par le ground d21p41a.",
+  "Comment": "D31 SPIRITOMB ROOM — FIXED FLOOR PMDO NATIF. Le floor charge Data/Map/spiritomb_arena.rsmap (arène 22x17 du fixed floor 7 NDS, Spiritomb L51 à (8,2)) via RoomGenLoadMap. Le combat se déclenche par BattlePositionEvent. Le ground d21p41a.rsground reste la salle CINÉMATIQUE (m18b1101 approche, m18b1301 fuite) — distincte de l'arène de combat.",
   "NoEXP": false,
   "ExpPercent": 100,
   "Level": 28,
@@ -150,9 +150,9 @@
         "Value": {
          "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
          "Music": "Sealed Ruin Pit.ogg",
-         "TimeLimit": 1200,
-         "TileSight": 1,
-         "CharSight": 1,
+         "TimeLimit": -1,
+         "TileSight": 0,
+         "CharSight": 0,
          "ClampCamera": false
         }
        },
@@ -164,11 +164,11 @@
         },
         "Value": {
          "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "CellWidth": 10,
-         "CellHeight": 10,
-         "CellX": 4,
-         "CellY": 4,
-         "CellWall": 2,
+         "CellWidth": 22,
+         "CellHeight": 17,
+         "CellX": 22,
+         "CellY": 17,
+         "CellWall": 0,
          "Wrap": false
         }
        },
@@ -181,20 +181,20 @@
         "Value": {
          "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
          "RoomRatio": {
-          "Min": 45,
-          "Max": 70
-         },
-         "BranchRatio": {
-          "Min": 70,
+          "Min": 100,
           "Max": 100
          },
-         "NoForcedBranches": false,
+         "BranchRatio": {
+          "Min": 0,
+          "Max": 0
+         },
+         "NoForcedBranches": true,
          "GenericRooms": {
           "$type": "RogueElements.SpawnList`1[[RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
           "$values": [
            {
             "Spawn": {
-             "$type": "RogueElements.RoomGenSquare`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+             "$type": "RogueEssence.LevelGen.RoomGenLoadMap`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
              "RoomTerrain": {
               "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
               "Data": {
@@ -218,11 +218,8 @@
                "TileStates": []
               }
              },
-             "Size": {
-              "Min": 5,
-              "Max": 8
-             },
-             "Resizable": false
+             "PreventChanges": 3,
+             "MapID": "spiritomb_arena"
             },
             "Rate": 10
            }
@@ -235,70 +232,15 @@
           },
           {
            "$type": "PMDC.LevelGen.NoConnectRoom, PMDC"
+          },
+          {
+           "$type": "PMDC.LevelGen.NoEventRoom, PMDC"
           }
          ],
          "GenericHalls": {
           "$type": "RogueElements.SpawnList`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
-          "$values": [
-           {
-            "Spawn": {
-             "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-             "HallTurnBias": 0,
-             "Brush": {
-              "$type": "RogueElements.TerrainHallBrush, RogueElements",
-              "Terrain": {
-               "$type": "RogueEssence.Dungeon.Tile, RogueEssence",
-               "Data": {
-                "ID": "hall",
-                "TileTex": {
-                 "AutoTileset": "",
-                 "Associates": [],
-                 "Layers": [],
-                 "NeighborCode": -1
-                },
-                "StableTex": false
-               },
-               "Effect": {
-                "TileLoc": {
-                 "X": 0,
-                 "Y": 0
-                },
-                "ID": "",
-                "Revealed": false,
-                "Owner": 0,
-                "TileStates": []
-               }
-              },
-              "Dims": {
-               "X": 1,
-               "Y": 1
-              }
-             },
-             "Width": {
-              "Min": 2,
-              "Max": 4
-             },
-             "Height": {
-              "Min": 2,
-              "Max": 4
-             }
-            },
-            "Rate": 10
-           }
-          ]
+          "$values": []
          }
-        }
-       },
-       {
-        "Key": {
-         "str": [
-          -4
-         ]
-        },
-        "Value": {
-         "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
-         "Filters": []
         }
        },
        {
@@ -319,7 +261,7 @@
         },
         "Value": {
          "$type": "RogueElements.DrawFloorToTileStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "Padding": 1
+         "Padding": 0
         }
        },
        {
@@ -331,7 +273,7 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.UnbreakableBorderStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "Thickness": 1
+         "Thickness": 0
         }
        },
        {
@@ -351,7 +293,7 @@
          "Respawn": {
           "$type": "PMDC.Dungeon.RespawnFromEligibleEvent, PMDC",
           "MaxFoes": 1,
-          "RespawnTime": 60
+          "RespawnTime": 0
          },
          "MaxFoes": 0,
          "RespawnTime": 0
@@ -415,178 +357,11 @@
        {
         "Key": {
          "str": [
-          5
-         ]
-        },
-        "Value": {
-         "$type": "PMDC.LevelGen.SpacedRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], PMDC",
-         "IncludeHalls": false,
-         "Filters": [],
-         "Spawn": {
-          "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-          "Spawns": {
-           "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-           "$values": [
-            {
-             "Spawn": {
-              "TileLoc": {
-               "X": 0,
-               "Y": 0
-              },
-              "ID": "",
-              "Revealed": false,
-              "Owner": 0,
-              "TileStates": []
-             },
-             "Rate": 10
-            }
-           ]
-          }
-         }
-        }
-       },
-       {
-        "Key": {
-         "str": [
-          5
-         ]
-        },
-        "Value": {
-         "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-         "SuccessPercent": 100,
-         "IncludeHalls": false,
-         "Filters": [],
-         "Spawn": {
-          "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements"
-         }
-        }
-       },
-       {
-        "Key": {
-         "str": [
-          6
-         ]
-        },
-        "Value": {
-         "$type": "RogueElements.TerminalSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MoneySpawn, RogueEssence]], RogueElements",
-         "IncludeHalls": false,
-         "Filters": [],
-         "Spawn": {
-          "$type": "RogueEssence.LevelGen.MoneyDivSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-          "Amount": {
-           "Min": 1,
-           "Max": 3
-          }
-         }
-        }
-       },
-       {
-        "Key": {
-         "str": [
-          6,
-          1
-         ]
-        },
-        "Value": {
-         "$type": "RogueElements.DueSpawnStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
-         "SuccessPercent": 80,
-         "IncludeHalls": false,
-         "Filters": [],
-         "Spawn": {
-          "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements"
-         },
-         "MaxToSpawn": {
-          "Min": 1,
-          "Max": 3
-         }
-        }
-       },
-       {
-        "Key": {
-         "str": [
-          6,
-          2
-         ]
-        },
-        "Value": {
-         "$type": "RogueEssence.LevelGen.PlaceRandomMobsStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "Filters": [
-          {
-           "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-           "Connection": 1
-          }
-         ],
-         "IncludeHalls": false,
-         "Spawn": {
-          "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-          "Amount": {
-           "Min": 2,
-           "Max": 3
-          }
-         },
-         "Ally": false,
-         "ClumpFactor": 20
-        }
-       },
-       {
-        "Key": {
-         "str": [
           7
          ]
         },
         "Value": {
          "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.Dungeon.StairsTile, RogueEssence]], RogueElements"
-        }
-       },
-       {
-        "Key": {
-         "str": [
-          1,
-          2
-         ]
-        },
-        "Value": {
-         "$type": "RogueEssence.LevelGen.MobSpawnStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "Spawns": [
-          {
-           "Spawn": {
-            "$type": "RogueEssence.LevelGen.PoolTeamSpawner, RogueEssence",
-            "Explorer": false,
-            "Spawns": [
-             {
-              "Spawn": {
-               "Spawn": {
-                "BaseForm": {
-                 "Species": "spiritomb",
-                 "Form": 0,
-                 "Skin": "",
-                 "Gender": -1
-                },
-                "Level": {
-                 "Min": 51,
-                 "Max": 51
-                },
-                "SpecifiedSkills": [],
-                "Intrinsic": "",
-                "Tactic": "wander_normal",
-                "SpawnConditions": [],
-                "SpawnFeatures": []
-               },
-               "Role": 0
-              },
-              "Rate": 10
-             }
-            ],
-            "TeamSizes": [
-             {
-              "Spawn": 1,
-              "Rate": 12
-             }
-            ]
-           },
-           "Rate": 100
-          }
-         ]
         }
        }
       ]
