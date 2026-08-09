@@ -76,6 +76,32 @@ function M.Enter(map)
   if partner then emote(partner,'sweatdrop');say(partner,'Worried','Donc nous ne sommes peut-être pas coupables…[pause=12] seulement incroyablement doués pour nous trouver au pire endroit.') end
   say(boss,'Determined','L’enquête ne peut pas s’arrêter à une hypothèse.[pause=15] Je dois mesurer directement votre résonance.')
   say(boss,'Normal','Si elle porte la même fracture que les catastrophes,[pause=10] les cristaux la révéleront sous la pression.')
+
+  -- Intervention de Spinda : organisateur officiel de l'expédition, mais son
+  -- enthousiasme transforme une enquête tendue en intrusion diplomatique.
+  SOUND:PlayBattleSE('EVT_Emote_Exclaim')
+  UI:ResetSpeaker(false);UI:SetCenter(true);UI:WaitShowDialogue('Attendez ![pause=12] Au nom de la Fédération des Explorateurs !');UI:SetCenter(false);UI:ResetSpeaker()
+  SV.TerapagosSanctuary.SpindaMet=true
+  local sid=RogueEssence.Dungeon.MonsterID('spinda',0,'normal',Gender.Unknown)
+  local spinda=RogueEssence.Ground.GroundChar(sid,RogueElements.Loc(320,535),Direction.Up,'Spinda','Terapagos_Spinda')
+  spinda:ReloadEvents();GAME:GetCurrentGround():AddTempChar(spinda)
+  GROUND:MoveToPosition(spinda,270,425,false,1.2);emote(spinda,'happy');face(hero,spinda);face(partner,spinda);face(boss,spinda)
+  GAME:MoveCamera(300,385,30,false)
+  say(spinda,'Inspired','Terapagos ![pause=15] Enfin ![pause=10] Je rêvais de cette rencontre depuis que la Fédération a confirmé l’existence du sanctuaire !')
+  say(spinda,'Happy','Spinda, président du Café Spinda,[pause=8] haut représentant de la Fédération des Explorateurs,[pause=8] et organisateur officiel de cette expédition !')
+  if partner then emote(partner,'sweatdrop');GROUND:CharTurnToCharAnimated(partner,hero,4);say(partner,'Pain','Il récite vraiment tous ses titres maintenant…') end
+  emote(boss,'angry');BossFX.Particle('Power_Gem_Charge',333,310,2,DrawLayer.Top);GAME:MoveScreen(RogueEssence.Content.ScreenMover(0,4,20));GAME:WaitFrames(18)
+  say(boss,'Angry','Vous avez organisé leur venue.[pause=15] Vous avez guidé mes suspects jusqu’au cœur de mon domaine pendant mon enquête.')
+  emote(spinda,'shock');say(spinda,'Surprised','Suspects ?![pause=10] Eux ?[pause=10] Mais ce sont précisément les explorateurs que j’ai mandatés pour comprendre les catastrophes !')
+  say(boss,'Angry','Vous présentez une autorisation après avoir franchi le seuil.[pause=12] Votre Fédération confond-elle toujours découverte et permission ?')
+  emote(spinda,'sweatdrop');say(spinda,'Worried','Non.[pause=10] Enfin… pas quand le formulaire de premier contact est disponible.[pause=15] Ce qui, manifestement, n’était pas le cas ici.')
+  if partner then say(partner,'Worried','Président…[pause=8] je crois que vous êtes en train d’aggraver notre dossier, vous aussi.') end
+  GROUND:CharAnimateTurnTo(spinda,Direction.Up,4);say(spinda,'Determined','Alors j’assume ma part.[pause=12] Leur mission vient de moi. Leur enquête est légitime, et je répondrai de leur conduite devant la Fédération.')
+  say(boss,'Determined','Votre rang ne change pas la mémoire des cristaux.[pause=12] Il ajoute seulement un témoin au verdict.')
+  emote(spinda,'notice');say(spinda,'Normal','Très bien.[pause=10] Je resterai hors de l’arène.[pause=10] Mais je consignerai chaque détail historique de cette rencontre.')
+  GROUND:MoveToPosition(spinda,250,475,false,1);GROUND:CharAnimateTurnTo(spinda,Direction.Up,4)
+  GAME:MoveCamera(333,350,30,false);face(hero,boss);face(partner,boss)
+
   if partner then GROUND:CharTurnToCharAnimated(partner,hero,4);say(partner,'Worried','Il veut nous interroger en nous combattant.[pause=12] Pourquoi les Pokémon antiques choisissent-ils toujours cette méthode ?') end
   GeneralFunctions.HeroDialogue(hero,'(Parce qu’ici, les actes laissent une trace que les mots ne peuvent pas imiter.)','Determined')
   face(partner,boss);face(hero,boss);emote(boss,'exclaim');crystal_aura(333,310)
