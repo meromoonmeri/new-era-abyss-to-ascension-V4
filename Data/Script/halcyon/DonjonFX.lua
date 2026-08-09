@@ -266,11 +266,16 @@ end
 -- Dialogue
 --------------------------------------------------------------------
 
+local function Texte(cle)
+    if type(cle)=='string' and string.sub(cle,1,1)=='@' then return string.sub(cle,2) end
+    return STRINGS:FormatKey(cle)
+end
+
 --Recit centre, sans locuteur. Ouverture et cloture d'acte uniquement.
 function DonjonFX.Recit(cle)
     UI:ResetSpeaker(false)
     UI:SetCenter(true)
-    UI:WaitShowDialogue(STRINGS:FormatKey(cle))
+    UI:WaitShowDialogue(Texte(cle))
     UI:SetCenter(false)
     UI:ResetSpeaker()
 end
@@ -282,7 +287,7 @@ function DonjonFX.Dire(chara, cle, emotion)
     if emotion ~= nil then
         pcall(function() GeneralFunctions.SetEmotion(emotion) end)
     end
-    UI:WaitShowDialogue(STRINGS:FormatKey(cle))
+    UI:WaitShowDialogue(Texte(cle))
     UI:ResetSpeaker()
 end
 
@@ -294,7 +299,7 @@ function DonjonFX.Penser(cle, emotion)
     if hero == nil then return DonjonFX.Recit(cle) end
     UI:SetSpeaker(hero)
     pcall(function() GeneralFunctions.SetEmotion(emotion or "Worried") end)
-    UI:WaitShowDialogue(STRINGS:FormatKey(cle))
+    UI:WaitShowDialogue(Texte(cle))
     UI:ResetSpeaker()
 end
 
@@ -307,7 +312,7 @@ function DonjonFX.VoixGardien(chara, cle)
     UI:SetSpeaker(STRINGS:Format("\\uE040"), true,
                   chara.CurrentForm.Species, chara.CurrentForm.Form,
                   chara.CurrentForm.Skin, chara.CurrentForm.Gender)
-    UI:WaitShowDialogue(STRINGS:FormatKey(cle))
+    UI:WaitShowDialogue(Texte(cle))
     UI:ResetSpeaker()
 end
 
