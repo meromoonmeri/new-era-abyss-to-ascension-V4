@@ -2,9 +2,13 @@
     P08P01A_n08a2408.lua — ARC DU FUTUR (adaptation New Era)
     Source canonique : pret/pmd-sky files/language-specific/US/SCRIPT/P08P01A/n08a2408.ssb
     Généré par tools/ssb_to_lua.py — IR canonique + couche d'adaptation New Era.
-    Les dialogues joués sont des clés STRINGS (FUT_*), le texte canonique Sky
-    est conservé en commentaire. Les tables anim/SE/effets manquantes sont
-    marquées TODO (jamais inventées).
+    Chorégraphie 1:1 (déplacements, positions, timings, animations, caméra,
+    fades, SFX, BGM, transitions, flags, embranchements). Seul le CAST change :
+    Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma), Celebi, héros/
+    partenaire ; le maître du futur = Necrozma (Dialga absent). Les dialogues
+    canoniques sont joués (cast appliqué), la clé FUT_* en commentaire sert
+    d'éventuelle passe FR. Les tables anim/SE/effets manquantes sont marquées
+    TODO (jamais inventées).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -116,7 +120,7 @@ function n08a2408.Cutscene()
         })
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2408_001')) -- canon:  Wheh-heh-heh?[K] N-not here?!
+        UI:WaitShowDialogue(' Wheh-heh-heh?\n N-not here?!') -- FUT_N08A2408_001 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8963') end) -- TODO table SE id 8963
         -- ExecuteCommon(LOOK_AROUND_LEFT_FUNC_SERIES) : gestuelle parallèle à implémenter
@@ -135,8 +139,8 @@ function n08a2408.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2408_002')) -- canon:  D-did...[K]they run away?!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2408_003')) -- canon:  L-look![K] Look for them!
+        UI:WaitShowDialogue(' D-did...\nthey run away?!') -- FUT_N08A2408_002 (FR optionnel)
+        UI:WaitShowDialogue(' L-look!\n Look for them!') -- FUT_N08A2408_003 (FR optionnel)
         UI:ResetSpeaker()
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
@@ -170,7 +174,7 @@ function n08a2408.Cutscene()
             end,
         })
         UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2408_004')) -- canon: [CS:N]Sableye[CR]: Wheh-heh-heh!
+        UI:WaitShowDialogue('Sableye: Wheh-heh-heh!') -- FUT_N08A2408_004 (FR optionnel)
         pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({

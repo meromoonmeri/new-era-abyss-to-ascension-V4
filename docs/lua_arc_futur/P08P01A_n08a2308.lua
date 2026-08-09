@@ -2,9 +2,13 @@
     P08P01A_n08a2308.lua — ARC DU FUTUR (adaptation New Era)
     Source canonique : pret/pmd-sky files/language-specific/US/SCRIPT/P08P01A/n08a2308.ssb
     Généré par tools/ssb_to_lua.py — IR canonique + couche d'adaptation New Era.
-    Les dialogues joués sont des clés STRINGS (FUT_*), le texte canonique Sky
-    est conservé en commentaire. Les tables anim/SE/effets manquantes sont
-    marquées TODO (jamais inventées).
+    Chorégraphie 1:1 (déplacements, positions, timings, animations, caméra,
+    fades, SFX, BGM, transitions, flags, embranchements). Seul le CAST change :
+    Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma), Celebi, héros/
+    partenaire ; le maître du futur = Necrozma (Dialga absent). Les dialogues
+    canoniques sont joués (cast appliqué), la clé FUT_* en commentaire sert
+    d'éventuelle passe FR. Les tables anim/SE/effets manquantes sont marquées
+    TODO (jamais inventées).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -46,31 +50,31 @@ function n08a2308.Cutscene()
         GROUND:CharTurnToChar(CH('Dusknoir'), CH('HeroFuture'))
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2308_001')) -- canon:  Is this it, [CS:Y]Grovyle[CR]?
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2308_002')) -- canon:  The place you met [CS:N]Celebi[CR]?
+        UI:WaitShowDialogue(' Is this it, Grovyle?') -- FUT_N08A2308_001 (FR optionnel)
+        UI:WaitShowDialogue(' The place you met Celebi?') -- FUT_N08A2308_002 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharTurnToChar(CH('HeroFuture'), CH('Dusknoir'))
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2308_003')) -- canon:  Yeah, that's right.
+        UI:WaitShowDialogue(' Yeah, that\'s right.') -- FUT_N08A2308_003 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2308_004')) -- canon:  ...[K]It's quiet...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2308_005')) -- canon:  Was she already captured...[K] Was she already taken away...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2308_006')) -- canon:  Or maybe she sensed danger and ran away from here...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2308_007')) -- canon:  It's possible she outwitted them...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2308_008')) -- canon:  Maybe she's still hiding somewhere nearby...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2308_009')) -- canon:  Could be any one of those...
+        UI:WaitShowDialogue(' ...\nIt\'s quiet...') -- FUT_N08A2308_004 (FR optionnel)
+        UI:WaitShowDialogue(' Was she already captured...\n\nWas she already taken away...') -- FUT_N08A2308_005 (FR optionnel)
+        UI:WaitShowDialogue(' Or maybe she sensed danger and\nran away from here...') -- FUT_N08A2308_006 (FR optionnel)
+        UI:WaitShowDialogue(' It\'s possible she\noutwitted them...') -- FUT_N08A2308_007 (FR optionnel)
+        UI:WaitShowDialogue(' Maybe she\'s still hiding\nsomewhere nearby...') -- FUT_N08A2308_008 (FR optionnel)
+        UI:WaitShowDialogue(' Could be any one of those...') -- FUT_N08A2308_009 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2308_010')) -- canon:  ...[K] (There's something strange about the air here...)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2308_011')) -- canon:  ([CS:N]Celebi[CR]...[K] She probably left already...)
+        UI:WaitShowDialogue(' ...\n (There\'s something strange\nabout the air here...)') -- FUT_N08A2308_010 (FR optionnel)
+        UI:WaitShowDialogue(' (Celebi...\n\nShe probably left already...)') -- FUT_N08A2308_011 (FR optionnel)
         UI:ResetSpeaker()
         SOUND:FadeOutBGM(30)
         UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2308_012')) -- canon: [CS:N]Sableye[CR]: Wheh-heh-heh!
+        UI:WaitShowDialogue('Sableye: Wheh-heh-heh!') -- FUT_N08A2308_012 (FR optionnel)
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8967') end) -- TODO table SE id 8967
         -- (parallèle) NPC_YONOWAARU_N8, PLAYER_FUTURE
         TASK:JoinCoroutines({
@@ -150,22 +154,22 @@ function n08a2308.Cutscene()
         })
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2308_013')) -- canon:  I knew it...
+        UI:WaitShowDialogue(' I knew it...') -- FUT_N08A2308_013 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2308_014')) -- canon:  They brought me right into their trap!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2308_015')) -- canon:  Humph. [CS:N]Dusknoir[CR]![K] [CS:N]Dialga[CR]'s new henchman...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2308_016')) -- canon:  Is just as crafty and wicked as you are!
+        UI:WaitShowDialogue(' They brought me right into\ntheir trap!') -- FUT_N08A2308_014 (FR optionnel)
+        UI:WaitShowDialogue(' Humph. Dusknoir!\n Necrozma\'s\nnew henchman...') -- FUT_N08A2308_015 (FR optionnel)
+        UI:WaitShowDialogue(' Is just as crafty and\nwicked as you are!') -- FUT_N08A2308_016 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2308_017')) -- canon:  I am Master [CS:N]Dialga[CR]'s only henchman!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2308_018')) -- canon:  I can't allow anyone to take my place!
+        UI:WaitShowDialogue(' I am Master Necrozma\'s\nonly henchman!') -- FUT_N08A2308_017 (FR optionnel)
+        UI:WaitShowDialogue(' I can\'t allow anyone to take\nmy place!') -- FUT_N08A2308_018 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2308_019')) -- canon:  Here they come!
+        UI:WaitShowDialogue(' Here they come!') -- FUT_N08A2308_019 (FR optionnel)
         UI:ResetSpeaker()
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3
         TASK:JoinCoroutines({
@@ -199,7 +203,7 @@ function n08a2308.Cutscene()
             end,
         })
         UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2308_020')) -- canon: [CS:N]Sableye[CR]: Wheh-heh-heh!
+        UI:WaitShowDialogue('Sableye: Wheh-heh-heh!') -- FUT_N08A2308_020 (FR optionnel)
         pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({

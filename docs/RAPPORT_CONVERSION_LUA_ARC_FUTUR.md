@@ -2,6 +2,18 @@
 
 Date : 2026-08-09 — 24 scènes, 7035 ops.
 
+## Principe (directive utilisateur)
+
+Reproduction 1:1 des cinématiques canoniques de Sky : déplacements, positions,
+timings, animations, directions, effets, caméra, fades, synchronisations, SFX,
+BGM, transitions, flags, embranchements et ordre des événements sont inchangés.
+**Seul le CAST change** : Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma),
+Celebi, héros/partenaire New Era ; le rôle « antagoniste/maître de l'original »
+(YONOWAARU geôlier/confesseur/menace, et le maître 'Dialga') → **Necrozma**
+(scènes listées dans ANTAGONIST_SCENES). Les dialogues canoniques sont joués,
+avec les noms substitués (Dialga→Necrozma, Dusknoir→Necrozma en scène antagoniste) ;
+une clé FUT_* est fournie en commentaire pour une éventuelle passe FR.
+
 ## Légende des statuts
 
 - **OK** : traduit avec un idiome PMDO attesté (GROUND:/GAME:/UI:/SOUND:/TASK:).

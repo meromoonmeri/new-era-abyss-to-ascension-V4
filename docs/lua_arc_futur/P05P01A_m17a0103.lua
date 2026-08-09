@@ -2,9 +2,13 @@
     P05P01A_m17a0103.lua — ARC DU FUTUR (adaptation New Era)
     Source canonique : pret/pmd-sky files/language-specific/US/SCRIPT/P05P01A/m17a0103.ssb
     Généré par tools/ssb_to_lua.py — IR canonique + couche d'adaptation New Era.
-    Les dialogues joués sont des clés STRINGS (FUT_*), le texte canonique Sky
-    est conservé en commentaire. Les tables anim/SE/effets manquantes sont
-    marquées TODO (jamais inventées).
+    Chorégraphie 1:1 (déplacements, positions, timings, animations, caméra,
+    fades, SFX, BGM, transitions, flags, embranchements). Seul le CAST change :
+    Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma), Celebi, héros/
+    partenaire ; le maître du futur = Necrozma (Dialga absent). Les dialogues
+    canoniques sont joués (cast appliqué), la clé FUT_* en commentaire sert
+    d'éventuelle passe FR. Les tables anim/SE/effets manquantes sont marquées
+    TODO (jamais inventées).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -31,9 +35,9 @@ function m17a0103.Cutscene()
         GAME:WaitFrames(60)
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0103_001')) -- canon:  I am sorry to have kept you waiting, Master [CS:N]Dialga[CR]...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0103_002')) -- canon:  While I encountered more difficulty than anticipated...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0103_003')) -- canon:  I finally succeeded...[K] In the capture, yes.
+        UI:WaitShowDialogue(' I am sorry to have kept you\nwaiting, Master Necrozma...') -- FUT_M17A0103_001 (FR optionnel)
+        UI:WaitShowDialogue(' While I encountered more\ndifficulty than anticipated...') -- FUT_M17A0103_002 (FR optionnel)
+        UI:WaitShowDialogue(' I finally succeeded...\n In the\ncapture, yes.') -- FUT_M17A0103_003 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_7186') end) -- TODO table SE id 7186
         -- object 134 (p05p01a1) : contexte objet
@@ -53,16 +57,16 @@ function m17a0103.Cutscene()
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0103_004')) -- canon:  ...[K]I fully understand what must be done.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0103_005')) -- canon:  Those who seek to alter the course of history...[K]must be removed from history.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0103_006')) -- canon:  I will see to the elimination immediately.
+        UI:WaitShowDialogue(' ...\nI fully understand what must\nbe done.') -- FUT_M17A0103_004 (FR optionnel)
+        UI:WaitShowDialogue(' Those who seek to alter the\ncourse of history...\nmust be removed from\nhistory.') -- FUT_M17A0103_005 (FR optionnel)
+        UI:WaitShowDialogue(' I will see to the elimination\nimmediately.') -- FUT_M17A0103_006 (FR optionnel)
         UI:ResetSpeaker()
         -- message_ImitationSound : PARTIEL
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0103_007')) -- canon:  ...I understand.[K] As you wish.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0103_008')) -- canon:  I take my leave.
+        UI:WaitShowDialogue(' ...I understand.\n As you wish.') -- FUT_M17A0103_007 (FR optionnel)
+        UI:WaitShowDialogue(' I take my leave.') -- FUT_M17A0103_008 (FR optionnel)
         UI:ResetSpeaker()
         -- PARTIEL : se_FadeOut [7186, 120]
         -- object 134 (p05p01a1) : contexte objet

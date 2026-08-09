@@ -19,9 +19,13 @@ Règles :
   - Parallélisme : `lives X` = file d'actions de X ; les files de plusieurs
     acteurs s'exécutent en parallèle (TASK:BranchCoroutine) ; les points de
     synchro (WaitExecuteLives / Wait) joignent les branches.
-  - Dialogues : texte canonique Sky conservé EN COMMENTAIRE ; le texte joué
-    est une clé New Era (STRINGS:FormatKey('FUT_<SCENE>_<n>')) — couche
-    d'adaptation, jamais fusionnée dans l'IR.
+  - Dialogues : texte CANONIQUE Sky joué tel quel (1:1), cast appliqué dans le
+    texte (Dialga -> Necrozma ; Dusknoir -> Necrozma dans les scènes où il est
+    l'antagoniste), codes EoS ([CS:]/[CR]/[K]) assainis pour PMDO. Une clé
+    FUT_* est fournie en commentaire pour une éventuelle passe FR.
+  - CAST : mapping pur par acteur (directive utilisateur) ; le rôle
+    « antagoniste/maître de l'original » -> Necrozma, déterminé à partir des
+    textes canoniques (ANTAGONIST_SCENES).
   - Tables REQUISES (anim id -> nom PMDO, SE id -> nom SE, BGM, effets) :
     émises en appels pcall sûrs avec le numéro canonique + commentaire TODO.
 """
@@ -65,6 +69,23 @@ EFFECT_EMOTE = {
     # 640/645/651 absents de la table XML -> NON CONVERTIS (table ROM REQUISE)
 }
 
+# ---------------------------------------------------------------------------
+# CAST NEW ERA — mapping pur (directive utilisateur : 1:1, seul le cast change)
+# ---------------------------------------------------------------------------
+# Règle « antagoniste / maître de l'original -> Necrozma » : dans les scènes où
+# l'acteur YONOWAARU joue le rôle d'ANTAGONISTE de la scène (déterminé à partir
+# des textes canoniques), il est remplacé par NECROZMA. Ailleurs il reste
+# Dusknoir (allié). Le maître off-screen (« Master Dialga ») est Necrozma.
+ANTAGONIST_SCENES = {
+    # scènes où YONOWAARU est le maître/vilain de la scène (textes canoniques) :
+    "P05P03A_m17a0302": "Necrozma",   # le geôlier du poteau d'exécution
+    "P05P03A_m26a06d3": "Necrozma",   # la fuite (le geôlier réagit)
+    "P09P01A_m19b1001": "Necrozma",   # confrontation au Passage du Temps
+    "P09P01A_m19b1007": "Necrozma",   # confession du vilain
+    "P09P01A_m19b1009": "Necrozma",   # « notre voie temporelle est brisée »
+    "P09P01A_m19d1072": "Necrozma",   # « nous allons nous débarrasser de vous »
+}
+
 # Noms d'acteurs PMDO (entités des grounds importés — à faire correspondre
 # lors de l'import ; convention New Era)
 ACTOR_CH = {
@@ -82,6 +103,34 @@ ACTOR_CH = {
     "NPC_YAMIRAMI5": "CH('Sableye_5')",
     "NPC_YAMIRAMI6": "CH('Sableye_6')",
 }
+
+# ---------------------------------------------------------------------------
+# Assainissement du texte canonique EoS -> texte jouable PMDO
+# ---------------------------------------------------------------------------
+import re as _re
+
+def sanitize_dialogue(text, antagoniste=False):
+    """Texte canonique Sky -> texte PMDO (cast + codes)."""
+    t = text
+    # 1. cast : le maître du futur est Necrozma (Dialga absent de l'arc).
+    #    « Primal Dialga » (présence sombre aux yeux rouges) = Necrozma.
+    t = t.replace("Primal Dialga", "Necrozma")
+    t = t.replace("Dialga", "Necrozma")
+    # 2. cast : dans les scènes antagoniste, Dusknoir (vilain) -> Necrozma
+    #    (le bégaiement « D-Dusknoir » devient « N-Necrozma »).
+    if antagoniste:
+        t = t.replace("D-Dusknoir", "N-Necrozma")
+        t = t.replace("Dusknoir", "Necrozma")
+    # 3. codes EoS -> PMDO
+    t = t.replace("[K]", "\n")                       # attente clé -> retour ligne
+    t = _re.sub(r"\[CS:[A-Z]\]", "", t)              # couleurs de nom -> retirées
+    t = t.replace("[CR]", "")                        # reset couleur -> retiré
+    return t
+
+def lua_str(s):
+    """Échappe une chaîne pour un littéral Lua simple-quote."""
+    return (s.replace("\\", "\\\\").replace("'", "\\'")
+             .replace("\n", "\\n").replace("\r", ""))
 
 # ---------------------------------------------------------------------------
 # Résolution des valeurs
@@ -138,6 +187,9 @@ class Converter:
         self.line += 1
 
     def actor_expr(self, ent):
+        scene_key = f"{self.zone}_{self.scene}"
+        if scene_key in ANTAGONIST_SCENES and ent in ("NPC_YONOWAARU", "NPC_YONOWAARU_N8"):
+            return "CH('Necrozma')"
         if ent in ACTOR_CH:
             return ACTOR_CH[ent]
         return None
@@ -569,12 +621,19 @@ class Converter:
                         break
                     if canon:
                         break
-            canon1 = canon.replace("\n", " ")[:140]
+            # TEXTE CANONIQUE joué (1:1) : cast appliqué (Dialga->Necrozma, et
+            # Dusknoir->Necrozma dans les scènes antagoniste), codes EoS
+            # assainis pour PMDO. La clé FUT_* reste disponible pour une
+            # éventuelle passe FR (couche d'adaptation), jamais requise.
+            antagoniste = f"{self.zone}_{self.scene}" in ANTAGONIST_SCENES
+            joue = sanitize_dialogue(canon, antagoniste)
+            if not joue.strip():
+                joue = f"(dialogue {key})"
             if self.speaker:
-                self.w(f"UI:WaitShowDialogue(STRINGS:FormatKey('{key}')) -- canon: {canon1}", indent)
+                self.w(f"UI:WaitShowDialogue('{lua_str(joue)}') -- {key} (FR optionnel)", indent)
             else:
                 self.w(f"UI:SetCenter(true)", indent)
-                self.w(f"UI:WaitShowDialogue(STRINGS:FormatKey('{key}')) -- canon: {canon1}", indent)
+                self.w(f"UI:WaitShowDialogue('{lua_str(joue)}') -- {key} (FR optionnel)", indent)
                 self.w(f"UI:SetCenter(false)", indent)
             return
         if name == "DefaultText":
@@ -768,9 +827,13 @@ class Converter:
         self.w(f"    {self.zone}_{self.scene}.lua — ARC DU FUTUR (adaptation New Era)")
         self.w(f"    Source canonique : pret/pmd-sky files/language-specific/US/SCRIPT/{self.zone}/{self.scene}.ssb")
         self.w("    Généré par tools/ssb_to_lua.py — IR canonique + couche d'adaptation New Era.")
-        self.w("    Les dialogues joués sont des clés STRINGS (FUT_*), le texte canonique Sky")
-        self.w("    est conservé en commentaire. Les tables anim/SE/effets manquantes sont")
-        self.w("    marquées TODO (jamais inventées).")
+        self.w("    Chorégraphie 1:1 (déplacements, positions, timings, animations, caméra,")
+        self.w("    fades, SFX, BGM, transitions, flags, embranchements). Seul le CAST change :")
+        self.w("    Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma), Celebi, héros/")
+        self.w("    partenaire ; le maître du futur = Necrozma (Dialga absent). Les dialogues")
+        self.w("    canoniques sont joués (cast appliqué), la clé FUT_* en commentaire sert")
+        self.w("    d'éventuelle passe FR. Les tables anim/SE/effets manquantes sont marquées")
+        self.w("    TODO (jamais inventées).")
         self.w("]]")
         self.w("require 'origin.common'")
         self.w("require 'halcyon.GeneralFunctions'")
@@ -827,6 +890,18 @@ def main():
     L.append("# RAPPORT DE CONVERSION — SSB → LUA PMDO — ARC DU FUTUR")
     L.append("")
     L.append(f"Date : 2026-08-09 — {totals['scenes']} scènes, {totals['ops']} ops.")
+    L.append("")
+    L.append("## Principe (directive utilisateur)")
+    L.append("")
+    L.append("Reproduction 1:1 des cinématiques canoniques de Sky : déplacements, positions,")
+    L.append("timings, animations, directions, effets, caméra, fades, synchronisations, SFX,")
+    L.append("BGM, transitions, flags, embranchements et ordre des événements sont inchangés.")
+    L.append("**Seul le CAST change** : Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma),")
+    L.append("Celebi, héros/partenaire New Era ; le rôle « antagoniste/maître de l'original »")
+    L.append("(YONOWAARU geôlier/confesseur/menace, et le maître 'Dialga') → **Necrozma**")
+    L.append("(scènes listées dans ANTAGONIST_SCENES). Les dialogues canoniques sont joués,")
+    L.append("avec les noms substitués (Dialga→Necrozma, Dusknoir→Necrozma en scène antagoniste) ;")
+    L.append("une clé FUT_* est fournie en commentaire pour une éventuelle passe FR.")
     L.append("")
     L.append("## Légende des statuts")
     L.append("")

@@ -2,9 +2,13 @@
     P07P01A_m18b1401.lua — ARC DU FUTUR (adaptation New Era)
     Source canonique : pret/pmd-sky files/language-specific/US/SCRIPT/P07P01A/m18b1401.ssb
     Généré par tools/ssb_to_lua.py — IR canonique + couche d'adaptation New Era.
-    Les dialogues joués sont des clés STRINGS (FUT_*), le texte canonique Sky
-    est conservé en commentaire. Les tables anim/SE/effets manquantes sont
-    marquées TODO (jamais inventées).
+    Chorégraphie 1:1 (déplacements, positions, timings, animations, caméra,
+    fades, SFX, BGM, transitions, flags, embranchements). Seul le CAST change :
+    Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma), Celebi, héros/
+    partenaire ; le maître du futur = Necrozma (Dialga absent). Les dialogues
+    canoniques sont joués (cast appliqué), la clé FUT_* en commentaire sert
+    d'éventuelle passe FR. Les tables anim/SE/effets manquantes sont marquées
+    TODO (jamais inventées).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -47,56 +51,56 @@ function m18b1401.Cutscene()
         GROUND:MoveToPosition(CH('Grovyle'), CH('Grovyle').Position.X + 1*8, CH('Grovyle').Position.Y + 24*8, false, 2.0)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_001')) -- canon:  Good.[K] This will do.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_002')) -- canon:  Those [CS:N]Sableye[CR] won't be able to spot us easily here.
+        UI:WaitShowDialogue(' Good.\n This will do.') -- FUT_M18B1401_001 (FR optionnel)
+        UI:WaitShowDialogue(' Those Sableye won\'t be able to\nspot us easily here.') -- FUT_M18B1401_002 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_003')) -- canon:  Tell us, [CS:N]Grovyle[CR].
+        UI:WaitShowDialogue(' Tell us, Grovyle.') -- FUT_M18B1401_003 (FR optionnel)
         -- case 3: ' Tell us, [CS:N]Grovyle[CR].'
         -- case 4: ' Tell us, [CS:N]Grovyle[CR].'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_004')) -- canon:  In the future...[K] Why did the planet become paralyzed?
+        UI:WaitShowDialogue(' In the future...\n Why did the\nplanet become paralyzed?') -- FUT_M18B1401_004 (FR optionnel)
         -- case 6: ' In the future...[K] Why did the\nplanet become paralyzed?'
         -- case 7: " In the future...[K] Why did the\nplanet's paralysis take place?"
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_005')) -- canon:  The cause of the planet's paralysis...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_006')) -- canon:  That dates back to your time. In the world of the past.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_007')) -- canon:  The planet's paralysis started with the collapse of [CS:P]Temporal Tower[CR], which was governed by [CS:N]Dialga[CR].
+        UI:WaitShowDialogue(' The cause of the planet\'s\nparalysis...') -- FUT_M18B1401_005 (FR optionnel)
+        UI:WaitShowDialogue(' That dates back to your time.\nIn the world of the past.') -- FUT_M18B1401_006 (FR optionnel)
+        UI:WaitShowDialogue(' The planet\'s paralysis started\nwith the collapse of Temporal Tower, which\nwas governed by Necrozma.') -- FUT_M18B1401_007 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Worried')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_008')) -- canon:  [CS:N]D-Dialga[CR]?[K] Who is that?
+        UI:WaitShowDialogue(' D-Necrozma?\n Who is that?') -- FUT_M18B1401_008 (FR optionnel)
         -- case 12: ' [CS:N]D-Dialga[CR]?[K] Who is that?'
         -- case 13: ' [CS:N]D-Dialga[CR]?[K] Who is that?'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_009')) -- canon:  He is the legendary Pokémon that controls time.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_010')) -- canon:  [CS:N]Dialga[CR] ensured the proper flow of time from [CS:P]Temporal Tower[CR].
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_011')) -- canon:  But when [CS:P]Temporal Tower[CR] collapsed...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_012')) -- canon:  Time gradually got out of control...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_013')) -- canon:  And eventually, the planet fell into paralysis.
+        UI:WaitShowDialogue(' He is the legendary Pokémon\nthat controls time.') -- FUT_M18B1401_009 (FR optionnel)
+        UI:WaitShowDialogue(' Necrozma ensured the proper flow\nof time from Temporal Tower.') -- FUT_M18B1401_010 (FR optionnel)
+        UI:WaitShowDialogue(' But when Temporal Tower\ncollapsed...') -- FUT_M18B1401_011 (FR optionnel)
+        UI:WaitShowDialogue(' Time gradually got out of\ncontrol...') -- FUT_M18B1401_012 (FR optionnel)
+        UI:WaitShowDialogue(' And eventually, the planet fell\ninto paralysis.') -- FUT_M18B1401_013 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Worried')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_014')) -- canon:  What...[K]what happened to [CS:N]Dialga[CR]?
+        UI:WaitShowDialogue(' What...\nwhat happened to Necrozma?') -- FUT_M18B1401_014 (FR optionnel)
         -- case 20: ' What...[K]what happened to [CS:N]Dialga[CR]?'
         -- case 21: ' What...[K]what happened to [CS:N]Dialga[CR]?'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_015')) -- canon:  When time went out of whack, [CS:N]Dialga[CR] also lost control.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_016')) -- canon:  Now, here in your future, the planet has become fully paralyzed.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_017')) -- canon:  And thus [CS:N]Dialga[CR] has lost almost all his reason...[K]and is governed by darkness.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_018')) -- canon:  [CS:N]Dialga[CR] is now beyond recognition.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_019')) -- canon:  He has become an entirely different entity...[K] Yes...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_020')) -- canon:  He has been transformed into Primal [CS:N]Dialga[CR], a primordial presence.
+        UI:WaitShowDialogue(' When time went out of whack,\nNecrozma also lost control.') -- FUT_M18B1401_015 (FR optionnel)
+        UI:WaitShowDialogue(' Now, here in your future, the\nplanet has become fully paralyzed.') -- FUT_M18B1401_016 (FR optionnel)
+        UI:WaitShowDialogue(' And thus Necrozma has lost almost\nall his reason...\nand is governed by darkness.') -- FUT_M18B1401_017 (FR optionnel)
+        UI:WaitShowDialogue(' Necrozma is now beyond recognition.') -- FUT_M18B1401_018 (FR optionnel)
+        UI:WaitShowDialogue(' He has become an entirely\ndifferent entity...\n Yes...') -- FUT_M18B1401_019 (FR optionnel)
+        UI:WaitShowDialogue(' He has been transformed into\nPrimal Necrozma, a primordial presence.') -- FUT_M18B1401_020 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_021')) -- canon:  OK... Urf...
+        UI:WaitShowDialogue(' OK... Urf...') -- FUT_M18B1401_021 (FR optionnel)
         -- case 29: ' OK... Urf...'
         -- case 30: ' OK... Urf...'
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8972') end) -- TODO table SE id 8972
@@ -105,12 +109,12 @@ function m18b1401.Cutscene()
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_022')) -- canon:  Primal [CS:N]Dialga[CR] feels no emotion.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_023')) -- canon:  He seeks only self-preservation, so he prevents history from changing.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_024')) -- canon:  That's why [CS:N]Dialga[CR] wants me gone.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_025')) -- canon:  Because I tried to change history.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_026')) -- canon:  Because I tried to stop the planet's paralysis.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_027')) -- canon:  Because I traveled back in time to your world from this place...your future.
+        UI:WaitShowDialogue(' Primal Necrozma feels no emotion.') -- FUT_M18B1401_022 (FR optionnel)
+        UI:WaitShowDialogue(' He seeks only self-preservation,\nso he prevents history from changing.') -- FUT_M18B1401_023 (FR optionnel)
+        UI:WaitShowDialogue(' That\'s why Necrozma wants\nme gone.') -- FUT_M18B1401_024 (FR optionnel)
+        UI:WaitShowDialogue(' Because I tried to change\nhistory.') -- FUT_M18B1401_025 (FR optionnel)
+        UI:WaitShowDialogue(' Because I tried to stop the\nplanet\'s paralysis.') -- FUT_M18B1401_026 (FR optionnel)
+        UI:WaitShowDialogue(' Because I traveled back in time\nto your world from this place...your future.') -- FUT_M18B1401_027 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8968') end) -- TODO table SE id 8968
         -- (parallèle) ATTENDANT1, PLAYER
@@ -125,62 +129,62 @@ function m18b1401.Cutscene()
         })
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_028')) -- canon:  What?!
+        UI:WaitShowDialogue(' What?!') -- FUT_M18B1401_028 (FR optionnel)
         -- case 38: ' What?!'
         -- case 39: ' What?!'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_029')) -- canon:  [CS:N]Grovyle[CR], you're saying that you came back to our world...
+        UI:WaitShowDialogue(' Grovyle, you\'re saying that you\ncame back to our world...') -- FUT_M18B1401_029 (FR optionnel)
         -- case 41: " [CS:N]Grovyle[CR], you're saying that you\ncame back to our world..."
         -- case 42: " [CS:N]Grovyle[CR], you're saying that you\ncame back to our world..."
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_030')) -- canon:  So you could prevent the planet's paralysis?!
+        UI:WaitShowDialogue(' So you could prevent the planet\'s\nparalysis?!') -- FUT_M18B1401_030 (FR optionnel)
         -- case 44: " So you could prevent the planet's\nparalysis?!"
         -- case 45: " So you could prevent the planet's\nparalysis?!"
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_031')) -- canon:  But that's...[K]completely the opposite of what we were told!
+        UI:WaitShowDialogue(' But that\'s...\ncompletely the\nopposite of what we were told!') -- FUT_M18B1401_031 (FR optionnel)
         -- case 47: " But that's...[K]completely the\nopposite of what we were told!"
         -- case 48: " But that's...[K]completely the\nopposite of what we were told!"
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_032')) -- canon:  [CS:N]Grovyle[CR], you came back to our world to paralyze the planet...didn't you?!
+        UI:WaitShowDialogue(' Grovyle, you came back to our\nworld to paralyze the planet...didn\'t you?!') -- FUT_M18B1401_032 (FR optionnel)
         -- case 50: " [CS:N]Grovyle[CR], you came back to our\nworld to paralyze the planet...didn't you?!"
         -- case 51: " [CS:N]Grovyle[CR], you came back to our\nworld to paralyze the planet...didn't you?!"
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_033')) -- canon:  And, [CS:N]Grovyle[CR]...[K]weren't you the one stealing the Time Gears?!
+        UI:WaitShowDialogue(' And, Grovyle...\nweren\'t you the\none stealing the Time Gears?!') -- FUT_M18B1401_033 (FR optionnel)
         -- case 53: " And, [CS:N]Grovyle[CR]...[K]weren't you the\none stealing the Time Gears?!"
         -- case 54: " And, [CS:N]Grovyle[CR]...[K]weren't you the\none stealing the Time Gears?!"
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_034')) -- canon:  You've got to be joking!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_035')) -- canon:  I was collecting Time Gears...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_036')) -- canon:  Because they were needed for preventing the planet's paralysis.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_037')) -- canon:  I needed to take them to [CS:P]Temporal Tower[CR] and put them in place.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_038')) -- canon:  That would have reversed the collapse of [CS:P]Temporal Tower[CR], which was fully under way in your time.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_039')) -- canon:  While it is true that removing a Time Gear from a specific place causes time to stop in that area...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_040')) -- canon:  That's only temporary. After the Time Gears are put into [CS:P]Temporal Tower[CR]...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_041')) -- canon:  Time would have been fully restored to normal everywhere.
+        UI:WaitShowDialogue(' You\'ve got to be joking!') -- FUT_M18B1401_034 (FR optionnel)
+        UI:WaitShowDialogue(' I was collecting Time Gears...') -- FUT_M18B1401_035 (FR optionnel)
+        UI:WaitShowDialogue(' Because they were needed for\npreventing the planet\'s paralysis.') -- FUT_M18B1401_036 (FR optionnel)
+        UI:WaitShowDialogue(' I needed to take them to\nTemporal Tower and put them in place.') -- FUT_M18B1401_037 (FR optionnel)
+        UI:WaitShowDialogue(' That would have reversed the\ncollapse of Temporal Tower, which was\nfully under way in your time.') -- FUT_M18B1401_038 (FR optionnel)
+        UI:WaitShowDialogue(' While it is true that removing a\nTime Gear from a specific place causes time\nto stop in that area...') -- FUT_M18B1401_039 (FR optionnel)
+        UI:WaitShowDialogue(' That\'s only temporary. After the\nTime Gears are put into Temporal Tower...') -- FUT_M18B1401_040 (FR optionnel)
+        UI:WaitShowDialogue(' Time would have been fully\nrestored to normal everywhere.') -- FUT_M18B1401_041 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8972') end) -- TODO table SE id 8972
         GROUND:CharSetEmote(CH('Teammate1'), 'sweatdrop', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_042')) -- canon:  Urf...[K] But then, what about all the things [CS:N]Dusknoir[CR] said about you?
+        UI:WaitShowDialogue(' Urf...\n But then, what about all\nthe things Dusknoir said about you?') -- FUT_M18B1401_042 (FR optionnel)
         -- case 64: ' Urf...[K] But then, what about all\nthe things [CS:N]Dusknoir[CR] said about you?'
         -- case 65: ' Urf...[K] But then, what about all\nthe things [CS:N]Dusknoir[CR] said about you?'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_043')) -- canon:  Like how he said you were a wanted outlaw in the future.
+        UI:WaitShowDialogue(' Like how he said you were a\nwanted outlaw in the future.') -- FUT_M18B1401_043 (FR optionnel)
         -- case 67: ' Like how he said you were a\nwanted outlaw in the future.'
         -- case 68: ' Like how he said you were a\nwanted outlaw in the future.'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_044')) -- canon:  And how you escaped from the future...
+        UI:WaitShowDialogue(' And how you escaped from\nthe future...') -- FUT_M18B1401_044 (FR optionnel)
         -- case 70: ' And how you escaped from\nthe future...'
         -- case 71: ' And how you escaped from\nthe future...'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_045')) -- canon:  then fled to our world in the past.
+        UI:WaitShowDialogue(' then fled to our world in\nthe past.') -- FUT_M18B1401_045 (FR optionnel)
         -- case 73: ' then fled to our world in\nthe past.'
         -- case 74: ' then fled to our world in\nthe past.'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_046')) -- canon:  So you're saying all that was just a bunch of lies?
+        UI:WaitShowDialogue(' So you\'re saying all that was\njust a bunch of lies?') -- FUT_M18B1401_046 (FR optionnel)
         -- case 76: " So you're saying all that was\njust a bunch of lies?"
         -- case 77: " So you're claiming all that was\njust a bunch of lies?"
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_047')) -- canon:  What else could it be?
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_048')) -- canon:  Because [CS:N]Dusknoir[CR] really is...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_049')) -- canon:  an agent sent from this future by Primal [CS:N]Dialga[CR]...[K]to get rid of me.
+        UI:WaitShowDialogue(' What else could it be?') -- FUT_M18B1401_047 (FR optionnel)
+        UI:WaitShowDialogue(' Because Dusknoir really is...') -- FUT_M18B1401_048 (FR optionnel)
+        UI:WaitShowDialogue(' an agent sent from this future\nby Primal Necrozma...\nto get rid of me.') -- FUT_M18B1401_049 (FR optionnel)
         UI:ResetSpeaker()
         SOUND:FadeOutBGM(10)
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8968') end) -- TODO table SE id 8968
@@ -188,67 +192,67 @@ function m18b1401.Cutscene()
         -- ExecuteCommon(JUMP_SURPRISE_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_050')) -- canon:  What?![K] [CS:N]Dusknoir[CR] was...[K]an agent sent to get rid of you?!
+        UI:WaitShowDialogue(' What?!\n Dusknoir was...\nan agent\nsent to get rid of you?!') -- FUT_M18B1401_050 (FR optionnel)
         -- case 82: ' What?![K] [CS:N]Dusknoir[CR] was...[K]an agent\nsent to get rid of you?!'
         -- case 83: ' What?![K] [CS:N]Dusknoir[CR] was...[K]an agent\nsent to get rid of you?!'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_051')) -- canon:  That's right.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_052')) -- canon:  I have said that Primal [CS:N]Dialga[CR]...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_053')) -- canon:  will try to thwart any attempt to alter the course of history.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_054')) -- canon:  That's why, when he learned that I traveled through time...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_055')) -- canon:  He sent [CS:N]Dusknoir[CR] after me.
+        UI:WaitShowDialogue(' That\'s right.') -- FUT_M18B1401_051 (FR optionnel)
+        UI:WaitShowDialogue(' I have said that Primal Necrozma...') -- FUT_M18B1401_052 (FR optionnel)
+        UI:WaitShowDialogue(' will try to thwart any attempt\nto alter the course of history.') -- FUT_M18B1401_053 (FR optionnel)
+        UI:WaitShowDialogue(' That\'s why, when he learned that\nI traveled through time...') -- FUT_M18B1401_054 (FR optionnel)
+        UI:WaitShowDialogue(' He sent Dusknoir after me.') -- FUT_M18B1401_055 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_056')) -- canon:  The great...[K][CS:N]Dusknoir[CR]...?[K] It can't be!
+        UI:WaitShowDialogue(' The great...\nDusknoir...?\n\nIt can\'t be!') -- FUT_M18B1401_056 (FR optionnel)
         -- case 90: " The great...[K][CS:N]Dusknoir[CR]...?[K]\nIt can't be!"
         -- case 91: " The great...[K][CS:N]Dusknoir[CR]...?[K]\nIt can't be!"
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_057')) -- canon:  It's hard for you to believe, I know...
+        UI:WaitShowDialogue(' It\'s hard for you to believe,\nI know...') -- FUT_M18B1401_057 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8971') end) -- TODO table SE id 8971
         -- ExecuteCommon(JUMP_ANGRY_FUNC_SERIES) : gestuelle parallèle à implémenter
         GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.Down, 15)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_058')) -- canon:  I can't believe it at all!
+        UI:WaitShowDialogue(' I can\'t believe it at all!') -- FUT_M18B1401_058 (FR optionnel)
         -- case 94: " I can't believe it at all!"
         -- case 95: " I can't believe it at all!"
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_059')) -- canon:  You're saying all this about the great [CS:N]Dusknoir[CR]?!
+        UI:WaitShowDialogue(' You\'re saying all this about\nthe great Dusknoir?!') -- FUT_M18B1401_059 (FR optionnel)
         -- case 97: " You're saying all this about\nthe great [CS:N]Dusknoir[CR]?!"
         -- case 98: " You're saying all this about\nthe great [CS:N]Dusknoir[CR]?!"
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_060')) -- canon:  I don't understand why [CS:N]Dusknoir[CR] is acting this way here, but...
+        UI:WaitShowDialogue(' I don\'t understand why Dusknoir\nis acting this way here, but...') -- FUT_M18B1401_060 (FR optionnel)
         -- case 100: " I don't understand why [CS:N]Dusknoir[CR]\nis acting this way here, but..."
         -- case 101: " I don't understand why [CS:N]Dusknoir[CR]\nis acting this way here, but..."
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_061')) -- canon:  But I admired...[K][CS:N]Dusknoir[CR]...
+        UI:WaitShowDialogue(' But I admired...\nDusknoir...') -- FUT_M18B1401_061 (FR optionnel)
         -- case 103: ' But I admired...[K][CS:N]Dusknoir[CR]...'
         -- case 104: ' But I respected...[K][CS:N]Dusknoir[CR]...'
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('TearyEyed')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_062')) -- canon:  I can't...[K] I can't believe you...
+        UI:WaitShowDialogue(' I can\'t...\n I can\'t believe you...') -- FUT_M18B1401_062 (FR optionnel)
         -- case 106: " I can't...[K] I can't believe you..."
         -- case 107: " I can't...[K] I can't believe you..."
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBGM('Time Gear.ogg', true) end) -- TimeGear
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_063')) -- canon: (It is hard to accept, but...)
+        UI:WaitShowDialogue('(It is hard to accept, but...)') -- FUT_M18B1401_063 (FR optionnel)
         -- case 109: '(It is hard to accept, but...)'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_064')) -- canon: (Looking back over what we've been through in this future world...)
+        UI:WaitShowDialogue('(Looking back over what we\'ve been through in\nthis future world...)') -- FUT_M18B1401_064 (FR optionnel)
         -- case 111: "(Looking back over what we've been through in\nthis future world...)"
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_065')) -- canon: (What [CS:N]Grovyle[CR] said is reasonable.[K] It makes perfect sense.)
+        UI:WaitShowDialogue('(What Grovyle said is reasonable.\n It makes\nperfect sense.)') -- FUT_M18B1401_065 (FR optionnel)
         -- case 113: '(What [CS:N]Grovyle[CR] said is reasonable.[K] It makes\nperfect sense.)'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_066')) -- canon: (And [partner] knows it.)
+        UI:WaitShowDialogue('(And [partner] knows it.)') -- FUT_M18B1401_066 (FR optionnel)
         -- case 115: '(And [partner] knows it.)'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_067')) -- canon: ([partner] knows deep down that what [CS:N]Grovyle[CR] says is true.)
+        UI:WaitShowDialogue('([partner] knows deep down that what\nGrovyle says is true.)') -- FUT_M18B1401_067 (FR optionnel)
         -- case 117: '([partner] knows deep down that what\n[CS:N]Grovyle[CR] says is true.)'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_068')) -- canon: (But knowing that makes it that much harder to accept...)
+        UI:WaitShowDialogue('(But knowing that makes it that much harder\nto accept...)') -- FUT_M18B1401_068 (FR optionnel)
         -- case 119: '(But knowing that makes it that much harder\nto accept...)'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_069')) -- canon: (But...)
+        UI:WaitShowDialogue('(But...)') -- FUT_M18B1401_069 (FR optionnel)
         -- case 121: '(But...)'
         UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('Teammate1'), 120, 396, false, 2.0)
@@ -267,11 +271,11 @@ function m18b1401.Cutscene()
         })
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_070')) -- canon:  Hey! Where are you going?
+        UI:WaitShowDialogue(' Hey! Where are you going?') -- FUT_M18B1401_070 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_071')) -- canon:  I'm going to see [CS:N]Dusknoir[CR].
+        UI:WaitShowDialogue(' I\'m going to see Dusknoir.') -- FUT_M18B1401_071 (FR optionnel)
         -- case 124: " I'm going to see [CS:N]Dusknoir[CR]."
         -- case 125: " I'm going to see [CS:N]Dusknoir[CR]."
         UI:ResetSpeaker()
@@ -288,48 +292,48 @@ function m18b1401.Cutscene()
         })
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_072')) -- canon:  What?!
+        UI:WaitShowDialogue(' What?!') -- FUT_M18B1401_072 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_073')) -- canon:  I want to see [CS:N]Dusknoir[CR].[K] I'm going to find out if what you said is true or not.
+        UI:WaitShowDialogue(' I want to see Dusknoir.\n\nI\'m going to find out if what you said is true\nor not.') -- FUT_M18B1401_073 (FR optionnel)
         -- case 128: " I want to see [CS:N]Dusknoir[CR].[K]\nI'm going to find out if what you said is true\nor not."
         -- case 129: " I want to see [CS:N]Dusknoir[CR].[K]\nI'm going to find out if what you said is true\nor not."
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_074')) -- canon:  What's the point of that?!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_075')) -- canon:  You'll only be making it easy for them to get rid of you!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_076')) -- canon:  You don't stand a chance against them!
+        UI:WaitShowDialogue(' What\'s the point of that?!') -- FUT_M18B1401_074 (FR optionnel)
+        UI:WaitShowDialogue(' You\'ll only be making it easy for\nthem to get rid of you!') -- FUT_M18B1401_075 (FR optionnel)
+        UI:WaitShowDialogue(' You don\'t stand a chance\nagainst them!') -- FUT_M18B1401_076 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.UpRight, 15)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_077')) -- canon:  Then...[K]what am I supposed to do?!
+        UI:WaitShowDialogue(' Then...\nwhat am I supposed\nto do?!') -- FUT_M18B1401_077 (FR optionnel)
         -- case 134: ' Then...[K]what am I supposed\nto do?!'
         -- case 135: ' Then...[K]what am I supposed\nto do?!'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_078')) -- canon:  What are you supposed to do?!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_079')) -- canon:  Didn't you wonder this earlier?!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_080')) -- canon:  And you decided...that you would decide for yourself!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_081')) -- canon:  You insisted that, because you don't know what to believe...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_082')) -- canon:  you wouldn't accept words for their face value...[K]and you'd think for yourself!
+        UI:WaitShowDialogue(' What are you supposed to do?!') -- FUT_M18B1401_078 (FR optionnel)
+        UI:WaitShowDialogue(' Didn\'t you wonder this earlier?!') -- FUT_M18B1401_079 (FR optionnel)
+        UI:WaitShowDialogue(' And you decided...that you would\ndecide for yourself!') -- FUT_M18B1401_080 (FR optionnel)
+        UI:WaitShowDialogue(' You insisted that, because you\ndon\'t know what to believe...') -- FUT_M18B1401_081 (FR optionnel)
+        UI:WaitShowDialogue(' you wouldn\'t accept words for\ntheir face value...\nand you\'d think for yourself!') -- FUT_M18B1401_082 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8972') end) -- TODO table SE id 8972
         GROUND:CharSetEmote(CH('Teammate1'), 'sweatdrop', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_083')) -- canon:  Urk...
+        UI:WaitShowDialogue(' Urk...') -- FUT_M18B1401_083 (FR optionnel)
         -- case 142: ' Urk...'
         -- case 143: ' Urk...'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_084')) -- canon:  It's times like this, when things are tough, that you have to be strong.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_085')) -- canon:  Think for yourself, then act as you deem right.
+        UI:WaitShowDialogue(' It\'s times like this, when things\nare tough, that you have to be strong.') -- FUT_M18B1401_084 (FR optionnel)
+        UI:WaitShowDialogue(' Think for yourself, then act as\nyou deem right.') -- FUT_M18B1401_085 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('Grovyle'), 208, 396, false, 1.594)
         GAME:WaitFrames(20)
@@ -339,29 +343,29 @@ function m18b1401.Cutscene()
         GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.Down, 15)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_086')) -- canon:  [CS:N]Grovyle[CR]...[K] What are you going to do now?
+        UI:WaitShowDialogue(' Grovyle...\n What are you going\nto do now?') -- FUT_M18B1401_086 (FR optionnel)
         -- case 147: ' [CS:N]Grovyle[CR]...[K] What are you going\nto do now?'
         -- case 148: ' [CS:N]Grovyle[CR]...[K] What are you going\nto do now?'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_087')) -- canon:  I'm going back to the past again to stop the planet's paralysis.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_088')) -- canon:  To do that...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_089')) -- canon:  I need to find [CS:N]Celebi[CR].
+        UI:WaitShowDialogue(' I\'m going back to the past again\nto stop the planet\'s paralysis.') -- FUT_M18B1401_087 (FR optionnel)
+        UI:WaitShowDialogue(' To do that...') -- FUT_M18B1401_088 (FR optionnel)
+        UI:WaitShowDialogue(' I need to find Celebi.') -- FUT_M18B1401_089 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_090')) -- canon:  [CS:N]Cel[CR]...[K][CS:N]Celebi[CR]?
+        UI:WaitShowDialogue(' Cel...\nCelebi?') -- FUT_M18B1401_090 (FR optionnel)
         -- case 153: ' [CS:N]Cel[CR]...[K][CS:N]Celebi[CR]?'
         -- case 154: ' [CS:N]Cel[CR]...[K][CS:N]Celebi[CR]?'
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Grovyle'), Direction.Left, 15)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_091')) -- canon:  That's right.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_092')) -- canon:  You can come with me or not. It's your choice.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_093')) -- canon:  You two decide on your own course of action.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_094')) -- canon:  I'm off.
+        UI:WaitShowDialogue(' That\'s right.') -- FUT_M18B1401_091 (FR optionnel)
+        UI:WaitShowDialogue(' You can come with me or not.\nIt\'s your choice.') -- FUT_M18B1401_092 (FR optionnel)
+        UI:WaitShowDialogue(' You two decide on your own\ncourse of action.') -- FUT_M18B1401_093 (FR optionnel)
+        UI:WaitShowDialogue(' I\'m off.') -- FUT_M18B1401_094 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('Grovyle'), CH('Grovyle').Position.X + 1*8, CH('Grovyle').Position.Y + 160*8, false, 2.0)
         GAME:WaitFrames(20)
@@ -373,32 +377,32 @@ function m18b1401.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_095')) -- canon:  Urk...
+        UI:WaitShowDialogue(' Urk...') -- FUT_M18B1401_095 (FR optionnel)
         -- case 160: ' Urk...'
         -- case 161: ' Urk...'
         UI:ResetSpeaker()
         GROUND:CharTurnToChar(CH('PLAYER'), CH('Teammate1'))
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_096')) -- canon: (...............)
+        UI:WaitShowDialogue('(...............)') -- FUT_M18B1401_096 (FR optionnel)
         -- case 163: '(...............)'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_097')) -- canon: (I don't know what I should believe either.)
+        UI:WaitShowDialogue('(I don\'t know what I should believe either.)') -- FUT_M18B1401_097 (FR optionnel)
         -- case 165: "(I don't know what I should believe either.)"
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_098')) -- canon: (But...[K]there is one thing I can say with certainty.)
+        UI:WaitShowDialogue('(But...\nthere is one thing I can say with\ncertainty.)') -- FUT_M18B1401_098 (FR optionnel)
         -- case 167: '(But...[K]there is one thing I can say with\ncertainty.)'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_099')) -- canon: (In this future world of darkness...)
+        UI:WaitShowDialogue('(In this future world of darkness...)') -- FUT_M18B1401_099 (FR optionnel)
         -- case 169: '(In this future world of darkness...)'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_100')) -- canon: (The planet is paralyzed.)
+        UI:WaitShowDialogue('(The planet is paralyzed.)') -- FUT_M18B1401_100 (FR optionnel)
         -- case 171: '(The planet is paralyzed.)'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_101')) -- canon: (And the paralysis of the planet...[K] It happened back in our world.)
+        UI:WaitShowDialogue('(And the paralysis of the planet...\n It happened\nback in our world.)') -- FUT_M18B1401_101 (FR optionnel)
         -- case 173: '(And the paralysis of the planet...[K] It happened\nback in our world.)'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_102')) -- canon: (That's why, to stop that from happening...)
+        UI:WaitShowDialogue('(That\'s why, to stop that from happening...)') -- FUT_M18B1401_102 (FR optionnel)
         -- case 175: "(That's why, to stop that from happening...)"
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Determined')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_103')) -- canon: (We have to get back to the past!)
+        UI:WaitShowDialogue('(We have to get back to the past!)') -- FUT_M18B1401_103 (FR optionnel)
         -- case 177: '(We have to get back to the past!)'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_104')) -- canon: (We have to get back![K] Back to our world!)
+        UI:WaitShowDialogue('(We have to get back!\n Back to our world!)') -- FUT_M18B1401_104 (FR optionnel)
         -- case 179: '(We have to get back![K] Back to our world!)'
         UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('PLAYER'), 208, 396, false, 2.0)
@@ -417,26 +421,26 @@ function m18b1401.Cutscene()
         GAME:WaitFrames(45)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_105')) -- canon:  [hero]...
+        UI:WaitShowDialogue(' [hero]...') -- FUT_M18B1401_105 (FR optionnel)
         -- case 181: ' [hero]...'
         -- case 182: ' [hero]...'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_106')) -- canon:  Yup...[K] I know...
+        UI:WaitShowDialogue(' Yup...\n I know...') -- FUT_M18B1401_106 (FR optionnel)
         -- case 184: ' Yup...[K] I know...'
         -- case 185: ' Yes...[K] I know...'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_107')) -- canon:  What [CS:N]Grovyle[CR] said...[K] [CS:N]Grovyle[CR] is right...
+        UI:WaitShowDialogue(' What Grovyle said...\n Grovyle is\nright...') -- FUT_M18B1401_107 (FR optionnel)
         -- case 187: ' What [CS:N]Grovyle[CR] said...[K] [CS:N]Grovyle[CR] is\nright...'
         -- case 188: ' What [CS:N]Grovyle[CR] said...[K] [CS:N]Grovyle[CR] is\nright...'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_108')) -- canon:  Things are very tough now...[K] That's why we have to be strong.
+        UI:WaitShowDialogue(' Things are very tough now...\n\nThat\'s why we have to be strong.') -- FUT_M18B1401_108 (FR optionnel)
         -- case 190: " Things are very tough now...[K]\nThat's why we have to be strong."
         -- case 191: " Things are very tough now...[K]\nThat's why we have to be strong."
         UI:ResetSpeaker()
         GAME:WaitFrames(45)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_109')) -- canon:  I'm all right now...[K] Let's go.
+        UI:WaitShowDialogue(' I\'m all right now...\n Let\'s go.') -- FUT_M18B1401_109 (FR optionnel)
         -- case 193: " I'm all right now...[K] Let's go."
         -- case 194: " I'm all right now...[K] Let's go."
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_110')) -- canon:  Let's catch up to [CS:N]Grovyle[CR].
+        UI:WaitShowDialogue(' Let\'s catch up to Grovyle.') -- FUT_M18B1401_110 (FR optionnel)
         -- case 196: " Let's catch up to [CS:N]Grovyle[CR]."
         -- case 197: " Let's catch up to [CS:N]Grovyle[CR]."
         UI:ResetSpeaker()
@@ -449,7 +453,7 @@ function m18b1401.Cutscene()
         GROUND:MoveToPosition(CH('PLAYER'), CH('PLAYER').Position.X + 0.7969*8, CH('PLAYER').Position.Y + 24*8, false, 1.594)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_111')) -- canon:  [hero].
+        UI:WaitShowDialogue(' [hero].') -- FUT_M18B1401_111 (FR optionnel)
         -- case 199: ' [hero].'
         -- case 200: ' [hero].'
         UI:ResetSpeaker()
@@ -457,10 +461,10 @@ function m18b1401.Cutscene()
         GAME:WaitFrames(15)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Determined')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_112')) -- canon:  We have to...[K] We have to get back!
+        UI:WaitShowDialogue(' We have to...\n We have to\nget back!') -- FUT_M18B1401_112 (FR optionnel)
         -- case 202: ' We have to...[K] We have to\nget back!'
         -- case 203: ' We have to...[K] We have to\nget back!'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M18B1401_113')) -- canon:  Back to our own world!
+        UI:WaitShowDialogue(' Back to our own world!') -- FUT_M18B1401_113 (FR optionnel)
         -- case 205: ' Back to our own world!'
         -- case 206: ' Back to our own world!'
         UI:ResetSpeaker()

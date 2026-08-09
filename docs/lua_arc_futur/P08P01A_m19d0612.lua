@@ -2,9 +2,13 @@
     P08P01A_m19d0612.lua — ARC DU FUTUR (adaptation New Era)
     Source canonique : pret/pmd-sky files/language-specific/US/SCRIPT/P08P01A/m19d0612.ssb
     Généré par tools/ssb_to_lua.py — IR canonique + couche d'adaptation New Era.
-    Les dialogues joués sont des clés STRINGS (FUT_*), le texte canonique Sky
-    est conservé en commentaire. Les tables anim/SE/effets manquantes sont
-    marquées TODO (jamais inventées).
+    Chorégraphie 1:1 (déplacements, positions, timings, animations, caméra,
+    fades, SFX, BGM, transitions, flags, embranchements). Seul le CAST change :
+    Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma), Celebi, héros/
+    partenaire ; le maître du futur = Necrozma (Dialga absent). Les dialogues
+    canoniques sont joués (cast appliqué), la clé FUT_* en commentaire sert
+    d'éventuelle passe FR. Les tables anim/SE/effets manquantes sont marquées
+    TODO (jamais inventées).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -26,9 +30,9 @@ function m19d0612.Cutscene()
         GAME:WaitFrames(30)
         UI:SetSpeaker(CH('Celebi'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19D0612_001')) -- canon:  Besides, if you would be so kind as to prevent the planet's paralysis...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19D0612_002')) -- canon:  We'll finally be spared the agony of this world of darkness.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19D0612_003')) -- canon:  My dear [CS:N]Grovyle[CR], I will devote my whole life to achieve that end!
+        UI:WaitShowDialogue(' Besides, if you would be so kind\nas to prevent the planet\'s paralysis...') -- FUT_M19D0612_001 (FR optionnel)
+        UI:WaitShowDialogue(' We\'ll finally be spared the agony\nof this world of darkness.') -- FUT_M19D0612_002 (FR optionnel)
+        UI:WaitShowDialogue(' My dear Grovyle, I will devote\nmy whole life to achieve that end!') -- FUT_M19D0612_003 (FR optionnel)
         UI:ResetSpeaker()
         GAME:FadeOut(false, 30)
         -- screen_FlushIn [1, 0, 1, 0, 0, 0] : fondu coloré (FlashEmitter, adaptation)

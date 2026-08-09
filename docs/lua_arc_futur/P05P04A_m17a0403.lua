@@ -2,9 +2,13 @@
     P05P04A_m17a0403.lua — ARC DU FUTUR (adaptation New Era)
     Source canonique : pret/pmd-sky files/language-specific/US/SCRIPT/P05P04A/m17a0403.ssb
     Généré par tools/ssb_to_lua.py — IR canonique + couche d'adaptation New Era.
-    Les dialogues joués sont des clés STRINGS (FUT_*), le texte canonique Sky
-    est conservé en commentaire. Les tables anim/SE/effets manquantes sont
-    marquées TODO (jamais inventées).
+    Chorégraphie 1:1 (déplacements, positions, timings, animations, caméra,
+    fades, SFX, BGM, transitions, flags, embranchements). Seul le CAST change :
+    Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma), Celebi, héros/
+    partenaire ; le maître du futur = Necrozma (Dialga absent). Les dialogues
+    canoniques sont joués (cast appliqué), la clé FUT_* en commentaire sert
+    d'éventuelle passe FR. Les tables anim/SE/effets manquantes sont marquées
+    TODO (jamais inventées).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -27,17 +31,17 @@ function m17a0403.Cutscene()
         GAME:WaitFrames(30)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0403_001')) -- canon:  It's as if...[K]all movement...
+        UI:WaitShowDialogue(' It\'s as if...\nall movement...') -- FUT_M17A0403_001 (FR optionnel)
         -- case 0: " It's as if...[K]all movement..."
         -- case 1: " It's as if...[K]all movement..."
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0403_002')) -- canon:  It's as if everything's stopped.
+        UI:WaitShowDialogue(' It\'s as if everything\'s stopped.') -- FUT_M17A0403_002 (FR optionnel)
         -- case 3: " It's as if everything's stopped."
         -- case 4: " It's as if everything's stopped."
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Grovyle'), Direction.Left, 15)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0403_003')) -- canon:  Exactly.
+        UI:WaitShowDialogue(' Exactly.') -- FUT_M17A0403_003 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8978') end) -- TODO table SE id 8978
         GROUND:CharSetEmote(CH('PLAYER'), 'exclaim', 3)
@@ -55,12 +59,12 @@ function m17a0403.Cutscene()
         })
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0403_004')) -- canon:  What?!
+        UI:WaitShowDialogue(' What?!') -- FUT_M17A0403_004 (FR optionnel)
         -- case 7: ' What?!'
         -- case 8: ' What?!'
         UI:ResetSpeaker()
         UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0403_005')) -- canon:  Wheh-heh-heh!
+        UI:WaitShowDialogue(' Wheh-heh-heh!') -- FUT_M17A0403_005 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8974') end) -- TODO table SE id 8974
         GROUND:CharSetEmote(CH('PLAYER'), 'shock', 3)
@@ -81,13 +85,13 @@ function m17a0403.Cutscene()
         })
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0403_006')) -- canon:  Wah! I hear those [CS:N]Sableye[CR]!
+        UI:WaitShowDialogue(' Wah! I hear those Sableye!') -- FUT_M17A0403_006 (FR optionnel)
         -- case 11: ' Wah! I hear those [CS:N]Sableye[CR]!'
         -- case 12: ' Wah! I hear those [CS:N]Sableye[CR]!'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0403_007')) -- canon:  We have to keep running!
+        UI:WaitShowDialogue(' We have to keep running!') -- FUT_M17A0403_007 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('Grovyle'), CH('Grovyle').Position.X + 1.5*8, CH('Grovyle').Position.Y + 160*8, false, 3.0)
         GAME:WaitFrames(5)

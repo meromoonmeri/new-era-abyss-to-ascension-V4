@@ -2,9 +2,13 @@
     P05P01A_m19a0102.lua — ARC DU FUTUR (adaptation New Era)
     Source canonique : pret/pmd-sky files/language-specific/US/SCRIPT/P05P01A/m19a0102.ssb
     Généré par tools/ssb_to_lua.py — IR canonique + couche d'adaptation New Era.
-    Les dialogues joués sont des clés STRINGS (FUT_*), le texte canonique Sky
-    est conservé en commentaire. Les tables anim/SE/effets manquantes sont
-    marquées TODO (jamais inventées).
+    Chorégraphie 1:1 (déplacements, positions, timings, animations, caméra,
+    fades, SFX, BGM, transitions, flags, embranchements). Seul le CAST change :
+    Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma), Celebi, héros/
+    partenaire ; le maître du futur = Necrozma (Dialga absent). Les dialogues
+    canoniques sont joués (cast appliqué), la clé FUT_* en commentaire sert
+    d'éventuelle passe FR. Les tables anim/SE/effets manquantes sont marquées
+    TODO (jamais inventées).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -47,17 +51,17 @@ function m19a0102.Cutscene()
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0102_001')) -- canon:  Master [CS:N]Dialga[CR].
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0102_002')) -- canon:  The stage has been set for the capture of the traitors.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0102_003')) -- canon:  When the time comes...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0102_004')) -- canon:  It may be necessary for us to beg your help, Master [CS:N]Dialga[CR]...
+        UI:WaitShowDialogue(' Master Necrozma.') -- FUT_M19A0102_001 (FR optionnel)
+        UI:WaitShowDialogue(' The stage has been set for the\ncapture of the traitors.') -- FUT_M19A0102_002 (FR optionnel)
+        UI:WaitShowDialogue(' When the time comes...') -- FUT_M19A0102_003 (FR optionnel)
+        UI:WaitShowDialogue(' It may be necessary for us to\nbeg your help, Master Necrozma...') -- FUT_M19A0102_004 (FR optionnel)
         UI:ResetSpeaker()
         -- message_ImitationSound : PARTIEL
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0102_005')) -- canon:  ...[K]As you wish.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0102_006')) -- canon:  By your leave, we shall proceed.
+        UI:WaitShowDialogue(' ...\nAs you wish.') -- FUT_M19A0102_005 (FR optionnel)
+        UI:WaitShowDialogue(' By your leave, we shall proceed.') -- FUT_M19A0102_006 (FR optionnel)
         UI:ResetSpeaker()
         -- PARTIEL : se_FadeOut [7186, 60]
         -- object 134 (p05p01a1) : contexte objet

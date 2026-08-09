@@ -2,9 +2,13 @@
     P08P01A_n08a2608.lua — ARC DU FUTUR (adaptation New Era)
     Source canonique : pret/pmd-sky files/language-specific/US/SCRIPT/P08P01A/n08a2608.ssb
     Généré par tools/ssb_to_lua.py — IR canonique + couche d'adaptation New Era.
-    Les dialogues joués sont des clés STRINGS (FUT_*), le texte canonique Sky
-    est conservé en commentaire. Les tables anim/SE/effets manquantes sont
-    marquées TODO (jamais inventées).
+    Chorégraphie 1:1 (déplacements, positions, timings, animations, caméra,
+    fades, SFX, BGM, transitions, flags, embranchements). Seul le CAST change :
+    Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma), Celebi, héros/
+    partenaire ; le maître du futur = Necrozma (Dialga absent). Les dialogues
+    canoniques sont joués (cast appliqué), la clé FUT_* en commentaire sert
+    d'éventuelle passe FR. Les tables anim/SE/effets manquantes sont marquées
+    TODO (jamais inventées).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -59,7 +63,7 @@ function n08a2608.Cutscene()
         GAME:FadeIn(2)
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Sigh')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_001')) -- canon:  Gwah!
+        UI:WaitShowDialogue(' Gwah!') -- FUT_N08A2608_001 (FR optionnel)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2
         TASK:JoinCoroutines({
             function()
@@ -96,7 +100,7 @@ function n08a2608.Cutscene()
         -- ExecuteCommon(JUMP_SURPRISE_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Sigh')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_002')) -- canon:  Wheh-heh-heh...[K] Eeee...[K]eeeeeeeek!
+        UI:WaitShowDialogue(' Wheh-heh-heh...\n\nEeee...\neeeeeeeek!') -- FUT_N08A2608_002 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_7430') end) -- TODO table SE id 7430
         GROUND:MoveToPosition(CH('Sableye_2'), CH('Sableye_2').Position.X + 2.5*8, CH('Sableye_2').Position.Y + 0*8, false, 5.0)
@@ -143,7 +147,7 @@ function n08a2608.Cutscene()
         })
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_003')) -- canon:  Wait!
+        UI:WaitShowDialogue(' Wait!') -- FUT_N08A2608_003 (FR optionnel)
         UI:ResetSpeaker()
         -- performer 0
         GROUND:MoveToPosition(CH('PLAYER'), CH('PLAYER').Position.X + 1*8, CH('PLAYER').Position.Y + 0*8, false, 2.0)
@@ -159,35 +163,35 @@ function n08a2608.Cutscene()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_7943') end) -- TODO table SE id 7943
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Sigh')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_004')) -- canon:  Ooogh...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_005')) -- canon:  Ugh...[K] You're squishing me...
+        UI:WaitShowDialogue(' Ooogh...') -- FUT_N08A2608_004 (FR optionnel)
+        UI:WaitShowDialogue(' Ugh...\n You\'re squishing me...') -- FUT_N08A2608_005 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBGM('In the Future.ogg', true) end) -- InTheFuture
         GROUND:MoveToPosition(CH('HeroFuture'), 316, 392, false, 2.0)
         GROUND:CharAnimateTurnTo(CH('HeroFuture'), Direction.Left, 15)
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_006')) -- canon:  Tell us!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_007')) -- canon:  What happened to [CS:N]Celebi[CR]?!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_008')) -- canon:  Where's [CS:N]Dialga[CR]?!
+        UI:WaitShowDialogue(' Tell us!') -- FUT_N08A2608_006 (FR optionnel)
+        UI:WaitShowDialogue(' What happened to Celebi?!') -- FUT_N08A2608_007 (FR optionnel)
+        UI:WaitShowDialogue(' Where\'s Necrozma?!') -- FUT_N08A2608_008 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Sigh')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_009')) -- canon:  Ugh...[K] M...[K]Master [CS:N]Dialga[CR]...[K] Ran off in pursuit of [CS:N]Celebi[CR]...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_010')) -- canon:  T-to...[K][CS:P]Frozen Island[CR]...
+        UI:WaitShowDialogue(' Ugh...\n M...\nMaster Necrozma...\n\nRan off in pursuit of Celebi...') -- FUT_N08A2608_009 (FR optionnel)
+        UI:WaitShowDialogue(' T-to...\nFrozen Island...') -- FUT_N08A2608_010 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_011')) -- canon:  [CS:P]Frozen Island[CR]?
+        UI:WaitShowDialogue(' Frozen Island?') -- FUT_N08A2608_011 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_012')) -- canon:  That solitary island to the south of here!?
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_013')) -- canon:  Is that right?!
+        UI:WaitShowDialogue(' That solitary island to the\nsouth of here!?') -- FUT_N08A2608_012 (FR optionnel)
+        UI:WaitShowDialogue(' Is that right?!') -- FUT_N08A2608_013 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Sigh')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_014')) -- canon:  Y...[K]yeah![K] That's right...
+        UI:WaitShowDialogue(' Y...\nyeah!\n That\'s right...') -- FUT_N08A2608_014 (FR optionnel)
         UI:ResetSpeaker()
         -- (parallèle) NPC_YAMIRAMI5, NPC_YONOWAARU_N8
         TASK:JoinCoroutines({
@@ -223,7 +227,7 @@ function n08a2608.Cutscene()
         GROUND:CharSetEmote(CH('Sableye_5'), 'shock', 3)
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Sigh')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_015')) -- canon:  Gwah!
+        UI:WaitShowDialogue(' Gwah!') -- FUT_N08A2608_015 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:AnimateToPosition(CH('Sableye_5'), CH('Sableye_5').Position.X + 1*8, CH('Sableye_5').Position.Y + -1*8, false, 2.0)
         GAME:WaitFrames(3)
@@ -234,7 +238,7 @@ function n08a2608.Cutscene()
         GROUND:AnimateToPosition(CH('Sableye_5'), CH('Sableye_5').Position.X + 1*8, CH('Sableye_5').Position.Y + 1*8, false, 2.0)
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Sigh')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_016')) -- canon:  Ooogh...[K] Ahem...
+        UI:WaitShowDialogue(' Ooogh...\n Ahem...') -- FUT_N08A2608_016 (FR optionnel)
         UI:ResetSpeaker()
         CH('Sableye_5').Direction = Direction.Down
         pcall(function() GROUND:CharWaitAnim(CH('Sableye_5')) end)
@@ -248,12 +252,12 @@ function n08a2608.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_017')) -- canon:  Beat it!
+        UI:WaitShowDialogue(' Beat it!') -- FUT_N08A2608_017 (FR optionnel)
         UI:ResetSpeaker()
         -- ExecuteCommon(JUMP_SURPRISE_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Sigh')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_018')) -- canon:  Eeee...[K]eeeeeek!
+        UI:WaitShowDialogue(' Eeee...\neeeeeek!') -- FUT_N08A2608_018 (FR optionnel)
         UI:ResetSpeaker()
         SOUND:FadeOutBGM(120)
         pcall(function() GROUND:RemoveCharacter(CH('Sableye_4')) end)
@@ -265,30 +269,30 @@ function n08a2608.Cutscene()
         GROUND:CharTurnToChar(CH('Dusknoir'), CH('HeroFuture'))
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_019')) -- canon:  [CS:P]Frozen Island[CR]...[K] Is it a different land?
+        UI:WaitShowDialogue(' Frozen Island...\n\nIs it a different land?') -- FUT_N08A2608_019 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_020')) -- canon:  That's right.[K] We'll have to move across space.
+        UI:WaitShowDialogue(' That\'s right.\n We\'ll have to\nmove across space.') -- FUT_N08A2608_020 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_021')) -- canon:  How do we do that?
+        UI:WaitShowDialogue(' How do we do that?') -- FUT_N08A2608_021 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_022')) -- canon:  Don't worry.
+        UI:WaitShowDialogue(' Don\'t worry.') -- FUT_N08A2608_022 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Dusknoir'), Direction.Down, 15)
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_023')) -- canon:  If we follow the cliff south from here...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_024')) -- canon:  The [CS:N]Porygon[CR] there will send us across space.
+        UI:WaitShowDialogue(' If we follow the cliff\nsouth from here...') -- FUT_N08A2608_023 (FR optionnel)
+        UI:WaitShowDialogue(' The Porygon there will send\nus across space.') -- FUT_N08A2608_024 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Dusknoir'), Direction.DownRight, 15)
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_025')) -- canon:  Let's go.
+        UI:WaitShowDialogue(' Let\'s go.') -- FUT_N08A2608_025 (FR optionnel)
         UI:ResetSpeaker()
         -- performer 0
         GROUND:MoveToPosition(CH('PLAYER'), CH('PLAYER').Position.X + 0.5*8, CH('PLAYER').Position.Y + 0*8, false, 1.0)
@@ -313,24 +317,24 @@ function n08a2608.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_026')) -- canon:  What is it?
+        UI:WaitShowDialogue(' What is it?') -- FUT_N08A2608_026 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBGM('On the Ceiling.ogg', true) end) -- OnTheCeiling
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_027')) -- canon:  Oh, it's nothing...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_028')) -- canon:  It's just...[K]my arms...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_029')) -- canon:  I feel like I've regained the strength in my arms.
+        UI:WaitShowDialogue(' Oh, it\'s nothing...') -- FUT_N08A2608_027 (FR optionnel)
+        UI:WaitShowDialogue(' It\'s just...\nmy arms...') -- FUT_N08A2608_028 (FR optionnel)
+        UI:WaitShowDialogue(' I feel like I\'ve regained the\nstrength in my arms.') -- FUT_N08A2608_029 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharSetEmote(CH('HeroFuture'), 'shock', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_030')) -- canon:  ...! (Now that you mention it...)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_031')) -- canon:  (Earlier, when he was pushing around the [CS:N]Sableye[CR], that incredible power...)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_032')) -- canon:  (There's no mistaking it...)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_033')) -- canon:  ([CS:N]Dusknoir[CR]'s power is growing stronger than ever before...)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_034')) -- canon:  (I wonder if his wounds have significantly healed...)
+        UI:WaitShowDialogue(' ...! (Now that you mention it...)') -- FUT_N08A2608_030 (FR optionnel)
+        UI:WaitShowDialogue(' (Earlier, when he was pushing\naround the Sableye, that incredible power...)') -- FUT_N08A2608_031 (FR optionnel)
+        UI:WaitShowDialogue(' (There\'s no mistaking it...)') -- FUT_N08A2608_032 (FR optionnel)
+        UI:WaitShowDialogue(' (Dusknoir\'s power is growing\nstronger than ever before...)') -- FUT_N08A2608_033 (FR optionnel)
+        UI:WaitShowDialogue(' (I wonder if his wounds have\nsignificantly healed...)') -- FUT_N08A2608_034 (FR optionnel)
         UI:ResetSpeaker()
         -- MoveHeight [1, 2] : LocHeight (table alt. REQUISE)
         GAME:WaitFrames(1)
@@ -341,11 +345,11 @@ function n08a2608.Cutscene()
         -- MoveHeight [1, 0] : LocHeight (table alt. REQUISE)
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_035')) -- canon:  Heh-heh-heh... My strength...[K] My strength is returning...
+        UI:WaitShowDialogue(' Heh-heh-heh... My strength...\n\nMy strength is returning...') -- FUT_N08A2608_035 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2608_036')) -- canon:  .........
+        UI:WaitShowDialogue(' .........') -- FUT_N08A2608_036 (FR optionnel)
         UI:ResetSpeaker()
         SOUND:FadeOutBGM(120)
         GAME:FadeOut(false, 90)

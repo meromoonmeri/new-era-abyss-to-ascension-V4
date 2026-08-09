@@ -2,9 +2,13 @@
     P05P03A_m17a0302.lua — ARC DU FUTUR (adaptation New Era)
     Source canonique : pret/pmd-sky files/language-specific/US/SCRIPT/P05P03A/m17a0302.ssb
     Généré par tools/ssb_to_lua.py — IR canonique + couche d'adaptation New Era.
-    Les dialogues joués sont des clés STRINGS (FUT_*), le texte canonique Sky
-    est conservé en commentaire. Les tables anim/SE/effets manquantes sont
-    marquées TODO (jamais inventées).
+    Chorégraphie 1:1 (déplacements, positions, timings, animations, caméra,
+    fades, SFX, BGM, transitions, flags, embranchements). Seul le CAST change :
+    Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma), Celebi, héros/
+    partenaire ; le maître du futur = Necrozma (Dialga absent). Les dialogues
+    canoniques sont joués (cast appliqué), la clé FUT_* en commentaire sert
+    d'éventuelle passe FR. Les tables anim/SE/effets manquantes sont marquées
+    TODO (jamais inventées).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -30,7 +34,7 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_001')) -- canon:  Wh-where is this?!
+        UI:WaitShowDialogue(' Wh-where is this?!') -- FUT_M17A0302_001 (FR optionnel)
         -- case 0: ' Wh-where is this?!'
         -- case 1: ' Wh-where is this?!'
         UI:ResetSpeaker()
@@ -43,10 +47,10 @@ function m17a0302.Cutscene()
         GROUND:AnimateToPosition(CH('Teammate1'), CH('Teammate1').Position.X + 1*8, CH('Teammate1').Position.Y + -1*8, false, 2.0)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_002')) -- canon:  They have me trussed up. I can't move...
+        UI:WaitShowDialogue(' They have me trussed up.\nI can\'t move...') -- FUT_M17A0302_002 (FR optionnel)
         -- case 3: " They have me trussed up.\nI can't move..."
         -- case 4: " They have me trussed up.\nI can't move..."
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_003')) -- canon:  Wh-why is this happening?
+        UI:WaitShowDialogue(' Wh-why is this happening?') -- FUT_M17A0302_003 (FR optionnel)
         -- case 6: ' Wh-why is this happening?'
         -- case 7: ' Wh-why is this happening?'
         UI:ResetSpeaker()
@@ -71,7 +75,7 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_004')) -- canon:  Hey!
+        UI:WaitShowDialogue(' Hey!') -- FUT_M17A0302_004 (FR optionnel)
         -- case 9: ' Hey!'
         -- case 10: ' Hey!'
         UI:ResetSpeaker()
@@ -81,24 +85,24 @@ function m17a0302.Cutscene()
         GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.DownRight, 15)
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_005')) -- canon: ([partner]!)
+        UI:WaitShowDialogue('([partner]!)') -- FUT_M17A0302_005 (FR optionnel)
         -- case 12: '([partner]!)'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_006')) -- canon:  Am I glad to see you![K] You're OK, right?
+        UI:WaitShowDialogue(' Am I glad to see you!\n\nYou\'re OK, right?') -- FUT_M17A0302_006 (FR optionnel)
         -- case 14: " Am I glad to see you![K]\nYou're OK, right?"
         -- case 15: " Am I glad to see you![K]\nYou're OK, right?"
         UI:ResetSpeaker()
         UI:ResetSpeaker()
         UI:SetCenter(true)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_007')) -- canon:  Humph!
+        UI:WaitShowDialogue(' Humph!') -- FUT_M17A0302_007 (FR optionnel)
         UI:SetCenter(false)
         UI:SetCenter(true)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_008')) -- canon:  You're clueless about what's going to happen...
+        UI:WaitShowDialogue(' You\'re clueless about what\'s going to\nhappen...') -- FUT_M17A0302_008 (FR optionnel)
         UI:SetCenter(false)
         UI:SetCenter(true)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_009')) -- canon:  I guess you can afford to be nonchalant about it.
+        UI:WaitShowDialogue(' I guess you can afford to be nonchalant\nabout it.') -- FUT_M17A0302_009 (FR optionnel)
         UI:SetCenter(false)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8964') end) -- TODO table SE id 8964
@@ -108,14 +112,14 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_010')) -- canon:  Huh?!
+        UI:WaitShowDialogue(' Huh?!') -- FUT_M17A0302_010 (FR optionnel)
         -- case 20: ' Huh?!'
         -- case 21: ' Huh?!'
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.DownLeft, 15)
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_011')) -- canon: (That voice came from over there...)
+        UI:WaitShowDialogue('(That voice came from over there...)') -- FUT_M17A0302_011 (FR optionnel)
         -- case 23: '(That voice came from over there...)'
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBGM('In the Future.ogg', true) end) -- InTheFuture
@@ -145,23 +149,23 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_012')) -- canon:  [CS:N]Grovyle[CR]!
+        UI:WaitShowDialogue(' Grovyle!') -- FUT_M17A0302_012 (FR optionnel)
         -- case 25: ' [CS:N]Grovyle[CR]!'
         -- case 26: ' [CS:N]Grovyle[CR]!'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_013')) -- canon:  You two...[K] Do you have any inkling about where you are?
+        UI:WaitShowDialogue(' You two...\n Do you have any\ninkling about where you are?') -- FUT_M17A0302_013 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_014')) -- canon:  N-no...
+        UI:WaitShowDialogue(' N-no...') -- FUT_M17A0302_014 (FR optionnel)
         -- case 29: ' N-no...'
         -- case 30: ' N-no...'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_015')) -- canon:  This is a stockade...[K] They're preparing to get rid of us for good.
+        UI:WaitShowDialogue(' This is a stockade...\n They\'re\npreparing to get rid of us for good.') -- FUT_M17A0302_015 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8968') end) -- TODO table SE id 8968
         GROUND:CharSetEmote(CH('PLAYER'), 'shock', 3)
@@ -170,7 +174,7 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_016')) -- canon:  What?![K] G-get rid of us?!
+        UI:WaitShowDialogue(' What?!\n G-get rid of us?!') -- FUT_M17A0302_016 (FR optionnel)
         -- case 33: ' What?![K] G-get rid of us?!'
         -- case 34: ' What?![K] G-get rid of us?!'
         UI:ResetSpeaker()
@@ -178,44 +182,44 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_017')) -- canon:  Wait a second.
+        UI:WaitShowDialogue(' Wait a second.') -- FUT_M17A0302_017 (FR optionnel)
         -- case 36: ' Wait a second.'
         -- case 37: ' Wait a second.'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_018')) -- canon:  I can understand why they want to get rid of you, [CS:N]Grovyle[CR].
+        UI:WaitShowDialogue(' I can understand why they want\nto get rid of you, Grovyle.') -- FUT_M17A0302_018 (FR optionnel)
         -- case 39: ' I can understand why they want\nto get rid of you, [CS:N]Grovyle[CR].'
         -- case 40: " It's easy to understand why\nthey'd want to get rid of you, [CS:N]Grovyle[CR]."
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_019')) -- canon:  But why us?!
+        UI:WaitShowDialogue(' But why us?!') -- FUT_M17A0302_019 (FR optionnel)
         -- case 42: ' But why us?!'
         -- case 43: ' But why us?!'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_020')) -- canon:  We haven't done anything wrong!
+        UI:WaitShowDialogue(' We haven\'t done anything wrong!') -- FUT_M17A0302_020 (FR optionnel)
         -- case 45: " We haven't done anything wrong!"
         -- case 46: " We haven't done anything wrong!"
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_021')) -- canon:  Humph![K] I couldn't care less.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_022')) -- canon:  You must have done something they can't tolerate.
+        UI:WaitShowDialogue(' Humph!\n I couldn\'t care less.') -- FUT_M17A0302_021 (FR optionnel)
+        UI:WaitShowDialogue(' You must have done something\nthey can\'t tolerate.') -- FUT_M17A0302_022 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8971') end) -- TODO table SE id 8971
         GROUND:CharSetEmote(CH('Teammate1'), 'angry', 3)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Angry')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_023')) -- canon:  What?!
+        UI:WaitShowDialogue(' What?!') -- FUT_M17A0302_023 (FR optionnel)
         -- case 50: ' What?!'
         -- case 51: ' What?!'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_024')) -- canon:  We haven't done anything bad!
+        UI:WaitShowDialogue(' We haven\'t done anything bad!') -- FUT_M17A0302_024 (FR optionnel)
         -- case 53: " We haven't done anything bad!"
         -- case 54: " We haven't done anything bad!"
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_025')) -- canon:  Don't think that we're like you!
+        UI:WaitShowDialogue(' Don\'t think that we\'re like you!') -- FUT_M17A0302_025 (FR optionnel)
         -- case 56: " Don't think that we're like you!"
         -- case 57: " Don't think that we're like you!"
         UI:ResetSpeaker()
         -- SetEffect 0 (aucun) : pas d'effet
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_026')) -- canon:  I don't care.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_027')) -- canon:  You're wasting time losing your cool. Meanwhile, look...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_028')) -- canon:  Here they come.
+        UI:WaitShowDialogue(' I don\'t care.') -- FUT_M17A0302_026 (FR optionnel)
+        UI:WaitShowDialogue(' You\'re wasting time losing your\ncool. Meanwhile, look...') -- FUT_M17A0302_027 (FR optionnel)
+        UI:WaitShowDialogue(' Here they come.') -- FUT_M17A0302_028 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.Down, 15)
         GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.Down, 15)
@@ -394,14 +398,14 @@ function m17a0302.Cutscene()
         })
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_029')) -- canon:  Waah! Who are they?!
+        UI:WaitShowDialogue(' Waah! Who are they?!') -- FUT_M17A0302_029 (FR optionnel)
         -- case 62: ' Waah! Who are they?!'
         -- case 63: ' Waah! Who are they?!'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_030')) -- canon:  They're the jailers who do all the dirty work around here.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_031')) -- canon:  They also happen to be [CS:N]Dusknoir[CR]'s underlings.
+        UI:WaitShowDialogue(' They\'re the jailers who do all\nthe dirty work around here.') -- FUT_M17A0302_030 (FR optionnel)
+        UI:WaitShowDialogue(' They also happen to be\nNecrozma\'s underlings.') -- FUT_M17A0302_031 (FR optionnel)
         UI:ResetSpeaker()
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
@@ -419,7 +423,7 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_032')) -- canon:  What?![K] The great [CS:N]Dusknoir[CR]'s?!
+        UI:WaitShowDialogue(' What?!\n The great Necrozma\'s?!') -- FUT_M17A0302_032 (FR optionnel)
         -- case 67: " What?![K] The great [CS:N]Dusknoir[CR]'s?!"
         -- case 68: " What?![K] The great [CS:N]Dusknoir[CR]'s?!"
         UI:ResetSpeaker()
@@ -430,25 +434,25 @@ function m17a0302.Cutscene()
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6, NPC_YONOWAARU
         TASK:JoinCoroutines({
             function()
-                GROUND:MoveToPosition(CH('Dusknoir'), 228, 788, false, 2.0)
+                GROUND:MoveToPosition(CH('Necrozma'), 228, 788, false, 2.0)
             end,
             function()
-                GROUND:CharTurnToChar(CH('Sableye_1'), CH('Dusknoir'))
+                GROUND:CharTurnToChar(CH('Sableye_1'), CH('Necrozma'))
             end,
             function()
-                GROUND:CharTurnToChar(CH('Sableye_2'), CH('Dusknoir'))
+                GROUND:CharTurnToChar(CH('Sableye_2'), CH('Necrozma'))
             end,
             function()
-                GROUND:CharTurnToChar(CH('Sableye_3'), CH('Dusknoir'))
+                GROUND:CharTurnToChar(CH('Sableye_3'), CH('Necrozma'))
             end,
             function()
-                GROUND:CharTurnToChar(CH('Sableye_4'), CH('Dusknoir'))
+                GROUND:CharTurnToChar(CH('Sableye_4'), CH('Necrozma'))
             end,
             function()
-                GROUND:CharTurnToChar(CH('Sableye_5'), CH('Dusknoir'))
+                GROUND:CharTurnToChar(CH('Sableye_5'), CH('Necrozma'))
             end,
             function()
-                GROUND:CharTurnToChar(CH('Sableye_6'), CH('Dusknoir'))
+                GROUND:CharTurnToChar(CH('Sableye_6'), CH('Necrozma'))
             end,
         })
         -- (parallèle) ATTENDANT1, PLAYER
@@ -463,40 +467,40 @@ function m17a0302.Cutscene()
         SOUND:FadeOutBGM(160)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_033')) -- canon:  Hey! It's [CS:N]Dusknoir[CR]!
+        UI:WaitShowDialogue(' Hey! It\'s Necrozma!') -- FUT_M17A0302_033 (FR optionnel)
         -- case 70: " Hey! It's [CS:N]Dusknoir[CR]!"
         -- case 71: " Hey! It's [CS:N]Dusknoir[CR]!"
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_034')) -- canon:  Lord [CS:N]Dusknoir[CR].[K] The three have been tied to the stakes.
+        UI:WaitShowDialogue(' Lord Necrozma.\n The three have\nbeen tied to the stakes.') -- FUT_M17A0302_034 (FR optionnel)
         UI:ResetSpeaker()
-        UI:SetSpeaker(CH('Dusknoir'))
+        UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_035')) -- canon:  Good.
+        UI:WaitShowDialogue(' Good.') -- FUT_M17A0302_035 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_036')) -- canon:  [CS:N]Dusknoir[CR], sir![K] It's me, [partner]!
+        UI:WaitShowDialogue(' Necrozma, sir!\n\nIt\'s me, [partner]!') -- FUT_M17A0302_036 (FR optionnel)
         -- case 75: " [CS:N]Dusknoir[CR], sir![K]\nIt's me, [partner]!"
         -- case 76: " [CS:N]Dusknoir[CR], sir![K]\nIt's me, [partner]!"
         UI:ResetSpeaker()
-        GROUND:MoveToPosition(CH('Dusknoir'), 228, 768, false, 1.0)
-        UI:SetSpeaker(CH('Dusknoir'))
+        GROUND:MoveToPosition(CH('Necrozma'), 228, 768, false, 1.0)
+        UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_037')) -- canon:  Very well. [CS:N]Sableye[CR].
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_038')) -- canon:  Those three... We need to be rid of them.
+        UI:WaitShowDialogue(' Very well. Sableye.') -- FUT_M17A0302_037 (FR optionnel)
+        UI:WaitShowDialogue(' Those three... We need to be rid\nof them.') -- FUT_M17A0302_038 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBGM('Oh No!.ogg', true) end) -- OhNo
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_039')) -- canon:  What?!
+        UI:WaitShowDialogue(' What?!') -- FUT_M17A0302_039 (FR optionnel)
         -- case 80: ' What?!'
         -- case 81: ' What?!'
         UI:ResetSpeaker()
-        UI:SetSpeaker(CH('Dusknoir'))
+        UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_040')) -- canon:  Pay them no heed.[K] You may get ready.
+        UI:WaitShowDialogue(' Pay them no heed.\n You may\nget ready.') -- FUT_M17A0302_040 (FR optionnel)
         UI:ResetSpeaker()
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
@@ -530,7 +534,7 @@ function m17a0302.Cutscene()
             end,
         })
         UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_041')) -- canon: [CS:N]Sableye[CR]: Wheh-heh-heh!
+        UI:WaitShowDialogue('Sableye: Wheh-heh-heh!') -- FUT_M17A0302_041 (FR optionnel)
         pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
@@ -691,51 +695,51 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_042')) -- canon:  W-wait a minute! [CS:N]Dusknoir[CR], sir!
+        UI:WaitShowDialogue(' W-wait a minute! Necrozma, sir!') -- FUT_M17A0302_042 (FR optionnel)
         -- case 85: ' W-wait a minute! [CS:N]Dusknoir[CR], sir!'
         -- case 86: ' W-wait a minute! [CS:N]Dusknoir[CR], sir!'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_043')) -- canon:  What's wrong with you?!
+        UI:WaitShowDialogue(' What\'s wrong with you?!') -- FUT_M17A0302_043 (FR optionnel)
         -- case 88: " What's wrong with you?!"
         -- case 89: " What's wrong with you?!"
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_044')) -- canon:  Why are you doing this to us?!
+        UI:WaitShowDialogue(' Why are you doing this to us?!') -- FUT_M17A0302_044 (FR optionnel)
         -- case 91: ' Why are you doing this to us?!'
         -- case 92: ' Why are you doing this to us?!'
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Grovyle'), Direction.DownRight, 15)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_045')) -- canon:  Don't waste your breath...[K] Instead...shhhh...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_046')) -- canon:  ...Keep your voices down so they can't hear you...
+        UI:WaitShowDialogue(' Don\'t waste your breath...\n\nInstead...shhhh...') -- FUT_M17A0302_045 (FR optionnel)
+        UI:WaitShowDialogue(' ...Keep your voices down so\nthey can\'t hear you...') -- FUT_M17A0302_046 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharSetEmote(CH('Teammate1'), 'sweatdrop', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.DownLeft, 15)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_047')) -- canon:  Urk...! Keep...my voice down?
+        UI:WaitShowDialogue(' Urk...! Keep...my voice down?') -- FUT_M17A0302_047 (FR optionnel)
         -- case 96: ' Urk...! Keep...my voice down?'
         -- case 97: ' Urk...! Keep...my voice down?'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_048')) -- canon:  You two...[K] If you want to get away...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_049')) -- canon:  ...give me your full cooperation.
+        UI:WaitShowDialogue(' You two...\n If you want to\nget away...') -- FUT_M17A0302_048 (FR optionnel)
+        UI:WaitShowDialogue(' ...give me your full cooperation.') -- FUT_M17A0302_049 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8967') end) -- TODO table SE id 8967
         GROUND:CharSetEmote(CH('Teammate1'), 'shock', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_050')) -- canon:  What...?[K] Help you, [CS:N]Grovyle[CR]...?
+        UI:WaitShowDialogue(' What...?\n Help you, Grovyle...?') -- FUT_M17A0302_050 (FR optionnel)
         -- case 101: ' What...?[K] Help you, [CS:N]Grovyle[CR]...?'
         -- case 102: ' What...?[K] Help you, [CS:N]Grovyle[CR]...?'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_051')) -- canon:  There's no time to think...[K] or would you prefer to stick around for them?
+        UI:WaitShowDialogue(' There\'s no time to think...\n\nor would you prefer to stick around for them?') -- FUT_M17A0302_051 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetCenter(true)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_052')) -- canon:  Psst...hey! You there...
+        UI:WaitShowDialogue(' Psst...hey! You there...') -- FUT_M17A0302_052 (FR optionnel)
         UI:SetCenter(false)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8978') end) -- TODO table SE id 8978
@@ -743,24 +747,24 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_053')) -- canon: (...!)
+        UI:WaitShowDialogue('(...!)') -- FUT_M17A0302_053 (FR optionnel)
         -- case 106: '(...!)'
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.DownLeft, 15)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_054')) -- canon:  ...Tell me...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_055')) -- canon:  ...What can you do right now?
+        UI:WaitShowDialogue(' ...Tell me...') -- FUT_M17A0302_054 (FR optionnel)
+        UI:WaitShowDialogue(' ...What can you do right now?') -- FUT_M17A0302_055 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Worried')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_056')) -- canon: (What?[K] What can I do?)
+        UI:WaitShowDialogue('(What?\n What can I do?)') -- FUT_M17A0302_056 (FR optionnel)
         -- case 110: '(What?[K] What can I do?)'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_057')) -- canon: (You ask me that out of nowhere...![K] Umm...)
+        UI:WaitShowDialogue('(You ask me that out of nowhere...!\n Umm...)') -- FUT_M17A0302_057 (FR optionnel)
         -- case 112: '(You ask me that out of nowhere...![K] Umm...)'
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Worried')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_058')) -- canon: (Wh-what to do...?)
+        UI:WaitShowDialogue('(Wh-what to do...?)') -- FUT_M17A0302_058 (FR optionnel)
         -- case 114: '(Wh-what to do...?)'
         -- message_SwitchMenu/CaseMenu : menu de choix (adaptation)
         -- message_SwitchMenu/CaseMenu : menu de choix (adaptation)
@@ -769,27 +773,27 @@ function m17a0302.Cutscene()
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_059')) -- canon:  ...No. An item's no good...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_060')) -- canon:  ...We're tied up...and unable to move...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_061')) -- canon:  ...It should be something you can do instantaneously...
+        UI:WaitShowDialogue(' ...No. An item\'s no good...') -- FUT_M17A0302_059 (FR optionnel)
+        UI:WaitShowDialogue(' ...We\'re tied up...and unable\nto move...') -- FUT_M17A0302_060 (FR optionnel)
+        UI:WaitShowDialogue(' ...It should be something you can\ndo instantaneously...') -- FUT_M17A0302_061 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Worried')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_062')) -- canon: (Urk...! That's easy for you to say...[K] Ummm...)
+        UI:WaitShowDialogue('(Urk...! That\'s easy for you to say...\n Ummm...)') -- FUT_M17A0302_062 (FR optionnel)
         -- case 122: "(Urk...! That's easy for you to say...[K] Ummm...)"
         -- Jump (structurel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_063')) -- canon:  ...A move...?[K] That could work, but...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_064')) -- canon:  ...No! That's no good...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_065')) -- canon:  ...We're trussed up...so we can't move...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_066')) -- canon:  ...It has to be something you can do instantaneously...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_067')) -- canon:  ...It doesn't need to be flashy... Can't you do anything more basic...?
+        UI:WaitShowDialogue(' ...A move...?\n That could work,\nbut...') -- FUT_M17A0302_063 (FR optionnel)
+        UI:WaitShowDialogue(' ...No! That\'s no good...') -- FUT_M17A0302_064 (FR optionnel)
+        UI:WaitShowDialogue(' ...We\'re trussed up...so we\ncan\'t move...') -- FUT_M17A0302_065 (FR optionnel)
+        UI:WaitShowDialogue(' ...It has to be something you can\ndo instantaneously...') -- FUT_M17A0302_066 (FR optionnel)
+        UI:WaitShowDialogue(' ...It doesn\'t need to be flashy...\nCan\'t you do anything more basic...?') -- FUT_M17A0302_067 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Worried')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_068')) -- canon: (Urk...! You're not helping...[K] Ummm...)
+        UI:WaitShowDialogue('(Urk...! You\'re not helping...\n Ummm...)') -- FUT_M17A0302_068 (FR optionnel)
         -- case 129: "(Urk...! You're not helping...[K] Ummm...)"
         -- Jump (structurel)
         UI:ResetSpeaker()
@@ -798,17 +802,17 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_069')) -- canon:  ...! That's it... That'll do...
+        UI:WaitShowDialogue(' ...! That\'s it... That\'ll do...') -- FUT_M17A0302_069 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Determined')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_070')) -- canon:  ...If it's just a regular attack, I can help too...
+        UI:WaitShowDialogue(' ...If it\'s just a regular attack,\nI can help too...') -- FUT_M17A0302_070 (FR optionnel)
         -- case 132: " ...If it's just a regular attack,\nI can help too..."
         -- case 133: " ...If it's just a regular attack,\nI can help too..."
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_071')) -- canon:  ...Good.
+        UI:WaitShowDialogue(' ...Good.') -- FUT_M17A0302_071 (FR optionnel)
         UI:ResetSpeaker()
         -- (parallèle) ATTENDANT1, NPC_JUPUTORU, PLAYER
         TASK:JoinCoroutines({
@@ -829,37 +833,37 @@ function m17a0302.Cutscene()
             function()
                 -- SetAnimation id 2 : table anim REQUISE (non inventée)
                 pcall(function() GROUND:CharSetAnim(CH('Sableye_1'), 'Idle', true) end) -- placeholder sûr
-                GROUND:CharTurnToChar(CH('Sableye_1'), CH('Dusknoir'))
+                GROUND:CharTurnToChar(CH('Sableye_1'), CH('Necrozma'))
             end,
             function()
                 -- SetAnimation id 2 : table anim REQUISE (non inventée)
                 pcall(function() GROUND:CharSetAnim(CH('Sableye_2'), 'Idle', true) end) -- placeholder sûr
-                GROUND:CharTurnToChar(CH('Sableye_2'), CH('Dusknoir'))
+                GROUND:CharTurnToChar(CH('Sableye_2'), CH('Necrozma'))
             end,
             function()
                 -- SetAnimation id 2 : table anim REQUISE (non inventée)
                 pcall(function() GROUND:CharSetAnim(CH('Sableye_3'), 'Idle', true) end) -- placeholder sûr
-                GROUND:CharTurnToChar(CH('Sableye_3'), CH('Dusknoir'))
+                GROUND:CharTurnToChar(CH('Sableye_3'), CH('Necrozma'))
             end,
             function()
                 -- SetAnimation id 2 : table anim REQUISE (non inventée)
                 pcall(function() GROUND:CharSetAnim(CH('Sableye_4'), 'Idle', true) end) -- placeholder sûr
-                GROUND:CharTurnToChar(CH('Sableye_4'), CH('Dusknoir'))
+                GROUND:CharTurnToChar(CH('Sableye_4'), CH('Necrozma'))
             end,
             function()
                 -- SetAnimation id 2 : table anim REQUISE (non inventée)
                 pcall(function() GROUND:CharSetAnim(CH('Sableye_5'), 'Idle', true) end) -- placeholder sûr
-                GROUND:CharTurnToChar(CH('Sableye_5'), CH('Dusknoir'))
+                GROUND:CharTurnToChar(CH('Sableye_5'), CH('Necrozma'))
             end,
             function()
                 -- SetAnimation id 2 : table anim REQUISE (non inventée)
                 pcall(function() GROUND:CharSetAnim(CH('Sableye_6'), 'Idle', true) end) -- placeholder sûr
-                GROUND:CharTurnToChar(CH('Sableye_6'), CH('Dusknoir'))
+                GROUND:CharTurnToChar(CH('Sableye_6'), CH('Necrozma'))
             end,
         })
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_072')) -- canon:  Then we are ready to begin!
+        UI:WaitShowDialogue(' Then we are ready to begin!') -- FUT_M17A0302_072 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_7196') end) -- TODO table SE id 7196
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
@@ -918,11 +922,11 @@ function m17a0302.Cutscene()
                 pcall(function() GROUND:CharSetAnim(CH('Sableye_6'), 'Idle', true) end) -- placeholder sûr
             end,
         })
-        UI:SetSpeaker(CH('Dusknoir'))
+        UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_073')) -- canon:  Very well.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_074')) -- canon:  But be vigilant to the end. Don't take your eyes off them.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_075')) -- canon:  Especially that [CS:N]Grovyle[CR].
+        UI:WaitShowDialogue(' Very well.') -- FUT_M17A0302_073 (FR optionnel)
+        UI:WaitShowDialogue(' But be vigilant to the end. Don\'t\ntake your eyes off them.') -- FUT_M17A0302_074 (FR optionnel)
+        UI:WaitShowDialogue(' Especially that Grovyle.') -- FUT_M17A0302_075 (FR optionnel)
         UI:ResetSpeaker()
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
@@ -956,7 +960,7 @@ function m17a0302.Cutscene()
             end,
         })
         UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_076')) -- canon: [CS:N]Sableye[CR]: Wheh-heh-heh!
+        UI:WaitShowDialogue('Sableye: Wheh-heh-heh!') -- FUT_M17A0302_076 (FR optionnel)
         pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
@@ -1093,11 +1097,11 @@ function m17a0302.Cutscene()
                 GROUND:CharAnimateTurnTo(CH('Sableye_6'), Direction.Up, 15)
             end,
         })
-        GROUND:MoveToPosition(CH('Dusknoir'), CH('Dusknoir').Position.X + 0.5*8, CH('Dusknoir').Position.Y + 0*8, false, 1.0)
-        GROUND:CharAnimateTurnTo(CH('Dusknoir'), Direction.Up, 15)
-        UI:SetSpeaker(CH('Dusknoir'))
+        GROUND:MoveToPosition(CH('Necrozma'), CH('Necrozma').Position.X + 0.5*8, CH('Necrozma').Position.Y + 0*8, false, 1.0)
+        GROUND:CharAnimateTurnTo(CH('Necrozma'), Direction.Up, 15)
+        UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_077')) -- canon:  Commence...[K]now!
+        UI:WaitShowDialogue(' Commence...\nnow!') -- FUT_M17A0302_077 (FR optionnel)
         UI:ResetSpeaker()
         -- performer 0
         GROUND:MoveToPosition(CH('PLAYER'), 228, 676, false, 3.0)
@@ -1133,7 +1137,7 @@ function m17a0302.Cutscene()
             end,
         })
         UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_078')) -- canon: [CS:N]Sableye[CR]: Wheh-heh-heh!
+        UI:WaitShowDialogue('Sableye: Wheh-heh-heh!') -- FUT_M17A0302_078 (FR optionnel)
         pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
@@ -1230,14 +1234,14 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_079')) -- canon:  ...! They're coming...
+        UI:WaitShowDialogue(' ...! They\'re coming...') -- FUT_M17A0302_079 (FR optionnel)
         -- case 143: " ...! They're coming..."
         -- case 144: " ...! They're coming..."
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Grovyle'), Direction.DownRight, 15)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_080')) -- canon:  ...Listen carefully...
+        UI:WaitShowDialogue(' ...Listen carefully...') -- FUT_M17A0302_080 (FR optionnel)
         UI:ResetSpeaker()
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
@@ -1249,14 +1253,14 @@ function m17a0302.Cutscene()
             end,
         })
         UI:SetCenter(true)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_081')) -- canon:  ...[CS:N]Sableye[CR] use claws to strike...
+        UI:WaitShowDialogue(' ...Sableye use claws to strike...') -- FUT_M17A0302_081 (FR optionnel)
         UI:SetCenter(false)
         UI:ResetSpeaker()
         GROUND:CharSetEmote(CH('Teammate1'), 'sweatdrop', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_082')) -- canon:  ...! Yikes...that sounds scary!
+        UI:WaitShowDialogue(' ...! Yikes...that sounds scary!') -- FUT_M17A0302_082 (FR optionnel)
         -- case 148: ' ...! Yikes...that sounds scary!'
         -- case 149: ' ...! Yikes...that sounds scary!'
         UI:ResetSpeaker()
@@ -1296,22 +1300,22 @@ function m17a0302.Cutscene()
         })
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_083')) -- canon:  ...And that might just open one avenue for escape...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_084')) -- canon:  ...The [CS:N]Sableye[CR] will unleash their [CS:M]Fury Swipes[CR] in a frenzy...[K] That's our chance.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_085')) -- canon:  ...If even one of their attacks were to hit the ropes binding us...
+        UI:WaitShowDialogue(' ...And that might just open one\navenue for escape...') -- FUT_M17A0302_083 (FR optionnel)
+        UI:WaitShowDialogue(' ...The Sableye will unleash their\nFury Swipes in a frenzy...\n That\'s our chance.') -- FUT_M17A0302_084 (FR optionnel)
+        UI:WaitShowDialogue(' ...If even one of their attacks\nwere to hit the ropes binding us...') -- FUT_M17A0302_085 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8978') end) -- TODO table SE id 8978
         GROUND:CharSetEmote(CH('Teammate1'), 'exclaim', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_086')) -- canon:  ...Oh, right...![K] The ropes might come loose!
+        UI:WaitShowDialogue(' ...Oh, right...!\n The ropes might\ncome loose!') -- FUT_M17A0302_086 (FR optionnel)
         -- case 154: ' ...Oh, right...![K] The ropes might\ncome loose!'
         -- case 155: ' ...Oh, right...![K] The ropes might\ncome loose!'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_087')) -- canon:  ...Exactly...[K]and if that happens, lash out with an attack, then flee!
+        UI:WaitShowDialogue(' ...Exactly...\nand if that happens,\nlash out with an attack, then flee!') -- FUT_M17A0302_087 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('Sableye_1'), CH('Sableye_1').Position.X + 0.5*8, CH('Sableye_1').Position.Y + 8*8, false, 1.0)
         GAME:WaitFrames(5)
@@ -1349,10 +1353,10 @@ function m17a0302.Cutscene()
         })
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_088')) -- canon:  ...B-b-but...
+        UI:WaitShowDialogue(' ...B-b-but...') -- FUT_M17A0302_088 (FR optionnel)
         -- case 158: ' ...B-b-but...'
         -- case 159: ' ...B-b-but...'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_089')) -- canon:  ...What if their [CS:M]Fury Swipes[CR] don't slash the ropes...?
+        UI:WaitShowDialogue(' ...What if their Fury Swipes\ndon\'t slash the ropes...?') -- FUT_M17A0302_089 (FR optionnel)
         -- case 161: " ...What if their [CS:M]Fury Swipes[CR]\ndon't slash the ropes...?"
         -- case 162: " ...What if their [CS:M]Fury Swipes[CR]\ndon't slash the ropes...?"
         UI:ResetSpeaker()
@@ -1391,7 +1395,7 @@ function m17a0302.Cutscene()
             end,
         })
         UI:SetCenter(true)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_090')) -- canon:  ...And what if...[K] What if the [CS:N]Sableye[CR] don't use [CS:M]Fury Swipes[CR] at all...?
+        UI:WaitShowDialogue(' ...And what if...\n What if the\nSableye don\'t use Fury Swipes at all...?') -- FUT_M17A0302_090 (FR optionnel)
         UI:SetCenter(false)
         -- case 164: " ...And what if...[K] What if the\n[CS:N]Sableye[CR] don't use [CS:M]Fury Swipes[CR] at all...?"
         -- case 165: " ...And what if...[K] What if the\n[CS:N]Sableye[CR] don't use [CS:M]Fury Swipes[CR] at all...?"
@@ -1426,11 +1430,11 @@ function m17a0302.Cutscene()
             end,
         })
         UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_091')) -- canon: [CS:N]Sableye[CR]: Wheh-heh-heh!
+        UI:WaitShowDialogue('Sableye: Wheh-heh-heh!') -- FUT_M17A0302_091 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_092')) -- canon:  If that happens...[K]don't even think about it.
+        UI:WaitShowDialogue(' If that happens...\ndon\'t even think\nabout it.') -- FUT_M17A0302_092 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_7196') end) -- TODO table SE id 7196
         -- supervision_cting layer [8] (structurel)
@@ -1479,25 +1483,25 @@ function m17a0302.Cutscene()
         })
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Shouting')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_093')) -- canon:  WAAAAAAH!
+        UI:WaitShowDialogue(' WAAAAAAH!') -- FUT_M17A0302_093 (FR optionnel)
         -- case 169: ' WAAAAAAH!'
         -- case 170: ' WAAAAAAH!'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_094')) -- canon: (Urggh!)
+        UI:WaitShowDialogue('(Urggh!)') -- FUT_M17A0302_094 (FR optionnel)
         -- case 172: '(Urggh!)'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_095')) -- canon:  En...en...endure it![K] Wait for your chance!
+        UI:WaitShowDialogue(' En...en...endure it!\n Wait for\nyour chance!') -- FUT_M17A0302_095 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_096')) -- canon:  But if they keep going...
+        UI:WaitShowDialogue(' But if they keep going...') -- FUT_M17A0302_096 (FR optionnel)
         -- case 175: ' But if they keep going...'
         -- case 176: ' But if they keep going...'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_097')) -- canon:  We'll be down before our chance comes!
+        UI:WaitShowDialogue(' We\'ll be down before our\nchance comes!') -- FUT_M17A0302_097 (FR optionnel)
         -- case 178: " We'll be down before our\nchance comes!"
         -- case 179: " We'll be finished before our\nchance comes!"
         UI:ResetSpeaker()
@@ -1512,7 +1516,7 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_098')) -- canon:  Hey!
+        UI:WaitShowDialogue(' Hey!') -- FUT_M17A0302_098 (FR optionnel)
         -- case 181: ' Hey!'
         -- case 182: ' Hey!'
         UI:ResetSpeaker()
@@ -1527,7 +1531,7 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_099')) -- canon: (There's a break in the rope!)
+        UI:WaitShowDialogue('(There\'s a break in the rope!)') -- FUT_M17A0302_099 (FR optionnel)
         -- case 184: "(There's a break in the rope!)"
         UI:ResetSpeaker()
         -- object 137 (p05p03a1) : contexte objet
@@ -1541,11 +1545,11 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_100')) -- canon:  Now![K] Attack!
+        UI:WaitShowDialogue(' Now!\n Attack!') -- FUT_M17A0302_100 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Determined')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_101')) -- canon:  Go!
+        UI:WaitShowDialogue(' Go!') -- FUT_M17A0302_101 (FR optionnel)
         -- case 187: ' Go!'
         -- case 188: ' Go!'
         UI:ResetSpeaker()
@@ -1632,7 +1636,7 @@ function m17a0302.Cutscene()
         GAME:FadeIn(2)
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_102')) -- canon:  Gwah!
+        UI:WaitShowDialogue(' Gwah!') -- FUT_M17A0302_102 (FR optionnel)
         -- performer 0
         GROUND:MoveToPosition(CH('PLAYER'), 228, 712, false, 6.0)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3
@@ -1699,17 +1703,17 @@ function m17a0302.Cutscene()
         -- performer 0
         GROUND:MoveToPosition(CH('PLAYER'), 228, 776, false, 4.0)
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8967') end) -- TODO table SE id 8967
-        GROUND:CharSetEmote(CH('Dusknoir'), 'shock', 3)
+        GROUND:CharSetEmote(CH('Necrozma'), 'shock', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
-        UI:SetSpeaker(CH('Dusknoir'))
+        UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_103')) -- canon:  Wh-what is this?!
+        UI:WaitShowDialogue(' Wh-what is this?!') -- FUT_M17A0302_103 (FR optionnel)
         UI:ResetSpeaker()
         -- performer 0
         GROUND:MoveToPosition(CH('PLAYER'), 228, 712, false, 4.0)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_104')) -- canon:  There!
+        UI:WaitShowDialogue(' There!') -- FUT_M17A0302_104 (FR optionnel)
         UI:ResetSpeaker()
         SOUND:StopBGM()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_7191') end) -- TODO table SE id 7191
@@ -1719,13 +1723,13 @@ function m17a0302.Cutscene()
         GAME:FadeOut(true, 5)
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_105')) -- canon:  Gaaaah!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_106')) -- canon:  We can't see!
+        UI:WaitShowDialogue(' Gaaaah!') -- FUT_M17A0302_105 (FR optionnel)
+        UI:WaitShowDialogue(' We can\'t see!') -- FUT_M17A0302_106 (FR optionnel)
         UI:ResetSpeaker()
-        UI:SetSpeaker(CH('Dusknoir'))
+        UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_107')) -- canon:  Compose yourselves![K] It's only a [CS:I]Luminous Orb[CR]!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_108')) -- canon:  Its effect wears off quickly!
+        UI:WaitShowDialogue(' Compose yourselves!\n It\'s only a\nLuminous Orb!') -- FUT_M17A0302_107 (FR optionnel)
+        UI:WaitShowDialogue(' Its effect wears off quickly!') -- FUT_M17A0302_108 (FR optionnel)
         UI:ResetSpeaker()
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
@@ -1797,13 +1801,13 @@ function m17a0302.Cutscene()
         -- performer 0
         GROUND:MoveToPosition(CH('PLAYER'), 228, 776, false, 3.0)
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8973') end) -- TODO table SE id 8973
-        GROUND:CharSetEmote(CH('Dusknoir'), 'shock', 3)
+        GROUND:CharSetEmote(CH('Necrozma'), 'shock', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
-        UI:SetSpeaker(CH('Dusknoir'))
+        UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_109')) -- canon:  B-blast it!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_110')) -- canon:  That [CS:N]Grovyle[CR]![K] He fled using the flash from that [CS:I]Luminous Orb[CR] as cover!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_111')) -- canon:  They won't get away with this! Come!
+        UI:WaitShowDialogue(' B-blast it!') -- FUT_M17A0302_109 (FR optionnel)
+        UI:WaitShowDialogue(' That Grovyle!\n He fled using the\nflash from that Luminous Orb as cover!') -- FUT_M17A0302_110 (FR optionnel)
+        UI:WaitShowDialogue(' They won\'t get away with this!\nCome!') -- FUT_M17A0302_111 (FR optionnel)
         UI:ResetSpeaker()
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
@@ -1837,7 +1841,7 @@ function m17a0302.Cutscene()
             end,
         })
         UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_112')) -- canon: [CS:N]Sableye[CR]: Wheh-heh-heh!
+        UI:WaitShowDialogue('Sableye: Wheh-heh-heh!') -- FUT_M17A0302_112 (FR optionnel)
         pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
@@ -1895,7 +1899,7 @@ function m17a0302.Cutscene()
             end,
         })
         UI:ResetSpeaker()
-        GROUND:MoveToPosition(CH('Dusknoir'), 228, 932, false, 3.0)
+        GROUND:MoveToPosition(CH('Necrozma'), 228, 932, false, 3.0)
         GAME:WaitFrames(10)
         -- (parallèle) NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
@@ -1938,7 +1942,7 @@ function m17a0302.Cutscene()
                 GROUND:MoveToPosition(CH('Sableye_1'), 212, 916, false, 4.0)
             end,
         })
-        pcall(function() GROUND:RemoveCharacter(CH('Dusknoir')) end)
+        pcall(function() GROUND:RemoveCharacter(CH('Necrozma')) end)
         pcall(function() GROUND:RemoveCharacter(CH('Sableye_6')) end)
         pcall(function() GROUND:RemoveCharacter(CH('Sableye_5')) end)
         pcall(function() GROUND:RemoveCharacter(CH('Sableye_4')) end)
@@ -1992,7 +1996,7 @@ function m17a0302.Cutscene()
         -- ExecuteCommon(JUMP_ANGRY_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_113')) -- canon:  Blecch! I got dirt in my mouth...
+        UI:WaitShowDialogue(' Blecch! I got dirt in my mouth...') -- FUT_M17A0302_113 (FR optionnel)
         -- case 201: ' Blecch! I got dirt in my mouth...'
         -- case 202: ' Blecch! I got dirt in my mouth...'
         UI:ResetSpeaker()
@@ -2001,11 +2005,11 @@ function m17a0302.Cutscene()
         pcall(function() SOUND:PlayBGM('In the Depths of the Pit.ogg', true) end) -- InTheDepthsOfThePit
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_114')) -- canon: (We're...[K] We're safe...)
+        UI:WaitShowDialogue('(We\'re...\n We\'re safe...)') -- FUT_M17A0302_114 (FR optionnel)
         -- case 204: "(We're...[K] We're safe...)"
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_115')) -- canon: (So [CS:N]Grovyle[CR] can use [CS:M]Dig[CR]?)
+        UI:WaitShowDialogue('(So Grovyle can use Dig?)') -- FUT_M17A0302_115 (FR optionnel)
         -- case 206: '(So [CS:N]Grovyle[CR] can use [CS:M]Dig[CR]?)'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_116')) -- canon: (He sure knows many moves.)
+        UI:WaitShowDialogue('(He sure knows many moves.)') -- FUT_M17A0302_116 (FR optionnel)
         -- case 208: '(He sure knows many moves.)'
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Grovyle'), Direction.UpRight, 15)
@@ -2020,8 +2024,8 @@ function m17a0302.Cutscene()
         })
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_117')) -- canon:  We got out of that scrape...[K] But we're not out of the woods yet.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0302_118')) -- canon:  Let's get out of here, and fast.
+        UI:WaitShowDialogue(' We got out of that scrape...\n\nBut we\'re not out of the woods yet.') -- FUT_M17A0302_117 (FR optionnel)
+        UI:WaitShowDialogue(' Let\'s get out of here, and fast.') -- FUT_M17A0302_118 (FR optionnel)
         UI:ResetSpeaker()
         -- performer 0
         GROUND:MoveToPosition(CH('PLAYER'), 228, 832, false, 2.0)

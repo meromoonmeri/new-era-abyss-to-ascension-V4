@@ -2,9 +2,13 @@
     P08P01A_m19a0601.lua — ARC DU FUTUR (adaptation New Era)
     Source canonique : pret/pmd-sky files/language-specific/US/SCRIPT/P08P01A/m19a0601.ssb
     Généré par tools/ssb_to_lua.py — IR canonique + couche d'adaptation New Era.
-    Les dialogues joués sont des clés STRINGS (FUT_*), le texte canonique Sky
-    est conservé en commentaire. Les tables anim/SE/effets manquantes sont
-    marquées TODO (jamais inventées).
+    Chorégraphie 1:1 (déplacements, positions, timings, animations, caméra,
+    fades, SFX, BGM, transitions, flags, embranchements). Seul le CAST change :
+    Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma), Celebi, héros/
+    partenaire ; le maître du futur = Necrozma (Dialga absent). Les dialogues
+    canoniques sont joués (cast appliqué), la clé FUT_* en commentaire sert
+    d'éventuelle passe FR. Les tables anim/SE/effets manquantes sont marquées
+    TODO (jamais inventées).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -48,26 +52,26 @@ function m19a0601.Cutscene()
         GROUND:CharTurnToChar(CH('PLAYER'), CH('Grovyle'))
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_001')) -- canon:  Is this...[K] Is this where [CS:N]Celebi[CR]'s supposed to be?
+        UI:WaitShowDialogue(' Is this...\n Is this where Celebi\'s\nsupposed to be?') -- FUT_M19A0601_001 (FR optionnel)
         -- case 0: " Is this...[K] Is this where [CS:N]Celebi[CR]'s\nsupposed to be?"
         -- case 1: ' Is this...[K] Is this where [CS:N]Celebi[CR] is\nsupposed to be?'
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Grovyle'), Direction.DownLeft, 15)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_002')) -- canon:  That's right. It was around here that I met her the last time.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_003')) -- canon:  But if Primal [CS:N]Dialga[CR] knows of this place...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_004')) -- canon:  [CS:N]Celebi[CR] will have fled from here.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_005')) -- canon:  If this place isn't known to our pursuers, however...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_006')) -- canon:  Then [CS:N]Celebi[CR] should still be here.
+        UI:WaitShowDialogue(' That\'s right. It was around here\nthat I met her the last time.') -- FUT_M19A0601_002 (FR optionnel)
+        UI:WaitShowDialogue(' But if Primal Necrozma knows of\nthis place...') -- FUT_M19A0601_003 (FR optionnel)
+        UI:WaitShowDialogue(' Celebi will have fled from here.') -- FUT_M19A0601_004 (FR optionnel)
+        UI:WaitShowDialogue(' If this place isn\'t known to our\npursuers, however...') -- FUT_M19A0601_005 (FR optionnel)
+        UI:WaitShowDialogue(' Then Celebi should still be here.') -- FUT_M19A0601_006 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Grovyle'), Direction.Up, 15)
         GAME:WaitFrames(15)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_007')) -- canon:  Hello? [CS:N]Celebi[CR]?
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_008')) -- canon:  It's me! [CS:N]Grovyle[CR]!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_009')) -- canon:  Reveal yourself...if you're here!
+        UI:WaitShowDialogue(' Hello? Celebi?') -- FUT_M19A0601_007 (FR optionnel)
+        UI:WaitShowDialogue(' It\'s me! Grovyle!') -- FUT_M19A0601_008 (FR optionnel)
+        UI:WaitShowDialogue(' Reveal yourself...if you\'re here!') -- FUT_M19A0601_009 (FR optionnel)
         UI:ResetSpeaker()
         GAME:WaitFrames(45)
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8963') end) -- TODO table SE id 8963
@@ -75,10 +79,10 @@ function m19a0601.Cutscene()
         GAME:WaitFrames(15)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_010')) -- canon:  She's...[K]not coming out...
+        UI:WaitShowDialogue(' She\'s...\nnot coming out...') -- FUT_M19A0601_010 (FR optionnel)
         -- case 11: " She's...[K]not coming out..."
         -- case 12: " She's...[K]not coming out..."
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_011')) -- canon:  Did Primal [CS:N]Dialga[CR] chase her off?
+        UI:WaitShowDialogue(' Did Primal Necrozma chase her off?') -- FUT_M19A0601_011 (FR optionnel)
         -- case 14: ' Did Primal [CS:N]Dialga[CR] chase her off?'
         -- case 15: ' Did she get frightened off by\nPrimal [CS:N]Dialga[CR]?'
         UI:ResetSpeaker()
@@ -90,17 +94,17 @@ function m19a0601.Cutscene()
         GROUND:CharTurnToChar(CH('PLAYER'), CH('Teammate1'))
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_012')) -- canon:  What if...
+        UI:WaitShowDialogue(' What if...') -- FUT_M19A0601_012 (FR optionnel)
         -- case 17: ' What if...'
         -- case 18: ' What if...'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_013')) -- canon:  What if she's...[K]been captured by Primal [CS:N]Dialga[CR]?
+        UI:WaitShowDialogue(' What if she\'s...\nbeen captured by\nPrimal Necrozma?') -- FUT_M19A0601_013 (FR optionnel)
         -- case 20: " What if she's...[K]been captured by\nPrimal [CS:N]Dialga[CR]?"
         -- case 21: " What if she's...[K]been captured by\nPrimal [CS:N]Dialga[CR]?"
         UI:ResetSpeaker()
         SOUND:FadeOutBGM(10)
         UI:ResetSpeaker()
         UI:SetCenter(true)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_014')) -- canon:  Captured?
+        UI:WaitShowDialogue(' Captured?') -- FUT_M19A0601_014 (FR optionnel)
         UI:SetCenter(false)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8967') end) -- TODO table SE id 8967
@@ -116,7 +120,7 @@ function m19a0601.Cutscene()
         -- ExecuteCommon(JUMP_SURPRISE_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_015')) -- canon:  Whoa! Who said that?!
+        UI:WaitShowDialogue(' Whoa! Who said that?!') -- FUT_M19A0601_015 (FR optionnel)
         -- case 24: ' Whoa! Who said that?!'
         -- case 25: " Wah! Where'd that voice\ncome from?!"
         UI:ResetSpeaker()
@@ -141,29 +145,29 @@ function m19a0601.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Worried')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_016')) -- canon:  But now...[K]I don't hear anything.
+        UI:WaitShowDialogue(' But now...\nI don\'t hear anything.') -- FUT_M19A0601_016 (FR optionnel)
         -- case 27: " But now...[K]I don't hear anything."
         -- case 28: " But now...[K]I don't hear anything."
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_017')) -- canon:  That voice...[K] Did I imagine it?
+        UI:WaitShowDialogue(' That voice...\n Did I imagine it?') -- FUT_M19A0601_017 (FR optionnel)
         -- case 30: ' That voice...[K] Did I imagine it?'
         -- case 31: ' That voice...[K] Was I just\nhearing things?'
         UI:ResetSpeaker()
         UI:ResetSpeaker()
         UI:SetCenter(true)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_018')) -- canon:  Tee-hee! You didn't imagine it!
+        UI:WaitShowDialogue(' Tee-hee! You didn\'t imagine it!') -- FUT_M19A0601_018 (FR optionnel)
         UI:SetCenter(false)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8974') end) -- TODO table SE id 8974
         GROUND:CharSetEmote(CH('PLAYER'), 'exclaim', 3)
         -- ExecuteCommon(JUMP_SURPRISE_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:SetCenter(true)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_019')) -- canon:  Me? Captured?
+        UI:WaitShowDialogue(' Me? Captured?') -- FUT_M19A0601_019 (FR optionnel)
         UI:SetCenter(false)
         UI:SetCenter(true)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_020')) -- canon:  How insulting![K] Captured?!
+        UI:WaitShowDialogue(' How insulting!\n Captured?!') -- FUT_M19A0601_020 (FR optionnel)
         UI:SetCenter(false)
         UI:SetCenter(true)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_021')) -- canon:  Impossible, that's for sure! Tee-hee!
+        UI:WaitShowDialogue(' Impossible, that\'s for sure! Tee-hee!') -- FUT_M19A0601_021 (FR optionnel)
         UI:SetCenter(false)
         UI:ResetSpeaker()
         GAME:WaitFrames(20)
@@ -188,18 +192,18 @@ function m19a0601.Cutscene()
         pcall(function() SOUND:PlayBGM('Welcome to the World of Pokémon!.ogg', true) end) -- WelcomeToTheWorldOfPokemon
         UI:SetSpeaker(CH('Celebi'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_022')) -- canon:  It's been too long, my dear [CS:N]Grovyle[CR]!
+        UI:WaitShowDialogue(' It\'s been too long, my dear Grovyle!') -- FUT_M19A0601_022 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_023')) -- canon:  Yes. It has been a while, [CS:N]Celebi[CR].
+        UI:WaitShowDialogue(' Yes. It has been a while, Celebi.') -- FUT_M19A0601_023 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8974') end) -- TODO table SE id 8974
         GROUND:CharSetEmote(CH('Teammate1'), 'shock', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_024')) -- canon:  Huh?![K] This tiny thing is [CS:N]Celebi[CR]?
+        UI:WaitShowDialogue(' Huh?!\n This tiny thing is Celebi?') -- FUT_M19A0601_024 (FR optionnel)
         -- case 39: ' Huh?![K] This tiny thing is [CS:N]Celebi[CR]?'
         -- case 40: ' What?![K] This tiny thing is [CS:N]Celebi[CR]?'
         UI:ResetSpeaker()
@@ -209,8 +213,8 @@ function m19a0601.Cutscene()
         GROUND:CharSetEmote(CH('Celebi'), 'angry', 3)
         UI:SetSpeaker(CH('Celebi'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_025')) -- canon:  Now that is downright rude!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_026')) -- canon:  How inappropriate! To poke fun at my petite proportions...
+        UI:WaitShowDialogue(' Now that is downright rude!') -- FUT_M19A0601_025 (FR optionnel)
+        UI:WaitShowDialogue(' How inappropriate! To poke fun\nat my petite proportions...') -- FUT_M19A0601_026 (FR optionnel)
         UI:ResetSpeaker()
         -- SetEffect 0 (aucun) : pas d'effet
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8972') end) -- TODO table SE id 8972
@@ -218,24 +222,24 @@ function m19a0601.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_027')) -- canon:  Uh...[K]I'm sorry.
+        UI:WaitShowDialogue(' Uh...\nI\'m sorry.') -- FUT_M19A0601_027 (FR optionnel)
         -- case 44: " Uh...[K]I'm sorry."
         -- case 45: " Uh...[K]I'm sorry."
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_028')) -- canon:  I heard you have the ability to cross time...
+        UI:WaitShowDialogue(' I heard you have the ability to\ncross time...') -- FUT_M19A0601_028 (FR optionnel)
         -- case 47: ' I heard you have the ability to\ncross time...'
         -- case 48: ' I heard you have the ability to\ncross time...'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_029')) -- canon:  So I was expecting to see some kind of an awesome-looking Pokémon...
+        UI:WaitShowDialogue(' So I was expecting to see some\nkind of an awesome-looking Pokémon...') -- FUT_M19A0601_029 (FR optionnel)
         -- case 50: ' So I was expecting to see some\nkind of an awesome-looking Pokémon...'
         -- case 51: ' So I expected you to be some\nawe-inspiring Pokémon...'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Celebi'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_030')) -- canon:  How uncouth![K] Never judge someone by appearance!
+        UI:WaitShowDialogue(' How uncouth!\n Never judge\nsomeone by appearance!') -- FUT_M19A0601_030 (FR optionnel)
         UI:SetSpeaker(CH('Celebi'))
         GeneralFunctions.SetEmotion('Happy')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_031')) -- canon:  But...[K]I forgive you.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_032')) -- canon:  After all...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_033')) -- canon:  You must find me cuter and more special than you imagined![K] Tee-hee!
+        UI:WaitShowDialogue(' But...\nI forgive you.') -- FUT_M19A0601_031 (FR optionnel)
+        UI:WaitShowDialogue(' After all...') -- FUT_M19A0601_032 (FR optionnel)
+        UI:WaitShowDialogue(' You must find me cuter and\nmore special than you imagined!\n Tee-hee!') -- FUT_M19A0601_033 (FR optionnel)
         UI:ResetSpeaker()
         GAME:WaitFrames(20)
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8961') end) -- TODO table SE id 8961
@@ -251,75 +255,75 @@ function m19a0601.Cutscene()
         })
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Worried')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_034')) -- canon:  Uh, yeah...
+        UI:WaitShowDialogue(' Uh, yeah...') -- FUT_M19A0601_034 (FR optionnel)
         -- case 57: ' Uh, yeah...'
         -- case 58: ' Um, yes.'
         UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('Grovyle'), CH('Grovyle').Position.X + 0.5*8, CH('Grovyle').Position.Y + 0*8, false, 1.0)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_035')) -- canon:  [CS:N]Celebi[CR].[K] I need your help again.
+        UI:WaitShowDialogue(' Celebi.\n I need your help again.') -- FUT_M19A0601_035 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharTurnToChar(CH('Celebi'), CH('Grovyle'))
         UI:SetSpeaker(CH('Celebi'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_036')) -- canon:  I know.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_037')) -- canon:  Seeing you back here, my dear [CS:N]Grovyle[CR], tells me everything I need to know.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_038')) -- canon:  You're back because you failed in your mission in the past, yes?
+        UI:WaitShowDialogue(' I know.') -- FUT_M19A0601_036 (FR optionnel)
+        UI:WaitShowDialogue(' Seeing you back here, my dear\nGrovyle, tells me everything I need to know.') -- FUT_M19A0601_037 (FR optionnel)
+        UI:WaitShowDialogue(' You\'re back because you failed\nin your mission in the past, yes?') -- FUT_M19A0601_038 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharSetEmote(CH('Grovyle'), 'sweatdrop', 3)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_039')) -- canon:  Urk...[K] Yes, it's true.
+        UI:WaitShowDialogue(' Urk...\n Yes, it\'s true.') -- FUT_M19A0601_039 (FR optionnel)
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:ResetSpeaker()
         -- ExecuteCommon(JUMP_HAPPY_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:SetSpeaker(CH('Celebi'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_040')) -- canon:  I hope you manage this time.[K] I've quite had enough of this.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_041')) -- canon:  Living in this dark and dreary world is so depressing.
+        UI:WaitShowDialogue(' I hope you manage this time.\n\nI\'ve quite had enough of this.') -- FUT_M19A0601_040 (FR optionnel)
+        UI:WaitShowDialogue(' Living in this dark and dreary\nworld is so depressing.') -- FUT_M19A0601_041 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_042')) -- canon:  Sorry, no time to chat...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_043')) -- canon:  The [CS:N]Sableye[CR] are tracking us.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_044')) -- canon:  If we don't leave soon, we'll have brought trouble to you.
+        UI:WaitShowDialogue(' Sorry, no time to chat...') -- FUT_M19A0601_042 (FR optionnel)
+        UI:WaitShowDialogue(' The Sableye are tracking us.') -- FUT_M19A0601_043 (FR optionnel)
+        UI:WaitShowDialogue(' If we don\'t leave soon, we\'ll\nhave brought trouble to you.') -- FUT_M19A0601_044 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Celebi'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_045')) -- canon:  Tee-hee![K] It's quite fine. There is no need to be worried.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_046')) -- canon:  Let those [CS:N]Sableye[CR] come. They're of no concern to me.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_047')) -- canon:  Besides, if you would be so kind as to prevent the planet's paralysis...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_048')) -- canon:  We'll finally be spared the agony of this world of darkness.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_049')) -- canon:  My dear [CS:N]Grovyle[CR], I will devote my whole life to achieve that end!
+        UI:WaitShowDialogue(' Tee-hee!\n It\'s quite fine. There\nis no need to be worried.') -- FUT_M19A0601_045 (FR optionnel)
+        UI:WaitShowDialogue(' Let those Sableye come. They\'re\nof no concern to me.') -- FUT_M19A0601_046 (FR optionnel)
+        UI:WaitShowDialogue(' Besides, if you would be so kind\nas to prevent the planet\'s paralysis...') -- FUT_M19A0601_047 (FR optionnel)
+        UI:WaitShowDialogue(' We\'ll finally be spared the agony\nof this world of darkness.') -- FUT_M19A0601_048 (FR optionnel)
+        UI:WaitShowDialogue(' My dear Grovyle, I will devote\nmy whole life to achieve that end!') -- FUT_M19A0601_049 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_050')) -- canon:  All right...[K] Where is the Passage of Time?
+        UI:WaitShowDialogue(' All right...\n Where is the Passage\nof Time?') -- FUT_M19A0601_050 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Celebi'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_051')) -- canon:  It's ready.[K] It is nearby.
+        UI:WaitShowDialogue(' It\'s ready.\n It is nearby.') -- FUT_M19A0601_051 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Celebi'), Direction.Up, 15)
         UI:SetCenter(true)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_052')) -- canon:  The Passage of Time is on a plateau above this forest.
+        UI:WaitShowDialogue(' The Passage of Time is on a\nplateau above this forest.') -- FUT_M19A0601_052 (FR optionnel)
         UI:SetCenter(false)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_053')) -- canon:  That's good.[K] Can you guide us?
+        UI:WaitShowDialogue(' That\'s good.\n Can you guide us?') -- FUT_M19A0601_053 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharTurnToChar(CH('Celebi'), CH('Grovyle'))
         -- ExecuteCommon(JUMP_HAPPY_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:SetSpeaker(CH('Celebi'))
         GeneralFunctions.SetEmotion('Happy')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_054')) -- canon:  Yes!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_055')) -- canon:  Are all three of you taking the Passage of Time?
+        UI:WaitShowDialogue(' Yes!') -- FUT_M19A0601_054 (FR optionnel)
+        UI:WaitShowDialogue(' Are all three of you taking the\nPassage of Time?') -- FUT_M19A0601_055 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_056')) -- canon:  Yeah. That's right.
+        UI:WaitShowDialogue(' Yeah. That\'s right.') -- FUT_M19A0601_056 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Celebi'), Direction.DownRight, 15)
         GAME:WaitFrames(30)
@@ -328,21 +332,21 @@ function m19a0601.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Celebi'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_057')) -- canon:  Oh?! What's...[K]this? Your friend!
+        UI:WaitShowDialogue(' Oh?! What\'s...\nthis? Your friend!') -- FUT_M19A0601_057 (FR optionnel)
         SOUND:FadeOutBGM(180)
         UI:ResetSpeaker()
         GROUND:CharTurnToChar(CH('Teammate1'), CH('PLAYER'))
         GROUND:CharTurnToChar(CH('Grovyle'), CH('PLAYER'))
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_058')) -- canon: (What...?[K] What...?)
+        UI:WaitShowDialogue('(What...?\n What...?)') -- FUT_M19A0601_058 (FR optionnel)
         -- case 83: '(What...?[K] What...?)'
         UI:ResetSpeaker()
         GAME:WaitFrames(60)
         UI:SetSpeaker(CH('Celebi'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_059')) -- canon:  ........................
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_060')) -- canon:  No...[K] That can't be...
+        UI:WaitShowDialogue(' ........................') -- FUT_M19A0601_059 (FR optionnel)
+        UI:WaitShowDialogue(' No...\n That can\'t be...') -- FUT_M19A0601_060 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharTurnToChar(CH('Grovyle'), CH('Celebi'))
         GAME:WaitFrames(45)
@@ -352,13 +356,13 @@ function m19a0601.Cutscene()
         GAME:WaitFrames(45)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_061')) -- canon:  Is something the matter, [CS:N]Celebi[CR]?
+        UI:WaitShowDialogue(' Is something the matter, Celebi?') -- FUT_M19A0601_061 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharTurnToChar(CH('Celebi'), CH('Grovyle'))
         GROUND:CharTurnToChar(CH('Teammate1'), CH('Celebi'))
         UI:SetSpeaker(CH('Celebi'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_062')) -- canon:  No...[K] It's nothing.
+        UI:WaitShowDialogue(' No...\n It\'s nothing.') -- FUT_M19A0601_062 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Celebi'), Direction.DownLeft, 15)
         GAME:WaitFrames(60)
@@ -367,7 +371,7 @@ function m19a0601.Cutscene()
         GROUND:CharAnimateTurnTo(CH('Celebi'), Direction.Down, 15)
         GAME:WaitFrames(30)
         UI:SetCenter(true)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19A0601_063')) -- canon:  Well then.[K] Shall we? Off to the Passage of Time.
+        UI:WaitShowDialogue(' Well then.\n Shall we? Off to the\nPassage of Time.') -- FUT_M19A0601_063 (FR optionnel)
         UI:SetCenter(false)
         UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('Celebi'), CH('Celebi').Position.X + 1*8, CH('Celebi').Position.Y + 0*8, false, 2.0)

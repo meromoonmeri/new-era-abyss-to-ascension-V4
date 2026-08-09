@@ -2,9 +2,13 @@
     P05P01A_n08a2008.lua — ARC DU FUTUR (adaptation New Era)
     Source canonique : pret/pmd-sky files/language-specific/US/SCRIPT/P05P01A/n08a2008.ssb
     Généré par tools/ssb_to_lua.py — IR canonique + couche d'adaptation New Era.
-    Les dialogues joués sont des clés STRINGS (FUT_*), le texte canonique Sky
-    est conservé en commentaire. Les tables anim/SE/effets manquantes sont
-    marquées TODO (jamais inventées).
+    Chorégraphie 1:1 (déplacements, positions, timings, animations, caméra,
+    fades, SFX, BGM, transitions, flags, embranchements). Seul le CAST change :
+    Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma), Celebi, héros/
+    partenaire ; le maître du futur = Necrozma (Dialga absent). Les dialogues
+    canoniques sont joués (cast appliqué), la clé FUT_* en commentaire sert
+    d'éventuelle passe FR. Les tables anim/SE/effets manquantes sont marquées
+    TODO (jamais inventées).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -20,15 +24,15 @@ function n08a2008.Cutscene()
         -- PARTIEL : sound_Stop []
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_001')) -- canon:  All right![K] Made it through the dungeon!
+        UI:WaitShowDialogue(' All right!\n Made it through\nthe dungeon!') -- FUT_N08A2008_001 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_002')) -- canon:  What you see over there is the pinnacle, [CS:Y]Grovyle[CR].
+        UI:WaitShowDialogue(' What you see over there is\nthe pinnacle, Grovyle.') -- FUT_N08A2008_002 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_003')) -- canon:  Got it![K] Let's go!
+        UI:WaitShowDialogue(' Got it!\n Let\'s go!') -- FUT_N08A2008_003 (FR optionnel)
         UI:ResetSpeaker()
         -- back_SetGround(P05P01A) : ground courant déjà posé
         -- supervision_cting layer [0] (structurel)
@@ -96,7 +100,7 @@ function n08a2008.Cutscene()
         GAME:WaitFrames(40)
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_004')) -- canon:  ...[K]Nobody's...[K]here, huh...
+        UI:WaitShowDialogue(' ...\nNobody\'s...\nhere, huh...') -- FUT_N08A2008_004 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('Dusknoir'), CH('Dusknoir').Position.X + 0.5*8, CH('Dusknoir').Position.Y + 8*8, false, 1.0)
         GAME:WaitFrames(30)
@@ -106,7 +110,7 @@ function n08a2008.Cutscene()
         GAME:WaitFrames(30)
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_005')) -- canon:  That's very strange...
+        UI:WaitShowDialogue(' That\'s very strange...') -- FUT_N08A2008_005 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Dusknoir'), Direction.Right, 15)
         GAME:WaitFrames(6)
@@ -115,86 +119,86 @@ function n08a2008.Cutscene()
         GROUND:CharAnimateTurnTo(CH('Dusknoir'), Direction.Up, 15)
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_006')) -- canon:  Master [CS:N]Dialga[CR] is always over there.
+        UI:WaitShowDialogue(' Master Necrozma is always\nover there.') -- FUT_N08A2008_006 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('HeroFuture'), Direction.Right, 15)
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_007')) -- canon:  Why isn't [CS:N]Dialga[CR] there now?
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_008')) -- canon:  [CS:N]Sableye[CR] said that [CS:N]Dialga[CR] would send a final agent.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_009')) -- canon:  But to send another agent back to the past...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_010')) -- canon:  I expect it would take an enormous amount of power.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_011')) -- canon:  To generate that kind of power...[K] [CS:N]Dialga[CR] would have to hold still for some time...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_012')) -- canon:  I thought he was in [CS:P]Temporal Tower[CR]...
+        UI:WaitShowDialogue(' Why isn\'t Necrozma\nthere now?') -- FUT_N08A2008_007 (FR optionnel)
+        UI:WaitShowDialogue(' Sableye said that Necrozma would\nsend a final agent.') -- FUT_N08A2008_008 (FR optionnel)
+        UI:WaitShowDialogue(' But to send another agent back\nto the past...') -- FUT_N08A2008_009 (FR optionnel)
+        UI:WaitShowDialogue(' I expect it would take an\nenormous amount of power.') -- FUT_N08A2008_010 (FR optionnel)
+        UI:WaitShowDialogue(' To generate that kind of power...\n\nNecrozma would have to hold still for some time...') -- FUT_N08A2008_011 (FR optionnel)
+        UI:WaitShowDialogue(' I thought he was in\nTemporal Tower...') -- FUT_N08A2008_012 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Dusknoir'), Direction.Down, 15)
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_013')) -- canon:  Your guess is correct.[K] I thought so too...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_014')) -- canon:  I thought so...[K] That should be right...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_015')) -- canon:  ...[K]However...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_016')) -- canon:  If he's going to send an agent back to the past...[K]there's another method.
+        UI:WaitShowDialogue(' Your guess is correct.\n\nI thought so too...') -- FUT_N08A2008_013 (FR optionnel)
+        UI:WaitShowDialogue(' I thought so...\n\nThat should be right...') -- FUT_N08A2008_014 (FR optionnel)
+        UI:WaitShowDialogue(' ...\nHowever...') -- FUT_N08A2008_015 (FR optionnel)
+        UI:WaitShowDialogue(' If he\'s going to send an agent\nback to the past...\nthere\'s another method.') -- FUT_N08A2008_016 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8978') end) -- TODO table SE id 8978
         GROUND:CharSetEmote(CH('HeroFuture'), 'exclaim', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_017')) -- canon:  Back to the past...[K] Another method?
+        UI:WaitShowDialogue(' Back to the past...\n\nAnother method?') -- FUT_N08A2008_017 (FR optionnel)
         -- NON CONVERTI : bgm2_FadeOut (un seul canal BGM dans PMDO)
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Dusknoir'), Direction.Left, 15)
         pcall(function() SOUND:PlayBGM('Time Gear Remix.ogg', true) end) -- TimeGearRemix
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_018')) -- canon:  That's right...[K] If he needs to send the agent through time...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_019')) -- canon:  [CS:Y]Grovyle[CR]...[K]you should know what method I'm talking about.
+        UI:WaitShowDialogue(' That\'s right...\n If he needs to\nsend the agent through time...') -- FUT_N08A2008_018 (FR optionnel)
+        UI:WaitShowDialogue(' Grovyle...\nyou should know what\nmethod I\'m talking about.') -- FUT_N08A2008_019 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_020')) -- canon:  I-I...[K]should know what method?
+        UI:WaitShowDialogue(' I-I...\nshould know what method?') -- FUT_N08A2008_020 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8973') end) -- TODO table SE id 8973
         GROUND:CharSetEmote(CH('HeroFuture'), 'shock', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_021')) -- canon:  N-no...[K] It can't be!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_022')) -- canon:  The Passage of Time!?
+        UI:WaitShowDialogue(' N-no...\n It can\'t be!') -- FUT_N08A2008_021 (FR optionnel)
+        UI:WaitShowDialogue(' The Passage of Time!?') -- FUT_N08A2008_022 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_023')) -- canon:  Yes.[K] The Passage of Time.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_024')) -- canon:  Rather than waiting for Master [CS:N]Dialga[CR] to regenerate...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_025')) -- canon:  They will most likely look for [CS:N]Celebi[CR] and use the Passage of Time to send the agent back to the past.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_026')) -- canon:  I'm sure of it.
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_027')) -- canon:  Master [CS:N]Dialga[CR]...[K]probably left here to catch [CS:N]Celebi[CR].
+        UI:WaitShowDialogue(' Yes.\n The Passage of Time.') -- FUT_N08A2008_023 (FR optionnel)
+        UI:WaitShowDialogue(' Rather than waiting for Master\nNecrozma to regenerate...') -- FUT_N08A2008_024 (FR optionnel)
+        UI:WaitShowDialogue(' They will most likely look for\nCelebi and use the Passage of Time\nto send the agent back to the past.') -- FUT_N08A2008_025 (FR optionnel)
+        UI:WaitShowDialogue(' I\'m sure of it.') -- FUT_N08A2008_026 (FR optionnel)
+        UI:WaitShowDialogue(' Master Necrozma...\nprobably left\nhere to catch Celebi.') -- FUT_N08A2008_027 (FR optionnel)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8968') end) -- TODO table SE id 8968
         GROUND:CharSetEmote(CH('HeroFuture'), 'shock', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_028')) -- canon:  [CS:N]D-Dialga[CR]...left to catch [CS:N]Celebi[CR]!?
+        UI:WaitShowDialogue(' D-Necrozma...left to catch\nCelebi!?') -- FUT_N08A2008_028 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('HeroFuture'), Direction.Down, 15)
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_029')) -- canon:  B-but...[K] I don't think it will be that easy to catch [CS:N]Celebi[CR]...
+        UI:WaitShowDialogue(' B-but...\n I don\'t think it will be\nthat easy to catch Celebi...') -- FUT_N08A2008_029 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_030')) -- canon:  If it were just the [CS:N]Sableye[CR], you'd be right...
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_031')) -- canon:  However, it is a different story if Master [CS:N]Dialga[CR] himself went to catch her.
+        UI:WaitShowDialogue(' If it were just the Sableye,\nyou\'d be right...') -- FUT_N08A2008_030 (FR optionnel)
+        UI:WaitShowDialogue(' However, it is a different story\nif Master Necrozma himself went to catch her.') -- FUT_N08A2008_031 (FR optionnel)
         -- message_KeyWait (le dialogue bloque déjà)
         SOUND:FadeOutBGM(120)
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_032')) -- canon:  And that new henchman...[K] I'm worried about their ability...
+        UI:WaitShowDialogue(' And that new henchman...\n\nI\'m worried about their ability...') -- FUT_N08A2008_032 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('HeroFuture'), Direction.Right, 15)
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_033')) -- canon:  [CS:P]Dusk Forest[CR]!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2008_034')) -- canon:  I always met [CS:N]Celebi[CR] in [CS:P]Dusk Forest[CR]!
+        UI:WaitShowDialogue(' Dusk Forest!') -- FUT_N08A2008_033 (FR optionnel)
+        UI:WaitShowDialogue(' I always met Celebi in\nDusk Forest!') -- FUT_N08A2008_034 (FR optionnel)
         UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('HeroFuture'), CH('HeroFuture').Position.X + 1.5*8, CH('HeroFuture').Position.Y + 0*8, false, 3.0)
         GAME:WaitFrames(8)

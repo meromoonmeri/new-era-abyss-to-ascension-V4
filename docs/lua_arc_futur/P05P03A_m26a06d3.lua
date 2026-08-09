@@ -2,9 +2,13 @@
     P05P03A_m26a06d3.lua — ARC DU FUTUR (adaptation New Era)
     Source canonique : pret/pmd-sky files/language-specific/US/SCRIPT/P05P03A/m26a06d3.ssb
     Généré par tools/ssb_to_lua.py — IR canonique + couche d'adaptation New Era.
-    Les dialogues joués sont des clés STRINGS (FUT_*), le texte canonique Sky
-    est conservé en commentaire. Les tables anim/SE/effets manquantes sont
-    marquées TODO (jamais inventées).
+    Chorégraphie 1:1 (déplacements, positions, timings, animations, caméra,
+    fades, SFX, BGM, transitions, flags, embranchements). Seul le CAST change :
+    Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma), Celebi, héros/
+    partenaire ; le maître du futur = Necrozma (Dialga absent). Les dialogues
+    canoniques sont joués (cast appliqué), la clé FUT_* en commentaire sert
+    d'éventuelle passe FR. Les tables anim/SE/effets manquantes sont marquées
+    TODO (jamais inventées).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -88,9 +92,9 @@ function m26a06d3.Cutscene()
                 pcall(function() GROUND:CharSetAnim(CH('Sableye_6'), 'Idle', true) end) -- placeholder sûr
             end,
             function()
-                GROUND:TeleportTo(CH('Dusknoir'), 228, 768)
-                GROUND:TeleportTo(CH('Dusknoir'), CH('Dusknoir').Position.X + 0*8, CH('Dusknoir').Position.Y + 16*8)
-                CH('Dusknoir').Direction = Direction.Up
+                GROUND:TeleportTo(CH('Necrozma'), 228, 768)
+                GROUND:TeleportTo(CH('Necrozma'), CH('Necrozma').Position.X + 0*8, CH('Necrozma').Position.Y + 16*8)
+                CH('Necrozma').Direction = Direction.Up
             end,
         })
         -- supervision_cting layer [8] (structurel)
@@ -112,7 +116,7 @@ function m26a06d3.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M26A06D3_001')) -- canon:  Hey!
+        UI:WaitShowDialogue(' Hey!') -- FUT_M26A06D3_001 (FR optionnel)
         -- case 0: ' Hey!'
         -- case 1: ' Hey!'
         UI:ResetSpeaker()
@@ -127,7 +131,7 @@ function m26a06d3.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M26A06D3_002')) -- canon: (There's a break in the rope!)
+        UI:WaitShowDialogue('(There\'s a break in the rope!)') -- FUT_M26A06D3_002 (FR optionnel)
         -- case 3: "(There's a break in the rope!)"
         UI:ResetSpeaker()
         -- object 137 (p05p03a1) : contexte objet
@@ -141,11 +145,11 @@ function m26a06d3.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M26A06D3_003')) -- canon:  Now![K] Attack!
+        UI:WaitShowDialogue(' Now!\n Attack!') -- FUT_M26A06D3_003 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Determined')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M26A06D3_004')) -- canon:  Go!
+        UI:WaitShowDialogue(' Go!') -- FUT_M26A06D3_004 (FR optionnel)
         -- case 6: ' Go!'
         -- case 7: ' Go!'
         UI:ResetSpeaker()
@@ -231,7 +235,7 @@ function m26a06d3.Cutscene()
         GAME:FadeIn(2)
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M26A06D3_005')) -- canon:  Gwah!
+        UI:WaitShowDialogue(' Gwah!') -- FUT_M26A06D3_005 (FR optionnel)
         -- performer 0
         GROUND:MoveToPosition(CH('PLAYER'), 228, 712, false, 6.0)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3

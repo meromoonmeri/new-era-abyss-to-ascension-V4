@@ -89,13 +89,27 @@ CAST = {
     },
 }
 
+# Règle « antagoniste / maître de l'original -> Necrozma » : dans les scènes où
+# l'acteur YONOWAARU joue le rôle d'ANTAGONISTE de la scène (déterminé à partir
+# des textes canoniques : geôlier du poteau d'exécution, confrontation au
+# Passage du Temps, confession, menaces finales), il est remplacé par
+# NECROZMA. Ailleurs il reste Dusknoir (allié).
+ANTAGONIST_SCENES = {
+    "P05P03A_m17a0302": "Necrozma",
+    "P05P03A_m26a06d3": "Necrozma",
+    "P09P01A_m19b1001": "Necrozma",
+    "P09P01A_m19b1007": "Necrozma",
+    "P09P01A_m19b1009": "Necrozma",
+    "P09P01A_m19d1072": "Necrozma",
+}
+
 # Acteur du « maître » aux yeux rouges : NECROZMA (n'apparaît pas comme entité
 # scriptable dans les SSB de l'arc — il EST le décor/l'ombre des scènes P05P01A)
 CAST["__MAITRE__"] = {
     "new_era": "NewEra.Necrozma",
     "role": "LE MAÎTRE aux yeux rouges dans l'obscurité (P05P01A). A absorbé toute la lumière du futur.",
     "species": "Necrozma",
-    "note": "Dans Sky le méchant est Dusknoir ; dans New Era le rôle antagoniste est porté par Necrozma (et ses sbires Sableye). Dialga est ABSENT : dans New Era il est gentil, non corrompu.",
+    "note": "Maître de l'original (Dialga) -> Necrozma. Dialga est ABSENT de l'arc (gentil dans New Era). Dans les scènes où YONOWAARU est l'antagoniste (ANTAGONIST_SCENES), l'acteur devient Necrozma.",
 }
 
 # ---------------------------------------------------------------------------
@@ -201,6 +215,7 @@ def main():
 
     cast = {
         "schema": "newera.adaptation.cast.v1",
+        "principe": "1:1 avec la cinématique canonique Sky (chorégraphie, timings, positions, animations, caméra, fades, SFX, BGM, transitions, flags, embranchements, ordre). SEUL LE CAST change. Aucune réécriture narrative.",
         "directives_utilisateur": {
             "dusknoir_grovyle_allies": "dusknoir & groovyle dans new era font équipe ils viennent d'un futur",
             "dialga_gentil": "dialga dans new era est gentil il est plus corrompu (ABSENT de l'arc du futur)",
@@ -213,13 +228,14 @@ def main():
         },
         "cast_global": CAST,
         "cast_par_scene": cast_par_scene,
-        "scenes_a_reattribuer": {
-            "P05P01A": "Repaire de Necrozma : le maître aux yeux rouges est dans l'obscurité (décor/ombre). Dusknoir n'y est PAS antagoniste.",
-            "P05P02A_m17a0301": "Enlèvement : dans Sky c'est Dusknoir qui capture ; dans New Era ce sont les sbires de Necrozma (Sableye) — dialogue ré-attribué.",
-            "P05P03A_m17a0302": "Poteau d'exécution : les Sableye ligotent le trio ; Necrozma (yeux rouges) domine la scène. Dusknoir reste allié.",
-            "P09P01A_m19b1007": "Confession du méchant : dans Sky Dusknoir avoue ; dans New Era la réplique est portée par Necrozma (ou ses sbires).",
-            "P09P01A_m19b1009": "« Notre voie temporelle est brisée ! » : ré-attribution à la confrontation avec Necrozma.",
-            "P09P01A_m19d1072": "« Nous allons nous débarrasser de vous pour toujours ! » : Necrozma/éternité (Eternatus altère la réalité).",
+        "regle_antagoniste": {
+            "regle": "antagoniste / maître de l'original -> Necrozma, lorsque le personnage doit être remplacé narrativement",
+            "scenes": ANTAGONIST_SCENES,
+            "substitutions_dialogue": {
+                "Dialga": "Necrozma (le maître du futur ; Dialga absent de l'arc)",
+                "Primal Dialga": "Necrozma (la présence sombre aux yeux rouges)",
+                "Dusknoir (scènes antagoniste)": "Necrozma (l'acteur YONOWAARU devient Necrozma ; nom dans les dialogues substitué)",
+            },
         },
     }
 
@@ -289,16 +305,20 @@ def main():
     for ent, c in CAST.items():
         L.append(f"| `{ent}` | {c['new_era']} | {c['role']} |")
     L.append("")
-    L.append("## Scènes à ré-attribuer (rôle antagoniste)")
+    L.append("## Règle « antagoniste / maître de l'original → Necrozma »")
     L.append("")
-    L.append("Dans Sky le méchant est **Dusknoir**. Dans New Era, Dusknoir est **allié** :")
-    L.append("le rôle antagoniste est porté par **Necrozma** (maître aux yeux rouges, P05P01A)")
-    L.append("et ses **sbires Sableye**. **Dialga est absent** (gentil, non corrompu).")
-    L.append("Les **animations, positions, déplacements et embranchements** des SSB sont")
-    L.append("conservés 1:1 — seule la couche dialogue/cast change.")
+    L.append("Dans Sky le méchant est **Dusknoir** et le maître **Dialga**. Dans New Era :")
+    L.append("Dusknoir est **allié**, le maître du futur est **Necrozma** (yeux rouges, P05P01A),")
+    L.append("**Dialga est absent** (gentil, non corrompu). **Aucune réécriture narrative** :")
+    L.append("la chorégraphie 1:1 est conservée, seul l'acteur change.")
     L.append("")
-    for k, v in cast["scenes_a_reattribuer"].items():
-        L.append(f"- **{k}** : {v}")
+    L.append("- Scènes où YONOWAARU est l'**antagoniste** (geôlier du poteau, confrontation,")
+    L.append("  confession, menaces) : l'acteur devient **Necrozma**.")
+    L.append("  " + ", ".join(sorted(ANTAGONIST_SCENES.keys())) + ".")
+    L.append("- Scènes où YONOWAARU n'est pas l'antagoniste (rapporte au maître, guide le")
+    L.append("  héros du futur) : il reste **Dusknoir**.")
+    L.append("- Substitutions dans les dialogues canoniques : 'Dialga' -> 'Necrozma',")
+    L.append("  `Primal Dialga` → `Necrozma`, `Dusknoir` → `Necrozma` (scènes antagoniste).")
     L.append("")
     L.append("## Tables d'adaptation")
     L.append("")

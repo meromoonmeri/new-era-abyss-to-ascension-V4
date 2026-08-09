@@ -2,9 +2,13 @@
     P05P02A_m17a0104.lua — ARC DU FUTUR (adaptation New Era)
     Source canonique : pret/pmd-sky files/language-specific/US/SCRIPT/P05P02A/m17a0104.ssb
     Généré par tools/ssb_to_lua.py — IR canonique + couche d'adaptation New Era.
-    Les dialogues joués sont des clés STRINGS (FUT_*), le texte canonique Sky
-    est conservé en commentaire. Les tables anim/SE/effets manquantes sont
-    marquées TODO (jamais inventées).
+    Chorégraphie 1:1 (déplacements, positions, timings, animations, caméra,
+    fades, SFX, BGM, transitions, flags, embranchements). Seul le CAST change :
+    Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma), Celebi, héros/
+    partenaire ; le maître du futur = Necrozma (Dialga absent). Les dialogues
+    canoniques sont joués (cast appliqué), la clé FUT_* en commentaire sert
+    d'éventuelle passe FR. Les tables anim/SE/effets manquantes sont marquées
+    TODO (jamais inventées).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -20,10 +24,10 @@ function m17a0104.Cutscene()
         -- PARTIEL : sound_Stop []
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0104_001')) -- canon:  Hey...[K][hero]...
+        UI:WaitShowDialogue(' Hey...\n[hero]...') -- FUT_M17A0104_001 (FR optionnel)
         -- case 0: ' Hey...[K][hero]...'
         -- case 1: ' Hey...[K][hero]...'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0104_002')) -- canon:  Wake up, [hero]!
+        UI:WaitShowDialogue(' Wake up, [hero]!') -- FUT_M17A0104_002 (FR optionnel)
         -- case 3: ' Wake up, [hero]!'
         -- case 4: ' Wake up, [hero]!'
         UI:ResetSpeaker()
@@ -46,7 +50,7 @@ function m17a0104.Cutscene()
         GROUND:AnimateToPosition(CH('PLAYER'), CH('PLAYER').Position.X + 1*8, CH('PLAYER').Position.Y + -1*8, false, 2.0)
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0104_003')) -- canon: (Ugh...)
+        UI:WaitShowDialogue('(Ugh...)') -- FUT_M17A0104_003 (FR optionnel)
         -- case 6: '(Ugh...)'
         UI:ResetSpeaker()
         -- SetAnimation id 63 : table anim REQUISE (non inventée)
@@ -67,13 +71,13 @@ function m17a0104.Cutscene()
         GAME:WaitFrames(30)
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0104_004')) -- canon: (Wh-where...?)
+        UI:WaitShowDialogue('(Wh-where...?)') -- FUT_M17A0104_004 (FR optionnel)
         -- case 8: '(Wh-where...?)'
         UI:ResetSpeaker()
         -- ExecuteCommon(JUMP_HAPPY_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0104_005')) -- canon:  You're awake!
+        UI:WaitShowDialogue(' You\'re awake!') -- FUT_M17A0104_005 (FR optionnel)
         -- case 10: " You're awake!"
         -- case 11: " You're awake!"
         UI:ResetSpeaker()
@@ -87,7 +91,7 @@ function m17a0104.Cutscene()
         GAME:WaitFrames(30)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0104_006')) -- canon:  This place... I think it's a jail.
+        UI:WaitShowDialogue(' This place... I think it\'s a jail.') -- FUT_M17A0104_006 (FR optionnel)
         -- case 13: " This place... I think it's a jail."
         -- case 14: " This place... I think it's a jail."
         UI:ResetSpeaker()
@@ -96,12 +100,12 @@ function m17a0104.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0104_007')) -- canon: (J-jail?!)
+        UI:WaitShowDialogue('(J-jail?!)') -- FUT_M17A0104_007 (FR optionnel)
         -- case 16: '(J-jail?!)'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0104_008')) -- canon:  I just woke up a while ago, so I'm not sure what's going on.
+        UI:WaitShowDialogue(' I just woke up a while ago, so\nI\'m not sure what\'s going on.') -- FUT_M17A0104_008 (FR optionnel)
         -- case 18: " I just woke up a while ago, so\nI'm not sure what's going on."
         -- case 19: " I just woke up a while ago, so\nI'm not sure what's going on."
         UI:ResetSpeaker()
@@ -109,7 +113,7 @@ function m17a0104.Cutscene()
         GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.Up, 15)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Worried')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0104_009')) -- canon:  I tried opening the doors, but they're locked.
+        UI:WaitShowDialogue(' I tried opening the doors, but\nthey\'re locked.') -- FUT_M17A0104_009 (FR optionnel)
         -- case 21: " I tried opening the doors, but\nthey're locked."
         -- case 22: " I tried the doors, but they're\nlocked."
         UI:ResetSpeaker()
@@ -117,10 +121,10 @@ function m17a0104.Cutscene()
         GROUND:CharTurnToChar(CH('PLAYER'), CH('Teammate1'))
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0104_010')) -- canon:  There doesn't seem to be any other way out.
+        UI:WaitShowDialogue(' There doesn\'t seem to be any\nother way out.') -- FUT_M17A0104_010 (FR optionnel)
         -- case 24: " There doesn't seem to be any\nother way out."
         -- case 25: ' There seems to be no other\nway out.'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0104_011')) -- canon:  I think that we've been locked up...[K] Ugh...
+        UI:WaitShowDialogue(' I think that we\'ve been locked\nup...\n Ugh...') -- FUT_M17A0104_011 (FR optionnel)
         -- case 27: " I think that we've been locked\nup...[K] Ugh..."
         -- case 28: " I think that we've been locked\nup...[K] Ugh..."
         UI:ResetSpeaker()
@@ -132,11 +136,11 @@ function m17a0104.Cutscene()
         GAME:WaitFrames(30)
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Worried')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0104_012')) -- canon: (Wh-what's going on?)
+        UI:WaitShowDialogue('(Wh-what\'s going on?)') -- FUT_M17A0104_012 (FR optionnel)
         -- case 30: "(Wh-what's going on?)"
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0104_013')) -- canon: (We're locked up?)
+        UI:WaitShowDialogue('(We\'re locked up?)') -- FUT_M17A0104_013 (FR optionnel)
         -- case 32: "(We're locked up?)"
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0104_014')) -- canon: (I don't know what's going on either, but I may as well investigate...)
+        UI:WaitShowDialogue('(I don\'t know what\'s going on either, but I may\nas well investigate...)') -- FUT_M17A0104_014 (FR optionnel)
         -- case 34: "(I don't know what's going on either, but I may\nas well investigate...)"
         UI:ResetSpeaker()
         -- End : fin de scène

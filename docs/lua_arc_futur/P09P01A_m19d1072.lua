@@ -2,9 +2,13 @@
     P09P01A_m19d1072.lua — ARC DU FUTUR (adaptation New Era)
     Source canonique : pret/pmd-sky files/language-specific/US/SCRIPT/P09P01A/m19d1072.ssb
     Généré par tools/ssb_to_lua.py — IR canonique + couche d'adaptation New Era.
-    Les dialogues joués sont des clés STRINGS (FUT_*), le texte canonique Sky
-    est conservé en commentaire. Les tables anim/SE/effets manquantes sont
-    marquées TODO (jamais inventées).
+    Chorégraphie 1:1 (déplacements, positions, timings, animations, caméra,
+    fades, SFX, BGM, transitions, flags, embranchements). Seul le CAST change :
+    Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma), Celebi, héros/
+    partenaire ; le maître du futur = Necrozma (Dialga absent). Les dialogues
+    canoniques sont joués (cast appliqué), la clé FUT_* en commentaire sert
+    d'éventuelle passe FR. Les tables anim/SE/effets manquantes sont marquées
+    TODO (jamais inventées).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -24,10 +28,10 @@ function m19d1072.Cutscene()
         -- screen_FlushOut [1, 0, 8, 0, 0, 0] : fondu coloré (FlashEmitter, adaptation)
         GAME:FadeIn(30)
         GAME:WaitFrames(30)
-        UI:SetSpeaker(CH('Dusknoir'))
+        UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19D1072_001')) -- canon:  We shall be rid of you for all time!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19D1072_002')) -- canon:  This is the end...[K]for you!
+        UI:WaitShowDialogue(' We shall be rid of you for\nall time!') -- FUT_M19D1072_001 (FR optionnel)
+        UI:WaitShowDialogue(' This is the end...\nfor you!') -- FUT_M19D1072_002 (FR optionnel)
         UI:ResetSpeaker()
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
@@ -62,7 +66,7 @@ function m19d1072.Cutscene()
         })
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19D1072_003')) -- canon:  Wheh-heh-heh!
+        UI:WaitShowDialogue(' Wheh-heh-heh!') -- FUT_M19D1072_003 (FR optionnel)
         pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
@@ -157,23 +161,23 @@ function m19d1072.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19D1072_004')) -- canon:  Urk...
+        UI:WaitShowDialogue(' Urk...') -- FUT_M19D1072_004 (FR optionnel)
         -- case 3: ' Urk...'
         -- case 4: ' Urk...'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19D1072_005')) -- canon:  Hey, [hero]! [CS:N]Grovyle[CR]![K] You can't give up!
+        UI:WaitShowDialogue(' Hey, [hero]! Grovyle!\n\nYou can\'t give up!') -- FUT_M19D1072_005 (FR optionnel)
         -- case 6: " Hey, [hero]! [CS:N]Grovyle[CR]![K]\nYou can't give up!"
         -- case 7: " Hey, [hero]! [CS:N]Grovyle[CR]![K]\nYou can't give up!"
         -- ExecuteCommon(JUMP_ANGRY_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19D1072_006')) -- canon:  Gah...[K] You say not to give up...?
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19D1072_007')) -- canon:  But what can we possibly do in this bleak situation?
+        UI:WaitShowDialogue(' Gah...\n You say not to give up...?') -- FUT_M19D1072_006 (FR optionnel)
+        UI:WaitShowDialogue(' But what can we possibly do in\nthis bleak situation?') -- FUT_M19D1072_007 (FR optionnel)
         UI:ResetSpeaker()
         -- ExecuteCommon(JUMP_ANGRY_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Determined')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19D1072_008')) -- canon:  We have to think!
+        UI:WaitShowDialogue(' We have to think!') -- FUT_M19D1072_008 (FR optionnel)
         -- case 11: ' We have to think!'
         -- case 12: ' We have to think!'
         UI:ResetSpeaker()

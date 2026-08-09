@@ -2,9 +2,13 @@
     P05P02A_m17a0201.lua — ARC DU FUTUR (adaptation New Era)
     Source canonique : pret/pmd-sky files/language-specific/US/SCRIPT/P05P02A/m17a0201.ssb
     Généré par tools/ssb_to_lua.py — IR canonique + couche d'adaptation New Era.
-    Les dialogues joués sont des clés STRINGS (FUT_*), le texte canonique Sky
-    est conservé en commentaire. Les tables anim/SE/effets manquantes sont
-    marquées TODO (jamais inventées).
+    Chorégraphie 1:1 (déplacements, positions, timings, animations, caméra,
+    fades, SFX, BGM, transitions, flags, embranchements). Seul le CAST change :
+    Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma), Celebi, héros/
+    partenaire ; le maître du futur = Necrozma (Dialga absent). Les dialogues
+    canoniques sont joués (cast appliqué), la clé FUT_* en commentaire sert
+    d'éventuelle passe FR. Les tables anim/SE/effets manquantes sont marquées
+    TODO (jamais inventées).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -35,9 +39,9 @@ function m17a0201.Cutscene()
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Worried')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0201_001')) -- canon: (It's no good.[K] Like [partner] said, these doors won't open.)
+        UI:WaitShowDialogue('(It\'s no good.\n Like [partner] said, these\ndoors won\'t open.)') -- FUT_M17A0201_001 (FR optionnel)
         -- case 2: "(It's no good.[K] Like [partner] said, these\ndoors won't open.)"
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M17A0201_002')) -- canon: (It sure looks like we've been locked up!)
+        UI:WaitShowDialogue('(It sure looks like we\'ve been locked up!)') -- FUT_M17A0201_002 (FR optionnel)
         -- case 4: "(It sure looks like we've been locked up!)"
         UI:ResetSpeaker()
         -- End : fin de scène

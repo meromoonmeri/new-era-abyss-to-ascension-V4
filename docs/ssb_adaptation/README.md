@@ -42,20 +42,20 @@
 | `PLAYER_FUTURE` | NewEra.HeroFuture | Héros du futur (30 ans plus tard — le même, dans le monde devenu néant). |
 | `__MAITRE__` | NewEra.Necrozma | LE MAÎTRE aux yeux rouges dans l'obscurité (P05P01A). A absorbé toute la lumière du futur. |
 
-## Scènes à ré-attribuer (rôle antagoniste)
+## Règle « antagoniste / maître de l'original → Necrozma »
 
-Dans Sky le méchant est **Dusknoir**. Dans New Era, Dusknoir est **allié** :
-le rôle antagoniste est porté par **Necrozma** (maître aux yeux rouges, P05P01A)
-et ses **sbires Sableye**. **Dialga est absent** (gentil, non corrompu).
-Les **animations, positions, déplacements et embranchements** des SSB sont
-conservés 1:1 — seule la couche dialogue/cast change.
+Dans Sky le méchant est **Dusknoir** et le maître **Dialga**. Dans New Era :
+Dusknoir est **allié**, le maître du futur est **Necrozma** (yeux rouges, P05P01A),
+**Dialga est absent** (gentil, non corrompu). **Aucune réécriture narrative** :
+la chorégraphie 1:1 est conservée, seul l'acteur change.
 
-- **P05P01A** : Repaire de Necrozma : le maître aux yeux rouges est dans l'obscurité (décor/ombre). Dusknoir n'y est PAS antagoniste.
-- **P05P02A_m17a0301** : Enlèvement : dans Sky c'est Dusknoir qui capture ; dans New Era ce sont les sbires de Necrozma (Sableye) — dialogue ré-attribué.
-- **P05P03A_m17a0302** : Poteau d'exécution : les Sableye ligotent le trio ; Necrozma (yeux rouges) domine la scène. Dusknoir reste allié.
-- **P09P01A_m19b1007** : Confession du méchant : dans Sky Dusknoir avoue ; dans New Era la réplique est portée par Necrozma (ou ses sbires).
-- **P09P01A_m19b1009** : « Notre voie temporelle est brisée ! » : ré-attribution à la confrontation avec Necrozma.
-- **P09P01A_m19d1072** : « Nous allons nous débarrasser de vous pour toujours ! » : Necrozma/éternité (Eternatus altère la réalité).
+- Scènes où YONOWAARU est l'**antagoniste** (geôlier du poteau, confrontation,
+  confession, menaces) : l'acteur devient **Necrozma**.
+  P05P03A_m17a0302, P05P03A_m26a06d3, P09P01A_m19b1001, P09P01A_m19b1007, P09P01A_m19b1009, P09P01A_m19d1072.
+- Scènes où YONOWAARU n'est pas l'antagoniste (rapporte au maître, guide le
+  héros du futur) : il reste **Dusknoir**.
+- Substitutions dans les dialogues canoniques : 'Dialga' -> 'Necrozma',
+  `Primal Dialga` → `Necrozma`, `Dusknoir` → `Necrozma` (scènes antagoniste).
 
 ## Tables d'adaptation
 

@@ -2,9 +2,13 @@
     P09P01A_m19b1009.lua — ARC DU FUTUR (adaptation New Era)
     Source canonique : pret/pmd-sky files/language-specific/US/SCRIPT/P09P01A/m19b1009.ssb
     Généré par tools/ssb_to_lua.py — IR canonique + couche d'adaptation New Era.
-    Les dialogues joués sont des clés STRINGS (FUT_*), le texte canonique Sky
-    est conservé en commentaire. Les tables anim/SE/effets manquantes sont
-    marquées TODO (jamais inventées).
+    Chorégraphie 1:1 (déplacements, positions, timings, animations, caméra,
+    fades, SFX, BGM, transitions, flags, embranchements). Seul le CAST change :
+    Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma), Celebi, héros/
+    partenaire ; le maître du futur = Necrozma (Dialga absent). Les dialogues
+    canoniques sont joués (cast appliqué), la clé FUT_* en commentaire sert
+    d'éventuelle passe FR. Les tables anim/SE/effets manquantes sont marquées
+    TODO (jamais inventées).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -62,7 +66,7 @@ function m19b1009.Cutscene()
         pcall(function() SOUND:PlayBGM('Oh No!.ogg', true) end) -- OhNo
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19B1009_001')) -- canon:  Ack! Our time-traveling path has been shattered!
+        UI:WaitShowDialogue(' Ack! Our time-traveling path has\nbeen shattered!') -- FUT_M19B1009_001 (FR optionnel)
         -- case 0: ' Ack! Our time-traveling path has\nbeen shattered!'
         -- case 1: ' Ack! Our time-traveling path has\nbeen shattered!'
         UI:ResetSpeaker()
@@ -71,7 +75,7 @@ function m19b1009.Cutscene()
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6, NPC_YONOWAARU
         TASK:JoinCoroutines({
             function()
-                GROUND:CharAnimateTurnTo(CH('Dusknoir'), Direction.Up, 15)
+                GROUND:CharAnimateTurnTo(CH('Necrozma'), Direction.Up, 15)
             end,
             function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_1'), Direction.Up, 15)
@@ -93,11 +97,11 @@ function m19b1009.Cutscene()
             end,
         })
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8967') end) -- TODO table SE id 8967
-        GROUND:CharSetEmote(CH('Dusknoir'), 'exclaim', 3)
+        GROUND:CharSetEmote(CH('Necrozma'), 'exclaim', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
-        UI:SetSpeaker(CH('Dusknoir'))
+        UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19B1009_002')) -- canon:  There they are!
+        UI:WaitShowDialogue(' There they are!') -- FUT_M19B1009_002 (FR optionnel)
         UI:ResetSpeaker()
         -- performer 0
         GROUND:MoveToPosition(CH('PLAYER'), 300, 276, false, 4.0)
@@ -119,7 +123,7 @@ function m19b1009.Cutscene()
         -- ExecuteCommon(JUMP_SURPRISE_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19B1009_003')) -- canon:  We got so close to the Passage of Time!
+        UI:WaitShowDialogue(' We got so close to the Passage\nof Time!') -- FUT_M19B1009_003 (FR optionnel)
         -- case 4: ' We got so close to the Passage\nof Time!'
         -- case 5: ' We almost made it to the\nPassage of Time!'
         UI:ResetSpeaker()
@@ -135,40 +139,40 @@ function m19b1009.Cutscene()
         })
         UI:SetSpeaker(CH('Celebi'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19B1009_004')) -- canon:  Dive in now! You can make it!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19B1009_005')) -- canon:  Now! Into the Passage of Time!
+        UI:WaitShowDialogue(' Dive in now! You can make it!') -- FUT_M19B1009_004 (FR optionnel)
+        UI:WaitShowDialogue(' Now! Into the Passage of Time!') -- FUT_M19B1009_005 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19B1009_006')) -- canon:  Wh-what about you, [CS:N]Celebi[CR]?!
+        UI:WaitShowDialogue(' Wh-what about you, Celebi?!') -- FUT_M19B1009_006 (FR optionnel)
         -- case 9: ' Wh-what about you, [CS:N]Celebi[CR]?!'
         -- case 10: ' Wh-what about you, [CS:N]Celebi[CR]?!'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Celebi'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19B1009_007')) -- canon:  Don't fret over me![K] I told you I can't be caught!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19B1009_008')) -- canon:  Stop the planet's paralysis...[K] Change history!
+        UI:WaitShowDialogue(' Don\'t fret over me!\n I told you I\ncan\'t be caught!') -- FUT_M19B1009_007 (FR optionnel)
+        UI:WaitShowDialogue(' Stop the planet\'s paralysis...\n\nChange history!') -- FUT_M19B1009_008 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19B1009_009')) -- canon:  Thanks!
+        UI:WaitShowDialogue(' Thanks!') -- FUT_M19B1009_009 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19B1009_010')) -- canon:  Thanks, [CS:N]Celebi[CR]!
+        UI:WaitShowDialogue(' Thanks, Celebi!') -- FUT_M19B1009_010 (FR optionnel)
         -- case 15: ' Thanks, [CS:N]Celebi[CR]!'
         -- case 16: ' Thank you, [CS:N]Celebi[CR]!'
         UI:ResetSpeaker()
-        UI:SetSpeaker(CH('Dusknoir'))
+        UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19B1009_011')) -- canon:  You're not getting away!
+        UI:WaitShowDialogue(' You\'re not getting away!') -- FUT_M19B1009_011 (FR optionnel)
         UI:ResetSpeaker()
         -- performer 0
         GROUND:MoveToPosition(CH('PLAYER'), 300, 300, false, 2.0)
         -- (parallèle) NPC_JUPUTORU, NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6, NPC_YONOWAARU
         TASK:JoinCoroutines({
             function()
-                GROUND:MoveToPosition(CH('Dusknoir'), 300, 316, false, 2.0)
+                GROUND:MoveToPosition(CH('Necrozma'), 300, 316, false, 2.0)
             end,
             function()
                 GROUND:MoveToPosition(CH('Sableye_1'), 268, 284, false, 2.398)
@@ -263,7 +267,7 @@ function m19b1009.Cutscene()
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6, NPC_YONOWAARU
         TASK:JoinCoroutines({
             function()
-                GROUND:CharSetEmote(CH('Dusknoir'), 'exclaim', 3)
+                GROUND:CharSetEmote(CH('Necrozma'), 'exclaim', 3)
                 -- WaitEffect (les appels GROUND sont bloquants)
             end,
             function()
@@ -286,9 +290,9 @@ function m19b1009.Cutscene()
             end,
         })
         GAME:WaitFrames(70)
-        UI:SetSpeaker(CH('Dusknoir'))
+        UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M19B1009_012')) -- canon:  Gah...
+        UI:WaitShowDialogue(' Gah...') -- FUT_M19B1009_012 (FR optionnel)
         UI:ResetSpeaker()
         GAME:WaitFrames(60)
         SOUND:FadeOutBGM(120)

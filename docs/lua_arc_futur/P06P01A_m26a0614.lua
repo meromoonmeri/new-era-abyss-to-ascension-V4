@@ -2,9 +2,13 @@
     P06P01A_m26a0614.lua — ARC DU FUTUR (adaptation New Era)
     Source canonique : pret/pmd-sky files/language-specific/US/SCRIPT/P06P01A/m26a0614.ssb
     Généré par tools/ssb_to_lua.py — IR canonique + couche d'adaptation New Era.
-    Les dialogues joués sont des clés STRINGS (FUT_*), le texte canonique Sky
-    est conservé en commentaire. Les tables anim/SE/effets manquantes sont
-    marquées TODO (jamais inventées).
+    Chorégraphie 1:1 (déplacements, positions, timings, animations, caméra,
+    fades, SFX, BGM, transitions, flags, embranchements). Seul le CAST change :
+    Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma), Celebi, héros/
+    partenaire ; le maître du futur = Necrozma (Dialga absent). Les dialogues
+    canoniques sont joués (cast appliqué), la clé FUT_* en commentaire sert
+    d'éventuelle passe FR. Les tables anim/SE/effets manquantes sont marquées
+    TODO (jamais inventées).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -31,7 +35,7 @@ function m26a0614.Cutscene()
         GAME:WaitFrames(30)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M26A0614_001')) -- canon:  [hero], thanks.
+        UI:WaitShowDialogue(' [hero], thanks.') -- FUT_M26A0614_001 (FR optionnel)
         -- case 0: ' [hero], thanks.'
         -- case 1: ' [hero], thank you.'
         UI:ResetSpeaker()
@@ -39,7 +43,7 @@ function m26a0614.Cutscene()
         GAME:WaitFrames(15)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M26A0614_002')) -- canon:  You were worried about me for being so down.
+        UI:WaitShowDialogue(' You were worried about me for\nbeing so down.') -- FUT_M26A0614_002 (FR optionnel)
         -- case 3: ' You were worried about me for\nbeing so down.'
         -- case 4: ' You tried to pick me up because\nI was feeling down.'
         UI:ResetSpeaker()

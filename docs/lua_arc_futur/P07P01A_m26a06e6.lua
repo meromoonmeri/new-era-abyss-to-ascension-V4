@@ -2,9 +2,13 @@
     P07P01A_m26a06e6.lua — ARC DU FUTUR (adaptation New Era)
     Source canonique : pret/pmd-sky files/language-specific/US/SCRIPT/P07P01A/m26a06e6.ssb
     Généré par tools/ssb_to_lua.py — IR canonique + couche d'adaptation New Era.
-    Les dialogues joués sont des clés STRINGS (FUT_*), le texte canonique Sky
-    est conservé en commentaire. Les tables anim/SE/effets manquantes sont
-    marquées TODO (jamais inventées).
+    Chorégraphie 1:1 (déplacements, positions, timings, animations, caméra,
+    fades, SFX, BGM, transitions, flags, embranchements). Seul le CAST change :
+    Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma), Celebi, héros/
+    partenaire ; le maître du futur = Necrozma (Dialga absent). Les dialogues
+    canoniques sont joués (cast appliqué), la clé FUT_* en commentaire sert
+    d'éventuelle passe FR. Les tables anim/SE/effets manquantes sont marquées
+    TODO (jamais inventées).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -47,7 +51,7 @@ function m26a06e6.Cutscene()
         GROUND:MoveToPosition(CH('PLAYER'), CH('PLAYER').Position.X + 0.7969*8, CH('PLAYER').Position.Y + 24*8, false, 1.594)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M26A06E6_001')) -- canon:  [hero].
+        UI:WaitShowDialogue(' [hero].') -- FUT_M26A06E6_001 (FR optionnel)
         -- case 0: ' [hero].'
         -- case 1: ' [hero].'
         UI:ResetSpeaker()
@@ -55,10 +59,10 @@ function m26a06e6.Cutscene()
         GAME:WaitFrames(15)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Determined')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M26A06E6_002')) -- canon:  We have to...[K] We have to get back!
+        UI:WaitShowDialogue(' We have to...\n We have to\nget back!') -- FUT_M26A06E6_002 (FR optionnel)
         -- case 3: ' We have to...[K] We have to\nget back!'
         -- case 4: ' We have to...[K] We have to\nget back!'
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_M26A06E6_003')) -- canon:  Back to our own world!
+        UI:WaitShowDialogue(' Back to our own world!') -- FUT_M26A06E6_003 (FR optionnel)
         -- case 6: ' Back to our own world!'
         -- case 7: ' Back to our own world!'
         UI:ResetSpeaker()

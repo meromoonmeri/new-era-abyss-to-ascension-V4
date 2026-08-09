@@ -1,5 +1,6 @@
 {
  "schema": "newera.adaptation.cast.v1",
+ "principe": "1:1 avec la cinématique canonique Sky (chorégraphie, timings, positions, animations, caméra, fades, SFX, BGM, transitions, flags, embranchements, ordre). SEUL LE CAST change. Aucune réécriture narrative.",
  "directives_utilisateur": {
   "dusknoir_grovyle_allies": "dusknoir & groovyle dans new era font équipe ils viennent d'un futur",
   "dialga_gentil": "dialga dans new era est gentil il est plus corrompu (ABSENT de l'arc du futur)",
@@ -80,7 +81,7 @@
    "new_era": "NewEra.Necrozma",
    "role": "LE MAÎTRE aux yeux rouges dans l'obscurité (P05P01A). A absorbé toute la lumière du futur.",
    "species": "Necrozma",
-   "note": "Dans Sky le méchant est Dusknoir ; dans New Era le rôle antagoniste est porté par Necrozma (et ses sbires Sableye). Dialga est ABSENT : dans New Era il est gentil, non corrompu."
+   "note": "Maître de l'original (Dialga) -> Necrozma. Dialga est ABSENT de l'arc (gentil dans New Era). Dans les scènes où YONOWAARU est l'antagoniste (ANTAGONIST_SCENES), l'acteur devient Necrozma."
   }
  },
  "cast_par_scene": {
@@ -653,12 +654,20 @@
    }
   }
  },
- "scenes_a_reattribuer": {
-  "P05P01A": "Repaire de Necrozma : le maître aux yeux rouges est dans l'obscurité (décor/ombre). Dusknoir n'y est PAS antagoniste.",
-  "P05P02A_m17a0301": "Enlèvement : dans Sky c'est Dusknoir qui capture ; dans New Era ce sont les sbires de Necrozma (Sableye) — dialogue ré-attribué.",
-  "P05P03A_m17a0302": "Poteau d'exécution : les Sableye ligotent le trio ; Necrozma (yeux rouges) domine la scène. Dusknoir reste allié.",
-  "P09P01A_m19b1007": "Confession du méchant : dans Sky Dusknoir avoue ; dans New Era la réplique est portée par Necrozma (ou ses sbires).",
-  "P09P01A_m19b1009": "« Notre voie temporelle est brisée ! » : ré-attribution à la confrontation avec Necrozma.",
-  "P09P01A_m19d1072": "« Nous allons nous débarrasser de vous pour toujours ! » : Necrozma/éternité (Eternatus altère la réalité)."
+ "regle_antagoniste": {
+  "regle": "antagoniste / maître de l'original -> Necrozma, lorsque le personnage doit être remplacé narrativement",
+  "scenes": {
+   "P05P03A_m17a0302": "Necrozma",
+   "P05P03A_m26a06d3": "Necrozma",
+   "P09P01A_m19b1001": "Necrozma",
+   "P09P01A_m19b1007": "Necrozma",
+   "P09P01A_m19b1009": "Necrozma",
+   "P09P01A_m19d1072": "Necrozma"
+  },
+  "substitutions_dialogue": {
+   "Dialga": "Necrozma (le maître du futur ; Dialga absent de l'arc)",
+   "Primal Dialga": "Necrozma (la présence sombre aux yeux rouges)",
+   "Dusknoir (scènes antagoniste)": "Necrozma (l'acteur YONOWAARU devient Necrozma ; nom dans les dialogues substitué)"
+  }
  }
 }

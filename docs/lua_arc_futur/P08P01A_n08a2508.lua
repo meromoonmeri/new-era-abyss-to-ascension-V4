@@ -2,9 +2,13 @@
     P08P01A_n08a2508.lua — ARC DU FUTUR (adaptation New Era)
     Source canonique : pret/pmd-sky files/language-specific/US/SCRIPT/P08P01A/n08a2508.ssb
     Généré par tools/ssb_to_lua.py — IR canonique + couche d'adaptation New Era.
-    Les dialogues joués sont des clés STRINGS (FUT_*), le texte canonique Sky
-    est conservé en commentaire. Les tables anim/SE/effets manquantes sont
-    marquées TODO (jamais inventées).
+    Chorégraphie 1:1 (déplacements, positions, timings, animations, caméra,
+    fades, SFX, BGM, transitions, flags, embranchements). Seul le CAST change :
+    Dusknoir/Grovyle (alliés), Sableye (sbires de Necrozma), Celebi, héros/
+    partenaire ; le maître du futur = Necrozma (Dialga absent). Les dialogues
+    canoniques sont joués (cast appliqué), la clé FUT_* en commentaire sert
+    d'éventuelle passe FR. Les tables anim/SE/effets manquantes sont marquées
+    TODO (jamais inventées).
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
@@ -62,7 +66,7 @@ function n08a2508.Cutscene()
                 pcall(function() GROUND:CharSetAnim(CH('Sableye_6'), 'Idle', true) end) -- placeholder sûr
             end,
         })
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2508_001')) -- canon: [CS:N]Sableye[CR]: Wheh-heh-heh!
+        UI:WaitShowDialogue('Sableye: Wheh-heh-heh!') -- FUT_N08A2508_001 (FR optionnel)
         pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
@@ -122,12 +126,12 @@ function n08a2508.Cutscene()
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2508_002')) -- canon:  [CS:Y]Grovyle[CR]![K] You can't fail this time!
+        UI:WaitShowDialogue(' Grovyle!\n You can\'t fail\nthis time!') -- FUT_N08A2508_002 (FR optionnel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('HeroFuture'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2508_003')) -- canon:  Humph![K] I should say the same thing!
-        UI:WaitShowDialogue(STRINGS:FormatKey('FUT_N08A2508_004')) -- canon:  Let's go!
+        UI:WaitShowDialogue(' Humph!\n I should say the\nsame thing!') -- FUT_N08A2508_003 (FR optionnel)
+        UI:WaitShowDialogue(' Let\'s go!') -- FUT_N08A2508_004 (FR optionnel)
         UI:ResetSpeaker()
         -- SetAnimation id 12 : table anim REQUISE (non inventée)
         pcall(function() GROUND:CharSetAnim(CH('Sableye_1'), 'Idle', true) end) -- placeholder sûr
