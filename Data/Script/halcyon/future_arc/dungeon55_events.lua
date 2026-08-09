@@ -40,25 +40,16 @@ function Dungeon55Events.Play(name)
 end
 
 -- Sortie du donjon D55 -> P09P01A (climax de l'arc).
--- Appelé par le hook de fin du 3e étage (après la traversée).
-local function GROUND_IDX(name)
-  local ok, idx = pcall(function()
-    local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("master_zone")
-    for ii = 0, zone.Grounds.Count - 1, 1 do
-      if zone.Grounds[ii] == name then return ii end
-    end
-    return -1
-  end)
-  if ok then return idx end
-  return -1
-end
-
-function Dungeon55Events.ExitToClimax()
+-- Appelé par le hook natif ExitSegment de la zone passage_temps.
+-- Le résultat du donjon est celui fourni par le moteur (RogueEssence).
+function Dungeon55Events.ExitToClimax(result)
   DEBUG.EnableDbgCoro()
+  result = result or RogueEssence.Data.GameProgress.Result.Success
   GAME:FadeOut(false, 60)
   GAME:WaitFrames(30)
-  GAME:EndDungeonRun(RogueEssence.Data.GameProgress.Result.Success,
-    'master_zone', -1, GROUND_IDX('p09p01a'), 0, false, false)
+  -- Sortie NATIVE de donjon : EndDungeonRun -> master_zone, ground p09p01a.
+  -- GROUND_IDX résout l'index du ground dans la zone master_zone.
+  GAME:EndDungeonRun(result, 'master_zone', -1, GROUND_IDX('p09p01a'), 0, false, false)
   GAME:WaitFrames(10)
   GAME:FadeIn(20)
   PrintInfo('[Dungeon55] sortie vers p09p01a (climax)')

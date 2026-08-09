@@ -2763,6 +2763,226 @@
    },
    "Released": true,
    "SortOrder": 0
+  },
+  "chasm_cave": {
+   "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+   "ExpPercent": 100,
+   "Level": 28,
+   "LevelCap": true,
+   "KeepSkills": false,
+   "TeamRestrict": false,
+   "TeamSize": -1,
+   "MoneyRestrict": false,
+   "BagRestrict": -1,
+   "KeepTreasure": true,
+   "BagSize": -1,
+   "Rescues": 0,
+   "CountedFloors": 8,
+   "Rogue": 0,
+   "Grounds": [],
+   "Maps": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ]
+   ],
+   "Name": {
+    "DefaultText": "Chasm Cave",
+    "LocalTexts": {
+     "fr": "Chasm Cave"
+    }
+   },
+   "Released": true,
+   "SortOrder": 0
+  },
+  "dark_hill": {
+   "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+   "ExpPercent": 100,
+   "Level": 28,
+   "LevelCap": true,
+   "KeepSkills": false,
+   "TeamRestrict": false,
+   "TeamSize": -1,
+   "MoneyRestrict": false,
+   "BagRestrict": -1,
+   "KeepTreasure": true,
+   "BagSize": -1,
+   "Rescues": 0,
+   "CountedFloors": 15,
+   "Rogue": 0,
+   "Grounds": [],
+   "Maps": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14
+    ]
+   ],
+   "Name": {
+    "DefaultText": "Dark Hill",
+    "LocalTexts": {
+     "fr": "Dark Hill"
+    }
+   },
+   "Released": true,
+   "SortOrder": 0
+  },
+  "sealed_ruin": {
+   "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+   "ExpPercent": 100,
+   "Level": 28,
+   "LevelCap": true,
+   "KeepSkills": false,
+   "TeamRestrict": false,
+   "TeamSize": -1,
+   "MoneyRestrict": false,
+   "BagRestrict": -1,
+   "KeepTreasure": true,
+   "BagSize": -1,
+   "Rescues": 0,
+   "CountedFloors": 8,
+   "Rogue": 0,
+   "Grounds": [],
+   "Maps": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ]
+   ],
+   "Name": {
+    "DefaultText": "Sealed Ruin",
+    "LocalTexts": {
+     "fr": "Sealed Ruin"
+    }
+   },
+   "Released": true,
+   "SortOrder": 0
+  },
+  "sealed_ruin_pit": {
+   "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+   "ExpPercent": 100,
+   "Level": 28,
+   "LevelCap": true,
+   "KeepSkills": false,
+   "TeamRestrict": false,
+   "TeamSize": -1,
+   "MoneyRestrict": false,
+   "BagRestrict": -1,
+   "KeepTreasure": true,
+   "BagSize": -1,
+   "Rescues": 0,
+   "CountedFloors": 6,
+   "Rogue": 0,
+   "Grounds": [],
+   "Maps": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   ],
+   "Name": {
+    "DefaultText": "Sealed Ruin Pit",
+    "LocalTexts": {
+     "fr": "Sealed Ruin Pit"
+    }
+   },
+   "Released": true,
+   "SortOrder": 0
+  },
+  "mismagius_room": {
+   "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+   "ExpPercent": 100,
+   "Level": 28,
+   "LevelCap": true,
+   "KeepSkills": false,
+   "TeamRestrict": false,
+   "TeamSize": -1,
+   "MoneyRestrict": false,
+   "BagRestrict": -1,
+   "KeepTreasure": true,
+   "BagSize": -1,
+   "Rescues": 0,
+   "CountedFloors": 1,
+   "Rogue": 0,
+   "Grounds": [],
+   "Maps": [
+    [
+     0
+    ]
+   ],
+   "Name": {
+    "DefaultText": "Sealed Ruin Pit",
+    "LocalTexts": {
+     "fr": "Sealed Ruin Pit"
+    }
+   },
+   "Released": true,
+   "SortOrder": 0
+  },
+  "dusk_forest": {
+   "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+   "ExpPercent": 100,
+   "Level": 28,
+   "LevelCap": true,
+   "KeepSkills": false,
+   "TeamRestrict": false,
+   "TeamSize": -1,
+   "MoneyRestrict": false,
+   "BagRestrict": -1,
+   "KeepTreasure": true,
+   "BagSize": -1,
+   "Rescues": 0,
+   "CountedFloors": 8,
+   "Rogue": 0,
+   "Grounds": [],
+   "Maps": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ]
+   ],
+   "Name": {
+    "DefaultText": "Dusk Forest",
+    "LocalTexts": {
+     "fr": "Dusk Forest"
+    }
+   },
+   "Released": true,
+   "SortOrder": 0
   }
  }
 }
