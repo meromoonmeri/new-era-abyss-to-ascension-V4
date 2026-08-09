@@ -33,9 +33,25 @@ if not re.search(r'(?:DROP_CHANCE|CHANCE_PIERRE)\s*=\s*(?:33|0\.33)',rz):problem
 for f in ['RuinesArenes.lua','RuinesTitan.lua','RuinesRenforts.lua','RuinesZarbi.lua','ClovenCanonicalChamber.lua']:
  if not (R/'Data/Script/halcyon'/f).exists():problems.append('missing script '+f)
 # strict NDS scene evidence; absence stays FAIL, never inferred
-for scene in ['s04p1601','s04p1701','s04p1801','s04p1901','s04p1902','s04p2001']:
+def all_lua():return '\n'.join(p.read_text(errors='ignore') for p in (R/'Data/Script/halcyon').rglob('*.lua'))
+LUA=all_lua()
+def has(*needles):
+ return all(n in LUA for n in needles)
+for scene in ['s04p1601','s04p1701','s04p1801','s04p1901','s04p1902','s04p2001','s04p0501','s04p0601','s04p1001','s04p1101','s04p1301','s04p1401','s04p1501']:
  hits=list((R/'docs').rglob('*'+scene+'*'))
- if not hits and scene not in ''.join(p.read_text(errors='ignore') for p in (R/'Data/Script/halcyon').rglob('*.lua')):problems.append('missing explicit scene mapping '+scene)
-report={'canonical_source':'PMD Explorers of Sky — Aegis Cave','pmdo_identity':'cloven_ruins / Cloven Ruin','expected_floor_topology':expected,'actual_floor_topology':actual,'passed':ok,'problems':problems,'runtime':'REQUIRES_RUNTIME','status':'FAIL' if problems else 'PARTIAL_STATIC_PASS'}
+ if not hits and scene not in LUA:problems.append('missing explicit scene mapping '+scene)
+# Scene routing matrix must declare the Regigigas ending scenes on their NDS grounds.
+NDS=Path(R/'Data/Script/halcyon/ClovenNDSScenes.lua').read_text(errors='ignore')
+for scene,g in [('s04p1901','D32P44A'),('s04p1902','D32P14A'),('s04p2001','D32P44A')]:
+ if not (scene in NDS and g in NDS):problems.append(f'NDS matrix missing {scene} on {g}')
+# s04p1901 -> s04p1902 chain: in-dungeon post-boss sets pending flag; the
+# exterior Ground consumes it once (TourRevelee gate) to play the awakening.
+for need in ['SceneS04P1901Complete','SceneS04P1902Pending','VaincuRegigigas','not SV.Ruines.TourRevelee','SceneS04P1902Complete','TourRevelee']:
+ if need not in LUA:problems.append('ending chain missing '+need)
+if not has('RuinesTitan.Effondrement','RuinesRenforts.Revelation'):problems.append('s04p1902 awakening scene not wired (Effondrement/Revelation)')
+# Post-boss is a dungeon scene (no cross-checkable runtime), so verdict stays
+# static-verified here; a full pass requires the real PMDO runtime.
+ending_ok = all(n in LUA for n in ['SceneS04P1901Complete','SceneS04P1902Pending','SceneS04P1902Complete','TourRevelee','VaincuRegigigas'])
+report={'canonical_source':'PMD Explorers of Sky — Aegis Cave','pmdo_identity':'cloven_ruins / Cloven Ruin','expected_floor_topology':expected,'actual_floor_topology':actual,'passed':ok,'problems':problems,'ending_wiring_s04p1901_to_s04p1902':'STATIC VERIFIED' if ending_ok else 'FAIL','runtime':'REQUIRES_RUNTIME','status':'FAIL' if problems else 'PARTIAL_STATIC_PASS'}
 out=R/'docs/audit_global/CLOVEN_RUIN_AEGIS_CAVE_STRICT.json';out.parent.mkdir(parents=True,exist_ok=True);json.dump(report,open(out,'w'),indent=2)
 print(json.dumps(report,indent=2));sys.exit(1 if problems else 0)

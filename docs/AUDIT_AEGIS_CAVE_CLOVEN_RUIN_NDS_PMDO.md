@@ -164,7 +164,7 @@ Notes :
 | Mot GLACE complet → chambre Regice | `SV.Ruines.MotGlace` | ✅ |
 | Regice vaincu (scenario 29-59…) | `SV.Ruines.VaincuRegice` | ✅ |
 | Team Charm sauvée (Registeel) | renforts guilde (RuinesRenforts) | ✅ (adapté) |
-| Regigigas vaincu → Canceled Ruins | `SV.Ruines.VaincuRegigigas` + éveil Canceled Ruins | 🟡 voir §8 |
+| Regigigas vaincu → Canceled Ruins | `SV.Ruines.VaincuRegigigas` + éveil Canceled Ruins | ✅ (§8, s04p1902 câblé) |
 
 ## 8. CANCELED RUIN (CONCEALED RUINS) — ÉVEIL APRÈS REGIGIGAS
 
@@ -173,13 +173,32 @@ relève**, provoque un **séisme**, l'équipe **fuit** ; dehors, **le sol se sou
 l'entrée des Concealed Ruins s'ouvre** (« The ground heaved up! And a gap opened in
 the face of the cliff! »).
 
-**PMDO actuel** (RuinesTitan) : Acte V (le Titan se relève), Acte VIII (l'effondrement
-et la fuite). ⚠️ **Le lien explicite avec l'ouverture des Canceled Ruins** (la scène
-s04p1902 à l'extérieur, « le sol se soulève ») **n'est pas formellement prouvé comme
-monté** dans l'implémentation actuelle → **FAIL/PENDING** : la scène de révélation
-post-séisme doit être câblée (transition vers l'extérieur + dialogue d'éveil), ou
-documentée si elle existe sous une autre forme (Recherche : `s04p1902`, `D32P14A`,
-`CanceledRuin` dans le mod).
+**PMDO actuel** (RuinesTitan + RuinesRenforts + `cloven_ruins_entrance`) — **✅ STATIC
+VERIFIED** (2026-08-09). Le lien est câblé de bout en bout :
+
+1. **s04p1901 (dans le donjon, D32P44A)** : `RuinesTitan.Victoire()` Acte VIII →
+   `RuinesTitan.Effondrement()` pose `SV.Ruines.SceneS04P1901Complete = true` et
+   `SV.Ruines.SceneS04P1902Pending = true`, écran au noir, sortie de segment.
+2. **Transition vers l'extérieur** : la sortie du segment 7 ramène au Ground
+   `cloven_ruins_entrance` (`zone/cloven_ruins/init.lua`).
+3. **s04p1902 (extérieur, D32P14A)** : `cloven_ruins_entrance/init.lua` PlotScripting
+   (gate `SV.Ruines.VaincuRegigigas and not SV.Ruines.TourRevelee`, une seule fois)
+   → `RuinesRenforts.Revelation()` : le sol encaisse le séisme, « la falaise
+   s'entrouvre », éveil des Concealed Ruins, puis `SceneS04P1902Complete = true`,
+   `TourRevelee = true` (portail anti-rejeu) → enchaîne sur
+   `TeamDazzlingAegis.Aftermath()` et la sortie d'expédition
+   (`guild_third_floor_lobby`, transition ch.5 → ch.6).
+4. **s04p2001 (Regigigas se voue / recrutement)** : `ClovenCanonicalChamber`
+   (cas `else` du Regigigas, à la revanche) → « JE SUIS REGIGIGAS. JE RECONNAIS
+   VOTRE VALEUR. » puis retour au camp.
+
+Le fichier `ClovenNDSScenes.lua` (matrice `S.MATRIX`) déclare explicitement
+`s04p1901={ground='D32P44A',…}`, `s04p1902={ground='D32P14A',…}` et
+`s04p2001={ground='D32P44A',…}`, conformément au canon §0.1. Cette chaîne est
+vérifiée automatiquement par `tools/audit_cloven_ruin_aegis_cave.py`
+(champ `ending_wiring_s04p1901_to_s04p1902`). **STATIC** : le rendu visuel exact
+(séisme `EVT_Tower_Quake`, soulèvement du sol) reste `RUNTIME PENDING` tant que le
+moteur PMDO n'a pas été exécuté.
 
 ## 9. CAST — ADAPTATION +30 ANS
 
@@ -225,12 +244,12 @@ corrigé → **46/46 floors, 223/223 Pokémon, 0 espèce inconnue ; 2 FAIL = BGM
 | FIXED FLOORS | ✅ RECONSTRUCTED (4 arènes .rsmap au dépôt, movesets canoniques NDS) |
 | BATTLES | ✅ STATIC (équipes + événements posés, composition canonique) — RUNTIME PENDING |
 | REGIGIGAS | ✅ STATIC (L45 + 11 gardes) — RUNTIME PENDING |
-| POST-BOSS | 🟡 Acte V/VIII montés ; lien Canceled Ruins → **FAIL/PENDING** (§8) |
-| CANCELED RUIN AWAKENING | 🟡 PENDING (scène s04p1902 à câbler/prouver) |
-| FINAL CUTSCENE | 🟡 PENDING (fin de l'arc : sortie, retour, bilan) |
+| POST-BOSS | ✅ STATIC VERIFIED — Acte V/VIII (RuinesTitan) + câblage explicite s04p1901 (§8) — RUNTIME PENDING |
+| CANCELED RUIN AWAKENING | ✅ STATIC VERIFIED — s04p1902 câblé (RuinesRenforts.Revelation, §8) — RUNTIME PENDING |
+| FINAL CUTSCENE | ✅ STATIC VERIFIED — sortie → éveil → sortie d'expédition (`guild_third_floor_lobby`, ch5→ch6) — RUNTIME PENDING |
 | CAST ADAPTATION | ✅ AUDITED (§9) |
 | NARRATIVE TIMELINE +30 ANS | ✅ AUDITED (Ruines au ch.5, niveaux 17-25 vs 43-47 NDS — DOCUMENTED) |
-| TRANSITIONS | 🟡 PENDING (sorties entre segments/grounds à vérifier au runtime) |
+| TRANSITIONS | 🟡 PARTIAL — s04p1901→s04p1902 câblé (§8) ; reste à valider au runtime |
 | FLAGS | ✅ COMPLETE (SV.Ruines.*) |
 | AUDIO | ✅ Aegis Cave.ogg présent ; 2 BGM futur absents (REQUIRES_ASSET) |
 | VFX | 🟡 STATIC (SFX/effets NDS 5143/7950/7951 à valider runtime) |

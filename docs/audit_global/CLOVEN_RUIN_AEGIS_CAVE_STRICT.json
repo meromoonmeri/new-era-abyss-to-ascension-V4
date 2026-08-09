@@ -25,6 +25,7 @@
     "8 structures / 19 explorable units (15 mazes + 4 chambers)"
   ],
   "problems": [],
+  "ending_wiring_s04p1901_to_s04p1902": "STATIC VERIFIED",
   "runtime": "REQUIRES_RUNTIME",
   "status": "PARTIAL_STATIC_PASS"
 }
