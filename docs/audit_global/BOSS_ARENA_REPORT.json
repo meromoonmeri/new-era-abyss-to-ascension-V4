@@ -1,6 +1,6 @@
 {
   "classification": "STATIC_ARENA_GEOMETRY_NOT_RUNTIME",
-  "total": 181,
+  "total": 182,
   "bosses": [
     {
       "Boss": "arbok",
@@ -4837,7 +4837,7 @@
       "Status": "MANUAL_REVIEW"
     },
     {
-      "Boss": "regigigas",
+      "Boss": "regice",
       "Dungeon": "DISCOVER_FROM_ZONE_MAPPING",
       "Arena": "cloven_ruins_regice",
       "Arena_bounds": {
@@ -4886,7 +4886,7 @@
       "Status": "MANUAL_REVIEW"
     },
     {
-      "Boss": "regigigas",
+      "Boss": "regirock",
       "Dungeon": "DISCOVER_FROM_ZONE_MAPPING",
       "Arena": "cloven_ruins_regirock",
       "Arena_bounds": {
@@ -4935,7 +4935,7 @@
       "Status": "MANUAL_REVIEW"
     },
     {
-      "Boss": "regigigas",
+      "Boss": "registeel",
       "Dungeon": "DISCOVER_FROM_ZONE_MAPPING",
       "Arena": "cloven_ruins_registeel",
       "Arena_bounds": {
@@ -5538,10 +5538,10 @@
         "y": 3.0
       },
       "Boss_position": {
-        "X": 7,
-        "Y": 9
+        "X": 3,
+        "Y": 3
       },
-      "Distance_from_center": 7.211102550927978,
+      "Distance_from_center": 0.0,
       "Player_entrance": {
         "Loc": {
           "X": 3,
@@ -5565,12 +5565,12 @@
         }
       },
       "Battle_position": "STATIC_ONLY",
-      "Collision": "FAIL_STATIC",
+      "Collision": "PASS_STATIC",
       "Cutscene": "NOT_TESTED",
       "Pre_battle_movement": "NOT_TESTED",
       "Post_battle_movement": "NOT_TESTED",
       "Runtime_result": "NOT_TESTED",
-      "Status": "MANUAL_REVIEW"
+      "Status": "PASS_STATIC_CENTER"
     },
     {
       "Boss": "toxicroak",
@@ -5587,10 +5587,10 @@
         "y": 3.0
       },
       "Boss_position": {
-        "X": 7,
-        "Y": 9
+        "X": 4,
+        "Y": 3
       },
-      "Distance_from_center": 7.211102550927978,
+      "Distance_from_center": 1.0,
       "Player_entrance": {
         "Loc": {
           "X": 3,
@@ -5614,43 +5614,43 @@
         }
       },
       "Battle_position": "STATIC_ONLY",
-      "Collision": "FAIL_STATIC",
+      "Collision": "PASS_STATIC",
       "Cutscene": "NOT_TESTED",
       "Pre_battle_movement": "NOT_TESTED",
       "Post_battle_movement": "NOT_TESTED",
       "Runtime_result": "NOT_TESTED",
-      "Status": "MANUAL_REVIEW"
+      "Status": "PASS_STATIC_CENTER"
     },
     {
       "Boss": "articuno",
       "Dungeon": "DISCOVER_FROM_ZONE_MAPPING",
       "Arena": "frosty_forest_summit",
       "Arena_bounds": {
-        "min_x": 6,
-        "max_x": 15,
-        "min_y": 6,
-        "max_y": 14
+        "min_x": 19,
+        "max_x": 44,
+        "min_y": 18,
+        "max_y": 47
       },
       "Arena_center": {
-        "x": 10.5,
-        "y": 10.0
+        "x": 31.5,
+        "y": 32.5
       },
       "Boss_position": {
-        "X": 7,
-        "Y": 5
+        "X": 33,
+        "Y": 22
       },
-      "Distance_from_center": 6.103277807866851,
+      "Distance_from_center": 10.606601717798213,
       "Player_entrance": {
         "Loc": {
-          "X": 11,
-          "Y": 10
+          "X": 29,
+          "Y": 29
         },
         "Dir": 4
       },
       "Partner_entrance": {
         "Loc": {
-          "X": 12,
-          "Y": 10
+          "X": 30,
+          "Y": 29
         },
         "Dir": 4
       },
@@ -5663,7 +5663,7 @@
         }
       },
       "Battle_position": "STATIC_ONLY",
-      "Collision": "FAIL_STATIC",
+      "Collision": "PASS_STATIC",
       "Cutscene": "NOT_TESTED",
       "Pre_battle_movement": "NOT_TESTED",
       "Post_battle_movement": "NOT_TESTED",
@@ -5675,28 +5675,34 @@
       "Dungeon": "DISCOVER_FROM_ZONE_MAPPING",
       "Arena": "gloomy_forest_boss",
       "Arena_bounds": {
-        "min_x": 5,
-        "max_x": 14,
-        "min_y": 3,
-        "max_y": 13
+        "min_x": 14,
+        "max_x": 45,
+        "min_y": 9,
+        "max_y": 42
       },
       "Arena_center": {
-        "x": 9.5,
-        "y": 8.0
+        "x": 29.5,
+        "y": 25.5
       },
       "Boss_position": {
-        "X": 7,
-        "Y": 5
+        "X": 30,
+        "Y": 9
       },
-      "Distance_from_center": 3.905124837953327,
+      "Distance_from_center": 16.507574019219177,
       "Player_entrance": {
         "Loc": {
-          "X": 10,
-          "Y": 12
+          "X": 28,
+          "Y": 26
         },
         "Dir": 4
       },
-      "Partner_entrance": null,
+      "Partner_entrance": {
+        "Loc": {
+          "X": 29,
+          "Y": 26
+        },
+        "Dir": 4
+      },
       "Boss_arrival": "STATIC_ONLY",
       "Camera_target": {
         "ViewCenter": null,
@@ -5706,7 +5712,7 @@
         }
       },
       "Battle_position": "STATIC_ONLY",
-      "Collision": "FAIL_STATIC",
+      "Collision": "PASS_STATIC",
       "Cutscene": "NOT_TESTED",
       "Pre_battle_movement": "NOT_TESTED",
       "Post_battle_movement": "NOT_TESTED",
@@ -5973,34 +5979,34 @@
     },
     {
       "Boss": "groudon",
-      "Dungeon": "magma_cavern",
+      "Dungeon": "DISCOVER_FROM_ZONE_MAPPING",
       "Arena": "magma_cavern_pit",
       "Arena_bounds": {
-        "min_x": 6,
-        "max_x": 14,
-        "min_y": 6,
-        "max_y": 14
+        "min_x": 19,
+        "max_x": 43,
+        "min_y": 18,
+        "max_y": 43
       },
       "Arena_center": {
-        "x": 10.0,
-        "y": 10.0
+        "x": 31.0,
+        "y": 30.5
       },
       "Boss_position": {
-        "X": 10,
-        "Y": 7
+        "X": 30,
+        "Y": 22
       },
-      "Distance_from_center": 3.0,
+      "Distance_from_center": 8.558621384311845,
       "Player_entrance": {
         "Loc": {
-          "X": 10,
-          "Y": 10
+          "X": 34,
+          "Y": 29
         },
         "Dir": 4
       },
       "Partner_entrance": {
         "Loc": {
-          "X": 11,
-          "Y": 10
+          "X": 35,
+          "Y": 29
         },
         "Dir": 4
       },
@@ -6017,8 +6023,8 @@
       "Cutscene": "NOT_TESTED",
       "Pre_battle_movement": "NOT_TESTED",
       "Post_battle_movement": "NOT_TESTED",
-      "Runtime_result": "BATTLE_START_PASS",
-      "Status": "RUNTIME_PARTIAL"
+      "Runtime_result": "NOT_TESTED",
+      "Status": "MANUAL_REVIEW"
     },
     {
       "Boss": "goodra",
@@ -6561,30 +6567,30 @@
       "Arena": "metano_town_duel",
       "Arena_bounds": {
         "min_x": 0,
-        "max_x": 13,
+        "max_x": 62,
         "min_y": 0,
-        "max_y": 17
+        "max_y": 62
       },
       "Arena_center": {
-        "x": 6.5,
-        "y": 8.5
+        "x": 31.0,
+        "y": 31.0
       },
       "Boss_position": {
-        "X": 7,
-        "Y": 9
+        "X": 39,
+        "Y": 38
       },
-      "Distance_from_center": 0.7071067811865476,
+      "Distance_from_center": 10.63014581273465,
       "Player_entrance": {
         "Loc": {
-          "X": 6,
-          "Y": 10
+          "X": 40,
+          "Y": 43
         },
         "Dir": 4
       },
       "Partner_entrance": {
         "Loc": {
-          "X": 5,
-          "Y": 10
+          "X": 41,
+          "Y": 43
         },
         "Dir": 4
       },
@@ -6602,7 +6608,7 @@
       "Pre_battle_movement": "NOT_TESTED",
       "Post_battle_movement": "NOT_TESTED",
       "Runtime_result": "NOT_TESTED",
-      "Status": "PASS_STATIC_CENTER"
+      "Status": "MANUAL_REVIEW"
     },
     {
       "Boss": "lopunny",
@@ -6610,30 +6616,30 @@
       "Arena": "metano_town_duel",
       "Arena_bounds": {
         "min_x": 0,
-        "max_x": 13,
+        "max_x": 62,
         "min_y": 0,
-        "max_y": 17
+        "max_y": 62
       },
       "Arena_center": {
-        "x": 6.5,
-        "y": 8.5
+        "x": 31.0,
+        "y": 31.0
       },
       "Boss_position": {
-        "X": 6,
-        "Y": 8
+        "X": 40,
+        "Y": 38
       },
-      "Distance_from_center": 0.7071067811865476,
+      "Distance_from_center": 11.40175425099138,
       "Player_entrance": {
         "Loc": {
-          "X": 6,
-          "Y": 10
+          "X": 40,
+          "Y": 43
         },
         "Dir": 4
       },
       "Partner_entrance": {
         "Loc": {
-          "X": 5,
-          "Y": 10
+          "X": 41,
+          "Y": 43
         },
         "Dir": 4
       },
@@ -6651,7 +6657,7 @@
       "Pre_battle_movement": "NOT_TESTED",
       "Post_battle_movement": "NOT_TESTED",
       "Runtime_result": "NOT_TESTED",
-      "Status": "PASS_STATIC_CENTER"
+      "Status": "MANUAL_REVIEW"
     },
     {
       "Boss": "mismagius",
@@ -6659,30 +6665,30 @@
       "Arena": "metano_town_duel",
       "Arena_bounds": {
         "min_x": 0,
-        "max_x": 13,
+        "max_x": 62,
         "min_y": 0,
-        "max_y": 17
+        "max_y": 62
       },
       "Arena_center": {
-        "x": 6.5,
-        "y": 8.5
+        "x": 31.0,
+        "y": 31.0
       },
       "Boss_position": {
-        "X": 8,
-        "Y": 8
+        "X": 41,
+        "Y": 38
       },
-      "Distance_from_center": 1.5811388300841898,
+      "Distance_from_center": 12.206555615733702,
       "Player_entrance": {
         "Loc": {
-          "X": 6,
-          "Y": 10
+          "X": 40,
+          "Y": 43
         },
         "Dir": 4
       },
       "Partner_entrance": {
         "Loc": {
-          "X": 5,
-          "Y": 10
+          "X": 41,
+          "Y": 43
         },
         "Dir": 4
       },
@@ -6700,38 +6706,38 @@
       "Pre_battle_movement": "NOT_TESTED",
       "Post_battle_movement": "NOT_TESTED",
       "Runtime_result": "NOT_TESTED",
-      "Status": "PASS_STATIC_CENTER"
+      "Status": "MANUAL_REVIEW"
     },
     {
       "Boss": "tornadus",
-      "Dungeon": "mount_windswept",
+      "Dungeon": "DISCOVER_FROM_ZONE_MAPPING",
       "Arena": "mount_windswept_guardian",
       "Arena_bounds": {
-        "min_x": 4,
-        "max_x": 10,
-        "min_y": 3,
-        "max_y": 10
+        "min_x": 9,
+        "max_x": 32,
+        "min_y": 12,
+        "max_y": 32
       },
       "Arena_center": {
-        "x": 7.0,
-        "y": 6.5
+        "x": 20.5,
+        "y": 22.0
       },
       "Boss_position": {
-        "X": 7,
-        "Y": 5
+        "X": 22,
+        "Y": 17
       },
-      "Distance_from_center": 1.5,
+      "Distance_from_center": 5.220153254455275,
       "Player_entrance": {
         "Loc": {
-          "X": 7,
-          "Y": 7
+          "X": 22,
+          "Y": 31
         },
         "Dir": 4
       },
       "Partner_entrance": {
         "Loc": {
-          "X": 8,
-          "Y": 7
+          "X": 23,
+          "Y": 31
         },
         "Dir": 4
       },
@@ -6748,39 +6754,39 @@
       "Cutscene": "NOT_TESTED",
       "Pre_battle_movement": "NOT_TESTED",
       "Post_battle_movement": "NOT_TESTED",
-      "Runtime_result": "BATTLE_START_PASS",
-      "Status": "RUNTIME_PARTIAL"
+      "Runtime_result": "NOT_TESTED",
+      "Status": "MANUAL_REVIEW"
     },
     {
       "Boss": "moltres",
       "Dungeon": "DISCOVER_FROM_ZONE_MAPPING",
       "Arena": "mt_blaze_summit",
       "Arena_bounds": {
-        "min_x": 5,
-        "max_x": 17,
-        "min_y": 2,
-        "max_y": 16
+        "min_x": 6,
+        "max_x": 50,
+        "min_y": 15,
+        "max_y": 53
       },
       "Arena_center": {
-        "x": 11.0,
-        "y": 9.0
+        "x": 28.0,
+        "y": 34.0
       },
       "Boss_position": {
-        "X": 7,
-        "Y": 5
+        "X": 34,
+        "Y": 22
       },
-      "Distance_from_center": 5.656854249492381,
+      "Distance_from_center": 13.416407864998739,
       "Player_entrance": {
         "Loc": {
-          "X": 11,
-          "Y": 11
+          "X": 37,
+          "Y": 26
         },
         "Dir": 4
       },
       "Partner_entrance": {
         "Loc": {
-          "X": 12,
-          "Y": 11
+          "X": 38,
+          "Y": 26
         },
         "Dir": 4
       },
@@ -6850,7 +6856,7 @@
       "Status": "MANUAL_REVIEW"
     },
     {
-      "Boss": "regigigas",
+      "Boss": "hitmonlee",
       "Dungeon": "DISCOVER_FROM_ZONE_MAPPING",
       "Arena": "sanctuaire_titans",
       "Arena_bounds": {
@@ -6899,7 +6905,7 @@
       "Status": "MANUAL_REVIEW"
     },
     {
-      "Boss": "regigigas",
+      "Boss": "hitmonlee",
       "Dungeon": "DISCOVER_FROM_ZONE_MAPPING",
       "Arena": "sanctuaire_titans",
       "Arena_bounds": {
@@ -6948,7 +6954,7 @@
       "Status": "MANUAL_REVIEW"
     },
     {
-      "Boss": "regigigas",
+      "Boss": "hitmonlee",
       "Dungeon": "DISCOVER_FROM_ZONE_MAPPING",
       "Arena": "sanctuaire_titans",
       "Arena_bounds": {
@@ -6997,7 +7003,7 @@
       "Status": "MANUAL_REVIEW"
     },
     {
-      "Boss": "regigigas",
+      "Boss": "hitmonlee",
       "Dungeon": "DISCOVER_FROM_ZONE_MAPPING",
       "Arena": "sanctuaire_titans",
       "Arena_bounds": {
@@ -7046,7 +7052,7 @@
       "Status": "MANUAL_REVIEW"
     },
     {
-      "Boss": "regigigas",
+      "Boss": "bronzong",
       "Dungeon": "DISCOVER_FROM_ZONE_MAPPING",
       "Arena": "sanctuaire_titans",
       "Arena_bounds": {
@@ -7095,7 +7101,7 @@
       "Status": "MANUAL_REVIEW"
     },
     {
-      "Boss": "regigigas",
+      "Boss": "bronzong",
       "Dungeon": "DISCOVER_FROM_ZONE_MAPPING",
       "Arena": "sanctuaire_titans",
       "Arena_bounds": {
@@ -7144,7 +7150,7 @@
       "Status": "MANUAL_REVIEW"
     },
     {
-      "Boss": "regigigas",
+      "Boss": "bronzong",
       "Dungeon": "DISCOVER_FROM_ZONE_MAPPING",
       "Arena": "sanctuaire_titans",
       "Arena_bounds": {
@@ -7193,7 +7199,7 @@
       "Status": "MANUAL_REVIEW"
     },
     {
-      "Boss": "regigigas",
+      "Boss": "bronzong",
       "Dungeon": "DISCOVER_FROM_ZONE_MAPPING",
       "Arena": "sanctuaire_titans",
       "Arena_bounds": {
@@ -7776,27 +7782,27 @@
       "Status": "MANUAL_REVIEW"
     },
     {
-      "Boss": "rayquaza",
+      "Boss": "spiritomb",
       "Dungeon": "DISCOVER_FROM_ZONE_MAPPING",
-      "Arena": "tour_ciel_sommet",
+      "Arena": "spiritomb_arena",
       "Arena_bounds": {
-        "min_x": 6,
-        "max_x": 16,
-        "min_y": 9,
-        "max_y": 19
+        "min_x": 2,
+        "max_x": 14,
+        "min_y": 0,
+        "max_y": 10
       },
       "Arena_center": {
-        "x": 11.0,
-        "y": 14.0
+        "x": 8.0,
+        "y": 5.0
       },
       "Boss_position": {
-        "X": 7,
-        "Y": 9
+        "X": 8,
+        "Y": 2
       },
-      "Distance_from_center": 6.4031242374328485,
+      "Distance_from_center": 3.0,
       "Player_entrance": {
         "Loc": {
-          "X": 11,
+          "X": 8,
           "Y": 12
         },
         "Dir": 4
@@ -7811,7 +7817,56 @@
         }
       },
       "Battle_position": "STATIC_ONLY",
-      "Collision": "FAIL_STATIC",
+      "Collision": "PASS_STATIC",
+      "Cutscene": "NOT_TESTED",
+      "Pre_battle_movement": "NOT_TESTED",
+      "Post_battle_movement": "NOT_TESTED",
+      "Runtime_result": "NOT_TESTED",
+      "Status": "MANUAL_REVIEW"
+    },
+    {
+      "Boss": "rayquaza",
+      "Dungeon": "DISCOVER_FROM_ZONE_MAPPING",
+      "Arena": "tour_ciel_sommet",
+      "Arena_bounds": {
+        "min_x": 28,
+        "max_x": 59,
+        "min_y": 19,
+        "max_y": 49
+      },
+      "Arena_center": {
+        "x": 43.5,
+        "y": 34.0
+      },
+      "Boss_position": {
+        "X": 34,
+        "Y": 34
+      },
+      "Distance_from_center": 9.5,
+      "Player_entrance": {
+        "Loc": {
+          "X": 37,
+          "Y": 37
+        },
+        "Dir": 4
+      },
+      "Partner_entrance": {
+        "Loc": {
+          "X": 38,
+          "Y": 37
+        },
+        "Dir": 4
+      },
+      "Boss_arrival": "STATIC_ONLY",
+      "Camera_target": {
+        "ViewCenter": null,
+        "ViewOffset": {
+          "X": 0,
+          "Y": 0
+        }
+      },
+      "Battle_position": "STATIC_ONLY",
+      "Collision": "PASS_STATIC",
       "Cutscene": "NOT_TESTED",
       "Pre_battle_movement": "NOT_TESTED",
       "Post_battle_movement": "NOT_TESTED",
@@ -7824,27 +7879,33 @@
       "Arena": "vast_steppe_guardian",
       "Arena_bounds": {
         "min_x": 0,
-        "max_x": 15,
+        "max_x": 45,
         "min_y": 0,
-        "max_y": 21
+        "max_y": 65
       },
       "Arena_center": {
-        "x": 7.5,
-        "y": 10.5
+        "x": 22.5,
+        "y": 32.5
       },
       "Boss_position": {
-        "X": 8,
-        "Y": 4
+        "X": 23,
+        "Y": 22
       },
-      "Distance_from_center": 6.519202405202649,
+      "Distance_from_center": 10.51189802081432,
       "Player_entrance": {
         "Loc": {
-          "X": 8,
-          "Y": 11
+          "X": 23,
+          "Y": 54
         },
         "Dir": 4
       },
-      "Partner_entrance": null,
+      "Partner_entrance": {
+        "Loc": {
+          "X": 24,
+          "Y": 54
+        },
+        "Dir": 4
+      },
       "Boss_arrival": "STATIC_ONLY",
       "Camera_target": {
         "ViewCenter": null,
@@ -7915,28 +7976,34 @@
       "Dungeon": "DISCOVER_FROM_ZONE_MAPPING",
       "Arena": "wish_cave_jirachi",
       "Arena_bounds": {
-        "min_x": 3,
-        "max_x": 11,
-        "min_y": 2,
-        "max_y": 13
+        "min_x": 6,
+        "max_x": 41,
+        "min_y": 9,
+        "max_y": 35
       },
       "Arena_center": {
-        "x": 7.0,
-        "y": 7.5
+        "x": 23.5,
+        "y": 22.0
       },
       "Boss_position": {
-        "X": 7,
-        "Y": 5
+        "X": 22,
+        "Y": 17
       },
-      "Distance_from_center": 2.5,
+      "Distance_from_center": 5.220153254455275,
       "Player_entrance": {
         "Loc": {
-          "X": 7,
-          "Y": 10
+          "X": 20,
+          "Y": 34
         },
         "Dir": 4
       },
-      "Partner_entrance": null,
+      "Partner_entrance": {
+        "Loc": {
+          "X": 21,
+          "Y": 34
+        },
+        "Dir": 4
+      },
       "Boss_arrival": "STATIC_ONLY",
       "Camera_target": {
         "ViewCenter": null,

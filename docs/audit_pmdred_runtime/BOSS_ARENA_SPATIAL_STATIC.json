@@ -1,8 +1,8 @@
 {
   "scope": "fixed maps containing MapTeams",
   "classification": "STATIC_PREFLIGHT_NOT_RUNTIME",
-  "total": 52,
-  "pass_static": 46,
+  "total": 53,
+  "pass_static": 47,
   "fail_static": 6,
   "maps": [
     {
@@ -1185,7 +1185,7 @@
       "height": 14,
       "entities": [
         {
-          "species": "tsareena",
+          "species": "diancie",
           "x": 7,
           "y": 9,
           "in_bounds": true
@@ -1212,13 +1212,13 @@
       "height": 14,
       "entities": [
         {
-          "species": "tsareena",
+          "species": "carbink",
           "x": 7,
           "y": 9,
           "in_bounds": true
         },
         {
-          "species": "tsareena",
+          "species": "froslass",
           "x": 7,
           "y": 9,
           "in_bounds": true
@@ -1238,7 +1238,7 @@
       ],
       "status": "FAIL_STATIC",
       "issues": [
-        "tsareena:OVERLAP:7,9:tsareena"
+        "froslass:OVERLAP:7,9:carbink"
       ]
     },
     {
@@ -1311,7 +1311,7 @@
       "height": 14,
       "entities": [
         {
-          "species": "tsareena",
+          "species": "swampert",
           "x": 7,
           "y": 9,
           "in_bounds": true
@@ -1338,15 +1338,15 @@
       "height": 0,
       "entities": [
         {
-          "species": "tsareena",
-          "x": 7,
-          "y": 9,
+          "species": "swalot",
+          "x": 3,
+          "y": 3,
           "in_bounds": false
         },
         {
-          "species": "tsareena",
-          "x": 7,
-          "y": 9,
+          "species": "toxicroak",
+          "x": 4,
+          "y": 3,
           "in_bounds": false
         }
       ],
@@ -1364,34 +1364,33 @@
       ],
       "status": "FAIL_STATIC",
       "issues": [
-        "tsareena:OUT_OF_BOUNDS:7,9",
-        "tsareena:OUT_OF_BOUNDS:7,9",
-        "tsareena:OVERLAP:7,9:tsareena",
+        "swalot:OUT_OF_BOUNDS:3,3",
+        "toxicroak:OUT_OF_BOUNDS:4,3",
         "ENTRY_OUT_OF_BOUNDS:3,3",
         "ENTRY_OUT_OF_BOUNDS:4,3"
       ]
     },
     {
       "map": "frosty_forest_summit",
-      "width": 22,
-      "height": 21,
+      "width": 66,
+      "height": 63,
       "entities": [
         {
-          "species": "zeraora",
-          "x": 7,
-          "y": 5,
+          "species": "articuno",
+          "x": 33,
+          "y": 22,
           "in_bounds": true
         }
       ],
       "entries": [
         {
-          "x": 11,
-          "y": 10,
+          "x": 29,
+          "y": 29,
           "in_bounds": true
         },
         {
-          "x": 12,
-          "y": 10,
+          "x": 30,
+          "y": 29,
           "in_bounds": true
         }
       ],
@@ -1400,20 +1399,25 @@
     },
     {
       "map": "gloomy_forest_boss",
-      "width": 20,
-      "height": 16,
+      "width": 60,
+      "height": 47,
       "entities": [
         {
           "species": "zeraora",
-          "x": 7,
-          "y": 5,
+          "x": 30,
+          "y": 9,
           "in_bounds": true
         }
       ],
       "entries": [
         {
-          "x": 10,
-          "y": 12,
+          "x": 28,
+          "y": 26,
+          "in_bounds": true
+        },
+        {
+          "x": 29,
+          "y": 26,
           "in_bounds": true
         }
       ],
@@ -1474,25 +1478,25 @@
     },
     {
       "map": "magma_cavern_pit",
-      "width": 21,
-      "height": 21,
+      "width": 63,
+      "height": 63,
       "entities": [
         {
-          "species": "zeraora",
-          "x": 7,
-          "y": 5,
+          "species": "groudon",
+          "x": 30,
+          "y": 22,
           "in_bounds": true
         }
       ],
       "entries": [
         {
-          "x": 10,
-          "y": 10,
+          "x": 34,
+          "y": 29,
           "in_bounds": true
         },
         {
-          "x": 11,
-          "y": 10,
+          "x": 35,
+          "y": 29,
           "in_bounds": true
         }
       ],
@@ -1673,37 +1677,37 @@
     },
     {
       "map": "metano_town_duel",
-      "width": 14,
-      "height": 18,
+      "width": 63,
+      "height": 63,
       "entities": [
         {
           "species": "tsareena",
-          "x": 7,
-          "y": 9,
+          "x": 39,
+          "y": 38,
           "in_bounds": true
         },
         {
           "species": "lopunny",
-          "x": 6,
-          "y": 8,
+          "x": 40,
+          "y": 38,
           "in_bounds": true
         },
         {
           "species": "mismagius",
-          "x": 8,
-          "y": 8,
+          "x": 41,
+          "y": 38,
           "in_bounds": true
         }
       ],
       "entries": [
         {
-          "x": 6,
-          "y": 10,
+          "x": 40,
+          "y": 43,
           "in_bounds": true
         },
         {
-          "x": 5,
-          "y": 10,
+          "x": 41,
+          "y": 43,
           "in_bounds": true
         }
       ],
@@ -1712,25 +1716,25 @@
     },
     {
       "map": "mount_windswept_guardian",
-      "width": 15,
-      "height": 14,
+      "width": 45,
+      "height": 42,
       "entities": [
         {
           "species": "tornadus",
-          "x": 7,
-          "y": 5,
+          "x": 22,
+          "y": 17,
           "in_bounds": true
         }
       ],
       "entries": [
         {
-          "x": 7,
-          "y": 7,
+          "x": 22,
+          "y": 31,
           "in_bounds": true
         },
         {
-          "x": 8,
-          "y": 7,
+          "x": 23,
+          "y": 31,
           "in_bounds": true
         }
       ],
@@ -1739,25 +1743,25 @@
     },
     {
       "map": "mt_blaze_summit",
-      "width": 23,
-      "height": 23,
+      "width": 69,
+      "height": 69,
       "entities": [
         {
-          "species": "zeraora",
-          "x": 7,
-          "y": 5,
+          "species": "moltres",
+          "x": 34,
+          "y": 22,
           "in_bounds": true
         }
       ],
       "entries": [
         {
-          "x": 11,
-          "y": 11,
+          "x": 37,
+          "y": 26,
           "in_bounds": true
         },
         {
-          "x": 12,
-          "y": 11,
+          "x": 38,
+          "y": 26,
           "in_bounds": true
         }
       ],
@@ -1949,20 +1953,20 @@
       "issues": []
     },
     {
-      "map": "tour_ciel_sommet",
-      "width": 23,
-      "height": 25,
+      "map": "spiritomb_arena",
+      "width": 17,
+      "height": 22,
       "entities": [
         {
-          "species": "tsareena",
-          "x": 7,
-          "y": 9,
+          "species": "spiritomb",
+          "x": 8,
+          "y": 2,
           "in_bounds": true
         }
       ],
       "entries": [
         {
-          "x": 11,
+          "x": 8,
           "y": 12,
           "in_bounds": true
         }
@@ -1971,21 +1975,53 @@
       "issues": []
     },
     {
-      "map": "vast_steppe_guardian",
-      "width": 16,
-      "height": 22,
+      "map": "tour_ciel_sommet",
+      "width": 69,
+      "height": 75,
       "entities": [
         {
-          "species": "absol",
-          "x": 8,
-          "y": 4,
+          "species": "rayquaza",
+          "x": 34,
+          "y": 34,
           "in_bounds": true
         }
       ],
       "entries": [
         {
-          "x": 8,
-          "y": 11,
+          "x": 37,
+          "y": 37,
+          "in_bounds": true
+        },
+        {
+          "x": 38,
+          "y": 37,
+          "in_bounds": true
+        }
+      ],
+      "status": "PASS_STATIC",
+      "issues": []
+    },
+    {
+      "map": "vast_steppe_guardian",
+      "width": 46,
+      "height": 66,
+      "entities": [
+        {
+          "species": "absol",
+          "x": 23,
+          "y": 22,
+          "in_bounds": true
+        }
+      ],
+      "entries": [
+        {
+          "x": 23,
+          "y": 54,
+          "in_bounds": true
+        },
+        {
+          "x": 24,
+          "y": 54,
           "in_bounds": true
         }
       ],
@@ -2021,20 +2057,25 @@
     },
     {
       "map": "wish_cave_jirachi",
-      "width": 15,
-      "height": 14,
+      "width": 45,
+      "height": 42,
       "entities": [
         {
-          "species": "zeraora",
-          "x": 7,
-          "y": 5,
+          "species": "jirachi",
+          "x": 22,
+          "y": 17,
           "in_bounds": true
         }
       ],
       "entries": [
         {
-          "x": 7,
-          "y": 10,
+          "x": 20,
+          "y": 34,
+          "in_bounds": true
+        },
+        {
+          "x": 21,
+          "y": 34,
           "in_bounds": true
         }
       ],
