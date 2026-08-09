@@ -24,12 +24,16 @@ def main():
  layers,walk,sheets=conv.build(0,0,W,H,NAME,True)
  p=ROOT/'Data/Map/metano_town_duel.rsmap';d=json.loads(p.read_text(encoding='utf-8-sig'));o=d['Object']
  o['Layers']=layers;o['Tiles']=[[tile(walk[x][y]>=5,x,y) for y in range(H)] for x in range(W)]
- # Place centrale originale vers (960,912) px = (40,38) tuiles donjon.
- entry=nearest(walk,40,43);boss=nearest(walk,40,38)
- o['EntryPoints']=[{'Loc':{'X':entry[0],'Y':entry[1]},'Dir':4},{'Loc':{'X':entry[0]+1,'Y':entry[1]},'Dir':4}]
+ # Place de la confrontation Dazzling : axe x=1152, y=928.
+ # Conversion exacte en tuiles de 24 px : x=48, y≈39.
+ entry=nearest(walk,47,42);boss=nearest(walk,48,38)
+ second=nearest(walk,entry[0]-1,entry[1])
+ o['EntryPoints']=[{'Loc':{'X':entry[0],'Y':entry[1]},'Dir':4},{'Loc':{'X':second[0],'Y':second[1]},'Dir':4}]
+ formation=[(boss[0],boss[1]),(boss[0]-1,boss[1]+1),(boss[0]+1,boss[1]+1)]
+ i=0
  for team in o.get('MapTeams',[]):
-  for i,mon in enumerate(team.get('Players',[])):
-   x,y=nearest(walk,boss[0]+(i%3)-1,boss[1]+i//3);mon['serializationLoc']={'X':x,'Y':y}
+  for mon in team.get('Players',[]):
+   x,y=nearest(walk,*formation[min(i,len(formation)-1)]);mon['serializationLoc']={'X':x,'Y':y};i+=1
  o['DiscoveryArray']=[[0 for _ in range(H)] for _ in range(W)]
  o['Comment']='Combat Team Dazzling/raid : copie intégrale 1512x1512 de metano_town, fusion 8→24 px sans crop; couches et animations préservées.'
  p.write_text(json.dumps(d,ensure_ascii=False,indent=1),encoding='utf-8')

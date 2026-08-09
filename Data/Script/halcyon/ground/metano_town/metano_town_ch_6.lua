@@ -133,9 +133,11 @@ function metano_town_ch_6.SetupGround()
 	if SV.Chapter6.PlazaPending ~= nil and SV.Chapter6.PlazaPending ~= false then
 		local issue = SV.Chapter6.PlazaPending
 		SV.Chapter6.PlazaPending = false
-		--Le duo est au sol, la ou il est tombe.
-		GROUND:TeleportTo(hero, 840, 888, Direction.UpRight)
-		GROUND:TeleportTo(partner, 872, 896, Direction.UpRight)
+		-- Retour sur les mêmes cellules de la place que le rsmap de duel.
+		-- Aucun saut vers l'ancien cadrage x=840 : exploration et combat coïncident.
+		GROUND:TeleportTo(hero, 1128, 984, Direction.Up)
+		GROUND:TeleportTo(partner, 1104, 984, Direction.Up)
+		SV.Chapter6.PlazaTransitionStage = 'aftermath'
 		if issue == 'win' then
 			DazzlingPlaza.Victoire()
 		else

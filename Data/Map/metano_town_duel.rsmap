@@ -9,7 +9,7 @@
    }
   },
   "Released": true,
-  "Comment": "Combat Team Dazzling/raid : copie intégrale 1512x1512 de metano_town, fusion 8→24 px sans crop; couches et animations préservées.",
+  "Comment": "Combat Team Dazzling/raid : copie intégrale 1512x1512 de metano_town, fusion 8→24 px sans crop; couches et animations préservées. | Staging duel aligné sur la place x=1152,y=928 utilisée par DazzlingPlaza.",
   "Begun": false,
   "ID": 0,
   "MapTeams": [
@@ -25,7 +25,7 @@
       "movementSpeed": 0,
       "dead": false,
       "serializationLoc": {
-       "X": 39,
+       "X": 48,
        "Y": 38
       },
       "serializationDir": 0,
@@ -269,8 +269,8 @@
       "movementSpeed": 0,
       "dead": false,
       "serializationLoc": {
-       "X": 40,
-       "Y": 38
+       "X": 47,
+       "Y": 39
       },
       "serializationDir": 0,
       "ProxyName": "",
@@ -513,8 +513,8 @@
       "movementSpeed": 0,
       "dead": false,
       "serializationLoc": {
-       "X": 41,
-       "Y": 38
+       "X": 49,
+       "Y": 39
       },
       "serializationDir": 0,
       "ProxyName": "",
@@ -478545,15 +478545,15 @@
   "EntryPoints": [
    {
     "Loc": {
-     "X": 40,
-     "Y": 43
+     "X": 47,
+     "Y": 42
     },
     "Dir": 4
    },
    {
     "Loc": {
-     "X": 41,
-     "Y": 43
+     "X": 46,
+     "Y": 42
     },
     "Dir": 4
    }
