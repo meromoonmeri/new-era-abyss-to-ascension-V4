@@ -1,5 +1,6 @@
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
+require 'halcyon.BossFX'
 local M={}
 function M.Init(map) DEBUG.EnableDbgCoro();COMMON.RespawnAllies(true);PartnerEssentials.InitializePartnerSpawn() end
 function M.Enter(map)
@@ -8,8 +9,16 @@ function M.Enter(map)
  local mon=RogueEssence.Dungeon.MonsterID('terapagos',0,'normal',Gender.Genderless)
  local boss=RogueEssence.Ground.GroundChar(mon,RogueElements.Loc(333,310),Direction.Down,'Terapagos','Terapagos');boss:ReloadEvents();GAME:GetCurrentGround():AddTempChar(boss)
  GAME:MoveCamera(333,350,1,false);GAME:FadeIn(30);GAME:WaitFrames(30)
+ local aura=TASK:BranchCoroutine(function()
+  -- Couronne cristalline native : douze éclats Power Gem orbitent autour
+  -- de l'ancre du sprite, puis deux ondes lumineuses ferment l'aura.
+  local ring={{0,-36},{18,-30},{32,-18},{38,0},{32,18},{18,30},{0,36},{-18,30},{-32,18},{-38,0},{-32,-18},{-18,-30}}
+  for _,p in ipairs(ring) do BossFX.Particle('Power_Gem_Charge',333+p[1],310+p[2],3,DrawLayer.Front);GAME:WaitFrames(3) end
+  BossFX.Particle('Wave_Circle_Blue',333,316,3,DrawLayer.Front);GAME:WaitFrames(8)
+  BossFX.Particle('Power_Gem_Charge',333,310,2,DrawLayer.Top)
+ end)
  local a=TASK:BranchCoroutine(function() GROUND:MoveToPosition(hero,307,397,false,1) end)
- local b=TASK:BranchCoroutine(function() if partner then GROUND:MoveToPosition(partner,360,397,false,1) end end);TASK:JoinCoroutines({a,b})
+ local b=TASK:BranchCoroutine(function() if partner then GROUND:MoveToPosition(partner,360,397,false,1) end end);TASK:JoinCoroutines({a,b,aura})
  GROUND:CharTurnToCharAnimated(hero,boss,4);if partner then GROUND:CharTurnToCharAnimated(partner,boss,4) end
  GROUND:CharSetEmote(boss,'notice',1);GAME:WaitFrames(20)
  UI:SetSpeaker(boss);UI:WaitShowDialogue('Le cristal conserve chaque lumière… et chaque promesse.')
