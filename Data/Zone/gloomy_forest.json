@@ -41,7 +41,7 @@
           },
           "Value": {
            "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-           "Music": "Hidden Highland.ogg",
+           "Music": "Mystifying Forest.ogg",
            "TimeLimit": 1500,
            "TileSight": 0,
            "CharSight": 0,
@@ -612,7 +612,7 @@
        },
        "Range": {
         "Min": 0,
-        "Max": 18
+        "Max": 15
        }
       }
      ]
@@ -1028,7 +1028,7 @@
      }
     ],
     "IsRelevant": true,
-    "Comment": "18 normal floors of the Gloomy Forest."
+    "Comment": "F01-F15 — fondation Sinister/Mystifying Forest; puis relais forestier Ground."
    },
    {
     "$type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
@@ -1046,7 +1046,7 @@
           },
           "Value": {
            "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-           "Music": "Hidden Highland.ogg",
+           "Music": "Mystifying Forest.ogg",
            "TimeLimit": 1500,
            "TileSight": 0,
            "CharSight": 0,
@@ -1603,7 +1603,7 @@
        },
        "Range": {
         "Min": 0,
-        "Max": 3
+        "Max": 5
        }
       }
      ]
@@ -1984,7 +1984,7 @@
      }
     ],
     "IsRelevant": true,
-    "Comment": "3 depth floors before Zarude."
+    "Comment": "F16-F20 — continuité canonique forestière après le relais."
    },
    {
     "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
@@ -2056,11 +2056,26 @@
           },
           "Value": {
            "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-           "Music": "Hidden Highland.ogg",
+           "Music": "Mystifying Forest.ogg",
            "TimeLimit": 1500,
            "TileSight": 0,
            "CharSight": 0,
            "ClampCamera": false
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -6
+           ]
+          },
+          "Value": {
+           "$type": "PMDC.LevelGen.DefaultMapStatusStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+           "SetterID": "deep_shadow",
+           "DefaultMapStatus": [
+            "darkness",
+            "dusk"
+           ]
           }
          },
          {
@@ -2994,7 +3009,7 @@
      }
     ],
     "IsRelevant": true,
-    "Comment": "3F au-dessus du mini-boss gloomy_forest (clone du premier tiers post-relais)."
+    "Comment": "F21-F23 — Deep Shadow Forest, même architecture forestière avec visibilité et ambiance assombries."
    },
    {
     "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",

@@ -66,10 +66,10 @@ end
 -- ExitSegment
 ------------------------------------------------------------------
 -- Gloomy Forest segments (conception_donjons_segmentes.md, ch6+) :
---   0  = 18F proceduraux
---   1  = 3F profondeurs (objectif de sauvetage Chenipent)
+--   0  = F01-F15 Sinister/Mystifying Forest
+--   1  = F16-F20 continuité canonique (objectif de sauvetage Chenipent)
 --   2  = ARENE MINI-BOSS (gloomy_forest_miniboss.rsmap : Tengalice + Cornèbre)
---   3  = 3F au-dessus du mini-boss
+--   3  = F21-F23 Deep Shadow Forest
 --   4  = boss (Zeraora, LoadGen gloomy_forest_boss.rsmap)
 --   5  = Serment Verdoyant (revanche Zeraora, LegendZones 'verdant_oath')
 --   6  = annexe Toupie
@@ -145,7 +145,7 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 	end
 
 	if segmentID == 1 and result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-		-- Les 3F de sauvetage sont derriere nous : le gardien du coeur attend
+		-- Les étages F16-F20 de sauvetage sont derrière nous : le gardien du coeur attend
 		-- (mini-boss, segment 2). La mission Chenipent doit etre remplie avant.
 		if SV.Chapter6.ChenipentFound or ReplayEnding.IsCleared('gloomy_forest') then
 			PrintInfo("[NREPROBE][transition] gloomy seg1 cleared -> miniboss ground")
@@ -172,7 +172,7 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 	end
 
 	if segmentID == 3 then
-		-- 3F au-dessus du mini-boss : le coeur de la foret s'ouvre au bout.
+		-- F21-F23 Deep Shadow : le coeur de la foret s'ouvre au bout.
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 			PrintInfo("[NREPROBE][transition] Sinister Woods seg3 -> clairiere canonique D04P02")
 			GAME:EnterGroundMap('sinister_woods_clearing', 'Main_Entrance_Marker')
