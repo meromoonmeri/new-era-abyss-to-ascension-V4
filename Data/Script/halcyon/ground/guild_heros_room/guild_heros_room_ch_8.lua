@@ -70,6 +70,89 @@ function guild_heros_room_ch_8.PostSanctuaryBedtalk()
   GeneralFunctions.SetEmotion("Determined")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR8_005']))
 
+  -- ENRICHISSEMENT 2026-08-09 — le Fragment de Cristal, les doutes, le rêve.
+  -- La veillée ne s'arrêtait plus après cinq répliques : le duo venait de
+  -- battre Diancie et de recevoir la première preuve de leur quête. On
+  -- donne à cette nuit son poids — le Fragment, le Cercle du Suaire, la
+  -- crainte que les autres Cœurs s'éteignent, et le rêve qui revient.
+  GAME:WaitFrames(30)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['GHR8_006']), "Normal")
+
+  GAME:WaitFrames(20)
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR8_007']))
+  GAME:WaitFrames(12)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR8_008']))
+  GAME:WaitFrames(12)
+  GeneralFunctions.SetEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR8_009']))
+  GAME:WaitFrames(16)
+
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['GHR8_010']), "Worried")
+  GAME:WaitFrames(16)
+
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR8_011']))
+  GAME:WaitFrames(12)
+  GeneralFunctions.SetEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR8_012']))
+  GAME:WaitFrames(14)
+
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['GHR8_013']), "Worried")
+  GAME:WaitFrames(16)
+
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Determined")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR8_014']))
+  GAME:WaitFrames(12)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR8_015']))
+  GAME:WaitFrames(16)
+
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['GHR8_016']), "Worried")
+  GAME:WaitFrames(14)
+
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR8_017']))
+  GAME:WaitFrames(12)
+  GeneralFunctions.SetEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR8_018']))
+  GAME:WaitFrames(16)
+
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['GHR8_019']), "Determined")
+  GAME:WaitFrames(16)
+
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR8_020']))
+  GAME:WaitFrames(12)
+  GeneralFunctions.SetEmotion("Worried")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR8_021']))
+  GAME:WaitFrames(14)
+
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['GHR8_022']), "Determined")
+  GAME:WaitFrames(16)
+
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Determined")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR8_023']))
+  GAME:WaitFrames(12)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR8_024']))
+  GAME:WaitFrames(14)
+
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['GHR8_025']), "Normal")
+  GAME:WaitFrames(14)
+
+  UI:SetSpeaker(partner)
+  GeneralFunctions.SetEmotion("Normal")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GHR8_026']))
+  GAME:WaitFrames(16)
+  GeneralFunctions.HeroDialogue(hero, STRINGS:Format(STRINGS.MapStrings['GHR8_027']), "Normal")
+  GAME:WaitFrames(20)
+
   GAME:WaitFrames(40)
   GROUND:CharSetAnim(partner, "Laying", true)
   GAME:WaitFrames(60)
