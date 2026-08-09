@@ -150,6 +150,13 @@ SceneDebug.scenes = {
     set = { Chapter7 = { VisitedXatu = false }},
   },
   {
+    key = 'terapagos_sanctuary',
+    label = "Ch8 — Sanctuaire Cristallin : enquête de Terapagos",
+    chapter = 8, ground = 'terapagos_crystal_sanctuary', entry = 'Main_Entrance_Marker',
+    note = "Ground custom puis waterfall_pond segment 5",
+    set = { Chapter8 = { ReachedTerapagosSanctuary = true }, TerapagosSanctuary = { IntroSeen = false, BattleStarted = false } },
+  },
+  {
     key = 'dazzling',
     label = "Ch6 — Foret Lugubre : arrivee de la Team Dazzling",
     chapter = 6, ground = 'gloomy_forest_entrance', entry = 'Main_Entrance_Marker',

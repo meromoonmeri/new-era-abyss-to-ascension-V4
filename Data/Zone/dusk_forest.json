@@ -430,7 +430,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -581,9 +581,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dusk_forest_floor",
-         "BlockTileset": "dusk_forest_wall",
-         "WaterTileset": "dusk_forest_secondary",
+         "GroundTileset": "dusk_forest_1_floor",
+         "BlockTileset": "dusk_forest_1_wall",
+         "WaterTileset": "dusk_forest_1_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -1041,7 +1041,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -1192,9 +1192,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dusk_forest_floor",
-         "BlockTileset": "dusk_forest_wall",
-         "WaterTileset": "dusk_forest_secondary",
+         "GroundTileset": "dusk_forest_1_floor",
+         "BlockTileset": "dusk_forest_1_wall",
+         "WaterTileset": "dusk_forest_1_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -1652,7 +1652,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -1803,9 +1803,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dusk_forest_floor",
-         "BlockTileset": "dusk_forest_wall",
-         "WaterTileset": "dusk_forest_secondary",
+         "GroundTileset": "dusk_forest_1_floor",
+         "BlockTileset": "dusk_forest_1_wall",
+         "WaterTileset": "dusk_forest_1_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -2263,7 +2263,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -2414,9 +2414,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dusk_forest_floor",
-         "BlockTileset": "dusk_forest_wall",
-         "WaterTileset": "dusk_forest_secondary",
+         "GroundTileset": "dusk_forest_1_floor",
+         "BlockTileset": "dusk_forest_1_wall",
+         "WaterTileset": "dusk_forest_1_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -2874,7 +2874,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -3025,9 +3025,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dusk_forest_floor",
-         "BlockTileset": "dusk_forest_wall",
-         "WaterTileset": "dusk_forest_secondary",
+         "GroundTileset": "dusk_forest_2_floor",
+         "BlockTileset": "dusk_forest_2_wall",
+         "WaterTileset": "dusk_forest_2_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -3497,7 +3497,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -3648,9 +3648,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dusk_forest_floor",
-         "BlockTileset": "dusk_forest_wall",
-         "WaterTileset": "dusk_forest_secondary",
+         "GroundTileset": "dusk_forest_2_floor",
+         "BlockTileset": "dusk_forest_2_wall",
+         "WaterTileset": "dusk_forest_2_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -4120,7 +4120,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -4271,9 +4271,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dusk_forest_floor",
-         "BlockTileset": "dusk_forest_wall",
-         "WaterTileset": "dusk_forest_secondary",
+         "GroundTileset": "dusk_forest_2_floor",
+         "BlockTileset": "dusk_forest_2_wall",
+         "WaterTileset": "dusk_forest_2_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -4743,7 +4743,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -4894,9 +4894,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dusk_forest_floor",
-         "BlockTileset": "dusk_forest_wall",
-         "WaterTileset": "dusk_forest_secondary",
+         "GroundTileset": "dusk_forest_2_floor",
+         "BlockTileset": "dusk_forest_2_wall",
+         "WaterTileset": "dusk_forest_2_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"

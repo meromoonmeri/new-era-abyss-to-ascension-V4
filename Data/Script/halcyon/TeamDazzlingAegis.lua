@@ -57,7 +57,7 @@ function D.Aftermath()
  end
  SOUND:FadeOutBGM(60)
  pcall(function() GROUND:CharSetAnim(adagio,'Walk',true) end);pcall(function() GROUND:CharSetAnim(aria,'Walk',true) end);pcall(function() GROUND:CharSetAnim(sonata,'Walk',true) end)
- GAME:FadeOut(false,40);pcall(function() GROUND:Hide('Adagio');GROUND:Hide('Aria');GROUND:Hide('Sonata') end)
+ GAME:FadeOut(false,40);for _,c in ipairs({adagio,aria,sonata}) do if c then pcall(function() GAME:GetCurrentGround():RemoveTempChar(c) end) end end
  SV.Chapter6.MissionAvailable=true;GAME:CutsceneMode(false);return true
 end
 return D

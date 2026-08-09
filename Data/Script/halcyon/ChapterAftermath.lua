@@ -154,38 +154,25 @@ end
 -- Sa question finale est la premiere fissure dans la certitude du duo.
 function ChapterAftermath.CrystalVictory()
   return Aftermath({
-    sv = SV.Chapter8, flag = 'PlayedVictoryScene',
-    music = 'Crystal Crossing.ogg',
-    hero = {172, 180}, partner = {140, 180}, camera = {156, 150},
+    sv = SV.Chapter8, flag = 'PlayedVictoryScene', music = 'Crystal Crossing.ogg',
+    hero = {172,180}, partner = {140,180}, camera = {156,150},
     scene = function(hero, partner)
-      local diancie = CharacterEssentials.MakeCharactersFromList({{'Diancie', 156, 120, Direction.Down}})
-      collapse(diancie)
-
-      narrate("Elle ne tombe pas.[pause=25] Elle s'agenouille,[pause=20] et referme ses mains sur rien.")
-      GAME:WaitFrames(15)
-      say(diancie, 'Sad', "Assez.[pause=25] Je ne me bats plus.")
-      say(partner, 'Surprised', "Quoi ?[pause=20] Mais...[pause=15] on n'a même pas—")
-      say(diancie, 'Normal', "Vous avez gagné il y a longtemps.[pause=30] Le jour où vous avez décidé de venir.")
-      GAME:WaitFrames(20)
-      pcall(function() GROUND:CharSetAnim(diancie, "Idle", true) end)
-      say(diancie, 'Normal', "Prenez le Fragment.[pause=25] Il vous appartient déjà,[pause=15] puisque vous êtes capables de le porter.")
-      GAME:WaitFrames(15)
-      narrate("Un éclat de cristal se détache de la voûte et descend, lentement, jusqu'aux pattes du héros.")
-      GAME:WaitFrames(20)
-      think(hero, 'Worried', "(Elle ne le donne pas.[pause=25] Elle s'en débarrasse.)")
-      GAME:WaitFrames(15)
-      say(partner, 'Worried', "Pourquoi vous nous laissez faire ?[pause=25] Vous êtes la gardienne. Gardez-le.")
-      GAME:WaitFrames(20)
-      say(diancie, 'Sad', "Gardienne.[pause=30] Oui.[pause=25] C'est le mot qu'on m'a donné.")
-      say(diancie, 'Sad', "Mais dites-moi une chose, avant de partir.")
-      GAME:WaitFrames(15)
-      -- La question qui reste dans la tete du joueur.
-      say(diancie, 'Normal', "Un gardien protège ce qui est fragile.[pause=30] Alors pourquoi les premiers ont-ils bâti des MURS autour de leur lumière ?")
-      GAME:WaitFrames(25)
-      say(partner, 'Sad', "...Je ne sais pas.")
-      say(diancie, 'Normal', "Moi non plus.[pause=30] Et j'ai eu mille ans pour y réfléchir.")
-      GAME:WaitFrames(20)
-      narrate("Les cristaux s'éteignent un par un derrière elle.[pause=25] Le silence, cette fois, n'a plus rien de sacré.")
+      local boss = CharacterEssentials.MakeCharactersFromList({{'Terapagos',156,120,Direction.Down}})
+      collapse(boss);GAME:WaitFrames(20)
+      say(boss,'Normal',"Assez.[pause=20] Les cristaux ont rendu leur verdict.")
+      say(partner,'Surprised',"Et… on est innocentés ?[pause=15] Parce que j’aimerais vraiment entendre ce mot précisément.")
+      say(boss,'Normal',"Votre résonance ne précède pas les catastrophes.[pause=20] Elle tente de les détourner.")
+      GAME:WaitFrames(16);pcall(function() GROUND:CharSetAnim(boss,'Idle',true) end)
+      say(boss,'Worried',"Mais une autre pulsation traverse leurs traces.[pause=20] Plus ancienne que votre expédition, et toujours inachevée.")
+      think(hero,'Worried',"(La même forme sous le monde… celle dont Tornadus nous a parlé.)")
+      say(partner,'Determined',"Alors notre enquête continue.[pause=15] Et cette fois, on évite de répondre comme des coupables.")
+      say(boss,'Normal',"Emportez cet éclat.[pause=15] Il contient la mémoire de votre épreuve et vous ouvrira les chemins qui refusent encore de parler.")
+      SV.Chapter8=SV.Chapter8 or {};SV.Chapter8.TerapagosClearedSuspicion=true
+      SV.Chapter8.ObtainedCrystalFragment=true
+      narrate("Une écaille de lumière se détache du sceau central et rejoint doucement le héros.")
+      GAME:WaitFrames(18)
+      say(boss,'Normal',"Président Spinda,[pause=10] votre Fédération pourra revenir… après m’avoir envoyé ses formulaires avant ses explorateurs.")
+      say(partner,'Happy',"Je crois que c’est sa façon de nous inviter à revenir.")
     end,
   })
 end

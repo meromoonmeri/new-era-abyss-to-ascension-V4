@@ -495,7 +495,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -646,9 +646,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "sealed_ruin_pit_floor",
-         "BlockTileset": "sealed_ruin_pit_wall",
-         "WaterTileset": "sealed_ruin_pit_secondary",
+         "GroundTileset": "deep_sealed_ruin_floor",
+         "BlockTileset": "deep_sealed_ruin_wall",
+         "WaterTileset": "deep_sealed_ruin_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -1182,7 +1182,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -1333,9 +1333,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "sealed_ruin_pit_floor",
-         "BlockTileset": "sealed_ruin_pit_wall",
-         "WaterTileset": "sealed_ruin_pit_secondary",
+         "GroundTileset": "deep_sealed_ruin_floor",
+         "BlockTileset": "deep_sealed_ruin_wall",
+         "WaterTileset": "deep_sealed_ruin_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -1869,7 +1869,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -2020,9 +2020,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "sealed_ruin_pit_floor",
-         "BlockTileset": "sealed_ruin_pit_wall",
-         "WaterTileset": "sealed_ruin_pit_secondary",
+         "GroundTileset": "deep_sealed_ruin_floor",
+         "BlockTileset": "deep_sealed_ruin_wall",
+         "WaterTileset": "deep_sealed_ruin_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -2556,7 +2556,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -2707,9 +2707,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "sealed_ruin_pit_floor",
-         "BlockTileset": "sealed_ruin_pit_wall",
-         "WaterTileset": "sealed_ruin_pit_secondary",
+         "GroundTileset": "deep_sealed_ruin_floor",
+         "BlockTileset": "deep_sealed_ruin_wall",
+         "WaterTileset": "deep_sealed_ruin_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -3243,7 +3243,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -3394,9 +3394,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "sealed_ruin_pit_floor",
-         "BlockTileset": "sealed_ruin_pit_wall",
-         "WaterTileset": "sealed_ruin_pit_secondary",
+         "GroundTileset": "deep_sealed_ruin_floor",
+         "BlockTileset": "deep_sealed_ruin_wall",
+         "WaterTileset": "deep_sealed_ruin_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -3930,7 +3930,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -4081,9 +4081,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "sealed_ruin_pit_floor",
-         "BlockTileset": "sealed_ruin_pit_wall",
-         "WaterTileset": "sealed_ruin_pit_secondary",
+         "GroundTileset": "deep_sealed_ruin_floor",
+         "BlockTileset": "deep_sealed_ruin_wall",
+         "WaterTileset": "deep_sealed_ruin_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"

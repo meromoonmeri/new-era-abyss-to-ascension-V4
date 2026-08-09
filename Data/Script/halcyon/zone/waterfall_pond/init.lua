@@ -131,11 +131,12 @@ function waterfall_pond.ExitSegment(zone, result, rescue, segmentID, mapID)
       PrintInfo("[NREPROBE][transition] crystal seg3 (arene) -> miniboss ground")
       GAME:ContinueDungeon('waterfall_pond', 4, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
   elseif segmentID == 4 then
-      -- Second 3F des Salles des Glyphes : la chambre de Diancie s'ouvre.
+      -- Second 3F des Salles des Glyphes : le Ground du sanctuaire de Terapagos s'ouvre.
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ReplayEnding.FollowsRoute('waterfall_pond', 8) then
-          SV.Chapter8.ReachedDiancieChamber = true
-          PrintInfo("[NREPROBE][transition] crystal seg4 cleared -> boss ground")
-          GAME:ContinueDungeon('waterfall_pond', 5, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+          SV.Chapter8.ReachedDiancieChamber = true -- compatibilité sauvegardes
+          SV.Chapter8.ReachedTerapagosSanctuary = true
+          PrintInfo("[NREPROBE][transition] crystal seg4 cleared -> terapagos_crystal_sanctuary Ground")
+          GAME:EnterGroundMap('terapagos_crystal_sanctuary','Main_Entrance_Marker')
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           GAME:WaitFrames(20)
           SV.Chapter8.LostGlyphHalls = true
@@ -151,9 +152,10 @@ function waterfall_pond.ExitSegment(zone, result, rescue, segmentID, mapID)
           end
       end
   elseif segmentID == 5 then
-      -- Boss Diancie
+      -- Boss Terapagos
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
-          SV.Chapter8.DefeatedDiancie = true
+          SV.Chapter8.DefeatedDiancie = true -- compatibilité sauvegardes
+          SV.Chapter8.DefeatedTerapagos = true
           SV.Chapter8.ObtainedCrystalFragment = true
           SV.Chapter8.CrystalSanctuaryComplete = true
           --Scene d'apres-boss : la consequence se joue AVANT le retour a la
@@ -169,11 +171,12 @@ function waterfall_pond.ExitSegment(zone, result, rescue, segmentID, mapID)
           SV.TemporaryFlags.MorningAddress = true
           GeneralFunctions.EndDungeonRun(result, "master_zone", -1, 2, 0, true, true)
       else
-          SV.Chapter8.DiedToDiancie = true
+          SV.Chapter8.DiedToDiancie = true -- compatibilité sauvegardes
+          SV.Chapter8.DiedToTerapagos = true
           SV.Chapter8.SanctuaryMidState = 'DeathArrival'
               GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX('metano_town'), 0, true, true)
           GeneralFunctions.DeathFadeOutDialogue(GAME:GetPlayerPartyMember(1),
-              "Diancie...[pause=0] sa puissance...[pause=15] trop eclatante...", "Pain")
+              "Terapagos...[pause=0] sa résonance...[pause=15] trop intense...", "Pain")
           GAME:WaitFrames(20)
           GAME:EnterZone("master_zone", -1, GROUND_IDX('metano_town'), 0)
       end

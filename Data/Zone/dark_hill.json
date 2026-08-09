@@ -447,7 +447,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -598,9 +598,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dark_hill_floor",
-         "BlockTileset": "dark_hill_wall",
-         "WaterTileset": "dark_hill_secondary",
+         "GroundTileset": "dark_hill_1_floor",
+         "BlockTileset": "dark_hill_1_wall",
+         "WaterTileset": "dark_hill_1_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -1058,7 +1058,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -1209,9 +1209,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dark_hill_floor",
-         "BlockTileset": "dark_hill_wall",
-         "WaterTileset": "dark_hill_secondary",
+         "GroundTileset": "dark_hill_1_floor",
+         "BlockTileset": "dark_hill_1_wall",
+         "WaterTileset": "dark_hill_1_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -1669,7 +1669,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -1820,9 +1820,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dark_hill_floor",
-         "BlockTileset": "dark_hill_wall",
-         "WaterTileset": "dark_hill_secondary",
+         "GroundTileset": "dark_hill_1_floor",
+         "BlockTileset": "dark_hill_1_wall",
+         "WaterTileset": "dark_hill_1_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -2280,7 +2280,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -2431,9 +2431,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dark_hill_floor",
-         "BlockTileset": "dark_hill_wall",
-         "WaterTileset": "dark_hill_secondary",
+         "GroundTileset": "dark_hill_1_floor",
+         "BlockTileset": "dark_hill_1_wall",
+         "WaterTileset": "dark_hill_1_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -2891,7 +2891,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -3042,9 +3042,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dark_hill_floor",
-         "BlockTileset": "dark_hill_wall",
-         "WaterTileset": "dark_hill_secondary",
+         "GroundTileset": "dark_hill_1_floor",
+         "BlockTileset": "dark_hill_1_wall",
+         "WaterTileset": "dark_hill_1_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -3540,7 +3540,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -3691,9 +3691,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dark_hill_floor",
-         "BlockTileset": "dark_hill_wall",
-         "WaterTileset": "dark_hill_secondary",
+         "GroundTileset": "dark_hill_1_floor",
+         "BlockTileset": "dark_hill_1_wall",
+         "WaterTileset": "dark_hill_1_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -4189,7 +4189,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -4340,9 +4340,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dark_hill_floor",
-         "BlockTileset": "dark_hill_wall",
-         "WaterTileset": "dark_hill_secondary",
+         "GroundTileset": "dark_hill_1_floor",
+         "BlockTileset": "dark_hill_1_wall",
+         "WaterTileset": "dark_hill_1_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -4838,7 +4838,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -4989,9 +4989,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dark_hill_floor",
-         "BlockTileset": "dark_hill_wall",
-         "WaterTileset": "dark_hill_secondary",
+         "GroundTileset": "dark_hill_1_floor",
+         "BlockTileset": "dark_hill_1_wall",
+         "WaterTileset": "dark_hill_1_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -5487,7 +5487,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -5638,9 +5638,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dark_hill_floor",
-         "BlockTileset": "dark_hill_wall",
-         "WaterTileset": "dark_hill_secondary",
+         "GroundTileset": "dark_hill_2_floor",
+         "BlockTileset": "dark_hill_2_wall",
+         "WaterTileset": "dark_hill_2_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -6098,7 +6098,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -6249,9 +6249,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dark_hill_floor",
-         "BlockTileset": "dark_hill_wall",
-         "WaterTileset": "dark_hill_secondary",
+         "GroundTileset": "dark_hill_2_floor",
+         "BlockTileset": "dark_hill_2_wall",
+         "WaterTileset": "dark_hill_2_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -6709,7 +6709,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -6860,9 +6860,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dark_hill_floor",
-         "BlockTileset": "dark_hill_wall",
-         "WaterTileset": "dark_hill_secondary",
+         "GroundTileset": "dark_hill_2_floor",
+         "BlockTileset": "dark_hill_2_wall",
+         "WaterTileset": "dark_hill_2_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -7320,7 +7320,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -7471,9 +7471,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dark_hill_floor",
-         "BlockTileset": "dark_hill_wall",
-         "WaterTileset": "dark_hill_secondary",
+         "GroundTileset": "dark_hill_2_floor",
+         "BlockTileset": "dark_hill_2_wall",
+         "WaterTileset": "dark_hill_2_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -7931,7 +7931,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -8082,9 +8082,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dark_hill_floor",
-         "BlockTileset": "dark_hill_wall",
-         "WaterTileset": "dark_hill_secondary",
+         "GroundTileset": "dark_hill_2_floor",
+         "BlockTileset": "dark_hill_2_wall",
+         "WaterTileset": "dark_hill_2_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -8542,7 +8542,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -8693,9 +8693,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dark_hill_floor",
-         "BlockTileset": "dark_hill_wall",
-         "WaterTileset": "dark_hill_secondary",
+         "GroundTileset": "dark_hill_2_floor",
+         "BlockTileset": "dark_hill_2_wall",
+         "WaterTileset": "dark_hill_2_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -9153,7 +9153,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -9304,9 +9304,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "dark_hill_floor",
-         "BlockTileset": "dark_hill_wall",
-         "WaterTileset": "dark_hill_secondary",
+         "GroundTileset": "dark_hill_2_floor",
+         "BlockTileset": "dark_hill_2_wall",
+         "WaterTileset": "dark_hill_2_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"

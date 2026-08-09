@@ -391,7 +391,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -498,9 +498,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "chasm_cave_floor",
-         "BlockTileset": "chasm_cave_wall",
-         "WaterTileset": "chasm_cave_secondary",
+         "GroundTileset": "chasm_cave_1_floor",
+         "BlockTileset": "chasm_cave_1_wall",
+         "WaterTileset": "chasm_cave_1_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -1008,7 +1008,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -1115,9 +1115,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "chasm_cave_floor",
-         "BlockTileset": "chasm_cave_wall",
-         "WaterTileset": "chasm_cave_secondary",
+         "GroundTileset": "chasm_cave_1_floor",
+         "BlockTileset": "chasm_cave_1_wall",
+         "WaterTileset": "chasm_cave_1_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -1625,7 +1625,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -1732,9 +1732,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "chasm_cave_floor",
-         "BlockTileset": "chasm_cave_wall",
-         "WaterTileset": "chasm_cave_secondary",
+         "GroundTileset": "chasm_cave_1_floor",
+         "BlockTileset": "chasm_cave_1_wall",
+         "WaterTileset": "chasm_cave_1_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -2280,7 +2280,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -2387,9 +2387,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "chasm_cave_floor",
-         "BlockTileset": "chasm_cave_wall",
-         "WaterTileset": "chasm_cave_secondary",
+         "GroundTileset": "chasm_cave_1_floor",
+         "BlockTileset": "chasm_cave_1_wall",
+         "WaterTileset": "chasm_cave_1_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -2935,7 +2935,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -3042,9 +3042,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "chasm_cave_floor",
-         "BlockTileset": "chasm_cave_wall",
-         "WaterTileset": "chasm_cave_secondary",
+         "GroundTileset": "chasm_cave_2_floor",
+         "BlockTileset": "chasm_cave_2_wall",
+         "WaterTileset": "chasm_cave_2_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -3590,7 +3590,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -3697,9 +3697,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "chasm_cave_floor",
-         "BlockTileset": "chasm_cave_wall",
-         "WaterTileset": "chasm_cave_secondary",
+         "GroundTileset": "chasm_cave_2_floor",
+         "BlockTileset": "chasm_cave_2_wall",
+         "WaterTileset": "chasm_cave_2_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -4207,7 +4207,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -4314,9 +4314,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "chasm_cave_floor",
-         "BlockTileset": "chasm_cave_wall",
-         "WaterTileset": "chasm_cave_secondary",
+         "GroundTileset": "chasm_cave_2_floor",
+         "BlockTileset": "chasm_cave_2_wall",
+         "WaterTileset": "chasm_cave_2_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
@@ -4824,7 +4824,7 @@
         },
         "Value": {
          "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-         "ConnectPercent": 40,
+         "ConnectPercent": 0,
          "Filters": []
         }
        },
@@ -4931,9 +4931,9 @@
         },
         "Value": {
          "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-         "GroundTileset": "chasm_cave_floor",
-         "BlockTileset": "chasm_cave_wall",
-         "WaterTileset": "chasm_cave_secondary",
+         "GroundTileset": "chasm_cave_2_floor",
+         "BlockTileset": "chasm_cave_2_wall",
+         "WaterTileset": "chasm_cave_2_secondary",
          "LayeredGround": false,
          "IndependentGround": false,
          "GroundElement": "normal"
