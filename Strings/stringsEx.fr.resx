@@ -6174,4 +6174,187 @@ Comme c'est un volontaire, il ne restera pas avec toi après la sortie.
   <data name="RUINES_CRB_REVEL_05" xml:space="preserve">
     <value>La terre...[pause=10] elle tremble ![pause=15] Qu'est-ce qui se passe !?</value>
   </data>
+  <data name="CH8_RELAIS_001" xml:space="preserve">
+    <value>La lumière, d'abord.[pause=25] Puis le silence qui la porte.</value>
+  </data>
+  <data name="CH8_RELAIS_002" xml:space="preserve">
+    <value>Derrière le rideau d'eau,[pause=15] une salle immense. Et au centre,[pause=10] une lueur qui bat.</value>
+  </data>
+  <data name="CH8_RELAIS_003" xml:space="preserve">
+    <value>Écoute...[pause=20] Non.[pause=10] N'écoute pas.[pause=15] Il n'y a RIEN à entendre.</value>
+  </data>
+  <data name="CH8_RELAIS_004" xml:space="preserve">
+    <value>(Une chute d'eau de cette taille[wait=5] devrait couvrir nos voix.[pause=20] On s'entend chuchoter.)</value>
+  </data>
+  <data name="CH8_RELAIS_005" xml:space="preserve">
+    <value>Regarde les cristaux du fond.[pause=20] Ils ne reflètent rien.[pause=15] Aucun d'eux ne nous renvoie notre image.</value>
+  </data>
+  <data name="CH8_RELAIS_006" xml:space="preserve">
+    <value>Sur la stèle, des mots gravés par les premiers gardiens :[pause=20] « Ce que la lumière protège,[pause=10] la lumière le cache. »</value>
+  </data>
+  <data name="CH8_RELAIS_007" xml:space="preserve">
+    <value>Phileas disait qu'ils avaient écrit leur savoir ici.[pause=20] Moi je ne vois pas une bibliothèque.</value>
+  </data>
+  <data name="CH8_RELAIS_008" xml:space="preserve">
+    <value>Je vois un endroit qu'on a fermé.[pause=15] Et le silence,[pause=10] c'est le couvercle.</value>
+  </data>
+  <data name="CH8_RELAIS_009" xml:space="preserve">
+    <value>(Elle a raison.[pause=15] On ne cache pas un livre derrière une cascade.[pause=15] On cache un secret.)</value>
+  </data>
+  <data name="CH8_RELAIS_010" xml:space="preserve">
+    <value>Bon.[pause=15] On n'est pas venus admirer.[pause=15] On passe sous l'eau,[pause=10] et on lit ce qu'ils ont laissé.</value>
+  </data>
+  <data name="CH8_RELAIS_011" xml:space="preserve">
+    <value>(Et si le secret était le Cœur lui-même ?[pause=15] Il bat, là-bas, sous la pierre.)</value>
+  </data>
+  <data name="CH8_MINIBOSS_001" xml:space="preserve">
+    <value>La salle s'éclaire d'un coup.[pause=20] Deux silhouettes de cristal se dressent dans la lumière.</value>
+  </data>
+  <data name="CH8_MINIBOSS_002" xml:space="preserve">
+    <value>Elles étaient là depuis le début.[pause=15] Immobiles comme des statues.[pause=15] Mais leurs yeux,[pause=10] eux, suivent le duo.</value>
+  </data>
+  <data name="CH8_MINIBOSS_003" xml:space="preserve">
+    <value>Ils bougent ![pause=15] Ils...[pause=10] ils nous regardent !</value>
+  </data>
+  <data name="CH8_MINIBOSS_004" xml:space="preserve">
+    <value>(On aurait dû se douter que la lumière avait des gardiens.)</value>
+  </data>
+  <data name="CH8_MINIBOSS_005" xml:space="preserve">
+    <value>Ici,[pause=10] personne n'entre sans permission.</value>
+  </data>
+  <data name="CH8_MINIBOSS_006" xml:space="preserve">
+    <value>Les deux gardiens croisent leurs lances de cristal devant le passage.</value>
+  </data>
+  <data name="CH8_MINIBOSS_007" xml:space="preserve">
+    <value>On ne veut pas vous voler ![pause=15] On veut seulement comprendre ce qui se passe en bas !</value>
+  </data>
+  <data name="CH8_MINIBOSS_008" xml:space="preserve">
+    <value>Comprendre ?[pause=15] Les curieux disent tous ça.[pause=10] Avant de vouloir toucher.</value>
+  </data>
+  <data name="CH8_MINIBOSS_009" xml:space="preserve">
+    <value>Nous gardons ce que la lumière ne doit pas voir.[pause=20] Franchissez,[pause=10] et nous vous frapperons.</value>
+  </data>
+  <data name="CH8_MINIBOSS_010" xml:space="preserve">
+    <value>Alors on n'a pas le choix.[pause=15] Si la seule façon de comprendre,[pause=10] c'est de passer par vous...</value>
+  </data>
+  <data name="CH8_MINIBOSS_011" xml:space="preserve">
+    <value>(Ils protègent quelque chose.[pause=15] Quelque chose qui a peur d'être vu.[pause=15] Ou trouvé.)</value>
+  </data>
+  <data name="CH8_BOSS_001" xml:space="preserve">
+    <value>La salle du trône.[pause=20] La lumière y est si dense qu'elle semble avoir un poids.</value>
+  </data>
+  <data name="CH8_BOSS_002" xml:space="preserve">
+    <value>Au centre,[pause=15] un socle de cristal.[pause=15] Et sur le socle,[pause=10] une couronne de lumière,[pause=10] vide.</value>
+  </data>
+  <data name="CH8_BOSS_003" xml:space="preserve">
+    <value>C'est ici que le Cœur devrait être.[pause=20] Il n'y a que sa prison.</value>
+  </data>
+  <data name="CH8_BOSS_004" xml:space="preserve">
+    <value>(On est venus trop tard.[pause=15] Ou peut-être juste à temps.)</value>
+  </data>
+  <data name="CH8_BOSS_005" xml:space="preserve">
+    <value>La couronne de lumière se condense.[pause=20] Une forme s'y dessine,[pause=15] lente,[pause=10] comme un lever de soleil.</value>
+  </data>
+  <data name="CH8_BOSS_006" xml:space="preserve">
+    <value>Vous cherchez le Cœur.[pause=15] Il n'est plus ici.</value>
+  </data>
+  <data name="CH8_BOSS_007" xml:space="preserve">
+    <value>Je suis Diancie.[pause=15] Gardienne de ce sanctuaire,[pause=10] et de ce qui s'y trouvait.</value>
+  </data>
+  <data name="CH8_BOSS_008" xml:space="preserve">
+    <value>Le Cœur battait ici depuis avant les premiers gardiens.[pause=20] Il battait,[pause=10] et le monde,[pause=10] autour,[pause=10] se portait bien.</value>
+  </data>
+  <data name="CH8_BOSS_009" xml:space="preserve">
+    <value>Puis quelqu'un l'a trouvé.[pause=15] Quelqu'un a cru que la lumière pouvait se partager.[pause=15] Le Cœur s'est affaibli.[pause=10] Et je n'ai pas su le protéger.</value>
+  </data>
+  <data name="CH8_BOSS_010" xml:space="preserve">
+    <value>Ce n'est pas ta faute.[pause=15] On ne garde pas un Cœur en l'enfermant.</value>
+  </data>
+  <data name="CH8_BOSS_011" xml:space="preserve">
+    <value>(Elle porte le poids de l'échec depuis si longtemps...[pause=15] qu'elle confond garder et posséder.)</value>
+  </data>
+  <data name="CH8_BOSS_012" xml:space="preserve">
+    <value>On ne vient pas le voler.[pause=15] On vient le sauver.[pause=10] Et si tu nous laisses passer,[pause=10] on te le ramènera battant.</value>
+  </data>
+  <data name="CH8_BOSS_013" xml:space="preserve">
+    <value>...Sauver.[pause=15] Il y a longtemps que personne n'a prononcé ce mot ici.</value>
+  </data>
+  <data name="CH8_BOSS_014" xml:space="preserve">
+    <value>Alors prouvez-le.[pause=15] Si vous êtes dignes de le porter,[pause=10] vous survivrez à ma lumière.</value>
+  </data>
+  <data name="CH9_BOSS_001" xml:space="preserve">
+    <value>Le fond du marais.[pause=20] L'eau monte ici,[pause=10] plus vite qu'ailleurs.</value>
+  </data>
+  <data name="CH9_BOSS_002" xml:space="preserve">
+    <value>Au centre,[pause=15] une lueur qui se noie.[pause=20] Le Cœur,[pause=10] la tête sous l'eau,[pause=10] qui continue de battre.</value>
+  </data>
+  <data name="CH9_BOSS_003" xml:space="preserve">
+    <value>Il est encore vivant ![pause=15] On peut encore le sauver !</value>
+  </data>
+  <data name="CH9_BOSS_004" xml:space="preserve">
+    <value>(S'il bat encore,[pause=15] ce n'est pas trop tard.[pause=15] Il faut juste l'atteindre avant qu'il s'éteigne.)</value>
+  </data>
+  <data name="CH9_BOSS_005" xml:space="preserve">
+    <value>L'eau se soulève.[pause=20] Quelque chose d'énorme émerge de la vase,[pause=15] lentement,[pause=10] comme un continent qui respire.</value>
+  </data>
+  <data name="CH9_BOSS_006" xml:space="preserve">
+    <value>Arrêtez-vous.[pause=15] Vous êtes venus pour le Cœur.[pause=10] Vous n'irez pas plus loin.</value>
+  </data>
+  <data name="CH9_BOSS_007" xml:space="preserve">
+    <value>Je suis le gardien de ce marais.[pause=15] Depuis avant les premiers gardiens,[pause=10] j'empêche qu'on touche à ce qui dort ici.</value>
+  </data>
+  <data name="CH9_BOSS_008" xml:space="preserve">
+    <value>Ce Cœur est une malédiction.[pause=20] Il attire tout ce qui veut de la lumière.[pause=15] Et tout ce qui en veut,[pause=10] finit par le briser.</value>
+  </data>
+  <data name="CH9_BOSS_009" xml:space="preserve">
+    <value>Alors je le laisse se noyer.[pause=15] Une fois éteint,[pause=10] plus personne ne viendra le chercher.[pause=10] Et le monde,[pause=10] enfin,[pause=10] sera tranquille.</value>
+  </data>
+  <data name="CH9_BOSS_010" xml:space="preserve">
+    <value>Tranquille ?[pause=15] Regarde ce que ça fait au marais ![pause=15] L'eau monte,[pause=10] les fleurs meurent,[pause=10] tout se vide !</value>
+  </data>
+  <data name="CH9_BOSS_011" xml:space="preserve">
+    <value>(Il croit protéger.[pause=15] Mais il étouffe.[pause=15] Il a tellement peur qu'on le brise,[pause=10] qu'il s'est mis à le tuer lui-même.)</value>
+  </data>
+  <data name="CH9_BOSS_012" xml:space="preserve">
+    <value>Un Cœur, ça ne se garde pas en l'éteignant.[pause=15] Ça se garde en le laissant battre.[pause=10] Laisse-nous le sortir de l'eau,[pause=10] et il revivra.</value>
+  </data>
+  <data name="CH9_BOSS_013" xml:space="preserve">
+    <value>...Le faire revivre.[pause=15] Personne ne me l'a jamais demandé.[pause=10] On m'a toujours demandé de le protéger,[pause=10] jamais de le sauver.</value>
+  </data>
+  <data name="CH9_BOSS_014" xml:space="preserve">
+    <value>Alors prouvez-le.[pause=15] Si le Cœur bat encore quand vous l'aurez atteint,[pause=10] je m'inclinerai.</value>
+  </data>
+  <data name="CH10_RELAIS_001" xml:space="preserve">
+    <value>Le palier des nuages.[pause=20] Le monde s'ouvre en dessous,[pause=10] immense,[pause=10] et le sommet,[pause=10] enfin,[pause=10] est là-haut.</value>
+  </data>
+  <data name="CH10_RELAIS_002" xml:space="preserve">
+    <value>On y est presque ![pause=15] Regarde,[pause=10] la Tour ![pause=10] Elle touche le ciel !</value>
+  </data>
+  <data name="CH10_RELAIS_003" xml:space="preserve">
+    <value>(On a couru,[pause=10] on a fui,[pause=10] on a traversé le feu et la neige.[pause=15] Et voilà le toit du monde.)</value>
+  </data>
+  <data name="CH10_RELAIS_004" xml:space="preserve">
+    <value>Mais quelqu'un est déjà là.[pause=15] Trois silhouettes,[pause=10] dos au vide,[pause=10] qui attendent.</value>
+  </data>
+  <data name="CH10_RELAIS_005" xml:space="preserve">
+    <value>L'Escouade Fulgur ![pause=15] Ils sont arrivés avant nous !</value>
+  </data>
+  <data name="CH10_RELAIS_006" xml:space="preserve">
+    <value>Voltra,[pause=10] le chef,[pause=10] les toise sans un mot.[pause=15] Puis il parle,[pause=10] la voix portée par le vent.</value>
+  </data>
+  <data name="CH10_RELAIS_007" xml:space="preserve">
+    <value>Vous avez du cran d'être venus jusqu'ici.[pause=15] Mais le sommet,[pause=10] c'est pour ceux qui ont quelque chose à prouver.[pause=10] Et vous,[pause=10] vous n'avez plus rien à prouver.</value>
+  </data>
+  <data name="CH10_RELAIS_008" xml:space="preserve">
+    <value>Les mots restent en suspens.[pause=15] Puis,[pause=10] au-dessus d'eux,[pause=10] un cri déchire le ciel.[pause=15] Et tout le monde comprend en même temps.</value>
+  </data>
+  <data name="CH10_RELAIS_009" xml:space="preserve">
+    <value>(Il a raison sur un point :[pause=15] le sommet n'appartient à personne.[pause=15] Il appartient à celui qui arrivera le premier.[pause=10] Et ça,[pause=10] ça se joue maintenant.)</value>
+  </data>
+  <data name="CH10_RELAIS_010" xml:space="preserve">
+    <value>Voltra se tourne vers la Tour,[pause=15] puis vers nous,[pause=10] une dernière fois.</value>
+  </data>
+  <data name="CH10_RELAIS_011" xml:space="preserve">
+    <value>Cette fois,[pause=10] pas de trêve.[pause=15] Que le meilleur atteigne le sommet.[pause=10] Et que le ciel décide.</value>
+  </data>
 </root>

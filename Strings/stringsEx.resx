@@ -6605,4 +6605,187 @@ As he is a volunteer, he won't be staying with you once you leave.
   <data name="RUINES_CRB_REVEL_05" xml:space="preserve">
     <value>The ground... it's shaking![pause=15] What's happening!?</value>
   </data>
+  <data name="CH8_RELAIS_001" xml:space="preserve">
+    <value>The light, first.[pause=25] Then the silence that carries it.</value>
+  </data>
+  <data name="CH8_RELAIS_002" xml:space="preserve">
+    <value>Behind the waterfall,[pause=15] a vast hall. And at its center,[pause=10] a glow that pulses.</value>
+  </data>
+  <data name="CH8_RELAIS_003" xml:space="preserve">
+    <value>Listen...[pause=20] No.[pause=10] Don't listen.[pause=15] There is NOTHING to hear.</value>
+  </data>
+  <data name="CH8_RELAIS_004" xml:space="preserve">
+    <value>(A waterfall this size[wait=5] should drown out our voices.[pause=20] We can hear ourselves whisper.)</value>
+  </data>
+  <data name="CH8_RELAIS_005" xml:space="preserve">
+    <value>Look at the crystals at the far end.[pause=20] They reflect nothing.[pause=15] Not one shows us our own image.</value>
+  </data>
+  <data name="CH8_RELAIS_006" xml:space="preserve">
+    <value>On the stele, words carved by the first guardians:[pause=20] "What the light protects,[pause=10] the light hides."</value>
+  </data>
+  <data name="CH8_RELAIS_007" xml:space="preserve">
+    <value>Phileas said they wrote their knowledge here.[pause=20] I don't see a library.</value>
+  </data>
+  <data name="CH8_RELAIS_008" xml:space="preserve">
+    <value>I see a place that was sealed shut.[pause=15] And the silence,[pause=10] that's the lid.</value>
+  </data>
+  <data name="CH8_RELAIS_009" xml:space="preserve">
+    <value>(She's right.[pause=15] You don't hide a book behind a waterfall.[pause=15] You hide a secret.)</value>
+  </data>
+  <data name="CH8_RELAIS_010" xml:space="preserve">
+    <value>Fine.[pause=15] We didn't come to admire.[pause=15] We go under the water,[pause=10] and we read what they left.</value>
+  </data>
+  <data name="CH8_RELAIS_011" xml:space="preserve">
+    <value>(And if the secret is the Core itself?[pause=15] It pulses, down there, beneath the stone.)</value>
+  </data>
+  <data name="CH8_MINIBOSS_001" xml:space="preserve">
+    <value>The hall lights up at once.[pause=20] Two crystal silhouettes rise in the light.</value>
+  </data>
+  <data name="CH8_MINIBOSS_002" xml:space="preserve">
+    <value>They were here all along.[pause=15] Still as statues.[pause=15] But their eyes,[pause=10] they follow the duo.</value>
+  </data>
+  <data name="CH8_MINIBOSS_003" xml:space="preserve">
+    <value>They move![pause=15] They...[pause=10] they're watching us!</value>
+  </data>
+  <data name="CH8_MINIBOSS_004" xml:space="preserve">
+    <value>(We should have known the light had guardians.)</value>
+  </data>
+  <data name="CH8_MINIBOSS_005" xml:space="preserve">
+    <value>No one enters here without permission.</value>
+  </data>
+  <data name="CH8_MINIBOSS_006" xml:space="preserve">
+    <value>The two guardians cross their crystal lances before the passage.</value>
+  </data>
+  <data name="CH8_MINIBOSS_007" xml:space="preserve">
+    <value>We're not here to steal![pause=15] We just want to understand what's happening below!</value>
+  </data>
+  <data name="CH8_MINIBOSS_008" xml:space="preserve">
+    <value>Understand?[pause=15] They all say that.[pause=10] Before they try to touch.</value>
+  </data>
+  <data name="CH8_MINIBOSS_009" xml:space="preserve">
+    <value>We guard what the light must not see.[pause=20] Cross us,[pause=10] and we will strike.</value>
+  </data>
+  <data name="CH8_MINIBOSS_010" xml:space="preserve">
+    <value>Then we have no choice.[pause=15] If the only way to understand,[pause=10] is through you...</value>
+  </data>
+  <data name="CH8_MINIBOSS_011" xml:space="preserve">
+    <value>(They're protecting something.[pause=15] Something afraid of being seen.[pause=15] Or found.)</value>
+  </data>
+  <data name="CH8_BOSS_001" xml:space="preserve">
+    <value>The throne room.[pause=20] The light here is so dense it seems to have weight.</value>
+  </data>
+  <data name="CH8_BOSS_002" xml:space="preserve">
+    <value>At the center,[pause=15] a crystal pedestal.[pause=15] And on it,[pause=10] a crown of light,[pause=10] empty.</value>
+  </data>
+  <data name="CH8_BOSS_003" xml:space="preserve">
+    <value>This is where the Core should be.[pause=20] Only its prison remains.</value>
+  </data>
+  <data name="CH8_BOSS_004" xml:space="preserve">
+    <value>(We came too late.[pause=15] Or maybe just in time.)</value>
+  </data>
+  <data name="CH8_BOSS_005" xml:space="preserve">
+    <value>The crown of light condenses.[pause=20] A form takes shape within,[pause=15] slow,[pause=10] like a sunrise.</value>
+  </data>
+  <data name="CH8_BOSS_006" xml:space="preserve">
+    <value>You seek the Core.[pause=15] It is no longer here.</value>
+  </data>
+  <data name="CH8_BOSS_007" xml:space="preserve">
+    <value>I am Diancie.[pause=15] Guardian of this sanctuary,[pause=10] and of what it held.</value>
+  </data>
+  <data name="CH8_BOSS_008" xml:space="preserve">
+    <value>The Core beat here since before the first guardians.[pause=20] It beat,[pause=10] and the world[wait=5] around it[wait=5] flourished.</value>
+  </data>
+  <data name="CH8_BOSS_009" xml:space="preserve">
+    <value>Then someone found it.[pause=15] Someone thought the light could be shared.[pause=15] The Core weakened.[pause=10] And I failed to protect it.</value>
+  </data>
+  <data name="CH8_BOSS_010" xml:space="preserve">
+    <value>It's not your fault.[pause=15] You don't guard a Core by imprisoning it.</value>
+  </data>
+  <data name="CH8_BOSS_011" xml:space="preserve">
+    <value>(She has carried the weight of failure so long...[pause=15] that she confuses guarding with owning.)</value>
+  </data>
+  <data name="CH8_BOSS_012" xml:space="preserve">
+    <value>We're not here to steal it.[pause=15] We're here to save it.[pause=10] And if you let us pass,[pause=10] we'll bring it back beating.</value>
+  </data>
+  <data name="CH8_BOSS_013" xml:space="preserve">
+    <value>...Save.[pause=15] No one has spoken that word here in a long time.</value>
+  </data>
+  <data name="CH8_BOSS_014" xml:space="preserve">
+    <value>Then prove it.[pause=15] If you are worthy to carry it,[pause=10] you will survive my light.</value>
+  </data>
+  <data name="CH9_BOSS_001" xml:space="preserve">
+    <value>The bottom of the marsh.[pause=20] The water rises here,[pause=10] faster than anywhere else.</value>
+  </data>
+  <data name="CH9_BOSS_002" xml:space="preserve">
+    <value>At the center,[pause=15] a light that is drowning.[pause=20] The Core,[pause=10] head under the water,[pause=10] still beating.</value>
+  </data>
+  <data name="CH9_BOSS_003" xml:space="preserve">
+    <value>It's still alive![pause=15] We can still save it!</value>
+  </data>
+  <data name="CH9_BOSS_004" xml:space="preserve">
+    <value>(If it still beats,[pause=15] it's not too late.[pause=15] We just need to reach it before it goes out.)</value>
+  </data>
+  <data name="CH9_BOSS_005" xml:space="preserve">
+    <value>The water rises.[pause=20] Something enormous emerges from the mud,[pause=15] slowly,[pause=10] like a breathing continent.</value>
+  </data>
+  <data name="CH9_BOSS_006" xml:space="preserve">
+    <value>Stop.[pause=15] You came for the Core.[pause=10] You will go no further.</value>
+  </data>
+  <data name="CH9_BOSS_007" xml:space="preserve">
+    <value>I am the guardian of this marsh.[pause=15] Since before the first guardians,[pause=10] I have kept anyone from touching what sleeps here.</value>
+  </data>
+  <data name="CH9_BOSS_008" xml:space="preserve">
+    <value>This Core is a curse.[pause=20] It draws everything that wants light.[pause=15] And everything that wants it[wait=5] ends up breaking it.</value>
+  </data>
+  <data name="CH9_BOSS_009" xml:space="preserve">
+    <value>So I let it drown.[pause=15] Once extinguished,[pause=10] no one will come for it.[pause=10] And the world,[pause=10] at last,[pause=10] will be at peace.</value>
+  </data>
+  <data name="CH9_BOSS_010" xml:space="preserve">
+    <value>Peace?[pause=15] Look what it's doing to the marsh![pause=15] The water rises,[pause=10] the flowers die,[pause=10] everything drains away!</value>
+  </data>
+  <data name="CH9_BOSS_011" xml:space="preserve">
+    <value>(He thinks he's protecting.[pause=15] But he's smothering.[pause=15] He's so afraid it will be broken,[pause=10] that he started killing it himself.)</value>
+  </data>
+  <data name="CH9_BOSS_012" xml:space="preserve">
+    <value>A Core isn't guarded by putting it out.[pause=15] It's guarded by letting it beat.[pause=10] Let us pull it from the water,[pause=10] and it will live again.</value>
+  </data>
+  <data name="CH9_BOSS_013" xml:space="preserve">
+    <value>...Make it live again.[pause=15] No one has ever asked me that.[pause=10] I was always asked to protect it,[pause=10] never to save it.</value>
+  </data>
+  <data name="CH9_BOSS_014" xml:space="preserve">
+    <value>Then prove it.[pause=15] If the Core still beats when you reach it,[pause=10] I will bow.</value>
+  </data>
+  <data name="CH10_RELAIS_001" xml:space="preserve">
+    <value>The cloud landing.[pause=20] The world opens below,[pause=10] immense,[pause=10] and the summit,[pause=10] at last,[pause=10] is up there.</value>
+  </data>
+  <data name="CH10_RELAIS_002" xml:space="preserve">
+    <value>We're almost there![pause=15] Look,[pause=10] the Tower![pause=10] It touches the sky!</value>
+  </data>
+  <data name="CH10_RELAIS_003" xml:space="preserve">
+    <value>(We ran,[pause=10] we fled,[pause=10] we crossed fire and snow.[pause=15] And here is the roof of the world.)</value>
+  </data>
+  <data name="CH10_RELAIS_004" xml:space="preserve">
+    <value>But someone is already here.[pause=15] Three silhouettes,[pause=10] backs to the void,[pause=10] waiting.</value>
+  </data>
+  <data name="CH10_RELAIS_005" xml:space="preserve">
+    <value>The Dazzling Squad![pause=15] They got here before us!</value>
+  </data>
+  <data name="CH10_RELAIS_006" xml:space="preserve">
+    <value>Voltra,[pause=10] the leader,[pause=10] sizes them up without a word.[pause=15] Then he speaks,[pause=10] his voice carried by the wind.</value>
+  </data>
+  <data name="CH10_RELAIS_007" xml:space="preserve">
+    <value>You've got nerve coming this far.[pause=15] But the summit,[pause=10] that's for those with something to prove.[pause=10] And you,[pause=10] you've got nothing left to prove.</value>
+  </data>
+  <data name="CH10_RELAIS_008" xml:space="preserve">
+    <value>The words hang in the air.[pause=15] Then,[pause=10] above them,[pause=10] a cry tears the sky.[pause=15] And everyone understands at the same time.</value>
+  </data>
+  <data name="CH10_RELAIS_009" xml:space="preserve">
+    <value>(He's right about one thing:[pause=15] the summit belongs to no one.[pause=15] It belongs to whoever gets there first.[pause=10] And that,[pause=10] that's decided now.)</value>
+  </data>
+  <data name="CH10_RELAIS_010" xml:space="preserve">
+    <value>Voltra turns toward the Tower,[pause=15] then back to them,[pause=10] one last time.</value>
+  </data>
+  <data name="CH10_RELAIS_011" xml:space="preserve">
+    <value>This time,[pause=10] no truce.[pause=15] May the best reach the summit.[pause=10] And let the sky decide.</value>
+  </data>
 </root>

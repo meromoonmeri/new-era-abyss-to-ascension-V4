@@ -1,2135 +1,2291 @@
 {
-  "Version": "0.8.9.0",
-  "Object": {
-    "$type": "RogueEssence.Data.ZoneData, RogueEssence",
-    "Name": {
-      "DefaultText": "Waterfall Pond",
-      "LocalTexts": {
-        "fr": "Étang Cascade"
-      }
-    },
-    "Released": true,
-    "Comment": "Chapter 8 dungeon. Ancient crystal sanctuary where Anima Core knowledge is kept. Boss: Diancie L42. | mini-boss : heraut et spectre (Strassie + Momartik), 3F -> miniboss -> 3F -> Diancie.",
-    "NoEXP": false,
-    "ExpPercent": 100,
-    "Level": -1,
-    "LevelCap": false,
-    "KeepSkills": false,
-    "TeamRestrict": false,
-    "TeamSize": -1,
-    "MoneyRestrict": false,
-    "BagRestrict": -1,
-    "KeepTreasure": false,
-    "BagSize": -1,
-    "Persistent": false,
-    "Rescues": 2,
-    "Rogue": 0,
-    "Segments": [
+ "Version": "0.8.9.0",
+ "Object": {
+  "$type": "RogueEssence.Data.ZoneData, RogueEssence",
+  "Name": {
+   "DefaultText": "Waterfall Pond",
+   "LocalTexts": {
+    "fr": "Étang Cascade"
+   }
+  },
+  "Released": true,
+  "Comment": "Chapter 8 dungeon. Ancient crystal sanctuary where Anima Core knowledge is kept. Boss: Diancie L42. | mini-boss : heraut et spectre (Strassie + Momartik), 3F -> miniboss -> 3F -> Diancie.",
+  "NoEXP": false,
+  "ExpPercent": 100,
+  "Level": -1,
+  "LevelCap": false,
+  "KeepSkills": false,
+  "TeamRestrict": false,
+  "TeamSize": -1,
+  "MoneyRestrict": false,
+  "BagRestrict": -1,
+  "KeepTreasure": false,
+  "BagSize": -1,
+  "Persistent": false,
+  "Rescues": 2,
+  "Rogue": 0,
+  "Segments": [
+   {
+    "$type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
+    "Floors": {
+     "nodes": [
       {
-        "$type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
-        "Floors": {
-          "nodes": [
-            {
-              "Item": {
-                "$type": "RogueEssence.LevelGen.GridFloorGen, RogueEssence",
-                "GenSteps": [
-                  {
-                    "Key": {
-                      "str": [
-                        -6
-                      ]
-                    },
-                    "Value": {
-                      "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                      "Music": "Crystal Cave.ogg",
-                      "TimeLimit": 1500,
-                      "TileSight": 0,
-                      "CharSight": 0,
-                      "ClampCamera": false
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -5
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "CellWidth": 9,
-                      "CellHeight": 9,
-                      "CellX": 4,
-                      "CellY": 4,
-                      "CellWall": 2,
-                      "Wrap": false
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -4
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "RoomRatio": {
-                        "Min": 80,
-                        "Max": 96
-                      },
-                      "BranchRatio": {
-                        "Min": 15,
-                        "Max": 41
-                      },
-                      "NoForcedBranches": false,
-                      "GenericRooms": {
-                        "$type": "RogueElements.SpawnList`1[[RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
-                        "$values": [
-                          {
-                            "Spawn": {
-                              "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                              "Width": {
-                                "Min": 6,
-                                "Max": 11
-                              },
-                              "Height": {
-                                "Min": 6,
-                                "Max": 11
-                              }
-                            },
-                            "Rate": 10
-                          }
-                        ]
-                      },
-                      "RoomComponents": [
-                        {
-                          "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                          "Connection": 1
-                        }
-                      ],
-                      "GenericHalls": {
-                        "$type": "RogueElements.SpawnList`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
-                        "$values": [
-                          {
-                            "Spawn": {
-                              "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                              "HallTurnBias": 20,
-                              "Brush": {
-                                "$type": "RogueElements.DefaultHallBrush, RogueElements"
-                              },
-                              "Width": {
-                                "Min": 1,
-                                "Max": 2
-                              },
-                              "Height": {
-                                "Min": 1,
-                                "Max": 2
-                              }
-                            },
-                            "Rate": 10
-                          }
-                        ]
-                      },
-                      "HallComponents": [
-                        {
-                          "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                          "Connection": 1
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -4
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "ConnectPercent": 60,
-                      "Filters": [
-                        {
-                          "$type": "RogueElements.RoomFilterComponent, RogueElements",
-                          "Negate": true,
-                          "Components": [
-                            {
-                              "$type": "PMDC.LevelGen.NoConnectRoom, PMDC"
-                            }
-                          ]
-                        }
-                      ],
-                      "GenericHalls": {
-                        "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
-                        "ToSpawn": {
-                          "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 20,
-                          "Brush": {
-                            "$type": "RogueElements.DefaultHallBrush, RogueElements"
-                          },
-                          "Width": {
-                            "Min": 1,
-                            "Max": 2
-                          },
-                          "Height": {
-                            "Min": 1,
-                            "Max": 2
-                          }
-                        }
-                      },
-                      "HallComponents": [
-                        {
-                          "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                          "Connection": 1
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -3
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.DrawGridToFloorStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements"
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -1
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.DrawFloorToTileStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "Padding": 1
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        0,
-                        1
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.UnbreakableBorderStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "Thickness": 1
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        1
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-                      "MinDistance": 0,
-                      "Entrances": [
-                        {
-                          "Loc": {
-                            "X": 0,
-                            "Y": 0
-                          },
-                          "Dir": 0
-                        }
-                      ],
-                      "Exits": [
-                        {
-                          "Loc": {
-                            "X": 0,
-                            "Y": 0
-                          },
-                          "Tile": {
-                            "TileLoc": {
-                              "X": 0,
-                              "Y": 0
-                            },
-                            "ID": "stairs_go_up",
-                            "Revealed": true,
-                            "Owner": 0,
-                            "TileStates": []
-                          }
-                        }
-                      ],
-                      "Filters": [
-                        {
-                          "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-                          "Connection": 1
-                        },
-                        {
-                          "$type": "RogueElements.RoomFilterComponent, RogueElements",
-                          "Negate": true,
-                          "Components": [
-                            {
-                              "$type": "PMDC.LevelGen.BossRoom, PMDC"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        2,
-                        2
-                      ]
-                    },
-                    "Value": {
-                      "$type": "PMDC.LevelGen.MobSpawnSettingsStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                      "Priority": {
-                        "str": [
-                          15
-                        ]
-                      },
-                      "Respawn": {
-                        "$type": "PMDC.Dungeon.RespawnFromEligibleEvent, PMDC",
-                        "MaxFoes": 4,
-                        "RespawnTime": 60
-                      },
-                      "MaxFoes": 4,
-                      "RespawnTime": 60
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        4
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "GroundTileset": "crystal_cave_1_floor",
-                      "BlockTileset": "crystal_cave_1_wall",
-                      "WaterTileset": "crystal_cave_1_secondary",
-                      "LayeredGround": false,
-                      "IndependentGround": false,
-                      "GroundElement": "ice"
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.TerminalSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MoneySpawn, RogueEssence]], RogueElements",
-                      "IncludeHalls": false,
-                      "Filters": [],
-                      "Spawn": {
-                        "$type": "RogueEssence.LevelGen.MoneyDivSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                        "DivAmount": {
-                          "Min": 1,
-                          "Max": 3
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        1
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.DueSpawnStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
-                      "SuccessPercent": 25,
-                      "IncludeHalls": false,
-                      "Filters": [
-                        {
-                          "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-                          "Connection": 1
-                        }
-                      ],
-                      "Spawn": {
-                        "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements",
-                        "Amount": {
-                          "Min": 2,
-                          "Max": 4
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        2
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.PlaceRandomMobsStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "Filters": [
-                        {
-                          "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-                          "Connection": 1
-                        }
-                      ],
-                      "IncludeHalls": false,
-                      "Spawn": {
-                        "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                        "Amount": {
-                          "Min": 2,
-                          "Max": 4
-                        }
-                      },
-                      "Ally": false,
-                      "ClumpFactor": 20
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        3
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                      "SuccessPercent": 100,
-                      "IncludeHalls": false,
-                      "Filters": [
-                        {
-                          "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-                          "Connection": 1
-                        }
-                      ],
-                      "Spawn": {
-                        "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                        "Picker": {
-                          "$type": "RogueElements.LoopedRand`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                          "Spawner": {
-                            "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                            "$values": [
-                              {
-                                "Spawn": {
-                                  "TileLoc": {
-                                    "X": 0,
-                                    "Y": 0
-                                  },
-                                  "ID": "tile_wonder",
-                                  "Revealed": true,
-                                  "Owner": 0,
-                                  "TileStates": []
-                                },
-                                "Rate": 10
-                              }
-                            ]
-                          },
-                          "AmountSpawner": {
-                            "$type": "RogueElements.RandRange, RogueElements",
-                            "Min": 2,
-                            "Max": 4
-                          }
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        3
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                      "SuccessPercent": 100,
-                      "IncludeHalls": false,
-                      "Filters": [
-                        {
-                          "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-                          "Connection": 1
-                        }
-                      ],
-                      "Spawn": {
-                        "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                        "Amount": {
-                          "Min": 6,
-                          "Max": 9
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        2,
-                        1
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "Script": "SpawnChapter6Chenipent",
-                      "ArgTable": "{}"
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        2,
-                        3
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "Script": "DungeonLife.SpawnFriendlyResident",
-                      "ArgTable": "{}"
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        2,
-                        3
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "Script": "DungeonLife.CheckTeamForSecretZone",
-                      "ArgTable": "{}"
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -6
-                      ]
-                    },
-                    "Value": {
-                      "$type": "PMDC.LevelGen.DefaultMapStatusStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                      "SetterID": "default_weather",
-                      "DefaultMapStatus": [
-                        "clear",
-                        "clear",
-                        "clear",
-                        "clear"
-                      ]
-                    }
-                  }
-                ],
-                "Comment": "Sanctuaire de Cristal — galerie bleue, veines lumineuses. (seg0)"
+       "Item": {
+        "$type": "RogueEssence.LevelGen.GridFloorGen, RogueEssence",
+        "GenSteps": [
+         {
+          "Key": {
+           "str": [
+            -6
+           ]
+          },
+          "Value": {
+           "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+           "Music": "Crystal Cave.ogg",
+           "TimeLimit": 1500,
+           "TileSight": 0,
+           "CharSight": 0,
+           "ClampCamera": false
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -5
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+           "CellWidth": 9,
+           "CellHeight": 9,
+           "CellX": 4,
+           "CellY": 4,
+           "CellWall": 2,
+           "Wrap": false
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -4
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+           "RoomRatio": {
+            "Min": 80,
+            "Max": 96
+           },
+           "BranchRatio": {
+            "Min": 15,
+            "Max": 41
+           },
+           "NoForcedBranches": false,
+           "GenericRooms": {
+            "$type": "RogueElements.SpawnList`1[[RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
+            "$values": [
+             {
+              "Spawn": {
+               "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+               "Width": {
+                "Min": 6,
+                "Max": 11
+               },
+               "Height": {
+                "Min": 6,
+                "Max": 11
+               }
               },
-              "Range": {
-                "Min": 0,
-                "Max": 13
-              }
-            },
+              "Rate": 10
+             }
+            ]
+           },
+           "RoomComponents": [
             {
-              "Item": {
-                "$type": "RogueEssence.LevelGen.GridFloorGen, RogueEssence",
-                "GenSteps": [
-                  {
-                    "Key": {
-                      "str": [
-                        -6
-                      ]
-                    },
-                    "Value": {
-                      "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                      "Music": "Crystal Cave.ogg",
-                      "TimeLimit": 1500,
-                      "TileSight": 0,
-                      "CharSight": 0,
-                      "ClampCamera": false
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -5
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "CellWidth": 9,
-                      "CellHeight": 9,
-                      "CellX": 4,
-                      "CellY": 4,
-                      "CellWall": 2,
-                      "Wrap": false
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -4
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "RoomRatio": {
-                        "Min": 80,
-                        "Max": 96
-                      },
-                      "BranchRatio": {
-                        "Min": 15,
-                        "Max": 41
-                      },
-                      "NoForcedBranches": false,
-                      "GenericRooms": {
-                        "$type": "RogueElements.SpawnList`1[[RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
-                        "$values": [
-                          {
-                            "Spawn": {
-                              "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                              "Width": {
-                                "Min": 6,
-                                "Max": 11
-                              },
-                              "Height": {
-                                "Min": 6,
-                                "Max": 11
-                              }
-                            },
-                            "Rate": 10
-                          }
-                        ]
-                      },
-                      "RoomComponents": [
-                        {
-                          "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                          "Connection": 1
-                        }
-                      ],
-                      "GenericHalls": {
-                        "$type": "RogueElements.SpawnList`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
-                        "$values": [
-                          {
-                            "Spawn": {
-                              "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                              "HallTurnBias": 20,
-                              "Brush": {
-                                "$type": "RogueElements.DefaultHallBrush, RogueElements"
-                              },
-                              "Width": {
-                                "Min": 1,
-                                "Max": 2
-                              },
-                              "Height": {
-                                "Min": 1,
-                                "Max": 2
-                              }
-                            },
-                            "Rate": 10
-                          }
-                        ]
-                      },
-                      "HallComponents": [
-                        {
-                          "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                          "Connection": 1
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -4
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "ConnectPercent": 60,
-                      "Filters": [
-                        {
-                          "$type": "RogueElements.RoomFilterComponent, RogueElements",
-                          "Negate": true,
-                          "Components": [
-                            {
-                              "$type": "PMDC.LevelGen.NoConnectRoom, PMDC"
-                            }
-                          ]
-                        }
-                      ],
-                      "GenericHalls": {
-                        "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
-                        "ToSpawn": {
-                          "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 20,
-                          "Brush": {
-                            "$type": "RogueElements.DefaultHallBrush, RogueElements"
-                          },
-                          "Width": {
-                            "Min": 1,
-                            "Max": 2
-                          },
-                          "Height": {
-                            "Min": 1,
-                            "Max": 2
-                          }
-                        }
-                      },
-                      "HallComponents": [
-                        {
-                          "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                          "Connection": 1
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -3
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.DrawGridToFloorStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements"
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -1
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.DrawFloorToTileStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "Padding": 1
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        0,
-                        1
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.UnbreakableBorderStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "Thickness": 1
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        1
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-                      "MinDistance": 0,
-                      "Entrances": [
-                        {
-                          "Loc": {
-                            "X": 0,
-                            "Y": 0
-                          },
-                          "Dir": 0
-                        }
-                      ],
-                      "Exits": [
-                        {
-                          "Loc": {
-                            "X": 0,
-                            "Y": 0
-                          },
-                          "Tile": {
-                            "TileLoc": {
-                              "X": 0,
-                              "Y": 0
-                            },
-                            "ID": "stairs_go_up",
-                            "Revealed": true,
-                            "Owner": 0,
-                            "TileStates": []
-                          }
-                        }
-                      ],
-                      "Filters": [
-                        {
-                          "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-                          "Connection": 1
-                        },
-                        {
-                          "$type": "RogueElements.RoomFilterComponent, RogueElements",
-                          "Negate": true,
-                          "Components": [
-                            {
-                              "$type": "PMDC.LevelGen.BossRoom, PMDC"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        2,
-                        2
-                      ]
-                    },
-                    "Value": {
-                      "$type": "PMDC.LevelGen.MobSpawnSettingsStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                      "Priority": {
-                        "str": [
-                          15
-                        ]
-                      },
-                      "Respawn": {
-                        "$type": "PMDC.Dungeon.RespawnFromEligibleEvent, PMDC",
-                        "MaxFoes": 4,
-                        "RespawnTime": 60
-                      },
-                      "MaxFoes": 4,
-                      "RespawnTime": 60
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        4
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "GroundTileset": "crystal_cave_1_floor",
-                      "BlockTileset": "crystal_cave_1_wall",
-                      "WaterTileset": "crystal_cave_1_secondary",
-                      "LayeredGround": false,
-                      "IndependentGround": false,
-                      "GroundElement": "ice"
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.TerminalSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MoneySpawn, RogueEssence]], RogueElements",
-                      "IncludeHalls": false,
-                      "Filters": [],
-                      "Spawn": {
-                        "$type": "RogueEssence.LevelGen.MoneyDivSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                        "DivAmount": {
-                          "Min": 1,
-                          "Max": 3
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        1
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.DueSpawnStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
-                      "SuccessPercent": 25,
-                      "IncludeHalls": false,
-                      "Filters": [
-                        {
-                          "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-                          "Connection": 1
-                        }
-                      ],
-                      "Spawn": {
-                        "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements",
-                        "Amount": {
-                          "Min": 2,
-                          "Max": 4
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        2
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.PlaceRandomMobsStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "Filters": [
-                        {
-                          "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-                          "Connection": 1
-                        }
-                      ],
-                      "IncludeHalls": false,
-                      "Spawn": {
-                        "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                        "Amount": {
-                          "Min": 2,
-                          "Max": 4
-                        }
-                      },
-                      "Ally": false,
-                      "ClumpFactor": 20
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        3
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                      "SuccessPercent": 100,
-                      "IncludeHalls": false,
-                      "Filters": [
-                        {
-                          "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-                          "Connection": 1
-                        }
-                      ],
-                      "Spawn": {
-                        "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                        "Picker": {
-                          "$type": "RogueElements.LoopedRand`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                          "Spawner": {
-                            "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                            "$values": [
-                              {
-                                "Spawn": {
-                                  "TileLoc": {
-                                    "X": 0,
-                                    "Y": 0
-                                  },
-                                  "ID": "tile_wonder",
-                                  "Revealed": true,
-                                  "Owner": 0,
-                                  "TileStates": []
-                                },
-                                "Rate": 10
-                              }
-                            ]
-                          },
-                          "AmountSpawner": {
-                            "$type": "RogueElements.RandRange, RogueElements",
-                            "Min": 2,
-                            "Max": 4
-                          }
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        3
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                      "SuccessPercent": 100,
-                      "IncludeHalls": false,
-                      "Filters": [
-                        {
-                          "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-                          "Connection": 1
-                        }
-                      ],
-                      "Spawn": {
-                        "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                        "Amount": {
-                          "Min": 6,
-                          "Max": 9
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        2,
-                        1
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "Script": "SpawnChapter6Chenipent",
-                      "ArgTable": "{}"
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        2,
-                        3
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "Script": "DungeonLife.SpawnFriendlyResident",
-                      "ArgTable": "{}"
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        2,
-                        3
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "Script": "DungeonLife.CheckTeamForSecretZone",
-                      "ArgTable": "{}"
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -6
-                      ]
-                    },
-                    "Value": {
-                      "$type": "PMDC.LevelGen.DefaultMapStatusStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                      "SetterID": "default_weather",
-                      "DefaultMapStatus": [
-                        "clear",
-                        "clear",
-                        "clear",
-                        "clear"
-                      ]
-                    }
-                  }
-                ],
-                "Comment": "Sanctuaire de Cristal — galerie bleue, veines lumineuses. (seg0)"
-              },
-              "Range": {
-                "Min": 13,
-                "Max": 25
-              }
+             "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+             "Connection": 1
             }
-          ]
-        },
-        "IsRelevant": true,
-        "Comment": "Galerie Cristalline : 12 etages, cristaux bleus, veines lumineuses",
-        "ZoneSteps": [
-          {
-            "$type": "RogueEssence.LevelGen.SpreadStepRangeZoneStep, RogueEssence",
-            "StepPriority": {
-              "str": [
-                5
-              ]
-            },
-            "Spawns": [
+           ],
+           "GenericHalls": {
+            "$type": "RogueElements.SpawnList`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
+            "$values": [
+             {
+              "Spawn": {
+               "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+               "HallTurnBias": 20,
+               "Brush": {
+                "$type": "RogueElements.DefaultHallBrush, RogueElements"
+               },
+               "Width": {
+                "Min": 1,
+                "Max": 2
+               },
+               "Height": {
+                "Min": 1,
+                "Max": 2
+               }
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           "HallComponents": [
+            {
+             "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+             "Connection": 1
+            }
+           ]
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -4
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+           "ConnectPercent": 60,
+           "Filters": [
+            {
+             "$type": "RogueElements.RoomFilterComponent, RogueElements",
+             "Negate": true,
+             "Components": [
               {
+               "$type": "PMDC.LevelGen.NoConnectRoom, PMDC"
+              }
+             ]
+            }
+           ],
+           "GenericHalls": {
+            "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
+            "ToSpawn": {
+             "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+             "HallTurnBias": 20,
+             "Brush": {
+              "$type": "RogueElements.DefaultHallBrush, RogueElements"
+             },
+             "Width": {
+              "Min": 1,
+              "Max": 2
+             },
+             "Height": {
+              "Min": 1,
+              "Max": 2
+             }
+            }
+           },
+           "HallComponents": [
+            {
+             "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+             "Connection": 1
+            }
+           ]
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -3
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.DrawGridToFloorStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -1
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.DrawFloorToTileStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+           "Padding": 1
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            0,
+            1
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.UnbreakableBorderStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Thickness": 1
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            1
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
+           "MinDistance": 0,
+           "Entrances": [
+            {
+             "Loc": {
+              "X": 0,
+              "Y": 0
+             },
+             "Dir": 0
+            }
+           ],
+           "Exits": [
+            {
+             "Loc": {
+              "X": 0,
+              "Y": 0
+             },
+             "Tile": {
+              "TileLoc": {
+               "X": 0,
+               "Y": 0
+              },
+              "ID": "stairs_go_up",
+              "Revealed": true,
+              "Owner": 0,
+              "TileStates": []
+             }
+            }
+           ],
+           "Filters": [
+            {
+             "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+             "Connection": 1
+            },
+            {
+             "$type": "RogueElements.RoomFilterComponent, RogueElements",
+             "Negate": true,
+             "Components": [
+              {
+               "$type": "PMDC.LevelGen.BossRoom, PMDC"
+              }
+             ]
+            }
+           ]
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            2,
+            2
+           ]
+          },
+          "Value": {
+           "$type": "PMDC.LevelGen.MobSpawnSettingsStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+           "Priority": {
+            "str": [
+             15
+            ]
+           },
+           "Respawn": {
+            "$type": "PMDC.Dungeon.RespawnFromEligibleEvent, PMDC",
+            "MaxFoes": 4,
+            "RespawnTime": 60
+           },
+           "MaxFoes": 4,
+           "RespawnTime": 60
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            4
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "GroundTileset": "crystal_cave_1_floor",
+           "BlockTileset": "crystal_cave_1_wall",
+           "WaterTileset": "crystal_cave_1_secondary",
+           "LayeredGround": false,
+           "IndependentGround": false,
+           "GroundElement": "ice"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.TerminalSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MoneySpawn, RogueEssence]], RogueElements",
+           "IncludeHalls": false,
+           "Filters": [],
+           "Spawn": {
+            "$type": "RogueEssence.LevelGen.MoneyDivSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+            "DivAmount": {
+             "Min": 1,
+             "Max": 3
+            }
+           }
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            1
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.DueSpawnStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+           "SuccessPercent": 25,
+           "IncludeHalls": false,
+           "Filters": [
+            {
+             "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+             "Connection": 1
+            }
+           ],
+           "Spawn": {
+            "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements",
+            "Amount": {
+             "Min": 2,
+             "Max": 4
+            }
+           }
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            2
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.PlaceRandomMobsStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Filters": [
+            {
+             "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+             "Connection": 1
+            }
+           ],
+           "IncludeHalls": false,
+           "Spawn": {
+            "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+            "Amount": {
+             "Min": 2,
+             "Max": 4
+            }
+           },
+           "Ally": false,
+           "ClumpFactor": 20
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            3
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+           "SuccessPercent": 100,
+           "IncludeHalls": false,
+           "Filters": [
+            {
+             "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+             "Connection": 1
+            }
+           ],
+           "Spawn": {
+            "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+            "Picker": {
+             "$type": "RogueElements.LoopedRand`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+             "Spawner": {
+              "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+              "$values": [
+               {
                 "Spawn": {
-                  "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
-                  "Script": "NewEraMystery",
-                  "ArgTable": "{BaseChance=6, SegDiff=4}"
+                 "TileLoc": {
+                  "X": 0,
+                  "Y": 0
+                 },
+                 "ID": "tile_wonder",
+                 "Revealed": true,
+                 "Owner": 0,
+                 "TileStates": []
                 },
-                "Rate": 10,
-                "Range": {
-                  "Min": 0,
-                  "Max": 6
-                }
-              }
-            ],
-            "SpreadPlan": {
-              "$type": "RogueEssence.LevelGen.SpreadPlanSpaced, RogueEssence",
-              "FloorSpacing": {
-                "Min": 2,
-                "Max": 4
+                "Rate": 10
+               }
+              ]
+             },
+             "AmountSpawner": {
+              "$type": "RogueElements.RandRange, RogueElements",
+              "Min": 2,
+              "Max": 4
+             }
+            }
+           }
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            3
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+           "SuccessPercent": 100,
+           "IncludeHalls": false,
+           "Filters": [
+            {
+             "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+             "Connection": 1
+            }
+           ],
+           "Spawn": {
+            "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+            "Amount": {
+             "Min": 6,
+             "Max": 9
+            }
+           }
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            2,
+            1
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Script": "SpawnChapter6Chenipent",
+           "ArgTable": "{}"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            2,
+            3
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Script": "DungeonLife.SpawnFriendlyResident",
+           "ArgTable": "{}"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            2,
+            3
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Script": "DungeonLife.CheckTeamForSecretZone",
+           "ArgTable": "{}"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -6
+           ]
+          },
+          "Value": {
+           "$type": "PMDC.LevelGen.DefaultMapStatusStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+           "SetterID": "default_weather",
+           "DefaultMapStatus": [
+            "clear",
+            "clear",
+            "clear",
+            "clear"
+           ]
+          }
+         }
+        ],
+        "Comment": "Sanctuaire de Cristal — galerie bleue, veines lumineuses. (seg0)"
+       },
+       "Range": {
+        "Min": 0,
+        "Max": 13
+       }
+      },
+      {
+       "Item": {
+        "$type": "RogueEssence.LevelGen.GridFloorGen, RogueEssence",
+        "GenSteps": [
+         {
+          "Key": {
+           "str": [
+            -6
+           ]
+          },
+          "Value": {
+           "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+           "Music": "Crystal Cave.ogg",
+           "TimeLimit": 1500,
+           "TileSight": 0,
+           "CharSight": 0,
+           "ClampCamera": false
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -5
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+           "CellWidth": 9,
+           "CellHeight": 9,
+           "CellX": 4,
+           "CellY": 4,
+           "CellWall": 2,
+           "Wrap": false
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -4
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+           "RoomRatio": {
+            "Min": 80,
+            "Max": 96
+           },
+           "BranchRatio": {
+            "Min": 15,
+            "Max": 41
+           },
+           "NoForcedBranches": false,
+           "GenericRooms": {
+            "$type": "RogueElements.SpawnList`1[[RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
+            "$values": [
+             {
+              "Spawn": {
+               "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+               "Width": {
+                "Min": 6,
+                "Max": 11
+               },
+               "Height": {
+                "Min": 6,
+                "Max": 11
+               }
               },
-              "BeginStart": false,
-              "FloorRange": {
-                "Min": 0,
-                "Max": 6
+              "Rate": 10
+             }
+            ]
+           },
+           "RoomComponents": [
+            {
+             "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+             "Connection": 1
+            }
+           ],
+           "GenericHalls": {
+            "$type": "RogueElements.SpawnList`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
+            "$values": [
+             {
+              "Spawn": {
+               "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+               "HallTurnBias": 20,
+               "Brush": {
+                "$type": "RogueElements.DefaultHallBrush, RogueElements"
+               },
+               "Width": {
+                "Min": 1,
+                "Max": 2
+               },
+               "Height": {
+                "Min": 1,
+                "Max": 2
+               }
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           "HallComponents": [
+            {
+             "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+             "Connection": 1
+            }
+           ]
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -4
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+           "ConnectPercent": 60,
+           "Filters": [
+            {
+             "$type": "RogueElements.RoomFilterComponent, RogueElements",
+             "Negate": true,
+             "Components": [
+              {
+               "$type": "PMDC.LevelGen.NoConnectRoom, PMDC"
               }
+             ]
+            }
+           ],
+           "GenericHalls": {
+            "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
+            "ToSpawn": {
+             "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+             "HallTurnBias": 20,
+             "Brush": {
+              "$type": "RogueElements.DefaultHallBrush, RogueElements"
+             },
+             "Width": {
+              "Min": 1,
+              "Max": 2
+             },
+             "Height": {
+              "Min": 1,
+              "Max": 2
+             }
+            }
+           },
+           "HallComponents": [
+            {
+             "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+             "Connection": 1
+            }
+           ]
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -3
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.DrawGridToFloorStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -1
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.DrawFloorToTileStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+           "Padding": 1
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            0,
+            1
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.UnbreakableBorderStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Thickness": 1
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            1
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
+           "MinDistance": 0,
+           "Entrances": [
+            {
+             "Loc": {
+              "X": 0,
+              "Y": 0
+             },
+             "Dir": 0
+            }
+           ],
+           "Exits": [
+            {
+             "Loc": {
+              "X": 0,
+              "Y": 0
+             },
+             "Tile": {
+              "TileLoc": {
+               "X": 0,
+               "Y": 0
+              },
+              "ID": "stairs_go_up",
+              "Revealed": true,
+              "Owner": 0,
+              "TileStates": []
+             }
+            }
+           ],
+           "Filters": [
+            {
+             "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+             "Connection": 1
             },
-            "ModStates": []
-          }
-        ]
-      },
-      {
-        "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-        "Floors": [
-          {
-            "$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
-            "GenSteps": [
-              {
-                "Key": {
-                  "str": [
-                    -1
-                  ]
-                },
-                "Value": {
-                  "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-                  "MapID": "crystal_sanctuary_relay"
-                }
-              }
-            ],
-            "Comment": ""
-          }
-        ],
-        "IsRelevant": true,
-        "Comment": "Relais — autel cristallin (checkpoint Kangourex)"
-      },
-      {
-        "$type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
-        "Floors": {
-          "nodes": [
             {
-              "Item": {
-                "$type": "RogueEssence.LevelGen.GridFloorGen, RogueEssence",
-                "GenSteps": [
-                  {
-                    "Key": {
-                      "str": [
-                        -6
-                      ]
-                    },
-                    "Value": {
-                      "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                      "Music": "Crystal Cave.ogg",
-                      "TimeLimit": 1500,
-                      "TileSight": 0,
-                      "CharSight": 0,
-                      "ClampCamera": false
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -5
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "CellWidth": 7,
-                      "CellHeight": 7,
-                      "CellX": 5,
-                      "CellY": 3,
-                      "CellWall": 4,
-                      "Wrap": false
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -4
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "RoomRatio": {
-                        "Min": 55,
-                        "Max": 71
-                      },
-                      "BranchRatio": {
-                        "Min": 60,
-                        "Max": 91
-                      },
-                      "NoForcedBranches": false,
-                      "GenericRooms": {
-                        "$type": "RogueElements.SpawnList`1[[RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
-                        "$values": [
-                          {
-                            "Spawn": {
-                              "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                              "Width": {
-                                "Min": 3,
-                                "Max": 7
-                              },
-                              "Height": {
-                                "Min": 3,
-                                "Max": 7
-                              }
-                            },
-                            "Rate": 10
-                          }
-                        ]
-                      },
-                      "RoomComponents": [
-                        {
-                          "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                          "Connection": 1
-                        }
-                      ],
-                      "GenericHalls": {
-                        "$type": "RogueElements.SpawnList`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
-                        "$values": [
-                          {
-                            "Spawn": {
-                              "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                              "HallTurnBias": 45,
-                              "Brush": {
-                                "$type": "RogueElements.DefaultHallBrush, RogueElements"
-                              },
-                              "Width": {
-                                "Min": 1,
-                                "Max": 3
-                              },
-                              "Height": {
-                                "Min": 1,
-                                "Max": 3
-                              }
-                            },
-                            "Rate": 10
-                          }
-                        ]
-                      },
-                      "HallComponents": [
-                        {
-                          "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                          "Connection": 1
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -4
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "ConnectPercent": 35,
-                      "Filters": [
-                        {
-                          "$type": "RogueElements.RoomFilterComponent, RogueElements",
-                          "Negate": true,
-                          "Components": [
-                            {
-                              "$type": "PMDC.LevelGen.NoConnectRoom, PMDC"
-                            }
-                          ]
-                        }
-                      ],
-                      "GenericHalls": {
-                        "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
-                        "ToSpawn": {
-                          "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 45,
-                          "Brush": {
-                            "$type": "RogueElements.DefaultHallBrush, RogueElements"
-                          },
-                          "Width": {
-                            "Min": 1,
-                            "Max": 3
-                          },
-                          "Height": {
-                            "Min": 1,
-                            "Max": 3
-                          }
-                        }
-                      },
-                      "HallComponents": [
-                        {
-                          "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                          "Connection": 1
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -3
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.DrawGridToFloorStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements"
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -1
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.DrawFloorToTileStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "Padding": 1
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        0,
-                        1
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.UnbreakableBorderStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "Thickness": 1
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        1
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-                      "MinDistance": 0,
-                      "Entrances": [
-                        {
-                          "Loc": {
-                            "X": 0,
-                            "Y": 0
-                          },
-                          "Dir": 0
-                        }
-                      ],
-                      "Exits": [
-                        {
-                          "Loc": {
-                            "X": 0,
-                            "Y": 0
-                          },
-                          "Tile": {
-                            "TileLoc": {
-                              "X": 0,
-                              "Y": 0
-                            },
-                            "ID": "stairs_go_up",
-                            "Revealed": true,
-                            "Owner": 0,
-                            "TileStates": []
-                          }
-                        }
-                      ],
-                      "Filters": [
-                        {
-                          "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-                          "Connection": 1
-                        },
-                        {
-                          "$type": "RogueElements.RoomFilterComponent, RogueElements",
-                          "Negate": true,
-                          "Components": [
-                            {
-                              "$type": "PMDC.LevelGen.BossRoom, PMDC"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        2,
-                        2
-                      ]
-                    },
-                    "Value": {
-                      "$type": "PMDC.LevelGen.MobSpawnSettingsStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                      "Priority": {
-                        "str": [
-                          15
-                        ]
-                      },
-                      "Respawn": {
-                        "$type": "PMDC.Dungeon.RespawnFromEligibleEvent, PMDC",
-                        "MaxFoes": 4,
-                        "RespawnTime": 60
-                      },
-                      "MaxFoes": 4,
-                      "RespawnTime": 60
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        4
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "GroundTileset": "crystal_cave_1_floor",
-                      "BlockTileset": "crystal_cave_1_wall",
-                      "WaterTileset": "crystal_cave_1_secondary",
-                      "LayeredGround": false,
-                      "IndependentGround": false,
-                      "GroundElement": "ice"
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.TerminalSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MoneySpawn, RogueEssence]], RogueElements",
-                      "IncludeHalls": false,
-                      "Filters": [],
-                      "Spawn": {
-                        "$type": "RogueEssence.LevelGen.MoneyDivSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                        "DivAmount": {
-                          "Min": 1,
-                          "Max": 3
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        1
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.DueSpawnStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
-                      "SuccessPercent": 25,
-                      "IncludeHalls": false,
-                      "Filters": [
-                        {
-                          "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-                          "Connection": 1
-                        }
-                      ],
-                      "Spawn": {
-                        "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements",
-                        "Amount": {
-                          "Min": 2,
-                          "Max": 4
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        2
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.PlaceRandomMobsStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "Filters": [
-                        {
-                          "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-                          "Connection": 1
-                        }
-                      ],
-                      "IncludeHalls": false,
-                      "Spawn": {
-                        "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                        "Amount": {
-                          "Min": 2,
-                          "Max": 4
-                        }
-                      },
-                      "Ally": false,
-                      "ClumpFactor": 20
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        3
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                      "SuccessPercent": 100,
-                      "IncludeHalls": false,
-                      "Filters": [
-                        {
-                          "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-                          "Connection": 1
-                        }
-                      ],
-                      "Spawn": {
-                        "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                        "Picker": {
-                          "$type": "RogueElements.LoopedRand`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                          "Spawner": {
-                            "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                            "$values": [
-                              {
-                                "Spawn": {
-                                  "TileLoc": {
-                                    "X": 0,
-                                    "Y": 0
-                                  },
-                                  "ID": "tile_wonder",
-                                  "Revealed": true,
-                                  "Owner": 0,
-                                  "TileStates": []
-                                },
-                                "Rate": 10
-                              }
-                            ]
-                          },
-                          "AmountSpawner": {
-                            "$type": "RogueElements.RandRange, RogueElements",
-                            "Min": 2,
-                            "Max": 4
-                          }
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        3
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                      "SuccessPercent": 100,
-                      "IncludeHalls": false,
-                      "Filters": [
-                        {
-                          "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-                          "Connection": 1
-                        }
-                      ],
-                      "Spawn": {
-                        "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                        "Amount": {
-                          "Min": 6,
-                          "Max": 9
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        2,
-                        1
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "Script": "SpawnChapter6Chenipent",
-                      "ArgTable": "{}"
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        2,
-                        3
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "Script": "DungeonLife.SpawnFriendlyResident",
-                      "ArgTable": "{}"
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        2,
-                        3
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "Script": "DungeonLife.CheckTeamForSecretZone",
-                      "ArgTable": "{}"
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -6
-                      ]
-                    },
-                    "Value": {
-                      "$type": "PMDC.LevelGen.DefaultMapStatusStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                      "SetterID": "default_weather",
-                      "DefaultMapStatus": [
-                        "clear",
-                        "clear",
-                        "clear",
-                        "clear"
-                      ]
-                    }
-                  }
-                ],
-                "Comment": "Sanctuaire de Cristal — galerie bleue, veines lumineuses. (seg2)"
-              },
-              "Range": {
-                "Min": 0,
-                "Max": 3
-              }
-            }
-          ]
-        },
-        "IsRelevant": true,
-        "Comment": "Salles des Glyphes : 6 etages profonds, runes anciennes, cristaux noirs"
-      },
-      {
-        "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-        "Floors": [
-          {
-            "$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
-            "GenSteps": [
+             "$type": "RogueElements.RoomFilterComponent, RogueElements",
+             "Negate": true,
+             "Components": [
               {
-                "Key": {
-                  "str": [
-                    -1
-                  ]
-                },
-                "Value": {
-                  "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-                  "MapID": "crystal_sanctuary_miniboss"
-                }
+               "$type": "PMDC.LevelGen.BossRoom, PMDC"
               }
-            ],
-            "Comment": ""
+             ]
+            }
+           ]
           }
-        ],
-        "IsRelevant": true,
-        "Comment": "Mini-boss crystal_sanctuary (insertion tools/insert_miniboss_segments.py)."
-      },
-      {
-        "$type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
-        "Floors": {
-          "nodes": [
+         },
+         {
+          "Key": {
+           "str": [
+            2,
+            2
+           ]
+          },
+          "Value": {
+           "$type": "PMDC.LevelGen.MobSpawnSettingsStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+           "Priority": {
+            "str": [
+             15
+            ]
+           },
+           "Respawn": {
+            "$type": "PMDC.Dungeon.RespawnFromEligibleEvent, PMDC",
+            "MaxFoes": 4,
+            "RespawnTime": 60
+           },
+           "MaxFoes": 4,
+           "RespawnTime": 60
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            4
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "GroundTileset": "crystal_cave_1_floor",
+           "BlockTileset": "crystal_cave_1_wall",
+           "WaterTileset": "crystal_cave_1_secondary",
+           "LayeredGround": false,
+           "IndependentGround": false,
+           "GroundElement": "ice"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.TerminalSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MoneySpawn, RogueEssence]], RogueElements",
+           "IncludeHalls": false,
+           "Filters": [],
+           "Spawn": {
+            "$type": "RogueEssence.LevelGen.MoneyDivSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+            "DivAmount": {
+             "Min": 1,
+             "Max": 3
+            }
+           }
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            1
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.DueSpawnStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+           "SuccessPercent": 25,
+           "IncludeHalls": false,
+           "Filters": [
             {
-              "Item": {
-                "$type": "RogueEssence.LevelGen.GridFloorGen, RogueEssence",
-                "GenSteps": [
-                  {
-                    "Key": {
-                      "str": [
-                        -6
-                      ]
-                    },
-                    "Value": {
-                      "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                      "Music": "Crystal Cave.ogg",
-                      "TimeLimit": 1500,
-                      "TileSight": 0,
-                      "CharSight": 0,
-                      "ClampCamera": false
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -5
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "CellWidth": 8,
-                      "CellHeight": 8,
-                      "CellX": 3,
-                      "CellY": 5,
-                      "CellWall": 5,
-                      "Wrap": false
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -4
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "RoomRatio": {
-                        "Min": 40,
-                        "Max": 56
-                      },
-                      "BranchRatio": {
-                        "Min": 80,
-                        "Max": 101
-                      },
-                      "NoForcedBranches": false,
-                      "GenericRooms": {
-                        "$type": "RogueElements.SpawnList`1[[RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
-                        "$values": [
-                          {
-                            "Spawn": {
-                              "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                              "Width": {
-                                "Min": 4,
-                                "Max": 8
-                              },
-                              "Height": {
-                                "Min": 4,
-                                "Max": 8
-                              }
-                            },
-                            "Rate": 10
-                          }
-                        ]
-                      },
-                      "RoomComponents": [
-                        {
-                          "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                          "Connection": 1
-                        }
-                      ],
-                      "GenericHalls": {
-                        "$type": "RogueElements.SpawnList`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
-                        "$values": [
-                          {
-                            "Spawn": {
-                              "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                              "HallTurnBias": 85,
-                              "Brush": {
-                                "$type": "RogueElements.DefaultHallBrush, RogueElements"
-                              },
-                              "Width": {
-                                "Min": 1,
-                                "Max": 2
-                              },
-                              "Height": {
-                                "Min": 1,
-                                "Max": 2
-                              }
-                            },
-                            "Rate": 10
-                          }
-                        ]
-                      },
-                      "HallComponents": [
-                        {
-                          "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                          "Connection": 1
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -4
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "ConnectPercent": 15,
-                      "Filters": [
-                        {
-                          "$type": "RogueElements.RoomFilterComponent, RogueElements",
-                          "Negate": true,
-                          "Components": [
-                            {
-                              "$type": "PMDC.LevelGen.NoConnectRoom, PMDC"
-                            }
-                          ]
-                        }
-                      ],
-                      "GenericHalls": {
-                        "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
-                        "ToSpawn": {
-                          "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                          "HallTurnBias": 85,
-                          "Brush": {
-                            "$type": "RogueElements.DefaultHallBrush, RogueElements"
-                          },
-                          "Width": {
-                            "Min": 1,
-                            "Max": 2
-                          },
-                          "Height": {
-                            "Min": 1,
-                            "Max": 2
-                          }
-                        }
-                      },
-                      "HallComponents": [
-                        {
-                          "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
-                          "Connection": 1
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -3
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.DrawGridToFloorStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements"
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -1
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.DrawFloorToTileStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
-                      "Padding": 1
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        0,
-                        1
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.UnbreakableBorderStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "Thickness": 1
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        1
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
-                      "MinDistance": 0,
-                      "Entrances": [
-                        {
-                          "Loc": {
-                            "X": 0,
-                            "Y": 0
-                          },
-                          "Dir": 0
-                        }
-                      ],
-                      "Exits": [
-                        {
-                          "Loc": {
-                            "X": 0,
-                            "Y": 0
-                          },
-                          "Tile": {
-                            "TileLoc": {
-                              "X": 0,
-                              "Y": 0
-                            },
-                            "ID": "stairs_go_up",
-                            "Revealed": true,
-                            "Owner": 0,
-                            "TileStates": []
-                          }
-                        }
-                      ],
-                      "Filters": [
-                        {
-                          "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-                          "Connection": 1
-                        },
-                        {
-                          "$type": "RogueElements.RoomFilterComponent, RogueElements",
-                          "Negate": true,
-                          "Components": [
-                            {
-                              "$type": "PMDC.LevelGen.BossRoom, PMDC"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        2,
-                        2
-                      ]
-                    },
-                    "Value": {
-                      "$type": "PMDC.LevelGen.MobSpawnSettingsStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                      "Priority": {
-                        "str": [
-                          15
-                        ]
-                      },
-                      "Respawn": {
-                        "$type": "PMDC.Dungeon.RespawnFromEligibleEvent, PMDC",
-                        "MaxFoes": 4,
-                        "RespawnTime": 60
-                      },
-                      "MaxFoes": 4,
-                      "RespawnTime": 60
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        4
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "GroundTileset": "crystal_cave_1_floor",
-                      "BlockTileset": "crystal_cave_1_wall",
-                      "WaterTileset": "crystal_cave_1_secondary",
-                      "LayeredGround": false,
-                      "IndependentGround": false,
-                      "GroundElement": "ice"
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.TerminalSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MoneySpawn, RogueEssence]], RogueElements",
-                      "IncludeHalls": false,
-                      "Filters": [],
-                      "Spawn": {
-                        "$type": "RogueEssence.LevelGen.MoneyDivSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                        "DivAmount": {
-                          "Min": 1,
-                          "Max": 3
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        1
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.DueSpawnStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
-                      "SuccessPercent": 25,
-                      "IncludeHalls": false,
-                      "Filters": [
-                        {
-                          "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-                          "Connection": 1
-                        }
-                      ],
-                      "Spawn": {
-                        "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements",
-                        "Amount": {
-                          "Min": 2,
-                          "Max": 4
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        2
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.PlaceRandomMobsStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "Filters": [
-                        {
-                          "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-                          "Connection": 1
-                        }
-                      ],
-                      "IncludeHalls": false,
-                      "Spawn": {
-                        "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                        "Amount": {
-                          "Min": 2,
-                          "Max": 4
-                        }
-                      },
-                      "Ally": false,
-                      "ClumpFactor": 20
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        3
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                      "SuccessPercent": 100,
-                      "IncludeHalls": false,
-                      "Filters": [
-                        {
-                          "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-                          "Connection": 1
-                        }
-                      ],
-                      "Spawn": {
-                        "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                        "Picker": {
-                          "$type": "RogueElements.LoopedRand`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                          "Spawner": {
-                            "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                            "$values": [
-                              {
-                                "Spawn": {
-                                  "TileLoc": {
-                                    "X": 0,
-                                    "Y": 0
-                                  },
-                                  "ID": "tile_wonder",
-                                  "Revealed": true,
-                                  "Owner": 0,
-                                  "TileStates": []
-                                },
-                                "Rate": 10
-                              }
-                            ]
-                          },
-                          "AmountSpawner": {
-                            "$type": "RogueElements.RandRange, RogueElements",
-                            "Min": 2,
-                            "Max": 4
-                          }
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        3
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                      "SuccessPercent": 100,
-                      "IncludeHalls": false,
-                      "Filters": [
-                        {
-                          "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
-                          "Connection": 1
-                        }
-                      ],
-                      "Spawn": {
-                        "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
-                        "Amount": {
-                          "Min": 6,
-                          "Max": 9
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        2,
-                        1
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "Script": "SpawnChapter6Chenipent",
-                      "ArgTable": "{}"
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        2,
-                        3
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "Script": "DungeonLife.SpawnFriendlyResident",
-                      "ArgTable": "{}"
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        5,
-                        2,
-                        3
-                      ]
-                    },
-                    "Value": {
-                      "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-                      "Script": "DungeonLife.CheckTeamForSecretZone",
-                      "ArgTable": "{}"
-                    }
-                  },
-                  {
-                    "Key": {
-                      "str": [
-                        -6
-                      ]
-                    },
-                    "Value": {
-                      "$type": "PMDC.LevelGen.DefaultMapStatusStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                      "SetterID": "default_weather",
-                      "DefaultMapStatus": [
-                        "clear",
-                        "clear",
-                        "clear",
-                        "clear"
-                      ]
-                    }
-                  }
-                ],
-                "Comment": "Sanctuaire de Cristal — galerie bleue, veines lumineuses. (seg2)"
-              },
-              "Range": {
-                "Min": 0,
-                "Max": 3
-              }
+             "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+             "Connection": 1
             }
-          ]
-        },
-        "IsRelevant": true,
-        "Comment": "3F au-dessus du mini-boss crystal_sanctuary (clone du premier tiers post-relais)."
-      },
-      {
-        "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-        "Floors": [
-          {
-            "$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
-            "GenSteps": [
-              {
-                "Key": {
-                  "str": [
-                    -1
-                  ]
-                },
-                "Value": {
-                  "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
-                  "MapID": "crystal_sanctuary_boss"
-                }
-              }
-            ],
-            "Comment": ""
+           ],
+           "Spawn": {
+            "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements",
+            "Amount": {
+             "Min": 2,
+             "Max": 4
+            }
+           }
           }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            2
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.PlaceRandomMobsStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Filters": [
+            {
+             "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+             "Connection": 1
+            }
+           ],
+           "IncludeHalls": false,
+           "Spawn": {
+            "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+            "Amount": {
+             "Min": 2,
+             "Max": 4
+            }
+           },
+           "Ally": false,
+           "ClumpFactor": 20
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            3
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+           "SuccessPercent": 100,
+           "IncludeHalls": false,
+           "Filters": [
+            {
+             "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+             "Connection": 1
+            }
+           ],
+           "Spawn": {
+            "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+            "Picker": {
+             "$type": "RogueElements.LoopedRand`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+             "Spawner": {
+              "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+              "$values": [
+               {
+                "Spawn": {
+                 "TileLoc": {
+                  "X": 0,
+                  "Y": 0
+                 },
+                 "ID": "tile_wonder",
+                 "Revealed": true,
+                 "Owner": 0,
+                 "TileStates": []
+                },
+                "Rate": 10
+               }
+              ]
+             },
+             "AmountSpawner": {
+              "$type": "RogueElements.RandRange, RogueElements",
+              "Min": 2,
+              "Max": 4
+             }
+            }
+           }
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            3
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+           "SuccessPercent": 100,
+           "IncludeHalls": false,
+           "Filters": [
+            {
+             "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+             "Connection": 1
+            }
+           ],
+           "Spawn": {
+            "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+            "Amount": {
+             "Min": 6,
+             "Max": 9
+            }
+           }
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            2,
+            1
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Script": "SpawnChapter6Chenipent",
+           "ArgTable": "{}"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            2,
+            3
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Script": "DungeonLife.SpawnFriendlyResident",
+           "ArgTable": "{}"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            2,
+            3
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Script": "DungeonLife.CheckTeamForSecretZone",
+           "ArgTable": "{}"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -6
+           ]
+          },
+          "Value": {
+           "$type": "PMDC.LevelGen.DefaultMapStatusStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+           "SetterID": "default_weather",
+           "DefaultMapStatus": [
+            "clear",
+            "clear",
+            "clear",
+            "clear"
+           ]
+          }
+         }
         ],
-        "IsRelevant": true,
-        "Comment": "Chambre de Diancie — arene cristalline circulaire"
+        "Comment": "Sanctuaire de Cristal — galerie bleue, veines lumineuses. (seg0)"
+       },
+       "Range": {
+        "Min": 13,
+        "Max": 25
+       }
       }
+     ]
+    },
+    "IsRelevant": true,
+    "Comment": "Galerie Cristalline : 12 etages, cristaux bleus, veines lumineuses",
+    "ZoneSteps": [
+     {
+      "$type": "RogueEssence.LevelGen.SpreadStepRangeZoneStep, RogueEssence",
+      "StepPriority": {
+       "str": [
+        5
+       ]
+      },
+      "Spawns": [
+       {
+        "Spawn": {
+         "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], RogueEssence",
+         "Script": "NewEraMystery",
+         "ArgTable": "{BaseChance=6, SegDiff=4}"
+        },
+        "Rate": 10,
+        "Range": {
+         "Min": 0,
+         "Max": 6
+        }
+       }
+      ],
+      "SpreadPlan": {
+       "$type": "RogueEssence.LevelGen.SpreadPlanSpaced, RogueEssence",
+       "FloorSpacing": {
+        "Min": 2,
+        "Max": 4
+       },
+       "BeginStart": false,
+       "FloorRange": {
+        "Min": 0,
+        "Max": 6
+       }
+      },
+      "ModStates": []
+     }
+    ]
+   },
+   {
+    "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+    "Floors": [
+     {
+      "$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
+      "GenSteps": [
+       {
+        "Key": {
+         "str": [
+          -1
+         ]
+        },
+        "Value": {
+         "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
+         "MapID": "crystal_sanctuary_relay"
+        }
+       },
+       {
+        "Key": {
+         "str": [
+          -6
+         ]
+        },
+        "Value": {
+         "$type": "RogueEssence.LevelGen.MapEffectStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
+         "Effect": {
+          "UniversalStates": [],
+          "BeforeTryActions": [],
+          "BeforeActions": [],
+          "OnActions": [],
+          "BeforeExplosions": [],
+          "BeforeHits": [],
+          "OnHits": [],
+          "OnHitTiles": [],
+          "AfterActions": [],
+          "ElementEffects": [],
+          "OnEquips": [],
+          "OnPickups": [],
+          "BeforeStatusAdds": [],
+          "OnStatusAdds": [],
+          "OnStatusRemoves": [],
+          "OnMapStatusAdds": [],
+          "OnMapStatusRemoves": [],
+          "OnMapStarts": [
+           {
+            "Key": {
+             "str": [
+              0
+             ]
+            },
+            "Value": {
+             "$type": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
+             "Script": "Ch8_RelaisArrivee",
+             "ArgTable": "{ Segment = 1 }"
+            }
+           }
+          ],
+          "OnTurnStarts": [],
+          "OnTurnEnds": [],
+          "OnMapTurnEnds": [],
+          "OnWalks": [],
+          "OnDeaths": [],
+          "OnRefresh": [],
+          "OnMapRefresh": [],
+          "ModifyHPs": [],
+          "RestoreHPs": []
+         }
+        }
+       }
+      ],
+      "Comment": ""
+     }
     ],
-    "GroundMaps": []
-  }
+    "IsRelevant": true,
+    "Comment": "Relais — autel cristallin (checkpoint Kangourex)"
+   },
+   {
+    "$type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
+    "Floors": {
+     "nodes": [
+      {
+       "Item": {
+        "$type": "RogueEssence.LevelGen.GridFloorGen, RogueEssence",
+        "GenSteps": [
+         {
+          "Key": {
+           "str": [
+            -6
+           ]
+          },
+          "Value": {
+           "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+           "Music": "Crystal Cave.ogg",
+           "TimeLimit": 1500,
+           "TileSight": 0,
+           "CharSight": 0,
+           "ClampCamera": false
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -5
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+           "CellWidth": 7,
+           "CellHeight": 7,
+           "CellX": 5,
+           "CellY": 3,
+           "CellWall": 4,
+           "Wrap": false
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -4
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+           "RoomRatio": {
+            "Min": 55,
+            "Max": 71
+           },
+           "BranchRatio": {
+            "Min": 60,
+            "Max": 91
+           },
+           "NoForcedBranches": false,
+           "GenericRooms": {
+            "$type": "RogueElements.SpawnList`1[[RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
+            "$values": [
+             {
+              "Spawn": {
+               "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+               "Width": {
+                "Min": 3,
+                "Max": 7
+               },
+               "Height": {
+                "Min": 3,
+                "Max": 7
+               }
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           "RoomComponents": [
+            {
+             "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+             "Connection": 1
+            }
+           ],
+           "GenericHalls": {
+            "$type": "RogueElements.SpawnList`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
+            "$values": [
+             {
+              "Spawn": {
+               "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+               "HallTurnBias": 45,
+               "Brush": {
+                "$type": "RogueElements.DefaultHallBrush, RogueElements"
+               },
+               "Width": {
+                "Min": 1,
+                "Max": 3
+               },
+               "Height": {
+                "Min": 1,
+                "Max": 3
+               }
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           "HallComponents": [
+            {
+             "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+             "Connection": 1
+            }
+           ]
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -4
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+           "ConnectPercent": 35,
+           "Filters": [
+            {
+             "$type": "RogueElements.RoomFilterComponent, RogueElements",
+             "Negate": true,
+             "Components": [
+              {
+               "$type": "PMDC.LevelGen.NoConnectRoom, PMDC"
+              }
+             ]
+            }
+           ],
+           "GenericHalls": {
+            "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
+            "ToSpawn": {
+             "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+             "HallTurnBias": 45,
+             "Brush": {
+              "$type": "RogueElements.DefaultHallBrush, RogueElements"
+             },
+             "Width": {
+              "Min": 1,
+              "Max": 3
+             },
+             "Height": {
+              "Min": 1,
+              "Max": 3
+             }
+            }
+           },
+           "HallComponents": [
+            {
+             "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+             "Connection": 1
+            }
+           ]
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -3
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.DrawGridToFloorStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -1
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.DrawFloorToTileStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+           "Padding": 1
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            0,
+            1
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.UnbreakableBorderStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Thickness": 1
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            1
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
+           "MinDistance": 0,
+           "Entrances": [
+            {
+             "Loc": {
+              "X": 0,
+              "Y": 0
+             },
+             "Dir": 0
+            }
+           ],
+           "Exits": [
+            {
+             "Loc": {
+              "X": 0,
+              "Y": 0
+             },
+             "Tile": {
+              "TileLoc": {
+               "X": 0,
+               "Y": 0
+              },
+              "ID": "stairs_go_up",
+              "Revealed": true,
+              "Owner": 0,
+              "TileStates": []
+             }
+            }
+           ],
+           "Filters": [
+            {
+             "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+             "Connection": 1
+            },
+            {
+             "$type": "RogueElements.RoomFilterComponent, RogueElements",
+             "Negate": true,
+             "Components": [
+              {
+               "$type": "PMDC.LevelGen.BossRoom, PMDC"
+              }
+             ]
+            }
+           ]
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            2,
+            2
+           ]
+          },
+          "Value": {
+           "$type": "PMDC.LevelGen.MobSpawnSettingsStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+           "Priority": {
+            "str": [
+             15
+            ]
+           },
+           "Respawn": {
+            "$type": "PMDC.Dungeon.RespawnFromEligibleEvent, PMDC",
+            "MaxFoes": 4,
+            "RespawnTime": 60
+           },
+           "MaxFoes": 4,
+           "RespawnTime": 60
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            4
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "GroundTileset": "crystal_cave_1_floor",
+           "BlockTileset": "crystal_cave_1_wall",
+           "WaterTileset": "crystal_cave_1_secondary",
+           "LayeredGround": false,
+           "IndependentGround": false,
+           "GroundElement": "ice"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.TerminalSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MoneySpawn, RogueEssence]], RogueElements",
+           "IncludeHalls": false,
+           "Filters": [],
+           "Spawn": {
+            "$type": "RogueEssence.LevelGen.MoneyDivSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+            "DivAmount": {
+             "Min": 1,
+             "Max": 3
+            }
+           }
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            1
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.DueSpawnStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+           "SuccessPercent": 25,
+           "IncludeHalls": false,
+           "Filters": [
+            {
+             "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+             "Connection": 1
+            }
+           ],
+           "Spawn": {
+            "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements",
+            "Amount": {
+             "Min": 2,
+             "Max": 4
+            }
+           }
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            2
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.PlaceRandomMobsStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Filters": [
+            {
+             "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+             "Connection": 1
+            }
+           ],
+           "IncludeHalls": false,
+           "Spawn": {
+            "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+            "Amount": {
+             "Min": 2,
+             "Max": 4
+            }
+           },
+           "Ally": false,
+           "ClumpFactor": 20
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            3
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+           "SuccessPercent": 100,
+           "IncludeHalls": false,
+           "Filters": [
+            {
+             "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+             "Connection": 1
+            }
+           ],
+           "Spawn": {
+            "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+            "Picker": {
+             "$type": "RogueElements.LoopedRand`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+             "Spawner": {
+              "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+              "$values": [
+               {
+                "Spawn": {
+                 "TileLoc": {
+                  "X": 0,
+                  "Y": 0
+                 },
+                 "ID": "tile_wonder",
+                 "Revealed": true,
+                 "Owner": 0,
+                 "TileStates": []
+                },
+                "Rate": 10
+               }
+              ]
+             },
+             "AmountSpawner": {
+              "$type": "RogueElements.RandRange, RogueElements",
+              "Min": 2,
+              "Max": 4
+             }
+            }
+           }
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            3
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+           "SuccessPercent": 100,
+           "IncludeHalls": false,
+           "Filters": [
+            {
+             "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+             "Connection": 1
+            }
+           ],
+           "Spawn": {
+            "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+            "Amount": {
+             "Min": 6,
+             "Max": 9
+            }
+           }
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            2,
+            1
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Script": "SpawnChapter6Chenipent",
+           "ArgTable": "{}"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            2,
+            3
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Script": "DungeonLife.SpawnFriendlyResident",
+           "ArgTable": "{}"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            2,
+            3
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Script": "DungeonLife.CheckTeamForSecretZone",
+           "ArgTable": "{}"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -6
+           ]
+          },
+          "Value": {
+           "$type": "PMDC.LevelGen.DefaultMapStatusStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+           "SetterID": "default_weather",
+           "DefaultMapStatus": [
+            "clear",
+            "clear",
+            "clear",
+            "clear"
+           ]
+          }
+         }
+        ],
+        "Comment": "Sanctuaire de Cristal — galerie bleue, veines lumineuses. (seg2)"
+       },
+       "Range": {
+        "Min": 0,
+        "Max": 3
+       }
+      }
+     ]
+    },
+    "IsRelevant": true,
+    "Comment": "Salles des Glyphes : 6 etages profonds, runes anciennes, cristaux noirs"
+   },
+   {
+    "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+    "Floors": [
+     {
+      "$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
+      "GenSteps": [
+       {
+        "Key": {
+         "str": [
+          -1
+         ]
+        },
+        "Value": {
+         "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
+         "MapID": "crystal_sanctuary_miniboss"
+        }
+       },
+       {
+        "Key": {
+         "str": [
+          -6
+         ]
+        },
+        "Value": {
+         "$type": "RogueEssence.LevelGen.MapEffectStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
+         "Effect": {
+          "UniversalStates": [],
+          "BeforeTryActions": [],
+          "BeforeActions": [],
+          "OnActions": [],
+          "BeforeExplosions": [],
+          "BeforeHits": [],
+          "OnHits": [],
+          "OnHitTiles": [],
+          "AfterActions": [],
+          "ElementEffects": [],
+          "OnEquips": [],
+          "OnPickups": [],
+          "BeforeStatusAdds": [],
+          "OnStatusAdds": [],
+          "OnStatusRemoves": [],
+          "OnMapStatusAdds": [],
+          "OnMapStatusRemoves": [],
+          "OnMapStarts": [
+           {
+            "Key": {
+             "str": [
+              0
+             ]
+            },
+            "Value": {
+             "$type": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
+             "Script": "Ch8_MinibossEveil",
+             "ArgTable": "{ Segment = 3 }"
+            }
+           }
+          ],
+          "OnTurnStarts": [],
+          "OnTurnEnds": [],
+          "OnMapTurnEnds": [],
+          "OnWalks": [],
+          "OnDeaths": [],
+          "OnRefresh": [],
+          "OnMapRefresh": [],
+          "ModifyHPs": [],
+          "RestoreHPs": []
+         }
+        }
+       }
+      ],
+      "Comment": ""
+     }
+    ],
+    "IsRelevant": true,
+    "Comment": "Mini-boss crystal_sanctuary (insertion tools/insert_miniboss_segments.py)."
+   },
+   {
+    "$type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
+    "Floors": {
+     "nodes": [
+      {
+       "Item": {
+        "$type": "RogueEssence.LevelGen.GridFloorGen, RogueEssence",
+        "GenSteps": [
+         {
+          "Key": {
+           "str": [
+            -6
+           ]
+          },
+          "Value": {
+           "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+           "Music": "Crystal Cave.ogg",
+           "TimeLimit": 1500,
+           "TileSight": 0,
+           "CharSight": 0,
+           "ClampCamera": false
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -5
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.InitGridPlanStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+           "CellWidth": 8,
+           "CellHeight": 8,
+           "CellX": 3,
+           "CellY": 5,
+           "CellWall": 5,
+           "Wrap": false
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -4
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.GridPathBranch`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+           "RoomRatio": {
+            "Min": 40,
+            "Max": 56
+           },
+           "BranchRatio": {
+            "Min": 80,
+            "Max": 101
+           },
+           "NoForcedBranches": false,
+           "GenericRooms": {
+            "$type": "RogueElements.SpawnList`1[[RogueElements.RoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
+            "$values": [
+             {
+              "Spawn": {
+               "$type": "RogueElements.RoomGenRound`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+               "Width": {
+                "Min": 4,
+                "Max": 8
+               },
+               "Height": {
+                "Min": 4,
+                "Max": 8
+               }
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           "RoomComponents": [
+            {
+             "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+             "Connection": 1
+            }
+           ],
+           "GenericHalls": {
+            "$type": "RogueElements.SpawnList`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
+            "$values": [
+             {
+              "Spawn": {
+               "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+               "HallTurnBias": 85,
+               "Brush": {
+                "$type": "RogueElements.DefaultHallBrush, RogueElements"
+               },
+               "Width": {
+                "Min": 1,
+                "Max": 2
+               },
+               "Height": {
+                "Min": 1,
+                "Max": 2
+               }
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           "HallComponents": [
+            {
+             "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+             "Connection": 1
+            }
+           ]
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -4
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.ConnectGridBranchStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+           "ConnectPercent": 15,
+           "Filters": [
+            {
+             "$type": "RogueElements.RoomFilterComponent, RogueElements",
+             "Negate": true,
+             "Components": [
+              {
+               "$type": "PMDC.LevelGen.NoConnectRoom, PMDC"
+              }
+             ]
+            }
+           ],
+           "GenericHalls": {
+            "$type": "RogueElements.PresetPicker`1[[RogueElements.PermissiveRoomGen`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements]], RogueElements",
+            "ToSpawn": {
+             "$type": "RogueElements.RoomGenAngledHall`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+             "HallTurnBias": 85,
+             "Brush": {
+              "$type": "RogueElements.DefaultHallBrush, RogueElements"
+             },
+             "Width": {
+              "Min": 1,
+              "Max": 2
+             },
+             "Height": {
+              "Min": 1,
+              "Max": 2
+             }
+            }
+           },
+           "HallComponents": [
+            {
+             "$type": "PMDC.LevelGen.ConnectivityRoom, PMDC",
+             "Connection": 1
+            }
+           ]
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -3
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.DrawGridToFloorStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -1
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.DrawFloorToTileStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements",
+           "Padding": 1
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            0,
+            1
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.UnbreakableBorderStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Thickness": 1
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            1
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
+           "MinDistance": 0,
+           "Entrances": [
+            {
+             "Loc": {
+              "X": 0,
+              "Y": 0
+             },
+             "Dir": 0
+            }
+           ],
+           "Exits": [
+            {
+             "Loc": {
+              "X": 0,
+              "Y": 0
+             },
+             "Tile": {
+              "TileLoc": {
+               "X": 0,
+               "Y": 0
+              },
+              "ID": "stairs_go_up",
+              "Revealed": true,
+              "Owner": 0,
+              "TileStates": []
+             }
+            }
+           ],
+           "Filters": [
+            {
+             "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+             "Connection": 1
+            },
+            {
+             "$type": "RogueElements.RoomFilterComponent, RogueElements",
+             "Negate": true,
+             "Components": [
+              {
+               "$type": "PMDC.LevelGen.BossRoom, PMDC"
+              }
+             ]
+            }
+           ]
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            2,
+            2
+           ]
+          },
+          "Value": {
+           "$type": "PMDC.LevelGen.MobSpawnSettingsStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+           "Priority": {
+            "str": [
+             15
+            ]
+           },
+           "Respawn": {
+            "$type": "PMDC.Dungeon.RespawnFromEligibleEvent, PMDC",
+            "MaxFoes": 4,
+            "RespawnTime": 60
+           },
+           "MaxFoes": 4,
+           "RespawnTime": 60
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            4
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.MapTextureStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "GroundTileset": "crystal_cave_1_floor",
+           "BlockTileset": "crystal_cave_1_wall",
+           "WaterTileset": "crystal_cave_1_secondary",
+           "LayeredGround": false,
+           "IndependentGround": false,
+           "GroundElement": "ice"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.TerminalSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MoneySpawn, RogueEssence]], RogueElements",
+           "IncludeHalls": false,
+           "Filters": [],
+           "Spawn": {
+            "$type": "RogueEssence.LevelGen.MoneyDivSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+            "DivAmount": {
+             "Min": 1,
+             "Max": 3
+            }
+           }
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            1
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.DueSpawnStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+           "SuccessPercent": 25,
+           "IncludeHalls": false,
+           "Filters": [
+            {
+             "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+             "Connection": 1
+            }
+           ],
+           "Spawn": {
+            "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.InvItem, RogueEssence]], RogueElements",
+            "Amount": {
+             "Min": 2,
+             "Max": 4
+            }
+           }
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            2
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.PlaceRandomMobsStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Filters": [
+            {
+             "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+             "Connection": 1
+            }
+           ],
+           "IncludeHalls": false,
+           "Spawn": {
+            "$type": "RogueEssence.LevelGen.TeamContextSpawner`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+            "Amount": {
+             "Min": 2,
+             "Max": 4
+            }
+           },
+           "Ally": false,
+           "ClumpFactor": 20
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            3
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+           "SuccessPercent": 100,
+           "IncludeHalls": false,
+           "Filters": [
+            {
+             "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+             "Connection": 1
+            }
+           ],
+           "Spawn": {
+            "$type": "RogueElements.PickerSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+            "Picker": {
+             "$type": "RogueElements.LoopedRand`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+             "Spawner": {
+              "$type": "RogueElements.SpawnList`1[[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+              "$values": [
+               {
+                "Spawn": {
+                 "TileLoc": {
+                  "X": 0,
+                  "Y": 0
+                 },
+                 "ID": "tile_wonder",
+                 "Revealed": true,
+                 "Owner": 0,
+                 "TileStates": []
+                },
+                "Rate": 10
+               }
+              ]
+             },
+             "AmountSpawner": {
+              "$type": "RogueElements.RandRange, RogueElements",
+              "Min": 2,
+              "Max": 4
+             }
+            }
+           }
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            3
+           ]
+          },
+          "Value": {
+           "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+           "SuccessPercent": 100,
+           "IncludeHalls": false,
+           "Filters": [
+            {
+             "$type": "PMDC.LevelGen.RoomFilterConnectivity, PMDC",
+             "Connection": 1
+            }
+           ],
+           "Spawn": {
+            "$type": "RogueElements.ContextSpawner`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+            "Amount": {
+             "Min": 6,
+             "Max": 9
+            }
+           }
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            2,
+            1
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Script": "SpawnChapter6Chenipent",
+           "ArgTable": "{}"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            2,
+            3
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Script": "DungeonLife.SpawnFriendlyResident",
+           "ArgTable": "{}"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            2,
+            3
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Script": "DungeonLife.CheckTeamForSecretZone",
+           "ArgTable": "{}"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            -6
+           ]
+          },
+          "Value": {
+           "$type": "PMDC.LevelGen.DefaultMapStatusStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
+           "SetterID": "default_weather",
+           "DefaultMapStatus": [
+            "clear",
+            "clear",
+            "clear",
+            "clear"
+           ]
+          }
+         }
+        ],
+        "Comment": "Sanctuaire de Cristal — galerie bleue, veines lumineuses. (seg2)"
+       },
+       "Range": {
+        "Min": 0,
+        "Max": 3
+       }
+      }
+     ]
+    },
+    "IsRelevant": true,
+    "Comment": "3F au-dessus du mini-boss crystal_sanctuary (clone du premier tiers post-relais)."
+   },
+   {
+    "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+    "Floors": [
+     {
+      "$type": "RogueEssence.LevelGen.LoadGen, RogueEssence",
+      "GenSteps": [
+       {
+        "Key": {
+         "str": [
+          -1
+         ]
+        },
+        "Value": {
+         "$type": "RogueEssence.LevelGen.MappedRoomStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
+         "MapID": "crystal_sanctuary_boss"
+        }
+       },
+       {
+        "Key": {
+         "str": [
+          -6
+         ]
+        },
+        "Value": {
+         "$type": "RogueEssence.LevelGen.MapEffectStep`1[[RogueEssence.LevelGen.MapLoadContext, RogueEssence]], RogueEssence",
+         "Effect": {
+          "UniversalStates": [],
+          "BeforeTryActions": [],
+          "BeforeActions": [],
+          "OnActions": [],
+          "BeforeExplosions": [],
+          "BeforeHits": [],
+          "OnHits": [],
+          "OnHitTiles": [],
+          "AfterActions": [],
+          "ElementEffects": [],
+          "OnEquips": [],
+          "OnPickups": [],
+          "BeforeStatusAdds": [],
+          "OnStatusAdds": [],
+          "OnStatusRemoves": [],
+          "OnMapStatusAdds": [],
+          "OnMapStatusRemoves": [],
+          "OnMapStarts": [
+           {
+            "Key": {
+             "str": [
+              0
+             ]
+            },
+            "Value": {
+             "$type": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
+             "Script": "Ch8_BossEveil",
+             "ArgTable": "{ Segment = 5 }"
+            }
+           }
+          ],
+          "OnTurnStarts": [],
+          "OnTurnEnds": [],
+          "OnMapTurnEnds": [],
+          "OnWalks": [],
+          "OnDeaths": [],
+          "OnRefresh": [],
+          "OnMapRefresh": [],
+          "ModifyHPs": [],
+          "RestoreHPs": []
+         }
+        }
+       }
+      ],
+      "Comment": ""
+     }
+    ],
+    "IsRelevant": true,
+    "Comment": "Chambre de Diancie — arene cristalline circulaire"
+   }
+  ],
+  "GroundMaps": []
+ }
 }
