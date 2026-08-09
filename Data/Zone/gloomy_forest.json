@@ -786,18 +786,16 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "bronzor",
+           "Species": "oddish",
            "Form": 0,
            "Skin": "",
            "Gender": -1
           },
           "Level": {
-           "Min": 22,
-           "Max": 24
+           "Min": 7,
+           "Max": 7
           },
-          "SpecifiedSkills": [
-           "tackle"
-          ],
+          "SpecifiedSkills": [],
           "Intrinsic": "",
           "Tactic": "wander_dumb",
           "SpawnConditions": [],
@@ -834,10 +832,122 @@
          },
          "Role": 0
         },
-        "Rate": 10,
+        "Rate": 1579,
         "Range": {
          "Min": 0,
-         "Max": 5
+         "Max": 1
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sudowoodo",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 7,
+           "Max": 7
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 4210,
+        "Range": {
+         "Min": 0,
+         "Max": 1
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "swinub",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 4211,
+        "Range": {
+         "Min": 0,
+         "Max": 1
         }
        },
        {
@@ -850,22 +960,37 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 22,
-           "Max": 23
+           "Min": 7,
+           "Max": 7
           },
-          "SpecifiedSkills": [
-           "absorb"
-          ],
+          "SpecifiedSkills": [],
           "Intrinsic": "",
           "Tactic": "wander_dumb",
           "SpawnConditions": [],
           "SpawnFeatures": [
            {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
             "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
            },
            {
             "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-            "StartAt": 2,
+            "StartAt": 1,
             "Remove": false
            },
            {
@@ -875,9 +1000,849 @@
          },
          "Role": 0
         },
-        "Rate": 10,
+        "Rate": 1364,
         "Range": {
-         "Min": 0,
+         "Min": 1,
+         "Max": 2
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sudowoodo",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 7,
+           "Max": 7
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 3636,
+        "Range": {
+         "Min": 1,
+         "Max": 2
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sunflora",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1364,
+        "Range": {
+         "Min": 1,
+         "Max": 2
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "swinub",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 3636,
+        "Range": {
+         "Min": 1,
+         "Max": 2
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "oddish",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 7,
+           "Max": 7
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1000,
+        "Range": {
+         "Min": 2,
+         "Max": 3
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sentret",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 6,
+           "Max": 6
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2667,
+        "Range": {
+         "Min": 2,
+         "Max": 3
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sudowoodo",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 7,
+           "Max": 7
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2666,
+        "Range": {
+         "Min": 2,
+         "Max": 3
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sunflora",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1000,
+        "Range": {
+         "Min": 2,
+         "Max": 3
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "swinub",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2667,
+        "Range": {
+         "Min": 2,
+         "Max": 3
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "oddish",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 7,
+           "Max": 7
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 937,
+        "Range": {
+         "Min": 3,
+         "Max": 4
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sentret",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 6,
+           "Max": 6
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2500,
+        "Range": {
+         "Min": 3,
+         "Max": 4
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sudowoodo",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 7,
+           "Max": 7
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2500,
+        "Range": {
+         "Min": 3,
+         "Max": 4
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sunflora",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 938,
+        "Range": {
+         "Min": 3,
+         "Max": 4
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "silcoon",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1562,
+        "Range": {
+         "Min": 3,
+         "Max": 4
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "cascoon",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1563,
+        "Range": {
+         "Min": 3,
+         "Max": 4
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sentret",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 6,
+           "Max": 6
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 3810,
+        "Range": {
+         "Min": 4,
          "Max": 5
         }
        },
@@ -885,28 +1850,43 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "caterpie",
+           "Species": "sunflora",
            "Form": 0,
            "Skin": "",
            "Gender": -1
           },
           "Level": {
-           "Min": 21,
-           "Max": 23
+           "Min": 8,
+           "Max": 8
           },
-          "SpecifiedSkills": [
-           "tackle"
-          ],
+          "SpecifiedSkills": [],
           "Intrinsic": "",
           "Tactic": "wander_dumb",
           "SpawnConditions": [],
           "SpawnFeatures": [
            {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
             "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
            },
            {
             "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-            "StartAt": 2,
+            "StartAt": 1,
             "Remove": false
            },
            {
@@ -916,9 +1896,9 @@
          },
          "Role": 0
         },
-        "Rate": 10,
+        "Rate": 1428,
         "Range": {
-         "Min": 0,
+         "Min": 4,
          "Max": 5
         }
        },
@@ -926,28 +1906,43 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "starly",
+           "Species": "silcoon",
            "Form": 0,
            "Skin": "",
            "Gender": -1
           },
           "Level": {
-           "Min": 22,
-           "Max": 23
+           "Min": 8,
+           "Max": 8
           },
-          "SpecifiedSkills": [
-           "tackle"
-          ],
+          "SpecifiedSkills": [],
           "Intrinsic": "",
           "Tactic": "wander_dumb",
           "SpawnConditions": [],
           "SpawnFeatures": [
            {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
             "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
            },
            {
             "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-            "StartAt": 2,
+            "StartAt": 1,
             "Remove": false
            },
            {
@@ -957,10 +1952,2586 @@
          },
          "Role": 0
         },
-        "Rate": 10,
+        "Rate": 2381,
         "Range": {
-         "Min": 0,
+         "Min": 4,
          "Max": 5
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "cascoon",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2381,
+        "Range": {
+         "Min": 4,
+         "Max": 5
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sentret",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 6,
+           "Max": 6
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2759,
+        "Range": {
+         "Min": 5,
+         "Max": 6
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sunflora",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1034,
+        "Range": {
+         "Min": 5,
+         "Max": 6
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "silcoon",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1724,
+        "Range": {
+         "Min": 5,
+         "Max": 6
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "cascoon",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1724,
+        "Range": {
+         "Min": 5,
+         "Max": 6
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "shroomish",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 9,
+           "Max": 9
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2759,
+        "Range": {
+         "Min": 5,
+         "Max": 6
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "ledyba",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 7,
+           "Max": 7
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2400,
+        "Range": {
+         "Min": 6,
+         "Max": 7
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sunflora",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1200,
+        "Range": {
+         "Min": 6,
+         "Max": 7
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "linoone",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 3200,
+        "Range": {
+         "Min": 6,
+         "Max": 7
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "shroomish",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 9,
+           "Max": 9
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 3200,
+        "Range": {
+         "Min": 6,
+         "Max": 7
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "scyther",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 10,
+           "Max": 10
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2286,
+        "Range": {
+         "Min": 7,
+         "Max": 8
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "ledyba",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 7,
+           "Max": 7
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1714,
+        "Range": {
+         "Min": 7,
+         "Max": 8
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "wooper",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 10,
+           "Max": 10
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1429,
+        "Range": {
+         "Min": 7,
+         "Max": 8
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "linoone",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2285,
+        "Range": {
+         "Min": 7,
+         "Max": 8
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "shroomish",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 9,
+           "Max": 9
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2286,
+        "Range": {
+         "Min": 7,
+         "Max": 8
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "scyther",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 10,
+           "Max": 10
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2286,
+        "Range": {
+         "Min": 8,
+         "Max": 9
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "ledyba",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 7,
+           "Max": 7
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1714,
+        "Range": {
+         "Min": 8,
+         "Max": 9
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "wooper",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 10,
+           "Max": 10
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1429,
+        "Range": {
+         "Min": 8,
+         "Max": 9
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "linoone",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2285,
+        "Range": {
+         "Min": 8,
+         "Max": 9
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "shroomish",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 9,
+           "Max": 9
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2286,
+        "Range": {
+         "Min": 8,
+         "Max": 9
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "exeggutor",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1569,
+        "Range": {
+         "Min": 9,
+         "Max": 10
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "scyther",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 10,
+           "Max": 10
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1568,
+        "Range": {
+         "Min": 9,
+         "Max": 10
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "hoothoot",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 6,
+           "Max": 6
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1569,
+        "Range": {
+         "Min": 9,
+         "Max": 10
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "ledyba",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 7,
+           "Max": 7
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1176,
+        "Range": {
+         "Min": 9,
+         "Max": 10
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "wooper",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 10,
+           "Max": 10
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 981,
+        "Range": {
+         "Min": 9,
+         "Max": 10
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "shroomish",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 9,
+           "Max": 9
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1568,
+        "Range": {
+         "Min": 9,
+         "Max": 10
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "slakoth",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1569,
+        "Range": {
+         "Min": 9,
+         "Max": 10
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "exeggutor",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2000,
+        "Range": {
+         "Min": 10,
+         "Max": 11
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "scyther",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 10,
+           "Max": 10
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2000,
+        "Range": {
+         "Min": 10,
+         "Max": 11
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "hoothoot",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 6,
+           "Max": 6
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2000,
+        "Range": {
+         "Min": 10,
+         "Max": 11
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "shroomish",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 9,
+           "Max": 9
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2000,
+        "Range": {
+         "Min": 10,
+         "Max": 11
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "slakoth",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2000,
+        "Range": {
+         "Min": 10,
+         "Max": 11
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "exeggutor",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2500,
+        "Range": {
+         "Min": 11,
+         "Max": 12
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "hoothoot",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 6,
+           "Max": 6
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2500,
+        "Range": {
+         "Min": 11,
+         "Max": 12
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "shroomish",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 9,
+           "Max": 9
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2500,
+        "Range": {
+         "Min": 11,
+         "Max": 12
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "slakoth",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2500,
+        "Range": {
+         "Min": 11,
+         "Max": 12
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "ekans",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 15,
+           "Max": 15
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 3333,
+        "Range": {
+         "Min": 12,
+         "Max": 13
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "gengar",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 15,
+           "Max": 15
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 3334,
+        "Range": {
+         "Min": 12,
+         "Max": 13
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "medicham",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 12,
+           "Max": 12
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 3333,
+        "Range": {
+         "Min": 12,
+         "Max": 13
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "oddish",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 7,
+           "Max": 7
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1579,
+        "Range": {
+         "Min": 13,
+         "Max": 14
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sudowoodo",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 7,
+           "Max": 7
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 4210,
+        "Range": {
+         "Min": 13,
+         "Max": 14
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "swinub",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 4211,
+        "Range": {
+         "Min": 13,
+         "Max": 14
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "oddish",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 7,
+           "Max": 7
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1364,
+        "Range": {
+         "Min": 14,
+         "Max": 15
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sudowoodo",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 7,
+           "Max": 7
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 3636,
+        "Range": {
+         "Min": 14,
+         "Max": 15
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sunflora",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1364,
+        "Range": {
+         "Min": 14,
+         "Max": 15
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "swinub",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 3636,
+        "Range": {
+         "Min": 14,
+         "Max": 15
         }
        }
       ],
@@ -970,7 +4541,7 @@
         "Rate": 12,
         "Range": {
          "Min": 0,
-         "Max": 5
+         "Max": 15
         }
        }
       ],
@@ -1028,7 +4599,7 @@
      }
     ],
     "IsRelevant": true,
-    "Comment": "F01-F15 — fondation Sinister/Mystifying Forest; puis relais forestier Ground."
+    "Comment": "F01-F15 — fondation Sinister/Mystifying Forest; puis relais forestier Ground. Pokémon: table GBA Sinister Woods exacte, répétée selon cycle 13F pour extension New Era."
    },
    {
     "$type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
@@ -1777,18 +5348,16 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "bronzor",
+           "Species": "oddish",
            "Form": 0,
            "Skin": "",
            "Gender": -1
           },
           "Level": {
-           "Min": 22,
-           "Max": 24
+           "Min": 7,
+           "Max": 7
           },
-          "SpecifiedSkills": [
-           "tackle"
-          ],
+          "SpecifiedSkills": [],
           "Intrinsic": "",
           "Tactic": "wander_dumb",
           "SpawnConditions": [],
@@ -1825,10 +5394,234 @@
          },
          "Role": 0
         },
-        "Rate": 10,
+        "Rate": 1000,
         "Range": {
          "Min": 0,
-         "Max": 5
+         "Max": 1
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sentret",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 6,
+           "Max": 6
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2667,
+        "Range": {
+         "Min": 0,
+         "Max": 1
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sudowoodo",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 7,
+           "Max": 7
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2666,
+        "Range": {
+         "Min": 0,
+         "Max": 1
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sunflora",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1000,
+        "Range": {
+         "Min": 0,
+         "Max": 1
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "swinub",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2667,
+        "Range": {
+         "Min": 0,
+         "Max": 1
         }
        },
        {
@@ -1841,22 +5634,37 @@
            "Gender": -1
           },
           "Level": {
-           "Min": 22,
-           "Max": 23
+           "Min": 7,
+           "Max": 7
           },
-          "SpecifiedSkills": [
-           "absorb"
-          ],
+          "SpecifiedSkills": [],
           "Intrinsic": "",
           "Tactic": "wander_dumb",
           "SpawnConditions": [],
           "SpawnFeatures": [
            {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
             "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
            },
            {
             "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-            "StartAt": 2,
+            "StartAt": 1,
             "Remove": false
            },
            {
@@ -1866,9 +5674,849 @@
          },
          "Role": 0
         },
-        "Rate": 10,
+        "Rate": 937,
         "Range": {
-         "Min": 0,
+         "Min": 1,
+         "Max": 2
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sentret",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 6,
+           "Max": 6
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2500,
+        "Range": {
+         "Min": 1,
+         "Max": 2
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sudowoodo",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 7,
+           "Max": 7
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2500,
+        "Range": {
+         "Min": 1,
+         "Max": 2
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sunflora",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 938,
+        "Range": {
+         "Min": 1,
+         "Max": 2
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "silcoon",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1562,
+        "Range": {
+         "Min": 1,
+         "Max": 2
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "cascoon",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1563,
+        "Range": {
+         "Min": 1,
+         "Max": 2
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sentret",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 6,
+           "Max": 6
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 3810,
+        "Range": {
+         "Min": 2,
+         "Max": 3
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sunflora",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1428,
+        "Range": {
+         "Min": 2,
+         "Max": 3
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "silcoon",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2381,
+        "Range": {
+         "Min": 2,
+         "Max": 3
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "cascoon",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2381,
+        "Range": {
+         "Min": 2,
+         "Max": 3
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sentret",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 6,
+           "Max": 6
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2759,
+        "Range": {
+         "Min": 3,
+         "Max": 4
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "sunflora",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1034,
+        "Range": {
+         "Min": 3,
+         "Max": 4
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "silcoon",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1724,
+        "Range": {
+         "Min": 3,
+         "Max": 4
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "cascoon",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1724,
+        "Range": {
+         "Min": 3,
+         "Max": 4
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "shroomish",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 9,
+           "Max": 9
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2759,
+        "Range": {
+         "Min": 3,
+         "Max": 4
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "ledyba",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 7,
+           "Max": 7
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2400,
+        "Range": {
+         "Min": 4,
          "Max": 5
         }
        },
@@ -1876,28 +6524,43 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "caterpie",
+           "Species": "sunflora",
            "Form": 0,
            "Skin": "",
            "Gender": -1
           },
           "Level": {
-           "Min": 21,
-           "Max": 23
+           "Min": 8,
+           "Max": 8
           },
-          "SpecifiedSkills": [
-           "tackle"
-          ],
+          "SpecifiedSkills": [],
           "Intrinsic": "",
           "Tactic": "wander_dumb",
           "SpawnConditions": [],
           "SpawnFeatures": [
            {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
             "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
            },
            {
             "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-            "StartAt": 2,
+            "StartAt": 1,
             "Remove": false
            },
            {
@@ -1907,9 +6570,9 @@
          },
          "Role": 0
         },
-        "Rate": 10,
+        "Rate": 1200,
         "Range": {
-         "Min": 0,
+         "Min": 4,
          "Max": 5
         }
        },
@@ -1917,28 +6580,43 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "starly",
+           "Species": "linoone",
            "Form": 0,
            "Skin": "",
            "Gender": -1
           },
           "Level": {
-           "Min": 22,
-           "Max": 23
+           "Min": 8,
+           "Max": 8
           },
-          "SpecifiedSkills": [
-           "tackle"
-          ],
+          "SpecifiedSkills": [],
           "Intrinsic": "",
           "Tactic": "wander_dumb",
           "SpawnConditions": [],
           "SpawnFeatures": [
            {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
             "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
            },
            {
             "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-            "StartAt": 2,
+            "StartAt": 1,
             "Remove": false
            },
            {
@@ -1948,9 +6626,65 @@
          },
          "Role": 0
         },
-        "Rate": 10,
+        "Rate": 3200,
         "Range": {
-         "Min": 0,
+         "Min": 4,
+         "Max": 5
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "shroomish",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 9,
+           "Max": 9
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 3200,
+        "Range": {
+         "Min": 4,
          "Max": 5
         }
        }
@@ -1984,7 +6718,7 @@
      }
     ],
     "IsRelevant": true,
-    "Comment": "F16-F20 — continuité canonique forestière après le relais."
+    "Comment": "F16-F20 — continuité canonique forestière après le relais. Pokémon: table GBA Sinister Woods exacte, répétée selon cycle 13F pour extension New Era."
    },
    {
     "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
@@ -2802,18 +7536,16 @@
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "bronzor",
+           "Species": "scyther",
            "Form": 0,
            "Skin": "",
            "Gender": -1
           },
           "Level": {
-           "Min": 22,
-           "Max": 24
+           "Min": 10,
+           "Max": 10
           },
-          "SpecifiedSkills": [
-           "tackle"
-          ],
+          "SpecifiedSkills": [],
           "Intrinsic": "",
           "Tactic": "wander_dumb",
           "SpawnConditions": [],
@@ -2850,38 +7582,53 @@
          },
          "Role": 0
         },
-        "Rate": 10,
+        "Rate": 2286,
         "Range": {
          "Min": 0,
-         "Max": 5
+         "Max": 1
         }
        },
        {
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "oddish",
+           "Species": "ledyba",
            "Form": 0,
            "Skin": "",
            "Gender": -1
           },
           "Level": {
-           "Min": 22,
-           "Max": 23
+           "Min": 7,
+           "Max": 7
           },
-          "SpecifiedSkills": [
-           "absorb"
-          ],
+          "SpecifiedSkills": [],
           "Intrinsic": "",
           "Tactic": "wander_dumb",
           "SpawnConditions": [],
           "SpawnFeatures": [
            {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
             "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
            },
            {
             "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-            "StartAt": 2,
+            "StartAt": 1,
             "Remove": false
            },
            {
@@ -2891,38 +7638,53 @@
          },
          "Role": 0
         },
-        "Rate": 10,
+        "Rate": 1714,
         "Range": {
          "Min": 0,
-         "Max": 5
+         "Max": 1
         }
        },
        {
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "caterpie",
+           "Species": "wooper",
            "Form": 0,
            "Skin": "",
            "Gender": -1
           },
           "Level": {
-           "Min": 21,
-           "Max": 23
+           "Min": 10,
+           "Max": 10
           },
-          "SpecifiedSkills": [
-           "tackle"
-          ],
+          "SpecifiedSkills": [],
           "Intrinsic": "",
           "Tactic": "wander_dumb",
           "SpawnConditions": [],
           "SpawnFeatures": [
            {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
             "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
            },
            {
             "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-            "StartAt": 2,
+            "StartAt": 1,
             "Remove": false
            },
            {
@@ -2932,38 +7694,53 @@
          },
          "Role": 0
         },
-        "Rate": 10,
+        "Rate": 1429,
         "Range": {
          "Min": 0,
-         "Max": 5
+         "Max": 1
         }
        },
        {
         "Spawn": {
          "Spawn": {
           "BaseForm": {
-           "Species": "starly",
+           "Species": "linoone",
            "Form": 0,
            "Skin": "",
            "Gender": -1
           },
           "Level": {
-           "Min": 22,
-           "Max": 23
+           "Min": 8,
+           "Max": 8
           },
-          "SpecifiedSkills": [
-           "tackle"
-          ],
+          "SpecifiedSkills": [],
           "Intrinsic": "",
           "Tactic": "wander_dumb",
           "SpawnConditions": [],
           "SpawnFeatures": [
            {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
             "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
            },
            {
             "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
-            "StartAt": 2,
+            "StartAt": 1,
             "Remove": false
            },
            {
@@ -2973,10 +7750,738 @@
          },
          "Role": 0
         },
-        "Rate": 10,
+        "Rate": 2285,
         "Range": {
          "Min": 0,
-         "Max": 5
+         "Max": 1
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "shroomish",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 9,
+           "Max": 9
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2286,
+        "Range": {
+         "Min": 0,
+         "Max": 1
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "scyther",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 10,
+           "Max": 10
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2286,
+        "Range": {
+         "Min": 1,
+         "Max": 2
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "ledyba",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 7,
+           "Max": 7
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1714,
+        "Range": {
+         "Min": 1,
+         "Max": 2
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "wooper",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 10,
+           "Max": 10
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1429,
+        "Range": {
+         "Min": 1,
+         "Max": 2
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "linoone",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2285,
+        "Range": {
+         "Min": 1,
+         "Max": 2
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "shroomish",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 9,
+           "Max": 9
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 2286,
+        "Range": {
+         "Min": 1,
+         "Max": 2
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "exeggutor",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1569,
+        "Range": {
+         "Min": 2,
+         "Max": 3
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "scyther",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 10,
+           "Max": 10
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1568,
+        "Range": {
+         "Min": 2,
+         "Max": 3
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "hoothoot",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 6,
+           "Max": 6
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1569,
+        "Range": {
+         "Min": 2,
+         "Max": 3
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "ledyba",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 7,
+           "Max": 7
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1176,
+        "Range": {
+         "Min": 2,
+         "Max": 3
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "wooper",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 10,
+           "Max": 10
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 981,
+        "Range": {
+         "Min": 2,
+         "Max": 3
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "shroomish",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 9,
+           "Max": 9
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1568,
+        "Range": {
+         "Min": 2,
+         "Max": 3
+        }
+       },
+       {
+        "Spawn": {
+         "Spawn": {
+          "BaseForm": {
+           "Species": "slakoth",
+           "Form": 0,
+           "Skin": "",
+           "Gender": -1
+          },
+          "Level": {
+           "Min": 8,
+           "Max": 8
+          },
+          "SpecifiedSkills": [],
+          "Intrinsic": "",
+          "Tactic": "wander_dumb",
+          "SpawnConditions": [],
+          "SpawnFeatures": [
+           {
+            "$type": "RogueEssence.LevelGen.MobSpawnStatus, RogueEssence",
+            "Statuses": [
+             {
+              "Spawn": {
+               "ID": "sleep",
+               "StatusStates": [
+                {
+                 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
+                 "Counter": -1
+                }
+               ]
+              },
+              "Rate": 10
+             }
+            ]
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnWeak, PMDC"
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnMovesOff, PMDC",
+            "StartAt": 1,
+            "Remove": false
+           },
+           {
+            "$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+           }
+          ]
+         },
+         "Role": 0
+        },
+        "Rate": 1569,
+        "Range": {
+         "Min": 2,
+         "Max": 3
         }
        }
       ],
@@ -2986,7 +8491,7 @@
         "Rate": 12,
         "Range": {
          "Min": 0,
-         "Max": 5
+         "Max": 3
         }
        }
       ],
@@ -3009,7 +8514,7 @@
      }
     ],
     "IsRelevant": true,
-    "Comment": "F21-F23 — Deep Shadow Forest, même architecture forestière avec visibilité et ambiance assombries."
+    "Comment": "F21-F23 — Deep Shadow Forest, même architecture forestière avec visibilité et ambiance assombries. Pokémon: table GBA Sinister Woods exacte, répétée selon cycle 13F pour extension New Era."
    },
    {
     "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
