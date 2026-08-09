@@ -5,8 +5,7 @@
      Entites et sorties restaurees le 2026-08-02.
 
      Cette guilde n'est pas celle de Metano : c'est l'institution
-     historique du Bourg du Comptoir. Ses etages interieurs ne sont pas
-     importes dans New Era ; la porte reste donc close et le dit.
+     historique du Bourg du Comptoir. Ses étages historiques sont désormais accessibles aux visiteurs, sans adhésion obligatoire.
 
      Reseau canonique : sud -> carrefour_assemblee
 ]]
@@ -42,7 +41,7 @@ end
 function guilde_parvis.Bidoof_Action(chara, activator)
   DEBUG.EnableDbgCoro()
   GeneralFunctions.StartConversation(chara,
-    "La guilde d'ici ne recrute plus depuis des annees.[pause=15] On garde la grille, c'est tout.", 'Sad')
+    "La Guilde accueille de nouveau les visiteurs.[pause=15] Vous pouvez consulter les missions sans devenir membres.", 'Sad')
   GeneralFunctions.EndConversation(chara)
 end
 
@@ -53,9 +52,7 @@ end
 
 function guilde_parvis.GuildEntrance_Touch(obj, activator)
   DEBUG.EnableDbgCoro()
-  local hero = CH('PLAYER')
-  GeneralFunctions.HeroDialogue(hero,
-    "(La grille est verrouillee.[pause=15] Personne n'a ouvert depuis longtemps.)", "Normal")
+  GAME:EnterGroundMap('sky_wigglytuff_guild_entrance', 'Main_Entrance_Marker')
 end
 
 return guilde_parvis
