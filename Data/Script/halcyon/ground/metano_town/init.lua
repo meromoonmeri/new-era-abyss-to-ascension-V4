@@ -17,6 +17,7 @@ require 'origin.menu.skill.SkillTutorMenu'
 require 'halcyon.SideQuests'
 require 'halcyon.TownPlunder'
 require 'halcyon.Seasons'
+require 'halcyon.LivingWorld'
 require 'halcyon.TownVoicesNight'
 require 'halcyon.TownReward'
 
@@ -48,6 +49,7 @@ function metano_town.Init(map)
 	--persiste (cf. guild_heros_room_ch_1.lua:162), donc sans ce nettoyage
 	--deux saisons finiraient par se superposer.
 	pcall(function() Seasons.Setup() end)
+	pcall(function() LivingWorld.SyncStory() end)
 
 	--Remove nicknames from characters if the nickname mod is enabled.
 	if CONFIG.UseNicknames() then

@@ -13,12 +13,14 @@
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.LivingWorld'
 
 local guilde_parvis = {}
 
 function guilde_parvis.Init(map)
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Init_guilde_parvis")
+  pcall(function() LivingWorld.SyncStory(); LivingWorld.ApplyOutdoor(true) end)
   COMMON.RespawnAllies()
   pcall(function() PartnerEssentials.InitializePartnerSpawn() end)
 end

@@ -20,6 +20,7 @@ require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.ComptoirVoices'
+require 'halcyon.LivingWorld'
 require 'halcyon.ground.bourg_comptoir.bourg_comptoir_ch_11'
 
 local bourg_comptoir = {}
@@ -27,6 +28,7 @@ local bourg_comptoir = {}
 function bourg_comptoir.Init(map)
   DEBUG.EnableDbgCoro()
   PrintInfo("=>> Init_bourg_comptoir")
+  pcall(function() LivingWorld.SyncStory(); LivingWorld.ApplyOutdoor(true) end)
   pcall(function() GAME:FadeOut(false, 1) end)
   pcall(function() GAME:CutsceneMode(true) end)
   COMMON.RespawnAllies()

@@ -1,9 +1,10 @@
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.LivingWorld'
 local treasure_spinda_cafe={}
 local function say(c,e,t) UI:SetSpeaker(c);GeneralFunctions.SetEmotion(e);UI:WaitShowDialogue(t) end
-function treasure_spinda_cafe.Init(map) DEBUG.EnableDbgCoro();COMMON.RespawnAllies();PartnerEssentials.InitializePartnerSpawn() end
+function treasure_spinda_cafe.Init(map) DEBUG.EnableDbgCoro();COMMON.RespawnAllies();PartnerEssentials.InitializePartnerSpawn();pcall(function() LivingWorld.SyncStory() end) end
 function treasure_spinda_cafe.Enter(map)
  SV.TreasureTown=SV.TreasureTown or {};SV.TreasureTown.SpindaCafe=SV.TreasureTown.SpindaCafe or {}
  if not SV.TreasureTown.SpindaCafe.FirstVisit then
@@ -23,7 +24,11 @@ function treasure_spinda_cafe.Enter(map)
 end
 function treasure_spinda_cafe.Spinda_Action(c,a)
  local ch=SV.ChapterProgression and SV.ChapterProgression.Chapter or 0
- if ch>=10 then say(c,'Normal',"Les Bekipan parlent de remous jusque dans le ciel.[pause=15] Votre équipe apparaît dans beaucoup trop de dépêches pour de simples touristes.")
+ local ctx=LivingWorld.Context('treasure','treasure_spinda_cafe')
+ if ctx.Weather=='orage' then say(c,'Worried',"Les Bekipan restent au perchoir pendant l'orage.[pause=15] Pour une fois, les nouvelles devront attendre.")
+ elseif ctx.Season=='hiver' then say(c,'Happy',"Le café ne désemplit pas quand il neige.[pause=15] Les voyageurs apportent le froid et repartent avec une rumeur chaude.")
+ elseif (ctx.Raid.Repelled or 0)>0 and LivingWorld.Knows('treasure','metano_raid_repelled_'..tostring(ctx.Raid.Repelled)) then say(c,'Worried',"Un courrier parle d'une attaque nocturne à Metano.[pause=15] Votre garde l'a repoussée, mais cette nouvelle voyage vite.")
+ elseif ch>=10 then say(c,'Normal',"Les Bekipan parlent de remous jusque dans le ciel.[pause=15] Votre équipe apparaît dans beaucoup trop de dépêches pour de simples touristes.")
  elseif ch>=7 then say(c,'Worried',"Les courriers venus de Metano mentionnent des ruines et des secousses.[pause=15] Les rumeurs courent plus vite que les fissures.")
  else say(c,'Happy',"Alors, voyageurs de Metano : quelles nouvelles apportez-vous aujourd'hui ?") end
 end
