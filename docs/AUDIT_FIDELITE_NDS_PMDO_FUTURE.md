@@ -69,3 +69,39 @@ Date : 2026-08-09 — Source : mappa_s.bin + monster.md (données NDS) vs Data/Z
 | dusk_forest | 6 | 34 | dusk_forest_floor | 23 | Dusk Forest.ogg | 2 | 0 | 4 | 4 | 6 | 0 | 0 | 4/4 | ✅ |
 | dusk_forest | 7 | 34 | dusk_forest_floor | 23 | Dusk Forest.ogg | 2 | 0 | 4 | 4 | 8 | 0 | 0 | 4/4 | ✅ |
 | dusk_forest | 8 | 34 | dusk_forest_floor | 23 | Dusk Forest.ogg | 2 | 0 | 4 | 5 | 8 | 0 | 0 | 4/4 | ✅ |
+
+---
+
+# SYNTHÈSE FINALE — Élément | NDS | PMDO | Vérifié | Différence | Correction
+
+| Élément | NDS | PMDO | Vérifié | Différence | Correction |
+|---|---|---|---|---|---|
+| Dungeons (6) | D27-D32 | chasm_cave/dark_hill/sealed_ruin/sealed_ruin_pit/spiritomb_room/dusk_forest | ✅ | aucune | — |
+| Floors | 46 | 46 (GridFloorGen) | ✅ | aucune | — |
+| Tilesets par floor | mappa_s (26/27/28/29/30/31/33/34/176) | auto-tilesets EoS (_floor/_wall/_secondary) | ✅ (structure) | .dpc/.dpl/.dma non convertis en binaire ; auto-tilesets vanilla résolus au runtime (pattern du mod) | ADAPTED — REQUIRES_ASSET si auto-tileset absent de la base |
+| Musiques | music_id 19-23 | Chasm Cave.ogg, Dark Hill.ogg, Sealed Ruin.ogg | ✅ | **Sealed Ruin Pit.ogg, Dusk Forest.ogg ABSENTS** | REQUIRES_ASSET |
+| Darkness | dark 0/2 | TileSight 0/1 | ✅ | aucune | — |
+| Pokémon (224 entrées) | md_index → dex → species | species PMDO (27 espèces) | ✅ | aucune | — |
+| Niveaux | exacts par floor | exacts (L26-L51) | ✅ | aucune | — |
+| Poids/rates | weight NDS | rate = round(weight/100) | ✅ | échelle (documentée) | — |
+| Items | item_density par floor | ItemSpawnZoneStep + DueSpawnStep | ✅ (densité) | tables d'items NDS non détaillées (catégories) | PARTIAL — tables cat. disponibles dans _future_dungeons_mappa.json |
+| Pièges | trap table NDS | TileSpawnZoneStep (17 pièges mappés) | ✅ | Pitfall/Warp/WonderTile/SpikedTile/StealthRock/ToxicSpikes/Spikes non mappés (pas d'équivalent PMDO) | documenté (TRAP_UNMAPPED) |
+| Monster houses | 0/0/5/5/5/0 | idem | ✅ | aucune (spiritomb_room corrigé à 5) | — |
+| Grounds fixes | D18P11A-D22P11A | 6 .rsground + 6 .tile importés | ✅ | — | — |
+| Arènes de boss | D21P41A (Spiritomb) | D21P41A.rsground | ✅ | fixed floor 22×17 NDS ≠ .rsground 66×81 du port (ground de scène) | documenté — scènes sur ground d21p41a |
+| Spiritomb | md 484, L51, w10000, (8,2)=(324,196) | Spiritomb L51 r100, spawn (324,196) | ✅ | — | — |
+| SE5 (D55) | D138-140 | passage_temps.json | ✅ séparé | aucune référence croisée | — |
+| Transitions parcours | grounds P0 + donjons D | p05p04a→d18p11a→…→d22p11a→p08p01a | ✅ câblé | P06P01A/P07P01A hors flux principal (grounds narratifs) | documenté |
+| Runtime PMDO | — | — | ❌ | moteur non exécutable ici | RUNTIME UNVERIFIED |
+
+## VERDICT FINAL
+
+- **NDS COVERAGE : COMPLETE** — 6 donjons, 46 floors, tables mappa_s/monster.md, grounds D18-D22, arène Spiritomb, tous identifiés depuis les données NDS.
+- **DATA COVERAGE : COMPLETE** — 224/224 entrées Pokémon identiques (espèce/niveau/poids→rate), MH conformes, dark/musique/tilesets par floor vérifiés.
+- **TILESET COVERAGE : PARTIAL** — noms d'auto-tilesets EoS corrects (pattern du mod), mais les .dpc/.dpl/.dma NDS ne sont pas convertis en binaire → résolution runtime à confirmer (REQUIRES_ASSET si absents de la base).
+- **GROUND COVERAGE : COMPLETE** — 6 .rsground + 6 .tile (D18P11A-D22P11A) importés et utilisés.
+- **BATTLE ARENA COVERAGE : COMPLETE** — Spiritomb sur D21P41A exact (position/niveau/poids), aucun ground générique.
+- **POKEMON TABLE COVERAGE : COMPLETE** — tables par floor, par espèce, niveau exact, poids NDS.
+- **RUNTIME VERIFICATION : PENDING** — statique validée (0 $type inconnu, 0 MultiSpawner, 46/46 floors, 0 différence), test en jeu à effectuer (boot → DevTab → 6 zones → parcours).
+
+Différences restantes (aucune silencieuse) : 2 BGM absents (REQUIRES_ASSET), 7 pièges NDS sans équivalent PMDO (documentés), conversion binaire des tilesets (ADAPTED), runtime non exécuté (PENDING).
