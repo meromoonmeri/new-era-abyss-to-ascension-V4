@@ -1,5 +1,7 @@
 -- Généré par tools/gen_future_arc.py (données canoniques SSB/SSA).
 FutureCast_SPAWNS = {
+  ['P05P01A_enter00'] = {
+  },
   ['P05P01A_m17a0103'] = {
     ['NPC_YONOWAARU'] = { species='dusknoir', gender='Male', name='Dusknoir', x=204, y=228, dir=Direction.Down },
   },
@@ -9,6 +11,10 @@ FutureCast_SPAWNS = {
   ['P05P01A_n08a2008'] = {
     ['NPC_YONOWAARU_N8'] = { species='dusknoir', gender='Male', name='Dusknoir', x=220, y=332, dir=Direction.Down },
     ['PLAYER_FUTURE'] = { species='__HERO__', gender='Unknown', name='HeroFuture', x=180, y=308, dir=Direction.UpRight },
+  },
+  ['P05P02A_enter00'] = {
+  },
+  ['P05P02A_enter01'] = {
   },
   ['P05P02A_m17a0104'] = {
     ['ATTENDANT1'] = { species='dusknoir', gender='Unknown', name='ATTENDANT1', x=248, y=220, dir=Direction.Up },
@@ -25,6 +31,8 @@ FutureCast_SPAWNS = {
     ['NPC_YAMIRAMI3'] = { species='sableye', gender='Male', name='Sableye_3', x=228, y=184, dir=Direction.Down },
     ['NPC_YAMIRAMI4'] = { species='sableye', gender='Male', name='Sableye_4', x=276, y=184, dir=Direction.Down },
     ['PLAYER'] = { species='dusknoir', gender='Unknown', name='PLAYER', x=268, y=228, dir=Direction.Up },
+  },
+  ['P05P03A_enter00'] = {
   },
   ['P05P03A_m17a0302'] = {
     ['ATTENDANT1'] = { species='dusknoir', gender='Unknown', name='ATTENDANT1', x=228, y=772, dir=Direction.DownLeft },
@@ -50,6 +58,8 @@ FutureCast_SPAWNS = {
     ['NPC_YONOWAARU'] = { species='dusknoir', gender='Male', name='Dusknoir', x=228, y=768, dir=Direction.Down },
     ['PLAYER'] = { species='dusknoir', gender='Unknown', name='PLAYER', x=228, y=668, dir=Direction.Down },
   },
+  ['P05P04A_enter00'] = {
+  },
   ['P05P04A_m17a0401'] = {
     ['ATTENDANT1'] = { species='dusknoir', gender='Unknown', name='ATTENDANT1', x=200, y=172, dir=Direction.Down },
     ['NPC_JUPUTORU'] = { species='grovyle', gender='Male', name='Grovyle', x=272, y=172, dir=Direction.Down },
@@ -59,6 +69,8 @@ FutureCast_SPAWNS = {
     ['ATTENDANT1'] = { species='dusknoir', gender='Unknown', name='ATTENDANT1', x=200, y=172, dir=Direction.Left },
     ['NPC_JUPUTORU'] = { species='grovyle', gender='Male', name='Grovyle', x=272, y=172, dir=Direction.Left },
     ['PLAYER'] = { species='dusknoir', gender='Unknown', name='PLAYER', x=236, y=188, dir=Direction.UpRight },
+  },
+  ['P06P01A_enter00'] = {
   },
   ['P06P01A_m18a0401'] = {
     ['ATTENDANT1'] = { species='dusknoir', gender='Unknown', name='ATTENDANT1', x=152, y=212, dir=Direction.UpRight },
@@ -76,6 +88,18 @@ FutureCast_SPAWNS = {
     ['ATTENDANT1'] = { species='dusknoir', gender='Unknown', name='ATTENDANT1', x=120, y=396, dir=Direction.Down },
     ['NPC_JUPUTORU'] = { species='grovyle', gender='Male', name='Grovyle', x=120, y=376, dir=Direction.Down },
     ['PLAYER'] = { species='dusknoir', gender='Unknown', name='PLAYER', x=208, y=396, dir=Direction.Down },
+  },
+  ['P08P01A_enter00'] = {
+  },
+  ['P08P01A_t02a0303'] = {
+    ['NPC_YAMIRAMI'] = { species='sableye', gender='Male', name='Sableye_1', x=224, y=292, dir=Direction.Down },
+    ['NPC_YAMIRAMI2'] = { species='sableye', gender='Male', name='Sableye_2', x=276, y=268, dir=Direction.Down },
+    ['NPC_YAMIRAMI3'] = { species='sableye', gender='Male', name='Sableye_3', x=332, y=292, dir=Direction.Down },
+    ['NPC_YAMIRAMI4'] = { species='sableye', gender='Male', name='Sableye_4', x=224, y=348, dir=Direction.Down },
+    ['NPC_YAMIRAMI5'] = { species='sableye', gender='Male', name='Sableye_5', x=276, y=372, dir=Direction.Down },
+    ['NPC_YAMIRAMI6'] = { species='sableye', gender='Male', name='Sableye_6', x=332, y=348, dir=Direction.Down },
+    ['NPC_YONOWAARU_N8'] = { species='dusknoir', gender='Male', name='Dusknoir', x=252, y=340, dir=Direction.Down },
+    ['PLAYER_FUTURE'] = { species='__HERO__', gender='Unknown', name='HeroFuture', x=296, y=308, dir=Direction.Up },
   },
   ['P08P01A_m19a0601'] = {
     ['ATTENDANT1'] = { species='dusknoir', gender='Unknown', name='ATTENDANT1', x=248, y=268, dir=Direction.UpRight },
@@ -119,6 +143,8 @@ FutureCast_SPAWNS = {
     ['NPC_YAMIRAMI6'] = { species='sableye', gender='Male', name='Sableye_6', x=308, y=324, dir=Direction.UpLeft },
     ['NPC_YONOWAARU_N8'] = { species='dusknoir', gender='Male', name='Dusknoir', x=276, y=316, dir=Direction.Down },
     ['PLAYER_FUTURE'] = { species='__HERO__', gender='Unknown', name='HeroFuture', x=316, y=392, dir=Direction.Down },
+  },
+  ['P09P01A_enter00'] = {
   },
   ['P09P01A_m19b1001'] = {
     ['ATTENDANT1'] = { species='dusknoir', gender='Unknown', name='ATTENDANT1', x=280, y=428, dir=Direction.Up },
@@ -169,3 +195,5 @@ FutureCast_SPAWNS = {
     ['NPC_YAMIRAMI6'] = { species='sableye', gender='Male', name='Sableye_6', x=376, y=436, dir=Direction.Down },
   },
 }
+
+return FutureCast_SPAWNS
