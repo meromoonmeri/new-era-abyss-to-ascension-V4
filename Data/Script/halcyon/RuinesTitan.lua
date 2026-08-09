@@ -351,6 +351,13 @@ function RuinesTitan.Effondrement()
   SOUND:PlayBattleSE('EVT_Battle_Transition')
   pcall(function() GAME:FadeOut(false, 50) end)
   GAME:WaitFrames(60)
+  -- Câblage explicite NDS s04p1901 -> s04p1902 (éveil des Canceled Ruins).
+  -- La sortie de segment ramène au Ground extérieur, qui consomme ce drapeau
+  -- (cloven_ruins_entrance/init.lua -> RuinesRenforts.Revelation).
+  SV.Ruines = SV.Ruines or {}
+  SV.Ruines.SceneS04P1901Complete = true
+  SV.Ruines.SceneS04P1902Pending = true
+  PrintInfo('[Cloven Ruin] s04p1901 complete; s04p1902 pending (Canceled Ruins)')
 end
 
 --------------------------------------------------------------------
