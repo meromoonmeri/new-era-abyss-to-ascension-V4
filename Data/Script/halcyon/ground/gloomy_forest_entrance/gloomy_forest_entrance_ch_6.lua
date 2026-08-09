@@ -42,7 +42,53 @@ function gloomy_forest_entrance_ch_6.ApproachCutscene()
   GAME:MoveCamera(0, 0, 20, true)
 end
 
--- D04P02 : les trois positions de Team Meanies sont conservées et recastées.
+-- Barrage d'entrée : la Team Dazzling occupe physiquement le passage.
+-- Les slots sont tous praticables sur D04P01 et laissent le chemin libre
+-- uniquement après leur départ. Cette scène ne lance pas le donjon : le
+-- joueur conserve la main et franchit ensuite le trigger normalement.
+function gloomy_forest_entrance_ch_6.DazzlingEntranceBlockade()
+  if SV.Chapter6.DazzlingEntranceSeen then return end
+  local hero, partner = CH('PLAYER'), CH('Teammate1')
+  local ok, err = pcall(function()
+    GAME:CutsceneMode(true)
+    if partner then AI:DisableCharacterAI(partner) end
+    GROUND:TeleportTo(hero, 208, 192, Direction.Up)
+    if partner then GROUND:TeleportTo(partner, 240, 192, Direction.Up) end
+    local adagio, aria, sonata = CharacterEssentials.MakeCharactersFromList({
+      {'Adagio',224,136,Direction.Down}, {'Aria',192,160,Direction.DownRight},
+      {'Sonata',256,160,Direction.DownLeft}})
+    GAME:MoveCamera(224,160,30,false);SOUND:PlayBGM('Team_Dazzling_Theme.ogg',true)
+    GAME:FadeIn(20);GAME:WaitFrames(20)
+    dialogue(aria,'GF6E_A13','Happy');dialogue(adagio,'GF6E_A14','Normal')
+    dialogue(partner,'GF6E_A15','Angry');dialogue(sonata,'GF6E_A16','Happy')
+    pcall(function()
+      GROUND:MoveToPosition(aria,176,136,false,1)
+      GROUND:MoveToPosition(sonata,272,136,false,1)
+    end)
+    dialogue(aria,'GF6E_A17','Happy');dialogue(adagio,'GF6E_A18','Normal')
+    dialogue(partner,'GF6E_A19','Angry')
+    GeneralFunctions.HeroDialogue(hero,STRINGS:Format(STRINGS.MapStrings['GF6E_A20']),'Determined')
+    dialogue(partner,'GF6E_A21','Determined')
+    -- Elles cessent enfin de barrer le passage et entrent les premières.
+    local a=TASK:BranchCoroutine(function() GROUND:MoveToPosition(adagio,224,96,false,2) end)
+    local b=TASK:BranchCoroutine(function() GROUND:MoveToPosition(aria,192,104,false,2) end)
+    local c=TASK:BranchCoroutine(function() GROUND:MoveToPosition(sonata,256,104,false,2) end)
+    TASK:JoinCoroutines({a,b,c});GAME:FadeOut(false,20)
+    pcall(function() GAME:GetCurrentGround():RemoveTempChar(adagio) end)
+    pcall(function() GAME:GetCurrentGround():RemoveTempChar(aria) end)
+    pcall(function() GAME:GetCurrentGround():RemoveTempChar(sonata) end)
+    SV.Chapter6.DazzlingEntranceSeen=true
+    SV.Chapter6.DazzlingPresenceStage=1
+    GAME:MoveCamera(0,0,1,true);GAME:FadeIn(20)
+  end)
+  pcall(function()
+    if partner then AI:EnableCharacterAI(partner);AI:SetCharacterAI(partner,'origin.ai.ground_partner',hero,partner.Position) end
+    GAME:CutsceneMode(false)
+  end)
+  if not ok then PrintInfo('[Gloomy Dazzling entrance] '..tostring(err)) end
+end
+
+-- D04P02 : les trois positions de la scène source sont conservées et recastées.
 -- centre (272,192) = meneuse; droite (312,224); gauche (240,224).
 function gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()
   local hero, partner = CH('PLAYER'), CH('Teammate1')
@@ -78,6 +124,18 @@ function gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()
   dialogue(adagio, 'GF6E_A11', 'Normal')
   dialogue(aria, 'GF6E_A12', 'Happy')
 
+  -- Dans Deep Shadow, la rivalité cesse d'être une plaisanterie. La Team
+  -- Dazzling a entendu Chenipent avant nous et ne peut plus feindre l'insouciance.
+  UI:SetSpeaker(sonata);GeneralFunctions.SetEmotion('Worried')
+  UI:WaitShowDialogue("Attendez...[pause=18] Ce bruit ne venait pas d'un Pokémon qui nous suivait.[pause=15] Il venait de devant.")
+  UI:SetSpeaker(adagio);GeneralFunctions.SetEmotion('Determined')
+  UI:WaitShowDialogue("Chenipent est tout près.[pause=15] Notre concours s'arrête ici. Si quelque chose le retient, nous ouvrons le passage ensemble.")
+  UI:SetSpeaker(aria);GeneralFunctions.SetEmotion('Worried')
+  UI:WaitShowDialogue("Je déteste quand la forêt devient assez sérieuse pour donner raison à Adagio...")
+  GeneralFunctions.HeroDialogue(hero,"(Elles ont peur, elles aussi.[pause=15] Mais aucune ne recule.)",'Worried')
+  SV.Chapter6.DazzlingPresenceStage = 4
+  SV.Chapter6.DazzlingPreRescueSeen = true
+
   -- Les neuf poses finales de la CIF sont rendues par les orientations et
   -- réactions successives, sans déplacer les personnages hors de leurs slots.
   pcall(function()
@@ -87,6 +145,7 @@ function gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()
     GROUND:CharSetEmote(sonata, 'angry', 1)
   end)
   SV.Chapter6.FinishedGloomyForestIntro = true
+  SV.Chapter6.DazzlingPresenceStage = 4
   GAME:FadeOut(false, 30)
   GAME:CutsceneMode(false)
   GAME:ContinueDungeon('gloomy_forest', 4, 0, 0,

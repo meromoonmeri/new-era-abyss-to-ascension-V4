@@ -36,7 +36,10 @@ function gloomy_forest_entrance.PlotScripting()
 	--Le MapStatus a ete cree, mais la protection reste : aucune scene ne
 	--doit pouvoir laisser le joueur devant un ecran noir.
 	if SV.ChapterProgression.Chapter == 6 and not SV.Chapter6.SinisterApproachSeen then
-		local ok, err = pcall(gloomy_forest_entrance_ch_6.ApproachCutscene)
+		local ok, err = pcall(function()
+			gloomy_forest_entrance_ch_6.ApproachCutscene()
+			gloomy_forest_entrance_ch_6.DazzlingEntranceBlockade()
+		end)
 		if not ok then
 			PrintInfo('[gloomy_forest_entrance] ApproachCutscene interrompue : '..tostring(err))
 			--On ne rejoue pas une scene a moitie jouee : on la marque faite,
@@ -49,6 +52,11 @@ function gloomy_forest_entrance.PlotScripting()
 	else
 		gloomy_forest_entrance_ch_6.SetupGround()
 		GAME:FadeIn(20)
+		-- Rattrapage save/load : l'approche peut être vue alors que le barrage
+		-- Dazzling ne l'est pas encore. Le flag indépendant évite tout doublon.
+		if SV.ChapterProgression.Chapter == 6 and not SV.Chapter6.DazzlingEntranceSeen then
+			pcall(gloomy_forest_entrance_ch_6.DazzlingEntranceBlockade)
+		end
 	end
 end
 

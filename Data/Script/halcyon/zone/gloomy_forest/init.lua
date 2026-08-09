@@ -5,6 +5,7 @@ require 'halcyon.ReplayEnding'
 require 'halcyon.DazzlingArc'
 require 'halcyon.TownNight'
 require 'halcyon.TownRaid'
+require 'halcyon.LivingWorld'
 
 local gloomy_forest = {}
 
@@ -218,6 +219,16 @@ function gloomy_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
 			SV.Chapter6.GloomyBossEncountered = true
 			SV.Chapter6.DefeatedGloomyBoss = true
 			SV.Chapter6.MissionComplete = true
+			SV.Chapter6.DazzlingPresenceStage = 5
+			SV.Chapter6.DazzlingChapterResolved = true
+			pcall(function()
+				LivingWorld.Publish('chenipent_rescued','guild_report',
+				  'Chenipent a été retrouvé dans les profondeurs de Gloomy Forest.',
+				  {'guild','treasure','metano'},1)
+				LivingWorld.Publish('dazzling_gloomy_rivalry','traveler_report',
+				  'La Team Dazzling et une équipe de Metano ont traversé la forêt ensemble.',
+				  {'treasure','guild','metano'},1)
+			end)
 			SV.Chapter6.DefeatedByZeraora = false
 			SV.Chapter6.MissionAccepted = false
 			--Scene d'apres-boss : la consequence se joue AVANT le retour en

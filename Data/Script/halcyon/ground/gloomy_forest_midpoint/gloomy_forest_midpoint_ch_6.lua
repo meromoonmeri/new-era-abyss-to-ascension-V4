@@ -248,6 +248,16 @@ function gloomy_forest_midpoint_ch_6.FirstArrival()
   GeneralFunctions.SetEmotion("Worried")
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['GFM6_004']))
 
+  -- Fil rouge Dazzling : elles ont atteint le relais avant nous, mais ont
+  -- déjà repris la route. Indice court, sans transformer le checkpoint en scène longue.
+  if SV.Chapter6.DazzlingEntranceSeen and not SV.Chapter6.DazzlingRelayClueSeen then
+    GeneralFunctions.SetEmotion('Worried')
+    UI:WaitShowDialogue("Il y a trois séries de traces près du feu...[pause=15] et un morceau de ruban violet accroché à l'écorce.")
+    UI:WaitShowDialogue("La Team Dazzling est passée par ici.[pause=15] Elles continuent vers les profondeurs.")
+    SV.Chapter6.DazzlingRelayClueSeen = true
+    SV.Chapter6.DazzlingPresenceStage = 2
+  end
+
   SV.Chapter6.GloomyPlayedMidpointIntro = true
   GeneralFunctions.PanCamera()
   AI:EnableCharacterAI(partner)
