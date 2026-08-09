@@ -282,6 +282,9 @@ TownNight.SPOTS = {
   { 'Nuit_Garde',       860, 900,  Direction.Down },
   { 'Nuit_Etoiles',    1000, 1200, Direction.Up   },
   { 'Nuit_Insomniaque', 760, 1100, Direction.Right},
+  -- Phileas : devant la Guilde, jamais sur la rivière. La boîte 16x16
+  -- centrée en (704,880) est libre dans metano_town_nuit.rsground.
+  { 'Noctowl',          696, 872,  Direction.Down },
 }
 
 function TownNight.Populate()
@@ -362,6 +365,19 @@ TownNight.LINES = {
       "Continuez de sortir la nuit.[pause=30] Une ville où plus personne ne veille, ça meurt sans bruit." },
   }},
 }
+
+-- Phileas veille devant la Guilde. Ses propos évoluent avec les visites :
+-- observation, archives, puis inquiétude liée aux événements du monde.
+TownNight.LINES.Noctowl = { emo = 'Normal', lines = {
+  { "La Guilde est calme, mais ses archives ne dorment jamais.[pause=20] Moi non plus, certaines nuits.",
+    "Je reste devant la porte.[pause=15] Les équipes qui rentrent tard doivent trouver quelqu'un éveillé." },
+  { "Vous reprenez la garde ?[pause=20] J'ai relu les rapports de la forêt.",
+    "Les chemins ont changé avant l'arrivée de Chenipent.[pause=20] Quelque chose travaillait déjà sous les racines." },
+  { "Les Bekipan ont apporté trois dépêches ce soir.[pause=15] Treasure Town connaît maintenant votre sauvetage.",
+    "Une information voyage vite.[pause=20] Sa cause, beaucoup moins." },
+  { "Regardez les fenêtres de la Guilde.[pause=20] Chaque lumière correspond à quelqu'un qui cherche encore.",
+    "Je resterai ici jusqu'à l'aube.[pause=15] Pas sur la rivière. Devant ceux dont j'ai la charge." },
+}}
 
 function TownNight.Talk(inst)
   local s = TownNight.Ensure()

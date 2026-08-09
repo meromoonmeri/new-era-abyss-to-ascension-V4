@@ -446,4 +446,8 @@ function metano_town_nuit.Nuit_Insomniaque_Action(chara, activator)
   TownNight.Talk('Nuit_Insomniaque')
 end
 
+function metano_town_nuit.Noctowl_Action(chara, activator)
+  TownNight.Talk('Noctowl')
+end
+
 return metano_town_nuit
