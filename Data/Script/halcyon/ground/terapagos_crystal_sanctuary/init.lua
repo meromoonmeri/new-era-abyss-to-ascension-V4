@@ -20,7 +20,10 @@ function M.Enter(map)
  SV.TerapagosSanctuary=SV.TerapagosSanctuary or {}
  local hero,partner=CH('PLAYER'),CH('Teammate1');GAME:CutsceneMode(true)
  GROUND:TeleportTo(hero,300,535,Direction.Up);if partner then GROUND:TeleportTo(partner,366,535,Direction.Up) end
- local mon=RogueEssence.Dungeon.MonsterID('terapagos',0,'normal',Gender.Genderless)
+ -- PMDO 0.8.12 ne contient pas l'index Monster 'terapagos'. L'utiliser
+ -- fait crasher DrawGame à chaque frame. Diancie sert uniquement de proxy
+ -- graphique compatible jusqu'à l'import d'un véritable package Terapagos.
+ local mon=RogueEssence.Dungeon.MonsterID('diancie',0,'normal',Gender.Genderless)
  local boss=RogueEssence.Ground.GroundChar(mon,RogueElements.Loc(333,310),Direction.Down,'Terapagos','Terapagos');boss:ReloadEvents();GAME:GetCurrentGround():AddTempChar(boss)
  GAME:MoveCamera(333,350,1,false);GAME:FadeIn(30);GAME:WaitFrames(30)
  local aura=TASK:BranchCoroutine(function() crystal_aura(333,310) end)

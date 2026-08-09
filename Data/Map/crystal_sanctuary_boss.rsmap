@@ -37,7 +37,7 @@
               "Gender": -1
             },
             "CurrentForm": {
-              "Species": "terapagos",
+              "Species": "diancie",
               "Form": 0,
               "Skin": "normal",
               "Gender": 3
@@ -193,7 +193,7 @@
             "OriginalUUID": "",
             "OriginalTeam": "",
             "BaseForm": {
-              "Species": "terapagos",
+              "Species": "diancie",
               "Form": 0,
               "Skin": "normal",
               "Gender": 3
