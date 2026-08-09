@@ -9,7 +9,7 @@
    }
   },
   "Released": true,
-  "Comment": "NDS Future Arc dungeon (data-driven mappa_s.bin)",
+  "Comment": "D31 SPIRITOMB ROOM — FIXED FLOOR NDS (fixed_floor_id=7, tileset 176). Runtime : la rencontre se joue sur le GROUND D21P41A (source NDS exacte des scènes m18b1101/1201/1301, SSA), Spiritomb (NPC_MIKARUGE) L51 weight 10000 à (8,2)=(324,196)px. Ce JSON n'est PAS procédural : il enregistre la zone ; le parcours passe par le ground d21p41a.",
   "NoEXP": false,
   "ExpPercent": 100,
   "Level": 28,
@@ -87,6 +87,54 @@
        ]
       },
       "Spawns": {}
+     },
+     {
+      "$type": "PMDC.LevelGen.SpreadHouseZoneStep, PMDC",
+      "Priority": {
+       "str": [
+        4,
+        1
+       ]
+      },
+      "Items": [],
+      "ItemThemes": [],
+      "Mobs": [],
+      "MobThemes": [],
+      "HouseStepSpawns": [
+       {
+        "Spawn": {
+         "$type": "PMDC.LevelGen.MonsterHouseStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
+         "Filters": [
+          {
+           "$type": "RogueElements.RoomFilterComponent, RogueElements",
+           "Negate": true,
+           "Components": [
+            {
+             "$type": "RogueEssence.LevelGen.ImmutableRoom, RogueEssence"
+            },
+            {
+             "$type": "PMDC.LevelGen.NoEventRoom, PMDC"
+            }
+           ]
+          }
+         ],
+         "Items": [],
+         "ItemThemes": [],
+         "Mobs": [],
+         "MobThemes": []
+        },
+        "Rate": 10
+       }
+      ],
+      "SpreadPlan": {
+       "$type": "RogueEssence.LevelGen.SpreadPlanChance, RogueEssence",
+       "Chance": 5,
+       "FloorRange": {
+        "Min": 0,
+        "Max": 0
+       }
+      },
+      "ModStates": []
      }
     ],
     "Floors": [

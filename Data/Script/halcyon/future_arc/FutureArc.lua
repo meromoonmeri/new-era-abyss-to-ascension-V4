@@ -62,6 +62,12 @@ for i, step in ipairs(FutureArc.SEQUENCE) do
     FutureArc.NEXT_GROUND[step.ground] = FutureArc.SEQUENCE[i + 1].ground
   end
 end
+-- PARCOURS DONJONS DU FUTUR (main story) : après P05P04A (fuite), le trio
+-- entre dans Chasm Cave (d18p11a). Les grounds d18p11a..d22p11a enchaînent
+-- leurs 6 donjons via leurs init.lua (Enter -> dungeon -> AfterDungeon ->
+-- ground suivant) ; le runner ne simule pas ces donjons.
+FutureArc.NEXT_GROUND['p05p04a'] = 'd18p11a'
+FutureArc.DUNGEON_GROUNDS = { 'd18p11a', 'd19p11a', 'd20p11a', 'd21p21a', 'd21p41a', 'd22p11a' }
 
 -- Démarre l'arc : entre dans le premier ground (p05p01a, repaire de Necrozma).
 function FutureArc.Begin()
@@ -76,6 +82,11 @@ end
 -- Joue toutes les scènes du ground courant puis passe au suivant.
 function FutureArc.Play(ground)
   DEBUG.EnableDbgCoro()
+  -- Grounds des donjons du futur : gérés par leurs init.lua (Enter -> EnterDungeon)
+  if FutureArc.DUNGEON_GROUNDS[ground] ~= nil then
+    GAME:FadeIn(20)
+    return
+  end
   local steps = FutureArc.BY_GROUND[ground]
   if steps == nil then
     PrintInfo('[FutureArc] ground inconnu : ' .. tostring(ground))
