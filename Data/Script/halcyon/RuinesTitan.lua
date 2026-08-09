@@ -56,16 +56,43 @@ RuinesTitan = {}
 
 local SEGMENT = 7
 
+local TEXT={
+ CRB_GARDES_01='Les statues disposées autour du colosse frémissent en même temps.',
+ CRB_GARDES_02='Huit regards sans pupilles se tournent vers nous.',
+ CRB_GARDES_03='Ce ne sont pas des ornements. Ce sont ses gardes.',
+ CRB_RENFORT_01='Derrière nous, les renforts de la Guilde prennent position.',
+ CRB_RENFORT_02='Nous avons suivi votre trace. Vous ne combattrez pas seuls.',
+ CRB_RENFORT_03='Deux lignes. Protégez le duo et ne rompez pas la formation !',
+ CRB_RENFORT_04='Même les divas savent respecter une entrée dramatique.',
+ CRB_RENFORT_05='Le signal vient du colosse. Il donne le rythme aux huit statues.',
+ CRB_RENFORT_06='Alors brisons ce rythme ensemble !',
+ CRB_045='LE SCEAU DU FOND A ÉTÉ OUVERT.', CRB_046='VOUS VOUS TENEZ DEVANT CELUI QUI GARDE LA PORTE.',
+ CRB_047='PROUVEZ QUE VOTRE VOLONTÉ SURVIVRA À MON ÉVEIL.', CRB_048='Le sol répond à chaque pulsation de Regigigas.',
+ CRB_049='On reste ensemble. Personne ne quitte sa position.', CRB_050='QUE L’ÉPREUVE COMMENCE.',
+ CRB_012='On l’a vaincu… cette fois, c’est terminé.', CRB_013='Pourquoi est-ce que la pierre réagit encore ?',
+ CRB_014='(Ce n’était pas seulement un combat. Nous avons rompu sa consigne.)', CRB_015='Il faut sortir. Maintenant.',
+ CRB_051='JE NE SUIS PAS TOMBÉ.', CRB_052='LE SCEAU QUI ME RETENAIT A CÉDÉ.',
+ CRB_053='VOUS AVEZ LIBÉRÉ LE GARDIEN EN TRIOMPHANT DE LUI.', CRB_054='MAIS VOUS IGNOREZ ENCORE CE QUE JE GARDAIS.',
+ CRB_055='POURQUOI M’AVAIT-ON PLACÉ FACE À CETTE PAROI ?', CRB_056='POURQUOI UN GARDIEN REGARDERAIT-IL CE QU’IL DEVRAIT PROTÉGER DES AUTRES ?',
+ CRB_057='PARCE QUE MA CONSIGNE ÉTAIT D’EMPÊCHER CE QUI SE TROUVE DERRIÈRE DE S’ÉVEILLER.',
+ CRB_058='PARTEZ. LA PIERRE REPREND DÉJÀ CE QUI LUI APPARTIENT.', CRB_059='Nous… nous avons ouvert quelque chose.',
+ CRB_060='Le corps du colosse se fige. Sa présence, elle, demeure dans toute la chambre.',
+ CRB_FUITE_01='Un grondement profond traverse le sanctuaire.', CRB_FUITE_02='La voûte se fend et les statues disparaissent sous la poussière.',
+ CRB_FUITE_03='La sortie ! Ne vous séparez pas !', CRB_FUITE_04='Regigigas ne fuit pas. Il reste tourné vers la paroi.',
+ CRB_FUITE_05='La pierre se referme sur lui tandis que le passage s’effondre.'
+}
+local function txt(cle) return '@'..(TEXT[cle] or cle) end
+
 local function etat()
   SV.Ruines = SV.Ruines or {}
   return SV.Ruines
 end
 
 --Recit centre : ouverture et cloture d'acte uniquement.
-local function recit(cle) DonjonFX.Recit('RUINES_' .. cle) end
-local function penser(cle, emo) DonjonFX.Penser('RUINES_' .. cle, emo) end
-local function dire(c, cle, emo) DonjonFX.Dire(c, 'RUINES_' .. cle, emo) end
-local function titan(g, cle) DonjonFX.VoixGardien(g, 'RUINES_' .. cle) end
+local function recit(cle) DonjonFX.Recit(txt(cle)) end
+local function penser(cle, emo) DonjonFX.Penser(txt(cle), emo) end
+local function dire(c, cle, emo) DonjonFX.Dire(c, txt(cle), emo) end
+local function titan(g, cle) DonjonFX.VoixGardien(g, txt(cle)) end
 
 --La Voix de l'Abysse. Evenement narratif rare, reserve aux legendaires :
 --Regigigas y a droit, ses gardes non. Equivalent donjon de BossFX.Voice —
@@ -81,7 +108,7 @@ local function voix(cle)
   SOUND:PlayBattleSE('EVT_Emote_Shock_2')
   UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "",
                 RogueEssence.Data.Gender.Unknown)
-  UI:WaitShowDialogue(STRINGS:FormatKey('RUINES_' .. cle))
+  UI:WaitShowDialogue(string.sub(txt(cle),2))
   UI:ResetSpeaker()
   pcall(function()
     DonjonFX.Emote(hero, "", 0)
