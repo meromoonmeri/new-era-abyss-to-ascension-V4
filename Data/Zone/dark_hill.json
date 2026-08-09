@@ -514,7 +514,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -1125,7 +1125,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -1736,7 +1736,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -2347,7 +2347,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -2958,7 +2958,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -3607,7 +3607,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -4256,7 +4256,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -4905,7 +4905,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -5554,7 +5554,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -6165,7 +6165,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -6776,7 +6776,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -7387,7 +7387,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -7998,7 +7998,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -8609,7 +8609,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
@@ -9220,7 +9220,7 @@
          ]
         },
         "Value": {
-         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueElements.TeamSpawner, RogueElements],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence]], RogueElements",
+         "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
          "MinDistance": 3,
          "Entrances": [
           {
