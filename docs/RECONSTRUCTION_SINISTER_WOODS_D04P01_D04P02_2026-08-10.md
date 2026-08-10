@@ -176,3 +176,43 @@ rivalité, mais sans la violence des Meanies. Le point « client présent sur sc
 `/home/user/V4/sources/pmd_red/` : `ground_data_d04p01_station.h`, `ground_data_d04p02_station.h`,
 `ground_data_d03p01_station.h`, `ground_data_d05p01_station.h`, `ground_data_d13p01_station.h`,
 `ground_data_d13p02_station.h`, `ground_lives.c/.h`, `GroundMap.cs` (moteur), `GroundObject.cs`.
+
+---
+
+## 8. ARBITRAGE UTILISATEUR (2026-08-10) — STRUCTURE CANONIQUE « canon_bully »
+
+L'utilisateur a choisi : **« Team Dazzling retient/embête Chenipent, héros + partenaire interviennent,
+elles cèdent. Structure canonique stricte, dialogues à réécrire. »**
+
+### Changements appliqués (clairière D04P02)
+La scène de « course/rivalité » (GF6E_A04-A12) est remplacée par la structure canonique PMD Red :
+
+| Étape | Canon D04P02 | Nouvelle scène New Era | Strings |
+|---|---|---|---|
+| 1. Menace | Meanies entourent la victime | Les Dazzling ont coincé Chenipent (272,120) — intimidation | GF6E_A26-A29 (Chenipent apeuré) |
+| 2. Intervention | Héros + partenaire interviennent | Le duo arrive, partenaire en colère, héros déterminé | GF6E_A30-A31 |
+| 3. Tension | Héros : SPINLEFT1 WEST / WAIT 60 / SPINRIGHT1 EAST | Pivot du héros (gauche → pause → droite) | — |
+| 4. Cession | Les trois s'en vont (3 directions) | Adagio cède, les trois repartent vers la lisière (fondu) | GF6E_A32 |
+| 5. Soulagement | Partenaire : « pests are gone » | Partenaire : « Enfin ! » | GF6E_A33 |
+| 6. Annonce victime | « Um, excuse me… » + approche | Chenipent s'annonce et s'approche (272,120 → 256,192) | GF6E_A34 |
+| 7. Notice héros | FANFARE 465 + NOTICE_FUNC + rotation | « ! » (CharSetEmote exclaim) + pivot vers Chenipent | — |
+| 8. Accueil | « You must be {NAME_2}. Caterpie was worried » | « Tu es Chenipent… Papilusion s'inquiétait pour toi » | GF6E_A35-A36 |
+| 9. Joie victime | « Yay! … Thank you! » + sourire/saut | « Oui ! J'avais peur… Merci ! » + émote happy | GF6E_A37-A38 |
+
+### Déclarations SV
+`SV.Chapter6.DazzlingPreRescueSeen` (utilisé par la scène) **déclaré** dans scriptvars.lua (règle
+projet : toute variable SV utilisée doit être déclarée — bug de crash respawn historique).
+
+### Positions vérifiées (grille de collision, toutes LIBRE)
+chenipent (272,120) et approche (256,192) ; sorties Dazzling (240,112)/(280,112)/(208,112) ;
+héros/partenaire/Dazzling inchangés.
+
+### Différences assumées vs canon
+- Chenipent a déjà été trouvé tôt dans le donjon (seg0, `ChenipentFound`) : la clairière le montre
+  **rattrapé par les Dazzling** (il s'est égaré en redescendant) — cohérent avec « Chenipent est tout
+  près » du canon New Era ;
+- Les Dazzling ne sont pas des ennemis (arc rivalité ch6 établi) : la menace reste une intimidation
+  sans violence, elles cèdent sans combat ;
+- Saut de joie de la victime (JUMP_HAPPY) ≈ émote `happy` (pas d'équivalent exact documenté).
+
+**Statut : PARTIAL — validation RUNTIME requise.**

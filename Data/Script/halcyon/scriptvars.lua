@@ -995,6 +995,7 @@ SV.Chapter6 =
 	DazzlingChapterResolved = false,--Team Dazzling : conflit chapitre resolu ?
 	DazzlingEntranceSeen = false,--entree gloomy_forest : premiere rencontre vue ?
 	DazzlingPresenceStage = 0,--stade de presence Team Dazzling (0..4)
+	DazzlingPreRescueSeen = false,--clairiere D04P02 : sauvetage de Chenipent engage ?
 	DazzlingRelayClueSeen = false,--indice lu au relais de mi-donjon ?
 	ShowedTitleCard = false,--Has the Chapter 6 title card been shown?
 	PostDefeatScenePlayed = false,

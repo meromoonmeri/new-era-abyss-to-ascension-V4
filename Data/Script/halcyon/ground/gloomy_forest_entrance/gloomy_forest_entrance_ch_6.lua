@@ -91,11 +91,11 @@ function gloomy_forest_entrance_ch_6.DazzlingEntranceBlockade()
   if not ok then PrintInfo('[Gloomy Dazzling entrance] '..tostring(err)) end
 end
 
--- D04P02 : la clairière. Les trois positions FINALES de la scène source sont
--- conservées et recastées : centre (272,192) = meneuse; droite (312,224);
--- gauche (240,224) — rendues ici par les marqueurs du ground (translations
--- de cadrage documentées dans le .rsground). Les Dazzling entrent depuis la
--- lisière praticable (corrigé 2026-08-10 : spawn hors des murs).
+-- D04P02 : la clairière. Structure canonique PMD Red (arbitrage utilisateur
+-- 2026-08-10) : la Team Dazzling a coincé Chenipent ; le duo arrive et
+-- intervient ; les Dazzling cèdent et s'en vont ; sauvetage (approche,
+-- notice, soulagement). Positions : marqueurs du ground (translations de
+-- cadrage du .rsground) + position canonique de la victime (272,120).
 function gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()
   local hero, partner = CH('PLAYER'), CH('Teammate1')
   GAME:FadeOut(false, 1)
@@ -104,10 +104,14 @@ function gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()
 
   GROUND:TeleportTo(hero, 224, 208, Direction.Up)
   if partner then GROUND:TeleportTo(partner, 264, 208, Direction.Up) end
-  -- Dans la source GBA, les trois Meanies avancent ensemble avant leur
-  -- première réplique (sub_8087144). Team Dazzling reprend ces trois slots :
-  -- elle n'apparaît donc pas déjà figée à sa position finale. Spawn à la
-  -- lisière haute de la clairière (cellules praticables), puis avancée.
+  -- Victime : Chenipent, coincé en haut de la clairière (canon : la victime
+  -- est derrière les agresseurs, au nord de la scène).
+  local chenipent = CharacterEssentials.MakeCharactersFromList({
+    {'Chenipent', 272, 120, Direction.Down},
+  })
+  -- Les Dazzling entrent depuis la lisière et encerclent Chenipent (canon :
+  -- les trois Meanies avancent ensemble avant leur première réplique,
+  -- sub_8087144). Spawn sur cellules praticables (corrigé 2026-08-10).
   local adagio, aria, sonata = CharacterEssentials.MakeCharactersFromList({
     {'Adagio',240,120,Direction.Down},
     {'Aria',280,136,Direction.DownLeft},
@@ -132,53 +136,59 @@ function gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()
   TASK:JoinCoroutines({enter1,enter2,enter3,cam});GAME:WaitFrames(10)
   SOUND:PlayBGM('Team_Dazzling_Theme.ogg',true)
 
-  -- Neuf boîtes comme la scène D04P02 source, distribuées au nouveau casting.
-  dialogue(aria, 'GF6E_A04', 'Happy')
-  dialogue(partner, 'GF6E_A05', 'Surprised')
-  dialogue(adagio, 'GF6E_A06', 'Normal')
-  dialogue(sonata, 'GF6E_A07', 'Angry')
-  pcall(function() GROUND:CharTurnToCharAnimated(aria, sonata, 4) end)
-  dialogue(aria, 'GF6E_A08', 'Happy')
-  dialogue(sonata, 'GF6E_A09', 'Angry')
+  -- 1) MENACE : les Dazzling ont coincé Chenipent (fonction scénique des
+  -- Meanies : intimidation). Le duo est encore hors-champ à cet instant.
+  dialogue(adagio, 'GF6E_A26', 'Angry')
+  dialogue(sonata, 'GF6E_A27', 'Happy')
+  dialogue(aria, 'GF6E_A28', 'Normal')
+  dialogue(chenipent, 'GF6E_A29', 'Worried')
+  -- Les Dazzling perçoivent l'arrivée du duo et se retournent.
   pcall(function()
-    GROUND:CharTurnToCharAnimated(adagio, aria, 4)
-    GROUND:CharTurnToCharAnimated(aria, adagio, 4)
-    GROUND:CharTurnToCharAnimated(sonata, adagio, 4)
+    GROUND:CharTurnToCharAnimated(adagio, hero, 4)
+    GROUND:CharTurnToCharAnimated(aria, partner, 4)
+    GROUND:CharTurnToCharAnimated(sonata, hero, 4)
   end)
-  dialogue(adagio, 'GF6E_A10', 'Normal')
-  dialogue(adagio, 'GF6E_A11', 'Normal')
-  dialogue(aria, 'GF6E_A12', 'Happy')
+
+  -- 2) INTERVENTION (canon : héros + partenaire interviennent).
+  dialogue(partner, 'GF6E_A30', 'Angry')
+  GeneralFunctions.HeroDialogue(hero,STRINGS:Format(STRINGS.MapStrings['GF6E_A31']),'Determined')
   -- Canon D04P02 : le héros enregistre la tension par un pivot lent gauche
   -- puis droite (source : ROTATE_TO(10,SPINLEFT1,WEST) / WAIT(60) /
-  -- ROTATE_TO(4,SPINRIGHT1,EAST)) avant la bascule sérieuse.
+  -- ROTATE_TO(4,SPINRIGHT1,EAST)) avant la bascule.
   GROUND:CharAnimateTurnTo(hero, Direction.Left, 4)
   GAME:WaitFrames(30)
   GROUND:CharAnimateTurnTo(hero, Direction.Right, 4)
   GAME:WaitFrames(15)
-  if partner then GROUND:CharAnimateTurnTo(partner, Direction.Left, 4) end
 
-  -- Dans Deep Shadow, la rivalité cesse d'être une plaisanterie. La Team
-  -- Dazzling a entendu Chenipent avant nous et ne peut plus feindre l'insouciance.
-  UI:SetSpeaker(sonata);GeneralFunctions.SetEmotion('Worried')
-  UI:WaitShowDialogue("Attendez...[pause=18] Ce bruit ne venait pas d'un Pokémon qui nous suivait.[pause=15] Il venait de devant.")
-  UI:SetSpeaker(adagio);GeneralFunctions.SetEmotion('Determined')
-  UI:WaitShowDialogue("Chenipent est tout près.[pause=15] Notre concours s'arrête ici. Si quelque chose le retient, nous ouvrons le passage ensemble.")
-  UI:SetSpeaker(aria);GeneralFunctions.SetEmotion('Worried')
-  UI:WaitShowDialogue("Je déteste quand la forêt devient assez sérieuse pour donner raison à Adagio...")
-  GeneralFunctions.HeroDialogue(hero,"(Elles ont peur, elles aussi.[pause=15] Mais aucune ne recule.)",'Worried')
+  -- 3) CESSION (canon : les trois s'en vont ; ici : retour vers la lisière
+  -- puis fondu de sortie, comme à l'entrée D04P01).
+  dialogue(adagio, 'GF6E_A32', 'Normal')
+  local a=TASK:BranchCoroutine(function() GROUND:MoveToPosition(adagio,240,112,false,2) end)
+  local b=TASK:BranchCoroutine(function() GROUND:MoveToPosition(aria,280,112,false,2) end)
+  local c=TASK:BranchCoroutine(function() GROUND:MoveToPosition(sonata,208,112,false,2) end)
+  TASK:JoinCoroutines({a,b,c});GAME:FadeOut(false,15)
+  pcall(function() GAME:GetCurrentGround():RemoveTempChar(adagio) end)
+  pcall(function() GAME:GetCurrentGround():RemoveTempChar(aria) end)
+  pcall(function() GAME:GetCurrentGround():RemoveTempChar(sonata) end)
+  GAME:MoveCamera(240,192,1,true);GAME:FadeIn(15)
+
+  -- 4) SOULAGEMENT + SAUVETAGE (canon : la victime s'annonce, s'approche,
+  -- le héros la remarque d'un « ! », puis l'accueille).
+  dialogue(partner, 'GF6E_A33', 'Determined')
+  dialogue(chenipent, 'GF6E_A34', 'Worried')
+  GROUND:MoveToPosition(chenipent, 256, 192, false, 1)
+  GROUND:CharSetEmote(hero, 'exclaim', 1)
+  GROUND:CharAnimateTurnTo(hero, Direction.UpRight, 4)
+  if partner then GROUND:CharAnimateTurnTo(partner, Direction.UpRight, 4) end
+  GeneralFunctions.HeroDialogue(hero,STRINGS:Format(STRINGS.MapStrings['GF6E_A35']),'Normal')
+  GeneralFunctions.HeroDialogue(hero,STRINGS:Format(STRINGS.MapStrings['GF6E_A36']),'Normal')
+  dialogue(chenipent, 'GF6E_A37', 'Happy')
+  dialogue(chenipent, 'GF6E_A38', 'Happy')
+  GROUND:CharSetEmote(chenipent, 'happy', 1)
+
   SV.Chapter6.DazzlingPresenceStage = 4
   SV.Chapter6.DazzlingPreRescueSeen = true
-
-  -- Les neuf poses finales de la CIF sont rendues par les orientations et
-  -- réactions successives, sans déplacer les personnages hors de leurs slots.
-  pcall(function()
-    GROUND:CharTurnToCharAnimated(hero, adagio, 4)
-    GROUND:CharTurnToCharAnimated(partner, adagio, 4)
-    GROUND:CharSetEmote(aria, 'exclaim', 1)
-    GROUND:CharSetEmote(sonata, 'angry', 1)
-  end)
   SV.Chapter6.FinishedGloomyForestIntro = true
-  SV.Chapter6.DazzlingPresenceStage = 4
   GAME:FadeOut(false, 30)
   GAME:CutsceneMode(false)
   GAME:ContinueDungeon('gloomy_forest', 4, 0, 0,
