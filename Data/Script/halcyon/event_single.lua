@@ -184,47 +184,86 @@ function SpawnOutlaw(origin, radius, mission_num)
 		return true
 	end
 
+	-- BUG-LUA-01 fix: fallback avec rayon élargi (choix utilisateur : rayon élargi)
+	-- Cherche d'abord dans le rayon demandé, puis élargit progressivement jusqu'à épuisement.
 	local spawn_candidates = {}
-	for x = top_left.X, bottom_right.X, 1 do
-		for y = top_left.Y, bottom_right.Y, 1 do
-			local testLoc = RogueElements.Loc(x, y)
-			local is_choke_point = RogueElements.Grid.IsChokePoint(testLoc - rect_area, rect_area2, testLoc, checkBlock, checkDiagBlock)
-			local tile_block = _ZONE.CurrentMap:TileBlocked(testLoc)
-			local char_at = _ZONE.CurrentMap:GetCharAtLoc(testLoc)
+	local currentRadius = radius
+	local maxRadius = radius
+	pcall(function() maxRadius = math.max(_ZONE.CurrentMap.Width, _ZONE.CurrentMap.Height) end)
+	if maxRadius == nil or maxRadius < radius then maxRadius = radius end
+	local hardLimit = radius + 12
+	if maxRadius > hardLimit then maxRadius = hardLimit end
 
-			--don't spawn the outlaw directly next to the player or their teammates
-			local next_to_player_units = false
-			for i = 1, GAME:GetPlayerPartyCount(), 1 do
-				local party_member = GAME:GetPlayerPartyMember(i-1)
-				if math.abs(party_member.CharLoc.X - x) <= 1 and math.abs(party_member.CharLoc.Y - y) <= 1 then
-					next_to_player_units = true
-					break
+	while true do
+		spawn_candidates = {}
+		local tl = RogueElements.Loc(origin.X - currentRadius, origin.Y - currentRadius)
+		local br = RogueElements.Loc(origin.X + currentRadius, origin.Y + currentRadius)
+		for x = tl.X, br.X, 1 do
+			for y = tl.Y, br.Y, 1 do
+				local testLoc = RogueElements.Loc(x, y)
+				local is_choke_point = RogueElements.Grid.IsChokePoint(testLoc - rect_area, rect_area2, testLoc, checkBlock, checkDiagBlock)
+				local tile_block = _ZONE.CurrentMap:TileBlocked(testLoc)
+				local char_at = _ZONE.CurrentMap:GetCharAtLoc(testLoc)
+
+				local next_to_player_units = false
+				for i = 1, GAME:GetPlayerPartyCount(), 1 do
+					local party_member = GAME:GetPlayerPartyMember(i-1)
+					if math.abs(party_member.CharLoc.X - x) <= 1 and math.abs(party_member.CharLoc.Y - y) <= 1 then
+						next_to_player_units = true
+						break
+					end
 				end
-			end
 
-			--guests too!
-			for i = 1, GAME:GetPlayerGuestCount(), 1 do
-				local party_member = GAME:GetPlayerGuestMember(i-1)
-				if math.abs(party_member.CharLoc.X - x) <= 1 and math.abs(party_member.CharLoc.Y - y) <= 1 then
-					next_to_player_units = true
-					break
+				for i = 1, GAME:GetPlayerGuestCount(), 1 do
+					local party_member = GAME:GetPlayerGuestMember(i-1)
+					if math.abs(party_member.CharLoc.X - x) <= 1 and math.abs(party_member.CharLoc.Y - y) <= 1 then
+						next_to_player_units = true
+						break
+					end
 				end
-			end
 
-			if tile_block == false and char_at == nil and not is_choke_point and not next_to_player_units then
-				table.insert(spawn_candidates, testLoc)
+				if tile_block == false and char_at == nil and not is_choke_point and not next_to_player_units then
+					table.insert(spawn_candidates, testLoc)
+				end
 			end
 		end
+		if #spawn_candidates > 0 then break end
+		if currentRadius >= maxRadius then break end
+		local nextRadius = math.min(currentRadius + 2, maxRadius)
+		PrintInfo("[SpawnOutlaw] no candidate at radius "..tostring(currentRadius).." for mission "..tostring(mission_num).." — retrying with radius "..tostring(nextRadius))
+		currentRadius = nextRadius
 	end
 
+	if #spawn_candidates == 0 then
+		PrintInfo("[SpawnOutlaw] no valid spawn tile after expanding to radius "..tostring(maxRadius).." for mission "..tostring(mission_num).." — cancelling spawn")
+		return nil
+	end
 	local spawn_loc = spawn_candidates[_DATA.Save.Rand:Next(1, #spawn_candidates)]
 	local new_team = RogueEssence.Dungeon.MonsterTeam()
 	local mob_data = RogueEssence.Dungeon.CharData(true)
 	local base_form_idx = 0
-	local form = _DATA:GetMonster(mission.Target).Forms[base_form_idx]
+	-- BUG-LUA-02 fix: GetMonster peut retourner nil si Target invalide
+	local _monsterData = _DATA:GetMonster(mission.Target)
+	if _monsterData == nil then
+		PrintInfo("[SpawnOutlaw] GetMonster(nil) for mission "..tostring(mission_num).." Target="..tostring(mission.Target).." — cancelling")
+		return nil
+	end
+	local form = _monsterData.Forms[base_form_idx]
+	if form == nil then
+		PrintInfo("[SpawnOutlaw] missing form "..tostring(base_form_idx).." for "..tostring(mission.Target).." — cancelling")
+		return nil
+	end
 	-- local gender = form:RollGender(_DATA.Save.Rand)
 	mob_data.BaseForm = RogueEssence.Dungeon.MonsterID(mission.Target, base_form_idx, "normal", GeneralFunctions.NumToGender(mission.TargetGender))
-	mob_data.Level = math.floor(MISSION_GEN.EXPECTED_LEVEL[mission.Zone] * 1.2)
+	-- BUG-LUA-03 fix: EXPECTED_LEVEL peut être nil si zone hors DUNGEON_LIST → repli niveau joueur
+	local _expLvl = MISSION_GEN.EXPECTED_LEVEL[mission.Zone]
+	if _expLvl == nil then
+		local _pl = nil
+		pcall(function() _pl = GAME:GetPlayerPartyMember(0) end)
+		_expLvl = (_pl and _pl.Level) or 10
+		PrintInfo("[SpawnOutlaw] EXPECTED_LEVEL nil for zone "..tostring(mission.Zone).." — fallback player level "..tostring(_expLvl))
+	end
+	mob_data.Level = math.floor(_expLvl * 1.2)
 	local ability = form:RollIntrinsic(_DATA.Save.Rand, 3)
 	mob_data.BaseIntrinsics[0] = ability
 	local new_mob = RogueEssence.Dungeon.Character(mob_data)
@@ -272,8 +311,10 @@ function SpawnOutlaw(origin, radius, mission_num)
 
 	local tactic = nil
 	if mission.Type == COMMON.MISSION_TYPE_OUTLAW_FLEE then
-		local speedMin = math.floor(MISSION_GEN.EXPECTED_LEVEL[mission.Zone] * (4 / 3))
-		local speedMax = math.floor(MISSION_GEN.EXPECTED_LEVEL[mission.Zone] * 3)
+		-- BUG-LUA-03 fix: réutilise _expLvl (fallback déjà calculé)
+		local _expLvl2 = MISSION_GEN.EXPECTED_LEVEL[mission.Zone] or _expLvl
+		local speedMin = math.floor(_expLvl2 * (4 / 3))
+		local speedMax = math.floor(_expLvl2 * 3)
 		new_mob.SpeedBonus = math.min(_DATA.Save.Rand:Next(speedMin, speedMax), 100)
 		tactic = _DATA:GetAITactic("super_flee_stairs")
 	else
@@ -284,7 +325,7 @@ function SpawnOutlaw(origin, radius, mission_num)
 		new_mob.EquippedItem = RogueEssence.Dungeon.InvItem(mission.Item)
 	end
 
-	new_mob.MaxHPBonus = math.min(MISSION_GEN.EXPECTED_LEVEL[mission.Zone] * 4, max_boost);
+	new_mob.MaxHPBonus = math.min((MISSION_GEN.EXPECTED_LEVEL[mission.Zone] or _expLvl) * 4, max_boost);
 	new_mob.HP = new_mob.MaxHP;
 	new_mob.Unrecruitable = true
 	new_mob.Tactic = tactic
