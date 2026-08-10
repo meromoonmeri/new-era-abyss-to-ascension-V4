@@ -1,7 +1,3 @@
--- === ENRICHISSEMENT 7K CH6 ===
--- L'arc de la Team Dazzling met en avant la rivalité idéologique entre
--- le prestige de surface (les badges diamants d'Adagio, Aria, Sonata) et
--- le dévouement sincère de l'équipe du joueur pour secourir Chenipent.
 --[[
     DazzlingPlaza.lua
 
@@ -402,7 +398,7 @@ function DazzlingPlaza.ActeI()
 
   --LA FOULE SE RASSEMBLE, attiree par l'entree. Elle vient d'abord au
   --centre — c'est ce qui obligera la place a s'ouvrir juste apres.
-  SOUND:PlayBGM('Team_Dazzling_Theme.ogg', true)
+  SOUND:PlayBGM('Team_Dazzling.ogg', true)
   local ras = {}
   for i, e in ipairs(CERCLE) do
     local c = CH(e[1])
@@ -601,7 +597,7 @@ function DazzlingPlaza.ActeI()
   end
   table.insert(venues, TASK:BranchCoroutine(function()
     GAME:WaitFrames(20)
-    GAME:MoveCamera(1152, 920, 60, false)
+    GAME:MoveCamera(912, 864, 60, false)
   end))
   TASK:JoinCoroutines(venues)
   GAME:WaitFrames(15)
@@ -650,7 +646,7 @@ function DazzlingPlaza.ActeI()
   end)
   local g2 = TASK:BranchCoroutine(function()
     GAME:WaitFrames(16)
-    GAME:MoveCamera(1144, 936, 40, false)
+    GAME:MoveCamera(928, 856, 40, false)
   end)
   TASK:JoinCoroutines({ g1, g2 })
   GAME:WaitFrames(12)
@@ -701,18 +697,9 @@ end
 -- touche. Le fondu de BossTransition couvre la bascule.
 function DazzlingPlaza.ActeII()
   SV.Chapter6.PlazaMet = true
-  SV.Chapter6.PlazaTransitionStage = 'to_battle'
   pcall(function()
     UI:ResetSpeaker()
-    -- La caméra reste sur la même place. Un flash très bref masque uniquement
-    -- le changement de moteur Ground -> Dungeon, sans donner l'impression
-    -- d'être téléporté vers une arène noire.
-    GAME:MoveCamera(1152, 944, 20, false)
-    BossFX.Flash(1152, 928, 2, 5, 18)
-    BossFX.ShakeScreen(3, 16)
-    SOUND:FadeOutBGM(22)
-    GAME:WaitFrames(12)
-    GAME:FadeOut(false, 12)
+    COMMON.BossTransition()
     GAME:ContinueDungeon("gloomy_forest", 7, 0, 0,
       RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
   end)
@@ -742,7 +729,7 @@ function DazzlingPlaza.Defaite()
     GAME:CutsceneMode(true)
     if partner ~= nil then pcall(function() AI:DisableCharacterAI(partner) end) end
 
-    GAME:MoveCamera(1152, 944, 1, false)
+    GAME:MoveCamera(896, 872, 1, false)
     GAME:FadeIn(50)
     GAME:WaitFrames(30)
 
@@ -764,7 +751,7 @@ function DazzlingPlaza.Defaite()
     end)
     local p2 = TASK:BranchCoroutine(function()
       GAME:WaitFrames(20)
-      GAME:MoveCamera(1136, 944, 40, false)
+      GAME:MoveCamera(880, 872, 40, false)
     end)
     TASK:JoinCoroutines({ p1, p2 })
 
@@ -883,7 +870,7 @@ function DazzlingPlaza.Defaite()
     ----------------------------------------------------------------
     -- LES HABITANTS ACCOURENT. Ils courent : run = true.
     ----------------------------------------------------------------
-    GAME:MoveCamera(1144, 944, 50, false)
+    GAME:MoveCamera(880, 880, 50, false)
     local secours = {}
     --Cases de secours, toutes verifiees en Tags == 0 sur le ground.
     --Ils accourent autour du duo tombe. Cases validees par
@@ -1109,7 +1096,7 @@ function DazzlingPlaza.Victoire()
     GAME:CutsceneMode(true)
     if partner ~= nil then pcall(function() AI:DisableCharacterAI(partner) end) end
 
-    GAME:MoveCamera(1152, 944, 1, false)
+    GAME:MoveCamera(912, 856, 1, false)
     GAME:FadeIn(50)
     GAME:WaitFrames(30)
 
