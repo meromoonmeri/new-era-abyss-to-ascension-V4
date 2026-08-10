@@ -26,6 +26,44 @@ function d12p04.Cutscene()
   if hero then GeneralFunctions.MoveCharAndCamera(hero, 272, 200, false, 12, 40) end
   GAME:WaitFrames(30)
 
+  ------------------------------------------------------------------
+  -- ÉQUIPE ACT — continuité canonique Rescue Team
+  ------------------------------------------------------------------
+  -- Le joueur ne tombe pas directement sur Groudon : Alakazam,
+  -- Charizard et Tyranitar l'ont affronté avant lui et gisent autour du
+  -- cratère. C'est le battement narratif essentiel qui manquait.
+  local alakazam,charizard,tyranitar = CharacterEssentials.MakeCharactersFromList({
+    {'Alakazam', 208, 184, Direction.DownRight},
+    {'Charizard',272,184,Direction.DownLeft},
+    {'Tyranitar',240,224,Direction.Down}})
+  for _,c in ipairs({alakazam,charizard,tyranitar}) do
+    pcall(function()
+      GROUND:CharSetAction(c,RogueEssence.Ground.PoseGroundAction(
+        c.Position,c.Direction,RogueEssence.Content.GraphicsManager.GetAnimIndex('Faint')))
+    end)
+  end
+  GAME:MoveCamera(240,196,35,false);GAME:WaitFrames(25)
+  UI:ResetSpeaker(false);UI:SetCenter(true)
+  UI:WaitShowDialogue("Trois silhouettes sont étendues autour du cratère.[pause=20] L'Équipe ACT est arrivée avant vous.")
+  UI:SetCenter(false)
+  if partner then
+    UI:SetSpeaker(partner);GeneralFunctions.SetEmotion('Shock')
+    UI:WaitShowDialogue("Alakazam ![pause=10] Dracaufeu ! Tyranocif ![pause=20] Ils ont tous été balayés...")
+  end
+  pcall(function()
+    GROUND:CharSetAnim(alakazam,'Hurt',true)
+    GROUND:CharSetEmote(alakazam,'sweatdrop',1)
+  end)
+  UI:SetSpeaker(alakazam);GeneralFunctions.SetEmotion('Pain')
+  UI:WaitShowDialogue("N'approchez pas...[pause=15] Groudon ne dormait pas.[pause=20] Il nous attendait sous la roche.")
+  UI:WaitShowDialogue("Nous avons tenu aussi longtemps que possible.[pause=15] Maintenant...[pause=20] c'est à vous.")
+  GeneralFunctions.HeroDialogue(hero,"(Même l'Équipe ACT n'a pas pu l'arrêter.[pause=20] Mais nous ne pouvons pas les abandonner ici.)",'Determined')
+  if partner then
+    UI:SetSpeaker(partner);GeneralFunctions.SetEmotion('Determined')
+    UI:WaitShowDialogue("On va ouvrir un chemin.[pause=15] Restez conscients. On revient vous chercher.")
+  end
+  GAME:WaitFrames(20)
+
   -- Groudon se réveille dans les flammes (apparition progressive)
   local groudon = CharacterEssentials.MakeCharactersFromList({{'Groudon', 240, 176, Direction.Down}})
   if groudon then
