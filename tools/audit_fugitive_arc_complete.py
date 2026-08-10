@@ -3,7 +3,7 @@ from pathlib import Path
 import re
 ROOT=Path(__file__).resolve().parents[1]
 arc=(ROOT/'Data/Script/halcyon/FugitiveArc.lua').read_text();ids=re.findall(r"scene = '([^']+)'",arc);cin=(ROOT/'Data/Script/halcyon/FugitiveCinematics.lua').read_text();errors=[]
-if len(ids)!=24:errors.append(f'24 étapes attendues, {len(ids)}')
+if len(ids)!=27:errors.append(f'27 étapes attendues, {len(ids)}')
 for i in ids:
  p=ROOT/f'Data/Script/halcyon/arc_fugitif/scene/{i}.lua'
  if not p.exists():errors.append(f'{i}: wrapper absent');continue
@@ -16,6 +16,6 @@ for boss in ('Moltres','Articuno','Ninetales','Groudon','Rayquaza'):
 for token in ('Started = true','Completed = true'):
  if token not in arc:errors.append(f'état arc absent: {token}')
 print('AUDIT ARC FUGITIF COMPLET')
-print(f'{len(ids)}/24 étapes; 5/5 gardiens; {len(errors)} erreur(s)')
+print(f'{len(ids)}/27 étapes; 5/5 gardiens; {len(errors)} erreur(s)')
 for e in errors:print('ERREUR:',e)
 raise SystemExit(bool(errors))
