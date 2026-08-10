@@ -1,0 +1,2658 @@
+{
+ "b00canm": {
+  "raw_size": 1728,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1552,
+   "ptrlist_ptr": 1680,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b00cel": {
+  "raw_size": 1799,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b00cex": {
+  "raw_size": 752,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b00fon": {
+  "raw_size": 7316,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 10848,
+  "tile_count": 339,
+  "provenance": "SOURCE_NDS"
+ },
+ "b00pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b01canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b01cel": {
+  "raw_size": 1781,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b01cex": {
+  "raw_size": 848,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b01fon": {
+  "raw_size": 10472,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 13408,
+  "tile_count": 419,
+  "provenance": "SOURCE_NDS"
+ },
+ "b01pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b02canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b02cel": {
+  "raw_size": 2216,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b02cex": {
+  "raw_size": 944,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b02fon": {
+  "raw_size": 9282,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 12544,
+  "tile_count": 392,
+  "provenance": "SOURCE_NDS"
+ },
+ "b02pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b03canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b03cel": {
+  "raw_size": 1908,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b03cex": {
+  "raw_size": 848,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b03fon": {
+  "raw_size": 8736,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 12704,
+  "tile_count": 397,
+  "provenance": "SOURCE_NDS"
+ },
+ "b03pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b04canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b04cel": {
+  "raw_size": 1811,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b04cex": {
+  "raw_size": 864,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b04fon": {
+  "raw_size": 8856,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 11776,
+  "tile_count": 368,
+  "provenance": "SOURCE_NDS"
+ },
+ "b04pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b05canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b05cel": {
+  "raw_size": 1790,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b05cex": {
+  "raw_size": 848,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b05fon": {
+  "raw_size": 6885,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 10400,
+  "tile_count": 325,
+  "provenance": "SOURCE_NDS"
+ },
+ "b05pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b06canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b06cel": {
+  "raw_size": 1997,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b06cex": {
+  "raw_size": 864,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b06fon": {
+  "raw_size": 12709,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 16160,
+  "tile_count": 505,
+  "provenance": "SOURCE_NDS"
+ },
+ "b06pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b07canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b07cel": {
+  "raw_size": 1997,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b07cex": {
+  "raw_size": 944,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b07fon": {
+  "raw_size": 7935,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 11392,
+  "tile_count": 356,
+  "provenance": "SOURCE_NDS"
+ },
+ "b07pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b08canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b08cel": {
+  "raw_size": 1979,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b08cex": {
+  "raw_size": 864,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b08fon": {
+  "raw_size": 12348,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 15264,
+  "tile_count": 477,
+  "provenance": "SOURCE_NDS"
+ },
+ "b08pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b09canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b09cel": {
+  "raw_size": 1823,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b09cex": {
+  "raw_size": 896,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b09fon": {
+  "raw_size": 8616,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 11616,
+  "tile_count": 363,
+  "provenance": "SOURCE_NDS"
+ },
+ "b09pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b10canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b10cel": {
+  "raw_size": 2054,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b10cex": {
+  "raw_size": 848,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b10fon": {
+  "raw_size": 10177,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 13312,
+  "tile_count": 416,
+  "provenance": "SOURCE_NDS"
+ },
+ "b10pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b11canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b11cel": {
+  "raw_size": 1934,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b11cex": {
+  "raw_size": 848,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b11fon": {
+  "raw_size": 10770,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 13824,
+  "tile_count": 432,
+  "provenance": "SOURCE_NDS"
+ },
+ "b11pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b12canm": {
+  "raw_size": 1728,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1552,
+   "ptrlist_ptr": 1680,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b12cel": {
+  "raw_size": 2025,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b12cex": {
+  "raw_size": 816,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b12fon": {
+  "raw_size": 9679,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 13920,
+  "tile_count": 435,
+  "provenance": "SOURCE_NDS"
+ },
+ "b12pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b13canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b13cel": {
+  "raw_size": 1908,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b13cex": {
+  "raw_size": 848,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b13fon": {
+  "raw_size": 7917,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 12000,
+  "tile_count": 375,
+  "provenance": "SOURCE_NDS"
+ },
+ "b13pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b14canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b14cel": {
+  "raw_size": 2023,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b14cex": {
+  "raw_size": 944,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b14fon": {
+  "raw_size": 8263,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 10752,
+  "tile_count": 336,
+  "provenance": "SOURCE_NDS"
+ },
+ "b14pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b15canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b15cel": {
+  "raw_size": 1768,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b15cex": {
+  "raw_size": 896,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b15fon": {
+  "raw_size": 7580,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 10784,
+  "tile_count": 337,
+  "provenance": "SOURCE_NDS"
+ },
+ "b15pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b16canm": {
+  "raw_size": 1728,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1552,
+   "ptrlist_ptr": 1680,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b16cel": {
+  "raw_size": 1860,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b16cex": {
+  "raw_size": 832,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b16fon": {
+  "raw_size": 7234,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 10752,
+  "tile_count": 336,
+  "provenance": "SOURCE_NDS"
+ },
+ "b16pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b17canm": {
+  "raw_size": 1360,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1172,
+   "ptrlist_ptr": 1312,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b17cel": {
+  "raw_size": 2096,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b17cex": {
+  "raw_size": 944,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b17fon": {
+  "raw_size": 8513,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 12832,
+  "tile_count": 401,
+  "provenance": "SOURCE_NDS"
+ },
+ "b17pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b18canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b18cel": {
+  "raw_size": 1965,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b18cex": {
+  "raw_size": 896,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b18fon": {
+  "raw_size": 10289,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 13664,
+  "tile_count": 427,
+  "provenance": "SOURCE_NDS"
+ },
+ "b18pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b19canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b19cel": {
+  "raw_size": 1877,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b19cex": {
+  "raw_size": 944,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b19fon": {
+  "raw_size": 6501,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 9920,
+  "tile_count": 310,
+  "provenance": "SOURCE_NDS"
+ },
+ "b19pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b20canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b20cel": {
+  "raw_size": 1955,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b20cex": {
+  "raw_size": 816,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b20fon": {
+  "raw_size": 10182,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 12896,
+  "tile_count": 403,
+  "provenance": "SOURCE_NDS"
+ },
+ "b20pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b21canm": {
+  "raw_size": 1664,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1488,
+   "ptrlist_ptr": 1616,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b21cel": {
+  "raw_size": 1795,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b21cex": {
+  "raw_size": 944,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b21fon": {
+  "raw_size": 5212,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 8416,
+  "tile_count": 263,
+  "provenance": "SOURCE_NDS"
+ },
+ "b21pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b22canm": {
+  "raw_size": 1536,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1360,
+   "ptrlist_ptr": 1488,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b22pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b23canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b23cel": {
+  "raw_size": 1915,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b23cex": {
+  "raw_size": 864,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b23fon": {
+  "raw_size": 8853,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 11680,
+  "tile_count": 365,
+  "provenance": "SOURCE_NDS"
+ },
+ "b23pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b24canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b24cel": {
+  "raw_size": 1681,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b24cex": {
+  "raw_size": 848,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b24fon": {
+  "raw_size": 6222,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 10112,
+  "tile_count": 316,
+  "provenance": "SOURCE_NDS"
+ },
+ "b24pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b25canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b25cel": {
+  "raw_size": 2055,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b25cex": {
+  "raw_size": 944,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b25fon": {
+  "raw_size": 6845,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 9728,
+  "tile_count": 304,
+  "provenance": "SOURCE_NDS"
+ },
+ "b25pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b26canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b26pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b27canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b27pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b28canm": {
+  "raw_size": 1664,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1488,
+   "ptrlist_ptr": 1616,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b28cel": {
+  "raw_size": 1830,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b28cex": {
+  "raw_size": 832,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b28fon": {
+  "raw_size": 6327,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 9664,
+  "tile_count": 302,
+  "provenance": "SOURCE_NDS"
+ },
+ "b28pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b29canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b29cel": {
+  "raw_size": 1825,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b29cex": {
+  "raw_size": 848,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b29fon": {
+  "raw_size": 8887,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 11744,
+  "tile_count": 367,
+  "provenance": "SOURCE_NDS"
+ },
+ "b29pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b30canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b30cel": {
+  "raw_size": 1746,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b30cex": {
+  "raw_size": 864,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b30fon": {
+  "raw_size": 5851,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 9408,
+  "tile_count": 294,
+  "provenance": "SOURCE_NDS"
+ },
+ "b30pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b31canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b31cel": {
+  "raw_size": 1962,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b31cex": {
+  "raw_size": 848,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b31fon": {
+  "raw_size": 8182,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 12352,
+  "tile_count": 386,
+  "provenance": "SOURCE_NDS"
+ },
+ "b31pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b32canm": {
+  "raw_size": 2880,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 2704,
+   "ptrlist_ptr": 2832,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b32cel": {
+  "raw_size": 1629,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b32cex": {
+  "raw_size": 816,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b32fon": {
+  "raw_size": 4416,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 6752,
+  "tile_count": 211,
+  "provenance": "SOURCE_NDS"
+ },
+ "b32pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b33canm": {
+  "raw_size": 2880,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 2704,
+   "ptrlist_ptr": 2832,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b33cel": {
+  "raw_size": 1629,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b33cex": {
+  "raw_size": 816,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b33fon": {
+  "raw_size": 4321,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 6624,
+  "tile_count": 207,
+  "provenance": "SOURCE_NDS"
+ },
+ "b33pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b34canm": {
+  "raw_size": 1664,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1488,
+   "ptrlist_ptr": 1616,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b34pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b35canm": {
+  "raw_size": 1600,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1424,
+   "ptrlist_ptr": 1552,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b35cel": {
+  "raw_size": 2026,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b35cex": {
+  "raw_size": 848,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b35fon": {
+  "raw_size": 8607,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 13280,
+  "tile_count": 415,
+  "provenance": "SOURCE_NDS"
+ },
+ "b35pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b36canm": {
+  "raw_size": 1600,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1424,
+   "ptrlist_ptr": 1552,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b36cel": {
+  "raw_size": 1944,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b36cex": {
+  "raw_size": 928,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b36fon": {
+  "raw_size": 8901,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 11104,
+  "tile_count": 347,
+  "provenance": "SOURCE_NDS"
+ },
+ "b36pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b37canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b37cel": {
+  "raw_size": 1806,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b37cex": {
+  "raw_size": 912,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b37fon": {
+  "raw_size": 7243,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 11168,
+  "tile_count": 349,
+  "provenance": "SOURCE_NDS"
+ },
+ "b37pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b38canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b38pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b39canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b39cel": {
+  "raw_size": 1773,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b39cex": {
+  "raw_size": 928,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b39fon": {
+  "raw_size": 5571,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 8768,
+  "tile_count": 274,
+  "provenance": "SOURCE_NDS"
+ },
+ "b39pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b40canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b40cel": {
+  "raw_size": 1789,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b40cex": {
+  "raw_size": 912,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b40fon": {
+  "raw_size": 7221,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 10464,
+  "tile_count": 327,
+  "provenance": "SOURCE_NDS"
+ },
+ "b40pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b41canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b41cel": {
+  "raw_size": 1808,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b41cex": {
+  "raw_size": 816,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b41fon": {
+  "raw_size": 10280,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 13280,
+  "tile_count": 415,
+  "provenance": "SOURCE_NDS"
+ },
+ "b41pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b42canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b42cel": {
+  "raw_size": 1929,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b42cex": {
+  "raw_size": 816,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b42fon": {
+  "raw_size": 8603,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 12608,
+  "tile_count": 394,
+  "provenance": "SOURCE_NDS"
+ },
+ "b42pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b43canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b43cel": {
+  "raw_size": 2008,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b43cex": {
+  "raw_size": 944,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b43fon": {
+  "raw_size": 10427,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 13344,
+  "tile_count": 417,
+  "provenance": "SOURCE_NDS"
+ },
+ "b43pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b44canm": {
+  "raw_size": 1600,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1424,
+   "ptrlist_ptr": 1552,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b44cel": {
+  "raw_size": 2045,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b44cex": {
+  "raw_size": 848,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b44fon": {
+  "raw_size": 8707,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 12224,
+  "tile_count": 382,
+  "provenance": "SOURCE_NDS"
+ },
+ "b44pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b45canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b45cel": {
+  "raw_size": 1920,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b45cex": {
+  "raw_size": 848,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b45fon": {
+  "raw_size": 10094,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 12896,
+  "tile_count": 403,
+  "provenance": "SOURCE_NDS"
+ },
+ "b45pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b46canm": {
+  "raw_size": 1856,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1680,
+   "ptrlist_ptr": 1808,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b46cel": {
+  "raw_size": 1826,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b46cex": {
+  "raw_size": 816,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b46fon": {
+  "raw_size": 8734,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 11264,
+  "tile_count": 352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b46pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b47canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b47cel": {
+  "raw_size": 2006,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b47cex": {
+  "raw_size": 944,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b47fon": {
+  "raw_size": 9022,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 12512,
+  "tile_count": 391,
+  "provenance": "SOURCE_NDS"
+ },
+ "b47pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b48canm": {
+  "raw_size": 3072,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 2896,
+   "ptrlist_ptr": 3024,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b48cel": {
+  "raw_size": 1893,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b48cex": {
+  "raw_size": 896,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b48fon": {
+  "raw_size": 8016,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 11328,
+  "tile_count": 354,
+  "provenance": "SOURCE_NDS"
+ },
+ "b48pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b49canm": {
+  "raw_size": 1472,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1296,
+   "ptrlist_ptr": 1424,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b49cel": {
+  "raw_size": 1799,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b49cex": {
+  "raw_size": 752,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b49fon": {
+  "raw_size": 7316,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 10848,
+  "tile_count": 339,
+  "provenance": "SOURCE_NDS"
+ },
+ "b49pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b50canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b50cel": {
+  "raw_size": 1914,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b50cex": {
+  "raw_size": 912,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b50fon": {
+  "raw_size": 8995,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 12672,
+  "tile_count": 396,
+  "provenance": "SOURCE_NDS"
+ },
+ "b50pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b51canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b51cel": {
+  "raw_size": 1908,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b51cex": {
+  "raw_size": 864,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b51fon": {
+  "raw_size": 9897,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 12928,
+  "tile_count": 404,
+  "provenance": "SOURCE_NDS"
+ },
+ "b51pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b52canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b52cel": {
+  "raw_size": 1808,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b52cex": {
+  "raw_size": 816,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b52fon": {
+  "raw_size": 10280,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 13280,
+  "tile_count": 415,
+  "provenance": "SOURCE_NDS"
+ },
+ "b52pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b53canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b53cel": {
+  "raw_size": 1860,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b53cex": {
+  "raw_size": 864,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b53fon": {
+  "raw_size": 9570,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 12512,
+  "tile_count": 391,
+  "provenance": "SOURCE_NDS"
+ },
+ "b53pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b54canm": {
+  "raw_size": 1408,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1232,
+   "ptrlist_ptr": 1360,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b54cel": {
+  "raw_size": 1799,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b54cex": {
+  "raw_size": 752,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b54fon": {
+  "raw_size": 7316,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 10848,
+  "tile_count": 339,
+  "provenance": "SOURCE_NDS"
+ },
+ "b54pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b55canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b55cel": {
+  "raw_size": 1815,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b55cex": {
+  "raw_size": 848,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b55fon": {
+  "raw_size": 11007,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 13888,
+  "tile_count": 434,
+  "provenance": "SOURCE_NDS"
+ },
+ "b55pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b56canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b56cel": {
+  "raw_size": 1927,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b56cex": {
+  "raw_size": 864,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b56fon": {
+  "raw_size": 10646,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 14048,
+  "tile_count": 439,
+  "provenance": "SOURCE_NDS"
+ },
+ "b56pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b57canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b57pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b58canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b58pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b59canm": {
+  "raw_size": 1088,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 912,
+   "ptrlist_ptr": 1040,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b59cel": {
+  "raw_size": 1670,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b59cex": {
+  "raw_size": 816,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b59fon": {
+  "raw_size": 8222,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 10016,
+  "tile_count": 313,
+  "provenance": "SOURCE_NDS"
+ },
+ "b59pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b60canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b60cel": {
+  "raw_size": 1904,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b60cex": {
+  "raw_size": 848,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b60fon": {
+  "raw_size": 9337,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 13472,
+  "tile_count": 421,
+  "provenance": "SOURCE_NDS"
+ },
+ "b60pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b61canm": {
+  "raw_size": 2368,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 2192,
+   "ptrlist_ptr": 2320,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b61pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b62canm": {
+  "raw_size": 1152,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 976,
+   "ptrlist_ptr": 1104,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b62cel": {
+  "raw_size": 1921,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b62cex": {
+  "raw_size": 832,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b62fon": {
+  "raw_size": 9991,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 13184,
+  "tile_count": 412,
+  "provenance": "SOURCE_NDS"
+ },
+ "b62pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b63canm": {
+  "raw_size": 1664,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1488,
+   "ptrlist_ptr": 1616,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b63cel": {
+  "raw_size": 1885,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b63cex": {
+  "raw_size": 864,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 2352,
+  "provenance": "SOURCE_NDS"
+ },
+ "b63fon": {
+  "raw_size": 9216,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 12384,
+  "tile_count": 387,
+  "provenance": "SOURCE_NDS"
+ },
+ "b63pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b64canm": {
+  "raw_size": 1536,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1360,
+   "ptrlist_ptr": 1488,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b64cel": {
+  "raw_size": 3586,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b64fon": {
+  "raw_size": 7076,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 16224,
+  "tile_count": 507,
+  "provenance": "SOURCE_NDS"
+ },
+ "b64pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b65canm": {
+  "raw_size": 1536,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1360,
+   "ptrlist_ptr": 1488,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b65cel": {
+  "raw_size": 2210,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b65fon": {
+  "raw_size": 4885,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 6752,
+  "tile_count": 211,
+  "provenance": "SOURCE_NDS"
+ },
+ "b65pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b66canm": {
+  "raw_size": 2496,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 2320,
+   "ptrlist_ptr": 2448,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b66cel": {
+  "raw_size": 3015,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b66fon": {
+  "raw_size": 9297,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 15200,
+  "tile_count": 475,
+  "provenance": "SOURCE_NDS"
+ },
+ "b66pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b67canm": {
+  "raw_size": 1216,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1040,
+   "ptrlist_ptr": 1168,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b67cel": {
+  "raw_size": 3514,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b67fon": {
+  "raw_size": 6638,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 14976,
+  "tile_count": 468,
+  "provenance": "SOURCE_NDS"
+ },
+ "b67pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b68canm": {
+  "raw_size": 1536,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1360,
+   "ptrlist_ptr": 1488,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b68cel": {
+  "raw_size": 2728,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b68fon": {
+  "raw_size": 9230,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 14528,
+  "tile_count": 454,
+  "provenance": "SOURCE_NDS"
+ },
+ "b68pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b69canm": {
+  "raw_size": 1088,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 912,
+   "ptrlist_ptr": 1040,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b69cel": {
+  "raw_size": 3114,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b69fon": {
+  "raw_size": 10727,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 16320,
+  "tile_count": 510,
+  "provenance": "SOURCE_NDS"
+ },
+ "b69pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b70canm": {
+  "raw_size": 1344,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1168,
+   "ptrlist_ptr": 1296,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b70cel": {
+  "raw_size": 2527,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b70fon": {
+  "raw_size": 11823,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 16224,
+  "tile_count": 507,
+  "provenance": "SOURCE_NDS"
+ },
+ "b70pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b71canm": {
+  "raw_size": 896,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 720,
+   "ptrlist_ptr": 848,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b71cel": {
+  "raw_size": 3180,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b71fon": {
+  "raw_size": 9185,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 16128,
+  "tile_count": 504,
+  "provenance": "SOURCE_NDS"
+ },
+ "b71pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b72canm": {
+  "raw_size": 1600,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1424,
+   "ptrlist_ptr": 1552,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b72cel": {
+  "raw_size": 3170,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b72fon": {
+  "raw_size": 9968,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 15648,
+  "tile_count": 489,
+  "provenance": "SOURCE_NDS"
+ },
+ "b72pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b73canm": {
+  "raw_size": 1920,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1744,
+   "ptrlist_ptr": 1872,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b73cel": {
+  "raw_size": 3417,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b73fon": {
+  "raw_size": 7374,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 14816,
+  "tile_count": 463,
+  "provenance": "SOURCE_NDS"
+ },
+ "b73pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b74canm": {
+  "raw_size": 1472,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 1296,
+   "ptrlist_ptr": 1424,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b74cel": {
+  "raw_size": 3662,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b74fon": {
+  "raw_size": 9714,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 16320,
+  "tile_count": 510,
+  "provenance": "SOURCE_NDS"
+ },
+ "b74pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ },
+ "b75canm": {
+  "raw_size": 448,
+  "status": "SOURCE_NDS_SIR0_NO_AT4PX",
+  "canm": {
+   "status": "SIR0",
+   "main_ptr": 272,
+   "ptrlist_ptr": 400,
+   "pointer_count": 12,
+   "provenance": "SOURCE_NDS_DECODED",
+   "semantics": "UNKNOWN"
+  },
+  "provenance": "SOURCE_NDS"
+ },
+ "b75cel": {
+  "raw_size": 3799,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 4500,
+  "cell_u16_count": 2250,
+  "provenance": "SOURCE_NDS"
+ },
+ "b75fon": {
+  "raw_size": 13797,
+  "status": "SOURCE_NDS_DECODED",
+  "decompressed_size": 16384,
+  "tile_count": 512,
+  "provenance": "SOURCE_NDS"
+ },
+ "b75pal": {
+  "raw_size": 768,
+  "status": "SOURCE_NDS_RAW",
+  "provenance": "SOURCE_NDS"
+ }
+}

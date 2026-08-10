@@ -1,0 +1,45 @@
+name: nds2pmdo CI
+
+on:
+  push:
+    paths: ["nds2pmdo/**", ".github/workflows/nds2pmdo-ci.yml"]
+  pull_request:
+    paths: ["nds2pmdo/**"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Installer les dépendances
+        run: |
+          pip install --quiet pytest
+          pip install --quiet --no-deps -r nds2pmdo/requirements.txt
+      - name: Suite de tests (artefacts ground truth committés, sans ROM)
+        run: |
+          python -m pytest nds2pmdo/tests/ -q
+      - name: Vérification d'intégrité des manifests
+        run: |
+          python -c "
+          import json
+          m = json.load(open('nds2pmdo/manifest/sinister_woods_mapping.json'))
+          assert len(m['dungeon']['floors']) == 13
+          assert m['rom']['sha256'] == '2540966e1e9cd722bf2ae401069df10b81875af03f0618d413b9d32511c14b05'
+          print('manifest OK')
+          "
+      - name: Interdiction des placeholders silencieux (rapports décodés)
+        run: |
+          python -c "
+          import json
+          from pathlib import Path
+          bad = []
+          for f in Path('nds2pmdo/decoded').rglob('*.json'):
+              t = f.read_text()
+              if 'TODO' in t or 'FIXME' in t:
+                  bad.append(str(f))
+          assert not bad, bad
+          print('aucun placeholder silencieux dans decoded/')
+          "

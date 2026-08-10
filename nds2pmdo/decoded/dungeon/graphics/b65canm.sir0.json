@@ -1,0 +1,8 @@
+{
+ "status": "SIR0",
+ "main_ptr": 1360,
+ "ptrlist_ptr": 1488,
+ "pointer_count": 12,
+ "provenance": "SOURCE_NDS_DECODED",
+ "semantics": "UNKNOWN"
+}

@@ -1,0 +1,53 @@
+{
+ "converter": "nds2pmdo",
+ "version": "0.1.0",
+ "A_SOURCE_FIDELITY": {
+  "rom": {
+   "gamecode": "APHP",
+   "size": 33554432,
+   "sha256": "2540966e1e9cd722bf2ae401069df10b81875af03f0618d413b9d32511c14b05",
+   "match_expected": true,
+   "provenance": "SOURCE_NDS"
+  },
+  "extraction": {
+   "dungeon_pack_present": true,
+   "ground_pack_present": true,
+   "sound_present": true,
+   "provenance": "SOURCE_NDS"
+  },
+  "mapparam": {
+   "floor_id_table": "PASS",
+   "floor_properties": "PASS",
+   "spawn_tables": "PASS",
+   "item_tables": "PARTIAL (poids SOURCE_NDS, IDs UNKNOWN)",
+   "trap_tables": "PARTIAL (u16 bruts SOURCE_NDS, noms UNKNOWN)"
+  },
+  "graphics": {
+   "blob_count": 344,
+   "decoded_count": 192,
+   "b41_fon_decoded": "SOURCE_NDS_DECODED",
+   "b41_canm": "SOURCE_NDS_SIR0_NO_AT4PX",
+   "b41_pal": "SOURCE_NDS_RAW"
+  },
+  "sound": {
+   "seq_names": "PASS",
+   "music_chain": "UNKNOWN (bgMusic=4 → SEQ index non démontré)"
+  },
+  "ground_pack": {
+   "entry_count": 724,
+   "b10p01_present": true,
+   "b10p02_present": true,
+   "scripts_decode": "UNKNOWN"
+  },
+  "OVERALL": "PARTIAL/UNKNOWN — conversion bloquée tant que des inconnues critiques restent"
+ },
+ "B_PMDO_TARGET": {
+  "zone_gloomy_forest": {
+   "parses": "PASS",
+   "name": "Sinister Woods",
+   "segments": 11,
+   "provenance": "PMDO_VALUE",
+   "nds_equivalence": "UNKNOWN"
+  }
+ }
+}

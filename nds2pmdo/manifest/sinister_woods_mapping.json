@@ -1,0 +1,64 @@
+{
+  "manifest": "Sinister Woods — mapping NDS ↔ PMDO (Phase 1, reconstruction autonome)",
+  "converter_version": "0.1.0",
+  "rom": {
+    "gamecode": "APHP",
+    "sha256": "2540966e1e9cd722bf2ae401069df10b81875af03f0618d413b9d32511c14b05",
+    "source": "https://github.com/meromoonmeri/POKEMON-ROM"
+  },
+  "rules": {
+    "nommage": "Les identifiants NDS (source_id/source_file/source_floor) restent dans ce manifest ; le contenu PMDO généré utilise des noms logiques humains.",
+    "provenance_stricte": "SOURCE_NDS = octets ROM ; CROSS_REFERENCE = autre projet (jamais présenté comme extrait) ; UNKNOWN = non démontré."
+  },
+  "dungeon": {
+    "source_dungeon_index": 3,
+    "source_name_nds": "dungeon#3 (mapparam, tables floor_id @0x160)",
+    "pmdo_zone_current": "Data/Zone/gloomy_forest.json (PMDO_VALUE — jamais une preuve NDS)",
+    "pmdo_zone_canonical_target": "SinisterWoods",
+    "floors": [
+      {"source_floor": 1, "MainData": 17, "tileset_id": 41, "pmdo_ground_name": "SinisterWoods01", "provenance": "SOURCE_NDS"},
+      {"source_floor": 2, "MainData": 18, "tileset_id": 41, "pmdo_ground_name": "SinisterWoods02", "provenance": "SOURCE_NDS"},
+      {"source_floor": 3, "MainData": 19, "tileset_id": 41, "pmdo_ground_name": "SinisterWoods03", "provenance": "SOURCE_NDS"},
+      {"source_floor": 4, "MainData": 20, "tileset_id": 41, "pmdo_ground_name": "SinisterWoods04", "provenance": "SOURCE_NDS"},
+      {"source_floor": 5, "MainData": 21, "tileset_id": 41, "pmdo_ground_name": "SinisterWoods05", "provenance": "SOURCE_NDS"},
+      {"source_floor": 6, "MainData": 22, "tileset_id": 41, "pmdo_ground_name": "SinisterWoods06", "provenance": "SOURCE_NDS"},
+      {"source_floor": 7, "MainData": 23, "tileset_id": 41, "pmdo_ground_name": "SinisterWoods07", "provenance": "SOURCE_NDS"},
+      {"source_floor": 8, "MainData": 24, "tileset_id": 41, "pmdo_ground_name": "SinisterWoods08", "provenance": "SOURCE_NDS"},
+      {"source_floor": 9, "MainData": 25, "tileset_id": 41, "pmdo_ground_name": "SinisterWoods09", "provenance": "SOURCE_NDS"},
+      {"source_floor": 10, "MainData": 26, "tileset_id": 41, "pmdo_ground_name": "SinisterWoods10", "provenance": "SOURCE_NDS"},
+      {"source_floor": 11, "MainData": 27, "tileset_id": 41, "pmdo_ground_name": "SinisterWoods11", "provenance": "SOURCE_NDS"},
+      {"source_floor": 12, "MainData": 28, "tileset_id": 41, "pmdo_ground_name": "SinisterWoods12", "provenance": "SOURCE_NDS"},
+      {"source_floor": 13, "MainData": 29, "tileset_id": 65, "pmdo_ground_name": "SinisterWoods13", "provenance": "SOURCE_NDS"}
+    ],
+    "tileset": {
+      "source_tileset_id": 41,
+      "source_blobs": ["b41fon", "b41cel", "b41cex", "b41canm", "b41pal"],
+      "pmdo_tileset_target": "SinisterWoodsTileset",
+      "blob_link_rule": "DERIVED_MAPPING : FloorProperties.tileset N → blobs b{N:02d}*"
+    },
+    "spawn_tables": {
+      "source_pointer_table": "mapparam@0x1FEA8",
+      "per_floor_pokemon_table_index": [10, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19, 20, 21],
+      "names_provenance": "CROSS_REFERENCE (pmd-red via artefacts committés) — table de noms ROM NON_DECODED"
+    },
+    "item_tables": {"source_tables": [11, 12], "provenance": "SOURCE_NDS (poids) / UNKNOWN (IDs)"},
+    "trap_table": {"source_index": 2, "trap_index_17_weight": 10000, "name_provenance": "UNKNOWN"},
+    "music": {
+      "bgMusic_floorprops": 4,
+      "seq_index": "UNKNOWN (mapping bgMusic→SEQ dans le code ARM9)",
+      "name_candidate_by_symbol": "SND_BGM_M_DUNGEON_AYASHIIMORI_01 (SEQ 15) — non démontré"
+    }
+  },
+  "grounds_cutscene": [
+    {"source_id": "B10P01A", "pmdo_target": "SinisterWoodsCutscene01A", "decode_status": "UNKNOWN"},
+    {"source_id": "B10P01B", "pmdo_target": "SinisterWoodsCutscene01B", "decode_status": "UNKNOWN"},
+    {"source_id": "B10P01C", "pmdo_target": "SinisterWoodsCutscene01C", "decode_status": "UNKNOWN"},
+    {"source_id": "B10P02A", "pmdo_target": "SinisterWoodsCutscene02A", "decode_status": "UNKNOWN"},
+    {"source_id": "B10P02B", "pmdo_target": "SinisterWoodsCutscene02B", "decode_status": "UNKNOWN"},
+    {"source_id": "B10P02C", "pmdo_target": "SinisterWoodsCutscene02C", "decode_status": "UNKNOWN"}
+  ],
+  "validation": {
+    "tests": "nds2pmdo/tests/test_pipeline.py — reproduction byte-à-byte des artefacts ground truth committés",
+    "audit": "nds2pmdo/validation/audit_report.json — état réel (OVERALL PARTIAL/UNKNOWN tant que des inconnues critiques restent)"
+  }
+}

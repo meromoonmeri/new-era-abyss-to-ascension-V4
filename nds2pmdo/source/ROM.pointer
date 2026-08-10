@@ -1,0 +1,5 @@
+# Source de vérité (seule référence) : https://github.com/meromoonmeri/POKEMON-ROM
+rom_path: /home/user/nds_sources/POKEMON-ROM/Pokemon Mystery Dungeon - Blue Rescue Team (Europe) (En,Fr,De,Es,It).nds
+gamecode: APHP
+sha256: 2540966e1e9cd722bf2ae401069df10b81875af03f0618d413b9d32511c14b05
+note: la ROM n'est jamais copiée dans ce dépôt.

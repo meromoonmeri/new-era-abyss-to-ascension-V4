@@ -1,0 +1,6 @@
+# États regénérables (reproductibles depuis la ROM APHP via `python -m nds2pmdo extract`)
+/extracted/
+/extracted_blue/
+__pycache__/
+*.pyc
+/extracted_blue
