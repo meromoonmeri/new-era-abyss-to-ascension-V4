@@ -1,0 +1,146 @@
+{
+ "converter": "nds2pmdo",
+ "version": "0.1.0",
+ "scope": "Sinister Woods (pilot) + inventaires globaux",
+ "categories": {
+  "mapparam": {
+   "floor_id_tables": {
+    "floors": 13,
+    "provenance": "SOURCE_NDS",
+    "status": "DECODED_VALIDATED"
+   },
+   "floor_properties": {
+    "entries": 13,
+    "provenance": "SOURCE_NDS",
+    "status": "DECODED_VALIDATED"
+   },
+   "spawn_tables": {
+    "count": 601,
+    "provenance": "SOURCE_NDS",
+    "status": "DECODED_VALIDATED"
+   },
+   "item_tables": {
+    "count": 32,
+    "provenance": "SOURCE_NDS (poids) / UNKNOWN (IDs items)",
+    "status": "PARTIAL"
+   },
+   "trap_tables": {
+    "count": 32,
+    "provenance": "SOURCE_NDS / noms UNKNOWN",
+    "status": "PARTIAL"
+   }
+  },
+  "graphics": {
+   "blobs_total": 76,
+   "fon_cel_cex_decoded": 0,
+   "pal_raw": 0,
+   "canm_sir0_structure": 76,
+   "semantics_canm": "UNKNOWN",
+   "flag_semantics_cel": "UNKNOWN",
+   "provenance": "SOURCE_NDS / SOURCE_NDS_DECODED",
+   "renders": [
+    "b10fon_allcolors.png",
+    "b10fon_subpal00.png",
+    "b10fon_subpal01.png",
+    "b10fon_subpal02.png",
+    "b10fon_subpal03.png",
+    "b10fon_subpal04.png",
+    "b10fon_subpal05.png",
+    "b10fon_subpal06.png",
+    "b10fon_subpal07.png",
+    "b10fon_subpal08.png",
+    "b10fon_subpal09.png",
+    "b10fon_subpal10.png",
+    "b10fon_subpal11.png",
+    "b41fon_allcolors.png",
+    "b41fon_subpal00.png",
+    "b41fon_subpal01.png",
+    "b41fon_subpal02.png",
+    "b41fon_subpal03.png",
+    "b41fon_subpal04.png",
+    "b41fon_subpal05.png",
+    "b41fon_subpal06.png",
+    "b41fon_subpal07.png",
+    "b41fon_subpal08.png",
+    "b41fon_subpal09.png",
+    "b41fon_subpal10.png",
+    "b41fon_subpal11.png"
+   ]
+  },
+  "sound": {
+   "seq_names_extracted": 220,
+   "ground_truth_match": true,
+   "music_chain": "UNKNOWN (bgMusic=4 → index SEQ non démontré)",
+   "provenance": "SOURCE_NDS",
+   "status": "PARTIAL"
+  },
+  "ground_pack": {
+   "entries": 724,
+   "b10p01_present": true,
+   "b10p02_present": true,
+   "package_decode": "PARTIAL/UNKNOWN",
+   "provenance": "SOURCE_NDS (inventaire) / UNKNOWN (contenu)"
+  },
+  "messages": {
+   "e": {
+    "bin_bytes": 166680,
+    "str_entries": 42902,
+    "status": "PARTIAL (offsets identifiés, frontières à documenter)"
+   },
+   "f": {
+    "bin_bytes": 176374,
+    "str_entries": 45323,
+    "status": "PARTIAL (offsets identifiés, frontières à documenter)"
+   },
+   "g": {
+    "bin_bytes": 176666,
+    "str_entries": 45401,
+    "status": "PARTIAL (offsets identifiés, frontières à documenter)"
+   },
+   "i": {
+    "bin_bytes": 173446,
+    "str_entries": 44610,
+    "status": "PARTIAL (offsets identifiés, frontières à documenter)"
+   },
+   "s": {
+    "bin_bytes": 174268,
+    "str_entries": 44806,
+    "status": "PARTIAL (offsets identifiés, frontières à documenter)"
+   }
+  }
+ },
+ "summary": {
+  "source": "ROM APHP (seule référence : meromoonmeri/POKEMON-ROM)",
+  "rom_sha256": "2540966e1e9cd722bf2ae401069df10b81875af03f0618d413b9d32511c14b05",
+  "fully_decoded_validated": [
+   "floor_id",
+   "FloorProperties",
+   "spawns",
+   "AT4PX",
+   "SIR0",
+   "cel (tile/palette)",
+   "pal (192 couleurs)",
+   "SDAT noms SEQ/ME/SE",
+   "inventaires packs"
+  ],
+  "partial": [
+   "items (poids)",
+   "pièges (poids)",
+   "canm (forme)",
+   "ground packages B10P01",
+   "messages",
+   "records INFO/FAT SDAT"
+  ],
+  "unknown": [
+   "IDs items par catégorie",
+   "mapping bgMusic→SEQ (code ARM9)",
+   "sémantique canm",
+   "flags cel",
+   "scripts ground B10P01",
+   "table de noms espèces ROM",
+   "SSEQ + boucles"
+  ],
+  "conversion_pmdo": "BLOQUÉE — audit OVERALL = PARTIAL/UNKNOWN (gates stricts)",
+  "provenance_rule": "aucune valeur inventée ; UNKNOWN reste UNKNOWN"
+ }
+}
