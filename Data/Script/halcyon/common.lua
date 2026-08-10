@@ -1130,41 +1130,47 @@ function COMMON.EndDayCycle()
 
   SV.base_shop = { }
 
-  math.randomseed(GAME:GetDailySeed())
+  -- BUG-LUA-08 fix: RNG local isolé (ne touche plus math.randomseed global) — isolate_local
+  local _dailySeed = GAME:GetDailySeed() % 2147483647
+  if _dailySeed <= 0 then _dailySeed = 1234567 end
+  local function _dailyRand(a,b)
+    _dailySeed = (_dailySeed * 48271) % 2147483647
+    return a + (_dailySeed % (b - a + 1))
+  end
   --roll a random index from 1 to length of category
   --add the item in that index category to the shop
   --2 essentials, always
   local type_count = 2
 	for ii = 1, type_count, 1 do
-		local base_data = COMMON.ESSENTIALS[math.random(1, #COMMON.ESSENTIALS)]
+		local base_data = COMMON.ESSENTIALS[_dailyRand(1, #COMMON.ESSENTIALS)]
 		table.insert(SV.base_shop, base_data)
 	end
 
   --1-2 ammo, always
-  type_count = math.random(1, 2)
+  type_count = _dailyRand(1, 2)
 	for ii = 1, type_count, 1 do
-		local base_data = COMMON.AMMO[math.random(1, #COMMON.AMMO)]
+		local base_data = COMMON.AMMO[_dailyRand(1, #COMMON.AMMO)]
 		table.insert(SV.base_shop, base_data)
 	end
 
   --2-3 utilities, always
-  type_count = math.random(3, 4)
+  type_count = _dailyRand(3, 4)
 	for ii = 1, type_count, 1 do
-		local base_data = COMMON.UTILITIES[math.random(1, #COMMON.UTILITIES)]
+		local base_data = COMMON.UTILITIES[_dailyRand(1, #COMMON.UTILITIES)]
 		table.insert(SV.base_shop, base_data)
 	end
 
   --1-2 orbs, always
-  type_count = math.random(1, 2)
+  type_count = _dailyRand(1, 2)
 	for ii = 1, type_count, 1 do
-		local base_data = COMMON.ORBS[math.random(1, #COMMON.ORBS)]
+		local base_data = COMMON.ORBS[_dailyRand(1, #COMMON.ORBS)]
 		table.insert(SV.base_shop, base_data)
 	end
 
   --1-2 special item, always
   type_count = 1
 	for ii = 1, type_count, 1 do
-		local base_data = COMMON.SPECIAL[math.random(1, #COMMON.SPECIAL)]
+		local base_data = COMMON.SPECIAL[_dailyRand(1, #COMMON.SPECIAL)]
 		table.insert(SV.base_shop, base_data)
 	end
 
@@ -1179,7 +1185,7 @@ function COMMON.EndDayCycle()
   SV.base_trades = { }
   type_count = 5
 	for ii = 1, type_count, 1 do
-		local idx = math.random(1, #catalog)
+		local idx = _dailyRand(1, #catalog)
 		local base_data = catalog[idx]
 		table.insert(SV.base_trades, base_data)
 		table.remove(catalog, idx)

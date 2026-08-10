@@ -91,12 +91,17 @@ GeneralFunctions.EMOTIONS_PORTRAIT = {
 --pour les scenes qui gerent leur cadrage elles-memes.
 function GeneralFunctions.RendreLaMain(rendreCamera)
 	if rendreCamera == nil then rendreCamera = true end
-	pcall(function() GAME:FadeOut(false, 20) end)
-	pcall(function() GAME:CutsceneMode(false) end)
+	-- BUG-LUA-09 fix: log les erreurs au lieu de les avaler silencieusement
+	local ok, err = pcall(function() GAME:FadeOut(false, 20) end)
+	if not ok then PrintInfo("[RendreLaMain] FadeOut failed: "..tostring(err)) end
+	ok, err = pcall(function() GAME:CutsceneMode(false) end)
+	if not ok then PrintInfo("[RendreLaMain] CutsceneMode(false) failed: "..tostring(err)) end
 	if rendreCamera then
-		pcall(function() GAME:MoveCamera(0, 0, 1, true) end)
+		ok, err = pcall(function() GAME:MoveCamera(0, 0, 1, true) end)
+		if not ok then PrintInfo("[RendreLaMain] MoveCamera failed: "..tostring(err)) end
 	end
-	pcall(function() GAME:FadeIn(20) end)
+	ok, err = pcall(function() GAME:FadeIn(20) end)
+	if not ok then PrintInfo("[RendreLaMain] FadeIn failed: "..tostring(err)) end
 end
 
 
@@ -134,6 +139,8 @@ function GeneralFunctions.ChapterDispatch(prefix, handler, chara, activator, fal
 		return true
 	end
 
+	-- BUG-LUA-10 fix: log le repli silencieux (PNJ muet) sans changer comportement
+	PrintInfo("[ChapterDispatch] no handler "..tostring(prefix)..tostring(chapter).."."..tostring(handler).." — fallback="..tostring(type(fallback)))
 	if type(fallback) == 'function' then fallback(chara, activator) end
 	return false
 end

@@ -123,7 +123,7 @@ for zid, (did, name) in DUNGEONS.items():
         fail(f"Zone manquante : {zid}.json")
         continue
     try:
-        d = json.load(open(zpath, encoding="utf-8"))
+        d = json.load(open(zpath, encoding="utf-8-sig"))
     except Exception as e:
         fail(f"Zone {zid}.json illisible : {e}")
         continue
@@ -211,7 +211,7 @@ EXPECTED_MH = {"chasm_cave": 0, "dark_hill": 0, "sealed_ruin": 5,
                "sealed_ruin_pit": 5, "spiritomb_room": 5, "dusk_forest": 0}
 for zid, exp in EXPECTED_MH.items():
     zpath = os.path.join(V4, "Data/Zone", zid + ".json")
-    d = json.load(open(zpath, encoding="utf-8"))
+    d = json.load(open(zpath, encoding="utf-8-sig"))
     pm = 0
     for zs in d["Object"]["Segments"][0].get("ZoneSteps", []):
         if "SpreadHouseZoneStep" in zs.get("$type", ""):
@@ -238,7 +238,7 @@ else:
 
 # 4b. spiritomb_room.json : RoomGenLoadMap -> spiritomb_arena
 zpath = os.path.join(V4, "Data/Zone/spiritomb_room.json")
-d = json.load(open(zpath, encoding="utf-8"))
+d = json.load(open(zpath, encoding="utf-8-sig"))
 f0 = d["Object"]["Segments"][0]["Floors"][0]
 s = json.dumps(d)
 if "RoomGenLoadMap" not in s:
@@ -293,7 +293,7 @@ print()
 print("=" * 70)
 print("5. d21p41a/init.lua — flux combat (approche -> intro -> EnterDungeon -> fuite)")
 print("=" * 70)
-init = open(os.path.join(V4, "Data/Script/halcyon/ground/d21p41a/init.lua"), encoding="utf-8").read()
+init = open(os.path.join(V4, "Data/Script/halcyon/ground/d21p41a/init.lua"), encoding="utf-8-sig").read()
 for needle, label in [
     ("d21p41a_m18b1101", "m18b1101 approche"),
     ("d21p41a_m18b1201", "m18b1201 intro"),
@@ -315,7 +315,7 @@ print("=" * 70)
 print("6. GROUNDS (rsground + tile + init + master_zone + nommage)")
 print("=" * 70)
 GROUNDS = ["d18p11a", "d19p11a", "d20p11a", "d21p21a", "d21p41a", "d22p11a"]
-mz = json.load(open(os.path.join(V4, "Data/Zone/master_zone.json"), encoding="utf-8"))
+mz = json.load(open(os.path.join(V4, "Data/Zone/master_zone.json"), encoding="utf-8-sig"))
 mz_grounds = mz["Object"]["GroundMaps"]
 for g in GROUPS_LABEL if False else GROUNDS:
     rs = os.path.join(V4, "Data/Ground", g + ".rsground")
@@ -353,7 +353,7 @@ print("=" * 70)
 print("7. CHAÎNE DE PARCOURS (transitions câblées)")
 print("=" * 70)
 # p05p04a -> d18p11a (FutureArc.NEXT_GROUND)
-fa = open(os.path.join(V4, "Data/Script/halcyon/future_arc/FutureArc.lua"), encoding="utf-8").read()
+fa = open(os.path.join(V4, "Data/Script/halcyon/future_arc/FutureArc.lua"), encoding="utf-8-sig").read()
 if "NEXT_GROUND['p05p04a'] = 'd18p11a'" not in fa:
     fail("FutureArc : p05p04a -> d18p11a non câblé")
 else:
@@ -362,7 +362,7 @@ else:
 for src, dst in [("d18p11a", "d19p11a"), ("d19p11a", "d20p11a"), ("d20p11a", "d21p21a"),
                  ("d21p21a", "d21p41a"), ("d21p41a", "d22p11a"), ("d22p11a", "p08p01a")]:
     p = os.path.join(V4, "Data/Script/halcyon/ground", src, "init.lua")
-    t = open(p, encoding="utf-8").read()
+    t = open(p, encoding="utf-8-sig").read()
     if f"EnterGroundMap('{dst}'" not in t:
         fail(f"{src}/init.lua : transition -> {dst} absente")
     else:
@@ -399,7 +399,7 @@ for d_ in search_dirs:
             try:
                 if p.endswith(".rsground"):
                     continue  # binaires/JSON lourds vérifiés ailleurs
-                txt = open(p, encoding="utf-8", errors="ignore").read()
+                txt = open(p, encoding="utf-8-sig", errors="ignore").read()
             except Exception:
                 continue
             for b in BANNED:
@@ -414,7 +414,7 @@ if not found_banned:
 todo_dirs = [os.path.join(V4, "Data/Script/halcyon/future_arc/scene")]
 for d_ in todo_dirs:
     for p in glob.glob(os.path.join(d_, "d2*.lua")) + glob.glob(os.path.join(d_, "d1*.lua")):
-        txt = open(p, encoding="utf-8").read()
+        txt = open(p, encoding="utf-8-sig").read()
         # on ne compte que les NON CONVERTI dans le corps (pas l'en-tête)
         body = txt.split("]]", 1)[-1] if "]]" in txt else txt
         if "NON CONVERTI" in body:
@@ -456,7 +456,7 @@ print("=" * 70)
 traps_used = set()
 for zid in DUNGEONS:
     zpath = os.path.join(V4, "Data/Zone", zid + ".json")
-    d = json.load(open(zpath, encoding="utf-8"))
+    d = json.load(open(zpath, encoding="utf-8-sig"))
     s = json.dumps(d)
     for m in re.finditer(r'"ID": "(trap_[a-z_]+)"', s):
         traps_used.add(m.group(1))

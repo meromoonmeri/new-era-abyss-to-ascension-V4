@@ -1,0 +1,27 @@
+# À placer manuellement en .github/workflows/validate.yml (droits workflows requis)
+# Le GitHub App de l'arène ne peut pas pousser de workflow — cf. erreur:
+# "refusing to allow a GitHub App to create or update workflow without workflows permission"
+# Copier ce fichier tel quel vers .github/workflows/validate.yml via l'interface GitHub.
+
+name: validate
+
+on:
+  push:
+    branches: [ main, arena/* ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: pip install numpy
+      - name: verify_tile_index
+        run: python3 tools/verify_tile_index.py
+      - name: validate_all
+        run: python3 tools/validate_all.py

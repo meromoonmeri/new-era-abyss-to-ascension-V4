@@ -122,6 +122,8 @@ end
 function SINGLE_CHAR_SCRIPT.DestinationFloor(owner, ownerChar, context, args)
 	local missionNum = args.Mission
 	local mission = SV.TakenBoard[missionNum]
+	-- BUG-LUA-06 fix: TakenBoard peut avoir été nettoyé (nil)
+	if mission == nil then return end
 	if context.User ~= nil then
 		return
 	end
@@ -332,7 +334,8 @@ function SpawnOutlaw(origin, radius, mission_num)
 	new_mob.CharLoc = spawn_loc
 	new_team.Players:Add(new_mob)
 
-	tbl = LTBL(new_mob)
+	-- BUG-LUA-07 fix: tbl était globale, doit être locale
+	local tbl = LTBL(new_mob)
 	tbl.Mission = mission_num
 
 	_ZONE.CurrentMap.MapTeams:Add(new_team)
@@ -347,6 +350,8 @@ end
 
 function SINGLE_CHAR_SCRIPT.OutlawFloor(owner, ownerChar, context, args)
   local outlaw = context.User
+  -- BUG-LUA-07 fix: outlaw peut être nil (LTBL(nil) crash)
+  if outlaw == nil then return end
   local tbl = LTBL(outlaw)
 	if tbl ~= nil and tbl.Mission then
 		local mission_num = args.Mission

@@ -82,7 +82,7 @@ L.append("| # | Segment | Floor | T NDS | T PMDO | M NDS | M PMDO | Dk | Sight |
 L.append("|---|---|---|---|---|---|---|---|---|---|---|---|---|---|")
 idx = 0
 for zid, (did, name) in DUNGEONS.items():
-    d = json.load(open(os.path.join(V4, "Data/Zone", zid + ".json"), encoding="utf-8"))
+    d = json.load(open(os.path.join(V4, "Data/Zone", zid + ".json"), encoding="utf-8-sig"))
     seg = d["Object"]["Segments"][0]
     floors = seg.get("Floors") or []
     for k in range(NFL[did]):
@@ -125,7 +125,7 @@ L.append("| Segment | Floor | md_index | dex | Species PMDO | Level | NDS weight
 L.append("|---|---|---|---|---|---|---|---|")
 total = 0
 for zid, (did, name) in DUNGEONS.items():
-    d = json.load(open(os.path.join(V4, "Data/Zone", zid + ".json"), encoding="utf-8"))
+    d = json.load(open(os.path.join(V4, "Data/Zone", zid + ".json"), encoding="utf-8-sig"))
     seg = d["Object"]["Segments"][0]
     floors = seg.get("Floors") or []
     for k in range(NFL[did]):
@@ -237,6 +237,6 @@ for name, st, just in verdict:
 L.append("")
 
 out = "/home/user/V4/docs/AUDIT_MAITRE_FINAL_NDS_PMDO_FUTURE.md"
-open(out, "w", encoding="utf-8").write("\n".join(L))
+open(out, "w", encoding="utf-8-sig").write("\n".join(L))
 print("Rapport écrit :", out)
 print("Lignes :", len(L))

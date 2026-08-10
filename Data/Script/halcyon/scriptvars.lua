@@ -1558,5 +1558,22 @@ SV.Ruines =
 }
 
 
+-- BUG-LUA-06b fix: clés SV.* utilisées sans déclaration (audit c7cef93, 15 exécutables)
+SV.NewEra = {} -- SV.NewEra.DUNGEON_RESULT etc (future_arc)
+SV.Scenario = {} -- SV.Scenario.Main/Side (future_arc)
+SV.FutureArc = {} -- SV.FutureArc.Step etc
+SV.OutlawItemPickedUp = false -- event_mapgen:27 / event_single:515
+SV.RuntimeGroundAudit = {} -- SV.RuntimeGroundAudit.Active
+SV.Ch6_10Scenes = {} -- SV.Ch6_10Scenes[flag]
+SV.WorldState = {} -- SV.WorldState.Weather
+SV.TownLife = {} -- SV.TownLife.SeenSocialDay (TownLife.lua)
+SV.LulubyTown = {} -- SV.LulubyTown.Period
+SV.MeuteArc = {} -- SV.MeuteArc
+SV.SideExpeditions = {} -- SV.SideExpeditions
+SV.SideQuests = {} -- SV.SideQuests
+SV.TreasureTown = {} -- SV.TreasureTown.SpindaCafe
+SV.SecondaryJobsCompleted = {} -- SV.SecondaryJobsCompleted[zone]
+-- clés purement commentées (Chapter, magnagate, storyProgression, unlocked_trades) non déclarées
+
 ----------------------------------------------
 print('Script variables default values loaded! [build 2026-08-04-K]')
