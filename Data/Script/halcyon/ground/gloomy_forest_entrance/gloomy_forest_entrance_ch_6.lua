@@ -98,14 +98,32 @@ function gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()
 
   GROUND:TeleportTo(hero, 224, 208, Direction.Up)
   if partner then GROUND:TeleportTo(partner, 264, 208, Direction.Up) end
+  -- Dans la source GBA, les trois Meanies avancent ensemble avant leur
+  -- première réplique (sub_8087144). Team Dazzling reprend ces trois slots :
+  -- elle n'apparaît donc pas déjà figée à sa position finale.
   local adagio, aria, sonata = CharacterEssentials.MakeCharactersFromList({
-    {'Adagio', 240, 144, Direction.Down},
-    {'Aria', 280, 176, Direction.Left},
-    {'Sonata', 208, 176, Direction.Right},
+    {'Adagio',240,80,Direction.Down},
+    {'Aria',280,96,Direction.DownLeft},
+    {'Sonata',208,96,Direction.DownRight},
   })
-  GAME:MoveCamera(240, 192, 1, false)
-  SOUND:PlayBGM('In the Depths of the Pit.ogg', true)
-  GAME:FadeIn(30)
+  GAME:MoveCamera(240,160,1,false)
+  SOUND:PlayBGM('In the Depths of the Pit.ogg',true)
+  GAME:FadeIn(30);GAME:WaitFrames(10)
+  local enter1=TASK:BranchCoroutine(function()
+    GROUND:MoveToPosition(adagio,240,144,false,1)
+    GROUND:CharAnimateTurnTo(adagio,Direction.Down,4)
+  end)
+  local enter2=TASK:BranchCoroutine(function()
+    GAME:WaitFrames(12);GROUND:MoveToPosition(aria,280,176,false,1)
+    GROUND:CharAnimateTurnTo(aria,Direction.Left,4)
+  end)
+  local enter3=TASK:BranchCoroutine(function()
+    GAME:WaitFrames(12);GROUND:MoveToPosition(sonata,208,176,false,1)
+    GROUND:CharAnimateTurnTo(sonata,Direction.Right,4)
+  end)
+  local cam=TASK:BranchCoroutine(function() GAME:MoveCamera(240,192,35,false) end)
+  TASK:JoinCoroutines({enter1,enter2,enter3,cam});GAME:WaitFrames(10)
+  SOUND:PlayBGM('Team_Dazzling_Theme.ogg',true)
 
   -- Neuf boîtes comme la scène D04P02 source, distribuées au nouveau casting.
   dialogue(aria, 'GF6E_A04', 'Happy')
