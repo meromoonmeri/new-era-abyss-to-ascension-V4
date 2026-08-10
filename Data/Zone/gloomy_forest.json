@@ -1,4 +1,4 @@
-{
+﻿{
  "Version": "0.8.9.0",
  "Object": {
   "$type": "RogueEssence.Data.ZoneData, RogueEssence",
@@ -563,20 +563,6 @@
             "RestoreHPs": [],
             "InitActionData": []
            }
-          }
-         },
-         {
-          "Key": {
-           "str": [
-            5,
-            2,
-            1
-           ]
-          },
-          "Value": {
-           "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
-           "Script": "SpawnChapter6Chenipent",
-           "ArgTable": "{}"
           }
          },
          {
@@ -5166,6 +5152,20 @@
           "Value": {
            "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
            "Script": "DungeonLife.CheckTeamForSecretZone",
+           "ArgTable": "{}"
+          }
+         },
+         {
+          "Key": {
+           "str": [
+            5,
+            2,
+            1
+           ]
+          },
+          "Value": {
+           "$type": "RogueEssence.LevelGen.ScriptGenStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueEssence",
+           "Script": "SpawnChapter6Chenipent",
            "ArgTable": "{}"
           }
          }

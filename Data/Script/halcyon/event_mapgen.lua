@@ -546,14 +546,18 @@ end
 -- Chapter 6 story target.  The same entrance-placement pipeline used by
 -- mission rescues is reused here; the interaction itself is handled by the
 -- existing BATTLE_SCRIPT event system.
+-- FIX 2026-08-10: segment 0 n'a plus 18 étages (F01-F18) mais 15 (F01-F15);
+-- la cible F18 (ID 17) n'existe plus. La mission Chenipent est désormais
+-- dans le segment 1 (F16-F20, 5 étages) — dernier étage F20 = ID 4.
+-- Espèce corrigée : Chenipent = caterpie, pas venipede.
 function ZONE_GEN_SCRIPT.SpawnChapter6Chenipent(zoneContext, context, queue, seed, args)
-  if zoneContext.CurrentSegment ~= 0 or zoneContext.CurrentID ~= 17 or SV.Chapter6.ChenipentFound then
+  if zoneContext.CurrentSegment ~= 1 or zoneContext.CurrentID ~= 4 or SV.Chapter6.ChenipentFound then
     return
   end
 
   local specific_team = RogueEssence.LevelGen.SpecificTeamSpawner()
   local target = RogueEssence.LevelGen.MobSpawn()
-  target.BaseForm = RogueEssence.Dungeon.MonsterID("venipede", 0, "normal", Gender.Unknown)
+  target.BaseForm = RogueEssence.Dungeon.MonsterID("caterpie", 0, "normal", Gender.Unknown)
   target.Tactic = "slow_wander"
   target.Level = RogueElements.RandRange(20, 21)
   local dialogue = RogueEssence.Dungeon.BattleScriptEvent("TeamDazzlingChenipentRescue")
