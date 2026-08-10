@@ -27,42 +27,60 @@ function d12p04.Cutscene()
   GAME:WaitFrames(30)
 
   ------------------------------------------------------------------
-  -- ÉQUIPE ACT — continuité canonique Rescue Team
+  -- ÉQUIPE ACT — chorégraphie Rescue Team (MagmaCavernMidDialogue)
   ------------------------------------------------------------------
-  -- Le joueur ne tombe pas directement sur Groudon : Alakazam,
-  -- Charizard et Tyranitar l'ont affronté avant lui et gisent autour du
-  -- cratère. C'est le battement narratif essentiel qui manquait.
-  local alakazam,charizard,tyranitar = CharacterEssentials.MakeCharactersFromList({
-    {'Alakazam', 208, 184, Direction.DownRight},
-    {'Charizard',272,184,Direction.DownLeft},
-    {'Tyranitar',240,224,Direction.Down}})
-  for _,c in ipairs({alakazam,charizard,tyranitar}) do
-    pcall(function()
-      GROUND:CharSetAction(c,RogueEssence.Ground.PoseGroundAction(
-        c.Position,c.Direction,RogueEssence.Content.GraphicsManager.GetAnimIndex('Faint')))
-    end)
+  -- Dans la source, seuls Dracaufeu et Tyranocif sont retrouvés ici.
+  -- Alakazam combat encore Groudon plus loin : il ne doit donc pas être
+  -- couché avec eux avant que le duo ne se précipite vers le nord.
+  local charizard,tyranitar = CharacterEssentials.MakeCharactersFromList({
+    {'Charizard',208,184,Direction.DownRight},
+    {'Tyranitar',272,184,Direction.DownLeft}})
+  for _,c in ipairs({charizard,tyranitar}) do
+    pcall(function() GROUND:CharSetAction(c,RogueEssence.Ground.PoseGroundAction(
+      c.Position,c.Direction,RogueEssence.Content.GraphicsManager.GetAnimIndex('Faint'))) end)
   end
-  GAME:MoveCamera(240,196,35,false);GAME:WaitFrames(25)
+
+  -- Look-around, arrêt de la musique, séisme, puis retour au calme : même
+  -- ordre dramatique que dungeon_cutscene_magma_cavern.c.
+  if partner then pcall(function() GROUND:CharSetEmote(partner,'question',1) end) end
+  UI:SetSpeaker(partner);GeneralFunctions.SetEmotion('Worried')
+  UI:WaitShowDialogue("Voyons voir...[pause=15] Jusqu'où sommes-nous descendus ?")
+  SOUND:FadeOutBGM(20);GAME:WaitFrames(10)
+  SOUND:PlayBattleSE('DUN_Earthquake');BossFX.ShakeScreen(7,40);GAME:WaitFrames(40)
+  if partner then GROUND:CharSetEmote(partner,'shock',1) end
+  UI:WaitShowDialogue("Ouah ![pause=10] Un séisme !")
+  GAME:WaitFrames(35)
+  UI:WaitShowDialogue("C'est fini...[pause=15] Attends, regarde là-bas !")
+
+  GAME:MoveCamera(240,196,32,false);GAME:WaitFrames(30)
+  UI:SetSpeaker(partner);GeneralFunctions.SetEmotion('Shock')
+  UI:WaitShowDialogue("Dracaufeu ! Tyranocif ![pause=20] Réveillez-vous !")
+  pcall(function() GROUND:CharSetAnim(charizard,'Hurt',true) end)
+  UI:SetSpeaker(charizard);GeneralFunctions.SetEmotion('Pain')
+  UI:WaitShowDialogue("Nous avons défié Groudon...[pause=20] Il nous a écrasés...")
+  UI:SetSpeaker(partner);GeneralFunctions.SetEmotion('Worried')
+  UI:WaitShowDialogue("Et Alakazam ?[pause=15] Où est-il ?")
+  UI:SetSpeaker(tyranitar);GeneralFunctions.SetEmotion('Pain')
+  UI:WaitShowDialogue("Il combat encore Groudon...[pause=20] Plus loin...")
+  UI:SetSpeaker(partner);GeneralFunctions.SetEmotion('Determined')
+  UI:WaitShowDialogue("Il faut se dépêcher !")
+  UI:SetSpeaker(charizard);GeneralFunctions.SetEmotion('Pain')
+  UI:WaitShowDialogue("Soyez prudents...")
+
+  -- La source fait courir le duo hors de la scène vers le combat. Ici le
+  -- même déplacement mène à la moitié nord du Ground, puis la caméra révèle
+  -- Alakazam tombé devant Groudon.
+  local rush1=TASK:BranchCoroutine(function() GROUND:MoveToPosition(hero,272,160,false,2) end)
+  local rush2=TASK:BranchCoroutine(function() if partner then GROUND:MoveToPosition(partner,216,160,false,2) end end)
+  TASK:JoinCoroutines({rush1,rush2});GAME:FadeOut(false,20)
+  local alakazam=CharacterEssentials.MakeCharactersFromList({{'Alakazam',208,152,Direction.DownRight}})
+  pcall(function() GROUND:CharSetAction(alakazam,RogueEssence.Ground.PoseGroundAction(
+    alakazam.Position,alakazam.Direction,RogueEssence.Content.GraphicsManager.GetAnimIndex('Faint'))) end)
+  GAME:MoveCamera(240,168,1,false);GAME:FadeIn(20);GAME:WaitFrames(20)
   UI:ResetSpeaker(false);UI:SetCenter(true)
-  UI:WaitShowDialogue("Trois silhouettes sont étendues autour du cratère.[pause=20] L'Équipe ACT est arrivée avant vous.")
+  UI:WaitShowDialogue("Alakazam gît devant le cratère.[pause=20] Derrière lui, la roche commence à respirer.")
   UI:SetCenter(false)
-  if partner then
-    UI:SetSpeaker(partner);GeneralFunctions.SetEmotion('Shock')
-    UI:WaitShowDialogue("Alakazam ![pause=10] Dracaufeu ! Tyranocif ![pause=20] Ils ont tous été balayés...")
-  end
-  pcall(function()
-    GROUND:CharSetAnim(alakazam,'Hurt',true)
-    GROUND:CharSetEmote(alakazam,'sweatdrop',1)
-  end)
-  UI:SetSpeaker(alakazam);GeneralFunctions.SetEmotion('Pain')
-  UI:WaitShowDialogue("N'approchez pas...[pause=15] Groudon ne dormait pas.[pause=20] Il nous attendait sous la roche.")
-  UI:WaitShowDialogue("Nous avons tenu aussi longtemps que possible.[pause=15] Maintenant...[pause=20] c'est à vous.")
-  GeneralFunctions.HeroDialogue(hero,"(Même l'Équipe ACT n'a pas pu l'arrêter.[pause=20] Mais nous ne pouvons pas les abandonner ici.)",'Determined')
-  if partner then
-    UI:SetSpeaker(partner);GeneralFunctions.SetEmotion('Determined')
-    UI:WaitShowDialogue("On va ouvrir un chemin.[pause=15] Restez conscients. On revient vous chercher.")
-  end
-  GAME:WaitFrames(20)
+  GeneralFunctions.HeroDialogue(hero,"(L'Équipe ACT a tenu jusqu'ici.[pause=15] À nous d'ouvrir le chemin du retour.)",'Determined')
 
   -- Groudon se réveille dans les flammes (apparition progressive)
   local groudon = CharacterEssentials.MakeCharactersFromList({{'Groudon', 240, 176, Direction.Down}})
