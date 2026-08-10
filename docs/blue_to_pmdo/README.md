@@ -14,8 +14,9 @@ adaptations, provenance, matrice, statuts, outils, commandes, tests, non-régres
 | `palettes/` | nuanciers 192 couleurs BGR555 → RGB888 | PROVEN |
 | `cells/` | atlas des 2250 cellules (tile+palette) b41/b10 | PROVEN |
 | `comparisons/` | b10 vs b41 (tilesets alternatifs) | PROVEN |
-| `grounds/` | graphique des FloorProperties par étage (données prouvées) | PROVEN |
-| `collision/` | (vide — format ground.sbin non décodé) | BLOCKED |
+| `grounds/` | **1 dossier par Ground Blue décodé** : source_tiles.png, layer_*.png, composite.png, collision.png, report.json (fiche de conformité chiffrée) — 78 grounds FULL | PROVEN |
+| `grounds_index/` | contact sheet global + index.csv (Ground ID → dimensions → layers → tiles → chunks → collision → statut) | actif |
+| `collision/` | cartes de collision par ground (dans grounds/<ID>/collision.png) | PROVEN (78 grounds) |
 | `markers/` | (vide — idem) | BLOCKED |
 | `animations/` | (vide — sémantique canm UNKNOWN) | BLOCKED |
 | `cinematics/` | (vide — packages B10P01 non décodés) | BLOCKED |
