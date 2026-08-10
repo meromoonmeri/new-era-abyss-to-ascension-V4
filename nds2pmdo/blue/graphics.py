@@ -34,17 +34,20 @@ def bgr555_to_rgb(v: int) -> tuple[int, int, int]:
 
 
 def decode_palette(raw: bytes) -> list[list[tuple[int, int, int]]]:
-    """768 octets = 3 palettes × 256 couleurs BGR555."""
+    """768 octets = 384 u16 BGR555 : paires (couleur, couleur|0x8000).
+    Les 192 couleurs distinctes sont celles à offset pair (bit 15 = variante
+    « flag » de la même couleur). Le découpage en sous-palettes (12 × 16 ?)
+    dépend des cellules (cel) : ici on rend la liste plate des couleurs."""
     if len(raw) != PAL_BYTES:
         raise ValueError(f"palette {len(raw)} octets != {PAL_BYTES}")
-    out = []
-    for p in range(PAL_COUNT):
-        pal = []
-        for i in range(PAL_COLORS):
-            v = struct.unpack_from('<H', raw, (p * PAL_COLORS + i) * 2)[0]
-            pal.append(bgr555_to_rgb(v))
-        out.append(pal)
-    return out
+    colors = []
+    for i in range(len(raw) // 2):
+        v = struct.unpack_from('<H', raw, i * 2)[0]
+        colors.append(bgr555_to_rgb(v & 0x7FFF))
+    distinct = [colors[i] for i in range(0, len(colors), 2)]
+    # sous-palettes candidates de 16 couleurs (4bpp)
+    sub = [distinct[i * 16:(i + 1) * 16] for i in range(len(distinct) // 16)]
+    return {"colors": colors, "distinct": distinct, "sub_palettes_16": sub}
 
 
 def decode_fon(dec: bytes) -> int:
@@ -75,16 +78,60 @@ def render_fon_sheet(dec: bytes, pal: list[tuple[int, int, int]],
     return img
 
 
+def decode_cel(dec: bytes) -> dict:
+    """Cells du tileset : u16 = bits 0-9 index de tile, bits 14-15 palette,
+    bits 10/12/13 flags (sémantique UNKNOWN, documentée).
+
+    Validé sur APHP : 2250 cells, index de tile ≤ 414 (415 tiles dans le fon),
+    palettes 0/1/2 observées, jamais de palette 3."""
+    vals = struct.unpack_from(f'<{len(dec) // 2}H', dec)
+    cells = []
+    palettes = set()
+    max_tile = 0
+    for v in vals:
+        tile = v & 0x3FF
+        pal = (v >> 14) & 0x3
+        palettes.add(pal)
+        max_tile = max(max_tile, tile)
+        cells.append({"tile": tile, "palette": pal,
+                      "flags": {"f1_bit10": bool(v & 0x400),
+                                "f2_bit12": bool(v & 0x1000),
+                                "f3_bit13": bool(v & 0x2000)}})
+    return {"cell_count": len(cells), "cells": cells,
+            "max_tile_index": max_tile, "palettes_used": sorted(palettes),
+            "flag_semantics": "UNKNOWN (documenté)"}
+
+
 def decode_canm(data: bytes) -> dict:
-    """SIR0 canm : structure brute + pointeurs. Sémantique = UNKNOWN (documenté)."""
+    """SIR0 canm : structure brute + pointeurs. Sémantique = UNKNOWN (documenté).
+
+    Forme observée sur APHP (b41canm 1408 B, b10canm 1152 B) :
+    main = table de 16 u32 (offsets absolus) → 16 entrées de 68 octets :
+    { u16, u16, 16 × u32 } — les u32 sont constants par entrée (ex. 0x80DB7BA2,
+    0x80009C9C) ; signification (frames ? délais ? pointeurs ARM ?) UNKNOWN."""
     if not is_sir0(data):
         return {"status": "NOT_SIR0", "provenance": Provenance.UNKNOWN.value}
     s = sir0_parse(data)
+    entries = []
+    try:
+        offs = struct.unpack_from('<16I', data, s.main_ptr)
+        for eo in offs[:8]:
+            if eo + 68 > len(data):
+                continue
+            a, b = struct.unpack_from('<HH', data, eo)
+            vals = struct.unpack_from('<16I', data, eo + 4)
+            entries.append({"offset": eo, "u16_a": a, "u16_b": b,
+                            "u32_values": list(vals)})
+    except struct.error:
+        pass
     return {
         "status": "SIR0",
         "main_ptr": s.main_ptr,
         "ptrlist_ptr": s.ptrlist_ptr,
         "pointer_count": len(s.sub_objects),
+        "entries_count": len(entries),
+        "entries_shape": "68 octets : u16, u16, 16×u32",
+        "entries_sample": entries[:2],
         "provenance": Provenance.SOURCE_NDS_DECODED.value,
         "semantics": Provenance.UNKNOWN.value,
     }
@@ -127,12 +174,22 @@ def decode_all_graphics(dungeon_pack: Path, outdir: Path) -> dict:
                 (outdir / f"{name}.dec.bin").write_bytes(dec)
                 if name.endswith("pal"):
                     pals = decode_palette(blob)
-                    entry["palettes"] = [{"index": i, "colors": [list(c) for c in p]}
-                                         for i, p in enumerate(pals)]
+                    entry["palette"] = {
+                        "u16_count": len(pals["colors"]),
+                        "distinct_colors": len(pals["distinct"]),
+                        "sub_palettes_16": len(pals["sub_palettes_16"]),
+                    }
                 elif name.endswith("fon"):
                     entry["tile_count"] = decode_fon(dec)
                 elif name.endswith("cel"):
                     entry["cell_u16_count"] = len(dec) // 2
+                    cd = decode_cel(dec)
+                    entry["cel_summary"] = {k: v for k, v in cd.items()
+                                            if k != "cells"}
+                    if name in ("b41cel", "b10cel"):
+                        (outdir / f"{name}.cel.json").write_text(
+                            json.dumps(cd, indent=1, ensure_ascii=False))
+                        entry["full_decode"] = f"{name}.cel.json"
             elif res["status"] == "SOURCE_NDS_SIR0_NO_AT4PX":
                 entry["status"] = "SOURCE_NDS_SIR0_NO_AT4PX"
                 entry["canm"] = res["info"]
