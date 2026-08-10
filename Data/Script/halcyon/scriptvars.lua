@@ -792,6 +792,7 @@ SV.Chapter5 =
 	GrowlitheTropiusBossInterrupt = false,--did Hyko stop you from telling Penticus about the boss?
 	
 	FinishedMountWindsweptIntro = false,--Did the player see the intro cutscene for Mt. Windswept?
+	PhileasGiftGiven = false,--Did Phileas give his gift at Mount Windswept Entrance?
 	EnteredMountain = false,--did player enter Mt. Windswept?
 	LostMountain = false,--did player die in Mt. Windswept?
 	DiedToWind = false,--did player's last run die to the time limit?
@@ -1263,4 +1264,4 @@ SV.guildmaster_summit =
 
 
 ----------------------------------------------
-print('Script variables default values loaded! [build 2026-08-01-U]')
+print('Script variables default values loaded! [build 2026-07-28-Z]')
