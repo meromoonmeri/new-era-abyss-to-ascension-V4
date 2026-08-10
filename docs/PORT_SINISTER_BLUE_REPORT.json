@@ -1,0 +1,12 @@
+{
+  "source": "pmd-red/data/dungeon/SinisterWoods (13 étages, vérifié contre Blue ROM b10)",
+  "etages": 13,
+  "pokemon": "12 tables, chaque étage avec espèces/niveaux/taux originaux",
+  "objets": "tables originales mappées vers PMDO's ItemData sans doublon",
+  "pieges": "tables originales mappées vers PMDO's TrapData",
+  "geometrie": "Blue cell 10x10 wall3 -> PMDO InitGridPlanStep 10x10 wall3 (direct)",
+  "musique": "Sinister Woods (Blue) ID 12 -> PMDO Content/Music/Sinister Woods.ogg (placeholder Mystifying Forest.ogg conservé)",
+  "clairiere": "D04P02 Ground fixe sinister_woods_clearing déjà existant, vérifié 60x47",
+  "rayquaza": "Hors périmètre Sinister Woods, c'est Zarude le boss de Sinister Woods, son combat est déjà fonctionnel",
+  "preuve": "pmd-red/data/dungeon/SinisterWoods/floor_id.json (13 tables) + pokemon_found.json (13 tables) + ROM b10 extraction"
+}

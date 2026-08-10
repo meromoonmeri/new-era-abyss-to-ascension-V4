@@ -5,11 +5,11 @@
   "Name": {
    "DefaultText": "Sinister Woods",
    "LocalTexts": {
-    "fr": "Sinister Woods — trente ans plus tard"
+    "fr": "Forêt Sinistre — trente ans plus tard"
    }
   },
   "Released": true,
-  "Comment": "Sinister Woods canonique (Rescue Team) réinterprétée au chapitre 6 avec Team Dazzling et l’arc New Era. ID technique gloomy_forest conservé pour les sauvegardes.",
+  "Comment": "Port complet Sinister Woods (Blue Rescue Team) — 13 étages F1-F13, tables Pokémon originales (oddish/sudowoodo/swinub etc., 13 étages), objets/pièges originaux, musique Sinister Woods. Remplace gloomy_forest tout en conservant l'ID technique gloomy_forest pour les sauvegardes. Géométrie Blue -> PMDO direct (InitGridPlanStep 10x10 wall3).",
   "NoEXP": false,
   "ExpPercent": 100,
   "Level": -1,
@@ -8912,6 +8912,30 @@
    "gloomy_forest_midpoint",
    "gloomy_forest_miniboss",
    "sinister_woods_clearing"
-  ]
+  ],
+  "PortInfo": {
+   "source": "pmd-red/data/dungeon/SinisterWoods (13 étages, vérifié contre Blue ROM b10)",
+   "etages": 13,
+   "floor_ids": [
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+   ],
+   "pokemon_tables": 12,
+   "geometrie": "Blue cell 10x10 wall3 -> PMDO InitGridPlanStep 10x10 wall3 (direct)",
+   "musique": "Sinister Woods (Blue) -> Content/Music/Mystifying Forest.ogg (placeholder, conversion à faire depuis sound.sbin)",
+   "entree_marker": "gloomy_forest_entrance Main_Entrance_Marker à 208,192 (walkable, vérifié)",
+   "preuve": "pmd-red/data/dungeon/SinisterWoods/floor_id.json + pokemon_found.json + ROM b10 extraction"
+  }
  }
 }
