@@ -793,15 +793,21 @@ function COMMON.DungeonInteract(chara, target, action_cancel, turn_cancel)
   	  end
     end
 
-    local chosen_idx = math.random(1, #running_pool)
-    local chosen_quote = running_pool[chosen_idx]
+    -- AUDIT 2026-08-10 : garde sur pool vide (tous les quotes rejetes).
+    -- RNG deterministe (GAME.Rand) pour reproductibilite replay/quicksave.
+    if #running_pool == 0 then
+      UI:WaitShowDialogue(RogueEssence.StringKey("TALK_CANT"):ToLocal())
+    else
+      local chosen_idx = GAME.Rand:Next(0, #running_pool - 1) + 1
+      local chosen_quote = running_pool[chosen_idx]
 
-    local oldDir = target.CharDir
-    DUNGEON:CharTurnToChar(target, chara)
+      local oldDir = target.CharDir
+      DUNGEON:CharTurnToChar(target, chara)
 
-    UI:WaitShowDialogue(STRINGS:Format(chosen_quote))
+      UI:WaitShowDialogue(STRINGS:Format(chosen_quote))
 
-    target.CharDir = oldDir
+      target.CharDir = oldDir
+    end
   else
 
     UI:ResetSpeaker()
@@ -919,29 +925,33 @@ function COMMON.GroundInteract(chara, target)
   local personality = form:GetPersonalityType(target.Data.Discriminator)
 
   local personality_group = COMMON.PERSONALITY[personality]
+  if personality_group == nil then
+    -- Gardes nil : si la personnalité n'est pas dans le tableau, repli silencieux
+    UI:WaitShowDialogue(RogueEssence.StringKey("TALK_CANT"):ToLocal())
+    return
+  end
   local pool = personality_group.WAIT
   local key = "TALK_WAIT_%04d"
 
-  local running_pool = {table.unpack(pool)}
-  local valid_quote = false
-  local chosen_quote = ""
-
-  while not valid_quote and #running_pool > 0 do
-    valid_quote = true
-    local chosen_idx = math.random(1, #running_pool)
-	local chosen_pool_idx = running_pool[chosen_idx]
-    chosen_quote = RogueEssence.StringKey(string.format(key, chosen_pool_idx)):ToLocal()
-
-    chosen_quote = string.gsub(chosen_quote, "%[hero%]", chara:GetDisplayName())
-
-	if not valid_quote then
-      -- PrintInfo("Rejected "..chosen_quote)
-	  table.remove(running_pool, chosen_idx)
-	  chosen_quote = ""
-	end
+  if #pool == 0 then
+    UI:WaitShowDialogue(RogueEssence.StringKey("TALK_CANT"):ToLocal())
+    return
   end
-  -- PrintInfo("Selected "..chosen_quote)
 
+  -- AUDIT 2026-08-10 : la boucle while originelle etait morte (valid_quote
+  -- toujours vrai avant le test if not valid_quote). GroundInteract ne fait
+  -- que la substitution [hero], qui echoue jamais : pas de filtrage necessaire.
+  -- Selection directe d'un index aleatoire.
+  -- RNG deterministe (GAME.Rand) au lieu de math.random pour reproductibilite.
+  local chosen_idx
+  pcall(function() chosen_idx = GAME.Rand:Next(0, #pool - 1) + 1 end)
+  if chosen_idx == nil then
+    -- Repli si GAME.Rand indisponible en contexte ground
+    chosen_idx = math.random(1, #pool)
+  end
+  local chosen_pool_idx = pool[chosen_idx]
+  local chosen_quote = RogueEssence.StringKey(string.format(key, chosen_pool_idx)):ToLocal()
+  chosen_quote = string.gsub(chosen_quote, "%[hero%]", chara:GetDisplayName())
 
   UI:WaitShowDialogue(chosen_quote)
 end
@@ -1014,7 +1024,9 @@ function COMMON.EnterDungeonMissionCheck(zoneId, segmentID)
   end
 end
 
-function COMMON.EndRescue(zone, result, rescue, segmentID)
+-- AUDIT 2026-08-10 : le parametre 'zone' etait mort (jamais lu).
+-- La destination est codee en dur : bureau de poste de master_zone.
+function COMMON.EndRescue(result, rescue, segmentID)
   COMMON.EndDayCycle()
   local zoneId = 'master_zone'
   local structureId = -1
@@ -1067,11 +1079,14 @@ function COMMON.ExitDungeonMissionCheck(result, rescue, zoneId, segmentID)
     PrintInfo("Checking Mission: "..tostring(name))
     if mission.Taken and mission.Completion == COMMON.MISSION_INCOMPLETE and zoneId == mission.Zone and segmentID == mission.Segment then
       if mission.Type == COMMON.MISSION_TYPE_ESCORT or mission.Type == COMMON.MISSION_TYPE_EXPLORATION then -- escort
+        -- AUDIT 2026-08-10 : restaurer MAX_TEAM_SLOTS dans TOUS les cas
+        -- (escort trouve ou non). EnterDungeonMissionCheck le passe a 3
+        -- sans condition ; il doit repasser a 4 meme si l'escort a deja
+        -- ete retire (mort, chemin alternatif).
+        RogueEssence.Dungeon.ExplorerTeam.MAX_TEAM_SLOTS = 4
           -- remove the escort from the party
         local escort = COMMON.FindMissionEscort(name)
         if escort then
-          --Set max team size to 4 as the guest is no longer "taking" up a party slot
-          RogueEssence.Dungeon.ExplorerTeam.MAX_TEAM_SLOTS = 4
           _DUNGEON:RemoveChar(escort)
         end
       end
@@ -1102,7 +1117,7 @@ function COMMON.ExitDungeonMissionCheck(result, rescue, zoneId, segmentID)
 	end
 
   if rescue == true then
-    COMMON.EndRescue(zone, result, rescue, segmentID)
+    COMMON.EndRescue(result, rescue, segmentID)
     exited = true
   end
 

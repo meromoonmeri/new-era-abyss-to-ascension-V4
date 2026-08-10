@@ -21,7 +21,7 @@ function BATTLE_SCRIPT.ShopkeeperInteract(owner, ownerChar, context, args)
       UI:SetSpeaker(context.Target)
 	  UI:ChoiceMenuYesNo(STRINGS:Format(RogueEssence.StringKey(string.format("TALK_SHOP_SELL_%04d", context.Target.Discriminator)):ToLocal(), STRINGS:FormatKey("MONEY_AMOUNT", sell_price)), false)
 	  UI:WaitForChoice()
-	  result = UI:ChoiceResult()
+	  local result = UI:ChoiceResult()
 
 	  if SV.adventure.Thief then
 	    COMMON.ThiefReturn()
@@ -40,7 +40,7 @@ function BATTLE_SCRIPT.ShopkeeperInteract(owner, ownerChar, context, args)
       UI:SetSpeaker(context.Target)
 	  UI:ChoiceMenuYesNo(STRINGS:Format(RogueEssence.StringKey(string.format("TALK_SHOP_PAY_%04d", context.Target.Discriminator)):ToLocal(), STRINGS:FormatKey("MONEY_AMOUNT", price)), false)
 	  UI:WaitForChoice()
-	  result = UI:ChoiceResult()
+	  local result = UI:ChoiceResult()
 	  if SV.adventure.Thief then
 	    COMMON.ThiefReturn()
 	  elseif result then
@@ -339,7 +339,8 @@ function ChooseQuote(chara, target, key, running_pool, mission)
 
     while not valid_quote and #running_pool > 0 do
 	  valid_quote = true
-      local chosen_idx = math.random(1, #running_pool)
+      -- AUDIT 2026-08-10 : RNG deterministe (GAME.Rand) pour reproductibilite
+      local chosen_idx = GAME.Rand:Next(0, #running_pool - 1) + 1
   	  local chosen_pool_idx = running_pool[chosen_idx]
 
 	  --for use with [(name)] replacing
@@ -396,7 +397,7 @@ function ChooseQuote(chara, target, key, running_pool, mission)
   	      end
   	    end
   	    if #moves > 0 then
-  	      local chosen_move = _DATA:GetSkill(moves[math.random(1, #moves)])
+  	      local chosen_move = _DATA:GetSkill(moves[GAME.Rand:Next(0, #moves - 1) + 1])
   	      chosen_quote = string.gsub(chosen_quote, "%[move%]", chosen_move:GetIconName())
   	    else
   	      valid_quote = false
@@ -408,7 +409,7 @@ function ChooseQuote(chara, target, key, running_pool, mission)
           local team_spawn = GAME:GetCurrentFloor().TeamSpawns:Pick(GAME.Rand)
   	      local chosen_list = team_spawn:ChooseSpawns(GAME.Rand)
   	      if chosen_list.Count > 0 then
-  	        local chosen_mob = chosen_list[math.random(0, chosen_list.Count-1)]
+  	        local chosen_mob = chosen_list[GAME.Rand:Next(0, chosen_list.Count - 1)]
   	        local mon = _DATA:GetMonster(chosen_mob.BaseForm.Species)
             chosen_quote = string.gsub(chosen_quote, "%[kind%]", mon:GetColoredName())
   	      else

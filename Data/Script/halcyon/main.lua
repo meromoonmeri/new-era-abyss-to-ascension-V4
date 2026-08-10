@@ -70,4 +70,15 @@ require 'halcyon.RuinesRenforts'--renforts de la guilde + revelation de la Tour 
 require 'halcyon.Ch6_10Scenes'--cinematiques d'etage ch8-10 (relais/miniboss/boss)
 PrintInfo('[NREPROBE] build 2026-08-04-K charge (main.lua) — PREMIERE ligne attendue, au LANCEMENT du jeu. Si absente: la copie du mod chargee par le jeu n est PAS celle du depot.')
 
-math.randomseed(os.time())
+-- AUDIT 2026-08-10 : seed reproductible quand possible (daily seed de la
+-- sauvegarde), repli sur os.time() si le moteur n'expose pas encore la
+-- graine (tres premiere frame, avant chargement de la sauvegarde).
+do
+  local seed = nil
+  pcall(function() seed = GAME:GetDailySeed() end)
+  if seed and seed > 0 then
+    math.randomseed(seed)
+  else
+    math.randomseed(os.time())
+  end
+end

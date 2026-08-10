@@ -1530,25 +1530,9 @@ function SINGLE_CHAR_SCRIPT.BeginnerLessonHeldItemCheck(owner, ownerChar, contex
 	end
 end
 
-function SINGLE_CHAR_SCRIPT.CheckOngoingMissions(owner, ownerChar, context, args)
-	local curr_zone = _ZONE.CurrentZoneID
-	local curr_segment = _ZONE.CurrentMapID.Segment
-	local curr_floor = GAME:GetCurrentFloor().ID + 1
-
-	for _, mission in ipairs(SV.TakenBoard) do
-		if mission.BackReference ~= COMMON.FLEE_BACKREFERENCE and mission.Taken and mission.Completion == COMMON.MISSION_INCOMPLETE and curr_floor == mission.Floor and curr_zone == mission.Zone and curr_segment == mission.Segment then
-			UI:ResetSpeaker()
-			UI:ChoiceMenuYesNo("Vous avez actuellement une mission en cours à cet étage.\nVoulez-vous quand même continuer ?", true)
-			UI:WaitForChoice()
-			local continue = UI:ChoiceResult()
-			if not continue then
-				context.CancelState.Cancel = true
-				context.TurnCancel.Cancel = true
-				break
-			end
-		end
-	end
-end
+-- AUDIT 2026-08-10 : l'ancienne definition (boucle avec UI a l'interieur,
+-- qui demandait au joueur pour CHAQUE mission trouvee) a ete remplacee
+-- par la version corrigee ci-dessous (agregation puis demande unique).
 
 function SINGLE_CHAR_SCRIPT.CheckOngoingMissions(owner, ownerChar, context, args)
 	local curr_zone = _ZONE.CurrentZoneID
