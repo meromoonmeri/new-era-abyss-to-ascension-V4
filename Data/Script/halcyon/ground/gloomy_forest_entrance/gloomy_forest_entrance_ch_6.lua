@@ -43,36 +43,39 @@ function gloomy_forest_entrance_ch_6.ApproachCutscene()
 end
 
 -- Barrage d'entrée : la Team Dazzling occupe physiquement le passage.
--- Les slots sont tous praticables sur D04P01 et laissent le chemin libre
--- uniquement après leur départ. Cette scène ne lance pas le donjon : le
--- joueur conserve la main et franchit ensuite le trigger normalement.
+-- D04P01 canonique n'est qu'une bande praticable (collision BMA 1:1) : tous
+-- les slots des Dazzling sont posés DANS la bande, entre le héros et l'objet
+-- Dungeon_Entrance (corrigé 2026-08-10 : l'ancienne mise en scène les
+-- spawnait dans les murs — rows 10-20 solides). La scène ne lance pas le
+-- donjon : le joueur conserve la main et franchit ensuite le trigger.
 function gloomy_forest_entrance_ch_6.DazzlingEntranceBlockade()
   if SV.Chapter6.DazzlingEntranceSeen then return end
   local hero, partner = CH('PLAYER'), CH('Teammate1')
   local ok, err = pcall(function()
     GAME:CutsceneMode(true)
     if partner then AI:DisableCharacterAI(partner) end
-    GROUND:TeleportTo(hero, 208, 192, Direction.Up)
-    if partner then GROUND:TeleportTo(partner, 240, 192, Direction.Up) end
+    GROUND:TeleportTo(hero, 208, 248, Direction.Up)
+    if partner then GROUND:TeleportTo(partner, 248, 248, Direction.Up) end
     local adagio, aria, sonata = CharacterEssentials.MakeCharactersFromList({
-      {'Adagio',224,136,Direction.Down}, {'Aria',192,160,Direction.DownRight},
-      {'Sonata',256,160,Direction.DownLeft}})
-    GAME:MoveCamera(224,160,30,false);SOUND:PlayBGM('Team_Dazzling_Theme.ogg',true)
+      {'Adagio',224,216,Direction.Down}, {'Aria',192,224,Direction.DownRight},
+      {'Sonata',256,224,Direction.DownLeft}})
+    GAME:MoveCamera(224,224,30,false);SOUND:PlayBGM('Team_Dazzling_Theme.ogg',true)
     GAME:FadeIn(20);GAME:WaitFrames(20)
     dialogue(aria,'GF6E_A13','Happy');dialogue(adagio,'GF6E_A14','Normal')
     dialogue(partner,'GF6E_A15','Angry');dialogue(sonata,'GF6E_A16','Happy')
     pcall(function()
-      GROUND:MoveToPosition(aria,176,136,false,1)
-      GROUND:MoveToPosition(sonata,272,136,false,1)
+      GROUND:MoveToPosition(aria,176,224,false,1)
+      GROUND:MoveToPosition(sonata,272,224,false,1)
     end)
     dialogue(aria,'GF6E_A17','Happy');dialogue(adagio,'GF6E_A18','Normal')
     dialogue(partner,'GF6E_A19','Angry')
     GeneralFunctions.HeroDialogue(hero,STRINGS:Format(STRINGS.MapStrings['GF6E_A20']),'Determined')
     dialogue(partner,'GF6E_A21','Determined')
-    -- Elles cessent enfin de barrer le passage et entrent les premières.
-    local a=TASK:BranchCoroutine(function() GROUND:MoveToPosition(adagio,224,96,false,2) end)
-    local b=TASK:BranchCoroutine(function() GROUND:MoveToPosition(aria,192,104,false,2) end)
-    local c=TASK:BranchCoroutine(function() GROUND:MoveToPosition(sonata,256,104,false,2) end)
+    -- Elles cessent enfin de barrer le passage et entrent les premières :
+    -- marche vers la lisière (bord haut de la bande praticable) puis fondu.
+    local a=TASK:BranchCoroutine(function() GROUND:MoveToPosition(adagio,224,200,false,2) end)
+    local b=TASK:BranchCoroutine(function() GROUND:MoveToPosition(aria,192,200,false,2) end)
+    local c=TASK:BranchCoroutine(function() GROUND:MoveToPosition(sonata,256,200,false,2) end)
     TASK:JoinCoroutines({a,b,c});GAME:FadeOut(false,20)
     pcall(function() GAME:GetCurrentGround():RemoveTempChar(adagio) end)
     pcall(function() GAME:GetCurrentGround():RemoveTempChar(aria) end)
@@ -88,8 +91,11 @@ function gloomy_forest_entrance_ch_6.DazzlingEntranceBlockade()
   if not ok then PrintInfo('[Gloomy Dazzling entrance] '..tostring(err)) end
 end
 
--- D04P02 : les trois positions de la scène source sont conservées et recastées.
--- centre (272,192) = meneuse; droite (312,224); gauche (240,224).
+-- D04P02 : la clairière. Les trois positions FINALES de la scène source sont
+-- conservées et recastées : centre (272,192) = meneuse; droite (312,224);
+-- gauche (240,224) — rendues ici par les marqueurs du ground (translations
+-- de cadrage documentées dans le .rsground). Les Dazzling entrent depuis la
+-- lisière praticable (corrigé 2026-08-10 : spawn hors des murs).
 function gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()
   local hero, partner = CH('PLAYER'), CH('Teammate1')
   GAME:FadeOut(false, 1)
@@ -100,11 +106,12 @@ function gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()
   if partner then GROUND:TeleportTo(partner, 264, 208, Direction.Up) end
   -- Dans la source GBA, les trois Meanies avancent ensemble avant leur
   -- première réplique (sub_8087144). Team Dazzling reprend ces trois slots :
-  -- elle n'apparaît donc pas déjà figée à sa position finale.
+  -- elle n'apparaît donc pas déjà figée à sa position finale. Spawn à la
+  -- lisière haute de la clairière (cellules praticables), puis avancée.
   local adagio, aria, sonata = CharacterEssentials.MakeCharactersFromList({
-    {'Adagio',240,80,Direction.Down},
-    {'Aria',280,96,Direction.DownLeft},
-    {'Sonata',208,96,Direction.DownRight},
+    {'Adagio',240,120,Direction.Down},
+    {'Aria',280,136,Direction.DownLeft},
+    {'Sonata',208,136,Direction.DownRight},
   })
   GAME:MoveCamera(240,160,1,false)
   SOUND:PlayBGM('In the Depths of the Pit.ogg',true)
@@ -141,6 +148,14 @@ function gloomy_forest_entrance_ch_6.DazzlingClearingCutscene()
   dialogue(adagio, 'GF6E_A10', 'Normal')
   dialogue(adagio, 'GF6E_A11', 'Normal')
   dialogue(aria, 'GF6E_A12', 'Happy')
+  -- Canon D04P02 : le héros enregistre la tension par un pivot lent gauche
+  -- puis droite (source : ROTATE_TO(10,SPINLEFT1,WEST) / WAIT(60) /
+  -- ROTATE_TO(4,SPINRIGHT1,EAST)) avant la bascule sérieuse.
+  GROUND:CharAnimateTurnTo(hero, Direction.Left, 4)
+  GAME:WaitFrames(30)
+  GROUND:CharAnimateTurnTo(hero, Direction.Right, 4)
+  GAME:WaitFrames(15)
+  if partner then GROUND:CharAnimateTurnTo(partner, Direction.Left, 4) end
 
   -- Dans Deep Shadow, la rivalité cesse d'être une plaisanterie. La Team
   -- Dazzling a entendu Chenipent avant nous et ne peut plus feindre l'insouciance.
