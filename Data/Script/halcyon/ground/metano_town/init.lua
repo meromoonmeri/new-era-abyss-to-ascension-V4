@@ -20,6 +20,7 @@ require 'halcyon.Seasons'
 require 'halcyon.LivingWorld'
 require 'halcyon.TownVoicesNight'
 require 'halcyon.TownReward'
+require 'halcyon.TownLife'
 
 
 
@@ -102,6 +103,18 @@ function metano_town.Enter(map)
 	--une scene d'histoire garde toujours la priorite sur un commentaire
 	--de decor.
 	pcall(function() Seasons.Remark() end)
+
+	-- Une courte interaction sociale par journée, uniquement après que la
+	-- rivalité Dazzling a installé la vie publique du chapitre 6. Les scènes
+	-- de scénario et récompenses gardent la priorité.
+	pcall(function()
+		local t=SV.TemporaryFlags or {}
+		if SV.ChapterProgression.Chapter>=6
+		   and SV.Chapter6 and SV.Chapter6.DazzlingIntroPlayed
+		   and not t.MissionCompleted and not t.RewardCutsceneQuest then
+			TownLife.PlayDailySocial()
+		end
+	end)
 end
 
 function metano_town.Update(map, time)

@@ -42,6 +42,7 @@
 ]]
 require 'origin.common'
 require 'halcyon.CharacterEssentials'
+require 'halcyon.GeneralFunctions'
 
 TownLife = {}
 
@@ -337,6 +338,74 @@ function TownLife.PlacerTous(liste)
     if TownLife.Placer(chara, nom) ~= nil then n = n + 1 end
   end
   return n
+end
+
+--------------------------------------------------------------------
+-- MICRO-SCÈNES SOCIALES QUOTIDIENNES
+--------------------------------------------------------------------
+-- Une seule par journée et uniquement entre deux habitants réellement
+-- présents dans la même zone de leur tournée. Aucun téléport visible :
+-- ils se regardent depuis leur poste, parlent brièvement, puis reprennent
+-- exactement leur IA. Une scène d'histoire garde toujours la priorité.
+TownLife.SOCIAUX = {
+  { 'Roselia','Spinda',
+    {"Le café a encore reçu trois équipes avant midi.","Et deux rumeurs contradictoires avant le petit-déjeuner !"}},
+  { 'Spinda','Ludicolo',
+    {"Tu as déplacé les tables ?","Seulement celles qui gênaient ma nouvelle danse !"}},
+  { 'Wooper_Girl','Wooper_Boy',
+    {"Tu avais promis de ne pas aller près de la rivière.","J'ai promis de ne pas y TOMBER. Ce n'est pas pareil."}},
+  { 'Machamp','Meditite',
+    {"Cent flexions avant le déjeuner !","Cent respirations seraient déjà un progrès."}},
+  { 'Mawile','Electrike',
+    {"J'ai entendu une nouvelle au marché.","Tu entends surtout ce que les autres voulaient garder secret."}},
+}
+
+local function social_line(a,b,base)
+  local ch=(SV.ChapterProgression and SV.ChapterProgression.Chapter) or 1
+  if ch>=6 and SV.Chapter6 and SV.Chapter6.DazzlingChapterResolved then
+    return "Les nouvelles de Gloomy Forest sont arrivées ce matin.",
+           "Chenipent est sauf. C'est la seule partie du rapport qui compte."
+  end
+  if SV.WorldState and SV.WorldState.Weather and SV.WorldState.Weather.Current=='orage' then
+    return "Les Bekipan restent au perchoir avec cet orage.",
+           "Alors la ville devra inventer ses propres nouvelles aujourd'hui."
+  end
+  return base[1],base[2]
+end
+
+function TownLife.PlayDailySocial()
+  SV.TownLife = SV.TownLife or {}
+  local day=TownLife.Today()
+  if SV.TownLife.SeenSocialDay==day then return false end
+  local candidates={}
+  for _,g in ipairs(TownLife.SOCIAUX) do
+    local a,b=CH(g[1]),CH(g[2])
+    local pa,pb=TownLife.PosteDuJour(g[1]),TownLife.PosteDuJour(g[2])
+    if a~=nil and b~=nil and pa~=nil and pb~=nil and pa[4]==pb[4] then
+      table.insert(candidates,{a=a,b=b,n1=g[1],n2=g[2],text=g[3]})
+    end
+  end
+  if #candidates==0 then return false end
+  local g=candidates[(day % #candidates)+1]
+  SV.TownLife.SeenSocialDay=day
+  local ok,err=pcall(function()
+    GAME:CutsceneMode(true);AI:DisableCharacterAI(g.a);AI:DisableCharacterAI(g.b)
+    local x=(g.a.Position.X+g.b.Position.X)//2;local y=(g.a.Position.Y+g.b.Position.Y)//2
+    GAME:MoveCamera(x,y,35,false)
+    GROUND:CharTurnToCharAnimated(g.a,g.b,4);GROUND:CharTurnToCharAnimated(g.b,g.a,4)
+    GROUND:CharSetEmote(g.a,'notice',1);GAME:WaitFrames(15)
+    local l1,l2=social_line(g.a,g.b,g.text)
+    UI:SetSpeaker(g.a);GeneralFunctions.SetEmotion('Normal');UI:WaitShowDialogue(l1)
+    GROUND:CharSetEmote(g.b,'happy',1);UI:SetSpeaker(g.b);GeneralFunctions.SetEmotion('Happy');UI:WaitShowDialogue(l2)
+    GAME:WaitFrames(10);GeneralFunctions.PanCamera()
+  end)
+  pcall(function()
+    AI:EnableCharacterAI(g.a);AI:EnableCharacterAI(g.b)
+    TownLife.Placer(g.a,g.n1);TownLife.Placer(g.b,g.n2)
+    GAME:CutsceneMode(false);UI:ResetSpeaker()
+  end)
+  if not ok then PrintInfo('[TownLife social] '..tostring(err)) end
+  return ok
 end
 
 return TownLife
