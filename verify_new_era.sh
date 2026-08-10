@@ -21,7 +21,7 @@ ERRORS=0
 # cloven_ruins_regice, cloven_ruins_regirock, cloven_ruins_registeel,
 # cloven_ruins_boss.
 EXPECTED_GROUNDS=219
-EXPECTED_TILESETS=732
+EXPECTED_TILESETS=735
 EXPECTED_MUSIC=142
 
 # 1. Ground maps
