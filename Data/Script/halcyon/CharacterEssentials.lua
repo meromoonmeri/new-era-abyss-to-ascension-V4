@@ -28,6 +28,30 @@ end
 CharacterEssentials = {}
 
 local characters = {
+		Moltres = {
+			species = "moltres",
+			nickname = 'Sulfura',
+			instance = 'Moltres',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Articuno = {
+			species = "articuno",
+			nickname = 'Artikodin',
+			instance = 'Articuno',
+			gender = Gender.Genderless,
+			form = 0,
+			skin = "normal"
+		},
+		Ninetales = {
+			species = "ninetales",
+			nickname = 'Feunard',
+			instance = 'Ninetales',
+			gender = Gender.Female,
+			form = 0,
+			skin = "normal"
+		},
 		--the guild
 		Tropius = {
 			species = "tropius",

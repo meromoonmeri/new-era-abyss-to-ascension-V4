@@ -2,64 +2,64 @@
   "schema": 1,
   "rules_source": "prompt_exhaustif_cutscenes_pmd (2).md",
   "target_dialogue_lines": 1000,
-  "measured_dialogue_calls": 6869,
+  "measured_dialogue_calls": 6900,
   "chapters": {
     "5": {
-      "files": 74,
-      "dialogues": 1928,
-      "camera": 214,
-      "moves": 190,
-      "turns": 925,
-      "emotes": 1313,
-      "ost": 191
+      "files": 75,
+      "dialogues": 1941,
+      "camera": 219,
+      "moves": 186,
+      "turns": 928,
+      "emotes": 1318,
+      "ost": 195
     },
     "6": {
       "files": 52,
-      "dialogues": 5159,
-      "camera": 68,
-      "moves": 81,
-      "turns": 189,
-      "emotes": 340,
-      "ost": 69
+      "dialogues": 5155,
+      "camera": 71,
+      "moves": 89,
+      "turns": 187,
+      "emotes": 343,
+      "ost": 77
     },
     "7": {
       "files": 16,
-      "dialogues": 2580,
+      "dialogues": 2594,
       "camera": 9,
       "moves": 9,
       "turns": 49,
-      "emotes": 181,
+      "emotes": 193,
       "ost": 28
     },
     "8": {
-      "files": 10,
-      "dialogues": 195,
+      "files": 11,
+      "dialogues": 209,
       "camera": 4,
       "moves": 1,
       "turns": 5,
-      "emotes": 24,
-      "ost": 5
+      "emotes": 36,
+      "ost": 12
     },
     "9": {
-      "files": 10,
+      "files": 11,
       "dialogues": 95,
       "camera": 6,
       "moves": 2,
       "turns": 0,
       "emotes": 17,
-      "ost": 10
+      "ost": 17
     },
     "10": {
-      "files": 13,
-      "dialogues": 93,
-      "camera": 2,
+      "files": 15,
+      "dialogues": 101,
+      "camera": 3,
       "moves": 0,
       "turns": 1,
-      "emotes": 13,
-      "ost": 3
+      "emotes": 14,
+      "ost": 10
     },
     "11": {
-      "files": 32,
+      "files": 35,
       "dialogues": 25,
       "camera": 8,
       "moves": 11,
@@ -272,6 +272,21 @@
       ]
     },
     {
+      "dialogues": 0,
+      "camera": 0,
+      "moves": 0,
+      "turns": 0,
+      "emotes": 0,
+      "ost": 7,
+      "file": "Data/Script/halcyon/Ch6_10Scenes.lua",
+      "chapters": [
+        6,
+        8,
+        9,
+        10
+      ]
+    },
+    {
       "dialogues": 2,
       "camera": 4,
       "moves": 1,
@@ -310,11 +325,11 @@
     },
     {
       "dialogues": 3,
-      "camera": 17,
+      "camera": 18,
       "moves": 23,
       "turns": 31,
       "emotes": 19,
-      "ost": 4,
+      "ost": 5,
       "file": "Data/Script/halcyon/DazzlingPlaza.lua",
       "chapters": [
         6
@@ -482,15 +497,15 @@
       ]
     },
     {
-      "dialogues": 9,
-      "camera": 1,
+      "dialogues": 13,
+      "camera": 3,
       "moves": 0,
       "turns": 5,
-      "emotes": 1,
-      "ost": 2,
+      "emotes": 3,
+      "ost": 4,
       "file": "Data/Script/halcyon/TeamDazzlingAegis.lua",
       "chapters": [
-        6
+        5
       ]
     },
     {
@@ -551,6 +566,18 @@
       ]
     },
     {
+      "dialogues": 8,
+      "camera": 1,
+      "moves": 0,
+      "turns": 0,
+      "emotes": 1,
+      "ost": 0,
+      "file": "Data/Script/halcyon/arc_fugitif/scene/d13p03.lua",
+      "chapters": [
+        10
+      ]
+    },
+    {
       "dialogues": 0,
       "camera": 0,
       "moves": 0,
@@ -594,6 +621,42 @@
       "emotes": 0,
       "ost": 0,
       "file": "Data/Script/halcyon/ground/a02p04/init.lua",
+      "chapters": [
+        11
+      ]
+    },
+    {
+      "dialogues": 0,
+      "camera": 0,
+      "moves": 0,
+      "turns": 0,
+      "emotes": 0,
+      "ost": 0,
+      "file": "Data/Script/halcyon/ground/a03p01/init.lua",
+      "chapters": [
+        11
+      ]
+    },
+    {
+      "dialogues": 0,
+      "camera": 0,
+      "moves": 0,
+      "turns": 0,
+      "emotes": 0,
+      "ost": 0,
+      "file": "Data/Script/halcyon/ground/a03p02/init.lua",
+      "chapters": [
+        11
+      ]
+    },
+    {
+      "dialogues": 0,
+      "camera": 0,
+      "moves": 0,
+      "turns": 0,
+      "emotes": 0,
+      "ost": 0,
+      "file": "Data/Script/halcyon/ground/a03p03/init.lua",
       "chapters": [
         11
       ]
@@ -725,8 +788,8 @@
       "dialogues": 21,
       "camera": 17,
       "moves": 13,
-      "turns": 32,
-      "emotes": 27,
+      "turns": 33,
+      "emotes": 28,
       "ost": 7,
       "file": "Data/Script/halcyon/ground/cloven_ruins_entrance/cloven_ruins_entrance_ch_5.lua",
       "chapters": [
@@ -914,12 +977,12 @@
       ]
     },
     {
-      "dialogues": 2,
-      "camera": 3,
-      "moves": 0,
-      "turns": 6,
-      "emotes": 3,
-      "ost": 2,
+      "dialogues": 5,
+      "camera": 6,
+      "moves": 8,
+      "turns": 9,
+      "emotes": 6,
+      "ost": 4,
       "file": "Data/Script/halcyon/ground/gloomy_forest_entrance/gloomy_forest_entrance_ch_6.lua",
       "chapters": [
         6
@@ -938,11 +1001,11 @@
       ]
     },
     {
-      "dialogues": 16,
+      "dialogues": 18,
       "camera": 2,
       "moves": 4,
       "turns": 6,
-      "emotes": 8,
+      "emotes": 9,
       "ost": 3,
       "file": "Data/Script/halcyon/ground/gloomy_forest_midpoint/gloomy_forest_midpoint_ch_6.lua",
       "chapters": [
@@ -1133,11 +1196,11 @@
       ]
     },
     {
-      "dialogues": 4,
+      "dialogues": 18,
       "camera": 0,
       "moves": 0,
       "turns": 0,
-      "emotes": 4,
+      "emotes": 16,
       "ost": 2,
       "file": "Data/Script/halcyon/ground/guild_heros_room/guild_heros_room_ch_8.lua",
       "chapters": [
@@ -1755,7 +1818,7 @@
     },
     {
       "dialogues": 0,
-      "camera": 0,
+      "camera": 1,
       "moves": 0,
       "turns": 0,
       "emotes": 0,
@@ -1767,10 +1830,10 @@
     },
     {
       "dialogues": 71,
-      "camera": 17,
-      "moves": 10,
-      "turns": 19,
-      "emotes": 49,
+      "camera": 18,
+      "moves": 6,
+      "turns": 16,
+      "emotes": 50,
       "ost": 5,
       "file": "Data/Script/halcyon/ground/mount_windswept_guardian/mount_windswept_guardian_ch_5.lua",
       "chapters": [

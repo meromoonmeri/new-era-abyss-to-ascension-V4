@@ -1,23 +1,62 @@
 {
   "coverage": {
-    "zones": 50,
-    "dungeons": 50,
-    "structures": 132,
-    "segments": 132,
-    "floors": 804,
-    "grounds": 166,
-    "tile_sheets": 639,
-    "frames": 748953,
-    "tile_references": 748953,
-    "markers": 397,
-    "spawners": 223,
-    "entities": 448,
-    "transitions": 295,
-    "bosses": 181,
-    "lua_files": 517,
-    "cinematic_candidate_files": 330
+    "zones": 57,
+    "dungeons": 57,
+    "structures": 139,
+    "segments": 139,
+    "floors": 841,
+    "grounds": 218,
+    "tile_sheets": 731,
+    "frames": 954041,
+    "tile_references": 954041,
+    "markers": 453,
+    "spawners": 304,
+    "entities": 468,
+    "transitions": 327,
+    "bosses": 182,
+    "lua_files": 681,
+    "cinematic_candidate_files": 466
   },
   "grounds": [
+    {
+      "ground": "abime_tempetes",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        66,
+        63
+      ]
+    },
+    {
+      "ground": "testmap",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        114,
+        136
+      ]
+    },
+    {
+      "ground": "altere_pond",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze",
+        "relic_forest"
+      ],
+      "dimensions": [
+        116,
+        96
+      ]
+    },
     {
       "ground": "a02p01",
       "status": "PASS_STATIC",
@@ -67,56 +106,6 @@
       ]
     },
     {
-      "ground": "a04p01",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        39,
-        75
-      ]
-    },
-    {
-      "ground": "a05p03",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        39,
-        30
-      ]
-    },
-    {
-      "ground": "abime_tempetes",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        66,
-        63
-      ]
-    },
-    {
-      "ground": "altere_pond",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone",
-        "normal_maze",
-        "relic_forest"
-      ],
-      "dimensions": [
-        116,
-        96
-      ]
-    },
-    {
       "ground": "antre_occident",
       "status": "PASS_STATIC",
       "issues": [],
@@ -126,6 +115,42 @@
       "dimensions": [
         45,
         42
+      ]
+    },
+    {
+      "ground": "a03p01",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        120,
+        36
+      ]
+    },
+    {
+      "ground": "a03p02",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        33,
+        42
+      ]
+    },
+    {
+      "ground": "a03p03",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        120,
+        36
       ]
     },
     {
@@ -152,6 +177,66 @@
       "dimensions": [
         43,
         38
+      ]
+    },
+    {
+      "ground": "a04p01",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        39,
+        75
+      ]
+    },
+    {
+      "ground": "arene_clairiere_secrete",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "a05p03",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        39,
+        30
+      ]
+    },
+    {
+      "ground": "arene_hautes_plaines",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "arene_trone_magma",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
       ]
     },
     {
@@ -191,39 +276,15 @@
       ]
     },
     {
-      "ground": "arene_clairiere_secrete",
+      "ground": "bois_des_plaintes",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
         "master_zone"
       ],
       "dimensions": [
-        16,
-        12
-      ]
-    },
-    {
-      "ground": "arene_hautes_plaines",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        16,
-        12
-      ]
-    },
-    {
-      "ground": "arene_trone_magma",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        16,
-        12
+        45,
+        42
       ]
     },
     {
@@ -252,18 +313,6 @@
       ]
     },
     {
-      "ground": "bois_des_plaintes",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        45,
-        42
-      ]
-    },
-    {
       "ground": "bourg_comptoir",
       "status": "PASS_STATIC",
       "issues": [],
@@ -289,11 +338,8 @@
     },
     {
       "ground": "cap_dents_mer",
-      "status": "FAIL_STATIC",
-      "issues": [
-        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
-        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2"
-      ],
+      "status": "PASS_STATIC",
+      "issues": [],
       "owners": [
         "master_zone"
       ],
@@ -358,18 +404,6 @@
       ]
     },
     {
-      "ground": "carte_chapitre_v2",
-      "status": "FAIL_STATIC",
-      "issues": [
-        "ORPHAN_GROUND"
-      ],
-      "owners": [],
-      "dimensions": [
-        48,
-        48
-      ]
-    },
-    {
       "ground": "chambre_agee_o",
       "status": "PASS_STATIC",
       "issues": [],
@@ -382,18 +416,6 @@
       ]
     },
     {
-      "ground": "champ_braises",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        45,
-        45
-      ]
-    },
-    {
       "ground": "champ_sacre",
       "status": "PASS_STATIC",
       "issues": [],
@@ -403,6 +425,30 @@
       "dimensions": [
         16,
         12
+      ]
+    },
+    {
+      "ground": "carte_chapitre_v2",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "ORPHAN_GROUND"
+      ],
+      "owners": [],
+      "dimensions": [
+        48,
+        48
+      ]
+    },
+    {
+      "ground": "champ_braises",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        45,
+        45
       ]
     },
     {
@@ -427,6 +473,54 @@
       "dimensions": [
         16,
         12
+      ]
+    },
+    {
+      "ground": "cloven_ruin_regice_chamber_sky",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        63,
+        57
+      ]
+    },
+    {
+      "ground": "cloven_ruin_regigigas_chamber_sky",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        57,
+        57
+      ]
+    },
+    {
+      "ground": "cloven_ruin_regirock_chamber_sky",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        57,
+        57
+      ]
+    },
+    {
+      "ground": "cloven_ruin_registeel_chamber_sky",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        57,
+        57
       ]
     },
     {
@@ -529,44 +623,6 @@
       ]
     },
     {
-      "ground": "crooked_cavern_entrance",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "crooked_cavern",
-        "master_zone"
-      ],
-      "dimensions": [
-        40,
-        30
-      ]
-    },
-    {
-      "ground": "crooked_cavern_midpoint",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        57,
-        57
-      ]
-    },
-    {
-      "ground": "crooked_den",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "crooked_cavern",
-        "master_zone"
-      ],
-      "dimensions": [
-        45,
-        54
-      ]
-    },
-    {
       "ground": "d09p02",
       "status": "PASS_STATIC",
       "issues": [],
@@ -645,6 +701,78 @@
       ]
     },
     {
+      "ground": "d18p11a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        75,
+        48
+      ]
+    },
+    {
+      "ground": "d19p11a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        96,
+        48
+      ]
+    },
+    {
+      "ground": "d20p11a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        75,
+        48
+      ]
+    },
+    {
+      "ground": "d21p21a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        57,
+        57
+      ]
+    },
+    {
+      "ground": "d21p41a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        81,
+        66
+      ]
+    },
+    {
+      "ground": "d22p11a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        69,
+        69
+      ]
+    },
+    {
       "ground": "dojo_ossatueur",
       "status": "PASS_STATIC",
       "issues": [],
@@ -654,18 +782,6 @@
       "dimensions": [
         63,
         54
-      ]
-    },
-    {
-      "ground": "ecran_titre_v2",
-      "status": "FAIL_STATIC",
-      "issues": [
-        "ORPHAN_GROUND"
-      ],
-      "owners": [],
-      "dimensions": [
-        48,
-        48
       ]
     },
     {
@@ -693,18 +809,6 @@
       ]
     },
     {
-      "ground": "first_core_location",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        69,
-        63
-      ]
-    },
-    {
       "ground": "fleche_reliques_courroux",
       "status": "PASS_STATIC",
       "issues": [],
@@ -714,6 +818,44 @@
       "dimensions": [
         16,
         12
+      ]
+    },
+    {
+      "ground": "crooked_cavern_entrance",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "crooked_cavern"
+      ],
+      "dimensions": [
+        40,
+        30
+      ]
+    },
+    {
+      "ground": "crooked_cavern_midpoint",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        57,
+        57
+      ]
+    },
+    {
+      "ground": "crooked_den",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "crooked_cavern"
+      ],
+      "dimensions": [
+        45,
+        54
       ]
     },
     {
@@ -791,18 +933,6 @@
       ]
     },
     {
-      "ground": "genesis_vision",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        30,
-        40
-      ]
-    },
-    {
       "ground": "gloomy_forest_entrance",
       "status": "PASS_STATIC",
       "issues": [],
@@ -816,16 +946,27 @@
       ]
     },
     {
-      "ground": "gloomy_forest_midpoint",
+      "ground": "p05p01a",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
-        "gloomy_forest",
         "master_zone"
       ],
       "dimensions": [
-        114,
-        90
+        51,
+        51
+      ]
+    },
+    {
+      "ground": "ecran_titre_v2",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "ORPHAN_GROUND"
+      ],
+      "owners": [],
+      "dimensions": [
+        48,
+        48
       ]
     },
     {
@@ -892,6 +1033,18 @@
       ]
     },
     {
+      "ground": "first_core_location",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        69,
+        63
+      ]
+    },
+    {
       "ground": "grotte_lazuli_fond",
       "status": "PASS_STATIC",
       "issues": [],
@@ -935,6 +1088,596 @@
       "issues": [],
       "owners": [
         "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "guild_heros_room",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        44,
+        44
+      ]
+    },
+    {
+      "ground": "guild_hut",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "normal_maze"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "guild_path",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "normal_maze"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "guilde_parvis",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3",
+        "SPAWNER_OUT_OF_BOUNDS:PARTNER_SPAWN"
+      ],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        60,
+        51
+      ]
+    },
+    {
+      "ground": "guildmaster_summit",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "normal_maze"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "hero_dream",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "cloven_ruins",
+        "master_zone",
+        "mount_windswept",
+        "searing_tunnel"
+      ],
+      "dimensions": [
+        40,
+        30
+      ]
+    },
+    {
+      "ground": "ile_australe",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "ile_close",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "ile_legendaire",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "labo_decrepit",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "lac_courage",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "lac_espoir",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "lac_savoir",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "luluby_town_evening",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        84,
+        72
+      ]
+    },
+    {
+      "ground": "luluby_town_morning",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        84,
+        72
+      ]
+    },
+    {
+      "ground": "luluby_town_night",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        84,
+        72
+      ]
+    },
+    {
+      "ground": "luminous_spring",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "illuminant_riverbed",
+        "normal_maze"
+      ],
+      "dimensions": [
+        75,
+        75
+      ]
+    },
+    {
+      "ground": "metano_cafe",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze"
+      ],
+      "dimensions": [
+        57,
+        40
+      ]
+    },
+    {
+      "ground": "metano_town",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "normal_maze",
+        "relic_forest"
+      ],
+      "dimensions": [
+        189,
+        189
+      ]
+    },
+    {
+      "ground": "mont_cendre_pied",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "mt_blaze"
+      ],
+      "dimensions": [
+        45,
+        39
+      ]
+    },
+    {
+      "ground": "mont_gele_pied",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "mt_freeze"
+      ],
+      "dimensions": [
+        33,
+        36
+      ]
+    },
+    {
+      "ground": "mont_lune_vue",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "p05p02a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        63,
+        57
+      ]
+    },
+    {
+      "ground": "genesis_vision",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        30,
+        40
+      ]
+    },
+    {
+      "ground": "mount_windswept_guardian",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "mount_windswept"
+      ],
+      "dimensions": [
+        45,
+        42
+      ]
+    },
+    {
+      "ground": "nef_prisme_est",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "gloomy_forest_midpoint",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "gloomy_forest",
+        "master_zone"
+      ],
+      "dimensions": [
+        114,
+        90
+      ]
+    },
+    {
+      "ground": "mount_windswept_miniboss",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "mount_windswept"
+      ],
+      "dimensions": [
+        48,
+        66
+      ]
+    },
+    {
+      "ground": "mt_blaze_midpoint",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "mt_blaze"
+      ],
+      "dimensions": [
+        57,
+        57
+      ]
+    },
+    {
+      "ground": "mt_freeze_midpoint",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "mt_freeze"
+      ],
+      "dimensions": [
+        57,
+        57
+      ]
+    },
+    {
+      "ground": "mt_thunder_midpoint",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "ORPHAN_GROUND"
+      ],
+      "owners": [],
+      "dimensions": [
+        57,
+        57
+      ]
+    },
+    {
+      "ground": "p05p03a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        171,
+        120
+      ]
+    },
+    {
+      "ground": "p05p04a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        63,
+        48
+      ]
+    },
+    {
+      "ground": "p06p01a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        75,
+        48
+      ]
+    },
+    {
+      "ground": "p07p01a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        45,
+        69
+      ]
+    },
+    {
+      "ground": "p08p01a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        69,
+        69
+      ]
+    },
+    {
+      "ground": "p09p01a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        75,
+        75
+      ]
+    },
+    {
+      "ground": "palier_celeste",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "sky_tower"
+      ],
+      "dimensions": [
+        57,
+        57
+      ]
+    },
+    {
+      "ground": "parvis_celeste",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "sky_tower"
+      ],
+      "dimensions": [
+        51,
+        36
+      ]
+    },
+    {
+      "ground": "plage_lucioles",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
+        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2",
+        "SPAWNER_OUT_OF_BOUNDS:PARTNER_SPAWN"
+      ],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        99,
+        48
+      ]
+    },
+    {
+      "ground": "plaines_brulees",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "poisonous_forest_entrance",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "poisonous_forest"
+      ],
+      "dimensions": [
+        30,
+        40
+      ]
+    },
+    {
+      "ground": "poisonous_forest_miniboss",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "poisonous_forest"
+      ],
+      "dimensions": [
+        57,
+        57
+      ]
+    },
+    {
+      "ground": "poisonous_forest_relay",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "poisonous_forest"
+      ],
+      "dimensions": [
+        51,
+        54
+      ]
+    },
+    {
+      "ground": "porte_plaines_foudre",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "pre_tonnerre",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        57,
+        42
+      ]
+    },
+    {
+      "ground": "rest_stop",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "normal_maze"
       ],
       "dimensions": [
         16,
@@ -1032,36 +1775,11 @@
       ]
     },
     {
-      "ground": "guild_heros_room",
+      "ground": "recif_genereux",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
-        "master_zone",
-        "normal_maze"
-      ],
-      "dimensions": [
-        44,
-        44
-      ]
-    },
-    {
-      "ground": "guild_hut",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "normal_maze"
-      ],
-      "dimensions": [
-        16,
-        12
-      ]
-    },
-    {
-      "ground": "guild_path",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "normal_maze"
+        "master_zone"
       ],
       "dimensions": [
         16,
@@ -1147,14 +1865,47 @@
       ]
     },
     {
-      "ground": "guilde_parvis",
+      "ground": "s21p01a",
       "status": "FAIL_STATIC",
       "issues": [
-        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
-        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2",
-        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_3",
-        "SPAWNER_OUT_OF_BOUNDS:PARTNER_SPAWN"
+        "ORPHAN_GROUND"
       ],
+      "owners": [],
+      "dimensions": [
+        66,
+        24
+      ]
+    },
+    {
+      "ground": "sanctuaire_voeu",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "wish_cave"
+      ],
+      "dimensions": [
+        45,
+        42
+      ]
+    },
+    {
+      "ground": "sinister_woods_clearing",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "gloomy_forest",
+        "master_zone"
+      ],
+      "dimensions": [
+        60,
+        47
+      ]
+    },
+    {
+      "ground": "sky_eos_g01p01b",
+      "status": "PASS_STATIC",
+      "issues": [],
       "owners": [
         "master_zone"
       ],
@@ -1164,66 +1915,63 @@
       ]
     },
     {
-      "ground": "guildmaster_summit",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "normal_maze"
-      ],
-      "dimensions": [
-        16,
-        12
-      ]
-    },
-    {
-      "ground": "hero_dream",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "cloven_ruins",
-        "master_zone",
-        "mount_windswept",
-        "searing_tunnel"
-      ],
-      "dimensions": [
-        40,
-        30
-      ]
-    },
-    {
-      "ground": "ile_australe",
+      "ground": "sky_eos_g01p01c",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
         "master_zone"
       ],
       "dimensions": [
-        16,
-        12
+        60,
+        51
       ]
     },
     {
-      "ground": "ile_close",
+      "ground": "sky_eos_g01p02a",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
         "master_zone"
       ],
       "dimensions": [
-        16,
-        12
+        51,
+        39
       ]
     },
     {
-      "ground": "ile_legendaire",
+      "ground": "sky_eos_g01p04c",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
         "master_zone"
       ],
       "dimensions": [
-        16,
-        12
+        81,
+        54
+      ]
+    },
+    {
+      "ground": "sky_eos_g01p05a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        51,
+        48
+      ]
+    },
+    {
+      "ground": "sky_eos_g01p05c",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        51,
+        48
       ]
     },
     {
@@ -1231,8 +1979,8 @@
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
-        "illuminant_riverbed",
-        "master_zone"
+        "master_zone",
+        "illuminant_riverbed"
       ],
       "dimensions": [
         40,
@@ -1240,51 +1988,75 @@
       ]
     },
     {
-      "ground": "labo_decrepit",
+      "ground": "sky_eos_g01p06a",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
         "master_zone"
       ],
       "dimensions": [
-        16,
-        12
+        63,
+        45
       ]
     },
     {
-      "ground": "lac_courage",
+      "ground": "sky_eos_g01p06b",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
         "master_zone"
       ],
       "dimensions": [
-        16,
-        12
+        63,
+        45
       ]
     },
     {
-      "ground": "lac_espoir",
+      "ground": "sky_eos_g01p07a",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
         "master_zone"
       ],
       "dimensions": [
-        16,
-        12
+        48,
+        39
       ]
     },
     {
-      "ground": "lac_savoir",
+      "ground": "sky_eos_g01p07c",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
         "master_zone"
       ],
       "dimensions": [
-        16,
-        12
+        48,
+        39
+      ]
+    },
+    {
+      "ground": "sky_eos_g01p08a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        33,
+        45
+      ]
+    },
+    {
+      "ground": "sky_eos_g01p09a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        54,
+        42
       ]
     },
     {
@@ -1300,53 +2072,75 @@
       ]
     },
     {
-      "ground": "luluby_town_evening",
+      "ground": "sky_eos_g01p09c",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
         "master_zone"
       ],
       "dimensions": [
-        84,
-        72
+        54,
+        42
       ]
     },
     {
-      "ground": "luluby_town_morning",
+      "ground": "sky_eos_g01p10a",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
         "master_zone"
       ],
       "dimensions": [
-        84,
-        72
+        54,
+        42
       ]
     },
     {
-      "ground": "luluby_town_night",
+      "ground": "sky_eos_g01p10c",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
         "master_zone"
       ],
       "dimensions": [
-        84,
-        72
+        54,
+        42
       ]
     },
     {
-      "ground": "luminous_spring",
+      "ground": "sky_eos_p01p01a",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
-        "illuminant_riverbed",
-        "master_zone",
-        "normal_maze"
+        "master_zone"
       ],
       "dimensions": [
-        75,
-        75
+        54,
+        57
+      ]
+    },
+    {
+      "ground": "sky_eos_p01p02a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        54,
+        54
+      ]
+    },
+    {
+      "ground": "t01p01",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        120,
+        90
       ]
     },
     {
@@ -1363,16 +2157,15 @@
       ]
     },
     {
-      "ground": "metano_cafe",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone",
-        "normal_maze"
+      "ground": "v09p04a",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "ORPHAN_GROUND"
       ],
+      "owners": [],
       "dimensions": [
-        57,
-        40
+        39,
+        30
       ]
     },
     {
@@ -1465,17 +2258,15 @@
       ]
     },
     {
-      "ground": "metano_town",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone",
-        "normal_maze",
-        "relic_forest"
+      "ground": "v10p03c",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "ORPHAN_GROUND"
       ],
+      "owners": [],
       "dimensions": [
-        189,
-        189
+        39,
+        75
       ]
     },
     {
@@ -1504,41 +2295,87 @@
       ]
     },
     {
-      "ground": "mont_cendre_pied",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone",
-        "mt_blaze"
-      ],
-      "dimensions": [
-        45,
-        39
-      ]
-    },
-    {
-      "ground": "mont_gele_pied",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone",
-        "mt_freeze"
-      ],
-      "dimensions": [
-        33,
-        36
-      ]
-    },
-    {
-      "ground": "mont_lune_vue",
+      "ground": "sky_eos_t00p01",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
         "master_zone"
       ],
       "dimensions": [
-        16,
-        12
+        120,
+        90
+      ]
+    },
+    {
+      "ground": "sky_eos_t00p02",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        84,
+        63
+      ]
+    },
+    {
+      "ground": "sky_eos_t00p03",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        69,
+        63
+      ]
+    },
+    {
+      "ground": "sky_eos_t00p04a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        60,
+        51
+      ]
+    },
+    {
+      "ground": "sky_eos_t01p02a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        69,
+        63
+      ]
+    },
+    {
+      "ground": "sky_eos_t01p03a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        63,
+        54
+      ]
+    },
+    {
+      "ground": "sky_eos_t01p04a",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        51,
+        45
       ]
     },
     {
@@ -1555,16 +2392,15 @@
       ]
     },
     {
-      "ground": "mount_windswept_guardian",
+      "ground": "sky_wigglytuff_guild_main",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
-        "master_zone",
-        "mount_windswept"
+        "master_zone"
       ],
       "dimensions": [
-        45,
-        42
+        81,
+        54
       ]
     },
     {
@@ -1581,56 +2417,31 @@
       ]
     },
     {
-      "ground": "mount_windswept_miniboss",
+      "ground": "sky_wigglytuff_guild_entrance",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
-        "master_zone",
-        "mount_windswept"
+        "master_zone"
       ],
       "dimensions": [
-        48,
-        66
-      ]
-    },
-    {
-      "ground": "mt_blaze_midpoint",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "mt_blaze"
-      ],
-      "dimensions": [
-        57,
+        87,
         57
       ]
     },
     {
-      "ground": "mt_freeze_midpoint",
+      "ground": "sommet_aurore",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
-        "mt_freeze"
+        "master_zone"
       ],
       "dimensions": [
-        57,
-        57
+        66,
+        63
       ]
     },
     {
-      "ground": "mt_thunder_midpoint",
-      "status": "FAIL_STATIC",
-      "issues": [
-        "ORPHAN_GROUND"
-      ],
-      "owners": [],
-      "dimensions": [
-        57,
-        57
-      ]
-    },
-    {
-      "ground": "nef_prisme_est",
+      "ground": "terres_tues_porte",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
@@ -1642,7 +2453,19 @@
       ]
     },
     {
-      "ground": "palier_celeste",
+      "ground": "test_grounds",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "normal_maze"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "tour_ciel_sommet",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
@@ -1650,21 +2473,142 @@
         "sky_tower"
       ],
       "dimensions": [
-        57,
+        69,
+        75
+      ]
+    },
+    {
+      "ground": "treasure_spinda_cafe",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        87,
         57
       ]
     },
     {
-      "ground": "parvis_celeste",
+      "ground": "v12p01a",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "ORPHAN_GROUND"
+      ],
+      "owners": [],
+      "dimensions": [
+        156,
+        30
+      ]
+    },
+    {
+      "ground": "v13p01a",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "ORPHAN_GROUND"
+      ],
+      "owners": [],
+      "dimensions": [
+        39,
+        30
+      ]
+    },
+    {
+      "ground": "v14p01a",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "ORPHAN_GROUND"
+      ],
+      "owners": [],
+      "dimensions": [
+        69,
+        30
+      ]
+    },
+    {
+      "ground": "v14p03a",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "ORPHAN_GROUND"
+      ],
+      "owners": [],
+      "dimensions": [
+        99,
+        30
+      ]
+    },
+    {
+      "ground": "v14p04a",
+      "status": "FAIL_STATIC",
+      "issues": [
+        "ORPHAN_GROUND"
+      ],
+      "owners": [],
+      "dimensions": [
+        99,
+        30
+      ]
+    },
+    {
+      "ground": "vallon_malsain_fond",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
+      ]
+    },
+    {
+      "ground": "vallon_perdu",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        51,
+        45
+      ]
+    },
+    {
+      "ground": "vast_steppe_guardian",
       "status": "PASS_STATIC",
       "issues": [],
       "owners": [
         "master_zone",
-        "sky_tower"
+        "vast_steppe"
       ],
       "dimensions": [
-        51,
-        36
+        46,
+        66
+      ]
+    },
+    {
+      "ground": "vast_steppe_miniboss",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone",
+        "vast_steppe"
+      ],
+      "dimensions": [
+        46,
+        66
+      ]
+    },
+    {
+      "ground": "vigie_stratos",
+      "status": "PASS_STATIC",
+      "issues": [],
+      "owners": [
+        "master_zone"
+      ],
+      "dimensions": [
+        16,
+        12
       ]
     },
     {
@@ -1677,83 +2621,6 @@
       "dimensions": [
         40,
         30
-      ]
-    },
-    {
-      "ground": "plage_lucioles",
-      "status": "FAIL_STATIC",
-      "issues": [
-        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_1",
-        "SPAWNER_OUT_OF_BOUNDS:TEAMMATE_2",
-        "SPAWNER_OUT_OF_BOUNDS:PARTNER_SPAWN"
-      ],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        99,
-        48
-      ]
-    },
-    {
-      "ground": "plaines_brulees",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        16,
-        12
-      ]
-    },
-    {
-      "ground": "poisonous_forest_entrance",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone",
-        "poisonous_forest"
-      ],
-      "dimensions": [
-        30,
-        40
-      ]
-    },
-    {
-      "ground": "poisonous_forest_miniboss",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "poisonous_forest"
-      ],
-      "dimensions": [
-        57,
-        57
-      ]
-    },
-    {
-      "ground": "poisonous_forest_relay",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "poisonous_forest"
-      ],
-      "dimensions": [
-        51,
-        54
-      ]
-    },
-    {
-      "ground": "porte_plaines_foudre",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        16,
-        12
       ]
     },
     {
@@ -1770,30 +2637,6 @@
       ]
     },
     {
-      "ground": "pre_tonnerre",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        57,
-        42
-      ]
-    },
-    {
-      "ground": "recif_genereux",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        16,
-        12
-      ]
-    },
-    {
       "ground": "relic_forest",
       "status": "PASS_STATIC",
       "issues": [],
@@ -1805,31 +2648,6 @@
       "dimensions": [
         75,
         75
-      ]
-    },
-    {
-      "ground": "rest_stop",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "normal_maze"
-      ],
-      "dimensions": [
-        16,
-        12
-      ]
-    },
-    {
-      "ground": "sanctuaire_voeu",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone",
-        "wish_cave"
-      ],
-      "dimensions": [
-        45,
-        42
       ]
     },
     {
@@ -1885,117 +2703,6 @@
       ]
     },
     {
-      "ground": "sinister_woods_clearing",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "gloomy_forest",
-        "master_zone"
-      ],
-      "dimensions": [
-        60,
-        47
-      ]
-    },
-    {
-      "ground": "sommet_aurore",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        66,
-        63
-      ]
-    },
-    {
-      "ground": "t01p01",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        120,
-        90
-      ]
-    },
-    {
-      "ground": "terres_tues_porte",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        16,
-        12
-      ]
-    },
-    {
-      "ground": "test_grounds",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "normal_maze"
-      ],
-      "dimensions": [
-        16,
-        12
-      ]
-    },
-    {
-      "ground": "testmap",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone",
-        "normal_maze"
-      ],
-      "dimensions": [
-        114,
-        136
-      ]
-    },
-    {
-      "ground": "tour_ciel_sommet",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone",
-        "sky_tower"
-      ],
-      "dimensions": [
-        69,
-        75
-      ]
-    },
-    {
-      "ground": "vallon_malsain_fond",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        16,
-        12
-      ]
-    },
-    {
-      "ground": "vallon_perdu",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        51,
-        45
-      ]
-    },
-    {
       "ground": "vast_steppe_entrance",
       "status": "PASS_STATIC",
       "issues": [],
@@ -2009,19 +2716,6 @@
       ]
     },
     {
-      "ground": "vast_steppe_guardian",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone",
-        "vast_steppe"
-      ],
-      "dimensions": [
-        46,
-        66
-      ]
-    },
-    {
       "ground": "vast_steppe_midpoint",
       "status": "PASS_STATIC",
       "issues": [],
@@ -2032,79 +2726,6 @@
       "dimensions": [
         99,
         66
-      ]
-    },
-    {
-      "ground": "vast_steppe_miniboss",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone",
-        "vast_steppe"
-      ],
-      "dimensions": [
-        46,
-        66
-      ]
-    },
-    {
-      "ground": "vigie_stratos",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        16,
-        12
-      ]
-    },
-    {
-      "ground": "cloven_ruin_regice_chamber_sky",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        63,
-        57
-      ]
-    },
-    {
-      "ground": "cloven_ruin_regirock_chamber_sky",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        57,
-        57
-      ]
-    },
-    {
-      "ground": "cloven_ruin_registeel_chamber_sky",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        57,
-        57
-      ]
-    },
-    {
-      "ground": "cloven_ruin_regigigas_chamber_sky",
-      "status": "PASS_STATIC",
-      "issues": [],
-      "owners": [
-        "master_zone"
-      ],
-      "dimensions": [
-        57,
-        57
       ]
     }
   ]

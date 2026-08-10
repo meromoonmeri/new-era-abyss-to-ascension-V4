@@ -1,5 +1,17 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+local function GROUND_IDX(name)
+  local ok, idx = pcall(function()
+    local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("master_zone")
+    for ii = 0, zone.Grounds.Count - 1, 1 do
+      if zone.Grounds[ii] == name then return ii end
+    end
+    return -1
+  end)
+  if not ok or idx == nil or idx < 0 then return 27 end
+  return idx
+end
+
 
 local normal_maze = {}
 --------------------------------------------------
@@ -66,8 +78,8 @@ function normal_maze.ExitSegment(zone, result, rescue, segmentID, mapID)
 	
 	
 	--after setting flags, save the dungeon run and then go to the dojo.
-	GAME:EndDungeonRun(result, "master_zone", -1, 36, 0, false, false)			
-	GAME:EnterZone("master_zone", -1, 36, 0)
+	GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX("ledian_dojo"), 0, false, false)			
+	GAME:EnterZone("master_zone", -1, GROUND_IDX("ledian_dojo"), 0)
 end
 	
 

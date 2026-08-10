@@ -1,22 +1,12 @@
 {
   "structures": [
     {
-      "zone": "antre_enigme",
-      "segment": 0,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 10,
-      "labels": [
-        "Mystery Dungeon\nB{0}F"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "apricorn_grove",
+      "zone": "chasm_cave",
       "segment": 0,
       "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
       "floors": 8,
       "labels": [
-        "Apricorn Grove\\n{0}F"
+        "Chasm Cave\\nB{0}F"
       ],
       "comment": ""
     },
@@ -65,6 +55,110 @@
       "comment": ""
     },
     {
+      "zone": "cloven_ruins",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
+      "floors": 3,
+      "labels": [],
+      "comment": "Secteur GLACE \u2014 labyrinthe B1F-B3F (boucle tant que le mot est incomplet)"
+    },
+    {
+      "zone": "cloven_ruins",
+      "segment": 1,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 1,
+      "labels": [],
+      "comment": "Chambre de Regice"
+    },
+    {
+      "zone": "cloven_ruins",
+      "segment": 2,
+      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
+      "floors": 3,
+      "labels": [],
+      "comment": "Secteur ROCHE \u2014 labyrinthe B1F-B3F (boucle)"
+    },
+    {
+      "zone": "cloven_ruins",
+      "segment": 3,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 1,
+      "labels": [],
+      "comment": "Chambre de Regirock"
+    },
+    {
+      "zone": "cloven_ruins",
+      "segment": 4,
+      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
+      "floors": 4,
+      "labels": [],
+      "comment": "Secteur ACIER \u2014 labyrinthe B1F-B4F (boucle)"
+    },
+    {
+      "zone": "cloven_ruins",
+      "segment": 5,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 1,
+      "labels": [],
+      "comment": "Chambre de Registeel"
+    },
+    {
+      "zone": "cloven_ruins",
+      "segment": 6,
+      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
+      "floors": 5,
+      "labels": [],
+      "comment": "Le Puits \u2014 B1F-B5F, aucun puzzle"
+    },
+    {
+      "zone": "cloven_ruins",
+      "segment": 7,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 1,
+      "labels": [],
+      "comment": "Chambre de Regigigas \u2014 boss final"
+    },
+    {
+      "zone": "antre_enigme",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 10,
+      "labels": [
+        "Mystery Dungeon\nB{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "apricorn_grove",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 8,
+      "labels": [
+        "Apricorn Grove\\n{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "crevasse_geode",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 14,
+      "labels": [
+        "Geode Crevice\\nB{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "dark_hill",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 15,
+      "labels": [
+        "Dark Hill\\nB{0}F"
+      ],
+      "comment": ""
+    },
+    {
       "zone": "beginner_lesson",
       "segment": 0,
       "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
@@ -73,6 +167,66 @@
         "Beginner Lesson\\nB{0}F"
       ],
       "comment": ""
+    },
+    {
+      "zone": "desert_oublies",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 5,
+      "labels": [
+        "Forsaken Desert\\n{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "desert_oublies",
+      "segment": 1,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 1,
+      "labels": [
+        "Secret Room"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "dusk_forest",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 8,
+      "labels": [
+        "Dusk Forest\\nB{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "frosty_forest",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
+      "floors": 9,
+      "labels": [
+        "Frosty Forest\\n{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "frosty_forest",
+      "segment": 1,
+      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
+      "floors": 5,
+      "labels": [
+        "Frosty Grotto\\nB{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "frosty_forest",
+      "segment": 2,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 1,
+      "labels": [
+        "Verdant Oath"
+      ],
+      "comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
     },
     {
       "zone": "bois_filou",
@@ -175,348 +329,24 @@
       "comment": ""
     },
     {
-      "zone": "carriere_cuivre",
-      "segment": 0,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 12,
-      "labels": [
-        "Copper Quarry\\nB{0}F"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "carriere_cuivre",
-      "segment": 1,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 4,
-      "labels": [
-        "Lodestone Quarry\\nB{0}F"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "carriere_cuivre",
-      "segment": 2,
-      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
-      "floors": 0,
-      "labels": [],
-      "comment": ""
-    },
-    {
-      "zone": "carriere_cuivre",
-      "segment": 3,
-      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
-      "floors": 0,
-      "labels": [],
-      "comment": ""
-    },
-    {
-      "zone": "carriere_cuivre",
-      "segment": 4,
-      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
-      "floors": 0,
-      "labels": [],
-      "comment": ""
-    },
-    {
-      "zone": "cloven_ruins",
-      "segment": 0,
-      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
-      "floors": 3,
-      "labels": [],
-      "comment": "Secteur GLACE \u2014 labyrinthe B1F-B3F (boucle tant que le mot est incomplet)"
-    },
-    {
-      "zone": "cloven_ruins",
-      "segment": 1,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 1,
-      "labels": [],
-      "comment": "Chambre de Regice"
-    },
-    {
-      "zone": "cloven_ruins",
-      "segment": 2,
-      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
-      "floors": 3,
-      "labels": [],
-      "comment": "Secteur ROCHE \u2014 labyrinthe B1F-B3F (boucle)"
-    },
-    {
-      "zone": "cloven_ruins",
-      "segment": 3,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 1,
-      "labels": [],
-      "comment": "Chambre de Regirock"
-    },
-    {
-      "zone": "cloven_ruins",
-      "segment": 4,
-      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
-      "floors": 4,
-      "labels": [],
-      "comment": "Secteur ACIER \u2014 labyrinthe B1F-B4F (boucle)"
-    },
-    {
-      "zone": "cloven_ruins",
-      "segment": 5,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 1,
-      "labels": [],
-      "comment": "Chambre de Registeel"
-    },
-    {
-      "zone": "cloven_ruins",
-      "segment": 6,
-      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
-      "floors": 5,
-      "labels": [],
-      "comment": "Le Puits \u2014 B1F-B5F, aucun puzzle"
-    },
-    {
-      "zone": "cloven_ruins",
-      "segment": 7,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 1,
-      "labels": [],
-      "comment": "Chambre de Regigigas \u2014 boss final"
-    },
-    {
-      "zone": "col_foudre",
-      "segment": 0,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 14,
-      "labels": [
-        "Thunderstruck Pass\\n{0}F"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "col_foudre",
-      "segment": 1,
-      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
-      "floors": 0,
-      "labels": [],
-      "comment": ""
-    },
-    {
-      "zone": "col_foudre",
-      "segment": 2,
-      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
-      "floors": 0,
-      "labels": [],
-      "comment": ""
-    },
-    {
-      "zone": "crevasse_geode",
-      "segment": 0,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 14,
-      "labels": [
-        "Geode Crevice\\nB{0}F"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "crooked_cavern",
-      "segment": 0,
-      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
-      "floors": 10,
-      "labels": [
-        "Crooked Cavern\\nB{0}F"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "crooked_cavern",
-      "segment": 1,
-      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
-      "floors": 10,
-      "labels": [
-        "Crooked Cavern - Profondeurs\\nB{0}F"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "crooked_cavern",
-      "segment": 2,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 1,
-      "labels": [
-        "Crooked Den"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "desert_oublies",
-      "segment": 0,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 5,
-      "labels": [
-        "Forsaken Desert\\n{0}F"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "desert_oublies",
-      "segment": 1,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 1,
-      "labels": [
-        "Secret Room"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "electric_maze",
-      "segment": 0,
-      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
-      "floors": 0,
-      "labels": [
-        "Electric Maze\\nB{0}F"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "falaises_envol",
-      "segment": 0,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 10,
-      "labels": [
-        "Flyaway Cliffs\\n{0}F"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "falaises_envol",
-      "segment": 1,
-      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
-      "floors": 0,
-      "labels": [],
-      "comment": ""
-    },
-    {
-      "zone": "falaises_envol",
-      "segment": 2,
-      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
-      "floors": 0,
-      "labels": [],
-      "comment": ""
-    },
-    {
-      "zone": "fire_maze",
-      "segment": 0,
-      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
-      "floors": 0,
-      "labels": [
-        "Fire Maze\\nB{0}F"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "flying_maze",
-      "segment": 0,
-      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
-      "floors": 0,
-      "labels": [
-        "Flying Maze\\nB{0}F"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "foret_embuscade",
-      "segment": 0,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 20,
-      "labels": [
-        "Ambush Forest\\nB{0}F"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "foret_embuscade",
-      "segment": 1,
-      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
-      "floors": 0,
-      "labels": [],
-      "comment": ""
-    },
-    {
-      "zone": "foret_embuscade",
-      "segment": 2,
-      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
-      "floors": 0,
-      "labels": [],
-      "comment": ""
-    },
-    {
-      "zone": "foret_embuscade",
-      "segment": 3,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 1,
-      "labels": [],
-      "comment": ""
-    },
-    {
-      "zone": "foret_embuscade",
-      "segment": 4,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 1,
-      "labels": [
-        "Verdant Oath"
-      ],
-      "comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
-    },
-    {
-      "zone": "frosty_forest",
-      "segment": 0,
-      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
-      "floors": 9,
-      "labels": [
-        "Frosty Forest\\n{0}F"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "frosty_forest",
-      "segment": 1,
-      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
-      "floors": 5,
-      "labels": [
-        "Frosty Grotto\\nB{0}F"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "frosty_forest",
-      "segment": 2,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 1,
-      "labels": [
-        "Verdant Oath"
-      ],
-      "comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
-    },
-    {
       "zone": "gloomy_forest",
       "segment": 0,
       "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
-      "floors": 18,
+      "floors": 15,
       "labels": [
         "Gloomy Forest"
       ],
-      "comment": "18 normal floors of the Gloomy Forest."
+      "comment": "F01-F15 \u2014 fondation Sinister/Mystifying Forest; puis relais forestier Ground. Pok\u00e9mon: table GBA Sinister Woods exacte, r\u00e9p\u00e9t\u00e9e selon cycle 13F pour extension New Era."
     },
     {
       "zone": "gloomy_forest",
       "segment": 1,
       "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
-      "floors": 3,
+      "floors": 5,
       "labels": [
         "Gloomy Forest Depths"
       ],
-      "comment": "3 depth floors before Zarude."
+      "comment": "F16-F20 \u2014 continuit\u00e9 canonique foresti\u00e8re apr\u00e8s le relais. Pok\u00e9mon: table GBA Sinister Woods exacte, r\u00e9p\u00e9t\u00e9e selon cycle 13F pour extension New Era."
     },
     {
       "zone": "gloomy_forest",
@@ -536,7 +366,7 @@
       "labels": [
         "Gloomy Forest Depths"
       ],
-      "comment": "3F au-dessus du mini-boss gloomy_forest (clone du premier tiers post-relais)."
+      "comment": "F21-F23 \u2014 Deep Shadow Forest, m\u00eame architecture foresti\u00e8re avec visibilit\u00e9 et ambiance assombries. Pok\u00e9mon: table GBA Sinister Woods exacte, r\u00e9p\u00e9t\u00e9e selon cycle 13F pour extension New Era."
     },
     {
       "zone": "gloomy_forest",
@@ -609,33 +439,47 @@
       "comment": "Duel de la Team Dazzling (chapitre 6, apres la Foret Lugubre)."
     },
     {
-      "zone": "grass_maze",
-      "segment": 0,
-      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
-      "floors": 0,
-      "labels": [
-        "Grass Maze\\nB{0}F"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "grotte_echoue",
+      "zone": "carriere_cuivre",
       "segment": 0,
       "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
       "floors": 12,
       "labels": [
-        "Castaway Cave\\nB{0}F"
+        "Copper Quarry\\nB{0}F"
       ],
       "comment": ""
     },
     {
-      "zone": "grotte_mystere",
-      "segment": 0,
+      "zone": "carriere_cuivre",
+      "segment": 1,
       "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 6,
+      "floors": 4,
       "labels": [
-        "Mystery Cave\nB{0}F"
+        "Lodestone Quarry\\nB{0}F"
       ],
+      "comment": ""
+    },
+    {
+      "zone": "carriere_cuivre",
+      "segment": 2,
+      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
+      "floors": 0,
+      "labels": [],
+      "comment": ""
+    },
+    {
+      "zone": "carriere_cuivre",
+      "segment": 3,
+      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
+      "floors": 0,
+      "labels": [],
+      "comment": ""
+    },
+    {
+      "zone": "carriere_cuivre",
+      "segment": 4,
+      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
+      "floors": 0,
+      "labels": [],
       "comment": ""
     },
     {
@@ -659,16 +503,6 @@
       "comment": ""
     },
     {
-      "zone": "illuminant_riverbed",
-      "segment": 0,
-      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
-      "floors": 8,
-      "labels": [
-        "Illuminant Riverbed\\n{0}F"
-      ],
-      "comment": ""
-    },
-    {
       "zone": "jardin_energie",
       "segment": 0,
       "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
@@ -679,13 +513,29 @@
       "comment": ""
     },
     {
-      "zone": "jardin_secret",
+      "zone": "col_foudre",
       "segment": 0,
       "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 40,
+      "floors": 14,
       "labels": [
-        "Secret Garden\\nB{0}F"
+        "Thunderstruck Pass\\n{0}F"
       ],
+      "comment": ""
+    },
+    {
+      "zone": "col_foudre",
+      "segment": 1,
+      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
+      "floors": 0,
+      "labels": [],
+      "comment": ""
+    },
+    {
+      "zone": "col_foudre",
+      "segment": 2,
+      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
+      "floors": 0,
+      "labels": [],
       "comment": ""
     },
     {
@@ -727,24 +577,6 @@
         "Verdant Oath"
       ],
       "comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
-    },
-    {
-      "zone": "marais_errants",
-      "segment": 0,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 17,
-      "labels": [
-        "Wayward Wetlands\\nB{0}F"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "marais_errants",
-      "segment": 1,
-      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
-      "floors": 0,
-      "labels": [],
-      "comment": ""
     },
     {
       "zone": "master_zone",
@@ -837,24 +669,44 @@
       "comment": ""
     },
     {
-      "zone": "normal_maze",
+      "zone": "crooked_cavern",
       "segment": 0,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 5,
+      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
+      "floors": 10,
       "labels": [
-        "Normal Maze\\nB{0}F"
+        "Crooked Cavern\\nB{0}F"
       ],
       "comment": ""
     },
     {
-      "zone": "petit_tunnel",
-      "segment": 0,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 9,
+      "zone": "crooked_cavern",
+      "segment": 1,
+      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
+      "floors": 10,
       "labels": [
-        "Tiny Tunnel\\nB{0}F"
+        "Crooked Cavern - Profondeurs\\nB{0}F"
       ],
       "comment": ""
+    },
+    {
+      "zone": "crooked_cavern",
+      "segment": 2,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 1,
+      "labels": [
+        "Crooked Den"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "passage_temps",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 3,
+      "labels": [
+        "Passage of Time\\nB{0}F"
+      ],
+      "comment": "D55 (Passage du Temps / Boulder Quarry NDS). Donjon de 3 \u00e9tages de l arc du futur. Spawns d ennemis: \u00e0 extraire de mappa_s.bin (doc Frostbyte) \u2014 non invent\u00e9s. Tileset: copper_quarry (auto-tileset du mod, proche de Boulder Quarry)."
     },
     {
       "zone": "poisonous_forest",
@@ -905,22 +757,78 @@
       "comment": "Antre de Mega-Blastoise \u2014 caverne noyee, eau violette"
     },
     {
-      "zone": "relic_forest",
+      "zone": "sealed_ruin",
       "segment": 0,
       "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 5,
+      "floors": 8,
       "labels": [
-        "Relic Forest\\n{0}F"
+        "Sealed Ruin\\nB{0}F"
       ],
       "comment": ""
     },
     {
-      "zone": "rock_maze",
+      "zone": "sealed_ruin_pit",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 6,
+      "labels": [
+        "Sealed Ruin Pit\\nB{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "electric_maze",
       "segment": 0,
       "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
       "floors": 0,
       "labels": [
-        "Rock Maze\\nB{0}F"
+        "Electric Maze\\nB{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "falaises_envol",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 10,
+      "labels": [
+        "Flyaway Cliffs\\n{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "falaises_envol",
+      "segment": 1,
+      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
+      "floors": 0,
+      "labels": [],
+      "comment": ""
+    },
+    {
+      "zone": "falaises_envol",
+      "segment": 2,
+      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
+      "floors": 0,
+      "labels": [],
+      "comment": ""
+    },
+    {
+      "zone": "fire_maze",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
+      "floors": 0,
+      "labels": [
+        "Fire Maze\\nB{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "flying_maze",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
+      "floors": 0,
+      "labels": [
+        "Flying Maze\\nB{0}F"
       ],
       "comment": ""
     },
@@ -955,27 +863,25 @@
       "comment": ""
     },
     {
-      "zone": "sentier_enneige",
+      "zone": "foret_embuscade",
       "segment": 0,
       "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 18,
+      "floors": 20,
       "labels": [
-        "Snowbound Path\\n{0}F"
+        "Ambush Forest\\nB{0}F"
       ],
       "comment": ""
     },
     {
-      "zone": "sentier_enneige",
+      "zone": "foret_embuscade",
       "segment": 1,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 6,
-      "labels": [
-        "Glacial Path\\nB{0}F"
-      ],
+      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
+      "floors": 0,
+      "labels": [],
       "comment": ""
     },
     {
-      "zone": "sentier_enneige",
+      "zone": "foret_embuscade",
       "segment": 2,
       "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
       "floors": 0,
@@ -983,20 +889,22 @@
       "comment": ""
     },
     {
-      "zone": "sentier_enneige",
+      "zone": "foret_embuscade",
       "segment": 3,
-      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
-      "floors": 0,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 1,
       "labels": [],
       "comment": ""
     },
     {
-      "zone": "sentier_enneige",
+      "zone": "foret_embuscade",
       "segment": 4,
-      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
-      "floors": 0,
-      "labels": [],
-      "comment": ""
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 1,
+      "labels": [
+        "Verdant Oath"
+      ],
+      "comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
     },
     {
       "zone": "sky_tower",
@@ -1057,6 +965,266 @@
         "Verdant Oath"
       ],
       "comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
+    },
+    {
+      "zone": "spiritomb_room",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 1,
+      "labels": [
+        "Spiritomb Room\\nB{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "vast_steppe",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
+      "floors": 7,
+      "labels": [
+        "Vast Steppe\\n{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "vast_steppe",
+      "segment": 1,
+      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
+      "floors": 7,
+      "labels": [
+        "Vast Steppe Depths\\n{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "vast_steppe",
+      "segment": 2,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 1,
+      "labels": [
+        "Steppe Guardian Hollow"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "waterfall_pond",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
+      "floors": 15,
+      "labels": [],
+      "comment": "Terapagos F01-F15 \u2014 progression cristalline; relais imm\u00e9diatement apr\u00e8s F15."
+    },
+    {
+      "zone": "waterfall_pond",
+      "segment": 1,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 1,
+      "labels": [],
+      "comment": "Relais Terapagos \u2014 checkpoint apr\u00e8s F15."
+    },
+    {
+      "zone": "waterfall_pond",
+      "segment": 2,
+      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
+      "floors": 3,
+      "labels": [],
+      "comment": "Terapagos F16-F18 \u2014 densit\u00e9 cristalline croissante."
+    },
+    {
+      "zone": "waterfall_pond",
+      "segment": 3,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 1,
+      "labels": [],
+      "comment": "Transition fixe des profondeurs; ne compte pas parmi les 20 \u00e9tages proc\u00e9duraux."
+    },
+    {
+      "zone": "waterfall_pond",
+      "segment": 4,
+      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
+      "floors": 2,
+      "labels": [],
+      "comment": "Terapagos F19-F20 \u2014 approche finale."
+    },
+    {
+      "zone": "waterfall_pond",
+      "segment": 5,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 1,
+      "labels": [],
+      "comment": "Ar\u00e8ne Terapagos apr\u00e8s F20."
+    },
+    {
+      "zone": "wish_cave",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
+      "floors": 98,
+      "labels": [
+        "Wish Cave\\nB{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "wish_cave",
+      "segment": 1,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 1,
+      "labels": [
+        "Verdant Oath"
+      ],
+      "comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
+    },
+    {
+      "zone": "grass_maze",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
+      "floors": 0,
+      "labels": [
+        "Grass Maze\\nB{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "grotte_echoue",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 12,
+      "labels": [
+        "Castaway Cave\\nB{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "grotte_mystere",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 6,
+      "labels": [
+        "Mystery Cave\nB{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "illuminant_riverbed",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
+      "floors": 8,
+      "labels": [
+        "Illuminant Riverbed\\n{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "jardin_secret",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 40,
+      "labels": [
+        "Secret Garden\\nB{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "marais_errants",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 17,
+      "labels": [
+        "Wayward Wetlands\\nB{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "marais_errants",
+      "segment": 1,
+      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
+      "floors": 0,
+      "labels": [],
+      "comment": ""
+    },
+    {
+      "zone": "normal_maze",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 5,
+      "labels": [
+        "Normal Maze\\nB{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "petit_tunnel",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 9,
+      "labels": [
+        "Tiny Tunnel\\nB{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "relic_forest",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 5,
+      "labels": [
+        "Relic Forest\\n{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "rock_maze",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
+      "floors": 0,
+      "labels": [
+        "Rock Maze\\nB{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "sentier_enneige",
+      "segment": 0,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 18,
+      "labels": [
+        "Snowbound Path\\n{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "sentier_enneige",
+      "segment": 1,
+      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+      "floors": 6,
+      "labels": [
+        "Glacial Path\\nB{0}F"
+      ],
+      "comment": ""
+    },
+    {
+      "zone": "sentier_enneige",
+      "segment": 2,
+      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
+      "floors": 0,
+      "labels": [],
+      "comment": ""
+    },
+    {
+      "zone": "sentier_enneige",
+      "segment": 3,
+      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
+      "floors": 0,
+      "labels": [],
+      "comment": ""
+    },
+    {
+      "zone": "sentier_enneige",
+      "segment": 4,
+      "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
+      "floors": 0,
+      "labels": [],
+      "comment": ""
     },
     {
       "zone": "toundra_desolee",
@@ -1123,36 +1291,6 @@
       "comment": ""
     },
     {
-      "zone": "vast_steppe",
-      "segment": 0,
-      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
-      "floors": 7,
-      "labels": [
-        "Vast Steppe\\n{0}F"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "vast_steppe",
-      "segment": 1,
-      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
-      "floors": 7,
-      "labels": [
-        "Vast Steppe Depths\\n{0}F"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "vast_steppe",
-      "segment": 2,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 1,
-      "labels": [
-        "Steppe Guardian Hollow"
-      ],
-      "comment": ""
-    },
-    {
       "zone": "water_maze",
       "segment": 0,
       "type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
@@ -1161,84 +1299,9 @@
         "Water Maze\\nB{0}F"
       ],
       "comment": ""
-    },
-    {
-      "zone": "waterfall_pond",
-      "segment": 0,
-      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
-      "floors": 25,
-      "labels": [],
-      "comment": "Galerie Cristalline : 12 etages, cristaux bleus, veines lumineuses"
-    },
-    {
-      "zone": "waterfall_pond",
-      "segment": 1,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 1,
-      "labels": [],
-      "comment": "Relais \u2014 autel cristallin (checkpoint Kangourex)"
-    },
-    {
-      "zone": "waterfall_pond",
-      "segment": 2,
-      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
-      "floors": 3,
-      "labels": [],
-      "comment": "Salles des Glyphes : 6 etages profonds, runes anciennes, cristaux noirs"
-    },
-    {
-      "zone": "waterfall_pond",
-      "segment": 3,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 1,
-      "labels": [],
-      "comment": "Mini-boss crystal_sanctuary (insertion tools/insert_miniboss_segments.py)."
-    },
-    {
-      "zone": "waterfall_pond",
-      "segment": 4,
-      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
-      "floors": 3,
-      "labels": [],
-      "comment": "3F au-dessus du mini-boss crystal_sanctuary (clone du premier tiers post-relais)."
-    },
-    {
-      "zone": "waterfall_pond",
-      "segment": 5,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 1,
-      "labels": [],
-      "comment": "Chambre de Diancie \u2014 arene cristalline circulaire"
-    },
-    {
-      "zone": "wish_cave",
-      "segment": 0,
-      "type": "RogueEssence.LevelGen.RangeDictSegment, RogueEssence",
-      "floors": 98,
-      "labels": [
-        "Wish Cave\\nB{0}F"
-      ],
-      "comment": ""
-    },
-    {
-      "zone": "wish_cave",
-      "segment": 1,
-      "type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
-      "floors": 1,
-      "labels": [
-        "Verdant Oath"
-      ],
-      "comment": "Arene de revanche Zarude (zone Serment Verdoyant)."
     }
   ],
   "cross_dungeon_findings": [
-    {
-      "type": "CROSS_DUNGEON_FLOOR_NAME",
-      "zone": "foret_embuscade",
-      "segment": 4,
-      "floor": "Verdant Oath",
-      "cause": "same floor identity used by foret_embuscade,frosty_forest,gloomy_forest,magma_cavern,sky_tower,toundra_desolee,wish_cave"
-    },
     {
       "type": "CROSS_DUNGEON_FLOOR_NAME",
       "zone": "frosty_forest",
@@ -1269,6 +1332,13 @@
     },
     {
       "type": "CROSS_DUNGEON_FLOOR_NAME",
+      "zone": "foret_embuscade",
+      "segment": 4,
+      "floor": "Verdant Oath",
+      "cause": "same floor identity used by foret_embuscade,frosty_forest,gloomy_forest,magma_cavern,sky_tower,toundra_desolee,wish_cave"
+    },
+    {
+      "type": "CROSS_DUNGEON_FLOOR_NAME",
       "zone": "sky_tower",
       "segment": 1,
       "floor": "Verdant Oath",
@@ -1290,14 +1360,14 @@
     },
     {
       "type": "CROSS_DUNGEON_FLOOR_NAME",
-      "zone": "toundra_desolee",
+      "zone": "wish_cave",
       "segment": 1,
       "floor": "Verdant Oath",
       "cause": "same floor identity used by foret_embuscade,frosty_forest,gloomy_forest,magma_cavern,sky_tower,toundra_desolee,wish_cave"
     },
     {
       "type": "CROSS_DUNGEON_FLOOR_NAME",
-      "zone": "wish_cave",
+      "zone": "toundra_desolee",
       "segment": 1,
       "floor": "Verdant Oath",
       "cause": "same floor identity used by foret_embuscade,frosty_forest,gloomy_forest,magma_cavern,sky_tower,toundra_desolee,wish_cave"

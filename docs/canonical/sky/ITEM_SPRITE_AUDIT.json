@@ -1,17 +1,11 @@
 {
   "schema": 1,
   "authority": "pret/pmd-sky binary item tables; no PNG/screenshot source",
-  "source_blobs": [
-    {
-      "path": "files/BALANCE/item_s_p.bin",
-      "bytes": 3856,
-      "sha256": "90cbf7360bc402b74649ed067894c5b2a8ee00dc2f8571b31a4069ca6fd769f3"
-    }
-  ],
+  "source_blobs": [],
   "counts": {
     "pmdo_items": 238,
     "distinct_sprite_bindings": 109,
-    "errors": 0
+    "errors": 1
   },
   "items": [
     {
@@ -1443,6 +1437,8 @@
       "released": true
     }
   ],
-  "errors": [],
+  "errors": [
+    "source absente: /tmp/pmd-sky/files/BALANCE/item_s_p.bin"
+  ],
   "note": "A non-empty PMDO binding is necessary but runtime sprite identity still requires the corresponding RogueEssence animation asset to be present in the engine data package."
 }

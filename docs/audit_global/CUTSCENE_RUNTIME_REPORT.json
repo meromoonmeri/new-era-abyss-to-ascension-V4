@@ -1,6 +1,6 @@
 {
   "classification": "STATIC_DISCOVERY; NOT runtime completion",
-  "candidate_files": 330,
+  "candidate_files": 466,
   "tornadus": {
     "TORNADUS_CUTSCENE_STATUS": "INCONCLUSIVE",
     "TORNADUS_RUNTIME_TESTS": [],
@@ -10,6 +10,46 @@
     "TORNADUS_REGRESSION_RESULT": "NOT_TESTED"
   },
   "bosses": [
+    {
+      "map": "boss_artifact_water",
+      "species": "lunatone",
+      "position": {
+        "X": 2,
+        "Y": 2
+      },
+      "level": 1,
+      "runtime": "NOT_TESTED"
+    },
+    {
+      "map": "boss_artifact_water",
+      "species": "solrock",
+      "position": {
+        "X": 6,
+        "Y": 2
+      },
+      "level": 1,
+      "runtime": "NOT_TESTED"
+    },
+    {
+      "map": "boss_artifact_water",
+      "species": "claydol",
+      "position": {
+        "X": 2,
+        "Y": 6
+      },
+      "level": 1,
+      "runtime": "NOT_TESTED"
+    },
+    {
+      "map": "boss_artifact_water",
+      "species": "bronzong",
+      "position": {
+        "X": 6,
+        "Y": 6
+      },
+      "level": 1,
+      "runtime": "NOT_TESTED"
+    },
     {
       "map": "boss_awd",
       "species": "arbok",
@@ -35,6 +75,86 @@
       "species": "drapion",
       "position": {
         "X": 8,
+        "Y": 4
+      },
+      "level": 1,
+      "runtime": "NOT_TESTED"
+    },
+    {
+      "map": "boss_burmy_pair",
+      "species": "mothim",
+      "position": {
+        "X": 3,
+        "Y": 2
+      },
+      "level": 1,
+      "runtime": "NOT_TESTED"
+    },
+    {
+      "map": "boss_burmy_pair",
+      "species": "wormadam",
+      "position": {
+        "X": 5,
+        "Y": 2
+      },
+      "level": 1,
+      "runtime": "NOT_TESTED"
+    },
+    {
+      "map": "boss_cattle_pair",
+      "species": "tauros",
+      "position": {
+        "X": 4,
+        "Y": 3
+      },
+      "level": 1,
+      "runtime": "NOT_TESTED"
+    },
+    {
+      "map": "boss_cattle_pair",
+      "species": "miltank",
+      "position": {
+        "X": 4,
+        "Y": 2
+      },
+      "level": 1,
+      "runtime": "NOT_TESTED"
+    },
+    {
+      "map": "boss_ditto",
+      "species": "ditto",
+      "position": {
+        "X": 4,
+        "Y": 1
+      },
+      "level": 1,
+      "runtime": "NOT_TESTED"
+    },
+    {
+      "map": "boss_ditto",
+      "species": "ditto",
+      "position": {
+        "X": 4,
+        "Y": 7
+      },
+      "level": 1,
+      "runtime": "NOT_TESTED"
+    },
+    {
+      "map": "boss_ditto",
+      "species": "ditto",
+      "position": {
+        "X": 1,
+        "Y": 4
+      },
+      "level": 1,
+      "runtime": "NOT_TESTED"
+    },
+    {
+      "map": "boss_ditto",
+      "species": "ditto",
+      "position": {
+        "X": 7,
         "Y": 4
       },
       "level": 1,
@@ -561,126 +681,6 @@
       "runtime": "NOT_TESTED"
     },
     {
-      "map": "boss_artifact_water",
-      "species": "lunatone",
-      "position": {
-        "X": 2,
-        "Y": 2
-      },
-      "level": 1,
-      "runtime": "NOT_TESTED"
-    },
-    {
-      "map": "boss_artifact_water",
-      "species": "solrock",
-      "position": {
-        "X": 6,
-        "Y": 2
-      },
-      "level": 1,
-      "runtime": "NOT_TESTED"
-    },
-    {
-      "map": "boss_artifact_water",
-      "species": "claydol",
-      "position": {
-        "X": 2,
-        "Y": 6
-      },
-      "level": 1,
-      "runtime": "NOT_TESTED"
-    },
-    {
-      "map": "boss_artifact_water",
-      "species": "bronzong",
-      "position": {
-        "X": 6,
-        "Y": 6
-      },
-      "level": 1,
-      "runtime": "NOT_TESTED"
-    },
-    {
-      "map": "boss_burmy_pair",
-      "species": "mothim",
-      "position": {
-        "X": 3,
-        "Y": 2
-      },
-      "level": 1,
-      "runtime": "NOT_TESTED"
-    },
-    {
-      "map": "boss_burmy_pair",
-      "species": "wormadam",
-      "position": {
-        "X": 5,
-        "Y": 2
-      },
-      "level": 1,
-      "runtime": "NOT_TESTED"
-    },
-    {
-      "map": "boss_cattle_pair",
-      "species": "tauros",
-      "position": {
-        "X": 4,
-        "Y": 3
-      },
-      "level": 1,
-      "runtime": "NOT_TESTED"
-    },
-    {
-      "map": "boss_cattle_pair",
-      "species": "miltank",
-      "position": {
-        "X": 4,
-        "Y": 2
-      },
-      "level": 1,
-      "runtime": "NOT_TESTED"
-    },
-    {
-      "map": "boss_ditto",
-      "species": "ditto",
-      "position": {
-        "X": 4,
-        "Y": 1
-      },
-      "level": 1,
-      "runtime": "NOT_TESTED"
-    },
-    {
-      "map": "boss_ditto",
-      "species": "ditto",
-      "position": {
-        "X": 4,
-        "Y": 7
-      },
-      "level": 1,
-      "runtime": "NOT_TESTED"
-    },
-    {
-      "map": "boss_ditto",
-      "species": "ditto",
-      "position": {
-        "X": 1,
-        "Y": 4
-      },
-      "level": 1,
-      "runtime": "NOT_TESTED"
-    },
-    {
-      "map": "boss_ditto",
-      "species": "ditto",
-      "position": {
-        "X": 7,
-        "Y": 4
-      },
-      "level": 1,
-      "runtime": "NOT_TESTED"
-    },
-    {
       "map": "boss_eclipse",
       "species": "espeon",
       "position": {
@@ -1101,36 +1101,6 @@
       "runtime": "NOT_TESTED"
     },
     {
-      "map": "chapter_3_boss_fight",
-      "species": "luxio",
-      "position": {
-        "X": 7,
-        "Y": 5
-      },
-      "level": 10,
-      "runtime": "NOT_TESTED"
-    },
-    {
-      "map": "chapter_3_boss_fight",
-      "species": "glameow",
-      "position": {
-        "X": 6,
-        "Y": 4
-      },
-      "level": 9,
-      "runtime": "NOT_TESTED"
-    },
-    {
-      "map": "chapter_3_boss_fight",
-      "species": "cacnea",
-      "position": {
-        "X": 8,
-        "Y": 4
-      },
-      "level": 9,
-      "runtime": "NOT_TESTED"
-    },
-    {
       "map": "cloven_ruins_regice",
       "species": "regice",
       "position": {
@@ -1162,7 +1132,7 @@
     },
     {
       "map": "crystal_sanctuary_boss",
-      "species": "tsareena",
+      "species": "diancie",
       "position": {
         "X": 7,
         "Y": 9
@@ -1172,7 +1142,7 @@
     },
     {
       "map": "crystal_sanctuary_miniboss",
-      "species": "tsareena",
+      "species": "carbink",
       "position": {
         "X": 7,
         "Y": 9
@@ -1182,7 +1152,7 @@
     },
     {
       "map": "crystal_sanctuary_miniboss",
-      "species": "tsareena",
+      "species": "froslass",
       "position": {
         "X": 7,
         "Y": 9
@@ -1272,7 +1242,7 @@
     },
     {
       "map": "forgotten_marsh_boss",
-      "species": "tsareena",
+      "species": "swampert",
       "position": {
         "X": 7,
         "Y": 9
@@ -1282,30 +1252,30 @@
     },
     {
       "map": "forgotten_marsh_miniboss",
-      "species": "tsareena",
+      "species": "swalot",
       "position": {
-        "X": 7,
-        "Y": 9
+        "X": 3,
+        "Y": 3
       },
       "level": 31,
       "runtime": "NOT_TESTED"
     },
     {
       "map": "forgotten_marsh_miniboss",
-      "species": "tsareena",
+      "species": "toxicroak",
       "position": {
-        "X": 7,
-        "Y": 9
+        "X": 4,
+        "Y": 3
       },
       "level": 31,
       "runtime": "NOT_TESTED"
     },
     {
       "map": "frosty_forest_summit",
-      "species": "zeraora",
+      "species": "articuno",
       "position": {
-        "X": 7,
-        "Y": 5
+        "X": 33,
+        "Y": 22
       },
       "level": 33,
       "runtime": "NOT_TESTED"
@@ -1314,8 +1284,8 @@
       "map": "gloomy_forest_boss",
       "species": "zeraora",
       "position": {
-        "X": 7,
-        "Y": 5
+        "X": 30,
+        "Y": 9
       },
       "level": 36,
       "runtime": "NOT_TESTED"
@@ -1384,8 +1354,8 @@
       "map": "magma_cavern_pit",
       "species": "groudon",
       "position": {
-        "X": 10,
-        "Y": 7
+        "X": 30,
+        "Y": 22
       },
       "level": 37,
       "runtime": "NOT_TESTED"
@@ -1524,8 +1494,8 @@
       "map": "metano_town_duel",
       "species": "tsareena",
       "position": {
-        "X": 7,
-        "Y": 9
+        "X": 48,
+        "Y": 38
       },
       "level": 26,
       "runtime": "NOT_TESTED"
@@ -1534,8 +1504,8 @@
       "map": "metano_town_duel",
       "species": "lopunny",
       "position": {
-        "X": 6,
-        "Y": 8
+        "X": 47,
+        "Y": 39
       },
       "level": 25,
       "runtime": "NOT_TESTED"
@@ -1544,8 +1514,8 @@
       "map": "metano_town_duel",
       "species": "mismagius",
       "position": {
-        "X": 8,
-        "Y": 8
+        "X": 49,
+        "Y": 39
       },
       "level": 25,
       "runtime": "NOT_TESTED"
@@ -1554,8 +1524,8 @@
       "map": "mount_windswept_guardian",
       "species": "tornadus",
       "position": {
-        "X": 7,
-        "Y": 5
+        "X": 22,
+        "Y": 17
       },
       "level": 33,
       "runtime": "NOT_TESTED"
@@ -1564,8 +1534,8 @@
       "map": "mt_blaze_summit",
       "species": "moltres",
       "position": {
-        "X": 11,
-        "Y": 5
+        "X": 34,
+        "Y": 22
       },
       "level": 35,
       "runtime": "NOT_TESTED"
@@ -1691,6 +1661,76 @@
       "runtime": "NOT_TESTED"
     },
     {
+      "map": "chapter_3_boss_fight",
+      "species": "luxio",
+      "position": {
+        "X": 7,
+        "Y": 5
+      },
+      "level": 10,
+      "runtime": "NOT_TESTED"
+    },
+    {
+      "map": "chapter_3_boss_fight",
+      "species": "glameow",
+      "position": {
+        "X": 6,
+        "Y": 4
+      },
+      "level": 9,
+      "runtime": "NOT_TESTED"
+    },
+    {
+      "map": "chapter_3_boss_fight",
+      "species": "cacnea",
+      "position": {
+        "X": 8,
+        "Y": 4
+      },
+      "level": 9,
+      "runtime": "NOT_TESTED"
+    },
+    {
+      "map": "spiritomb_arena",
+      "species": "spiritomb",
+      "position": {
+        "X": 8,
+        "Y": 2
+      },
+      "level": 51,
+      "runtime": "NOT_TESTED"
+    },
+    {
+      "map": "tour_ciel_sommet",
+      "species": "rayquaza",
+      "position": {
+        "X": 34,
+        "Y": 34
+      },
+      "level": 40,
+      "runtime": "NOT_TESTED"
+    },
+    {
+      "map": "vast_steppe_guardian",
+      "species": "absol",
+      "position": {
+        "X": 23,
+        "Y": 22
+      },
+      "level": 28,
+      "runtime": "NOT_TESTED"
+    },
+    {
+      "map": "wish_cave_jirachi",
+      "species": "jirachi",
+      "position": {
+        "X": 22,
+        "Y": 17
+      },
+      "level": 40,
+      "runtime": "NOT_TESTED"
+    },
+    {
       "map": "searing_crucible",
       "species": "magcargo",
       "position": {
@@ -1781,26 +1821,6 @@
       "runtime": "NOT_TESTED"
     },
     {
-      "map": "tour_ciel_sommet",
-      "species": "tsareena",
-      "position": {
-        "X": 7,
-        "Y": 9
-      },
-      "level": 40,
-      "runtime": "NOT_TESTED"
-    },
-    {
-      "map": "vast_steppe_guardian",
-      "species": "absol",
-      "position": {
-        "X": 8,
-        "Y": 4
-      },
-      "level": 28,
-      "runtime": "NOT_TESTED"
-    },
-    {
       "map": "verdant_oath_arena",
       "species": "zarude",
       "position": {
@@ -1808,16 +1828,6 @@
         "Y": 5
       },
       "level": 30,
-      "runtime": "NOT_TESTED"
-    },
-    {
-      "map": "wish_cave_jirachi",
-      "species": "zeraora",
-      "position": {
-        "X": 7,
-        "Y": 5
-      },
-      "level": 40,
       "runtime": "NOT_TESTED"
     }
   ]

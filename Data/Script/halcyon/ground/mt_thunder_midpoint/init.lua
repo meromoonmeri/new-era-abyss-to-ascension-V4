@@ -37,7 +37,7 @@ function mt_thunder_midpoint.North_Exit_Touch(obj, activator)
   UI:WaitForChoice()
   if UI:ChoiceResult() then
     GAME:FadeOut(false, 60)
-    GAME:EnterDungeon("mt_thunder", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    GAME:EnterDungeon("col_foudre", 1, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
   end
 end
 

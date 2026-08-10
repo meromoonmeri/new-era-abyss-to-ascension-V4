@@ -1560,3 +1560,49 @@ SV.Ruines =
 
 ----------------------------------------------
 print('Script variables default values loaded! [build 2026-08-04-K]')
+
+-----------------------------------------------
+-- New Era & Future Arc Defaults
+-----------------------------------------------
+SV.NewEra = 
+{
+	DUNGEON_RESULT = 0,
+	GROUND_START_MODE = 0
+}
+
+SV.Scenario = 
+{
+	Main = 0,
+	Side = 0,
+	CompulsorySavePoint = 0
+}
+
+SV.LulubyTown = 
+{
+	Period = 'morning',
+	Visited = false
+}
+
+SV.TownLife = 
+{
+	SeenSocialDay = 0
+}
+
+SV.TreasureTown = 
+{
+	SpindaCafe = 
+	{
+		FirstVisit = false,
+		RumorState = 0
+	}
+}
+
+SV.WorldState = 
+{
+	Weather = { Current = 'normal' }
+}
+
+SV.RuntimeGroundAudit = 
+{
+	Active = false
+}

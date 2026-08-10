@@ -126,7 +126,11 @@
         "cloven_ruins_entrance",
         "cloven_ruins_midpoint",
         "cloven_ruins_miniboss",
-        "hero_dream"
+        "hero_dream",
+        "cloven_ruin_regice_chamber_sky",
+        "cloven_ruin_regirock_chamber_sky",
+        "cloven_ruin_registeel_chamber_sky",
+        "cloven_ruin_regigigas_chamber_sky"
       ],
       "Maps": [
         [
@@ -565,6 +569,23 @@
         "cloven_ruin_regirock_chamber_sky",
         "cloven_ruin_registeel_chamber_sky",
         "cloven_ruin_regigigas_chamber_sky",
+        "a03p01",
+        "a03p02",
+        "a03p03",
+        "p05p01a",
+        "p05p02a",
+        "p05p03a",
+        "p05p04a",
+        "p06p01a",
+        "p07p01a",
+        "p08p01a",
+        "p09p01a",
+        "d21p41a",
+        "d18p11a",
+        "d19p11a",
+        "d20p11a",
+        "d21p21a",
+        "d22p11a",
         "sky_wigglytuff_guild_entrance",
         "sky_wigglytuff_guild_main",
         "treasure_spinda_cafe",
@@ -591,7 +612,8 @@
         "sky_eos_t01p04a",
         "sky_eos_p01p01a",
         "sky_eos_p01p02a",
-        "sky_eos_t01p03a"
+        "sky_eos_t01p03a",
+        "s04p01a"
       ],
       "Maps": [
         [
@@ -785,7 +807,7 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 0,
-      "CountedFloors": 26,
+      "CountedFloors": 25,
       "Rogue": 0,
       "Grounds": [
         "gloomy_forest_entrance",
@@ -809,15 +831,14 @@
           11,
           12,
           13,
-          14,
-          15,
-          16,
-          17
+          14
         ],
         [
           0,
           1,
-          2
+          2,
+          3,
+          4
         ],
         [
           0
@@ -1044,7 +1065,7 @@
       "KeepTreasure": false,
       "BagSize": -1,
       "Rescues": 2,
-      "CountedFloors": 34,
+      "CountedFloors": 23,
       "Rogue": 0,
       "Grounds": [],
       "Maps": [
@@ -1063,17 +1084,7 @@
           11,
           12,
           13,
-          14,
-          15,
-          16,
-          17,
-          18,
-          19,
-          20,
-          21,
-          22,
-          23,
-          24
+          14
         ],
         [
           0
@@ -1088,8 +1099,7 @@
         ],
         [
           0,
-          1,
-          2
+          1
         ],
         [
           0

@@ -17,14 +17,14 @@ Zones canoniques actives auditées : **9**. Erreurs structurelles : **0**.
 
 | Zone | Canon | Chapitre | Segments | Grounds | Fonctions cinématiques détectées |
 |---|---|---:|---:|---:|---:|
-| `gloomy_forest` | Sinister Woods | 6 | 11 | 4 | 28 |
+| `gloomy_forest` | Sinister Woods | 6 | 11 | 4 | 29 |
 | `magma_cavern` | Magma Cavern | 7 | 3 | 3 | 5 |
 | `waterfall_pond` | Waterfall Pond / Crystal Sanctuary | 8 | 6 | 0 | 0 |
 | `sky_tower` | Sky Tower | 10 | 6 | 3 | 10 |
 | `wish_cave` | Wish Cave | 12 | 2 | 1 | 5 |
-| `mt_blaze` | Mt. Blaze | 12 | 3 | 3 | 5 |
-| `frosty_forest` | Frosty Forest | 12 | 3 | 3 | 5 |
-| `mt_freeze` | Mt. Freeze | 12 | 2 | 3 | 5 |
+| `mt_blaze` | Mt. Blaze | 12 | 3 | 4 | 9 |
+| `frosty_forest` | Frosty Forest | 12 | 3 | 4 | 9 |
+| `mt_freeze` | Mt. Freeze | 12 | 2 | 4 | 9 |
 | `lapis_cave` | Lapis Cave | 12 | 1 | 2 | 5 |
 
 ## Contrats scène par scène

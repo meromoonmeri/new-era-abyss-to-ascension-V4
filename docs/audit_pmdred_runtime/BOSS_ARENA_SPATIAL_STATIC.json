@@ -2,9 +2,49 @@
   "scope": "fixed maps containing MapTeams",
   "classification": "STATIC_PREFLIGHT_NOT_RUNTIME",
   "total": 53,
-  "pass_static": 47,
-  "fail_static": 6,
+  "pass_static": 39,
+  "fail_static": 14,
   "maps": [
+    {
+      "map": "boss_artifact_water",
+      "width": 9,
+      "height": 9,
+      "entities": [
+        {
+          "species": "lunatone",
+          "x": 2,
+          "y": 2,
+          "in_bounds": true
+        },
+        {
+          "species": "solrock",
+          "x": 6,
+          "y": 2,
+          "in_bounds": true
+        },
+        {
+          "species": "claydol",
+          "x": 2,
+          "y": 6,
+          "in_bounds": true
+        },
+        {
+          "species": "bronzong",
+          "x": 6,
+          "y": 6,
+          "in_bounds": true
+        }
+      ],
+      "entries": [
+        {
+          "x": 4,
+          "y": 4,
+          "in_bounds": true
+        }
+      ],
+      "status": "PASS_STATIC",
+      "issues": []
+    },
     {
       "map": "boss_awd",
       "width": 11,
@@ -33,6 +73,102 @@
         {
           "x": 5,
           "y": 5,
+          "in_bounds": true
+        }
+      ],
+      "status": "PASS_STATIC",
+      "issues": []
+    },
+    {
+      "map": "boss_burmy_pair",
+      "width": 9,
+      "height": 9,
+      "entities": [
+        {
+          "species": "mothim",
+          "x": 3,
+          "y": 2,
+          "in_bounds": true
+        },
+        {
+          "species": "wormadam",
+          "x": 5,
+          "y": 2,
+          "in_bounds": true
+        }
+      ],
+      "entries": [
+        {
+          "x": 4,
+          "y": 4,
+          "in_bounds": true
+        }
+      ],
+      "status": "PASS_STATIC",
+      "issues": []
+    },
+    {
+      "map": "boss_cattle_pair",
+      "width": 9,
+      "height": 9,
+      "entities": [
+        {
+          "species": "tauros",
+          "x": 4,
+          "y": 3,
+          "in_bounds": true
+        },
+        {
+          "species": "miltank",
+          "x": 4,
+          "y": 2,
+          "in_bounds": true
+        }
+      ],
+      "entries": [
+        {
+          "x": 4,
+          "y": 5,
+          "in_bounds": true
+        }
+      ],
+      "status": "PASS_STATIC",
+      "issues": []
+    },
+    {
+      "map": "boss_ditto",
+      "width": 9,
+      "height": 9,
+      "entities": [
+        {
+          "species": "ditto",
+          "x": 4,
+          "y": 1,
+          "in_bounds": true
+        },
+        {
+          "species": "ditto",
+          "x": 4,
+          "y": 7,
+          "in_bounds": true
+        },
+        {
+          "species": "ditto",
+          "x": 1,
+          "y": 4,
+          "in_bounds": true
+        },
+        {
+          "species": "ditto",
+          "x": 7,
+          "y": 4,
+          "in_bounds": true
+        }
+      ],
+      "entries": [
+        {
+          "x": 4,
+          "y": 4,
           "in_bounds": true
         }
       ],
@@ -409,142 +545,6 @@
         {
           "x": 2,
           "y": 5,
-          "in_bounds": true
-        }
-      ],
-      "status": "PASS_STATIC",
-      "issues": []
-    },
-    {
-      "map": "boss_artifact_water",
-      "width": 9,
-      "height": 9,
-      "entities": [
-        {
-          "species": "lunatone",
-          "x": 2,
-          "y": 2,
-          "in_bounds": true
-        },
-        {
-          "species": "solrock",
-          "x": 6,
-          "y": 2,
-          "in_bounds": true
-        },
-        {
-          "species": "claydol",
-          "x": 2,
-          "y": 6,
-          "in_bounds": true
-        },
-        {
-          "species": "bronzong",
-          "x": 6,
-          "y": 6,
-          "in_bounds": true
-        }
-      ],
-      "entries": [
-        {
-          "x": 4,
-          "y": 4,
-          "in_bounds": true
-        }
-      ],
-      "status": "PASS_STATIC",
-      "issues": []
-    },
-    {
-      "map": "boss_burmy_pair",
-      "width": 9,
-      "height": 9,
-      "entities": [
-        {
-          "species": "mothim",
-          "x": 3,
-          "y": 2,
-          "in_bounds": true
-        },
-        {
-          "species": "wormadam",
-          "x": 5,
-          "y": 2,
-          "in_bounds": true
-        }
-      ],
-      "entries": [
-        {
-          "x": 4,
-          "y": 4,
-          "in_bounds": true
-        }
-      ],
-      "status": "PASS_STATIC",
-      "issues": []
-    },
-    {
-      "map": "boss_cattle_pair",
-      "width": 9,
-      "height": 9,
-      "entities": [
-        {
-          "species": "tauros",
-          "x": 4,
-          "y": 3,
-          "in_bounds": true
-        },
-        {
-          "species": "miltank",
-          "x": 4,
-          "y": 2,
-          "in_bounds": true
-        }
-      ],
-      "entries": [
-        {
-          "x": 4,
-          "y": 5,
-          "in_bounds": true
-        }
-      ],
-      "status": "PASS_STATIC",
-      "issues": []
-    },
-    {
-      "map": "boss_ditto",
-      "width": 9,
-      "height": 9,
-      "entities": [
-        {
-          "species": "ditto",
-          "x": 4,
-          "y": 1,
-          "in_bounds": true
-        },
-        {
-          "species": "ditto",
-          "x": 4,
-          "y": 7,
-          "in_bounds": true
-        },
-        {
-          "species": "ditto",
-          "x": 1,
-          "y": 4,
-          "in_bounds": true
-        },
-        {
-          "species": "ditto",
-          "x": 7,
-          "y": 4,
-          "in_bounds": true
-        }
-      ],
-      "entries": [
-        {
-          "x": 4,
-          "y": 4,
           "in_bounds": true
         }
       ],
@@ -1060,45 +1060,6 @@
       "issues": []
     },
     {
-      "map": "chapter_3_boss_fight",
-      "width": 15,
-      "height": 18,
-      "entities": [
-        {
-          "species": "luxio",
-          "x": 7,
-          "y": 5,
-          "in_bounds": true
-        },
-        {
-          "species": "glameow",
-          "x": 6,
-          "y": 4,
-          "in_bounds": true
-        },
-        {
-          "species": "cacnea",
-          "x": 8,
-          "y": 4,
-          "in_bounds": true
-        }
-      ],
-      "entries": [
-        {
-          "x": 8,
-          "y": 7,
-          "in_bounds": true
-        },
-        {
-          "x": 6,
-          "y": 7,
-          "in_bounds": true
-        }
-      ],
-      "status": "PASS_STATIC",
-      "issues": []
-    },
-    {
       "map": "cloven_ruins_regice",
       "width": 21,
       "height": 21,
@@ -1372,57 +1333,65 @@
     },
     {
       "map": "frosty_forest_summit",
-      "width": 66,
-      "height": 63,
+      "width": 0,
+      "height": 0,
       "entities": [
         {
           "species": "articuno",
           "x": 33,
           "y": 22,
-          "in_bounds": true
+          "in_bounds": false
         }
       ],
       "entries": [
         {
           "x": 29,
           "y": 29,
-          "in_bounds": true
+          "in_bounds": false
         },
         {
           "x": 30,
           "y": 29,
-          "in_bounds": true
+          "in_bounds": false
         }
       ],
-      "status": "PASS_STATIC",
-      "issues": []
+      "status": "FAIL_STATIC",
+      "issues": [
+        "articuno:OUT_OF_BOUNDS:33,22",
+        "ENTRY_OUT_OF_BOUNDS:29,29",
+        "ENTRY_OUT_OF_BOUNDS:30,29"
+      ]
     },
     {
       "map": "gloomy_forest_boss",
-      "width": 60,
-      "height": 47,
+      "width": 0,
+      "height": 0,
       "entities": [
         {
           "species": "zeraora",
           "x": 30,
           "y": 9,
-          "in_bounds": true
+          "in_bounds": false
         }
       ],
       "entries": [
         {
           "x": 28,
           "y": 26,
-          "in_bounds": true
+          "in_bounds": false
         },
         {
           "x": 29,
           "y": 26,
-          "in_bounds": true
+          "in_bounds": false
         }
       ],
-      "status": "PASS_STATIC",
-      "issues": []
+      "status": "FAIL_STATIC",
+      "issues": [
+        "zeraora:OUT_OF_BOUNDS:30,9",
+        "ENTRY_OUT_OF_BOUNDS:28,26",
+        "ENTRY_OUT_OF_BOUNDS:29,26"
+      ]
     },
     {
       "map": "gloomy_forest_miniboss",
@@ -1478,30 +1447,34 @@
     },
     {
       "map": "magma_cavern_pit",
-      "width": 63,
-      "height": 63,
+      "width": 0,
+      "height": 0,
       "entities": [
         {
           "species": "groudon",
           "x": 30,
           "y": 22,
-          "in_bounds": true
+          "in_bounds": false
         }
       ],
       "entries": [
         {
           "x": 34,
           "y": 29,
-          "in_bounds": true
+          "in_bounds": false
         },
         {
           "x": 35,
           "y": 29,
-          "in_bounds": true
+          "in_bounds": false
         }
       ],
-      "status": "PASS_STATIC",
-      "issues": []
+      "status": "FAIL_STATIC",
+      "issues": [
+        "groudon:OUT_OF_BOUNDS:30,22",
+        "ENTRY_OUT_OF_BOUNDS:34,29",
+        "ENTRY_OUT_OF_BOUNDS:35,29"
+      ]
     },
     {
       "map": "marais_errants_fond",
@@ -1682,32 +1655,32 @@
       "entities": [
         {
           "species": "tsareena",
-          "x": 39,
+          "x": 48,
           "y": 38,
           "in_bounds": true
         },
         {
           "species": "lopunny",
-          "x": 40,
-          "y": 38,
+          "x": 47,
+          "y": 39,
           "in_bounds": true
         },
         {
           "species": "mismagius",
-          "x": 41,
-          "y": 38,
+          "x": 49,
+          "y": 39,
           "in_bounds": true
         }
       ],
       "entries": [
         {
-          "x": 40,
-          "y": 43,
+          "x": 47,
+          "y": 42,
           "in_bounds": true
         },
         {
-          "x": 41,
-          "y": 43,
+          "x": 46,
+          "y": 42,
           "in_bounds": true
         }
       ],
@@ -1716,57 +1689,65 @@
     },
     {
       "map": "mount_windswept_guardian",
-      "width": 45,
-      "height": 42,
+      "width": 0,
+      "height": 0,
       "entities": [
         {
           "species": "tornadus",
           "x": 22,
           "y": 17,
-          "in_bounds": true
+          "in_bounds": false
         }
       ],
       "entries": [
         {
           "x": 22,
           "y": 31,
-          "in_bounds": true
+          "in_bounds": false
         },
         {
           "x": 23,
           "y": 31,
-          "in_bounds": true
+          "in_bounds": false
         }
       ],
-      "status": "PASS_STATIC",
-      "issues": []
+      "status": "FAIL_STATIC",
+      "issues": [
+        "tornadus:OUT_OF_BOUNDS:22,17",
+        "ENTRY_OUT_OF_BOUNDS:22,31",
+        "ENTRY_OUT_OF_BOUNDS:23,31"
+      ]
     },
     {
       "map": "mt_blaze_summit",
-      "width": 69,
-      "height": 69,
+      "width": 0,
+      "height": 0,
       "entities": [
         {
           "species": "moltres",
           "x": 34,
           "y": 22,
-          "in_bounds": true
+          "in_bounds": false
         }
       ],
       "entries": [
         {
           "x": 37,
           "y": 26,
-          "in_bounds": true
+          "in_bounds": false
         },
         {
           "x": 38,
           "y": 26,
-          "in_bounds": true
+          "in_bounds": false
         }
       ],
-      "status": "PASS_STATIC",
-      "issues": []
+      "status": "FAIL_STATIC",
+      "issues": [
+        "moltres:OUT_OF_BOUNDS:34,22",
+        "ENTRY_OUT_OF_BOUNDS:37,26",
+        "ENTRY_OUT_OF_BOUNDS:38,26"
+      ]
     },
     {
       "map": "sanctuaire_titans",
@@ -1883,6 +1864,160 @@
       "issues": []
     },
     {
+      "map": "chapter_3_boss_fight",
+      "width": 15,
+      "height": 18,
+      "entities": [
+        {
+          "species": "luxio",
+          "x": 7,
+          "y": 5,
+          "in_bounds": true
+        },
+        {
+          "species": "glameow",
+          "x": 6,
+          "y": 4,
+          "in_bounds": true
+        },
+        {
+          "species": "cacnea",
+          "x": 8,
+          "y": 4,
+          "in_bounds": true
+        }
+      ],
+      "entries": [
+        {
+          "x": 8,
+          "y": 7,
+          "in_bounds": true
+        },
+        {
+          "x": 6,
+          "y": 7,
+          "in_bounds": true
+        }
+      ],
+      "status": "PASS_STATIC",
+      "issues": []
+    },
+    {
+      "map": "spiritomb_arena",
+      "width": 17,
+      "height": 22,
+      "entities": [
+        {
+          "species": "spiritomb",
+          "x": 8,
+          "y": 2,
+          "in_bounds": true
+        }
+      ],
+      "entries": [
+        {
+          "x": 8,
+          "y": 12,
+          "in_bounds": true
+        }
+      ],
+      "status": "PASS_STATIC",
+      "issues": []
+    },
+    {
+      "map": "tour_ciel_sommet",
+      "width": 0,
+      "height": 0,
+      "entities": [
+        {
+          "species": "rayquaza",
+          "x": 34,
+          "y": 34,
+          "in_bounds": false
+        }
+      ],
+      "entries": [
+        {
+          "x": 37,
+          "y": 37,
+          "in_bounds": false
+        },
+        {
+          "x": 38,
+          "y": 37,
+          "in_bounds": false
+        }
+      ],
+      "status": "FAIL_STATIC",
+      "issues": [
+        "rayquaza:OUT_OF_BOUNDS:34,34",
+        "ENTRY_OUT_OF_BOUNDS:37,37",
+        "ENTRY_OUT_OF_BOUNDS:38,37"
+      ]
+    },
+    {
+      "map": "vast_steppe_guardian",
+      "width": 0,
+      "height": 0,
+      "entities": [
+        {
+          "species": "absol",
+          "x": 23,
+          "y": 22,
+          "in_bounds": false
+        }
+      ],
+      "entries": [
+        {
+          "x": 23,
+          "y": 54,
+          "in_bounds": false
+        },
+        {
+          "x": 24,
+          "y": 54,
+          "in_bounds": false
+        }
+      ],
+      "status": "FAIL_STATIC",
+      "issues": [
+        "absol:OUT_OF_BOUNDS:23,22",
+        "ENTRY_OUT_OF_BOUNDS:23,54",
+        "ENTRY_OUT_OF_BOUNDS:24,54"
+      ]
+    },
+    {
+      "map": "wish_cave_jirachi",
+      "width": 0,
+      "height": 0,
+      "entities": [
+        {
+          "species": "jirachi",
+          "x": 22,
+          "y": 17,
+          "in_bounds": false
+        }
+      ],
+      "entries": [
+        {
+          "x": 20,
+          "y": 34,
+          "in_bounds": false
+        },
+        {
+          "x": 21,
+          "y": 34,
+          "in_bounds": false
+        }
+      ],
+      "status": "FAIL_STATIC",
+      "issues": [
+        "jirachi:OUT_OF_BOUNDS:22,17",
+        "ENTRY_OUT_OF_BOUNDS:20,34",
+        "ENTRY_OUT_OF_BOUNDS:21,34"
+      ]
+    },
+    {
       "map": "searing_crucible",
       "width": 21,
       "height": 21,
@@ -1953,82 +2088,6 @@
       "issues": []
     },
     {
-      "map": "spiritomb_arena",
-      "width": 17,
-      "height": 22,
-      "entities": [
-        {
-          "species": "spiritomb",
-          "x": 8,
-          "y": 2,
-          "in_bounds": true
-        }
-      ],
-      "entries": [
-        {
-          "x": 8,
-          "y": 12,
-          "in_bounds": true
-        }
-      ],
-      "status": "PASS_STATIC",
-      "issues": []
-    },
-    {
-      "map": "tour_ciel_sommet",
-      "width": 69,
-      "height": 75,
-      "entities": [
-        {
-          "species": "rayquaza",
-          "x": 34,
-          "y": 34,
-          "in_bounds": true
-        }
-      ],
-      "entries": [
-        {
-          "x": 37,
-          "y": 37,
-          "in_bounds": true
-        },
-        {
-          "x": 38,
-          "y": 37,
-          "in_bounds": true
-        }
-      ],
-      "status": "PASS_STATIC",
-      "issues": []
-    },
-    {
-      "map": "vast_steppe_guardian",
-      "width": 46,
-      "height": 66,
-      "entities": [
-        {
-          "species": "absol",
-          "x": 23,
-          "y": 22,
-          "in_bounds": true
-        }
-      ],
-      "entries": [
-        {
-          "x": 23,
-          "y": 54,
-          "in_bounds": true
-        },
-        {
-          "x": 24,
-          "y": 54,
-          "in_bounds": true
-        }
-      ],
-      "status": "PASS_STATIC",
-      "issues": []
-    },
-    {
       "map": "gloomy_forest_boss",
       "width": 15,
       "height": 18,
@@ -2049,33 +2108,6 @@
         {
           "x": 6,
           "y": 7,
-          "in_bounds": true
-        }
-      ],
-      "status": "PASS_STATIC",
-      "issues": []
-    },
-    {
-      "map": "wish_cave_jirachi",
-      "width": 45,
-      "height": 42,
-      "entities": [
-        {
-          "species": "jirachi",
-          "x": 22,
-          "y": 17,
-          "in_bounds": true
-        }
-      ],
-      "entries": [
-        {
-          "x": 20,
-          "y": 34,
-          "in_bounds": true
-        },
-        {
-          "x": 21,
-          "y": 34,
           "in_bounds": true
         }
       ],

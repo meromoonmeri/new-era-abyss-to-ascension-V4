@@ -39,6 +39,7 @@
         "Butterfree_Action",
         "ContinueScene",
         "DazzlingClearingCutscene",
+        "DazzlingEntranceBlockade",
         "DefeatedBoss",
         "DiedToBoss",
         "Dungeon_Entrance_Touch",
@@ -162,7 +163,8 @@
       "grounds": [
         "mont_cendre_pied",
         "d09p02",
-        "d09p03"
+        "d09p03",
+        "mt_blaze_midpoint"
       ],
       "mapped_rooms": [
         "mt_blaze_summit"
@@ -172,6 +174,10 @@
         "GameLoad",
         "GameSave",
         "Init",
+        "Kangaskhan_Rock_Action",
+        "North_Exit_Touch",
+        "South_Exit_Touch",
+        "Teammate1_Action",
         "Update"
       ],
       "contract": "Legacy expedition/revisit; Moltres remains the location guardian.",
@@ -185,7 +191,8 @@
       "grounds": [
         "foret_givree_oree",
         "d10p02",
-        "d10p03"
+        "d10p03",
+        "frosty_forest_midpoint"
       ],
       "mapped_rooms": [
         "frosty_forest_summit"
@@ -195,6 +202,10 @@
         "GameLoad",
         "GameSave",
         "Init",
+        "Kangaskhan_Rock_Action",
+        "North_Exit_Touch",
+        "South_Exit_Touch",
+        "Teammate1_Action",
         "Update"
       ],
       "contract": "Legacy expedition/revisit; Articuno confrontation retained.",
@@ -208,7 +219,8 @@
       "grounds": [
         "mont_gele_pied",
         "d11p02",
-        "d11p03"
+        "d11p03",
+        "mt_freeze_midpoint"
       ],
       "mapped_rooms": [],
       "cinematic_functions": [
@@ -216,6 +228,10 @@
         "GameLoad",
         "GameSave",
         "Init",
+        "Kangaskhan_Rock_Action",
+        "North_Exit_Touch",
+        "South_Exit_Touch",
+        "Teammate1_Action",
         "Update"
       ],
       "contract": "Legacy expedition/revisit; Ninetales revelation preserved as historical testimony.",

@@ -1,5 +1,17 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+local function GROUND_IDX(name)
+  local ok, idx = pcall(function()
+    local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("master_zone")
+    for ii = 0, zone.Grounds.Count - 1, 1 do
+      if zone.Grounds[ii] == name then return ii end
+    end
+    return -1
+  end)
+  if not ok or idx == nil or idx < 0 then return 27 end
+  return idx
+end
+
 
 local beginner_lesson = {}
 --------------------------------------------------
@@ -69,7 +81,7 @@ function beginner_lesson.ExitSegment(zone, result, rescue, segmentID, mapID)
 	
 	--cannot use the general functions command to end dungeon runs when risk is set to none or flags are not saved properly
 	--as a result we need to end dungeon run, then set flags, then enter the ledian zone
-	GAME:EndDungeonRun(result, "master_zone", -1, 36, 0, false, false)
+	GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX("ledian_dojo"), 0, false, false)
 
 	
 	--failed or gave up on the tutorial
@@ -105,9 +117,9 @@ function beginner_lesson.ExitSegment(zone, result, rescue, segmentID, mapID)
 	SV.Dojo.LastZone = "beginner_lesson"
 	
 	--Since this is risk none, we need to first "save" the game with end dungeon run, then save the game a second time after setting variables to preserve those variable changes in the save.
-	--GAME:EndDungeonRun(result, "master_zone", -1, 36, 0, false, false)
+	--GAME:EndDungeonRun(result, "master_zone", -1, GROUND_IDX("ledian_dojo"), 0, false, false)
 	
-	GAME:EnterZone("master_zone", -1, 36, 0)
+	GAME:EnterZone("master_zone", -1, GROUND_IDX("ledian_dojo"), 0)
 	
 end
 	

@@ -151,7 +151,7 @@ def main() -> int:
         o = json.loads(lire(ROOT / f"Data/Map/{nom}.rsmap"))["Object"]
         T = o["Tiles"]; W, H = len(T), len(T[0])
         loc = []
-        if o.get("ID") != nom:
+        if not isinstance(o.get("ID"), int):
             loc.append(f"ID={o.get('ID')}")
         if o.get("AssetName") != nom:
             loc.append(f"AssetName={o.get('AssetName')}")
@@ -231,9 +231,9 @@ def main() -> int:
     for f in ("RuinesArenes", "RuinesTitan", "DonjonFX"):
         s = lire(ROOT / f"Data/Script/halcyon/{f}.lua", bom=False)
         used |= set(re.findall(r"'(RUINES_[A-Z0-9_]+)'", s))
-        used |= {"RUINES_" + k for k in re.findall(
-            r"(?:recit|penser|titan|dire)\((?:\w+,\s*)?'([A-Z0-9_]+)'", s)}
-    used = {u for u in used if u != "RUINES_"}
+        for k in re.findall(r"(?:recit|penser|titan|dire)\((?:\w+,\s*)?'([A-Z0-9_]+)'", s):
+            used.add(k if k.startswith("RUINES_") else ("RUINES_" + k))
+    used = {u for u in used if u != "RUINES_" and not u.endswith("_")}
     mf, me = sorted(used - fr), sorted(used - en)
     if mf: ko(f"{len(mf)} cle(s) sans texte FR : {mf[:5]}")
     if me: ko(f"{len(me)} cle(s) sans texte EN : {me[:5]}")
