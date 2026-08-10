@@ -111,3 +111,36 @@ La comparaison reproduit exactement la logique de rendu du moteur (`TileLayer.Dr
 mais seule une exécution réelle de PMDO peut confirmer en jeu (règle projet : pas de
 RUNTIME VERIFIED sans exécution). À tester : entrer dans 2-3 combats de boss (ex. Zeraora,
 Groudon, Regigigas) et vérifier le rendu plein écran sans bandes.
+
+---
+
+## 9. COMPLÉMENT — COMPOSITE MULTI-COUCHES (correction 2e passe)
+
+**Problème identifié** : la première passe ne composait que la 1re couche graphique du ground.
+Or `vast_steppe_guardian` a **4 couches** et `forgotten_marsh_relay` **2 couches** (dont une couche
+`Top/Fringe`). Sur ces grounds, le joueur aurait vu les couches manquantes → différence.
+
+**Correction** : le pipeline compose **toutes les couches visibles du ground, dans l'ordre de la
+liste** (= ordre de dessin du moteur : Under → Bottom → … → Top/Fringe) dans `TileTex.Layers` de
+chaque cellule d'arène. `AutoTile.Draw` dessine ses couches dans l'ordre (vérifié dans
+`RogueEssence/Dungeon/Tiles/AutoTile.cs`).
+
+**Re-vérification complète** (composite intégral, ground ×3 vs arène 24 px) :
+
+| Arène | Couches | Comparaison |
+|---|---|---|
+| vast_steppe_guardian | 4 | **0/1 748 736 (0,00 %)** |
+| forgotten_marsh_relay | 2 | **0/176 256 (0,00 %)** |
+| 17 autres | 1 | **toutes 0,00 %** |
+
+**Vérification indépendante supplémentaire** : pour chaque montage `ground | arène`, comparaison
+pixel à pixel entre les deux moitiés → **0/19 arènes avec différence visuelle**.
+
+## 10. VISIBILITÉ — POURQUOI AUCUNE CASE NOIRE (vérifié moteur)
+
+- `DungeonScene.CanSeeTile` renvoie `true` quand `TileSight == SightRange.Clear` (0) : toutes les
+  arènes ont `TileSight: 0` → aucune case peinte en noir par le brouillard de guerre.
+- `BaseMap.DrawLoc` dessine `Tiles[x][y].Data.TileTex` (terrain) : textures 24×24 pleines.
+- Les `Layers` de la map sont vides (pas de double rendu 8×8).
+- `AutoTile.Draw` compose les couches dans l'ordre ; `TileLayer.Draw` blitte la texture à taille
+  native (24×24 = cellule pleine).

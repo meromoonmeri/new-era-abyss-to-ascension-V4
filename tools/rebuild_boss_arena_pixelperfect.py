@@ -216,6 +216,8 @@ def walkable(obs, tex, orient, cx, cy):
 
 # ---------------------------------------------------------------- build
 def build_sheet(arena, vis_layers, tex):
+    # Composer TOUTES les couches visibles, dans l'ordre de la liste (qui est
+    # l'ordre de dessin du moteur : Under -> Bottom -> ... -> Top/Fringe).
     seen = {}
     for L in vis_layers:
         T = L['Tiles']
@@ -274,8 +276,9 @@ def rebuild(arena, ground, write=False):
     W, H = len(T), len(T[0])
     print(f'   ground: TexSize={tex} {W}x{H} cellules = {W*8*tex}x{H*8*tex}px | couches: {len(vis_layers)}')
 
-    has_tex = any(isinstance(T[x][y], dict) and T[x][y].get('Layers')
-                  for x in range(W) for y in range(H))
+    has_tex = any(
+        isinstance(L['Tiles'][x][y], dict) and L['Tiles'][x][y].get('Layers')
+        for L in vis_layers for x in range(W) for y in range(H))
     if not has_tex:
         print('   ground sans décor pixel-art (autotile procédural) — non concerné, skip')
         return
@@ -287,16 +290,20 @@ def rebuild(arena, ground, write=False):
     print(f'   sheet {sheet_name}: {len(tile_cells)} textures {TILE}x{TILE} (dédup)')
 
     def arena_cell(x, y):
-        gcell = T[x][y]
+        # composer TOUTES les couches visibles du ground (ordre de dessin)
         new_layers = []
-        if isinstance(gcell, dict):
+        for L in vis_layers:
+            gcell = L['Tiles'][x][y]
+            if not isinstance(gcell, dict):
+                continue
             for tl in gcell.get('Layers', []):
                 frames = []
                 for fi, fr in enumerate(tl.get('Frames', [])):
                     if fr.get('Sheet'):
                         nx, ny = mapping[(fr['Sheet'], fr['TexLoc']['X'], fr['TexLoc']['Y'], fi)]
                         frames.append({'Sheet': sheet_name, 'TexLoc': {'X': nx, 'Y': ny}})
-                new_layers.append({'Frames': frames, 'FrameLength': tl.get('FrameLength', 60)})
+                if frames:
+                    new_layers.append({'Frames': frames, 'FrameLength': tl.get('FrameLength', 60)})
         blocked = not walkable(obs, tex, orient, x, y)
         return {
             'Data': {
@@ -391,7 +398,7 @@ def rebuild(arena, ground, write=False):
     print(f'   écrit: {arena_path} + {sheet_path} (tileSize={ts}, {tc} entrées) + index.idx')
 
     metrics(arena, T, obs, tex, orient, markers)
-    render_compare(arena, ground, T, tex)
+    render_compare(arena, ground, vis_layers, tex)
 
 
 # ---------------------------------------------------------------- métriques
@@ -411,26 +418,30 @@ def metrics(arena, T, obs, tex, orient, markers):
 
 
 # ---------------------------------------------------------------- comparaison
-def render_ground_image(T, tex):
+def render_ground_image(vis_layers, tex):
+    T = vis_layers[0]['Tiles']
     W, H = len(T), len(T[0])
     pas = 8 * tex
     img = Image.new('RGBA', (W * pas, H * pas), (0, 0, 0, 0))
-    for x in range(W):
-        for y in range(H):
-            cell = T[x][y]
-            if not isinstance(cell, dict):
-                continue
-            for tl in cell.get('Layers', []):
-                frames = tl.get('Frames', [])
-                if not frames:
+    # composer TOUTES les couches visibles dans l'ordre de la liste
+    for L in vis_layers:
+        T = L['Tiles']
+        for x in range(W):
+            for y in range(H):
+                cell = T[x][y]
+                if not isinstance(cell, dict):
                     continue
-                fr = frames[0]
-                if not fr.get('Sheet'):
-                    continue
-                ts, cells = load_package(fr['Sheet'])
-                src = cells.get((fr['TexLoc']['X'], fr['TexLoc']['Y']))
-                if src is not None:
-                    img.alpha_composite(src, (x * pas, y * pas))
+                for tl in cell.get('Layers', []):
+                    frames = tl.get('Frames', [])
+                    if not frames:
+                        continue
+                    fr = frames[0]
+                    if not fr.get('Sheet'):
+                        continue
+                    ts, cells = load_package(fr['Sheet'])
+                    src = cells.get((fr['TexLoc']['X'], fr['TexLoc']['Y']))
+                    if src is not None:
+                        img.alpha_composite(src, (x * pas, y * pas))
     return img
 
 
@@ -454,10 +465,10 @@ def render_arena_image(tiles):
     return img
 
 
-def render_compare(arena, ground, T, tex):
+def render_compare(arena, ground, vis_layers, tex):
     outdir = os.path.join(ROOT, 'docs', 'renders', 'pixelperfect')
     os.makedirs(outdir, exist_ok=True)
-    g_img = render_ground_image(T, tex).convert('RGBA')
+    g_img = render_ground_image(vis_layers, tex).convert('RGBA')
     k = TILE // (8 * tex)          # 3 si TexSize=1, 1 si TexSize=3
     expected = upscale(g_img, k)
     with open(os.path.join(MAPDIR, arena + '.rsmap'), encoding='utf-8-sig') as f:
