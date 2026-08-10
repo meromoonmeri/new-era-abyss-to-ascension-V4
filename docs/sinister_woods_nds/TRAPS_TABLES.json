@@ -1,0 +1,155 @@
+{
+  "2": {
+    "table_index": 2,
+    "offset": 134164,
+    "size": 40,
+    "sha256": "4c1860c20b430bc816e45fcae9f12a2d855bd2385bee14c4e26d4b504254ec0c",
+    "entries": [
+      {
+        "trap_index": 0,
+        "trap_name_xref": "TRAP_TRIP_TRAP",
+        "weight": 0,
+        "provenance_weight": "SOURCE_NDS",
+        "provenance_name": "CROSS_REFERENCE_RED"
+      },
+      {
+        "trap_index": 1,
+        "trap_name_xref": "TRAP_MUD_TRAP",
+        "weight": 0,
+        "provenance_weight": "SOURCE_NDS",
+        "provenance_name": "CROSS_REFERENCE_RED"
+      },
+      {
+        "trap_index": 2,
+        "trap_name_xref": "TRAP_STICKY_TRAP",
+        "weight": 0,
+        "provenance_weight": "SOURCE_NDS",
+        "provenance_name": "CROSS_REFERENCE_RED"
+      },
+      {
+        "trap_index": 3,
+        "trap_name_xref": "TRAP_GRIMY_TRAP",
+        "weight": 0,
+        "provenance_weight": "SOURCE_NDS",
+        "provenance_name": "CROSS_REFERENCE_RED"
+      },
+      {
+        "trap_index": 4,
+        "trap_name_xref": "TRAP_SUMMON_TRAP",
+        "weight": 0,
+        "provenance_weight": "SOURCE_NDS",
+        "provenance_name": "CROSS_REFERENCE_RED"
+      },
+      {
+        "trap_index": 5,
+        "trap_name_xref": "TRAP_PITFALL_TRAP",
+        "weight": 0,
+        "provenance_weight": "SOURCE_NDS",
+        "provenance_name": "CROSS_REFERENCE_RED"
+      },
+      {
+        "trap_index": 6,
+        "trap_name_xref": "TRAP_WARP_TRAP",
+        "weight": 0,
+        "provenance_weight": "SOURCE_NDS",
+        "provenance_name": "CROSS_REFERENCE_RED"
+      },
+      {
+        "trap_index": 7,
+        "trap_name_xref": "TRAP_WHIRLWIND_TRAP",
+        "weight": 0,
+        "provenance_weight": "SOURCE_NDS",
+        "provenance_name": "CROSS_REFERENCE_RED"
+      },
+      {
+        "trap_index": 8,
+        "trap_name_xref": "TRAP_SPIN_TRAP",
+        "weight": 0,
+        "provenance_weight": "SOURCE_NDS",
+        "provenance_name": "CROSS_REFERENCE_RED"
+      },
+      {
+        "trap_index": 9,
+        "trap_name_xref": "TRAP_SLUMBER_TRAP",
+        "weight": 0,
+        "provenance_weight": "SOURCE_NDS",
+        "provenance_name": "CROSS_REFERENCE_RED"
+      },
+      {
+        "trap_index": 10,
+        "trap_name_xref": "TRAP_SLOW_TRAP",
+        "weight": 0,
+        "provenance_weight": "SOURCE_NDS",
+        "provenance_name": "CROSS_REFERENCE_RED"
+      },
+      {
+        "trap_index": 11,
+        "trap_name_xref": "TRAP_SEAL_TRAP",
+        "weight": 0,
+        "provenance_weight": "SOURCE_NDS",
+        "provenance_name": "CROSS_REFERENCE_RED"
+      },
+      {
+        "trap_index": 12,
+        "trap_name_xref": "TRAP_POISON_TRAP",
+        "weight": 0,
+        "provenance_weight": "SOURCE_NDS",
+        "provenance_name": "CROSS_REFERENCE_RED"
+      },
+      {
+        "trap_index": 13,
+        "trap_name_xref": "TRAP_SELFDESTRUCT_TRAP",
+        "weight": 0,
+        "provenance_weight": "SOURCE_NDS",
+        "provenance_name": "CROSS_REFERENCE_RED"
+      },
+      {
+        "trap_index": 14,
+        "trap_name_xref": "TRAP_EXPLOSION_TRAP",
+        "weight": 0,
+        "provenance_weight": "SOURCE_NDS",
+        "provenance_name": "CROSS_REFERENCE_RED"
+      },
+      {
+        "trap_index": 15,
+        "trap_name_xref": "TRAP_PP_ZERO_TRAP",
+        "weight": 0,
+        "provenance_weight": "SOURCE_NDS",
+        "provenance_name": "CROSS_REFERENCE_RED"
+      },
+      {
+        "trap_index": 16,
+        "trap_name_xref": "TRAP_CHESTNUT_TRAP",
+        "weight": 0,
+        "provenance_weight": "SOURCE_NDS",
+        "provenance_name": "CROSS_REFERENCE_RED"
+      },
+      {
+        "trap_index": 17,
+        "trap_name_xref": "TRAP_WONDER_TILE",
+        "weight": 10000,
+        "provenance_weight": "SOURCE_NDS",
+        "provenance_name": "CROSS_REFERENCE_RED"
+      },
+      {
+        "trap_index": 18,
+        "trap_name_xref": "TRAP_POKEMON_TRAP",
+        "weight": 0,
+        "provenance_weight": "SOURCE_NDS",
+        "provenance_name": "CROSS_REFERENCE_RED"
+      },
+      {
+        "trap_index": 19,
+        "trap_name_xref": "TRAP_SPIKE_TRAP",
+        "weight": 0,
+        "provenance_weight": "SOURCE_NDS",
+        "provenance_name": "CROSS_REFERENCE_RED"
+      }
+    ],
+    "provenance": "SOURCE_NDS",
+    "decode_status": "SOURCE_NDS",
+    "notes": [
+      "Fixed-size u16[20] trap weight table (NUM_TRAPS=20 CROSS_REFERENCE_RED size match)"
+    ]
+  }
+}

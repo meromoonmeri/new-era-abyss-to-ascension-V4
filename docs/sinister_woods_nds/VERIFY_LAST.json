@@ -1,0 +1,24 @@
+{
+  "A_SOURCE_FIDELITY": {
+    "rom_present": "PASS",
+    "floor_count_13": "PASS",
+    "floor_id_table": "PASS",
+    "floor_properties_bytes": "PASS",
+    "tileset_id_present": "PASS",
+    "monster_spawns_extracted": "PASS",
+    "item_tables": "UNKNOWN",
+    "trap_tables": "UNKNOWN",
+    "music_seq": "UNKNOWN",
+    "geometry_generator_full": "UNKNOWN",
+    "b41_graphics_decoded": "PASS",
+    "OVERALL": "UNKNOWN"
+  },
+  "B_PMDO_VALIDATION": {
+    "zone_json_parses": "PASS",
+    "has_segments": "PASS",
+    "public_name": "Sinister Woods",
+    "nds_equivalence": "UNKNOWN",
+    "note": "PMDO validity \u2260 NDS fidelity",
+    "OVERALL": "PASS"
+  }
+}

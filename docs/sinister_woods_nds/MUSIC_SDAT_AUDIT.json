@@ -1,0 +1,26 @@
+{
+  "floorprops_bgMusic_value": 4,
+  "floorprops_bgMusic_provenance": "SOURCE_NDS",
+  "cross_ref_MusicID_4": "MUS_DREAM",
+  "cross_ref_DungeonMusicID_4": "DUNGEON_MUS_SINISTER_WOODS",
+  "sdat_seq_index_4": {
+    "index": 4,
+    "name": "SND_BGM_M_EVENT_DREAM_01",
+    "provenance": "SOURCE_NDS"
+  },
+  "sdat_seq_index_15": {
+    "index": 15,
+    "name": "SND_BGM_M_DUNGEON_AYASHIIMORI_01",
+    "provenance": "SOURCE_NDS",
+    "etymology_note": "AYASHIIMORI \u2248 suspicious/sinister forest (Japanese); candidate for Sinister Woods BGM"
+  },
+  "resolved_chain": "PARTIAL",
+  "status": "NOT_FULLY_DECODED",
+  "notes": [
+    "SOURCE_NDS: FloorProperties.bgMusic==4 for Sinister F1-F12",
+    "CROSS_REFERENCE_RED: MusicID 4 = MUS_DREAM; DungeonMusicID 4 = DUNGEON_MUS_SINISTER_WOODS",
+    "SOURCE_NDS: SDAT SEQ names extracted; SEQ[15]=SND_BGM_M_DUNGEON_AYASHIIMORI_01 is strongest name-based candidate",
+    "UNKNOWN: ARM9/code path mapping FloorProperties.bgMusic integer -> SDAT SEQ index (4 vs 15 conflict between MusicID and DungeonMusicID enums)",
+    "UNKNOWN: SSEQ loop points not parsed yet"
+  ]
+}

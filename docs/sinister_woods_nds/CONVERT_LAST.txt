@@ -1,0 +1,13 @@
+Conversion gate check:
+  floor_id_match_red: True
+  props_match_red: True
+  unknowns: 6
+  source_fidelity_port: NOT PASS — conversion blocked
+BLOCKED: remaining UNKNOWN items:
+ - Item/trap table payloads (indices known)
+ - bgMusic 4 -> sound.sbin SEQ name/loop
+ - b10/b41 canm animation semantics
+ - Full B10P01/P02 ground script decode
+ - Team Meanies scene binary scripts
+ - Exact probability formula for weight0/weight1 pair
+gloomy_forest.json left untouched.

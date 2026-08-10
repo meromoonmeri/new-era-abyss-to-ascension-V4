@@ -1,0 +1,146 @@
+{
+  "B10P01A": {
+    "size": 664,
+    "sha256": "fe0ac423ae6b99350e8a236d5d9d6a984e0c8098d6dd280952ad3a5242bf7b76",
+    "head_hex": "0b000000278f87004fc767005fc79f00",
+    "role": "ENTRY_CUTSCENE_PACKAGE",
+    "decode_status": "SOURCE_NDS_EXTRACTED_NOT_DECODED",
+    "provenance": "SOURCE_NDS",
+    "source": "ground.sbin/B10P01A"
+  },
+  "B10P01B": {
+    "size": 724,
+    "sha256": "be495ee30294f046a27e1f5037d088fbc30285c8c87cbda7adbe79ae4998fa66",
+    "head_hex": "0c0000002f2f0f00775f3f00278f8700",
+    "role": "ENTRY_CUTSCENE_PACKAGE",
+    "decode_status": "SOURCE_NDS_EXTRACTED_NOT_DECODED",
+    "provenance": "SOURCE_NDS",
+    "source": "ground.sbin/B10P01B"
+  },
+  "B10P01B3": {
+    "size": 200,
+    "sha256": "a8f2a45b13153683d9edc3f5978c8df492c85b341e68bd3d8a8562051a9ac3c7",
+    "head_hex": "06000100000000003333333311111111",
+    "role": "ENTRY_CUTSCENE_PACKAGE",
+    "decode_status": "SOURCE_NDS_EXTRACTED_NOT_DECODED",
+    "provenance": "SOURCE_NDS",
+    "source": "ground.sbin/B10P01B3"
+  },
+  "B10P01C": {
+    "size": 664,
+    "sha256": "781cc00423c057741f3d74537389b0a074e5e3f7c2f55302b340e9c8b7315d6d",
+    "head_hex": "0b00000027170000574727006f573700",
+    "role": "ENTRY_CUTSCENE_PACKAGE",
+    "decode_status": "SOURCE_NDS_EXTRACTED_NOT_DECODED",
+    "provenance": "SOURCE_NDS",
+    "source": "ground.sbin/B10P01C"
+  },
+  "B10P01C1": {
+    "size": 5020,
+    "sha256": "89f1ec76683ff5b2278f52dc74447080943ce46523141cf2bff41ed0e3889606",
+    "head_hex": "1a000600060000000600000006000000",
+    "role": "ENTRY_CUTSCENE_PACKAGE",
+    "decode_status": "SOURCE_NDS_EXTRACTED_NOT_DECODED",
+    "provenance": "SOURCE_NDS",
+    "source": "ground.sbin/B10P01C1"
+  },
+  "B10P01Cc": {
+    "size": 23096,
+    "sha256": "217b59940468b3e41d30473d3bc5e1ae4cafd7ffe0af051bce3ac886d395ba4d",
+    "head_hex": "03000300b0021a000000000000007d01",
+    "role": "ENTRY_CUTSCENE_PACKAGE",
+    "decode_status": "SOURCE_NDS_EXTRACTED_NOT_DECODED",
+    "provenance": "SOURCE_NDS",
+    "source": "ground.sbin/B10P01Cc"
+  },
+  "B10P01Cm": {
+    "size": 1036,
+    "sha256": "6fbbe38013d4f5f6df50f2b595502658c65d77eeb0f5a8bddaa7d5d65a5dd716",
+    "head_hex": "454503031717010001000100cb012000",
+    "role": "ENTRY_CUTSCENE_PACKAGE",
+    "decode_status": "SOURCE_NDS_EXTRACTED_NOT_DECODED",
+    "provenance": "SOURCE_NDS",
+    "source": "ground.sbin/B10P01Cm"
+  },
+  "B10P02A": {
+    "size": 1972,
+    "sha256": "dc8395a1ea3b6eb4cf8f89227893b1ea6accc3ceda50012fbced53fdf5dbd64f",
+    "head_hex": "0c000100270f00004f270f006f371700",
+    "role": "END_CLEARING_PACKAGE",
+    "decode_status": "SOURCE_NDS_EXTRACTED_NOT_DECODED",
+    "provenance": "SOURCE_NDS",
+    "source": "ground.sbin/B10P02A"
+  },
+  "B10P02B": {
+    "size": 1972,
+    "sha256": "dc8395a1ea3b6eb4cf8f89227893b1ea6accc3ceda50012fbced53fdf5dbd64f",
+    "head_hex": "0c000100270f00004f270f006f371700",
+    "role": "END_CLEARING_PACKAGE",
+    "decode_status": "SOURCE_NDS_EXTRACTED_NOT_DECODED",
+    "provenance": "SOURCE_NDS",
+    "source": "ground.sbin/B10P02B"
+  },
+  "B10P02C": {
+    "size": 1372,
+    "sha256": "7d0db1932bd3b1fa5ec87e661ad20021169e269640771de59b4b3d38cfafa752",
+    "head_hex": "0c00010000000000005f000067472700",
+    "role": "END_CLEARING_PACKAGE",
+    "decode_status": "SOURCE_NDS_EXTRACTED_NOT_DECODED",
+    "provenance": "SOURCE_NDS",
+    "source": "ground.sbin/B10P02C"
+  },
+  "D04P01": {
+    "size": 484,
+    "sha256": "435eb6d4f10cf8a1bbe2eda091768ccf9d56413c31df02d76cd316b6249b04ca",
+    "head_hex": "08000000000f3700001f370000376700",
+    "role": "ENTRY_CUTSCENE_PACKAGE",
+    "decode_status": "SOURCE_NDS_EXTRACTED_NOT_DECODED",
+    "provenance": "SOURCE_NDS",
+    "source": "ground.sbin/D04P01"
+  },
+  "D04P01c": {
+    "size": 7544,
+    "sha256": "2c2be2e17df7eb8351176246193b911d144ee7946832e38838d40a0aabbbc6df",
+    "head_hex": "03000300d20000000000000000007e00",
+    "role": "ENTRY_CUTSCENE_PACKAGE",
+    "decode_status": "SOURCE_NDS_EXTRACTED_NOT_DECODED",
+    "provenance": "SOURCE_NDS",
+    "source": "ground.sbin/D04P01c"
+  },
+  "D04P01m": {
+    "size": 548,
+    "sha256": "4af70fdac05f83ade76d5e42828a59063266a6dea82f037ab6a0d94bdd7b6d5c",
+    "head_hex": "393003031310010000000100c9012000",
+    "role": "ENTRY_CUTSCENE_PACKAGE",
+    "decode_status": "SOURCE_NDS_EXTRACTED_NOT_DECODED",
+    "provenance": "SOURCE_NDS",
+    "source": "ground.sbin/D04P01m"
+  },
+  "D04P02": {
+    "size": 424,
+    "sha256": "bf5114dc757c5c6929c19704a5da1191cfa867acebae60135f845c8a7c44c2a4",
+    "head_hex": "07000000000f3700001f370000376700",
+    "role": "END_CLEARING_PACKAGE",
+    "decode_status": "SOURCE_NDS_EXTRACTED_NOT_DECODED",
+    "provenance": "SOURCE_NDS",
+    "source": "ground.sbin/D04P02"
+  },
+  "D04P02c": {
+    "size": 5988,
+    "sha256": "2faa84a09bea99a963c60a3309eb63146bfe25878b8a9b122b512696c6e84c68",
+    "head_hex": "03000300880000000000000000009a00",
+    "role": "END_CLEARING_PACKAGE",
+    "decode_status": "SOURCE_NDS_EXTRACTED_NOT_DECODED",
+    "provenance": "SOURCE_NDS",
+    "source": "ground.sbin/D04P02c"
+  },
+  "D04P02m": {
+    "size": 186,
+    "sha256": "59b562807414421b8ddd27e4a79e2c803d0e4247c461d9a0c76898a442658f47",
+    "head_hex": "4548030317180100000001000b0b0b0b",
+    "role": "END_CLEARING_PACKAGE",
+    "decode_status": "SOURCE_NDS_EXTRACTED_NOT_DECODED",
+    "provenance": "SOURCE_NDS",
+    "source": "ground.sbin/D04P02m"
+  }
+}
