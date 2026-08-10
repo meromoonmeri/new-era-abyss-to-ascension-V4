@@ -75,12 +75,24 @@ function gloomy_forest_entrance.Kangaskhan_Rock_Action(obj, activator)
 end
 
 function gloomy_forest_entrance.Dungeon_Entrance_Touch(obj, activator)
-	if SV.Chapter6.MissionAccepted and not SV.Chapter6.MissionComplete then
-		SV.Chapter6.EnteredGloomyForest = true
-		SOUND:FadeOutBGM(40)
-		GAME:FadeOut(false, 40)
-		GAME:EnterDungeon("gloomy_forest", 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, true)
+	-- BUG-CH6-FLOW-01: en ch.6, autoriser l'entree si la mission n'est pas
+	-- terminee. Mode dev (SceneDebug) pose MissionAccepted=true ; une save
+	-- histoire arrive en general deja avec ce flag via Butterfree (ville).
+	-- Si le flag manque encore (teleport direct), on l'arme ici pour ne pas
+	-- laisser le joueur bloque devant un trigger mort.
+	if SV.Chapter6 == nil then return end
+	if SV.Chapter6.MissionComplete then return end
+	if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 6 then
+		if not SV.Chapter6.MissionAccepted then
+			SV.Chapter6.MissionAccepted = true
+		end
+	elseif not SV.Chapter6.MissionAccepted then
+		return
 	end
+	SV.Chapter6.EnteredGloomyForest = true
+	SOUND:FadeOutBGM(40)
+	GAME:FadeOut(false, 40)
+	GAME:EnterDungeon("gloomy_forest", 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, true)
 end
 
 return gloomy_forest_entrance

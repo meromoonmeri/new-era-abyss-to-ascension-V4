@@ -982,6 +982,16 @@ SV.Chapter6 =
 	EnteredGloomyForest = false,
 	--D04P01 approche sobre, distincte de la confrontation D04P02 recastée.
 	SinisterApproachSeen = false,
+	--Barrage Team Dazzling a l'entree (gloomy_forest_entrance_ch_6.DazzlingEntranceBlockade).
+	--BUG-CH6-SV-01: declare ici (etait lu/ecrit sans defaut scriptvars).
+	DazzlingEntranceSeen = false,
+	--Presence narrative Dazzling le long du donjon (0 absent … 5 post-boss).
+	DazzlingPresenceStage = 0,
+	DazzlingPreRescueSeen = false,
+	DazzlingRelayClueSeen = false,
+	DazzlingChapterResolved = false,
+	--Transition de place (DazzlingPlaza) : etape interne de la scene.
+	PlazaTransitionStage = nil,
 	FinishedGloomyForestIntro = false,
 	GloomyBossEncountered = false,
 	DefeatedGloomyBoss = false,

@@ -331,9 +331,16 @@ function DebugTools:OnUpgrade()
 
  --Sinister Woods D04P01/D04P02 : séparation approche / clairière pour les sauvegardes existantes.
  if SV.Chapter6 == nil then SV.Chapter6 = {} end
- if SV.Chapter6.SinisterApproachSeen == nil then
-   SV.Chapter6.SinisterApproachSeen = (SV.Chapter6.FinishedGloomyForestIntro == true)
- end
+ -- BUG-CH6-DEV-04 / BUG-CH6-SV-01: defaults explicites. Ne PAS copier
+ -- FinishedGloomyForestIntro vers SinisterApproachSeen (verrouillait la
+ -- cinematique d'approche en mode dev / retest).
+ if SV.Chapter6.SinisterApproachSeen == nil then SV.Chapter6.SinisterApproachSeen = false end
+ if SV.Chapter6.DazzlingEntranceSeen == nil then SV.Chapter6.DazzlingEntranceSeen = false end
+ if SV.Chapter6.DazzlingPresenceStage == nil then SV.Chapter6.DazzlingPresenceStage = 0 end
+ if SV.Chapter6.DazzlingPreRescueSeen == nil then SV.Chapter6.DazzlingPreRescueSeen = false end
+ if SV.Chapter6.DazzlingRelayClueSeen == nil then SV.Chapter6.DazzlingRelayClueSeen = false end
+ if SV.Chapter6.DazzlingChapterResolved == nil then SV.Chapter6.DazzlingChapterResolved = false end
+ if SV.Chapter6.PlazaTransitionStage == nil then SV.Chapter6.PlazaTransitionStage = nil end
  
  
 

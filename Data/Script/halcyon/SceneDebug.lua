@@ -143,18 +143,29 @@ SceneDebug.scenes = {
     }},
   },
   {
+    -- BUG-CH7-DEV-01: colline_anciens n'a pas de package script ; la scene
+    -- intime est sur colline_sans_lumiere (GreatReunionPlayed and not FinishedIntimateTalk).
     key = 'colline_xatu',
-    label = "Ch7 — Colline des Anciens : vision de Xatu",
-    chapter = 7, ground = 'colline_anciens', entry = 'Main_Entrance_Marker',
-    note = "scene jouee inconditionnellement dans colline_anciens.Enter",
-    set = { Chapter7 = { VisitedXatu = false }},
+    label = "Ch7 — Colline sans Lumiere : dialogue intime",
+    chapter = 7, ground = 'colline_sans_lumiere', entry = 'Main_Entrance_Marker',
+    note = "colline_sans_lumiere/init.lua — Chapter==7 and GreatReunionPlayed and not FinishedIntimateTalk",
+    set = { Chapter7 = { GreatReunionPlayed = true, FinishedIntimateTalk = false, VisitedXatu = true }},
   },
   {
+    -- BUG-CH6-DEV-01: la cinematique d'approche lit SinisterApproachSeen (et
+    -- DazzlingEntranceSeen pour le barrage), PAS FinishedGloomyForestIntro.
     key = 'dazzling',
-    label = "Ch6 — Foret Lugubre : arrivee de la Team Dazzling",
+    label = "Ch6 — Sinister Woods : approche + barrage Dazzling",
     chapter = 6, ground = 'gloomy_forest_entrance', entry = 'Main_Entrance_Marker',
-    note = "gloomy_forest_entrance/init.lua:30 — chapitre 6 et not FinishedGloomyForestIntro",
-    set = { Chapter6 = { FinishedGloomyForestIntro = false }},
+    note = "gloomy_forest_entrance/init.lua — Chapter==6 and not SinisterApproachSeen",
+    set = { Chapter6 = {
+      SinisterApproachSeen = false,
+      DazzlingEntranceSeen = false,
+      FinishedGloomyForestIntro = false,
+      MissionAccepted = true,
+      MissionComplete = false,
+      EnteredGloomyForest = false,
+    }},
   },
   {
     key = 'kirlia',
