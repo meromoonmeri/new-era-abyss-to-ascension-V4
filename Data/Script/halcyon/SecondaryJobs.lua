@@ -166,6 +166,117 @@ SecondaryJobs.CONTRACTS = {
     flavor = "Les cloches minérales de la cime ont cessé de résonner dans le vent céleste.\nUne mission d'investigation sacrée est commanditée.",
   },
   {
+    chapter = 11, zone = 'rainy_ravine', segment = 0, floor = 10,
+    client = 'wooper', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'wooper', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'A', reward = 'money',
+    title = "Le déluge du ravin",
+    flavor = "Des pluies torrentielles inondent le Ravin Pluvieux et menacent nos rivières.
+Une équipe de secours est demandée d'urgence.",
+  },
+  {
+    chapter = 11, zone = 'mossy_gorge', segment = 0, floor = 12,
+    client = 'bellossom', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'bellossom', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'A', reward = 'money',
+    title = "L'eau de la racine sacrée",
+    flavor = "La source sacrée de la Gorge Moussue est accaparée par de redoutables Pokémon.
+Aidez-nous à rendre l'eau aux plantes de la vallée.",
+  },
+  {
+    chapter = 11, zone = 'windswept_trail', segment = 0, floor = 11,
+    client = 'manectric', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'manectric', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'S', reward = 'money',
+    title = "La tempête du nord",
+    flavor = "Des vents violents bloquent le passage sur la Piste Venteuse vers les crêtes nordiques.
+Sécurisez le sentier pour les voyageurs.",
+  },
+  {
+    chapter = 11, zone = 'foggy_hollow', segment = 0, floor = 12,
+    client = 'gloom', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'gloom', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'S', reward = 'money',
+    title = "Le brouillard sans fin",
+    flavor = "Un rideau de brume obscure désoriente quiconque s'aventure dans le Creux Brumeux.
+Dissipez cette menace pour ramener la clarté.",
+  },
+  {
+    chapter = 12, zone = 'ashen_hollow', segment = 0, floor = 10,
+    client = 'slugma', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'slugma', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'A', reward = 'money',
+    title = "Les cendres du cratère",
+    flavor = "Des boues acides empoisonnent la lave du Creux Cendré au nord des montagnes.
+Une mission de purification est requise.",
+  },
+  {
+    chapter = 12, zone = 'frozen_rift', segment = 0, floor = 12,
+    client = 'snorunt', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'snorunt', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'S', reward = 'money',
+    title = "Le puits de glace",
+    flavor = "Un monarque de glace obstrue le puits thermique de la Faille Gelée.
+Libérez le passage pour faire remonter l'air doux.",
+  },
+  {
+    chapter = 12, zone = 'whispering_crag', segment = 0, floor = 11,
+    client = 'pidgeotto', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'pidgeotto', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'S', reward = 'money',
+    title = "Les ailes d'acier",
+    flavor = "Des tempêtes violentes bloquent la route des oiseaux migrateurs sur la Crête Chuchotante.
+Sécurisez l'espace aérien.",
+  },
+  {
+    chapter = 12, zone = 'twilight_marsh', segment = 0, floor = 12,
+    client = 'wooper', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'wooper', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'A', reward = 'money',
+    title = "La tourbe sombre",
+    flavor = "Les champs de baies du Marais Crépusculaire sont ravagés par un étalon lourd.
+Protégez nos cultures marécageuses.",
+  },
+  {
+    chapter = 13, zone = 'shivering_cavern', segment = 0, floor = 10,
+    client = 'snorunt', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'snorunt', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'A', reward = 'money',
+    title = "Le gel éternel",
+    flavor = "Un blizzard éternel paralyse la source thermale de la Caverne Grelottante.
+Une expédition de secours est réclamée.",
+  },
+  {
+    chapter = 13, zone = 'tempest_ridge', segment = 0, floor = 12,
+    client = 'manectric', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'manectric', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'S', reward = 'money',
+    title = "L'orage de la crête",
+    flavor = "Des foudres violentes interdisent le passage sur la Crête de la Tempête.
+Apaiser l'orage pour rouvrir le col.",
+  },
+  {
+    chapter = 13, zone = 'hollow_thicket', segment = 0, floor = 11,
+    client = 'gloom', client_gender = RogueEssence.Data.Gender.Male,
+    target = 'gloom', target_gender = RogueEssence.Data.Gender.Male,
+    difficulty = 'S', reward = 'money',
+    title = "Les ronces du fourré",
+    flavor = "Des lianes sombres emprisonnent les sous-bois du Fourré Creux.
+Libérez les sentiers pour les habitants forestiers.",
+  },
+  {
+    chapter = 13, zone = 'silent_marsh', segment = 0, floor = 12,
+    client = 'wooper', client_gender = RogueEssence.Data.Gender.Female,
+    target = 'wooper', target_gender = RogueEssence.Data.Gender.Female,
+    difficulty = 'A', reward = 'money',
+    title = "Le silence du marais",
+    flavor = "Le Marais Silencieux est privé de musique par un gardien en armure d'acier.
+Ramenez le chant des pluies.",
+  },
+
+
+
+  {
     client = 'wooper', client_gender = RogueEssence.Data.Gender.Male,
     target = 'wooper', target_gender = RogueEssence.Data.Gender.Male,
     difficulty = 'A', reward = 'money',
