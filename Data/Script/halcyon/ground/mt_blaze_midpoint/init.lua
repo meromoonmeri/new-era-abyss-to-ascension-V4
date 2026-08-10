@@ -4,6 +4,7 @@
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.MidpointTemplate'
 
 local mt_blaze_midpoint = {}
 
@@ -13,8 +14,29 @@ function mt_blaze_midpoint.Init(map)
   PartnerEssentials.InitializePartnerSpawn()
 end
 
+-- Reveil sobre apres un KO dans la 2e moitie (template point median).
+local function WakeAfterKO()
+  MidpointTemplate.QuickWake({
+    skin = {
+      status = 'falling_ash',
+      wakeMusic = 'Mt. Horn.ogg',
+      wake = {
+        hero = {208, 176}, partner = {232, 176},
+        camera = {228, 200},
+      },
+    },
+    line = { spk='partner', emo='Worried',
+             txt="Le relais...[pause=0] La chaleur nous a recraches ici.[pause=10] Reprenons notre souffle avant de remonter." },
+  })
+end
+
 function mt_blaze_midpoint.Enter(map)
   if SV.RuntimeGroundAudit and SV.RuntimeGroundAudit.Active then GAME:CutsceneMode(false); GAME:FadeIn(1); return end
+  if SV.MtBlaze ~= nil and SV.MtBlaze.DiedPastCheckpoint then
+    SV.MtBlaze.DiedPastCheckpoint = false
+    WakeAfterKO()
+    return
+  end
   GAME:FadeIn(20)
 end
 

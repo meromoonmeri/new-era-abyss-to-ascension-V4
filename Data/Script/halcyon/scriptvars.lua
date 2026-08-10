@@ -756,6 +756,8 @@ SV.Chapter3 =
 	LostToBoss = false,--did duo die to boss?
 	EscapedBoss = false,--due team use an escape orb to escape boss?
 	DefeatedBoss = false, --did duo defeat team style?
+	CrookedPlayedMidpointIntro = false,--crooked_cavern : intro du point median jouee ? (non declare -> respawn mort apres chargement)
+	CrookedMidpointState = 'FirstArrival',--crooked_cavern : FirstArrival/RepeatArrival/DeathArrival (non declare -> WipedCutscene jamais jouee)
 	RootSceneTransition = false, --Used to remember where in the root scene we are after transitioning away to show the root 
 	FinishedRootScene = false, --Showed root scene? This is used to mark the first half of chapter 3 (the non filler portion) as having been completed or not
 	FinishedMerchantIntro = false, --Did merchant intro cutscene?
@@ -991,6 +993,10 @@ SV.Chapter6 =
 	PostMissionScenePlayed = false,
 	DefeatedByZeraora = false,
 	DazzlingTownVisit = 0,
+	DazzlingChapterResolved = false,--Team Dazzling : conflit chapitre resolu ?
+	DazzlingEntranceSeen = false,--entree gloomy_forest : premiere rencontre vue ?
+	DazzlingPresenceStage = 0,--stade de presence Team Dazzling (0..4)
+	DazzlingRelayClueSeen = false,--indice lu au relais de mi-donjon ?
 	ShowedTitleCard = false,--Has the Chapter 6 title card been shown?
 	PostDefeatScenePlayed = false,
 	--Relais de mi-donjon. Ces deux champs etaient lus par
@@ -1222,6 +1228,21 @@ SV.ClovenRuins =
 SV.CrookedCavern =
 {
 	DiedPastCheckpoint = false
+}
+
+SV.FrostyForest =
+{
+	DiedPastCheckpoint = false--KO dans la 2e moitie : reveil au point median (template)
+}
+
+SV.MtBlaze =
+{
+	DiedPastCheckpoint = false--KO dans la 2e moitie : reveil au point median (template)
+}
+
+SV.MtFreeze =
+{
+	DiedPastCheckpoint = false--KO dans la 2e moitie : reveil au point median (template)
 }
 
 SV.GloomyForest =
@@ -1554,7 +1575,13 @@ SV.Ruines =
   VaincuRegisteel = false,
   PerduRegice     = false,
   PerduRegirock   = false,
-  PerduRegisteel  = false
+  PerduRegisteel  = false,
+
+  VaincuRegigigas = false,--Regigigas tombe (fin du ch5) : ouvre la revelation, jamais declaree -> perdue au chargement
+  TourRevelee     = false,--la revelation de la Tour / Canceled Ruins a ete jouee ?
+  SceneS04P1901Complete = false,--s04p1901 (Regigigas se releve, seisme, fuite) jouee ?
+  SceneS04P1902Pending  = false,--s04p1902 (eveil des Canceled Ruins) en attente ?
+  SceneS04P1902Complete = false--s04p1902 jouee ?
 }
 
 

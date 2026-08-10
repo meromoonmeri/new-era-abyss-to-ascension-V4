@@ -394,4 +394,88 @@ function MidpointTemplate.Route(state, cfg)
   end
 end
 
+
+--------------------------------------------------------------------
+-- ETAT 3-bis — QuickWake
+-- Reveil sobre apres un KO au-dela du checkpoint, pour les midpoints
+-- de la route canonique PMD Red (frosty_forest, mt_blaze, mt_freeze).
+-- Meme squelette que DeathArrival, mais minimal : pas de narration,
+-- juste le retour a soi au pied de la statue.
+-- cfg : { skin = { wake = {hero={x,y}, partner={x,y}, camera={x,y}},
+--                  wakeMusic = 'X.ogg' (optionnel) },
+--         line = { spk='partner'|'hero'|'narrator', txt=..., emo=... } (optionnel) }
+--------------------------------------------------------------------
+function MidpointTemplate.QuickWake(cfg)
+  pcall(function() GAME:FadeOut(false, 1) end)
+  local skin = cfg.skin or {}
+  local wake = skin.wake or {}
+  local hero = CH('PLAYER')
+  local partner = CH('Teammate1')
+
+  GAME:CutsceneMode(true)
+  SOUND:StopBGM()
+  if partner ~= nil then AI:DisableCharacterAI(partner) end
+
+  MidpointTemplate.ApplySkin(skin)
+
+  if hero ~= nil then
+    GROUND:TeleportTo(hero, wake.hero[1], wake.hero[2], wake.heroFace or Direction.Left)
+    GROUND:CharSetAnim(hero, 'EventSleep', true)
+  end
+  if partner ~= nil then
+    GROUND:TeleportTo(partner, wake.partner[1], wake.partner[2], wake.partnerFace or Direction.Right)
+    GAME:WaitFrames(10)
+    GROUND:CharSetAnim(partner, 'EventSleep', true)
+  end
+  if wake.camera ~= nil then
+    GAME:MoveCamera(wake.camera[1], wake.camera[2], 1, false)
+  end
+
+  GAME:FadeIn(50)
+  if skin.wakeMusic ~= nil then SOUND:PlayBGM(skin.wakeMusic, true) end
+  GAME:WaitFrames(100)
+
+  local coros = {}
+  if hero ~= nil then
+    table.insert(coros, TASK:BranchCoroutine(function()
+      GeneralFunctions.DoAnimation(hero, 'Wake')
+      GAME:WaitFrames(12)
+      GROUND:CharAnimateTurnTo(hero, Direction.Down, 4)
+    end))
+  end
+  if partner ~= nil then
+    table.insert(coros, TASK:BranchCoroutine(function()
+      GAME:WaitFrames(14)
+      GeneralFunctions.DoAnimation(partner, 'Wake')
+      GAME:WaitFrames(12)
+      GROUND:CharAnimateTurnTo(partner, Direction.Down, 4)
+    end))
+  end
+  TASK:JoinCoroutines(coros)
+  GAME:WaitFrames(30)
+
+  if cfg.line ~= nil then
+    local line = cfg.line
+    if line.spk == 'narrator' then
+      UI:ResetSpeaker(); UI:SetCenter(true)
+      UI:WaitShowDialogue(line.txt)
+      UI:SetCenter(false)
+    elseif line.spk == 'hero' and hero ~= nil then
+      GeneralFunctions.HeroDialogue(hero, line.txt, line.emo or 'Normal')
+    elseif partner ~= nil then
+      UI:SetSpeaker(partner)
+      GeneralFunctions.SetEmotion(line.emo or 'Normal')
+      UI:WaitShowDialogue(line.txt)
+    end
+  end
+
+  GAME:WaitFrames(20)
+  if partner ~= nil then
+    AI:EnableCharacterAI(partner)
+    AI:SetCharacterAI(partner, 'origin.ai.ground_partner', hero, partner.Position)
+    PartnerEssentials.SaveGamePartnerPosition(partner)
+  end
+  GeneralFunctions.RendreLaMain(true)
+end
+
 return MidpointTemplate

@@ -15,7 +15,7 @@
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
-require 'halcyon.future_arc.Dungeon55Events'
+require 'halcyon.future_arc.dungeon55_events'
 
 local passage_temps = {}
 

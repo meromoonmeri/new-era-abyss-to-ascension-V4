@@ -4,6 +4,7 @@
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.MidpointTemplate'
 
 local mt_freeze_midpoint = {}
 
@@ -13,7 +14,28 @@ function mt_freeze_midpoint.Init(map)
   PartnerEssentials.InitializePartnerSpawn()
 end
 
+-- Reveil sobre apres un KO dans la 2e moitie (template point median).
+local function WakeAfterKO()
+  MidpointTemplate.QuickWake({
+    skin = {
+      status = 'winter_snow',
+      wakeMusic = 'Glacial Path.ogg',
+      wake = {
+        hero = {208, 176}, partner = {232, 176},
+        camera = {228, 200},
+      },
+    },
+    line = { spk='partner', emo='Worried',
+             txt="Le relais...[pause=0] La glace nous a laisses repartir.[pause=10] Soufflons avant de continuer." },
+  })
+end
+
 function mt_freeze_midpoint.Enter(map)
+  if SV.MtFreeze ~= nil and SV.MtFreeze.DiedPastCheckpoint then
+    SV.MtFreeze.DiedPastCheckpoint = false
+    WakeAfterKO()
+    return
+  end
   GAME:FadeIn(20)
 end
 

@@ -4,6 +4,7 @@
 require 'origin.common'
 require 'halcyon.PartnerEssentials'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.MidpointTemplate'
 
 local frosty_forest_midpoint = {}
 
@@ -13,7 +14,28 @@ function frosty_forest_midpoint.Init(map)
   PartnerEssentials.InitializePartnerSpawn()
 end
 
+-- Reveil sobre apres un KO dans la 2e moitie (template point median).
+local function WakeAfterKO()
+  MidpointTemplate.QuickWake({
+    skin = {
+      status = 'winter_snow',
+      wakeMusic = 'Snowbound Path.ogg',
+      wake = {
+        hero = {208, 176}, partner = {232, 176},
+        camera = {228, 200},
+      },
+    },
+    line = { spk='partner', emo='Worried',
+             txt="On est revenus au relais...[pause=0] La tempête nous a epargnes.[pause=10] Reprenons notre souffle avant de remonter." },
+  })
+end
+
 function frosty_forest_midpoint.Enter(map)
+  if SV.FrostyForest ~= nil and SV.FrostyForest.DiedPastCheckpoint then
+    SV.FrostyForest.DiedPastCheckpoint = false
+    WakeAfterKO()
+    return
+  end
   GAME:FadeIn(20)
 end
 

@@ -282,7 +282,7 @@
         },
         "Value": {
          "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-         "Music": "Dusk Forest.ogg",
+         "Music": "Deep Dusk Forest.ogg",
          "TimeLimit": 1200,
          "TileSight": 1,
          "CharSight": 1,
@@ -893,7 +893,7 @@
         },
         "Value": {
          "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-         "Music": "Dusk Forest.ogg",
+         "Music": "Deep Dusk Forest.ogg",
          "TimeLimit": 1200,
          "TileSight": 1,
          "CharSight": 1,
@@ -1504,7 +1504,7 @@
         },
         "Value": {
          "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-         "Music": "Dusk Forest.ogg",
+         "Music": "Deep Dusk Forest.ogg",
          "TimeLimit": 1200,
          "TileSight": 1,
          "CharSight": 1,
@@ -2115,7 +2115,7 @@
         },
         "Value": {
          "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-         "Music": "Dusk Forest.ogg",
+         "Music": "Deep Dusk Forest.ogg",
          "TimeLimit": 1200,
          "TileSight": 1,
          "CharSight": 1,
@@ -2726,7 +2726,7 @@
         },
         "Value": {
          "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-         "Music": "Dusk Forest.ogg",
+         "Music": "Deep Dusk Forest.ogg",
          "TimeLimit": 1200,
          "TileSight": 1,
          "CharSight": 1,
@@ -3349,7 +3349,7 @@
         },
         "Value": {
          "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-         "Music": "Dusk Forest.ogg",
+         "Music": "Deep Dusk Forest.ogg",
          "TimeLimit": 1200,
          "TileSight": 0,
          "CharSight": 1,
@@ -3972,7 +3972,7 @@
         },
         "Value": {
          "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-         "Music": "Dusk Forest.ogg",
+         "Music": "Deep Dusk Forest.ogg",
          "TimeLimit": 1200,
          "TileSight": 0,
          "CharSight": 1,
@@ -4595,7 +4595,7 @@
         },
         "Value": {
          "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-         "Music": "Dusk Forest.ogg",
+         "Music": "Deep Dusk Forest.ogg",
          "TimeLimit": 1200,
          "TileSight": 0,
          "CharSight": 1,
