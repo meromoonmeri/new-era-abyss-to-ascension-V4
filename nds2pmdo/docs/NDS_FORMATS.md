@@ -123,7 +123,35 @@ Nom du piège 17 : `UNKNOWN` (la constante pmd-red serait CROSS_REFERENCE).
 - `message_*.bin` : pool de chaînes (codes de contrôle `#C`, `#R`…, séparateur `\n`).
 - Frontières exactes des messages et sémantique des codes : `PARTIAL` (à documenter).
 
-## 10. État des formats
+## 10. Graphiques — cel (cellules du tileset)
+
+`bXXcel` décompressé = `u16` par cellule :
+- bits 0–9 : index de tile (≤ 414 pour b41 = 415 tiles du fon ✓)
+- bits 14–15 : palette (0–2 observées, jamais 3)
+- bits 10, 12, 13 : flags (sémantique UNKNOWN, documentée)
+
+Validé sur APHP : 2250 cells pour b41 et b10, cohérence max_tile ↔ fon.
+
+## 11. Graphiques — canm (animations de tileset)
+
+`bXXcanm` = SIR0 (sans AT4PX). `main` = 16 u32 (offsets absolus) → entrées de
+68 octets `{ u16, u16, 16 × u32 }`. Les u32 sont constants par entrée
+(ex. `0x80DB7BA2`, `0x80009C9C`) — signification (frames/délais/pointeurs) :
+**UNKNOWN** (documenté, jamais inventé).
+
+## 12. Graphiques — pal (palettes)
+
+768 octets = 384 u16 BGR555 en paires `(couleur, couleur|0x8000)` → **192 couleurs
+distinctes**. Le découpage en sous-palettes (12 × 16 couleurs candidates) dépend
+des cellules (cel) : la sélection palette se fait par cellule, pas par tile.
+
+## 13. Packages de ground (ground.sbin)
+
+Entrées `B10P01A/B/C` (664/724/664 B) et `B10P02A` (1972 B) : structure de blocs
+`{ u32 count, u32 valeurs… }` ; certains blocs ressemblent à des palettes 24-bit,
+d'autres à des données de scène. Décodage complet : **PARTIAL/UNKNOWN**.
+
+## 14. État des formats
 
 | Format | Statut |
 |---|---|
@@ -132,7 +160,9 @@ Nom du piège 17 : `UNKNOWN` (la constante pmd-red serait CROSS_REFERENCE).
 | SIR0, AT4PX | SOURCE_NDS décodé (validé byte-à-byte) |
 | mapparam (floor_id, props, spawns) | SOURCE_NDS décodé (validé) |
 | Tables items/pièges | PARTIAL (octets SOURCE_NDS, sémantique partielle) |
-| canm (animations tileset) | SIR0 identifié, sémantique UNKNOWN |
-| SDAT noms | SOURCE_NDS (validé) ; records INFO UNKNOWN |
-| ground.sbin | inventaire SOURCE_NDS ; scripts UNKNOWN |
-| Messages | PARTIAL |
+| cel (tile+palette+flags) | SOURCE_NDS décodé (validé) ; sémantique des flags UNKNOWN |
+| canm (animations tileset) | SIR0 + forme documentée, sémantique UNKNOWN |
+| pal | 192 couleurs BGR555 SOURCE_NDS ; sous-palettes via cel |
+| SDAT noms | SOURCE_NDS (validé) ; records INFO/FAT UNKNOWN |
+| ground.sbin | inventaire SOURCE_NDS ; packages B10P01 PARTIAL/UNKNOWN |
+| Messages (.bin/.str) | PARTIAL (offsets u32 identifiés, frontières à documenter) |
