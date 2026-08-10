@@ -872,7 +872,6 @@ SV.Chapter5 =
 	--du plan) : joue UNE SEULE FOIS, au premier passage apres l'intro.
 	--Sans ce drapeau il se rejouerait a chaque aller-retour du joueur
 	MountDoorTalkDone = false,
-	FragmentSceneSeen = false,--Le Fragment (Meteno) est-il tombe pres du relais du Mont ?
 	SteppeNightSceneSeen = false,--La veillee du camp (Hyko x Almotz) a-t-elle ete jouee ?
 	MountVigilSceneSeen = false,--La derniere veillee avant le sommet a-t-elle ete jouee ?
 

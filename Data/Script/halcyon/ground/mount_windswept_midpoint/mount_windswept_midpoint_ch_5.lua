@@ -175,13 +175,8 @@ end
 --SetupGround (ci-dessous) pour que les deux ne puissent pas diverger.
 function mount_windswept_midpoint_ch_5.HasPendingScene()
   local c5 = SV.Chapter5
-  --MINI-BOSS CH5 RETIRE : le garde exigeait MountMiniBossDefeated/Lost,
-  --flags que plus personne n'ecrit. La scene du Fragment (Meteno) etait
-  --devenue injouable. Elle ne depend plus que d'avoir vu l'intro du relais.
-  --Condition tenue STRICTEMENT identique a celle de SetupGround.
-  if c5.PlayedMountMidpointIntro and not c5.FragmentSceneSeen then
-    return true
-  end
+  -- Seule la derniere veillee (apres le gardien du sommet) reste une
+  -- scene en attente.
   if c5.MountGuardianDefeated and not c5.MountVigilSceneSeen then
     return true
   end
@@ -248,12 +243,8 @@ function mount_windswept_midpoint_ch_5.SetupGround()
   })
   GROUND:CharSetAnim(wooper, "Idle", true)
 
-  -- Cinematique contemplative du Fragment, une seule fois, des que l'equipe
-  -- a vu l'intro du relais (voir HasPendingScene : conditions jumelles).
-  if SV.Chapter5.PlayedMountMidpointIntro and not SV.Chapter5.FragmentSceneSeen then
-    mount_windswept_midpoint_ch_5.FallenFragmentScene()
-  elseif SV.Chapter5.MountGuardianDefeated and not SV.Chapter5.MountVigilSceneSeen then
-    -- Derniere veillee avant le sommet.
+  -- Scene en attente : la derniere veillee avant le sommet.
+  if SV.Chapter5.MountGuardianDefeated and not SV.Chapter5.MountVigilSceneSeen then
     mount_windswept_midpoint_ch_5.SummitVigilScene()
   else
     GAME:FadeIn(20)
@@ -350,146 +341,6 @@ function mount_windswept_midpoint_ch_5.Shuca_Action(chara, activator)
   GeneralFunctions.EndConversation(chara)
 end
 
---------------------------------------------------------------------
--- CINEMATIQUE CONTEMPLATIVE — Le Fragment tombe du ciel
--- Adaptation New Era du motif "Minior : The Fallen Star" : une pluie
--- d'etoiles filantes, puis un eclat qui tombe pres du camp. Un Meteno
--- (Minior) desoriente, un voeu murmure, et un presage du phenomene
--- lumineux du sommet. Necrozma et l'Abime ne sont jamais nommes.
---------------------------------------------------------------------
-function mount_windswept_midpoint_ch_5.FallenFragmentScene()
-  local hero = CH('PLAYER')
-  local partner = CH('Teammate1')
-
-  GAME:CutsceneMode(true)
-  GAME:FadeIn(30)
-  GAME:WaitFrames(20)
-
-  AI:DisableCharacterAI(partner)
-
-  -- Nuit qui tombe : la scene se joue au crepuscule.
-  SOUND:FadeOutBGM(40)
-  GAME:WaitFrames(30)
-
-  UI:SetSpeaker(partner)
-  GeneralFunctions.SetEmotion("Normal")
-  UI:WaitShowDialogue("La nuit tombe vite,[pause=10] en altitude.[pause=0] Regarde,[pause=10] on voit déjà les étoiles.")
-
-  GeneralFunctions.HeroDialogue(hero, "(Le ciel est si clair,[pause=10] ici...[pause=0] On dirait qu'on pourrait le toucher.)", "Normal")
-
-  GAME:WaitFrames(30)
-
-  -- Pluie d'etoiles filantes
-  SOUND:PlayBattleSE("EVT_Fade_White")
-  BossFX.Particle("Swift_Star", 700, 200, 4)
-  GAME:WaitFrames(15)
-  BossFX.Particle("Swift_Star", 900, 180, 4)
-  GAME:WaitFrames(15)
-  BossFX.Particle("Meteor_Mash_Star", 800, 220, 4)
-
-  UI:SetSpeaker(partner)
-  GeneralFunctions.SetEmotion("Inspired")
-  UI:WaitShowDialogue("Waouh ![pause=0] Des étoiles filantes ![pause=0] Vite,[pause=10] fais un vœu !")
-
-  GeneralFunctions.HeroDialogue(hero, "(Un vœu...[pause=0] Je souhaite...[pause=10] je souhaite que...)", "Normal")
-
-  GAME:WaitFrames(20)
-
-  -- L'une d'elles... ne file pas. Elle tombe.
-  UI:SetSpeaker(partner)
-  GeneralFunctions.SetEmotion("Stunned")
-  UI:WaitShowDialogue("Attends.[pause=0] Celle-là...[pause=10] elle ne file pas.[pause=0] Elle GROSSIT.")
-
-  SOUND:PlayBattleSE("EVT_Battle_Flash")
-  BossFX.Flash(900, 300, 3, 5, 20)
-  BossFX.ShakeScreen(6, 20)
-  SOUND:PlayBattleSE("DUN_Rock_Slide")
-  GAME:WaitFrames(30)
-
-  UI:SetSpeaker(partner)
-  GeneralFunctions.SetEmotion("Surprised")
-  UI:WaitShowDialogue("Ça...[pause=10] ça s'est écrasé juste derrière les rochers ![pause=0] Viens !")
-
-  -- Deplacement vers le point d'impact (est du camp)
-  local coro1 = TASK:BranchCoroutine(function() GeneralFunctions.EightWayMove(partner, 900, 368, false, 2) end)
-  local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(8) GeneralFunctions.EightWayMove(hero, 900, 400, false, 2) end)
-  local coro3 = TASK:BranchCoroutine(function() GeneralFunctions.PanCamera(nil, nil, false, nil, 900, 380) end)
-  TASK:JoinCoroutines({coro1, coro2, coro3})
-  GAME:WaitFrames(20)
-
-  -- Le Fragment : un Meteno en forme meteore, sonne
-  local fragment = CharacterEssentials.MakeCharactersFromList({{'Meteno', 940, 360, Direction.Left}})
-  BossFX.Particle("Rock_Pieces", 940, 360, 3)
-  GAME:WaitFrames(20)
-
-  UI:SetSpeaker(fragment)
-  GeneralFunctions.SetEmotion("Dizzy")
-  UI:WaitShowDialogue("Ouille ouille ouille...[pause=0] Le grand plongeon...[pause=10] encore raté...")
-
-  UI:SetSpeaker(partner)
-  GeneralFunctions.SetEmotion("Surprised")
-  UI:WaitShowDialogue("Un Météno ?![pause=0] Tombé...[pause=10] du ciel ?![pause=0] Hé,[pause=10] tu vas bien ?!")
-
-  UI:SetSpeaker(fragment)
-  GeneralFunctions.SetEmotion("Worried")
-  UI:WaitShowDialogue("Bien ?[pause=0] Oh,[pause=10] oui,[pause=10] oui.[pause=0] Enfin,[pause=10] non.[pause=0] Enfin...[pause=10] physiquement,[pause=10] oui.[pause=0] On est faits pour tomber,[pause=10] nous autres.")
-  UI:WaitShowDialogue("Mais là-haut...[pause=0] quelque chose ne va pas,[pause=10] là-haut.")
-
-  GeneralFunctions.HeroDialogue(hero, "(Là-haut ?[pause=0] Il parle du ciel...[pause=10] ou du sommet ?)", "Worried")
-
-  UI:SetSpeaker(fragment)
-  GeneralFunctions.SetEmotion("Sad")
-  UI:WaitShowDialogue("On était tout un banc,[pause=10] à danser au-dessus des nuages.[pause=0] Et puis la lumière du sommet s'est mise à...[pause=10] trembler.")
-  UI:WaitShowDialogue("Pas comme une lumière qui s'éteint.[pause=0] Comme une lumière qui a PEUR.[pause=0] Mes amis se sont dispersés.[pause=10] Moi,[pause=10] je suis tombé.")
-
-  UI:SetSpeaker(partner)
-  GeneralFunctions.SetEmotion("Worried")
-  UI:WaitShowDialogue("La lumière du sommet...[pause=0] C'est là qu'on va,[pause=10] justement.")
-
-  UI:SetSpeaker(fragment)
-  GeneralFunctions.SetEmotion("Surprised")
-  UI:WaitShowDialogue("Vous MONTEZ ?[pause=0] Alors que tout ce qui a des ailes redescend ?")
-  GAME:WaitFrames(15)
-  GeneralFunctions.SetEmotion("Normal")
-  UI:WaitShowDialogue("...Vous êtes bizarres.[pause=0] J'aime bien les bizarres.")
-  UI:WaitShowDialogue("Tenez.[pause=0] Un conseil de quelqu'un qui a vu votre montagne depuis très,[pause=10] très haut :[pause=0] la lumière n'est pas votre ennemie.[pause=0] Elle appelle.")
-  UI:WaitShowDialogue("Ce qui l'effraie,[pause=10] par contre...[pause=0] ça,[pause=10] je n'ai pas voulu le regarder longtemps.")
-
-  GAME:WaitFrames(30)
-
-  UI:SetSpeaker(partner)
-  GeneralFunctions.SetEmotion("Determined")
-  UI:WaitShowDialogue("Raison de plus pour monter.[pause=0] Si quelque chose effraie même le ciel,[pause=10] la guilde doit savoir quoi.")
-
-  UI:SetSpeaker(fragment)
-  GeneralFunctions.SetEmotion("Happy")
-  UI:WaitShowDialogue("Alors bonne chance,[pause=10] les bizarres.[pause=0] Moi je vais rester par ici le temps de retrouver mon banc.")
-  UI:WaitShowDialogue("Et si vous voyez mes amis là-haut...[pause=0] dites-leur que le Grand Plongeon,[pause=10] c'était pas ma faute cette fois.")
-
-  -- Le Fragment roule derriere les rochers
-  GROUND:MoveToPosition(fragment, 990, 340, false, 2)
-  GROUND:Hide('Meteno')
-  GAME:WaitFrames(20)
-
-  -- Conclusion contemplative
-  GeneralFunctions.PanCamera()
-  GAME:WaitFrames(20)
-
-  GeneralFunctions.HeroDialogue(hero, "(Une lumière qui a peur...[pause=0] Cette voix dans les herbes,[pause=10] le vent,[pause=10] les gardiens...[pause=0] Tout est lié.[pause=10] J'en suis sûr maintenant.)", "Worried")
-
-  UI:SetSpeaker(partner)
-  GeneralFunctions.SetEmotion("Normal")
-  UI:WaitShowDialogue("Allez.[pause=0] Reposons-nous.[pause=0] Demain,[pause=10] on va voir cette lumière de plus près.")
-  GAME:WaitFrames(20)
-
-  SV.Chapter5.FragmentSceneSeen = true
-  SOUND:PlayBGM('Canyon Camp.ogg', true)
-  GAME:CutsceneMode(false)
-  AI:EnableCharacterAI(partner)
-  AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
-  --La camera revient au joueur (forme attestee : searing_tunnel:1480).
-  GAME:MoveCamera(0, 0, 1, true)
-end
 
 --------------------------------------------------------------------
 -- CINEMATIQUE DRAMATIQUE — La derniere veillee (lot D)

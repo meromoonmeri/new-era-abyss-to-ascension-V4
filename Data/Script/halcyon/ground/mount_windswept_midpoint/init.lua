@@ -97,8 +97,8 @@ function mount_windswept_midpoint.PlotScripting()
       --Retour a l'amiable (repli volontaire ou sauvegarde reprise ici).
       --Drapeau consomme immediatement : la scene ne joue qu'une fois
       --par retour, pas a chaque rechargement de la carte.
-      --La garde HasPendingScene evite d'ecraser une cinematique de
-      --progression (Fragment, derniere veillee) qui, elle, prime.
+      --La garde HasPendingScene evite d'ecraser la cinematique de
+      --progression (derniere veillee) qui, elle, prime.
       SV.Chapter5.WindsweptMidReturn = false
       mount_windswept_midpoint_ch_5.RepeatArrival()
     else

@@ -357,6 +357,7 @@ function MidpointTemplate.DeathArrival(cfg)
     AI:SetCharacterAI(partner, 'origin.ai.ground_partner', hero, partner.Position)
     PartnerEssentials.SaveGamePartnerPosition(partner)
   end
+    MidpointTemplate.RestoreParty()
   GeneralFunctions.RendreLaMain(true)
 end
 
@@ -394,6 +395,24 @@ function MidpointTemplate.Route(state, cfg)
   end
 end
 
+
+--------------------------------------------------------------------
+-- RESTAURATION DE L'EQUIPE (PP + estomac + PV)
+-- Appelee a chaque arrivee au point median (Rest, QuickWake, DeathArrival) :
+-- le relais est une zone de repos, l'equipe repart requinquee. Meme
+-- comportement que le clear-check des relais-etages (FullRestore), applique
+-- ici sur les midpoints-grounds. Aucune API nouvelle (FullRestore moteur).
+--------------------------------------------------------------------
+function MidpointTemplate.RestoreParty()
+  local ok, err = pcall(function()
+    for i = 0, GAME:GetPlayerPartyCount() - 1, 1 do
+      _DATA.Save.ActiveTeam.Players[i]:FullRestore()
+    end
+  end)
+  if not ok then
+    PrintInfo('[MidpointTemplate] RestoreParty interrompu : ' .. tostring(err))
+  end
+end
 
 --------------------------------------------------------------------
 -- ETAT 3-bis — QuickWake
@@ -475,6 +494,8 @@ function MidpointTemplate.QuickWake(cfg)
     AI:SetCharacterAI(partner, 'origin.ai.ground_partner', hero, partner.Position)
     PartnerEssentials.SaveGamePartnerPosition(partner)
   end
+    MidpointTemplate.RestoreParty()
+    MidpointTemplate.RestoreParty()
   GeneralFunctions.RendreLaMain(true)
 end
 

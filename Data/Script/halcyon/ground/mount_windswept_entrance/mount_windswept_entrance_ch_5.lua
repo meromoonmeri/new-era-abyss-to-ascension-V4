@@ -5311,9 +5311,8 @@ end
 -- LÉGENDE : « L'Arbitre du Ciel » (Reinier, veteran des caravanes)
 -- Mentions : Rayquaza (l'Arbitre, nomme a la fin seulement), Kyogre et
 -- Groudon evoques comme « la mer et la terre en guerre ». Motif New Era :
--- l'Arbitre n'intervient que si le ciel est franchi — echo au Fragment
--- (Meteno) tombe pres du relais, et prefiguration lointaine du lore
--- Fil du Destin reserve a l'arc Jirachi.
+-- l'Arbitre n'intervient que si le ciel est franchi — prefiguration
+-- lointaine du lore Fil du Destin reserve a l'arc Jirachi.
 -- OST : Sky Peak Cave -> Rising Fear (bref) -> retour.
 function mount_windswept_entrance_ch_5.LegendOfTheSkyArbiter(chara)
 	local hero = CH('PLAYER')
