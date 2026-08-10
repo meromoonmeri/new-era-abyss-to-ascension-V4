@@ -1,0 +1,126 @@
+{
+  "Version": "0.4.10.0",
+  "Object": {
+    "$type": "RogueEssence.Data.ZoneData, RogueEssence",
+    "Name": {
+      "DefaultText": "Amp Plains",
+      "LocalTexts": {
+        "fr": "Plaines Amp"
+      }
+    },
+    "Released": true,
+    "Comment": "Portage canonique — Amp Plains",
+    "NoEXP": false,
+    "ExpPercent": 100,
+    "Level": -1,
+    "LevelCap": false,
+    "KeepSkills": false,
+    "TeamRestrict": false,
+    "TeamSize": 4,
+    "MoneyRestrict": false,
+    "BagRestrict": false,
+    "KeepTreasure": false,
+    "BagSize": -1,
+    "Persistent": false,
+    "Rescues": 3,
+    "Rogue": 0,
+    "Segments": [
+      {
+        "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+        "IsIntermission": false,
+        "FloorCount": 19,
+        "ZoneSteps": [
+          {
+            "$type": "RogueEssence.LevelGen.FloorNameDropZoneStep, RogueEssence",
+            "Priority": 0
+          }
+        ],
+        "GenSteps": [
+          {
+            "$type": "RogueEssence.LevelGen.GridPathBranch`1[[RogueElements.MapGenContext, RogueElements]], RogueElements",
+            "RoomRatio": {
+              "Numerator": 3,
+              "Denominator": 5
+            }
+          },
+          {
+            "$type": "RogueEssence.LevelGen.SpawnListPostProc`2[[RogueElements.MapGenContext, RogueElements],[RogueEssence.Data.MobSpawn, RogueEssence]], RogueEssence",
+            "Spawns": [
+              {
+                "Base": {
+                  "Species": "shinx",
+                  "Form": 0,
+                  "Skin": "normal",
+                  "Gender": 0
+                },
+                "Level": {
+                  "Min": 10,
+                  "Max": 35
+                },
+                "SpecifiedSkills": [],
+                "SpawnFeatures": []
+              },
+              {
+                "Base": {
+                  "Species": "luxio",
+                  "Form": 0,
+                  "Skin": "normal",
+                  "Gender": 0
+                },
+                "Level": {
+                  "Min": 10,
+                  "Max": 35
+                },
+                "SpecifiedSkills": [],
+                "SpawnFeatures": []
+              },
+              {
+                "Base": {
+                  "Species": "luxray",
+                  "Form": 0,
+                  "Skin": "normal",
+                  "Gender": 0
+                },
+                "Level": {
+                  "Min": 10,
+                  "Max": 35
+                },
+                "SpecifiedSkills": [],
+                "SpawnFeatures": []
+              },
+              {
+                "Base": {
+                  "Species": "manectric",
+                  "Form": 0,
+                  "Skin": "normal",
+                  "Gender": 0
+                },
+                "Level": {
+                  "Min": 10,
+                  "Max": 35
+                },
+                "SpecifiedSkills": [],
+                "SpawnFeatures": []
+              },
+              {
+                "Base": {
+                  "Species": "electrike",
+                  "Form": 0,
+                  "Skin": "normal",
+                  "Gender": 0
+                },
+                "Level": {
+                  "Min": 10,
+                  "Max": 35
+                },
+                "SpecifiedSkills": [],
+                "SpawnFeatures": []
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "GroundMaps": []
+  }
+}

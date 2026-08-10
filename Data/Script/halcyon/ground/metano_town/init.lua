@@ -9,7 +9,6 @@ require 'halcyon.ground.metano_town.metano_town_ch_2'
 require 'halcyon.ground.metano_town.metano_town_ch_3'
 require 'halcyon.ground.metano_town.metano_town_ch_4'
 require 'halcyon.ground.metano_town.metano_town_ch_5'
-require 'halcyon.ground.metano_town.metano_town_ch_7'
 require 'halcyon.ground.metano_town.metano_town_ch_6'
 require 'halcyon.ground.metano_town.metano_town_legend'
 require 'halcyon.menu.single_deal_menu'
@@ -171,98 +170,6 @@ function metano_town.PlotScripting()
 			metano_town_ch_6.PostMissionCutscene()
 		elseif SV.Chapter6.DefeatedByZeraora and not SV.Chapter6.PostDefeatScenePlayed then
 			metano_town_ch_6.PostDefeatCutscene()
-		end
-	elseif SV.ChapterProgression.Chapter == 7 then
-		--------------------------------------------------------------
-		-- ARC GROUDON — chaine de declenchement (correctif 2026-08-02)
-		--
-		-- metano_town_ch_7.GreatReunion etait DEFINIE (153 lignes, 17
-		-- boites) mais appelee NULLE PART : la seule occurrence du nom
-		-- dans tout le depot etait sa propre declaration. Toute la
-		-- chaine aval etait donc morte :
-		--   * la grande reunion (Alakazam raconte les evenements d'il y
-		--     a trente ans) ne se jouait jamais ;
-		--   * colline_sans_lumiere, ou le partenaire fait promettre au
-		--     heros de taire son identite, n'etait jamais atteinte —
-		--     son unique appelant est la fin de GreatReunion ;
-		--   * SV.Chapter7.GreatReunionPlayed et FinishedIntimateTalk
-		--     restaient a false pour toujours.
-		--
-		-- Ordre narratif retabli :
-		--   1. AlakazamScene     — la Team Alakazam suggere d'aller voir
-		--                          le Veilleur du Grand Canyon
-		--   2. (donjon)          — new_era_zone_07, puis colline_anciens
-		--                          ou Xatu entre en transe et designe le
-		--                          titan de magma. Pose VisitedXatu.
-		--   3. GreatReunion      — retour en ville : la grande reunion.
-		--                          C'est VisitedXatu qui l'ouvre.
-		--   4. colline_sans_lumiere — la scene intime, enchainee par la
-		--                          fin de GreatReunion elle-meme.
-		--------------------------------------------------------------
-		if SV.Chapter7.AlakazamScenePlayed == nil then SV.Chapter7.AlakazamScenePlayed = false end
-		if SV.Chapter7.VisitedXatu == nil then SV.Chapter7.VisitedXatu = false end
-		if SV.Chapter7.GreatReunionPlayed == nil then SV.Chapter7.GreatReunionPlayed = false end
-		if not SV.Chapter7.AlakazamScenePlayed then
-			metano_town_ch_7.AlakazamScene()
-		elseif SV.Chapter7.VisitedXatu and not SV.Chapter7.GreatReunionPlayed then
-			--Le duo redescend du Canyon avec ce que le Veilleur a vu.
-			--C'est ce qui declenche la reunion, pas le simple fait
-			--d'entrer en ville.
-			metano_town_ch_7.GreatReunion()
-		else
-			GAME:FadeIn(20)
-		end
-	elseif SV.ChapterProgression.Chapter == 8 then
-		require 'halcyon.ground.metano_town.metano_town_ch_8'
-		metano_town_ch_8.SetupGround()
-	elseif SV.ChapterProgression.Chapter == 9 then
-		require 'halcyon.ground.metano_town.metano_town_ch_9'
-		metano_town_ch_9.SetupGround()
-	elseif SV.ChapterProgression.Chapter == 10 then
-		require 'halcyon.ground.metano_town.metano_town_ch_10'
-		metano_town_ch_10.SetupGround()
-	elseif SV.ChapterProgression.Chapter == 11 then
-		--------------------------------------------------------------
-		-- CHAPITRE 11 — « Ceux que l'on accuse » (correctif 2026-08-02)
-		--
-		-- La ville n'avait AUCUN etat pour le ch11 : le `else` final
-		-- attrapait le chapitre et se contentait d'un FadeIn. Or c'est
-		-- precisement le chapitre ou Metano se retourne contre le
-		-- heros — six des dix scenes de l'arc s'y jouent.
-		--
-		-- AccusationArc n'etait par ailleurs require'd nulle part : le
-		-- module n'existait pas a l'execution. Il est charge ici et
-		-- dans guild_heros_room_ch_11.
-		--
-		-- Ordre des scenes exterieures, pilote par SV.AccusationArc :
-		--   2 la rumeur        apres le retour au sol (scene 1, chambre)
-		--   3 le discours      le Cercle du Suaire sur la place
-		--   4 Plum             la seule voix qui refuse
-		--   6 le boycott       les echoppes ferment
-		--   7 la manifestation de nuit, devant la guilde
-		-- Les scenes 5 (la guilde ferme ses portes) et 8 (le conseil)
-		-- se jouent a l'interieur de la guilde ; 1, 9 et 10 dans la
-		-- chambre puis sur la route.
-		--------------------------------------------------------------
-		require 'halcyon.AccusationArc'
-		local s = SV.AccusationArc
-		if s == nil then SV.AccusationArc = { Scene = 0 }; s = SV.AccusationArc end
-
-		if s.Scene == 1 then
-			AccusationArc.Play(AccusationArc.Scene2_Rumeur, 'Scene2_Rumeur')
-		elseif s.Scene == 2 then
-			AccusationArc.Play(AccusationArc.Scene3_Discours, 'Scene3_Discours')
-		elseif s.HeardAccusation and not s.PlumDefended then
-			AccusationArc.Play(AccusationArc.Scene4_Plum, 'Scene4_Plum')
-		elseif s.PlumDefended and not s.ShopsClosed then
-			AccusationArc.Play(AccusationArc.Scene6_Boycott, 'Scene6_Boycott')
-		elseif s.Scene == 5 and not s.SawProtest then
-			--La manifestation vient APRES que la guilde a ferme ses portes
-			--(scene 5), pas apres le conseil : c'est justement parce que
-			--les portes sont closes que la foule attend dehors.
-			AccusationArc.Play(AccusationArc.Scene7_Manifestation, 'Scene7_Manifestation')
-		else
-			GAME:FadeIn(20)
 		end
 	else
 		GAME:FadeIn(20)

@@ -1,36 +1,28 @@
 --[[
-    init.lua — Dusk Forest (dungeon 32, arc du futur main story).
-    Zone PMDO native : LayeredSegment -> 8 floors, dark F6-8, traps 8 F7-8.
-    Entrée : d22p11a (m19a0301). Sortie : retour d22p11a -> climax (P08P01A).
+    init.lua — Zone dusk_forest (Dusk Forest)
 ]]
 require 'origin.common'
-require 'halcyon.GeneralFunctions'
-require 'halcyon.future_arc._future_dungeons_common'
 
 local dusk_forest = {}
 
 function dusk_forest.Init(zone)
-  DEBUG.EnableDbgCoro()
   PrintInfo("=>> Init_dusk_forest")
-  SV.TemporaryFlags.LastDungeonEntered = 'dusk_forest'
 end
 
 function dusk_forest.EnterSegment(zone, rescuing, segmentID, mapID)
-  GeneralFunctions.CheckAllowSetRescue(zone.ID)
-  if rescuing ~= true then COMMON.BeginDungeon(zone.ID, segmentID, mapID) end
-end
-
-function dusk_forest.Rescued(zone, name, mail)
-  COMMON.Rescued(zone, name, mail)
+  PrintInfo("=>> EnterSegment_dusk_forest seg=" .. tostring(segmentID))
 end
 
 function dusk_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
-  GeneralFunctions.RestoreIdleAnim()
-  DEBUG.EnableDbgCoro()
-  local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
-  SV.adventure.Thief = false
-  if exited == true then return end
-  FutureDungeonCommon.ExitToGround(result, zone.ID, 'd22p11a')
+  PrintInfo("=>> ExitSegment_dusk_forest result=" .. tostring(result) .. " seg=" .. tostring(segmentID))
+  if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+    GAME:EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
+  else
+    GAME:EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
+  end
+end
+
+function dusk_forest.Rescued(zone, name, mail)
 end
 
 return dusk_forest

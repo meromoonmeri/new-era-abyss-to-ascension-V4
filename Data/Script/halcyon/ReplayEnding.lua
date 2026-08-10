@@ -57,18 +57,11 @@ ReplayEnding.CLEARED = {
   illuminant_riverbed = function() return SV.Chapter2  ~= nil and SV.Chapter2.FinishedRiver          == true end,
   crooked_cavern      = function() return SV.Chapter3  ~= nil and SV.Chapter3.FinishedRootScene      == true end,
   apricorn_grove      = function() return SV.Chapter4  ~= nil and SV.Chapter4.FinishedGrove          == true end,
-  --Les trois donjons de l'expedition se terminent ensemble : l'expedition est
-  --bouclee au sommet du Mont Venteux, ce qui cloture aussi Steppe et Tunnel.
   vast_steppe         = function() return SV.Chapter5  ~= nil and SV.Chapter5.FinishedExpedition     == true end,
   searing_tunnel      = function() return SV.Chapter5  ~= nil and SV.Chapter5.FinishedExpedition     == true end,
   mount_windswept     = function() return SV.Chapter5  ~= nil and SV.Chapter5.FinishedExpedition     == true end,
   gloomy_forest       = function() return SV.Chapter6  ~= nil and SV.Chapter6.DefeatedGloomyBoss     == true end,
-  --Ch7 : DefeatedRuinsBoss est un drapeau de routage remis a false. Le
-  --drapeau durable est celui pose par la scene d'apres-combat.
   cloven_ruins        = function() return SV.Chapter5  ~= nil and SV.Chapter5.SawAnimaCoreCorruption == true end,
-  waterfall_pond   = function() return SV.Chapter8  ~= nil and SV.Chapter8.CrystalSanctuaryComplete == true end,
-  poisonous_forest     = function() return SV.Chapter9  ~= nil and SV.Chapter9.ForgottenMarshComplete == true end,
-  sky_tower      = function() return SV.Chapter10 ~= nil and SV.Chapter10.CelestialPeakComplete == true end,
 }
 
 --Le donjon d'histoire `zoneID` a-t-il deja ete termine ?

@@ -1,25 +1,28 @@
--- Wish Cave : 98 floors + 99F Jirachi, niveau 1, argent interdit.
+--[[
+    init.lua — Zone wish_cave (Wish Cave)
+]]
 require 'origin.common'
-require 'halcyon.GeneralFunctions'
-require 'halcyon.LegendZones'
-local wish_cave={}
+
+local wish_cave = {}
+
 function wish_cave.Init(zone)
- DEBUG.EnableDbgCoro();SV.TemporaryFlags.LastDungeonEntered='wish_cave';SV.WishCave=SV.WishCave or {};SV.WishCave.WishStone=true
+  PrintInfo("=>> Init_wish_cave")
 end
-function wish_cave.EnterSegment(zone,rescuing,segmentID,mapID)
- if rescuing~=true then COMMON.BeginDungeon(zone.ID,segmentID,mapID) end
- GAME:SetRescueAllowed(segmentID==0)
+
+function wish_cave.EnterSegment(zone, rescuing, segmentID, mapID)
+  PrintInfo("=>> EnterSegment_wish_cave seg=" .. tostring(segmentID))
 end
-function wish_cave.Rescued(zone,name,mail) COMMON.Rescued(zone,name,mail) end
-function wish_cave.ExitSegment(zone,result,rescue,segmentID,mapID)
- if COMMON.ExitDungeonMissionCheck(result,rescue,zone.ID,segmentID) then return end
- SV.adventure.Thief=false;SV.WishCave=SV.WishCave or {}
- if result~=RogueEssence.Data.GameProgress.ResultType.Cleared then GeneralFunctions.EndDungeonRun(result,'master_zone',-1,1,0,true,true);return end
- if segmentID==0 then GAME:EnterGroundMap('sanctuaire_voeu','Main_Entrance_Marker')
- else
-  LegendZones.SetDefeated('unsaid_wishes');SV.WishCave.PendingWish=true
-  SV.CanonicalDungeons=SV.CanonicalDungeons or {};SV.CanonicalDungeons.WishCaveCleared=true
-  GAME:EnterGroundMap('sanctuaire_voeu','Main_Entrance_Marker')
- end
+
+function wish_cave.ExitSegment(zone, result, rescue, segmentID, mapID)
+  PrintInfo("=>> ExitSegment_wish_cave result=" .. tostring(result) .. " seg=" .. tostring(segmentID))
+  if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
+    GAME:EndDungeonRun(result, "master_zone", -1, 1, 0, true, true)
+  else
+    GAME:EndDungeonRun(result, "master_zone", -1, 1, 0, false, false)
+  end
 end
+
+function wish_cave.Rescued(zone, name, mail)
+end
+
 return wish_cave

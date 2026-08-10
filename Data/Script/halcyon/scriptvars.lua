@@ -591,7 +591,20 @@ SV.TemporaryFlags =
 	MissionCompleted = false,--used to mark if there are any pending missions to hand in.
 	PostJobsGround = '',--used to mark the ground to go to after handing in randomly generated missions if the default choice of generic dinnertime is not wanted.
 	PriorMapSetting = nil,--Used to mark what the player had their minimap setting whenever the game needs to temporarily change it to something else.
-	AudinoSummonCount = 0--How many times have you made poor Rin run out for your assembly needs that day?
+	AudinoSummonCount = 0,--How many times have you made poor Rin run out for your assembly needs that day?
+	RewardCutsceneJobBoard = nil,
+	RewardCutsceneQuest = nil,
+	SecretZoneTriggered = false
+}
+
+SV.TownLife = {
+	SeenSocialDay = {}
+}
+SV.WorldState = {
+	Weather = ''
+}
+SV.RuntimeGroundAudit = {
+	Active = false
 }
 
 
@@ -1256,210 +1269,66 @@ SV.SearingTunnel =
 	DiedPastCheckpoint = false--Used to flag whether you died in depths/crucible. Needed for cutscenes on wiping and waking up back in the checkpoint.
 }
 
-SV.Chapter7 = 
-{
-	-- Chapter 7
-	EnteredRuins = false,
-	LostRuins = false,
-	LostDepths = false,
-	DefeatedRuinsBoss = false,
-	DiedToRuinsBoss = false,
-	SawAnimaCoreCorruption = false,
-	ShowedTitleCard = false,
-	HeardGenesisTale = false,
-	HadFirstDream = false,--Premier reve de Necrozma
-	RuinsAddressGiven = false,--Adresse du matin Ch7 donnee
-	MissionAccepted = false,--Mission Aegis Cave acceptee
-	AlakazamScenePlayed = false,
-	VisitedXatu = false,
-	GreatReunionPlayed = false,
-	FinishedIntimateTalk = false
+-- Intégration Campagnes Temporelles (Chapitre 7)
+SV.HoopaGateway = {
+	CurrentEra = 0,
+	HoopaMet = false,
+	RescueTeamCompleted = false,
+	SkyCompleted = false,
+	RiftActive = false
 }
 
-SV.Chapter8 = 
-{
-	-- Chapter 8: Sanctuaire de Cristal — Diancie, Fragment de Cristal
-	ShowedTitleCard = false,
-	CrystalAddressGiven = false,
-	MissionAccepted = false,
-	EnteredSanctuary = false,
-	ReachedCrystalRelay = false,
-	LostCrystalGallery = false,
-	ReachedDiancieChamber = false,
-	LostGlyphHalls = false,
-	DefeatedDiancie = false,
-	DiedToDiancie = false,
-	ObtainedCrystalFragment = false,
-	SanctuaryMidpointState = 'FirstArrival',
-	FinishedBedtimeCutscene = false,--veillee de fin de chapitre (guild_heros_room_ch_8)
-	PlayedSanctuaryRelayIntro = false,
-	--Relais du Sanctuaire : 'DeathArrival' si KO au-dela du checkpoint
-	--(lu par ground/waterfall_pond_relay). SanctuaryMidReturn porte le
-	--retour A L'AMIABLE (repli volontaire ou sauvegarde reprise sur place).
-	SanctuaryMidState = nil,
-	SanctuaryMidReturn = false,
-	PlayedArrivalScene = false,--scene d'arrivee devant le donjon (ChapterScenes, ch8)
-	PlayedVictoryScene = false,--scene d'apres-boss (ChapterAftermath, ch8)
-	--Jalon de fin de donjon, ecrit par zone/waterfall_pond:95 et lu par
-	--ReplayEnding + guild_heros_room. Il n'etait declare NULLE PART : une
-	--partie neuve arrivait donc avec nil.
-	CrystalSanctuaryComplete = false,
-	--Heraut et spectre (mini-boss segment 3 : Strassie + Momartik).
-	--Lus par ground/waterfall_pond_miniboss, ecrits par zone/waterfall_pond.
-	CrystalMiniBossSeen = false,
-	CrystalMiniBossDefeated = false,
-	CrystalMiniBossLost = false,
-	--Epreuve II du Grand Tournoi : Quizz de Kirlia (ground/metano_cafe).
-	--nil = jamais passe ; sinon 'Perfect' | 'Pass' | 'Fail'.
-	--nil est un etat valide et signifiant ici : il declenche la proposition
-	--du quizz. Ne pas initialiser a false.
-	QuizScore = nil
+SV.RescueTeam = {
+	Chapter = 1,
+	BaseLevel = 1,
+	TinyWoodsDone = false,
+	ThunderwaveDone = false,
+	MtSteelDone = false,
+	SinisterWoodsDone = false,
+	MtThunderDone = false,
+	GreatCanyonDone = false,
+	FugitiveArcStarted = false,
+	LapisCaveDone = false,
+	MtBlazeDone = false,
+	FrostyForestDone = false,
+	MtFreezeDone = false,
+	NinetalesTalkDone = false,
+	MagmaCavernDone = false,
+	SkyTowerDone = false,
+	CampaignComplete = false
 }
 
-SV.Chapter9 = 
-{
-	-- Chapter 9: Marais de l'Oubli — Mega-Blastoise, Cercle du Suaire
-	ShowedTitleCard = false,
-	MarshAddressGiven = false,
-	MissionAccepted = false,
-	EnteredMarsh = false,
-	ReachedMarshRelay = false,
-	LostMarshBanks = false,
-	ReachedMarshDepths = false,
-	SawCercleDuSuaire = false,
-	LostMarshDepths = false,
-	DefeatedMegaBlastoise = false,
-	DiedToMegaBlastoise = false,
-	PurifiedMarshCore = false,
-	FloatzelDisputeResolved = false,
-	MarshMidpointState = 'FirstArrival',
-	FinishedBedtimeCutscene = false,--veillee de fin de chapitre (guild_heros_room_ch_9)
-	PlayedMarshRelayIntro = false,
-	--Relais du Marais : 'DeathArrival' si KO au-dela du checkpoint.
-	--MarshMidReturn porte le retour a l'amiable (template point median).
-	MarshMidState = nil,
-	MarshMidReturn = false,
-	PlayedArrivalScene = false,--scene d'arrivee devant le donjon (ChapterScenes, ch9)
-	PlayedVictoryScene = false,--scene d'apres-boss (ChapterAftermath, ch9)
-	--Meme cas que ch8 : ecrit par zone/poisonous_forest:96, jamais declare.
-	ForgottenMarshComplete = false,
-	--Boue et venin (mini-boss segment 3 : Avaltout + Coatox).
-	--Lus par ground/poisonous_forest_miniboss, ecrits par zone/poisonous_forest.
-	MarshMiniBossSeen = false,
-	MarshMiniBossDefeated = false,
-	MarshMiniBossLost = false
+SV.SkyCampaign = {
+	Chapter = 1,
+	BeachCaveDone = false,
+	DrenchedBluffDone = false,
+	MtBristleDone = false,
+	WaterfallCaveDone = false,
+	AppleWoodsDone = false,
+	FoggyForestDone = false,
+	SteamCaveDone = false,
+	AmpPlainsDone = false,
+	QuicksandCaveDone = false,
+	CrystalCaveDone = false,
+	FutureArcStarted = false,
+	ChasmCaveDone = false,
+	DarkHillDone = false,
+	SealedRuinDone = false,
+	DuskForestDone = false,
+	TreeshroudDone = false,
+	BrineCaveDone = false,
+	HiddenLandDone = false,
+	TemporalTowerDone = false,
+	DialgaDefeated = false,
+	CampaignComplete = false
 }
 
 SV.Visions =
 {
-	-- Visions du passe du heros (HeroVisions.lua). Le heros est le SEUL a
-	-- entendre la Voix et le seul a voir ces fragments d'un autre temps :
-	-- a chaque fois il est pris de nausee, et son partenaire ne voit que sa
-	-- paleur. Seen[id] = true une fois la vision traversee.
+	-- Visions du passe du heros (HeroVisions.lua).
 	Seen = {},
 	Count = 0
 }
-
-SV.SuaireArc =
-{
-	-- Arc 2 — « Ce que la brume emporte » : 5 quetes secondaires liees a
-	-- l'intrigue globale (Cercle du Suaire + reves du heros + Escouade Fulgur).
-	-- Progression : chaque acte pose Act<N>Done et debloque la quete suivante.
-	Unlocked = false,          --pose au ch6+ : le tableau des missions propose l'acte I
-	CurrentAct = 0,            --0 = pas commence, 1..5 = acte en cours
-	Act1Done = false,          --Bosquet Voile : le premier eclat
-	Act2Done = false,          --Grotte du Mystere : la marque des batisseurs
-	Act3Done = false,          --Jardin Secret : le temoin
-	Act4Done = false,          --Col de la Foudre : la course
-	Act5Done = false,          --Antre de l'Enigme : ce que le Suaire protege
-	ShardsRecovered = 0,       --eclats de Coeur repris au Suaire (0..5)
-	SawSuaireFace = false,     --le joueur a vu un membre du Suaire de pres
-	FulgurTruce = false,       --Fulgur accepte la treve (acte IV)
-	DreamFragments = 0,        --fragments de memoire du gardien du sceau (0..5)
-	HeardLitany = false        --la litanie du Suaire entendue en entier (acte V)
-}
-
-SV.Chapter10 = 
-{
-	-- Chapter 10: Pic Celeste — Lugia, Escouade Fulgur, vision Necrozma
-	ShowedTitleCard = false,
-	PeakAddressGiven = false,
-	MissionAccepted = false,
-	EnteredPeak = false,
-	ReachedCloudRelay = false,
-	LostFoothills = false,
-	ReachedFulgurEncounter = false,
-	LostCloudSea = false,
-	OutranEscouadeFulgur = false,
-	FulgurReachedSummitFirst = false,
-	ReachedLugiaAltar = false,
-	LostSummit = false,
-	DefeatedLugia = false,
-	DiedToLugia = false,
-	SawNecrozmaVision = false,
-	PeakMidpointState = 'FirstArrival',
-	FinishedBedtimeCutscene = false,--veillee de fin de chapitre (guild_heros_room_ch_10)
-	PlayedPeakRelayIntro = false,
-	--Relais du Pic : 'DeathArrival' si KO au-dela du checkpoint.
-	--PeakMidReturn porte le retour a l'amiable (template point median).
-	PeakMidState = nil,
-	PeakMidReturn = false,
-	PlayedArrivalScene = false,--scene d'arrivee devant le donjon (ChapterScenes, ch10),
-	--La Tour se devoile : plan plein ecran + travelling ascendant, joue au
-	--ground d'entree juste avant de toucher l'entree du donjon
-	--(ChapterScenes.PeakTowerReveal). Distinct de PlayedArrivalScene, qui
-	--couvre l'arrivee sur le lieu : le duo peut ressortir et revenir sans
-	--rejouer ni l'une ni l'autre.
-	PlayedTowerReveal = false,
-	PlayedVictoryScene = false,--scene d'apres-boss (ChapterAftermath, ch10)
-	--Rejouabilite : jalon interne a un parcours rejoue. OutranEscouadeFulgur
-	--reste vrai pour toujours et ne peut donc plus servir a savoir ou on en est
-	--dans l'ascension. Remis a false a chaque entree dans le donjon.
-	ReplayPastFulgur = false,
-	--Meme cas que ch8/ch9 : ecrit par zone/celestial_peak:137, jamais declare.
-	CelestialPeakComplete = false,
-	--Acte 1 du climax : la longue discussion de Lugia apres sa defaite
-	--(ChapterAftermath.PeakVictory). Distinct de PlayedVictoryScene, qui
-	--marque l'acte 2 (meteorite + Rayquaza, autel_celeste). Les deux
-	--partageaient le meme drapeau : l'acte 2 ne se jouait jamais.
-	PlayedLugiaTalk = false
-}
-
-SV.FugitiveArc =
-{
-	Step = 0, -- étape courante de l'Arc Fugitif (0 = pas commencé)
-	Started = false,
-	Completed = false,
-	NinetalesTestimony = false
-}
-
-SV.Chapter11 = 
-{
-	ShowedTitleCard = false,
-	FinishedTreasureTownIntro = false,
-	--Arc de l'accusation : le duo quitte Metano avant de gagner l'autre
-	--continent. Pose par AccusationArc.Scene9/10.
-	FledGuild = false
-}
-
---Chapitre 11 — « Ceux que l'on accuse ».
---Le Cercle du Suaire retourne la ville contre le heros en deformant la
---legende des voyageurs venus d'ailleurs. Etat de progression des dix
---scenes de l'arc (voir AccusationArc.lua).
-SV.AccusationArc =
-{
-	Scene = 0,                --derniere scene jouee
-	HeardAccusation = false,  --scene 3 : le discours sur la place
-	PlumDefended = false,     --scene 4 : Plum refuse d'y croire
-	ShopsClosed = false,      --scene 6 : les echoppes ferment
-	SawProtest = false,       --scene 7 : la manifestation nocturne
-	GuildCouncil = false,     --scene 8 : Penticus n'a plus les moyens
-	PartnerChose = false      --scene 9 : le partenaire decide seul
-}
-
-
-
-
 
 --base game stuff
 SV.test_grounds =

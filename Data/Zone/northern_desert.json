@@ -1,0 +1,126 @@
+{
+  "Version": "0.4.10.0",
+  "Object": {
+    "$type": "RogueEssence.Data.ZoneData, RogueEssence",
+    "Name": {
+      "DefaultText": "Northern Desert",
+      "LocalTexts": {
+        "fr": "Désert Boréal"
+      }
+    },
+    "Released": true,
+    "Comment": "Portage canonique — Northern Desert",
+    "NoEXP": false,
+    "ExpPercent": 100,
+    "Level": -1,
+    "LevelCap": false,
+    "KeepSkills": false,
+    "TeamRestrict": false,
+    "TeamSize": 4,
+    "MoneyRestrict": false,
+    "BagRestrict": false,
+    "KeepTreasure": false,
+    "BagSize": -1,
+    "Persistent": false,
+    "Rescues": 3,
+    "Rogue": 0,
+    "Segments": [
+      {
+        "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+        "IsIntermission": false,
+        "FloorCount": 15,
+        "ZoneSteps": [
+          {
+            "$type": "RogueEssence.LevelGen.FloorNameDropZoneStep, RogueEssence",
+            "Priority": 0
+          }
+        ],
+        "GenSteps": [
+          {
+            "$type": "RogueEssence.LevelGen.GridPathBranch`1[[RogueElements.MapGenContext, RogueElements]], RogueElements",
+            "RoomRatio": {
+              "Numerator": 3,
+              "Denominator": 5
+            }
+          },
+          {
+            "$type": "RogueEssence.LevelGen.SpawnListPostProc`2[[RogueElements.MapGenContext, RogueElements],[RogueEssence.Data.MobSpawn, RogueEssence]], RogueEssence",
+            "Spawns": [
+              {
+                "Base": {
+                  "Species": "sandshrew",
+                  "Form": 0,
+                  "Skin": "normal",
+                  "Gender": 0
+                },
+                "Level": {
+                  "Min": 10,
+                  "Max": 35
+                },
+                "SpecifiedSkills": [],
+                "SpawnFeatures": []
+              },
+              {
+                "Base": {
+                  "Species": "sandslash",
+                  "Form": 0,
+                  "Skin": "normal",
+                  "Gender": 0
+                },
+                "Level": {
+                  "Min": 10,
+                  "Max": 35
+                },
+                "SpecifiedSkills": [],
+                "SpawnFeatures": []
+              },
+              {
+                "Base": {
+                  "Species": "trapinch",
+                  "Form": 0,
+                  "Skin": "normal",
+                  "Gender": 0
+                },
+                "Level": {
+                  "Min": 10,
+                  "Max": 35
+                },
+                "SpecifiedSkills": [],
+                "SpawnFeatures": []
+              },
+              {
+                "Base": {
+                  "Species": "vibrava",
+                  "Form": 0,
+                  "Skin": "normal",
+                  "Gender": 0
+                },
+                "Level": {
+                  "Min": 10,
+                  "Max": 35
+                },
+                "SpecifiedSkills": [],
+                "SpawnFeatures": []
+              },
+              {
+                "Base": {
+                  "Species": "cacnea",
+                  "Form": 0,
+                  "Skin": "normal",
+                  "Gender": 0
+                },
+                "Level": {
+                  "Min": 10,
+                  "Max": 35
+                },
+                "SpecifiedSkills": [],
+                "SpawnFeatures": []
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "GroundMaps": []
+  }
+}

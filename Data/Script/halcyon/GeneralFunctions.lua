@@ -1,5 +1,4 @@
 require 'origin.common'
-require 'halcyon.SuaireJobs'
 require 'halcyon.SecondaryJobs'
 GeneralFunctions = {}
 
@@ -192,13 +191,6 @@ function GeneralFunctions.UpdateDailyFlags()
 	MISSION_GEN.SortMission()
 	MISSION_GEN.SortOutlaw()
 
-	--Arc 2 « Ce que la brume emporte » : le contrat d'histoire est epingle
-	--APRES le tri, pour rester en tete du tableau et ne pas etre noye dans
-	--les jobs aleatoires. Sans effet tant que l'arc n'est pas ouvert (ch6+).
-	if SuaireJobs ~= nil then
-		SuaireJobs.CleanCompleted()
-		SuaireJobs.PinToBoard()
-	end
 	if SecondaryJobs ~= nil then
 		SecondaryJobs.CleanCompleted()
 		SecondaryJobs.PinToBoard()

@@ -1,0 +1,112 @@
+{
+  "Version": "0.4.10.0",
+  "Object": {
+    "$type": "RogueEssence.Data.ZoneData, RogueEssence",
+    "Name": {
+      "DefaultText": "Foggy Forest",
+      "LocalTexts": {
+        "fr": "Forêt Brumeuse"
+      }
+    },
+    "Released": true,
+    "Comment": "Portage canonique — Foggy Forest",
+    "NoEXP": false,
+    "ExpPercent": 100,
+    "Level": -1,
+    "LevelCap": false,
+    "KeepSkills": false,
+    "TeamRestrict": false,
+    "TeamSize": 4,
+    "MoneyRestrict": false,
+    "BagRestrict": false,
+    "KeepTreasure": false,
+    "BagSize": -1,
+    "Persistent": false,
+    "Rescues": 3,
+    "Rogue": 0,
+    "Segments": [
+      {
+        "$type": "RogueEssence.LevelGen.LayeredSegment, RogueEssence",
+        "IsIntermission": false,
+        "FloorCount": 11,
+        "ZoneSteps": [
+          {
+            "$type": "RogueEssence.LevelGen.FloorNameDropZoneStep, RogueEssence",
+            "Priority": 0
+          }
+        ],
+        "GenSteps": [
+          {
+            "$type": "RogueEssence.LevelGen.GridPathBranch`1[[RogueElements.MapGenContext, RogueElements]], RogueElements",
+            "RoomRatio": {
+              "Numerator": 3,
+              "Denominator": 5
+            }
+          },
+          {
+            "$type": "RogueEssence.LevelGen.SpawnListPostProc`2[[RogueElements.MapGenContext, RogueElements],[RogueEssence.Data.MobSpawn, RogueEssence]], RogueEssence",
+            "Spawns": [
+              {
+                "Base": {
+                  "Species": "pinsir",
+                  "Form": 0,
+                  "Skin": "normal",
+                  "Gender": 0
+                },
+                "Level": {
+                  "Min": 10,
+                  "Max": 35
+                },
+                "SpecifiedSkills": [],
+                "SpawnFeatures": []
+              },
+              {
+                "Base": {
+                  "Species": "heracross",
+                  "Form": 0,
+                  "Skin": "normal",
+                  "Gender": 0
+                },
+                "Level": {
+                  "Min": 10,
+                  "Max": 35
+                },
+                "SpecifiedSkills": [],
+                "SpawnFeatures": []
+              },
+              {
+                "Base": {
+                  "Species": "stantler",
+                  "Form": 0,
+                  "Skin": "normal",
+                  "Gender": 0
+                },
+                "Level": {
+                  "Min": 10,
+                  "Max": 35
+                },
+                "SpecifiedSkills": [],
+                "SpawnFeatures": []
+              },
+              {
+                "Base": {
+                  "Species": "noctowl",
+                  "Form": 0,
+                  "Skin": "normal",
+                  "Gender": 0
+                },
+                "Level": {
+                  "Min": 10,
+                  "Max": 35
+                },
+                "SpecifiedSkills": [],
+                "SpawnFeatures": []
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "GroundMaps": []
+  }
+}

@@ -290,11 +290,8 @@ function cloven_ruins.ExitSegment(zone, result, rescue, segmentID, mapID)
   -- --- LE PUITS : 6 (5 etages, aucun puzzle) -------------------------
   elseif segmentID == 6 then
       if result == RogueEssence.Data.GameProgress.ResultType.Cleared and ruinsActive() then
-          -- Le fond du Puits ouvre DIRECTEMENT sur le Sanctuaire des Titans
-          -- (segment 7). L'eveil de Regigigas, ses huit gardes et les
-          -- renforts de la guilde se jouent dans l'arene elle-meme.
-          PrintInfo("[Ruines] Puits franchi -> Ground NDS Regigigas Chamber")
-          GAME:EnterGroundMap('cloven_ruin_regigigas_chamber_sky', 'Main_Entrance_Marker')
+          PrintInfo("[Ruines] Puits franchi -> Boss Regigigas (segment 7)")
+          GAME:EnterDungeon("cloven_ruins", 7, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
       elseif result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
           -- Perdu dans le Puits (seg6) : on se reveille dans la salle de
           -- stele du segment (le Puits sert de salle de repli).

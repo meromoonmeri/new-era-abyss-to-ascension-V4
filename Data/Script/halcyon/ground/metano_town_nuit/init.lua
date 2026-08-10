@@ -86,35 +86,6 @@ end
 
 function metano_town_nuit.Enter(map)
   DEBUG.EnableDbgCoro()
-
-  --------------------------------------------------------------------
-  -- CHAPITRE 11 — la fuite (correctif 2026-08-02)
-  --
-  -- Scene 10a : la traversee de la ville sous l'averse, de la guilde a
-  -- la sortie sud. Elle passe AVANT tout le reste — ni arrivee nocturne
-  -- ordinaire, ni tirage de raid : cette nuit-la, la ville n'est pas
-  -- endormie, elle est hostile.
-  --
-  -- Le FadeIn habituel est retire de ce chemin : Scene10a_Ville pose sa
-  -- propre meteo et sa propre musique, et un FadeIn premature ferait
-  -- voir la carte nue avant la mise en place.
-  --------------------------------------------------------------------
-  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 11 then
-    local a = SV.AccusationArc
-    if a ~= nil and a.PartnerChose and a.Scene == 9 then
-      require 'halcyon.AccusationArc'
-      AccusationArc.Play(AccusationArc.Scene10a_Ville, 'Scene10a_Ville')
-      --Le trajet s'acheve a la sortie sud : on enchaine sur la halte du
-      --carrefour, ou se joue la derniere parole (scene 10b).
-      pcall(function()
-        GAME:FadeOut(false, 45)
-        GAME:WaitFrames(30)
-        GAME:EnterGroundMap("carrefour_nord", "Main_Entrance_Marker")
-      end)
-      return
-    end
-  end
-
   GAME:FadeIn(30)
 
   --RETOUR DE COMBAT. Si on revient d'une arene de raid, on ne rejoue pas

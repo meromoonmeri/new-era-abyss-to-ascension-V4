@@ -66,13 +66,6 @@ function altere_pond.PlotScripting()
 		altere_pond_ch_2.SetupGround()	
 	elseif SV.ChapterProgression.Chapter == 5 then
 		altere_pond_ch_5.SetupGround()
-	elseif SV.ChapterProgression.Chapter == 11 then
-		require 'halcyon.ground.altere_pond.altere_pond_ch_11'
-		if not SV.Chapter11.FinishedTreasureTownIntro then
-			altere_pond_ch_11.ArrivalCutscene()
-		else
-			altere_pond_ch_11.SetupGround()
-		end
 	else
 		GAME:FadeIn(20)
 	end
@@ -167,28 +160,17 @@ end
 --n'existe de fichier de chapitre que pour ch1 a ch5 : muet du ch6 au ch10.
 function altere_pond.Relicanth_Action(obj, activator)
   DEBUG.EnableDbgCoro() --Enable debugging this coroutine
-  if SV.ChapterProgression.Chapter == 11 then
-    require 'halcyon.ground.altere_pond.altere_pond_ch_11'
-    altere_pond_ch_11.Relicanth_Action(obj, activator)
-  else
-    GeneralFunctions.ChapterDispatch("altere_pond_ch_", "Relicanth_Action", obj, activator,
-      function(c)
-        GeneralFunctions.StartConversation(c, "L'etang change moins vite que le reste du monde.[pause=15] C'est pour ca que j'y reste.", "Normal")
-        UI:WaitShowDialogue("Revenez quand vous voudrez.[pause=0] Moi,[pause=10] je ne bouge pas.")
-        GeneralFunctions.EndConversation(c)
-      end)
-  end
+  GeneralFunctions.ChapterDispatch("altere_pond_ch_", "Relicanth_Action", obj, activator,
+    function(c)
+      GeneralFunctions.StartConversation(c, "L'etang change moins vite que le reste du monde.[pause=15] C'est pour ca que j'y reste.", "Normal")
+      UI:WaitShowDialogue("Revenez quand vous voudrez.[pause=0] Moi,[pause=10] je ne bouge pas.")
+      GeneralFunctions.EndConversation(c)
+    end)
 end
 
--- Callback de Loaklass pour le chapitre 11
 function altere_pond.Lapras_Action(obj, activator)
   DEBUG.EnableDbgCoro()
-  if SV.ChapterProgression.Chapter == 11 then
-    require 'halcyon.ground.altere_pond.altere_pond_ch_11'
-    altere_pond_ch_11.Lapras_Action(obj, activator)
-  else
-    GeneralFunctions.GroundInteract(activator, obj)
-  end
+  GeneralFunctions.GroundInteract(activator, obj)
 end
 
 

@@ -134,105 +134,14 @@ function guild_heros_room.CheckTriggerEvent()
 		GeneralFunctions.PromptChapterSaveAndQuit("guild_heros_room", "Main_Entrance_Marker", 2)
 	end
 
-	--Start Chapter 7 a few in game days after the Gloomy Forest rescue.
-	--
-	--CE DECLENCHEUR MANQUAIT : la progression s'arretait au chapitre 6. Tout le
-	--contenu du chapitre 7 existait deja et etait cable (carton-titre et reve
-	--dans guild_heros_room_ch_7, adresse du matin dans guild_third_floor_lobby_ch_7,
-	--dialogues de ville dans metano_town_ch_7, donjon + arene + cinematiques des
-	--Aegis Cave), mais rien ne portait jamais Chapter de 6 a 7 : le joueur
-	--restait bloque indefiniment en fin de chapitre 6.
-	--
-	--Le donjon lui-meme n'etait UnlockDungeon nulle part non plus, il faut donc
-	--l'ouvrir ici, comme le font les paliers precedents pour leur donjon.
-	--
-	--Condition alignee sur les paliers ch5 et ch6 : la mission du chapitre est
-	--terminee (PostMissionScenePlayed, pose par la scene de retour en ville) et
-	--le delai de quelques jours de missions libres est ecoule.
-	--VERROU DES REQUETES : le chapitre 7 ne s'ouvre pas tant que les requetes
-	--de Metano ne sont pas rendues. Le test est pose ICI en plus de la scene
-	--de retour en ville, sinon une nuit passee suffirait a contourner la
-	--condition (DaysPassed rattrape DaysToReach tout seul).
-	if SV.ChapterProgression.Chapter == 6 and SV.Chapter6.PostMissionScenePlayed
-	   and not SideQuests.AllDone(6) then
-		SV.ChapterProgression.DaysToReach = SV.ChapterProgression.DaysPassed + 1
-	end
-	if SV.ChapterProgression.Chapter == 6 and SV.Chapter6.PostMissionScenePlayed and SideQuests.AllDone(6) and SV.ChapterProgression.DaysPassed >= SV.ChapterProgression.DaysToReach then
+	--Start Chapter 7 (Temporal Gateway) after Chapter 6 resolution
+	if SV.ChapterProgression.Chapter == 6 and SV.Chapter6.DefeatedGloomyBoss and SV.ChapterProgression.DaysPassed >= SV.ChapterProgression.DaysToReach then
 		SV.ChapterProgression.Chapter = 7
 		SV.TemporaryFlags.MorningAddress = false
 		SV.TemporaryFlags.MorningWakeup = false
-		SV.ChapterProgression.CurrentStoryDungeon = "waterfall_pond"
-		SV.Dojo.NewMazeUnlocked = true
-		GAME:UnlockDungeon("waterfall_pond")
-		--Secondaires ouverts avec le chapitre 7. (water_maze est deja ouvert au
-		--chapitre 2 par guild_guildmasters_room_ch_2 : ne pas le redeclarer.)
-		GAME:UnlockDungeon("bassin_tari")
 		GAME:WaitFrames(60)
 		GeneralFunctions.PromptChapterSaveAndQuit("guild_heros_room", "Main_Entrance_Marker", 2)
 	end
-
-	--Chapitres 8, 9 et 10 : memes paliers, meme patron.
-	--
-	--Ces trois chapitres ont leur donjon complet (zone, segments, relais, arene
-	--de boss, cinematiques) et leurs dialogues de ville (metano_town_ch_8/9/10),
-	--mais aucun d'eux n'etait atteignable : ni declencheur de chapitre, ni
-	--UnlockDungeon. Ils sont ouverts ici sur la conclusion du chapitre precedent.
-	--
-	--Contrairement aux chapitres 1-7, ils n'ont pas de carton-titre ni d'adresse
-	--du matin dedies (pas de guild_heros_room_ch_8 ni de
-	--guild_third_floor_lobby_ch_8) : le reveil generique s'applique, et la
-	--decouverte passe par les dialogues de ville et le donjon lui-meme.
-	--------------------------------------------------------------
-	-- RESPIRATION ENTRE CHAPITRES (correctif 2026-08-02)
-	--
-	-- Avant : le palier n'imposait que DaysPassed + 2, et les portes
-	-- ch7 a ch10 ne verifiaient AUCUNE quete secondaire — contrairement
-	-- a la porte du ch6, seule a exiger SideQuests.AllDone(6). On
-	-- enchainait donc donjon -> boss -> veillee -> donjon suivant en
-	-- deux nuits, sans jamais rendre une requete.
-	--
-	-- Desormais, pour passer au chapitre suivant il faut TOUT :
-	--   1. le drapeau de cloture du chapitre (le boss est tombe) ;
-	--   2. les 3 requetes du chapitre rendues (SideQuests.AllDone) ;
-	--   3. le delai de repos ecoule (3 a 5 nuits selon le chapitre).
-	--
-	-- Le delai n'est pas uniforme : il suit le poids de ce qui vient
-	-- de se passer. Apres le Suaire (ch9) et apres le climax (ch10),
-	-- la ville a besoin de plus de temps qu'apres un donjon ordinaire.
-	--------------------------------------------------------------
-	local chapter_gates = {
-		--[ch] = { drapeau de cloture, ch suivant, donjon, secondaires, nuits de repos }
-		[7]  = { function() return SV.Chapter8.CrystalSanctuaryComplete end, 8,  "poisonous_forest",   {"marais_errants"}, 4 },
-		[8]  = { function() return SV.Chapter9.ForgottenMarshComplete end,   9,  "sky_tower",    {"falaises_envol", "sentier_enneige"}, 5 },
-		[9]  = { function() return SV.Chapter10.CelestialPeakComplete end,   10, "bourg_comptoir",    {}, 5 },
-	}
-	local gate = chapter_gates[SV.ChapterProgression.Chapter]
-	--Les trois conditions, dans l'ordre du moins couteux au plus couteux
-	--a evaluer. AllDone est sous pcall : si le module n'est pas charge,
-	--on ne bloque pas le joueur indefiniment.
-	local questsDone = true
-	if gate ~= nil then
-		local ok, res = pcall(function() return SideQuests.AllDone(SV.ChapterProgression.Chapter) end)
-		if ok then questsDone = res end
-	end
-	if gate ~= nil and gate[1]() and questsDone
-	   and SV.ChapterProgression.DaysPassed >= SV.ChapterProgression.DaysToReach then
-		SV.ChapterProgression.Chapter = gate[2]
-		SV.TemporaryFlags.MorningAddress = false
-		SV.TemporaryFlags.MorningWakeup = false
-		SV.ChapterProgression.CurrentStoryDungeon = gate[3]
-		SV.Dojo.NewMazeUnlocked = true
-		GAME:UnlockDungeon(gate[3])
-		for ii = 1, #gate[4], 1 do
-			GAME:UnlockDungeon(gate[4][ii])
-		end
-		--Repos impose avant le palier suivant : 3 a 5 nuits selon le poids
-		--du chapitre qui vient de s'achever (5e champ de la porte).
-		SV.ChapterProgression.DaysToReach = SV.ChapterProgression.DaysPassed + (gate[5] or 3)
-		GAME:WaitFrames(60)
-		GeneralFunctions.PromptChapterSaveAndQuit("guild_heros_room", "Main_Entrance_Marker", 2)
-	end
-
 end
 
 function guild_heros_room.PlotScripting()
@@ -346,43 +255,9 @@ function guild_heros_room.PlotScripting()
 				GAME:FadeIn(20)
 			end
 		elseif SV.ChapterProgression.Chapter == 7 then
-			if not SV.Chapter7.ShowedTitleCard then
-				guild_heros_room_ch_7.ShowTitleCard()
-			elseif SV.Chapter7.HeardGenesisTale and not SV.Chapter7.HadFirstDream then
-				guild_heros_room_ch_7.DreamCutscene()
-			else
-				GAME:FadeIn(20)
-			end
-		elseif SV.ChapterProgression.Chapter == 8 then
-			--Ces trois chapitres n'avaient NI carton-titre NI scene de chambre :
-			--on passait d'un chapitre au suivant sans aucune transition.
-			if not SV.Chapter8.ShowedTitleCard then
-				guild_heros_room_ch_8.ShowTitleCard()
-			elseif SV.Chapter8.CrystalSanctuaryComplete and not SV.Chapter8.FinishedBedtimeCutscene then
-				guild_heros_room_ch_8.PostSanctuaryBedtalk()
-			else
-				GAME:FadeIn(20)
-			end
-		elseif SV.ChapterProgression.Chapter == 9 then
-			if not SV.Chapter9.ShowedTitleCard then
-				guild_heros_room_ch_9.ShowTitleCard()
-			elseif SV.Chapter9.ForgottenMarshComplete and not SV.Chapter9.FinishedBedtimeCutscene then
-				guild_heros_room_ch_9.PostMarshBedtalk()
-			else
-				GAME:FadeIn(20)
-			end
-		elseif SV.ChapterProgression.Chapter == 10 then
-			if not SV.Chapter10.ShowedTitleCard then
-				guild_heros_room_ch_10.ShowTitleCard()
-			elseif SV.Chapter10.CelestialPeakComplete and not SV.Chapter10.FinishedBedtimeCutscene then
-				guild_heros_room_ch_10.PostPeakBedtalk()
-			else
-				GAME:FadeIn(20)
-			end
-		elseif SV.ChapterProgression.Chapter == 11 then
-			if not SV.Chapter11.ShowedTitleCard then
-				require 'halcyon.ground.guild_heros_room.guild_heros_room_ch_11'
-				guild_heros_room_ch_11.ShowTitleCard()
+			require 'halcyon.HoopaGateway'
+			if not SV.HoopaGateway.HoopaMet then
+				HoopaGateway.TriggerTemporalRift()
 			else
 				GAME:FadeIn(20)
 			end
