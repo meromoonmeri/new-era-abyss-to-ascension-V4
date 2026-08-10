@@ -1,5 +1,5 @@
 ﻿{
-  "Version": "0.8.12.0",
+  "Version": "0.8.9.0",
   "Object": {
     "$type": "RogueEssence.Data.ZoneData, RogueEssence",
     "Name": {
@@ -39,7 +39,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
-                  "Music": "Thunderstruck Pass.ogg",
+                  "Music": "Mt. Thunder.ogg",
                   "TimeLimit": 1500,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -1069,7 +1069,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
-                  "Music": "Thunderstruck Pass.ogg",
+                  "Music": "Mt. Thunder.ogg",
                   "TimeLimit": 1500,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -2099,7 +2099,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
-                  "Music": "Thunderstruck Pass.ogg",
+                  "Music": "Mt. Thunder.ogg",
                   "TimeLimit": 1500,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -3129,7 +3129,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
-                  "Music": "Thunderstruck Pass.ogg",
+                  "Music": "Mt. Thunder.ogg",
                   "TimeLimit": 1500,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -4159,7 +4159,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
-                  "Music": "Thunderstruck Pass.ogg",
+                  "Music": "Mt. Thunder.ogg",
                   "TimeLimit": 1500,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -5189,7 +5189,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
-                  "Music": "Thunderstruck Pass.ogg",
+                  "Music": "Mt. Thunder.ogg",
                   "TimeLimit": 1500,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -6401,7 +6401,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
-                  "Music": "Thunderstruck Pass.ogg",
+                  "Music": "Mt. Thunder.ogg",
                   "TimeLimit": 1500,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -7613,7 +7613,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
-                  "Music": "Thunderstruck Pass.ogg",
+                  "Music": "Mt. Thunder.ogg",
                   "TimeLimit": 1500,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -8825,7 +8825,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
-                  "Music": "Thunderstruck Pass.ogg",
+                  "Music": "Mt. Thunder.ogg",
                   "TimeLimit": 1500,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -10037,7 +10037,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
-                  "Music": "Thunderstruck Pass.ogg",
+                  "Music": "Mt. Thunder.ogg",
                   "TimeLimit": 1500,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -11249,7 +11249,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
-                  "Music": "Thunderstruck Pass.ogg",
+                  "Music": "Mt. Thunder.ogg",
                   "TimeLimit": 1500,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -12461,7 +12461,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
-                  "Music": "Thunderstruck Pass.ogg",
+                  "Music": "Mt. Thunder.ogg",
                   "TimeLimit": 1500,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -13673,7 +13673,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
-                  "Music": "Thunderstruck Pass.ogg",
+                  "Music": "Mt. Thunder.ogg",
                   "TimeLimit": 1500,
                   "TileSight": 0,
                   "CharSight": 1,
@@ -14885,7 +14885,7 @@
                 },
                 "Value": {
                   "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.ListMapGenContext, RogueEssence]], PMDC",
-                  "Music": "Thunderstruck Pass.ogg",
+                  "Music": "Mt. Thunder.ogg",
                   "TimeLimit": 1500,
                   "TileSight": 0,
                   "CharSight": 1,

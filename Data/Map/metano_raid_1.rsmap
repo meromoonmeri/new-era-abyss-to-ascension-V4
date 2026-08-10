@@ -27498,7 +27498,7 @@
         },
         {
           "Data": {
-            "ID": "",
+            "ID": "floor",
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],
@@ -28130,7 +28130,7 @@
         },
         {
           "Data": {
-            "ID": "",
+            "ID": "floor",
             "TileTex": {
               "AutoTileset": "",
               "Associates": [],

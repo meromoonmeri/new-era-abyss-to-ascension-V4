@@ -45,7 +45,7 @@
                           },
                           "Value": {
                             "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                            "Music": "Treacherous Mountain.ogg",
+                            "Music": "Mt. Blaze.ogg",
                             "TimeLimit": 1500,
                             "TileSight": 0,
                             "CharSight": 1,
@@ -534,7 +534,7 @@
                           },
                           "Value": {
                             "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                            "Music": "Treacherous Mountain.ogg",
+                            "Music": "Mt. Blaze.ogg",
                             "TimeLimit": 1500,
                             "TileSight": 0,
                             "CharSight": 1,
@@ -7044,7 +7044,7 @@
                           },
                           "Value": {
                             "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                            "Music": "Treacherous Mountain.ogg",
+                            "Music": "Mt. Blaze.ogg",
                             "TimeLimit": 1500,
                             "TileSight": 0,
                             "CharSight": 1,
@@ -7545,7 +7545,7 @@
                           },
                           "Value": {
                             "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                            "Music": "Treacherous Mountain.ogg",
+                            "Music": "Mt. Blaze.ogg",
                             "TimeLimit": 1500,
                             "TileSight": 0,
                             "CharSight": 1,
@@ -8080,7 +8080,7 @@
                           },
                           "Value": {
                             "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-                            "Music": "Treacherous Mountain.ogg",
+                            "Music": "Mt. Blaze.ogg",
                             "TimeLimit": 1500,
                             "TileSight": 0,
                             "CharSight": 1,
