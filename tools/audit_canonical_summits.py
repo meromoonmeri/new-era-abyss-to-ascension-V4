@@ -42,13 +42,13 @@ else:
 # Contrat Sinister Woods D04P01/D04P02 : identité et slots recastés.
 sin_zone=json.load(open(ROOT/'Data/Zone/gloomy_forest.json',encoding='utf-8-sig'))['Object']
 if sin_zone.get('Name',{}).get('DefaultText')!='Sinister Woods':errors.append('gloomy_forest: nom public doit être Sinister Woods')
-for ground_id,size in (('gloomy_forest_entrance',(57,48)),('sinister_woods_clearing',(69,72))):
+for ground_id,size in (('gloomy_forest_entrance',(57,48)),('sinister_woods_clearing',(60,47))):
  gp=ROOT/f'Data/Ground/{ground_id}.rsground'
  if not gp.exists():errors.append(f'Sinister Woods: Ground absent {ground_id}');continue
  go=json.load(open(gp,encoding='utf-8-sig'))['Object']
  if (len(go['obstacles']),len(go['obstacles'][0]))!=size:errors.append(f'{ground_id}: taille non canonique')
 sin_script=(ROOT/'Data/Script/halcyon/ground/gloomy_forest_entrance/gloomy_forest_entrance_ch_6.lua').read_text()
-for token in ("{'Adagio', 272, 192", "{'Aria', 312, 224", "{'Sonata', 240, 224", "GROUND:TeleportTo(hero, 256, 256", "GROUND:TeleportTo(partner, 296, 256"):
+for token in ("GROUND:MoveToPosition(adagio,240,144", "GROUND:MoveToPosition(aria,280,176", "GROUND:MoveToPosition(sonata,208,176", "GROUND:TeleportTo(hero, 224, 208", "GROUND:TeleportTo(partner, 264, 208"):
  if token not in sin_script:errors.append(f'Sinister Woods D04P02: slot recasté absent {token}')
 # Les copies arc_* sont admises seulement parce qu'elles ont un script de contexte distinct.
 for src,names in active.items():

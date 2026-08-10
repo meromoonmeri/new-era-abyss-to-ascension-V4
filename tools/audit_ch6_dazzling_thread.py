@@ -9,7 +9,7 @@ z=(R/'Data/Script/halcyon/zone/gloomy_forest/init.lua').read_text()
 checks={
  'entrance_triggered': 'DazzlingEntranceBlockade()' in i,
  'entrance_once_flag': 'DazzlingEntranceSeen' in e and 'DazzlingEntranceSeen' in i,
- 'three_actors_at_entrance': all(x in e for x in ("{'Adagio',224,136","{'Aria',192,160","{'Sonata',256,160")),
+ 'three_actors_at_entrance': all(x in e for x in ("{'Adagio',224,136","{'Aria',192,160","{'Sonata',248,160")),
  'physical_block_then_move': all(x in e for x in ('MoveToPosition(adagio','MoveToPosition(aria','MoveToPosition(sonata')),
  'hero_silent_response': 'GeneralFunctions.HeroDialogue' in e,
  'relay_clue': 'DazzlingRelayClueSeen' in m,
