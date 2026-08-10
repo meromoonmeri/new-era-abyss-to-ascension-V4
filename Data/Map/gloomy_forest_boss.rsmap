@@ -1,4 +1,4 @@
-{
+﻿{
  "Version": "0.8.9.0",
  "Object": {
   "$type": "RogueEssence.Dungeon.Map, RogueEssence",
@@ -14,7 +14,6 @@
   "ID": 0,
   "MapTeams": [
    {
-    "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence",
     "Players": [
      {
       "Element1": "dark",
@@ -189,16 +188,504 @@
        "Assembly": false,
        "Index": -1
       },
-      "Nickname": "",
+      "Nickname": "Adagio",
       "OriginalUUID": "",
       "OriginalTeam": "",
       "BaseForm": {
+       "Species": "tsareena",
+       "Form": 0,
+       "Skin": "normal",
+       "Gender": 2
+      },
+      "Level": 15,
+      "EXP": 0,
+      "MaxHPBonus": 80,
+      "AtkBonus": 0,
+      "DefBonus": 0,
+      "MAtkBonus": 0,
+      "MDefBonus": 0,
+      "SpeedBonus": 0,
+      "BaseSkills": [
+       {
+        "SkillNum": "fury_swipes",
+        "Charges": 15,
+        "CanForget": false
+       },
+       {
+        "SkillNum": "scary_face",
+        "Charges": 20,
+        "CanForget": false
+       },
+       {
+        "SkillNum": "grass_knot",
+        "Charges": 15,
+        "CanForget": false
+       },
+       {
+        "SkillNum": "bite",
+        "Charges": 18,
+        "CanForget": false
+       }
+      ],
+      "BaseIntrinsics": [
+       "leaf_guard"
+      ],
+      "FormIntrinsicSlot": -1,
+      "Relearnables": {},
+      "Discriminator": 0,
+      "MetAt": "",
+      "MetLoc": {
+       "ID": "",
+       "StructID": {
+        "Segment": -1,
+        "ID": -1
+       },
+       "EntryPoint": -1
+      },
+      "DefeatAt": "",
+      "DefeatLoc": {
+       "ID": "",
+       "StructID": {
+        "Segment": -1,
+        "ID": -1
+       },
+       "EntryPoint": -1
+      },
+      "IsFounder": false,
+      "IsPartner": false,
+      "NameLocked": false,
+      "IsFavorite": false,
+      "Unrecruitable": true,
+      "ActionEvents": [],
+      "ScriptVars": null
+     },
+     {
+      "Element1": "dark",
+      "Element2": "grass",
+      "TurnWait": 0,
+      "TiersUsed": 0,
+      "TurnUsed": false,
+      "movementSpeed": 0,
+      "dead": false,
+      "serializationLoc": {
+       "X": 30,
+       "Y": 9
+      },
+      "serializationDir": 0,
+      "ProxyName": "",
+      "ProxySprite": {
+       "Species": "",
+       "Form": -1,
+       "Skin": "",
+       "Gender": -1
+      },
+      "CurrentForm": {
        "Species": "zeraora",
        "Form": 0,
        "Skin": "normal",
        "Gender": 1
       },
-      "Level": 36,
+      "ProxyAtk": -1,
+      "ProxyDef": -1,
+      "ProxyMAtk": -1,
+      "ProxyMDef": -1,
+      "ProxySpeed": -1,
+      "Skills": [
+       {
+        "Element": {
+         "SkillNum": "fury_swipes",
+         "Charges": 15,
+         "Enabled": true,
+         "Sealed": false
+        },
+        "BackRef": 0
+       },
+       {
+        "Element": {
+         "SkillNum": "scary_face",
+         "Charges": 20,
+         "Enabled": true,
+         "Sealed": false
+        },
+        "BackRef": 1
+       },
+       {
+        "Element": {
+         "SkillNum": "grass_knot",
+         "Charges": 15,
+         "Enabled": true,
+         "Sealed": false
+        },
+        "BackRef": 2
+       },
+       {
+        "Element": {
+         "SkillNum": "bite",
+         "Charges": 18,
+         "Enabled": true,
+         "Sealed": false
+        },
+        "BackRef": 3
+       }
+      ],
+      "Intrinsics": [
+       {
+        "Element": {
+         "ID": "leaf_guard"
+        },
+        "BackRef": 0
+       }
+      ],
+      "EquippedItem": {
+       "ID": "held_power_band",
+       "Cursed": false,
+       "HiddenValue": "",
+       "Amount": 0,
+       "Price": 0
+      },
+      "Absentee": false,
+      "ChargeBoost": 0,
+      "HP": 267,
+      "HPRemainder": 0,
+      "Fullness": 100,
+      "FullnessRemainder": 0,
+      "MaxFullness": 100,
+      "StatusEffects": {},
+      "MissChain": 0,
+      "EXPMarked": false,
+      "Tactic": {
+       "Name": {
+        "DefaultText": "Dumb Wander",
+        "LocalTexts": {}
+       },
+       "Released": false,
+       "Comment": "",
+       "ID": "wander_dumb",
+       "Assignable": false,
+       "Plans": [
+        {
+         "$type": "PMDC.Dungeon.AttackFoesPlan, PMDC",
+         "AttackPattern": 1,
+         "PositionPattern": 0,
+         "IQ": 36,
+         "RestrictedMobilityTypes": 0,
+         "RestrictMobilityPassable": false,
+         "AttackRange": 4,
+         "StatusRange": 4,
+         "SelfStatusRange": 3,
+         "AbandonRangeOnHit": true
+        },
+        {
+         "$type": "PMDC.Dungeon.FollowLeaderPlan, PMDC",
+         "IQ": 164,
+         "RestrictedMobilityTypes": 0,
+         "RestrictMobilityPassable": false,
+         "AttackRange": 0,
+         "StatusRange": 0,
+         "SelfStatusRange": 0,
+         "AbandonRangeOnHit": true
+        },
+        {
+         "$type": "PMDC.Dungeon.ExplorePlan, PMDC",
+         "IQ": 164,
+         "RestrictedMobilityTypes": 0,
+         "RestrictMobilityPassable": false,
+         "AttackRange": 0,
+         "StatusRange": 0,
+         "SelfStatusRange": 0,
+         "AbandonRangeOnHit": true
+        },
+        {
+         "$type": "PMDC.Dungeon.WaitPlan, PMDC",
+         "IQ": 164,
+         "RestrictedMobilityTypes": 0,
+         "RestrictMobilityPassable": false,
+         "AttackRange": 0,
+         "StatusRange": 0,
+         "SelfStatusRange": 0,
+         "AbandonRangeOnHit": true
+        }
+       ]
+      },
+      "Mobility": 0,
+      "CantWalk": false,
+      "ItemDisabled": false,
+      "IntrinsicDisabled": false,
+      "CanRemoveStuck": false,
+      "StopItemAtHit": false,
+      "MovesScrambled": false,
+      "ChargeSaver": false,
+      "WaitToAttack": false,
+      "CantInteract": false,
+      "EnemyOfFriend": false,
+      "AttackFriend": false,
+      "TileSight": -1,
+      "CharSight": -1,
+      "Unidentifiable": false,
+      "Unlocatable": false,
+      "SeeAllChars": false,
+      "SeeItems": false,
+      "SeeWallItems": false,
+      "SeeTraps": false,
+      "CharStates": [],
+      "BackRef": {
+       "Assembly": false,
+       "Index": -1
+      },
+      "Nickname": "Aria",
+      "OriginalUUID": "",
+      "OriginalTeam": "",
+      "BaseForm": {
+       "Species": "lopunny",
+       "Form": 0,
+       "Skin": "normal",
+       "Gender": 2
+      },
+      "Level": 15,
+      "EXP": 0,
+      "MaxHPBonus": 80,
+      "AtkBonus": 0,
+      "DefBonus": 0,
+      "MAtkBonus": 0,
+      "MDefBonus": 0,
+      "SpeedBonus": 0,
+      "BaseSkills": [
+       {
+        "SkillNum": "fury_swipes",
+        "Charges": 15,
+        "CanForget": false
+       },
+       {
+        "SkillNum": "scary_face",
+        "Charges": 20,
+        "CanForget": false
+       },
+       {
+        "SkillNum": "grass_knot",
+        "Charges": 15,
+        "CanForget": false
+       },
+       {
+        "SkillNum": "bite",
+        "Charges": 18,
+        "CanForget": false
+       }
+      ],
+      "BaseIntrinsics": [
+       "leaf_guard"
+      ],
+      "FormIntrinsicSlot": -1,
+      "Relearnables": {},
+      "Discriminator": 0,
+      "MetAt": "",
+      "MetLoc": {
+       "ID": "",
+       "StructID": {
+        "Segment": -1,
+        "ID": -1
+       },
+       "EntryPoint": -1
+      },
+      "DefeatAt": "",
+      "DefeatLoc": {
+       "ID": "",
+       "StructID": {
+        "Segment": -1,
+        "ID": -1
+       },
+       "EntryPoint": -1
+      },
+      "IsFounder": false,
+      "IsPartner": false,
+      "NameLocked": false,
+      "IsFavorite": false,
+      "Unrecruitable": true,
+      "ActionEvents": [],
+      "ScriptVars": null
+     },
+     {
+      "Element1": "dark",
+      "Element2": "grass",
+      "TurnWait": 0,
+      "TiersUsed": 0,
+      "TurnUsed": false,
+      "movementSpeed": 0,
+      "dead": false,
+      "serializationLoc": {
+       "X": 30,
+       "Y": 9
+      },
+      "serializationDir": 0,
+      "ProxyName": "",
+      "ProxySprite": {
+       "Species": "",
+       "Form": -1,
+       "Skin": "",
+       "Gender": -1
+      },
+      "CurrentForm": {
+       "Species": "zeraora",
+       "Form": 0,
+       "Skin": "normal",
+       "Gender": 1
+      },
+      "ProxyAtk": -1,
+      "ProxyDef": -1,
+      "ProxyMAtk": -1,
+      "ProxyMDef": -1,
+      "ProxySpeed": -1,
+      "Skills": [
+       {
+        "Element": {
+         "SkillNum": "fury_swipes",
+         "Charges": 15,
+         "Enabled": true,
+         "Sealed": false
+        },
+        "BackRef": 0
+       },
+       {
+        "Element": {
+         "SkillNum": "scary_face",
+         "Charges": 20,
+         "Enabled": true,
+         "Sealed": false
+        },
+        "BackRef": 1
+       },
+       {
+        "Element": {
+         "SkillNum": "grass_knot",
+         "Charges": 15,
+         "Enabled": true,
+         "Sealed": false
+        },
+        "BackRef": 2
+       },
+       {
+        "Element": {
+         "SkillNum": "bite",
+         "Charges": 18,
+         "Enabled": true,
+         "Sealed": false
+        },
+        "BackRef": 3
+       }
+      ],
+      "Intrinsics": [
+       {
+        "Element": {
+         "ID": "leaf_guard"
+        },
+        "BackRef": 0
+       }
+      ],
+      "EquippedItem": {
+       "ID": "held_power_band",
+       "Cursed": false,
+       "HiddenValue": "",
+       "Amount": 0,
+       "Price": 0
+      },
+      "Absentee": false,
+      "ChargeBoost": 0,
+      "HP": 267,
+      "HPRemainder": 0,
+      "Fullness": 100,
+      "FullnessRemainder": 0,
+      "MaxFullness": 100,
+      "StatusEffects": {},
+      "MissChain": 0,
+      "EXPMarked": false,
+      "Tactic": {
+       "Name": {
+        "DefaultText": "Dumb Wander",
+        "LocalTexts": {}
+       },
+       "Released": false,
+       "Comment": "",
+       "ID": "wander_dumb",
+       "Assignable": false,
+       "Plans": [
+        {
+         "$type": "PMDC.Dungeon.AttackFoesPlan, PMDC",
+         "AttackPattern": 1,
+         "PositionPattern": 0,
+         "IQ": 36,
+         "RestrictedMobilityTypes": 0,
+         "RestrictMobilityPassable": false,
+         "AttackRange": 4,
+         "StatusRange": 4,
+         "SelfStatusRange": 3,
+         "AbandonRangeOnHit": true
+        },
+        {
+         "$type": "PMDC.Dungeon.FollowLeaderPlan, PMDC",
+         "IQ": 164,
+         "RestrictedMobilityTypes": 0,
+         "RestrictMobilityPassable": false,
+         "AttackRange": 0,
+         "StatusRange": 0,
+         "SelfStatusRange": 0,
+         "AbandonRangeOnHit": true
+        },
+        {
+         "$type": "PMDC.Dungeon.ExplorePlan, PMDC",
+         "IQ": 164,
+         "RestrictedMobilityTypes": 0,
+         "RestrictMobilityPassable": false,
+         "AttackRange": 0,
+         "StatusRange": 0,
+         "SelfStatusRange": 0,
+         "AbandonRangeOnHit": true
+        },
+        {
+         "$type": "PMDC.Dungeon.WaitPlan, PMDC",
+         "IQ": 164,
+         "RestrictedMobilityTypes": 0,
+         "RestrictMobilityPassable": false,
+         "AttackRange": 0,
+         "StatusRange": 0,
+         "SelfStatusRange": 0,
+         "AbandonRangeOnHit": true
+        }
+       ]
+      },
+      "Mobility": 0,
+      "CantWalk": false,
+      "ItemDisabled": false,
+      "IntrinsicDisabled": false,
+      "CanRemoveStuck": false,
+      "StopItemAtHit": false,
+      "MovesScrambled": false,
+      "ChargeSaver": false,
+      "WaitToAttack": false,
+      "CantInteract": false,
+      "EnemyOfFriend": false,
+      "AttackFriend": false,
+      "TileSight": -1,
+      "CharSight": -1,
+      "Unidentifiable": false,
+      "Unlocatable": false,
+      "SeeAllChars": false,
+      "SeeItems": false,
+      "SeeWallItems": false,
+      "SeeTraps": false,
+      "CharStates": [],
+      "BackRef": {
+       "Assembly": false,
+       "Index": -1
+      },
+      "Nickname": "Sonata",
+      "OriginalUUID": "",
+      "OriginalTeam": "",
+      "BaseForm": {
+       "Species": "mismagius",
+       "Form": 0,
+       "Skin": "normal",
+       "Gender": 2
+      },
+      "Level": 15,
       "EXP": 0,
       "MaxHPBonus": 80,
       "AtkBonus": 0,
@@ -260,7 +747,8 @@
       "ActionEvents": [],
       "ScriptVars": null
      }
-    ]
+    ],
+    "$type": "RogueEssence.Dungeon.MonsterTeam, RogueEssence"
    }
   ],
   "AllyTeams": [],
