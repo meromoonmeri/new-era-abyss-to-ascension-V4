@@ -66,13 +66,17 @@ def decode_sound() -> dict:
         mine = [n for n in names if n is not None
                 and n.startswith(("SND_BGM_M", "SND_ME_M"))]
         match = gt_vals == mine
+    full = sd.parse_full()
+    made = sd.extract_files(out / "files")
     report = {
         "converter": "nds2pmdo", "version": __version__,
         "provenance": Provenance.SOURCE_NDS.value,
         "source": "sound.sbin (SDAT)",
         "seq_names": {str(i): n for i, n in enumerate(names)},
         "ground_truth_match_docs_sinister_woods_nds": match,
-        "unknowns": sd.first_unknown(),
+        "full_chain": full,
+        "extracted_files": made,
+        "unknowns": full["unknowns"],
     }
     (out / "sdat.json").write_text(json.dumps(report, indent=1, ensure_ascii=False))
     return report

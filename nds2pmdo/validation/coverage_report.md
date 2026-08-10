@@ -13,6 +13,9 @@ Portée : Sinister Woods (pilote) + inventaires globaux de la ROM
 - cel (tile/palette)
 - pal (192 couleurs)
 - SDAT noms SEQ/ME/SE
+- chaîne SEQ→SSEQ (98 fichiers, trous préservés)
+- BANK→SBNK (83)
+- FAT SDAT (186 fichiers)
 - inventaires packs
 
 ## Partiel (octets SOURCE_NDS, sémantique incomplète)
@@ -21,7 +24,7 @@ Portée : Sinister Woods (pilote) + inventaires globaux de la ROM
 - canm (forme)
 - ground packages B10P01
 - messages
-- records INFO/FAT SDAT
+- records STRM/WAVE/GRP/PLAYER
 
 ## Non décodé (UNKNOWN — jamais inventé)
 - IDs items par catégorie
@@ -30,7 +33,8 @@ Portée : Sinister Woods (pilote) + inventaires globaux de la ROM
 - flags cel
 - scripts ground B10P01
 - table de noms espèces ROM
-- SSEQ + boucles
+- boucles SSEQ
+- formats ground.sbin/monster.sbin/effect.sbin
 
 ## Conversion PMDO
 - **BLOQUÉE — audit OVERALL = PARTIAL/UNKNOWN (gates stricts)**

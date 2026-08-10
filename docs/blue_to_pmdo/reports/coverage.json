@@ -1,0 +1,128 @@
+{
+ "date": "2026-08-10",
+ "converter": "nds2pmdo v0.1.0",
+ "rom_sha256": "2540966e1e9cd722bf2ae401069df10b81875af03f0618d413b9d32511c14b05",
+ "counters": {
+  "grounds_packages": {
+   "total": 724,
+   "proven": 0,
+   "adapted_validated": 0,
+   "partial": 0,
+   "unknown": 0,
+   "blocked": 724
+  },
+  "cinematics_sinister_woods": {
+   "total": 6,
+   "proven": 0,
+   "adapted_validated": 0,
+   "partial": 6,
+   "unknown": 0,
+   "blocked": 6
+  },
+  "tilesets": {
+   "total": 130,
+   "proven": 2,
+   "adapted_validated": 0,
+   "partial": 2,
+   "unknown": 126,
+   "blocked": 0
+  },
+  "canm_animations": {
+   "total": 130,
+   "proven": 0,
+   "adapted_validated": 0,
+   "partial": 2,
+   "unknown": 128,
+   "blocked": 0
+  },
+  "dungeon_floors_params": {
+   "total": 13,
+   "proven": 13,
+   "adapted_validated": 0,
+   "partial": 0,
+   "unknown": 0,
+   "blocked": 0
+  },
+  "spawn_tables": {
+   "total": 13,
+   "proven": 13,
+   "adapted_validated": 0,
+   "partial": 0,
+   "unknown": 1,
+   "blocked": 0
+  },
+  "item_tables": {
+   "total": 2,
+   "proven": 0,
+   "adapted_validated": 0,
+   "partial": 2,
+   "unknown": 2,
+   "blocked": 2
+  },
+  "trap_tables": {
+   "total": 1,
+   "proven": 0,
+   "adapted_validated": 0,
+   "partial": 1,
+   "unknown": 1,
+   "blocked": 1
+  },
+  "music_seq": {
+   "total": 220,
+   "proven": 98,
+   "adapted_validated": 0,
+   "partial": 0,
+   "unknown": 122,
+   "blocked": 0
+  },
+  "music_bgmusic_to_seq": {
+   "total": 1,
+   "proven": 0,
+   "adapted_validated": 0,
+   "partial": 0,
+   "unknown": 1,
+   "blocked": 0
+  },
+  "music_banks": {
+   "total": 301,
+   "proven": 83,
+   "adapted_validated": 0,
+   "partial": 0,
+   "unknown": 218,
+   "blocked": 0
+  },
+  "dialogues": {
+   "total": 5,
+   "proven": 0,
+   "adapted_validated": 0,
+   "partial": 5,
+   "unknown": 5,
+   "blocked": 0
+  },
+  "pokemon_sprites": {
+   "total": 1,
+   "proven": 0,
+   "adapted_validated": 0,
+   "partial": 0,
+   "unknown": 1,
+   "blocked": 0
+  },
+  "vfx": {
+   "total": 1,
+   "proven": 0,
+   "adapted_validated": 0,
+   "partial": 0,
+   "unknown": 1,
+   "blocked": 0
+  },
+  "conversion_pmdo": {
+   "total": 1,
+   "proven": 0,
+   "adapted_validated": 0,
+   "partial": 0,
+   "unknown": 0,
+   "blocked": 1
+  }
+ },
+ "overall": "Phase 1 : décodage source en cours ; conversion PMDO BLOQUÉE par les gates. Aucun élément PMDO généré ; aucun placeholder."
+}

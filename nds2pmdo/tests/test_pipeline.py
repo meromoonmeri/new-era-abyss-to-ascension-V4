@@ -165,17 +165,36 @@ def test_item_table_markers():
 # 4. SDAT — noms SEQ vs ground truth
 # ---------------------------------------------------------------------------
 def test_sdat_seq_names_match_legacy():
-    """Les noms SEQ extraits (ordre) correspondent au ground truth committé.
-    L'indexation exacte (trous 47-49, 53-99…) dépend de la table INFO des records,
-    non décodée : seuls l'ordre et les valeurs sont vérifiés (honnêteté de l'audit)."""
-    data = (FI / "sound_symb_section.bin").read_bytes()
-    sd = Sdat.parse_symbols(data)
-    names = [n for n in sd.names if n and n.startswith(("SND_BGM_M", "SND_ME_M"))]
+    """Les noms SEQ extraits (alignés sur la section SEQ : trous conservés)
+    correspondent au ground truth committé, index pour index."""
+    data = (FI / "sound_sdat_head.bin").read_bytes()
+    sd = Sdat.open(data)
+    names = sd.seq_names()
     gt = load_legacy("sdat_seq_names.json")
-    gt_vals = [v for v in gt.values() if v is not None]
-    assert len(names) == len(gt_vals)
+    gt_vals = [v for v in gt.values()]
+    assert len(gt_vals) == len(names)
     for i, (a, b) in enumerate(zip(names, gt_vals)):
-        assert a == b, f"nom SEQ ordonné [{i}]"
+        assert a == b, f"SEQ[{i}] : {a!r} != {b!r}"
+
+
+def test_sdat_chain_file_ids_are_sseq():
+    """Structure de la chaîne SEQ → file_id → FAT (fixture court) + validation
+    complète des magics via le rapport décodé committé (CI sans ROM)."""
+    data = (FI / "sound_sdat_head.bin").read_bytes()
+    sd = Sdat.open(data)
+    full = sd.parse_full()
+    assert full["seq_hole_count"] == 122
+    assert full["bank_hole_count"] == 218
+    fids = [e["file_id"] for e in full["seq"] if not e["hole"]]
+    assert min(fids) == 0 and max(fids) == 97 and len(set(fids)) == 98
+    # validation magics (98 SSEQ) depuis le rapport décodé committé
+    sdat_report = json.loads((DECODED_DIR / "sound" / "sdat.json").read_text())
+    sseq = {f["file_id"] for f in sdat_report["full_chain"]["fat"]
+            if f["magic"] == "SSEQ"}
+    assert len(sseq) == 98
+    for e in sdat_report["full_chain"]["seq"]:
+        if not e["hole"]:
+            assert e["file_id"] in sseq, f"SEQ {e['index']} → file {e['file_id']} non SSEQ"
 
 
 # ---------------------------------------------------------------------------

@@ -121,6 +121,9 @@
    "cel (tile/palette)",
    "pal (192 couleurs)",
    "SDAT noms SEQ/ME/SE",
+   "chaîne SEQ→SSEQ (98 fichiers, trous préservés)",
+   "BANK→SBNK (83)",
+   "FAT SDAT (186 fichiers)",
    "inventaires packs"
   ],
   "partial": [
@@ -129,7 +132,7 @@
    "canm (forme)",
    "ground packages B10P01",
    "messages",
-   "records INFO/FAT SDAT"
+   "records STRM/WAVE/GRP/PLAYER"
   ],
   "unknown": [
    "IDs items par catégorie",
@@ -138,7 +141,8 @@
    "flags cel",
    "scripts ground B10P01",
    "table de noms espèces ROM",
-   "SSEQ + boucles"
+   "boucles SSEQ",
+   "formats ground.sbin/monster.sbin/effect.sbin"
   ],
   "conversion_pmdo": "BLOQUÉE — audit OVERALL = PARTIAL/UNKNOWN (gates stricts)",
   "provenance_rule": "aucune valeur inventée ; UNKNOWN reste UNKNOWN"

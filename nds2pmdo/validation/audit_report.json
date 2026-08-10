@@ -31,7 +31,10 @@
   },
   "sound": {
    "seq_names": "PASS",
-   "music_chain": "UNKNOWN (bgMusic=4 → SEQ index non démontré)"
+   "seq_chain_to_sseq": "PASS",
+   "seq_holes_preserved": 122,
+   "sseq_files": 98,
+   "bgmusic_to_seq": "UNKNOWN (table dans le code ARM9)"
   },
   "ground_pack": {
    "entry_count": 724,

@@ -1,0 +1,19 @@
+NDS SOURCE,STRUCTURE DÉCODÉE,SÉMANTIQUE ORIGINALE,ÉQUIVALENT PMDO,TRANSFORMATION NÉCESSAIRE,VALIDATION,STATUT
+"dungeon.sbin/mapparam floor_id (dungeon #3, @0x160)",u16[8] × 13 étages : MainData/Pokemon/Traps/Items/KecleonShop/MonsterRoomItems/BuriedItems,index des tables par étage,références internes des GenSteps de zone,"mapping direct index→étape, documenté",byte-à-byte vs floors_f1_f13.json,PROVEN
+"FloorProperties (28 B × entrée, @0x7380)","layout, roomDensity, enemyDensity, trapDensity, itemDensity, MH%, shop%, buried%, allowDeadEnds, numExtraHallways, visibilityRange, bgMusic…",paramètres de génération d'étage,"GenSteps PMDO (GridFloorGen, MapDataStep, spawn/item/trap steps)","mapping paramètre→étape (ADAPTATION, jamais copie brute)",byte-à-byte vs ground truth + chart,PROVEN (données) / ADAPTATION_REQUIRED (mapping)
+"SpawnPokemonData (8 B/entrée, @0x1FEA8)","bits=species&0x1FF, level=(bits>>9)&0x7F, w0, w1, term KECLEON",tables de rencontres par étage,MobSpawnStep / spawners PMDO,species/level direct ; distribution poids→% à démontrer,byte-à-byte vs floors_f1_f13.json,PROVEN (structure) / UNKNOWN (formule poids)
+Tables d'items (@0x28978),"flux u16 : marqueurs 0x7500+cat + poids cumulés, term 0x753F",répartition des objets par étage (catégories),ItemSpawnStep PMDO,IDs des items absents du flux → à démontrer,sha256 vs ITEMS_TABLES_RAW.json,PARTIAL
+Tables de pièges (@0x222E4),u16[20] ; SW : index 17 = 10000,répartition des pièges,étapes de pièges PMDO,nom du piège 17 UNKNOWN,sha256 vs TRAPS_TABLES.json,PARTIAL
+bNNfon (AT4PX),motifs 8×8 4bpp (b41 : 415 tiles),textures du tileset,Content/Tile/*.png (feuille),"rendu exact 8×8, aucune retouche",byte-à-byte .dec.bin + PNG,PROVEN
+bNNcel,"u16/cell : tile 10 bits, palette 14-15, flags 10/12/13",composition cellules→tiles+palettes,mapping tile/cell/palette PMDO,sémantique des flags à démontrer,"2250 cells, cohérence max_tile",PROVEN (structure) / UNKNOWN (flags)
+bNNpal,384 u16 BGR555 en paires → 192 couleurs,palettes du tileset,palettes PMDO (RVB888),(v&0x1F)<<3 exact ; pas de réduction,768 B ground truth + nuanciers PNG,PROVEN
+bNNcex,u16 décompressés,comportements/tiles étendus,terrain PMDO,sémantique à démontrer,.dec.bin byte-à-byte,PARTIAL
+bNNcanm (SIR0),"16 entrées × 68 B {u16,u16,16×u32}",animations de tileset (eau/lave…),Data/Tile/*.json (tiles animés),sémantique canm à démontrer (frames/durées/boucles),aucune animation déclarée,PARTIAL (forme) / UNKNOWN (sémantique)
+sound.sbin SDAT SYMB,pool de noms null-terminés,noms SEQ/ME/SE/BANK,inventaire audio PMDO,—,aligné trous compris = sdat_seq_names.json,PROVEN
+sound.sbin SDAT INFO/SEQ,"220 index, 122 trous, records {file_id,…}",table des musiques/jingles,mapping musiques PMDO,index non compactés ; bgMusic→SEQ à démontrer,file_id→FAT→SSEQ (magics),PROVEN (chaîne) / UNKNOWN (bgMusic)
+sound.sbin SDAT FAT,186 fichiers : 98 SSEQ + 83 SBNK + 4 SWAR + 1 SSAR,fichiers audio,Content/Music/*.ogg,SSEQ→OGG + boucles (à démontrer),extraction + magics,PROVEN (inventaire) / UNKNOWN (conversion)
+ground.sbin B10P01*/B10P02*,"blocs {u32 count, u32…}",packages de cinématique Sinister Woods,Grounds PMDO + scripts Lua,format du package à décoder,aucun rendu produit,BLOCKED
+ground.sbin A01P01*… (724 entrées),inventaire nommé,Grounds de zones/villes,Data/Ground/*.rsground,format à décoder,inventaire committé,BLOCKED
+message_*.str/.bin,table u32 d'offsets + pool de chaînes,dialogues 5 langues,Strings PMDO,frontières des messages à documenter,42 902 entrées (EN),PARTIAL
+monster.sbin,"inventaire (16,6 Mo)",sprites/animations Pokémon,Content/Chara/*,format à décoder,inventaire committé,UNKNOWN
+effect.sbin,"inventaire (1,1 Mo)",VFX/particules,Content/Particle/*,format à décoder,inventaire committé,UNKNOWN

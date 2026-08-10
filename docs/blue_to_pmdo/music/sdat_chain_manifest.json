@@ -1,0 +1,21 @@
+{
+ "chain_proven": true,
+ "seq_indices": 220,
+ "seq_holes": 122,
+ "seq_real": 98,
+ "bank_indices": 301,
+ "bank_holes": 218,
+ "bank_real": 83,
+ "fat_files": {
+  "SSEQ": 98,
+  "SBNK": 83,
+  "SWAR": 4,
+  "SSAR": 1
+ },
+ "unknowns": [
+  "mapping FloorProperties.bgMusic (entier) → index SEQ (table ARM9)",
+  "sémantique des u16 internes des records SEQ/BANK",
+  "points de boucle SSEQ"
+ ],
+ "files": "nds2pmdo/decoded/sound/files/"
+}

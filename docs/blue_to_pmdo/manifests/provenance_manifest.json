@@ -1,0 +1,67 @@
+{
+ "title": "Preuves visuelles — retransposition Blue → PMDO",
+ "rule": "Chaque PNG provient directement des données décodées ; aucune retouche.",
+ "provenance_legend": {
+  "SOURCE_NDS": "SOURCE_NDS",
+  "SOURCE_NDS_DECODED": "SOURCE_NDS_DECODED",
+  "CROSS_REFERENCE": "CROSS_REFERENCE",
+  "DERIVED_MAPPING": "DERIVED_MAPPING",
+  "PMDO_VALUE": "PMDO_VALUE",
+  "UNKNOWN": "UNKNOWN",
+  "ADAPTATION_REQUIRED": "ADAPTATION_REQUIRED",
+  "MISSING": "MISSING",
+  "NOT_DECODED": "NOT_DECODED"
+ },
+ "rom_sha256": "2540966e1e9cd722bf2ae401069df10b81875af03f0618d413b9d32511c14b05",
+ "proofs": [
+  {
+   "file": "tilesets/b41fon_sheet_allcolors.png",
+   "source": "dungeon_pack/b41fon (AT4PX) + b41pal",
+   "provenance": "SOURCE_NDS_DECODED"
+  },
+  {
+   "file": "tilesets/b10fon_sheet_allcolors.png",
+   "source": "dungeon_pack/b10fon (AT4PX) + b10pal",
+   "provenance": "SOURCE_NDS_DECODED"
+  },
+  {
+   "file": "palettes/b41pal_swatches.png",
+   "source": "dungeon_pack/b41pal (384 u16 BGR555, paires)",
+   "provenance": "SOURCE_NDS"
+  },
+  {
+   "file": "palettes/b10pal_swatches.png",
+   "source": "dungeon_pack/b10pal (384 u16 BGR555, paires)",
+   "provenance": "SOURCE_NDS"
+  },
+  {
+   "file": "cells/b41cel_atlas.png",
+   "source": "dungeon_pack/b41cel + fon + pal",
+   "provenance": "SOURCE_NDS_DECODED",
+   "note": "cell = (tile 10 bits, palette 14-15, flags 10/12/13)"
+  },
+  {
+   "file": "cells/b10cel_atlas.png",
+   "source": "dungeon_pack/b10cel + fon + pal",
+   "provenance": "SOURCE_NDS_DECODED",
+   "note": "cell = (tile 10 bits, palette 14-15, flags 10/12/13)"
+  },
+  {
+   "file": "comparisons/b10_vs_b41_tilesets.png",
+   "source": "b10fon/b41fon + palettes respectives",
+   "provenance": "SOURCE_NDS_DECODED",
+   "note": "b10 = set graphique alternatif ; b41 = tileset sélectionné par FloorProperties.tileset=41"
+  },
+  {
+   "file": "grounds/sinister_woods_floor_properties.png",
+   "source": "dungeon_pack/mapparam FloorProperties (indices 17..29)",
+   "provenance": "SOURCE_NDS"
+  }
+ ],
+ "blocked_render_dirs": {
+  "collision": "BLOCKED — format des packages ground.sbin non décodé",
+  "markers": "BLOCKED — idem",
+  "cinematics": "BLOCKED — packages B10P01* non décodés",
+  "animations": "BLOCKED — sémantique canm UNKNOWN"
+ }
+}

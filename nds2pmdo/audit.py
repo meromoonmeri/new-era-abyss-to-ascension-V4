@@ -79,10 +79,17 @@ def audit_source_fidelity() -> dict:
     sdat = DECODED_DIR / "sound" / "sdat.json"
     if sdat.exists():
         s = json.loads(sdat.read_text())
+        fc = s.get("full_chain", {})
+        sseq = {f["file_id"] for f in fc.get("fat", []) if f.get("magic") == "SSEQ"}
+        chain_ok = all(e.get("hole") or e.get("file_id") in sseq
+                       for e in fc.get("seq", []))
         A["sound"] = {
             "seq_names": "PASS" if s.get("ground_truth_match_docs_sinister_woods_nds")
             else "FAIL",
-            "music_chain": "UNKNOWN (bgMusic=4 → SEQ index non démontré)",
+            "seq_chain_to_sseq": "PASS" if chain_ok else "FAIL",
+            "seq_holes_preserved": fc.get("seq_hole_count"),
+            "sseq_files": len(sseq),
+            "bgmusic_to_seq": "UNKNOWN (table dans le code ARM9)",
         }
     else:
         A["sound"] = {"status": "MISSING — lancer decode"}
