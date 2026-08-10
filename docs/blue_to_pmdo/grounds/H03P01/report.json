@@ -1,0 +1,20 @@
+{
+ "Ground ID": "H03P01",
+ "source_files": [
+  "ground.sbin/H03P01",
+  "ground.sbin/H03P01c",
+  "ground.sbin/H03P01m"
+ ],
+ "source_offsets": [
+  2061216,
+  2067328,
+  2089408
+ ],
+ "sha256": {
+  "H03P01": "7328637a0c61cb362da9004a784681a41054d4c06a2de2b5a218e2b107dd92a4",
+  "H03P01c": "e2b1bf765bc25d725ebef820dafabe45b9fb64c19ff8972794f6b510a5204654",
+  "H03P01m": "77342444e57b609faca642b8f5d74f6a5239dfa8cc19a1bc47accf45b622ca6a"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65548 — format spécial (u16 count + données ?)"
+}

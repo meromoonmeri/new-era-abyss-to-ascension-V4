@@ -1,0 +1,47 @@
+{
+ "Ground ID": "S06_GER",
+ "source_files": [
+  "ground.sbin/S06_GER",
+  "ground.sbin/S06_GERc",
+  "ground.sbin/S06_GERm"
+ ],
+ "source_offsets": [
+  3602928,
+  3603536,
+  3628464
+ ],
+ "sha256": {
+  "S06_GER": "53ec54fac608fedc168d0a0e595af351c688096bcb9886fe857a824671a401d4",
+  "S06_GERc": "aa192c6869fa4ca2fa794ffb4d09532b78e71ee70b4b4d764b72bf2d03f2600d",
+  "S06_GERm": "1ca24dea876c020a6a4482bd7c919139b9ac51fcb4adac561cc74097cfeed725"
+ },
+ "palette_count": 10,
+ "palette_colors": 98,
+ "Tiles attendues (header nt-1)": 759,
+ "Tiles décodées": 759,
+ "Layers attendues": 1,
+ "Layers décodées": 1,
+ "Chunks attendus (nc-1)": 88,
+ "Chunks décodés": 88,
+ "BPA (animations)": [
+  0,
+  0,
+  0,
+  0
+ ],
+ "Frames d'animation attendues": null,
+ "Frames d'animation décodées": null,
+ "Frames rendues": null,
+ "Collision": "PROVEN",
+ "Dimensions": "33x24 tuiles",
+ "Markers": "UNKNOWN (non stockés dans ces fichiers)",
+ "VFX/particules": "UNKNOWN",
+ "PNG": [
+  "source_tiles.png",
+  "layer_0.png",
+  "composite.png"
+ ],
+ "status": "FULL",
+ "question_textures_completes": "PASS",
+ "question_frames_canoniques": "PASS (aucune animation BPA dans ces fichiers)"
+}

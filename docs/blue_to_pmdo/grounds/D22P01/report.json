@@ -1,0 +1,47 @@
+{
+ "Ground ID": "D22P01",
+ "source_files": [
+  "ground.sbin/D22P01",
+  "ground.sbin/D22P01c",
+  "ground.sbin/D22P01m"
+ ],
+ "source_offsets": [
+  1806144,
+  1806688,
+  1826944
+ ],
+ "sha256": {
+  "D22P01": "cb348972bd17317f7385e9728dfec785b2f5addbc558cd5139615ccbbcb09a92",
+  "D22P01c": "baa779443b00a052449edc8aa2846099259fa69b455e6330bcfb618c85a9d8e9",
+  "D22P01m": "675b3809869386226e5f05582eb0c535790d352a4e2d81b6be8f82bcc3132f7d"
+ },
+ "palette_count": 9,
+ "palette_colors": 83,
+ "Tiles attendues (header nt-1)": 695,
+ "Tiles décodées": 695,
+ "Layers attendues": 1,
+ "Layers décodées": 1,
+ "Chunks attendus (nc-1)": 161,
+ "Chunks décodés": 161,
+ "BPA (animations)": [
+  0,
+  0,
+  0,
+  0
+ ],
+ "Frames d'animation attendues": null,
+ "Frames d'animation décodées": null,
+ "Frames rendues": null,
+ "Collision": "PROVEN",
+ "Dimensions": "51x45 tuiles",
+ "Markers": "UNKNOWN (non stockés dans ces fichiers)",
+ "VFX/particules": "UNKNOWN",
+ "PNG": [
+  "source_tiles.png",
+  "layer_0.png",
+  "composite.png"
+ ],
+ "status": "FULL",
+ "question_textures_completes": "PASS",
+ "question_frames_canoniques": "PASS (aucune animation BPA dans ces fichiers)"
+}

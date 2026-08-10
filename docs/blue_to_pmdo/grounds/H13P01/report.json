@@ -1,0 +1,48 @@
+{
+ "Ground ID": "H13P01",
+ "source_files": [
+  "ground.sbin/H13P01",
+  "ground.sbin/H13P01c",
+  "ground.sbin/H13P01m"
+ ],
+ "source_offsets": [
+  2735152,
+  2735744,
+  2763024
+ ],
+ "sha256": {
+  "H13P01": "71dadf385bc6264c82f22d78b58c73fd3d8c8f336698fecd4786451bf0534087",
+  "H13P01c": "64f6314fa17528b23d0732d1a3e03386ab8da3b67b4e8fcb86588fea8fab9426",
+  "H13P01m": "c5b43c3823f6cb6fc3aea42407c961456dbb8b817932306cf249aeef7666f46c"
+ },
+ "palette_count": 5,
+ "palette_colors": 49,
+ "Tiles attendues (header nt-1)": 890,
+ "Tiles décodées": 890,
+ "Layers attendues": 1,
+ "Layers décodées": 1,
+ "Chunks attendus (nc-1)": 300,
+ "Chunks décodés": 300,
+ "BPA (animations)": [
+  2,
+  0,
+  0,
+  0
+ ],
+ "Frames d'animation attendues": null,
+ "Frames d'animation décodées": null,
+ "Frames rendues": null,
+ "Collision": "PROVEN",
+ "Dimensions": "63x45 tuiles",
+ "Markers": "UNKNOWN (non stockés dans ces fichiers)",
+ "VFX/particules": "UNKNOWN",
+ "PNG": [
+  "source_tiles.png",
+  "layer_0.png",
+  "composite.png",
+  "collision.png"
+ ],
+ "status": "FULL",
+ "question_textures_completes": "PASS",
+ "question_frames_canoniques": "PASS (aucune animation BPA dans ces fichiers)"
+}

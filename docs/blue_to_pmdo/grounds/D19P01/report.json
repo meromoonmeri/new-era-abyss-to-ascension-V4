@@ -1,0 +1,48 @@
+{
+ "Ground ID": "D19P01",
+ "source_files": [
+  "ground.sbin/D19P01",
+  "ground.sbin/D19P01c",
+  "ground.sbin/D19P01m"
+ ],
+ "source_offsets": [
+  1766976,
+  1767472,
+  1782240
+ ],
+ "sha256": {
+  "D19P01": "236d5633b442fc594c292f64b6083dde4d506da7800dcb1bec0480d21dd84864",
+  "D19P01c": "1c34c7d8a5e8b92bda47bf42867b0dbf1a36cbabe33acaa20455ad3e8de1ff96",
+  "D19P01m": "d7b72bd674275561010a08c02c115b889d043f194792f6671b9c403477e5b50e"
+ },
+ "palette_count": 8,
+ "palette_colors": 78,
+ "Tiles attendues (header nt-1)": 488,
+ "Tiles décodées": 488,
+ "Layers attendues": 1,
+ "Layers décodées": 1,
+ "Chunks attendus (nc-1)": 219,
+ "Chunks décodés": 219,
+ "BPA (animations)": [
+  0,
+  0,
+  0,
+  0
+ ],
+ "Frames d'animation attendues": null,
+ "Frames d'animation décodées": null,
+ "Frames rendues": null,
+ "Collision": "PROVEN",
+ "Dimensions": "66x63 tuiles",
+ "Markers": "UNKNOWN (non stockés dans ces fichiers)",
+ "VFX/particules": "UNKNOWN",
+ "PNG": [
+  "source_tiles.png",
+  "layer_0.png",
+  "composite.png",
+  "collision.png"
+ ],
+ "status": "FULL",
+ "question_textures_completes": "PASS",
+ "question_frames_canoniques": "PASS (aucune animation BPA dans ces fichiers)"
+}

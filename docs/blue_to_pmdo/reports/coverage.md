@@ -27,6 +27,35 @@
 | Collisions (Grounds/étages) | — | 0 | 0 | 0 | paramètres d'étage PROVEN | Grounds bloqués |
 | Conversion PMDO (Phase 1) | — | — | **0 élément généré** | — | — | **BLOQUÉE (gates)** |
 
+
+## Grounds (ground.sbin) — décompte du pipeline de preuves
+
+| Métrique | Valeur |
+|---|---|
+| Grounds découverts (triplets palette/c/m) | 187 |
+| Grounds FULL (rendu complet : tiles+chunks+layers+collision) | 69 |
+| Grounds PARTIAL (tiles décodées, chunks non reconstruits — maps 2 couches) | 40 |
+| Grounds BLOCKED (format palette/BPC spécial non décodé) | 78 |
+| Tiles attendues | 58307 |
+| Tiles décodées | 58307 (100 %) |
+| Chunks attendus | 19378 |
+| Chunks décodés | 10557 |
+| PNG de preuve générés | 263 |
+| Contact sheet | `grounds_index/all_grounds_contact_sheet.png` |
+
+Chaque ground FULL possède dans `docs/blue_to_pmdo/grounds/<ID>/` :
+`source_tiles.png`, `layer_*.png`, `composite.png`, `collision.png`, `report.json`
+(avec : tiles attendues/décodées, chunks, layers, collision, statut, dimensions,
+question « textures complètes ? » PASS/FAIL/PARTIAL, question « frames canoniques ? »).
+
+Les grounds PARTIAL (ex. A01P01 — Pokémon Square, map à 2 couches) : tiles 100 %
+décodées, mais le tilemap (chunks) a un équilibrage de phases BPC_TILEMAP non
+résolu → documenté UNKNOWN, jamais inventé.
+
+Les grounds BLOCKED : fichiers palette avec en-tête spécial (u16 count, ex.
+S02_FRE, T01P01, H29P01) ou fichiers `c` avec nt=1 (ex. W03P01c) — formats à
+décoder (prochaine itération).
+
 ## Synthèse honnête
 
 - **Entièrement prouvé (SOURCE_NDS)** : extraction ROM/FNT/FAT/packs, SIR0, AT4PX,

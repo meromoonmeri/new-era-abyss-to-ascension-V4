@@ -1,0 +1,20 @@
+{
+ "Ground ID": "H12P01",
+ "source_files": [
+  "ground.sbin/H12P01",
+  "ground.sbin/H12P01c",
+  "ground.sbin/H12P01m"
+ ],
+ "source_offsets": [
+  2708416,
+  2712352,
+  2734352
+ ],
+ "sha256": {
+  "H12P01": "463b2268e267a78ed5ac92fe0d68111d729a889938095f70ed12dada22be5210",
+  "H12P01c": "fc61151d296545d2105f4cb57773d8831f7c8f00b48eb4810436c134011b58ff",
+  "H12P01m": "e024b24309bdf170f14fdf27c8d99ec6c24a25bc1cb9aa00733aea0aef16b9a9"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65544 — format spécial (u16 count + données ?)"
+}

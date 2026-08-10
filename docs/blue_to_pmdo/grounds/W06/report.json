@@ -1,0 +1,47 @@
+{
+ "Ground ID": "W06",
+ "source_files": [
+  "ground.sbin/W06",
+  "ground.sbin/W06c",
+  "ground.sbin/W06m"
+ ],
+ "source_offsets": [
+  3948192,
+  3948256,
+  3951856
+ ],
+ "sha256": {
+  "W06": "cbc8ec754898d54858d6099ca649286dd42dfe9e497a84b9d29fafb5fa42f54d",
+  "W06c": "5438e1566cde4f33d69a9c514f8bbfd74ffeb710aee8090aef0ad67259d4c920",
+  "W06m": "29cfd24b1dd0c5c94a5be4ee8ac60124b2a28b4fd392f379f3f1d72579e472ad"
+ },
+ "palette_count": 1,
+ "palette_colors": 14,
+ "Tiles attendues (header nt-1)": 124,
+ "Tiles décodées": 124,
+ "Layers attendues": 1,
+ "Layers décodées": 1,
+ "Chunks attendus (nc-1)": 63,
+ "Chunks décodés": 63,
+ "BPA (animations)": [
+  0,
+  0,
+  0,
+  0
+ ],
+ "Frames d'animation attendues": null,
+ "Frames d'animation décodées": null,
+ "Frames rendues": null,
+ "Collision": "PROVEN",
+ "Dimensions": "42x30 tuiles",
+ "Markers": "UNKNOWN (non stockés dans ces fichiers)",
+ "VFX/particules": "UNKNOWN",
+ "PNG": [
+  "source_tiles.png",
+  "layer_0.png",
+  "composite.png"
+ ],
+ "status": "FULL",
+ "question_textures_completes": "PASS",
+ "question_frames_canoniques": "PASS (aucune animation BPA dans ces fichiers)"
+}

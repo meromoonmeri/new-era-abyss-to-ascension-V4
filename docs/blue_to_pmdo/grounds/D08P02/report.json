@@ -1,0 +1,48 @@
+{
+ "Ground ID": "D08P02",
+ "source_files": [
+  "ground.sbin/D08P02",
+  "ground.sbin/D08P02c",
+  "ground.sbin/D08P02m"
+ ],
+ "source_offsets": [
+  1480752,
+  1481488,
+  1505888
+ ],
+ "sha256": {
+  "D08P02": "3891180f7256a104d9e4f47931e4c724c3168b03915af1670375a8c1e45bba80",
+  "D08P02c": "ace19fa9c4234fce41ddd71bcd47e4c2ee89e8d93c54e33be3945bf6f14e61d3",
+  "D08P02m": "1220f3359de7c584816bafcd1990ac6ea30fd052ee86304c584434a358e422cd"
+ },
+ "palette_count": 12,
+ "palette_colors": 89,
+ "Tiles attendues (header nt-1)": 855,
+ "Tiles décodées": 855,
+ "Layers attendues": 1,
+ "Layers décodées": 1,
+ "Chunks attendus (nc-1)": 176,
+ "Chunks décodés": 176,
+ "BPA (animations)": [
+  0,
+  0,
+  0,
+  0
+ ],
+ "Frames d'animation attendues": null,
+ "Frames d'animation décodées": null,
+ "Frames rendues": null,
+ "Collision": "PROVEN",
+ "Dimensions": "45x36 tuiles",
+ "Markers": "UNKNOWN (non stockés dans ces fichiers)",
+ "VFX/particules": "UNKNOWN",
+ "PNG": [
+  "source_tiles.png",
+  "layer_0.png",
+  "composite.png",
+  "collision.png"
+ ],
+ "status": "FULL",
+ "question_textures_completes": "PASS",
+ "question_frames_canoniques": "PASS (aucune animation BPA dans ces fichiers)"
+}

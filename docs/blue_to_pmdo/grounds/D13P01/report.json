@@ -1,0 +1,20 @@
+{
+ "Ground ID": "D13P01",
+ "source_files": [
+  "ground.sbin/D13P01",
+  "ground.sbin/D13P01c",
+  "ground.sbin/D13P01m"
+ ],
+ "source_offsets": [
+  1681456,
+  1683136,
+  1701264
+ ],
+ "sha256": {
+  "D13P01": "20ec9eb8d7a3f1fb6024713d84fb15832a8b0cf876c1d27f4ca5fb9ab5bdf34c",
+  "D13P01c": "674dc10715ce1cc0418c22648a90f81c09f73f6be52359a0d30fbad631a79620",
+  "D13P01m": "a25ee7786cd1b5822f898a73d41a8979e7f8aba55d5b6528bf301a8097a98aff"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65547 — format spécial (u16 count + données ?)"
+}

@@ -1,0 +1,48 @@
+{
+ "Ground ID": "H06P06",
+ "source_files": [
+  "ground.sbin/H06P06",
+  "ground.sbin/H06P06c",
+  "ground.sbin/H06P06m"
+ ],
+ "source_offsets": [
+  2319632,
+  2319888,
+  2342880
+ ],
+ "sha256": {
+  "H06P06": "2b37129110e230461ed15622237b0a88913a91c24f1ebae238f829945f7e120c",
+  "H06P06c": "a2a3e13fff70e4b3df88d2fe01bdebf9fb25e9d31ed0efe2d3f2d2043a375834",
+  "H06P06m": "a58dce5c1a8e421acd83b8c0473aba433d418ec08e2594f2de08838ad6c39fb7"
+ },
+ "palette_count": 4,
+ "palette_colors": 46,
+ "Tiles attendues (header nt-1)": 855,
+ "Tiles décodées": 855,
+ "Layers attendues": 1,
+ "Layers décodées": 1,
+ "Chunks attendus (nc-1)": 258,
+ "Chunks décodés": 258,
+ "BPA (animations)": [
+  0,
+  0,
+  0,
+  0
+ ],
+ "Frames d'animation attendues": null,
+ "Frames d'animation décodées": null,
+ "Frames rendues": null,
+ "Collision": "PROVEN",
+ "Dimensions": "60x39 tuiles",
+ "Markers": "UNKNOWN (non stockés dans ces fichiers)",
+ "VFX/particules": "UNKNOWN",
+ "PNG": [
+  "source_tiles.png",
+  "layer_0.png",
+  "composite.png",
+  "collision.png"
+ ],
+ "status": "FULL",
+ "question_textures_completes": "PASS",
+ "question_frames_canoniques": "PASS (aucune animation BPA dans ces fichiers)"
+}

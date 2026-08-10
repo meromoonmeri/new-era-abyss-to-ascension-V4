@@ -1,0 +1,47 @@
+{
+ "Ground ID": "S06_SPA",
+ "source_files": [
+  "ground.sbin/S06_SPA",
+  "ground.sbin/S06_SPAc",
+  "ground.sbin/S06_SPAm"
+ ],
+ "source_offsets": [
+  3654288,
+  3654896,
+  3679888
+ ],
+ "sha256": {
+  "S06_SPA": "309bab754747db83adaf75da33000a478e1ce381205dffb1995107214c769040",
+  "S06_SPAc": "4453e0dda9490d3a39ca03844fafe8b37f0ce52c6c5df3ca04109078a305c888",
+  "S06_SPAm": "1ca24dea876c020a6a4482bd7c919139b9ac51fcb4adac561cc74097cfeed725"
+ },
+ "palette_count": 10,
+ "palette_colors": 99,
+ "Tiles attendues (header nt-1)": 759,
+ "Tiles décodées": 759,
+ "Layers attendues": 1,
+ "Layers décodées": 1,
+ "Chunks attendus (nc-1)": 88,
+ "Chunks décodés": 88,
+ "BPA (animations)": [
+  0,
+  0,
+  0,
+  0
+ ],
+ "Frames d'animation attendues": null,
+ "Frames d'animation décodées": null,
+ "Frames rendues": null,
+ "Collision": "PROVEN",
+ "Dimensions": "33x24 tuiles",
+ "Markers": "UNKNOWN (non stockés dans ces fichiers)",
+ "VFX/particules": "UNKNOWN",
+ "PNG": [
+  "source_tiles.png",
+  "layer_0.png",
+  "composite.png"
+ ],
+ "status": "FULL",
+ "question_textures_completes": "PASS",
+ "question_frames_canoniques": "PASS (aucune animation BPA dans ces fichiers)"
+}

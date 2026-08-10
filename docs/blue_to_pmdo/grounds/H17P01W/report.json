@@ -1,0 +1,22 @@
+{
+ "Ground ID": "H17P01W",
+ "source_files": [
+  "ground.sbin/H17P01W",
+  "ground.sbin/H17P01Wc",
+  "ground.sbin/H17P01Wm"
+ ],
+ "source_offsets": [
+  2931632,
+  2952912,
+  2953088
+ ],
+ "sha256": {
+  "H17P01W": "ec3eb8927453c6424247f1162acbf52cf411fc4e5cc64f2e626711640ca717b0",
+  "H17P01Wc": "9b2dae1b4178e3743cfb417e01a3ef6eac6601bfece04460755ef11a9e25d7c1",
+  "H17P01Wm": "e81466633e0d36dd7c7217ece9e4a7b48051ca33b7cf3086236de5cb9bbc9a5b"
+ },
+ "palette_count": 1,
+ "palette_colors": 5,
+ "status": "BLOCKED",
+ "error": "bpc: BPC invalide: nt=1 nc=15"
+}

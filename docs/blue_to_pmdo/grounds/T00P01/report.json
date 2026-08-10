@@ -1,0 +1,48 @@
+{
+ "Ground ID": "T00P01",
+ "source_files": [
+  "ground.sbin/T00P01",
+  "ground.sbin/T00P01c",
+  "ground.sbin/T00P01m"
+ ],
+ "source_offsets": [
+  3703920,
+  3704224,
+  3715328
+ ],
+ "sha256": {
+  "T00P01": "3adefb5954c33453321b5205d352a1183b2f78e77ec55b3097c81d087c2aa2de",
+  "T00P01c": "9cec7d46b6f81ebc5ada9d79aea77b2a5ec3c9d4b0931e014d92e4fd342f5bbb",
+  "T00P01m": "b4b144b5d1484a680d6b8fd85c16bdafee6ff40bf6a101506a926d4b1b8e7a22"
+ },
+ "palette_count": 5,
+ "palette_colors": 37,
+ "Tiles attendues (header nt-1)": 405,
+ "Tiles décodées": 405,
+ "Layers attendues": 1,
+ "Layers décodées": 1,
+ "Chunks attendus (nc-1)": 93,
+ "Chunks décodés": 93,
+ "BPA (animations)": [
+  0,
+  0,
+  0,
+  0
+ ],
+ "Frames d'animation attendues": null,
+ "Frames d'animation décodées": null,
+ "Frames rendues": null,
+ "Collision": "PROVEN",
+ "Dimensions": "144x111 tuiles",
+ "Markers": "UNKNOWN (non stockés dans ces fichiers)",
+ "VFX/particules": "UNKNOWN",
+ "PNG": [
+  "source_tiles.png",
+  "layer_0.png",
+  "composite.png",
+  "collision.png"
+ ],
+ "status": "FULL",
+ "question_textures_completes": "PASS",
+ "question_frames_canoniques": "PASS (aucune animation BPA dans ces fichiers)"
+}

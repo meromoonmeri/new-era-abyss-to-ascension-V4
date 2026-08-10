@@ -1,0 +1,20 @@
+{
+ "Ground ID": "A02P04",
+ "source_files": [
+  "ground.sbin/A02P04",
+  "ground.sbin/A02P04c",
+  "ground.sbin/A02P04m"
+ ],
+ "source_offsets": [
+  80784,
+  83648,
+  99968
+ ],
+ "sha256": {
+  "A02P04": "2c934191741dc5e7f6b1d2b045ec32543630bde154a04d9a0bed3bcbe5d21c4b",
+  "A02P04c": "7f1e362d5f05b919ff523edf3c7a0336ed1fab17a2a0582a34f63dcfc416b164",
+  "A02P04m": "4bda0accfd4e58dd9b86e89e626c69c44c6966d9bc9f8999837f85b0716a8d21"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65543 — format spécial (u16 count + données ?)"
+}

@@ -1,0 +1,20 @@
+{
+ "Ground ID": "D24P01",
+ "source_files": [
+  "ground.sbin/D24P01",
+  "ground.sbin/D24P01c",
+  "ground.sbin/D24P01m"
+ ],
+ "source_offsets": [
+  1831264,
+  1831792,
+  1856288
+ ],
+ "sha256": {
+  "D24P01": "1633f6f9ebbaac3222f5fc8664e1bbbc6baba61b9cbe5af84b4f3ec7184c51b7",
+  "D24P01c": "622e23029ea2e77cbadcc65a10b0926d062d08f950734483ce845c36ed7ec3c4",
+  "D24P01m": "9a5e9297454052a84c9259336e98df40f83b42ff769eeb745db6c88db8bf8c6a"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65544 — format spécial (u16 count + données ?)"
+}

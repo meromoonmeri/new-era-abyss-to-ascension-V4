@@ -1,0 +1,22 @@
+{
+ "Ground ID": "H02P01W",
+ "source_files": [
+  "ground.sbin/H02P01W",
+  "ground.sbin/H02P01Wc",
+  "ground.sbin/H02P01Wm"
+ ],
+ "source_offsets": [
+  1977184,
+  1981392,
+  1981520
+ ],
+ "sha256": {
+  "H02P01W": "a86a9522182a535b266b8c937f002017ba6931d50f21a573368417750ac8581f",
+  "H02P01Wc": "482161b8861e4c9c495b6ea4a19897ff13ac0156c369a70235ab7987285c4458",
+  "H02P01Wm": "301c1c6050a9f9d8e493dcaaa55994b84b54adb02db830f97cd7551dcfb76f94"
+ },
+ "palette_count": 1,
+ "palette_colors": 16,
+ "status": "BLOCKED",
+ "error": "bpc: BPC invalide: nt=1 nc=7"
+}

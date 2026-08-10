@@ -1,0 +1,20 @@
+{
+ "Ground ID": "H06P02",
+ "source_files": [
+  "ground.sbin/H06P02",
+  "ground.sbin/H06P02c",
+  "ground.sbin/H06P02m"
+ ],
+ "source_offsets": [
+  2217872,
+  2219792,
+  2238720
+ ],
+ "sha256": {
+  "H06P02": "955533b6624a69d4d0104218d63299bcf0045117d5fd145491083e9cdfa39374",
+  "H06P02c": "805e13f8c732883776945b19828bfaa4985785c0b0ea3e9e03915357394406ec",
+  "H06P02m": "a03e001f6281fb4908c4acd4440820bf67e0bdde30a605158ca8be9f287ce83b"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65547 — format spécial (u16 count + données ?)"
+}

@@ -1,0 +1,47 @@
+{
+ "Ground ID": "S03",
+ "source_files": [
+  "ground.sbin/S03",
+  "ground.sbin/S03c",
+  "ground.sbin/S03m"
+ ],
+ "source_offsets": [
+  3499456,
+  3500192,
+  3526352
+ ],
+ "sha256": {
+  "S03": "b9f273554b316a34289fc39680cf83f09b40e0537c361aa478b9574367be920e",
+  "S03c": "e1a1bed7d1c19b298b5afa310060de378e585ee63b6ca4136f02fbd0512665f7",
+  "S03m": "f99781ea2a05aea70a904bcb1833686575aed688689ce4d0223734f613692754"
+ },
+ "palette_count": 12,
+ "palette_colors": 170,
+ "Tiles attendues (header nt-1)": 821,
+ "Tiles décodées": 821,
+ "Layers attendues": 1,
+ "Layers décodées": 1,
+ "Chunks attendus (nc-1)": 104,
+ "Chunks décodés": 104,
+ "BPA (animations)": [
+  0,
+  0,
+  0,
+  0
+ ],
+ "Frames d'animation attendues": null,
+ "Frames d'animation décodées": null,
+ "Frames rendues": null,
+ "Collision": "PROVEN",
+ "Dimensions": "39x45 tuiles",
+ "Markers": "UNKNOWN (non stockés dans ces fichiers)",
+ "VFX/particules": "UNKNOWN",
+ "PNG": [
+  "source_tiles.png",
+  "layer_0.png",
+  "composite.png"
+ ],
+ "status": "FULL",
+ "question_textures_completes": "PASS",
+ "question_frames_canoniques": "PASS (aucune animation BPA dans ces fichiers)"
+}

@@ -1,0 +1,20 @@
+{
+ "Ground ID": "B03P01C",
+ "source_files": [
+  "ground.sbin/B03P01C",
+  "ground.sbin/B03P01Cc",
+  "ground.sbin/B03P01Cm"
+ ],
+ "source_offsets": [
+  387296,
+  391776,
+  410704
+ ],
+ "sha256": {
+  "B03P01C": "ba5b27fd65f5d50ba60c7633d3030edbe0abe1187d7b17f1c5226be9e49175d4",
+  "B03P01Cc": "52100618a0a77ed761cf9997c5b27d0a814e86d513b97ea54f133407dda2d570",
+  "B03P01Cm": "f9777a3392848f829d085996e64332abe70343fe3db198ed6301a6ee8976f350"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65546 — format spécial (u16 count + données ?)"
+}

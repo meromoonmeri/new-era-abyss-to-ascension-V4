@@ -1,0 +1,48 @@
+{
+ "Ground ID": "H04P02",
+ "source_files": [
+  "ground.sbin/H04P02",
+  "ground.sbin/H04P02c",
+  "ground.sbin/H04P02m"
+ ],
+ "source_offsets": [
+  2116736,
+  2117344,
+  2143024
+ ],
+ "sha256": {
+  "H04P02": "813ef9b342667fe3b2695256a0d7c27cafa106ae47fe0c538e4843a9b17d4d33",
+  "H04P02c": "59a80ca65838b227c58f233bb8b97f5b681933fd77364432148e66f7e518c884",
+  "H04P02m": "871b37a8d9dc180f032df2a9c10fbeb65650309a776d2db1b18ce5e00810019d"
+ },
+ "palette_count": 10,
+ "palette_colors": 107,
+ "Tiles attendues (header nt-1)": 888,
+ "Tiles décodées": 888,
+ "Layers attendues": 1,
+ "Layers décodées": 1,
+ "Chunks attendus (nc-1)": 261,
+ "Chunks décodés": 261,
+ "BPA (animations)": [
+  0,
+  0,
+  0,
+  0
+ ],
+ "Frames d'animation attendues": null,
+ "Frames d'animation décodées": null,
+ "Frames rendues": null,
+ "Collision": "PROVEN",
+ "Dimensions": "60x42 tuiles",
+ "Markers": "UNKNOWN (non stockés dans ces fichiers)",
+ "VFX/particules": "UNKNOWN",
+ "PNG": [
+  "source_tiles.png",
+  "layer_0.png",
+  "composite.png",
+  "collision.png"
+ ],
+ "status": "FULL",
+ "question_textures_completes": "PASS",
+ "question_frames_canoniques": "PASS (aucune animation BPA dans ces fichiers)"
+}

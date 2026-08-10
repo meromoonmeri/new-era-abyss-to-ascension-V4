@@ -1,0 +1,20 @@
+{
+ "Ground ID": "B09P02C",
+ "source_files": [
+  "ground.sbin/B09P02C",
+  "ground.sbin/B09P02Cc",
+  "ground.sbin/B09P02Cm"
+ ],
+ "source_offsets": [
+  803232,
+  805792,
+  826464
+ ],
+ "sha256": {
+  "B09P02C": "7d0db1932bd3b1fa5ec87e661ad20021169e269640771de59b4b3d38cfafa752",
+  "B09P02Cc": "dbd5268f2a5db65ac8d35a8f3524014bcb4bebfd55c208ba22095f4e1d387aab",
+  "B09P02Cm": "9abfde996ece79ed96d8453faa71241d42f56b18c4ae21491a7c67140d90a605"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65548 — format spécial (u16 count + données ?)"
+}

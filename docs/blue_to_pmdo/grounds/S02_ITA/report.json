@@ -1,0 +1,20 @@
+{
+ "Ground ID": "S02_ITA",
+ "source_files": [
+  "ground.sbin/S02_ITA",
+  "ground.sbin/S02_ITAc",
+  "ground.sbin/S02_ITAm"
+ ],
+ "source_offsets": [
+  3451536,
+  3452784,
+  3466784
+ ],
+ "sha256": {
+  "S02_ITA": "af55924f3f0af4f54c1ddd0e9824e2732123a77db3309324bbc0eecefad186b3",
+  "S02_ITAc": "80a80e3f25d5f5e57956eb2e2cd55e4f01ca36c5c40e78f64694a935c2ae0873",
+  "S02_ITAm": "e77357a9698734ab962a64debe83d12b100aad1cab7539c2246d67de35cdc135"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65546 — format spécial (u16 count + données ?)"
+}

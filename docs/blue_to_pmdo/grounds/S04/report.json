@@ -1,0 +1,44 @@
+{
+ "Ground ID": "S04",
+ "source_files": [
+  "ground.sbin/S04",
+  "ground.sbin/S04c",
+  "ground.sbin/S04m"
+ ],
+ "source_offsets": [
+  3526624,
+  3527056,
+  3535216
+ ],
+ "sha256": {
+  "S04": "a7edaa116fbad88f4822959fd5f3312e223345592c76b3cc8d10dd98331e08a9",
+  "S04c": "badff2a5c6130b1c2c30787b6f1b887c9f999c9c45c8015511c32db0cec97104",
+  "S04m": "fd80817711e9d8895bb7d8a867a3c4bfa4f571ee29c5eca3f5c2b76e07482dc9"
+ },
+ "palette_count": 7,
+ "palette_colors": 77,
+ "Tiles attendues (header nt-1)": 354,
+ "Tiles décodées": 354,
+ "Layers attendues": 1,
+ "Layers décodées": 1,
+ "Chunks attendus (nc-1)": 94,
+ "Chunks décodés": 0,
+ "BPA (animations)": [
+  0,
+  0,
+  0,
+  0
+ ],
+ "Frames d'animation attendues": null,
+ "Frames d'animation décodées": null,
+ "Frames rendues": null,
+ "Collision": "PROVEN",
+ "Dimensions": "33x96 tuiles",
+ "Markers": "UNKNOWN (non stockés dans ces fichiers)",
+ "VFX/particules": "UNKNOWN",
+ "PNG": [],
+ "status": "PARTIAL",
+ "question_textures_completes": "PARTIAL",
+ "question_frames_canoniques": "UNKNOWN",
+ "note": "tilemap non équilibré: BPC Tilemap Decompressor: Phase1: End result length unexpected. Should be 1692, is 1708 Diff: 16"
+}

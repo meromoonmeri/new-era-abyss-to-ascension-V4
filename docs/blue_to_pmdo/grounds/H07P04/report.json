@@ -1,0 +1,44 @@
+{
+ "Ground ID": "H07P04",
+ "source_files": [
+  "ground.sbin/H07P04",
+  "ground.sbin/H07P04c",
+  "ground.sbin/H07P04m"
+ ],
+ "source_offsets": [
+  2413152,
+  2422352,
+  2445248
+ ],
+ "sha256": {
+  "H07P04": "6587ba134b136a8984151fa33ec80f27282843cf8257ad72f26a60048f4572e0",
+  "H07P04c": "ab743da070d29dccfe41f44bcf77b360793f20156e6b6d66ffe2911c01e6b8ac",
+  "H07P04m": "b0f63494bc6ea871ca8bef2c8826833578e1a645fb754e1fdbd92285bd6d5b00"
+ },
+ "palette_count": 9,
+ "palette_colors": 98,
+ "Tiles attendues (header nt-1)": 716,
+ "Tiles décodées": 716,
+ "Layers attendues": 1,
+ "Layers décodées": 1,
+ "Chunks attendus (nc-1)": 228,
+ "Chunks décodés": 0,
+ "BPA (animations)": [
+  0,
+  0,
+  0,
+  0
+ ],
+ "Frames d'animation attendues": null,
+ "Frames d'animation décodées": null,
+ "Frames rendues": null,
+ "Collision": "PROVEN",
+ "Dimensions": "60x42 tuiles",
+ "Markers": "UNKNOWN (non stockés dans ces fichiers)",
+ "VFX/particules": "UNKNOWN",
+ "PNG": [],
+ "status": "PARTIAL",
+ "question_textures_completes": "PARTIAL",
+ "question_frames_canoniques": "UNKNOWN",
+ "note": "tilemap non équilibré: BPC Tilemap Decompressor: Phase2: End result length unexpected. Should be 4104, is 4122 Diff: 18"
+}

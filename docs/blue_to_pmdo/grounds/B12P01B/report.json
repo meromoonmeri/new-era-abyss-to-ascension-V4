@@ -1,0 +1,44 @@
+{
+ "Ground ID": "B12P01B",
+ "source_files": [
+  "ground.sbin/B12P01B",
+  "ground.sbin/B12P01Bc",
+  "ground.sbin/B12P01Bm"
+ ],
+ "source_offsets": [
+  950112,
+  954096,
+  976560
+ ],
+ "sha256": {
+  "B12P01B": "2d9ea3a478527fe65c53501e77c0fe1fcfb6ba4106648760d094bc3a1332d06b",
+  "B12P01Bc": "0aa643a5ec6d0a5cf0a71260e992b79e0a1e64f88709cd12737f61319608fbcb",
+  "B12P01Bm": "792d2624826de91719aae45d243ce12f5075eea069c3007781f03d0238405b5f"
+ },
+ "palette_count": 11,
+ "palette_colors": 134,
+ "Tiles attendues (header nt-1)": 627,
+ "Tiles décodées": 627,
+ "Layers attendues": 1,
+ "Layers décodées": 1,
+ "Chunks attendus (nc-1)": 381,
+ "Chunks décodés": 0,
+ "BPA (animations)": [
+  16,
+  0,
+  6,
+  0
+ ],
+ "Frames d'animation attendues": null,
+ "Frames d'animation décodées": null,
+ "Frames rendues": null,
+ "Collision": "PROVEN",
+ "Dimensions": "69x69 tuiles",
+ "Markers": "UNKNOWN (non stockés dans ces fichiers)",
+ "VFX/particules": "UNKNOWN",
+ "PNG": [],
+ "status": "PARTIAL",
+ "question_textures_completes": "PARTIAL",
+ "question_frames_canoniques": "UNKNOWN",
+ "note": "tilemap non équilibré: BPC Tilemap Decompressor: Phase1: End result length unexpected. Should be 6858, is 6982 Diff: 124"
+}

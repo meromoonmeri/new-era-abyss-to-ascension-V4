@@ -1,0 +1,20 @@
+{
+ "Ground ID": "S02_GER",
+ "source_files": [
+  "ground.sbin/S02_GER",
+  "ground.sbin/S02_GERc",
+  "ground.sbin/S02_GERm"
+ ],
+ "source_offsets": [
+  3435648,
+  3436896,
+  3450800
+ ],
+ "sha256": {
+  "S02_GER": "4dcdde04246dfbcbf2167207a99d8710a59ad8fcb04e22c935cfd1a81122ce72",
+  "S02_GERc": "d775684febec46458c07620089f88faeba37cc8fedcbd08b0525faeb8766ceb6",
+  "S02_GERm": "e77357a9698734ab962a64debe83d12b100aad1cab7539c2246d67de35cdc135"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65546 — format spécial (u16 count + données ?)"
+}

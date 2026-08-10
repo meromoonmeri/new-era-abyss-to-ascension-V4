@@ -1,0 +1,20 @@
+{
+ "Ground ID": "H07P06",
+ "source_files": [
+  "ground.sbin/H07P06",
+  "ground.sbin/H07P06c",
+  "ground.sbin/H07P06m"
+ ],
+ "source_offsets": [
+  2468768,
+  2473072,
+  2498480
+ ],
+ "sha256": {
+  "H07P06": "ef2685a2145d80c23e37aaca985e1b1605a52b1d2ada8963865b884af0540d8e",
+  "H07P06c": "886dcf2e4afd6b1b65d58a225c9aeceb3fbc56c9d268805e1bc14a7ce412773e",
+  "H07P06m": "0e9f173c9944949151f88462b6cccf989db2238ec750e8fcdc01f00516fc5ce5"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65544 — format spécial (u16 count + données ?)"
+}

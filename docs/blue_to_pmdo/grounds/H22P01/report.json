@@ -1,0 +1,20 @@
+{
+ "Ground ID": "H22P01",
+ "source_files": [
+  "ground.sbin/H22P01",
+  "ground.sbin/H22P01c",
+  "ground.sbin/H22P01m"
+ ],
+ "source_offsets": [
+  3087376,
+  3089936,
+  3115520
+ ],
+ "sha256": {
+  "H22P01": "7ddee8801984a844bc13177c9b654ed372be26d96754fa4d1b2525f39bdd142d",
+  "H22P01c": "06f652aaba829cddf5a2b6ca5f5e320ad30206e34dd386e6793ce638dc10a138",
+  "H22P01m": "e8f49e9f313333c30c86f7614d32611ccf07c189a9cb01096bcf404d250ecc45"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65542 — format spécial (u16 count + données ?)"
+}

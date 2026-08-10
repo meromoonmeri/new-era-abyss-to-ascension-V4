@@ -1,0 +1,20 @@
+{
+ "Ground ID": "H09P02",
+ "source_files": [
+  "ground.sbin/H09P02",
+  "ground.sbin/H09P02c",
+  "ground.sbin/H09P02m"
+ ],
+ "source_offsets": [
+  2606960,
+  2610256,
+  2632688
+ ],
+ "sha256": {
+  "H09P02": "1aae0f96465d8d354335acf6ad525c20254ad23a1f457b4537676c6ae1ab5047",
+  "H09P02c": "515ce98869b5024c8a8e1e1c33b5ccc23d19c260e24fd87503056d6a21928fd5",
+  "H09P02m": "0b84d851d99deb8400b8b93f4093bd200f433c0681240f2e20bf08ef416067e2"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65548 — format spécial (u16 count + données ?)"
+}

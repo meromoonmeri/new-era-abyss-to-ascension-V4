@@ -1,0 +1,20 @@
+{
+ "Ground ID": "H20P01",
+ "source_files": [
+  "ground.sbin/H20P01",
+  "ground.sbin/H20P01c",
+  "ground.sbin/H20P01m"
+ ],
+ "source_offsets": [
+  3030640,
+  3032544,
+  3054096
+ ],
+ "sha256": {
+  "H20P01": "796b4ebf40533226c13f47677ff760742695230f7939a6afb6afe18048a198f4",
+  "H20P01c": "ad9832930795023c0c653c0ad4b32b074aeb0a9749bbb87d07fc72da339c73bc",
+  "H20P01m": "34755347699b9b7d81e0ac924ddea6ffd757a824afabe25b00053670fe029258"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65546 — format spécial (u16 count + données ?)"
+}

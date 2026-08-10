@@ -1,0 +1,22 @@
+{
+ "Ground ID": "W03P03",
+ "source_files": [
+  "ground.sbin/W03P03",
+  "ground.sbin/W03P03c",
+  "ground.sbin/W03P03m"
+ ],
+ "source_offsets": [
+  3929632,
+  3937968,
+  3938144
+ ],
+ "sha256": {
+  "W03P03": "65b3f4f6e19a01b6318ffb0f1be7de1012f3fe5959fad37d071e23dc56c1bb37",
+  "W03P03c": "dc0f29db8c5ce141bf51d168974de86833fc79aee937cf943b070a2f771d9270",
+  "W03P03m": "7001bd221b86324408b27083c5e79b26cc1dee8a3f2813a035ff1abb2ccb8a28"
+ },
+ "palette_count": 1,
+ "palette_colors": 16,
+ "status": "BLOCKED",
+ "error": "bpc: BPC invalide: nt=1 nc=17"
+}

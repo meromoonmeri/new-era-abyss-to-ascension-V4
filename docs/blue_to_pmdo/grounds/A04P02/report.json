@@ -1,0 +1,47 @@
+{
+ "Ground ID": "A04P02",
+ "source_files": [
+  "ground.sbin/A04P02",
+  "ground.sbin/A04P02c",
+  "ground.sbin/A04P02m"
+ ],
+ "source_offsets": [
+  174080,
+  174688,
+  188384
+ ],
+ "sha256": {
+  "A04P02": "ff0a0da39eb1f874f67eb93e8d37b6c15583c3a13a22e09577c10aca877f31c2",
+  "A04P02c": "b1709938b18bcda8f27bea4fb59e956023b738d86a621ad9619019597b74e6a7",
+  "A04P02m": "971b54dc959211c94a18ca050c0b3011cdbcde2875a4c3227a7910575cca234a"
+ },
+ "palette_count": 10,
+ "palette_colors": 95,
+ "Tiles attendues (header nt-1)": 517,
+ "Tiles décodées": 517,
+ "Layers attendues": 1,
+ "Layers décodées": 1,
+ "Chunks attendus (nc-1)": 74,
+ "Chunks décodés": 74,
+ "BPA (animations)": [
+  0,
+  0,
+  0,
+  0
+ ],
+ "Frames d'animation attendues": null,
+ "Frames d'animation décodées": null,
+ "Frames rendues": null,
+ "Collision": "PROVEN",
+ "Dimensions": "36x27 tuiles",
+ "Markers": "UNKNOWN (non stockés dans ces fichiers)",
+ "VFX/particules": "UNKNOWN",
+ "PNG": [
+  "source_tiles.png",
+  "layer_0.png",
+  "composite.png"
+ ],
+ "status": "FULL",
+ "question_textures_completes": "PASS",
+ "question_frames_canoniques": "PASS (aucune animation BPA dans ces fichiers)"
+}

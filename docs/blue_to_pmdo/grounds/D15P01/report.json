@@ -1,0 +1,20 @@
+{
+ "Ground ID": "D15P01",
+ "source_files": [
+  "ground.sbin/D15P01",
+  "ground.sbin/D15P01c",
+  "ground.sbin/D15P01m"
+ ],
+ "source_offsets": [
+  1738944,
+  1740976,
+  1754320
+ ],
+ "sha256": {
+  "D15P01": "5e36bf731b806a68d67f26d7e48969c66c69630d052c36f953db8d6b3b7b4b36",
+  "D15P01c": "d2d68511635a92b509c52c69d0c3619f44ee38fa86d834e6b440e4453b6324bd",
+  "D15P01m": "3e707871db5a593cf61de3338fe3c1861152b218752e5a8dae74b8a85148b876"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65545 — format spécial (u16 count + données ?)"
+}

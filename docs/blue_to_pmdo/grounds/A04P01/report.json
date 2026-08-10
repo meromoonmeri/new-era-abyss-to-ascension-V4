@@ -1,0 +1,20 @@
+{
+ "Ground ID": "A04P01",
+ "source_files": [
+  "ground.sbin/A04P01",
+  "ground.sbin/A04P01c",
+  "ground.sbin/A04P01m"
+ ],
+ "source_offsets": [
+  149984,
+  159824,
+  173552
+ ],
+ "sha256": {
+  "A04P01": "94be145bd383c820500d285eea49878223173a10757468f436e4071d7feacb5c",
+  "A04P01c": "82e2f771c0b704e56182c370eba49c5d7bc9856041c5a1a029e18ecadffec70c",
+  "A04P01m": "28296a5d107500ffbe804ebf6057d704439bc4482b4d2c6bebe6f559e66f4b41"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65546 — format spécial (u16 count + données ?)"
+}

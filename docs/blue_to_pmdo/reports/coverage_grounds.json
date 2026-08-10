@@ -1,0 +1,11 @@
+{
+ "grounds_discovered": 187,
+ "grounds_full": 69,
+ "grounds_partial": 40,
+ "grounds_blocked": 78,
+ "tiles_expected": 58307,
+ "tiles_decoded": 58307,
+ "chunks_expected": 19378,
+ "chunks_decoded": 10557,
+ "contact_sheet": "grounds_index/all_grounds_contact_sheet.png"
+}

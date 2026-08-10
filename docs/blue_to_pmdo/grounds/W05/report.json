@@ -1,0 +1,20 @@
+{
+ "Ground ID": "W05",
+ "source_files": [
+  "ground.sbin/W05",
+  "ground.sbin/W05c",
+  "ground.sbin/W05m"
+ ],
+ "source_offsets": [
+  3943840,
+  3945840,
+  3948000
+ ],
+ "sha256": {
+  "W05": "cc278c680d424e0112d8c175a840bc7ef04f19e0e6079edf74850573a602b51c",
+  "W05c": "472491a967593cfeb9d0279137236013565662929f38d01dc767cce8084e3122",
+  "W05m": "e0432ea656c53e7da8d60374e921cbdee9af8719c503447ac076da87a2cb8cae"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65537 — format spécial (u16 count + données ?)"
+}

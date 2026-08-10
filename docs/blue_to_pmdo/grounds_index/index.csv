@@ -1,0 +1,188 @@
+ground_id,dimensions,layers,tiles,chunks,collision,animations,status,composite_png
+A01P01,60x48 tuiles,2,474,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+A02P01,60x45 tuiles,1,412,195,PROVEN,"[0, 0, 0, 0]",FULL,grounds/A02P01/composite.png
+A02P02,?,0,0,0,?,,BLOCKED,
+A02P03,45x36 tuiles,1,855,176,PROVEN,"[0, 0, 0, 0]",FULL,grounds/A02P03/composite.png
+A02P04,?,0,0,0,?,,BLOCKED,
+A03P01,120x36 tuiles,1,810,117,PROVEN,"[0, 0, 0, 0]",FULL,grounds/A03P01/composite.png
+A03P03,120x36 tuiles,1,865,117,PROVEN,"[0, 0, 0, 0]",FULL,grounds/A03P03/composite.png
+A04P01,?,0,0,0,?,,BLOCKED,
+A04P02,36x27 tuiles,1,517,74,PROVEN,"[0, 0, 0, 0]",FULL,grounds/A04P02/composite.png
+A04P03,?,0,0,0,?,,BLOCKED,
+A04P04,42x30 tuiles,2,199,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+A05P01,?,0,0,0,?,,BLOCKED,
+A05P02,?,0,0,0,?,,BLOCKED,
+A05P03,39x30 tuiles,1,26,20,PROVEN,"[0, 0, 0, 0]",FULL,grounds/A05P03/composite.png
+A05P03F,39x30 tuiles,1,20,20,PROVEN,"[0, 0, 0, 0]",FULL,grounds/A05P03F/composite.png
+A05P03G,39x30 tuiles,1,26,18,PROVEN,"[0, 0, 0, 0]",FULL,grounds/A05P03G/composite.png
+A05P03I,39x30 tuiles,1,27,20,PROVEN,"[0, 0, 0, 0]",FULL,grounds/A05P03I/composite.png
+A05P03S,39x30 tuiles,1,20,20,PROVEN,"[0, 0, 0, 0]",FULL,grounds/A05P03S/composite.png
+B01P01A,69x69 tuiles,1,466,367,PROVEN,"[16, 0, 0, 0]",FULL,grounds/B01P01A/composite.png
+B01P01B,69x69 tuiles,1,542,0,PROVEN,"[16, 0, 6, 0]",PARTIAL,
+B01P01C,?,0,0,0,?,,BLOCKED,
+B01P02C,60x60 tuiles,1,760,159,PROVEN,"[0, 0, 0, 0]",FULL,grounds/B01P02C/composite.png
+B02P01C,?,0,0,0,?,,BLOCKED,
+B03P01C,?,0,0,0,?,,BLOCKED,
+B04P01C,?,0,0,0,?,,BLOCKED,
+B05P01A,?,0,0,0,?,,BLOCKED,
+B05P01B,?,0,0,0,?,,BLOCKED,
+B05P01C,?,0,0,0,?,,BLOCKED,
+B05P02C,?,0,0,0,?,,BLOCKED,
+B06P01C,?,0,0,0,?,,BLOCKED,
+B07P01C,?,0,0,0,?,,BLOCKED,
+B08P01C,?,0,0,0,?,,BLOCKED,
+B09P01A,69x69 tuiles,1,688,378,PROVEN,"[28, 0, 0, 0]",FULL,grounds/B09P01A/composite.png
+B09P01B,69x69 tuiles,1,759,0,PROVEN,"[26, 0, 6, 0]",PARTIAL,
+B09P01C,69x69 tuiles,1,708,0,PROVEN,"[30, 0, 0, 0]",PARTIAL,
+B09P02C,?,0,0,0,?,,BLOCKED,
+B10P01C,69x69 tuiles,1,687,380,PROVEN,"[26, 0, 0, 0]",FULL,grounds/B10P01C/composite.png
+B11P01C,69x69 tuiles,1,695,380,PROVEN,"[27, 0, 0, 0]",FULL,grounds/B11P01C/composite.png
+B12P01A,69x69 tuiles,1,531,0,PROVEN,"[16, 0, 0, 0]",PARTIAL,
+B12P01B,69x69 tuiles,1,627,0,PROVEN,"[16, 0, 6, 0]",PARTIAL,
+B12P01C,69x69 tuiles,1,576,0,PROVEN,"[16, 0, 0, 0]",PARTIAL,
+B12P02C,60x60 tuiles,1,696,172,PROVEN,"[0, 0, 0, 0]",FULL,grounds/B12P02C/composite.png
+B13P01C,69x69 tuiles,1,577,380,PROVEN,"[16, 0, 0, 0]",FULL,grounds/B13P01C/composite.png
+B14P01A,69x69 tuiles,1,593,0,PROVEN,"[16, 0, 0, 0]",PARTIAL,
+B14P01B,69x69 tuiles,1,642,0,PROVEN,"[16, 0, 6, 0]",PARTIAL,
+B14P01C,69x69 tuiles,1,607,378,PROVEN,"[16, 0, 0, 0]",FULL,grounds/B14P01C/composite.png
+B14P02C,60x60 tuiles,1,727,172,PROVEN,"[0, 0, 0, 0]",FULL,grounds/B14P02C/composite.png
+B15P01C,69x69 tuiles,1,645,378,PROVEN,"[16, 0, 0, 0]",FULL,grounds/B15P01C/composite.png
+B16P01C,69x69 tuiles,1,620,378,PROVEN,"[16, 0, 0, 0]",FULL,grounds/B16P01C/composite.png
+D01P01,54x45 tuiles,1,184,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+D01P02,45x42 tuiles,1,106,17,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D01P02/composite.png
+D02P01,48x39 tuiles,1,516,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+D02P02,45x42 tuiles,1,106,17,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D02P02/composite.png
+D03P01,45x39 tuiles,1,609,182,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D03P01/composite.png
+D03P02,57x69 tuiles,1,505,242,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D03P02/composite.png
+D04P01,57x48 tuiles,1,209,125,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D04P01/composite.png
+D04P02,69x72 tuiles,1,135,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+D05P01,84x30 tuiles,2,894,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+D05P02,45x51 tuiles,1,106,17,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D05P02/composite.png
+D06P01,51x36 tuiles,1,827,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+D06P02,57x57 tuiles,1,106,17,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D06P02/composite.png
+D06P03,57x57 tuiles,1,474,205,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D06P03/composite.png
+D07P01,57x30 tuiles,1,656,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+D08P01,45x36 tuiles,1,873,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+D08P02,45x36 tuiles,1,855,176,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D08P02/composite.png
+D09P01,?,0,0,0,?,,BLOCKED,
+D09P02,57x57 tuiles,1,106,17,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D09P02/composite.png
+D09P03,69x69 tuiles,1,467,234,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D09P03/composite.png
+D10P01,33x42 tuiles,1,860,122,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D10P01/composite.png
+D10P02,57x57 tuiles,1,106,17,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D10P02/composite.png
+D10P03,66x63 tuiles,1,453,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+D11P01,?,0,0,0,?,,BLOCKED,
+D11P02,57x57 tuiles,1,106,17,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D11P02/composite.png
+D11P03,63x63 tuiles,1,509,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+D12P01,?,0,0,0,?,,BLOCKED,
+D12P02,57x57 tuiles,1,106,17,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D12P02/composite.png
+D12P04,63x63 tuiles,1,497,141,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D12P04/composite.png
+D13P01,?,0,0,0,?,,BLOCKED,
+D13P02,57x57 tuiles,1,106,17,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D13P02/composite.png
+D13P03,69x75 tuiles,1,503,229,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D13P03/composite.png
+D14P01,?,0,0,0,?,,BLOCKED,
+D15P01,?,0,0,0,?,,BLOCKED,
+D16P01,45x45 tuiles,1,106,17,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D16P01/composite.png
+D17P01,48x45 tuiles,1,106,17,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D17P01/composite.png
+D18P01,45x42 tuiles,1,106,17,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D18P01/composite.png
+D19P01,66x63 tuiles,1,488,219,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D19P01/composite.png
+D20P01,45x42 tuiles,1,106,17,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D20P01/composite.png
+D21P01,63x60 tuiles,1,511,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+D22P01,51x45 tuiles,1,695,161,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D22P01/composite.png
+D23P01,45x42 tuiles,1,106,17,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D23P01/composite.png
+D24P01,?,0,0,0,?,,BLOCKED,
+D24P02,51x36 tuiles,1,659,175,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D24P02/composite.png
+D25P01,45x42 tuiles,1,106,17,PROVEN,"[0, 0, 0, 0]",FULL,grounds/D25P01/composite.png
+H01P01,57x30 tuiles,1,894,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+H01P01W,?,0,0,0,?,,BLOCKED,
+H01P02,60x42 tuiles,1,859,251,PROVEN,"[0, 0, 0, 0]",FULL,grounds/H01P02/composite.png
+H01P03,66x45 tuiles,1,647,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+H02P01,60x42 tuiles,1,836,271,PROVEN,"[0, 0, 0, 0]",FULL,grounds/H02P01/composite.png
+H02P01W,?,0,0,0,?,,BLOCKED,
+H02P02,57x39 tuiles,1,590,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+H02P02W,?,0,0,0,?,,BLOCKED,
+H02P03,?,0,0,0,?,,BLOCKED,
+H02P03W,?,0,0,0,?,,BLOCKED,
+H03P01,?,0,0,0,?,,BLOCKED,
+H04P01,63x42 tuiles,1,861,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+H04P02,60x42 tuiles,1,888,261,PROVEN,"[0, 0, 0, 0]",FULL,grounds/H04P02/composite.png
+H05P01,?,0,0,0,?,,BLOCKED,
+H05P02,57x39 tuiles,1,851,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+H06P01,?,0,0,0,?,,BLOCKED,
+H06P02,?,0,0,0,?,,BLOCKED,
+H06P03,57x42 tuiles,1,797,232,PROVEN,"[0, 0, 0, 0]",FULL,grounds/H06P03/composite.png
+H06P04,60x42 tuiles,1,871,269,PROVEN,"[0, 0, 0, 0]",FULL,grounds/H06P04/composite.png
+H06P05,?,0,0,0,?,,BLOCKED,
+H06P06,60x39 tuiles,1,855,258,PROVEN,"[0, 0, 0, 0]",FULL,grounds/H06P06/composite.png
+H07P01,?,0,0,0,?,,BLOCKED,
+H07P02,?,0,0,0,?,,BLOCKED,
+H07P03,60x39 tuiles,1,832,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+H07P04,60x42 tuiles,1,716,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+H07P04W,?,0,0,0,?,,BLOCKED,
+H07P05,57x42 tuiles,1,865,248,PROVEN,"[0, 0, 0, 0]",FULL,grounds/H07P05/composite.png
+H07P06,?,0,0,0,?,,BLOCKED,
+H07P07,?,0,0,0,?,,BLOCKED,
+H07P08,57x39 tuiles,1,881,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+H08P01,?,0,0,0,?,,BLOCKED,
+H09P01,?,0,0,0,?,,BLOCKED,
+H09P02,?,0,0,0,?,,BLOCKED,
+H10P01,?,0,0,0,?,,BLOCKED,
+H10P02,?,0,0,0,?,,BLOCKED,
+H11P01,?,0,0,0,?,,BLOCKED,
+H12P01,?,0,0,0,?,,BLOCKED,
+H13P01,63x45 tuiles,1,890,300,PROVEN,"[2, 0, 0, 0]",FULL,grounds/H13P01/composite.png
+H13P02,45x39 tuiles,1,757,186,PROVEN,"[0, 0, 0, 0]",FULL,grounds/H13P02/composite.png
+H13P03,57x39 tuiles,1,870,245,PROVEN,"[0, 0, 0, 0]",FULL,grounds/H13P03/composite.png
+H13P04,63x45 tuiles,1,892,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+H14P01,?,0,0,0,?,,BLOCKED,
+H15P01,?,0,0,0,?,,BLOCKED,
+H16P01,60x42 tuiles,1,859,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+H17P01,?,0,0,0,?,,BLOCKED,
+H17P01W,?,0,0,0,?,,BLOCKED,
+H18P01,?,0,0,0,?,,BLOCKED,
+H19P01,?,0,0,0,?,,BLOCKED,
+H19P01W,?,0,0,0,?,,BLOCKED,
+H20P01,?,0,0,0,?,,BLOCKED,
+H22P01,?,0,0,0,?,,BLOCKED,
+H23P01,57x39 tuiles,1,871,238,PROVEN,"[6, 0, 0, 0]",FULL,grounds/H23P01/composite.png
+H24P01,60x45 tuiles,1,871,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+H25P01,?,0,0,0,?,,BLOCKED,
+H26P01,?,0,0,0,?,,BLOCKED,
+H27P01,?,0,0,0,?,,BLOCKED,
+H28P01,60x39 tuiles,1,696,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+H28P02,60x39 tuiles,1,878,260,PROVEN,"[0, 0, 0, 0]",FULL,grounds/H28P02/composite.png
+H29P01,?,0,0,0,?,,BLOCKED,
+H29P02,?,0,0,0,?,,BLOCKED,
+H29P03,?,0,0,0,?,,BLOCKED,
+H29P03W,?,0,0,0,?,,BLOCKED,
+H29P04,?,0,0,0,?,,BLOCKED,
+S02,?,0,0,0,?,,BLOCKED,
+S02_FRE,?,0,0,0,?,,BLOCKED,
+S02_GER,?,0,0,0,?,,BLOCKED,
+S02_ITA,?,0,0,0,?,,BLOCKED,
+S02_SPA,?,0,0,0,?,,BLOCKED,
+S03,39x45 tuiles,1,821,104,PROVEN,"[0, 0, 0, 0]",FULL,grounds/S03/composite.png
+S04,33x96 tuiles,1,354,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+S05,33x42 tuiles,1,297,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+S05_FRE,33x42 tuiles,1,356,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+S05_GER,33x42 tuiles,1,370,120,PROVEN,"[0, 0, 0, 0]",FULL,grounds/S05_GER/composite.png
+S05_ITA,33x42 tuiles,1,361,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+S05_SPA,33x42 tuiles,1,335,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+S06,33x24 tuiles,1,736,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+S06_FRE,33x24 tuiles,1,759,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+S06_GER,33x24 tuiles,1,759,88,PROVEN,"[0, 0, 0, 0]",FULL,grounds/S06_GER/composite.png
+S06_ITA,33x24 tuiles,1,759,0,PROVEN,"[0, 0, 0, 0]",PARTIAL,
+S06_SPA,33x24 tuiles,1,759,88,PROVEN,"[0, 0, 0, 0]",FULL,grounds/S06_SPA/composite.png
+T00P01,144x111 tuiles,1,405,93,PROVEN,"[0, 0, 0, 0]",FULL,grounds/T00P01/composite.png
+T01P01,?,0,0,0,?,,BLOCKED,
+T01P03,?,0,0,0,?,,BLOCKED,
+T01P04,66x66 tuiles,1,879,192,PROVEN,"[0, 0, 0, 0]",FULL,grounds/T01P04/composite.png
+T01P05,?,0,0,0,?,,BLOCKED,
+T01P07,?,0,0,0,?,,BLOCKED,
+T01P07W,?,0,0,0,?,,BLOCKED,
+W01,144x111 tuiles,1,38,13,PROVEN,"[0, 0, 0, 0]",FULL,grounds/W01/composite.png
+W03P01,?,0,0,0,?,,BLOCKED,
+W03P02,?,0,0,0,?,,BLOCKED,
+W03P03,?,0,0,0,?,,BLOCKED,
+W04,180x120 tuiles,1,2,12,PROVEN,"[6, 0, 0, 0]",FULL,grounds/W04/composite.png
+W05,?,0,0,0,?,,BLOCKED,
+W06,42x30 tuiles,1,124,63,PROVEN,"[0, 0, 0, 0]",FULL,grounds/W06/composite.png

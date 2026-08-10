@@ -1,0 +1,20 @@
+{
+ "Ground ID": "S02_FRE",
+ "source_files": [
+  "ground.sbin/S02_FRE",
+  "ground.sbin/S02_FREc",
+  "ground.sbin/S02_FREm"
+ ],
+ "source_offsets": [
+  3418496,
+  3419744,
+  3434912
+ ],
+ "sha256": {
+  "S02_FRE": "ae69e02883b0dcd67967ceb492db9c3eede7d4ce3138efe5cb21532b295624f5",
+  "S02_FREc": "f76cd7fb8c8cac7ffe857f18adb51c5845605fbf786d468c9a5d5e25d5973d50",
+  "S02_FREm": "1285fcacb44c84f9f0d96ea172e718c303fa05093af4169c0227914b9e56c9da"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65546 — format spécial (u16 count + données ?)"
+}

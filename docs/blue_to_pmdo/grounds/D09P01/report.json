@@ -1,0 +1,20 @@
+{
+ "Ground ID": "D09P01",
+ "source_files": [
+  "ground.sbin/D09P01",
+  "ground.sbin/D09P01c",
+  "ground.sbin/D09P01m"
+ ],
+ "source_offsets": [
+  1506272,
+  1508528,
+  1526064
+ ],
+ "sha256": {
+  "D09P01": "effda2403b037cc091cbca6ca36aa5e75fa55aa72864535c5c97d89883bcd1e9",
+  "D09P01c": "6ffa8a0a4e06205dbe601a8943aa5d2f03a6cecb9553593b2a920491765fe310",
+  "D09P01m": "3f43339d42bb8a35f2af32c45ad7cc7e975f9f05832017875e8b4bd3af2295ee"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65543 — format spécial (u16 count + données ?)"
+}

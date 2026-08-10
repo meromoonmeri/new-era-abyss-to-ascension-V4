@@ -1,0 +1,20 @@
+{
+ "Ground ID": "H08P01",
+ "source_files": [
+  "ground.sbin/H08P01",
+  "ground.sbin/H08P01c",
+  "ground.sbin/H08P01m"
+ ],
+ "source_offsets": [
+  2553200,
+  2561392,
+  2579216
+ ],
+ "sha256": {
+  "H08P01": "ce23f35466c7d31ed11d7fc45735a46795f204c70ace05f81bd624d584c6c98c",
+  "H08P01c": "b3f5d5281e14e231cae22259bbb5f7c9b78cbeccf9916a3a8bb53acbc0e5206c",
+  "H08P01m": "bb972e4be8ea6a6bd9d89d5ccb030459a3b96f693f289a464cb4c88ae6d5c678"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65547 — format spécial (u16 count + données ?)"
+}

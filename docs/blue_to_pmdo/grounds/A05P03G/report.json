@@ -1,0 +1,47 @@
+{
+ "Ground ID": "A05P03G",
+ "source_files": [
+  "ground.sbin/A05P03G",
+  "ground.sbin/A05P03Gc",
+  "ground.sbin/A05P03Gm"
+ ],
+ "source_offsets": [
+  228016,
+  228144,
+  228880
+ ],
+ "sha256": {
+  "A05P03G": "1540367ad21623a881603546dfd5a5af5652bbf840f3a44c47dfb71ad29a17ab",
+  "A05P03Gc": "55e7c6fc6ec4de5297782f822cad2ec3b6f84bc4075000bc8b13aefd97644432",
+  "A05P03Gm": "ac7aa1d1ae281bad686488eafe17ee2fa54cc33cf9b6e250138bc52cf0a8c4d6"
+ },
+ "palette_count": 2,
+ "palette_colors": 6,
+ "Tiles attendues (header nt-1)": 26,
+ "Tiles décodées": 26,
+ "Layers attendues": 1,
+ "Layers décodées": 1,
+ "Chunks attendus (nc-1)": 18,
+ "Chunks décodés": 18,
+ "BPA (animations)": [
+  0,
+  0,
+  0,
+  0
+ ],
+ "Frames d'animation attendues": null,
+ "Frames d'animation décodées": null,
+ "Frames rendues": null,
+ "Collision": "PROVEN",
+ "Dimensions": "39x30 tuiles",
+ "Markers": "UNKNOWN (non stockés dans ces fichiers)",
+ "VFX/particules": "UNKNOWN",
+ "PNG": [
+  "source_tiles.png",
+  "layer_0.png",
+  "composite.png"
+ ],
+ "status": "FULL",
+ "question_textures_completes": "PASS",
+ "question_frames_canoniques": "PASS (aucune animation BPA dans ces fichiers)"
+}

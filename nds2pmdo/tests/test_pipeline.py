@@ -215,3 +215,54 @@ def test_no_placeholder_in_decoded_reports():
         text = f.read_text()
         assert "TODO" not in text
         assert '""' not in text.replace('"LocalTexts": {}', '')
+
+
+# ---------------------------------------------------------------------------
+# 6. Grounds (ground.sbin) — format BPC/BMA/BPL validé sur W01 (fixture CI)
+# ---------------------------------------------------------------------------
+from nds2pmdo.blue.ground import GroundPalette, decode_bma, decode_bpc, render_ground
+
+GW = Path(__file__).resolve().parent / "fixtures" / "grounds_W01"
+
+
+def test_ground_palette_rgbx():
+    blob = (GW / "W01.bin").read_bytes()
+    pal = GroundPalette.parse(blob)
+    assert pal.count == 1
+    # couleur 1 = 57 77 bf 00 en RGBX → (0x57, 0x77, 0xbf)
+    assert pal.colors[0][1] == (0x57, 0x77, 0xBF, 255)
+    assert pal.colors[0][0] == (0, 0, 0, 0)  # index 0 transparent
+
+
+def test_ground_bpc_w01():
+    blob = (GW / "W01c.bin").read_bytes()
+    bpc = decode_bpc(blob)
+    assert bpc["status"] == "FULL"
+    assert bpc["nt"] == 39
+    assert bpc["nc"] == 14
+    assert len(bpc["tiles"]) // 32 == 38
+    assert bpc["chunk_count"] == 13
+    assert bpc["has_animation"] is False
+
+
+def test_ground_bma_w01():
+    blob = (GW / "W01m.bin").read_bytes()
+    bma = decode_bma(blob)
+    assert bma["Wt"] == 144 and bma["Ht"] == 111
+    assert bma["Wc"] == 48 and bma["Hc"] == 37
+    assert bma["nL"] == 1
+    assert bma["collision_status"] in ("PROVEN", "PROVEN_RLE")
+
+
+def test_ground_render_w01():
+    """Rendu composite : dimensions exactes + couleur exacte de la palette."""
+    from PIL import Image
+    pal = GroundPalette.parse((GW / "W01.bin").read_bytes())
+    bpc = decode_bpc((GW / "W01c.bin").read_bytes())
+    bma = decode_bma((GW / "W01m.bin").read_bytes())
+    ground = {"name": "W01", "palette": pal, "bpc": bpc, "bma": bma}
+    img = render_ground(ground)
+    assert img.size == (144 * 8, 111 * 8)
+    colors = set(img.getdata())
+    assert (0x57, 0x77, 0xBF, 255) in colors  # couleur de la palette W01
+    assert (0, 0, 0, 0) in colors              # fond transparent

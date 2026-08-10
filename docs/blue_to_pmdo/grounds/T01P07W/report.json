@@ -1,0 +1,20 @@
+{
+ "Ground ID": "T01P07W",
+ "source_files": [
+  "ground.sbin/T01P07W",
+  "ground.sbin/T01P07Wc",
+  "ground.sbin/T01P07Wm"
+ ],
+ "source_offsets": [
+  3894720,
+  3896720,
+  3898112
+ ],
+ "sha256": {
+  "T01P07W": "f1e15646d0f5cfe15a83197d25b971345dc8d820aaf795d1716acd430942218f",
+  "T01P07Wc": "d0a68610e31fd4066d85dc8d65c0834335171a5882968cb7e90e8addae55e6f3",
+  "T01P07Wm": "5774d052d66b0ff6f6927d5bcee7cefb5239a7bb550bcf0d6d47139ca74d1ed0"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65537 — format spécial (u16 count + données ?)"
+}

@@ -1,0 +1,20 @@
+{
+ "Ground ID": "H29P01",
+ "source_files": [
+  "ground.sbin/H29P01",
+  "ground.sbin/H29P01c",
+  "ground.sbin/H29P01m"
+ ],
+ "source_offsets": [
+  3311312,
+  3316112,
+  3337696
+ ],
+ "sha256": {
+  "H29P01": "a0b046e9d319e589f429d6cf5b8cfe79e89cd5085b26e6b3b9977a9cd8ce4e07",
+  "H29P01c": "a97e25109a7f869da153e35b827a17565a5e3047da1f953bdbeee76efd3cf7e2",
+  "H29P01m": "c8425f307f61a04ce0b2c617061a8c0b53066f0aa0bd22434d0f34eba751852e"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65548 — format spécial (u16 count + données ?)"
+}

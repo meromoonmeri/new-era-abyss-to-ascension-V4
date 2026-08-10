@@ -1,0 +1,20 @@
+{
+ "Ground ID": "B05P01A",
+ "source_files": [
+  "ground.sbin/B05P01A",
+  "ground.sbin/B05P01Ac",
+  "ground.sbin/B05P01Am"
+ ],
+ "source_offsets": [
+  440800,
+  445520,
+  466624
+ ],
+ "sha256": {
+  "B05P01A": "b260bb0980387eb60ed6a1454c098b0a0fa9cb7825b154ee445d4d92c61d8077",
+  "B05P01Ac": "79ed2abc1f0cb3c223e78318f0c9feee579b31b88bc88a937f6abc013caaad82",
+  "B05P01Am": "94593e46c13b262d8f6eea2fae24cc84751bce946b9cde0f6a35575d6d5327cd"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65546 — format spécial (u16 count + données ?)"
+}

@@ -1,0 +1,20 @@
+{
+ "Ground ID": "H02P03W",
+ "source_files": [
+  "ground.sbin/H02P03W",
+  "ground.sbin/H02P03Wc",
+  "ground.sbin/H02P03Wm"
+ ],
+ "source_offsets": [
+  2029936,
+  2034784,
+  2035536
+ ],
+ "sha256": {
+  "H02P03W": "1f3da5f7e12192ef4102c85f40a329fc90eca96d4a10f9c1c58d5e3e693db97c",
+  "H02P03Wc": "3aea74a6774144f891c6f8ae706b20a4a12c2daf197127a9fd5b984ebf1a60b5",
+  "H02P03Wm": "e74491f20ce5d1384f5ca72dd29a1236be88aa6c55426b56ec3a643f02d4abff"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65537 — format spécial (u16 count + données ?)"
+}

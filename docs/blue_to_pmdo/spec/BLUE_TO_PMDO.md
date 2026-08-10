@@ -391,13 +391,74 @@ démontrée), PARTIAL, UNKNOWN, BLOCKED.
 | SEQ (musiques) | 220 idx (98 réels) | PROVEN (chaîne complète) |
 | bgMusic → SEQ | 1 | UNKNOWN |
 | Grounds (packages) | 724 (B10P01* = 6) | BLOCKED (format non décodé) |
-| Cinématiques | 6 packages SW | BLOCKED |
+| Cinématiques | 6 packages SW (B10P01*/B10P02*) | BLOCKED (packages non décodés) |
 | Dialogues | 5 langues | PARTIAL |
 | VFX/particules | effect.sbin | UNKNOWN (inventaire PROVEN) |
 | Sprites Pokémon | monster.sbin | UNKNOWN (inventaire PROVEN) |
 | Conversion PMDO | — | **BLOQUÉE** (gates) |
 
 ---
+
+
+## 21. Index visuel des Grounds (preuves PNG par Ground)
+
+Le pipeline `nds2pmdo produce_grounds` décode chaque ground Blue (triplet
+palette `P` + tiles/chunks `Pc` + map/collision `Pm`) et génère, pour chaque
+ground décodable, un dossier de preuves :
+
+```
+docs/blue_to_pmdo/grounds/<GROUND_ID>/
+├── source_tiles.png     — feuille des tiles 4bpp (palette 0)
+├── layer_0.png          — rendu de la couche 0 (et layer_1 si 2 couches)
+├── composite.png        — rendu composite final (couches empilées)
+├── collision.png        — carte de collision (rouge = bloqué)
+├── animation_frames/    — frames d'animation (si BPA actif — aucun détecté à ce jour)
+└── report.json          — fiche de conformité (chiffres + statut + provenance)
+```
+
+Catalogue visuel : `docs/blue_to_pmdo/grounds_index/all_grounds_contact_sheet.png`
++ `index.csv` (Ground ID → dimensions → layers → tiles → chunks → collision →
+statut → chemin du composite).
+
+### Décompte (généré par le pipeline)
+
+| Statut | Nombre |
+|---|---|
+| Grounds découverts | 187 |
+| **FULL** (tiles + chunks + layers + collision rendus) | 69 |
+| PARTIAL (tiles 100 % décodées, chunks non reconstruits) | 40 |
+| BLOCKED (format spécial non décodé) | 78 |
+| Tiles décodées | 58 307 / 58 307 (100 %) |
+| Chunks décodés | 10 557 / 19 378 |
+
+### Fiche de conformité par Ground (report.json)
+
+Chaque `report.json` contient : `Ground ID`, `source_files`/`source_offsets`/
+`sha256` (provenance exacte), `Tiles attendues (header nt-1)`, `Tiles décodées`,
+`Layers attendues/décodées`, `Chunks attendus (nc-1)`, `Chunks décodés`,
+`BPA (animations)`, `Collision`, `Dimensions`, `Markers` (UNKNOWN — non stockés
+dans ces fichiers), `status` (FULL/PARTIAL/BLOCKED), et les réponses explicites :
+- `question_textures_completes` : PASS / FAIL / PARTIAL
+- `question_frames_canoniques` : PASS / UNKNOWN
+
+**Règle** : `GROUND_COMPLETE` n'est déclaré que si toutes les textures ET toutes
+les frames attendues sont décodées et rendues. Un composite visuellement correct
+avec des chunks manquants reste `PARTIAL` (ex. A01P01 — Pokémon Square, map à
+2 couches : tiles 474/474 ✓, tilemap en cours de déchiffrage).
+
+### Comparaison NDS → PMDO
+
+Pour les grounds convertis en PMDO (phase 2, après validation des gates) :
+`blue_source.png | pmdo_render.png | difference.png | overlay.png` +
+`pixel_match % / tile_match % / collision_match % / layer_match % / frame_match %`.
+Aucun ground PMDO n'est généré tant que la fiche source n'est pas FULL.
+
+### Formats non encore décodés (BLOCKED, documentés)
+
+- Palettes à en-tête spécial (u16 count + données) : S02_FRE, T01P01, H29P01…
+- Fichiers `c` avec nt=1 (variantes d'animation ?) : W03P01c…
+- Fichiers `P` de grande taille avec données annexes (positions d'entrée ?
+  musique ?) : à décoder.
 
 ## 20. Tests de validation et critères de non-régression
 

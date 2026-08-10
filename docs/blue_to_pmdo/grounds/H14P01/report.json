@@ -1,0 +1,20 @@
+{
+ "Ground ID": "H14P01",
+ "source_files": [
+  "ground.sbin/H14P01",
+  "ground.sbin/H14P01c",
+  "ground.sbin/H14P01m"
+ ],
+ "source_offsets": [
+  2840016,
+  2842944,
+  2867728
+ ],
+ "sha256": {
+  "H14P01": "c99688532460059c99a53c646b6ccf4f3dd88cc629531c9f2c37435f25f82ee3",
+  "H14P01c": "c2620230da60c57e4fbcdedcfbe05852b51891dd6ac97b27a03c4a52ec0f0466",
+  "H14P01m": "b44009f79699a27c1c990029568a2a0b31c3011efd3fe0b5df1c129f4cd6921d"
+ },
+ "status": "BLOCKED",
+ "error": "palette: count palette invalide: 65545 — format spécial (u16 count + données ?)"
+}
