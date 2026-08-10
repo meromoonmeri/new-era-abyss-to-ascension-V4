@@ -22,7 +22,7 @@
  "Layers attendues": 1,
  "Layers décodées": 1,
  "Chunks attendus (nc-1)": 228,
- "Chunks décodés": 0,
+ "Chunks décodés": 228,
  "BPA (animations)": [
   0,
   0,
@@ -36,9 +36,13 @@
  "Dimensions": "60x42 tuiles",
  "Markers": "UNKNOWN (non stockés dans ces fichiers)",
  "VFX/particules": "UNKNOWN",
- "PNG": [],
- "status": "PARTIAL",
- "question_textures_completes": "PARTIAL",
- "question_frames_canoniques": "UNKNOWN",
- "note": "tilemap non équilibré: BPC Tilemap Decompressor: Phase2: End result length unexpected. Should be 4104, is 4122 Diff: 18"
+ "PNG": [
+  "source_tiles.png",
+  "layer_0.png",
+  "composite.png",
+  "collision.png"
+ ],
+ "status": "FULL",
+ "question_textures_completes": "PASS",
+ "question_frames_canoniques": "PASS (aucune animation BPA dans ces fichiers)"
 }

@@ -103,6 +103,20 @@ def produce_ground(t: dict, gs: bytes) -> dict:
     report["VFX/particules"] = "UNKNOWN"
     report["PNG"] = []
 
+    # --- statut final : FULL si les chunks invalides ne sont pas utilisés par la map ---
+    if bpc["status"] == "PARTIAL" and bma is not None and bpc.get("chunks"):
+        vals = bpc["chunks"]
+        nt = bpc["nt"]
+        bad = {i // 9 for i, v in enumerate(vals) if (v & 0x3FF) >= nt}
+        used = set()
+        for layer in bma["layers"]:
+            used |= {c for c in layer if c > 0}
+        if not (bad & used):
+            bpc["status"] = "FULL"
+            bpc["note"] = (bpc.get("note", "") +
+                           f" | {len(bad)} chunk(s) hors bornes non référencés par la map")
+            report["chunks_hors_bornes_non_references"] = sorted(bad)
+
     # --- rendus ---
     if bpc["status"] == "FULL" and bma is not None:
         from PIL import Image

@@ -33,13 +33,13 @@
 | Métrique | Valeur |
 |---|---|
 | Grounds découverts (triplets palette/c/m) | 187 |
-| Grounds FULL (rendu complet : tiles+chunks+layers+collision) | 69 |
-| Grounds PARTIAL (tiles décodées, chunks non reconstruits — maps 2 couches) | 40 |
+| Grounds FULL (rendu complet : tiles+chunks+layers+collision) | 78 |
+| Grounds PARTIAL (tiles décodées, chunks partiellement non reconstruits) | 31 |
 | Grounds BLOCKED (format palette/BPC spécial non décodé) | 78 |
 | Tiles attendues | 58307 |
 | Tiles décodées | 58307 (100 %) |
 | Chunks attendus | 19378 |
-| Chunks décodés | 10557 |
+| Chunks décodés | 18445 |
 | PNG de preuve générés | 263 |
 | Contact sheet | `grounds_index/all_grounds_contact_sheet.png` |
 

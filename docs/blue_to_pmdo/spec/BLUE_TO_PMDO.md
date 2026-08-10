@@ -425,11 +425,11 @@ statut → chemin du composite).
 | Statut | Nombre |
 |---|---|
 | Grounds découverts | 187 |
-| **FULL** (tiles + chunks + layers + collision rendus) | 69 |
-| PARTIAL (tiles 100 % décodées, chunks non reconstruits) | 40 |
+| **FULL** (tiles + chunks + layers + collision rendus) | 78 |
+| PARTIAL (tiles 100 % décodées, chunks partiellement non reconstruits) | 31 |
 | BLOCKED (format spécial non décodé) | 78 |
 | Tiles décodées | 58 307 / 58 307 (100 %) |
-| Chunks décodés | 10 557 / 19 378 |
+| Chunks décodés | 18445 / 19378 |
 
 ### Fiche de conformité par Ground (report.json)
 

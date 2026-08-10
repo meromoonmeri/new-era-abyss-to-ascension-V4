@@ -66,15 +66,47 @@ def decode_bpc(blob: bytes):
     # tiles 4bpp compressées (BPC_IMAGE), (nt-1) tiles
     tiles, consumed = FileType.BPC_IMAGE.decompress(blob[16:], stop_when_size=(nt - 1) * 32)
     rest = blob[16 + consumed:]
-    # tilemap (chunks) : BPC_TILEMAP 2 phases
+    # tilemap (chunks) : BPC_TILEMAP 2 phases.
+    # Le format Blue tolère un dépassement de la phase 1 (les high bytes écrits
+    # au-delà de stop sont ignorés) — on patche donc le décompresseur et on
+    # valide le résultat (max_tile < nt, chunks == nc-1).
     try:
         tm = FileType.BPC_TILEMAP.decompress(rest, stop_when_size=(nc - 1) * 18)
         status = "FULL"
         note = None
-    except Exception as ex:  # noqa: BLE001 — cas 2 couches / équilibrage inconnu
-        status = "PARTIAL"
-        note = f"tilemap non équilibré: {str(ex)[:120]}"
-        tm = b""
+    except Exception:  # noqa: BLE001
+        try:
+            from skytemple_files.compression.bpc_tilemap.decompressor import (
+                BpcTilemapDecompressor)
+            stop = (nc - 1) * 18
+            d = BpcTilemapDecompressor(rest, stop)
+            while d.cursor < d.max_size and d.bytes_written < stop:
+                d._process_phase1()
+            d.bytes_written = 0
+            while d.cursor < d.max_size and d.bytes_written < stop:
+                d._process_phase2()
+            tm = bytes(d.decompressed_data[:stop])
+            # validation : tiles référencées < nt et nombre de chunks exact
+            vals = [int.from_bytes(tm[i:i + 2], 'little') for i in range(0, len(tm), 2)]
+            if max(v & 0x3FF for v in vals) < nt and len(vals) // 9 == nc - 1:
+                status = "FULL"
+                note = "phase1 dépassée (tolérée), résultat validé"
+            elif len(vals) // 9 == nc - 1:
+                # chunks décodés mais certains tiles référencés > nt :
+                # le statut final dépend des chunks réellement utilisés par la map
+                bad = sorted({i // 9 for i, v in enumerate(vals) if (v & 0x3FF) >= nt})
+                status = "PARTIAL"
+                note = (f"tilemap dépassé (toléré) mais {len(bad)} chunk(s) "
+                        f"référencent des tiles hors bornes: {bad[:8]} — "
+                        f"FULL si non utilisés par la map")
+            else:
+                status = "PARTIAL"
+                note = "tilemap non équilibré (dépassement phase1/phase2 non résolu)"
+                tm = b""
+        except Exception as ex2:  # noqa: BLE001
+            status = "PARTIAL"
+            note = f"tilemap non équilibré: {str(ex2)[:120]}"
+            tm = b""
     chunks = [int.from_bytes(tm[i:i + 2], 'little')
               for i in range(0, len(tm), 2)] if tm else []
     return {

@@ -40,5 +40,5 @@
  "status": "PARTIAL",
  "question_textures_completes": "PARTIAL",
  "question_frames_canoniques": "UNKNOWN",
- "note": "tilemap non équilibré: BPC Tilemap Decompressor: Phase1: End result length unexpected. Should be 4410, is 4504 Diff: 94"
+ "note": "tilemap non équilibré: BPC Tilemap Decompressor: Reached EOF while reading compressed data."
 }

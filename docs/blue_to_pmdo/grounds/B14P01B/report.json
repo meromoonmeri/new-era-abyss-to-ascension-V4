@@ -22,7 +22,7 @@
  "Layers attendues": 1,
  "Layers décodées": 1,
  "Chunks attendus (nc-1)": 379,
- "Chunks décodés": 0,
+ "Chunks décodés": 379,
  "BPA (animations)": [
   16,
   0,
@@ -40,5 +40,5 @@
  "status": "PARTIAL",
  "question_textures_completes": "PARTIAL",
  "question_frames_canoniques": "UNKNOWN",
- "note": "tilemap non équilibré: BPC Tilemap Decompressor: Phase1: End result length unexpected. Should be 6822, is 6838 Diff: 16"
+ "note": "tilemap dépassé (toléré) mais 12 chunk(s) référencent des tiles hors bornes: [0, 1, 309, 310, 311, 314, 355, 356] — FULL si non utilisés par la map"
 }
