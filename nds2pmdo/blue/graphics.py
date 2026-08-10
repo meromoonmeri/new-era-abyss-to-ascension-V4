@@ -59,7 +59,8 @@ def decode_fon(dec: bytes) -> int:
 
 def render_fon_sheet(dec: bytes, pal: list[tuple[int, int, int]],
                      cols: int = 16) -> "PIL.Image.Image":
-    """Rend la feuille de tiles (PNG) avec la palette 0. 1 tile = 8×8 px."""
+    """Rend la feuille de tiles (PNG) avec la palette 0. 1 tile = 8×8 px.
+    Convention DS : nibble bas = pixel gauche (iter_bytes_4bit_le)."""
     from PIL import Image
     n = len(dec) // TILE_BYTES_4BPP
     rows = (n + cols - 1) // cols
@@ -72,7 +73,7 @@ def render_fon_sheet(dec: bytes, pal: list[tuple[int, int, int]],
         for yy in range(TILE_H):
             row = tile[yy * 4:yy * 4 + 4]
             for xx in range(TILE_W):
-                nib = (row[xx // 2] >> (4 * (1 - xx % 2))) & 0xF
+                nib = (row[xx // 2] >> (4 * (xx % 2))) & 0xF
                 c = pal[nib] if nib < len(pal) else (255, 0, 255)
                 px[base_x + xx, base_y + yy] = c
     return img

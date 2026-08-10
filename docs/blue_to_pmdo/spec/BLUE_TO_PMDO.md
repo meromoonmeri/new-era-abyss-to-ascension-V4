@@ -222,6 +222,24 @@ Chaîne graphique **PROVEN** (Sinister Woods, blobs b41 et b10) :
 `cells/*.png`, `comparisons/b10_vs_b41_tilesets.png` — tous générés depuis les
 données décodées (voir `manifests/provenance_manifest.json`).
 
+**Validation croisée (correction des bugs de rendu, 2026-08-10) :**
+le rendu des Grounds a été corrigé sur trois points, validés contre les
+implémentations de référence :
+1. **Ordre des nibbles** : nibble BAS = pixel gauche (convention DS, validée par
+   `skytemple iter_bytes_4bit_le` et pmd-red) — l'ancien rendu inversait chaque
+   paire de pixels.
+2. **Tile 0 implicite** : un tile vide est préfixé (indexation 0..nt-1 comme le
+   jeu) — l'ancien rendu décalait tous les tiles d'un index et perdait le dernier
+   (trous noirs).
+3. **Ordre des couches** : la couche 0 est la couche du DESSUS (validé pmd-red
+   `reversed(layers)`) — l'ancien rendu empilait dans le mauvais ordre.
+
+Validation : `python -m nds2pmdo.validate_crossref` — rendu Blue vs rendu GBA
+(pmd-red, RESERVE/) de la même map : 171 maps comparées, 26 en match exact
+100 % pixel-par-pixel (toutes les A*), 32 avec les tuiles uniques positionnées
+à (0,0) ; les différences restantes sont des variantes entre versions (tuiles
+répétées échangées) ou des maps PARTIAL (décodage tilemap incomplet, documenté).
+
 ---
 
 ## 9. Règles animations et `canm`
@@ -428,7 +446,8 @@ statut → chemin du composite).
 | **FULL** (tiles + chunks + layers + collision rendus) | 78 |
 | PARTIAL (tiles 100 % décodées, chunks partiellement non reconstruits) | 31 |
 | BLOCKED (format spécial non décodé) | 78 |
-| Tiles décodées | 58 307 / 58 307 (100 %) |
+| Tiles décodées | 58 307 / 58 307 (100 %) — tile 0 implicite inclus dans le rendu (indexation jeu) |
+| **Validation croisée Blue ↔ GBA** | 171 maps comparées : 26 match exact 100 % ; tuiles uniques positionnées à (0,0) pour 32 maps (d04p01 : 151/151) |
 | Chunks décodés | 18445 / 19378 |
 
 ### Fiche de conformité par Ground (report.json)

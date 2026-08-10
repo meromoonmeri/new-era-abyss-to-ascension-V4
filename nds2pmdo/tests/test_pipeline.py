@@ -240,7 +240,9 @@ def test_ground_bpc_w01():
     assert bpc["status"] == "FULL"
     assert bpc["nt"] == 39
     assert bpc["nc"] == 14
-    assert len(bpc["tiles"]) // 32 == 38
+    # tiles = tile 0 implicite (vide) + (nt-1) réels → indexés 0..nt-1 comme le jeu
+    assert len(bpc["tiles"]) // 32 == 39
+    assert bpc["tiles"][:32] == b"\x00" * 32  # tile 0 implicite
     assert bpc["chunk_count"] == 13
     assert bpc["has_animation"] is False
 

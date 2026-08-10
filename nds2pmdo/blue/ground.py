@@ -63,8 +63,11 @@ def decode_bpc(blob: bytes):
     nc = struct.unpack_from('<H', blob, 14)[0]
     if nt < 2 or nc < 2:
         raise ValueError(f"BPC invalide: nt={nt} nc={nc}")
-    # tiles 4bpp compressées (BPC_IMAGE), (nt-1) tiles
-    tiles, consumed = FileType.BPC_IMAGE.decompress(blob[16:], stop_when_size=(nt - 1) * 32)
+    # tiles 4bpp compressées (BPC_IMAGE), (nt-1) tiles réels
+    # + tile 0 implicite (vide) → tiles[0..nt-1] indexés comme dans le jeu
+    # (validé pmd-red : tiles = [bytes(32)] + tiles du fichier)
+    tiles_raw, consumed = FileType.BPC_IMAGE.decompress(blob[16:], stop_when_size=(nt - 1) * 32)
+    tiles = b"\x00" * 32 + tiles_raw
     rest = blob[16 + consumed:]
     # tilemap (chunks) : BPC_TILEMAP 2 phases.
     # Le format Blue tolère un dépassement de la phase 1 (les high bytes écrits
@@ -188,24 +191,34 @@ def decode_bma(blob: bytes):
     }
 
 
+def tile_nibble(tile: bytes, x: int, y: int) -> int:
+    """Nibble du pixel (x, y) d'un tile 4bpp — convention DS/GBA :
+    nibble BAS = pixel de gauche (validé par skytemple iter_bytes_4bit_le
+    et pmd-red)."""
+    return (tile[y * 4 + x // 2] >> (4 * (x % 2))) & 0xF
+
+
 def render_ground(ground: dict, palette_index: int = 0):
     """Rend le composite (toutes couches, chunk 0 implicite).
-    Retourne une image PIL. ground = dict combiné (bpc + bma)."""
+    Retourne une image PIL. ground = dict combiné (bpc + bma).
+
+    Ordre des couches : la couche 0 est la couche du DESSUS (validé pmd-red :
+    `for lay in reversed(layers)`), on dessine donc de la dernière vers la 0."""
     from PIL import Image
     bpc, bma = ground["bpc"], ground["bma"]
     tiles = bpc["tiles"]
     chunks = bpc["chunks"]
-    pal = ground["palette"].colors[palette_index]
     Wt, Ht, Wc, Hc = bma["Wt"], bma["Ht"], bma["Wc"], bma["Hc"]
     n_chunks = bpc["nc"] - 1
     img = Image.new("RGBA", (Wt * 8, Ht * 8), (0, 0, 0, 0))
     px = img.load()
-    for li, layer in enumerate(bma["layers"]):
+    for li in range(bma["nL"] - 1, -1, -1):  # couche 0 = dessus → dessinée en dernier
+        layer = bma["layers"][li]
         for cy in range(Hc):
             for cx in range(Wc):
                 cid = layer[cy * 64 + cx]
                 if cid == 0:
-                    continue  # chunk 0 implicite = 9× tile 0 (vide/transparent)
+                    continue  # chunk 0 implicite = 9× tile 0 (vide)
                 if cid > n_chunks or (cid - 1) * 9 + 9 > len(chunks):
                     continue
                 ents = chunks[(cid - 1) * 9:(cid - 1) * 9 + 9]
@@ -222,9 +235,8 @@ def render_ground(ground: dict, palette_index: int = 0):
                     td = tiles[ti * 32:(ti + 1) * 32]
                     subpal = ground["palette"].colors[pi % ground["palette"].count]
                     for yy in range(8):
-                        row = td[yy * 4:yy * 4 + 4]
                         for xx in range(8):
-                            nib = (row[xx // 2] >> (4 * (1 - xx % 2))) & 0xF
+                            nib = tile_nibble(td, xx, yy)
                             if nib == 0:
                                 continue
                             c = subpal[nib] if nib < len(subpal) else (255, 0, 255, 255)
@@ -238,17 +250,17 @@ def render_ground(ground: dict, palette_index: int = 0):
 
 
 def render_layer(ground: dict, layer_index: int = 0, palette_index: int = 0):
-    """Rend une couche seule (les couches supérieures par-dessus la 1ère)."""
+    """Rend les couches 0..layer_index empilées (couche 0 = dessus, dessinée
+    en dernier, comme dans le moteur)."""
     from PIL import Image
     bpc, bma = ground["bpc"], ground["bma"]
     tiles = bpc["tiles"]
     chunks = bpc["chunks"]
-    pal = ground["palette"].colors[palette_index]
     Wt, Ht, Wc, Hc = bma["Wt"], bma["Ht"], bma["Wc"], bma["Hc"]
     n_chunks = bpc["nc"] - 1
     img = Image.new("RGBA", (Wt * 8, Ht * 8), (0, 0, 0, 0))
     px = img.load()
-    for li in range(layer_index + 1):
+    for li in range(layer_index, -1, -1):
         layer = bma["layers"][li]
         for cy in range(Hc):
             for cx in range(Wc):
@@ -269,9 +281,8 @@ def render_layer(ground: dict, layer_index: int = 0, palette_index: int = 0):
                     td = tiles[ti * 32:(ti + 1) * 32]
                     subpal = ground["palette"].colors[pi % ground["palette"].count]
                     for yy in range(8):
-                        row = td[yy * 4:yy * 4 + 4]
                         for xx in range(8):
-                            nib = (row[xx // 2] >> (4 * (1 - xx % 2))) & 0xF
+                            nib = tile_nibble(td, xx, yy)
                             if nib == 0:
                                 continue
                             c = subpal[nib] if nib < len(subpal) else (255, 0, 255, 255)

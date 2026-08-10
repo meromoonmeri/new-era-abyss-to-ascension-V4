@@ -98,7 +98,7 @@ def render_cells():
             for yy in range(8):
                 row = tile[yy * 4:yy * 4 + 4]
                 for xx in range(8):
-                    nib = (row[xx // 2] >> (4 * (1 - xx % 2))) & 0xF
+                    nib = (row[xx // 2] >> (4 * (xx % 2))) & 0xF
                     px[bx + xx, by + yy] = sub[nib] if nib < len(sub) else (255, 0, 255)
         p = out / f"{prefix}cel_atlas.png"
         img.save(p)

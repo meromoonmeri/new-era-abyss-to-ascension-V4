@@ -86,7 +86,7 @@ def produce_ground(t: dict, gs: bytes) -> dict:
 
     # --- chiffres ---
     nt = bpc["nt"]
-    tiles_present = len(bpc["tiles"]) // 32
+    tiles_present = len(bpc["tiles"]) // 32 - 1  # tiles réels (sans le tile 0 implicite)
     report["Tiles attendues (header nt-1)"] = nt - 1
     report["Tiles décodées"] = tiles_present
     report["Layers attendues"] = bma["nL"] if bma else None
@@ -159,6 +159,7 @@ def produce_ground(t: dict, gs: bytes) -> dict:
 
 def render_tile_sheet(tiles: bytes, pal, cols: int = 32):
     from PIL import Image
+    from .blue.ground import tile_nibble
     n = len(tiles) // 32
     rows = (n + cols - 1) // cols
     img = Image.new("RGBA", (cols * 8, rows * 8), (0, 0, 0, 0))
@@ -167,9 +168,8 @@ def render_tile_sheet(tiles: bytes, pal, cols: int = 32):
         td = tiles[t * 32:(t + 1) * 32]
         bx, by = (t % cols) * 8, (t // cols) * 8
         for yy in range(8):
-            row = td[yy * 4:yy * 4 + 4]
             for xx in range(8):
-                nib = (row[xx // 2] >> (4 * (1 - xx % 2))) & 0xF
+                nib = tile_nibble(td, xx, yy)
                 if nib == 0:
                     continue
                 c = pal[nib] if nib < len(pal) else (255, 0, 255, 255)
