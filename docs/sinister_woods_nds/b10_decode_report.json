@@ -1,0 +1,55 @@
+{
+  "b10canm": {
+    "name": "b10canm",
+    "raw_size": 1152,
+    "raw_sha256": "3f1d78944091e7ac429d8ceab83fa3cf178aca717fb6adfc0d22f1fd6bc3cf1b",
+    "magic": "SIR0\u00d0",
+    "status": "SOURCE_NDS_CONTAINER",
+    "sir0_main_ptr": 976,
+    "sir0_ptrlist_ptr": 1104,
+    "at4px_offset": null,
+    "main_head_hex": "100000004400000078000000ac000000e000000014010000480100007c010000"
+  },
+  "b10cel": {
+    "name": "b10cel",
+    "raw_size": 2054,
+    "raw_sha256": "599fd4af7acabec1606e94976bd064ffb723a63523f1e742cd5bd784440a209b",
+    "magic": "AT4PX",
+    "status": "SOURCE_NDS_DECODED",
+    "decomp_size": 4500,
+    "decomp_sha256": "140b796d73e2e4f079df1ffa513bb1b0cd5239b762084fcae8b2ed2894df7dff",
+    "decomp_head_hex": "0000000000000000000000000000000000000160026003600460056006600760086009600a600b600c600d300e300f3010301130123013601430153016601730"
+  },
+  "b10cex": {
+    "name": "b10cex",
+    "raw_size": 848,
+    "raw_sha256": "4f2e1477d43954f11c0cfc367e4340b79180f8d13ba906a7281aac1a07404ffc",
+    "magic": "SIR0\u0010",
+    "status": "SOURCE_NDS_DECODED",
+    "sir0_main_ptr": 16,
+    "sir0_ptrlist_ptr": 832,
+    "at4px_offset": 16,
+    "decomp_size": 2352,
+    "decomp_sha256": "5544c30c155127cfaffb51c7c5675181a1ee5de37fa3ab25f84e37db08bbcbd7",
+    "decomp_head_hex": "1a1a1a1919191a1a1a1919191818185a5a5a1818181313131a1a1a1919191a1a1a1919191818185a5a5a181818131313171717161f1d171717161f1d5b606051",
+    "at4px_flen": 807
+  },
+  "b10fon": {
+    "name": "b10fon",
+    "raw_size": 10177,
+    "raw_sha256": "1102486321603089593642588564290a74033b01fa539f8206c534d57cb0cc01",
+    "magic": "AT4PX",
+    "status": "SOURCE_NDS_DECODED",
+    "decomp_size": 13312,
+    "decomp_sha256": "0a20f87accd83fe109d2b29e1ef4483838fd7c2be33ce4d37a996427f8607502",
+    "decomp_head_hex": "00000000000000000000000000000000000000000000000000000000000000008888988987987977799787889978889988788899887887898977778878777777"
+  },
+  "b10pal": {
+    "name": "b10pal",
+    "raw_size": 768,
+    "raw_sha256": "ac73ef530e23e2a97b071be949aa9ceeaf0ae02bb1df4b7deca63ea90e8079c1",
+    "magic": "\u0000\u00b7\u00df\u0080\u008f",
+    "status": "SOURCE_NDS_RAW",
+    "head_hex": "00b7df808f878f80afa7af80cfcfcf80f7efe780ff5fff80ff5fff80ff5fff80"
+  }
+}
