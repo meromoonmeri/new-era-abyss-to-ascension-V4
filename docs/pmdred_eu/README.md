@@ -154,6 +154,54 @@ regional `A05P03` variants, `B01P00A`, and `T01P00`. The US reference has only
 `T01P06`, `T01P06c`, and `T01P06m` absent from Europe. Exact lists and per-file
 hashes are in the manifest.
 
+## Direct dungeon-backed Ground reconstruction
+
+The separate runtime path used for dungeon summits, midpoints, relays, and
+fixed boss/story maps is reconstructed by:
+
+- `tools/pmdred_dungeon_ground.py` — bounds-checked `pksdir0`, SIRO, strict
+  pret-equivalent AT4PX, `mapparam`, CANM, BMA terrain, 64-column CEX/EMAP
+  composition, GBA palette quantization, and deterministic rendering;
+- `tools/reconstruct_pmdred_dungeon_grounds.py` — all-27 orchestration and
+  evidence/report generation;
+- `tools/validate_pmdred_dungeon_ground_bundle.py` — independently reloads the
+  supplied ROM and freshly rederives Ground mappings, names, floor counts, BMA
+  data, selectors/properties, all compressed resources, chunk composition,
+  tick-zero pixels, animation metadata, PNGs, and decoded APNG frames before
+  comparing every artifact and file hash;
+- `tools/test_pmdred_dungeon_ground.py` — synthetic format/timing regressions
+  plus ROM-gated all-stream and all-mapping assertions.
+
+Install the pinned dependencies and reproduce the committed bundle:
+
+```bash
+python -m pip install -r tools/requirements-pmdred.txt
+python tools/reconstruct_pmdred_dungeon_grounds.py \
+  "/path/to/Pokemon Mystery Dungeon - Red Rescue Team (Europe) (En,Fr,De,Es,It).gba" \
+  /tmp/pmdred-dungeon-grounds \
+  --max-animation-frames 8
+python tools/validate_pmdred_dungeon_ground_bundle.py \
+  "/path/to/Pokemon Mystery Dungeon - Red Rescue Team (Europe) (En,Fr,De,Es,It).gba" \
+  /tmp/pmdred-dungeon-grounds
+```
+
+The default reconstruction performs a differential comparison of every AT4PX
+stream in the EU dungeon archive: 136 direct and 68 SIRO-rooted streams, all
+204 byte-identical to `skytemple-files` after decompression. The direct Ground
+PAL loader publishes its 192 source colors first (forcing each palette's color
+0 black), then initializes CANM timers without publishing their first colors.
+`sub_80A3BB0(groundBg, 0)` only initializes map-render contexts. Therefore the
+committed tick-0 PNGs use the raw PAL; CANM color 0 first becomes visible at its
+record's initial timer expiry.
+
+The illustrated all-27 relationship index and per-Ground evidence are in
+[`dungeon_grounds/report.md`](dungeon_grounds/report.md). The bundle records all
+independent palette cycles and their exact steady periods; APNGs are bounded,
+exact startup-prefix previews rather than an impractical expansion of the
+cycles' global least common multiples. The separate
+[`direct_ground_visual_review.md`](direct_ground_visual_review.md) records the
+human inspection of all 27 tick-zero renders and all 131 stored preview states.
+
 ## Scope boundary
 
 This manifest proves Ground graphical archive and dependency-table extraction.

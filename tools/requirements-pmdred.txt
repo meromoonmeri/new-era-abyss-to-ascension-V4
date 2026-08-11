@@ -1,2 +1,4 @@
-# Deterministic PNG rendering for tools/convert_red_all.py.
+# Deterministic PNG/APNG rendering for PMD Red conversion and reconstruction.
 Pillow==12.3.0
+# Independent all-stream differential validation of the strict AT4PX decoder.
+skytemple-files==1.8.5
