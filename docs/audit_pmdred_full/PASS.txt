@@ -246,6 +246,9 @@ a02p01
 a02p02
 a02p03
 a02p04
+a03p01
+a03p02
+a03p03
 a04p01
 a05p03
 abime_tempetes
@@ -274,7 +277,6 @@ mont_gele_pied
 mount_windswept_guardian
 mt_blaze_midpoint
 mt_freeze_midpoint
-mt_thunder_midpoint
 palier_celeste
 parvis_celeste
 sanctuaire_voeu

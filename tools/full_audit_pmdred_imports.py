@@ -118,15 +118,15 @@ for zone,ground in relay_expected.items():
  if zp.exists() and ground not in zp.read_text():issue(ground,'CRITICAL','RELAY',f'relais non référencé par ZoneData {zone}')
 # Recompute statuses after relay checks.
 for r in rows:
- gi=[z for z in issues if z['ground']==r['ground']];r['issues']=len(gi);r['status']='CRITICAL' if any(z['severity']=='CRITICAL' for z in gi) else ('FAIL' if any(z['severity']=='HIGH' for z in gi) else ('WARNING' if gi else 'PASS_STATIC')
+ gi=[z for z in issues if z['ground']==r['ground']];r['issues']=len(gi);r['status']='CRITICAL' if any(z['severity']=='CRITICAL' for z in gi) else ('FAIL' if any(z['severity']=='HIGH' for z in gi) else ('WARNING' if gi else 'PASS_STATIC'))
  cats={z['category'] for z in gi};r['checks']={k:('FAIL' if k in cats else 'PASS_STATIC') for k in ('TILES','IMAGE','DIMENSIONS','COLLISION','MARKER','RELAY','BOSS','SPAWNER','CAMERA','LUA','TRANSITION','REACHABILITY')};r['regressions']='FOUND' if 'RELAY' in cats else 'NONE'
 counts=Counter(r['status'] for r in rows);sev=Counter(i['severity'] for i in issues);cats=Counter(i['category'] for i in issues)
-report={'schema':1,'scope':'PMD Red imports only','summary':{'reserve_grounds':len(list(RG.glob('*.rsground'))),'runtime_imports':len(runtime),'total_records':len(rows),'status':dict(counts),'severity':dict(sev),'categories':dict(cats)},'grounds':rows,'issues':issues,'runtime_execution':'not available; PASS_STATIC is not runtime PASS'}
+report={'schema':1,'scope':'PMD Red imports only','summary':{'reserve_grounds':len(list(RG.glob('*.rsground'))),'runtime_imports':len(runtime),'total_records':len(rows),'status':dict(counts),'severity':dict(sev),'categories':dict(cats)},'grounds':rows,'issues':issues,'runtime_execution':'exact PMDO 0.8.12 evidence is documented in docs/pmdred_eu/pmdo_validation; PASS_STATIC is still not runtime PASS'}
 (OUT/'FULL_AUDIT.json').write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n')
 for label,pred in [('FAIL',lambda r:r['status'] in ('FAIL','CRITICAL')),('PASS',lambda r:r['status']=='PASS_STATIC'),('REGRESSIONS',lambda r:any(i['ground']==r['ground'] and i['category']=='RELAY' for i in issues))]:
  (OUT/(label+'.txt')).write_text('\n'.join(r['ground'] for r in rows if pred(r))+'\n')
 for cat in ('RELAY','IMAGE','TILES','COLLISION','MARKER','TRANSITION','COORDINATES','REACHABILITY','DIMENSIONS'):(OUT/(cat+'.json')).write_text(json.dumps([i for i in issues if i['category']==cat],indent=2,ensure_ascii=False)+'\n')
-md=['# Full audit — imports PMD Red uniquement','',f"Réserve: {report['summary']['reserve_grounds']} | Runtime: {report['summary']['runtime_imports']} | Enregistrements: {len(rows)}",'',f"Statuts: `{dict(counts)}`",f"Sévérités: `{dict(sev)}`",f"Catégories: `{dict(cats)}`",'', '> PASS_STATIC ne signifie pas capture PMDO réussie. Aucun runtime exécutable n’est présent.','', '## Erreurs critiques']
+md=['# Full audit — imports PMD Red uniquement','',f"Réserve: {report['summary']['reserve_grounds']} | Runtime: {report['summary']['runtime_imports']} | Enregistrements: {len(rows)}",'',f"Statuts: `{dict(counts)}`",f"Sévérités: `{dict(sev)}`",f"Catégories: `{dict(cats)}`",'', '> PASS_STATIC ne signifie pas capture PMDO réussie. Les preuves PMDO 0.8.12 exactes sont séparées dans `docs/pmdred_eu/pmdo_validation`.','', '## Erreurs critiques']
 for i in issues:
  if i['severity']=='CRITICAL':md.append(f"- **{i['ground']}** [{i['category']}] {i['message']}")
 (OUT/'REPORT.md').write_text('\n'.join(md)+'\n');print(json.dumps(report['summary'],ensure_ascii=False))

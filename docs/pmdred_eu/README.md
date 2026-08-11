@@ -258,18 +258,79 @@ fresh byte-identical regeneration. The checked totals are:
 The shared `Data/Script/halcyon/RedDirectGroundAnimation.lua` scheduler owns
 `Start`, `Update`, `Finish`, and `Cancel`, retains PAL at tick zero, advances
 records at the exact GBA rational rate through an integer remainder, resets on
-re-entry, and invalidates superseded map tasks. Lupa regressions exercise
-one/two-frame timing, map replacement, stale coroutine exit, finish, and
-cancellation.
+re-entry, and invalidates superseded map tasks. It also exposes ownership-safe
+`Pause`, `Seek`, `Resume`, and `CurrentTick` controls for deterministic engine
+inspection. Lupa regressions exercise one/two-frame timing, map replacement,
+stale coroutine exit, finish, and cancellation.
 
-These files remain deliberately unreleased and have no guessed music, entrance,
-objects, or markers. The repository is a mod checkout and does not bundle a
-PMDO/RogueEssence executable; the current validation environment also has no
-.NET runtime. Consequently, schema parsing and Lua execution here are not
-misreported as an engine launch or visual runtime capture. Promotion must merge
-adapters with canonical EU scene logic and, in an installed PMDO 0.8.12 runtime,
-prove loading, captured tick-zero/animated pixels, transitions, music, re-entry,
-and cleanup first.
+## Canonical EU script graph audit
+
+`tools/audit_pmdred_eu_ground_scripts.py` starts at the European ROM's regional
+`gMapScriptTable`, follows every typed group, sector, entity, `ScriptRef`, and
+command root for the 27 candidates, and decodes all five localized strings for
+each text block. A temporary C helper compiles pret's station declarations only
+to establish types, declaration extents, and semantic alignment; no US bytes
+are accepted as content.
+
+```bash
+python tools/audit_pmdred_eu_ground_scripts.py \
+  "/path/to/Pokemon Mystery Dungeon - Red Rescue Team (Europe) (En,Fr,De,Es,It).gba" \
+  --pret-root /path/to/pret-pmd-red \
+  --report /tmp/ground_scripts.json
+python tools/test_pmdred_eu_ground_scripts.py -v
+```
+
+The committed [`ground_scripts.json`](ground_scripts.json) proves 27 typed
+graphs, 267/267 owned source declarations with zero unowned or undeclared
+roots, 5,617 regional command records, and 711 complete five-language text
+blocks (including 711 French strings). Regional command expansions remain in
+the evidence rather than being normalized away.
+
+## Exact PMDO 0.8.12 runtime validation
+
+The repository still does not bundle the executable or official PMDO assets.
+Validation used an externally supplied, byte-verified PMDO 0.8.12 executable
+(SHA-256
+`faf9755c5c6ba1a06460c433b401c118bae218887b8687aefb995b80d4de8327`)
+with the matching official asset dump and an isolated .NET/native graphics
+environment. `tools/build_pmdred_eu_runtime_fixture.py` creates an ignored,
+non-destructive quest overlay: source candidates and tracked assets remain
+untouched, every index PMDO might rewrite is fixture-local, and only copied
+Grounds receive deterministic audit markers and routing. The graphical tile
+index is parsed, merged, written, and read back exactly before launch.
+
+The controlled engine run loaded all 27 Grounds. For each Ground it recorded
+entry, scheduler ownership, four cardinal movement/collision probes, exact
+canonical CANM tick seeks, screenshots, and a `SAFE` verdict. The dependency-free
+`tools/compare_pmdred_eu_pmdo_renders.py` CRC-checks and composites PNG/APNG
+without Pillow, then compares normalized RGBA pixels. Results in
+[`pmdo_validation/report.json`](pmdo_validation/report.json) are:
+
+- 27/27 `SAFE` runtime verdicts;
+- 131/131 canonical sampled ticks pixel-exact (maximum channel delta zero);
+- 131/131 PMDO captures fully opaque;
+- 27 entries and 26 inter-entry transitions, with a final end event;
+- declared validation/tick order exactly equal to the observed runtime event and
+  screenshot sequence;
+- no PMDO error, exception, invalid-data, or missing-resource diagnostic.
+
+The report contains hashes and metrics for every sampled tick. The adjacent
+per-Ground PNGs are comparative expected/actual montages for the first and last
+stored tick (one image for static Grounds), keeping review evidence compact
+without discarding any per-tick comparison result.
+
+A separate bounded same-Ground route queued `d01p02` twice. Its committed
+[`route193_reentry.json`](pmdo_validation/route193_reentry.json) proves two
+loads and `SAFE` verdicts, one same-Ground re-entry, an observed map exit with
+scheduler cleanup `PASS`, explicit final cleanup `PASS`, a final end event, and
+2/2 exact opaque captures. The process intentionally remained in PMDO's normal
+game loop after the validator ended and was then stopped by its bounded wrapper;
+that timeout is not a validation failure.
+
+These results clear the exact-engine barrier for the 27 graphical candidates,
+but do not fabricate absent canonical music, scene actors, entrances, or event
+logic. The candidates remain non-destructively staged under `RESERVE/` until
+the audited EU script/music/transition behavior is migrated and validated.
 
 ## Scope boundary
 

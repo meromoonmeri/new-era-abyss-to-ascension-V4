@@ -62,12 +62,16 @@ local function run(token)
   local denominator = token.data.gba_master_clock
   local remainder = 0
   while token.active and current == token do
-    remainder = remainder + numerator
-    local frames = math.floor(remainder / denominator)
-    remainder = remainder - frames * denominator
-    GAME:WaitFrames(frames)
-    if token.active and current == token then
-      apply_tick(token, token.tick + 1)
+    if token.paused then
+      GAME:WaitFrames(1)
+    else
+      remainder = remainder + numerator
+      local frames = math.floor(remainder / denominator)
+      remainder = remainder - frames * denominator
+      GAME:WaitFrames(frames)
+      if token.active and current == token and not token.paused then
+        apply_tick(token, token.tick + 1)
+      end
     end
   end
 end
@@ -80,7 +84,7 @@ function RedDirectGroundAnimation.Start(map, data)
   for _, descriptor in ipairs(data.descriptors) do
     descriptor.key = nil
   end
-  local token = {active = true, map = map, data = data, tick = 0, coroutine = nil}
+  local token = {active = true, paused = false, map = map, data = data, tick = 0, coroutine = nil}
   current = token
   apply_tick(token, 0)
   token.coroutine = TASK:BranchCoroutine(function() run(token) end)
@@ -113,6 +117,41 @@ end
 
 function RedDirectGroundAnimation.Finish(map)
   return RedDirectGroundAnimation.Cancel(map)
+end
+
+-- Deterministic inspection hooks.  They are also useful to pause palette motion
+-- during menus/cutscenes without destroying the scheduler's ownership token.
+function RedDirectGroundAnimation.Pause(map)
+  if current == nil or (map ~= nil and current.map ~= map) then
+    return false
+  end
+  current.paused = true
+  return true
+end
+
+function RedDirectGroundAnimation.Resume(map)
+  if current == nil or (map ~= nil and current.map ~= map) then
+    return false
+  end
+  current.paused = false
+  return true
+end
+
+function RedDirectGroundAnimation.Seek(map, tick)
+  if current == nil or (map ~= nil and current.map ~= map) then
+    return false
+  end
+  assert(type(tick) == 'number' and tick >= 0 and tick == math.floor(tick),
+    'Tick CANM invalide pour RedDirectGroundAnimation.Seek')
+  apply_tick(current, tick)
+  return true
+end
+
+function RedDirectGroundAnimation.CurrentTick()
+  if current == nil then
+    return nil
+  end
+  return current.tick
 end
 
 function RedDirectGroundAnimation.ActiveAsset()

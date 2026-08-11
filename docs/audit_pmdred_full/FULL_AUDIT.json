@@ -3,17 +3,18 @@
   "scope": "PMD Red imports only",
   "summary": {
     "reserve_grounds": 245,
-    "runtime_imports": 41,
-    "total_records": 286,
+    "runtime_imports": 44,
+    "total_records": 289,
     "status": {
-      "PASS_STATIC": 284,
-      "FAIL": 2
+      "PASS_STATIC": 286,
+      "FAIL": 3
     },
     "severity": {
-      "HIGH": 3
+      "HIGH": 7
     },
     "categories": {
-      "REACHABILITY": 3
+      "REACHABILITY": 6,
+      "DIMENSIONS": 1
     }
   },
   "grounds": [
@@ -4831,7 +4832,7 @@
         "Main_Entrance_Marker"
       ],
       "entities": 1,
-      "issues": 3,
+      "issues": 6,
       "status": "FAIL",
       "checks": {
         "TILES": "PASS_STATIC",
@@ -8611,7 +8612,7 @@
         "Cutscene_Marker",
         "Main_Entrance_Marker"
       ],
-      "entities": 3,
+      "entities": 5,
       "issues": 0,
       "status": "PASS_STATIC",
       "checks": {
@@ -8634,14 +8635,14 @@
       "ground": "a02p02",
       "path": "Data/Ground/a02p02.rsground",
       "runtime": true,
-      "width_cells": 33,
+      "width_cells": 40,
       "height_cells": 24,
       "pixel_size": [
-        264,
+        320,
         192
       ],
       "sheets": {
-        "A02p02_Base": 2610
+        "A02p02_Base": 2943
       },
       "markers": [
         "Cutscene_Marker",
@@ -8739,6 +8740,111 @@
       "regressions": "NONE"
     },
     {
+      "ground": "a03p01",
+      "path": "Data/Ground/a03p01.rsground",
+      "runtime": true,
+      "width_cells": 120,
+      "height_cells": 36,
+      "pixel_size": [
+        960,
+        288
+      ],
+      "sheets": {
+        "a03p01_Base": 4320
+      },
+      "markers": [
+        "Main_Entrance_Marker"
+      ],
+      "entities": 1,
+      "issues": 0,
+      "status": "PASS_STATIC",
+      "checks": {
+        "TILES": "PASS_STATIC",
+        "IMAGE": "PASS_STATIC",
+        "DIMENSIONS": "PASS_STATIC",
+        "COLLISION": "PASS_STATIC",
+        "MARKER": "PASS_STATIC",
+        "RELAY": "PASS_STATIC",
+        "BOSS": "PASS_STATIC",
+        "SPAWNER": "PASS_STATIC",
+        "CAMERA": "PASS_STATIC",
+        "LUA": "PASS_STATIC",
+        "TRANSITION": "PASS_STATIC",
+        "REACHABILITY": "PASS_STATIC"
+      },
+      "regressions": "NONE"
+    },
+    {
+      "ground": "a03p02",
+      "path": "Data/Ground/a03p02.rsground",
+      "runtime": true,
+      "width_cells": 40,
+      "height_cells": 42,
+      "pixel_size": [
+        320,
+        336
+      ],
+      "sheets": {
+        "a03p02_Base": 1680
+      },
+      "markers": [
+        "Main_Entrance_Marker"
+      ],
+      "entities": 1,
+      "issues": 0,
+      "status": "PASS_STATIC",
+      "checks": {
+        "TILES": "PASS_STATIC",
+        "IMAGE": "PASS_STATIC",
+        "DIMENSIONS": "PASS_STATIC",
+        "COLLISION": "PASS_STATIC",
+        "MARKER": "PASS_STATIC",
+        "RELAY": "PASS_STATIC",
+        "BOSS": "PASS_STATIC",
+        "SPAWNER": "PASS_STATIC",
+        "CAMERA": "PASS_STATIC",
+        "LUA": "PASS_STATIC",
+        "TRANSITION": "PASS_STATIC",
+        "REACHABILITY": "PASS_STATIC"
+      },
+      "regressions": "NONE"
+    },
+    {
+      "ground": "a03p03",
+      "path": "Data/Ground/a03p03.rsground",
+      "runtime": true,
+      "width_cells": 120,
+      "height_cells": 36,
+      "pixel_size": [
+        960,
+        288
+      ],
+      "sheets": {
+        "a03p03_Base": 4320
+      },
+      "markers": [
+        "Main_Entrance_Marker"
+      ],
+      "entities": 1,
+      "issues": 0,
+      "status": "PASS_STATIC",
+      "checks": {
+        "TILES": "PASS_STATIC",
+        "IMAGE": "PASS_STATIC",
+        "DIMENSIONS": "PASS_STATIC",
+        "COLLISION": "PASS_STATIC",
+        "MARKER": "PASS_STATIC",
+        "RELAY": "PASS_STATIC",
+        "BOSS": "PASS_STATIC",
+        "SPAWNER": "PASS_STATIC",
+        "CAMERA": "PASS_STATIC",
+        "LUA": "PASS_STATIC",
+        "TRANSITION": "PASS_STATIC",
+        "REACHABILITY": "PASS_STATIC"
+      },
+      "regressions": "NONE"
+    },
+    {
       "ground": "a04p01",
       "path": "Data/Ground/a04p01.rsground",
       "runtime": true,
@@ -8780,14 +8886,14 @@
       "ground": "a05p03",
       "path": "Data/Ground/a05p03.rsground",
       "runtime": true,
-      "width_cells": 39,
+      "width_cells": 40,
       "height_cells": 30,
       "pixel_size": [
-        312,
+        320,
         240
       ],
       "sheets": {
-        "A05p03_Base": 1170
+        "A05p03_Base": 1200
       },
       "markers": [
         "Cutscene_Marker",
@@ -9029,8 +9135,13 @@
       "sheets": {
         "ChampVentBoreal_Base": 13770
       },
-      "markers": [],
-      "entities": 0,
+      "markers": [
+        "Boss_Marker",
+        "Cutscene_Marker",
+        "Cutscene_Marker_2",
+        "Main_Entrance_Marker"
+      ],
+      "entities": 4,
       "issues": 0,
       "status": "PASS_STATIC",
       "checks": {
@@ -9284,8 +9395,8 @@
         "Cutscene_Marker",
         "Main_Entrance_Marker"
       ],
-      "entities": 3,
-      "issues": 3,
+      "entities": 6,
+      "issues": 6,
       "status": "FAIL",
       "checks": {
         "TILES": "PASS_STATIC",
@@ -9307,14 +9418,14 @@
       "ground": "foret_givree_oree",
       "path": "Data/Ground/foret_givree_oree.rsground",
       "runtime": true,
-      "width_cells": 33,
+      "width_cells": 40,
       "height_cells": 42,
       "pixel_size": [
-        264,
+        320,
         336
       ],
       "sheets": {
-        "ForetGivreeOree_Base": 1386
+        "ForetGivreeOree_Base": 1680
       },
       "markers": [
         "Cutscene_Marker",
@@ -9631,14 +9742,14 @@
       "ground": "mont_gele_pied",
       "path": "Data/Ground/mont_gele_pied.rsground",
       "runtime": true,
-      "width_cells": 33,
+      "width_cells": 40,
       "height_cells": 36,
       "pixel_size": [
-        264,
+        320,
         288
       ],
       "sheets": {
-        "MontGelePied_Base": 10845
+        "MontGelePied_Base": 12879
       },
       "markers": [
         "Cutscene_Marker",
@@ -9775,23 +9886,26 @@
       "ground": "mt_thunder_midpoint",
       "path": "Data/Ground/mt_thunder_midpoint.rsground",
       "runtime": true,
-      "width_cells": 19,
-      "height_cells": 19,
+      "width_cells": 45,
+      "height_cells": 51,
       "pixel_size": [
-        456,
-        456
+        1080,
+        1224
       ],
-      "sheets": {},
+      "sheets": {
+        "D05p02_Base": 2295
+      },
       "markers": [
+        "Entrance",
         "Main_Entrance_Marker"
       ],
-      "entities": 7,
-      "issues": 0,
-      "status": "PASS_STATIC",
+      "entities": 6,
+      "issues": 1,
+      "status": "FAIL",
       "checks": {
         "TILES": "PASS_STATIC",
         "IMAGE": "PASS_STATIC",
-        "DIMENSIONS": "PASS_STATIC",
+        "DIMENSIONS": "FAIL",
         "COLLISION": "PASS_STATIC",
         "MARKER": "PASS_STATIC",
         "RELAY": "PASS_STATIC",
@@ -10071,7 +10185,31 @@
       "severity": "HIGH",
       "category": "REACHABILITY",
       "message": "Markers/Cutscene_Marker inaccessible depuis entrée"
+    },
+    {
+      "ground": "d11p03",
+      "severity": "HIGH",
+      "category": "REACHABILITY",
+      "message": "Spawners/TEAMMATE_1 inaccessible depuis entrée"
+    },
+    {
+      "ground": "d11p03",
+      "severity": "HIGH",
+      "category": "REACHABILITY",
+      "message": "Spawners/TEAMMATE_2 inaccessible depuis entrée"
+    },
+    {
+      "ground": "d11p03",
+      "severity": "HIGH",
+      "category": "REACHABILITY",
+      "message": "Spawners/TEAMMATE_3 inaccessible depuis entrée"
+    },
+    {
+      "ground": "mt_thunder_midpoint",
+      "severity": "HIGH",
+      "category": "DIMENSIONS",
+      "message": "layers 45x51 TexSize 3 vs obstacles 45x51"
     }
   ],
-  "runtime_execution": "not available; PASS_STATIC is not runtime PASS"
+  "runtime_execution": "exact PMDO 0.8.12 evidence is documented in docs/pmdred_eu/pmdo_validation; PASS_STATIC is still not runtime PASS"
 }
