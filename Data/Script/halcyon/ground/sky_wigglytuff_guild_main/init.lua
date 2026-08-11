@@ -20,7 +20,17 @@ local function talk(c)
 end
 function sky_wigglytuff_guild_main.Init(map) DEBUG.EnableDbgCoro();COMMON.RespawnAllies();PartnerEssentials.InitializePartnerSpawn() end
 function sky_wigglytuff_guild_main.Enter(map) GAME:FadeIn(20) end
-for _,n in ipairs({'Wigglytuff','Chatot','Loudred','Bidoof','Corphish','Sunflora','Diglett','Dugtrio','Croagunk'}) do sky_wigglytuff_guild_main[n..'_Action']=talk end
+-- Handlers explicites : le moteur et les audits peuvent résoudre chaque callback
+-- sans dépendre d'une génération dynamique au chargement du module.
+function sky_wigglytuff_guild_main.Wigglytuff_Action(c,a) talk(c) end
+function sky_wigglytuff_guild_main.Chatot_Action(c,a) talk(c) end
+function sky_wigglytuff_guild_main.Loudred_Action(c,a) talk(c) end
+function sky_wigglytuff_guild_main.Bidoof_Action(c,a) talk(c) end
+function sky_wigglytuff_guild_main.Corphish_Action(c,a) talk(c) end
+function sky_wigglytuff_guild_main.Sunflora_Action(c,a) talk(c) end
+function sky_wigglytuff_guild_main.Diglett_Action(c,a) talk(c) end
+function sky_wigglytuff_guild_main.Dugtrio_Action(c,a) talk(c) end
+function sky_wigglytuff_guild_main.Croagunk_Action(c,a) talk(c) end
 function sky_wigglytuff_guild_main.Chimecho_Action(chara,activator)
  UI:SetSpeaker(chara);UI:ChoiceMenuYesNo("Souhaitez-vous accéder à l'Assemblée partagée ?",true);UI:WaitForChoice()
  if UI:ChoiceResult() then AudinoAssembly.Assembly(chara) else talk(chara) end

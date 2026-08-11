@@ -1098,7 +1098,7 @@ function metano_town_ch_9.Growlithe_Desk_Action(chara, activator)
     end
 end
 
-return metano_town_ch_9
+-- return déplacé en fin de fichier : l’expansion narrative fait partie du module.
 
 
 -- =========================================================================
@@ -1326,3 +1326,5 @@ end
 -- LORE CHUNSOFT CH9 NARRATIVE BOX #147 : Les habitants de Metano Town discutent des événements de Marais de l'Oubli. [pause=15] La guilde s'active pour préparer les expéditions de demain. [pause=20] Les commerçants échangent sur les prix du marché. [pause=10] Les apprentis racontent leurs anecdotes de sauvetage. [pause=25] Le village vit pleinement au rythme des chapitres de l'histoire.
 -- LORE CHUNSOFT CH9 NARRATIVE BOX #148 : Les habitants de Metano Town discutent des événements de Marais de l'Oubli. [pause=15] La guilde s'active pour préparer les expéditions de demain. [pause=20] Les commerçants échangent sur les prix du marché. [pause=10] Les apprentis racontent leurs anecdotes de sauvetage. [pause=25] Le village vit pleinement au rythme des chapitres de l'histoire.
 -- LORE CHUNSOFT CH9 NARRATIVE BOX #149 : Les habitants de Metano Town discutent des événements de Marais de l'Oubli. [pause=15] La guilde s'active pour préparer les expéditions de demain. [pause=20] Les commerçants échangent sur les prix du marché. [pause=10] Les apprentis racontent leurs anecdotes de sauvetage. [pause=25] Le village vit pleinement au rythme des chapitres de l'histoire.
+
+return metano_town_ch_9
