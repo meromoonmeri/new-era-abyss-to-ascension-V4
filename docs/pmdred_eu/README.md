@@ -202,6 +202,75 @@ cycles' global least common multiples. The separate
 [`direct_ground_visual_review.md`](direct_ground_visual_review.md) records the
 human inspection of all 27 tick-zero renders and all 131 stored preview states.
 
+## BMA auxiliary-layer differential
+
+`tools/audit_pmdred_bma_auxiliary.py` independently compares the canonical
+unknown/data block and every collision layer against `skytemple-files`. It also
+compares camera dimensions and compressed-stream consumption. Reproduce the
+committed [`bma_auxiliary_differential.json`](bma_auxiliary_differential.json)
+from the normalized extraction with:
+
+```bash
+python tools/audit_pmdred_bma_auxiliary.py \
+  /tmp/pmdred-eu-ground \
+  /tmp/pmdred-bma-auxiliary-differential.json
+```
+
+All **201** EU BMAs match byte-for-byte: 26 contain an unknown/data block and
+152 contain one collision layer. The corpus has 126 `(data=0, collision=1)`, 49
+`(0, 0)`, and 26 `(1, 1)` resources. It has no two-collision-layer sample, so
+the shared decoder additionally has synthetic zero/one/two-layer, stream-bound,
+vertical-XOR, unknown-data, and truncation regressions. Unknown/data bytes are
+never reinterpreted as collision.
+
+## Non-destructive native PMDO migration
+
+`tools/migrate_pmdred_dungeon_grounds.py` stages all 27 direct dungeon-backed
+Grounds under `RESERVE/pmdred_direct/`; it does not modify `Data/Ground/` or
+`Content/Tile/`. Each candidate includes a native `.rsground`, deduplicated
+virtual `.tile` atlas, compact CANM Lua metadata, callback adapter, collision and
+unknown-data evidence, inventory hashes, and an explicit promotion barrier.
+
+```bash
+python tools/migrate_pmdred_dungeon_grounds.py \
+  "/path/to/Pokemon Mystery Dungeon - Red Rescue Team (Europe) (En,Fr,De,Es,It).gba" \
+  /tmp/pmdred-direct-candidate \
+  --repo-root .
+python tools/validate_pmdred_dungeon_ground_migration.py \
+  "/path/to/Pokemon Mystery Dungeon - Red Rescue Team (Europe) (En,Fr,De,Es,It).gba" \
+  /tmp/pmdred-direct-candidate \
+  --repo-root .
+```
+
+The validator parses every `.tile` PNG and `.rsground`, independently rederives
+all mappings, geometry, resources, collision/data bytes, descriptor groups,
+CANM records, reached state keys, and all state pixels from the ROM, executes
+all Lua metadata, exercises scheduler lifecycle ownership, and then performs a
+fresh byte-identical regeneration. The checked totals are:
+
+- 13,467 used CEL descriptors;
+- 2,666 descriptors referencing active CANM records;
+- 2,196 descriptors whose displayed texture changes at runtime;
+- 31,002 raw source palette-tuple states (an exploratory upper bound);
+- 30,211 exact GBA-displayed descriptor states after 5-bit color conversion;
+- 29,515 unique embedded 8×8 atlas images after cross-descriptor deduplication.
+
+The shared `Data/Script/halcyon/RedDirectGroundAnimation.lua` scheduler owns
+`Start`, `Update`, `Finish`, and `Cancel`, retains PAL at tick zero, advances
+records at the exact GBA rational rate through an integer remainder, resets on
+re-entry, and invalidates superseded map tasks. Lupa regressions exercise
+one/two-frame timing, map replacement, stale coroutine exit, finish, and
+cancellation.
+
+These files remain deliberately unreleased and have no guessed music, entrance,
+objects, or markers. The repository is a mod checkout and does not bundle a
+PMDO/RogueEssence executable; the current validation environment also has no
+.NET runtime. Consequently, schema parsing and Lua execution here are not
+misreported as an engine launch or visual runtime capture. Promotion must merge
+adapters with canonical EU scene logic and, in an installed PMDO 0.8.12 runtime,
+prove loading, captured tick-zero/animated pixels, transitions, music, re-entry,
+and cleanup first.
+
 ## Scope boundary
 
 This manifest proves Ground graphical archive and dependency-table extraction.

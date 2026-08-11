@@ -45,7 +45,8 @@ from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, 'tools'))
-import audit_pmdred_eu_rom as eu_audit
+import audit_pmdred_eu_rom as eu_audit  # noqa: F401 - compatibility authority API
+from pmdred_dungeon_ground import decode_bma_auxiliary_layers
 
 DEFAULT_RED = os.environ.get('PMDRED_EU_GROUND', '/tmp/pmdred-eu-ground')
 DEFAULT_MANIFEST = os.path.join(ROOT, 'docs', 'pmdred_eu', 'ground_manifest.json')
@@ -164,32 +165,22 @@ def decode_bma(p):
     return Wt, Ht, Wc, Hc, nL, layers
 
 
-def decode_bma_collision(path):
-    """Decode the canonical per-camera-tile collision layer without SkyTemple."""
+def decode_bma_auxiliary(path):
+    """Decode canonical BMA data plus all collision layers without guessing.
+
+    The unknown/data block is kept separate: it appears related to interaction
+    or counter behavior and must never be reinterpreted as PMDO collision.
+    """
     with open(path, 'rb') as stream:
         data = stream.read()
-    width, height = data[0], data[1]
-    chunk_width, chunk_height = data[4], data[5]
-    number_of_layers, has_data_layer, number_of_collisions = struct.unpack_from('<HHH', data, 6)
-    _, offset, _ = eu_audit.decode_bma_layers(
-        data, 12, chunk_width, chunk_height, number_of_layers, os.path.basename(path)
-    )
-    camera_cells = width * height
-    if has_data_layer:
-        _, offset, _ = eu_audit.decode_generic_nrl(
-            data, offset, camera_cells, os.path.basename(path) + '/data'
-        )
-    collisions = []
-    for layer in range(number_of_collisions):
-        deltas, offset, _ = eu_audit.decode_collision_rle(
-            data, offset, camera_cells, os.path.basename(path) + '/collision-%d' % layer
-        )
-        decoded = bytearray(camera_cells)
-        for index, delta in enumerate(deltas):
-            above = decoded[index - width] if index >= width else 0
-            decoded[index] = delta ^ above
-        collisions.append([bool(value) for value in decoded])
-    return collisions, width, height
+    return decode_bma_auxiliary_layers(data, os.path.basename(path))
+
+
+def decode_bma_collision(path):
+    """Compatibility adapter returning every canonical collision layer."""
+    decoded = decode_bma_auxiliary(path)
+    collisions = [[bool(value) for value in layer] for layer in decoded.collisions]
+    return collisions, decoded.width, decoded.height
 
 
 def parse_bpa(paths):

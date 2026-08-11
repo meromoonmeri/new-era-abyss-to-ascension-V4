@@ -744,6 +744,198 @@ def parse_mapparam(
     }
 
 
+@dataclass(frozen=True)
+class BmaAuxiliaryLayers:
+    """Canonical camera-cell data following a BMA's graphical layers.
+
+    ``unknown_data`` deliberately retains SkyTemple's neutral terminology.  It
+    is not collision: reverse engineering associates nonzero cells with NPC
+    interaction/counter behavior, so callers must preserve it as evidence and
+    must not silently turn it into PMDO obstacles.
+    """
+
+    width: int
+    height: int
+    unknown_data: bytes | None
+    collisions: tuple[bytes, ...]
+    encoded_end: int
+    metadata: dict[str, Any]
+
+
+def decode_bma_auxiliary_layers(data: bytes, context: str) -> BmaAuxiliaryLayers:
+    """Decode BMA unknown-data and every collision layer exactly.
+
+    This follows the same normalized EU parser used for graphical extraction,
+    then performs the documented vertical XOR reconstruction for each
+    collision stream.  It supports zero, one, or two collision layers even
+    though the 201 authoritative EU Ground BMAs currently use at most one.
+    """
+
+    # Import lazily so this library remains an adapter over the authoritative
+    # regional parser rather than a duplicate implementation.
+    import audit_pmdred_eu_rom as ground_audit
+
+    require(len(data) >= 12, f"{context}: truncated BMA")
+    width, height, _, _, width_chunks, height_chunks = data[:6]
+    layers, has_data, collision_layers = struct.unpack_from("<HHH", data, 6)
+    require(layers in (1, 2), f"{context}: invalid BMA layer count {layers}")
+    require(has_data in (0, 1), f"{context}: invalid BMA data flag {has_data}")
+    require(
+        collision_layers in (0, 1, 2),
+        f"{context}: invalid BMA collision count {collision_layers}",
+    )
+    try:
+        _, offset, layer_stats = ground_audit.decode_bma_layers(
+            data, 12, width_chunks, height_chunks, layers, context
+        )
+    except ground_audit.AuditError as exc:
+        raise ReconstructionError(str(exc)) from exc
+    camera_cells = width * height
+
+    unknown_data: bytes | None = None
+    data_stats: dict[str, Any] | None = None
+    if has_data:
+        try:
+            unknown_data, offset, data_stats = ground_audit.decode_generic_nrl(
+                data, offset, camera_cells, f"{context}/unknown-data"
+            )
+        except ground_audit.AuditError as exc:
+            raise ReconstructionError(str(exc)) from exc
+        data_stats = {
+            **data_stats,
+            "decoded_sha256": sha256(unknown_data),
+            "nonzero_cells": sum(value != 0 for value in unknown_data),
+            "distinct_values": sorted(set(unknown_data)),
+        }
+
+    collisions: list[bytes] = []
+    collision_stats: list[dict[str, Any]] = []
+    for layer_index in range(collision_layers):
+        try:
+            deltas, offset, stats = ground_audit.decode_collision_rle(
+                data, offset, camera_cells, f"{context}/collision-{layer_index}"
+            )
+        except ground_audit.AuditError as exc:
+            raise ReconstructionError(str(exc)) from exc
+        decoded = bytearray(camera_cells)
+        for index, delta in enumerate(deltas):
+            above = decoded[index - width] if index >= width else 0
+            decoded[index] = delta ^ above
+        decoded_bytes = bytes(decoded)
+        collisions.append(decoded_bytes)
+        collision_stats.append(
+            {
+                **stats,
+                "layer": layer_index,
+                "decoded_sha256": sha256(decoded_bytes),
+                "solid_cells": sum(decoded_bytes),
+                "walkable_cells": camera_cells - sum(decoded_bytes),
+            }
+        )
+
+    return BmaAuxiliaryLayers(
+        width=width,
+        height=height,
+        unknown_data=unknown_data,
+        collisions=tuple(collisions),
+        encoded_end=offset,
+        metadata={
+            "camera_width": width,
+            "camera_height": height,
+            "camera_cells": camera_cells,
+            "graphical_layer_streams": layer_stats,
+            "unknown_data_stream": data_stats,
+            "collision_streams": collision_stats,
+            "encoded_end": offset,
+            "normalized_size": len(data),
+            "trailing_bytes": len(data) - offset,
+        },
+    )
+
+
+def differential_validate_bma_auxiliary(
+    resources: Iterable[tuple[str, bytes]],
+) -> dict[str, Any]:
+    """Compare normalized BMAs' auxiliary layers with SkyTemple."""
+
+    try:
+        from skytemple_files.graphics.bma.handler import BmaHandler
+    except ImportError as exc:  # pragma: no cover - optional validation dependency
+        raise ReconstructionError(
+            "skytemple-files is required for BMA differential validation"
+        ) from exc
+
+    entries: list[dict[str, Any]] = []
+    collision_counts: dict[str, int] = {}
+    data_count = 0
+    for name, data in resources:
+        ours = decode_bma_auxiliary_layers(data, name)
+        reference = BmaHandler.deserialize(data)
+        reference_unknown = (
+            bytes(reference.unknown_data_block)
+            if reference.unknown_data_block is not None
+            else None
+        )
+        reference_collisions = tuple(
+            bytes(bool(value) for value in layer)
+            for layer in (reference.collision, reference.collision2)
+            if layer is not None
+        )
+        require(
+            (ours.width, ours.height)
+            == (reference.map_width_camera, reference.map_height_camera),
+            f"{name}: SkyTemple camera-dimension mismatch",
+        )
+        require(
+            ours.unknown_data == reference_unknown,
+            f"{name}: SkyTemple unknown-data mismatch",
+        )
+        require(
+            ours.collisions == reference_collisions,
+            f"{name}: SkyTemple collision mismatch",
+        )
+        collision_key = str(len(ours.collisions))
+        collision_counts[collision_key] = collision_counts.get(collision_key, 0) + 1
+        data_count += ours.unknown_data is not None
+        entries.append(
+            {
+                "resource": name,
+                "normalized_size": len(data),
+                "normalized_sha256": sha256(data),
+                "camera_width": ours.width,
+                "camera_height": ours.height,
+                "unknown_data": None
+                if ours.unknown_data is None
+                else {
+                    "size": len(ours.unknown_data),
+                    "sha256": sha256(ours.unknown_data),
+                    "nonzero_cells": sum(value != 0 for value in ours.unknown_data),
+                    "distinct_values": sorted(set(ours.unknown_data)),
+                },
+                "collision_layers": [
+                    {
+                        "index": index,
+                        "size": len(layer),
+                        "sha256": sha256(layer),
+                        "solid_cells": sum(layer),
+                    }
+                    for index, layer in enumerate(ours.collisions)
+                ],
+                "encoded_end": ours.encoded_end,
+                "match": True,
+            }
+        )
+    return {
+        "implementation": "tools/pmdred_dungeon_ground.py::decode_bma_auxiliary_layers",
+        "reference": "skytemple-files BmaHandler.deserialize",
+        "resource_count": len(entries),
+        "unknown_data_resource_count": data_count,
+        "collision_layer_count_histogram": collision_counts,
+        "all_match": True,
+        "entries": entries,
+    }
+
+
 def decode_bma_terrain(data: bytes, context: str) -> tuple[list[int], dict[str, Any]]:
     """Decode the terrain layer while retaining the runtime's 64-cell stride."""
 

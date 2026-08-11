@@ -27,6 +27,7 @@ from pmdred_dungeon_ground import (
     ReconstructionError,
     RomView,
     compose_ground_chunks,
+    decode_bma_auxiliary_layers,
     decode_pmd_text_escapes,
     decompress_at4px,
     differential_validate_at4px,
@@ -158,6 +159,52 @@ class RomAndSiroTests(unittest.TestCase):
         )
         with self.assertRaisesRegex(ReconstructionError, "exceeds archive container"):
             archive.stream_span(entry)
+
+
+class BmaAuxiliaryTests(unittest.TestCase):
+    @staticmethod
+    def fixture(collision_layers: int = 2, unknown: bool = True) -> bytes:
+        # 2x2 camera, one 2x1 graphical row. The optional data block is
+        # [0, 8, 8, 0]. Collision streams exercise vertical XOR reconstruction.
+        header = bytes((2, 2, 2, 2, 2, 1)) + struct.pack(
+            "<HHH", 1, int(unknown), collision_layers
+        )
+        graphical_layer = bytes((0x00,))
+        unknown_data = bytes((0x00, 0x81, 0x08, 0x00)) if unknown else b""
+        collision1 = bytes((0x00, 0x81, 0x00)) if collision_layers >= 1 else b""
+        collision2 = bytes((0x80, 0x01, 0x80)) if collision_layers >= 2 else b""
+        return header + graphical_layer + unknown_data + collision1 + collision2
+
+    def test_unknown_data_and_two_collision_layers_remain_separate(self) -> None:
+        data = self.fixture()
+        decoded = decode_bma_auxiliary_layers(data, "synthetic")
+        self.assertEqual((decoded.width, decoded.height), (2, 2))
+        self.assertEqual(decoded.unknown_data, bytes((0, 8, 8, 0)))
+        self.assertEqual(decoded.collisions[0], bytes((0, 1, 1, 1)))
+        self.assertEqual(decoded.collisions[1], bytes((1, 0, 1, 1)))
+        self.assertEqual(decoded.encoded_end, len(data))
+        self.assertEqual(
+            decoded.metadata["unknown_data_stream"]["distinct_values"], [0, 8]
+        )
+
+    def test_zero_and_one_collision_layer_boundaries(self) -> None:
+        zero = decode_bma_auxiliary_layers(self.fixture(0, False), "zero")
+        self.assertIsNone(zero.unknown_data)
+        self.assertEqual(zero.collisions, ())
+        self.assertEqual(zero.encoded_end, len(self.fixture(0, False)))
+
+        one = decode_bma_auxiliary_layers(self.fixture(1, False), "one")
+        self.assertIsNone(one.unknown_data)
+        self.assertEqual(one.collisions, (bytes((0, 1, 1, 1)),))
+        self.assertEqual(one.encoded_end, len(self.fixture(1, False)))
+
+    def test_each_auxiliary_stream_rejects_truncation(self) -> None:
+        complete = self.fixture()
+        # Exercise truncation within the collision2 stream and at every earlier
+        # optional-stream boundary, rather than relying on a single EOF case.
+        for cut in (13, 16, 17, 20, 21, len(complete) - 1):
+            with self.subTest(cut=cut), self.assertRaises(ReconstructionError):
+                decode_bma_auxiliary_layers(complete[:cut], "truncated")
 
 
 class CompositionTests(unittest.TestCase):
