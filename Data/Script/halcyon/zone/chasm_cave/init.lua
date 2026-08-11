@@ -28,13 +28,7 @@ function chasm_cave.Rescued(zone, name, mail)
 end
 
 function chasm_cave.ExitSegment(zone, result, rescue, segmentID, mapID)
-  GeneralFunctions.RestoreIdleAnim()
-  DEBUG.EnableDbgCoro()
-  local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
-  SV.adventure.Thief = false
-  if exited == true then return end
-  -- Sortie du donjon : retour sur la map fixe D18P11A (scène m17a0701) puis Dark Hill
-  FutureDungeonCommon.ExitToGround(result, zone.ID, 'd18p11a')
+  FutureDungeonCommon.HandleExit(result, rescue, zone, segmentID, 'd18p11a')
 end
 
 return chasm_cave

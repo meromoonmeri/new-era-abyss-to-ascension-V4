@@ -35,28 +35,28 @@ function m19d1072.Cutscene()
         UI:ResetSpeaker()
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
+            end),
         })
         GAME:WaitFrames(10)
         -- (parallèle) NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
+            end),
         })
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Normal')
@@ -64,71 +64,71 @@ function m19d1072.Cutscene()
         pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Hop', false) -- param 17 = anim 10 (Hop)
                 pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
-            end,
+            end),
         })
         -- (parallèle) ATTENDANT1, NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.Left, 15)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('Sableye_1'), CH('Sableye_1').Position.X + 0.5*8, CH('Sableye_1').Position.Y + 8*8, false, 1.0)
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI2, NPC_YAMIRAMI3
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_2'), CH('Sableye_2').Position.X + 0.5*8, CH('Sableye_2').Position.Y + -8*8, false, 1.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_3'), CH('Sableye_3').Position.X + 0.5*8, CH('Sableye_3').Position.Y + 8*8, false, 1.0)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_4'), CH('Sableye_4').Position.X + 0.5*8, CH('Sableye_4').Position.Y + -8*8, false, 1.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_5'), CH('Sableye_5').Position.X + 0.5*8, CH('Sableye_5').Position.Y + 8*8, false, 1.0)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         GROUND:MoveToPosition(CH('Sableye_6'), CH('Sableye_6').Position.X + 0.5*8, CH('Sableye_6').Position.Y + -8*8, false, 1.0)
@@ -169,7 +169,13 @@ function m19d1072.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[m19d1072] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[m19d1072] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return m19d1072

@@ -1,20 +1,22 @@
 --[[
-    _future_dungeons_common.lua — Helpers communs des 6 donjons du futur.
+    Sortie commune des six donjons natifs de l'arc temporel.
 
-    Fournit GROUND_IDX (index d'un ground dans master_zone) et le hook de
-    sortie de donjon qui renvoie le trio sur le ground d'entrée pour jouer la
-    scène de sortie (AfterDungeon) puis poursuivre le parcours.
+    Ordre obligatoire : contrôle des missions, notification du contrôleur,
+    puis EndDungeonRun vers le Ground enregistré avant l'entrée. Le résultat
+    moteur est transmis sans le convertir : seul ResultType.Cleared progresse.
 ]]
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
+require 'halcyon.future_arc.FutureArc'
 
 FutureDungeonCommon = {}
 
 function FutureDungeonCommon.GroundIdx(name)
   local ok, idx = pcall(function()
-    local zone = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get("master_zone")
-    for ii = 0, zone.Grounds.Count - 1, 1 do
-      if zone.Grounds[ii] == name then return ii end
+    local zones = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]
+    local master = zones:Get('master_zone')
+    for ii = 0, master.Grounds.Count - 1, 1 do
+      if master.Grounds[ii] == name then return ii end
     end
     return -1
   end)
@@ -22,10 +24,35 @@ function FutureDungeonCommon.GroundIdx(name)
   return -1
 end
 
--- Sortie de donjon : renvoie vers le ground d'entrée puis appelle AfterDungeon.
+function FutureDungeonCommon.HandleExit(result, rescue, zone, segmentID, fallbackGround)
+  GeneralFunctions.RestoreIdleAnim()
+  DEBUG.EnableDbgCoro()
+
+  -- COMMON peut prendre entièrement en charge une sortie de mission/secours.
+  local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
+  SV.adventure.Thief = false
+  if exited == true then return true end
+
+  FutureArc.OnDungeonExit(zone.ID, result)
+  local returnGround = FutureArc.GetDungeonReturnGround(fallbackGround)
+  local groundIdx = FutureDungeonCommon.GroundIdx(returnGround)
+  if groundIdx < 0 then
+    PrintInfo('[FutureDungeonCommon] Ground de retour absent : ' .. tostring(returnGround))
+    returnGround = fallbackGround or 'bourg_comptoir'
+    groundIdx = FutureDungeonCommon.GroundIdx(returnGround)
+  end
+
+  GeneralFunctions.EndDungeonRun(result, 'master_zone', -1, groundIdx, 0, false, false)
+  return true
+end
+
+-- Compatibilité transitoire pour d'anciens appels ; ne contourne pas le
+-- contrôleur et conserve donc la sémantique succès/échec.
 function FutureDungeonCommon.ExitToGround(result, zoneId, groundName)
-  GeneralFunctions.EndDungeonRun(result, "master_zone", -1,
-    FutureDungeonCommon.GroundIdx(groundName), 0, false, false)
+  FutureArc.OnDungeonExit(zoneId, result)
+  local target = FutureArc.GetDungeonReturnGround(groundName)
+  GeneralFunctions.EndDungeonRun(result, 'master_zone', -1,
+    FutureDungeonCommon.GroundIdx(target), 0, false, false)
 end
 
 return FutureDungeonCommon

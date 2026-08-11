@@ -13,6 +13,7 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.BossFX'
+require 'halcyon.future_arc.FutureScene'
 
 local n06a1801 = {}
 
@@ -31,11 +32,9 @@ function n06a1801.Cutscene()
         -- performer 0
         -- camera_SetMyself : la caméra suit le héros (défaut PMDO)
         -- object 450 (v38p06a1) : contexte objet
-        local obj_450 = OBJ('v38p06a1') -- objet 450
-        GROUND:ObjectSetAnim(obj_450, 11, 0, 3, Direction.Down, 1) -- anim 11 (table REQUISE)
+        FutureScene.ObjectSetAnim('v38p06a1', 11, 0, 3, Direction.Down, 1) -- objet 450, anim 11 (table REQUISE)
         -- object 451 (v38p03a1) : contexte objet
-        local obj_451 = OBJ('v38p03a1') -- objet 451
-        GROUND:ObjectSetAnim(obj_451, 14, 0, 3, Direction.Down, 1) -- anim 14 (table REQUISE)
+        FutureScene.ObjectSetAnim('v38p03a1', 14, 0, 3, Direction.Down, 1) -- objet 451, anim 14 (table REQUISE)
         -- NON CONVERTI : bgm2_PlayFadeIn (un seul canal BGM dans PMDO)
         GAME:FadeIn(30)
         UI:ResetSpeaker()
@@ -100,43 +99,43 @@ function n06a1801.Cutscene()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_7430') end) -- TODO SE 7430 (SE_NUM_EVENT_MAIN18_MIKARUGE_06)
         -- (parallèle) NPC_KODORA3, NPC_KODORA6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Move2PositionMark (acteur NPC_KODORA3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Move2PositionMark (acteur NPC_KODORA6)
-            end,
+            end),
         })
         -- (parallèle) NPC_KODORA2, NPC_KODORA3, NPC_KODORA5, NPC_KODORA6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Move2PositionMark (acteur NPC_KODORA3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Move2PositionMark (acteur NPC_KODORA6)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Move2PositionMark (acteur NPC_KODORA2)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Move2PositionMark (acteur NPC_KODORA5)
-            end,
+            end),
         })
         -- supervision_emoveActing layer [4] (structurel)
         -- (parallèle) NPC_KODORA, NPC_KODORA2, NPC_KODORA4, NPC_KODORA5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Move2PositionMark (acteur NPC_KODORA2)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Move2PositionMark (acteur NPC_KODORA5)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Move2PositionMark (acteur NPC_KODORA)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Move2PositionMark (acteur NPC_KODORA4)
-            end,
+            end),
         })
         -- supervision_emoveActing layer [3] (structurel)
         -- supervision_emoveActing layer [2] (structurel)
@@ -186,7 +185,13 @@ function n06a1801.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[n06a1801] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[n06a1801] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return n06a1801

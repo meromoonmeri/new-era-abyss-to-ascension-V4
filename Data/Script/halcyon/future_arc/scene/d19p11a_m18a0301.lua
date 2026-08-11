@@ -22,11 +22,11 @@ function m18a0301.Cutscene()
     GAME:CutsceneMode(true)
 
         -- PARTIEL : sound_Stop []
-        GAME:EnterGroundMap('s04p01a', 'Main_Entrance_Marker') -- transition S04P01A
+        -- Transition neutralisée : FutureArc possède le routage. Source : GAME:EnterGroundMap('s04p01a', 'Main_Entrance_Marker') -- transition S04P01A
         GAME:FadeIn(0)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue('(dialogue FUT_M18A0301_001)') -- FUT_M18A0301_001 (FR optionnel)
+        UI:WaitShowDialogue('Aïe... Nous n\'avons pas réussi à passer...') -- FUT_M18A0301_001 (FR)
         -- case 0: " Ugh...[K] We couldn't get\nthrough..."
         -- case 1: " Ouch...[K] We couldn't break\nthrough..."
         -- message_KeyWait (le dialogue bloque déjà)
@@ -49,19 +49,19 @@ function m18a0301.Cutscene()
         GAME:WaitFrames(15)
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharTurnToChar(CH('PLAYER'), CH('Teammate1'))
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharTurnToChar(CH('Teammate1'), CH('PLAYER'))
-            end,
+            end),
         })
         GAME:WaitFrames(15)
         GROUND:CharSetEmote(CH('Teammate1'), 'sweatdrop', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(' Hmmm... We got a little too\ncareless, maybe.') -- FUT_M18A0301_002 (FR optionnel)
+        UI:WaitShowDialogue('Hmmm... Nous avons peut-être manqué de prudence.') -- FUT_M18A0301_002 (FR)
         -- case 3: ' Hmmm... We got a little too\ncareless, maybe.'
         -- case 4: ' Hmmm... I think we got a little\ntoo careless.'
         UI:ResetSpeaker()
@@ -69,10 +69,10 @@ function m18a0301.Cutscene()
         GAME:WaitFrames(15)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' We have to hurry and go.') -- FUT_M18A0301_003 (FR optionnel)
+        UI:WaitShowDialogue('Ils nous ont presque rattrapés... Dépêchons-nous !') -- FUT_M18A0301_003 (FR)
         -- case 6: ' We have to hurry and go.'
         -- case 7: ' We need to get away\nfrom them.'
-        UI:WaitShowDialogue(' We\'ll go when you\'re ready.') -- FUT_M18A0301_004 (FR optionnel)
+        UI:WaitShowDialogue('On y va quand tu seras prêt.') -- FUT_M18A0301_004 (FR)
         -- case 9: " We'll go when you're ready."
         -- case 10: " Let's go when you're ready."
         UI:ResetSpeaker()
@@ -95,7 +95,13 @@ function m18a0301.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[m18a0301] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[m18a0301] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return m18a0301

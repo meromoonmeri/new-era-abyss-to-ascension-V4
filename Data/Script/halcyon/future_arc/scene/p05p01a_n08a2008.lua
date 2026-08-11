@@ -41,12 +41,12 @@ function n08a2008.Cutscene()
         GAME:WaitFrames(1)
         -- (parallèle) NPC_YONOWAARU_N8, PLAYER_FUTURE
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetOutputAttribute [8] : PARTIEL
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetOutputAttribute [8] : PARTIEL
-            end,
+            end),
         })
         -- NON CONVERTI : bgm2_PlayFadeIn (un seul canal BGM dans PMDO)
         GAME:FadeIn(30)
@@ -74,12 +74,12 @@ function n08a2008.Cutscene()
         GROUND:AnimateToPosition(CH('Dusknoir'), CH('Dusknoir').Position.X + 0.5*8, CH('Dusknoir').Position.Y + 0*8, false, 1.0)
         -- (parallèle) NPC_YONOWAARU_N8, PLAYER_FUTURE
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('HeroFuture'), Direction.UpLeft, 15)
-            end,
+            end),
         })
         GAME:WaitFrames(40)
         GROUND:MoveToPosition(CH('Dusknoir'), 220, 252, false, 2.0)
@@ -88,12 +88,12 @@ function n08a2008.Cutscene()
         GAME:WaitFrames(50)
         -- (parallèle) NPC_YONOWAARU_N8, PLAYER_FUTURE
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('HeroFuture'), Direction.Left, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Dusknoir'), Direction.Right, 15)
-            end,
+            end),
         })
         GAME:WaitFrames(40)
         UI:SetSpeaker(CH('HeroFuture'))
@@ -208,7 +208,13 @@ function n08a2008.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[n08a2008] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[n08a2008] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return n08a2008

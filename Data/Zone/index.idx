@@ -2772,20 +2772,30 @@
     "passage_temps": {
       "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
       "ExpPercent": 100,
-      "Level": 30,
+      "Level": 22,
       "LevelCap": true,
       "KeepSkills": false,
       "TeamRestrict": false,
-      "TeamSize": -1,
+      "TeamSize": 2,
       "MoneyRestrict": false,
-      "BagRestrict": -1,
+      "BagRestrict": 8,
       "KeepTreasure": true,
       "BagSize": -1,
-      "Rescues": 0,
-      "CountedFloors": 3,
+      "Rescues": 2,
+      "CountedFloors": 9,
       "Rogue": 0,
       "Grounds": [],
       "Maps": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2
+        ],
         [
           0,
           1,

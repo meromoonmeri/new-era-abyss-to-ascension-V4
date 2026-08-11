@@ -35,10 +35,11 @@ import glob
 import os
 import re
 
-IR_DIR = "/home/user/V4/docs/ssb_ir"
-ADAPT_DIR = "/home/user/V4/docs/ssb_adaptation"
-OUT_DIR = "/home/user/V4/docs/lua_arc_futur"
-REPORT_MD = "/home/user/V4/docs/RAPPORT_CONVERSION_LUA_ARC_FUTUR.md"
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+IR_DIR = os.path.join(ROOT_DIR, "docs", "ssb_ir")
+ADAPT_DIR = os.path.join(ROOT_DIR, "docs", "ssb_adaptation")
+OUT_DIR = os.path.join(ROOT_DIR, "docs", "lua_arc_futur")
+REPORT_MD = os.path.join(ROOT_DIR, "docs", "RAPPORT_CONVERSION_LUA_ARC_FUTUR.md")
 
 # Tables DÉFINITIVES (SkyTemple wiki : Animation_ID + table SetAnimation +
 # List_of_Sound_Effects) — extraites dans tables_rom.json.
@@ -876,6 +877,7 @@ class Converter:
         self.w("require 'origin.common'")
         self.w("require 'halcyon.GeneralFunctions'")
         self.w("require 'halcyon.BossFX'")
+        self.w("require 'halcyon.future_arc.FutureScene'")
         self.w("")
         self.w(f"local {self.scene} = {{}}")
         self.w("")
@@ -898,9 +900,12 @@ class Converter:
 
 def main():
     os.makedirs(OUT_DIR, exist_ok=True)
-    irs = [json.load(open(p)) for p in glob.glob(os.path.join(IR_DIR, "*_*.json"))
-           if "_summary" not in p and "_graph" not in p and "_coverage" not in p
-           and "_spawns" not in p and "_ssa_positions" not in p]
+    irs = []
+    for path in glob.glob(os.path.join(IR_DIR, "*_*.json")):
+        with open(path, encoding="utf-8") as stream:
+            candidate = json.load(stream)
+        if isinstance(candidate, dict) and all(key in candidate for key in ("zone", "scene", "ops")):
+            irs.append(candidate)
 
     rows = []
     totals = {"scenes": 0, "ops": 0, "non_conv": 0, "partiel": 0, "adapt": 0}

@@ -13,6 +13,7 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.BossFX'
+require 'halcyon.future_arc.FutureScene'
 
 local m18b1301 = {}
 
@@ -29,16 +30,15 @@ function m18b1301.Cutscene()
         GROUND:CharSetAnim(CH('Grovyle'), 'Float', false) -- param 29 = anim 20 (Float)
         -- SetOutputAttribute [2] : PARTIEL
         -- object 61 (d21p41a1) : contexte objet
-        local obj_61 = OBJ('d21p41a1') -- objet 61
-        GROUND:ObjectSetAnim(obj_61, 1, 0, 3, Direction.Down, 1) -- anim 1 (table REQUISE)
+        FutureScene.ObjectSetAnim('d21p41a1', 1, 0, 3, Direction.Down, 1) -- objet 61, anim 1 (table REQUISE)
         -- SetAnimation 44 : NON CONVERTI (param absent de la table officielle)
         -- bgm_PlayFadeIn [112, 30, 256] : BGM StaticNoise non mappé
         GAME:FadeIn(30)
         GAME:WaitFrames(30)
         UI:SetSpeaker(CH('Spiritomb'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' UGGGH...OOOOH...ARRGH!') -- FUT_M18B1301_001 (FR optionnel)
-        UI:WaitShowDialogue(' OOOOH...ARRGH! ...\nGWAAAAAAH!') -- FUT_M18B1301_002 (FR optionnel)
+        UI:WaitShowDialogue('AAARGH... OOOOH... ARRGH !') -- FUT_M18B1301_001 (FR)
+        UI:WaitShowDialogue('OOOOH... ARRGH !... GWAAAAAAH !') -- FUT_M18B1301_002 (FR)
         UI:ResetSpeaker()
         SOUND:FadeOutBGM(10)
         SOUND:PlayBattleSE('EVT_Battle_Flash') -- SE 5143 (SE_NUM_EVENT_EFF_FLASH_HEAVY)
@@ -58,13 +58,13 @@ function m18b1301.Cutscene()
         GROUND:CharSetEmote(CH('PLAYER'), 'exclaim', 3)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' Whoa! Wh-what\'s happening?') -- FUT_M18B1301_003 (FR optionnel)
+        UI:WaitShowDialogue('Ouah ! Qu-qu\'est-ce qui se passe ?') -- FUT_M18B1301_003 (FR)
         -- case 2: " Whoa! Wh-what's happening?"
         -- case 3: " Waah! Wh-what's happening?"
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Spiritomb'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' UGWAAAAAAAAAAH!\n\nGAAAAAAAAH!') -- FUT_M18B1301_004 (FR optionnel)
+        UI:WaitShowDialogue('UGWAAAAAAAAAAH ![br]GAAAAAAAAH !') -- FUT_M18B1301_004 (FR)
         UI:ResetSpeaker()
         -- NON CONVERTI : bgm2_FadeOut (un seul canal BGM dans PMDO)
         pcall(function() SOUND:PlayBattleSE('SSB_SE_7429') end) -- TODO SE 7429 (None)
@@ -77,21 +77,19 @@ function m18b1301.Cutscene()
         GAME:WaitFrames(1)
         -- MoveHeight [2, 0] : LocHeight (table alt. REQUISE)
 UI:SetSpeaker(CH('Spiritomb'))
-        UI:WaitShowDialogue(' Eeep!') -- FUT_M18B1301_005 (FR optionnel)
+        UI:WaitShowDialogue('Eeep !') -- FUT_M18B1301_005 (FR)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_7428') end) -- TODO SE 7428 (None)
         -- object 61 (d21p41a1) : contexte objet
-        local obj_61 = OBJ('d21p41a1') -- objet 61
-        GROUND:ObjectSetAnim(obj_61, 18, 0, 3, Direction.Down, 1) -- anim 18 (table REQUISE)
+        FutureScene.ObjectSetAnim('d21p41a1', 18, 0, 3, Direction.Down, 1) -- objet 61, anim 18 (table REQUISE)
         -- object 61 (d21p41a1) : contexte objet
         -- WaitAnimation sur objet d21p41a1 : PARTIEL
         -- object 61 (d21p41a1) : contexte objet
-        local obj_61 = OBJ('d21p41a1') -- objet 61
-        GROUND:ObjectSetAnim(obj_61, 19, 0, 3, Direction.Down, 1) -- anim 19 (table REQUISE)
+        FutureScene.ObjectSetAnim('d21p41a1', 19, 0, 3, Direction.Down, 1) -- objet 61, anim 19 (table REQUISE)
         -- object 61 (d21p41a1) : contexte objet
         -- NON CONVERTI : Slide2PositionMark [32972, 2, 2, 40, 28]
         -- object 61 (d21p41a1) : contexte objet
-        pcall(function() GROUND:RemoveCharacter(CH('Spiritomb')) end)
+        pcall(function() GROUND:Hide(CH('Spiritomb').EntName) end)
         -- PARTIEL : WaitSe [7428]
         GAME:WaitFrames(60)
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8963') end) -- TODO SE 8963 (SE_NUM_EVENT_SIGN_HATENA_03)
@@ -101,24 +99,24 @@ UI:SetSpeaker(CH('Spiritomb'))
         GAME:WaitFrames(1)
         -- MoveHeight [2, 0] : LocHeight (table alt. REQUISE)
 UI:SetSpeaker(CH('Spiritomb'))
-        UI:WaitShowDialogue(' Eeep!') -- FUT_M18B1301_006 (FR optionnel)
-        UI:WaitShowDialogue(' R-r-run away!') -- FUT_M18B1301_007 (FR optionnel)
+        UI:WaitShowDialogue('Eeep !') -- FUT_M18B1301_006 (FR)
+        UI:WaitShowDialogue('F-f-fuyons !') -- FUT_M18B1301_007 (FR)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_7447') end) -- TODO SE 7447 (None)
         -- (parallèle) NPC_MIKARUGE, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 47 : NON CONVERTI (param absent de la table officielle)
                 -- SetAnimation 1024 : NON CONVERTI (param absent de la table officielle)
                 GROUND:MoveToPosition(CH('Spiritomb'), 136, 228, false, 5.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.UpLeft, 15)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.UpLeft, 15)
-        pcall(function() GROUND:RemoveCharacter(CH('Spiritomb')) end)
+        pcall(function() GROUND:Hide(CH('Spiritomb').EntName) end)
         GAME:WaitFrames(30)
         -- PARTIEL : WaitSe [7447]
         GAME:WaitFrames(30)
@@ -127,7 +125,7 @@ UI:SetSpeaker(CH('Spiritomb'))
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Wh-what was that...?\n\nWhat was all that about?') -- FUT_M18B1301_008 (FR optionnel)
+        UI:WaitShowDialogue('Qu-qu\'est-ce que c\'était... ?[br]Que s\'est-il passé ?') -- FUT_M18B1301_008 (FR)
         -- case 9: ' Wh-what was that...?[K]\nWhat was all that about?'
         -- case 10: ' Wh-what was that...?[K]\nWhat was all that about?'
         UI:ResetSpeaker()
@@ -140,7 +138,7 @@ UI:SetSpeaker(CH('Spiritomb'))
         GROUND:AnimateToPosition(CH('Grovyle'), CH('Grovyle').Position.X + 1*8, CH('Grovyle').Position.Y + -1*8, false, 2.0)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(' They got spooked and ran.') -- FUT_M18B1301_009 (FR optionnel)
+        UI:WaitShowDialogue('Ils ont pris peur et se sont enfuis.') -- FUT_M18B1301_009 (FR)
         UI:ResetSpeaker()
         SOUND:PlayBattleSE('EVT_Emote_Exclaim_2') -- SE 8967 (SE_NUM_EVENT_SIGN_NOTICE_04)
         GROUND:CharSetEmote(CH('PLAYER'), 'exclaim', 3)
@@ -149,17 +147,17 @@ UI:SetSpeaker(CH('Spiritomb'))
         -- WaitEffect (les appels GROUND sont bloquants)
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.UpRight, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.UpRight, 15)
-            end,
+            end),
         })
         -- ExecuteCommon(JUMP_SURPRISE_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' Grovyle!') -- FUT_M18B1301_010 (FR optionnel)
+        UI:WaitShowDialogue('Massko !') -- FUT_M18B1301_010 (FR)
         -- case 13: ' [CS:N]Grovyle[CR]!'
         -- case 14: ' [CS:N]Grovyle[CR]!'
         UI:ResetSpeaker()
@@ -167,34 +165,34 @@ UI:SetSpeaker(CH('Spiritomb'))
         GROUND:MoveToPosition(CH('PLAYER'), 372, 192, false, 2.0)
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Teammate1'), 336, 172, false, 2.0)
                 GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.Right, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('PLAYER'), 372, 196, false, 2.0)
                 GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.Up, 15)
-            end,
+            end),
         })
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' Are you all right?') -- FUT_M18B1301_011 (FR optionnel)
+        UI:WaitShowDialogue('Ça va ?') -- FUT_M18B1301_011 (FR)
         -- case 16: ' Are you all right?'
         -- case 17: ' Are you all right?'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(' Yeah... I\'ll be fine...') -- FUT_M18B1301_012 (FR optionnel)
+        UI:WaitShowDialogue('Ouais... Ça va aller...') -- FUT_M18B1301_012 (FR)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(' Can you get up?') -- FUT_M18B1301_013 (FR optionnel)
+        UI:WaitShowDialogue('Tu peux te lever ?') -- FUT_M18B1301_013 (FR)
         -- case 20: ' Can you get up?'
         -- case 21: ' Can you get up?'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(' Somehow...\n Urk!') -- FUT_M18B1301_014 (FR optionnel)
+        UI:WaitShowDialogue('D\'une manière ou d\'une autre... Argh !') -- FUT_M18B1301_014 (FR)
         UI:ResetSpeaker()
         -- SetAnimation 31 : NON CONVERTI (param absent de la table officielle)
         pcall(function() GROUND:CharWaitAnim(CH('Grovyle')) end)
@@ -202,49 +200,49 @@ UI:SetSpeaker(CH('Spiritomb'))
         GAME:WaitFrames(30)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' That Pokémon...\n It was cunning.') -- FUT_M18B1301_015 (FR optionnel)
-        UI:WaitShowDialogue(' It went up my nose and took\ncontrol of my body...') -- FUT_M18B1301_016 (FR optionnel)
+        UI:WaitShowDialogue('Ce Pokémon... Il était rusé.') -- FUT_M18B1301_015 (FR)
+        UI:WaitShowDialogue('Il s\'est introduit dans mon corps par le nez et en a pris le contrôle...') -- FUT_M18B1301_016 (FR)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' So that was a bad Pokémon.') -- FUT_M18B1301_017 (FR optionnel)
+        UI:WaitShowDialogue('Alors c\'était un mauvais Pokémon.') -- FUT_M18B1301_017 (FR)
         -- case 26: ' So that was a bad Pokémon.'
         -- case 27: ' So that was a bad Pokémon.'
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBGM('Time Gear Remix.ogg', true) end) -- TimeGearRemix
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' No. That\'s not true.') -- FUT_M18B1301_018 (FR optionnel)
-        UI:WaitShowDialogue(' That Spiritomb was probably\nupset over us trespassing in its space.') -- FUT_M18B1301_019 (FR optionnel)
-        UI:WaitShowDialogue(' It was frightening...because it\nbecame so angry that it lost control of itself.') -- FUT_M18B1301_020 (FR optionnel)
-        UI:WaitShowDialogue(' But you saw what happened when\nthe situation turned sour. It fled.') -- FUT_M18B1301_021 (FR optionnel)
-        UI:WaitShowDialogue(' It\'s normally a timid Pokémon.') -- FUT_M18B1301_022 (FR optionnel)
-        UI:WaitShowDialogue(' There are many such Pokémon\nhere in your future.') -- FUT_M18B1301_023 (FR optionnel)
-        UI:WaitShowDialogue(' They are Pokémon who should be\ngood...') -- FUT_M18B1301_024 (FR optionnel)
-        UI:WaitShowDialogue(' But they have become bitter and\ntwisted because of this world\'s perpetual\ndarkness.') -- FUT_M18B1301_025 (FR optionnel)
+        UI:WaitShowDialogue('Non. Ce n\'est pas vrai.') -- FUT_M18B1301_018 (FR)
+        UI:WaitShowDialogue('Ce Spiritomb était probablement furieux que nous ayons pénétré sur son territoire.') -- FUT_M18B1301_019 (FR)
+        UI:WaitShowDialogue('Il faisait peur... parce que sa colère lui avait fait perdre tout contrôle.') -- FUT_M18B1301_020 (FR)
+        UI:WaitShowDialogue('Mais vous avez vu ce qui s\'est passé quand la situation a mal tourné : il s\'est enfui.') -- FUT_M18B1301_021 (FR)
+        UI:WaitShowDialogue('C\'est normalement un Pokémon timide.') -- FUT_M18B1301_022 (FR)
+        UI:WaitShowDialogue('Il existe beaucoup de Pokémon de ce genre dans votre avenir.') -- FUT_M18B1301_023 (FR)
+        UI:WaitShowDialogue('Des Pokémon qui devraient être bons...') -- FUT_M18B1301_024 (FR)
+        UI:WaitShowDialogue('Mais les ténèbres perpétuelles de ce monde les ont rendus amers et malfaisants.') -- FUT_M18B1301_025 (FR)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' I see...') -- FUT_M18B1301_026 (FR optionnel)
+        UI:WaitShowDialogue('Je vois...') -- FUT_M18B1301_026 (FR)
         -- case 37: ' I see...'
         -- case 38: ' I see...'
         UI:ResetSpeaker()
         GROUND:CharTurnToChar(CH('Teammate1'), CH('PLAYER'))
         -- (parallèle) NPC_JUPUTORU, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharTurnToChar(CH('PLAYER'), CH('Teammate1'))
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Grovyle'), Direction.DownLeft, 15)
-            end,
+            end),
         })
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(' Good Pokémon going bad because\nof this world...') -- FUT_M18B1301_027 (FR optionnel)
+        UI:WaitShowDialogue('De bons Pokémon qui deviennent mauvais à cause de ce monde...') -- FUT_M18B1301_027 (FR)
         -- case 40: ' Good Pokémon going bad because\nof this world...'
         -- case 41: ' Good Pokémon going bad because\nof this world...'
-        UI:WaitShowDialogue(' That makes me sad.') -- FUT_M18B1301_028 (FR optionnel)
+        UI:WaitShowDialogue('Ça me rend triste.') -- FUT_M18B1301_028 (FR)
         -- case 43: ' That makes me sad.'
         -- case 44: ' That makes me sad.'
         UI:ResetSpeaker()
@@ -254,33 +252,33 @@ UI:SetSpeaker(CH('Spiritomb'))
         GROUND:CharTurnToChar(CH('Grovyle'), CH('PLAYER'))
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Hey!\n You two!') -- FUT_M18B1301_029 (FR optionnel)
+        UI:WaitShowDialogue('Hé ! Vous deux !') -- FUT_M18B1301_029 (FR)
         UI:ResetSpeaker()
         GROUND:CharTurnToChar(CH('Teammate1'), CH('Grovyle'))
         GROUND:CharTurnToChar(CH('PLAYER'), CH('Grovyle'))
         GROUND:CharTurnToChar(CH('Grovyle'), CH('Teammate1'))
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' Now will you finally trust me?') -- FUT_M18B1301_030 (FR optionnel)
+        UI:WaitShowDialogue('Alors, allez-vous enfin me faire confiance ?') -- FUT_M18B1301_030 (FR)
         UI:SetCenter(false)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Worried')
-        UI:WaitShowDialogue(' Ummm...\nsomewhat?') -- FUT_M18B1301_031 (FR optionnel)
+        UI:WaitShowDialogue('Un peu ?') -- FUT_M18B1301_031 (FR)
         -- case 48: ' Ummm...[K]somewhat?'
         -- case 49: ' Ummm...[K]somewhat?'
-        UI:WaitShowDialogue(' To be honest, I don\'t really trust\nyou, but...') -- FUT_M18B1301_032 (FR optionnel)
+        UI:WaitShowDialogue('Pour être honnête, je ne te fais pas vraiment confiance, mais...') -- FUT_M18B1301_032 (FR)
         -- case 51: " To be honest, I don't really trust\nyou, but..."
         -- case 52: " I'll admit it. I don't really trust\nyou, but..."
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Humph!\n I\'ve told you before.') -- FUT_M18B1301_033 (FR optionnel)
-        UI:WaitShowDialogue(' There\'s no point in continuing\ntogether if there\'s no trust between us.') -- FUT_M18B1301_034 (FR optionnel)
+        UI:WaitShowDialogue('Humph ! Je te l\'ai déjà dit.') -- FUT_M18B1301_033 (FR)
+        UI:WaitShowDialogue('Il n\'y a aucune raison de continuer ensemble s\'il n\'y a pas de confiance entre nous.') -- FUT_M18B1301_034 (FR)
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Grovyle'), Direction.DownRight, 15)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' I\'m leaving.') -- FUT_M18B1301_035 (FR optionnel)
+        UI:WaitShowDialogue('Je m\'en vais.') -- FUT_M18B1301_035 (FR)
         UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('Grovyle'), CH('Grovyle').Position.X + 0.5*8, CH('Grovyle').Position.Y + 32*8, false, 1.0)
         GAME:WaitFrames(15)
@@ -291,64 +289,64 @@ UI:SetSpeaker(CH('Spiritomb'))
         GROUND:CharSetEmote(CH('Teammate1'), 'sweatdrop', 3)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(' Oh, wait!') -- FUT_M18B1301_036 (FR optionnel)
+        UI:WaitShowDialogue('Attends !') -- FUT_M18B1301_036 (FR)
         -- case 57: ' Oh, wait!'
         -- case 58: ' Oh, wait!'
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:ResetSpeaker()
         -- ExecuteCommon(JUMP_HAPPY_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' I didn\'t say I don\'t believe you!') -- FUT_M18B1301_037 (FR optionnel)
+        UI:WaitShowDialogue('Je n\'ai pas dit que je ne te croyais pas !') -- FUT_M18B1301_037 (FR)
         UI:SetCenter(false)
         -- case 60: " I didn't say I don't believe you!"
         -- case 61: " I didn't say I don't believe you!"
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' To be perfectly honest...') -- FUT_M18B1301_038 (FR optionnel)
+        UI:WaitShowDialogue('Pour être honnête...') -- FUT_M18B1301_038 (FR)
         UI:SetCenter(false)
         -- case 63: ' To be perfectly honest...'
         -- case 64: ' To be perfectly honest...'
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' We don\'t know what\'s what\nanymore.') -- FUT_M18B1301_039 (FR optionnel)
+        UI:WaitShowDialogue('Nous ne savons plus quoi penser.') -- FUT_M18B1301_039 (FR)
         UI:SetCenter(false)
         -- case 66: " We don't know what's what\nanymore."
         -- case 67: " We don't know what's what\nanymore."
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' That\'s why we want to know as\nmuch as we can learn.') -- FUT_M18B1301_040 (FR optionnel)
+        UI:WaitShowDialogue('C\'est pourquoi nous voulons en apprendre le plus possible.') -- FUT_M18B1301_040 (FR)
         UI:SetCenter(false)
         -- case 69: " That's why we want to know as\nmuch as we can learn."
         -- case 70: " That's why we want to know as\nmuch as we can learn."
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' And...') -- FUT_M18B1301_041 (FR optionnel)
+        UI:WaitShowDialogue('Et...') -- FUT_M18B1301_041 (FR)
         UI:SetCenter(false)
         -- case 72: ' And...'
         -- case 73: ' And...'
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' Yeah, I still don\'t completely\ntrust you, Grovyle, but...') -- FUT_M18B1301_042 (FR optionnel)
+        UI:WaitShowDialogue('Oui, je ne te fais toujours pas entièrement confiance, Massko, mais...') -- FUT_M18B1301_042 (FR)
         UI:SetCenter(false)
         -- case 75: " Yeah, I still don't completely\ntrust you, [CS:N]Grovyle[CR], but..."
         -- case 76: " It's true I still don't completely\ntrust you, [CS:N]Grovyle[CR], but..."
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' But what you said does make\nsome sense...') -- FUT_M18B1301_043 (FR optionnel)
+        UI:WaitShowDialogue('Mais ce que tu as dit se tient...') -- FUT_M18B1301_043 (FR)
         UI:SetCenter(false)
         -- case 78: ' But what you said does make\nsome sense...'
         -- case 79: ' But what you said does make\nsome sense...'
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' It just seems to be logical.') -- FUT_M18B1301_044 (FR optionnel)
+        UI:WaitShowDialogue('Ça semble logique.') -- FUT_M18B1301_044 (FR)
         UI:SetCenter(false)
         -- case 81: ' It just seems to be logical.'
         -- case 82: ' It just seems to be logical.'
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' So, please?\n Grovyle, please tell\nus what you know.') -- FUT_M18B1301_045 (FR optionnel)
+        UI:WaitShowDialogue('Alors, s\'il te plaît... Massko, dis-nous ce que tu sais.') -- FUT_M18B1301_045 (FR)
         UI:SetCenter(false)
         -- case 84: ' So, please?[K] [CS:N]Grovyle[CR], please tell\nus what you know.'
         -- case 85: ' So, please?[K] [CS:N]Grovyle[CR], please tell\nus what you know.'
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' Tell us about this future...') -- FUT_M18B1301_046 (FR optionnel)
+        UI:WaitShowDialogue('Parle-nous de ce futur...') -- FUT_M18B1301_046 (FR)
         UI:SetCenter(false)
         -- case 87: ' Tell us about this future...'
         -- case 88: ' Tell us about this future...'
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' and why you came to our world,\nGrovyle!') -- FUT_M18B1301_047 (FR optionnel)
+        UI:WaitShowDialogue('et pourquoi tu es venu dans notre monde, Massko !') -- FUT_M18B1301_047 (FR)
         UI:SetCenter(false)
         -- case 90: ' and why you came to our world,\n[CS:N]Grovyle[CR]!'
         -- case 91: ' and why you came to our world,\n[CS:N]Grovyle[CR]!'
@@ -357,14 +355,14 @@ UI:SetSpeaker(CH('Spiritomb'))
         GAME:WaitFrames(10)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' So, what if everything I say is\na pack of lies?') -- FUT_M18B1301_048 (FR optionnel)
+        UI:WaitShowDialogue('Et si tout ce que je vous raconte n\'était qu\'un tissu de mensonges ?') -- FUT_M18B1301_048 (FR)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' It\'s all right.\n I won\'t accept\neverything you say as the truth right away.') -- FUT_M18B1301_049 (FR optionnel)
+        UI:WaitShowDialogue('Ce n\'est pas grave. Je ne prendrai pas immédiatement tout ce que tu diras pour la vérité.') -- FUT_M18B1301_049 (FR)
         -- case 94: " It's all right.[K] I won't accept\neverything you say as the truth right away."
         -- case 95: " It's all right.[K] I won't accept\neverything you say at face value right away."
-        UI:WaitShowDialogue(' I\'ll listen, then decide.') -- FUT_M18B1301_050 (FR optionnel)
+        UI:WaitShowDialogue('Je vais écouter, puis décider.') -- FUT_M18B1301_050 (FR)
         -- case 97: " I'll listen, then decide."
         -- case 98: " I'll listen, then decide."
         UI:ResetSpeaker()
@@ -372,23 +370,23 @@ UI:SetSpeaker(CH('Spiritomb'))
         -- WaitBgm : PARTIEL
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Well...\nfine.\n Follow me.') -- FUT_M18B1301_051 (FR optionnel)
+        UI:WaitShowDialogue('Bon... très bien. Suivez-moi.') -- FUT_M18B1301_051 (FR)
         UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('Grovyle'), 456, 244, false, 1.594)
         GAME:WaitFrames(30)
         -- (parallèle) ATTENDANT1, NPC_JUPUTORU, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('PLAYER'), CH('PLAYER').Position.X + 0.7969*8, CH('PLAYER').Position.Y + 48*8, false, 1.594)
                 GROUND:MoveToPosition(CH('PLAYER'), CH('PLAYER').Position.X + 0.7969*8, CH('PLAYER').Position.Y + 80*8, false, 1.594)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Teammate1'), CH('Teammate1').Position.X + 0.7969*8, CH('Teammate1').Position.Y + 64*8, false, 1.594)
                 GROUND:MoveToPosition(CH('Teammate1'), CH('Teammate1').Position.X + 0.7969*8, CH('Teammate1').Position.Y + 80*8, false, 1.594)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Grovyle'), CH('Grovyle').Position.X + 0.7969*8, CH('Grovyle').Position.Y + 80*8, false, 1.594)
-            end,
+            end),
         })
         GAME:WaitFrames(15)
         GAME:FadeOut(false, 60)
@@ -401,7 +399,13 @@ UI:SetSpeaker(CH('Spiritomb'))
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[m18b1301] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[m18b1301] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return m18b1301

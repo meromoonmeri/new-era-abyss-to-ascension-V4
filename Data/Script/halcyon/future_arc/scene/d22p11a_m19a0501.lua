@@ -22,11 +22,11 @@ function m19a0501.Cutscene()
     GAME:CutsceneMode(true)
 
         -- PARTIEL : sound_Stop []
-        GAME:EnterGroundMap('s04p01a', 'Main_Entrance_Marker') -- transition S04P01A
+        -- Transition neutralisée : FutureArc possède le routage. Source : GAME:EnterGroundMap('s04p01a', 'Main_Entrance_Marker') -- transition S04P01A
         GAME:FadeIn(0)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue('(dialogue FUT_M19A0501_001)') -- FUT_M19A0501_001 (FR optionnel)
+        UI:WaitShowDialogue('Argh... Cette tentative a échoué.') -- FUT_M19A0501_001 (FR)
         -- case 1: ' Ugh...[K] We blew that attempt.'
         -- case 2: " Ugh...[K] That wasn't good."
         -- message_KeyWait (le dialogue bloque déjà)
@@ -53,15 +53,15 @@ function m19a0501.Cutscene()
         GAME:WaitFrames(15)
         -- (parallèle) ATTENDANT1, NPC_JUPUTORU, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharTurnToChar(CH('PLAYER'), CH('Teammate1'))
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharTurnToChar(CH('Teammate1'), CH('PLAYER'))
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Grovyle'), Direction.Down, 15)
-            end,
+            end),
         })
         GAME:WaitFrames(15)
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8972') end) -- TODO SE 8972 (SE_NUM_EVENT_SIGN_TENSION_01)
@@ -69,25 +69,25 @@ function m19a0501.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(' Urk... This is pretty tough\ngoing...') -- FUT_M19A0501_002 (FR optionnel)
+        UI:WaitShowDialogue('Argh... Cette traversée est vraiment difficile...') -- FUT_M19A0501_002 (FR)
         -- case 4: ' Urk... This is pretty tough\ngoing...'
         -- case 5: " Urk... This isn't easy at all..."
         UI:ResetSpeaker()
         -- (parallèle) ATTENDANT1, NPC_JUPUTORU
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Grovyle'), Direction.Down, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharTurnToChar(CH('Teammate1'), CH('Grovyle'))
-            end,
+            end),
         })
         GROUND:CharTurnToChar(CH('PLAYER'), CH('Grovyle'))
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' We have to fight our\nway through.') -- FUT_M19A0501_003 (FR optionnel)
-        UI:WaitShowDialogue(' Those Sableye will catch up if\nwe don\'t hurry.') -- FUT_M19A0501_004 (FR optionnel)
-        UI:WaitShowDialogue(' We\'ll leave as soon as\nyou\'re ready.') -- FUT_M19A0501_005 (FR optionnel)
+        UI:WaitShowDialogue('Nous devons nous frayer un chemin.') -- FUT_M19A0501_003 (FR)
+        UI:WaitShowDialogue('Ces Ténéfix nous rattraperont si nous ne nous dépêchons pas.') -- FUT_M19A0501_004 (FR)
+        UI:WaitShowDialogue('On partira dès que tu seras prêt.') -- FUT_M19A0501_005 (FR)
         UI:ResetSpeaker()
         GROUND:CharSetAnim(CH('Grovyle'), 'Idle', true) -- param 4 = anim 7 (Idle)
         -- End : fin de scène
@@ -123,7 +123,13 @@ function m19a0501.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[m19a0501] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[m19a0501] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return m19a0501

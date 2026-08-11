@@ -13,6 +13,7 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.BossFX'
+require 'halcyon.future_arc.FutureScene'
 
 local m18b1201 = {}
 
@@ -34,16 +35,15 @@ function m18b1201.Cutscene()
         GROUND:CharSetAnim(CH('Grovyle'), 'Float', false) -- param 29 = anim 20 (Float)
         -- SetOutputAttribute [2] : PARTIEL
         -- object 61 (d21p41a1) : contexte objet
-        local obj_61 = OBJ('d21p41a1') -- objet 61
-        GROUND:ObjectSetAnim(obj_61, 1, 0, 3, Direction.Down, 1) -- anim 1 (table REQUISE)
-        pcall(function() SOUND:PlayBGM('Planet\'s Paralysis.ogg', true) end) -- PlanetsParalysis
+        FutureScene.ObjectSetAnim('d21p41a1', 1, 0, 3, Direction.Down, 1) -- objet 61, anim 1 (table REQUISE)
+        pcall(function() SOUND:PlayBGM('In the Future.ogg', true) end) -- PlanetsParalysis
         GAME:FadeIn(30)
         GAME:WaitFrames(30)
         UI:SetSpeaker(CH('Spiritomb'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' HEE-hee...HEE-hee...! Back again?') -- FUT_M18B1201_001 (FR optionnel)
-        UI:WaitShowDialogue(' None shall be forgiven for\nTRESPASSING here!') -- FUT_M18B1201_002 (FR optionnel)
-        UI:WaitShowDialogue(' HEE-hee...HEE-hee... PREPARE to\ntake your punishment!') -- FUT_M18B1201_003 (FR optionnel)
+        UI:WaitShowDialogue('HÉ-hé... HÉ-hé...! Encore vous ?') -- FUT_M18B1201_001 (FR)
+        UI:WaitShowDialogue('Nul ne sera pardonné pour avoir PÉNÉTRÉ ici !') -- FUT_M18B1201_002 (FR)
+        UI:WaitShowDialogue('HÉ-hé... HÉ-hé... PRÉPAREZ-VOUS à subir votre châtiment !') -- FUT_M18B1201_003 (FR)
         UI:ResetSpeaker()
         SOUND:FadeOutBGM(30)
         SOUND:PlayBattleSE('EVT_Battle_Flash') -- SE 5143 (SE_NUM_EVENT_EFF_FLASH_HEAVY)
@@ -64,7 +64,13 @@ function m18b1201.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[m18b1201] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[m18b1201] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return m18b1201

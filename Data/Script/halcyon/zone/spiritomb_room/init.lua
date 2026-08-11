@@ -29,15 +29,7 @@ function spiritomb_room.Rescued(zone, name, mail)
 end
 
 function spiritomb_room.ExitSegment(zone, result, rescue, segmentID, mapID)
-  GeneralFunctions.RestoreIdleAnim()
-  DEBUG.EnableDbgCoro()
-  local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
-  SV.adventure.Thief = false
-  if exited == true then return end
-  -- Retour sur la salle du boss (ground D21P41A) : scène de fuite (m18b1301)
-  if SV.FutureArc == nil then SV.FutureArc = {} end
-  SV.FutureArc.SpiritombBattleDone = true
-  FutureDungeonCommon.ExitToGround(result, zone.ID, 'd21p41a')
+  FutureDungeonCommon.HandleExit(result, rescue, zone, segmentID, 'd21p41a')
 end
 
 return spiritomb_room

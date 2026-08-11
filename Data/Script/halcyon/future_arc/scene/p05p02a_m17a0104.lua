@@ -24,10 +24,10 @@ function m17a0104.Cutscene()
         -- PARTIEL : sound_Stop []
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(' Hey...\n[hero]...') -- FUT_M17A0104_001 (FR optionnel)
+        UI:WaitShowDialogue('Hé, [hero]...') -- FUT_M17A0104_001 (FR)
         -- case 0: ' Hey...[K][hero]...'
         -- case 1: ' Hey...[K][hero]...'
-        UI:WaitShowDialogue(' Wake up, [hero]!') -- FUT_M17A0104_002 (FR optionnel)
+        UI:WaitShowDialogue('Réveille-toi, [hero] !') -- FUT_M17A0104_002 (FR)
         -- case 3: ' Wake up, [hero]!'
         -- case 4: ' Wake up, [hero]!'
         UI:ResetSpeaker()
@@ -49,7 +49,7 @@ function m17a0104.Cutscene()
         GROUND:AnimateToPosition(CH('PLAYER'), CH('PLAYER').Position.X + 1*8, CH('PLAYER').Position.Y + -1*8, false, 2.0)
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue('(Ugh...)') -- FUT_M17A0104_003 (FR optionnel)
+        UI:WaitShowDialogue('(Argh...)') -- FUT_M17A0104_003 (FR)
         -- case 6: '(Ugh...)'
         UI:ResetSpeaker()
         GROUND:CharSetAnim(CH('PLAYER'), 'Wake', false) -- param 63 = anim 14 (Wake)
@@ -57,24 +57,24 @@ function m17a0104.Cutscene()
         SOUND:PlayBattleSE('EVT_Emote_Exclaim') -- SE 8978 (SE_NUM_EVENT_SIGN_NOTICE_05)
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Teammate1'), 'exclaim', 3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
+            end),
         })
         -- ExecuteCommon(HEAD_SHAKE_FUNC_SERIES) : gestuelle parallèle à implémenter
         GAME:WaitFrames(30)
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue('(Wh-where...?)') -- FUT_M17A0104_004 (FR optionnel)
+        UI:WaitShowDialogue('(Où suis-je... ?)') -- FUT_M17A0104_004 (FR)
         -- case 8: '(Wh-where...?)'
         UI:ResetSpeaker()
         -- ExecuteCommon(JUMP_HAPPY_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' You\'re awake!') -- FUT_M17A0104_005 (FR optionnel)
+        UI:WaitShowDialogue('Enfin ! Tu as repris connaissance !') -- FUT_M17A0104_005 (FR)
         -- case 10: " You're awake!"
         -- case 11: " You're awake!"
         UI:ResetSpeaker()
@@ -86,7 +86,7 @@ function m17a0104.Cutscene()
         GAME:WaitFrames(30)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(' This place... I think it\'s a jail.') -- FUT_M17A0104_006 (FR optionnel)
+        UI:WaitShowDialogue('Cet endroit... Je crois que c\'est une prison.') -- FUT_M17A0104_006 (FR)
         -- case 13: " This place... I think it's a jail."
         -- case 14: " This place... I think it's a jail."
         UI:ResetSpeaker()
@@ -95,12 +95,12 @@ function m17a0104.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue('(J-jail?!)') -- FUT_M17A0104_007 (FR optionnel)
+        UI:WaitShowDialogue('(U-une prison ?!)') -- FUT_M17A0104_007 (FR)
         -- case 16: '(J-jail?!)'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(' I just woke up a while ago, so\nI\'m not sure what\'s going on.') -- FUT_M17A0104_008 (FR optionnel)
+        UI:WaitShowDialogue('Je n\'ai repris connaissance qu\'il y a un instant, alors je ne sais pas vraiment ce qui se passe.') -- FUT_M17A0104_008 (FR)
         -- case 18: " I just woke up a while ago, so\nI'm not sure what's going on."
         -- case 19: " I just woke up a while ago, so\nI'm not sure what's going on."
         UI:ResetSpeaker()
@@ -108,7 +108,7 @@ function m17a0104.Cutscene()
         GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.Up, 15)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Worried')
-        UI:WaitShowDialogue(' I tried opening the doors, but\nthey\'re locked.') -- FUT_M17A0104_009 (FR optionnel)
+        UI:WaitShowDialogue('J\'ai essayé d\'ouvrir les portes, mais elles sont verrouillées.') -- FUT_M17A0104_009 (FR)
         -- case 21: " I tried opening the doors, but\nthey're locked."
         -- case 22: " I tried the doors, but they're\nlocked."
         UI:ResetSpeaker()
@@ -116,10 +116,10 @@ function m17a0104.Cutscene()
         GROUND:CharTurnToChar(CH('PLAYER'), CH('Teammate1'))
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(' There doesn\'t seem to be any\nother way out.') -- FUT_M17A0104_010 (FR optionnel)
+        UI:WaitShowDialogue('Aucune autre issue en vue.') -- FUT_M17A0104_010 (FR)
         -- case 24: " There doesn't seem to be any\nother way out."
         -- case 25: ' There seems to be no other\nway out.'
-        UI:WaitShowDialogue(' I think that we\'ve been locked\nup...\n Ugh...') -- FUT_M17A0104_011 (FR optionnel)
+        UI:WaitShowDialogue('On dirait qu\'on nous a enfermés... Argh...') -- FUT_M17A0104_011 (FR)
         -- case 27: " I think that we've been locked\nup...[K] Ugh..."
         -- case 28: " I think that we've been locked\nup...[K] Ugh..."
         UI:ResetSpeaker()
@@ -131,18 +131,24 @@ function m17a0104.Cutscene()
         GAME:WaitFrames(30)
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Worried')
-        UI:WaitShowDialogue('(Wh-what\'s going on?)') -- FUT_M17A0104_012 (FR optionnel)
+        UI:WaitShowDialogue('(Qu\'est-ce qui se passe ?)') -- FUT_M17A0104_012 (FR)
         -- case 30: "(Wh-what's going on?)"
-        UI:WaitShowDialogue('(We\'re locked up?)') -- FUT_M17A0104_013 (FR optionnel)
+        UI:WaitShowDialogue('(On est enfermés ?)') -- FUT_M17A0104_013 (FR)
         -- case 32: "(We're locked up?)"
-        UI:WaitShowDialogue('(I don\'t know what\'s going on either, but I may\nas well investigate...)') -- FUT_M17A0104_014 (FR optionnel)
+        UI:WaitShowDialogue('(Je ne sais pas non plus ce qui se passe, mais je peux regarder autour de moi...)') -- FUT_M17A0104_014 (FR)
         -- case 34: "(I don't know what's going on either, but I may\nas well investigate...)"
         UI:ResetSpeaker()
         -- End : fin de scène
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[m17a0104] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[m17a0104] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return m17a0104

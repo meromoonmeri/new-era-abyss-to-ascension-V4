@@ -13,6 +13,7 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.BossFX'
+require 'halcyon.future_arc.FutureScene'
 
 local n06a1301 = {}
 
@@ -31,8 +32,7 @@ function n06a1301.Cutscene()
         -- back_SetGround(D55P41A) : ground courant déjà posé
         -- supervision_cting layer [0] (structurel)
         -- object 451 (v38p03a1) : contexte objet
-        local obj_451 = OBJ('v38p03a1') -- objet 451
-        GROUND:ObjectSetAnim(obj_451, 12, 0, 3, Direction.Down, 1) -- anim 12 (table REQUISE)
+        FutureScene.ObjectSetAnim('v38p03a1', 12, 0, 3, Direction.Down, 1) -- objet 451, anim 12 (table REQUISE)
         GAME:WaitFrames(1)
         -- performer 0
         -- camera_SetMyself : la caméra suit le héros (défaut PMDO)
@@ -173,7 +173,7 @@ function n06a1301.Cutscene()
         UI:WaitShowDialogue('Lairon: Groooaaahh!') -- FUT_N06A1301_023 (FR optionnel)
         UI:ResetSpeaker()
         -- NON CONVERTI : bgm2_FadeOut (un seul canal BGM dans PMDO)
-        pcall(function() SOUND:PlayBGM('Oh No!.ogg', true) end) -- OhNo
+        pcall(function() SOUND:PlayBGM('Growing Anxiety.ogg', true) end) -- OhNo
         pcall(function() SOUND:PlayBattleSE('SSB_SE_5130') end) -- TODO SE 5130 (None)
         GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 1, 1))
         GAME:WaitFrames(6)
@@ -185,8 +185,7 @@ function n06a1301.Cutscene()
         GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 1, 1))
         pcall(function() SOUND:PlayBattleSE('SSB_SE_10247') end) -- TODO SE 10247 (None)
         -- object 451 (v38p03a1) : contexte objet
-        local obj_451 = OBJ('v38p03a1') -- objet 451
-        GROUND:ObjectSetAnim(obj_451, 21, 0, 3, Direction.Down, 1) -- anim 21 (table REQUISE)
+        FutureScene.ObjectSetAnim('v38p03a1', 21, 0, 3, Direction.Down, 1) -- objet 451, anim 21 (table REQUISE)
         GAME:WaitFrames(6)
         -- supervision_cting layer [1] (structurel)
         GAME:WaitFrames(15)
@@ -200,13 +199,13 @@ function n06a1301.Cutscene()
         GROUND:MoveToPosition(CH('PLAYER'), 252, 256, false, 2.0)
         -- (parallèle) NPC_KODORA, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Move2PositionMark (acteur NPC_KODORA)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SlidePositionOffset (acteur PLAYER_CHARMS)
                 -- NON CONVERTI : Turn2Direction (acteur PLAYER_CHARMS)
-            end,
+            end),
         })
         GAME:WaitFrames(2)
         -- NON CONVERTI : SlidePositionOffset (acteur NPC_CHAAREMU)
@@ -218,15 +217,15 @@ function n06a1301.Cutscene()
         -- NON CONVERTI : Move2PositionMark (acteur NPC_KODORA2)
         -- (parallèle) NPC_KODORA, NPC_KODORA2, NPC_KODORA3
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_KODORA)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_KODORA2)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Move2PositionMark (acteur NPC_KODORA3)
-            end,
+            end),
         })
         -- NON CONVERTI : Turn2Direction (acteur NPC_KODORA3)
         GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 0, 0))
@@ -242,8 +241,7 @@ function n06a1301.Cutscene()
         GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 1, 1))
         pcall(function() SOUND:PlayBattleSE('SSB_SE_10247') end) -- TODO SE 10247 (None)
         -- object 450 (v38p06a1) : contexte objet
-        local obj_450 = OBJ('v38p06a1') -- objet 450
-        GROUND:ObjectSetAnim(obj_450, 18, 0, 3, Direction.Down, 1) -- anim 18 (table REQUISE)
+        FutureScene.ObjectSetAnim('v38p06a1', 18, 0, 3, Direction.Down, 1) -- objet 450, anim 18 (table REQUISE)
         GAME:WaitFrames(6)
         -- supervision_cting layer [2] (structurel)
         GAME:WaitFrames(15)
@@ -255,13 +253,13 @@ function n06a1301.Cutscene()
         GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 0.5, 0.5))
         -- (parallèle) NPC_KODORA4, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Move2PositionMark (acteur NPC_KODORA4)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SlidePositionOffset (acteur PLAYER_CHARMS)
                 -- NON CONVERTI : Turn2Direction (acteur PLAYER_CHARMS)
-            end,
+            end),
         })
         GAME:WaitFrames(2)
         -- NON CONVERTI : SlidePositionOffset (acteur NPC_CHAAREMU)
@@ -273,15 +271,15 @@ function n06a1301.Cutscene()
         -- NON CONVERTI : Move2PositionMark (acteur NPC_KODORA5)
         -- (parallèle) NPC_KODORA4, NPC_KODORA5, NPC_KODORA6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_KODORA4)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_KODORA5)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Move2PositionMark (acteur NPC_KODORA6)
-            end,
+            end),
         })
         -- NON CONVERTI : Turn2Direction (acteur NPC_KODORA6)
         GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 0, 0))
@@ -302,15 +300,15 @@ function n06a1301.Cutscene()
         -- supervision_cting layer [3] (structurel)
         -- (parallèle) NPC_BOSUGODORA, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur PLAYER_CHARMS)
                 -- NON CONVERTI : Turn2DirectionLives (acteur PLAYER_CHARMS)
                 -- NON CONVERTI : SlidePositionOffset (acteur PLAYER_CHARMS)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_BOSUGODORA)
                 -- NON CONVERTI : SlidePositionMark (acteur NPC_BOSUGODORA)
-            end,
+            end),
         })
         GAME:WaitFrames(1)
         -- NON CONVERTI : SetEffect (acteur NPC_CHAAREMU)
@@ -416,64 +414,64 @@ function n06a1301.Cutscene()
         GAME:WaitFrames(6)
         -- (parallèle) NPC_KODORA, NPC_KODORA5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA5)
-            end,
+            end),
         })
         GAME:WaitFrames(3)
         -- (parallèle) NPC_KODORA3, NPC_KODORA4
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA4)
-            end,
+            end),
         })
         GAME:WaitFrames(3)
         -- (parallèle) NPC_KODORA2, NPC_KODORA6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA2)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA6)
-            end,
+            end),
         })
         UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
         UI:WaitShowDialogue('Lairon: Groooaaahh!') -- FUT_N06A1301_037 (FR optionnel)
         GAME:WaitFrames(24)
         -- (parallèle) NPC_KODORA, NPC_KODORA5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA5)
-            end,
+            end),
         })
         GAME:WaitFrames(3)
         -- (parallèle) NPC_KODORA2, NPC_KODORA4
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA4)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA2)
-            end,
+            end),
         })
         GAME:WaitFrames(3)
         -- (parallèle) NPC_KODORA3, NPC_KODORA6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA6)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         -- NON CONVERTI : Turn2Direction (acteur NPC_SAANAITO)
@@ -520,7 +518,13 @@ function n06a1301.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[n06a1301] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[n06a1301] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return n06a1301

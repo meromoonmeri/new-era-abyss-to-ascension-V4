@@ -13,6 +13,7 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.BossFX'
+require 'halcyon.future_arc.FutureScene'
 
 local m19b1007 = {}
 
@@ -27,54 +28,53 @@ function m19b1007.Cutscene()
         -- performer 0
         -- camera_SetMyself : la caméra suit le héros (défaut PMDO)
         -- object 141 (p09p01a1) : contexte objet
-        local obj_141 = OBJ('p09p01a1') -- objet 141
-        GROUND:ObjectSetAnim(obj_141, 1, 0, 3, Direction.Down, 1) -- anim 1 (table REQUISE)
+        FutureScene.ObjectSetAnim('p09p01a1', 1, 0, 3, Direction.Down, 1) -- objet 141, anim 1 (table REQUISE)
         -- performer 3
         -- SetEffect [640, 3] : performer 3 non mappé (PARTIEL)
         GAME:FadeIn(30)
         GAME:WaitFrames(30)
         UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' So that [hero] developed\namnesia...') -- FUT_M19B1007_001 (FR optionnel)
-        UI:WaitShowDialogue(' and was transformed into a\nPokémon...') -- FUT_M19B1007_002 (FR optionnel)
-        UI:WaitShowDialogue(' which must be because of the\naccident during your time travel...') -- FUT_M19B1007_003 (FR optionnel)
-        UI:WaitShowDialogue(' Well, [hero]\'s memory\nloss was a lucky stroke for me!') -- FUT_M19B1007_004 (FR optionnel)
-        UI:WaitShowDialogue(' After all, your partner failed to\nrecognize who I am.') -- FUT_M19B1007_005 (FR optionnel)
-        UI:WaitShowDialogue(' It was quite easy to win over\nyour partner\'s trust.') -- FUT_M19B1007_006 (FR optionnel)
-        UI:WaitShowDialogue(' And it was also easy to drag\nthem to the future when the time came!') -- FUT_M19B1007_007 (FR optionnel)
+        UI:WaitShowDialogue('Ainsi, [hero] est devenu amnésique...') -- FUT_M19B1007_001 (FR)
+        UI:WaitShowDialogue('et a été transformé en Pokémon...') -- FUT_M19B1007_002 (FR)
+        UI:WaitShowDialogue('sans doute à cause de l\'accident survenu pendant votre voyage dans le temps...') -- FUT_M19B1007_003 (FR)
+        UI:WaitShowDialogue('La perte de mémoire de [hero] a été un heureux hasard pour moi !') -- FUT_M19B1007_004 (FR)
+        UI:WaitShowDialogue('Après tout, ton partenaire n\'a pas reconnu qui je suis.') -- FUT_M19B1007_005 (FR)
+        UI:WaitShowDialogue('Il m\'a été très facile de gagner sa confiance.') -- FUT_M19B1007_006 (FR)
+        UI:WaitShowDialogue('Et tout aussi facile de l\'entraîner dans le futur le moment venu !') -- FUT_M19B1007_007 (FR)
         UI:ResetSpeaker()
         GROUND:CharSetEmote(CH('Teammate1'), 'sweatdrop', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('TearyEyed')
-        UI:WaitShowDialogue(' Urk...\n Necrozma really was lying!') -- FUT_M19B1007_008 (FR optionnel)
+        UI:WaitShowDialogue('Argh... Necrozma mentait vraiment !') -- FUT_M19B1007_008 (FR)
         -- case 7: ' Urk...[K] [CS:N]Dusknoir[CR] really was lying!'
         -- case 8: ' Urk...[K] [CS:N]Dusknoir[CR] really was lying!'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Which left you, Grovyle...\n\nthe last part of the job to finish.') -- FUT_M19B1007_009 (FR optionnel)
+        UI:WaitShowDialogue('Il ne me restait donc plus que toi, Massko...[br]la dernière partie du travail à achever.') -- FUT_M19B1007_009 (FR)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' .....................') -- FUT_M19B1007_010 (FR optionnel)
+        UI:WaitShowDialogue('............') -- FUT_M19B1007_010 (FR)
         UI:ResetSpeaker()
         SOUND:FadeOutBGM(180)
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue('(I was a human from the future...?)') -- FUT_M19B1007_011 (FR optionnel)
+        UI:WaitShowDialogue('(J\'étais un humain du futur...?)') -- FUT_M19B1007_011 (FR)
         -- case 12: '(I was a human from the future...?)'
-        UI:WaitShowDialogue('(And I was Grovyle\'s partner on a mission to\nprevent the planet\'s paralysis?)') -- FUT_M19B1007_012 (FR optionnel)
+        UI:WaitShowDialogue('(Et j\'étais le partenaire de Massko, chargé avec lui d\'empêcher la Paralysie de la Planète ?)') -- FUT_M19B1007_012 (FR)
         -- case 14: "(And I was [CS:N]Grovyle[CR]'s partner on a mission to\nprevent the planet's paralysis?)"
-        UI:WaitShowDialogue('(And that\'s how I ended up in [partner]\'s\nworld?)') -- FUT_M19B1007_013 (FR optionnel)
+        UI:WaitShowDialogue('(Et c\'est comme ça que j\'ai fini dans le monde de [partner] ?)') -- FUT_M19B1007_013 (FR)
         -- case 16: "(And that's how I ended up in [partner]'s\nworld?)"
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Grovyle and [hero]!\n\nWith the both of you here...') -- FUT_M19B1007_014 (FR optionnel)
-        UI:WaitShowDialogue(' Everything will end when we\nfinally dispose of you.') -- FUT_M19B1007_015 (FR optionnel)
-        UI:WaitShowDialogue(' That will finally put an end to\nGrovyle\'s glimmer of hope!') -- FUT_M19B1007_016 (FR optionnel)
-        UI:WaitShowDialogue(' Everything ends! Everything ends\nfor you!\n Ha-ha-hoo-hoo-ha!') -- FUT_M19B1007_017 (FR optionnel)
+        UI:WaitShowDialogue('Massko et [hero] ![br]Avec vous deux ici...') -- FUT_M19B1007_014 (FR)
+        UI:WaitShowDialogue('Tout s\'achèvera lorsque nous nous serons enfin débarrassés de vous.') -- FUT_M19B1007_015 (FR)
+        UI:WaitShowDialogue('Cela mettra enfin un terme à la lueur d\'espoir de Massko !') -- FUT_M19B1007_016 (FR)
+        UI:WaitShowDialogue('Tout s\'achève ! Tout s\'achève pour vous ! Ha-ha-hoo-hoo-ha !') -- FUT_M19B1007_017 (FR)
         GROUND:CharSetAnim(CH('Necrozma'), 'Float', true) -- param 49 = anim 20 (Float)
         UI:ResetSpeaker()
         SOUND:FadeOutBGM(120)
@@ -83,7 +83,7 @@ function m19b1007.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('TearyEyed')
-        UI:WaitShowDialogue(' Urgh! Necrozma...\nno...') -- FUT_M19B1007_018 (FR optionnel)
+        UI:WaitShowDialogue('Urgh ! Necrozma... non...') -- FUT_M19B1007_018 (FR)
         -- case 22: ' Urgh! [CS:N]Dusknoir[CR]...[K]no...'
         -- case 23: ' Urgh! [CS:N]Dusknoir[CR]...[K]no...'
         UI:ResetSpeaker()
@@ -91,130 +91,130 @@ function m19b1007.Cutscene()
         -- SetAnimation 2 (spécial : boucle anim courante)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Determined')
-        UI:WaitShowDialogue(' Necrozma!') -- FUT_M19B1007_019 (FR optionnel)
+        UI:WaitShowDialogue('Necrozma !') -- FUT_M19B1007_019 (FR)
         -- case 25: ' [CS:N]Dusknoir[CR]!'
         -- case 26: ' [CS:N]Dusknoir[CR]!'
         UI:ResetSpeaker()
-        pcall(function() SOUND:PlayBGM('Planet\'s Paralysis.ogg', true) end) -- PlanetsParalysis
+        pcall(function() SOUND:PlayBGM('In the Future.ogg', true) end) -- PlanetsParalysis
         UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Ha! Have you finally come to\nterms with your fate?') -- FUT_M19B1007_020 (FR optionnel)
+        UI:WaitShowDialogue('Ha ! As-tu enfin accepté ton destin ?') -- FUT_M19B1007_020 (FR)
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.UpRight, 15)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Determined')
-        UI:WaitShowDialogue(' G-Grovyle!') -- FUT_M19B1007_021 (FR optionnel)
+        UI:WaitShowDialogue('M-Massko !') -- FUT_M19B1007_021 (FR)
         -- case 29: ' [CS:N]G-Grovyle[CR]!'
         -- case 30: ' [CS:N]G-Grovyle[CR]!'
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.Right, 15)
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' [hero]!') -- FUT_M19B1007_022 (FR optionnel)
+        UI:WaitShowDialogue('[hero] !') -- FUT_M19B1007_022 (FR)
         UI:SetCenter(false)
         -- case 32: ' [hero]!'
         -- case 33: ' [hero]!'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' We shall be rid of you for\nall time!') -- FUT_M19B1007_023 (FR optionnel)
-        UI:WaitShowDialogue(' This is the end...\nfor you!') -- FUT_M19B1007_024 (FR optionnel)
+        UI:WaitShowDialogue('Nous allons nous débarrasser de vous une fois pour toutes !') -- FUT_M19B1007_023 (FR)
+        UI:WaitShowDialogue('C\'est la fin... pour vous !') -- FUT_M19B1007_024 (FR)
         UI:ResetSpeaker()
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
+            end),
         })
         GAME:WaitFrames(10)
         -- (parallèle) NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
+            end),
         })
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Wheh-heh-heh!') -- FUT_M19B1007_025 (FR optionnel)
+        UI:WaitShowDialogue('Hi-hi-hi !') -- FUT_M19B1007_025 (FR)
         pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Hop', false) -- param 17 = anim 10 (Hop)
                 pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
-            end,
+            end),
         })
         -- (parallèle) ATTENDANT1, NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.Left, 15)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('Sableye_1'), CH('Sableye_1').Position.X + 0.5*8, CH('Sableye_1').Position.Y + 8*8, false, 1.0)
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI2, NPC_YAMIRAMI3
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_2'), CH('Sableye_2').Position.X + 0.5*8, CH('Sableye_2').Position.Y + -8*8, false, 1.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_3'), CH('Sableye_3').Position.X + 0.5*8, CH('Sableye_3').Position.Y + 8*8, false, 1.0)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_4'), CH('Sableye_4').Position.X + 0.5*8, CH('Sableye_4').Position.Y + -8*8, false, 1.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_5'), CH('Sableye_5').Position.X + 0.5*8, CH('Sableye_5').Position.Y + 8*8, false, 1.0)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         GROUND:MoveToPosition(CH('Sableye_6'), CH('Sableye_6').Position.X + 0.5*8, CH('Sableye_6').Position.Y + -8*8, false, 1.0)
@@ -230,24 +230,24 @@ function m19b1007.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(' Urk...') -- FUT_M19B1007_026 (FR optionnel)
+        UI:WaitShowDialogue('Urk...') -- FUT_M19B1007_026 (FR)
         -- case 38: ' Urk...'
         -- case 39: ' Urk...'
-        UI:WaitShowDialogue(' Hey, [hero]! Grovyle!\n\nYou can\'t give up!') -- FUT_M19B1007_027 (FR optionnel)
+        UI:WaitShowDialogue('Hé, [hero] ! Massko ![br]N\'abandonnez pas !') -- FUT_M19B1007_027 (FR)
         -- case 41: " Hey, [hero]! [CS:N]Grovyle[CR]![K]\nYou can't give up!"
         -- case 42: " Hey, [hero]! [CS:N]Grovyle[CR]![K]\nYou can't give up!"
         -- ExecuteCommon(JUMP_ANGRY_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(' Gah...\n You say not to give up...?') -- FUT_M19B1007_028 (FR optionnel)
-        UI:WaitShowDialogue(' But what can we possibly do in\nthis bleak situation?') -- FUT_M19B1007_029 (FR optionnel)
+        UI:WaitShowDialogue('Argh... Tu nous dis de ne pas abandonner... ?') -- FUT_M19B1007_028 (FR)
+        UI:WaitShowDialogue('Mais que pouvons-nous faire dans une situation aussi désespérée ?') -- FUT_M19B1007_029 (FR)
         UI:ResetSpeaker()
         SOUND:PlayBattleSE('EVT_Emote_Startled') -- SE 8971 (SE_NUM_EVENT_SIGN_ANGER_02)
         -- ExecuteCommon(JUMP_ANGRY_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Determined')
-        UI:WaitShowDialogue(' We have to think!') -- FUT_M19B1007_030 (FR optionnel)
+        UI:WaitShowDialogue('Il faut réfléchir !') -- FUT_M19B1007_030 (FR)
         -- case 46: ' We have to think!'
         -- case 47: ' We have to think!'
         UI:ResetSpeaker()
@@ -255,25 +255,25 @@ function m19b1007.Cutscene()
         GAME:WaitFrames(5)
         -- (parallèle) ATTENDANT1, NPC_YAMIRAMI2, NPC_YAMIRAMI3
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.Left, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_2'), CH('Sableye_2').Position.X + 0.5*8, CH('Sableye_2').Position.Y + -8*8, false, 1.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_3'), CH('Sableye_3').Position.X + 0.5*8, CH('Sableye_3').Position.Y + 8*8, false, 1.0)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_4'), CH('Sableye_4').Position.X + 0.5*8, CH('Sableye_4').Position.Y + -8*8, false, 1.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_5'), CH('Sableye_5').Position.X + 0.5*8, CH('Sableye_5').Position.Y + 8*8, false, 1.0)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         GROUND:MoveToPosition(CH('Sableye_6'), CH('Sableye_6').Position.X + 0.5*8, CH('Sableye_6').Position.Y + -8*8, false, 1.0)
@@ -283,7 +283,7 @@ function m19b1007.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' I know!') -- FUT_M19B1007_031 (FR optionnel)
+        UI:WaitShowDialogue('Je sais !') -- FUT_M19B1007_031 (FR)
         -- case 49: ' I know!'
         -- case 50: ' I know!'
         UI:ResetSpeaker()
@@ -291,127 +291,127 @@ function m19b1007.Cutscene()
         -- ExecuteCommon(JUMP_HAPPY_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' Celebi!\n Can your time travel\nability transport us just the short distance into\nthe Passage of Time?') -- FUT_M19B1007_032 (FR optionnel)
+        UI:WaitShowDialogue('Celebi ! Ton pouvoir de voyage temporel peut-il nous transporter sur une courte distance dans le Passage du Temps ?') -- FUT_M19B1007_032 (FR)
         -- case 52: ' [CS:N]Celebi[CR]![K] Can your time travel\nability transport us just the short distance into\nthe Passage of Time?'
         -- case 53: ' [CS:N]Celebi[CR]![K] Can your time travel\nability transport us just the short distance into\nthe Passage of Time?'
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Celebi'), Direction.Down, 15)
         UI:SetSpeaker(CH('Celebi'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' It won\'t be easy with Necrozma\nhere!') -- FUT_M19B1007_033 (FR optionnel)
-        UI:WaitShowDialogue(' Necrozma is the Temporal\nPokémon... It controls time itself!') -- FUT_M19B1007_034 (FR optionnel)
-        UI:WaitShowDialogue(' Even if I can make us travel in\ntime, he\'ll have no trouble exposing it!') -- FUT_M19B1007_035 (FR optionnel)
+        UI:WaitShowDialogue('Ce ne sera pas facile avec Necrozma ici !') -- FUT_M19B1007_033 (FR)
+        UI:WaitShowDialogue('Necrozma est le Pokémon Temporel... Il contrôle le temps lui-même !') -- FUT_M19B1007_034 (FR)
+        UI:WaitShowDialogue('Même si je parviens à nous faire voyager dans le temps, il n\'aura aucun mal à repérer notre trajectoire !') -- FUT_M19B1007_035 (FR)
         UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('Sableye_1'), CH('Sableye_1').Position.X + 0.5*8, CH('Sableye_1').Position.Y + 8*8, false, 1.0)
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI2, NPC_YAMIRAMI3
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_2'), CH('Sableye_2').Position.X + 0.5*8, CH('Sableye_2').Position.Y + -8*8, false, 1.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_3'), CH('Sableye_3').Position.X + 0.5*8, CH('Sableye_3').Position.Y + 8*8, false, 1.0)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_4'), CH('Sableye_4').Position.X + 0.5*8, CH('Sableye_4').Position.Y + -8*8, false, 1.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_5'), CH('Sableye_5').Position.X + 0.5*8, CH('Sableye_5').Position.Y + 8*8, false, 1.0)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         GROUND:MoveToPosition(CH('Sableye_6'), CH('Sableye_6').Position.X + 0.5*8, CH('Sableye_6').Position.Y + -8*8, false, 1.0)
         -- ExecuteCommon(JUMP_ANGRY_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' Even a little will do!\n Please!') -- FUT_M19B1007_036 (FR optionnel)
+        UI:WaitShowDialogue('Même un tout petit peu suffira ! S\'il te plaît !') -- FUT_M19B1007_036 (FR)
         -- case 58: ' Even a little will do![K] Please!'
         -- case 59: ' It just has to work for an\ninstant![K] Please!'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Attack!') -- FUT_M19B1007_037 (FR optionnel)
+        UI:WaitShowDialogue('Attaque !') -- FUT_M19B1007_037 (FR)
         UI:ResetSpeaker()
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
+            end),
         })
         GAME:WaitFrames(10)
         -- (parallèle) NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
+            end),
         })
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Wheh-heh-heh!') -- FUT_M19B1007_038 (FR optionnel)
+        UI:WaitShowDialogue('Hi-hi-hi !') -- FUT_M19B1007_038 (FR)
         pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Hop', false) -- param 17 = anim 10 (Hop)
                 pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
-            end,
+            end),
         })
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Celebi'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Time to travel!') -- FUT_M19B1007_039 (FR optionnel)
+        UI:WaitShowDialogue('C\'est parti pour le voyage temporel !') -- FUT_M19B1007_039 (FR)
         UI:ResetSpeaker()
         SOUND:FadeOutBGM(30)
         pcall(function() SOUND:PlayBattleSE('SSB_SE_7435') end) -- TODO SE 7435 (SE_NUM_EVENT_MAIN19_LIGHT_04)
@@ -420,31 +420,31 @@ function m19b1007.Cutscene()
         GAME:WaitFrames(2)
         -- (parallèle) NPC_YAMIRAMI2, NPC_YAMIRAMI3
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Attack', false) -- param 12 = anim 2 (Attack)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Attack', false) -- param 12 = anim 2 (Attack)
-            end,
+            end),
         })
         GAME:WaitFrames(2)
         -- (parallèle) NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Attack', false) -- param 12 = anim 2 (Attack)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Attack', false) -- param 12 = anim 2 (Attack)
-            end,
+            end),
         })
         GAME:WaitFrames(2)
         GROUND:CharSetAnim(CH('Sableye_6'), 'Attack', false) -- param 12 = anim 2 (Attack)
         GAME:WaitFrames(4)
         GAME:FadeOut(true, 15)
-        pcall(function() GROUND:RemoveCharacter(CH('Grovyle')) end)
-        pcall(function() GROUND:RemoveCharacter(CH('Celebi')) end)
-        pcall(function() GROUND:RemoveCharacter(CH('PLAYER')) end)
-        pcall(function() GROUND:RemoveCharacter(CH('Teammate1')) end)
+        pcall(function() GROUND:Hide(CH('Grovyle').EntName) end)
+        pcall(function() GROUND:Hide(CH('Celebi').EntName) end)
+        pcall(function() GROUND:Hide(CH('PLAYER').EntName) end)
+        pcall(function() GROUND:Hide(CH('Teammate1').EntName) end)
         -- supervision_emoveActing layer [1] (structurel)
         GAME:WaitFrames(60)
         GAME:FadeIn(15)
@@ -452,38 +452,38 @@ function m19b1007.Cutscene()
         SOUND:PlayBattleSE('EVT_Emote_Shock_2') -- SE 8968 (SE_NUM_EVENT_SIGN_SHOCK_01)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6, NPC_YONOWAARU
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
                 GROUND:CharSetEmote(CH('Sableye_1'), 'shock', 3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
                 GROUND:CharSetEmote(CH('Sableye_2'), 'shock', 3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
                 GROUND:CharSetEmote(CH('Sableye_3'), 'shock', 3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
                 GROUND:CharSetEmote(CH('Sableye_4'), 'shock', 3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
                 GROUND:CharSetEmote(CH('Sableye_5'), 'shock', 3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
                 GROUND:CharSetEmote(CH('Sableye_6'), 'shock', 3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Necrozma'), 'exclaim', 3)
                 -- WaitEffect (les appels GROUND sont bloquants)
-            end,
+            end),
         })
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Wheh-heh...?') -- FUT_M19B1007_040 (FR optionnel)
+        UI:WaitShowDialogue('Hi-hi-hi... ?') -- FUT_M19B1007_040 (FR)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8963') end) -- TODO SE 8963 (SE_NUM_EVENT_SIGN_HATENA_03)
         -- ExecuteCommon(LOOK_AROUND_LEFT_FUNC_SERIES) : gestuelle parallèle à implémenter
@@ -499,11 +499,11 @@ function m19b1007.Cutscene()
         -- ExecuteCommon(LOOK_AROUND_DOWN_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' They v-v-\nvanished?') -- FUT_M19B1007_041 (FR optionnel)
+        UI:WaitShowDialogue('Ils ont d-disparu ?') -- FUT_M19B1007_041 (FR)
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Necrozma'), Direction.Up, 15)
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' Master Necrozma!') -- FUT_M19B1007_042 (FR optionnel)
+        UI:WaitShowDialogue('Maître Necrozma !') -- FUT_M19B1007_042 (FR)
         UI:SetCenter(false)
         UI:ResetSpeaker()
         GAME:FadeOut(false, 15)
@@ -513,23 +513,19 @@ function m19b1007.Cutscene()
         -- camera2_SetPositionMark [2, 2, 19, 17] : PARTIEL
         -- supervision_cting layer [3] (structurel)
         -- object 265 (v15p01a2) : contexte objet
-        local obj_265 = OBJ('v15p01a2') -- objet 265
-        GROUND:ObjectSetAnim(obj_265, 1, 0, 3, Direction.Down, 1) -- anim 1 (table REQUISE)
+        FutureScene.ObjectSetAnim('v15p01a2', 1, 0, 3, Direction.Down, 1) -- objet 265, anim 1 (table REQUISE)
         -- screen2_FadeIn [1, 15] : couche décor (overlay scène, adaptation)
         -- object 265 (v15p01a2) : contexte objet
-        local obj_265 = OBJ('v15p01a2') -- objet 265
-        GROUND:ObjectSetAnim(obj_265, 20, 0, 3, Direction.Down, 1) -- anim 20 (table REQUISE)
+        FutureScene.ObjectSetAnim('v15p01a2', 20, 0, 3, Direction.Down, 1) -- objet 265, anim 20 (table REQUISE)
         -- object 265 (v15p01a2) : contexte objet
         -- WaitAnimation sur objet v15p01a2 : PARTIEL
         -- object 265 (v15p01a2) : contexte objet
-        local obj_265 = OBJ('v15p01a2') -- objet 265
-        GROUND:ObjectSetAnim(obj_265, 18, 0, 3, Direction.Down, 1) -- anim 18 (table REQUISE)
+        FutureScene.ObjectSetAnim('v15p01a2', 18, 0, 3, Direction.Down, 1) -- objet 265, anim 18 (table REQUISE)
         -- object 265 (v15p01a2) : contexte objet
         -- WaitAnimation sur objet v15p01a2 : PARTIEL
         GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 1, 1))
         -- object 265 (v15p01a2) : contexte objet
-        local obj_265 = OBJ('v15p01a2') -- objet 265
-        GROUND:ObjectSetAnim(obj_265, 3, 0, 3, Direction.Down, 1) -- anim 3 (table REQUISE)
+        FutureScene.ObjectSetAnim('v15p01a2', 3, 0, 3, Direction.Down, 1) -- objet 265, anim 3 (table REQUISE)
         pcall(function() SOUND:PlayBattleSE('SSB_SE_6930') end) -- TODO SE 6930 (SE_NUM_EVENT_MAIN10_HOUKOU)
         -- message_ImitationSound : PARTIEL
         -- PARTIEL : WaitSe [6930]
@@ -553,14 +549,12 @@ function m19b1007.Cutscene()
         -- camera2_SetPositionMark [2, 2, 19, 13] : PARTIEL
         -- supervision_cting layer [2] (structurel)
         -- object 268 (v15p01a3) : contexte objet
-        local obj_268 = OBJ('v15p01a3') -- objet 268
-        GROUND:ObjectSetAnim(obj_268, 9, 0, 3, Direction.Down, 1) -- anim 9 (table REQUISE)
+        FutureScene.ObjectSetAnim('v15p01a3', 9, 0, 3, Direction.Down, 1) -- objet 268, anim 9 (table REQUISE)
         -- screen2_FadeIn [1, 15] : couche décor (overlay scène, adaptation)
         GAME:WaitFrames(30)
         pcall(function() SOUND:PlayBattleSE('SSB_SE_7448') end) -- TODO SE 7448 (SE_NUM_EVENT_MAIN19_LIGHT_06)
         -- object 268 (v15p01a3) : contexte objet
-        local obj_268 = OBJ('v15p01a3') -- objet 268
-        GROUND:ObjectSetAnim(obj_268, 17, 0, 3, Direction.Down, 1) -- anim 17 (table REQUISE)
+        FutureScene.ObjectSetAnim('v15p01a3', 17, 0, 3, Direction.Down, 1) -- objet 268, anim 17 (table REQUISE)
         -- PARTIEL : back2_SetEffect [7, 60]
         -- PARTIEL : WaitSe [7448]
         -- screen2_FadeOut [1, 15] : couche décor (overlay scène, adaptation)
@@ -569,8 +563,7 @@ function m19b1007.Cutscene()
         -- camera2_SetPositionMark [2, 2, 19, 17] : PARTIEL
         -- supervision_cting layer [3] (structurel)
         -- object 265 (v15p01a2) : contexte objet
-        local obj_265 = OBJ('v15p01a2') -- objet 265
-        GROUND:ObjectSetAnim(obj_265, 1, 0, 3, Direction.Down, 1) -- anim 1 (table REQUISE)
+        FutureScene.ObjectSetAnim('v15p01a2', 1, 0, 3, Direction.Down, 1) -- objet 265, anim 1 (table REQUISE)
         -- object 265 (v15p01a2) : contexte objet
         -- SetOutputAttribute sur objet v15p01a2 : PARTIEL
         -- object 265 (v15p01a2) : contexte objet
@@ -578,17 +571,15 @@ function m19b1007.Cutscene()
         -- screen2_FadeIn [1, 15] : couche décor (overlay scène, adaptation)
         GAME:WaitFrames(30)
         -- object 265 (v15p01a2) : contexte objet
-        local obj_265 = OBJ('v15p01a2') -- objet 265
-        GROUND:ObjectSetAnim(obj_265, 18, 0, 3, Direction.Down, 1) -- anim 18 (table REQUISE)
+        FutureScene.ObjectSetAnim('v15p01a2', 18, 0, 3, Direction.Down, 1) -- objet 265, anim 18 (table REQUISE)
         -- object 265 (v15p01a2) : contexte objet
         -- WaitAnimation sur objet v15p01a2 : PARTIEL
         GROUND:MoveScreen(RogueEssence.Content.ScreenMover(0, 1, 1))
         -- object 265 (v15p01a2) : contexte objet
-        local obj_265 = OBJ('v15p01a2') -- objet 265
-        GROUND:ObjectSetAnim(obj_265, 3, 0, 3, Direction.Down, 1) -- anim 3 (table REQUISE)
+        FutureScene.ObjectSetAnim('v15p01a2', 3, 0, 3, Direction.Down, 1) -- objet 265, anim 3 (table REQUISE)
         pcall(function() SOUND:PlayBattleSE('SSB_SE_6930') end) -- TODO SE 6930 (SE_NUM_EVENT_MAIN10_HOUKOU)
         -- message_ImitationSound : PARTIEL
-        pcall(function() SOUND:PlayBGM('Strong Blast Noise.ogg', true) end) -- StrongBlastNoise
+        pcall(function() SOUND:PlayBGM('Rising Fear.ogg', true) end) -- StrongBlastNoise
         -- screen2_WhiteOut [1, 2] : couche décor (overlay scène, adaptation)
         GAME:WaitFrames(2)
         -- screen2_FadeIn [1, 2] : couche décor (overlay scène, adaptation)
@@ -620,7 +611,13 @@ function m19b1007.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[m19b1007] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[m19b1007] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return m19b1007

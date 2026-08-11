@@ -25,24 +25,24 @@ function m18b0901.Cutscene()
         SV.Scenario.Main = 19 -- flag_SetScenario(SCENARIO_MAIN, scenario=19, level=3)
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
                 GROUND:CharTurnToChar(CH('Teammate1'), CH('PLAYER'))
-            end,
+            end),
         })
         GROUND:CharTurnToChar(CH('PLAYER'), CH('Teammate1'))
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' We\'ve got to be getting close to\nthe bottom now, [hero].') -- FUT_M18B0901_001 (FR optionnel)
+        UI:WaitShowDialogue('Nous devons bientôt atteindre le fond, [hero].') -- FUT_M18B0901_001 (FR)
         -- case 0: " We've got to be getting close to\nthe bottom now, [hero]."
         -- case 1: ' We must be getting close to the\nbottom now, [hero].'
-        UI:WaitShowDialogue(' We\'ve got to catch up to\nGrovyle soon.') -- FUT_M18B0901_002 (FR optionnel)
+        UI:WaitShowDialogue('Nous devons vite rattraper Massko.') -- FUT_M18B0901_002 (FR)
         -- case 3: " We've got to catch up to\n[CS:N]Grovyle[CR] soon."
         -- case 4: ' We have to catch up to [CS:N]Grovyle[CR]\nsoon.'
-        UI:WaitShowDialogue(' Let\'s keep it up!') -- FUT_M18B0901_003 (FR optionnel)
+        UI:WaitShowDialogue('Continuons comme ça !') -- FUT_M18B0901_003 (FR)
         -- case 6: " Let's keep it up!"
         -- case 7: " Let's keep it up!"
         UI:ResetSpeaker()
@@ -57,7 +57,13 @@ function m18b0901.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[m18b0901] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[m18b0901] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return m18b0901

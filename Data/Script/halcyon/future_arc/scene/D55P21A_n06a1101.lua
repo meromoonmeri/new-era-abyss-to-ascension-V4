@@ -23,18 +23,18 @@ function n06a1101.Cutscene()
 
         -- (parallèle) NPC_CHAAREMU, NPC_SAANAITO, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_SAANAITO)
                 -- NON CONVERTI : Turn2Direction (acteur NPC_SAANAITO)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_CHAAREMU)
                 -- NON CONVERTI : Turn2Direction (acteur NPC_CHAAREMU)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur PLAYER_CHARMS)
                 -- NON CONVERTI : Turn2Direction (acteur PLAYER_CHARMS)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         -- NON CONVERTI : message_Mail (courrier absent de PMDO)
@@ -52,7 +52,13 @@ function n06a1101.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[n06a1101] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[n06a1101] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return n06a1101

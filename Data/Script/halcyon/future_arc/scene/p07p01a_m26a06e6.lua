@@ -21,7 +21,7 @@ function m26a06e6.Cutscene()
   local ok, err = pcall(function()
     GAME:CutsceneMode(true)
 
-        pcall(function() SOUND:PlayBGM('Memories Returned.ogg', true) end) -- MemoriesReturned
+        pcall(function() SOUND:PlayBGM('Time Restored.ogg', true) end) -- MemoriesReturned
         -- PARTIEL : back2_SetMode [4]
         -- back2_SetGround(V09P04A) : couche décor (overlay scène, adaptation)
         -- back_SetGround(P07P01A) : ground courant déjà posé
@@ -32,18 +32,18 @@ function m26a06e6.Cutscene()
         -- camera_SetMyself : la caméra suit le héros (défaut PMDO)
         -- performer 0
         GROUND:TeleportTo(CH('PLAYER'), 180, 380)
-        pcall(function() GROUND:RemoveCharacter(CH('Grovyle')) end)
+        pcall(function() GROUND:Hide(CH('Grovyle').EntName) end)
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:TeleportTo(CH('PLAYER'), 208, 396)
                 CH('PLAYER').Direction = Direction.Left
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 CH('Teammate1').Direction = Direction.Right
                 GROUND:TeleportTo(CH('Teammate1'), 120, 396)
                 GROUND:TeleportTo(CH('Teammate1'), CH('Teammate1').Position.X + 28*8, CH('Teammate1').Position.Y + 0*8)
-            end,
+            end),
         })
         -- screen_FlushOut [1, 0, 8, 0, 0, 0] : fondu coloré (FlashEmitter, adaptation)
         -- screen2_FadeIn [0, 30] : couche décor (overlay scène, adaptation)
@@ -73,7 +73,13 @@ function m26a06e6.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[m26a06e6] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[m26a06e6] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return m26a06e6

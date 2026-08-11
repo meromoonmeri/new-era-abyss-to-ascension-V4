@@ -13,6 +13,7 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.BossFX'
+require 'halcyon.future_arc.FutureScene'
 
 local n06a3908 = {}
 
@@ -208,13 +209,13 @@ function n06a3908.Cutscene()
         -- NON CONVERTI : WaitLockLives [17, 191]
         -- (parallèle) NPC_CHAAREMU, NPC_SAANAITO
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : MovePositionOffset (acteur NPC_SAANAITO)
                 -- NON CONVERTI : Turn2DirectionLives (acteur NPC_SAANAITO)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : MovePositionOffset (acteur NPC_CHAAREMU)
-            end,
+            end),
         })
         GAME:WaitFrames(3)
         -- NON CONVERTI : Turn2DirectionLives (acteur NPC_CHAAREMU)
@@ -395,8 +396,7 @@ function n06a3908.Cutscene()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_6410') end) -- TODO SE 6410 (None)
         -- supervision_cting layer [1] (structurel)
         -- object 128 (p03p02a1) : contexte objet
-        local obj_128 = OBJ('p03p02a1') -- objet 128
-        GROUND:ObjectSetAnim(obj_128, 9, 0, 3, Direction.Down, 1) -- anim 9 (table REQUISE)
+        FutureScene.ObjectSetAnim('p03p02a1', 9, 0, 3, Direction.Down, 1) -- objet 128, anim 9 (table REQUISE)
         GAME:WaitFrames(15)
         -- NON CONVERTI : SetAnimation (acteur PLAYER_CHARMS)
         -- NON CONVERTI : SlidePositionOffset (acteur PLAYER_CHARMS)
@@ -438,13 +438,13 @@ function n06a3908.Cutscene()
         GAME:WaitFrames(9)
         -- (parallèle) NPC_PUKURIN, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_PUKURIN)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur PLAYER_CHARMS)
                 -- NON CONVERTI : SlidePositionOffset (acteur PLAYER_CHARMS)
-            end,
+            end),
         })
         -- NON CONVERTI : SetAnimation (acteur PLAYER_CHARMS)
         UI:ResetSpeaker()
@@ -496,24 +496,24 @@ function n06a3908.Cutscene()
         -- NON CONVERTI : WaitAnimation (acteur PLAYER_CHARMS)
         -- (parallèle) NPC_CHAAREMU, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur PLAYER_CHARMS)
                 -- NON CONVERTI : SlidePositionMark (acteur PLAYER_CHARMS)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : WaitAnimation (acteur NPC_CHAAREMU)
                 -- NON CONVERTI : SetAnimation (acteur NPC_CHAAREMU)
-            end,
+            end),
         })
         -- (parallèle) NPC_CHAAREMU, NPC_SAANAITO
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SlidePositionMark (acteur NPC_CHAAREMU)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : WaitAnimation (acteur NPC_SAANAITO)
                 -- NON CONVERTI : SetAnimation (acteur NPC_SAANAITO)
-            end,
+            end),
         })
         -- NON CONVERTI : SlidePositionMark (acteur NPC_SAANAITO)
         GAME:WaitFrames(30)
@@ -675,7 +675,13 @@ function n06a3908.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[n06a3908] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[n06a3908] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return n06a3908

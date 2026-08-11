@@ -24,18 +24,18 @@ function m18b0601.Cutscene()
         -- bgm_PlayFadeIn [41, 0, 256] : BGM SealedRuin non mappé
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
+            end),
         })
         GROUND:CharTurnToChar(CH('Teammate1'), CH('PLAYER'))
         GROUND:CharTurnToChar(CH('PLAYER'), CH('Teammate1'))
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Are you all ready, [hero]?') -- FUT_M18B0601_001 (FR optionnel)
+        UI:WaitShowDialogue('Tout est prêt, [hero] ?') -- FUT_M18B0601_001 (FR)
         -- case 0: ' Are you all ready, [hero]?'
         -- case 1: ' Are you ready, [hero]?'
         -- message_SwitchMenu/CaseMenu : menu de choix (adaptation)
@@ -43,19 +43,19 @@ function m18b0601.Cutscene()
         -- message_SwitchMenu/CaseMenu : menu de choix (adaptation)
         UI:ResetSpeaker()
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' All right! Let\'s roll out!') -- FUT_M18B0601_002 (FR optionnel)
+        UI:WaitShowDialogue('D\'accord ! Allons-y !') -- FUT_M18B0601_002 (FR)
         UI:SetCenter(false)
         -- case 5: " All right! Let's roll out!"
         -- case 6: " OK! Let's go!"
         UI:ResetSpeaker()
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.Up, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.Up, 15)
-            end,
+            end),
         })
         GAME:FadeOut(false, 30)
         -- main_EnterDungeon(29) : entrée donjon (mapping id REQUIS)
@@ -65,12 +65,12 @@ function m18b0601.Cutscene()
         -- End : fin de scène
         UI:ResetSpeaker()
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' We\'ll go when you\'re ready.') -- FUT_M18B0601_003 (FR optionnel)
+        UI:WaitShowDialogue('On y va quand tu seras prêt.') -- FUT_M18B0601_003 (FR)
         UI:SetCenter(false)
         -- case 8: " We'll go when you're ready."
         -- case 9: " Let's go when you're ready."
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' Let\'s hurry after Grovyle!') -- FUT_M18B0601_004 (FR optionnel)
+        UI:WaitShowDialogue('Dépêchons-nous de rattraper Massko !') -- FUT_M18B0601_004 (FR)
         UI:SetCenter(false)
         -- case 11: " Let's hurry after [CS:N]Grovyle[CR]!"
         -- case 12: " Let's hurry and catch up to\n[CS:N]Grovyle[CR]!"
@@ -79,7 +79,13 @@ function m18b0601.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[m18b0601] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[m18b0601] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return m18b0601

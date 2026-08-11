@@ -2,19 +2,19 @@
  "schema": "newera.adaptation.tables.v1",
  "bgm": {
   "InTheFuture": "In the Future.ogg",
-  "PlanetsParalysis": "Planet's Paralysis.ogg",
-  "OhNo": "Oh No!.ogg",
+  "PlanetsParalysis": "In the Future.ogg",
+  "OhNo": "Growing Anxiety.ogg",
   "TimeGearRemix": "Time Gear Remix.ogg",
-  "TimeGear": "Time Gear.ogg",
-  "MemoriesReturned": "Memories Returned.ogg",
-  "OnTheCeiling": "On the Ceiling.ogg",
-  "InTheHandsOfFate": "In the Hands of Fate.ogg",
+  "TimeGear": "Time Gear Remix.ogg",
+  "MemoriesReturned": "Time Restored.ogg",
+  "OnTheCeiling": "Growing Anxiety.ogg",
+  "InTheHandsOfFate": "Sympathy.ogg",
   "HiddenHighland": "Hidden Highland.ogg",
-  "AnotherStaticNoise": "Another Static Noise.ogg",
+  "AnotherStaticNoise": "Rising Fear.ogg",
   "InTheDepthsOfThePit": "In the Depths of the Pit.ogg",
   "WelcomeToTheWorldOfPokemon": "Welcome to the World of Pokémon!.ogg",
   "ThePowerOfDarkness": "The Power of Darkness.ogg",
-  "StrongBlastNoise": "Strong Blast Noise.ogg"
+  "StrongBlastNoise": "Rising Fear.ogg"
  },
  "grounds": {
   "P05P01A": "p05p01a",

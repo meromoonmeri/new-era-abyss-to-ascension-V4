@@ -36,24 +36,24 @@ function n08a2608.Cutscene()
         GROUND:MoveToPosition(CH('PLAYER'), CH('PLAYER').Position.X + 2.5*8, CH('PLAYER').Position.Y + 0*8, false, 5.0)
         -- (parallèle) NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_4'), 'shock', 3)
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Float', false) -- param 29 = anim 20 (Float)
                 CH('Sableye_4').Direction = Direction.UpRight
                 GROUND:AnimateToPosition(CH('Sableye_4'), CH('Sableye_4').Position.X + 2.5*8, CH('Sableye_4').Position.Y + -24*8, false, 5.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_5'), 'shock', 3)
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Float', false) -- param 29 = anim 20 (Float)
                 CH('Sableye_5').Direction = Direction.UpRight
                 GROUND:AnimateToPosition(CH('Sableye_5'), CH('Sableye_5').Position.X + 2.5*8, CH('Sableye_5').Position.Y + 0*8, false, 5.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_6'), 'shock', 3)
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Float', false) -- param 29 = anim 20 (Float)
                 CH('Sableye_6').Direction = Direction.UpRight
                 GROUND:AnimateToPosition(CH('Sableye_6'), CH('Sableye_6').Position.X + 2.5*8, CH('Sableye_6').Position.Y + 24*8, false, 5.0)
-            end,
+            end),
         })
         GAME:WaitFrames(2)
         GAME:FadeIn(2)
@@ -62,12 +62,12 @@ function n08a2608.Cutscene()
         UI:WaitShowDialogue(' Gwah!') -- FUT_N08A2608_001 (FR optionnel)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_1'), 'shock', 3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_2'), 'shock', 3)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         GROUND:CharSetEmote(CH('Sableye_3'), 'shock', 3)
@@ -102,23 +102,23 @@ function n08a2608.Cutscene()
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI3, NPC_YAMIRAMI4
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_3'), CH('Sableye_3').Position.X + 2.5*8, CH('Sableye_3').Position.Y + 80*8, false, 5.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_4'), CH('Sableye_4').Position.X + 2.5*8, CH('Sableye_4').Position.Y + 16*8, false, 5.0)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_6'), CH('Sableye_6').Position.X + 2.5*8, CH('Sableye_6').Position.Y + -16*8, false, 5.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 CH('Sableye_5').Direction = Direction.Up
                 pcall(function() GROUND:CharWaitAnim(CH('Sableye_5')) end)
-            end,
+            end),
         })
         -- SetAnimation 2 (spécial : boucle anim courante)
         GAME:WaitFrames(15)
@@ -130,12 +130,12 @@ function n08a2608.Cutscene()
         GROUND:CharAnimateTurnTo(CH('Sableye_5'), Direction.Down, 15)
         -- (parallèle) NPC_YAMIRAMI5, PLAYER_FUTURE
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_5'), 'shock', 3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('HeroFuture'), Direction.Down, 15)
-            end,
+            end),
         })
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
@@ -185,12 +185,12 @@ function n08a2608.Cutscene()
         UI:ResetSpeaker()
         -- (parallèle) NPC_YAMIRAMI5, NPC_YONOWAARU_N8
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Dusknoir'), 'LostBalance', false) -- param 40 = anim 31 (LostBalance)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:AnimateToPosition(CH('Sableye_5'), CH('Sableye_5').Position.X + 4*8, CH('Sableye_5').Position.Y + 0*8, false, 8.0)
-            end,
+            end),
         })
         GAME:WaitFrames(15)
         GROUND:AnimateToPosition(CH('Sableye_5'), CH('Sableye_5').Position.X + 4*8, CH('Sableye_5').Position.Y + 0*8, false, 8.0)
@@ -200,16 +200,16 @@ function n08a2608.Cutscene()
         GAME:FadeIn(2)
         -- (parallèle) NPC_YAMIRAMI5, NPC_YONOWAARU_N8, PLAYER_FUTURE
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Pull', false) -- param 27 = anim 18 (Pull)
                 CH('Sableye_5').Direction = Direction.DownRight
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('HeroFuture'), Direction.DownLeft, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
+            end),
         })
         GROUND:CharSetEmote(CH('Sableye_5'), 'shock', 3)
         UI:SetSpeaker(CH('Sableye_1'))
@@ -246,10 +246,10 @@ function n08a2608.Cutscene()
         UI:WaitShowDialogue(' Eeee...\neeeeeek!') -- FUT_N08A2608_018 (FR optionnel)
         UI:ResetSpeaker()
         SOUND:FadeOutBGM(120)
-        pcall(function() GROUND:RemoveCharacter(CH('Sableye_4')) end)
-        pcall(function() GROUND:RemoveCharacter(CH('Sableye_6')) end)
+        pcall(function() GROUND:Hide(CH('Sableye_4').EntName) end)
+        pcall(function() GROUND:Hide(CH('Sableye_6').EntName) end)
         GROUND:MoveToPosition(CH('Sableye_5'), CH('Sableye_5').Position.X + 2.5*8, CH('Sableye_5').Position.Y + 0*8, false, 5.0)
-        pcall(function() GROUND:RemoveCharacter(CH('Sableye_5')) end)
+        pcall(function() GROUND:Hide(CH('Sableye_5').EntName) end)
         GAME:WaitFrames(150)
         GROUND:CharTurnToChar(CH('HeroFuture'), CH('Dusknoir'))
         GROUND:CharTurnToChar(CH('Dusknoir'), CH('HeroFuture'))
@@ -284,12 +284,12 @@ function n08a2608.Cutscene()
         GROUND:MoveToPosition(CH('PLAYER'), CH('PLAYER').Position.X + 0.5*8, CH('PLAYER').Position.Y + 0*8, false, 1.0)
         -- (parallèle) NPC_YONOWAARU_N8, PLAYER_FUTURE
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Dusknoir'), CH('Dusknoir').Position.X + 0.7969*8, CH('Dusknoir').Position.Y + 0*8, false, 1.594)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('HeroFuture'), Direction.DownLeft, 15)
-            end,
+            end),
         })
         SOUND:PlayBattleSE('EVT_Emote_Exclaim') -- SE 8978 (SE_NUM_EVENT_SIGN_NOTICE_05)
         -- SetEffect id 172 : NON CONVERTI (table effets REQUISE)
@@ -304,7 +304,7 @@ function n08a2608.Cutscene()
         GeneralFunctions.SetEmotion('Normal')
         UI:WaitShowDialogue(' What is it?') -- FUT_N08A2608_026 (FR optionnel)
         UI:ResetSpeaker()
-        pcall(function() SOUND:PlayBGM('On the Ceiling.ogg', true) end) -- OnTheCeiling
+        pcall(function() SOUND:PlayBGM('Growing Anxiety.ogg', true) end) -- OnTheCeiling
         UI:SetSpeaker(CH('Dusknoir'))
         GeneralFunctions.SetEmotion('Normal')
         UI:WaitShowDialogue(' Oh, it\'s nothing...') -- FUT_N08A2608_027 (FR optionnel)
@@ -343,7 +343,13 @@ function n08a2608.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[n08a2608] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[n08a2608] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return n08a2608

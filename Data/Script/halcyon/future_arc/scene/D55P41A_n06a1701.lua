@@ -127,64 +127,64 @@ function n06a1701.Cutscene()
         GAME:WaitFrames(6)
         -- (parallèle) NPC_KODORA, NPC_KODORA5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA5)
-            end,
+            end),
         })
         GAME:WaitFrames(3)
         -- (parallèle) NPC_KODORA3, NPC_KODORA4
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA4)
-            end,
+            end),
         })
         GAME:WaitFrames(3)
         -- (parallèle) NPC_KODORA2, NPC_KODORA6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA2)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA6)
-            end,
+            end),
         })
         UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
         UI:WaitShowDialogue('Lairon: GROOOAAAAHH!!') -- FUT_N06A1701_013 (FR optionnel)
         GAME:WaitFrames(24)
         -- (parallèle) NPC_KODORA, NPC_KODORA5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA5)
-            end,
+            end),
         })
         GAME:WaitFrames(3)
         -- (parallèle) NPC_KODORA2, NPC_KODORA4
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA4)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA2)
-            end,
+            end),
         })
         GAME:WaitFrames(3)
         -- (parallèle) NPC_KODORA3, NPC_KODORA6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_KODORA6)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         -- NON CONVERTI : Turn2Direction (acteur NPC_SAANAITO)
@@ -231,7 +231,13 @@ function n06a1701.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[n06a1701] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[n06a1701] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return n06a1701

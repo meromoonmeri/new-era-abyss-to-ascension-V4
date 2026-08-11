@@ -117,6 +117,7 @@ function bourg_comptoir_ch_11.ArrivalCutscene()
     GAME:WaitFrames(20)
 
     SV.Chapter11.FinishedTreasureTownIntro = true
+    SV.Chapter11.TreasureTownArrivalVersion = 1
   end)
 
   -- Sortie garantie, quoi qu'il arrive au-dessus.

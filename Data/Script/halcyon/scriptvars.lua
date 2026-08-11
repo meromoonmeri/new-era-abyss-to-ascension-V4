@@ -1417,9 +1417,57 @@ SV.Chapter11 =
 {
 	ShowedTitleCard = false,
 	FinishedTreasureTownIntro = false,
+	-- Migration de l'ancienne arrivée au Bourg : avant la réparation, la Mare
+	-- posait FinishedTreasureTownIntro trop tôt et la scène d'arrivée était sautée.
+	TreasureTownArrivalVersion = 0,
 	--Arc de l'accusation : le duo quitte Metano avant de gagner l'autre
 	--continent. Pose par AccusationArc.Scene9/10.
 	FledGuild = false
+}
+
+-- Arc temporel principal. Le curseur global est la seule autorité de routage :
+-- les Grounds et les scènes générées ne possèdent plus leurs transitions.
+SV.FutureArc =
+{
+	Version = 3,
+	Eligible = false,
+	Offered = false,
+	Active = false,
+	Completed = false,
+	PresentReturnPending = false,
+	PresentReturnSeen = false,
+	Cursor = 1,
+	CurrentScene = "",
+	PendingDungeon = "",
+	DungeonState = "idle", -- idle / running / cleared / failed
+	LastOutcome = "",
+	ReturnGround = "bourg_comptoir",
+	DungeonReturnGround = "",
+	Attempts = {},
+	LastError = "",
+	-- Champs transitoires : permettent aux sauvegardes de l'ancien runner Step
+	-- de reprendre depuis leur Ground sans réinitialiser tout le parcours.
+	LegacyNeedsGround = false,
+	LegacyStep = 1,
+	LegacySpiritombDone = false
+}
+
+-- D55 appartient à l'épisode spécial de l'Équipe Charme, pas au parcours du
+-- héros dans le futur. Ses trois fragments sont donc débloqués séparément.
+SV.FutureSpecialEpisode =
+{
+	Version = 1,
+	Unlocked = false,
+	Active = false,
+	CurrentSegment = 1,
+	PendingSegment = 0,
+	Segment1Done = false,
+	Segment2Done = false,
+	Segment3Done = false,
+	Completed = false,
+	ReturnPending = false,
+	LastResult = "",
+	Attempts = 0
 }
 
 --Chapitre 11 — « Ceux que l'on accuse ».

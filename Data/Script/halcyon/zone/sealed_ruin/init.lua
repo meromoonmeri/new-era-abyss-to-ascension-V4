@@ -25,12 +25,7 @@ function sealed_ruin.Rescued(zone, name, mail)
 end
 
 function sealed_ruin.ExitSegment(zone, result, rescue, segmentID, mapID)
-  GeneralFunctions.RestoreIdleAnim()
-  DEBUG.EnableDbgCoro()
-  local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
-  SV.adventure.Thief = false
-  if exited == true then return end
-  FutureDungeonCommon.ExitToGround(result, zone.ID, 'd20p11a')
+  FutureDungeonCommon.HandleExit(result, rescue, zone, segmentID, 'd20p11a')
 end
 
 return sealed_ruin

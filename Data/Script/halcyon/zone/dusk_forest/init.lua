@@ -25,12 +25,7 @@ function dusk_forest.Rescued(zone, name, mail)
 end
 
 function dusk_forest.ExitSegment(zone, result, rescue, segmentID, mapID)
-  GeneralFunctions.RestoreIdleAnim()
-  DEBUG.EnableDbgCoro()
-  local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
-  SV.adventure.Thief = false
-  if exited == true then return end
-  FutureDungeonCommon.ExitToGround(result, zone.ID, 'd22p11a')
+  FutureDungeonCommon.HandleExit(result, rescue, zone, segmentID, 'd22p11a')
 end
 
 return dusk_forest

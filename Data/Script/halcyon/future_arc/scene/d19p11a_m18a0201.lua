@@ -23,18 +23,18 @@ function m18a0201.Cutscene()
 
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
                 GROUND:CharTurnToChar(CH('Teammate1'), CH('PLAYER'))
-            end,
+            end),
         })
         GROUND:CharTurnToChar(CH('PLAYER'), CH('Teammate1'))
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Hey, [hero]. Are you\nall ready?') -- FUT_M18A0201_001 (FR optionnel)
+        UI:WaitShowDialogue('Hé, [hero]. Tout est prêt ?') -- FUT_M18A0201_001 (FR)
         -- case 0: ' Hey, [hero]. Are you\nall ready?'
         -- case 1: ' Hey, [hero].\nAre you ready?'
         -- message_SwitchMenu/CaseMenu : menu de choix (adaptation)
@@ -42,7 +42,7 @@ function m18a0201.Cutscene()
         -- message_SwitchMenu/CaseMenu : menu de choix (adaptation)
         UI:ResetSpeaker()
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' All right!\n Let\'s roll on out!') -- FUT_M18A0201_002 (FR optionnel)
+        UI:WaitShowDialogue('D\'accord ! Allons-y !') -- FUT_M18A0201_002 (FR)
         UI:SetCenter(false)
         -- case 5: " All right![K] Let's roll on out!"
         -- case 6: " OK![K] Let's go!"
@@ -59,12 +59,12 @@ function m18a0201.Cutscene()
         -- End : fin de scène
         UI:ResetSpeaker()
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' We\'ll go when you\'re ready.') -- FUT_M18A0201_003 (FR optionnel)
+        UI:WaitShowDialogue('On y va quand tu seras prêt.') -- FUT_M18A0201_003 (FR)
         UI:SetCenter(false)
         -- case 8: " We'll go when you're ready."
         -- case 9: " Let's go when you're ready."
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' Let\'s go before those Sableye\ncatch up.') -- FUT_M18A0201_004 (FR optionnel)
+        UI:WaitShowDialogue('Partons avant que les Ténéfix nous rattrapent.') -- FUT_M18A0201_004 (FR)
         UI:SetCenter(false)
         -- case 11: " Let's go before those [CS:N]Sableye[CR]\ncatch up."
         -- case 12: ' We need to go before those\n[CS:N]Sableye[CR] catch up.'
@@ -73,7 +73,13 @@ function m18a0201.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[m18a0201] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[m18a0201] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return m18a0201

@@ -21,6 +21,8 @@ require 'halcyon.GeneralFunctions'
 require 'halcyon.CharacterEssentials'
 require 'halcyon.ComptoirVoices'
 require 'halcyon.LivingWorld'
+require 'halcyon.future_arc.FutureArc'
+require 'halcyon.future_arc.dungeon55_events'
 require 'halcyon.ground.bourg_comptoir.bourg_comptoir_ch_11'
 
 local bourg_comptoir = {}
@@ -37,8 +39,10 @@ function bourg_comptoir.Init(map)
   -- Si aucune cinematique n'est a venir, on rend la main tout de suite.
   pcall(function()
     local sceneAVenir = false
-    if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 11 then
+    if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter >= 11 then
       sceneAVenir = not SV.Chapter11.FinishedTreasureTownIntro
+        or FutureArc.IsPresentReturnPending()
+        or Dungeon55Events.IsReturnPending()
     end
     if not sceneAVenir then GAME:CutsceneMode(false) end
   end)
@@ -60,11 +64,24 @@ function bourg_comptoir.GameLoad(map)
 end
 
 function bourg_comptoir.PlotScripting()
-  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter == 11 then
+  -- Migration des sauvegardes créées avec l'ancien flag posé à la Mare :
+  -- aucune d'elles n'a pu voir l'arrivée, on la rejoue exactement une fois.
+  if SV.Chapter11 ~= nil
+      and (tonumber(SV.Chapter11.TreasureTownArrivalVersion) or 0) < 1 then
+    SV.Chapter11.FinishedTreasureTownIntro = false
+  end
+
+  if SV.ChapterProgression ~= nil and SV.ChapterProgression.Chapter >= 11 then
     if not SV.Chapter11.FinishedTreasureTownIntro then
       bourg_comptoir_ch_11.ArrivalCutscene()
-    else
-      bourg_comptoir_ch_11.SetupGround()
+      return
+    end
+
+    bourg_comptoir_ch_11.SetupGround()
+    if FutureArc.IsPresentReturnPending() then
+      FutureArc.PlayPresentReturn()
+    elseif Dungeon55Events.IsReturnPending() then
+      Dungeon55Events.PlayReturn()
     end
   else
     GAME:FadeIn(20)
@@ -173,6 +190,14 @@ function bourg_comptoir.Lapras_Action(chara, activator)
     GROUND:CharSetAnim(partner, 'None', true)
   end
   GROUND:CharSetAnim(hero, 'None', true)
+
+  -- Après l'arrivée réparée, Loaklass devient le point d'activation normal
+  -- des résonances. Un refus conserve toujours le voyage ordinaire vers Métano.
+  if FutureArc.CanOffer() then
+    if FutureArc.Offer(chara) then return end
+  elseif Dungeon55Events.CanOffer() then
+    if Dungeon55Events.Offer(chara) then return end
+  end
 
   UI:SetSpeaker(chara)
   UI:ChoiceMenuYesNo("Souhaitez-vous regagner Metano Town ?", true)

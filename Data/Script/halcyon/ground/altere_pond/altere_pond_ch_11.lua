@@ -132,7 +132,8 @@ function altere_pond_ch_11.ArrivalCutscene()
   -- Treasure Town est un Ground de master_zone, pas un donjon. Appeler
   -- UnlockDungeon sur cet identifiant absent de Data/Zone faisait planter
   -- la sauvegarde Dev lors du déblocage.
-  SV.Chapter11.FinishedTreasureTownIntro = true
+  -- Le flag appartient à la scène d'arrivée du Bourg. Le poser ici sautait
+  -- précisément cette scène sur la carte de destination.
   GAME:EnterGroundMap("bourg_comptoir", "Main_Entrance_Marker")
 end
 

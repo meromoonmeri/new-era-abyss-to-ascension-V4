@@ -23,11 +23,11 @@ function m17a0701.Cutscene()
 
         -- PARTIEL : sound_Stop []
         SV.Scenario.Main = 18 -- flag_SetScenario(SCENARIO_MAIN, scenario=18, level=4)
-        GAME:EnterGroundMap('s04p01a', 'Main_Entrance_Marker') -- transition S04P01A
+        -- Transition neutralisée : FutureArc possède le routage. Source : GAME:EnterGroundMap('s04p01a', 'Main_Entrance_Marker') -- transition S04P01A
         GAME:FadeIn(0)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue('(dialogue FUT_M17A0701_001)') -- FUT_M17A0701_001 (FR optionnel)
+        UI:WaitShowDialogue('Aïe... Nous n\'avons pas réussi à passer...') -- FUT_M17A0701_001 (FR)
         -- case 0: " Ugh...[K] We couldn't get through..."
         -- case 1: " Ouch...[K] We couldn't get through..."
         -- message_KeyWait (le dialogue bloque déjà)
@@ -51,39 +51,39 @@ function m17a0701.Cutscene()
         GAME:WaitFrames(15)
         -- (parallèle) ATTENDANT1, NPC_JUPUTORU, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharTurnToChar(CH('Teammate1'), CH('PLAYER'))
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharTurnToChar(CH('PLAYER'), CH('Teammate1'))
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Grovyle'), Direction.Down, 15)
-            end,
+            end),
         })
         GAME:WaitFrames(15)
         GROUND:CharSetEmote(CH('Teammate1'), 'sweatdrop', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(' Hmmm... Maybe we got a little\ntoo careless.') -- FUT_M17A0701_002 (FR optionnel)
+        UI:WaitShowDialogue('Hmmm... Nous avons peut-être manqué de prudence.') -- FUT_M17A0701_002 (FR)
         -- case 3: ' Hmmm... Maybe we got a little\ntoo careless.'
         -- case 4: ' Hmmm... I think we got a little\ntoo careless.'
         UI:ResetSpeaker()
         -- ExecuteCommon(LOOK_AROUND_DOWN_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' I guess the Sableye aren\'t here\nyet...') -- FUT_M17A0701_003 (FR optionnel)
+        UI:WaitShowDialogue('Je suppose que les Ténéfix ne sont pas encore là...') -- FUT_M17A0701_003 (FR)
         -- case 6: " I guess the [CS:N]Sableye[CR] aren't here\nyet..."
         -- case 7: " I guess the [CS:N]Sableye[CR] aren't here\nyet..."
         UI:ResetSpeaker()
         GROUND:CharTurnToChar(CH('Teammate1'), CH('PLAYER'))
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Anyway, we need to get out of\nhere quick!') -- FUT_M17A0701_004 (FR optionnel)
+        UI:WaitShowDialogue('Quoi qu\'il en soit, nous devons vite sortir d\'ici !') -- FUT_M17A0701_004 (FR)
         -- case 9: ' Anyway, we need to get out of\nhere quick!'
         -- case 10: ' Anyway, we have to get away\nfrom here.'
-        UI:WaitShowDialogue(' We\'ll go when you\'re ready.') -- FUT_M17A0701_005 (FR optionnel)
+        UI:WaitShowDialogue('On y va quand tu seras prêt.') -- FUT_M17A0701_005 (FR)
         -- case 12: " We'll go when you're ready."
         -- case 13: " Let's go when you're ready."
         UI:ResetSpeaker()
@@ -106,7 +106,13 @@ function m17a0701.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[m17a0701] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[m17a0701] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return m17a0701

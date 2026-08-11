@@ -52,15 +52,15 @@ function enter02.Cutscene()
         -- NON CONVERTI : BranchScenarioNowAfter [3, 12, 0, 341]
         -- (parallèle) ATTENDANT1, PLAYER, PLAYER_APPOINT
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur PLAYER_APPOINT)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         -- NON CONVERTI : message_Mail (courrier absent de PMDO)
@@ -176,24 +176,24 @@ function enter02.Cutscene()
         -- Jump (structurel)
         -- (parallèle) NPC_YUKIKABURI, PLAYER_BIPPA
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur PLAYER_BIPPA)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_YUKIKABURI)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         -- NON CONVERTI : message_Mail (courrier absent de PMDO)
         -- Jump (structurel)
         -- (parallèle) NPC_AAMARUDO, PLAYER_PUPURIN
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur PLAYER_PUPURIN)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_AAMARUDO)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         -- NON CONVERTI : message_Mail (courrier absent de PMDO)
@@ -214,15 +214,15 @@ function enter02.Cutscene()
         -- Case (structurel)
         -- (parallèle) NPC_CHAAREMU, NPC_SAANAITO, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur PLAYER_CHARMS)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_SAANAITO)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_CHAAREMU)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         -- NON CONVERTI : message_Mail (courrier absent de PMDO)
@@ -385,7 +385,13 @@ function enter02.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[enter02] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[enter02] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return enter02

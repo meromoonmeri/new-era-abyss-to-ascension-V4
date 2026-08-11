@@ -31,11 +31,11 @@ function m19a0403.Cutscene()
         GAME:WaitFrames(30)
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue('(I thought so!\n This is similar to the\nsensation I had back then...)') -- FUT_M19A0403_001 (FR optionnel)
+        UI:WaitShowDialogue('(Je le savais ! Cette sensation ressemble à celle que j\'avais éprouvée alors...)') -- FUT_M19A0403_001 (FR)
         -- case 0: '(I thought so![K] This is similar to the\nsensation I had back then...)'
         UI:ResetSpeaker()
 UI:SetSpeaker(CH('Grovyle'))
-        UI:WaitShowDialogue(' Hey! What are you doing?!') -- FUT_M19A0403_002 (FR optionnel)
+        UI:WaitShowDialogue('Hé ! Qu\'est-ce que tu fais ?') -- FUT_M19A0403_002 (FR)
         UI:ResetSpeaker()
         SOUND:FadeOutBGM(10)
         SOUND:PlayBattleSE('EVT_Emote_Exclaim') -- SE 8978 (SE_NUM_EVENT_SIGN_NOTICE_05)
@@ -45,23 +45,23 @@ UI:SetSpeaker(CH('Grovyle'))
         -- WaitEffect (les appels GROUND sont bloquants)
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.Up, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.Up, 15)
-            end,
+            end),
         })
         GAME:WaitFrames(15)
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' Hurry!') -- FUT_M19A0403_003 (FR optionnel)
+        UI:WaitShowDialogue('Vite !') -- FUT_M19A0403_003 (FR)
         UI:SetCenter(false)
         UI:ResetSpeaker()
         GROUND:CharTurnToChar(CH('Teammate1'), CH('PLAYER'))
         GROUND:CharTurnToChar(CH('PLAYER'), CH('Teammate1'))
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Let\'s hurry, [hero].') -- FUT_M19A0403_004 (FR optionnel)
+        UI:WaitShowDialogue('Dépêche-toi, [hero].') -- FUT_M19A0403_004 (FR)
         -- case 4: " Let's hurry, [hero]."
         -- case 5: ' We have to hurry, [hero].'
         UI:ResetSpeaker()
@@ -74,7 +74,7 @@ UI:SetSpeaker(CH('Grovyle'))
         GAME:WaitFrames(45)
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Wheh-heh-heh!') -- FUT_M19A0403_005 (FR optionnel)
+        UI:WaitShowDialogue('Hi-hi-hi !') -- FUT_M19A0403_005 (FR)
         UI:ResetSpeaker()
         -- ExecuteCommon(LOOK_AROUND_FUNC_SERIES) : gestuelle parallèle à implémenter
         GAME:WaitFrames(30)
@@ -89,7 +89,13 @@ UI:SetSpeaker(CH('Grovyle'))
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[m19a0403] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[m19a0403] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return m19a0403

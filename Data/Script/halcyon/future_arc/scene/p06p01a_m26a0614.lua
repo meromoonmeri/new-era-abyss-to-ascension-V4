@@ -21,7 +21,7 @@ function m26a0614.Cutscene()
   local ok, err = pcall(function()
     GAME:CutsceneMode(true)
 
-        pcall(function() SOUND:PlayBGM('Memories Returned.ogg', true) end) -- MemoriesReturned
+        pcall(function() SOUND:PlayBGM('Time Restored.ogg', true) end) -- MemoriesReturned
         -- PARTIEL : back2_SetMode [4]
         -- back2_SetGround(S04P01A) : couche décor (overlay scène, adaptation)
         -- back_SetGround(P06P01A) : ground courant déjà posé
@@ -54,7 +54,13 @@ function m26a0614.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[m26a0614] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[m26a0614] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return m26a0614

@@ -13,6 +13,7 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.BossFX'
+require 'halcyon.future_arc.FutureScene'
 
 local m17a0302 = {}
 
@@ -34,7 +35,7 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(' Wh-where is this?!') -- FUT_M17A0302_001 (FR optionnel)
+        UI:WaitShowDialogue('O-où sommes-nous ?!') -- FUT_M17A0302_001 (FR)
         -- case 0: ' Wh-where is this?!'
         -- case 1: ' Wh-where is this?!'
         UI:ResetSpeaker()
@@ -47,10 +48,10 @@ function m17a0302.Cutscene()
         GROUND:AnimateToPosition(CH('Teammate1'), CH('Teammate1').Position.X + 1*8, CH('Teammate1').Position.Y + -1*8, false, 2.0)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(' They have me trussed up.\nI can\'t move...') -- FUT_M17A0302_002 (FR optionnel)
+        UI:WaitShowDialogue('Ils m\'ont ligoté. Je ne peux plus bouger...') -- FUT_M17A0302_002 (FR)
         -- case 3: " They have me trussed up.\nI can't move..."
         -- case 4: " They have me trussed up.\nI can't move..."
-        UI:WaitShowDialogue(' Wh-why is this happening?') -- FUT_M17A0302_003 (FR optionnel)
+        UI:WaitShowDialogue('P-pourquoi est-ce que ça nous arrive ?') -- FUT_M17A0302_003 (FR)
         -- case 6: ' Wh-why is this happening?'
         -- case 7: ' Wh-why is this happening?'
         UI:ResetSpeaker()
@@ -59,12 +60,12 @@ function m17a0302.Cutscene()
         -- supervision_cting layer [1] (structurel)
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('PLAYER'), 'Head', true) -- param 78 = anim 29 (Head)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Teammate1'), 'Head', true) -- param 78 = anim 29 (Head)
-            end,
+            end),
         })
         -- performer 0
         -- camera_SetMyself : la caméra suit le héros (défaut PMDO)
@@ -75,7 +76,7 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' Hey!') -- FUT_M17A0302_004 (FR optionnel)
+        UI:WaitShowDialogue('Hé !') -- FUT_M17A0302_004 (FR)
         -- case 9: ' Hey!'
         -- case 10: ' Hey!'
         UI:ResetSpeaker()
@@ -85,24 +86,24 @@ function m17a0302.Cutscene()
         GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.DownRight, 15)
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue('([partner]!)') -- FUT_M17A0302_005 (FR optionnel)
+        UI:WaitShowDialogue('([partner] !)') -- FUT_M17A0302_005 (FR)
         -- case 12: '([partner]!)'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' Am I glad to see you!\n\nYou\'re OK, right?') -- FUT_M17A0302_006 (FR optionnel)
+        UI:WaitShowDialogue('Quel soulagement de te voir ![br]Tu n\'as rien ?') -- FUT_M17A0302_006 (FR)
         -- case 14: " Am I glad to see you![K]\nYou're OK, right?"
         -- case 15: " Am I glad to see you![K]\nYou're OK, right?"
         UI:ResetSpeaker()
         UI:ResetSpeaker()
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' Humph!') -- FUT_M17A0302_007 (FR optionnel)
+        UI:WaitShowDialogue('Hmpf !') -- FUT_M17A0302_007 (FR)
         UI:SetCenter(false)
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' You\'re clueless about what\'s going to\nhappen...') -- FUT_M17A0302_008 (FR optionnel)
+        UI:WaitShowDialogue('Vous ignorez totalement ce qui vous attend...') -- FUT_M17A0302_008 (FR)
         UI:SetCenter(false)
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' I guess you can afford to be nonchalant\nabout it.') -- FUT_M17A0302_009 (FR optionnel)
+        UI:WaitShowDialogue('Voilà pourquoi vous pouvez encore prendre ça à la légère.') -- FUT_M17A0302_009 (FR)
         UI:SetCenter(false)
         UI:ResetSpeaker()
         SOUND:PlayBattleSE('EVT_Emote_Exclaim') -- SE 8964 (SE_NUM_EVENT_SIGN_NOTICE_01)
@@ -112,14 +113,14 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' Huh?!') -- FUT_M17A0302_010 (FR optionnel)
+        UI:WaitShowDialogue('Hein ?') -- FUT_M17A0302_010 (FR)
         -- case 20: ' Huh?!'
         -- case 21: ' Huh?!'
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.DownLeft, 15)
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue('(That voice came from over there...)') -- FUT_M17A0302_011 (FR optionnel)
+        UI:WaitShowDialogue('(Cette voix venait de là-bas...)') -- FUT_M17A0302_011 (FR)
         -- case 23: '(That voice came from over there...)'
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBGM('In the Future.ogg', true) end) -- InTheFuture
@@ -128,15 +129,15 @@ function m17a0302.Cutscene()
         -- supervision_cting layer [2] (structurel)
         -- (parallèle) ATTENDANT1, NPC_JUPUTORU, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('PLAYER'), 'Head', true) -- param 78 = anim 29 (Head)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Teammate1'), 'Head', true) -- param 78 = anim 29 (Head)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Grovyle'), 'Sink', false) -- param 34 = anim 25 (Sink)
-            end,
+            end),
         })
         -- performer 0
         -- camera_SetMyself : la caméra suit le héros (défaut PMDO)
@@ -148,23 +149,23 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' Grovyle!') -- FUT_M17A0302_012 (FR optionnel)
+        UI:WaitShowDialogue('Massko !') -- FUT_M17A0302_012 (FR)
         -- case 25: ' [CS:N]Grovyle[CR]!'
         -- case 26: ' [CS:N]Grovyle[CR]!'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' You two...\n Do you have any\ninkling about where you are?') -- FUT_M17A0302_013 (FR optionnel)
+        UI:WaitShowDialogue('Vous rendez-vous compte de l\'endroit où vous êtes ?') -- FUT_M17A0302_013 (FR)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' N-no...') -- FUT_M17A0302_014 (FR optionnel)
+        UI:WaitShowDialogue('N-non...') -- FUT_M17A0302_014 (FR)
         -- case 29: ' N-no...'
         -- case 30: ' N-no...'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' This is a stockade...\n They\'re\npreparing to get rid of us for good.') -- FUT_M17A0302_015 (FR optionnel)
+        UI:WaitShowDialogue('C\'est une palissade... Ils se préparent à nous éliminer pour de bon.') -- FUT_M17A0302_015 (FR)
         UI:ResetSpeaker()
         SOUND:PlayBattleSE('EVT_Emote_Shock_2') -- SE 8968 (SE_NUM_EVENT_SIGN_SHOCK_01)
         GROUND:CharSetEmote(CH('PLAYER'), 'shock', 3)
@@ -173,7 +174,7 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' What?!\n G-get rid of us?!') -- FUT_M17A0302_016 (FR optionnel)
+        UI:WaitShowDialogue('Quoi ?! N-nous éliminer ?!') -- FUT_M17A0302_016 (FR)
         -- case 33: ' What?![K] G-get rid of us?!'
         -- case 34: ' What?![K] G-get rid of us?!'
         UI:ResetSpeaker()
@@ -181,44 +182,44 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' Wait a second.') -- FUT_M17A0302_017 (FR optionnel)
+        UI:WaitShowDialogue('Attends un peu.') -- FUT_M17A0302_017 (FR)
         -- case 36: ' Wait a second.'
         -- case 37: ' Wait a second.'
-        UI:WaitShowDialogue(' I can understand why they want\nto get rid of you, Grovyle.') -- FUT_M17A0302_018 (FR optionnel)
+        UI:WaitShowDialogue('Je comprends pourquoi ils veulent se débarrasser de toi, Massko.') -- FUT_M17A0302_018 (FR)
         -- case 39: ' I can understand why they want\nto get rid of you, [CS:N]Grovyle[CR].'
         -- case 40: " It's easy to understand why\nthey'd want to get rid of you, [CS:N]Grovyle[CR]."
-        UI:WaitShowDialogue(' But why us?!') -- FUT_M17A0302_019 (FR optionnel)
+        UI:WaitShowDialogue('Mais pourquoi nous ?') -- FUT_M17A0302_019 (FR)
         -- case 42: ' But why us?!'
         -- case 43: ' But why us?!'
-        UI:WaitShowDialogue(' We haven\'t done anything wrong!') -- FUT_M17A0302_020 (FR optionnel)
+        UI:WaitShowDialogue('On n\'a rien fait de mal !') -- FUT_M17A0302_020 (FR)
         -- case 45: " We haven't done anything wrong!"
         -- case 46: " We haven't done anything wrong!"
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Humph!\n I couldn\'t care less.') -- FUT_M17A0302_021 (FR optionnel)
-        UI:WaitShowDialogue(' You must have done something\nthey can\'t tolerate.') -- FUT_M17A0302_022 (FR optionnel)
+        UI:WaitShowDialogue('Hmpf ! Ça m\'est bien égal.') -- FUT_M17A0302_021 (FR)
+        UI:WaitShowDialogue('Vous avez sûrement fait quelque chose qu\'ils ne peuvent pas tolérer.') -- FUT_M17A0302_022 (FR)
         UI:ResetSpeaker()
         SOUND:PlayBattleSE('EVT_Emote_Startled') -- SE 8971 (SE_NUM_EVENT_SIGN_ANGER_02)
         GROUND:CharSetEmote(CH('Teammate1'), 'angry', 3)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Angry')
-        UI:WaitShowDialogue(' What?!') -- FUT_M17A0302_023 (FR optionnel)
+        UI:WaitShowDialogue('Quoi ?') -- FUT_M17A0302_023 (FR)
         -- case 50: ' What?!'
         -- case 51: ' What?!'
-        UI:WaitShowDialogue(' We haven\'t done anything bad!') -- FUT_M17A0302_024 (FR optionnel)
+        UI:WaitShowDialogue('On n\'a rien fait de mal !') -- FUT_M17A0302_024 (FR)
         -- case 53: " We haven't done anything bad!"
         -- case 54: " We haven't done anything bad!"
-        UI:WaitShowDialogue(' Don\'t think that we\'re like you!') -- FUT_M17A0302_025 (FR optionnel)
+        UI:WaitShowDialogue('Ne nous mets pas dans le même sac que toi !') -- FUT_M17A0302_025 (FR)
         -- case 56: " Don't think that we're like you!"
         -- case 57: " Don't think that we're like you!"
         UI:ResetSpeaker()
         -- SetEffect 0 (aucun) : pas d'effet
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' I don\'t care.') -- FUT_M17A0302_026 (FR optionnel)
-        UI:WaitShowDialogue(' You\'re wasting time losing your\ncool. Meanwhile, look...') -- FUT_M17A0302_027 (FR optionnel)
-        UI:WaitShowDialogue(' Here they come.') -- FUT_M17A0302_028 (FR optionnel)
+        UI:WaitShowDialogue('Ça m\'est égal.') -- FUT_M17A0302_026 (FR)
+        UI:WaitShowDialogue('Tu perds ton temps à t\'énerver. Pendant ce temps... regarde.') -- FUT_M17A0302_027 (FR)
+        UI:WaitShowDialogue('Les voilà.') -- FUT_M17A0302_028 (FR)
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.Down, 15)
         GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.Down, 15)
@@ -228,15 +229,15 @@ function m17a0302.Cutscene()
         -- supervision_cting layer [3] (structurel)
         -- (parallèle) ATTENDANT1, NPC_JUPUTORU, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('PLAYER'), 'Head', true) -- param 78 = anim 29 (Head)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Teammate1'), 'Head', true) -- param 78 = anim 29 (Head)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Grovyle'), 'Sink', false) -- param 34 = anim 25 (Sink)
-            end,
+            end),
         })
         -- performer 0
         -- camera_SetMyself : la caméra suit le héros (défaut PMDO)
@@ -245,125 +246,125 @@ function m17a0302.Cutscene()
         GROUND:MoveToPosition(CH('PLAYER'), 228, 772, false, 2.0)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_1'), 208, 788, false, 3.0)
                 GROUND:MoveToPosition(CH('Sableye_1'), 164, 728, false, 2.398)
                 GROUND:CharAnimateTurnTo(CH('Sableye_1'), Direction.Up, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_2'), 244, 788, false, 3.0)
                 GROUND:MoveToPosition(CH('Sableye_2'), 292, 728, false, 2.398)
                 GROUND:CharAnimateTurnTo(CH('Sableye_2'), Direction.Up, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_3'), 208, 788, false, 3.0)
                 GROUND:MoveToPosition(CH('Sableye_3'), 188, 728, false, 2.398)
                 GROUND:CharAnimateTurnTo(CH('Sableye_3'), Direction.Up, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_4'), 244, 788, false, 3.0)
                 GROUND:MoveToPosition(CH('Sableye_4'), 268, 728, false, 2.398)
                 GROUND:CharAnimateTurnTo(CH('Sableye_4'), Direction.Up, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_5'), 208, 788, false, 3.0)
                 GROUND:MoveToPosition(CH('Sableye_5'), 212, 728, false, 2.398)
                 GROUND:CharAnimateTurnTo(CH('Sableye_5'), Direction.Up, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_6'), 244, 788, false, 3.0)
                 GROUND:MoveToPosition(CH('Sableye_6'), 244, 728, false, 2.398)
                 GROUND:CharAnimateTurnTo(CH('Sableye_6'), Direction.Up, 15)
-            end,
+            end),
         })
         GAME:WaitFrames(45)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_1'), Direction.Down, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_2'), Direction.Down, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_3'), Direction.Down, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_4'), Direction.Down, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_5'), Direction.Down, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_6'), Direction.Down, 15)
-            end,
+            end),
         })
         GAME:WaitFrames(45)
         pcall(function() SOUND:PlayBattleSE('SSB_SE_7188') end) -- TODO SE 7188 (SE_NUM_EVENT_MAIN17_YAMIRAMI_01)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'EventSleep', false) -- param 22 = anim 13 (EventSleep)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'EventSleep', false) -- param 22 = anim 13 (EventSleep)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'EventSleep', false) -- param 22 = anim 13 (EventSleep)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'EventSleep', false) -- param 22 = anim 13 (EventSleep)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'EventSleep', false) -- param 22 = anim 13 (EventSleep)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'EventSleep', false) -- param 22 = anim 13 (EventSleep)
                 pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
-            end,
+            end),
         })
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
+            end),
         })
         GAME:WaitFrames(45)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_1'), Direction.Up, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_2'), Direction.Up, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_3'), Direction.Up, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_4'), Direction.Up, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_5'), Direction.Up, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_6'), Direction.Up, 15)
-            end,
+            end),
         })
         GAME:WaitFrames(10)
         -- performer 0
@@ -371,36 +372,36 @@ function m17a0302.Cutscene()
         SOUND:PlayBattleSE('EVT_Emote_Shock_2') -- SE 8968 (SE_NUM_EVENT_SIGN_SHOCK_01)
         -- (parallèle) ATTENDANT1, NPC_JUPUTORU, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('PLAYER'), 'shock', 3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Grovyle'), 'shock', 3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Teammate1'), 'shock', 3)
                 -- WaitEffect (les appels GROUND sont bloquants)
-            end,
+            end),
         })
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' Waah! Who are they?!') -- FUT_M17A0302_029 (FR optionnel)
+        UI:WaitShowDialogue('Waah ! Qui sont-ils ?!') -- FUT_M17A0302_029 (FR)
         -- case 62: ' Waah! Who are they?!'
         -- case 63: ' Waah! Who are they?!'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' They\'re the jailers who do all\nthe dirty work around here.') -- FUT_M17A0302_030 (FR optionnel)
-        UI:WaitShowDialogue(' They also happen to be\nNecrozma\'s underlings.') -- FUT_M17A0302_031 (FR optionnel)
+        UI:WaitShowDialogue('Ce sont les geôliers qui font tout le sale boulot ici.') -- FUT_M17A0302_030 (FR)
+        UI:WaitShowDialogue('Ce sont aussi les sbires de Necrozma.') -- FUT_M17A0302_031 (FR)
         UI:ResetSpeaker()
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.DownLeft, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.DownLeft, 15)
-            end,
+            end),
         })
         SOUND:PlayBattleSE('EVT_Emote_Shock_2') -- SE 8973 (SE_NUM_EVENT_SIGN_SHOCK_03)
         GROUND:CharSetEmote(CH('PLAYER'), 'shock', 3)
@@ -409,7 +410,7 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' What?!\n The great Necrozma\'s?!') -- FUT_M17A0302_032 (FR optionnel)
+        UI:WaitShowDialogue('Quoi ?! Les sbires du grand Necrozma ?!') -- FUT_M17A0302_032 (FR)
         -- case 67: " What?![K] The great [CS:N]Dusknoir[CR]'s?!"
         -- case 68: " What?![K] The great [CS:N]Dusknoir[CR]'s?!"
         UI:ResetSpeaker()
@@ -419,277 +420,277 @@ function m17a0302.Cutscene()
         GAME:WaitFrames(1)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6, NPC_YONOWAARU
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Necrozma'), 228, 788, false, 2.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharTurnToChar(CH('Sableye_1'), CH('Necrozma'))
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharTurnToChar(CH('Sableye_2'), CH('Necrozma'))
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharTurnToChar(CH('Sableye_3'), CH('Necrozma'))
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharTurnToChar(CH('Sableye_4'), CH('Necrozma'))
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharTurnToChar(CH('Sableye_5'), CH('Necrozma'))
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharTurnToChar(CH('Sableye_6'), CH('Necrozma'))
-            end,
+            end),
         })
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.Down, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.Down, 15)
-            end,
+            end),
         })
         SOUND:FadeOutBGM(160)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' Hey! It\'s Necrozma!') -- FUT_M17A0302_033 (FR optionnel)
+        UI:WaitShowDialogue('Hé ! C\'est Necrozma !') -- FUT_M17A0302_033 (FR)
         -- case 70: " Hey! It's [CS:N]Dusknoir[CR]!"
         -- case 71: " Hey! It's [CS:N]Dusknoir[CR]!"
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Lord Necrozma.\n The three have\nbeen tied to the stakes.') -- FUT_M17A0302_034 (FR optionnel)
+        UI:WaitShowDialogue('Maître Necrozma. Les trois prisonniers ont été attachés aux poteaux.') -- FUT_M17A0302_034 (FR)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Good.') -- FUT_M17A0302_035 (FR optionnel)
+        UI:WaitShowDialogue('Bien.') -- FUT_M17A0302_035 (FR)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' Necrozma, sir!\n\nIt\'s me, [partner]!') -- FUT_M17A0302_036 (FR optionnel)
+        UI:WaitShowDialogue('Maître Necrozma ![br]C\'est moi, [partner] !') -- FUT_M17A0302_036 (FR)
         -- case 75: " [CS:N]Dusknoir[CR], sir![K]\nIt's me, [partner]!"
         -- case 76: " [CS:N]Dusknoir[CR], sir![K]\nIt's me, [partner]!"
         UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('Necrozma'), 228, 768, false, 1.0)
         UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Very well. Sableye.') -- FUT_M17A0302_037 (FR optionnel)
-        UI:WaitShowDialogue(' Those three... We need to be rid\nof them.') -- FUT_M17A0302_038 (FR optionnel)
+        UI:WaitShowDialogue('Très bien... Ténéfix.') -- FUT_M17A0302_037 (FR)
+        UI:WaitShowDialogue('Ces trois-là... débarrassez-nous-en.') -- FUT_M17A0302_038 (FR)
         UI:ResetSpeaker()
-        pcall(function() SOUND:PlayBGM('Oh No!.ogg', true) end) -- OhNo
+        pcall(function() SOUND:PlayBGM('Growing Anxiety.ogg', true) end) -- OhNo
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' What?!') -- FUT_M17A0302_039 (FR optionnel)
+        UI:WaitShowDialogue('Quoi ?!') -- FUT_M17A0302_039 (FR)
         -- case 80: ' What?!'
         -- case 81: ' What?!'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Pay them no heed.\n You may\nget ready.') -- FUT_M17A0302_040 (FR optionnel)
+        UI:WaitShowDialogue('Ne faites pas attention à eux. Préparez-vous.') -- FUT_M17A0302_040 (FR)
         UI:ResetSpeaker()
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
+            end),
         })
         GAME:WaitFrames(10)
         -- (parallèle) NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
+            end),
         })
         UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-        UI:WaitShowDialogue('Sableye: Wheh-heh-heh!') -- FUT_M17A0302_041 (FR optionnel)
+        UI:WaitShowDialogue('Ténéfix : Hi-hi-hi !') -- FUT_M17A0302_041 (FR)
         pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Hop', false) -- param 17 = anim 10 (Hop)
                 pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
-            end,
+            end),
         })
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         GAME:WaitFrames(20)
         pcall(function() SOUND:PlayBattleSE('SSB_SE_7188') end) -- TODO SE 7188 (SE_NUM_EVENT_MAIN17_YAMIRAMI_01)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'EventSleep', false) -- param 22 = anim 13 (EventSleep)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'EventSleep', false) -- param 22 = anim 13 (EventSleep)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'EventSleep', false) -- param 22 = anim 13 (EventSleep)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'EventSleep', false) -- param 22 = anim 13 (EventSleep)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'EventSleep', false) -- param 22 = anim 13 (EventSleep)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'EventSleep', false) -- param 22 = anim 13 (EventSleep)
                 pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
-            end,
+            end),
         })
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
+            end),
         })
         GAME:WaitFrames(45)
         -- performer 0
         GROUND:MoveToPosition(CH('PLAYER'), 228, 676, false, 3.0)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_1'), 156, 696, false, 2.398)
                 GROUND:CharAnimateTurnTo(CH('Sableye_1'), Direction.UpRight, 15)
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_2'), 300, 696, false, 2.398)
                 GROUND:CharAnimateTurnTo(CH('Sableye_2'), Direction.UpLeft, 15)
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_3'), 180, 704, false, 2.398)
                 GROUND:CharAnimateTurnTo(CH('Sableye_3'), Direction.Up, 15)
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_4'), 276, 704, false, 2.398)
                 GROUND:CharAnimateTurnTo(CH('Sableye_4'), Direction.Up, 15)
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_5'), 212, 704, false, 2.398)
                 GROUND:CharAnimateTurnTo(CH('Sableye_5'), Direction.Up, 15)
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_6'), 244, 704, false, 2.398)
                 GROUND:CharAnimateTurnTo(CH('Sableye_6'), Direction.Up, 15)
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
+            end),
         })
         GROUND:CharSetEmote(CH('Teammate1'), 'sweatdrop', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' W-wait a minute! Necrozma, sir!') -- FUT_M17A0302_042 (FR optionnel)
+        UI:WaitShowDialogue('A-attendez, Maître Necrozma !') -- FUT_M17A0302_042 (FR)
         -- case 85: ' W-wait a minute! [CS:N]Dusknoir[CR], sir!'
         -- case 86: ' W-wait a minute! [CS:N]Dusknoir[CR], sir!'
-        UI:WaitShowDialogue(' What\'s wrong with you?!') -- FUT_M17A0302_043 (FR optionnel)
+        UI:WaitShowDialogue('Mais qu\'est-ce qui vous prend ?!') -- FUT_M17A0302_043 (FR)
         -- case 88: " What's wrong with you?!"
         -- case 89: " What's wrong with you?!"
-        UI:WaitShowDialogue(' Why are you doing this to us?!') -- FUT_M17A0302_044 (FR optionnel)
+        UI:WaitShowDialogue('Pourquoi nous faites-vous ça ?!') -- FUT_M17A0302_044 (FR)
         -- case 91: ' Why are you doing this to us?!'
         -- case 92: ' Why are you doing this to us?!'
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Grovyle'), Direction.DownRight, 15)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Don\'t waste your breath...\n\nInstead...shhhh...') -- FUT_M17A0302_045 (FR optionnel)
-        UI:WaitShowDialogue(' ...Keep your voices down so\nthey can\'t hear you...') -- FUT_M17A0302_046 (FR optionnel)
+        UI:WaitShowDialogue('Ne gaspillez pas votre salive...[br]Écoutez plutôt... Chut...') -- FUT_M17A0302_045 (FR)
+        UI:WaitShowDialogue('... Baissez la voix, qu\'ils ne puissent pas vous entendre...') -- FUT_M17A0302_046 (FR)
         UI:ResetSpeaker()
         GROUND:CharSetEmote(CH('Teammate1'), 'sweatdrop', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.DownLeft, 15)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(' Urk...! Keep...my voice down?') -- FUT_M17A0302_047 (FR optionnel)
+        UI:WaitShowDialogue('Argh... ! Baisser la voix ?') -- FUT_M17A0302_047 (FR)
         -- case 96: ' Urk...! Keep...my voice down?'
         -- case 97: ' Urk...! Keep...my voice down?'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' You two...\n If you want to\nget away...') -- FUT_M17A0302_048 (FR optionnel)
-        UI:WaitShowDialogue(' ...give me your full cooperation.') -- FUT_M17A0302_049 (FR optionnel)
+        UI:WaitShowDialogue('Vous deux... Si vous voulez vous échapper...') -- FUT_M17A0302_048 (FR)
+        UI:WaitShowDialogue('... coopérez pleinement avec moi.') -- FUT_M17A0302_049 (FR)
         UI:ResetSpeaker()
         SOUND:PlayBattleSE('EVT_Emote_Exclaim_2') -- SE 8967 (SE_NUM_EVENT_SIGN_NOTICE_04)
         GROUND:CharSetEmote(CH('Teammate1'), 'shock', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' What...?\n Help you, Grovyle...?') -- FUT_M17A0302_050 (FR optionnel)
+        UI:WaitShowDialogue('Quoi... ? T\'aider, Massko... ?') -- FUT_M17A0302_050 (FR)
         -- case 101: ' What...?[K] Help you, [CS:N]Grovyle[CR]...?'
         -- case 102: ' What...?[K] Help you, [CS:N]Grovyle[CR]...?'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' There\'s no time to think...\n\nor would you prefer to stick around for them?') -- FUT_M17A0302_051 (FR optionnel)
+        UI:WaitShowDialogue('Pas le temps de réfléchir...[br]Ou préférez-vous attendre qu\'ils en finissent avec vous ?') -- FUT_M17A0302_051 (FR)
         UI:ResetSpeaker()
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' Psst...hey! You there...') -- FUT_M17A0302_052 (FR optionnel)
+        UI:WaitShowDialogue('Psst... Hé, toi...') -- FUT_M17A0302_052 (FR)
         UI:SetCenter(false)
         UI:ResetSpeaker()
         SOUND:PlayBattleSE('EVT_Emote_Exclaim') -- SE 8978 (SE_NUM_EVENT_SIGN_NOTICE_05)
@@ -697,24 +698,24 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue('(...!)') -- FUT_M17A0302_053 (FR optionnel)
+        UI:WaitShowDialogue('(...!)') -- FUT_M17A0302_053 (FR)
         -- case 106: '(...!)'
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.DownLeft, 15)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' ...Tell me...') -- FUT_M17A0302_054 (FR optionnel)
-        UI:WaitShowDialogue(' ...What can you do right now?') -- FUT_M17A0302_055 (FR optionnel)
+        UI:WaitShowDialogue('... Dis-moi...') -- FUT_M17A0302_054 (FR)
+        UI:WaitShowDialogue('... Que peux-tu faire, tout de suite ?') -- FUT_M17A0302_055 (FR)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Worried')
-        UI:WaitShowDialogue('(What?\n What can I do?)') -- FUT_M17A0302_056 (FR optionnel)
+        UI:WaitShowDialogue('(Quoi ? Que puis-je faire ?)') -- FUT_M17A0302_056 (FR)
         -- case 110: '(What?[K] What can I do?)'
-        UI:WaitShowDialogue('(You ask me that out of nowhere...!\n Umm...)') -- FUT_M17A0302_057 (FR optionnel)
+        UI:WaitShowDialogue('(Il me demande ça sans prévenir... ! Euh...)') -- FUT_M17A0302_057 (FR)
         -- case 112: '(You ask me that out of nowhere...![K] Umm...)'
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Worried')
-        UI:WaitShowDialogue('(Wh-what to do...?)') -- FUT_M17A0302_058 (FR optionnel)
+        UI:WaitShowDialogue('(Qu\'est-ce que je peux faire... ?)') -- FUT_M17A0302_058 (FR)
         -- case 114: '(Wh-what to do...?)'
         -- message_SwitchMenu/CaseMenu : menu de choix (adaptation)
         -- message_SwitchMenu/CaseMenu : menu de choix (adaptation)
@@ -723,27 +724,27 @@ function m17a0302.Cutscene()
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' ...No. An item\'s no good...') -- FUT_M17A0302_059 (FR optionnel)
-        UI:WaitShowDialogue(' ...We\'re tied up...and unable\nto move...') -- FUT_M17A0302_060 (FR optionnel)
-        UI:WaitShowDialogue(' ...It should be something you can\ndo instantaneously...') -- FUT_M17A0302_061 (FR optionnel)
+        UI:WaitShowDialogue('... Non. Un objet ne servira à rien...') -- FUT_M17A0302_059 (FR)
+        UI:WaitShowDialogue('... Nous sommes ligotés... et incapables de bouger...') -- FUT_M17A0302_060 (FR)
+        UI:WaitShowDialogue('... Il faut quelque chose que tu puisses faire instantanément...') -- FUT_M17A0302_061 (FR)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Worried')
-        UI:WaitShowDialogue('(Urk...! That\'s easy for you to say...\n Ummm...)') -- FUT_M17A0302_062 (FR optionnel)
+        UI:WaitShowDialogue('(Argh... ! C\'est facile à dire... Euh...)') -- FUT_M17A0302_062 (FR)
         -- case 122: "(Urk...! That's easy for you to say...[K] Ummm...)"
         -- Jump (structurel)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' ...A move...?\n That could work,\nbut...') -- FUT_M17A0302_063 (FR optionnel)
-        UI:WaitShowDialogue(' ...No! That\'s no good...') -- FUT_M17A0302_064 (FR optionnel)
-        UI:WaitShowDialogue(' ...We\'re trussed up...so we\ncan\'t move...') -- FUT_M17A0302_065 (FR optionnel)
-        UI:WaitShowDialogue(' ...It has to be something you can\ndo instantaneously...') -- FUT_M17A0302_066 (FR optionnel)
-        UI:WaitShowDialogue(' ...It doesn\'t need to be flashy...\nCan\'t you do anything more basic...?') -- FUT_M17A0302_067 (FR optionnel)
+        UI:WaitShowDialogue('Une capacité... ? Ça pourrait marcher, mais...') -- FUT_M17A0302_063 (FR)
+        UI:WaitShowDialogue('... Non ! Ça ne va pas...') -- FUT_M17A0302_064 (FR)
+        UI:WaitShowDialogue('... Nous sommes ligotés... nous ne pouvons pas bouger...') -- FUT_M17A0302_065 (FR)
+        UI:WaitShowDialogue('... Il faut quelque chose que tu puisses faire instantanément...') -- FUT_M17A0302_066 (FR)
+        UI:WaitShowDialogue('... Ça n\'a pas besoin d\'être tape-à-l’œil... Tu ne peux rien faire de plus basique ?') -- FUT_M17A0302_067 (FR)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Worried')
-        UI:WaitShowDialogue('(Urk...! You\'re not helping...\n Ummm...)') -- FUT_M17A0302_068 (FR optionnel)
+        UI:WaitShowDialogue('(Argh... ! Ça ne m\'aide pas... Euh...)') -- FUT_M17A0302_068 (FR)
         -- case 129: "(Urk...! You're not helping...[K] Ummm...)"
         -- Jump (structurel)
         UI:ResetSpeaker()
@@ -752,399 +753,399 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' ...! That\'s it... That\'ll do...') -- FUT_M17A0302_069 (FR optionnel)
+        UI:WaitShowDialogue('... ! Voilà ! Ça fera l\'affaire...') -- FUT_M17A0302_069 (FR)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Determined')
-        UI:WaitShowDialogue(' ...If it\'s just a regular attack,\nI can help too...') -- FUT_M17A0302_070 (FR optionnel)
+        UI:WaitShowDialogue('... Si c\'est une attaque ordinaire, je pourrai aider, moi aussi...') -- FUT_M17A0302_070 (FR)
         -- case 132: " ...If it's just a regular attack,\nI can help too..."
         -- case 133: " ...If it's just a regular attack,\nI can help too..."
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' ...Good.') -- FUT_M17A0302_071 (FR optionnel)
+        UI:WaitShowDialogue('... Bien.') -- FUT_M17A0302_071 (FR)
         UI:ResetSpeaker()
         -- (parallèle) ATTENDANT1, NPC_JUPUTORU, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.Down, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.Down, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Grovyle'), Direction.Down, 15)
-            end,
+            end),
         })
         -- performer 0
         GROUND:MoveToPosition(CH('PLAYER'), 228, 772, false, 3.0)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
                 GROUND:CharTurnToChar(CH('Sableye_1'), CH('Necrozma'))
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
                 GROUND:CharTurnToChar(CH('Sableye_2'), CH('Necrozma'))
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
                 GROUND:CharTurnToChar(CH('Sableye_3'), CH('Necrozma'))
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
                 GROUND:CharTurnToChar(CH('Sableye_4'), CH('Necrozma'))
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
                 GROUND:CharTurnToChar(CH('Sableye_5'), CH('Necrozma'))
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
                 GROUND:CharTurnToChar(CH('Sableye_6'), CH('Necrozma'))
-            end,
+            end),
         })
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Then we are ready to begin!') -- FUT_M17A0302_072 (FR optionnel)
+        UI:WaitShowDialogue('Alors, commençons !') -- FUT_M17A0302_072 (FR)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_7196') end) -- TODO SE 7196 (SE_NUM_EVENT_MAIN17_YAMIRAMI_02_L)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Wake', false) -- param 23 = anim 14 (Wake)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Wake', false) -- param 23 = anim 14 (Wake)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Wake', false) -- param 23 = anim 14 (Wake)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Wake', false) -- param 23 = anim 14 (Wake)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Wake', false) -- param 23 = anim 14 (Wake)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Wake', false) -- param 23 = anim 14 (Wake)
                 pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
-            end,
+            end),
         })
         -- PARTIEL : se_Stop [7196]
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
+            end),
         })
         UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Very well.') -- FUT_M17A0302_073 (FR optionnel)
-        UI:WaitShowDialogue(' But be vigilant to the end. Don\'t\ntake your eyes off them.') -- FUT_M17A0302_074 (FR optionnel)
-        UI:WaitShowDialogue(' Especially that Grovyle.') -- FUT_M17A0302_075 (FR optionnel)
+        UI:WaitShowDialogue('Très bien.') -- FUT_M17A0302_073 (FR)
+        UI:WaitShowDialogue('Mais restez vigilants jusqu\'au bout. Ne les quittez pas des yeux.') -- FUT_M17A0302_074 (FR)
+        UI:WaitShowDialogue('Surtout Massko.') -- FUT_M17A0302_075 (FR)
         UI:ResetSpeaker()
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
+            end),
         })
         GAME:WaitFrames(10)
         -- (parallèle) NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
+            end),
         })
         UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-        UI:WaitShowDialogue('Sableye: Wheh-heh-heh!') -- FUT_M17A0302_076 (FR optionnel)
+        UI:WaitShowDialogue('Ténéfix : Hi-hi-hi !') -- FUT_M17A0302_076 (FR)
         pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Hop', false) -- param 17 = anim 10 (Hop)
                 pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
-            end,
+            end),
         })
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         GAME:WaitFrames(20)
         pcall(function() SOUND:PlayBattleSE('SSB_SE_7188') end) -- TODO SE 7188 (SE_NUM_EVENT_MAIN17_YAMIRAMI_01)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'EventSleep', false) -- param 22 = anim 13 (EventSleep)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'EventSleep', false) -- param 22 = anim 13 (EventSleep)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'EventSleep', false) -- param 22 = anim 13 (EventSleep)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'EventSleep', false) -- param 22 = anim 13 (EventSleep)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'EventSleep', false) -- param 22 = anim 13 (EventSleep)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'EventSleep', false) -- param 22 = anim 13 (EventSleep)
                 pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
-            end,
+            end),
         })
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
+            end),
         })
         GAME:WaitFrames(45)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_1'), Direction.Up, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_2'), Direction.Up, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_3'), Direction.Up, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_4'), Direction.Up, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_5'), Direction.Up, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_6'), Direction.Up, 15)
-            end,
+            end),
         })
         GROUND:MoveToPosition(CH('Necrozma'), CH('Necrozma').Position.X + 0.5*8, CH('Necrozma').Position.Y + 0*8, false, 1.0)
         GROUND:CharAnimateTurnTo(CH('Necrozma'), Direction.Up, 15)
         UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Commence...\nnow!') -- FUT_M17A0302_077 (FR optionnel)
+        UI:WaitShowDialogue('Commencez... maintenant !') -- FUT_M17A0302_077 (FR)
         UI:ResetSpeaker()
         -- performer 0
         GROUND:MoveToPosition(CH('PLAYER'), 228, 676, false, 3.0)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
+            end),
         })
         GAME:WaitFrames(10)
         -- (parallèle) NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
+            end),
         })
         UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-        UI:WaitShowDialogue('Sableye: Wheh-heh-heh!') -- FUT_M17A0302_078 (FR optionnel)
+        UI:WaitShowDialogue('Ténéfix : Hi-hi-hi !') -- FUT_M17A0302_078 (FR)
         pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Hop', false) -- param 17 = anim 10 (Hop)
                 pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
-            end,
+            end),
         })
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('Sableye_1'), CH('Sableye_1').Position.X + 0.5*8, CH('Sableye_1').Position.Y + 0*8, false, 1.0)
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI2, NPC_YAMIRAMI3
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_2'), CH('Sableye_2').Position.X + 0.5*8, CH('Sableye_2').Position.Y + 0*8, false, 1.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_3'), CH('Sableye_3').Position.X + 0.5*8, CH('Sableye_3').Position.Y + 0*8, false, 1.0)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_4'), CH('Sableye_4').Position.X + 0.5*8, CH('Sableye_4').Position.Y + 0*8, false, 1.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_5'), CH('Sableye_5').Position.X + 0.5*8, CH('Sableye_5').Position.Y + 0*8, false, 1.0)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_6'), CH('Sableye_6').Position.X + 0.5*8, CH('Sableye_6').Position.Y + 0*8, false, 1.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_1'), Direction.UpRight, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_2'), Direction.UpLeft, 15)
-            end,
+            end),
         })
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8972') end) -- TODO SE 8972 (SE_NUM_EVENT_SIGN_TENSION_01)
         GROUND:CharSetEmote(CH('Teammate1'), 'sweatdrop', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' ...! They\'re coming...') -- FUT_M17A0302_079 (FR optionnel)
+        UI:WaitShowDialogue('...! Ils arrivent...') -- FUT_M17A0302_079 (FR)
         -- case 143: " ...! They're coming..."
         -- case 144: " ...! They're coming..."
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Grovyle'), Direction.DownRight, 15)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' ...Listen carefully...') -- FUT_M17A0302_080 (FR optionnel)
+        UI:WaitShowDialogue('... Écoutez-moi bien...') -- FUT_M17A0302_080 (FR)
         UI:ResetSpeaker()
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.DownLeft, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.DownLeft, 15)
-            end,
+            end),
         })
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' ...Sableye use claws to strike...') -- FUT_M17A0302_081 (FR optionnel)
+        UI:WaitShowDialogue('Les Ténéfix attaquent avec leurs griffes...') -- FUT_M17A0302_081 (FR)
         UI:SetCenter(false)
         UI:ResetSpeaker()
         GROUND:CharSetEmote(CH('Teammate1'), 'sweatdrop', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(' ...! Yikes...that sounds scary!') -- FUT_M17A0302_082 (FR optionnel)
+        UI:WaitShowDialogue('... ! Ça fait peur...') -- FUT_M17A0302_082 (FR)
         -- case 148: ' ...! Yikes...that sounds scary!'
         -- case 149: ' ...! Yikes...that sounds scary!'
         UI:ResetSpeaker()
@@ -1152,95 +1153,95 @@ function m17a0302.Cutscene()
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI2, NPC_YAMIRAMI3
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_2'), CH('Sableye_2').Position.X + 0.5*8, CH('Sableye_2').Position.Y + 0*8, false, 1.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_3'), CH('Sableye_3').Position.X + 0.5*8, CH('Sableye_3').Position.Y + 0*8, false, 1.0)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_4'), CH('Sableye_4').Position.X + 0.5*8, CH('Sableye_4').Position.Y + 0*8, false, 1.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_5'), CH('Sableye_5').Position.X + 0.5*8, CH('Sableye_5').Position.Y + 0*8, false, 1.0)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_6'), CH('Sableye_6').Position.X + 0.5*8, CH('Sableye_6').Position.Y + 0*8, false, 1.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_1'), Direction.UpRight, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_2'), Direction.UpLeft, 15)
-            end,
+            end),
         })
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' ...And that might just open one\navenue for escape...') -- FUT_M17A0302_083 (FR optionnel)
-        UI:WaitShowDialogue(' ...The Sableye will unleash their\nFury Swipes in a frenzy...\n That\'s our chance.') -- FUT_M17A0302_084 (FR optionnel)
-        UI:WaitShowDialogue(' ...If even one of their attacks\nwere to hit the ropes binding us...') -- FUT_M17A0302_085 (FR optionnel)
+        UI:WaitShowDialogue('... Et cela pourrait justement nous offrir une échappatoire...') -- FUT_M17A0302_083 (FR)
+        UI:WaitShowDialogue('Les Ténéfix vont se déchaîner avec Combo-Griffe... Ce sera notre chance.') -- FUT_M17A0302_084 (FR)
+        UI:WaitShowDialogue('Si une seule de leurs attaques touchait les cordes qui nous retiennent...') -- FUT_M17A0302_085 (FR)
         UI:ResetSpeaker()
         SOUND:PlayBattleSE('EVT_Emote_Exclaim') -- SE 8978 (SE_NUM_EVENT_SIGN_NOTICE_05)
         GROUND:CharSetEmote(CH('Teammate1'), 'exclaim', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' ...Oh, right...!\n The ropes might\ncome loose!') -- FUT_M17A0302_086 (FR optionnel)
+        UI:WaitShowDialogue('Ah, oui... Les cordes pourraient céder !') -- FUT_M17A0302_086 (FR)
         -- case 154: ' ...Oh, right...![K] The ropes might\ncome loose!'
         -- case 155: ' ...Oh, right...![K] The ropes might\ncome loose!'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' ...Exactly...\nand if that happens,\nlash out with an attack, then flee!') -- FUT_M17A0302_087 (FR optionnel)
+        UI:WaitShowDialogue('Exactement... Si cela arrive, lancez une attaque, puis fuyez !') -- FUT_M17A0302_087 (FR)
         UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('Sableye_1'), CH('Sableye_1').Position.X + 0.5*8, CH('Sableye_1').Position.Y + 8*8, false, 1.0)
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI2, NPC_YAMIRAMI3
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_2'), CH('Sableye_2').Position.X + 0.5*8, CH('Sableye_2').Position.Y + -8*8, false, 1.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_3'), CH('Sableye_3').Position.X + 0.5*8, CH('Sableye_3').Position.Y + 0*8, false, 1.0)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_4'), CH('Sableye_4').Position.X + 0.5*8, CH('Sableye_4').Position.Y + 0*8, false, 1.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_5'), CH('Sableye_5').Position.X + 0.5*8, CH('Sableye_5').Position.Y + 0*8, false, 1.0)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_6'), CH('Sableye_6').Position.X + 0.5*8, CH('Sableye_6').Position.Y + 0*8, false, 1.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_1'), Direction.UpRight, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_2'), Direction.UpLeft, 15)
-            end,
+            end),
         })
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Sad')
-        UI:WaitShowDialogue(' ...B-b-but...') -- FUT_M17A0302_088 (FR optionnel)
+        UI:WaitShowDialogue('... M-mais...') -- FUT_M17A0302_088 (FR)
         -- case 158: ' ...B-b-but...'
         -- case 159: ' ...B-b-but...'
-        UI:WaitShowDialogue(' ...What if their Fury Swipes\ndon\'t slash the ropes...?') -- FUT_M17A0302_089 (FR optionnel)
+        UI:WaitShowDialogue('Et si leurs Combo-Griffe ne tranchent pas les cordes ?') -- FUT_M17A0302_089 (FR)
         -- case 161: " ...What if their [CS:M]Fury Swipes[CR]\ndon't slash the ropes...?"
         -- case 162: " ...What if their [CS:M]Fury Swipes[CR]\ndon't slash the ropes...?"
         UI:ResetSpeaker()
@@ -1248,38 +1249,38 @@ function m17a0302.Cutscene()
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI2, NPC_YAMIRAMI3
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_2'), CH('Sableye_2').Position.X + 0.5*8, CH('Sableye_2').Position.Y + 0*8, false, 1.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_3'), CH('Sableye_3').Position.X + 0.5*8, CH('Sableye_3').Position.Y + 0*8, false, 1.0)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_4'), CH('Sableye_4').Position.X + 0.5*8, CH('Sableye_4').Position.Y + 0*8, false, 1.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_5'), CH('Sableye_5').Position.X + 0.5*8, CH('Sableye_5').Position.Y + 0*8, false, 1.0)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:MoveToPosition(CH('Sableye_6'), CH('Sableye_6').Position.X + 0.5*8, CH('Sableye_6').Position.Y + 0*8, false, 1.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_1'), Direction.UpRight, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Sableye_2'), Direction.UpLeft, 15)
-            end,
+            end),
         })
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' ...And what if...\n What if the\nSableye don\'t use Fury Swipes at all...?') -- FUT_M17A0302_090 (FR optionnel)
+        UI:WaitShowDialogue('Et si... Et si les Ténéfix n\'utilisent pas Combo-Griffe ?') -- FUT_M17A0302_090 (FR)
         UI:SetCenter(false)
         -- case 164: " ...And what if...[K] What if the\n[CS:N]Sableye[CR] don't use [CS:M]Fury Swipes[CR] at all...?"
         -- case 165: " ...And what if...[K] What if the\n[CS:N]Sableye[CR] don't use [CS:M]Fury Swipes[CR] at all...?"
@@ -1287,99 +1288,97 @@ function m17a0302.Cutscene()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_7194') end) -- TODO SE 7194 (SE_NUM_EVENT_MAIN15_KAMAE_02)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Eat', false) -- param 24 = anim 15 (Eat)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Eat', false) -- param 24 = anim 15 (Eat)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Eat', false) -- param 24 = anim 15 (Eat)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Eat', false) -- param 24 = anim 15 (Eat)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Eat', false) -- param 24 = anim 15 (Eat)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Eat', false) -- param 24 = anim 15 (Eat)
                 pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
-            end,
+            end),
         })
         UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-        UI:WaitShowDialogue('Sableye: Wheh-heh-heh!') -- FUT_M17A0302_091 (FR optionnel)
+        UI:WaitShowDialogue('Ténéfix : Hi-hi-hi !') -- FUT_M17A0302_091 (FR)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' If that happens...\ndon\'t even think\nabout it.') -- FUT_M17A0302_092 (FR optionnel)
+        UI:WaitShowDialogue('Si ça arrive... autant ne pas y penser.') -- FUT_M17A0302_092 (FR)
         UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_7196') end) -- TODO SE 7196 (SE_NUM_EVENT_MAIN17_YAMIRAMI_02_L)
         -- supervision_cting layer [8] (structurel)
         -- object 138 (p05p03a2) : contexte objet
-        local obj_138 = OBJ('p05p03a2') -- objet 138
-        GROUND:ObjectSetAnim(obj_138, 1, 0, 3, Direction.Down, 1) -- anim 1 (table REQUISE)
+        FutureScene.ObjectSetAnim('p05p03a2', 1, 0, 3, Direction.Down, 1) -- objet 138, anim 1 (table REQUISE)
         -- (parallèle) ATTENDANT1, NPC_JUPUTORU, NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Tumble', true) -- param 45 = anim 16 (Tumble)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Tumble', true) -- param 45 = anim 16 (Tumble)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Tumble', true) -- param 45 = anim 16 (Tumble)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Tumble', true) -- param 45 = anim 16 (Tumble)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Tumble', true) -- param 45 = anim 16 (Tumble)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Tumble', true) -- param 45 = anim 16 (Tumble)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.Left, 15)
                 GROUND:CharSetEmote(CH('PLAYER'), 'shock', 3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.Right, 15)
                 GROUND:CharSetEmote(CH('Teammate1'), 'shock', 3)
                 -- WaitEffect (les appels GROUND sont bloquants)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Grovyle'), Direction.Left, 15)
                 GROUND:CharSetEmote(CH('Grovyle'), 'shock', 3)
-            end,
+            end),
         })
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Shouting')
-        UI:WaitShowDialogue(' WAAAAAAH!') -- FUT_M17A0302_093 (FR optionnel)
+        UI:WaitShowDialogue('WAAAAH !') -- FUT_M17A0302_093 (FR)
         -- case 169: ' WAAAAAAH!'
         -- case 170: ' WAAAAAAH!'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue('(Urggh!)') -- FUT_M17A0302_094 (FR optionnel)
+        UI:WaitShowDialogue('(Argh !)') -- FUT_M17A0302_094 (FR)
         -- case 172: '(Urggh!)'
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(' En...en...endure it!\n Wait for\nyour chance!') -- FUT_M17A0302_095 (FR optionnel)
+        UI:WaitShowDialogue('T-tenez bon ! Attendez le bon moment !') -- FUT_M17A0302_095 (FR)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(' But if they keep going...') -- FUT_M17A0302_096 (FR optionnel)
+        UI:WaitShowDialogue('Mais s\'ils continuent...') -- FUT_M17A0302_096 (FR)
         -- case 175: ' But if they keep going...'
         -- case 176: ' But if they keep going...'
-        UI:WaitShowDialogue(' We\'ll be down before our\nchance comes!') -- FUT_M17A0302_097 (FR optionnel)
+        UI:WaitShowDialogue('Nous serons K.-O. avant d\'en avoir l\'occasion !') -- FUT_M17A0302_097 (FR)
         -- case 178: " We'll be down before our\nchance comes!"
         -- case 179: " We'll be finished before our\nchance comes!"
         UI:ResetSpeaker()
         -- object 136 (p05p03a1) : contexte objet
-        local obj_136 = OBJ('p05p03a1') -- objet 136
-        GROUND:ObjectSetAnim(obj_136, 18, 0, 3, Direction.Down, 1) -- anim 18 (table REQUISE)
+        FutureScene.ObjectSetAnim('p05p03a1', 18, 0, 3, Direction.Down, 1) -- objet 136, anim 18 (table REQUISE)
         GROUND:TeleportTo(CH('PLAYER'), CH('PLAYER').Position.X + 0*8, CH('PLAYER').Position.Y + 2*8)
         -- object 136 (p05p03a1) : contexte objet
         -- WaitAnimation sur objet p05p03a1 : PARTIEL
@@ -1388,13 +1387,12 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue(' Hey!') -- FUT_M17A0302_098 (FR optionnel)
+        UI:WaitShowDialogue('Hé !') -- FUT_M17A0302_098 (FR)
         -- case 181: ' Hey!'
         -- case 182: ' Hey!'
         UI:ResetSpeaker()
         -- object 135 (p05p03a1) : contexte objet
-        local obj_135 = OBJ('p05p03a1') -- objet 135
-        GROUND:ObjectSetAnim(obj_135, 18, 0, 3, Direction.Down, 1) -- anim 18 (table REQUISE)
+        FutureScene.ObjectSetAnim('p05p03a1', 18, 0, 3, Direction.Down, 1) -- objet 135, anim 18 (table REQUISE)
         GROUND:TeleportTo(CH('Teammate1'), CH('Teammate1').Position.X + 0*8, CH('Teammate1').Position.Y + 2*8)
         -- object 135 (p05p03a1) : contexte objet
         -- WaitAnimation sur objet p05p03a1 : PARTIEL
@@ -1403,12 +1401,11 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Surprised')
-        UI:WaitShowDialogue('(There\'s a break in the rope!)') -- FUT_M17A0302_099 (FR optionnel)
+        UI:WaitShowDialogue('(Une corde est entaillée !)') -- FUT_M17A0302_099 (FR)
         -- case 184: "(There's a break in the rope!)"
         UI:ResetSpeaker()
         -- object 137 (p05p03a1) : contexte objet
-        local obj_137 = OBJ('p05p03a1') -- objet 137
-        GROUND:ObjectSetAnim(obj_137, 18, 0, 3, Direction.Down, 1) -- anim 18 (table REQUISE)
+        FutureScene.ObjectSetAnim('p05p03a1', 18, 0, 3, Direction.Down, 1) -- objet 137, anim 18 (table REQUISE)
         GROUND:TeleportTo(CH('Grovyle'), CH('Grovyle').Position.X + 0*8, CH('Grovyle').Position.Y + 2*8)
         -- object 137 (p05p03a1) : contexte objet
         -- WaitAnimation sur objet p05p03a1 : PARTIEL
@@ -1417,138 +1414,134 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Now!\n Attack!') -- FUT_M17A0302_100 (FR optionnel)
+        UI:WaitShowDialogue('Maintenant ! Attaque !') -- FUT_M17A0302_100 (FR)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Determined')
-        UI:WaitShowDialogue(' Go!') -- FUT_M17A0302_101 (FR optionnel)
+        UI:WaitShowDialogue('Allez !') -- FUT_M17A0302_101 (FR)
         -- case 187: ' Go!'
         -- case 188: ' Go!'
         UI:ResetSpeaker()
         -- PARTIEL : se_FadeOut [7196, 10]
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
+            end),
         })
         -- object 138 (p05p03a2) : contexte objet
-        pcall(function() GROUND:RemoveCharacter(CH('Sableye_6')) end)
+        pcall(function() GROUND:Hide(CH('Sableye_6').EntName) end)
         -- object 136 (p05p03a1) : contexte objet
-        local obj_136 = OBJ('p05p03a1') -- objet 136
-        GROUND:ObjectSetAnim(obj_136, 19, 0, 3, Direction.Down, 1) -- anim 19 (table REQUISE)
+        FutureScene.ObjectSetAnim('p05p03a1', 19, 0, 3, Direction.Down, 1) -- objet 136, anim 19 (table REQUISE)
         -- object 137 (p05p03a1) : contexte objet
-        local obj_137 = OBJ('p05p03a1') -- objet 137
-        GROUND:ObjectSetAnim(obj_137, 19, 0, 3, Direction.Down, 1) -- anim 19 (table REQUISE)
+        FutureScene.ObjectSetAnim('p05p03a1', 19, 0, 3, Direction.Down, 1) -- objet 137, anim 19 (table REQUISE)
         -- object 135 (p05p03a1) : contexte objet
-        local obj_135 = OBJ('p05p03a1') -- objet 135
-        GROUND:ObjectSetAnim(obj_135, 19, 0, 3, Direction.Down, 1) -- anim 19 (table REQUISE)
+        FutureScene.ObjectSetAnim('p05p03a1', 19, 0, 3, Direction.Down, 1) -- objet 135, anim 19 (table REQUISE)
         -- object 135 (p05p03a1) : contexte objet
         -- WaitAnimation sur objet p05p03a1 : PARTIEL
         -- (parallèle) ATTENDANT1, NPC_JUPUTORU, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
                 GROUND:MoveToPosition(CH('PLAYER'), 228, 668, false, 5.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
                 GROUND:MoveToPosition(CH('Teammate1'), 276, 668, false, 5.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
                 GROUND:MoveToPosition(CH('Grovyle'), 180, 668, false, 5.0)
-            end,
+            end),
         })
         -- object 135 (p05p03a1) : contexte objet
-        local obj_135 = OBJ('p05p03a1') -- objet 135
-        GROUND:ObjectSetAnim(obj_135, 12, 0, 3, Direction.Down, 1) -- anim 12 (table REQUISE)
+        FutureScene.ObjectSetAnim('p05p03a1', 12, 0, 3, Direction.Down, 1) -- objet 135, anim 12 (table REQUISE)
         SOUND:PlayBattleSE('EVT_Battle_Flash') -- SE 5126 (SE_NUM_EVENT_EFF_FLASH_HEAVY_02)
         -- (parallèle) ATTENDANT1, NPC_JUPUTORU, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('PLAYER'), 'Attack', false) -- param 13 = anim 1 (Attack)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Teammate1'), 'Attack', false) -- param 13 = anim 1 (Attack)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Grovyle'), 'Attack', false) -- param 12 = anim 2 (Attack)
-            end,
+            end),
         })
         GAME:FadeOut(true, 2)
         GAME:WaitFrames(2)
         GAME:FadeIn(2)
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Gwah!') -- FUT_M17A0302_102 (FR optionnel)
+        UI:WaitShowDialogue('Gwah !') -- FUT_M17A0302_102 (FR)
         -- performer 0
         GROUND:MoveToPosition(CH('PLAYER'), 228, 712, false, 6.0)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_1'), 'shock', 3)
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Hurt', true) -- param 14 = anim 6 (Hurt)
                 GROUND:AnimateToPosition(CH('Sableye_1'), CH('Sableye_1').Position.X + 3*8, CH('Sableye_1').Position.Y + -8*8, false, 6.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_2'), 'shock', 3)
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Hurt', true) -- param 14 = anim 6 (Hurt)
                 GROUND:AnimateToPosition(CH('Sableye_2'), CH('Sableye_2').Position.X + 3*8, CH('Sableye_2').Position.Y + 8*8, false, 6.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_3'), 'shock', 3)
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Hurt', true) -- param 14 = anim 6 (Hurt)
                 GROUND:AnimateToPosition(CH('Sableye_3'), CH('Sableye_3').Position.X + 3*8, CH('Sableye_3').Position.Y + 0*8, false, 6.0)
-            end,
+            end),
         })
         GAME:FadeOut(true, 2)
         GAME:WaitFrames(2)
         GAME:FadeIn(2)
         -- (parallèle) NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_4'), 'shock', 3)
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Hurt', true) -- param 14 = anim 6 (Hurt)
                 GROUND:AnimateToPosition(CH('Sableye_4'), CH('Sableye_4').Position.X + 3*8, CH('Sableye_4').Position.Y + 0*8, false, 6.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_5'), 'shock', 3)
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Hurt', true) -- param 14 = anim 6 (Hurt)
                 GROUND:AnimateToPosition(CH('Sableye_5'), CH('Sableye_5').Position.X + 3*8, CH('Sableye_5').Position.Y + 0*8, false, 6.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_6'), 'shock', 3)
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Hurt', true) -- param 14 = anim 6 (Hurt)
                 GROUND:AnimateToPosition(CH('Sableye_6'), CH('Sableye_6').Position.X + 3*8, CH('Sableye_6').Position.Y + 0*8, false, 6.0)
-            end,
+            end),
         })
         -- (parallèle) ATTENDANT1, NPC_JUPUTORU, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         -- performer 0
@@ -1558,13 +1551,13 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Wh-what is this?!') -- FUT_M17A0302_103 (FR optionnel)
+        UI:WaitShowDialogue('Qu-qu\'est-ce que c\'est ?!') -- FUT_M17A0302_103 (FR)
         UI:ResetSpeaker()
         -- performer 0
         GROUND:MoveToPosition(CH('PLAYER'), 228, 712, false, 4.0)
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' There!') -- FUT_M17A0302_104 (FR optionnel)
+        UI:WaitShowDialogue('Par là !') -- FUT_M17A0302_104 (FR)
         UI:ResetSpeaker()
         SOUND:StopBGM()
         SOUND:PlayBattleSE('EVT_Battle_Flash') -- SE 7191 (SE_NUM_EVENT_MAIN17_HIKARIDAMA)
@@ -1573,63 +1566,63 @@ function m17a0302.Cutscene()
         GAME:FadeOut(true, 5)
         UI:SetSpeaker(CH('Sableye_1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Gaaaah!') -- FUT_M17A0302_105 (FR optionnel)
-        UI:WaitShowDialogue(' We can\'t see!') -- FUT_M17A0302_106 (FR optionnel)
+        UI:WaitShowDialogue('Gaaaah !') -- FUT_M17A0302_105 (FR)
+        UI:WaitShowDialogue('On n\'y voit rien !') -- FUT_M17A0302_106 (FR)
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Compose yourselves!\n It\'s only a\nLuminous Orb!') -- FUT_M17A0302_107 (FR optionnel)
-        UI:WaitShowDialogue(' Its effect wears off quickly!') -- FUT_M17A0302_108 (FR optionnel)
+        UI:WaitShowDialogue('Reprenez-vous ! Ce n\'est qu\'un Lumiorbe !') -- FUT_M17A0302_107 (FR)
+        UI:WaitShowDialogue('Son effet se dissipe vite !') -- FUT_M17A0302_108 (FR)
         UI:ResetSpeaker()
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
+            end),
         })
-        pcall(function() GROUND:RemoveCharacter(CH('PLAYER')) end)
-        pcall(function() GROUND:RemoveCharacter(CH('Teammate1')) end)
-        pcall(function() GROUND:RemoveCharacter(CH('Grovyle')) end)
+        pcall(function() GROUND:Hide(CH('PLAYER').EntName) end)
+        pcall(function() GROUND:Hide(CH('Teammate1').EntName) end)
+        pcall(function() GROUND:Hide(CH('Grovyle').EntName) end)
         GAME:FadeIn(60)
         GAME:WaitFrames(15)
         -- PARTIEL : WaitSe [7191]
         SOUND:PlayBattleSE('EVT_Emote_Shock_2') -- SE 8968 (SE_NUM_EVENT_SIGN_SHOCK_01)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_1'), 'shock', 3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_2'), 'shock', 3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_3'), 'shock', 3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_4'), 'shock', 3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_5'), 'shock', 3)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_6'), 'shock', 3)
                 -- WaitEffect (les appels GROUND sont bloquants)
-            end,
+            end),
         })
         -- ExecuteCommon(LOOK_AROUND_LEFT_FUNC_SERIES) : gestuelle parallèle à implémenter
         GAME:WaitFrames(7)
@@ -1649,126 +1642,126 @@ function m17a0302.Cutscene()
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Necrozma'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' B-blast it!') -- FUT_M17A0302_109 (FR optionnel)
-        UI:WaitShowDialogue(' That Grovyle!\n He fled using the\nflash from that Luminous Orb as cover!') -- FUT_M17A0302_110 (FR optionnel)
-        UI:WaitShowDialogue(' They won\'t get away with this!\nCome!') -- FUT_M17A0302_111 (FR optionnel)
+        UI:WaitShowDialogue('M-malédiction !') -- FUT_M17A0302_109 (FR)
+        UI:WaitShowDialogue('Ce Massko ! Il s\'est enfui en profitant de l\'éclat du Lumiorbe !') -- FUT_M17A0302_110 (FR)
+        UI:WaitShowDialogue('Ils ne s\'en tireront pas comme ça ! Venez !') -- FUT_M17A0302_111 (FR)
         UI:ResetSpeaker()
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI4, NPC_YAMIRAMI5
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
+            end),
         })
         GAME:WaitFrames(10)
         -- (parallèle) NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
+            end),
         })
         UI:SetSpeaker(STRINGS:Format("\\uE040"), true, "", -1, "", RogueEssence.Data.Gender.Unknown)
-        UI:WaitShowDialogue('Sableye: Wheh-heh-heh!') -- FUT_M17A0302_112 (FR optionnel)
+        UI:WaitShowDialogue('Ténéfix : Hi-hi-hi !') -- FUT_M17A0302_112 (FR)
         pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Hop', false) -- param 17 = anim 10 (Hop)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Hop', false) -- param 17 = anim 10 (Hop)
                 pcall(function() GROUND:CharWaitAnim(CH('Sableye_6')) end)
-            end,
+            end),
         })
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Idle', true) -- param 4 = anim 7 (Idle)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('Necrozma'), 228, 932, false, 3.0)
         GAME:WaitFrames(10)
         -- (parallèle) NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Walk', true) -- param 5 = anim 0 (Walk)
                 GROUND:MoveToPosition(CH('Sableye_6'), 244, 916, false, 4.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Walk', true) -- param 5 = anim 0 (Walk)
                 GROUND:MoveToPosition(CH('Sableye_5'), 212, 916, false, 4.0)
-            end,
+            end),
         })
         GAME:WaitFrames(10)
         -- (parallèle) NPC_YAMIRAMI3, NPC_YAMIRAMI4
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Walk', true) -- param 5 = anim 0 (Walk)
                 GROUND:MoveToPosition(CH('Sableye_4'), 244, 916, false, 4.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Walk', true) -- param 5 = anim 0 (Walk)
                 GROUND:MoveToPosition(CH('Sableye_3'), 212, 916, false, 4.0)
-            end,
+            end),
         })
         GAME:WaitFrames(8)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Walk', true) -- param 5 = anim 0 (Walk)
                 GROUND:MoveToPosition(CH('Sableye_2'), 244, 916, false, 4.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Walk', true) -- param 5 = anim 0 (Walk)
                 GROUND:MoveToPosition(CH('Sableye_1'), 212, 916, false, 4.0)
-            end,
+            end),
         })
-        pcall(function() GROUND:RemoveCharacter(CH('Necrozma')) end)
-        pcall(function() GROUND:RemoveCharacter(CH('Sableye_6')) end)
-        pcall(function() GROUND:RemoveCharacter(CH('Sableye_5')) end)
-        pcall(function() GROUND:RemoveCharacter(CH('Sableye_4')) end)
-        pcall(function() GROUND:RemoveCharacter(CH('Sableye_3')) end)
-        pcall(function() GROUND:RemoveCharacter(CH('Sableye_2')) end)
-        pcall(function() GROUND:RemoveCharacter(CH('Sableye_1')) end)
+        pcall(function() GROUND:Hide(CH('Necrozma').EntName) end)
+        pcall(function() GROUND:Hide(CH('Sableye_6').EntName) end)
+        pcall(function() GROUND:Hide(CH('Sableye_5').EntName) end)
+        pcall(function() GROUND:Hide(CH('Sableye_4').EntName) end)
+        pcall(function() GROUND:Hide(CH('Sableye_3').EntName) end)
+        pcall(function() GROUND:Hide(CH('Sableye_2').EntName) end)
+        pcall(function() GROUND:Hide(CH('Sableye_1').EntName) end)
         GAME:WaitFrames(60)
         -- performer 0
         GROUND:MoveToPosition(CH('PLAYER'), 228, 712, false, 2.0)
@@ -1814,7 +1807,7 @@ function m17a0302.Cutscene()
         -- ExecuteCommon(JUMP_ANGRY_FUNC_SERIES) : gestuelle parallèle à implémenter
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(' Blecch! I got dirt in my mouth...') -- FUT_M17A0302_113 (FR optionnel)
+        UI:WaitShowDialogue('Beurk ! J\'ai de la terre dans la bouche...') -- FUT_M17A0302_113 (FR)
         -- case 201: ' Blecch! I got dirt in my mouth...'
         -- case 202: ' Blecch! I got dirt in my mouth...'
         UI:ResetSpeaker()
@@ -1823,27 +1816,27 @@ function m17a0302.Cutscene()
         pcall(function() SOUND:PlayBGM('In the Depths of the Pit.ogg', true) end) -- InTheDepthsOfThePit
         UI:SetSpeaker(CH('PLAYER'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue('(We\'re...\n We\'re safe...)') -- FUT_M17A0302_114 (FR optionnel)
+        UI:WaitShowDialogue('(On est... On est en sécurité...)') -- FUT_M17A0302_114 (FR)
         -- case 204: "(We're...[K] We're safe...)"
-        UI:WaitShowDialogue('(So Grovyle can use Dig?)') -- FUT_M17A0302_115 (FR optionnel)
+        UI:WaitShowDialogue('(Alors Massko peut utiliser Tunnel ?)') -- FUT_M17A0302_115 (FR)
         -- case 206: '(So [CS:N]Grovyle[CR] can use [CS:M]Dig[CR]?)'
-        UI:WaitShowDialogue('(He sure knows many moves.)') -- FUT_M17A0302_116 (FR optionnel)
+        UI:WaitShowDialogue('(Il connaît vraiment beaucoup de capacités.)') -- FUT_M17A0302_116 (FR)
         -- case 208: '(He sure knows many moves.)'
         UI:ResetSpeaker()
         GROUND:CharAnimateTurnTo(CH('Grovyle'), Direction.UpRight, 15)
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.DownLeft, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.DownLeft, 15)
-            end,
+            end),
         })
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' We got out of that scrape...\n\nBut we\'re not out of the woods yet.') -- FUT_M17A0302_117 (FR optionnel)
-        UI:WaitShowDialogue(' Let\'s get out of here, and fast.') -- FUT_M17A0302_118 (FR optionnel)
+        UI:WaitShowDialogue('On s\'est tirés de ce mauvais pas...[br]Mais nous ne sommes pas encore sauvés.') -- FUT_M17A0302_117 (FR)
+        UI:WaitShowDialogue('Sortons d\'ici, et vite.') -- FUT_M17A0302_118 (FR)
         UI:ResetSpeaker()
         -- performer 0
         GROUND:MoveToPosition(CH('PLAYER'), 228, 832, false, 2.0)
@@ -1876,7 +1869,13 @@ function m17a0302.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[m17a0302] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[m17a0302] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return m17a0302

@@ -35,8 +35,9 @@ import glob
 import os
 import collections
 
-IR_DIR = "/home/user/V4/docs/ssb_ir"
-OUT_DIR = "/home/user/V4/docs/ssb_adaptation"
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+IR_DIR = os.path.join(ROOT_DIR, "docs", "ssb_ir")
+OUT_DIR = os.path.join(ROOT_DIR, "docs", "ssb_adaptation")
 
 # ---------------------------------------------------------------------------
 # CAST GLOBAL New Era (directives utilisateur)
@@ -117,19 +118,19 @@ CAST["__MAITRE__"] = {
 # ---------------------------------------------------------------------------
 BGM_MAP = {
     "InTheFuture":             "In the Future.ogg",
-    "PlanetsParalysis":        "Planet's Paralysis.ogg",
-    "OhNo":                    "Oh No!.ogg",
+    "PlanetsParalysis":        "In the Future.ogg",
+    "OhNo":                    "Growing Anxiety.ogg",
     "TimeGearRemix":           "Time Gear Remix.ogg",
-    "TimeGear":                "Time Gear.ogg",
-    "MemoriesReturned":        "Memories Returned.ogg",
-    "OnTheCeiling":            "On the Ceiling.ogg",
-    "InTheHandsOfFate":        "In the Hands of Fate.ogg",
+    "TimeGear":                "Time Gear Remix.ogg",
+    "MemoriesReturned":        "Time Restored.ogg",
+    "OnTheCeiling":            "Growing Anxiety.ogg",
+    "InTheHandsOfFate":        "Sympathy.ogg",
     "HiddenHighland":          "Hidden Highland.ogg",
-    "AnotherStaticNoise":      "Another Static Noise.ogg",
+    "AnotherStaticNoise":      "Rising Fear.ogg",
     "InTheDepthsOfThePit":     "In the Depths of the Pit.ogg",
     "WelcomeToTheWorldOfPokemon": "Welcome to the World of Pokémon!.ogg",
     "ThePowerOfDarkness":      "The Power of Darkness.ogg",
-    "StrongBlastNoise":        "Strong Blast Noise.ogg",
+    "StrongBlastNoise":        "Rising Fear.ogg",
 }
 
 GROUND_MAP = {
@@ -181,8 +182,12 @@ ROUTINE_MAP = {
 
 def main():
     os.makedirs(OUT_DIR, exist_ok=True)
-    irs = [json.load(open(p)) for p in glob.glob(os.path.join(IR_DIR, "*_*.json"))
-           if "_summary" not in p and "_graph" not in p and "_coverage" not in p]
+    irs = []
+    for path in glob.glob(os.path.join(IR_DIR, "*_*.json")):
+        with open(path, encoding="utf-8") as stream:
+            candidate = json.load(stream)
+        if isinstance(candidate, dict) and all(key in candidate for key in ("zone", "scene", "ops")):
+            irs.append(candidate)
 
     # vocabulaire observé
     anims = collections.Counter(); ses = collections.Counter(); effs = collections.Counter()

@@ -22,11 +22,11 @@ function m18b0701.Cutscene()
     GAME:CutsceneMode(true)
 
         -- PARTIEL : sound_Stop []
-        GAME:EnterGroundMap('s04p01a', 'Main_Entrance_Marker') -- transition S04P01A
+        -- Transition neutralisée : FutureArc possède le routage. Source : GAME:EnterGroundMap('s04p01a', 'Main_Entrance_Marker') -- transition S04P01A
         GAME:FadeIn(0)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue('(dialogue FUT_M18B0701_001)') -- FUT_M18B0701_001 (FR optionnel)
+        UI:WaitShowDialogue('Argh... Nous avons échoué...') -- FUT_M18B0701_001 (FR)
         -- case 0: ' Ugh...[K] We blew it...'
         -- case 1: ' Ugh...[K] We failed...'
         -- message_KeyWait (le dialogue bloque déjà)
@@ -49,24 +49,24 @@ function m18b0701.Cutscene()
         GAME:WaitFrames(15)
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharTurnToChar(CH('PLAYER'), CH('Teammate1'))
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharTurnToChar(CH('Teammate1'), CH('PLAYER'))
-            end,
+            end),
         })
         GAME:WaitFrames(15)
         GROUND:CharSetEmote(CH('Teammate1'), 'sweatdrop', 3)
         -- WaitEffect (les appels GROUND sont bloquants)
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Pain')
-        UI:WaitShowDialogue(' Ugh... It\'s tough going, but...') -- FUT_M18B0701_002 (FR optionnel)
+        UI:WaitShowDialogue('Argh... C\'est difficile, mais...') -- FUT_M18B0701_002 (FR)
         -- case 3: " Ugh... It's tough going, but..."
         -- case 4: " Ugh... It's not easy, but..."
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' But there\'s no giving up!\n\nLet\'s keep at it, [hero]!') -- FUT_M18B0701_003 (FR optionnel)
+        UI:WaitShowDialogue('Mais pas question d\'abandonner ![br]Continuons, [hero] !') -- FUT_M18B0701_003 (FR)
         -- case 6: " But there's no giving up![K]\nLet's keep at it, [hero]!"
         -- case 7: " But we can't give up![K] Let's keep\nat it, [hero]!"
         UI:ResetSpeaker()
@@ -89,7 +89,13 @@ function m18b0701.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[m18b0701] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[m18b0701] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return m18b0701

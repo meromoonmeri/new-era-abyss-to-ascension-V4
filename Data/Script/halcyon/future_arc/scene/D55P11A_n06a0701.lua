@@ -33,38 +33,38 @@ function n06a0701.Cutscene()
         -- NON CONVERTI : SetPositionInitial []
         -- (parallèle) NPC_BUUBAAN, NPC_CHAAREMU, NPC_METAMON_OTACHI, NPC_NOKOTCHI, NPC_NOKUTASU, NPC_SAANAITO
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_METAMON_OTACHI)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_SAANAITO)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_CHAAREMU)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_NOKOTCHI)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_BUUBAAN)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_NOKUTASU)
-            end,
+            end),
         })
         GAME:FadeIn(30)
         GAME:WaitFrames(60)
         -- (parallèle) NPC_CHAAREMU, NPC_SAANAITO, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : MovePositionMark (acteur NPC_SAANAITO)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : MovePositionMark (acteur NPC_CHAAREMU)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : MovePositionMark (acteur PLAYER_CHARMS)
-            end,
+            end),
         })
         -- performer 0
         GROUND:MoveToPosition(CH('PLAYER'), 276, 244, false, 2.0)
@@ -222,12 +222,12 @@ function n06a0701.Cutscene()
         -- NON CONVERTI : Turn2DirectionLives (acteur NPC_SAANAITO)
         -- (parallèle) NPC_CHAAREMU, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2DirectionLives (acteur PLAYER_CHARMS)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2DirectionLives (acteur NPC_CHAAREMU)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         GeneralFunctions.SetEmotion('Normal')
@@ -318,15 +318,15 @@ function n06a0701.Cutscene()
         GAME:WaitFrames(1)
         -- (parallèle) NPC_AABOKKU, NPC_DORAPION, NPC_MANYUURA
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : MovePositionMark (acteur NPC_MANYUURA)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : MovePositionMark (acteur NPC_DORAPION)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : MovePositionMark (acteur NPC_AABOKKU)
-            end,
+            end),
         })
         GAME:WaitFrames(20)
         GeneralFunctions.SetEmotion('Normal')
@@ -372,12 +372,12 @@ function n06a0701.Cutscene()
         -- NON CONVERTI : Turn2Direction (acteur NPC_CHAAREMU)
         -- (parallèle) NPC_SAANAITO, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur PLAYER_CHARMS)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_SAANAITO)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         GeneralFunctions.SetEmotion('Normal')
@@ -507,12 +507,12 @@ UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_8972') end) -- TODO SE 8972 (SE_NUM_EVENT_SIGN_TENSION_01)
         -- (parallèle) NPC_METAMON_OTACHI, NPC_NOKOTCHI
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_NOKOTCHI)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_METAMON_OTACHI)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         -- NON CONVERTI : SetEffect (acteur NPC_HERUGAA)
@@ -543,12 +543,12 @@ UI:ResetSpeaker()
         UI:ResetSpeaker()
         -- (parallèle) NPC_BUUBAAN, NPC_HERUGAA
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_BUUBAAN)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_HERUGAA)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         -- NON CONVERTI : SetAnimation (acteur NPC_METAMON_OTACHI)
@@ -559,25 +559,25 @@ UI:ResetSpeaker()
         SOUND:PlayBattleSE('EVT_Emote_Exclaim') -- SE 8978 (SE_NUM_EVENT_SIGN_NOTICE_05)
         -- (parallèle) NPC_CHAAREMU, NPC_SAANAITO, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_CHAAREMU)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_SAANAITO)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur PLAYER_CHARMS)
-            end,
+            end),
         })
         -- (parallèle) NPC_SAANAITO, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_SAANAITO)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur PLAYER_CHARMS)
                 -- NON CONVERTI : WaitEffect (acteur PLAYER_CHARMS)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         GeneralFunctions.SetEmotion('Normal')
@@ -597,12 +597,12 @@ UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_7430') end) -- TODO SE 7430 (SE_NUM_EVENT_MAIN18_MIKARUGE_06)
         -- (parallèle) NPC_NOKUTASU, NPC_SAANAITO
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Move2PositionOffset (acteur NPC_NOKUTASU)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_SAANAITO)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         -- NON CONVERTI : Turn2Direction (acteur PLAYER_CHARMS)
@@ -626,22 +626,22 @@ UI:ResetSpeaker()
         GAME:WaitFrames(3)
         -- (parallèle) NPC_SAANAITO, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_SAANAITO)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur PLAYER_CHARMS)
-            end,
+            end),
         })
         GAME:WaitFrames(4)
         -- (parallèle) NPC_DORAPION, NPC_MANYUURA
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_DORAPION)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_MANYUURA)
-            end,
+            end),
         })
         GAME:WaitFrames(2)
         -- NON CONVERTI : Turn2Direction (acteur NPC_AABOKKU)
@@ -657,41 +657,41 @@ UI:ResetSpeaker()
         pcall(function() SOUND:PlayBattleSE('SSB_SE_7430') end) -- TODO SE 7430 (SE_NUM_EVENT_MAIN18_MIKARUGE_06)
         -- (parallèle) NPC_METAMON_OTACHI, NPC_NOKOTCHI
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : MovePositionOffset (acteur NPC_NOKOTCHI)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_METAMON_OTACHI)
                 -- NON CONVERTI : MovePositionOffset (acteur NPC_METAMON_OTACHI)
-            end,
+            end),
         })
         GAME:WaitFrames(10)
         -- (parallèle) NPC_AABOKKU, NPC_BUUBAAN, NPC_CHAAREMU, NPC_DORAPION, NPC_HERUGAA, NPC_MANYUURA, NPC_SAANAITO, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_DORAPION)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_AABOKKU)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_MANYUURA)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_SAANAITO)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur PLAYER_CHARMS)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_CHAAREMU)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : MovePositionOffset (acteur NPC_BUUBAAN)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : MovePositionOffset (acteur NPC_HERUGAA)
-            end,
+            end),
         })
         -- Destroy (acteur inconnu)
         -- Destroy (acteur inconnu)
@@ -843,34 +843,34 @@ UI:ResetSpeaker()
         UI:ResetSpeaker()
         -- (parallèle) NPC_AABOKKU, NPC_DORAPION
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_AABOKKU)
                 -- NON CONVERTI : MovePositionOffset (acteur NPC_AABOKKU)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_DORAPION)
                 -- NON CONVERTI : MovePositionOffset (acteur NPC_DORAPION)
-            end,
+            end),
         })
         -- (parallèle) NPC_AABOKKU, NPC_DORAPION
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_DORAPION)
                 -- NON CONVERTI : WaitAnimation (acteur NPC_DORAPION)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_AABOKKU)
-            end,
+            end),
         })
         GAME:WaitFrames(5)
         -- (parallèle) NPC_CHAAREMU, NPC_SAANAITO
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_CHAAREMU)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_SAANAITO)
-            end,
+            end),
         })
         -- performer 0
         GROUND:MoveToPosition(CH('PLAYER'), CH('PLAYER').Position.X + 4*8, CH('PLAYER').Position.Y + 0*8, false, 8.0)
@@ -879,14 +879,14 @@ UI:ResetSpeaker()
         GAME:WaitFrames(2)
         -- (parallèle) NPC_AABOKKU, NPC_DORAPION
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_DORAPION)
                 -- NON CONVERTI : SlidePositionOffset (acteur NPC_DORAPION)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_AABOKKU)
                 -- NON CONVERTI : SlidePositionOffset (acteur NPC_AABOKKU)
-            end,
+            end),
         })
         GAME:FadeIn(2)
         GAME:WaitFrames(5)
@@ -896,12 +896,12 @@ UI:ResetSpeaker()
         GAME:FadeIn(2)
         -- (parallèle) NPC_CHAAREMU, NPC_SAANAITO
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_CHAAREMU)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_SAANAITO)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         GeneralFunctions.SetEmotion('Pain')
@@ -966,15 +966,15 @@ UI:ResetSpeaker()
         GAME:FadeIn(2)
         -- (parallèle) NPC_AABOKKU, NPC_CHAAREMU, NPC_DORAPION
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_CHAAREMU)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_DORAPION)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetEffect (acteur NPC_AABOKKU)
-            end,
+            end),
         })
         -- PARTIEL : WaitSe [5143]
         GAME:WaitFrames(20)
@@ -986,12 +986,12 @@ UI:ResetSpeaker()
         UI:ResetSpeaker()
         -- (parallèle) NPC_AABOKKU, NPC_DORAPION
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_AABOKKU)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_DORAPION)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         GeneralFunctions.SetEmotion('Normal')
@@ -1009,15 +1009,15 @@ UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('PLAYER'), CH('PLAYER').Position.X + 0.2969*8, CH('PLAYER').Position.Y + 0*8, false, 0.594)
         -- (parallèle) NPC_AABOKKU, NPC_DORAPION, NPC_MANYUURA
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : MovePositionOffset (acteur NPC_MANYUURA)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_DORAPION)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_AABOKKU)
-            end,
+            end),
         })
         GAME:WaitFrames(30)
         UI:ResetSpeaker()
@@ -1050,18 +1050,18 @@ UI:ResetSpeaker()
         GAME:WaitFrames(5)
         -- (parallèle) NPC_CHAAREMU, NPC_DORAPION, NPC_SAANAITO, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : MovePositionOffset (acteur NPC_DORAPION)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_CHAAREMU)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_SAANAITO)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur PLAYER_CHARMS)
-            end,
+            end),
         })
         -- NON CONVERTI : Turn2Direction (acteur NPC_DORAPION)
         GAME:WaitFrames(60)
@@ -1072,12 +1072,12 @@ UI:ResetSpeaker()
         -- NON CONVERTI : MovePositionOffset (acteur NPC_DORAPION)
         -- (parallèle) NPC_AABOKKU, NPC_DORAPION
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_AABOKKU)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_DORAPION)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         GeneralFunctions.SetEmotion('Normal')
@@ -1119,12 +1119,12 @@ UI:ResetSpeaker()
         -- NON CONVERTI : Turn2Direction (acteur NPC_CHAAREMU)
         -- (parallèle) NPC_SAANAITO, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur PLAYER_CHARMS)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_SAANAITO)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         GeneralFunctions.SetEmotion('Normal')
@@ -1150,21 +1150,21 @@ UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('PLAYER'), 276, 292, false, 2.0)
         -- (parallèle) NPC_CHAAREMU, NPC_METAMON_OTACHI
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : MovePositionMark (acteur NPC_METAMON_OTACHI)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_CHAAREMU)
-            end,
+            end),
         })
         -- (parallèle) NPC_SAANAITO, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur NPC_SAANAITO)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2Direction (acteur PLAYER_CHARMS)
-            end,
+            end),
         })
         pcall(function() SOUND:PlayBGM('In the Depths of the Pit.ogg', true) end) -- InTheDepthsOfThePit
         UI:ResetSpeaker()
@@ -1332,12 +1332,12 @@ UI:ResetSpeaker()
         -- NON CONVERTI : Turn2DirectionLives (acteur NPC_CHAAREMU)
         -- (parallèle) NPC_SAANAITO, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2DirectionLives (acteur PLAYER_CHARMS)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : Turn2DirectionLives (acteur NPC_SAANAITO)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         GeneralFunctions.SetEmotion('Normal')
@@ -1350,7 +1350,13 @@ UI:ResetSpeaker()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[n06a0701] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[n06a0701] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return n06a0701

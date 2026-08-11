@@ -25,12 +25,7 @@ function dark_hill.Rescued(zone, name, mail)
 end
 
 function dark_hill.ExitSegment(zone, result, rescue, segmentID, mapID)
-  GeneralFunctions.RestoreIdleAnim()
-  DEBUG.EnableDbgCoro()
-  local exited = COMMON.ExitDungeonMissionCheck(result, rescue, zone.ID, segmentID)
-  SV.adventure.Thief = false
-  if exited == true then return end
-  FutureDungeonCommon.ExitToGround(result, zone.ID, 'd19p11a')
+  FutureDungeonCommon.HandleExit(result, rescue, zone, segmentID, 'd19p11a')
 end
 
 return dark_hill

@@ -24,18 +24,24 @@ function enter01.Cutscene()
         -- NON CONVERTI : supervision_ExecuteCommon [232]
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
+            end),
         })
         -- End : fin de scène
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[enter01] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[enter01] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return enter01

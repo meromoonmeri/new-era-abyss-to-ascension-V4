@@ -24,12 +24,12 @@ function m18b0801.Cutscene()
         -- bgm_PlayFadeIn [42, 0, 256] : BGM SealedRuinPit non mappé
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
+            end),
         })
         -- NON CONVERTI : message_Mail (courrier absent de PMDO)
         -- message_SwitchMenu/CaseMenu : menu de choix (adaptation)
@@ -46,7 +46,13 @@ function m18b0801.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[m18b0801] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[m18b0801] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return m18b0801

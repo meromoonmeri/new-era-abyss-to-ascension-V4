@@ -13,6 +13,7 @@
 require 'origin.common'
 require 'halcyon.GeneralFunctions'
 require 'halcyon.BossFX'
+require 'halcyon.future_arc.FutureScene'
 
 local m26a06d3 = {}
 
@@ -21,7 +22,7 @@ function m26a06d3.Cutscene()
   local ok, err = pcall(function()
     GAME:CutsceneMode(true)
 
-        pcall(function() SOUND:PlayBGM('Memories Returned.ogg', true) end) -- MemoriesReturned
+        pcall(function() SOUND:PlayBGM('Time Restored.ogg', true) end) -- MemoriesReturned
         -- back_SetGround(P05P03A) : ground courant déjà posé
         -- supervision_tationCommon layer [0] (structurel)
         -- supervision_cting layer [3] (structurel)
@@ -29,15 +30,15 @@ function m26a06d3.Cutscene()
         GAME:WaitFrames(1)
         -- (parallèle) ATTENDANT1, NPC_JUPUTORU, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('PLAYER'), 'Head', true) -- param 78 = anim 29 (Head)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Teammate1'), 'Head', true) -- param 78 = anim 29 (Head)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Grovyle'), 'Sink', false) -- param 34 = anim 25 (Sink)
-            end,
+            end),
         })
         -- performer 0
         -- camera_SetMyself : la caméra suit le héros (défaut PMDO)
@@ -45,62 +46,60 @@ function m26a06d3.Cutscene()
         GROUND:TeleportTo(CH('PLAYER'), 228, 676)
         -- (parallèle) ATTENDANT1, NPC_JUPUTORU, NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6, NPC_YONOWAARU, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 CH('PLAYER').Direction = Direction.Left
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 CH('Teammate1').Direction = Direction.Right
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 CH('Grovyle').Direction = Direction.Left
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:TeleportTo(CH('Sableye_1'), CH('Sableye_1').Position.X + 8*8, CH('Sableye_1').Position.Y + -32*8)
                 CH('Sableye_1').Direction = Direction.UpRight
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Tumble', true) -- param 45 = anim 16 (Tumble)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:TeleportTo(CH('Sableye_2'), CH('Sableye_2').Position.X + -8*8, CH('Sableye_2').Position.Y + -32*8)
                 CH('Sableye_2').Direction = Direction.UpLeft
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Tumble', true) -- param 45 = anim 16 (Tumble)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:TeleportTo(CH('Sableye_3'), CH('Sableye_3').Position.X + 0*8, CH('Sableye_3').Position.Y + -32*8)
                 CH('Sableye_3').Direction = Direction.Up
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Tumble', true) -- param 45 = anim 16 (Tumble)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:TeleportTo(CH('Sableye_4'), CH('Sableye_4').Position.X + 0*8, CH('Sableye_4').Position.Y + -32*8)
                 CH('Sableye_4').Direction = Direction.Up
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Tumble', true) -- param 45 = anim 16 (Tumble)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:TeleportTo(CH('Sableye_5'), CH('Sableye_5').Position.X + 0*8, CH('Sableye_5').Position.Y + -32*8)
                 CH('Sableye_5').Direction = Direction.Up
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Tumble', true) -- param 45 = anim 16 (Tumble)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:TeleportTo(CH('Sableye_6'), CH('Sableye_6').Position.X + 0*8, CH('Sableye_6').Position.Y + -32*8)
                 CH('Sableye_6').Direction = Direction.Up
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Tumble', true) -- param 45 = anim 16 (Tumble)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:TeleportTo(CH('Necrozma'), 228, 768)
                 GROUND:TeleportTo(CH('Necrozma'), CH('Necrozma').Position.X + 0*8, CH('Necrozma').Position.Y + 16*8)
                 CH('Necrozma').Direction = Direction.Up
-            end,
+            end),
         })
         -- supervision_cting layer [8] (structurel)
         -- object 138 (p05p03a2) : contexte objet
-        local obj_138 = OBJ('p05p03a2') -- objet 138
-        GROUND:ObjectSetAnim(obj_138, 1, 0, 3, Direction.Down, 1) -- anim 1 (table REQUISE)
+        FutureScene.ObjectSetAnim('p05p03a2', 1, 0, 3, Direction.Down, 1) -- objet 138, anim 1 (table REQUISE)
         -- screen_FlushOut [1, 0, 8, 0, 0, 0] : fondu coloré (FlashEmitter, adaptation)
         -- screen2_FadeIn [0, 30] : couche décor (overlay scène, adaptation)
         GAME:FadeIn(30)
         GAME:WaitFrames(30)
         -- object 136 (p05p03a1) : contexte objet
-        local obj_136 = OBJ('p05p03a1') -- objet 136
-        GROUND:ObjectSetAnim(obj_136, 18, 0, 3, Direction.Down, 1) -- anim 18 (table REQUISE)
+        FutureScene.ObjectSetAnim('p05p03a1', 18, 0, 3, Direction.Down, 1) -- objet 136, anim 18 (table REQUISE)
         GROUND:TeleportTo(CH('PLAYER'), CH('PLAYER').Position.X + 0*8, CH('PLAYER').Position.Y + 2*8)
         -- object 136 (p05p03a1) : contexte objet
         -- WaitAnimation sur objet p05p03a1 : PARTIEL
@@ -114,8 +113,7 @@ function m26a06d3.Cutscene()
         -- case 1: ' Hey!'
         UI:ResetSpeaker()
         -- object 135 (p05p03a1) : contexte objet
-        local obj_135 = OBJ('p05p03a1') -- objet 135
-        GROUND:ObjectSetAnim(obj_135, 18, 0, 3, Direction.Down, 1) -- anim 18 (table REQUISE)
+        FutureScene.ObjectSetAnim('p05p03a1', 18, 0, 3, Direction.Down, 1) -- objet 135, anim 18 (table REQUISE)
         GROUND:TeleportTo(CH('Teammate1'), CH('Teammate1').Position.X + 0*8, CH('Teammate1').Position.Y + 2*8)
         -- object 135 (p05p03a1) : contexte objet
         -- WaitAnimation sur objet p05p03a1 : PARTIEL
@@ -128,8 +126,7 @@ function m26a06d3.Cutscene()
         -- case 3: "(There's a break in the rope!)"
         UI:ResetSpeaker()
         -- object 137 (p05p03a1) : contexte objet
-        local obj_137 = OBJ('p05p03a1') -- objet 137
-        GROUND:ObjectSetAnim(obj_137, 18, 0, 3, Direction.Down, 1) -- anim 18 (table REQUISE)
+        FutureScene.ObjectSetAnim('p05p03a1', 18, 0, 3, Direction.Down, 1) -- objet 137, anim 18 (table REQUISE)
         GROUND:TeleportTo(CH('Grovyle'), CH('Grovyle').Position.X + 0*8, CH('Grovyle').Position.Y + 2*8)
         -- object 137 (p05p03a1) : contexte objet
         -- WaitAnimation sur objet p05p03a1 : PARTIEL
@@ -149,67 +146,63 @@ function m26a06d3.Cutscene()
         -- PARTIEL : se_FadeOut [7196, 30]
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3, NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
+            end),
         })
         -- object 138 (p05p03a2) : contexte objet
-        pcall(function() GROUND:RemoveCharacter(CH('Sableye_6')) end)
+        pcall(function() GROUND:Hide(CH('Sableye_6').EntName) end)
         -- object 136 (p05p03a1) : contexte objet
-        local obj_136 = OBJ('p05p03a1') -- objet 136
-        GROUND:ObjectSetAnim(obj_136, 19, 0, 3, Direction.Down, 1) -- anim 19 (table REQUISE)
+        FutureScene.ObjectSetAnim('p05p03a1', 19, 0, 3, Direction.Down, 1) -- objet 136, anim 19 (table REQUISE)
         -- object 137 (p05p03a1) : contexte objet
-        local obj_137 = OBJ('p05p03a1') -- objet 137
-        GROUND:ObjectSetAnim(obj_137, 19, 0, 3, Direction.Down, 1) -- anim 19 (table REQUISE)
+        FutureScene.ObjectSetAnim('p05p03a1', 19, 0, 3, Direction.Down, 1) -- objet 137, anim 19 (table REQUISE)
         -- object 135 (p05p03a1) : contexte objet
-        local obj_135 = OBJ('p05p03a1') -- objet 135
-        GROUND:ObjectSetAnim(obj_135, 19, 0, 3, Direction.Down, 1) -- anim 19 (table REQUISE)
+        FutureScene.ObjectSetAnim('p05p03a1', 19, 0, 3, Direction.Down, 1) -- objet 135, anim 19 (table REQUISE)
         -- object 135 (p05p03a1) : contexte objet
         -- WaitAnimation sur objet p05p03a1 : PARTIEL
         -- (parallèle) ATTENDANT1, NPC_JUPUTORU, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
                 GROUND:MoveToPosition(CH('PLAYER'), 228, 668, false, 5.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
                 GROUND:MoveToPosition(CH('Teammate1'), 276, 668, false, 5.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
                 GROUND:MoveToPosition(CH('Grovyle'), 180, 668, false, 5.0)
-            end,
+            end),
         })
         -- object 135 (p05p03a1) : contexte objet
-        local obj_135 = OBJ('p05p03a1') -- objet 135
-        GROUND:ObjectSetAnim(obj_135, 12, 0, 3, Direction.Down, 1) -- anim 12 (table REQUISE)
+        FutureScene.ObjectSetAnim('p05p03a1', 12, 0, 3, Direction.Down, 1) -- objet 135, anim 12 (table REQUISE)
         -- (parallèle) ATTENDANT1, NPC_JUPUTORU, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('PLAYER'), 'Attack', false) -- param 13 = anim 1 (Attack)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Teammate1'), 'Attack', false) -- param 13 = anim 1 (Attack)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetAnim(CH('Grovyle'), 'Attack', false) -- param 12 = anim 2 (Attack)
-            end,
+            end),
         })
         GAME:FadeOut(true, 2)
         GAME:WaitFrames(2)
@@ -221,54 +214,54 @@ function m26a06d3.Cutscene()
         GROUND:MoveToPosition(CH('PLAYER'), 228, 712, false, 6.0)
         -- (parallèle) NPC_YAMIRAMI, NPC_YAMIRAMI2, NPC_YAMIRAMI3
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_1'), 'shock', 3)
                 GROUND:CharSetAnim(CH('Sableye_1'), 'Hurt', true) -- param 14 = anim 6 (Hurt)
                 GROUND:AnimateToPosition(CH('Sableye_1'), CH('Sableye_1').Position.X + 3*8, CH('Sableye_1').Position.Y + -8*8, false, 6.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_2'), 'shock', 3)
                 GROUND:CharSetAnim(CH('Sableye_2'), 'Hurt', true) -- param 14 = anim 6 (Hurt)
                 GROUND:AnimateToPosition(CH('Sableye_2'), CH('Sableye_2').Position.X + 3*8, CH('Sableye_2').Position.Y + 8*8, false, 6.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_3'), 'shock', 3)
                 GROUND:CharSetAnim(CH('Sableye_3'), 'Hurt', true) -- param 14 = anim 6 (Hurt)
                 GROUND:AnimateToPosition(CH('Sableye_3'), CH('Sableye_3').Position.X + 3*8, CH('Sableye_3').Position.Y + 0*8, false, 6.0)
-            end,
+            end),
         })
         GAME:FadeOut(true, 2)
         GAME:WaitFrames(2)
         GAME:FadeIn(2)
         -- (parallèle) NPC_YAMIRAMI4, NPC_YAMIRAMI5, NPC_YAMIRAMI6
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_4'), 'shock', 3)
                 GROUND:CharSetAnim(CH('Sableye_4'), 'Hurt', true) -- param 14 = anim 6 (Hurt)
                 GROUND:AnimateToPosition(CH('Sableye_4'), CH('Sableye_4').Position.X + 3*8, CH('Sableye_4').Position.Y + 0*8, false, 6.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_5'), 'shock', 3)
                 GROUND:CharSetAnim(CH('Sableye_5'), 'Hurt', true) -- param 14 = anim 6 (Hurt)
                 GROUND:AnimateToPosition(CH('Sableye_5'), CH('Sableye_5').Position.X + 3*8, CH('Sableye_5').Position.Y + 0*8, false, 6.0)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharSetEmote(CH('Sableye_6'), 'shock', 3)
                 GROUND:CharSetAnim(CH('Sableye_6'), 'Hurt', true) -- param 14 = anim 6 (Hurt)
                 GROUND:AnimateToPosition(CH('Sableye_6'), CH('Sableye_6').Position.X + 3*8, CH('Sableye_6').Position.Y + 0*8, false, 6.0)
-            end,
+            end),
         })
         -- (parallèle) ATTENDANT1, NPC_JUPUTORU, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
+            end),
         })
         UI:ResetSpeaker()
         -- screen2_FadeOut [0, 30] : couche décor (overlay scène, adaptation)
@@ -278,7 +271,13 @@ function m26a06d3.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[m26a06d3] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[m26a06d3] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return m26a06d3

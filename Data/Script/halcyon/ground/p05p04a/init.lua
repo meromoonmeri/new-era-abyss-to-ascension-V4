@@ -1,6 +1,6 @@
---[[ p05p04a — Arc du futur (PMD Sky, cast New Era).
-     Ground pixel-perfect du port PMD-SKY-PMDO-PORT. La cinématique est jouée
-     par FutureArc.Play (chorégraphie 1:1, cast New Era). ]]
+--[[ p05p04a — Ground cinématique piloté par le curseur FutureArc.
+     Les transitions et retours de donjon appartiennent exclusivement au
+     contrôleur persistant ; aucun AfterDungeon local n'est utilisé. ]]
 require 'origin.common'
 require 'halcyon.future_arc.FutureArc'
 
@@ -11,15 +11,18 @@ function p05p04a.Init(map)
   COMMON.RespawnAllies(true)
 end
 
-function p05p04a.Enter(map)
-  if SV.RuntimeGroundAudit and SV.RuntimeGroundAudit.Active then GAME:CutsceneMode(false); GAME:FadeIn(1); return end
-  FutureArc.Play('p05p04a')
+local function resume()
+  if SV.RuntimeGroundAudit and SV.RuntimeGroundAudit.Active then
+    GAME:CutsceneMode(false)
+    GAME:FadeIn(1)
+    return
+  end
+  FutureArc.Resume('p05p04a')
 end
 
+function p05p04a.Enter(map) resume() end
 function p05p04a.Update(map) end
 function p05p04a.GameSave(map) end
-function p05p04a.GameLoad(map)
-  GAME:FadeIn(20)
-end
+function p05p04a.GameLoad(map) resume() end
 
 return p05p04a

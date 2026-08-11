@@ -33,36 +33,36 @@ function n06a3903.Cutscene()
         -- NON CONVERTI : SetPositionInitial []
         -- (parallèle) NPC_CHAAREMU, NPC_METAMON_OTACHI, NPC_SAANAITO
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_METAMON_OTACHI)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_SAANAITO)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_CHAAREMU)
-            end,
+            end),
         })
         -- performer 0
         GROUND:TeleportTo(CH('PLAYER'), 276, 292)
         -- (parallèle) NPC_CHAAREMU, NPC_METAMON_OTACHI, NPC_SAANAITO, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetPositionMark (acteur NPC_METAMON_OTACHI)
                 -- NON CONVERTI : SetDirection (acteur NPC_METAMON_OTACHI)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetPositionMark (acteur NPC_CHAAREMU)
                 -- NON CONVERTI : SetDirection (acteur NPC_CHAAREMU)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetPositionMark (acteur NPC_SAANAITO)
                 -- NON CONVERTI : SetDirection (acteur NPC_SAANAITO)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetPositionMark (acteur PLAYER_CHARMS)
                 -- NON CONVERTI : SetDirection (acteur PLAYER_CHARMS)
-            end,
+            end),
         })
         -- screen_FlushOut [1, 0, 8, 0, 0, 0] : fondu coloré (FlashEmitter, adaptation)
         GAME:FadeIn(30)
@@ -104,7 +104,13 @@ function n06a3903.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[n06a3903] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[n06a3903] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return n06a3903

@@ -52,21 +52,21 @@ function n06a0901.Cutscene()
         -- camera_SetMyself : la caméra suit le héros (défaut PMDO)
         -- (parallèle) NPC_CHAAREMU, NPC_SAANAITO, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetDirection (acteur NPC_CHAAREMU)
                 -- NON CONVERTI : SetAnimation (acteur NPC_CHAAREMU)
                 -- NON CONVERTI : SetAnimation (acteur NPC_CHAAREMU)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetDirection (acteur NPC_SAANAITO)
                 -- NON CONVERTI : SetAnimation (acteur NPC_SAANAITO)
                 -- NON CONVERTI : SetAnimation (acteur NPC_SAANAITO)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetDirection (acteur PLAYER_CHARMS)
                 -- NON CONVERTI : SetAnimation (acteur PLAYER_CHARMS)
                 -- NON CONVERTI : SetAnimation (acteur PLAYER_CHARMS)
-            end,
+            end),
         })
         GAME:FadeIn(30)
         -- bgm_PlayFadeIn [139, 0, 256] : BGM BoulderQuarry non mappé
@@ -79,17 +79,17 @@ function n06a0901.Cutscene()
         -- NON CONVERTI : WaitAnimation (acteur NPC_SAANAITO)
         -- (parallèle) NPC_CHAAREMU, NPC_SAANAITO, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_SAANAITO)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_CHAAREMU)
                 -- NON CONVERTI : Turn2Direction (acteur NPC_CHAAREMU)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur PLAYER_CHARMS)
                 -- NON CONVERTI : Turn2DirectionLives (acteur PLAYER_CHARMS)
-            end,
+            end),
         })
         GAME:WaitFrames(10)
         -- NON CONVERTI : Turn2DirectionLives (acteur NPC_CHAAREMU)
@@ -136,7 +136,13 @@ function n06a0901.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[n06a0901] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[n06a0901] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return n06a0901

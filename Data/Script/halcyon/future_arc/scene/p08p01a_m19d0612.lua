@@ -40,7 +40,13 @@ function m19d0612.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[m19d0612] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[m19d0612] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return m19d0612

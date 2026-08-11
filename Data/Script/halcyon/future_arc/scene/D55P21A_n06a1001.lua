@@ -30,15 +30,15 @@ function n06a1001.Cutscene()
         -- NON CONVERTI : SetPositionInitial []
         -- (parallèle) NPC_CHAAREMU, NPC_SAANAITO, PLAYER_CHARMS
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_CHAAREMU)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur NPC_SAANAITO)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- NON CONVERTI : SetAnimation (acteur PLAYER_CHARMS)
-            end,
+            end),
         })
         -- performer 0
         -- camera_SetMyself : la caméra suit le héros (défaut PMDO)
@@ -80,7 +80,13 @@ function n06a1001.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[n06a1001] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[n06a1001] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return n06a1001

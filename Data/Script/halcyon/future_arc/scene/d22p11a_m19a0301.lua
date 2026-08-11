@@ -23,21 +23,21 @@ function m19a0301.Cutscene()
 
         -- (parallèle) ATTENDANT1, NPC_JUPUTORU, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 -- SetAnimation 2 (spécial : boucle anim courante)
-            end,
+            end),
         })
         GROUND:CharTurnToChar(CH('Teammate1'), CH('PLAYER'))
         GROUND:CharTurnToChar(CH('PLAYER'), CH('Teammate1'))
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' Are you all ready to roll?') -- FUT_M19A0301_001 (FR optionnel)
+        UI:WaitShowDialogue('Tout est prêt ?') -- FUT_M19A0301_001 (FR)
         -- case 0: ' Are you all ready to roll?'
         -- case 1: ' Are you all ready?'
         -- message_SwitchMenu/CaseMenu : menu de choix (adaptation)
@@ -49,16 +49,16 @@ function m19a0301.Cutscene()
         -- NON CONVERTI : supervision_ExecuteCommon [250]
         UI:SetSpeaker(CH('Grovyle'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' You seem to be ready.') -- FUT_M19A0301_002 (FR optionnel)
+        UI:WaitShowDialogue('Vous avez l\'air prêts.') -- FUT_M19A0301_002 (FR)
         UI:ResetSpeaker()
         -- (parallèle) ATTENDANT1, PLAYER
         TASK:JoinCoroutines({
-            function()
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.Down, 15)
-            end,
-            function()
+            end),
+            TASK:BranchCoroutine(function()
                 GROUND:CharAnimateTurnTo(CH('Teammate1'), Direction.Down, 15)
-            end,
+            end),
         })
         -- performer 0
         -- NON CONVERTI : SetPositionLives [0]
@@ -72,7 +72,7 @@ function m19a0301.Cutscene()
         GROUND:CharTurnToChar(CH('PLAYER'), CH('Grovyle'))
         GAME:WaitFrames(20)
         UI:SetCenter(true)
-        UI:WaitShowDialogue(' Fine! We leave now!') -- FUT_M19A0301_003 (FR optionnel)
+        UI:WaitShowDialogue('Bien ! On part maintenant !') -- FUT_M19A0301_003 (FR)
         UI:SetCenter(false)
         UI:ResetSpeaker()
         GROUND:MoveToPosition(CH('PLAYER'), CH('PLAYER').Position.X + 1*8, CH('PLAYER').Position.Y + 0*8, false, 2.0)
@@ -89,10 +89,10 @@ function m19a0301.Cutscene()
         UI:ResetSpeaker()
         UI:SetSpeaker(CH('Teammate1'))
         GeneralFunctions.SetEmotion('Normal')
-        UI:WaitShowDialogue(' All right.') -- FUT_M19A0301_004 (FR optionnel)
+        UI:WaitShowDialogue('D\'accord.') -- FUT_M19A0301_004 (FR)
         -- case 7: ' All right.'
         -- case 8: ' OK.'
-        UI:WaitShowDialogue(' We\'ll go when you\'re ready.') -- FUT_M19A0301_005 (FR optionnel)
+        UI:WaitShowDialogue('On y va quand tu seras prêt.') -- FUT_M19A0301_005 (FR)
         -- case 10: " We'll go when you're ready."
         -- case 11: " Let's go when you're ready."
         UI:ResetSpeaker()
@@ -100,7 +100,13 @@ function m19a0301.Cutscene()
 
     GAME:CutsceneMode(false)
   end)
-  if not ok then PrintInfo('[m19a0301] scène interrompue : '..tostring(err)) end
+  if not ok then
+    pcall(function() UI:SetCenter(false) end)
+    pcall(function() GAME:FadeIn(1) end)
+    pcall(function() GAME:CutsceneMode(false) end)
+    PrintInfo('[m19a0301] scène interrompue : '..tostring(err))
+  end
+  return ok, err
 end
 
 return m19a0301
