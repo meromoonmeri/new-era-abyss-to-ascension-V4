@@ -99,6 +99,41 @@ class DryRunTests(unittest.TestCase):
             self.assertFalse((root / "tiles").exists())
 
 
+class CommandLineSafetyTests(unittest.TestCase):
+    def test_apply_requires_explicit_non_destructive_or_promotion_destination(self) -> None:
+        with self.assertRaises(SystemExit):
+            converter.parse_args(["--apply"])
+        args = converter.parse_args(["--apply", "--output-root", "candidate"])
+        self.assertEqual(args.output_root, "candidate")
+        self.assertFalse(args.promote_legacy_reserve)
+
+    def test_output_destination_is_rejected_without_apply(self) -> None:
+        with self.assertRaises(SystemExit):
+            converter.parse_args(["--output-root", "candidate"])
+
+    def test_conversion_sets_follow_authoritative_conversion_types(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "manifest.json"
+            path.write_text(json.dumps({
+                "ground_conversion_table": {"entries": [
+                    {"stable_ground_id": "archive", "conversion_type": 1},
+                    {"stable_ground_id": "direct_a", "conversion_type": 10},
+                    {"stable_ground_id": "direct_b", "conversion_type": 11},
+                ]},
+            }), encoding="utf-8")
+            self.assertEqual(
+                converter.canonical_conversion_ids(path, "remaining"), {"archive"}
+            )
+            self.assertEqual(
+                converter.canonical_conversion_ids(path, "direct"),
+                {"direct_a", "direct_b"},
+            )
+            self.assertEqual(
+                converter.canonical_conversion_ids(path, "all"),
+                {"archive", "direct_a", "direct_b"},
+            )
+
+
 class AuthorityTests(unittest.TestCase):
     def test_source_files_must_match_manifest_hashes(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

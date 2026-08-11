@@ -653,12 +653,46 @@ def parse_args(argv=None):
     parser.add_argument('--manifest', default=DEFAULT_MANIFEST,
                         help='authoritative EU Ground manifest')
     parser.add_argument('--ids', help='comma-separated lower-case BPL/map asset IDs')
+    parser.add_argument(
+        '--conversion-set', choices=('all', 'remaining', 'direct'), default='all',
+        help=('canonical conversion-table subset: remaining excludes types 10/11; '
+              'direct contains only types 10/11'),
+    )
     parser.add_argument('--apply', action='store_true', help='write .tile/.rsground outputs')
+    output = parser.add_mutually_exclusive_group()
+    output.add_argument(
+        '--output-root',
+        help='non-destructive output root containing grounds/ and tiles/',
+    )
+    output.add_argument(
+        '--promote-legacy-reserve', action='store_true',
+        help=('explicitly overwrite RESERVE/red_grounds, RESERVE/red_tiles and '
+              'RESERVE/red_manifest.json (never use for candidate validation)'),
+    )
     parser.add_argument('--report', help='write deterministic conversion/validation JSON')
     parser.add_argument('--serial', action='store_true', help='disable multiprocessing')
     parser.add_argument('--resume', action='store_true',
-                        help='skip outputs already present in RESERVE/red_grounds')
-    return parser.parse_args(argv)
+                        help='skip outputs already present in the selected output root')
+    args = parser.parse_args(argv)
+    if args.apply and not (args.output_root or args.promote_legacy_reserve):
+        parser.error(
+            '--apply requires --output-root for non-destructive generation or the '
+            'explicit --promote-legacy-reserve escape hatch'
+        )
+    if not args.apply and (args.output_root or args.promote_legacy_reserve):
+        parser.error('--output-root/--promote-legacy-reserve require --apply')
+    return args
+
+
+def canonical_conversion_ids(manifest_path, conversion_set):
+    with open(manifest_path, encoding='utf-8') as stream:
+        manifest = json.load(stream)
+    entries = manifest['ground_conversion_table']['entries']
+    if conversion_set == 'direct':
+        entries = [entry for entry in entries if entry['conversion_type'] in (10, 11)]
+    elif conversion_set == 'remaining':
+        entries = [entry for entry in entries if entry['conversion_type'] not in (10, 11)]
+    return {entry['stable_ground_id'] for entry in entries}
 
 
 def load_authoritative_jobs(manifest_path, source_dir):
@@ -699,18 +733,35 @@ def load_authoritative_jobs(manifest_path, source_dir):
 
 
 def main(argv=None):
-    global APPLY, RED
+    global APPLY, RED, OUT_G, OUT_T
     args = parse_args(argv)
     APPLY = args.apply
     RED = os.path.abspath(args.source_dir)
+    if args.output_root:
+        output_root = os.path.abspath(args.output_root)
+        OUT_G = os.path.join(output_root, 'grounds')
+        OUT_T = os.path.join(output_root, 'tiles')
+    else:
+        OUT_G = os.path.join(ROOT, 'RESERVE', 'red_grounds')
+        OUT_T = os.path.join(ROOT, 'RESERVE', 'red_tiles')
     only = set(args.ids.split(',')) if args.ids else None
-    jobs = [job for job in load_authoritative_jobs(args.manifest, RED)
-            if not only or job[1]['bpl'].lower() in only]
-    if only:
-        found = {job[1]['bpl'].lower() for job in jobs}
-        missing = sorted(only - found)
-        if missing:
-            raise ValueError('unknown --ids: ' + ', '.join(missing))
+    canonical_ids = canonical_conversion_ids(args.manifest, args.conversion_set)
+    if only is not None:
+        outside_set = sorted(only - canonical_ids)
+        if outside_set:
+            raise ValueError(
+                'IDs outside --conversion-set %s: %s' %
+                (args.conversion_set, ', '.join(outside_set))
+            )
+        canonical_ids &= only
+    jobs = [
+        job for job in load_authoritative_jobs(args.manifest, RED)
+        if job[1]['bpl'].lower() in canonical_ids
+    ]
+    found = {job[1]['bpl'].lower() for job in jobs}
+    missing = sorted(canonical_ids - found)
+    if missing:
+        raise ValueError('canonical conversion IDs lack map dependencies: ' + ', '.join(missing))
     if args.resume:
         done = set(os.path.basename(path)[:-9]
                    for path in glob.glob(os.path.join(OUT_G, '*.rsground')))
@@ -739,7 +790,7 @@ def main(argv=None):
         {key: value for key, value in result.items() if key != 'time'}
         for result in report
     ]
-    if APPLY:
+    if APPLY and args.promote_legacy_reserve:
         legacy_report_path = os.path.join(ROOT, 'RESERVE', 'red_manifest.json')
         with open(legacy_report_path, 'w', encoding='utf-8') as stream:
             json.dump(deterministic_results, stream, indent=1, ensure_ascii=False)
