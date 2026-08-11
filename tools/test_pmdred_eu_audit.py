@@ -93,6 +93,10 @@ class BmaTests(unittest.TestCase):
 
 
 class GuardAndInferenceTests(unittest.TestCase):
+    def test_eu_dependency_table_does_not_use_us_bound(self) -> None:
+        self.assertEqual(audit.MAP_FILES_TABLE_COUNT, 262)
+        self.assertEqual(len(audit.MAP_FILES_TABLE_FIELDS), 7)
+
     def test_truncated_stream_raises_audit_error(self) -> None:
         with self.assertRaises(audit.AuditError):
             audit.decode_byte_nrl(b"", 0, 1, "truncated")
@@ -102,6 +106,33 @@ class GuardAndInferenceTests(unittest.TestCase):
     def test_bpa_inference_includes_orphan_but_not_numbered_bpl(self) -> None:
         names = {"W03P01", "W03P011", "S01", "W04"}
         self.assertEqual(audit.infer_bpa_names(names, []), {"W03P011"})
+
+
+@unittest.skipUnless(os.environ.get("PMDRED_EU_ROM"), "set PMDRED_EU_ROM for integration test")
+class RegionalTableIntegrationTests(unittest.TestCase):
+    def test_complete_dependency_table_includes_world_maps(self) -> None:
+        rom = Path(os.environ["PMDRED_EU_ROM"]).read_bytes()
+        rows = audit.parse_map_files_table(rom)
+        self.assertEqual(len(rows), 262)
+        self.assertEqual(
+            [row["bpl"] for row in rows[-7:]],
+            ["W01", "W03P01", "W03P02", "W03P03", "W04", "W05", "W06"],
+        )
+        conversions = audit.parse_ground_conversion_table(rom, rows)
+        self.assertEqual(len(conversions), 246)
+        self.assertEqual(conversions[-1]["map_file_id"], 254)
+        floor_counts = audit.parse_dungeon_floor_counts(rom)
+        self.assertEqual(len(floor_counts), 64)
+        dungeon_maps, sentinel = audit.parse_map_to_dungeon_table(
+            rom, conversions, floor_counts
+        )
+        self.assertEqual(len(dungeon_maps), 27)
+        self.assertEqual(sentinel["map_id"], -1)
+        self.assertEqual(
+            (dungeon_maps[0]["map_id"], dungeon_maps[0]["dungeon_id"],
+             dungeon_maps[0]["requested_floor_zero_based"]),
+            (184, 0, 100),
+        )
 
 
 @unittest.skipUnless(os.environ.get("PMDRED_EU_ROM"), "set PMDRED_EU_ROM for integration test")

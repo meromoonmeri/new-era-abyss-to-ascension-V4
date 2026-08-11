@@ -21,8 +21,10 @@ in this repository.
 `ground_manifest.json` is generated from the ROM by
 `tools/audit_pmdred_eu_rom.py`. It records every source pointer/range, parsed
 header, compressed-stream boundary, semantic and physical hash, normalized
-hash, map dependency, decoded BMA map/collision/data-layer hashes and counts,
-BPA slot check, regional comparison, and validation result.
+hash, map dependency, all 246 Ground conversions, all 27 direct
+Ground-to-dungeon mappings, all 64 direct floor counts, decoded BMA
+map/collision/data-layer hashes and counts, BPA slot check, regional comparison,
+and validation result.
 
 ## Reproduce the manifest and extraction
 
@@ -42,7 +44,7 @@ existing raw BPC reader without substituting US bytes.
 
 The committed manifest was generated without `--extract-dir`, so it does not
 claim that generated binary assets are tracked. Its SHA-256 is
-`109406cb22941315ff1b99fc794d8990dd600a0bc5dd61e097a9bb6613e09760`.
+`02a5d8699ceef50c8195fccedcd455694121983f23869070e5b42b6dfb4e9730`.
 
 Run the dependency-free unit suite with:
 
@@ -55,8 +57,8 @@ full-ROM deterministic-report reproduction test.
 
 ## Validate the PMDO graphical conversion
 
-Install the converter's pinned image dependency, then validate all 245 map-file
-rows without writing game assets:
+Install the converter's pinned image dependency, then validate all 262 EU
+map-file dependency rows without writing game assets:
 
 ```bash
 python -m pip install -r tools/requirements-pmdred.txt
@@ -76,9 +78,9 @@ so a guessed walkable center would be fabricated evidence. `--apply` is
 required to change reserve assets; the default is a no-write exhaustive
 validation.
 
-The committed `conversion_validation.json` is the no-write result for all 245
+The committed `conversion_validation.json` is the no-write result for all 262
 rows: zero failures. Its SHA-256 is
-`6f384cb72bbcf1bc203abed158a020eeaa7bfd47bf49aafc88f4fe7114b847aa`.
+`3a638e0da12909d6abe96f45a44841f537f1ac5a0beaa05f7f6b710aa3ce0d94`.
 This establishes deterministic conversion coverage, not visual approval or
 scene/event completeness.
 
@@ -88,14 +90,20 @@ scene/event completeness.
   `pksdir0`.
 - 724 unique, lexicographically sorted records: 262 BPL, 194 BPC, 201 BMA,
   and 67 BPA.
-- Map dependency table: ROM offset `0x00275CDC`, 245 records, seven pointers per
-  record (BPL, BPC, BMA, BPA slots 0–3).
-- All 724 resources parse and all 245 dependency records validate.
+- EU map dependency table: ROM offset `0x00275CDC`, 262 records, seven pointers
+  per record (BPL, BPC, BMA, BPA slots 0–3).
+- EU Ground conversion table: ROM offset `0x002792B4`, 246 records. Its next
+  bytes begin the adjacent `__ground_amd` string pool; it references 246 unique
+  map-file IDs through 254. It must not be used as the dependency-table bound.
+- Direct map-to-dungeon table: ROM offset `0x00274A04`, 27 records followed by
+  its `-1` sentinel. These records exactly cover conversion types 10 and 11.
+- Direct dungeon floor-count table: ROM offset `0x002194B4`, 64 bytes.
+- All 724 resources parse and all 262 dependency records validate.
 - All 213 decoded visual map layers, 26 interaction/data layers, and 152
   collision layers have deterministic decoded hashes; collision metadata also
   records exact solid/walkable cell counts.
-- 669 archive resources are named by the dependency table; 55 are retained and
-  reported as unreferenced rather than discarded.
+- All 724 archive resources are named by the complete regional dependency
+  table. The former 245-row truncation falsely classified 55 as unreferenced.
 - No decoder reads beyond the next archive pointer.
 - Nine records have eight bytes beyond ordinary four-byte alignment before the
   next pointer. These bytes are preserved as physical-range provenance but are

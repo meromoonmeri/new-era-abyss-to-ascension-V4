@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-convert_red_all.py — Les 245 maps PMD Red avec TOUTES leurs animations.
+convert_red_all.py — Les 262 dépendances Ground du ROM européen PMD Red,
+avec TOUTES leurs animations.
 
 Source canonique : extraction normalisée du ROM européen produite par
 ``audit_pmdred_eu_rom.py`` + ``docs/pmdred_eu/ground_manifest.json``. pret/pmd-red

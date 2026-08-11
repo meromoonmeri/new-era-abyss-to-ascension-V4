@@ -129,30 +129,37 @@ def regenerate(ground, apply=True):
         raise ValueError('%s a des colonnes live de hauteurs incohérentes' % ground)
     old_height = next(iter(old_heights))
     dimension_migration = 'exact'
+    crop_x = crop_y = 0
     if (old_width, old_height) != (Wt, Ht):
-        # Several old imports exposed chunk padding to the right even though
-        # Red's BMA camera width is smaller.  Cropping that padding is safe only
-        # when every preserved scene entity remains wholly in canonical bounds.
+        # Several old imports centered Red's camera image in a padded chunk
+        # canvas.  Remove equal padding from both sides (the odd remainder is
+        # on the right/bottom), and translate every preserved entity back into
+        # canonical camera coordinates.
         if old_width < Wt or old_height < Ht:
             raise ValueError(
                 '%s dimensions live %dx%d < EU %dx%d; translation spatiale requise' %
                 (ground, old_width, old_height, Wt, Ht)
             )
+        crop_x = ((old_width - Wt) // 2) * 8
+        crop_y = ((old_height - Ht) // 2) * 8
         for entity_layer in o.get('Entities', []):
             for collection in ('MapChars', 'GroundObjects', 'Spawners', 'Markers'):
                 for entity in entity_layer.get(collection, []):
                     bounds = entity.get('Collider')
                     if bounds is None:
                         continue
-                    if (bounds['X'] < 0 or bounds['Y'] < 0 or
-                            bounds['X'] + bounds['Width'] > Wt * 8 or
-                            bounds['Y'] + bounds['Height'] > Ht * 8):
+                    canonical_x = bounds['X'] - crop_x
+                    canonical_y = bounds['Y'] - crop_y
+                    if (canonical_x < 0 or canonical_y < 0 or
+                            canonical_x + bounds['Width'] > Wt * 8 or
+                            canonical_y + bounds['Height'] > Ht * 8):
                         raise ValueError(
-                            '%s entité %s sort du cadre EU; translation requise' %
+                            '%s entité %s sort du cadre EU après recadrage; '
+                            'translation dédiée requise' %
                             (ground, entity.get('EntName', '?'))
                         )
-        dimension_migration = 'crop-right-bottom-padding:%dx%d->%dx%d' % (
-            old_width, old_height, Wt, Ht
+        dimension_migration = 'crop-centered-padding:%dx%d@%d,%d->%dx%d' % (
+            old_width, old_height, crop_x // 8, crop_y // 8, Wt, Ht
         )
     bpa_slots = parse_bpa([
         os.path.join(RED, name + '.bpa') if name is not None else None
@@ -303,6 +310,19 @@ def regenerate(ground, apply=True):
     }
     if not apply:
         return result
+
+    if crop_x or crop_y:
+        for entity_layer in o.get('Entities', []):
+            for collection in ('MapChars', 'GroundObjects', 'Spawners', 'Markers'):
+                for entity in entity_layer.get(collection, []):
+                    bounds = entity.get('Collider')
+                    if bounds is not None:
+                        bounds['X'] -= crop_x
+                        bounds['Y'] -= crop_y
+        view_center = o.get('ViewCenter')
+        if isinstance(view_center, dict):
+            view_center['X'] -= crop_x
+            view_center['Y'] -= crop_y
 
     write_tile(os.path.join(ROOT, 'Content', 'Tile', sheet + '.tile'), entries)
     o['Layers'] = [{'Name': 'Base', 'Layer': 0, 'Visible': True, 'Tiles': grid}]

@@ -4,8 +4,10 @@
 This tool is intentionally dependency-free.  It accepts only the exact European
 ROM used as the content authority for New Era, validates its identity and the
 embedded ``pksdir0`` Ground archive, decodes every BPL/BPC/BMA/BPA stream with
-European runtime semantics, and recovers the executable's 245-entry map
-resource table.
+European runtime semantics, and recovers the executable's complete 262-entry
+map resource table.  The European executable has 17 localized/background rows
+that do not exist in the 245-entry US pret table; truncating at the US count
+silently drops canonical EU dependencies.
 
 The European BPC representation is compressed and is *not* the raw BPC layout
 checked into pret/pmd-red.  ``--extract-dir`` writes normalized, uncompressed
@@ -27,8 +29,8 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, Sequence
 
-TOOL_VERSION = "1.0.0"
-REPORT_SCHEMA = "new-era.pmdred-eu-ground-audit.v1"
+TOOL_VERSION = "1.1.0"
+REPORT_SCHEMA = "new-era.pmdred-eu-ground-audit.v2"
 
 EXPECTED_ROM_SIZE = 33_554_432
 EXPECTED_ROM_SHA256 = "0f9d125d513d9cba628d97e2c345382eba9ba73b402b24a8fdd81f604c14cbcd"
@@ -40,9 +42,25 @@ GROUND_ARCHIVE_COUNT = 724
 GROUND_FILE_TABLE_RELATIVE_OFFSET = 24
 MAP_FILES_TABLE_OFFSET = 0x00275CDC
 MAP_FILES_TABLE_ADDRESS = ROM_ADDRESS_BASE + MAP_FILES_TABLE_OFFSET
-MAP_FILES_TABLE_COUNT = 245
+# The EU table ends immediately before the resource-name string pool.  It has
+# 262 rows; pret's US enum has only 245 and is not a valid regional bound.
+MAP_FILES_TABLE_COUNT = 262
 MAP_FILES_TABLE_FIELDS = ("bpl", "bpc", "bma", "bpa_0", "bpa_1", "bpa_2", "bpa_3")
 EXPECTED_RESOURCE_COUNTS = {"bpl": 262, "bpc": 194, "bma": 201, "bpa": 67}
+
+# These are separate runtime tables.  In particular, neither of their row
+# counts is the map-files dependency-table count above.
+GROUND_CONVERSION_TABLE_OFFSET = 0x002792B4
+GROUND_CONVERSION_TABLE_ADDRESS = ROM_ADDRESS_BASE + GROUND_CONVERSION_TABLE_OFFSET
+GROUND_CONVERSION_TABLE_COUNT = 246
+GROUND_CONVERSION_TABLE_ROW_SIZE = 12
+MAP_TO_DUNGEON_TABLE_OFFSET = 0x00274A04
+MAP_TO_DUNGEON_TABLE_ADDRESS = ROM_ADDRESS_BASE + MAP_TO_DUNGEON_TABLE_OFFSET
+MAP_TO_DUNGEON_TABLE_COUNT = 27
+MAP_TO_DUNGEON_TABLE_ROW_SIZE = 12
+DUNGEON_FLOOR_COUNT_TABLE_OFFSET = 0x002194B4
+DUNGEON_FLOOR_COUNT_TABLE_ADDRESS = ROM_ADDRESS_BASE + DUNGEON_FLOOR_COUNT_TABLE_OFFSET
+DUNGEON_FLOOR_COUNT_TABLE_COUNT = 64
 
 # The EU executable functions recovered while deriving this parser.  These are
 # evidence, not inputs to the decoder; the hash lock keeps the addresses exact.
@@ -52,6 +70,10 @@ EU_RUNTIME_EVIDENCE = {
     "bpc_tile_decoder": "0x080A9AA0",
     "bpc_chunk_decoder": "0x080A9BFC",
     "bma_layer_decoder": "0x080A9DDC",
+    "map_files_table": f"0x{MAP_FILES_TABLE_ADDRESS:08X}",
+    "ground_conversion_table": f"0x{GROUND_CONVERSION_TABLE_ADDRESS:08X}",
+    "map_to_dungeon_table": f"0x{MAP_TO_DUNGEON_TABLE_ADDRESS:08X}",
+    "dungeon_floor_count_table": f"0x{DUNGEON_FLOOR_COUNT_TABLE_ADDRESS:08X}",
     "archive_references": [
         "0x0802D1D2",
         "0x080A9568",
@@ -605,6 +627,144 @@ def parse_map_files_table(rom: bytes) -> list[dict[str, Any]]:
     return rows
 
 
+def parse_ground_conversion_table(
+    rom: bytes, map_file_rows: Sequence[dict[str, Any]]
+) -> list[dict[str, Any]]:
+    """Decode the EU Ground-map table without applying US enum bounds."""
+    require(
+        len(map_file_rows) == MAP_FILES_TABLE_COUNT,
+        "Ground conversion parsing requires the complete EU map-files table",
+    )
+    table_end = (
+        GROUND_CONVERSION_TABLE_OFFSET
+        + GROUND_CONVERSION_TABLE_COUNT * GROUND_CONVERSION_TABLE_ROW_SIZE
+    )
+    require(
+        rom[table_end:table_end + len(b"__ground_amd")] == b"__ground_amd",
+        "Ground conversion table does not end at the adjacent debug-string pool",
+    )
+
+    rows: list[dict[str, Any]] = []
+    for map_id in range(GROUND_CONVERSION_TABLE_COUNT):
+        offset = GROUND_CONVERSION_TABLE_OFFSET + map_id * GROUND_CONVERSION_TABLE_ROW_SIZE
+        conversion_type, ground_place_id, map_file_id, weather_id, text_address = unpack_from(
+            "<hhhhI", rom, offset, f"Ground conversion row {map_id}"
+        )
+        require(
+            conversion_type in {1, 2, 3, 4, 5, 6, 9, 10, 11},
+            f"Ground conversion row {map_id}: invalid type {conversion_type}",
+        )
+        require(
+            0 <= map_file_id < len(map_file_rows),
+            f"Ground conversion row {map_id}: map-file ID {map_file_id} is out of range",
+        )
+        debug_string = read_c_string(
+            rom, text_address, f"Ground conversion row {map_id} debug string"
+        )
+        prefix = "__ground_amd_conversion_"
+        require(
+            debug_string.startswith(prefix)
+            and len(debug_string) == len(prefix) + 5
+            and debug_string[len(prefix):].isdigit(),
+            f"Ground conversion row {map_id}: malformed debug string {debug_string!r}",
+        )
+        map_file = map_file_rows[map_file_id]
+        rows.append({
+            "map_id": map_id,
+            "conversion_type": conversion_type,
+            "ground_place_id": ground_place_id,
+            "map_file_id": map_file_id,
+            "stable_ground_id": str(map_file["bpl"]).lower(),
+            "weather_id": weather_id,
+            "debug_string_address": f"0x{text_address:08X}",
+            "debug_string": debug_string,
+            "canonical_debug_id": int(debug_string[len(prefix):]),
+        })
+
+    map_file_ids = [row["map_file_id"] for row in rows]
+    require(
+        len(map_file_ids) == len(set(map_file_ids)),
+        "Ground conversion table unexpectedly reuses a map-file ID",
+    )
+    return rows
+
+
+def parse_dungeon_floor_counts(rom: bytes) -> list[dict[str, int]]:
+    start = DUNGEON_FLOOR_COUNT_TABLE_OFFSET
+    end = start + DUNGEON_FLOOR_COUNT_TABLE_COUNT
+    require(end <= len(rom), "dungeon floor-count table is truncated")
+    counts = rom[start:end]
+    require(all(0 < count <= 100 for count in counts), "invalid EU dungeon floor count")
+    return [
+        {"dungeon_id": dungeon_id, "floor_count": floor_count}
+        for dungeon_id, floor_count in enumerate(counts)
+    ]
+
+
+def parse_map_to_dungeon_table(
+    rom: bytes,
+    conversion_rows: Sequence[dict[str, Any]],
+    floor_count_rows: Sequence[dict[str, int]],
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Decode all runtime dungeon-backed Grounds and the terminal sentinel."""
+    floor_counts = [row["floor_count"] for row in floor_count_rows]
+    rows: list[dict[str, Any]] = []
+    for index in range(MAP_TO_DUNGEON_TABLE_COUNT):
+        offset = MAP_TO_DUNGEON_TABLE_OFFSET + index * MAP_TO_DUNGEON_TABLE_ROW_SIZE
+        map_id, dungeon_id, requested_floor, variant = unpack_from(
+            "<h2xBB2xI", rom, offset, f"map-to-dungeon row {index}"
+        )
+        require(0 <= map_id < len(conversion_rows), f"map-to-dungeon row {index}: bad map ID")
+        require(
+            0 <= dungeon_id < len(floor_counts),
+            f"map-to-dungeon row {index}: bad dungeon ID {dungeon_id}",
+        )
+        conversion = conversion_rows[map_id]
+        require(
+            conversion["conversion_type"] in (10, 11),
+            f"map-to-dungeon row {index}: map {map_id} is not dungeon-backed",
+        )
+        floor_count = floor_counts[dungeon_id]
+        rows.append({
+            "index": index,
+            "map_id": map_id,
+            "stable_ground_id": conversion["stable_ground_id"],
+            "map_file_id": conversion["map_file_id"],
+            "conversion_type": conversion["conversion_type"],
+            "dungeon_id": dungeon_id,
+            "requested_floor_zero_based": requested_floor,
+            "runtime_floor_zero_based": min(requested_floor, floor_count - 1),
+            "dungeon_floor_count": floor_count,
+            "variant": variant,
+        })
+
+    sentinel_offset = (
+        MAP_TO_DUNGEON_TABLE_OFFSET
+        + MAP_TO_DUNGEON_TABLE_COUNT * MAP_TO_DUNGEON_TABLE_ROW_SIZE
+    )
+    sentinel_id, sentinel_dungeon, sentinel_floor, sentinel_variant = unpack_from(
+        "<h2xBB2xI", rom, sentinel_offset, "map-to-dungeon sentinel"
+    )
+    require(sentinel_id == -1, "map-to-dungeon table has no terminal -1 sentinel")
+    sentinel = {
+        "offset": sentinel_offset,
+        "offset_hex": f"0x{sentinel_offset:08X}",
+        "map_id": sentinel_id,
+        "dungeon_id": sentinel_dungeon,
+        "requested_floor_zero_based": sentinel_floor,
+        "variant": sentinel_variant,
+    }
+
+    dungeon_maps = {
+        row["map_id"] for row in conversion_rows if row["conversion_type"] in (10, 11)
+    }
+    require(
+        {row["map_id"] for row in rows} == dungeon_maps,
+        "map-to-dungeon rows do not exactly cover conversion types 10 and 11",
+    )
+    return rows, sentinel
+
+
 def resource_extension(resource_type: str) -> str:
     return "." + resource_type
 
@@ -705,6 +865,11 @@ def audit_rom(
     rom_identity = validate_rom(rom)
     archive_rows = parse_archive_rows(rom)
     map_rows = parse_map_files_table(rom)
+    conversion_rows = parse_ground_conversion_table(rom, map_rows)
+    floor_count_rows = parse_dungeon_floor_counts(rom)
+    map_to_dungeon_rows, map_to_dungeon_sentinel = parse_map_to_dungeon_table(
+        rom, conversion_rows, floor_count_rows
+    )
     archive_names = {row["name"] for row in archive_rows}
     bpa_names = infer_bpa_names(archive_names, map_rows)
 
@@ -888,6 +1053,39 @@ def audit_rom(
             "dependency_warnings": dependency_warnings,
             "entries": dependencies,
         },
+        "ground_conversion_table": {
+            "offset": GROUND_CONVERSION_TABLE_OFFSET,
+            "offset_hex": f"0x{GROUND_CONVERSION_TABLE_OFFSET:08X}",
+            "address_hex": f"0x{GROUND_CONVERSION_TABLE_ADDRESS:08X}",
+            "entry_count": len(conversion_rows),
+            "conversion_type_counts": dict(sorted(Counter(
+                row["conversion_type"] for row in conversion_rows
+            ).items())),
+            "referenced_map_file_count": len({
+                row["map_file_id"] for row in conversion_rows
+            }),
+            "unreferenced_map_file_ids": sorted(
+                set(range(MAP_FILES_TABLE_COUNT))
+                - {row["map_file_id"] for row in conversion_rows}
+            ),
+            "boundary_evidence": "next bytes begin the adjacent __ground_amd debug-string pool",
+            "entries": conversion_rows,
+        },
+        "map_to_dungeon_table": {
+            "offset": MAP_TO_DUNGEON_TABLE_OFFSET,
+            "offset_hex": f"0x{MAP_TO_DUNGEON_TABLE_OFFSET:08X}",
+            "address_hex": f"0x{MAP_TO_DUNGEON_TABLE_ADDRESS:08X}",
+            "entry_count": len(map_to_dungeon_rows),
+            "sentinel": map_to_dungeon_sentinel,
+            "entries": map_to_dungeon_rows,
+        },
+        "dungeon_floor_count_table": {
+            "offset": DUNGEON_FLOOR_COUNT_TABLE_OFFSET,
+            "offset_hex": f"0x{DUNGEON_FLOOR_COUNT_TABLE_OFFSET:08X}",
+            "address_hex": f"0x{DUNGEON_FLOOR_COUNT_TABLE_ADDRESS:08X}",
+            "entry_count": len(floor_count_rows),
+            "entries": floor_count_rows,
+        },
         "extraction": {
             "performed": extract_dir is not None,
             "representation": "semantic BPL/BMA/BPA; normalized uncompressed BPC",
@@ -906,12 +1104,17 @@ def audit_rom(
 def summarize(report: dict[str, Any]) -> str:
     archive = report["ground_archive"]
     table = report["map_files_table"]
+    conversions = report["ground_conversion_table"]
+    dungeon_maps = report["map_to_dungeon_table"]
+    floor_counts = report["dungeon_floor_count_table"]
     rom = report["authority"]["rom"]
     return "\n".join(
         (
             f"PASS: authoritative EU ROM {rom['sha256']}",
             f"Ground archive: {archive['entry_count']} resources {archive['resource_counts']}",
             f"Map dependency table: {table['entry_count']} entries, {table['dependency_warning_count']} warnings",
+            f"Ground conversion table: {conversions['entry_count']} entries {conversions['conversion_type_counts']}",
+            f"Dungeon-backed Grounds/floor counts: {dungeon_maps['entry_count']}/{floor_counts['entry_count']}",
             f"BPC decoder reads past the next archive pointer: {archive['decoder_overread_record_count']}",
             f"Referenced/unreferenced resources: {archive['referenced_resource_count']}/{archive['unreferenced_resource_count']}",
             *(
